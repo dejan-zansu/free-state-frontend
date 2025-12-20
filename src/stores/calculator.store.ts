@@ -24,6 +24,7 @@ interface CalculatorState {
   selectedBuildingId: string | null
   isFetchingNearby: boolean
   nearbyFetchError: string | null
+  selectedRoofSegments: number[] // Array of segment indices
 
   // Step 3: Configuration
   panelCount: number
@@ -68,6 +69,9 @@ interface CalculatorActions {
   fetchNearbyBuildings: () => Promise<void>
   selectBuilding: (buildingId: string) => void
   clearNearbyBuildings: () => void
+  toggleRoofSegment: (segmentIndex: number) => void
+  selectAllRoofSegments: () => void
+  clearRoofSegments: () => void
 
   // Step 3: Configuration
   setPanelCount: (count: number) => void
@@ -106,6 +110,7 @@ const initialState: CalculatorState = {
   selectedBuildingId: null,
   isFetchingNearby: false,
   nearbyFetchError: null,
+  selectedRoofSegments: [],
 
   // Step 3
   panelCount: 0,
@@ -312,6 +317,43 @@ export const useCalculatorStore = create<CalculatorStore>()(
           selectedBuildingId: null,
           isFetchingNearby: false,
           nearbyFetchError: null,
+        })
+      },
+
+      toggleRoofSegment: (segmentIndex: number) => {
+        const { selectedRoofSegments } = get()
+        const isSelected = selectedRoofSegments.includes(segmentIndex)
+
+        if (isSelected) {
+          // Remove segment
+          set({
+            selectedRoofSegments: selectedRoofSegments.filter((idx) => idx !== segmentIndex),
+            calculation: null, // Reset calculation when segments change
+          })
+        } else {
+          // Add segment
+          set({
+            selectedRoofSegments: [...selectedRoofSegments, segmentIndex],
+            calculation: null,
+          })
+        }
+      },
+
+      selectAllRoofSegments: () => {
+        const { buildingInsights } = get()
+        if (!buildingInsights) return
+
+        const allSegmentIndices = buildingInsights.solarPotential.roofSegmentStats.map((_, idx) => idx)
+        set({
+          selectedRoofSegments: allSegmentIndices,
+          calculation: null,
+        })
+      },
+
+      clearRoofSegments: () => {
+        set({
+          selectedRoofSegments: [],
+          calculation: null,
         })
       },
 
