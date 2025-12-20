@@ -33,6 +33,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "geotiff": "2.1.4-beta.1",
     "lucide-react": "^0.561.0",
     "next": "15.2.8",
     "next-intl": "^3.4.0",

@@ -32,16 +32,13 @@ export default function Step2BuildingInsights() {
     selectedBuildingId,
     isFetchingNearby,
     nearbyFetchError,
-    selectedRoofSegments,
     isDrawingMode,
     customRoofPolygon,
     setShowPanels,
     fetchBuildingInsights,
     fetchNearbyBuildings,
     selectBuilding,
-    toggleRoofSegment,
-    selectAllRoofSegments,
-    clearRoofSegments,
+    addBuildingFromClick,
     setDrawingMode,
     setCustomRoofPolygon,
     clearCustomPolygon,
@@ -50,9 +47,7 @@ export default function Step2BuildingInsights() {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
   const panelsRef = useRef<google.maps.Polygon[]>([])
-  const buildingOutlinesRef = useRef<google.maps.Polygon[]>([])
-  const selectedBuildingOutlineRef = useRef<google.maps.Polygon | null>(null)
-  const roofSegmentPolygonsRef = useRef<google.maps.Polygon[]>([])
+  const buildingPolygonsMapRef = useRef<Map<string, google.maps.Polygon>>(new Map())
   const customPolygonRef = useRef<google.maps.Polygon | null>(null)
   const drawingPointsRef = useRef<Array<{ lat: number; lng: number }>>([])
   const tempMarkersRef = useRef<google.maps.Marker[]>([])
@@ -77,7 +72,7 @@ export default function Step2BuildingInsights() {
     if (!window.google || !mapRef.current || !latitude || !longitude) return
 
     try {
-      mapInstanceRef.current = new google.maps.Map(mapRef.current, {
+      const map = new google.maps.Map(mapRef.current, {
         center: { lat: latitude, lng: longitude },
         zoom: 20,
         mapTypeId: 'satellite',
@@ -91,6 +86,7 @@ export default function Step2BuildingInsights() {
         mapId: 'solar-calculator-map',
       })
 
+      mapInstanceRef.current = map
       setMapReady(true)
     } catch (err) {
       console.error('Error initializing map:', err)
@@ -102,6 +98,7 @@ export default function Step2BuildingInsights() {
       initializeMap()
     }
   }, [initializeMap, latitude, longitude])
+
 
   // Handle drawing mode - click to add points
   useEffect(() => {
@@ -186,6 +183,27 @@ export default function Step2BuildingInsights() {
     }
   }, [isDrawingMode, customRoofPolygon])
 
+  // Handle map clicks to fetch building at any location (when not drawing)
+  useEffect(() => {
+    if (!mapInstanceRef.current || !mapReady || isDrawingMode) return
+
+    const handleMapClick = (e: google.maps.MapMouseEvent) => {
+      if (!e.latLng || isDrawingMode) return
+
+      const clickedLat = e.latLng.lat()
+      const clickedLng = e.latLng.lng()
+
+      // Fetch and select building at clicked location
+      addBuildingFromClick(clickedLat, clickedLng)
+    }
+
+    const clickListener = mapInstanceRef.current.addListener('click', handleMapClick)
+
+    return () => {
+      google.maps.event.removeListener(clickListener)
+    }
+  }, [mapReady, isDrawingMode, addBuildingFromClick])
+
   // Draw solar panels on map
   useEffect(() => {
     if (!mapInstanceRef.current || !buildingInsights || !mapReady) return
@@ -202,7 +220,7 @@ export default function Step2BuildingInsights() {
     const config = solarPotential.solarPanelConfigs[selectedConfigIndex]
     const panelsToShow = config?.panelsCount || 0
 
-    // Filter panels by custom polygon OR selected roof segments
+    // Filter panels by custom polygon OR show all
     const panelsToRender = solarPotential.solarPanels
       .slice(0, panelsToShow)
       .filter((panel) => {
@@ -213,8 +231,8 @@ export default function Step2BuildingInsights() {
             customRoofPolygon
           )
         }
-        // Otherwise filter by selected roof segments
-        return selectedRoofSegments.length === 0 || selectedRoofSegments.includes(panel.segmentIndex)
+        // Otherwise show all panels for the selected building
+        return true
       })
 
     if (panelsToRender.length === 0) return
@@ -267,25 +285,21 @@ export default function Step2BuildingInsights() {
 
       panelsRef.current.push(polygon)
     })
-  }, [buildingInsights, selectedConfigIndex, showPanels, mapReady, selectedRoofSegments, customRoofPolygon])
+  }, [buildingInsights, selectedConfigIndex, showPanels, mapReady, customRoofPolygon])
 
-  // Render building outlines for nearby buildings
+  // Add new building polygons when nearbyBuildings changes
   useEffect(() => {
-    if (!mapInstanceRef.current || !mapReady || nearbyBuildings.length === 0) return
-
-    // Clear existing outlines
-    buildingOutlinesRef.current.forEach((polygon) => polygon.setMap(null))
-    buildingOutlinesRef.current = []
-    if (selectedBuildingOutlineRef.current) {
-      selectedBuildingOutlineRef.current.setMap(null)
-      selectedBuildingOutlineRef.current = null
-    }
+    if (!mapInstanceRef.current || !mapReady) return
 
     nearbyBuildings.forEach((building) => {
-      const isSelected = getBuildingId(building) === selectedBuildingId
+      const buildingId = getBuildingId(building)
+
+      // Skip if we already have a polygon for this building
+      if (buildingPolygonsMapRef.current.has(buildingId)) return
+
+      // Create polygon for new building
       const bounds = building.boundingBox
 
-      // Create polygon from bounding box
       const paths = [
         { lat: bounds.ne.latitude, lng: bounds.ne.longitude },
         { lat: bounds.ne.latitude, lng: bounds.sw.longitude },
@@ -295,106 +309,74 @@ export default function Step2BuildingInsights() {
 
       const polygon = new google.maps.Polygon({
         paths,
-        strokeColor: isSelected ? '#F59E0B' : '#3B82F6',
-        strokeOpacity: isSelected ? 1 : 0.6,
-        strokeWeight: isSelected ? 3 : 2,
-        fillColor: isSelected ? '#F59E0B' : '#3B82F6',
-        fillOpacity: isSelected ? 0.15 : 0.05,
+        strokeColor: '#FFFFFF',
+        strokeOpacity: 0.8,
+        strokeWeight: 1.5,
+        fillColor: '#64748B',
+        fillOpacity: 0.12,
         map: mapInstanceRef.current,
         clickable: true,
-        zIndex: isSelected ? 100 : 50,
+        zIndex: 70,
       })
 
-      // Add click handler
+      // Add click handler to select this building
       polygon.addListener('click', () => {
-        selectBuilding(getBuildingId(building))
+        selectBuilding(buildingId)
       })
 
       // Add hover effect
       polygon.addListener('mouseover', () => {
+        const isSelected = buildingId === selectedBuildingId
         if (!isSelected) {
           polygon.setOptions({
-            strokeOpacity: 0.9,
-            fillOpacity: 0.1,
+            strokeColor: '#F59E0B',
+            strokeOpacity: 1,
+            fillColor: '#F59E0B',
+            fillOpacity: 0.15,
+            strokeWeight: 2,
+            zIndex: 90,
           })
         }
       })
 
       polygon.addListener('mouseout', () => {
+        const isSelected = buildingId === selectedBuildingId
         if (!isSelected) {
           polygon.setOptions({
-            strokeOpacity: 0.6,
-            fillOpacity: 0.05,
+            strokeColor: '#FFFFFF',
+            strokeOpacity: 0.8,
+            fillColor: '#64748B',
+            fillOpacity: 0.12,
+            strokeWeight: 1.5,
+            zIndex: 70,
           })
         }
       })
 
-      if (isSelected) {
-        selectedBuildingOutlineRef.current = polygon
-      } else {
-        buildingOutlinesRef.current.push(polygon)
-      }
+      // Store polygon in map
+      buildingPolygonsMapRef.current.set(buildingId, polygon)
     })
-  }, [nearbyBuildings, selectedBuildingId, mapReady, selectBuilding])
+  }, [nearbyBuildings, mapReady, selectBuilding, selectedBuildingId])
 
-  // Render roof segment polygons (clickable for selection)
+  // Update polygon colors when selection changes
   useEffect(() => {
-    if (!mapInstanceRef.current || !buildingInsights || !mapReady) return
+    if (!selectedBuildingId) return
 
-    // Clear existing roof segment polygons
-    roofSegmentPolygonsRef.current.forEach((polygon) => polygon.setMap(null))
-    roofSegmentPolygonsRef.current = []
+    buildingPolygonsMapRef.current.forEach((polygon, buildingId) => {
+      const isSelected = buildingId === selectedBuildingId
 
-    const solarPotential = buildingInsights.solarPotential
-    if (!solarPotential.roofSegmentStats.length) return
-
-    solarPotential.roofSegmentStats.forEach((segment, segmentIndex) => {
-      const isSelected = selectedRoofSegments.includes(segmentIndex)
-      const bounds = segment.boundingBox
-
-      // Create polygon from segment bounding box
-      const paths = [
-        { lat: bounds.ne.latitude, lng: bounds.ne.longitude },
-        { lat: bounds.ne.latitude, lng: bounds.sw.longitude },
-        { lat: bounds.sw.latitude, lng: bounds.sw.longitude },
-        { lat: bounds.sw.latitude, lng: bounds.ne.longitude },
-      ]
-
-      const polygon = new google.maps.Polygon({
-        paths,
-        strokeColor: isSelected ? '#10B981' : '#6B7280', // Green for selected, gray for unselected
-        strokeOpacity: isSelected ? 1 : 0.5,
-        strokeWeight: isSelected ? 3 : 2,
-        fillColor: isSelected ? '#10B981' : '#6B7280',
-        fillOpacity: isSelected ? 0.2 : 0.1,
-        map: mapInstanceRef.current,
-        clickable: true,
-        zIndex: isSelected ? 200 : 150, // Higher than building outlines
+      polygon.setOptions({
+        strokeColor: isSelected ? '#F59E0B' : '#FFFFFF',
+        strokeOpacity: isSelected ? 1 : 0.8,
+        strokeWeight: isSelected ? 2.5 : 1.5,
+        fillColor: isSelected ? '#F59E0B' : '#64748B',
+        fillOpacity: isSelected ? 0.2 : 0.12,
+        zIndex: isSelected ? 100 : 70,
       })
-
-      // Add click handler to toggle segment selection
-      polygon.addListener('click', () => {
-        toggleRoofSegment(segmentIndex)
-      })
-
-      // Add hover effect
-      polygon.addListener('mouseover', () => {
-        polygon.setOptions({
-          strokeOpacity: 1,
-          fillOpacity: isSelected ? 0.25 : 0.15,
-        })
-      })
-
-      polygon.addListener('mouseout', () => {
-        polygon.setOptions({
-          strokeOpacity: isSelected ? 1 : 0.5,
-          fillOpacity: isSelected ? 0.2 : 0.1,
-        })
-      })
-
-      roofSegmentPolygonsRef.current.push(polygon)
     })
-  }, [buildingInsights, selectedRoofSegments, mapReady, toggleRoofSegment])
+  }, [selectedBuildingId])
+
+  // Note: Removed individual roof segment selection - now showing all panels for selected building
 
   const solarPotential = buildingInsights?.solarPotential
   const currentConfig = solarPotential?.solarPanelConfigs[selectedConfigIndex]
@@ -502,12 +484,7 @@ export default function Step2BuildingInsights() {
           <Card className='border-energy/30 bg-energy/5'>
             <CardHeader className='pb-3'>
               <CardTitle className='text-sm flex items-center justify-between'>
-                <span>{isDrawingMode ? 'Draw Roof Area' : customRoofPolygon ? 'Custom Area' : 'Roof Segments'}</span>
-                {!isDrawingMode && !customRoofPolygon && solarPotential.roofSegmentStats.length > 0 && (
-                  <span className='text-xs font-normal text-muted-foreground'>
-                    {selectedRoofSegments.length} / {solarPotential.roofSegmentStats.length} selected
-                  </span>
-                )}
+                <span>{isDrawingMode ? 'Draw Roof Area' : customRoofPolygon ? 'Custom Area' : 'Panel Configuration'}</span>
               </CardTitle>
             </CardHeader>
             <CardContent className='space-y-3'>
@@ -573,30 +550,9 @@ export default function Step2BuildingInsights() {
                 </>
               ) : (
                 <>
-                  <p className='text-xs text-muted-foreground mb-1'>
-                    Click roof segments on map, or draw a custom area
+                  <p className='text-xs text-muted-foreground mb-2'>
+                    Draw a custom area to define specific roof section for panels
                   </p>
-                  {solarPotential.roofSegmentStats.length > 0 && (
-                    <div className='flex gap-2 mb-2'>
-                      <Button
-                        size='sm'
-                        variant='outline'
-                        onClick={selectAllRoofSegments}
-                        className='flex-1 text-xs h-8'
-                      >
-                        Select All
-                      </Button>
-                      <Button
-                        size='sm'
-                        variant='outline'
-                        onClick={clearRoofSegments}
-                        className='flex-1 text-xs h-8'
-                        disabled={selectedRoofSegments.length === 0}
-                      >
-                        Clear
-                      </Button>
-                    </div>
-                  )}
                   <Button
                     size='sm'
                     variant='default'

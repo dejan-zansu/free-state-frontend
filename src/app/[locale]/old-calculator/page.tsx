@@ -1,18 +1,22 @@
 'use client'
 
 import { useEffect } from 'react'
-import { Sun, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Sun, MapPin, Settings, BarChart3, FileText, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { useCalculatorStore } from '@/stores/new-calculator.store'
+import { useCalculatorStore } from '@/stores/calculator.store'
 
 import Step1Address from './steps/Step1Address'
-import Step2BuildingMap from './steps/Step2BuildingMap'
+import Step2BuildingInsights from './steps/Step2BuildingInsights'
+import Step3Configuration from './steps/Step3Configuration'
+import Step4Results from './steps/Step4Results'
 
 const steps = [
   { id: 1, title: 'Location', icon: MapPin, description: 'Enter your address' },
-  { id: 2, title: 'Building', icon: Sun, description: 'Select your building' },
+  { id: 2, title: 'Roof Analysis', icon: Sun, description: 'View solar potential' },
+  { id: 3, title: 'Configuration', icon: Settings, description: 'Customize your system' },
+  { id: 4, title: 'Results', icon: BarChart3, description: 'View your savings' },
 ]
 
 export default function CalculatorPage() {
@@ -42,6 +46,10 @@ export default function CalculatorPage() {
         return latitude !== null
       case 2:
         return buildingInsights !== null
+      case 3:
+        return true
+      case 4:
+        return true
       default:
         return false
     }
@@ -52,7 +60,11 @@ export default function CalculatorPage() {
       case 1:
         return <Step1Address />
       case 2:
-        return <Step2BuildingMap />
+        return <Step2BuildingInsights />
+      case 3:
+        return <Step3Configuration />
+      case 4:
+        return <Step4Results />
       default:
         return <Step1Address />
     }
@@ -70,7 +82,9 @@ export default function CalculatorPage() {
               </div>
               <div>
                 <h1 className='text-xl font-bold'>Solar Calculator</h1>
-                <p className='text-sm text-muted-foreground'>Calculate your solar potential</p>
+                <p className='text-sm text-muted-foreground'>
+                  Calculate your solar potential
+                </p>
               </div>
             </div>
 
@@ -117,17 +131,17 @@ export default function CalculatorPage() {
       <main className='container mx-auto px-4 py-8'>
         {/* Error display */}
         {error && (
-          <div className='mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive max-w-5xl mx-auto'>
+          <div className='mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive'>
             <p className='font-medium'>Error</p>
             <p className='text-sm'>{error}</p>
           </div>
         )}
 
         {/* Step content */}
-        <div className='max-w-7xl mx-auto'>{renderStep()}</div>
+        <div className='max-w-5xl mx-auto'>{renderStep()}</div>
 
         {/* Navigation */}
-        <div className='max-w-7xl mx-auto mt-8 flex items-center justify-between'>
+        <div className='max-w-5xl mx-auto mt-8 flex items-center justify-between'>
           <Button
             variant='outline'
             onClick={prevStep}
@@ -190,8 +204,8 @@ export default function CalculatorPage() {
             </Button>
           ) : (
             <Button className='gap-2 bg-energy hover:bg-energy/90 text-energy-foreground'>
-              Continue to Configuration
-              <ChevronRight className='w-4 h-4' />
+              <FileText className='w-4 h-4' />
+              Get Quote
             </Button>
           )}
         </div>
@@ -199,3 +213,4 @@ export default function CalculatorPage() {
     </div>
   )
 }
+

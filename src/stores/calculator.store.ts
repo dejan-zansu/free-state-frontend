@@ -70,6 +70,7 @@ interface CalculatorActions {
   fetchDataLayers: () => Promise<void>
   fetchNearbyBuildings: () => Promise<void>
   selectBuilding: (buildingId: string) => void
+  addBuildingFromClick: (lat: number, lng: number) => Promise<void>
   clearNearbyBuildings: () => void
   toggleRoofSegment: (segmentIndex: number) => void
   selectAllRoofSegments: () => void
@@ -123,7 +124,7 @@ const initialState: CalculatorState = {
   panelCount: 0,
   panelCapacityWatts: 400,
   selectedConfigIndex: 0,
-  showPanels: true,
+  showPanels: false, // Start with panels hidden - user must select building first
 
   // Step 4
   annualConsumptionKwh: 4500, // Average Swiss household
@@ -206,6 +207,8 @@ export const useCalculatorStore = create<CalculatorStore>()(
 
           set({
             buildingInsights,
+            nearbyBuildings: [buildingInsights], // Add initial building to nearby buildings
+            selectedBuildingId: getBuildingId(buildingInsights), // Mark it as selected
             panelCount: optimalPanelCount,
             selectedConfigIndex: optimalIndex,
             postalCode: buildingInsights.postalCode || get().postalCode,
@@ -243,23 +246,42 @@ export const useCalculatorStore = create<CalculatorStore>()(
         set({ isFetchingNearby: true, nearbyFetchError: null })
 
         try {
-          const radiusMeters = 50
-          const bearings = [0, 45, 90, 135, 180, 225, 270, 315] // 8 directions (N, NE, E, SE, S, SW, W, NW)
+          // Create a GRID of points to fetch - this will cover much more area
+          // Grid: 7x7 = 49 points, spacing 25m apart = covers ~150m x 150m area
+          const gridSize = 7 // 7x7 grid (more coverage)
+          const spacing = 25 // meters between grid points
 
-          // Generate coordinates to fetch using Google Maps geometry
-          // Note: This requires google.maps to be loaded
           if (typeof google === 'undefined' || !google.maps?.geometry) {
             throw new Error('Google Maps not loaded')
           }
 
-          const coordinatesToFetch = bearings.map((bearing) => {
-            const offset = google.maps.geometry.spherical.computeOffset(
-              new google.maps.LatLng(latitude, longitude),
-              radiusMeters,
-              bearing
-            )
-            return { lat: offset.lat(), lng: offset.lng() }
+          const coordinatesToFetch: Array<{ lat: number; lng: number }> = []
+          const center = new google.maps.LatLng(latitude, longitude)
+
+          // Generate grid points
+          for (let x = -(gridSize - 1) / 2; x <= (gridSize - 1) / 2; x++) {
+            for (let y = -(gridSize - 1) / 2; y <= (gridSize - 1) / 2; y++) {
+              // Calculate offset in meters
+              const offsetNorth = y * spacing
+              const offsetEast = x * spacing
+
+              // First offset north/south
+              let point = google.maps.geometry.spherical.computeOffset(center, Math.abs(offsetNorth), offsetNorth >= 0 ? 0 : 180)
+              // Then offset east/west
+              point = google.maps.geometry.spherical.computeOffset(point, Math.abs(offsetEast), offsetEast >= 0 ? 90 : 270)
+
+              coordinatesToFetch.push({ lat: point.lat(), lng: point.lng() })
+            }
+          }
+
+          // Also include the 8 compass directions at 50m for edge coverage
+          const bearings = [0, 45, 90, 135, 180, 225, 270, 315]
+          bearings.forEach((bearing) => {
+            const offset = google.maps.geometry.spherical.computeOffset(center, 50, bearing)
+            coordinatesToFetch.push({ lat: offset.lat(), lng: offset.lng() })
           })
+
+          console.log(`Fetching ${coordinatesToFetch.length} building locations...`)
 
           // Fetch all buildings in parallel
           const fetchPromises = coordinatesToFetch.map((coord) =>
@@ -275,7 +297,10 @@ export const useCalculatorStore = create<CalculatorStore>()(
 
           // Filter out nulls and deduplicate
           const validBuildings = results.filter((b) => b !== null) as BuildingInsightsResponse[]
+          console.log(`✅ Successfully fetched ${validBuildings.length} out of ${coordinatesToFetch.length} buildings`)
+
           const uniqueBuildings = deduplicateBuildings([buildingInsights, ...validBuildings])
+          console.log(`📍 After deduplication: ${uniqueBuildings.length} unique buildings`)
 
           set({
             nearbyBuildings: uniqueBuildings,
@@ -313,6 +338,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
             buildingInsights: selectedBuilding,
             panelCount: optimalPanelCount,
             selectedConfigIndex: optimalIndex,
+            showPanels: true, // Show panels when user selects a building
             calculation: null, // Reset calculation when building changes
           })
         }
@@ -325,6 +351,38 @@ export const useCalculatorStore = create<CalculatorStore>()(
           isFetchingNearby: false,
           nearbyFetchError: null,
         })
+      },
+
+      addBuildingFromClick: async (lat: number, lng: number) => {
+        set({ isLoading: true, error: null })
+
+        try {
+          const newBuilding = await solarService.getBuildingInsights(lat, lng)
+          const buildingId = getBuildingId(newBuilding)
+          const { nearbyBuildings } = get()
+
+          // Check if building already exists
+          const exists = nearbyBuildings.some((b) => getBuildingId(b) === buildingId)
+
+          if (!exists) {
+            set({
+              nearbyBuildings: [...nearbyBuildings, newBuilding],
+              isLoading: false,
+            })
+          } else {
+            set({ isLoading: false })
+          }
+
+          // Select the building (whether new or existing)
+          get().selectBuilding(buildingId)
+        } catch {
+          set({
+            isLoading: false,
+            error: 'No building found at this location. Try clicking on a visible roof.',
+          })
+          // Clear error after 3 seconds
+          setTimeout(() => set({ error: null }), 3000)
+        }
       },
 
       toggleRoofSegment: (segmentIndex: number) => {
