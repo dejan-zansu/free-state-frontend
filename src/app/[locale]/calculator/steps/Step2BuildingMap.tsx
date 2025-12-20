@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState, useCallback } from 'react'
 import { Loader } from '@googlemaps/js-api-loader'
-import { Home, MapPin, Zap, Sun, Square, MousePointer, PenTool, Trash2 } from 'lucide-react'
+import { Home, MapPin, PenTool, Square, Sun, Trash2, Zap } from 'lucide-react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
-import { Button } from '@/components/ui/button'
 import { useCalculatorStore } from '@/stores/new-calculator.store'
 
 export default function Step2BuildingMap() {
@@ -37,11 +37,16 @@ export default function Step2BuildingMap() {
   const customPolygonRef = useRef<google.maps.Polygon | null>(null)
   const mapClickListenerRef = useRef<google.maps.MapsEventListener | null>(null)
 
-  const [geometryLibrary, setGeometryLibrary] = useState<google.maps.GeometryLibrary | null>(null)
+  const [geometryLibrary, setGeometryLibrary] =
+    useState<google.maps.GeometryLibrary | null>(null)
 
   // Initialize map
   const initializeMap = useCallback(async () => {
-    console.log('🗺️ initializeMap called', { latitude, longitude, hasMapRef: !!mapRef.current })
+    console.log('🗺️ initializeMap called', {
+      latitude,
+      longitude,
+      hasMapRef: !!mapRef.current,
+    })
     if (!mapRef.current || !latitude || !longitude) {
       console.log('⚠️ Missing required data for map initialization')
       return
@@ -94,7 +99,10 @@ export default function Step2BuildingMap() {
         mapClickListenerRef.current = mapInstanceRef.current.addListener(
           'click',
           (event: google.maps.MapMouseEvent) => {
-            console.log('🖱️ Map clicked in auto mode at:', event.latLng?.toJSON())
+            console.log(
+              '🖱️ Map clicked in auto mode at:',
+              event.latLng?.toJSON()
+            )
             if (event.latLng) {
               fetchBuildingInsights(event.latLng.lat(), event.latLng.lng())
             }
@@ -143,6 +151,145 @@ export default function Step2BuildingMap() {
       : { r: 0, g: 0, b: 0 }
   }
 
+  // Calculate convex hull using Graham scan algorithm
+  // This creates the smallest convex polygon that contains all panel positions
+  function calculateConvexHull(
+    points: Array<{ lat: number; lng: number }>
+  ): Array<{ lat: number; lng: number }> {
+    if (points.length < 3) return points
+
+    // Find the bottom-most point (or left-most if there's a tie)
+    let bottom = points[0]
+    for (const p of points) {
+      if (p.lat < bottom.lat || (p.lat === bottom.lat && p.lng < bottom.lng)) {
+        bottom = p
+      }
+    }
+
+    // Sort points by polar angle with respect to bottom point
+    const sorted = [...points].sort((a, b) => {
+      if (a === bottom) return -1
+      if (b === bottom) return 1
+
+      const angleA = Math.atan2(a.lat - bottom.lat, a.lng - bottom.lng)
+      const angleB = Math.atan2(b.lat - bottom.lat, b.lng - bottom.lng)
+
+      if (angleA !== angleB) return angleA - angleB
+
+      // If angles are equal, sort by distance
+      const distA = Math.hypot(a.lat - bottom.lat, a.lng - bottom.lng)
+      const distB = Math.hypot(b.lat - bottom.lat, b.lng - bottom.lng)
+      return distA - distB
+    })
+
+    // Build convex hull
+    const hull: Array<{ lat: number; lng: number }> = []
+
+    for (const point of sorted) {
+      // Remove points that make clockwise turn
+      while (hull.length >= 2) {
+        const p1 = hull[hull.length - 2]
+        const p2 = hull[hull.length - 1]
+
+        // Cross product to check turn direction
+        const cross =
+          (p2.lng - p1.lng) * (point.lat - p1.lat) -
+          (p2.lat - p1.lat) * (point.lng - p1.lng)
+
+        if (cross <= 0) {
+          hull.pop()
+        } else {
+          break
+        }
+      }
+
+      hull.push(point)
+    }
+
+    return hull
+  }
+
+  // Expand polygon outward by a given distance in meters
+  // This prevents panels from visually overflowing the outline
+  function expandPolygon(
+    polygon: Array<{ lat: number; lng: number }>,
+    distanceMeters: number
+  ): Array<{ lat: number; lng: number }> {
+    if (!geometryLibrary) return polygon
+
+    // Calculate the centroid of the polygon
+    const centerLat = polygon.reduce((sum, p) => sum + p.lat, 0) / polygon.length
+    const centerLng = polygon.reduce((sum, p) => sum + p.lng, 0) / polygon.length
+
+    // Expand each point outward from the center
+    return polygon.map((point) => {
+      const center = new google.maps.LatLng(centerLat, centerLng)
+      const pointLatLng = new google.maps.LatLng(point.lat, point.lng)
+
+      // Calculate bearing from center to point
+      const heading = geometryLibrary.spherical.computeHeading(center, pointLatLng)
+
+      // Move the point outward by the buffer distance
+      const expanded = geometryLibrary.spherical.computeOffset(
+        pointLatLng,
+        distanceMeters,
+        heading
+      )
+
+      return {
+        lat: expanded.lat(),
+        lng: expanded.lng(),
+      }
+    })
+  }
+
+  // Handle polygon edit - filter panels that are inside the adjusted shape
+  const handlePolygonEdit = useCallback(() => {
+    if (!buildingPolygonRef.current || !buildingInsights) return
+
+    console.log('📝 Polygon edited, recalculating panels inside shape')
+
+    const path = buildingPolygonRef.current.getPath()
+    const polygonCoords: Array<{ lat: number; lng: number }> = []
+
+    for (let i = 0; i < path.getLength(); i++) {
+      const point = path.getAt(i)
+      polygonCoords.push({ lat: point.lat(), lng: point.lng() })
+    }
+
+    // Helper function to check if a point is inside the polygon
+    function isPointInPolygon(lat: number, lng: number): boolean {
+      let inside = false
+      for (let i = 0, j = polygonCoords.length - 1; i < polygonCoords.length; j = i++) {
+        const xi = polygonCoords[i].lng
+        const yi = polygonCoords[i].lat
+        const xj = polygonCoords[j].lng
+        const yj = polygonCoords[j].lat
+
+        const intersect =
+          yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
+
+        if (intersect) inside = !inside
+      }
+      return inside
+    }
+
+    // Filter panels to only include those inside the adjusted polygon
+    const allPanels = buildingInsights.solarPotential.solarPanels
+    const panelsInside = allPanels.filter((panel) =>
+      isPointInPolygon(panel.center.latitude, panel.center.longitude)
+    )
+
+    console.log(`📊 Panels after adjustment: ${panelsInside.length} of ${allPanels.length}`)
+
+    // Update the selected panel count to match filtered panels
+    const newMaxPanels = panelsInside.length
+    setPanelCount(Math.min(selectedPanelCount, newMaxPanels))
+
+    // Redraw panels with the updated selection
+    // This will be handled by the useEffect that watches selectedPanelCount
+  }, [buildingInsights, selectedPanelCount, setPanelCount])
+
   // Draw building polygon and solar panels
   const drawBuildingAndPanels = useCallback(() => {
     console.log('🎨 drawBuildingAndPanels called', {
@@ -165,25 +312,53 @@ export default function Step2BuildingMap() {
     // Remove marker once building is selected
     markerRef.current?.setMap(null)
 
-    const { boundingBox, solarPotential } = buildingInsights
+    const { solarPotential } = buildingInsights
 
-    // Draw building outline
-    const buildingBounds = [
-      { lat: boundingBox.sw.latitude, lng: boundingBox.sw.longitude },
-      { lat: boundingBox.ne.latitude, lng: boundingBox.sw.longitude },
-      { lat: boundingBox.ne.latitude, lng: boundingBox.ne.longitude },
-      { lat: boundingBox.sw.latitude, lng: boundingBox.ne.longitude },
-    ]
+    // Draw actual roof outline from panel positions
+    // This gives us the real roof shape, not just a bounding box
+    if (solarPotential.solarPanels.length > 0) {
+      // Get all panel positions
+      const panelPositions = solarPotential.solarPanels.map((p) => ({
+        lat: p.center.latitude,
+        lng: p.center.longitude,
+      }))
 
-    buildingPolygonRef.current = new google.maps.Polygon({
-      paths: buildingBounds,
-      strokeColor: '#FFD700',
-      strokeOpacity: 0.8,
-      strokeWeight: 3,
-      fillColor: '#FFD700',
-      fillOpacity: 0.1,
-      map: mapInstanceRef.current,
-    })
+      // Calculate convex hull to get the outline
+      const roofOutline = calculateConvexHull(panelPositions)
+
+      // Expand the polygon outward to account for panel dimensions
+      // This prevents panels from visually overflowing the outline
+      const expandedOutline = expandPolygon(roofOutline, 1.5) // 1.5 meters buffer
+
+      buildingPolygonRef.current = new google.maps.Polygon({
+        paths: expandedOutline,
+        strokeColor: '#FFD700',
+        strokeOpacity: 0.8,
+        strokeWeight: 3,
+        fillColor: '#FFD700',
+        fillOpacity: 0.1,
+        editable: true, // Allow user to adjust the shape
+        draggable: false,
+        map: mapInstanceRef.current,
+      })
+
+      // Listen for polygon edits
+      google.maps.event.addListener(
+        buildingPolygonRef.current,
+        'set_at',
+        () => handlePolygonEdit()
+      )
+      google.maps.event.addListener(
+        buildingPolygonRef.current,
+        'insert_at',
+        () => handlePolygonEdit()
+      )
+      google.maps.event.addListener(
+        buildingPolygonRef.current,
+        'remove_at',
+        () => handlePolygonEdit()
+      )
+    }
 
     // Draw solar panels with color gradient based on energy output
     const panels = solarPotential.solarPanels
@@ -223,10 +398,12 @@ export default function Step2BuildingMap() {
       ]
 
       const orientation = panel.orientation === 'PORTRAIT' ? 90 : 0
-      const azimuth = solarPotential.roofSegmentStats[panel.segmentIndex]?.azimuthDegrees ?? 180
+      const azimuth =
+        solarPotential.roofSegmentStats[panel.segmentIndex]?.azimuthDegrees || 0
 
       // Normalize energy to 0-1 range
-      const normalizedEnergy = (panel.yearlyEnergyDcKwh - minEnergy) / (maxEnergy - minEnergy)
+      const normalizedEnergy =
+        (panel.yearlyEnergyDcKwh - minEnergy) / (maxEnergy - minEnergy)
       const colorIndex = Math.round(normalizedEnergy * (palette.length - 1))
 
       // Calculate panel polygon coordinates using spherical geometry
@@ -260,7 +437,12 @@ export default function Step2BuildingMap() {
     )
     mapInstanceRef.current.setCenter(center)
     console.log('✅ Drawing complete, map centered on building')
-  }, [buildingInsights, geometryLibrary, createColorPalette, selectedPanelCount])
+  }, [
+    buildingInsights,
+    geometryLibrary,
+    createColorPalette,
+    selectedPanelCount,
+  ])
 
   // Start drawing custom polygon
   const startDrawing = useCallback(() => {
@@ -299,7 +481,10 @@ export default function Step2BuildingMap() {
         if (!event.latLng) return
         const path = newPolygon.getPath()
         path.push(event.latLng)
-        console.log('📍 Point added to polygon, total points:', path.getLength())
+        console.log(
+          '📍 Point added to polygon, total points:',
+          path.getLength()
+        )
 
         // Update store
         const coords = []
@@ -405,7 +590,10 @@ export default function Step2BuildingMap() {
 
   // Log drawing state for debugging
   useEffect(() => {
-    console.log('🔍 Drawing UI state:', { isDrawing, customPolygonPoints: customPolygon?.length })
+    console.log('🔍 Drawing UI state:', {
+      isDrawing,
+      customPolygonPoints: customPolygon?.length,
+    })
   }, [isDrawing, customPolygon])
 
   // Format numbers
@@ -418,45 +606,20 @@ export default function Step2BuildingMap() {
 
   return (
     <div className='space-y-4'>
-      {/* Mode Toggle */}
-      <Card>
-        <CardHeader>
-          <CardTitle className='text-base'>Selection Mode</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className='flex gap-2'>
-            <Button
-              variant={selectionMode === 'auto' ? 'default' : 'outline'}
-              onClick={() => setSelectionMode('auto')}
-              className='flex-1 gap-2'
-            >
-              <MousePointer className='w-4 h-4' />
-              Auto-Detect Building
-            </Button>
-            <Button
-              variant={selectionMode === 'custom' ? 'default' : 'outline'}
-              onClick={() => setSelectionMode('custom')}
-              className='flex-1 gap-2'
-            >
-              <PenTool className='w-4 h-4' />
-              Draw Custom Area
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Instructions */}
       {!buildingInsights && !customPolygon && (
         <Card className='bg-solar/10 border-solar/20'>
           <CardContent className='pt-6'>
             {selectionMode === 'auto' ? (
               <p className='text-center text-sm'>
                 <MapPin className='inline w-4 h-4 mr-1' />
-                Click on a building roof on the map to analyze its solar potential
+                Click on a building roof on the map to analyze its solar
+                potential
               </p>
             ) : (
               <div className='text-center space-y-2'>
-                <p className='text-sm font-medium'>Draw your custom roof area</p>
+                <p className='text-sm font-medium'>
+                  Draw your custom roof area
+                </p>
                 <p className='text-xs text-muted-foreground'>
                   Click on the map to add points and outline your desired area
                 </p>
@@ -466,7 +629,6 @@ export default function Step2BuildingMap() {
         </Card>
       )}
 
-      {/* Custom Drawing Controls */}
       {selectionMode === 'custom' && (
         <Card>
           <CardContent className='pt-6'>
@@ -479,17 +641,29 @@ export default function Step2BuildingMap() {
               )}
               {isDrawing && (
                 <>
-                  <Button onClick={finishDrawing} className='flex-1 gap-2' variant='default'>
+                  <Button
+                    onClick={finishDrawing}
+                    className='flex-1 gap-2'
+                    variant='default'
+                  >
                     Complete Polygon ({customPolygon?.length || 0} points)
                   </Button>
-                  <Button onClick={handleClearPolygon} variant='destructive' className='gap-2'>
+                  <Button
+                    onClick={handleClearPolygon}
+                    variant='destructive'
+                    className='gap-2'
+                  >
                     <Trash2 className='w-4 h-4' />
                     Clear
                   </Button>
                 </>
               )}
               {!isDrawing && customPolygon && customPolygon.length >= 3 && (
-                <Button onClick={handleClearPolygon} variant='outline' className='flex-1 gap-2'>
+                <Button
+                  onClick={handleClearPolygon}
+                  variant='outline'
+                  className='flex-1 gap-2'
+                >
                   <Trash2 className='w-4 h-4' />
                   Clear & Redraw
                 </Button>
@@ -497,14 +671,14 @@ export default function Step2BuildingMap() {
             </div>
             {isDrawing && (
               <p className='text-xs text-muted-foreground mt-2 text-center'>
-                Click on the map to add points. Need at least 3 points to complete.
+                Click on the map to add points. Need at least 3 points to
+                complete.
               </p>
             )}
           </CardContent>
         </Card>
       )}
 
-      {/* Error message */}
       {error && (
         <Card className='bg-destructive/10 border-destructive/20'>
           <CardContent className='pt-6'>
@@ -514,7 +688,6 @@ export default function Step2BuildingMap() {
       )}
 
       <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-        {/* Map */}
         <div className='lg:col-span-2'>
           <Card>
             <CardContent className='p-0'>
@@ -523,7 +696,9 @@ export default function Step2BuildingMap() {
                 <div className='absolute inset-0 flex items-center justify-center bg-background/80 rounded-lg'>
                   <div className='flex flex-col items-center gap-3'>
                     <div className='w-12 h-12 border-4 border-solar border-t-transparent rounded-full animate-spin' />
-                    <p className='text-sm text-muted-foreground'>Analyzing building...</p>
+                    <p className='text-sm text-muted-foreground'>
+                      Analyzing building...
+                    </p>
                   </div>
                 </div>
               )}
@@ -531,7 +706,6 @@ export default function Step2BuildingMap() {
           </Card>
         </div>
 
-        {/* Building Info */}
         <div className='space-y-4'>
           {buildingInsights && (
             <>
@@ -549,7 +723,11 @@ export default function Step2BuildingMap() {
                       <span className='text-sm'>Roof Area</span>
                     </div>
                     <span className='font-semibold'>
-                      {formatNumber(buildingInsights.solarPotential.wholeRoofStats.areaMeters2)} m²
+                      {formatNumber(
+                        buildingInsights.solarPotential.wholeRoofStats
+                          .areaMeters2
+                      )}{' '}
+                      m²
                     </span>
                   </div>
 
@@ -559,7 +737,10 @@ export default function Step2BuildingMap() {
                       <span className='text-sm'>Annual Sunshine</span>
                     </div>
                     <span className='font-semibold'>
-                      {formatNumber(buildingInsights.solarPotential.maxSunshineHoursPerYear)} hrs
+                      {formatNumber(
+                        buildingInsights.solarPotential.maxSunshineHoursPerYear
+                      )}{' '}
+                      hrs
                     </span>
                   </div>
 
@@ -569,7 +750,10 @@ export default function Step2BuildingMap() {
                       <span className='text-sm'>Max Panel Count</span>
                     </div>
                     <span className='font-semibold'>
-                      {formatNumber(buildingInsights.solarPotential.maxArrayPanelsCount)} panels
+                      {formatNumber(
+                        buildingInsights.solarPotential.maxArrayPanelsCount
+                      )}{' '}
+                      panels
                     </span>
                   </div>
 
@@ -601,8 +785,12 @@ export default function Step2BuildingMap() {
                 <CardContent className='space-y-4'>
                   <div className='space-y-2'>
                     <div className='flex items-center justify-between'>
-                      <span className='text-sm font-medium'>Number of Panels</span>
-                      <span className='text-lg font-bold text-solar'>{selectedPanelCount}</span>
+                      <span className='text-sm font-medium'>
+                        Number of Panels
+                      </span>
+                      <span className='text-lg font-bold text-solar'>
+                        {selectedPanelCount}
+                      </span>
                     </div>
                     <Slider
                       value={[selectedPanelCount]}
@@ -614,16 +802,23 @@ export default function Step2BuildingMap() {
                     />
                     <div className='flex justify-between text-xs text-muted-foreground'>
                       <span>1 panel</span>
-                      <span>{buildingInsights.solarPotential.maxArrayPanelsCount} panels</span>
+                      <span>
+                        {buildingInsights.solarPotential.maxArrayPanelsCount}{' '}
+                        panels
+                      </span>
                     </div>
                   </div>
 
                   <div className='pt-3 border-t space-y-2'>
                     <div className='flex items-center justify-between'>
-                      <span className='text-sm text-muted-foreground'>System Capacity</span>
+                      <span className='text-sm text-muted-foreground'>
+                        System Capacity
+                      </span>
                       <span className='font-semibold'>
                         {formatNumber(
-                          (selectedPanelCount * buildingInsights.solarPotential.panelCapacityWatts) /
+                          (selectedPanelCount *
+                            buildingInsights.solarPotential
+                              .panelCapacityWatts) /
                             1000,
                           2
                         )}{' '}
@@ -631,11 +826,14 @@ export default function Step2BuildingMap() {
                       </span>
                     </div>
                     <div className='flex items-center justify-between'>
-                      <span className='text-sm text-muted-foreground'>Coverage</span>
+                      <span className='text-sm text-muted-foreground'>
+                        Coverage
+                      </span>
                       <span className='font-semibold'>
                         {formatNumber(
                           (selectedPanelCount /
-                            buildingInsights.solarPotential.maxArrayPanelsCount) *
+                            buildingInsights.solarPotential
+                              .maxArrayPanelsCount) *
                             100,
                           0
                         )}
@@ -649,7 +847,9 @@ export default function Step2BuildingMap() {
               <Card className='bg-gradient-to-br from-solar/5 to-energy/5'>
                 <CardContent className='pt-6'>
                   <div className='text-center space-y-2'>
-                    <p className='text-sm text-muted-foreground'>Click &quot;Next&quot; to continue</p>
+                    <p className='text-sm text-muted-foreground'>
+                      Click &quot;Next&quot; to continue
+                    </p>
                     <p className='text-xs text-muted-foreground'>
                       Configure your solar system in the next step
                     </p>
@@ -665,7 +865,9 @@ export default function Step2BuildingMap() {
                 <div className='text-center space-y-2 text-muted-foreground'>
                   <Home className='w-12 h-12 mx-auto opacity-50' />
                   <p className='text-sm'>No building selected yet</p>
-                  <p className='text-xs'>Click on the map to analyze a building</p>
+                  <p className='text-xs'>
+                    Click on the map to analyze a building
+                  </p>
                 </div>
               </CardContent>
             </Card>

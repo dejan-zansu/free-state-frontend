@@ -1,5 +1,94 @@
 {
   "title": "Free State AG",
   "header": { "logoAlt": "Free State AG Logo" },
-  "footer": { "copyright": "© Free State AG" }
+  "footer": { "copyright": "©2025 freestateag. Alle Rechte vorbehalten." },
+  "nav": {
+    "home": "Home",
+    "calculator": "Solarkalkulator",
+    "solutions": "Solarlösungen",
+    "companies": "Unternehmen",
+    "portfolio": "Portfolio",
+    "investors": "Für Investoren"
+  },
+  "home": {
+    "hero": {
+      "title": "Dein Strom. Dein Dach. Null Investition.",
+      "subtitle": "Ihre Energie, unsere Verantwortung nachhaltig und sorgenfrei",
+      "cta": {
+        "primary": "Jetzt starten",
+        "secondary": "Kalkulator"
+      }
+    },
+    "mission": {
+      "title": "Unsere Mission",
+      "description": "Unsere Mission ist es, saubere Solarenergie für alle zugänglich zu machen – ohne Investitionskosten, ohne Risiko und mit maximaler Transparenz.",
+      "learnMore": "Mehr Erfahren"
+    },
+    "smartEnergy": {
+      "title": "Smarte Solarenergie",
+      "description": "Günstiger Strom, volle Sicherheit, nachhaltige Lösung."
+    },
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "customers": "Zufriedene Kunden",
+      "installations": "Erfolgreiche Installationen",
+      "savings": "Stromeinsparung"
+    },
+    "solarabo": {
+      "badge": "Mit lebenslangem vorteil",
+      "title": "Aktuelle Deals",
+      "subtitle": "Solarenergie für Unternehmen",
+      "card": {
+        "title": "SolarAbo Home",
+        "subtitle": "Für Einfamilienhäuser ohne Speicher",
+        "feature1": "Black-Module 450 Wp",
+        "feature2": "Live-App Monitoring",
+        "feature3": "Versicherung & Wartung",
+        "feature4": "CO₂-Reduktion bis 2 t/Jahr",
+        "term": "Laufzeit 35 Jahre – mit Rückkaufoption",
+        "price": "ab CHF 39.95 / Monat",
+        "benefit1": "0 CHF Investition",
+        "benefit2": "30% Strompreis",
+        "benefit3": "Gratis Aktivierung (statt CHF 990)",
+        "cta": "Mehr Erfahren",
+        "explanation": {
+          "label": "Einfach erklärt:",
+          "text": "Wie bei einem Handy-Abo – du nutzt die Anlage, wir übernehmen Bau, Finanzierung & Service."
+        }
+      }
+    },
+    "features": {
+      "title": "Ihre Vorteile",
+      "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
+      "noInvestment": {
+        "title": "Keine Investitionskosten",
+        "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
+      },
+      "fullService": {
+        "title": "Rundum-sorglos-Service",
+        "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
+      },
+      "longTerm": {
+        "title": "Langfristig günstiger",
+        "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
+      "item1": {
+        "title": "Firmendach Zürich",
+        "details": "30 % Kosteneinsparung • 250 kWp Anlage"
+      },
+      "item2": {
+        "title": "Industriehalle",
+        "details": "CO₂-Reduktion: 12 t/Jahr • 400 kWp"
+      },
+      "item3": {
+        "title": "Agrar St. Gallen",
+        "details": "Eigenverbrauch: 75 % • 180 kWp"
+      },
+      "learnMore": "Mehr Erfahren"
+    }
+  }
 }

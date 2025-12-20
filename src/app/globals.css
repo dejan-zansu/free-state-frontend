@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
 /* Import distinctive fonts */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -59,105 +57,59 @@
 
 :root {
   --radius: 0.75rem;
-  /* Solar-themed light palette */
-  --background: oklch(0.99 0.002 90);
-  --foreground: oklch(0.2 0.02 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 250);
-  /* Primary: Deep solar blue */
-  --primary: oklch(0.35 0.12 250);
-  --primary-foreground: oklch(0.99 0 0);
-  /* Secondary: Soft warm gray */
-  --secondary: oklch(0.96 0.005 90);
-  --secondary-foreground: oklch(0.25 0.02 250);
-  /* Solar Orange - main accent */
-  --solar: oklch(0.72 0.18 50);
-  --solar-foreground: oklch(0.15 0.05 50);
-  /* Energy Green - success states */
-  --energy: oklch(0.65 0.18 145);
-  --energy-foreground: oklch(0.99 0 0);
-  /* Success */
-  --success: oklch(0.65 0.18 145);
-  --success-foreground: oklch(0.99 0 0);
-  /* Warning */
-  --warning: oklch(0.8 0.16 75);
-  --warning-foreground: oklch(0.2 0.05 75);
-  --muted: oklch(0.96 0.005 90);
-  --muted-foreground: oklch(0.5 0.02 250);
-  --accent: oklch(0.94 0.02 50);
-  --accent-foreground: oklch(0.25 0.05 50);
-  --destructive: oklch(0.6 0.22 25);
-  --border: oklch(0.91 0.01 90);
-  --input: oklch(0.91 0.01 90);
-  --ring: oklch(0.72 0.18 50);
-  /* Charts - Solar gradient palette */
-  --chart-1: oklch(0.72 0.18 50);
-  --chart-2: oklch(0.65 0.18 145);
-  --chart-3: oklch(0.35 0.12 250);
-  --chart-4: oklch(0.8 0.16 75);
-  --chart-5: oklch(0.55 0.2 30);
+  /* Light mode only - Based on Figma design colors using HEX values */
+  /* Background: Pure white */
+  --background: #ffffff;
+  /* Foreground: Dark green #062E25 */
+  --foreground: #062e25;
+  --card: #ffffff;
+  --card-foreground: #062e25;
+  --popover: #ffffff;
+  --popover-foreground: #062e25;
+  /* Primary: Teal #4A9A99 */
+  --primary: #4a9a99;
+  --primary-foreground: #ffffff;
+  /* Secondary: Light gray #F7F7F8 */
+  --secondary: #f7f7f8;
+  --secondary-foreground: #062e25;
+  /* Solar: Bright lime green #B7FE1A */
+  --solar: #b7fe1a;
+  --solar-foreground: #062e25;
+  /* Energy: Coral/pink accent #9F3E4F */
+  --energy: #9f3e4f;
+  --energy-foreground: #ffffff;
+  /* Success: Bright lime green */
+  --success: #b7fe1a;
+  --success-foreground: #062e25;
+  /* Warning: Coral/pink */
+  --warning: #9f3e4f;
+  --warning-foreground: #ffffff;
+  --muted: #f7f7f8;
+  --muted-foreground: #6b7280;
+  /* Accent: Light gray #FAFAFA */
+  --accent: #fafafa;
+  --accent-foreground: #062e25;
+  --destructive: #9f3e4f;
+  /* Border: Light gray #E5E7EB */
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  /* Ring: Bright lime green accent */
+  --ring: #b7fe1a;
+  /* Charts - Based on Figma palette */
+  --chart-1: #b7fe1a;
+  --chart-2: #4a9a99;
+  --chart-3: #9f3e4f;
+  --chart-4: #062e25;
+  --chart-5: #15897c;
   /* Sidebar */
-  --sidebar: oklch(0.98 0.002 90);
-  --sidebar-foreground: oklch(0.2 0.02 250);
-  --sidebar-primary: oklch(0.35 0.12 250);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.94 0.02 50);
-  --sidebar-accent-foreground: oklch(0.25 0.05 50);
-  --sidebar-border: oklch(0.91 0.01 90);
-  --sidebar-ring: oklch(0.72 0.18 50);
-}
-
-.dark {
-  /* Solar-themed dark palette - Dusk/Night mode */
-  --background: oklch(0.14 0.02 250);
-  --foreground: oklch(0.95 0.005 90);
-  --card: oklch(0.18 0.02 250);
-  --card-foreground: oklch(0.95 0.005 90);
-  --popover: oklch(0.18 0.02 250);
-  --popover-foreground: oklch(0.95 0.005 90);
-  /* Primary: Bright solar orange in dark */
-  --primary: oklch(0.78 0.18 50);
-  --primary-foreground: oklch(0.15 0.05 50);
-  /* Secondary */
-  --secondary: oklch(0.22 0.02 250);
-  --secondary-foreground: oklch(0.95 0.005 90);
-  /* Solar Orange */
-  --solar: oklch(0.78 0.18 50);
-  --solar-foreground: oklch(0.15 0.05 50);
-  /* Energy Green */
-  --energy: oklch(0.7 0.18 145);
-  --energy-foreground: oklch(0.15 0.05 145);
-  /* Success */
-  --success: oklch(0.7 0.18 145);
-  --success-foreground: oklch(0.15 0.05 145);
-  /* Warning */
-  --warning: oklch(0.85 0.16 75);
-  --warning-foreground: oklch(0.2 0.05 75);
-  --muted: oklch(0.22 0.02 250);
-  --muted-foreground: oklch(0.65 0.02 90);
-  --accent: oklch(0.25 0.03 50);
-  --accent-foreground: oklch(0.85 0.1 50);
-  --destructive: oklch(0.65 0.22 25);
-  --border: oklch(0.25 0.02 250);
-  --input: oklch(0.25 0.02 250);
-  --ring: oklch(0.78 0.18 50);
-  /* Charts */
-  --chart-1: oklch(0.78 0.18 50);
-  --chart-2: oklch(0.7 0.18 145);
-  --chart-3: oklch(0.6 0.15 250);
-  --chart-4: oklch(0.85 0.16 75);
-  --chart-5: oklch(0.6 0.2 30);
-  /* Sidebar */
-  --sidebar: oklch(0.16 0.02 250);
-  --sidebar-foreground: oklch(0.95 0.005 90);
-  --sidebar-primary: oklch(0.78 0.18 50);
-  --sidebar-primary-foreground: oklch(0.15 0.05 50);
-  --sidebar-accent: oklch(0.25 0.03 50);
-  --sidebar-accent-foreground: oklch(0.85 0.1 50);
-  --sidebar-border: oklch(0.25 0.02 250);
-  --sidebar-ring: oklch(0.78 0.18 50);
+  --sidebar: #fafafa;
+  --sidebar-foreground: #062e25;
+  --sidebar-primary: #4a9a99;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #fafafa;
+  --sidebar-accent-foreground: #062e25;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #b7fe1a;
 }
 
 @layer base {
@@ -183,10 +135,10 @@
     text-wrap: balance;
   }
   .gradient-solar {
-    background: linear-gradient(135deg, var(--solar) 0%, var(--energy) 100%);
+    background: linear-gradient(135deg, #b7fe1a 0%, #9f3e4f 100%);
   }
   .gradient-solar-text {
-    background: linear-gradient(135deg, var(--solar) 0%, var(--energy) 100%);
+    background: linear-gradient(135deg, #b7fe1a 0%, #9f3e4f 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -1,5 +1,94 @@
 {
   "title": "Free State AG",
   "header": { "logoAlt": "Free State AG logo" },
-  "footer": { "copyright": "© Free State AG" }
+  "footer": { "copyright": "©2025 freestateag. All rights reserved." },
+  "nav": {
+    "home": "Home",
+    "calculator": "Solar Calculator",
+    "solutions": "Solar solutions",
+    "companies": "Companies",
+    "portfolio": "Portfolio",
+    "investors": "For investors"
+  },
+  "home": {
+    "hero": {
+      "title": "Your power. Your roof. Zero investment.",
+      "subtitle": "Your energy, our responsibility sustainable and worry-free.",
+      "cta": {
+        "primary": "Get started",
+        "secondary": "Calculator"
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "Our mission is to make clean solar energy accessible to everyone with no upfront investment, no risk, and maximum transparency.",
+      "learnMore": "Learn more"
+    },
+    "smartEnergy": {
+      "title": "Smart solar energy",
+      "description": "Affordable electricity, complete security, sustainable solution."
+    },
+    "stats": {
+      "experience": "Years of experience",
+      "customers": "Satisfied customers",
+      "installations": "Successful installations",
+      "savings": "Energy savings"
+    },
+    "solarabo": {
+      "badge": "With lifelong benefits",
+      "title": "Current deals",
+      "subtitle": "Solar energy for businesses",
+      "card": {
+        "title": "SolarAbo Home",
+        "subtitle": "For single-family homes without battery storage",
+        "feature1": "Black-Module 450 Wp",
+        "feature2": "Live-App Monitoring",
+        "feature3": "Insurance & maintenance",
+        "feature4": "CO₂ reduction of up to 2 t/year",
+        "term": "35-year term with buyback option",
+        "price": "from CHF 39.95 /month",
+        "benefit1": "0 CHF investment",
+        "benefit2": "30% electricity price",
+        "benefit3": "Free activation (inst CHF 990)",
+        "cta": "Learn More",
+        "explanation": {
+          "label": "Simply explained:",
+          "text": "Like a mobile subscription: You use the system, we take care of construction, financing, and service."
+        }
+      }
+    },
+    "features": {
+      "title": "Your advantages",
+      "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
+      "noInvestment": {
+        "title": "No investment costs",
+        "description": "You bear no financial risks – we take over all costs for planning, installation and maintenance of your solar system."
+      },
+      "fullService": {
+        "title": "All-inclusive service",
+        "description": "You bear no financial risks – we take over all costs for planning, installation and maintenance of your solar system."
+      },
+      "longTerm": {
+        "title": "Long-term cheaper",
+        "description": "You bear no financial risks – we take over all costs for planning, installation and maintenance of your solar system."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
+      "item1": {
+        "title": "Company roof Zurich",
+        "details": "30% cost savings • 250 kWp system"
+      },
+      "item2": {
+        "title": "Industrial hall",
+        "details": "CO₂ reduction: 12 t/year • 400 kWp"
+      },
+      "item3": {
+        "title": "Agricultural St. Gallen",
+        "details": "Self-consumption: 75% • 180 kWp"
+      },
+      "learnMore": "Learn more"
+    }
+  }
 }

@@ -3,11 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 
 import { findClosestBuilding } from '@/lib/google-solar-api'
 import type { BuildingInsightsResponse } from '@/lib/google-solar-api'
-import {
-  calculatePolygonArea,
-  estimatePanelCount,
-  estimateEnergyProduction,
-} from '@/lib/polygon-utils'
+import { calculatePolygonArea } from '@/lib/polygon-utils'
 
 interface CalculatorState {
   // Step 1: Location
@@ -150,30 +146,190 @@ export const useCalculatorStore = create<CalculatorStore>()(
         }
       },
 
-      calculateCustomPolygonData: (polygon: Array<{ lat: number; lng: number }>) => {
+      calculateCustomPolygonData: async (polygon: Array<{ lat: number; lng: number }>) => {
         console.log('📐 calculateCustomPolygonData called with polygon:', polygon)
+        const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+        if (!apiKey) {
+          console.error('❌ Google Maps API key not configured')
+          set({ error: 'Google Maps API key not configured' })
+          return
+        }
+
+        set({ isLoading: true, error: null })
+
         try {
           // Calculate polygon area
           const areaM2 = calculatePolygonArea(polygon)
           console.log('📏 Calculated area (m²):', areaM2)
 
-          // Estimate panel count based on area
-          const estimatedPanelCount = estimatePanelCount(areaM2)
-          console.log('🔢 Estimated panel count:', estimatedPanelCount)
-
-          // Estimate energy production
-          const estimatedEnergyKwh = estimateEnergyProduction(estimatedPanelCount)
-          console.log('⚡ Estimated energy production (kWh):', estimatedEnergyKwh)
-
           // Calculate polygon centroid (center point)
           const centerLat = polygon.reduce((sum, p) => sum + p.lat, 0) / polygon.length
           const centerLng = polygon.reduce((sum, p) => sum + p.lng, 0) / polygon.length
+          console.log('📍 Polygon center:', { lat: centerLat, lng: centerLng })
 
           // Calculate bounding box
           const minLat = Math.min(...polygon.map((p) => p.lat))
           const maxLat = Math.max(...polygon.map((p) => p.lat))
           const minLng = Math.min(...polygon.map((p) => p.lng))
           const maxLng = Math.max(...polygon.map((p) => p.lng))
+
+          // Calculate radius to furthest polygon point from center (in meters)
+          // We need this for the Data Layers API request
+          let maxDistanceMeters = 0
+          for (const point of polygon) {
+            const distance = google.maps.geometry.spherical.computeDistanceBetween(
+              new google.maps.LatLng(centerLat, centerLng),
+              new google.maps.LatLng(point.lat, point.lng)
+            )
+            if (distance > maxDistanceMeters) {
+              maxDistanceMeters = distance
+            }
+          }
+          // Add 20% buffer to ensure we cover the entire polygon
+          const radiusMeters = Math.ceil(maxDistanceMeters * 1.2)
+          console.log('📏 Calculated radius:', radiusMeters, 'meters')
+
+          // Fetch GeoTIFF data from Google Solar API
+          console.log('📡 Fetching GeoTIFF data from Google Solar API...')
+          const { getDataLayers } = await import('@/lib/google-solar-api')
+          const dataLayers = await getDataLayers(centerLat, centerLng, radiusMeters, apiKey)
+          console.log('✅ Data layers received:', dataLayers)
+
+          // Fetch and parse the annual flux GeoTIFF
+          console.log('📥 Fetching annual flux GeoTIFF from:', dataLayers.annualFluxUrl)
+          const { fetchGeoTiff, pixelToLatLng, getPixelValue } = await import('@/lib/geotiff')
+          const fluxGeoTiff = await fetchGeoTiff(dataLayers.annualFluxUrl)
+          console.log('✅ GeoTIFF loaded:', {
+            width: fluxGeoTiff.width,
+            height: fluxGeoTiff.height,
+            bounds: fluxGeoTiff.bounds,
+          })
+
+          // Helper function to check if a point is inside the polygon using ray casting algorithm
+          function isPointInPolygon(lat: number, lng: number): boolean {
+            let inside = false
+            for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+              const xi = polygon[i].lng
+              const yi = polygon[i].lat
+              const xj = polygon[j].lng
+              const yj = polygon[j].lat
+
+              const intersect =
+                yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
+
+              if (intersect) inside = !inside
+            }
+            return inside
+          }
+
+          // Scan the GeoTIFF and collect flux data for pixels inside the polygon
+          console.log('🔍 Scanning GeoTIFF pixels inside polygon...')
+          const pixelsInPolygon: Array<{
+            x: number
+            y: number
+            lat: number
+            lng: number
+            flux: number
+          }> = []
+
+          for (let y = 0; y < fluxGeoTiff.height; y++) {
+            for (let x = 0; x < fluxGeoTiff.width; x++) {
+              const { lat, lng } = pixelToLatLng(x, y, fluxGeoTiff)
+
+              // Check if this pixel is inside the custom polygon
+              if (isPointInPolygon(lat, lng)) {
+                const flux = getPixelValue(x, y, fluxGeoTiff, 0)
+                if (flux > 0) {
+                  // Only include pixels with solar flux data
+                  pixelsInPolygon.push({ x, y, lat, lng, flux })
+                }
+              }
+            }
+          }
+
+          console.log(`✅ Found ${pixelsInPolygon.length} pixels with solar data inside polygon`)
+
+          if (pixelsInPolygon.length === 0) {
+            throw new Error('No solar data found for the selected area. Please try a different location.')
+          }
+
+          // Calculate total annual energy from flux data
+          // Flux is in kWh/kW/year (annual irradiance)
+          const totalFlux = pixelsInPolygon.reduce((sum, p) => sum + p.flux, 0)
+          const avgFlux = totalFlux / pixelsInPolygon.length
+          console.log('☀️ Average solar flux:', avgFlux.toFixed(2), 'kWh/kW/year')
+
+          // Estimate panel count based on area
+          // Standard panel: 400W, 1.7m x 1.0m = 1.7m²
+          // Account for spacing, orientation, obstructions: use 60% of available area
+          const panelAreaM2 = 1.7
+          const usableArea = areaM2 * 0.6
+          const maxPanelCount = Math.floor(usableArea / panelAreaM2)
+          console.log('🔢 Estimated max panel count:', maxPanelCount)
+
+          // Generate solar panel positions based on real flux data
+          // Place panels at the locations with highest solar flux
+          console.log('🔆 Generating panel positions from real flux data...')
+
+          // Sort pixels by flux (highest first)
+          const sortedPixels = [...pixelsInPolygon].sort((a, b) => b.flux - a.flux)
+
+          // Panel standard specs (from Google Solar API)
+          const panelCapacityWatts = 400
+          const panelHeightMeters = 1.0
+          const panelWidthMeters = 1.7
+
+          // Calculate panel spacing in lat/lng degrees
+          // This is approximate but good enough for visualization
+          const metersPerDegreeLatitude = 111320 // ~111km per degree at equator
+          const metersPerDegreeLongitude =
+            111320 * Math.cos((centerLat * Math.PI) / 180)
+          const panelSpacingLat = panelWidthMeters / metersPerDegreeLatitude
+          const panelSpacingLng = panelWidthMeters / metersPerDegreeLongitude
+
+          // Place panels at high-flux locations, ensuring no overlap
+          const panels: Array<{
+            center: { latitude: number; longitude: number }
+            orientation: 'LANDSCAPE' | 'PORTRAIT'
+            segmentIndex: number
+            yearlyEnergyDcKwh: number
+          }> = []
+
+          const placedPositions = new Set<string>()
+
+          for (const pixel of sortedPixels) {
+            if (panels.length >= maxPanelCount) break
+
+            // Round position to grid to avoid overlap
+            const gridLat = Math.round(pixel.lat / panelSpacingLat) * panelSpacingLat
+            const gridLng = Math.round(pixel.lng / panelSpacingLng) * panelSpacingLng
+            const posKey = `${gridLat.toFixed(6)},${gridLng.toFixed(6)}`
+
+            if (placedPositions.has(posKey)) continue
+
+            // Calculate energy for this panel
+            // yearlyEnergyDcKwh = panelCapacity (kW) * flux (kWh/kW/year)
+            const panelCapacityKw = panelCapacityWatts / 1000
+            const yearlyEnergyDcKwh = panelCapacityKw * pixel.flux
+
+            panels.push({
+              center: {
+                latitude: gridLat,
+                longitude: gridLng,
+              },
+              orientation: 'LANDSCAPE',
+              segmentIndex: 0,
+              yearlyEnergyDcKwh,
+            })
+
+            placedPositions.add(posKey)
+          }
+
+          console.log(`✅ Placed ${panels.length} solar panels based on real flux data`)
+
+          // Calculate total energy production
+          const totalEnergyKwh = panels.reduce((sum, p) => sum + p.yearlyEnergyDcKwh, 0)
+          console.log('⚡ Total annual energy production:', totalEnergyKwh.toFixed(2), 'kWh')
 
           // Calculate roof orientation (azimuth) based on polygon geometry
           // Find the longest edge to determine the primary roof direction
@@ -200,50 +356,8 @@ export const useCalculatorStore = create<CalculatorStore>()(
 
           console.log('📐 Calculated roof azimuth:', azimuthDegrees, 'degrees')
 
-          // Generate mock solar panels positioned in a grid within the polygon
-          // Energy decreases slightly for each panel (best panels first)
-          const mockPanels = []
-          const energyPerPanel = estimatedEnergyKwh / estimatedPanelCount
-          const latSpan = maxLat - minLat
-          const lngSpan = maxLng - minLng
-
-          // Create a grid of panels
-          const cols = Math.ceil(Math.sqrt(estimatedPanelCount * (lngSpan / latSpan)))
-          const rows = Math.ceil(estimatedPanelCount / cols)
-          const latStep = latSpan / (rows + 1)
-          const lngStep = lngSpan / (cols + 1)
-
-          let panelIndex = 0
-          for (let row = 0; row < rows && panelIndex < estimatedPanelCount; row++) {
-            for (let col = 0; col < cols && panelIndex < estimatedPanelCount; col++) {
-              const lat = minLat + (row + 1) * latStep
-              const lng = minLng + (col + 1) * lngStep
-
-              // Add slight variation to energy output (±5%)
-              const variation = 0.95 + Math.random() * 0.1
-              const yearlyEnergy = energyPerPanel * variation
-
-              mockPanels.push({
-                center: {
-                  latitude: lat,
-                  longitude: lng,
-                },
-                orientation: 'LANDSCAPE' as const,
-                segmentIndex: 0,
-                yearlyEnergyDcKwh: yearlyEnergy,
-              })
-
-              panelIndex++
-            }
-          }
-
-          // Sort panels by energy output (highest first) to match real API behavior
-          mockPanels.sort((a, b) => b.yearlyEnergyDcKwh - a.yearlyEnergyDcKwh)
-          console.log('🔆 Generated', mockPanels.length, 'mock solar panels')
-
-          // Create a mock BuildingInsightsResponse for custom polygon
-          // This allows us to reuse the existing UI components
-          const mockBuildingInsights: BuildingInsightsResponse = {
+          // Create BuildingInsightsResponse with REAL data from GeoTIFF
+          const buildingInsights: BuildingInsightsResponse = {
             name: 'Custom Area',
             center: {
               latitude: centerLat,
@@ -259,21 +373,21 @@ export const useCalculatorStore = create<CalculatorStore>()(
                 longitude: maxLng,
               },
             },
-            imageryDate: { year: 2024, month: 1, day: 1 },
-            imageryProcessedDate: { year: 2024, month: 1, day: 1 },
+            imageryDate: dataLayers.imageryDate,
+            imageryProcessedDate: dataLayers.imageryProcessedDate,
             postalCode: '',
             administrativeArea: '',
             statisticalArea: '',
             regionCode: 'CH',
-            imageryQuality: 'BASE',
+            imageryQuality: dataLayers.imageryQuality,
             solarPotential: {
-              maxArrayPanelsCount: estimatedPanelCount,
-              panelCapacityWatts: 400,
-              panelHeightMeters: 1.0,
-              panelWidthMeters: 1.7,
+              maxArrayPanelsCount: panels.length,
+              panelCapacityWatts,
+              panelHeightMeters,
+              panelWidthMeters,
               panelLifetimeYears: 25,
               maxArrayAreaMeters2: areaM2,
-              maxSunshineHoursPerYear: 1500, // Average for Central Europe
+              maxSunshineHoursPerYear: avgFlux,
               carbonOffsetFactorKgPerMwh: 400,
               wholeRoofStats: {
                 areaMeters2: areaM2,
@@ -285,28 +399,59 @@ export const useCalculatorStore = create<CalculatorStore>()(
                 sunshineQuantiles: [],
                 groundAreaMeters2: areaM2,
               },
-              roofSegmentStats: [],
-              solarPanels: mockPanels,
+              roofSegmentStats: [
+                {
+                  pitchDegrees: 0, // We don't have pitch data from custom polygon
+                  azimuthDegrees,
+                  stats: {
+                    areaMeters2: areaM2,
+                    sunshineQuantiles: [],
+                    groundAreaMeters2: areaM2,
+                  },
+                  center: {
+                    latitude: centerLat,
+                    longitude: centerLng,
+                  },
+                  boundingBox: {
+                    sw: { latitude: minLat, longitude: minLng },
+                    ne: { latitude: maxLat, longitude: maxLng },
+                  },
+                  planeHeightAtCenterMeters: 0,
+                },
+              ],
+              solarPanels: panels,
               solarPanelConfigs: [
                 {
-                  panelsCount: estimatedPanelCount,
-                  yearlyEnergyDcKwh: estimatedEnergyKwh,
-                  roofSegmentSummaries: [],
+                  panelsCount: panels.length,
+                  yearlyEnergyDcKwh: totalEnergyKwh,
+                  roofSegmentSummaries: [
+                    {
+                      pitchDegrees: 0,
+                      azimuthDegrees,
+                      panelsCount: panels.length,
+                      yearlyEnergyDcKwh: totalEnergyKwh,
+                      segmentIndex: 0,
+                    },
+                  ],
                 },
               ],
             },
           }
 
-          console.log('✅ Mock building insights created:', mockBuildingInsights)
+          console.log('✅ Building insights created from real GeoTIFF data:', buildingInsights)
           set({
-            buildingInsights: mockBuildingInsights,
-            selectedPanelCount: estimatedPanelCount,
+            buildingInsights,
+            selectedPanelCount: panels.length,
+            isLoading: false,
           })
-          console.log('✅ Store updated with custom polygon data')
+          console.log('✅ Store updated with real solar data')
         } catch (error) {
           console.error('❌ Error calculating polygon data:', error)
+          const errorMessage =
+            error instanceof Error ? error.message : 'Failed to calculate solar potential for custom area'
           set({
-            error: 'Failed to calculate solar potential for custom area',
+            error: errorMessage,
+            isLoading: false,
           })
         }
       },
