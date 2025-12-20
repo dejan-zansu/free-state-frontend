@@ -223,7 +223,7 @@ export default function Step2BuildingMap() {
       ]
 
       const orientation = panel.orientation === 'PORTRAIT' ? 90 : 0
-      const azimuth = solarPotential.roofSegmentStats[panel.segmentIndex].azimuthDegrees
+      const azimuth = solarPotential.roofSegmentStats[panel.segmentIndex]?.azimuthDegrees ?? 180
 
       // Normalize energy to 0-1 range
       const normalizedEnergy = (panel.yearlyEnergyDcKwh - minEnergy) / (maxEnergy - minEnergy)

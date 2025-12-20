@@ -165,22 +165,73 @@ export const useCalculatorStore = create<CalculatorStore>()(
           const estimatedEnergyKwh = estimateEnergyProduction(estimatedPanelCount)
           console.log('⚡ Estimated energy production (kWh):', estimatedEnergyKwh)
 
+          // Calculate polygon centroid (center point)
+          const centerLat = polygon.reduce((sum, p) => sum + p.lat, 0) / polygon.length
+          const centerLng = polygon.reduce((sum, p) => sum + p.lng, 0) / polygon.length
+
+          // Calculate bounding box
+          const minLat = Math.min(...polygon.map((p) => p.lat))
+          const maxLat = Math.max(...polygon.map((p) => p.lat))
+          const minLng = Math.min(...polygon.map((p) => p.lng))
+          const maxLng = Math.max(...polygon.map((p) => p.lng))
+
+          // Generate mock solar panels positioned in a grid within the polygon
+          // Energy decreases slightly for each panel (best panels first)
+          const mockPanels = []
+          const energyPerPanel = estimatedEnergyKwh / estimatedPanelCount
+          const latSpan = maxLat - minLat
+          const lngSpan = maxLng - minLng
+
+          // Create a grid of panels
+          const cols = Math.ceil(Math.sqrt(estimatedPanelCount * (lngSpan / latSpan)))
+          const rows = Math.ceil(estimatedPanelCount / cols)
+          const latStep = latSpan / (rows + 1)
+          const lngStep = lngSpan / (cols + 1)
+
+          let panelIndex = 0
+          for (let row = 0; row < rows && panelIndex < estimatedPanelCount; row++) {
+            for (let col = 0; col < cols && panelIndex < estimatedPanelCount; col++) {
+              const lat = minLat + (row + 1) * latStep
+              const lng = minLng + (col + 1) * lngStep
+
+              // Add slight variation to energy output (±5%)
+              const variation = 0.95 + Math.random() * 0.1
+              const yearlyEnergy = energyPerPanel * variation
+
+              mockPanels.push({
+                center: {
+                  latitude: lat,
+                  longitude: lng,
+                },
+                orientation: 'LANDSCAPE' as const,
+                segmentIndex: 0,
+                yearlyEnergyDcKwh: yearlyEnergy,
+              })
+
+              panelIndex++
+            }
+          }
+
+          // Sort panels by energy output (highest first) to match real API behavior
+          mockPanels.sort((a, b) => b.yearlyEnergyDcKwh - a.yearlyEnergyDcKwh)
+          console.log('🔆 Generated', mockPanels.length, 'mock solar panels')
+
           // Create a mock BuildingInsightsResponse for custom polygon
           // This allows us to reuse the existing UI components
           const mockBuildingInsights: BuildingInsightsResponse = {
             name: 'Custom Area',
             center: {
-              latitude: polygon[0].lat,
-              longitude: polygon[0].lng,
+              latitude: centerLat,
+              longitude: centerLng,
             },
             boundingBox: {
               sw: {
-                latitude: Math.min(...polygon.map((p) => p.lat)),
-                longitude: Math.min(...polygon.map((p) => p.lng)),
+                latitude: minLat,
+                longitude: minLng,
               },
               ne: {
-                latitude: Math.max(...polygon.map((p) => p.lat)),
-                longitude: Math.max(...polygon.map((p) => p.lng)),
+                latitude: maxLat,
+                longitude: maxLng,
               },
             },
             imageryDate: { year: 2024, month: 1, day: 1 },
@@ -210,7 +261,7 @@ export const useCalculatorStore = create<CalculatorStore>()(
                 groundAreaMeters2: areaM2,
               },
               roofSegmentStats: [],
-              solarPanels: [],
+              solarPanels: mockPanels,
               solarPanelConfigs: [
                 {
                   panelsCount: estimatedPanelCount,
