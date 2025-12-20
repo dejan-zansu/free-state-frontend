@@ -25,6 +25,8 @@ interface CalculatorState {
   isFetchingNearby: boolean
   nearbyFetchError: string | null
   selectedRoofSegments: number[] // Array of segment indices
+  isDrawingMode: boolean
+  customRoofPolygon: Array<{ lat: number; lng: number }> | null
 
   // Step 3: Configuration
   panelCount: number
@@ -72,6 +74,9 @@ interface CalculatorActions {
   toggleRoofSegment: (segmentIndex: number) => void
   selectAllRoofSegments: () => void
   clearRoofSegments: () => void
+  setDrawingMode: (enabled: boolean) => void
+  setCustomRoofPolygon: (polygon: Array<{ lat: number; lng: number }> | null) => void
+  clearCustomPolygon: () => void
 
   // Step 3: Configuration
   setPanelCount: (count: number) => void
@@ -111,6 +116,8 @@ const initialState: CalculatorState = {
   isFetchingNearby: false,
   nearbyFetchError: null,
   selectedRoofSegments: [],
+  isDrawingMode: false,
+  customRoofPolygon: null,
 
   // Step 3
   panelCount: 0,
@@ -353,6 +360,29 @@ export const useCalculatorStore = create<CalculatorStore>()(
       clearRoofSegments: () => {
         set({
           selectedRoofSegments: [],
+          calculation: null,
+        })
+      },
+
+      setDrawingMode: (enabled: boolean) => {
+        set({
+          isDrawingMode: enabled,
+          // Clear roof segments when entering drawing mode
+          selectedRoofSegments: enabled ? [] : get().selectedRoofSegments,
+        })
+      },
+
+      setCustomRoofPolygon: (polygon: Array<{ lat: number; lng: number }> | null) => {
+        set({
+          customRoofPolygon: polygon,
+          calculation: null,
+        })
+      },
+
+      clearCustomPolygon: () => {
+        set({
+          customRoofPolygon: null,
+          isDrawingMode: false,
           calculation: null,
         })
       },

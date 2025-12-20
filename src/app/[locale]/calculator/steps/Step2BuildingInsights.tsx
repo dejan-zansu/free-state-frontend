@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
 import { useCalculatorStore } from '@/stores/calculator.store'
-import { getBuildingId } from '@/lib/utils'
+import { getBuildingId, isPointInPolygon } from '@/lib/utils'
 
 export default function Step2BuildingInsights() {
   const {
@@ -33,6 +33,8 @@ export default function Step2BuildingInsights() {
     isFetchingNearby,
     nearbyFetchError,
     selectedRoofSegments,
+    isDrawingMode,
+    customRoofPolygon,
     setShowPanels,
     fetchBuildingInsights,
     fetchNearbyBuildings,
@@ -40,6 +42,9 @@ export default function Step2BuildingInsights() {
     toggleRoofSegment,
     selectAllRoofSegments,
     clearRoofSegments,
+    setDrawingMode,
+    setCustomRoofPolygon,
+    clearCustomPolygon,
   } = useCalculatorStore()
 
   const mapRef = useRef<HTMLDivElement>(null)
@@ -48,6 +53,9 @@ export default function Step2BuildingInsights() {
   const buildingOutlinesRef = useRef<google.maps.Polygon[]>([])
   const selectedBuildingOutlineRef = useRef<google.maps.Polygon | null>(null)
   const roofSegmentPolygonsRef = useRef<google.maps.Polygon[]>([])
+  const customPolygonRef = useRef<google.maps.Polygon | null>(null)
+  const drawingPointsRef = useRef<Array<{ lat: number; lng: number }>>([])
+  const tempMarkersRef = useRef<google.maps.Marker[]>([])
   const [mapReady, setMapReady] = useState(false)
 
   // Fetch building insights on mount
@@ -95,6 +103,89 @@ export default function Step2BuildingInsights() {
     }
   }, [initializeMap, latitude, longitude])
 
+  // Handle drawing mode - click to add points
+  useEffect(() => {
+    if (!mapInstanceRef.current || !mapReady) return
+
+    const handleMapClick = (e: google.maps.MapMouseEvent) => {
+      if (!isDrawingMode || !e.latLng) return
+
+      const point = { lat: e.latLng.lat(), lng: e.latLng.lng() }
+      drawingPointsRef.current.push(point)
+
+      // Add marker for the point
+      const marker = new google.maps.Marker({
+        position: point,
+        map: mapInstanceRef.current,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 6,
+          fillColor: '#10B981',
+          fillOpacity: 1,
+          strokeColor: '#ffffff',
+          strokeWeight: 2,
+        },
+        draggable: true,
+      })
+
+      // Allow dragging points
+      marker.addListener('drag', () => {
+        const newPos = marker.getPosition()
+        if (newPos) {
+          const idx = tempMarkersRef.current.indexOf(marker)
+          if (idx !== -1) {
+            drawingPointsRef.current[idx] = { lat: newPos.lat(), lng: newPos.lng() }
+            updateDrawingPolygon()
+          }
+        }
+      })
+
+      tempMarkersRef.current.push(marker)
+      updateDrawingPolygon()
+    }
+
+    const updateDrawingPolygon = () => {
+      // Clear existing polygon
+      if (customPolygonRef.current) {
+        customPolygonRef.current.setMap(null)
+      }
+
+      if (drawingPointsRef.current.length >= 2) {
+        customPolygonRef.current = new google.maps.Polygon({
+          paths: drawingPointsRef.current,
+          strokeColor: '#10B981',
+          strokeOpacity: 1,
+          strokeWeight: 3,
+          fillColor: '#10B981',
+          fillOpacity: 0.2,
+          map: mapInstanceRef.current,
+          editable: false,
+        })
+      }
+    }
+
+    const clickListener = mapInstanceRef.current.addListener('click', handleMapClick)
+
+    return () => {
+      google.maps.event.removeListener(clickListener)
+    }
+  }, [mapReady, isDrawingMode])
+
+  // Clear drawing when exiting drawing mode
+  useEffect(() => {
+    if (!isDrawingMode && tempMarkersRef.current.length > 0) {
+      // Clear temp markers and polygon
+      tempMarkersRef.current.forEach((marker) => marker.setMap(null))
+      tempMarkersRef.current = []
+      drawingPointsRef.current = []
+
+      if (customPolygonRef.current && !customRoofPolygon) {
+        customPolygonRef.current.setMap(null)
+        customPolygonRef.current = null
+      }
+    }
+  }, [isDrawingMode, customRoofPolygon])
+
   // Draw solar panels on map
   useEffect(() => {
     if (!mapInstanceRef.current || !buildingInsights || !mapReady) return
@@ -111,12 +202,20 @@ export default function Step2BuildingInsights() {
     const config = solarPotential.solarPanelConfigs[selectedConfigIndex]
     const panelsToShow = config?.panelsCount || 0
 
-    // Filter panels to only show those in selected roof segments
+    // Filter panels by custom polygon OR selected roof segments
     const panelsToRender = solarPotential.solarPanels
       .slice(0, panelsToShow)
-      .filter((panel) =>
-        selectedRoofSegments.length === 0 || selectedRoofSegments.includes(panel.segmentIndex)
-      )
+      .filter((panel) => {
+        // If custom polygon is drawn, only show panels inside it
+        if (customRoofPolygon) {
+          return isPointInPolygon(
+            { lat: panel.center.latitude, lng: panel.center.longitude },
+            customRoofPolygon
+          )
+        }
+        // Otherwise filter by selected roof segments
+        return selectedRoofSegments.length === 0 || selectedRoofSegments.includes(panel.segmentIndex)
+      })
 
     if (panelsToRender.length === 0) return
 
@@ -168,7 +267,7 @@ export default function Step2BuildingInsights() {
 
       panelsRef.current.push(polygon)
     })
-  }, [buildingInsights, selectedConfigIndex, showPanels, mapReady, selectedRoofSegments])
+  }, [buildingInsights, selectedConfigIndex, showPanels, mapReady, selectedRoofSegments, customRoofPolygon])
 
   // Render building outlines for nearby buildings
   useEffect(() => {
@@ -398,40 +497,116 @@ export default function Step2BuildingInsights() {
           </Card>
         )}
 
-        {/* Roof Segment Selection */}
-        {solarPotential && solarPotential.roofSegmentStats.length > 0 && (
+        {/* Roof Area Selection */}
+        {solarPotential && (
           <Card className='border-energy/30 bg-energy/5'>
             <CardHeader className='pb-3'>
               <CardTitle className='text-sm flex items-center justify-between'>
-                <span>Roof Segments</span>
-                <span className='text-xs font-normal text-muted-foreground'>
-                  {selectedRoofSegments.length} / {solarPotential.roofSegmentStats.length} selected
-                </span>
+                <span>{isDrawingMode ? 'Draw Roof Area' : customRoofPolygon ? 'Custom Area' : 'Roof Segments'}</span>
+                {!isDrawingMode && !customRoofPolygon && solarPotential.roofSegmentStats.length > 0 && (
+                  <span className='text-xs font-normal text-muted-foreground'>
+                    {selectedRoofSegments.length} / {solarPotential.roofSegmentStats.length} selected
+                  </span>
+                )}
               </CardTitle>
             </CardHeader>
-            <CardContent className='space-y-2'>
-              <p className='text-xs text-muted-foreground mb-3'>
-                Click roof segments on map to select areas for solar installation
-              </p>
-              <div className='flex gap-2'>
-                <Button
-                  size='sm'
-                  variant='outline'
-                  onClick={selectAllRoofSegments}
-                  className='flex-1 text-xs h-8'
-                >
-                  Select All
-                </Button>
-                <Button
-                  size='sm'
-                  variant='outline'
-                  onClick={clearRoofSegments}
-                  className='flex-1 text-xs h-8'
-                  disabled={selectedRoofSegments.length === 0}
-                >
-                  Clear
-                </Button>
-              </div>
+            <CardContent className='space-y-3'>
+              {isDrawingMode ? (
+                <>
+                  <p className='text-xs text-muted-foreground'>
+                    Click on the map to place corner points. Drag points to adjust.
+                  </p>
+                  <div className='flex gap-2'>
+                    <Button
+                      size='sm'
+                      variant='default'
+                      onClick={() => {
+                        if (drawingPointsRef.current.length >= 3) {
+                          setCustomRoofPolygon(drawingPointsRef.current)
+                          setDrawingMode(false)
+                        }
+                      }}
+                      className='flex-1 text-xs h-8 bg-energy'
+                      disabled={drawingPointsRef.current.length < 3}
+                    >
+                      Finish ({drawingPointsRef.current.length} points)
+                    </Button>
+                    <Button
+                      size='sm'
+                      variant='outline'
+                      onClick={() => {
+                        setDrawingMode(false)
+                        drawingPointsRef.current = []
+                      }}
+                      className='flex-1 text-xs h-8'
+                    >
+                      Cancel
+                    </Button>
+                  </div>
+                </>
+              ) : customRoofPolygon ? (
+                <>
+                  <p className='text-xs text-muted-foreground'>
+                    Custom area defined with {customRoofPolygon.length} points
+                  </p>
+                  <div className='flex gap-2'>
+                    <Button
+                      size='sm'
+                      variant='outline'
+                      onClick={() => {
+                        setDrawingMode(true)
+                        clearCustomPolygon()
+                      }}
+                      className='flex-1 text-xs h-8'
+                    >
+                      Redraw
+                    </Button>
+                    <Button
+                      size='sm'
+                      variant='outline'
+                      onClick={clearCustomPolygon}
+                      className='flex-1 text-xs h-8'
+                    >
+                      Clear
+                    </Button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className='text-xs text-muted-foreground mb-1'>
+                    Click roof segments on map, or draw a custom area
+                  </p>
+                  {solarPotential.roofSegmentStats.length > 0 && (
+                    <div className='flex gap-2 mb-2'>
+                      <Button
+                        size='sm'
+                        variant='outline'
+                        onClick={selectAllRoofSegments}
+                        className='flex-1 text-xs h-8'
+                      >
+                        Select All
+                      </Button>
+                      <Button
+                        size='sm'
+                        variant='outline'
+                        onClick={clearRoofSegments}
+                        className='flex-1 text-xs h-8'
+                        disabled={selectedRoofSegments.length === 0}
+                      >
+                        Clear
+                      </Button>
+                    </div>
+                  )}
+                  <Button
+                    size='sm'
+                    variant='default'
+                    onClick={() => setDrawingMode(true)}
+                    className='w-full text-xs h-8 bg-energy'
+                  >
+                    Draw Custom Area
+                  </Button>
+                </>
+              )}
             </CardContent>
           </Card>
         )}
