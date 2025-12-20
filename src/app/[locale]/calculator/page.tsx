@@ -1,7 +1,7 @@
 'use client'
 
+import { ChevronLeft, ChevronRight, MapPin, Sun } from 'lucide-react'
 import { useEffect } from 'react'
-import { Sun, MapPin, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
@@ -60,21 +60,9 @@ export default function CalculatorPage() {
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background'>
-      {/* Header */}
       <div className='border-b bg-background/80 backdrop-blur-sm sticky top-0 z-40'>
         <div className='container mx-auto px-4 py-4'>
           <div className='flex items-center justify-between'>
-            <div className='flex items-center gap-3'>
-              <div className='w-10 h-10 rounded-xl bg-solar flex items-center justify-center'>
-                <Sun className='w-6 h-6 text-solar-foreground' />
-              </div>
-              <div>
-                <h1 className='text-xl font-bold'>Solar Calculator</h1>
-                <p className='text-sm text-muted-foreground'>Calculate your solar potential</p>
-              </div>
-            </div>
-
-            {/* Step indicators - Desktop */}
             <div className='hidden md:flex items-center gap-2'>
               {steps.map((step, index) => (
                 <div key={step.id} className='flex items-center'>
@@ -83,8 +71,8 @@ export default function CalculatorPage() {
                       currentStep === step.id
                         ? 'bg-solar text-solar-foreground'
                         : currentStep > step.id
-                          ? 'bg-energy/20 text-energy'
-                          : 'bg-muted text-muted-foreground'
+                        ? 'bg-energy/20 text-energy'
+                        : 'bg-muted text-muted-foreground'
                     }`}
                   >
                     <step.icon className='w-4 h-4' />
@@ -148,8 +136,8 @@ export default function CalculatorPage() {
                     currentStep === step.id
                       ? 'bg-solar'
                       : currentStep > step.id
-                        ? 'bg-energy'
-                        : 'bg-muted'
+                      ? 'bg-energy'
+                      : 'bg-muted'
                   }`}
                 />
               ))}
@@ -164,7 +152,11 @@ export default function CalculatorPage() {
             >
               {isLoading ? (
                 <>
-                  <svg className='animate-spin w-4 h-4' viewBox='0 0 24 24' fill='none'>
+                  <svg
+                    className='animate-spin w-4 h-4'
+                    viewBox='0 0 24 24'
+                    fill='none'
+                  >
                     <circle
                       className='opacity-25'
                       cx='12'

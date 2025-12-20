@@ -175,6 +175,31 @@ export const useCalculatorStore = create<CalculatorStore>()(
           const minLng = Math.min(...polygon.map((p) => p.lng))
           const maxLng = Math.max(...polygon.map((p) => p.lng))
 
+          // Calculate roof orientation (azimuth) based on polygon geometry
+          // Find the longest edge to determine the primary roof direction
+          let maxEdgeLength = 0
+          let azimuthDegrees = 180 // Default to south-facing
+
+          for (let i = 0; i < polygon.length; i++) {
+            const p1 = polygon[i]
+            const p2 = polygon[(i + 1) % polygon.length]
+
+            // Calculate edge length and bearing
+            const dLat = p2.lat - p1.lat
+            const dLng = p2.lng - p1.lng
+            const edgeLength = Math.sqrt(dLat * dLat + dLng * dLng)
+
+            if (edgeLength > maxEdgeLength) {
+              maxEdgeLength = edgeLength
+              // Calculate bearing (azimuth) of this edge
+              // Convert to degrees (0 = North, 90 = East, 180 = South, 270 = West)
+              const bearing = Math.atan2(dLng, dLat) * (180 / Math.PI)
+              azimuthDegrees = (bearing + 360) % 360
+            }
+          }
+
+          console.log('📐 Calculated roof azimuth:', azimuthDegrees, 'degrees')
+
           // Generate mock solar panels positioned in a grid within the polygon
           // Energy decreases slightly for each panel (best panels first)
           const mockPanels = []
