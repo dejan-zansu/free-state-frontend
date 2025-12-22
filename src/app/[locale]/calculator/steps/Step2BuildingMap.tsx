@@ -34,11 +34,13 @@ export default function Step2BuildingMap() {
   const buildingPolygonRef = useRef<google.maps.Polygon | null>(null)
   const solarPanelsRef = useRef<google.maps.Polygon[]>([])
   const markerRef = useRef<google.maps.Marker | null>(null)
+  const filteredPanelIndicesRef = useRef<Set<number> | null>(null) // Track which panels are inside adjusted polygon
   const customPolygonRef = useRef<google.maps.Polygon | null>(null)
   const mapClickListenerRef = useRef<google.maps.MapsEventListener | null>(null)
 
   const [geometryLibrary, setGeometryLibrary] =
     useState<google.maps.GeometryLibrary | null>(null)
+  const [redrawTrigger, setRedrawTrigger] = useState(0) // Trigger redraws when polygon is edited
 
   // Initialize map
   const initializeMap = useCallback(async () => {
@@ -245,7 +247,17 @@ export default function Step2BuildingMap() {
 
   // Handle polygon edit - filter panels that are inside the adjusted shape
   const handlePolygonEdit = useCallback(() => {
-    if (!buildingPolygonRef.current || !buildingInsights) return
+    console.log('🔔 handlePolygonEdit called')
+
+    if (!buildingPolygonRef.current) {
+      console.log('❌ No buildingPolygonRef.current')
+      return
+    }
+
+    if (!buildingInsights) {
+      console.log('❌ No buildingInsights')
+      return
+    }
 
     console.log('📝 Polygon edited, recalculating panels inside shape')
 
@@ -256,6 +268,8 @@ export default function Step2BuildingMap() {
       const point = path.getAt(i)
       polygonCoords.push({ lat: point.lat(), lng: point.lng() })
     }
+
+    console.log(`📐 Polygon has ${polygonCoords.length} vertices`)
 
     // Helper function to check if a point is inside the polygon
     function isPointInPolygon(lat: number, lng: number): boolean {
@@ -276,19 +290,38 @@ export default function Step2BuildingMap() {
 
     // Filter panels to only include those inside the adjusted polygon
     const allPanels = buildingInsights.solarPotential.solarPanels
-    const panelsInside = allPanels.filter((panel) =>
-      isPointInPolygon(panel.center.latitude, panel.center.longitude)
-    )
+    const panelIndicesInside = new Set<number>()
 
-    console.log(`📊 Panels after adjustment: ${panelsInside.length} of ${allPanels.length}`)
+    allPanels.forEach((panel, index) => {
+      const isInside = isPointInPolygon(panel.center.latitude, panel.center.longitude)
+      if (isInside) {
+        panelIndicesInside.add(index)
+      }
+      if (index < 3) {
+        console.log(`  Panel ${index}: ${isInside ? 'INSIDE' : 'OUTSIDE'} (${panel.center.latitude}, ${panel.center.longitude})`)
+      }
+    })
 
-    // Update the selected panel count to match filtered panels
-    const newMaxPanels = panelsInside.length
-    setPanelCount(Math.min(selectedPanelCount, newMaxPanels))
+    console.log(`📊 Panels after adjustment: ${panelIndicesInside.size} of ${allPanels.length}`)
+    console.log('📊 Panel indices inside:', Array.from(panelIndicesInside).slice(0, 10))
 
-    // Redraw panels with the updated selection
-    // This will be handled by the useEffect that watches selectedPanelCount
-  }, [buildingInsights, selectedPanelCount, setPanelCount])
+    // Store the filtered panel indices
+    const previousSize = filteredPanelIndicesRef.current?.size
+    filteredPanelIndicesRef.current = panelIndicesInside
+    console.log(`✅ Stored filtered indices: ${previousSize} -> ${panelIndicesInside.size}`)
+
+    // Update the selected panel count to exactly match filtered panels
+    console.log(`🔢 Setting panel count to ${panelIndicesInside.size}`)
+    setPanelCount(panelIndicesInside.size)
+
+    // Trigger a redraw by incrementing the trigger
+    console.log('🔄 Triggering redraw...')
+    setRedrawTrigger((prev) => {
+      const newValue = prev + 1
+      console.log(`  Redraw trigger: ${prev} -> ${newValue}`)
+      return newValue
+    })
+  }, [buildingInsights, setPanelCount, setRedrawTrigger])
 
   // Draw building polygon and solar panels
   const drawBuildingAndPanels = useCallback(() => {
@@ -303,11 +336,17 @@ export default function Step2BuildingMap() {
       return
     }
 
-    // Clear previous polygons
-    buildingPolygonRef.current?.setMap(null)
+    // Clear previous polygons (but keep the building polygon ref if it exists and we're just redrawing)
+    const keepBuildingPolygon = buildingPolygonRef.current && filteredPanelIndicesRef.current
+
+    if (!keepBuildingPolygon) {
+      buildingPolygonRef.current?.setMap(null)
+      buildingPolygonRef.current = null
+    }
+
     solarPanelsRef.current.forEach((panel) => panel.setMap(null))
     solarPanelsRef.current = []
-    console.log('🧹 Cleared previous polygons')
+    console.log('🧹 Cleared previous panel polygons', { keepBuildingPolygon })
 
     // Remove marker once building is selected
     markerRef.current?.setMap(null)
@@ -316,7 +355,9 @@ export default function Step2BuildingMap() {
 
     // Draw actual roof outline from panel positions
     // This gives us the real roof shape, not just a bounding box
-    if (solarPotential.solarPanels.length > 0) {
+    if (solarPotential.solarPanels.length > 0 && !buildingPolygonRef.current) {
+      console.log('🏗️ Creating new building polygon')
+
       // Get all panel positions
       const panelPositions = solarPotential.solarPanels.map((p) => ({
         lat: p.center.latitude,
@@ -342,22 +383,37 @@ export default function Step2BuildingMap() {
         map: mapInstanceRef.current,
       })
 
+      console.log('🎧 Adding polygon edit listeners')
+
       // Listen for polygon edits
       google.maps.event.addListener(
-        buildingPolygonRef.current,
+        buildingPolygonRef.current.getPath(),
         'set_at',
-        () => handlePolygonEdit()
+        () => {
+          console.log('🔔 Polygon vertex moved (set_at)')
+          handlePolygonEdit()
+        }
       )
       google.maps.event.addListener(
-        buildingPolygonRef.current,
+        buildingPolygonRef.current.getPath(),
         'insert_at',
-        () => handlePolygonEdit()
+        () => {
+          console.log('🔔 Polygon vertex added (insert_at)')
+          handlePolygonEdit()
+        }
       )
       google.maps.event.addListener(
-        buildingPolygonRef.current,
+        buildingPolygonRef.current.getPath(),
         'remove_at',
-        () => handlePolygonEdit()
+        () => {
+          console.log('🔔 Polygon vertex removed (remove_at)')
+          handlePolygonEdit()
+        }
       )
+
+      console.log('✅ Building polygon created with edit listeners')
+    } else if (buildingPolygonRef.current) {
+      console.log('♻️ Reusing existing building polygon')
     }
 
     // Draw solar panels with color gradient based on energy output
@@ -366,6 +422,7 @@ export default function Step2BuildingMap() {
       totalPanels: panels.length,
       selectedPanelCount,
       maxPanels: solarPotential.maxArrayPanelsCount,
+      hasFilteredIndices: !!filteredPanelIndicesRef.current,
     })
     if (panels.length === 0) {
       console.log('⚠️ No solar panels to draw')
@@ -378,8 +435,30 @@ export default function Step2BuildingMap() {
     // Create color palette (from light to dark blue)
     const palette = createColorPalette()
 
-    // Only draw the selected number of panels (best ones first)
-    const panelsToShow = panels.slice(0, selectedPanelCount)
+    // Filter panels based on adjusted polygon if it exists
+    let panelsToShow = panels
+    console.log('🔍 Filter check:', {
+      hasFilteredIndices: !!filteredPanelIndicesRef.current,
+      filteredIndicesSize: filteredPanelIndicesRef.current?.size,
+      selectedPanelCount,
+      totalPanels: panels.length,
+    })
+
+    if (filteredPanelIndicesRef.current) {
+      // Only draw panels that are inside the adjusted polygon
+      panelsToShow = panels.filter((_, index) => {
+        const isInside = filteredPanelIndicesRef.current!.has(index)
+        if (index < 3) {
+          console.log(`  Panel ${index}: ${isInside ? 'INSIDE' : 'OUTSIDE'}`)
+        }
+        return isInside
+      })
+      console.log(`🔍 Filtered to ${panelsToShow.length} panels inside adjusted polygon (from ${panels.length} total)`)
+    } else {
+      // No filter active - use selected panel count
+      panelsToShow = panels.slice(0, selectedPanelCount)
+      console.log(`📊 No filter - showing first ${selectedPanelCount} of ${panels.length} panels`)
+    }
     console.log(`🎨 Drawing ${panelsToShow.length} panels`)
 
     panelsToShow.forEach((panel) => {
@@ -442,6 +521,7 @@ export default function Step2BuildingMap() {
     geometryLibrary,
     createColorPalette,
     selectedPanelCount,
+    redrawTrigger,
   ])
 
   // Start drawing custom polygon
@@ -583,10 +663,13 @@ export default function Step2BuildingMap() {
   useEffect(() => {
     console.log('👁️ buildingInsights changed:', !!buildingInsights)
     if (buildingInsights) {
+      // Reset filtered panel indices when a new building is selected
+      filteredPanelIndicesRef.current = null
       console.log('🎨 Triggering drawBuildingAndPanels')
       drawBuildingAndPanels()
     }
-  }, [buildingInsights, drawBuildingAndPanels])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [buildingInsights])
 
   // Log drawing state for debugging
   useEffect(() => {

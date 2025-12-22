@@ -12,17 +12,16 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { useCalculatorStore } from '@/stores/new-calculator.store'
+import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
-export default function Step1Address() {
-  const { setLocation, latitude, address } = useCalculatorStore()
+export default function PVGISStep1Address() {
+  const { setLocation, latitude, address } = usePVGISCalculatorStore()
   const inputWrapperRef = useRef<HTMLDivElement>(null)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
 
   const initializeAutocomplete = useCallback(async () => {
     if (!inputWrapperRef.current) return
 
-    // Find the actual input element inside the wrapper
     const inputElement = inputWrapperRef.current.querySelector(
       'input[data-slot="input"]'
     ) as HTMLInputElement
@@ -38,7 +37,6 @@ export default function Step1Address() {
         return
       }
 
-      // Load Google Maps Places library
       const loader = new Loader({
         apiKey,
         version: 'weekly',
@@ -46,7 +44,6 @@ export default function Step1Address() {
 
       await loader.importLibrary('places')
 
-      // Initialize autocomplete
       autocompleteRef.current = new google.maps.places.Autocomplete(
         inputElement,
         {
@@ -57,7 +54,6 @@ export default function Step1Address() {
         }
       )
 
-      // Listen for place selection
       autocompleteRef.current.addListener('place_changed', () => {
         const place = autocompleteRef.current?.getPlace()
 
@@ -96,7 +92,7 @@ export default function Step1Address() {
             Enter Your Address
           </CardTitle>
           <CardDescription>
-            Enter your building address to analyze its solar potential
+            Enter your building address to start calculating your solar potential
           </CardDescription>
         </CardHeader>
         <CardContent className='space-y-4'>
