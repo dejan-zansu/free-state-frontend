@@ -65,6 +65,11 @@ export interface PVGISResult {
   co2Reduction: number // kg/year
 }
 
+export interface HorizonDataPoint {
+  A: number // Azimuth angle (degrees, 0=North)
+  H_hor: number // Horizon height (degrees above horizontal)
+}
+
 interface PVGISCalculatorState {
   // Navigation
   currentStep: number
@@ -77,6 +82,9 @@ interface PVGISCalculatorState {
 
   // Step 2: Roof polygon
   roofPolygon: RoofPolygon | null
+
+  // Step 2.5: Horizon data (shading analysis)
+  horizonData: HorizonDataPoint[] | null
 
   // Step 3: Building details
   buildingDetails: BuildingDetails | null
@@ -115,6 +123,9 @@ interface PVGISCalculatorActions {
   // Step 2
   setRoofPolygon: (polygon: RoofPolygon) => void
 
+  // Step 2.5
+  setHorizonData: (data: HorizonDataPoint[]) => void
+
   // Step 3
   setBuildingDetails: (details: BuildingDetails) => void
 
@@ -146,13 +157,14 @@ type PVGISCalculatorStore = PVGISCalculatorState & PVGISCalculatorActions
 
 const initialState: PVGISCalculatorState = {
   currentStep: 1,
-  totalSteps: 8, // 7 input steps + 1 results step
+  totalSteps: 9, // 8 input steps (including shading analysis) + 1 results step
 
   address: '',
   latitude: null,
   longitude: null,
 
   roofPolygon: null,
+  horizonData: null,
   buildingDetails: null,
 
   selectedPanel: null,
@@ -231,6 +243,11 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
         set({ roofPolygon: polygon, error: null })
       },
 
+      // Step 2.5: Horizon data
+      setHorizonData: (data) => {
+        set({ horizonData: data, error: null })
+      },
+
       // Step 3: Building details
       setBuildingDetails: (details) => {
         set({ buildingDetails: details, error: null })
@@ -271,7 +288,7 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
       // Calculate PVGIS results
       calculatePVGISResults: async () => {
         const state = get()
-        const { latitude, longitude, roofPolygon, selectedPanel, panelCount, panelPlacement } = state
+        const { latitude, longitude, roofPolygon, selectedPanel, panelCount, panelPlacement, horizonData } = state
 
         if (!latitude || !longitude || !selectedPanel || panelCount === 0) {
           set({ error: 'Missing required data for calculation' })
@@ -310,8 +327,17 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
             console.log('⚠️ No roof polygon - using address coordinates for PVGIS')
           }
 
+          // Use horizon endpoint if we have horizon data, otherwise use basic calculation
+          const apiEndpoint = horizonData
+            ? '/api/pvgis/calculate-with-horizon'
+            : '/api/pvgis/calculate'
+
+          if (horizonData) {
+            console.log('🏔️  Using horizon shading analysis for more accurate results')
+          }
+
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'}/api/pvgis/calculate`,
+            `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'}${apiEndpoint}`,
             {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },

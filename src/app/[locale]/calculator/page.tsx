@@ -1,37 +1,55 @@
 'use client'
 
-import { ChevronLeft, ChevronRight, MapPin, Sun } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
-import { useCalculatorStore } from '@/stores/new-calculator.store'
+import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
-import Step1Address from './steps/Step1Address'
-import Step2BuildingMap from './steps/Step2BuildingMap'
+import PVGISStep1Address from './steps/PVGISStep1Address'
+import PVGISStep2RoofDrawing from './steps/PVGISStep2RoofDrawing'
+import PVGISStep2_5ShadingAnalysis from './steps/PVGISStep2_5ShadingAnalysis'
+import PVGISStep3BuildingDetails from './steps/PVGISStep3BuildingDetails'
+import PVGISStep4PanelSelection from './steps/PVGISStep4PanelSelection'
+import PVGISStep5PanelPlacement from './steps/PVGISStep5PanelPlacement'
+import PVGISStep6Inverter from './steps/PVGISStep6Inverter'
+import PVGISStep7AdditionalParams from './steps/PVGISStep7AdditionalParams'
+import PVGISStep8Results from './steps/PVGISStep8Results'
 
 const steps = [
-  { id: 1, title: 'Location', icon: MapPin, description: 'Enter your address' },
-  { id: 2, title: 'Building', icon: Sun, description: 'Select your building' },
+  { id: 1, title: 'Address', description: 'Enter your location' },
+  { id: 2, title: 'Roof Area', description: 'Draw your roof' },
+  { id: 3, title: 'Shading', description: 'Analyze obstacles' },
+  { id: 4, title: 'Building', description: 'Building details' },
+  { id: 5, title: 'Panels', description: 'Select solar panels' },
+  { id: 6, title: 'Placement', description: 'Configure placement' },
+  { id: 7, title: 'Inverter', description: 'Select inverter' },
+  { id: 8, title: 'Parameters', description: 'Additional info' },
+  { id: 9, title: 'Results', description: 'Your solar system' },
 ]
 
-export default function CalculatorPage() {
+export default function PVGISCalculatorPage() {
   const {
     currentStep,
     totalSteps,
     isLoading,
     error,
-    latitude,
-    buildingInsights,
     nextStep,
     prevStep,
-    clearError,
-  } = useCalculatorStore()
+    setError,
+    // Step validation data
+    latitude,
+    roofPolygon,
+    buildingDetails,
+    selectedPanel,
+    panelCount,
+    selectedInverter,
+  } = usePVGISCalculatorStore()
 
-  // Clear error when step changes
   useEffect(() => {
-    clearError()
-  }, [currentStep, clearError])
+    setError(null)
+  }, [currentStep, setError])
 
   const progress = ((currentStep - 1) / (totalSteps - 1)) * 100
 
@@ -41,7 +59,19 @@ export default function CalculatorPage() {
       case 1:
         return latitude !== null
       case 2:
-        return buildingInsights !== null
+        return roofPolygon !== null && roofPolygon.area > 0
+      case 3:
+        return true // Shading analysis is automatic, can skip
+      case 4:
+        return buildingDetails !== null
+      case 5:
+        return selectedPanel !== null && panelCount > 0
+      case 6:
+        return true // Panel placement has defaults
+      case 7:
+        return selectedInverter !== null
+      case 8:
+        return true // Additional params have defaults
       default:
         return false
     }
@@ -50,53 +80,59 @@ export default function CalculatorPage() {
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return <Step1Address />
+        return <PVGISStep1Address />
       case 2:
-        return <Step2BuildingMap />
+        return <PVGISStep2RoofDrawing />
+      case 3:
+        return <PVGISStep2_5ShadingAnalysis />
+      case 4:
+        return <PVGISStep3BuildingDetails />
+      case 5:
+        return <PVGISStep4PanelSelection />
+      case 6:
+        return <PVGISStep5PanelPlacement />
+      case 7:
+        return <PVGISStep6Inverter />
+      case 8:
+        return <PVGISStep7AdditionalParams />
+      case 9:
+        return <PVGISStep8Results />
       default:
-        return <Step1Address />
+        return <PVGISStep1Address />
     }
   }
 
   return (
     <div className='min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background'>
+      {/* Header with progress */}
       <div className='border-b bg-background/80 backdrop-blur-sm sticky top-0 z-40'>
         <div className='container mx-auto px-4 py-4'>
-          <div className='flex items-center justify-between'>
-            <div className='hidden md:flex items-center gap-2'>
-              {steps.map((step, index) => (
-                <div key={step.id} className='flex items-center'>
-                  <div
-                    className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-colors ${
-                      currentStep === step.id
-                        ? 'bg-solar text-solar-foreground'
-                        : currentStep > step.id
-                        ? 'bg-energy/20 text-energy'
-                        : 'bg-muted text-muted-foreground'
-                    }`}
-                  >
-                    <step.icon className='w-4 h-4' />
-                    <span className='text-sm font-medium'>{step.title}</span>
-                  </div>
-                  {index < steps.length - 1 && (
-                    <ChevronRight className='w-4 h-4 mx-1 text-muted-foreground' />
-                  )}
-                </div>
-              ))}
+          <div className='flex items-center justify-between mb-4'>
+            <h1 className='text-2xl font-bold'>Solar Calculator</h1>
+            <div className='text-sm text-muted-foreground'>
+              Step {currentStep} of {totalSteps}
             </div>
           </div>
 
-          {/* Progress bar - Mobile */}
-          <div className='md:hidden mt-4'>
-            <div className='flex items-center justify-between mb-2'>
-              <span className='text-sm font-medium'>
-                Step {currentStep} of {totalSteps}
-              </span>
-              <span className='text-sm text-muted-foreground'>
-                {steps[currentStep - 1]?.title}
-              </span>
-            </div>
+          {/* Progress bar */}
+          <div className='space-y-2'>
             <Progress value={progress} className='h-2' />
+            <div className='hidden md:flex items-center justify-between text-xs'>
+              {steps.map((step) => (
+                <div
+                  key={step.id}
+                  className={`text-center ${
+                    currentStep === step.id
+                      ? 'text-solar font-semibold'
+                      : currentStep > step.id
+                      ? 'text-energy'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {step.title}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -125,24 +161,6 @@ export default function CalculatorPage() {
             <ChevronLeft className='w-4 h-4' />
             Back
           </Button>
-
-          <div className='flex items-center gap-2'>
-            {/* Step dots - Mobile */}
-            <div className='flex md:hidden items-center gap-1.5'>
-              {steps.map((step) => (
-                <div
-                  key={step.id}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    currentStep === step.id
-                      ? 'bg-solar'
-                      : currentStep > step.id
-                      ? 'bg-energy'
-                      : 'bg-muted'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
 
           {currentStep < totalSteps ? (
             <Button
@@ -181,10 +199,9 @@ export default function CalculatorPage() {
               )}
             </Button>
           ) : (
-            <Button className='gap-2 bg-energy hover:bg-energy/90 text-energy-foreground'>
-              Continue to Configuration
-              <ChevronRight className='w-4 h-4' />
-            </Button>
+            <div className='text-sm text-muted-foreground'>
+              Review your solar system details above
+            </div>
           )}
         </div>
       </main>

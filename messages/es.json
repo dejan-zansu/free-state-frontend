@@ -1,5 +1,105 @@
 {
   "title": "Free State AG",
-  "header": { "logoAlt": "Logo Free State AG" },
-  "footer": { "copyright": "© Free State AG" }
+  "header": {
+    "logoAlt": "Logo Free State AG",
+    "contact": "Contacto"
+  },
+  "nav": {
+    "home": "Inicio",
+    "calculator": "Calculadora solar",
+    "solutions": "Soluciones solares",
+    "companies": "Empresas",
+    "portfolio": "Portfolio",
+    "investors": "Para inversores"
+  },
+  "footer": {
+    "copyright": "©2025 FREESTATE AG. TODOS LOS DERECHOS RESERVADOS.",
+    "contact": "Contacto",
+    "navigation": "Navegación",
+    "community": "Comunidad",
+    "links": {
+      "home": "Inicio",
+      "solarSolutions": "Soluciones solares",
+      "companies": "Empresas",
+      "portfolio": "Portfolio",
+      "aboutUs": "Sobre nosotros",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "impressum": "Aviso legal"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Free State Solarabo",
+      "title": "Tu energía.\nTu techo.\nCero inversión.",
+      "subtitle": "Tu energía, nuestra responsabilidad\nsostenible y sin preocupaciones.",
+      "cta": {
+        "primary": "Comenzar",
+        "secondary": "Calculadora"
+      }
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Nuestra misión es hacer que la energía solar limpia sea accesible para todos sin inversión inicial, sin riesgos y con máxima transparencia.",
+      "learnMore": "Saber más"
+    },
+    "smartEnergy": {
+      "title": "Energía solar inteligente",
+      "description": "Electricidad asequible, seguridad completa, industria sostenible"
+    },
+    "stats": {
+      "experience": "Años de experiencia",
+      "customers": "Clientes satisfechos",
+      "installations": "Instalaciones exitosas",
+      "savings": "Ahorro de energía"
+    },
+    "adventages": {
+      "title": "Sus Ventajas",
+      "subtitle": "Energía sostenible, ahorros a largo plazo y total transparencia – sin tu propio riesgo de inversión.",
+      "learnMore": "Empezar ahora",
+      "noInvestment": {
+        "title": "Sin costos de inversión",
+        "description": "No asumes ningún riesgo financiero – nosotros asumimos todos los costos de planificación, instalación y mantenimiento de tu sistema solar."
+      },
+      "fullService": {
+        "title": "Servicio integral",
+        "description": "No asumes ningún riesgo financiero – nosotros asumimos todos los costos de planificación, instalación y mantenimiento de tu sistema solar."
+      },
+      "longTerm": {
+        "title": "Más económico a largo plazo",
+        "description": "No asumes ningún riesgo financiero – nosotros asumimos todos los costos de planificación, instalación y mantenimiento de tu sistema solar."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Energía sostenible, ahorros a largo plazo y total transparencia – sin tu propio riesgo de inversión.",
+      "item1": {
+        "title": "Tejado empresarial Zúrich",
+        "details": "30% de ahorro •\nSistema 250 kWp"
+      },
+      "item2": {
+        "title": "Nave industrial",
+        "details": "Reducción CO₂: 12 t/año • 400 kWp"
+      },
+      "item3": {
+        "title": "Agrícola St. Gallen",
+        "details": "Autoconsumo: 75% • 180 kWp"
+      },
+      "learnMore": "Saber más"
+    },
+    "forBusinesses": {
+      "title": "Energía solar para empresas",
+      "contentTitle": "Energía solar",
+      "description": "Le ayudamos a aprovechar al máximo su superficie de techo, reducir los costos de energía y construir un suministro de energía sostenible. Desde la planificación hasta la implementación llave en mano, acompañamos su proyecto: eficiente, confiable y adaptado a su empresa.",
+      "item1": {
+        "title": "Elemento 1 Título",
+        "description": "Elemento 1 descripción"
+      },
+      "item2": {
+        "title": "Elemento 2 Título",
+        "description": "Elemento 2 descripción"
+      }
+    }
+  }
 }

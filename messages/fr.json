@@ -1,5 +1,105 @@
 {
   "title": "Free State AG",
-  "header": { "logoAlt": "Logo Free State AG" },
-  "footer": { "copyright": "© Free State AG" }
+  "header": {
+    "logoAlt": "Logo Free State AG",
+    "contact": "Contact"
+  },
+  "nav": {
+    "home": "Accueil",
+    "calculator": "Calculateur solaire",
+    "solutions": "Solutions solaires",
+    "companies": "Entreprises",
+    "portfolio": "Portfolio",
+    "investors": "Pour les investisseurs"
+  },
+  "footer": {
+    "copyright": "©2025 FREESTATE AG. TOUS DROITS RÉSERVÉS.",
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "community": "Communauté",
+    "links": {
+      "home": "Accueil",
+      "solarSolutions": "Solutions solaires",
+      "companies": "Entreprises",
+      "portfolio": "Portfolio",
+      "aboutUs": "À propos de nous",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "impressum": "Mentions légales"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Free State Solarabo",
+      "title": "Votre énergie.\nVotre toit.\nZéro investissement.",
+      "subtitle": "Votre énergie, notre responsabilité\ndurable et sans souci.",
+      "cta": {
+        "primary": "Commencer",
+        "secondary": "Calculateur"
+      }
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "description": "Notre mission est de rendre l'énergie solaire propre accessible à tous sans investissement initial, sans risque et avec une transparence maximale.",
+      "learnMore": "En savoir plus"
+    },
+    "smartEnergy": {
+      "title": "Énergie solaire intelligente",
+      "description": "Électricité abordable, sécurité complète, industrie durable"
+    },
+    "stats": {
+      "experience": "Années d'expérience",
+      "customers": "Clients satisfaits",
+      "installations": "Installations réussies",
+      "savings": "Économies d'énergie"
+    },
+    "adventages": {
+      "title": "Vos Avantages",
+      "subtitle": "Énergie durable, économies à long terme et transparence totale – sans risque d'investissement personnel.",
+      "learnMore": "Commencer maintenant",
+      "noInvestment": {
+        "title": "Aucun coût d'investissement",
+        "description": "Vous ne supportez aucun risque financier – nous prenons en charge tous les coûts de planification, d'installation et de maintenance de votre système solaire."
+      },
+      "fullService": {
+        "title": "Service tout compris",
+        "description": "Vous ne supportez aucun risque financier – nous prenons en charge tous les coûts de planification, d'installation et de maintenance de votre système solaire."
+      },
+      "longTerm": {
+        "title": "Moins cher à long terme",
+        "description": "Vous ne supportez aucun risque financier – nous prenons en charge tous les coûts de planification, d'installation et de maintenance de votre système solaire."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Énergie durable, économies à long terme et transparence totale – sans risque d'investissement personnel.",
+      "item1": {
+        "title": "Toit d'entreprise Zurich",
+        "details": "30% d'économies •\nSystème 250 kWp"
+      },
+      "item2": {
+        "title": "Halle industrielle",
+        "details": "Réduction CO₂ : 12 t/an • 400 kWp"
+      },
+      "item3": {
+        "title": "Agricole St. Gallen",
+        "details": "Autoconsommation : 75% • 180 kWp"
+      },
+      "learnMore": "En savoir plus"
+    },
+    "forBusinesses": {
+      "title": "Énergie solaire pour les entreprises",
+      "contentTitle": "Énergie solaire",
+      "description": "Nous vous aidons à optimiser l'utilisation de votre surface de toit, à réduire les coûts énergétiques et à construire un approvisionnement énergétique durable. De la planification à la mise en œuvre clé en main, nous accompagnons votre projet – efficace, fiable et adapté à votre entreprise.",
+      "item1": {
+        "title": "Élément 1 Titre",
+        "description": "Élément 1 description"
+      },
+      "item2": {
+        "title": "Élément 2 Titre",
+        "description": "Élément 2 description"
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
-import Footer from '@/componenets/Footer'
-import Header from '@/componenets/Header'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -29,7 +29,7 @@ export default async function LocaleLayout({
     <NextIntlClientProvider messages={messages} locale={locale}>
       <Header />
       <main className='flex-1'>{children}</main>
-      <Footer />
+      <Footer locale={locale} />
     </NextIntlClientProvider>
   )
 }

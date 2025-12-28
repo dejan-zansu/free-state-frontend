@@ -1,7 +1,26 @@
 {
   "title": "Free State AG",
-  "header": { "logoAlt": "Free State AG logo" },
-  "footer": { "copyright": "©2025 freestateag. All rights reserved." },
+  "header": {
+    "logoAlt": "Free State AG logo",
+    "contact": "Contact"
+  },
+  "footer": {
+    "copyright": "©2025 FREESTATE AG. ALLE RECHTE VORBEHALTEN.",
+    "contact": "Contact",
+    "navigation": "Navigation",
+    "community": "Community",
+    "links": {
+      "home": "Home",
+      "solarSolutions": "Solar Solutions",
+      "companies": "Companies",
+      "portfolio": "Portfolio",
+      "aboutUs": "About Us",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "impressum": "Impressum"
+    }
+  },
   "nav": {
     "home": "Home",
     "calculator": "Solar Calculator",
@@ -12,8 +31,9 @@
   },
   "home": {
     "hero": {
-      "title": "Your power. Your roof. Zero investment.",
-      "subtitle": "Your energy, our responsibility sustainable and worry-free.",
+      "badge": "Free State Solarabo",
+      "title": "Your Power.\nYour Roof.\nZero Investment.",
+      "subtitle": "Your energy, our responsibility\nsustainable and worry-free.",
       "cta": {
         "primary": "Get started",
         "secondary": "Calculator"
@@ -25,8 +45,8 @@
       "learnMore": "Learn more"
     },
     "smartEnergy": {
-      "title": "Smart solar energy",
-      "description": "Affordable electricity, complete security, sustainable solution."
+      "title": "Smart Solar Energy",
+      "description": "Affordable electricity, complete security, sustainable industry"
     },
     "stats": {
       "experience": "Years of experience",
@@ -57,9 +77,10 @@
         }
       }
     },
-    "features": {
+    "adventages": {
       "title": "Your advantages",
       "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
+      "learnMore": "Start now",
       "noInvestment": {
         "title": "No investment costs",
         "description": "You bear no financial risks – we take over all costs for planning, installation and maintenance of your solar system."
@@ -78,17 +99,30 @@
       "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
       "item1": {
         "title": "Company roof Zurich",
-        "details": "30% cost savings • 250 kWp system"
+        "details": "• 30% cost savings \n• 250 kWp system"
       },
       "item2": {
         "title": "Industrial hall",
-        "details": "CO₂ reduction: 12 t/year • 400 kWp"
+        "details": "• CO₂ reduction: 12 t/year \n• 400 kWp"
       },
       "item3": {
         "title": "Agricultural St. Gallen",
-        "details": "Self-consumption: 75% • 180 kWp"
+        "details": "• Self-consumption: 75% \n• 180 kWp"
       },
       "learnMore": "Learn more"
+    },
+    "forBusinesses": {
+      "title": "Solar energy for businesses",
+      "contentTitle": "Solar energy",
+      "description": "We help you make optimal use of your roof space, reduce energy costs and build a sustainable energy supply. From planning to turnkey implementation, we accompany your project – efficient, reliable and tailored to your company.",
+      "item1": {
+        "title": "Item 1 Title",
+        "description": "Item 1 description"
+      },
+      "item2": {
+        "title": "Item 2 Title",
+        "description": "Item 2 description"
+      }
     }
   }
 }

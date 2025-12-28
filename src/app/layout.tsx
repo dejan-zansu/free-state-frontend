@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Figtree } from 'next/font/google'
 import './globals.css'
 
 const geistSans = Geist({
@@ -10,6 +10,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
+})
+
+const figtree = Figtree({
+  variable: '--font-figtree',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
 })
 
 export const metadata: Metadata = {
@@ -25,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='light' suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} antialiased flex flex-col min-h-screen`}
       >
         {children}
       </body>

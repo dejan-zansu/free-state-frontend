@@ -1,5 +1,105 @@
 {
   "title": "Free State AG",
-  "header": { "logoAlt": "Logo Free State AG" },
-  "footer": { "copyright": "© Free State AG" }
+  "header": {
+    "logoAlt": "Logo Free State AG",
+    "contact": "Kontakt"
+  },
+  "nav": {
+    "home": "Početna",
+    "calculator": "Solarni kalkulator",
+    "solutions": "Solarna rešenja",
+    "companies": "Kompanije",
+    "portfolio": "Portfolio",
+    "investors": "Za investitore"
+  },
+  "footer": {
+    "copyright": "©2025 FREESTATE AG. SVA PRAVA ZADRŽANA.",
+    "contact": "Kontakt",
+    "navigation": "Navigacija",
+    "community": "Zajednica",
+    "links": {
+      "home": "Početna",
+      "solarSolutions": "Solarna rešenja",
+      "companies": "Kompanije",
+      "portfolio": "Portfolio",
+      "aboutUs": "O nama",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "impressum": "Impresum"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Free State Solarabo",
+      "title": "Vaša energija.\nVaš krov.\nNula investicije.",
+      "subtitle": "Vaša energija, naša odgovornost\nodrživo i bez brige.",
+      "cta": {
+        "primary": "Počni",
+        "secondary": "Kalkulator"
+      }
+    },
+    "mission": {
+      "title": "Naša Misija",
+      "description": "Naša misija je da učinimo čistu solarnu energiju dostupnom svima bez početne investicije, bez rizika i sa maksimalnom transparentnošću.",
+      "learnMore": "Saznaj više"
+    },
+    "smartEnergy": {
+      "title": "Pametna solarna energija",
+      "description": "Pristupačna struja, potpuna sigurnost, održiva industrija"
+    },
+    "stats": {
+      "experience": "Godine iskustva",
+      "customers": "Zadovoljni klijenti",
+      "installations": "Uspešne instalacije",
+      "savings": "Ušteda energije"
+    },
+    "adventages": {
+      "title": "Vaše Prednosti",
+      "subtitle": "Održiva energija, dugoročne uštede i potpuna transparentnost – bez vašeg rizika investicije.",
+      "learnMore": "Počni sada",
+      "noInvestment": {
+        "title": "Bez troškova investicije",
+        "description": "Ne snosite nikakve finansijske rizike – mi preuzimamo sve troškove planiranja, instalacije i održavanja vašeg solarnog sistema."
+      },
+      "fullService": {
+        "title": "Kompletan servis",
+        "description": "Ne snosite nikakve finansijske rizike – mi preuzimamo sve troškove planiranja, instalacije i održavanja vašeg solarnog sistema."
+      },
+      "longTerm": {
+        "title": "Jeftinije dugoročno",
+        "description": "Ne snosite nikakve finansijske rizike – mi preuzimamo sve troškove planiranja, instalacije i održavanja vašeg solarnog sistema."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Održiva energija, dugoročne uštede i potpuna transparentnost – bez vašeg rizika investicije.",
+      "item1": {
+        "title": "Krov kompanije Cirih",
+        "details": "30% uštede •\nSistem 250 kWp"
+      },
+      "item2": {
+        "title": "Industrijska hala",
+        "details": "Smanjenje CO₂: 12 t/god • 400 kWp"
+      },
+      "item3": {
+        "title": "Poljoprivreda St. Gallen",
+        "details": "Sopstvena potrošnja: 75% • 180 kWp"
+      },
+      "learnMore": "Saznaj više"
+    },
+    "forBusinesses": {
+      "title": "Solarna energija za kompanije",
+      "contentTitle": "Solarna energija",
+      "description": "Pomažemo vam da optimalno iskoristite svoju krovnu površinu, smanjite troškove energije i izgradite održivo snabdevanje energijom. Od planiranja do ključ u ruke implementacije, pratimo vaš projekat – efikasno, pouzdano i prilagođeno vašoj kompaniji.",
+      "item1": {
+        "title": "Stavka 1 Naslov",
+        "description": "Stavka 1 opis"
+      },
+      "item2": {
+        "title": "Stavka 2 Naslov",
+        "description": "Stavka 2 opis"
+      }
+    }
+  }
 }

@@ -1,5 +1,105 @@
 {
   "title": "Free State AG",
-  "header": { "logoAlt": "Logo Free State AG" },
-  "footer": { "copyright": "© Free State AG" }
+  "header": {
+    "logoAlt": "Logo Free State AG",
+    "contact": "Contatto"
+  },
+  "nav": {
+    "home": "Home",
+    "calculator": "Calcolatore solare",
+    "solutions": "Soluzioni solari",
+    "companies": "Aziende",
+    "portfolio": "Portfolio",
+    "investors": "Per gli investitori"
+  },
+  "footer": {
+    "copyright": "©2025 FREESTATE AG. TUTTI I DIRITTI RISERVATI.",
+    "contact": "Contatto",
+    "navigation": "Navigazione",
+    "community": "Comunità",
+    "links": {
+      "home": "Home",
+      "solarSolutions": "Soluzioni solari",
+      "companies": "Aziende",
+      "portfolio": "Portfolio",
+      "aboutUs": "Chi siamo",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "impressum": "Note legali"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Free State Solarabo",
+      "title": "La tua energia.\nIl tuo tetto.\nZero investimento.",
+      "subtitle": "La tua energia, la nostra responsabilità\nsostenibile e senza preoccupazioni.",
+      "cta": {
+        "primary": "Inizia",
+        "secondary": "Calcolatore"
+      }
+    },
+    "mission": {
+      "title": "La Nostra Missione",
+      "description": "La nostra missione è rendere l'energia solare pulita accessibile a tutti senza investimento iniziale, senza rischi e con massima trasparenza.",
+      "learnMore": "Scopri di più"
+    },
+    "smartEnergy": {
+      "title": "Energia solare intelligente",
+      "description": "Elettricità conveniente, sicurezza completa, industria sostenibile"
+    },
+    "stats": {
+      "experience": "Anni di esperienza",
+      "customers": "Clienti soddisfatti",
+      "installations": "Installazioni riuscite",
+      "savings": "Risparmio energetico"
+    },
+    "adventages": {
+      "title": "I Vostri Vantaggi",
+      "subtitle": "Energia sostenibile, risparmi a lungo termine e piena trasparenza – senza il tuo rischio di investimento.",
+      "learnMore": "Inizia ora",
+      "noInvestment": {
+        "title": "Nessun costo di investimento",
+        "description": "Non sostenete alcun rischio finanziario – noi ci assumiamo tutti i costi di pianificazione, installazione e manutenzione del vostro impianto solare."
+      },
+      "fullService": {
+        "title": "Servizio completo",
+        "description": "Non sostenete alcun rischio finanziario – noi ci assumiamo tutti i costi di pianificazione, installazione e manutenzione del vostro impianto solare."
+      },
+      "longTerm": {
+        "title": "Più economico a lungo termine",
+        "description": "Non sostenete alcun rischio finanziario – noi ci assumiamo tutti i costi di pianificazione, installazione e manutenzione del vostro impianto solare."
+      }
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "subtitle": "Energia sostenibile, risparmi a lungo termine e piena trasparenza – senza il tuo rischio di investimento.",
+      "item1": {
+        "title": "Tetto aziendale Zurigo",
+        "details": "30% di risparmio •\nSistema 250 kWp"
+      },
+      "item2": {
+        "title": "Capannone industriale",
+        "details": "Riduzione CO₂: 12 t/anno • 400 kWp"
+      },
+      "item3": {
+        "title": "Agricolo St. Gallen",
+        "details": "Autoconsumo: 75% • 180 kWp"
+      },
+      "learnMore": "Scopri di più"
+    },
+    "forBusinesses": {
+      "title": "Energia solare per le aziende",
+      "contentTitle": "Energia solare",
+      "description": "Vi aiutiamo a sfruttare al meglio la superficie del vostro tetto, ridurre i costi energetici e costruire un approvvigionamento energetico sostenibile. Dalla pianificazione all'implementazione chiavi in mano, accompagniamo il vostro progetto – efficiente, affidabile e su misura per la vostra azienda.",
+      "item1": {
+        "title": "Elemento 1 Titolo",
+        "description": "Elemento 1 descrizione"
+      },
+      "item2": {
+        "title": "Elemento 2 Titolo",
+        "description": "Elemento 2 descrizione"
+      }
+    }
+  }
 }

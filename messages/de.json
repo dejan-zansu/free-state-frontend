@@ -1,7 +1,26 @@
 {
   "title": "Free State AG",
-  "header": { "logoAlt": "Free State AG Logo" },
-  "footer": { "copyright": "©2025 freestateag. Alle Rechte vorbehalten." },
+  "header": {
+    "logoAlt": "Free State AG Logo",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "copyright": "©2025 FREESTATE AG. ALLE RECHTE VORBEHALTEN.",
+    "contact": "Kontakt",
+    "navigation": "Navigation",
+    "community": "Community",
+    "links": {
+      "home": "Home",
+      "solarSolutions": "Solarlösungen",
+      "companies": "Unternehmen",
+      "portfolio": "Portfolio",
+      "aboutUs": "Über uns",
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "impressum": "Impressum"
+    }
+  },
   "nav": {
     "home": "Home",
     "calculator": "Solarkalkulator",
@@ -12,8 +31,9 @@
   },
   "home": {
     "hero": {
-      "title": "Dein Strom. Dein Dach. Null Investition.",
-      "subtitle": "Ihre Energie, unsere Verantwortung nachhaltig und sorgenfrei",
+      "badge": "Free State Solarabo",
+      "title": "Dein Strom.\nDein Dach.\nNull Investition.",
+      "subtitle": "Ihre Energie, unsere Verantwortung\nnachhaltig und sorgenfrei",
       "cta": {
         "primary": "Jetzt starten",
         "secondary": "Kalkulator"
@@ -26,7 +46,7 @@
     },
     "smartEnergy": {
       "title": "Smarte Solarenergie",
-      "description": "Günstiger Strom, volle Sicherheit, nachhaltige Lösung."
+      "description": "Günstiger Strom, volle Sicherheit, nachhaltige Industrie"
     },
     "stats": {
       "experience": "Jahre Erfahrung",
@@ -57,9 +77,10 @@
         }
       }
     },
-    "features": {
+    "adventages": {
       "title": "Ihre Vorteile",
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
+      "learnMore": "Jetzt starten",
       "noInvestment": {
         "title": "Keine Investitionskosten",
         "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
@@ -78,7 +99,7 @@
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
       "item1": {
         "title": "Firmendach Zürich",
-        "details": "30 % Kosteneinsparung • 250 kWp Anlage"
+        "details": "30 % Kosteneinsparung •\n250 kWp Anlage"
       },
       "item2": {
         "title": "Industriehalle",
@@ -89,6 +110,19 @@
         "details": "Eigenverbrauch: 75 % • 180 kWp"
       },
       "learnMore": "Mehr Erfahren"
+    },
+    "forBusinesses": {
+      "title": "Solarenergie für Unternehmen",
+      "contentTitle": "Solarenergie",
+      "description": "Wir helfen Ihnen, Ihre Dachfläche optimal zu nutzen, Energiekosten zu senken und eine nachhaltige Energieversorgung aufzubauen. Von der Planung bis zur schlüsselfertigen Umsetzung begleiten wir Ihr Projekt – effizient, zuverlässig und auf Ihr Unternehmen abgestimmt.",
+      "item1": {
+        "title": "Punkt 1 Titel",
+        "description": "Punkt 1 Beschreibung"
+      },
+      "item2": {
+        "title": "Punkt 2 Titel",
+        "description": "Punkt 2 Beschreibung"
+      }
     }
   }
 }
