@@ -15,6 +15,7 @@
       "companies": "Unternehmen",
       "portfolio": "Portfolio",
       "aboutUs": "Über uns",
+      "contact": "Kontakt",
       "facebook": "Facebook",
       "twitter": "Twitter",
       "instagram": "Instagram",
@@ -32,7 +33,7 @@
   "home": {
     "hero": {
       "badge": "Free State Solarabo",
-      "title": "Dein Strom.\nDein Dach.\nNull Investition.",
+      "title": "Dein Dach.\nDein Strom.\nNull Investition.",
       "subtitle": "Ihre Energie, unsere Verantwortung\nnachhaltig und sorgenfrei",
       "cta": {
         "primary": "Jetzt starten",
@@ -42,45 +43,116 @@
     "mission": {
       "title": "Unsere Mission",
       "description": "Unsere Mission ist es, saubere Solarenergie für alle zugänglich zu machen – ohne Investitionskosten, ohne Risiko und mit maximaler Transparenz.",
-      "learnMore": "Mehr Erfahren"
+      "learnMore": "Mehr erfahren"
     },
     "smartEnergy": {
       "title": "Smarte Solarenergie",
       "description": "Günstiger Strom, volle Sicherheit, nachhaltige Industrie"
     },
     "stats": {
+      "projects": "Realisierte Projekte",
       "experience": "Jahre Erfahrung",
-      "customers": "Zufriedene Kunden",
-      "installations": "Erfolgreiche Installationen",
-      "savings": "Stromeinsparung"
+      "savings": "Kostenersparnisse unsere Kunden",
+      "employees": "Mitarbeiter"
     },
-    "solarabo": {
-      "badge": "Mit lebenslangem vorteil",
+    "deals": {
       "title": "Aktuelle Deals",
-      "subtitle": "Solarenergie für Unternehmen",
-      "card": {
-        "title": "SolarAbo Home",
-        "subtitle": "Für Einfamilienhäuser ohne Speicher",
-        "feature1": "Black-Module 450 Wp",
-        "feature2": "Live-App Monitoring",
-        "feature3": "Versicherung & Wartung",
-        "feature4": "CO₂-Reduktion bis 2 t/Jahr",
-        "term": "Laufzeit 35 Jahre – mit Rückkaufoption",
-        "price": "ab CHF 39.95 / Monat",
-        "benefit1": "0 CHF Investition",
-        "benefit2": "30% Strompreis",
-        "benefit3": "Gratis Aktivierung (statt CHF 990)",
-        "cta": "Mehr Erfahren",
-        "explanation": {
-          "label": "Einfach erklärt:",
-          "text": "Wie bei einem Handy-Abo – du nutzt die Anlage, wir übernehmen Bau, Finanzierung & Service."
+      "subtitle": "Mit lebenslangem vorteil",
+      "learnMore": "Mehr Erfahren",
+      "from": "ab",
+      "month": "/ Monat",
+      "cards": [
+        {
+          "title": "SolarAbo Home",
+          "subtitle": "Für Einfamilienhäuser ohne Speicher",
+          "feature1": "Black-Module 450 Wp + Hochleistungs-Wechselrichter",
+          "feature2": "Live-Monitoring via App – Produktion, Verbrauch, Einsparung in Echtzeit",
+          "feature3": "Versicherung & Wartung inklusive",
+          "feature4": "CO₂-Reduktion: bis 2 t pro Jahr",
+          "term": "Laufzeit 35 Jahre mit Rückkaufoption",
+          "price": "ab CHF 39.95 / Monat",
+          "benefit1": "0 CHF Investition – statt CHF 25 000 Kaufpreis",
+          "benefit2": "30 % günstigerer Strom als dein aktueller Netzpreis",
+          "benefit3": "GRATIS AKTIVIERUNG (statt CHF 990)",
+          "explanation": {
+            "label": "Einfach erklärt:",
+            "text": "Wie bei einem Handy-Abo. Du nutzt die Anlage, wir übernehmen Bau, Finanzierung, Betrieb und Service. Nach der Laufzeit gehört dir die Anlage – kostenlos."
+          }
+        },
+        {
+          "title": "SolarAbo Home Storage",
+          "subtitle": "Einfamilienhaus mit Batteriespeicher",
+          "feature1": "PV Anlage + 10 kWh Batterie (LFP-Technologie)",
+          "feature2": "80 % Eigenverbrauch, volle Unabhängigkeit",
+          "feature3": "App-basierte Steuerung und Energieanalyse",
+          "feature4": "Dachnutzungs- und Rückkaufvertrag inklusive",
+          "term": "Laufzeit 35 Jahre – Anlage geht danach in dein Eigentum über",
+          "price": "Einmalig CHF 2 500",
+          "benefit1": "EINMALIG CHF 2 500 – statt CHF 35 000 Investition",
+          "benefit2": "Strompreis bis 40 % unter EVU-Tarif",
+          "benefit3": "Volle Energieunabhängigkeit",
+          "explanation": {
+            "label": "Einfach erklärt:",
+            "text": "Fortgeschrittenes Solarsystem mit Batteriespeicher für maximalen Eigenverbrauch und Energieunabhängigkeit."
+          }
+        },
+        {
+          "title": "SolarAbo Business",
+          "subtitle": "Für Gewerbe und Industrie",
+          "feature1": "Leistung 100–1 000 kWp auf Dach oder Fassade",
+          "feature2": "Fixpreis 0.18 CHF/kWh (inkl. Wartung und Versicherung)",
+          "feature3": "Option: Batteriespeicher & Ladeinfrastruktur",
+          "feature4": "Langfristige Energiepreis-Stabilität & ESG-Vorteile",
+          "term": "Vertragsdauer 20–25 Jahre mit Rückkaufoption",
+          "price": "Individuelle Preisgestaltung",
+          "benefit1": "0 CHF Investition – statt CHF 250 000 CAPEX",
+          "benefit2": "Fixpreis für langfristige Planung",
+          "benefit3": "ESG-Vorteile und Nachhaltigkeit",
+          "explanation": {
+            "label": "Einfach erklärt:",
+            "text": "Komplette Solarlösung für Unternehmen: Wir kümmern uns um alles von der Installation bis zur Wartung, Sie sparen Energiekosten und verbessern Ihr ESG-Profil."
+          }
+        },
+        {
+          "title": "SolarAbo Agro",
+          "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
+          "feature1": "PV Anlage bis 500 kWp für Hallen und Ställe",
+          "feature2": "Stromkostenreduktion bis 40 %",
+          "feature3": "Optional mit Speicher und Wärmepumpen-Anbindung",
+          "feature4": "Dachnutzungsvertrag mit Service-Garantie",
+          "term": "Flexible Vertragslaufzeiten",
+          "price": "Individuelle Preisgestaltung",
+          "benefit1": "Null Investition – statt CHF 120 000 Investition",
+          "benefit2": "Stromkostenreduktion bis 40 %",
+          "benefit3": "Service-Garantie inklusive",
+          "explanation": {
+            "label": "Einfach erklärt:",
+            "text": "Maßgeschneiderte Solarlösung für landwirtschaftliche Betriebe: Optimieren Sie Ihre Energiekosten bei voller operativer Flexibilität."
+          }
+        },
+        {
+          "title": "SolarAbo Multi",
+          "subtitle": "Für Mehrfamilienhäuser (ZEV-Modell)",
+          "feature1": "Eine Anlage, Strom für alle Bewohner",
+          "feature2": "Zentrale Abrechnung über Free State ZEV-System",
+          "feature3": "Speicher und Ladestationen optional integrierbar",
+          "feature4": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
+          "term": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
+          "price": "Individuelle Preisgestaltung",
+          "benefit1": "0 CHF Investition, Strompreis –30 % vs. Netz",
+          "benefit2": "Zentrale Abrechnung für alle Bewohner",
+          "benefit3": "Optional Speicher und Ladeinfrastruktur",
+          "explanation": {
+            "label": "Einfach erklärt:",
+            "text": "Solarlösung für Mehrfamilienhäuser: Eine Anlage versorgt alle Bewohner mit Strom, zentrale Abrechnung und Verwaltung."
+          }
         }
-      }
+      ]
     },
-    "adventages": {
+    "benefits": {
       "title": "Ihre Vorteile",
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
-      "learnMore": "Jetzt starten",
+      "learnMore": "Mehr erfahren",
       "noInvestment": {
         "title": "Keine Investitionskosten",
         "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
@@ -98,15 +170,15 @@
       "title": "Portfolio",
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
       "item1": {
-        "title": "Firmendach Zürich",
+        "title": "Bauernhof Thun",
         "details": "30 % Kosteneinsparung •\n250 kWp Anlage"
       },
       "item2": {
-        "title": "Industriehalle",
+        "title": "Industriegebäude Zürich",
         "details": "CO₂-Reduktion: 12 t/Jahr • 400 kWp"
       },
       "item3": {
-        "title": "Agrar St. Gallen",
+        "title": "Industriegebäude Chur",
         "details": "Eigenverbrauch: 75 % • 180 kWp"
       },
       "learnMore": "Mehr Erfahren"
@@ -116,12 +188,150 @@
       "contentTitle": "Solarenergie",
       "description": "Wir helfen Ihnen, Ihre Dachfläche optimal zu nutzen, Energiekosten zu senken und eine nachhaltige Energieversorgung aufzubauen. Von der Planung bis zur schlüsselfertigen Umsetzung begleiten wir Ihr Projekt – effizient, zuverlässig und auf Ihr Unternehmen abgestimmt.",
       "item1": {
-        "title": "Punkt 1 Titel",
-        "description": "Punkt 1 Beschreibung"
+        "title": "Einsparungen",
+        "description": "Maximale Energieeinsparungen für Ihr Unternehmen"
       },
       "item2": {
-        "title": "Punkt 2 Titel",
-        "description": "Punkt 2 Beschreibung"
+        "title": "Sicherheit",
+        "description": "Langfristige Sicherheit für Ihr Unternehmen."
+      },
+      "cta": "Mehr erfahren"
+    },
+    "yourPartner": {
+      "title": "Ihr Partner",
+      "subtitle": "Smart solar solutions for businesses.",
+      "cta": "Get Started",
+      "learnMore": "Mehr erfahren",
+      "items": {
+        "item1": {
+          "title": "Dachflächen optimal nutzen",
+          "description": "Unbenutzte Dächer werden zu Energiequellen."
+        },
+        "item2": {
+          "title": "Energiekosten reduzieren",
+          "description": "Bis zu 30–40 % Einsparung – langfristig und planbar."
+        },
+        "item3": {
+          "title": "CO₂-Fußabdruck senken",
+          "description": "Bis zu 12 t CO₂ pro Jahr – für Ihr Unternehmen."
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Nehmen Sie Kontakt mit uns auf",
+    "description": "Haben Sie Fragen zu unseren Solarlösungen? Wir sind für Sie da. Kontaktieren Sie uns über eine der folgenden Methoden.",
+    "email": {
+      "label": "E-Mail",
+      "value": "info@freestate.ag"
+    },
+    "phone": {
+      "label": "Telefon",
+      "value": "+41 XX XXX XX XX"
+    },
+    "address": {
+      "label": "Adresse",
+      "value": "Free State AG\nSchweiz"
+    }
+  },
+  "portfolioPage": {
+    "title": "Portfolio",
+    "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+    "strategy": {
+      "title": "Strategie",
+      "description": "Die Free State AG ist ein etablierter Produzent von Grünstrom in der Schweiz und betreibt moderne Solarkraftwerke. Mittelfristig strebt das Unternehmen an, ein vielfältiges und ausgewogenes Portfolio an erneuerbaren Energien mit einer installierten Gesamtleistung von 59 Megawatt * aufzubauen. Ziel ist es, sich als einer der führenden Betreiber von erneuerbaren Energien in der Schweiz zu positionieren.",
+      "diversification": "Ein zentrales Element der Investitionsstrategie ist die Diversifikation. Sie minimiert Risiken in den Bereichen Marktbedingungen, gesetzliche Rahmenbedingungen und Verfügbarkeit der Erzeugungsarten.",
+      "future": "In Zukunft soll die Stromproduktion aus Solarenergie etwa 20–30 Prozent des Unternehmensumsatzes ausmachen. Free State AG investiert ausschließlich in Anlagen mit ausgereifter Technologie, die entweder bereits in Betrieb sind oder bei Baubeginn über eine vollständige Genehmigung verfügen. Der Verkauf von Kraftwerken ist nicht Teil des Geschäftsmodells.",
+      "synergies": "Zusätzlich zu weiteren Akquisitionen maximiert Free State die Synergien im Anlagenbetrieb, um die betriebliche Effizienz kontinuierlich zu steigern. Der Ausbau eines diversifizierten Portfolios soll nachhaltig die Umsatz- und Gewinnentwicklung fördern."
+    },
+    "projects": {
+      "title": "Solarprojekte in Aktion",
+      "description": "Eine Auswahl von Solaranlagen im Versorgungs- und Gewerbebereich, die in der gesamten Schweiz realisiert wurden - von der Planung bis zum Betrieb.",
+      "items": {
+        "industrialZurich": {
+          "title": "Industriegebäude Zürich",
+          "description": "Moderne Solaranlage auf Industriegebäude"
+        },
+        "industrialBern": {
+          "title": "Industriegebäude Bern",
+          "description": "Solaranlage für Industriegebäude"
+        },
+        "industrialAargau1": {
+          "title": "Industriegebäude Aargau",
+          "description": "Effiziente Solarstromanlage"
+        },
+        "industrialAargau2": {
+          "title": "Industriegebäude Aargau",
+          "description": "Nachhaltiges Solarprojekt"
+        },
+        "industrialAargau3": {
+          "title": "Industriegebäude Aargau",
+          "description": "Erneuerbare Energieanlage"
+        },
+        "industrialLuzern1": {
+          "title": "Industriegebäude Luzern",
+          "description": "Nachhaltige Energielösung für Industrieanlage"
+        },
+        "industrialLuzern2": {
+          "title": "Industriegebäude Luzern",
+          "description": "Grüne Energieanlage für Industriegebäude"
+        },
+        "industrialChur": {
+          "title": "Industriegebäude Chur",
+          "description": "Erneuerbare Energieanlage auf Industriedach"
+        },
+        "farmThun": {
+          "title": "Bauernhof Thun",
+          "description": "Solarpanels für landwirtschaftliche Anlage"
+        },
+        "industrialGeneva": {
+          "title": "Industriegebäude Genf",
+          "description": "Grüne Energieanlage für Industriekomplex"
+        }
+      }
+    }
+  },
+  "investorsPage": {
+    "title": "Für Investoren",
+    "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+    "investing": {
+      "title": "Nachhaltig investieren",
+      "description": "Mit einer Investition in erneuerbare Energien setzen Sie auf eine nachhaltige und zukunftssichere Wertschöpfung. Free State AG bietet Ihnen die Möglichkeit, an Solarkraftwerken und anderen umweltfreundlichen Projekten zu partizipieren. Profitieren Sie von stabilen Renditen, einem wachsenden Markt und einem aktiven Beitrag zur Energiewende. Unsere Erfahrung und unser Fokus auf ausgereifte Technologien garantieren Ihnen Sicherheit und Erfolg – für eine grünere Zukunft."
+    },
+    "form": {
+      "title": "Dokumente kostenlos bestellen",
+      "description": "Sie wollen einen positiven Beitrag zur Umwelt und Gesellschaft leisten? Fordern Sie jetzt kostenlos unsere Dokumente an und erfahren Sie, wie Sie mit nachhaltigen Energielösungen und Investitionen in erneuerbare Energien aktiv zur Energiewende beitragen können. Füllen Sie einfach das Formular aus, und wir senden Ihnen die gewünschten Unterlagen direkt zu. Nutzen Sie diese Gelegenheit, um sich umfassend zu informieren und gemeinsam mit uns eine grüne und erfolgreiche Zukunft zu gestalten!",
+      "type": "Firma oder Privat?",
+      "typePrivate": "Privat",
+      "typeCompany": "Firma",
+      "salutation": "Anrede",
+      "salutationMr": "Herr",
+      "salutationMrs": "Frau",
+      "salutationDiverse": "Divers",
+      "language": "Bestellen auf:",
+      "languageGerman": "Deutsch",
+      "languageEnglish": "Englisch",
+      "languageFrench": "Französisch",
+      "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung zur Kenntnis genommen habe.",
+      "captcha": "Nicht lesbar? Neu generieren",
+      "submit": "Absenden"
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "invest": {
+          "question": "Kann ich in die Free State Energie AG investieren?",
+          "answer": "Wenn Sie eine Person mit Wohnsitz in der Schweiz sind und sich als qualifizierter Anleger qualifizieren, indem Sie Gelder oder Kenntnisse investieren, dann ja. Jede Person mit Wohnsitz in der Schweiz, die über ein Schweizer Bankkonto verfügt und Erfahrung in der Anlagewelt hat, kann Aktien zu den offiziell festgelegten Bedingungen der Kapitalerhöhung, zeichnen."
+        },
+        "deposit": {
+          "question": "Wo werden meine Aktien der Free State AG deponiert?",
+          "answer": "Die Aktien der Free State Energie AG sind digitalisiert und werden von der Schaffhauser Kantonalbank AG ausgegeben und auf ein Depot bei Ihrer Bank verteilt. Es könnte sein, dass Ihre Bank sie zum Preis von 0 (Null) bewertet, da das Unternehmen noch nicht an der Börse notiert ist."
+        },
+        "listed": {
+          "question": "Ist die Free State Energie AG an einer öffentlichen Börse kotiert?",
+          "answer": "Nein, derzeit befindet sich das Unternehmen in Privatbesitz und ist nicht an einer Börse kotiert. Jeder Aktionär hat volle Aktionärsrechte einschliesslich des Dividendenrechts. Die Free State AG hat die Absicht, in naher Zukunft an die Börse zu gehen, dies ist jedoch stark abhängig von der Marktsituation, der Unternehmensentwicklung und der Anzahl der Investoren."
+        }
       }
     }
   }

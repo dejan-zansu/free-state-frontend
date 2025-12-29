@@ -23,6 +23,7 @@
       "companies": "Kompanije",
       "portfolio": "Portfolio",
       "aboutUs": "O nama",
+      "contact": "Kontakt",
       "facebook": "Facebook",
       "twitter": "Twitter",
       "instagram": "Instagram",
@@ -32,7 +33,7 @@
   "home": {
     "hero": {
       "badge": "Free State Solarabo",
-      "title": "Vaša energija.\nVaš krov.\nNula investicije.",
+      "title": "Vaš krov.\nVaša energija.\nNula investicije.",
       "subtitle": "Vaša energija, naša odgovornost\nodrživo i bez brige.",
       "cta": {
         "primary": "Počni",
@@ -49,15 +50,15 @@
       "description": "Pristupačna struja, potpuna sigurnost, održiva industrija"
     },
     "stats": {
-      "experience": "Godine iskustva",
-      "customers": "Zadovoljni klijenti",
-      "installations": "Uspešne instalacije",
-      "savings": "Ušteda energije"
+      "projects": "Realizovani Projekti",
+      "experience": "Godine Iskustva",
+      "savings": "Uštede Troškova za Naše Klijente",
+      "employees": "Zaposleni"
     },
-    "adventages": {
-      "title": "Vaše Prednosti",
+    "benefits": {
+      "title": "Benefiti",
       "subtitle": "Održiva energija, dugoročne uštede i potpuna transparentnost – bez vašeg rizika investicije.",
-      "learnMore": "Počni sada",
+      "learnMore": "Saznaj više",
       "noInvestment": {
         "title": "Bez troškova investicije",
         "description": "Ne snosite nikakve finansijske rizike – mi preuzimamo sve troškove planiranja, instalacije i održavanja vašeg solarnog sistema."
@@ -71,19 +72,113 @@
         "description": "Ne snosite nikakve finansijske rizike – mi preuzimamo sve troškove planiranja, instalacije i održavanja vašeg solarnog sistema."
       }
     },
+    "deals": {
+      "title": "Trenutne ponude",
+      "subtitle": "Sa doživotnim prednostima",
+      "learnMore": "Saznaj više",
+      "from": "od",
+      "month": "/mesec",
+      "cards": [
+        {
+          "title": "SolarAbo Home",
+          "subtitle": "Za porodične kuće bez skladišta",
+          "feature1": "Crni modul 450 Wp + Visokoeffikasni inverter",
+          "feature2": "Praćenje u realnom vremenu preko App – Proizvodnja, potrošnja, ušteda u realnom vremenu",
+          "feature3": "Osiguranje i održavanje uključeni",
+          "feature4": "Smanjenje CO₂: do 2 t godišnje",
+          "term": "Rok od 35 godina sa opcijom otkupa",
+          "price": "od CHF 39.95 /mesec",
+          "benefit1": "0 CHF investicija – umesto CHF 25,000 cena kupovine",
+          "benefit2": "30% jeftinija struja od vaše trenutne mrežne cene",
+          "benefit3": "BESPLATNA AKTIVACIJA (umesto CHF 990)",
+          "explanation": {
+            "label": "Jednostavno objašnjeno:",
+            "text": "Kao mobilna pretplata. Vi koristite sistem, mi se brinemo o izgradnji, finansiranju, radu i servisu. Posle roka, sistem vam pripada – besplatno."
+          }
+        },
+        {
+          "title": "SolarAbo Home Storage",
+          "subtitle": "Porodična kuća sa baterijskim skladištem",
+          "feature1": "FV sistem + baterija 10 kWh (LFP tehnologija)",
+          "feature2": "80% sopstvena potrošnja, potpuna nezavisnost",
+          "feature3": "Kontrola i analiza energije bazirana na app",
+          "feature4": "Ugovor o korišćenju krova i otkupu uključen",
+          "term": "Rok od 35 godina – sistem postaje vaša svojina posle",
+          "price": "Jednokratno CHF 2,500",
+          "benefit1": "JEDNOKRATNO CHF 2,500 – umesto CHF 35,000 investicije",
+          "benefit2": "Cena struje do 40% ispod tarife komunalnog preduzeća",
+          "benefit3": "Potpuna energetska nezavisnost",
+          "explanation": {
+            "label": "Jednostavno objašnjeno:",
+            "text": "Napredni solarni sistem sa baterijskim skladištem za maksimalnu sopstvenu potrošnju i energetsku nezavisnost."
+          }
+        },
+        {
+          "title": "SolarAbo Business",
+          "subtitle": "Za posao i industriju",
+          "feature1": "Performanse 100–1,000 kWp na krovu ili fasadi",
+          "feature2": "Fiksna cena 0.18 CHF/kWh (uključujući održavanje i osiguranje)",
+          "feature3": "Opcija: Baterijsko skladište i infrastruktura za punjenje",
+          "feature4": "Dugoročna stabilnost cene energije i ESG prednosti",
+          "term": "Trajanje ugovora 20–25 godina sa opcijom otkupa",
+          "price": "Prilagođena cena",
+          "benefit1": "0 CHF investicija – umesto CHF 250,000 CAPEX",
+          "benefit2": "Fiksna cena energije za dugoročno planiranje",
+          "benefit3": "ESG prednosti i održivost",
+          "explanation": {
+            "label": "Jednostavno objašnjeno:",
+            "text": "Kompletno solarno rešenje za kompanije: Mi se bavimo svim od instalacije do održavanja, vi štedite na troškovima energije i poboljšavate vaš ESG profil."
+          }
+        },
+        {
+          "title": "SolarAbo Agro",
+          "subtitle": "Za farme i poljoprivredne operacije",
+          "feature1": "FV sistem do 500 kWp za hale i štale",
+          "feature2": "Smanjenje troškova struje do 40%",
+          "feature3": "Opciono sa skladištem i vezom za toplotnu pumpu",
+          "feature4": "Ugovor o korišćenju krova sa garancijom servisa",
+          "term": "Fleksibilni uslovi ugovora",
+          "price": "Prilagođena cena",
+          "benefit1": "Nula investicija – umesto CHF 120,000 investicije",
+          "benefit2": "Smanjenje troškova struje do 40%",
+          "benefit3": "Garancija servisa uključena",
+          "explanation": {
+            "label": "Jednostavno objašnjeno:",
+            "text": "Prilagođeno solarno rešenje za poljoprivredne operacije: Optimizujte svoje troškove energije zadržavajući punu operativnu fleksibilnost."
+          }
+        },
+        {
+          "title": "SolarAbo Multi",
+          "subtitle": "Za višeporodične zgrade (ZEV model)",
+          "feature1": "Jedan sistem, struja za sve stanare",
+          "feature2": "Centralizovano naplaćivanje preko Free State ZEV sistema",
+          "feature3": "Skladište i stanice za punjenje opciono integrabilni",
+          "feature4": "Ugovor 35 godina, prenos svojine na kraju",
+          "term": "Ugovor 35 godina, prenos svojine na kraju",
+          "price": "Prilagođena cena",
+          "benefit1": "0 CHF investicija, cena struje –30% vs. mreža",
+          "benefit2": "Centralizovano naplaćivanje za sve stanare",
+          "benefit3": "Opciono skladište i infrastruktura za punjenje",
+          "explanation": {
+            "label": "Jednostavno objašnjeno:",
+            "text": "Solarno rešenje za višeporodične zgrade: Jedan sistem obezbeđuje struju za sve stanare sa centralizovanim naplaćivanjem i upravljanjem."
+          }
+        }
+      ]
+    },
     "portfolio": {
       "title": "Portfolio",
       "subtitle": "Održiva energija, dugoročne uštede i potpuna transparentnost – bez vašeg rizika investicije.",
       "item1": {
-        "title": "Krov kompanije Cirih",
+        "title": "Bauernhof Thun",
         "details": "30% uštede •\nSistem 250 kWp"
       },
       "item2": {
-        "title": "Industrijska hala",
+        "title": "Industriegebäude Zürich",
         "details": "Smanjenje CO₂: 12 t/god • 400 kWp"
       },
       "item3": {
-        "title": "Poljoprivreda St. Gallen",
+        "title": "Industriegebäude Chur",
         "details": "Sopstvena potrošnja: 75% • 180 kWp"
       },
       "learnMore": "Saznaj više"
@@ -93,12 +188,150 @@
       "contentTitle": "Solarna energija",
       "description": "Pomažemo vam da optimalno iskoristite svoju krovnu površinu, smanjite troškove energije i izgradite održivo snabdevanje energijom. Od planiranja do ključ u ruke implementacije, pratimo vaš projekat – efikasno, pouzdano i prilagođeno vašoj kompaniji.",
       "item1": {
-        "title": "Stavka 1 Naslov",
-        "description": "Stavka 1 opis"
+        "title": "Uštede",
+        "description": "Maksimalne uštede energije za vašu kompaniju"
       },
       "item2": {
-        "title": "Stavka 2 Naslov",
-        "description": "Stavka 2 opis"
+        "title": "Sigurnost",
+        "description": "Dugoročna sigurnost za vašu kompaniju."
+      },
+      "cta": "Saznaj više"
+    },
+    "yourPartner": {
+      "title": "Vaš partner",
+      "subtitle": "Pametna solarna rešenja za kompanije.",
+      "cta": "Počni",
+      "learnMore": "Saznaj više",
+      "items": {
+        "item1": {
+          "title": "Optimizovati krovni prostor",
+          "description": "Nekorišćeni krovovi postaju izvori energije."
+        },
+        "item2": {
+          "title": "Smanjiti troškove energije",
+          "description": "Do 30–40% uštede – dugoročno i predvidljivo."
+        },
+        "item3": {
+          "title": "Smanjiti ugljenični otisak",
+          "description": "Do 12 t CO₂ godišnje – za vašu kompaniju."
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Kontaktirajte nas",
+    "subtitle": "Stupite u kontakt sa nama",
+    "description": "Imate pitanja o našim solarnim rešenjima? Tu smo da pomognemo. Kontaktirajte nas putem bilo koje od sledećih metoda.",
+    "email": {
+      "label": "E-pošta",
+      "value": "info@freestate.ag"
+    },
+    "phone": {
+      "label": "Telefon",
+      "value": "+41 XX XXX XX XX"
+    },
+    "address": {
+      "label": "Adresa",
+      "value": "Free State AG\nŠvajcarska"
+    }
+  },
+  "portfolioPage": {
+    "title": "Portfolio",
+    "subtitle": "Vaša energija, naša odgovornost – održivo i bez brige",
+    "strategy": {
+      "title": "Strategija",
+      "description": "Free State AG je etablirani proizvođač zelene struje u Švajcarskoj i upravlja modernim solarnim elektranama. Srednjoročno, kompanija teži izgradnji raznolikog i uravnoteženog portfolija obnovljivih energija sa ukupnom instaliranom snagom od 59 megavata*. Cilj je pozicionirati se kao jedan od vodećih operatora obnovljivih energija u Švajcarskoj.",
+      "diversification": "Centralni element investicione strategije je diversifikacija. Ona minimizira rizike u oblastima tržišnih uslova, pravnih okvira i dostupnosti tipova proizvodnje.",
+      "future": "U budućnosti, proizvodnja električne energije iz solarne energije trebalo bi da čini oko 20-30 procenata prihoda kompanije. Free State AG ulaže isključivo u postrojenja sa zrelom tehnologijom koja su već u radu ili imaju potpunu dozvolu na početku izgradnje. Prodaja elektrana nije deo poslovnog modela.",
+      "synergies": "Pored daljih akvizicija, Free State maksimizira sinergije u radu postrojenja kako bi kontinuirano povećao operativnu efikasnost. Proširenje diversifikovanog portfolija trebalo bi održivo da promoviše razvoj prihoda i profita."
+    },
+    "projects": {
+      "title": "Solarni projekti u akciji",
+      "description": "Izbor solarnih instalacija komercijalnih i industrijskih razmera realizovanih širom Švajcarske - od planiranja do operacije.",
+      "items": {
+        "industrialZurich": {
+          "title": "Industrijska zgrada Cirih",
+          "description": "Moderna solarna instalacija na industrijskoj zgradi"
+        },
+        "industrialBern": {
+          "title": "Industrijska zgrada Bern",
+          "description": "Solarni sistem za industrijski objekat"
+        },
+        "industrialAargau1": {
+          "title": "Industrijska zgrada Aargau",
+          "description": "Efikasna instalacija za proizvodnju solarne energije"
+        },
+        "industrialAargau2": {
+          "title": "Industrijska zgrada Aargau",
+          "description": "Održivi solarni projekat"
+        },
+        "industrialAargau3": {
+          "title": "Industrijska zgrada Aargau",
+          "description": "Instalacija obnovljive energije"
+        },
+        "industrialLuzern1": {
+          "title": "Industrijska zgrada Lucern",
+          "description": "Održivo energetsko rešenje za industrijski objekat"
+        },
+        "industrialLuzern2": {
+          "title": "Industrijska zgrada Lucern",
+          "description": "Zeleni energetski sistem za industrijski objekat"
+        },
+        "industrialChur": {
+          "title": "Industrijska zgrada Chur",
+          "description": "Instalacija obnovljive energije na industrijskom krovu"
+        },
+        "farmThun": {
+          "title": "Farma Thun",
+          "description": "Solarni paneli za poljoprivredni objekat"
+        },
+        "industrialGeneva": {
+          "title": "Industrijska zgrada Ženeva",
+          "description": "Zeleni energetski sistem za industrijski kompleks"
+        }
+      }
+    }
+  },
+  "investorsPage": {
+    "title": "Za investitore",
+    "subtitle": "Vaša energija, naša odgovornost – održivo i bez brige",
+    "investing": {
+      "title": "Investirati održivo",
+      "description": "Ulaganjem u obnovljive energije, kladite se na održivu i budućnost orijentisanu kreaciju vrednosti. Free State AG vam nudi mogućnost da učestvujete u solarnim elektranama i drugim ekološki prihvatljivim projektima. Koristite od stabilnih prinosa, rastućeg tržišta i aktivnog doprinosa energetskoj tranziciji. Naše iskustvo i naš fokus na zrelim tehnologijama garantuju vam sigurnost i uspeh – za zeleniju budućnost."
+    },
+    "form": {
+      "title": "Besplatno naručite dokumente",
+      "description": "Želite da date pozitivan doprinos životnoj sredini i društvu? Zatražite sada besplatno naše dokumente i saznajte kako možete aktivno doprineti energetskoj tranziciji održivim energetskim rešenjima i ulaganjima u obnovljive energije. Jednostavno popunite formular, a mi ćemo vam direktno poslati tražene materijale. Iskoristite ovu priliku da se sveobuhvatno informišete i zajedno sa nama oblikujemo zelenu i uspešnu budućnost!",
+      "type": "Kompanija ili Privatno?",
+      "typePrivate": "Privatno",
+      "typeCompany": "Kompanija",
+      "salutation": "Oslovljavanje",
+      "salutationMr": "Gospodin",
+      "salutationMrs": "Gospođa",
+      "salutationDiverse": "Drugo",
+      "language": "Naruči na:",
+      "languageGerman": "Nemački",
+      "languageEnglish": "Engleski",
+      "languageFrench": "Francuski",
+      "privacy": "Ovim potvrđujem da sam upoznat sa politikom privatnosti.",
+      "captcha": "Nije čitljivo? Regeneriši",
+      "submit": "Pošalji"
+    },
+    "faq": {
+      "title": "Često postavljana pitanja",
+      "items": {
+        "invest": {
+          "question": "Mogu li da investiram u Free State Energie AG?",
+          "answer": "Ako ste osoba sa prebivalištem u Švajcarskoj i kvalifikujete se kao kvalifikovani investitor ulaganjem sredstava ili znanja, onda da. Svaka osoba sa prebivalištem u Švajcarskoj koja ima švajcarski bankovni račun i iskustvo u svetu ulaganja može da se pretplati na akcije pod zvanično utvrđenim uslovima povećanja kapitala."
+        },
+        "deposit": {
+          "question": "Gde su deponovane moje akcije Free State AG?",
+          "answer": "Akcije Free State Energie AG su digitalizovane i izdaju ih Schaffhauser Kantonalbank AG i distribuiraju na depozitni račun u vašoj banci. Moguće je da vaša banka vrednuje ih po ceni od 0 (nula), jer kompanija još nije kotirana na berzi."
+        },
+        "listed": {
+          "question": "Da li je Free State Energie AG kotirana na javnoj berzi?",
+          "answer": "Ne, trenutno je kompanija u privatnom vlasništvu i nije kotirana na berzi. Svaki akcionar ima puna akcionarska prava uključujući pravo na dividende. Free State AG ima nameru da u bliskoj budućnosti izađe na berzu, ali to u velikoj meri zavisi od tržišne situacije, razvoja kompanije i broja investitora."
+        }
       }
     }
   }

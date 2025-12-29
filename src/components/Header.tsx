@@ -1,11 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
-import { useTranslations } from 'next-intl'
-import LogoLight from './icons/LogoLight'
+import { useEffect, useState } from 'react'
 import LogoDark from './icons/LogoDark'
+import LogoLight from './icons/LogoLight'
 import LanguageSwitcher from './LanguageSwitcher'
 
 const Header = () => {
@@ -17,8 +17,9 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   const pagesWithDarkHeader = [
-    `/${locale}/calucluator`,
     `/${locale}/calculator`,
+    `/${locale}/contact`,
+    `/${locale}/portfolio`,
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some((path) =>
@@ -38,7 +39,7 @@ const Header = () => {
 
   const navItems = [
     { label: t('home'), href: `/${locale}` },
-    { label: t('calculator'), href: `/${locale}/calucluator` },
+    { label: t('calculator'), href: `/${locale}/calculator` },
     { label: t('solutions'), href: `/${locale}/solar-solutions` },
     { label: t('companies'), href: `/${locale}/companies` },
     { label: t('portfolio'), href: `/${locale}/portfolio` },
@@ -52,7 +53,6 @@ const Header = () => {
     return pathname?.startsWith(href)
   }
 
-  // Determine if we should show dark header styling
   const showDarkHeader = shouldUseDarkHeader || isScrolled
 
   return (

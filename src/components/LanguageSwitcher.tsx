@@ -31,7 +31,6 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   const currentLocale = (params.locale as string) || 'en'
 
   const handleLocaleChange = (newLocale: string) => {
-    // Update the URL - middleware will handle setting the cookie
     const segments = pathname.split('/')
     segments[1] = newLocale
     const newPath = segments.join('/')

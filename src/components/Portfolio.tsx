@@ -1,8 +1,8 @@
-import { getTranslations, getLocale } from 'next-intl/server'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { ArrowRight } from 'lucide-react'
+import { getLocale, getTranslations } from 'next-intl/server'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Portfolio = async () => {
   const t = await getTranslations('home.portfolio')
@@ -13,19 +13,19 @@ const Portfolio = async () => {
       number: '02',
       title: t('item2.title'),
       details: t('item2.details'),
-      image: '/images/portfolio/portfolio-2.jpg',
+      image: '/images/portfolio/portfolio-2.png',
     },
     {
       number: '01',
       title: t('item1.title'),
       details: t('item1.details'),
-      image: '/images/portfolio/portfolio-1.jpg',
+      image: '/images/portfolio/portfolio-1.png',
     },
     {
       number: '03',
       title: t('item3.title'),
       details: t('item3.details'),
-      image: '/images/portfolio/portfolio-3.jpg',
+      image: '/images/portfolio/portfolio-3.png',
     },
   ]
 
@@ -53,7 +53,7 @@ const Portfolio = async () => {
                 index === 1 ? '-mt-8' : ''
               )}
             >
-              <div className='p-4'>
+              <div className='px-4 pt-10 pb-8'>
                 <div className='flex items-start gap-3'>
                   <div
                     className={cn(
@@ -80,7 +80,7 @@ const Portfolio = async () => {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className='object-cover transition-transform duration-500 group-hover:scale-110'
+                  className='object-cover '
                 />
 
                 <div className='absolute bottom-6 left-6'>

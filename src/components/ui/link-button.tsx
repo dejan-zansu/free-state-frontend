@@ -1,7 +1,7 @@
-import * as React from 'react'
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
 import { cva, type VariantProps } from 'class-variance-authority'
+import { ArrowRight } from 'lucide-react'
+import Link from 'next/link'
+import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -12,9 +12,11 @@ const linkButtonVariants = cva(
       variant: {
         primary: 'bg-solar text-solar-foreground hover:bg-solar/90',
         secondary:
-          'bg-white/5 border border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
-        outline:
+          'bg-energy border border-energy hover:bg-energy/90 text-white',
+        'outline-primary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+        'outline-secondary':
+          'bg-white/5 border border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
       },
     },
     defaultVariants: {
@@ -43,7 +45,8 @@ const LinkButton = React.forwardRef<
 
   const isPrimary = variant === 'primary' || variant === undefined
   const isSecondary = variant === 'secondary'
-  const isOutline = variant === 'outline'
+  const isOutlinePrimary = variant === 'outline-primary'
+  const isOutlineSecondary = variant === 'outline-secondary'
 
   return (
     <Link
@@ -57,24 +60,27 @@ const LinkButton = React.forwardRef<
         className={cn(
           'relative w-10 h-10 flex items-center justify-center rounded-full overflow-hidden',
           isPrimary && 'bg-[#062E25]',
-          isSecondary && 'bg-solar',
-          isOutline && 'bg-[#062E25]'
+          isSecondary && 'bg-white',
+          isOutlinePrimary && 'bg-[#062E25]',
+          isOutlineSecondary && 'bg-solar'
         )}
       >
         <ArrowRight
           className={cn(
             'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
             isPrimary && 'text-white',
-            isSecondary && 'text-solar-foreground',
-            isOutline && 'text-white'
+            isSecondary && 'text-energy',
+            isOutlinePrimary && 'text-white',
+            isOutlineSecondary && 'text-solar-foreground'
           )}
         />
         <ArrowRight
           className={cn(
             'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100',
             isPrimary && 'text-white',
-            isSecondary && 'text-solar-foreground',
-            isOutline && 'text-white'
+            isSecondary && 'text-energy',
+            isOutlinePrimary && 'text-white',
+            isOutlineSecondary && 'text-solar-foreground'
           )}
         />
       </div>

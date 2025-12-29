@@ -23,6 +23,7 @@
       "companies": "Empresas",
       "portfolio": "Portfolio",
       "aboutUs": "Sobre nosotros",
+      "contact": "Contacto",
       "facebook": "Facebook",
       "twitter": "Twitter",
       "instagram": "Instagram",
@@ -32,7 +33,7 @@
   "home": {
     "hero": {
       "badge": "Free State Solarabo",
-      "title": "Tu energía.\nTu techo.\nCero inversión.",
+      "title": "Tu techo.\nTu energía.\nCero inversión.",
       "subtitle": "Tu energía, nuestra responsabilidad\nsostenible y sin preocupaciones.",
       "cta": {
         "primary": "Comenzar",
@@ -49,15 +50,15 @@
       "description": "Electricidad asequible, seguridad completa, industria sostenible"
     },
     "stats": {
-      "experience": "Años de experiencia",
-      "customers": "Clientes satisfechos",
-      "installations": "Instalaciones exitosas",
-      "savings": "Ahorro de energía"
+      "projects": "Proyectos Realizados",
+      "experience": "Años de Experiencia",
+      "savings": "Ahorros de Costos para Nuestros Clientes",
+      "employees": "Empleados"
     },
-    "adventages": {
-      "title": "Sus Ventajas",
+    "benefits": {
+      "title": "Sus Beneficios",
       "subtitle": "Energía sostenible, ahorros a largo plazo y total transparencia – sin tu propio riesgo de inversión.",
-      "learnMore": "Empezar ahora",
+      "learnMore": "Saber más",
       "noInvestment": {
         "title": "Sin costos de inversión",
         "description": "No asumes ningún riesgo financiero – nosotros asumimos todos los costos de planificación, instalación y mantenimiento de tu sistema solar."
@@ -71,19 +72,113 @@
         "description": "No asumes ningún riesgo financiero – nosotros asumimos todos los costos de planificación, instalación y mantenimiento de tu sistema solar."
       }
     },
+    "deals": {
+      "title": "Ofertas actuales",
+      "subtitle": "Con beneficios de por vida",
+      "learnMore": "Saber más",
+      "from": "desde",
+      "month": "/mes",
+      "cards": [
+        {
+          "title": "SolarAbo Home",
+          "subtitle": "Para viviendas unifamiliares sin almacenamiento",
+          "feature1": "Módulo negro 450 Wp + Inversor de alto rendimiento",
+          "feature2": "Monitoreo en vivo vía App – Producción, consumo, ahorro en tiempo real",
+          "feature3": "Seguro y mantenimiento incluidos",
+          "feature4": "Reducción de CO₂: hasta 2 t por año",
+          "term": "Plazo de 35 años con opción de recompra",
+          "price": "desde CHF 39.95 /mes",
+          "benefit1": "0 CHF inversión – en lugar de CHF 25,000 precio de compra",
+          "benefit2": "30% electricidad más barata que tu precio de red actual",
+          "benefit3": "ACTIVACIÓN GRATIS (en lugar de CHF 990)",
+          "explanation": {
+            "label": "Explicado simplemente:",
+            "text": "Como una suscripción móvil. Tú usas el sistema, nosotros nos encargamos de la construcción, financiación, operación y servicio. Después del plazo, el sistema te pertenece – gratis."
+          }
+        },
+        {
+          "title": "SolarAbo Home Storage",
+          "subtitle": "Vivienda unifamiliar con almacenamiento de batería",
+          "feature1": "Sistema fotovoltaico + batería de 10 kWh (tecnología LFP)",
+          "feature2": "80% autoconsumo, plena independencia",
+          "feature3": "Control y análisis de energía basado en app",
+          "feature4": "Contrato de uso de techo y recompra incluido",
+          "term": "Plazo de 35 años – el sistema pasa a ser tu propiedad después",
+          "price": "Una vez CHF 2,500",
+          "benefit1": "UNA VEZ CHF 2,500 – en lugar de CHF 35,000 inversión",
+          "benefit2": "Precio de electricidad hasta 40% por debajo de la tarifa de la empresa",
+          "benefit3": "Plena independencia energética",
+          "explanation": {
+            "label": "Explicado simplemente:",
+            "text": "Sistema solar avanzado con almacenamiento de batería para máximo autoconsumo e independencia energética."
+          }
+        },
+        {
+          "title": "SolarAbo Business",
+          "subtitle": "Para comercio e industria",
+          "feature1": "Rendimiento 100–1,000 kWp en techo o fachada",
+          "feature2": "Precio fijo 0.18 CHF/kWh (incl. mantenimiento y seguro)",
+          "feature3": "Opción: Almacenamiento de batería e infraestructura de carga",
+          "feature4": "Estabilidad del precio de energía a largo plazo y beneficios ESG",
+          "term": "Duración del contrato 20–25 años con opción de recompra",
+          "price": "Precio personalizado",
+          "benefit1": "0 CHF inversión – en lugar de CHF 250,000 CAPEX",
+          "benefit2": "Precio de energía fijo para planificación a largo plazo",
+          "benefit3": "Beneficios ESG y sostenibilidad",
+          "explanation": {
+            "label": "Explicado simplemente:",
+            "text": "Solución solar completa para empresas: Nos encargamos de todo desde la instalación hasta el mantenimiento, usted ahorra en costos de energía y mejora su perfil ESG."
+          }
+        },
+        {
+          "title": "SolarAbo Agro",
+          "subtitle": "Para granjas y operaciones agrícolas",
+          "feature1": "Sistema fotovoltaico hasta 500 kWp para naves y establos",
+          "feature2": "Reducción de costos de electricidad hasta 40%",
+          "feature3": "Opcional con almacenamiento y conexión de bomba de calor",
+          "feature4": "Contrato de uso de techo con garantía de servicio",
+          "term": "Términos de contrato flexibles",
+          "price": "Precio personalizado",
+          "benefit1": "Cero inversión – en lugar de CHF 120,000 inversión",
+          "benefit2": "Reducción de costos de electricidad hasta 40%",
+          "benefit3": "Garantía de servicio incluida",
+          "explanation": {
+            "label": "Explicado simplemente:",
+            "text": "Solución solar personalizada para operaciones agrícolas: Optimice sus costos de energía manteniendo plena flexibilidad operativa."
+          }
+        },
+        {
+          "title": "SolarAbo Multi",
+          "subtitle": "Para viviendas multifamiliares (modelo ZEV)",
+          "feature1": "Un sistema, electricidad para todos los residentes",
+          "feature2": "Facturación centralizada vía sistema ZEV de Free State",
+          "feature3": "Almacenamiento y estaciones de carga opcionalmente integrables",
+          "feature4": "Contrato 35 años, transferencia de propiedad al final",
+          "term": "Contrato 35 años, transferencia de propiedad al final",
+          "price": "Precio personalizado",
+          "benefit1": "0 CHF inversión, precio electricidad –30% vs. red",
+          "benefit2": "Facturación centralizada para todos los residentes",
+          "benefit3": "Almacenamiento e infraestructura de carga opcionales",
+          "explanation": {
+            "label": "Explicado simplemente:",
+            "text": "Solución solar para edificios multifamiliares: Un sistema proporciona electricidad para todos los residentes con facturación y gestión centralizadas."
+          }
+        }
+      ]
+    },
     "portfolio": {
       "title": "Portfolio",
       "subtitle": "Energía sostenible, ahorros a largo plazo y total transparencia – sin tu propio riesgo de inversión.",
       "item1": {
-        "title": "Tejado empresarial Zúrich",
+        "title": "Bauernhof Thun",
         "details": "30% de ahorro •\nSistema 250 kWp"
       },
       "item2": {
-        "title": "Nave industrial",
+        "title": "Industriegebäude Zürich",
         "details": "Reducción CO₂: 12 t/año • 400 kWp"
       },
       "item3": {
-        "title": "Agrícola St. Gallen",
+        "title": "Industriegebäude Chur",
         "details": "Autoconsumo: 75% • 180 kWp"
       },
       "learnMore": "Saber más"
@@ -93,12 +188,150 @@
       "contentTitle": "Energía solar",
       "description": "Le ayudamos a aprovechar al máximo su superficie de techo, reducir los costos de energía y construir un suministro de energía sostenible. Desde la planificación hasta la implementación llave en mano, acompañamos su proyecto: eficiente, confiable y adaptado a su empresa.",
       "item1": {
-        "title": "Elemento 1 Título",
-        "description": "Elemento 1 descripción"
+        "title": "Ahorros",
+        "description": "Máximo ahorro energético para su empresa"
       },
       "item2": {
-        "title": "Elemento 2 Título",
-        "description": "Elemento 2 descripción"
+        "title": "Seguridad",
+        "description": "Seguridad a largo plazo para su empresa."
+      },
+      "cta": "Saber más"
+    },
+    "yourPartner": {
+      "title": "Su socio",
+      "subtitle": "Soluciones solares inteligentes para empresas.",
+      "cta": "Comenzar",
+      "learnMore": "Saber más",
+      "items": {
+        "item1": {
+          "title": "Optimizar el espacio del techo",
+          "description": "Los techos sin usar se convierten en fuentes de energía."
+        },
+        "item2": {
+          "title": "Reducir los costos de energía",
+          "description": "Hasta un 30–40 % de ahorro – a largo plazo y predecible."
+        },
+        "item3": {
+          "title": "Reducir la huella de carbono",
+          "description": "Hasta 12 t CO₂ al año – para su empresa."
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "subtitle": "Póngase en contacto con nosotros",
+    "description": "¿Tiene preguntas sobre nuestras soluciones solares? Estamos aquí para ayudar. Contáctenos a través de cualquiera de los siguientes métodos.",
+    "email": {
+      "label": "Correo electrónico",
+      "value": "info@freestate.ag"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "value": "+41 XX XXX XX XX"
+    },
+    "address": {
+      "label": "Dirección",
+      "value": "Free State AG\nSuiza"
+    }
+  },
+  "portfolioPage": {
+    "title": "Portfolio",
+    "subtitle": "Tu energía, nuestra responsabilidad – sostenible y sin preocupaciones",
+    "strategy": {
+      "title": "Estrategia",
+      "description": "Free State AG es un productor establecido de electricidad verde en Suiza y opera centrales solares modernas. A medio plazo, la empresa tiene como objetivo construir un portafolio diversificado y equilibrado de energías renovables con una capacidad total instalada de 59 megavatios*. El objetivo es posicionarse como uno de los principales operadores de energías renovables en Suiza.",
+      "diversification": "Un elemento central de la estrategia de inversión es la diversificación. Minimiza los riesgos en las áreas de condiciones de mercado, marcos legales y disponibilidad de tipos de generación.",
+      "future": "En el futuro, la producción de electricidad a partir de energía solar debería representar aproximadamente el 20-30% de los ingresos de la empresa. Free State AG invierte exclusivamente en plantas con tecnología madura que ya están en operación o tienen aprobación completa al inicio de la construcción. La venta de centrales eléctricas no es parte del modelo de negocio.",
+      "synergies": "Además de más adquisiciones, Free State maximiza las sinergias en la operación de plantas para aumentar continuamente la eficiencia operativa. La expansión de un portafolio diversificado debería promover de manera sostenible el desarrollo de ingresos y ganancias."
+    },
+    "projects": {
+      "title": "Proyectos solares en acción",
+      "description": "Una selección de instalaciones solares a escala comercial e industrial realizadas en Suiza - desde la planificación hasta la operación.",
+      "items": {
+        "industrialZurich": {
+          "title": "Edificio industrial Zúrich",
+          "description": "Instalación solar moderna en edificio industrial"
+        },
+        "industrialBern": {
+          "title": "Edificio industrial Berna",
+          "description": "Sistema de energía solar para instalación industrial"
+        },
+        "industrialAargau1": {
+          "title": "Edificio industrial Argovia",
+          "description": "Instalación eficiente de generación de energía solar"
+        },
+        "industrialAargau2": {
+          "title": "Edificio industrial Argovia",
+          "description": "Proyecto de energía solar sostenible"
+        },
+        "industrialAargau3": {
+          "title": "Edificio industrial Argovia",
+          "description": "Instalación de energía renovable"
+        },
+        "industrialLuzern1": {
+          "title": "Edificio industrial Lucerna",
+          "description": "Solución energética sostenible para sitio industrial"
+        },
+        "industrialLuzern2": {
+          "title": "Edificio industrial Lucerna",
+          "description": "Sistema de energía verde para instalación industrial"
+        },
+        "industrialChur": {
+          "title": "Edificio industrial Coira",
+          "description": "Instalación de energía renovable en techo industrial"
+        },
+        "farmThun": {
+          "title": "Granja Thun",
+          "description": "Paneles solares para instalación agrícola"
+        },
+        "industrialGeneva": {
+          "title": "Edificio industrial Ginebra",
+          "description": "Sistema de energía verde para complejo industrial"
+        }
+      }
+    }
+  },
+  "investorsPage": {
+    "title": "Para inversores",
+    "subtitle": "Tu energía, nuestra responsabilidad – sostenible y sin preocupaciones",
+    "investing": {
+      "title": "Invertir de manera sostenible",
+      "description": "Con una inversión en energías renovables, apuestas por una creación de valor sostenible y orientada al futuro. Free State AG te ofrece la oportunidad de participar en centrales solares y otros proyectos respetuosos con el medio ambiente. Benefíciate de rendimientos estables, un mercado en crecimiento y una contribución activa a la transición energética. Nuestra experiencia y nuestro enfoque en tecnologías maduras te garantizan seguridad y éxito – para un futuro más verde."
+    },
+    "form": {
+      "title": "Solicitar documentos gratuitamente",
+      "description": "¿Quieres hacer una contribución positiva al medio ambiente y la sociedad? Solicita ahora nuestros documentos gratuitamente y descubre cómo puedes contribuir activamente a la transición energética con soluciones energéticas sostenibles e inversiones en energías renovables. Simplemente completa el formulario y te enviaremos los documentos solicitados directamente. ¡Aprovecha esta oportunidad para informarte de manera completa y dar forma juntos a un futuro verde y exitoso!",
+      "type": "¿Empresa o Privado?",
+      "typePrivate": "Privado",
+      "typeCompany": "Empresa",
+      "salutation": "Saludo",
+      "salutationMr": "Señor",
+      "salutationMrs": "Señora",
+      "salutationDiverse": "Diverso",
+      "language": "Solicitar en:",
+      "languageGerman": "Alemán",
+      "languageEnglish": "Inglés",
+      "languageFrench": "Francés",
+      "privacy": "Por la presente confirmo que he leído la política de privacidad.",
+      "captcha": "¿No legible? Regenerar",
+      "submit": "Enviar"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "items": {
+        "invest": {
+          "question": "¿Puedo invertir en Free State Energie AG?",
+          "answer": "Si eres una persona con residencia en Suiza y te calificas como inversor calificado invirtiendo fondos o conocimientos, entonces sí. Toda persona con residencia en Suiza que tenga una cuenta bancaria suiza y experiencia en el mundo de las inversiones puede suscribir acciones bajo las condiciones oficialmente establecidas del aumento de capital."
+        },
+        "deposit": {
+          "question": "¿Dónde se depositan mis acciones de Free State AG?",
+          "answer": "Las acciones de Free State Energie AG están digitalizadas y son emitidas por Schaffhauser Kantonalbank AG y distribuidas a una cuenta de depósito en tu banco. Es posible que tu banco las valore a un precio de 0 (cero), ya que la empresa aún no está cotizada en bolsa."
+        },
+        "listed": {
+          "question": "¿Está Free State Energie AG cotizada en una bolsa pública?",
+          "answer": "No, actualmente la empresa es de propiedad privada y no está cotizada en bolsa. Cada accionista tiene todos los derechos de accionista, incluido el derecho a dividendos. Free State AG tiene la intención de cotizar en bolsa en un futuro cercano, pero esto depende en gran medida de la situación del mercado, el desarrollo de la empresa y el número de inversores."
+        }
       }
     }
   }

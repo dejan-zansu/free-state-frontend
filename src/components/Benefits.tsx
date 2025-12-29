@@ -2,9 +2,9 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import { AllInclusiveIcon, HouseWithSunIcon, SolarSystemIcon } from './icons'
 import { LinkButton } from './ui/link-button'
 
-const Adventages = async () => {
+const Benefits = async () => {
   const locale = await getLocale()
-  const t = await getTranslations('home.adventages')
+  const t = await getTranslations('home.benefits')
 
   const features = [
     {
@@ -36,7 +36,11 @@ const Adventages = async () => {
           </p>
         </div>
         <div className='flex justify-center mb-10'>
-          <LinkButton variant='outline' href='/calculator' locale={locale}>
+          <LinkButton
+            variant='outline-primary'
+            href='/calculator'
+            locale={locale}
+          >
             {t('learnMore')}
           </LinkButton>
         </div>
@@ -99,4 +103,4 @@ const Adventages = async () => {
   )
 }
 
-export default Adventages
+export default Benefits

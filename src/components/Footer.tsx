@@ -49,7 +49,7 @@ const Footer = async ({ locale }: FooterProps) => {
   ]
 
   const contactLinks = [
-    { label: t('links.aboutUs'), href: `/${locale}/about`, hasArrow: false },
+    { label: t('links.contact'), href: `/${locale}/contact`, hasArrow: false },
   ]
 
   return (

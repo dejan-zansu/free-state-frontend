@@ -365,6 +365,7 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
 
           const result: PVGISResult = {
             yearlyProduction,
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             monthlyProduction: monthlyData.map((m: any) => m.E_m),
             dailyAverage: data.outputs?.totals?.fixed?.E_d || 0,
             peakSunHours: data.outputs?.totals?.fixed?.H_sun || 0,

@@ -15,6 +15,7 @@
       "companies": "Companies",
       "portfolio": "Portfolio",
       "aboutUs": "About Us",
+      "contact": "Contact",
       "facebook": "Facebook",
       "twitter": "Twitter",
       "instagram": "Instagram",
@@ -32,7 +33,7 @@
   "home": {
     "hero": {
       "badge": "Free State Solarabo",
-      "title": "Your Power.\nYour Roof.\nZero Investment.",
+      "title": "Your Roof.\nYour Power.\nZero Investment.",
       "subtitle": "Your energy, our responsibility\nsustainable and worry-free.",
       "cta": {
         "primary": "Get started",
@@ -49,38 +50,109 @@
       "description": "Affordable electricity, complete security, sustainable industry"
     },
     "stats": {
-      "experience": "Years of experience",
-      "customers": "Satisfied customers",
-      "installations": "Successful installations",
-      "savings": "Energy savings"
+      "projects": "Completed Projects",
+      "experience": "Years of Experience",
+      "savings": "Cost Savings for Our Customers",
+      "employees": "Employees"
     },
-    "solarabo": {
-      "badge": "With lifelong benefits",
+    "deals": {
       "title": "Current deals",
-      "subtitle": "Solar energy for businesses",
-      "card": {
-        "title": "SolarAbo Home",
-        "subtitle": "For single-family homes without battery storage",
-        "feature1": "Black-Module 450 Wp",
-        "feature2": "Live-App Monitoring",
-        "feature3": "Insurance & maintenance",
-        "feature4": "CO₂ reduction of up to 2 t/year",
-        "term": "35-year term with buyback option",
-        "price": "from CHF 39.95 /month",
-        "benefit1": "0 CHF investment",
-        "benefit2": "30% electricity price",
-        "benefit3": "Free activation (inst CHF 990)",
-        "cta": "Learn More",
-        "explanation": {
-          "label": "Simply explained:",
-          "text": "Like a mobile subscription: You use the system, we take care of construction, financing, and service."
+      "subtitle": "With lifelong benefits",
+      "learnMore": "Learn More",
+      "from": "from",
+      "month": "/month",
+      "cards": [
+        {
+          "title": "SolarAbo Home",
+          "subtitle": "For single-family homes without storage",
+          "feature1": "Black-Module 450 Wp + High-performance inverter",
+          "feature2": "Live-Monitoring via App – Production, consumption, savings in real-time",
+          "feature3": "Insurance & maintenance included",
+          "feature4": "CO₂ reduction: up to 2 t per year",
+          "term": "35-year term with buyback option",
+          "price": "from CHF 39.95 /month",
+          "benefit1": "0 CHF investment – instead of CHF 25,000 purchase price",
+          "benefit2": "30% cheaper electricity than your current grid price",
+          "benefit3": "Free activation (instead of CHF 990)",
+          "explanation": {
+            "label": "Simply explained:",
+            "text": "Like a mobile subscription. You use the system, we take care of construction, financing, operation and service. After the term, the system belongs to you – free of charge."
+          }
+        },
+        {
+          "title": "SolarAbo Home Storage",
+          "subtitle": "Single-family home with battery storage",
+          "feature1": "PV system + 10 kWh battery (LFP technology)",
+          "feature2": "80% self-consumption, full independence",
+          "feature3": "App-based control and energy analysis",
+          "feature4": "Roof usage and buyback contract included",
+          "term": "35-year term – system becomes your property after",
+          "price": "One-time CHF 2,500",
+          "benefit1": "One-time CHF 2,500 – instead of CHF 35,000 investment",
+          "benefit2": "Electricity price up to 40% below utility tariff",
+          "benefit3": "Full energy independence",
+          "explanation": {
+            "label": "Simply explained:",
+            "text": "Advanced solar system with battery storage for maximum self-consumption and energy independence."
+          }
+        },
+        {
+          "title": "SolarAbo Business",
+          "subtitle": "For commercial and industrial",
+          "feature1": "Performance 100–1,000 kWp on roof or facade",
+          "feature2": "Fixed price 0.18 CHF/kWh (incl. maintenance and insurance)",
+          "feature3": "Option: Battery storage & charging infrastructure",
+          "feature4": "Long-term energy price stability & ESG benefits",
+          "term": "Contract duration 20–25 years with buyback option",
+          "price": "Custom pricing",
+          "benefit1": "0 CHF investment – instead of CHF 250,000 CAPEX",
+          "benefit2": "Fixed energy price for long-term planning",
+          "benefit3": "ESG benefits and sustainability",
+          "explanation": {
+            "label": "Simply explained:",
+            "text": "Complete solar solution for businesses: We handle everything from installation to maintenance, you save on energy costs and improve your ESG profile."
+          }
+        },
+        {
+          "title": "SolarAbo Agro",
+          "subtitle": "For farms and agricultural operations",
+          "feature1": "PV system up to 500 kWp for halls and stables",
+          "feature2": "Electricity cost reduction up to 40%",
+          "feature3": "Optional with storage and heat pump connection",
+          "feature4": "Roof usage contract with service guarantee",
+          "term": "Flexible contract terms",
+          "price": "Custom pricing",
+          "benefit1": "Zero investment – instead of CHF 120,000 investment",
+          "benefit2": "Up to 40% electricity cost reduction",
+          "benefit3": "Service guarantee included",
+          "explanation": {
+            "label": "Simply explained:",
+            "text": "Tailored solar solution for agricultural operations: Optimize your energy costs while maintaining full operational flexibility."
+          }
+        },
+        {
+          "title": "SolarAbo Multi",
+          "subtitle": "For multi-family homes (ZEV model)",
+          "feature1": "One system, electricity for all residents",
+          "feature2": "Centralized billing via Free State ZEV system",
+          "feature3": "Storage and charging stations optionally integrable",
+          "feature4": "Contract 35 years, property transfer at the end",
+          "term": "35-year contract, property transfer at the end",
+          "price": "Custom pricing",
+          "benefit1": "0 CHF investment, electricity price –30% vs. grid",
+          "benefit2": "Centralized billing for all residents",
+          "benefit3": "Optional storage and charging infrastructure",
+          "explanation": {
+            "label": "Simply explained:",
+            "text": "Solar solution for multi-family buildings: One system provides electricity for all residents with centralized billing and management."
+          }
         }
-      }
+      ]
     },
-    "adventages": {
-      "title": "Your advantages",
+    "benefits": {
+      "title": "Your benefits",
       "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
-      "learnMore": "Start now",
+      "learnMore": "Learn more",
       "noInvestment": {
         "title": "No investment costs",
         "description": "You bear no financial risks – we take over all costs for planning, installation and maintenance of your solar system."
@@ -98,15 +170,15 @@
       "title": "Portfolio",
       "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
       "item1": {
-        "title": "Company roof Zurich",
+        "title": "Bauernhof Thun",
         "details": "• 30% cost savings \n• 250 kWp system"
       },
       "item2": {
-        "title": "Industrial hall",
+        "title": "Industriegebäude Zürich",
         "details": "• CO₂ reduction: 12 t/year \n• 400 kWp"
       },
       "item3": {
-        "title": "Agricultural St. Gallen",
+        "title": "Industriegebäude Chur",
         "details": "• Self-consumption: 75% \n• 180 kWp"
       },
       "learnMore": "Learn more"
@@ -116,12 +188,150 @@
       "contentTitle": "Solar energy",
       "description": "We help you make optimal use of your roof space, reduce energy costs and build a sustainable energy supply. From planning to turnkey implementation, we accompany your project – efficient, reliable and tailored to your company.",
       "item1": {
-        "title": "Item 1 Title",
-        "description": "Item 1 description"
+        "title": "Savings",
+        "description": "Maximum energy savings for your business"
       },
       "item2": {
-        "title": "Item 2 Title",
-        "description": "Item 2 description"
+        "title": "Security",
+        "description": "Long-term security for your business."
+      },
+      "cta": "Learn more"
+    },
+    "yourPartner": {
+      "title": "Your Partner",
+      "subtitle": "Smart solar solutions for businesses.",
+      "cta": "Get Started",
+      "learnMore": "Learn more",
+      "items": {
+        "item1": {
+          "title": "Optimize roof space",
+          "description": "Unused roofs become energy sources."
+        },
+        "item2": {
+          "title": "Reduce energy costs",
+          "description": "Up to 30–40% savings – long-term and predictable."
+        },
+        "item3": {
+          "title": "Lower carbon footprint",
+          "description": "Up to 12 t CO₂ per year – for your company."
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch with us",
+    "description": "Have questions about our solar solutions? We're here to help. Reach out to us through any of the following methods.",
+    "email": {
+      "label": "Email",
+      "value": "info@freestate.ag"
+    },
+    "phone": {
+      "label": "Phone",
+      "value": "+41 XX XXX XX XX"
+    },
+    "address": {
+      "label": "Address",
+      "value": "Free State AG\nSwitzerland"
+    }
+  },
+  "portfolioPage": {
+    "title": "Portfolio",
+    "subtitle": "Your energy, our responsibility – sustainable and worry-free",
+    "strategy": {
+      "title": "Strategy",
+      "description": "Free State AG is an established producer of green electricity in Switzerland and operates modern solar power plants. In the medium term, the company aims to build a diverse and balanced portfolio of renewable energies with a total installed capacity of 59 megawatts*. The goal is to position itself as one of the leading operators of renewable energies in Switzerland.",
+      "diversification": "A central element of the investment strategy is diversification. It minimizes risks in the areas of market conditions, legal frameworks and availability of generation types.",
+      "future": "In the future, electricity production from solar energy should account for about 20–30 percent of the company's revenue. Free State AG invests exclusively in plants with mature technology that are either already in operation or have full approval at the start of construction. The sale of power plants is not part of the business model.",
+      "synergies": "In addition to further acquisitions, Free State maximizes synergies in plant operation to continuously increase operational efficiency. The expansion of a diversified portfolio should sustainably promote revenue and profit development."
+    },
+    "projects": {
+      "title": "Solar projects in action",
+      "description": "A selection of utility-scale and commercial solar installations delivered across Switzerland - from planning to operation.",
+      "items": {
+        "industrialZurich": {
+          "title": "Industrial building Zurich",
+          "description": "Modern solar installation on industrial building"
+        },
+        "industrialBern": {
+          "title": "Industrial building Bern",
+          "description": "Solar energy system for industrial facility"
+        },
+        "industrialAargau1": {
+          "title": "Industrial building Aargau",
+          "description": "Efficient solar power generation installation"
+        },
+        "industrialAargau2": {
+          "title": "Industrial building Aargau",
+          "description": "Sustainable solar energy project"
+        },
+        "industrialAargau3": {
+          "title": "Industrial building Aargau",
+          "description": "Renewable energy installation"
+        },
+        "industrialLuzern1": {
+          "title": "Industrial building Lucerne",
+          "description": "Sustainable energy solution for industrial site"
+        },
+        "industrialLuzern2": {
+          "title": "Industrial building Lucerne",
+          "description": "Green energy system for industrial facility"
+        },
+        "industrialChur": {
+          "title": "Industrial building Chur",
+          "description": "Renewable energy installation on industrial roof"
+        },
+        "farmThun": {
+          "title": "Farm Thun",
+          "description": "Solar panels for agricultural facility"
+        },
+        "industrialGeneva": {
+          "title": "Industrial building Geneva",
+          "description": "Green energy system for industrial complex"
+        }
+      }
+    }
+  },
+  "investorsPage": {
+    "title": "For Investors",
+    "subtitle": "Your energy, our responsibility – sustainable and worry-free",
+    "investing": {
+      "title": "Invest sustainably",
+      "description": "With an investment in renewable energies, you are betting on sustainable and future-proof value creation. Free State AG offers you the opportunity to participate in solar power plants and other environmentally friendly projects. Benefit from stable returns, a growing market and an active contribution to the energy transition. Our experience and our focus on mature technologies guarantee you security and success – for a greener future."
+    },
+    "form": {
+      "title": "Order documents free of charge",
+      "description": "Do you want to make a positive contribution to the environment and society? Request our documents free of charge now and find out how you can actively contribute to the energy transition with sustainable energy solutions and investments in renewable energies. Simply fill out the form, and we will send you the requested documents directly. Use this opportunity to inform yourself comprehensively and shape a green and successful future together with us!",
+      "type": "Company or Private?",
+      "typePrivate": "Private",
+      "typeCompany": "Company",
+      "salutation": "Salutation",
+      "salutationMr": "Mr",
+      "salutationMrs": "Mrs",
+      "salutationDiverse": "Diverse",
+      "language": "Order in:",
+      "languageGerman": "German",
+      "languageEnglish": "English",
+      "languageFrench": "French",
+      "privacy": "I hereby confirm that I have read the privacy policy.",
+      "captcha": "Not readable? Regenerate",
+      "submit": "Submit"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "invest": {
+          "question": "Can I invest in Free State Energie AG?",
+          "answer": "If you are a person with residence in Switzerland and qualify as a qualified investor by investing funds or knowledge, then yes. Every person with residence in Switzerland who has a Swiss bank account and experience in the investment world can subscribe to shares under the officially set conditions of the capital increase."
+        },
+        "deposit": {
+          "question": "Where are my Free State AG shares deposited?",
+          "answer": "The shares of Free State Energie AG are digitized and are issued by Schaffhauser Kantonalbank AG and distributed to a deposit account at your bank. It is possible that your bank values them at a price of 0 (zero), as the company is not yet listed on the stock exchange."
+        },
+        "listed": {
+          "question": "Is Free State Energie AG listed on a public stock exchange?",
+          "answer": "No, currently the company is privately owned and is not listed on a stock exchange. Each shareholder has full shareholder rights including dividend rights. Free State AG intends to go public in the near future, but this depends heavily on the market situation, company development and the number of investors."
+        }
       }
     }
   }

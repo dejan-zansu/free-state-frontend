@@ -1,7 +1,6 @@
-import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
-import { getTranslations, getLocale } from 'next-intl/server'
 import { LinkButton } from '@/components/ui/link-button'
+import UnderlineLink from '@/components/ui/underline-link'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 const Hero = async () => {
   const t = await getTranslations('home')
@@ -23,7 +22,7 @@ const Hero = async () => {
             <span className='text-white font-medium'>{t('hero.badge')}</span>
           </div>
 
-          <h1 className='text-white text-[65px] font-medium leading-[67px] mb-4 whitespace-pre-line'>
+          <h1 className='text-white text-7xl font-medium mb-4 whitespace-pre-line'>
             {t('hero.title')}
           </h1>
           <p className='text-white/80 text-xl font-medium leading-[30px] mb-12 whitespace-pre-line'>
@@ -35,7 +34,11 @@ const Hero = async () => {
               {t('hero.cta.primary')}
             </LinkButton>
 
-            <LinkButton variant='secondary' href='/get-started' locale={locale}>
+            <LinkButton
+              variant='outline-secondary'
+              href='/calculator'
+              locale={locale}
+            >
               {t('hero.cta.secondary')}
             </LinkButton>
           </div>
@@ -55,15 +58,12 @@ const Hero = async () => {
               <p className='text-white/70 leading-5'>
                 {t('smartEnergy.description')}
               </p>
-              <Link
+              <UnderlineLink
                 href={`/${locale}/about-us`}
-                className='mt-4 text-white font-medium inline-flex items-center group transition-opacity duration-300 hover:opacity-80'
+                className='mt-4 text-white'
               >
-                <span className='inline-flex items-center gap-2 border-b border-[#F7F7F8] pb-0.5'>
-                  {t('mission.learnMore')}
-                  <ArrowRight className='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1' />
-                </span>
-              </Link>
+                {t('mission.learnMore')}
+              </UnderlineLink>
             </div>
           </div>
 
@@ -78,15 +78,12 @@ const Hero = async () => {
               <p className='text-white/70 leading-5'>
                 {t('mission.description')}
               </p>
-              <Link
+              <UnderlineLink
                 href={`/${locale}/about-us`}
-                className='mt-4 text-white font-medium inline-flex items-center group transition-opacity duration-300 hover:opacity-80'
+                className='mt-4 text-white'
               >
-                <span className='inline-flex items-center gap-2 border-b border-[#F7F7F8] pb-0.5'>
-                  {t('mission.learnMore')}
-                  <ArrowRight className='w-4 h-4 transition-transform duration-300 group-hover:translate-x-1' />
-                </span>
-              </Link>
+                {t('mission.learnMore')}
+              </UnderlineLink>
             </div>
           </div>
         </div>
