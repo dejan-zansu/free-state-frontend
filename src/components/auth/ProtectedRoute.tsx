@@ -29,7 +29,6 @@ export function ProtectedRoute({
     }
   }, [isInitialized, isAuthenticated, router, redirectTo])
 
-  // Check role-based access
   useEffect(() => {
     if (isInitialized && isAuthenticated && allowedRoles && user) {
       if (!allowedRoles.includes(user.role)) {
@@ -38,7 +37,6 @@ export function ProtectedRoute({
     }
   }, [isInitialized, isAuthenticated, allowedRoles, user, router])
 
-  // Loading state
   if (!isInitialized) {
     return (
       <div className='min-h-screen flex items-center justify-center bg-background'>
@@ -71,12 +69,10 @@ export function ProtectedRoute({
     )
   }
 
-  // Not authenticated - will redirect
   if (!isAuthenticated) {
     return null
   }
 
-  // Role not allowed - will redirect
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
     return null
   }

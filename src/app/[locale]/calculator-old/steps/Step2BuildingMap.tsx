@@ -20,7 +20,7 @@ export default function Step2BuildingMap() {
     isDrawing,
     fetchBuildingInsights,
     setPanelCount,
-    setSelectionMode,
+
     setCustomPolygon,
     setIsDrawing,
     clearCustomPolygon,
@@ -220,8 +220,10 @@ export default function Step2BuildingMap() {
     if (!geometryLibrary) return polygon
 
     // Calculate the centroid of the polygon
-    const centerLat = polygon.reduce((sum, p) => sum + p.lat, 0) / polygon.length
-    const centerLng = polygon.reduce((sum, p) => sum + p.lng, 0) / polygon.length
+    const centerLat =
+      polygon.reduce((sum, p) => sum + p.lat, 0) / polygon.length
+    const centerLng =
+      polygon.reduce((sum, p) => sum + p.lng, 0) / polygon.length
 
     // Expand each point outward from the center
     return polygon.map((point) => {
@@ -229,7 +231,10 @@ export default function Step2BuildingMap() {
       const pointLatLng = new google.maps.LatLng(point.lat, point.lng)
 
       // Calculate bearing from center to point
-      const heading = geometryLibrary.spherical.computeHeading(center, pointLatLng)
+      const heading = geometryLibrary.spherical.computeHeading(
+        center,
+        pointLatLng
+      )
 
       // Move the point outward by the buffer distance
       const expanded = geometryLibrary.spherical.computeOffset(
@@ -274,14 +279,19 @@ export default function Step2BuildingMap() {
     // Helper function to check if a point is inside the polygon
     function isPointInPolygon(lat: number, lng: number): boolean {
       let inside = false
-      for (let i = 0, j = polygonCoords.length - 1; i < polygonCoords.length; j = i++) {
+      for (
+        let i = 0, j = polygonCoords.length - 1;
+        i < polygonCoords.length;
+        j = i++
+      ) {
         const xi = polygonCoords[i].lng
         const yi = polygonCoords[i].lat
         const xj = polygonCoords[j].lng
         const yj = polygonCoords[j].lat
 
         const intersect =
-          yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
+          yi > lat !== yj > lat &&
+          lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
 
         if (intersect) inside = !inside
       }
@@ -293,22 +303,36 @@ export default function Step2BuildingMap() {
     const panelIndicesInside = new Set<number>()
 
     allPanels.forEach((panel, index) => {
-      const isInside = isPointInPolygon(panel.center.latitude, panel.center.longitude)
+      const isInside = isPointInPolygon(
+        panel.center.latitude,
+        panel.center.longitude
+      )
       if (isInside) {
         panelIndicesInside.add(index)
       }
       if (index < 3) {
-        console.log(`  Panel ${index}: ${isInside ? 'INSIDE' : 'OUTSIDE'} (${panel.center.latitude}, ${panel.center.longitude})`)
+        console.log(
+          `  Panel ${index}: ${isInside ? 'INSIDE' : 'OUTSIDE'} (${
+            panel.center.latitude
+          }, ${panel.center.longitude})`
+        )
       }
     })
 
-    console.log(`📊 Panels after adjustment: ${panelIndicesInside.size} of ${allPanels.length}`)
-    console.log('📊 Panel indices inside:', Array.from(panelIndicesInside).slice(0, 10))
+    console.log(
+      `📊 Panels after adjustment: ${panelIndicesInside.size} of ${allPanels.length}`
+    )
+    console.log(
+      '📊 Panel indices inside:',
+      Array.from(panelIndicesInside).slice(0, 10)
+    )
 
     // Store the filtered panel indices
     const previousSize = filteredPanelIndicesRef.current?.size
     filteredPanelIndicesRef.current = panelIndicesInside
-    console.log(`✅ Stored filtered indices: ${previousSize} -> ${panelIndicesInside.size}`)
+    console.log(
+      `✅ Stored filtered indices: ${previousSize} -> ${panelIndicesInside.size}`
+    )
 
     // Update the selected panel count to exactly match filtered panels
     console.log(`🔢 Setting panel count to ${panelIndicesInside.size}`)
@@ -337,7 +361,8 @@ export default function Step2BuildingMap() {
     }
 
     // Clear previous polygons (but keep the building polygon ref if it exists and we're just redrawing)
-    const keepBuildingPolygon = buildingPolygonRef.current && filteredPanelIndicesRef.current
+    const keepBuildingPolygon =
+      buildingPolygonRef.current && filteredPanelIndicesRef.current
 
     if (!keepBuildingPolygon) {
       buildingPolygonRef.current?.setMap(null)
@@ -453,11 +478,15 @@ export default function Step2BuildingMap() {
         }
         return isInside
       })
-      console.log(`🔍 Filtered to ${panelsToShow.length} panels inside adjusted polygon (from ${panels.length} total)`)
+      console.log(
+        `🔍 Filtered to ${panelsToShow.length} panels inside adjusted polygon (from ${panels.length} total)`
+      )
     } else {
       // No filter active - use selected panel count
       panelsToShow = panels.slice(0, selectedPanelCount)
-      console.log(`📊 No filter - showing first ${selectedPanelCount} of ${panels.length} panels`)
+      console.log(
+        `📊 No filter - showing first ${selectedPanelCount} of ${panels.length} panels`
+      )
     }
     console.log(`🎨 Drawing ${panelsToShow.length} panels`)
 

@@ -1,15 +1,12 @@
+'use client'
 import { ChevronRight } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import LogoLight from './icons/LogoLight'
-
-interface FooterProps {
-  locale: string
-}
-
-const Footer = async ({ locale }: FooterProps) => {
-  const t = await getTranslations({ locale, namespace: 'footer' })
-
+const Footer = () => {
+  const t = useTranslations('footer')
+  const locale = useParams().locale as string
   const navigationLinks = [
     { label: t('links.home'), href: `/${locale}`, hasArrow: false },
     {

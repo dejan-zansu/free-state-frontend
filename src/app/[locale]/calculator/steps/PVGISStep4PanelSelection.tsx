@@ -1,13 +1,23 @@
 'use client'
 
 import { Loader } from '@googlemaps/js-api-loader'
-import { Check, Eye, EyeOff, Zap } from 'lucide-react'
+import {
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  EyeOff,
+  Zap,
+} from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
-import { SolarPanel, usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
+import {
+  SolarPanel,
+  usePVGISCalculatorStore,
+} from '@/stores/pvgis-calculator.store'
 
 // Mocked panel data (in a real app, fetch from API)
 const AVAILABLE_PANELS: SolarPanel[] = [
@@ -54,6 +64,9 @@ export default function PVGISStep4PanelSelection() {
     selectPanel,
     setPanelCount,
     setMaxPanelCount,
+    nextStep,
+    prevStep,
+    isLoading,
   } = usePVGISCalculatorStore()
 
   const mapRef = useRef<HTMLDivElement>(null)
@@ -61,7 +74,8 @@ export default function PVGISStep4PanelSelection() {
   const roofPolygonRef = useRef<google.maps.Polygon | null>(null)
   const panelPolygonsRef = useRef<google.maps.Polygon[]>([])
   const [showPanels, setShowPanels] = useState(true)
-  const [geometryLib, setGeometryLib] = useState<google.maps.GeometryLibrary | null>(null)
+  const [geometryLib, setGeometryLib] =
+    useState<google.maps.GeometryLibrary | null>(null)
 
   // Calculate max panel count based on roof area
   useEffect(() => {
@@ -90,7 +104,7 @@ export default function PVGISStep4PanelSelection() {
       }
 
       const loader = new Loader({ apiKey, version: 'weekly' })
-      const [mapsLib, geometryLibrary] = await Promise.all([
+      const [, geometryLibrary] = await Promise.all([
         loader.importLibrary('maps'),
         loader.importLibrary('geometry'),
       ])
@@ -126,7 +140,13 @@ export default function PVGISStep4PanelSelection() {
 
   // Calculate panel positions and draw them on map
   const drawPanels = useCallback(() => {
-    if (!mapInstanceRef.current || !roofPolygon || !selectedPanel || !geometryLib) return
+    if (
+      !mapInstanceRef.current ||
+      !roofPolygon ||
+      !selectedPanel ||
+      !geometryLib
+    )
+      return
 
     // Clear existing panels
     panelPolygonsRef.current.forEach((p) => p.setMap(null))
@@ -134,7 +154,6 @@ export default function PVGISStep4PanelSelection() {
 
     if (!showPanels || panelCount === 0) return
 
-    // Calculate roof bounding box
     const lats = roofPolygon.coordinates.map((p) => p.lat)
     const lngs = roofPolygon.coordinates.map((p) => p.lng)
     const minLat = Math.min(...lats)
@@ -143,7 +162,6 @@ export default function PVGISStep4PanelSelection() {
     const maxLng = Math.max(...lngs)
 
     const centerLat = (minLat + maxLat) / 2
-    const centerLng = (minLng + maxLng) / 2
 
     // Calculate meters per degree
     const metersPerDegreeLat = 111320
@@ -164,7 +182,8 @@ export default function PVGISStep4PanelSelection() {
         const yj = coords[j].lat
 
         const intersect =
-          yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
+          yi > lat !== yj > lat &&
+          lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
 
         if (intersect) inside = !inside
       }
@@ -177,7 +196,8 @@ export default function PVGISStep4PanelSelection() {
     let rowOffset = 0
 
     while (currentLat < maxLat && panelPositions.length < panelCount) {
-      let currentLng = minLng + panelSpacingLng / 2 + (rowOffset % 2) * (panelSpacingLng / 2)
+      let currentLng =
+        minLng + panelSpacingLng / 2 + (rowOffset % 2) * (panelSpacingLng / 2)
 
       while (currentLng < maxLng && panelPositions.length < panelCount) {
         if (isPointInPolygon(currentLat, currentLng)) {
@@ -238,120 +258,141 @@ export default function PVGISStep4PanelSelection() {
   }
 
   return (
-    <div className='space-y-4'>
-      <div className='grid grid-cols-1 lg:grid-cols-3 gap-4'>
-        {/* Left side: Panel selection and settings */}
-        <div className='lg:col-span-1 space-y-4'>
-          <Card>
-            <CardHeader>
-              <CardTitle className='flex items-center gap-2'>
-                <Zap className='w-5 h-5 text-solar' />
-                Select Solar Panels
-              </CardTitle>
-            </CardHeader>
-            <CardContent className='space-y-4'>
-              <div className='grid grid-cols-1 gap-3'>
-                {AVAILABLE_PANELS.map((panel) => (
-                  <button
-                    key={panel.id}
-                    onClick={() => selectPanel(panel)}
-                    className={`relative p-3 border-2 rounded-lg text-left transition-all ${
-                      selectedPanel?.id === panel.id
-                        ? 'border-solar bg-solar/5 shadow-md'
-                        : 'border-border hover:border-solar/50'
-                    }`}
-                  >
-                    {selectedPanel?.id === panel.id && (
-                      <div className='absolute top-2 right-2 w-5 h-5 bg-solar rounded-full flex items-center justify-center'>
-                        <Check className='w-3 h-3 text-white' />
+    <div className='grid grid-cols-[400px_1fr] gap-6 h-full'>
+      {/* Left sidebar - Panel Selection */}
+      <div className='overflow-y-auto'>
+        <Card>
+          <CardHeader>
+            <CardTitle className='flex items-center gap-2'>
+              <Zap className='w-5 h-5 text-solar' />
+              Select Solar Panels
+            </CardTitle>
+          </CardHeader>
+          <CardContent className='space-y-4'>
+            <div className='grid grid-cols-1 gap-3'>
+              {AVAILABLE_PANELS.map((panel) => (
+                <button
+                  key={panel.id}
+                  onClick={() => selectPanel(panel)}
+                  className={`relative p-3 border-2 rounded-lg text-left transition-all ${
+                    selectedPanel?.id === panel.id
+                      ? 'border-solar bg-solar/5 shadow-md'
+                      : 'border-border hover:border-solar/50'
+                  }`}
+                >
+                  {selectedPanel?.id === panel.id && (
+                    <div className='absolute top-2 right-2 w-5 h-5 bg-solar rounded-full flex items-center justify-center'>
+                      <Check className='w-3 h-3 text-white' />
+                    </div>
+                  )}
+                  <div className='space-y-1'>
+                    <h3 className='font-semibold text-sm'>{panel.name}</h3>
+                    <div className='text-xl font-bold text-solar'>
+                      {panel.power}W
+                    </div>
+                    <div className='space-y-0.5 text-xs text-muted-foreground'>
+                      <div>Efficiency: {panel.efficiency}%</div>
+                      <div>
+                        Size: {panel.width}m × {panel.height}m
                       </div>
-                    )}
-                    <div className='space-y-1'>
-                      <h3 className='font-semibold text-sm'>{panel.name}</h3>
-                      <div className='text-xl font-bold text-solar'>{panel.power}W</div>
-                      <div className='space-y-0.5 text-xs text-muted-foreground'>
-                        <div>Efficiency: {panel.efficiency}%</div>
-                        <div>Size: {panel.width}m × {panel.height}m</div>
-                        <div className='font-semibold text-foreground text-sm'>
-                          CHF {formatNumber(panel.price)}
-                        </div>
+                      <div className='font-semibold text-foreground text-sm'>
+                        CHF {formatNumber(panel.price)}
                       </div>
                     </div>
-                  </button>
-                ))}
-              </div>
+                  </div>
+                </button>
+              ))}
+            </div>
 
-              {selectedPanel && maxPanelCount > 0 && (
-                <div className='mt-4 p-4 border rounded-lg bg-muted/30'>
-                  <div className='space-y-4'>
-                    <div className='flex items-center justify-between'>
-                      <span className='text-sm font-medium'>Number of Panels</span>
-                      <span className='text-2xl font-bold text-solar'>{panelCount}</span>
-                    </div>
-                    <Slider
-                      value={[panelCount]}
-                      onValueChange={(value) => setPanelCount(value[0])}
-                      min={1}
-                      max={maxPanelCount}
-                      step={1}
-                      className='w-full'
-                    />
-                    <div className='flex justify-between text-xs text-muted-foreground'>
-                      <span>1 panel</span>
-                      <span>Max: {maxPanelCount}</span>
-                    </div>
+            {selectedPanel && maxPanelCount > 0 && (
+              <div className='mt-4 p-4 border rounded-lg bg-muted/30'>
+                <div className='space-y-4'>
+                  <div className='flex items-center justify-between'>
+                    <span className='text-sm font-medium'>
+                      Number of Panels
+                    </span>
+                    <span className='text-2xl font-bold text-solar'>
+                      {panelCount}
+                    </span>
+                  </div>
+                  <Slider
+                    value={[panelCount]}
+                    onValueChange={(value) => setPanelCount(value[0])}
+                    min={1}
+                    max={maxPanelCount}
+                    step={1}
+                    className='w-full'
+                  />
+                  <div className='flex justify-between text-xs text-muted-foreground'>
+                    <span>1 panel</span>
+                    <span>Max: {maxPanelCount}</span>
+                  </div>
 
-                    {/* Summary */}
-                    <div className='grid grid-cols-2 gap-3 pt-3 border-t text-sm'>
-                      <div>
-                        <div className='text-xs text-muted-foreground'>Total Capacity</div>
-                        <div className='font-semibold'>
-                          {((selectedPanel.power * panelCount) / 1000).toFixed(2)} kWp
-                        </div>
+                  {/* Summary */}
+                  <div className='grid grid-cols-2 gap-3 pt-3 border-t text-sm'>
+                    <div>
+                      <div className='text-xs text-muted-foreground'>
+                        Total Capacity
                       </div>
-                      <div>
-                        <div className='text-xs text-muted-foreground'>Total Cost</div>
-                        <div className='font-semibold'>
-                          CHF {formatNumber(selectedPanel.price * panelCount)}
-                        </div>
+                      <div className='font-semibold'>
+                        {((selectedPanel.power * panelCount) / 1000).toFixed(2)}{' '}
+                        kWp
                       </div>
-                      <div>
-                        <div className='text-xs text-muted-foreground'>Coverage</div>
-                        <div className='font-semibold'>
-                          {roofPolygon
-                            ? (
-                                (panelCount * selectedPanel.width * selectedPanel.height) /
-                                roofPolygon.area *
-                                100
-                              ).toFixed(1)
-                            : 0}
-                          %
-                        </div>
+                    </div>
+                    <div>
+                      <div className='text-xs text-muted-foreground'>
+                        Total Cost
                       </div>
-                      <div>
-                        <div className='text-xs text-muted-foreground'>Panel Area</div>
-                        <div className='font-semibold'>
-                          {(panelCount * selectedPanel.width * selectedPanel.height).toFixed(1)} m²
-                        </div>
+                      <div className='font-semibold'>
+                        CHF {formatNumber(selectedPanel.price * panelCount)}
+                      </div>
+                    </div>
+                    <div>
+                      <div className='text-xs text-muted-foreground'>
+                        Coverage
+                      </div>
+                      <div className='font-semibold'>
+                        {roofPolygon
+                          ? (
+                              ((panelCount *
+                                selectedPanel.width *
+                                selectedPanel.height) /
+                                roofPolygon.area) *
+                              100
+                            ).toFixed(1)
+                          : 0}
+                        %
+                      </div>
+                    </div>
+                    <div>
+                      <div className='text-xs text-muted-foreground'>
+                        Panel Area
+                      </div>
+                      <div className='font-semibold'>
+                        {(
+                          panelCount *
+                          selectedPanel.width *
+                          selectedPanel.height
+                        ).toFixed(1)}{' '}
+                        m²
                       </div>
                     </div>
                   </div>
                 </div>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
-        {/* Right side: Map visualization */}
-        <div className='lg:col-span-2 space-y-4'>
+        {/* Panel visibility toggle */}
+        {selectedPanel && panelCount > 0 && (
           <Card>
-            <CardHeader className='flex flex-row items-center justify-between pb-3'>
-              <CardTitle>Panel Visualization</CardTitle>
+            <CardContent className='pt-6'>
               <Button
                 variant='outline'
                 size='sm'
                 onClick={() => setShowPanels(!showPanels)}
-                className='gap-2'
+                className='gap-2 w-full'
               >
                 {showPanels ? (
                   <>
@@ -365,28 +406,72 @@ export default function PVGISStep4PanelSelection() {
                   </>
                 )}
               </Button>
-            </CardHeader>
-            <CardContent className='p-0'>
-              <div ref={mapRef} className='w-full h-[600px] rounded-b-lg' />
+              <div className='text-sm text-center space-y-1 mt-4'>
+                <p className='font-medium'>
+                  {panelCount} × {selectedPanel.name}
+                </p>
+                <p className='text-xs text-muted-foreground'>
+                  Panels are automatically placed within your roof area. In the
+                  next steps, you can adjust orientation and placement details.
+                </p>
+              </div>
             </CardContent>
           </Card>
+        )}
 
-          {selectedPanel && panelCount > 0 && (
-            <Card className='bg-solar/5 border-solar/20'>
-              <CardContent className='pt-6'>
-                <div className='text-sm text-center space-y-1'>
-                  <p className='font-medium'>
-                    {panelCount} × {selectedPanel.name}
-                  </p>
-                  <p className='text-xs text-muted-foreground'>
-                    Panels are automatically placed within your roof area.
-                    In the next steps, you can adjust orientation and placement details.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-          )}
+        {/* Navigation */}
+        <div className='flex flex-col gap-2 pt-4 border-t'>
+          <Button
+            variant='outline'
+            onClick={prevStep}
+            disabled={isLoading}
+            className='gap-2 w-full'
+          >
+            <ChevronLeft className='w-4 h-4' />
+            Back
+          </Button>
+
+          <Button
+            onClick={nextStep}
+            disabled={!selectedPanel || panelCount === 0 || isLoading}
+            className='gap-2 bg-solar hover:bg-solar/90 text-solar-foreground w-full'
+          >
+            {isLoading ? (
+              <>
+                <svg
+                  className='animate-spin w-4 h-4'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                >
+                  <circle
+                    className='opacity-25'
+                    cx='12'
+                    cy='12'
+                    r='10'
+                    stroke='currentColor'
+                    strokeWidth='4'
+                  />
+                  <path
+                    className='opacity-75'
+                    fill='currentColor'
+                    d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z'
+                  />
+                </svg>
+                Loading...
+              </>
+            ) : (
+              <>
+                Next
+                <ChevronRight className='w-4 h-4' />
+              </>
+            )}
+          </Button>
         </div>
+      </div>
+
+      {/* Right side - Map */}
+      <div className='relative'>
+        <div ref={mapRef} className='w-full h-full rounded-lg' />
       </div>
     </div>
   )

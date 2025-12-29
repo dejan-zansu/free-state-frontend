@@ -1,9 +1,6 @@
-import { getTranslations } from 'next-intl/server'
 import Stats from '@/components/Stats'
 
 const PortfolioHero = async () => {
-  const t = await getTranslations('portfolioPage')
-
   return (
     <section className='relative min-h-[879px] flex justify-center overflow-hidden'>
       <div className='absolute inset-0 z-0'>

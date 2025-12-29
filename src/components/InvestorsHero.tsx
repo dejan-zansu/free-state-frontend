@@ -1,8 +1,7 @@
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 const InvestorsHero = async () => {
   const t = await getTranslations('investorsPage')
-  const locale = await getLocale()
 
   return (
     <section className='relative min-h-[879px] flex justify-center overflow-hidden'>

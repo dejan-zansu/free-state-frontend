@@ -1,4 +1,4 @@
-import Footer from '@/components/Footer'
+import ConditionalFooter from '@/components/ConditionalFooter'
 import Header from '@/components/Header'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -27,9 +27,11 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <Header />
-      <main className='flex-1'>{children}</main>
-      <Footer locale={locale} />
+      <div className='flex flex-col'>
+        <Header />
+        <main className='flex-1'>{children}</main>
+        <ConditionalFooter locale={locale} />
+      </div>
     </NextIntlClientProvider>
   )
 }

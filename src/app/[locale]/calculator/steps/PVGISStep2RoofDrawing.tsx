@@ -1,7 +1,14 @@
 'use client'
 
 import { Loader } from '@googlemaps/js-api-loader'
-import { MapPin, PenTool, Save, Trash2 } from 'lucide-react'
+import {
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  PenTool,
+  Save,
+  Trash2,
+} from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -9,7 +16,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
 export default function PVGISStep2RoofDrawing() {
-  const { latitude, longitude, roofPolygon, setRoofPolygon } = usePVGISCalculatorStore()
+  const {
+    latitude,
+    longitude,
+    roofPolygon,
+    setRoofPolygon,
+    nextStep,
+    prevStep,
+    isLoading,
+  } = usePVGISCalculatorStore()
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
@@ -20,26 +35,29 @@ export default function PVGISStep2RoofDrawing() {
   const [points, setPoints] = useState<Array<{ lat: number; lng: number }>>([])
 
   // Calculate polygon area using Shoelace formula
-  const calculateArea = useCallback((coords: Array<{ lat: number; lng: number }>): number => {
-    if (coords.length < 3) return 0
+  const calculateArea = useCallback(
+    (coords: Array<{ lat: number; lng: number }>): number => {
+      if (coords.length < 3) return 0
 
-    // Convert lat/lng to approximate meters
-    const avgLat = coords.reduce((sum, p) => sum + p.lat, 0) / coords.length
-    const metersPerDegreeLat = 111320
-    const metersPerDegreeLng = 111320 * Math.cos((avgLat * Math.PI) / 180)
+      // Convert lat/lng to approximate meters
+      const avgLat = coords.reduce((sum, p) => sum + p.lat, 0) / coords.length
+      const metersPerDegreeLat = 111320
+      const metersPerDegreeLng = 111320 * Math.cos((avgLat * Math.PI) / 180)
 
-    let area = 0
-    for (let i = 0; i < coords.length; i++) {
-      const j = (i + 1) % coords.length
-      const xi = coords[i].lng * metersPerDegreeLng
-      const yi = coords[i].lat * metersPerDegreeLat
-      const xj = coords[j].lng * metersPerDegreeLng
-      const yj = coords[j].lat * metersPerDegreeLat
-      area += xi * yj - xj * yi
-    }
+      let area = 0
+      for (let i = 0; i < coords.length; i++) {
+        const j = (i + 1) % coords.length
+        const xi = coords[i].lng * metersPerDegreeLng
+        const yi = coords[i].lat * metersPerDegreeLat
+        const xj = coords[j].lng * metersPerDegreeLng
+        const yj = coords[j].lat * metersPerDegreeLat
+        area += xi * yj - xj * yi
+      }
 
-    return Math.abs(area / 2)
-  }, [])
+      return Math.abs(area / 2)
+    },
+    []
+  )
 
   // Initialize map
   const initializeMap = useCallback(async () => {
@@ -78,7 +96,10 @@ export default function PVGISStep2RoofDrawing() {
   }, [latitude, longitude, roofPolygon])
 
   // Draw polygon on map
-  const drawPolygon = (coords: Array<{ lat: number; lng: number }>, editable: boolean = false) => {
+  const drawPolygon = (
+    coords: Array<{ lat: number; lng: number }>,
+    editable: boolean = false
+  ) => {
     if (!mapInstanceRef.current || coords.length < 1) return
 
     // Remove existing polygon
@@ -195,6 +216,7 @@ export default function PVGISStep2RoofDrawing() {
     }
     setPoints([])
     setIsDrawing(false)
+    // @ts-expect-error FIXME: Roof polygon is not typed
     setRoofPolygon(null)
   }
 
@@ -211,70 +233,134 @@ export default function PVGISStep2RoofDrawing() {
   }, [])
 
   return (
-    <div className='space-y-4'>
-      <Card>
-        <CardHeader>
-          <CardTitle className='flex items-center gap-2'>
-            <MapPin className='w-5 h-5 text-solar' />
-            Draw Your Roof Area
-          </CardTitle>
-        </CardHeader>
-        <CardContent className='space-y-4'>
-          <p className='text-sm text-muted-foreground'>
-            Click on the map to outline the area where you want to install solar panels.
-            You can draw around your entire roof or just a specific section.
-          </p>
+    <div className='grid grid-cols-[400px_1fr] gap-6 h-full'>
+      <div className='overflow-y-auto'>
+        <Card>
+          <CardHeader>
+            <CardTitle className='flex items-center gap-2'>
+              <MapPin className='w-5 h-5 text-solar' />
+              Draw Your Roof Area
+            </CardTitle>
+          </CardHeader>
+          <CardContent className='space-y-4'>
+            <p className='text-sm text-muted-foreground'>
+              Click on the map to outline the area where you want to install
+              solar panels. You can draw around your entire roof or just a
+              specific section.
+            </p>
 
-          <div className='flex gap-2'>
-            {!isDrawing && points.length === 0 && (
-              <Button onClick={startDrawing} className='gap-2'>
-                <PenTool className='w-4 h-4' />
-                Start Drawing
-              </Button>
-            )}
-            {isDrawing && (
-              <>
-                <Button onClick={finishDrawing} variant='default' className='gap-2'>
-                  Complete Polygon ({points.length} points)
+            <div className='flex flex-col gap-2'>
+              {!isDrawing && points.length === 0 && (
+                <Button onClick={startDrawing} className='gap-2 w-full'>
+                  <PenTool className='w-4 h-4' />
+                  Start Drawing
                 </Button>
-                <Button onClick={clearPolygon} variant='destructive' className='gap-2'>
-                  <Trash2 className='w-4 h-4' />
-                  Clear
-                </Button>
-              </>
-            )}
-            {!isDrawing && points.length >= 3 && (
-              <>
-                <Button onClick={savePolygon} className='gap-2 bg-solar'>
-                  <Save className='w-4 h-4' />
-                  Save Area ({calculateArea(points).toFixed(1)} m²)
-                </Button>
-                <Button onClick={clearPolygon} variant='outline' className='gap-2'>
-                  <Trash2 className='w-4 h-4' />
-                  Redraw
-                </Button>
-              </>
-            )}
-          </div>
-
-          {roofPolygon && (
-            <div className='p-4 rounded-lg bg-solar/10 border border-solar/20'>
-              <p className='text-sm font-medium'>
-                Roof Area: {roofPolygon.area.toFixed(1)} m²
-              </p>
-              <p className='text-xs text-muted-foreground mt-1'>
-                {roofPolygon.coordinates.length} points defined
-              </p>
+              )}
+              {isDrawing && (
+                <>
+                  <Button
+                    onClick={finishDrawing}
+                    variant='default'
+                    className='gap-2 w-full'
+                  >
+                    Complete Polygon ({points.length} points)
+                  </Button>
+                  <Button
+                    onClick={clearPolygon}
+                    variant='destructive'
+                    className='gap-2 w-full'
+                  >
+                    <Trash2 className='w-4 h-4' />
+                    Clear
+                  </Button>
+                </>
+              )}
+              {!isDrawing && points.length >= 3 && (
+                <>
+                  <Button
+                    onClick={savePolygon}
+                    className='gap-2 bg-solar w-full'
+                  >
+                    <Save className='w-4 h-4' />
+                    Save Area ({calculateArea(points).toFixed(1)} m²)
+                  </Button>
+                  <Button
+                    onClick={clearPolygon}
+                    variant='outline'
+                    className='gap-2 w-full'
+                  >
+                    <Trash2 className='w-4 h-4' />
+                    Redraw
+                  </Button>
+                </>
+              )}
             </div>
-          )}
-        </CardContent>
-      </Card>
 
-      <Card>
-        <CardContent className='p-0'>
-          <div ref={mapRef} className='w-full h-[600px] rounded-lg' />
-        </CardContent>
-      </Card>
+            {roofPolygon && (
+              <div className='p-4 rounded-lg bg-solar/10 border border-solar/20'>
+                <p className='text-sm font-medium'>
+                  Roof Area: {roofPolygon.area.toFixed(1)} m²
+                </p>
+                <p className='text-xs text-muted-foreground mt-1'>
+                  {roofPolygon.coordinates.length} points defined
+                </p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <div className='flex flex-col gap-2 pt-4 border-t'>
+          <Button
+            variant='outline'
+            onClick={prevStep}
+            disabled={isLoading}
+            className='gap-2 w-full'
+          >
+            <ChevronLeft className='w-4 h-4' />
+            Back
+          </Button>
+
+          <Button
+            onClick={nextStep}
+            disabled={!roofPolygon || isLoading}
+            className='gap-2 bg-solar hover:bg-solar/90 text-solar-foreground w-full'
+          >
+            {isLoading ? (
+              <>
+                <svg
+                  className='animate-spin w-4 h-4'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                >
+                  <circle
+                    className='opacity-25'
+                    cx='12'
+                    cy='12'
+                    r='10'
+                    stroke='currentColor'
+                    strokeWidth='4'
+                  />
+                  <path
+                    className='opacity-75'
+                    fill='currentColor'
+                    d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z'
+                  />
+                </svg>
+                Loading...
+              </>
+            ) : (
+              <>
+                Next
+                <ChevronRight className='w-4 h-4' />
+              </>
+            )}
+          </Button>
+        </div>
+      </div>
+
+      <div className='relative'>
+        <div ref={mapRef} className='w-full h-full rounded-lg' />
+      </div>
     </div>
   )
 }

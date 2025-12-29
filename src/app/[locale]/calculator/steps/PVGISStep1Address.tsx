@@ -4,18 +4,13 @@ import { Loader } from '@googlemaps/js-api-loader'
 import { MapPin, Search } from 'lucide-react'
 import { useCallback, useEffect, useRef } from 'react'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
 export default function PVGISStep1Address() {
-  const { setLocation, latitude, address } = usePVGISCalculatorStore()
+  const { setLocation, address, latitude, nextStep } = usePVGISCalculatorStore()
   const inputWrapperRef = useRef<HTMLDivElement>(null)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
 
@@ -91,34 +86,26 @@ export default function PVGISStep1Address() {
             <MapPin className='w-6 h-6 text-solar' />
             Enter Your Address
           </CardTitle>
-          <CardDescription>
-            Enter your building address to start calculating your solar potential
-          </CardDescription>
         </CardHeader>
         <CardContent className='space-y-4'>
-          <div className='relative' ref={inputWrapperRef}>
-            <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
-            <Input
-              type='text'
-              placeholder='Search for an address...'
-              className='pl-10 h-12 text-lg'
-              defaultValue={address}
-            />
-          </div>
-
-          {latitude && address && (
-            <div className='p-4 rounded-lg bg-solar/10 border border-solar/20'>
-              <div className='flex items-start gap-3'>
-                <MapPin className='w-5 h-5 text-solar mt-0.5 flex-shrink-0' />
-                <div>
-                  <p className='font-medium text-sm text-muted-foreground'>
-                    Selected Address
-                  </p>
-                  <p className='text-base'>{address}</p>
-                </div>
-              </div>
+          <div className='flex gap-2'>
+            <div className='relative flex-1' ref={inputWrapperRef}>
+              <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
+              <Input
+                type='text'
+                placeholder='Search for an address...'
+                className='pl-10 h-12 text-lg'
+                defaultValue={address}
+              />
             </div>
-          )}
+            <Button
+              onClick={nextStep}
+              disabled={!latitude || !address}
+              className='h-12 px-8 bg-solar hover:bg-solar/90 text-solar-foreground'
+            >
+              Start
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>
