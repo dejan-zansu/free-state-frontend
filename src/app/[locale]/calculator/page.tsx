@@ -1,9 +1,7 @@
 'use client'
 
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect } from 'react'
 
-import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
@@ -16,7 +14,6 @@ import PVGISStep6Inverter from './steps/PVGISStep6Inverter'
 import PVGISStep7AdditionalParams from './steps/PVGISStep7AdditionalParams'
 import PVGISStep8Results from './steps/PVGISStep8Results'
 
-// Steps visible to user (step 3 - Shading is removed from flow but component exists)
 const steps = [
   { id: 1, title: 'Address', description: 'Enter your location' },
   { id: 2, title: 'Roof Area', description: 'Draw your roof' },
@@ -29,23 +26,8 @@ const steps = [
 ]
 
 export default function PVGISCalculatorPage() {
-  const {
-    currentStep,
-    totalSteps,
-    isLoading,
-    error,
-    nextStep,
-    prevStep,
-    setError,
-    // Step validation data
-    latitude,
-    longitude,
-    roofPolygon,
-    buildingDetails,
-    selectedPanel,
-    panelCount,
-    selectedInverter,
-  } = usePVGISCalculatorStore()
+  const { currentStep, error, setError, latitude, longitude, roofPolygon } =
+    usePVGISCalculatorStore()
 
   useEffect(() => {
     setError(null)
@@ -69,18 +51,6 @@ export default function PVGISCalculatorPage() {
   const visibleStepNumber = getVisibleStepNumber(currentStep)
   const totalVisibleSteps = steps.length
   const progress = ((visibleStepNumber - 1) / (totalVisibleSteps - 1)) * 100
-
-  // Handle next step - skip step 3
-  const handleNextStep = () => {
-    if (currentStep === 2) {
-      // Skip step 3, go directly to step 4
-      // Shading analysis will be triggered automatically if needed
-      const { goToStep } = usePVGISCalculatorStore.getState()
-      goToStep(4)
-    } else {
-      nextStep()
-    }
-  }
 
   // Auto-trigger shading analysis when moving from step 2 (runs in background)
   useEffect(() => {
@@ -114,9 +84,6 @@ export default function PVGISCalculatorPage() {
           if (response.ok) {
             const data = await response.json()
             setHorizonData(data.outputs.horizon_profile)
-            console.log(
-              '✅ Horizon data fetched automatically for shading calculations'
-            )
           }
         } catch (error) {
           console.warn('⚠️ Failed to fetch horizon data automatically:', error)
@@ -127,39 +94,6 @@ export default function PVGISCalculatorPage() {
       fetchHorizonData()
     }
   }, [currentStep, roofPolygon, latitude, longitude])
-
-  // Handle previous step - skip step 3
-  const handlePrevStep = () => {
-    if (currentStep === 4) {
-      // Skip step 3, go directly to step 2
-      const { goToStep } = usePVGISCalculatorStore.getState()
-      goToStep(2)
-    } else {
-      prevStep()
-    }
-  }
-
-  // Can proceed to next step?
-  const canProceed = () => {
-    switch (currentStep) {
-      case 1:
-        return latitude !== null
-      case 2:
-        return roofPolygon !== null && roofPolygon.area > 0
-      case 4:
-        return buildingDetails !== null
-      case 5:
-        return selectedPanel !== null && panelCount > 0
-      case 6:
-        return true // Panel placement has defaults
-      case 7:
-        return selectedInverter !== null
-      case 8:
-        return true
-      default:
-        return false
-    }
-  }
 
   const renderStep = () => {
     switch (currentStep) {
@@ -196,7 +130,6 @@ export default function PVGISCalculatorPage() {
               <Progress value={progress} className='h-2' />
               <div className='hidden md:flex items-center justify-between text-xs'>
                 {steps.map((step) => {
-                  // Map currentStep to visible step for highlighting
                   const isCurrentStep =
                     currentStep === step.id ||
                     (currentStep === 3 && step.id === 4)
@@ -207,7 +140,7 @@ export default function PVGISCalculatorPage() {
                       key={step.id}
                       className={`text-center ${
                         isCurrentStep
-                          ? 'text-solar font-semibold'
+                          ? 'font-semibold'
                           : isCompleted
                           ? 'text-energy'
                           : 'text-muted-foreground'
@@ -231,62 +164,6 @@ export default function PVGISCalculatorPage() {
         )}
 
         <div className='h-full'>{renderStep()}</div>
-
-        {currentStep !== 2 && currentStep !== 3 && (
-          <div className='absolute bottom-4 left-4 right-4 z-50 max-w-7xl mx-auto flex items-center justify-between bg-background/95 backdrop-blur-sm p-4 rounded-lg border shadow-lg'>
-            <Button
-              variant='outline'
-              onClick={handlePrevStep}
-              disabled={currentStep === 1 || isLoading}
-              className='gap-2'
-            >
-              <ChevronLeft className='w-4 h-4' />
-              Back
-            </Button>
-
-            {currentStep < totalSteps ? (
-              <Button
-                onClick={handleNextStep}
-                disabled={!canProceed() || isLoading}
-                className='gap-2 bg-solar hover:bg-solar/90 text-solar-foreground'
-              >
-                {isLoading ? (
-                  <>
-                    <svg
-                      className='animate-spin w-4 h-4'
-                      viewBox='0 0 24 24'
-                      fill='none'
-                    >
-                      <circle
-                        className='opacity-25'
-                        cx='12'
-                        cy='12'
-                        r='10'
-                        stroke='currentColor'
-                        strokeWidth='4'
-                      />
-                      <path
-                        className='opacity-75'
-                        fill='currentColor'
-                        d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z'
-                      />
-                    </svg>
-                    Loading...
-                  </>
-                ) : (
-                  <>
-                    Next
-                    <ChevronRight className='w-4 h-4' />
-                  </>
-                )}
-              </Button>
-            ) : (
-              <div className='text-sm text-muted-foreground'>
-                Review your solar system details above
-              </div>
-            )}
-          </div>
-        )}
       </main>
     </div>
   )

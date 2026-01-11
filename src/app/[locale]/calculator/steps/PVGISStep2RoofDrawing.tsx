@@ -30,19 +30,43 @@ export default function PVGISStep2RoofDrawing() {
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
   const polygonRef = useRef<google.maps.Polygon | null>(null)
   const mapClickListenerRef = useRef<google.maps.MapsEventListener | null>(null)
+  const mapInitializedRef = useRef(false)
 
   const [isDrawing, setIsDrawing] = useState(false)
   const [points, setPoints] = useState<Array<{ lat: number; lng: number }>>([])
 
-  // Calculate polygon area using Shoelace formula
+  // Calculate polygon area using Google Maps Geometry library (spherical calculation)
+  // Falls back to Shoelace formula if geometry library not loaded
   const calculateArea = useCallback(
     (coords: Array<{ lat: number; lng: number }>): number => {
       if (coords.length < 3) return 0
 
-      // Convert lat/lng to approximate meters
+      // Try to use Google Maps spherical geometry (more accurate)
+      if (
+        typeof google !== 'undefined' &&
+        google.maps?.geometry?.spherical?.computeArea
+      ) {
+        const path = coords.map((c) => new google.maps.LatLng(c.lat, c.lng))
+        return google.maps.geometry.spherical.computeArea(path)
+      }
+
+      // Fallback: Shoelace formula with improved coordinate conversion
+      // Using WGS84 ellipsoid parameters for better accuracy
       const avgLat = coords.reduce((sum, p) => sum + p.lat, 0) / coords.length
-      const metersPerDegreeLat = 111320
-      const metersPerDegreeLng = 111320 * Math.cos((avgLat * Math.PI) / 180)
+      const latRad = (avgLat * Math.PI) / 180
+
+      // WGS84 ellipsoid parameters
+      const a = 6378137 // semi-major axis in meters
+      const b = 6356752.3142 // semi-minor axis in meters
+      const e2 = 1 - (b * b) / (a * a) // eccentricity squared
+
+      // More accurate meters per degree calculation
+      const metersPerDegreeLat =
+        (Math.PI * a * (1 - e2)) /
+        (180 * Math.pow(1 - e2 * Math.sin(latRad) * Math.sin(latRad), 1.5))
+      const metersPerDegreeLng =
+        (Math.PI * a * Math.cos(latRad)) /
+        (180 * Math.sqrt(1 - e2 * Math.sin(latRad) * Math.sin(latRad)))
 
       let area = 0
       for (let i = 0; i < coords.length; i++) {
@@ -59,9 +83,112 @@ export default function PVGISStep2RoofDrawing() {
     []
   )
 
-  // Initialize map
+  // Calculate perimeter of polygon
+  const calculatePerimeter = useCallback(
+    (coords: Array<{ lat: number; lng: number }>): number => {
+      if (coords.length < 2) return 0
+
+      // Try to use Google Maps spherical geometry
+      if (
+        typeof google !== 'undefined' &&
+        google.maps?.geometry?.spherical?.computeLength
+      ) {
+        // Create closed path (add first point at end)
+        const path = [...coords, coords[0]].map(
+          (c) => new google.maps.LatLng(c.lat, c.lng)
+        )
+        return google.maps.geometry.spherical.computeLength(path)
+      }
+
+      // Fallback: Haversine formula
+      let perimeter = 0
+      for (let i = 0; i < coords.length; i++) {
+        const j = (i + 1) % coords.length
+        const lat1 = (coords[i].lat * Math.PI) / 180
+        const lat2 = (coords[j].lat * Math.PI) / 180
+        const dLat = lat2 - lat1
+        const dLng = ((coords[j].lng - coords[i].lng) * Math.PI) / 180
+        const a =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) * Math.sin(dLng / 2)
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+        perimeter += 6371000 * c // Earth radius in meters
+      }
+      return perimeter
+    },
+    []
+  )
+
+  // Check if polygon is self-intersecting (simple check for adjacent edge intersections)
+  const checkSelfIntersection = useCallback(
+    (coords: Array<{ lat: number; lng: number }>): boolean => {
+      if (coords.length < 4) return false
+
+      // Helper: Check if two line segments intersect
+      const segmentsIntersect = (
+        p1: { lat: number; lng: number },
+        p2: { lat: number; lng: number },
+        p3: { lat: number; lng: number },
+        p4: { lat: number; lng: number }
+      ): boolean => {
+        const ccw = (
+          A: { lat: number; lng: number },
+          B: { lat: number; lng: number },
+          C: { lat: number; lng: number }
+        ) => {
+          return (
+            (C.lng - A.lng) * (B.lat - A.lat) > (B.lng - A.lng) * (C.lat - A.lat)
+          )
+        }
+        return (
+          ccw(p1, p3, p4) !== ccw(p2, p3, p4) && ccw(p1, p2, p3) !== ccw(p1, p2, p4)
+        )
+      }
+
+      // Check each pair of non-adjacent edges
+      for (let i = 0; i < coords.length; i++) {
+        for (let j = i + 2; j < coords.length; j++) {
+          // Skip adjacent edges
+          if (i === 0 && j === coords.length - 1) continue
+
+          const p1 = coords[i]
+          const p2 = coords[(i + 1) % coords.length]
+          const p3 = coords[j]
+          const p4 = coords[(j + 1) % coords.length]
+
+          if (segmentsIntersect(p1, p2, p3, p4)) {
+            return true
+          }
+        }
+      }
+      return false
+    },
+    []
+  )
+
+  const isSelfIntersecting = points.length >= 4 && checkSelfIntersection(points)
+
+  // Calculate centroid of polygon
+  const getPolygonCentroid = useCallback(
+    (coords: Array<{ lat: number; lng: number }>) => {
+      if (coords.length === 0) return null
+      const centroidLat =
+        coords.reduce((sum, p) => sum + p.lat, 0) / coords.length
+      const centroidLng =
+        coords.reduce((sum, p) => sum + p.lng, 0) / coords.length
+      return { lat: centroidLat, lng: centroidLng }
+    },
+    []
+  )
+
+  // Initialize map - only runs once per component mount
   const initializeMap = useCallback(async () => {
     if (!mapRef.current || !latitude || !longitude) return
+
+    // Prevent re-initialization if already initialized
+    if (mapInitializedRef.current && mapInstanceRef.current) {
+      return
+    }
 
     try {
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
@@ -71,10 +198,26 @@ export default function PVGISStep2RoofDrawing() {
       }
 
       const loader = new Loader({ apiKey, version: 'weekly' })
-      await loader.importLibrary('maps')
+      await Promise.all([
+        loader.importLibrary('maps'),
+        loader.importLibrary('geometry'), // For accurate area calculation
+      ])
+
+      // Get current roofPolygon from store to determine initial view
+      const currentRoofPolygon = usePVGISCalculatorStore.getState().roofPolygon
+
+      // Determine initial center: use polygon centroid if exists, otherwise address
+      let initialCenter = { lat: latitude, lng: longitude }
+
+      if (currentRoofPolygon && currentRoofPolygon.coordinates.length >= 3) {
+        const centroid = getPolygonCentroid(currentRoofPolygon.coordinates)
+        if (centroid) {
+          initialCenter = centroid
+        }
+      }
 
       const mapOptions: google.maps.MapOptions = {
-        center: { lat: latitude, lng: longitude },
+        center: initialCenter,
         zoom: 20,
         mapTypeId: 'satellite',
         tilt: 0,
@@ -84,16 +227,24 @@ export default function PVGISStep2RoofDrawing() {
       }
 
       mapInstanceRef.current = new google.maps.Map(mapRef.current, mapOptions)
+      mapInitializedRef.current = true
 
       // Load existing polygon if any
-      if (roofPolygon && roofPolygon.coordinates.length >= 3) {
-        setPoints(roofPolygon.coordinates)
-        drawPolygon(roofPolygon.coordinates, true)
+      if (currentRoofPolygon && currentRoofPolygon.coordinates.length >= 3) {
+        setPoints(currentRoofPolygon.coordinates)
+        drawPolygon(currentRoofPolygon.coordinates, true)
+
+        // Fit map bounds to show entire polygon
+        const bounds = new google.maps.LatLngBounds()
+        currentRoofPolygon.coordinates.forEach((coord) => {
+          bounds.extend(new google.maps.LatLng(coord.lat, coord.lng))
+        })
+        mapInstanceRef.current.fitBounds(bounds, 50) // 50px padding
       }
     } catch (error) {
       console.error('Error initializing map:', error)
     }
-  }, [latitude, longitude, roofPolygon])
+  }, [latitude, longitude, getPolygonCentroid])
 
   // Draw polygon on map
   const drawPolygon = (
@@ -222,15 +373,21 @@ export default function PVGISStep2RoofDrawing() {
 
   useEffect(() => {
     initializeMap()
-  }, [initializeMap])
 
-  useEffect(() => {
+    // Cleanup on unmount
     return () => {
       if (mapClickListenerRef.current) {
         google.maps.event.removeListener(mapClickListenerRef.current)
+        mapClickListenerRef.current = null
       }
+      // Clean up polygon listeners
+      if (polygonRef.current) {
+        google.maps.event.clearInstanceListeners(polygonRef.current)
+      }
+      // Reset initialization flag for next mount
+      mapInitializedRef.current = false
     }
-  }, [])
+  }, [initializeMap])
 
   return (
     <div className='grid grid-cols-[400px_1fr] gap-6 h-full'>
@@ -243,11 +400,18 @@ export default function PVGISStep2RoofDrawing() {
             </CardTitle>
           </CardHeader>
           <CardContent className='space-y-4'>
-            <p className='text-sm text-muted-foreground'>
-              Click on the map to outline the area where you want to install
-              solar panels. You can draw around your entire roof or just a
-              specific section.
-            </p>
+            <div className='text-sm text-muted-foreground space-y-2'>
+              <p>
+                Click on the map to outline the area where you want to install
+                solar panels.
+              </p>
+              <ul className='list-disc list-inside space-y-1 text-xs'>
+                <li>Draw the outline of your roof as seen from above</li>
+                <li>Click to add points, complete when you have at least 3</li>
+                <li>After completing, you can drag points to adjust</li>
+                <li>Avoid overlapping lines for accurate measurements</li>
+              </ul>
+            </div>
 
             <div className='flex flex-col gap-2'>
               {!isDrawing && points.length === 0 && (
@@ -277,12 +441,33 @@ export default function PVGISStep2RoofDrawing() {
               )}
               {!isDrawing && points.length >= 3 && (
                 <>
+                  {isSelfIntersecting && (
+                    <div className='p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm'>
+                      ⚠️ Polygon lines are crossing. Please redraw without
+                      overlapping edges for accurate area calculation.
+                    </div>
+                  )}
+                  <div className='p-3 rounded-lg bg-muted text-sm space-y-1'>
+                    <div className='flex justify-between'>
+                      <span className='text-muted-foreground'>Area:</span>
+                      <span className='font-medium'>
+                        {calculateArea(points).toFixed(1)} m²
+                      </span>
+                    </div>
+                    <div className='flex justify-between'>
+                      <span className='text-muted-foreground'>Perimeter:</span>
+                      <span className='font-medium'>
+                        {calculatePerimeter(points).toFixed(1)} m
+                      </span>
+                    </div>
+                  </div>
                   <Button
                     onClick={savePolygon}
                     className='gap-2 bg-solar w-full'
+                    disabled={isSelfIntersecting}
                   >
                     <Save className='w-4 h-4' />
-                    Save Area ({calculateArea(points).toFixed(1)} m²)
+                    Save Area
                   </Button>
                   <Button
                     onClick={clearPolygon}
@@ -297,12 +482,30 @@ export default function PVGISStep2RoofDrawing() {
             </div>
 
             {roofPolygon && (
-              <div className='p-4 rounded-lg bg-solar/10 border border-solar/20'>
-                <p className='text-sm font-medium'>
-                  Roof Area: {roofPolygon.area.toFixed(1)} m²
-                </p>
-                <p className='text-xs text-muted-foreground mt-1'>
-                  {roofPolygon.coordinates.length} points defined
+              <div className='p-4 rounded-lg bg-solar/10 border border-solar/20 space-y-2'>
+                <div className='flex justify-between items-center'>
+                  <span className='text-sm text-muted-foreground'>
+                    Roof Area:
+                  </span>
+                  <span className='text-lg font-semibold text-solar'>
+                    {roofPolygon.area.toFixed(1)} m²
+                  </span>
+                </div>
+                <div className='flex justify-between items-center text-sm'>
+                  <span className='text-muted-foreground'>Perimeter:</span>
+                  <span className='font-medium'>
+                    {calculatePerimeter(roofPolygon.coordinates).toFixed(1)} m
+                  </span>
+                </div>
+                <div className='flex justify-between items-center text-sm'>
+                  <span className='text-muted-foreground'>Points:</span>
+                  <span className='font-medium'>
+                    {roofPolygon.coordinates.length}
+                  </span>
+                </div>
+                <p className='text-xs text-muted-foreground pt-2 border-t'>
+                  💡 This is the horizontal projection area. Actual roof surface
+                  will be calculated based on roof pitch in later steps.
                 </p>
               </div>
             )}

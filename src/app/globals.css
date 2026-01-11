@@ -118,6 +118,10 @@
     @apply font-semibold tracking-tight;
     line-height: 1.25;
   }
+
+  button {
+    @apply cursor-pointer;
+  }
 }
 
 @layer utilities {
