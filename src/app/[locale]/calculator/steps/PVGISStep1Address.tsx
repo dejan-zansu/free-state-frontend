@@ -43,9 +43,6 @@ export default function PVGISStep1Address() {
         inputElement,
         {
           fields: ['formatted_address', 'geometry', 'name'],
-          componentRestrictions: {
-            country: ['ch', 'de', 'at', 'fr', 'it', 'li'],
-          },
         }
       )
 
