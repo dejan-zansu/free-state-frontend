@@ -80,7 +80,7 @@ export default function PVGISStep1Address() {
       <Card className='w-full max-w-2xl'>
         <CardHeader>
           <CardTitle className='flex items-center gap-2 text-2xl'>
-            <MapPin className='w-6 h-6 text-solar' />
+            <MapPin className='w-6 h-6 text-primary' />
             Enter Your Address
           </CardTitle>
         </CardHeader>
@@ -98,7 +98,7 @@ export default function PVGISStep1Address() {
             <Button
               onClick={nextStep}
               disabled={!latitude || !address}
-              className='h-12 px-8 bg-solar hover:bg-solar/90 text-solar-foreground'
+              className='h-12 px-8'
             >
               Start
             </Button>

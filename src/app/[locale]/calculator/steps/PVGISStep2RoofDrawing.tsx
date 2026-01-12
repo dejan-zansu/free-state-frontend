@@ -395,7 +395,7 @@ export default function PVGISStep2RoofDrawing() {
         <Card>
           <CardHeader>
             <CardTitle className='flex items-center gap-2'>
-              <MapPin className='w-5 h-5 text-solar' />
+              <MapPin className='w-5 h-5 text-primary' />
               Draw Your Roof Area
             </CardTitle>
           </CardHeader>
@@ -463,7 +463,7 @@ export default function PVGISStep2RoofDrawing() {
                   </div>
                   <Button
                     onClick={savePolygon}
-                    className='gap-2 bg-solar w-full'
+                    className='gap-2 w-full'
                     disabled={isSelfIntersecting}
                   >
                     <Save className='w-4 h-4' />
@@ -482,12 +482,12 @@ export default function PVGISStep2RoofDrawing() {
             </div>
 
             {roofPolygon && (
-              <div className='p-4 rounded-lg bg-solar/10 border border-solar/20 space-y-2'>
+              <div className='p-4 rounded-lg bg-primary/10 border border-primary/20 space-y-2'>
                 <div className='flex justify-between items-center'>
                   <span className='text-sm text-muted-foreground'>
                     Roof Area:
                   </span>
-                  <span className='text-lg font-semibold text-solar'>
+                  <span className='text-lg font-semibold text-primary'>
                     {roofPolygon.area.toFixed(1)} m²
                   </span>
                 </div>
@@ -526,7 +526,7 @@ export default function PVGISStep2RoofDrawing() {
           <Button
             onClick={nextStep}
             disabled={!roofPolygon || isLoading}
-            className='gap-2 bg-solar hover:bg-solar/90 text-solar-foreground w-full'
+            className='gap-2 w-full'
           >
             {isLoading ? (
               <>

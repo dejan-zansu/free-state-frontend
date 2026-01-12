@@ -7,22 +7,16 @@ import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
 import PVGISStep1Address from './steps/PVGISStep1Address'
 import PVGISStep2RoofDrawing from './steps/PVGISStep2RoofDrawing'
-import PVGISStep3BuildingDetails from './steps/PVGISStep3BuildingDetails'
-import PVGISStep4PanelSelection from './steps/PVGISStep4PanelSelection'
-import PVGISStep5PanelPlacement from './steps/PVGISStep5PanelPlacement'
-import PVGISStep6Inverter from './steps/PVGISStep6Inverter'
-import PVGISStep7AdditionalParams from './steps/PVGISStep7AdditionalParams'
-import PVGISStep8Results from './steps/PVGISStep8Results'
+import Step3RoofOrientation from './steps/Step3RoofOrientation'
+import Step4SolarSystem from './steps/Step4SolarSystem'
+import Step5Results from './steps/Step5Results'
 
 const steps = [
-  { id: 1, title: 'Address', description: 'Enter your location' },
+  { id: 1, title: 'Location', description: 'Enter your address' },
   { id: 2, title: 'Roof Area', description: 'Draw your roof' },
-  { id: 4, title: 'Building', description: 'Building details' },
-  { id: 5, title: 'Panels', description: 'Select solar panels' },
-  { id: 6, title: 'Placement', description: 'Configure placement' },
-  { id: 7, title: 'Inverter', description: 'Select inverter' },
-  { id: 8, title: 'Parameters', description: 'Additional info' },
-  { id: 9, title: 'Results', description: 'Your solar system' },
+  { id: 3, title: 'Orientation', description: 'Roof angle & direction' },
+  { id: 4, title: 'System', description: 'Panels & inverter' },
+  { id: 5, title: 'Results', description: 'Your solar potential' },
 ]
 
 export default function PVGISCalculatorPage() {
@@ -33,30 +27,13 @@ export default function PVGISCalculatorPage() {
     setError(null)
   }, [currentStep, setError])
 
-  // Redirect from step 3 to step 4 if somehow we land on step 3
+  const totalSteps = steps.length
+  const progress = ((currentStep - 1) / (totalSteps - 1)) * 100
+
+  // Auto-trigger shading analysis when moving to step 3 (runs in background)
   useEffect(() => {
-    if (currentStep === 3) {
-      const { goToStep } = usePVGISCalculatorStore.getState()
-      goToStep(4)
-    }
-  }, [currentStep])
-
-  // Map internal step to visible step for progress (step 3 is skipped)
-  const getVisibleStepNumber = (step: number) => {
-    if (step <= 2) return step
-    if (step >= 4) return step - 1 // Step 3 is hidden, so shift everything after it
-    return 2
-  }
-
-  const visibleStepNumber = getVisibleStepNumber(currentStep)
-  const totalVisibleSteps = steps.length
-  const progress = ((visibleStepNumber - 1) / (totalVisibleSteps - 1)) * 100
-
-  // Auto-trigger shading analysis when moving from step 2 (runs in background)
-  useEffect(() => {
-    if (currentStep === 4 && roofPolygon && latitude && longitude) {
+    if (currentStep === 3 && roofPolygon && latitude && longitude) {
       // Automatically fetch horizon data in the background for calculations
-      // This ensures shading data is available even though step 3 is hidden
       const fetchHorizonData = async () => {
         const { horizonData, setHorizonData } =
           usePVGISCalculatorStore.getState()
@@ -102,20 +79,11 @@ export default function PVGISCalculatorPage() {
       case 2:
         return <PVGISStep2RoofDrawing />
       case 3:
-        // Step 3 should never be reached, redirect handled in useEffect
-        return null
+        return <Step3RoofOrientation />
       case 4:
-        return <PVGISStep3BuildingDetails />
+        return <Step4SolarSystem />
       case 5:
-        return <PVGISStep4PanelSelection />
-      case 6:
-        return <PVGISStep5PanelPlacement />
-      case 7:
-        return <PVGISStep6Inverter />
-      case 8:
-        return <PVGISStep7AdditionalParams />
-      case 9:
-        return <PVGISStep8Results />
+        return <Step5Results />
       default:
         return <PVGISStep1Address />
     }
@@ -130,11 +98,8 @@ export default function PVGISCalculatorPage() {
               <Progress value={progress} className='h-2' />
               <div className='hidden md:flex items-center justify-between text-xs'>
                 {steps.map((step) => {
-                  const isCurrentStep =
-                    currentStep === step.id ||
-                    (currentStep === 3 && step.id === 4)
-                  const isCompleted =
-                    currentStep > step.id || (currentStep === 3 && step.id < 3)
+                  const isCurrentStep = currentStep === step.id
+                  const isCompleted = currentStep > step.id
                   return (
                     <div
                       key={step.id}

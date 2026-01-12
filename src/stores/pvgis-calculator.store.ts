@@ -1,5 +1,9 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
+import {
+  detectCountryFromCoordinates,
+  type CountryConfig,
+} from '@/config/countries'
 
 // Types
 export interface RoofPolygon {
@@ -8,10 +12,12 @@ export interface RoofPolygon {
 }
 
 export interface BuildingDetails {
-  roofType: 'flat' | 'gable' | 'hip' | 'shed'
-  buildingHeight: number // in meters
+  roofType?: 'flat' | 'gable' | 'hip' | 'shed'
+  buildingHeight?: number // in meters
   floors?: number
   roofPitch?: number // degrees for sloped roofs
+  roofMaterial?: string // e.g., 'tiles', 'slate', 'metal', 'flat-membrane'
+  roofMaterialCostMultiplier?: number // affects installation cost
 }
 
 export interface SolarPanel {
@@ -79,6 +85,8 @@ interface PVGISCalculatorState {
   address: string
   latitude: number | null
   longitude: number | null
+  countryCode: string // ISO 3166-1 alpha-2
+  countryConfig: CountryConfig | null // Fetched from backend
 
   // Step 2: Roof polygon
   roofPolygon: RoofPolygon | null
@@ -119,6 +127,9 @@ interface PVGISCalculatorActions {
 
   // Step 1
   setLocation: (address: string, lat: number, lng: number) => void
+  setCountryCode: (code: string) => void
+  fetchCountryConfig: (countryCode: string) => Promise<void>
+  getCountryConfig: () => CountryConfig | null
 
   // Step 2
   setRoofPolygon: (polygon: RoofPolygon) => void
@@ -127,7 +138,7 @@ interface PVGISCalculatorActions {
   setHorizonData: (data: HorizonDataPoint[]) => void
 
   // Step 3
-  setBuildingDetails: (details: BuildingDetails) => void
+  setBuildingDetails: (details: Partial<BuildingDetails>) => void
 
   // Step 4
   selectPanel: (panel: SolarPanel) => void
@@ -157,11 +168,13 @@ type PVGISCalculatorStore = PVGISCalculatorState & PVGISCalculatorActions
 
 const initialState: PVGISCalculatorState = {
   currentStep: 1,
-  totalSteps: 9, // 8 input steps (including shading analysis) + 1 results step
+  totalSteps: 5,
 
   address: '',
   latitude: null,
   longitude: null,
+  countryCode: 'CH', // Default Switzerland
+  countryConfig: null, // Will be fetched from backend
 
   roofPolygon: null,
   horizonData: null,
@@ -172,8 +185,8 @@ const initialState: PVGISCalculatorState = {
   maxPanelCount: 0,
 
   panelPlacement: {
-    orientation: 180, // South by default
-    tilt: 30, // Default tilt
+    orientation: 180,
+    tilt: 30,
     ridgeDistance: 0,
     gableEndDistance: 0,
     eavesDistance: 0,
@@ -230,12 +243,89 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
 
       // Step 1: Address
       setLocation: (address, lat, lng) => {
+        // Detect country from coordinates (only Switzerland supported currently)
+        const detectedCountry = detectCountryFromCoordinates(lat, lng)
+
+        if (!detectedCountry) {
+          set({
+            error:
+              'Location is outside supported area. Currently only Switzerland is supported.',
+          })
+          return
+        }
+
         set({
           address,
           latitude: lat,
           longitude: lng,
+          countryCode: detectedCountry,
           error: null,
         })
+
+        // Fetch country config from backend
+        get().fetchCountryConfig(detectedCountry)
+      },
+
+      setCountryCode: (code) => {
+        set({ countryCode: code })
+        get().fetchCountryConfig(code)
+      },
+
+      fetchCountryConfig: async (countryCode: string) => {
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+
+        try {
+          const response = await fetch(
+            `${apiUrl}/api/electricity-prices/${countryCode}`
+          )
+          const data = await response.json()
+
+          if (data.success && data.data) {
+            const config: CountryConfig = {
+              code: countryCode,
+              name: countryCode === 'CH' ? 'Switzerland' : countryCode,
+              currency: data.data.currency || 'CHF',
+              currencySymbol: data.data.currency || 'CHF',
+              electricityPrice: data.data.electricityPrice,
+              feedInTariff: data.data.feedInTariff,
+              vatRate: data.data.vatRate,
+              subsidyBase: data.data.subsidyBase || 0,
+              subsidyPerKw: data.data.subsidyPerKw || 0,
+              subsidyCapKw: data.data.subsidyCapKw || 0,
+              co2FactorKgPerKwh: data.data.co2FactorKgPerKwh,
+              optimalTilt: 35, // Swiss latitude optimal
+              averageHouseholdConsumption: 4500, // Swiss average
+              installationCostPerKwp: 1000, // Will come from backend equipment pricing
+            }
+
+            set({
+              countryConfig: config,
+              // Update dependent values
+              panelPlacement: {
+                ...get().panelPlacement,
+                tilt: config.optimalTilt,
+              },
+              additionalParams: {
+                ...get().additionalParams,
+                electricityConsumption: config.averageHouseholdConsumption,
+              },
+            })
+
+            console.log(`✅ Loaded config for ${countryCode}:`, config)
+          } else {
+            throw new Error(data.error || 'Failed to fetch country config')
+          }
+        } catch (err) {
+          console.error(`❌ Failed to fetch config for ${countryCode}:`, err)
+          set({
+            error: `Failed to load configuration for ${countryCode}. Please try again.`,
+          })
+        }
+      },
+
+      getCountryConfig: () => {
+        return get().countryConfig
       },
 
       // Step 2: Roof polygon
@@ -250,7 +340,10 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
 
       // Step 3: Building details
       setBuildingDetails: (details) => {
-        set({ buildingDetails: details, error: null })
+        set((state) => ({
+          buildingDetails: { ...state.buildingDetails, ...details },
+          error: null,
+        }))
       },
 
       // Step 4: Panel selection
@@ -288,7 +381,15 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
       // Calculate PVGIS results
       calculatePVGISResults: async () => {
         const state = get()
-        const { latitude, longitude, roofPolygon, selectedPanel, panelCount, panelPlacement, horizonData } = state
+        const {
+          latitude,
+          longitude,
+          roofPolygon,
+          selectedPanel,
+          panelCount,
+          panelPlacement,
+          horizonData,
+        } = state
 
         if (!latitude || !longitude || !selectedPanel || panelCount === 0) {
           set({ error: 'Missing required data for calculation' })
@@ -300,6 +401,9 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
         try {
           const peakPowerKw = (selectedPanel.power * panelCount) / 1000
 
+          // Default PVGIS system loss (14% is standard)
+          const totalSystemLoss = 14
+
           // Calculate roof polygon centroid for more accurate location
           // Use centroid if polygon exists, otherwise fall back to address coordinates
           let actualLat = latitude
@@ -307,8 +411,12 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
 
           if (roofPolygon && roofPolygon.coordinates.length >= 3) {
             // Calculate centroid of polygon
-            const centroidLat = roofPolygon.coordinates.reduce((sum, p) => sum + p.lat, 0) / roofPolygon.coordinates.length
-            const centroidLng = roofPolygon.coordinates.reduce((sum, p) => sum + p.lng, 0) / roofPolygon.coordinates.length
+            const centroidLat =
+              roofPolygon.coordinates.reduce((sum, p) => sum + p.lat, 0) /
+              roofPolygon.coordinates.length
+            const centroidLng =
+              roofPolygon.coordinates.reduce((sum, p) => sum + p.lng, 0) /
+              roofPolygon.coordinates.length
 
             actualLat = centroidLat
             actualLon = centroidLng
@@ -320,11 +428,18 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
               roofCentroidLng: centroidLng,
               distanceMeters: Math.sqrt(
                 Math.pow((centroidLat - latitude) * 111320, 2) +
-                Math.pow((centroidLng - longitude) * 111320 * Math.cos(latitude * Math.PI / 180), 2)
-              ).toFixed(1)
+                  Math.pow(
+                    (centroidLng - longitude) *
+                      111320 *
+                      Math.cos((latitude * Math.PI) / 180),
+                    2
+                  )
+              ).toFixed(1),
             })
           } else {
-            console.log('⚠️ No roof polygon - using address coordinates for PVGIS')
+            console.log(
+              '⚠️ No roof polygon - using address coordinates for PVGIS'
+            )
           }
 
           // Use horizon endpoint if we have horizon data, otherwise use basic calculation
@@ -333,11 +448,15 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
             : '/api/pvgis/calculate'
 
           if (horizonData) {
-            console.log('🏔️  Using horizon shading analysis for more accurate results')
+            console.log(
+              '🏔️  Using horizon shading analysis for more accurate results'
+            )
           }
 
           const response = await fetch(
-            `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'}${apiEndpoint}`,
+            `${
+              process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+            }${apiEndpoint}`,
             {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -347,7 +466,7 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
                 peakpower: peakPowerKw,
                 angle: panelPlacement.tilt,
                 aspect: panelPlacement.orientation - 180, // Convert to PVGIS format (0=south)
-                loss: 14, // Default system loss
+                loss: totalSystemLoss, // Sum of cable, inverter, soiling, shading, mismatch losses
                 mountingplace: 'building',
                 pvtechchoice: 'crystSi',
               }),
@@ -363,6 +482,10 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
           const yearlyProduction = data.outputs?.totals?.fixed?.E_y || 0
           const monthlyData = data.outputs?.monthly?.fixed || []
 
+          // Get CO2 factor from country config
+          const config = get().countryConfig
+          const co2Factor = config?.co2FactorKgPerKwh || 0.128 // Swiss grid default
+
           const result: PVGISResult = {
             yearlyProduction,
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -370,14 +493,17 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
             dailyAverage: data.outputs?.totals?.fixed?.E_d || 0,
             peakSunHours: data.outputs?.totals?.fixed?.H_sun || 0,
             systemLoss: data.outputs?.totals?.fixed?.l_total || 0,
-            co2Reduction: yearlyProduction * 0.438, // kg CO2 per kWh (Swiss grid average)
+            co2Reduction: yearlyProduction * co2Factor,
           }
 
           set({ pvgisResult: result, isLoading: false })
         } catch (error) {
           console.error('Error calculating PVGIS results:', error)
           set({
-            error: error instanceof Error ? error.message : 'Failed to calculate solar production',
+            error:
+              error instanceof Error
+                ? error.message
+                : 'Failed to calculate solar production',
             isLoading: false,
           })
         }
@@ -407,6 +533,7 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
         address: state.address,
         latitude: state.latitude,
         longitude: state.longitude,
+        countryCode: state.countryCode,
         currentStep: state.currentStep,
         roofPolygon: state.roofPolygon,
         buildingDetails: state.buildingDetails,
