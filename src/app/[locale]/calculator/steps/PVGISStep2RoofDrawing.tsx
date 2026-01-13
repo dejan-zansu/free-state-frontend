@@ -30,10 +30,21 @@ export default function PVGISStep2RoofDrawing() {
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
   const polygonRef = useRef<google.maps.Polygon | null>(null)
   const mapClickListenerRef = useRef<google.maps.MapsEventListener | null>(null)
+  const mapMouseMoveListenerRef = useRef<google.maps.MapsEventListener | null>(
+    null
+  )
   const mapInitializedRef = useRef(false)
+  const previewLineRef = useRef<google.maps.Polyline | null>(null)
+  const edgeLabelsRef = useRef<google.maps.Marker[]>([])
+  const vertexMarkersRef = useRef<google.maps.Marker[]>([])
 
   const [isDrawing, setIsDrawing] = useState(false)
   const [points, setPoints] = useState<Array<{ lat: number; lng: number }>>([])
+  const [cursorPosition, setCursorPosition] = useState<{
+    lat: number
+    lng: number
+  } | null>(null)
+  const [nearFirstPoint, setNearFirstPoint] = useState(false)
 
   // Calculate polygon area using Google Maps Geometry library (spherical calculation)
   // Falls back to Shoelace formula if geometry library not loaded
@@ -168,6 +179,44 @@ export default function PVGISStep2RoofDrawing() {
 
   const isSelfIntersecting = points.length >= 4 && checkSelfIntersection(points)
 
+  // Calculate distance between two points using Haversine formula
+  const calculateDistance = useCallback(
+    (point1: { lat: number; lng: number }, point2: { lat: number; lng: number }): number => {
+      if (
+        typeof google !== 'undefined' &&
+        google.maps?.geometry?.spherical?.computeDistanceBetween
+      ) {
+        return google.maps.geometry.spherical.computeDistanceBetween(
+          new google.maps.LatLng(point1.lat, point1.lng),
+          new google.maps.LatLng(point2.lat, point2.lng)
+        )
+      }
+
+      // Fallback: Haversine formula
+      const R = 6371000 // Earth radius in meters
+      const lat1 = (point1.lat * Math.PI) / 180
+      const lat2 = (point2.lat * Math.PI) / 180
+      const dLat = lat2 - lat1
+      const dLng = ((point2.lng - point1.lng) * Math.PI) / 180
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) * Math.sin(dLng / 2)
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+      return R * c
+    },
+    []
+  )
+
+  // Check if a point is near another point (for auto-complete detection)
+  const isNearPoint = useCallback(
+    (point1: { lat: number; lng: number }, point2: { lat: number; lng: number }): boolean => {
+      const distance = calculateDistance(point1, point2)
+      // Consider "near" if within 5 meters
+      return distance < 5
+    },
+    [calculateDistance]
+  )
+
   // Calculate centroid of polygon
   const getPolygonCentroid = useCallback(
     (coords: Array<{ lat: number; lng: number }>) => {
@@ -246,6 +295,126 @@ export default function PVGISStep2RoofDrawing() {
     }
   }, [latitude, longitude, getPolygonCentroid])
 
+  // Clear edge labels and vertex markers
+  const clearEdgeLabels = useCallback(() => {
+    edgeLabelsRef.current.forEach((marker) => marker.setMap(null))
+    edgeLabelsRef.current = []
+    vertexMarkersRef.current.forEach((marker) => marker.setMap(null))
+    vertexMarkersRef.current = []
+  }, [])
+
+  // Draw edge labels showing distances
+  const drawEdgeLabels = useCallback(
+    (coords: Array<{ lat: number; lng: number }>) => {
+      if (!mapInstanceRef.current || coords.length < 2) return
+
+      clearEdgeLabels()
+
+      // Draw labels for each edge
+      for (let i = 0; i < coords.length; i++) {
+        const p1 = coords[i]
+        const p2 = coords[(i + 1) % coords.length]
+        const distance = calculateDistance(p1, p2)
+
+        // Calculate midpoint
+        const midLat = (p1.lat + p2.lat) / 2
+        const midLng = (p1.lng + p2.lng) / 2
+
+        // Create label
+        const label = new google.maps.Marker({
+          position: { lat: midLat, lng: midLng },
+          map: mapInstanceRef.current,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 0,
+          },
+          label: {
+            text: `${distance.toFixed(1)}m`,
+            color: '#1E40AF',
+            fontSize: '12px',
+            fontWeight: 'bold',
+            className: 'edge-label',
+          },
+          clickable: false,
+        })
+
+        edgeLabelsRef.current.push(label)
+
+        // Draw vertex markers
+        const vertexMarker = new google.maps.Marker({
+          position: p1,
+          map: mapInstanceRef.current,
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            fillColor: '#FFD700',
+            fillOpacity: 1,
+            strokeColor: '#1E40AF',
+            strokeWeight: 2,
+            scale: 5,
+          },
+          clickable: false,
+        })
+
+        vertexMarkersRef.current.push(vertexMarker)
+      }
+    },
+    [calculateDistance, clearEdgeLabels]
+  )
+
+  // Update preview line showing next edge
+  const updatePreviewLine = useCallback(() => {
+    if (!mapInstanceRef.current || points.length === 0 || !cursorPosition) {
+      if (previewLineRef.current) {
+        previewLineRef.current.setMap(null)
+        previewLineRef.current = null
+      }
+      return
+    }
+
+    const lastPoint = points[points.length - 1]
+    const path = [lastPoint, cursorPosition]
+
+    // Check if near first point for auto-complete
+    if (points.length >= 3) {
+      const nearFirst = isNearPoint(cursorPosition, points[0])
+      setNearFirstPoint(nearFirst)
+      if (nearFirst) {
+        // Show preview line to first point
+        path[1] = points[0]
+      }
+    }
+
+    if (previewLineRef.current) {
+      previewLineRef.current.setPath(path)
+    } else {
+      previewLineRef.current = new google.maps.Polyline({
+        path,
+        strokeColor: nearFirstPoint ? '#10B981' : '#6B7280',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        map: mapInstanceRef.current,
+        icons: [
+          {
+            icon: {
+              path: 'M 0,-1 0,1',
+              strokeOpacity: 1,
+              scale: 2,
+            },
+            offset: '0',
+            repeat: '10px',
+          },
+        ],
+      })
+    }
+
+    // Update color based on proximity to first point
+    if (previewLineRef.current) {
+      previewLineRef.current.setOptions({
+        strokeColor: nearFirstPoint ? '#10B981' : '#6B7280',
+      })
+    }
+  }, [points, cursorPosition, isNearPoint, nearFirstPoint])
+
   // Draw polygon on map
   const drawPolygon = (
     coords: Array<{ lat: number; lng: number }>,
@@ -272,6 +441,11 @@ export default function PVGISStep2RoofDrawing() {
 
     polygonRef.current = polygon
 
+    // Draw edge labels if polygon is complete
+    if (coords.length >= 3 && !editable) {
+      drawEdgeLabels(coords)
+    }
+
     // If editable, listen for changes
     if (editable) {
       google.maps.event.addListener(polygon.getPath(), 'set_at', () => {
@@ -282,6 +456,7 @@ export default function PVGISStep2RoofDrawing() {
           newPoints.push({ lat: point.lat(), lng: point.lng() })
         }
         setPoints(newPoints)
+        drawEdgeLabels(newPoints)
       })
 
       google.maps.event.addListener(polygon.getPath(), 'insert_at', () => {
@@ -292,7 +467,11 @@ export default function PVGISStep2RoofDrawing() {
           newPoints.push({ lat: point.lat(), lng: point.lng() })
         }
         setPoints(newPoints)
+        drawEdgeLabels(newPoints)
       })
+
+      // Draw initial labels
+      drawEdgeLabels(coords)
     }
   }
 
@@ -302,11 +481,23 @@ export default function PVGISStep2RoofDrawing() {
 
     setIsDrawing(true)
     setPoints([])
+    setNearFirstPoint(false)
+    setCursorPosition(null)
 
-    // Remove existing polygon
+    // Remove existing polygon and labels
     if (polygonRef.current) {
       polygonRef.current.setMap(null)
     }
+    clearEdgeLabels()
+
+    // Add mouse move listener for preview
+    mapMouseMoveListenerRef.current = mapInstanceRef.current.addListener(
+      'mousemove',
+      (event: google.maps.MapMouseEvent) => {
+        if (!event.latLng) return
+        setCursorPosition({ lat: event.latLng.lat(), lng: event.latLng.lng() })
+      }
+    )
 
     // Add click listener
     mapClickListenerRef.current = mapInstanceRef.current.addListener(
@@ -315,7 +506,15 @@ export default function PVGISStep2RoofDrawing() {
         if (!event.latLng) return
 
         const newPoint = { lat: event.latLng.lat(), lng: event.latLng.lng() }
+
         setPoints((prev) => {
+          // Auto-complete if clicking near first point and have at least 3 points
+          if (prev.length >= 3 && isNearPoint(newPoint, prev[0])) {
+            // Complete the polygon
+            finishDrawing(prev)
+            return prev
+          }
+
           const updated = [...prev, newPoint]
           drawPolygon(updated, false)
           return updated
@@ -324,23 +523,58 @@ export default function PVGISStep2RoofDrawing() {
     )
   }
 
+  // Undo last point
+  const undoLastPoint = useCallback(() => {
+    if (points.length === 0) return
+
+    setPoints((prev) => {
+      const updated = prev.slice(0, -1)
+      if (updated.length > 0) {
+        drawPolygon(updated, false)
+      } else {
+        if (polygonRef.current) {
+          polygonRef.current.setMap(null)
+        }
+        clearEdgeLabels()
+      }
+      return updated
+    })
+  }, [points.length, clearEdgeLabels])
+
   // Finish drawing
-  const finishDrawing = () => {
-    if (points.length < 3) {
-      alert('Please draw at least 3 points to create a polygon')
-      return
-    }
+  const finishDrawing = useCallback(
+    (pointsToFinish?: Array<{ lat: number; lng: number }>) => {
+      const finalPoints = pointsToFinish || points
 
-    // Remove click listener
-    if (mapClickListenerRef.current) {
-      google.maps.event.removeListener(mapClickListenerRef.current)
-      mapClickListenerRef.current = null
-    }
+      if (finalPoints.length < 3) {
+        alert('Please draw at least 3 points to create a polygon')
+        return
+      }
 
-    // Make polygon editable
-    drawPolygon(points, true)
-    setIsDrawing(false)
-  }
+      // Remove click and mouse move listeners
+      if (mapClickListenerRef.current) {
+        google.maps.event.removeListener(mapClickListenerRef.current)
+        mapClickListenerRef.current = null
+      }
+      if (mapMouseMoveListenerRef.current) {
+        google.maps.event.removeListener(mapMouseMoveListenerRef.current)
+        mapMouseMoveListenerRef.current = null
+      }
+
+      // Remove preview line
+      if (previewLineRef.current) {
+        previewLineRef.current.setMap(null)
+        previewLineRef.current = null
+      }
+
+      // Make polygon editable
+      drawPolygon(finalPoints, true)
+      setIsDrawing(false)
+      setNearFirstPoint(false)
+      setCursorPosition(null)
+    },
+    [points]
+  )
 
   // Save polygon
   const savePolygon = () => {

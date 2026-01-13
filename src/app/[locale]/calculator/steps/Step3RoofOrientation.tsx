@@ -7,14 +7,14 @@ import {
   Sun,
   Compass,
   RotateCcw,
-  Layers,
-  Building2,
+  Info,
 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Slider } from '@/components/ui/slider'
 import {
   Select,
   SelectContent,
@@ -24,72 +24,31 @@ import {
 } from '@/components/ui/select'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
-// Common roof types with default pitch angles
+// Common roof types with default panel tilt angles
 const ROOF_TYPES = [
-  { id: 'flat', name: 'Flat Roof', defaultPitch: 0, description: '0-5° pitch' },
+  {
+    id: 'flat',
+    name: 'Flat Roof',
+    defaultPitch: 15, // Panel tilt on mounting racks
+    description: '0-5° roof pitch'
+  },
   {
     id: 'low-slope',
     name: 'Low Slope',
     defaultPitch: 15,
-    description: '5-15° pitch',
+    description: '5-15° roof pitch',
   },
   {
     id: 'medium',
     name: 'Medium Pitch',
     defaultPitch: 30,
-    description: '15-35° pitch',
+    description: '15-35° roof pitch',
   },
   {
     id: 'steep',
     name: 'Steep Pitch',
     defaultPitch: 45,
-    description: '35-60° pitch',
-  },
-]
-
-// Roof materials with installation cost multipliers
-const ROOF_MATERIALS = [
-  {
-    id: 'tiles',
-    name: 'Clay/Concrete Tiles',
-    icon: '🏠',
-    costMultiplier: 1.0,
-    description: 'Standard mounting',
-  },
-  {
-    id: 'slate',
-    name: 'Slate',
-    icon: '🪨',
-    costMultiplier: 1.3,
-    description: 'Requires special hooks',
-  },
-  {
-    id: 'metal',
-    name: 'Metal/Standing Seam',
-    icon: '🔩',
-    costMultiplier: 0.9,
-    description: 'Easy clamp mounting',
-  },
-  {
-    id: 'flat-membrane',
-    name: 'Flat (Bitumen/EPDM)',
-    icon: '⬛',
-    costMultiplier: 0.85,
-    description: 'Ballasted system',
-  },
-  {
-    id: 'flat-gravel',
-    name: 'Flat (Gravel)',
-    icon: '⬜',
-    costMultiplier: 0.85,
-    description: 'Ballasted system',
-  },
-  {
-    id: 'shingle',
-    name: 'Asphalt Shingles',
-    icon: '📐',
-    costMultiplier: 1.1,
-    description: 'Flashing required',
+    description: '35-60° roof pitch',
   },
 ]
 
@@ -117,18 +76,12 @@ export default function Step3RoofOrientation() {
   const {
     roofPolygon,
     panelPlacement,
-    buildingDetails,
     updatePanelPlacement,
-    setBuildingDetails,
     prevStep,
     nextStep,
   } = usePVGISCalculatorStore()
 
   const [selectedRoofType, setSelectedRoofType] = useState<string>('medium')
-  const [selectedMaterial, setSelectedMaterial] = useState<string>(
-    buildingDetails?.roofMaterial || 'tiles'
-  )
-  const [floors, setFloors] = useState<number>(buildingDetails?.floors || 2)
 
   // Initialize from store or set defaults
   useEffect(() => {
@@ -140,31 +93,25 @@ export default function Step3RoofOrientation() {
     else setSelectedRoofType('steep')
   }, [panelPlacement.tilt])
 
-  // Update store when material or floors change
-  useEffect(() => {
-    const material = ROOF_MATERIALS.find((m) => m.id === selectedMaterial)
-    setBuildingDetails({
-      roofMaterial: selectedMaterial,
-      roofMaterialCostMultiplier: material?.costMultiplier || 1.0,
-      floors: floors,
-      buildingHeight: floors * 3, // Approximate 3m per floor
-    })
-  }, [selectedMaterial, floors, setBuildingDetails])
-
   const handleRoofTypeChange = (typeId: string) => {
     setSelectedRoofType(typeId)
     const roofType = ROOF_TYPES.find((t) => t.id === typeId)
     if (roofType) {
-      updatePanelPlacement({ tilt: roofType.defaultPitch })
+      if (typeId === 'flat') {
+        // For flat roofs, set optimal tilt for ballasted systems and South orientation
+        updatePanelPlacement({
+          tilt: 15, // Sweet spot: good production, low cost, minimal shadowing
+          orientation: 180, // Default to South (user can change)
+        })
+      } else {
+        // For sloped roofs, panels mounted flush follow roof pitch
+        updatePanelPlacement({ tilt: roofType.defaultPitch })
+      }
     }
   }
 
   const handleOrientationChange = (value: string) => {
     updatePanelPlacement({ orientation: parseInt(value) })
-  }
-
-  const handleTiltChange = (value: number[]) => {
-    updatePanelPlacement({ tilt: value[0] })
   }
 
   const getOrientationLabel = (azimuth: number) => {
@@ -210,10 +157,10 @@ export default function Step3RoofOrientation() {
           <div className='space-y-6'>
             {/* Header */}
             <div className='text-center space-y-2'>
-              <h1 className='text-2xl font-bold'>Roof Orientation</h1>
+              <h1 className='text-2xl font-bold'>Panel Orientation</h1>
               <p className='text-muted-foreground'>
-                Configure your roof&apos;s angle and direction for accurate
-                solar calculations
+                Configure your solar panel angle and direction for accurate
+                production estimates
               </p>
             </div>
 
@@ -224,7 +171,7 @@ export default function Step3RoofOrientation() {
                   <div className='flex items-center justify-between'>
                     <div>
                       <p className='text-sm text-muted-foreground'>
-                        Your roof area
+                        Available roof area
                       </p>
                       <p className='text-2xl font-bold text-primary'>
                         {roofPolygon.area.toFixed(1)} m²
@@ -232,7 +179,7 @@ export default function Step3RoofOrientation() {
                     </div>
                     <div className='text-right'>
                       <p className='text-sm text-muted-foreground'>
-                        Estimated efficiency
+                        Configuration efficiency
                       </p>
                       <p
                         className={`text-2xl font-bold ${
@@ -244,6 +191,9 @@ export default function Step3RoofOrientation() {
                         }`}
                       >
                         {efficiencyFactor}%
+                      </p>
+                      <p className='text-xs text-muted-foreground mt-0.5'>
+                        vs. optimal setup
                       </p>
                     </div>
                   </div>
@@ -257,8 +207,13 @@ export default function Step3RoofOrientation() {
                 <CardHeader className='pb-4'>
                   <CardTitle className='flex items-center gap-2 text-lg'>
                     <RotateCcw className='w-5 h-5' />
-                    Roof Type
+                    Roof Type & Panel Tilt
                   </CardTitle>
+                  <p className='text-xs text-muted-foreground mt-1'>
+                    {selectedRoofType === 'flat'
+                      ? 'Panel tilt on mounting racks (roof is flat)'
+                      : 'Panel tilt matches roof pitch (flush mounting)'}
+                  </p>
                 </CardHeader>
                 <CardContent className='space-y-4'>
                   <div className='grid grid-cols-2 gap-3'>
@@ -280,23 +235,22 @@ export default function Step3RoofOrientation() {
                     ))}
                   </div>
 
-                  {/* Fine-tune tilt */}
+                  {/* Panel tilt info (read-only) */}
                   <div className='pt-4 border-t'>
-                    <Label className='text-sm'>
-                      Fine-tune panel tilt: {panelPlacement.tilt}°
-                    </Label>
-                    <Slider
-                      value={[panelPlacement.tilt]}
-                      onValueChange={handleTiltChange}
-                      min={0}
-                      max={90}
-                      step={1}
-                      className='mt-2'
-                    />
-                    <div className='flex justify-between text-xs text-muted-foreground mt-1'>
-                      <span>0° (Flat)</span>
-                      <span className='text-primary'>30-35° (Optimal)</span>
-                      <span>90° (Vertical)</span>
+                    <div className='flex items-center justify-between p-3 rounded-lg bg-muted/50'>
+                      <div>
+                        <p className='text-sm font-medium'>Panel Tilt Angle</p>
+                        <p className='text-xs text-muted-foreground'>
+                          {selectedRoofType === 'flat'
+                            ? 'Optimal for flat roof installation'
+                            : 'Matches roof pitch (flush mounting)'}
+                        </p>
+                      </div>
+                      <div className='text-right'>
+                        <p className='text-2xl font-bold text-primary'>
+                          {panelPlacement.tilt}°
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -307,8 +261,18 @@ export default function Step3RoofOrientation() {
                 <CardHeader className='pb-4'>
                   <CardTitle className='flex items-center gap-2 text-lg'>
                     <Compass className='w-5 h-5' />
-                    Roof Direction
+                    Panel Direction
                   </CardTitle>
+                  {selectedRoofType === 'flat' && (
+                    <p className='text-xs text-muted-foreground mt-1'>
+                      Flat roofs: panels mounted on tilted frames
+                    </p>
+                  )}
+                  {selectedRoofType !== 'flat' && (
+                    <p className='text-xs text-muted-foreground mt-1'>
+                      Sloped roofs: panels face same direction as roof
+                    </p>
+                  )}
                 </CardHeader>
                 <CardContent className='space-y-4'>
                   <Select
@@ -379,92 +343,51 @@ export default function Step3RoofOrientation() {
                     </span>{' '}
                     ({panelPlacement.orientation}°)
                   </p>
-                </CardContent>
-              </Card>
-            </div>
 
-            {/* Roof Material & Building Info */}
-            <div className='grid md:grid-cols-2 gap-6'>
-              {/* Roof Material */}
-              <Card>
-                <CardHeader className='pb-4'>
-                  <CardTitle className='flex items-center gap-2 text-lg'>
-                    <Layers className='w-5 h-5' />
-                    Roof Material
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className='grid grid-cols-2 gap-2'>
-                    {ROOF_MATERIALS.map((material) => (
-                      <button
-                        key={material.id}
-                        onClick={() => setSelectedMaterial(material.id)}
-                        className={`p-3 rounded-lg border-2 text-left transition-all ${
-                          selectedMaterial === material.id
-                            ? 'border-primary bg-primary/10'
-                            : 'border-border hover:border-primary/50'
-                        }`}
-                      >
-                        <div className='flex items-center gap-2'>
-                          <span className='text-lg'>{material.icon}</span>
-                          <div>
-                            <p className='font-medium text-sm'>
-                              {material.name}
-                            </p>
-                            <p className='text-xs text-muted-foreground'>
-                              {material.description}
-                            </p>
-                          </div>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Building Floors */}
-              <Card>
-                <CardHeader className='pb-4'>
-                  <CardTitle className='flex items-center gap-2 text-lg'>
-                    <Building2 className='w-5 h-5' />
-                    Building Height
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className='space-y-4'>
-                  <div>
-                    <Label className='text-sm'>Number of floors</Label>
-                    <div className='flex items-center gap-4 mt-2'>
-                      <Slider
-                        value={[floors]}
-                        onValueChange={(v) => setFloors(v[0])}
-                        min={1}
-                        max={10}
-                        step={1}
-                        className='flex-1'
+                  {/* Custom Azimuth Input */}
+                  <div className='pt-4 border-t'>
+                    <Label className='text-sm'>
+                      Custom Direction (optional)
+                    </Label>
+                    <div className='flex items-center gap-2 mt-2'>
+                      <Input
+                        type='number'
+                        min={0}
+                        max={359}
+                        value={panelPlacement.orientation}
+                        onChange={(e) => {
+                          const val = parseInt(e.target.value) || 0
+                          const normalized = Math.max(0, Math.min(359, val))
+                          updatePanelPlacement({ orientation: normalized })
+                        }}
+                        className='w-24'
                       />
-                      <span className='text-2xl font-bold text-primary w-12 text-center'>
-                        {floors}
+                      <span className='text-sm text-muted-foreground'>
+                        degrees
                       </span>
-                    </div>
-                    <div className='flex justify-between text-xs text-muted-foreground mt-1'>
-                      <span>1 floor</span>
-                      <span>10 floors</span>
-                    </div>
-                  </div>
-                  <div className='p-3 rounded-lg bg-muted/50'>
-                    <div className='flex justify-between text-sm'>
-                      <span className='text-muted-foreground'>
-                        Estimated height:
-                      </span>
-                      <span className='font-medium'>{floors * 3}m</span>
                     </div>
                     <p className='text-xs text-muted-foreground mt-1'>
-                      Used for shading analysis and installation planning
+                      Use presets above or enter precise direction (0°=North,
+                      90°=East, 180°=South, 270°=West)
                     </p>
                   </div>
                 </CardContent>
               </Card>
             </div>
+
+            {/* Flat Roof Info Alert */}
+            {selectedRoofType === 'flat' && (
+              <Alert className='bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-900'>
+                <Info className='w-4 h-4' />
+                <AlertDescription>
+                  <span className='font-medium'>Flat Roof Installation: </span>
+                  Panels will be mounted on tilted frames (typically 10-20°) to
+                  optimize production and allow water runoff. You have full
+                  freedom to choose panel direction - South (180°) is optimal
+                  for maximum annual production in Switzerland.
+                </AlertDescription>
+              </Alert>
+            )}
 
             {/* Tips */}
             <Card className='bg-muted/50'>
@@ -472,10 +395,10 @@ export default function Step3RoofOrientation() {
                 <div className='flex gap-3'>
                   <Sun className='w-5 h-5 text-primary shrink-0 mt-0.5' />
                   <div className='text-sm space-y-1'>
-                    <p className='font-medium'>Tips for best results</p>
+                    <p className='font-medium'>Optimization Tips</p>
                     <ul className='text-muted-foreground space-y-1'>
                       <li>
-                        • South-facing roofs (180°) receive the most sunlight in
+                        • South-facing panels (180°) receive the most sunlight in
                         Switzerland
                       </li>
                       <li>
@@ -485,6 +408,9 @@ export default function Step3RoofOrientation() {
                       <li>
                         • East/West orientations can be beneficial if you
                         consume more electricity in morning/evening
+                      </li>
+                      <li>
+                        • For flat roofs, panels can face any direction using tilted mounting racks
                       </li>
                     </ul>
                   </div>

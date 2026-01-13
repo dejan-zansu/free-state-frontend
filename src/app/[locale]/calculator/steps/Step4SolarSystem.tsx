@@ -5,13 +5,8 @@ import {
   ArrowLeft,
   ArrowRight,
   Check,
-  Eye,
-  EyeOff,
   Zap,
   Battery,
-  RotateCcw,
-  Rows,
-  Columns,
   Loader2,
 } from 'lucide-react'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -192,6 +187,7 @@ export default function Step4SolarSystem() {
     selectedPanel && panelCount ? (selectedPanel.power * panelCount) / 1000 : 0
 
   // Auto-select best inverter based on system power
+  // DC/AC ratio: 1.2-1.5:1 is optimal (inverter should be 67-83% of DC power)
   useEffect(() => {
     if (
       systemPowerKw > 0 &&
@@ -199,14 +195,18 @@ export default function Step4SolarSystem() {
       availableInverters.length > 0
     ) {
       const bestInverter = availableInverters.reduce((best, inv) => {
-        const ratio = systemPowerKw / inv.power
+        const ratio = systemPowerKw / inv.power // DC/AC ratio
         const bestRatio = systemPowerKw / best.power
-        // Prefer inverters with ratio between 0.8 and 1.0
-        if (ratio >= 0.8 && ratio <= 1.0) {
-          if (bestRatio < 0.8 || bestRatio > 1.0) return inv
+        // Prefer inverters with DC/AC ratio between 1.2 and 1.5
+        if (ratio >= 1.2 && ratio <= 1.5) {
+          if (bestRatio < 1.2 || bestRatio > 1.5) return inv
           // If both are in range, prefer higher efficiency
           if (inv.efficiency > best.efficiency) return inv
         }
+        // If no inverter in optimal range, prefer closest to 1.35 (middle of range)
+        const bestDistance = Math.abs(bestRatio - 1.35)
+        const invDistance = Math.abs(ratio - 1.35)
+        if (invDistance < bestDistance) return inv
         return best
       }, availableInverters[0])
 
@@ -501,13 +501,18 @@ export default function Step4SolarSystem() {
   }, [selectedPanel, panelCount, showPanels, drawPanels])
 
   // Get inverter recommendation status
+  // DC/AC ratio (Inverter Loading Ratio): Industry standard is 1.1-1.5:1 for residential systems
+  // Optimal range: 1.2-1.5:1 (inverter should be 67-83% of DC power)
+  // This oversizing maximizes energy harvest during low-light conditions while
+  // allowing occasional clipping during peak hours, which is cost-effective.
+  // Sources: EnergySage, NREL, industry best practices
   const getInverterStatus = (inverter: Inverter) => {
     if (systemPowerKw === 0) return 'neutral'
-    const ratio = systemPowerKw / inverter.power
-    if (ratio >= 0.8 && ratio <= 1.0) return 'recommended'
-    if (ratio > 1.0 && ratio <= 1.2) return 'acceptable'
-    if (ratio < 0.8) return 'oversized'
-    return 'undersized'
+    const ratio = systemPowerKw / inverter.power // DC/AC ratio
+    if (ratio >= 1.2 && ratio <= 1.5) return 'recommended'
+    if (ratio > 1.5 && ratio <= 1.8) return 'acceptable'
+    if (ratio < 1.2) return 'oversized' // Inverter too large for DC array
+    return 'undersized' // Inverter too small for DC array (ratio > 1.8)
   }
 
   const formatNumber = (num: number) =>
@@ -726,9 +731,14 @@ export default function Step4SolarSystem() {
                   <p>
                     Recommended inverter size:{' '}
                     <span className='font-semibold'>
-                      {(systemPowerKw * 0.8).toFixed(1)} -{' '}
-                      {systemPowerKw.toFixed(1)} kW
+                      {(systemPowerKw / 1.5).toFixed(1)} -{' '}
+                      {(systemPowerKw / 1.2).toFixed(1)} kW
                     </span>
+                  </p>
+                  <p className='text-xs text-muted-foreground mt-1'>
+                    (DC/AC ratio: 1.2-1.5:1 is optimal. Industry standard is
+                    1.1-1.5:1 for residential systems. Multiple inverters are
+                    common for larger systems.)
                   </p>
                 </div>
               )}
@@ -822,13 +832,12 @@ export default function Step4SolarSystem() {
           </Tabs>
 
           {/* Panel Layout Controls */}
-          {selectedPanel && panelCount > 0 && (
+          {/* {selectedPanel && panelCount > 0 && (
             <div className='space-y-3 p-3 border rounded-lg bg-muted/30'>
               <p className='text-xs font-medium text-muted-foreground'>
                 Panel Layout
               </p>
 
-              {/* Portrait / Landscape toggle */}
               <div className='flex gap-2'>
                 <Button
                   variant={panelLayout === 'landscape' ? 'default' : 'outline'}
@@ -850,7 +859,6 @@ export default function Step4SolarSystem() {
                 </Button>
               </div>
 
-              {/* Grid Rotation */}
               <div className='space-y-2'>
                 <div className='flex items-center justify-between'>
                   <span className='text-xs font-medium'>
@@ -871,8 +879,6 @@ export default function Step4SolarSystem() {
                       variant='default'
                       size='sm'
                       onClick={() => {
-                        // Test angles from -180 to 180 in 5° increments
-                        // and both layouts to find maximum panel fit
                         let bestAngle = gridRotation
                         let bestLayout = panelLayout
                         let maxCount = 0
@@ -894,7 +900,6 @@ export default function Step4SolarSystem() {
                           }
                         }
 
-                        // Fine-tune around best angle (±5° in 1° steps)
                         for (
                           let angle = bestAngle - 5;
                           angle <= bestAngle + 5;
@@ -936,7 +941,6 @@ export default function Step4SolarSystem() {
                 </div>
               </div>
 
-              {/* Visibility toggle */}
               <Button
                 variant='outline'
                 size='sm'
@@ -956,7 +960,7 @@ export default function Step4SolarSystem() {
                 )}
               </Button>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Navigation */}

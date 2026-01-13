@@ -27,15 +27,18 @@ import { Slider } from '@/components/ui/slider'
 import { Switch } from '@/components/ui/switch'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 import { formatCurrency } from '@/config/countries'
+import { reportService } from '@/services/report.service'
+import { useParams } from 'next/navigation'
 
 export default function Step5Results() {
+  const params = useParams()
+  const locale = (params?.locale as string) || 'de'
   const {
     selectedPanel,
     panelCount,
     selectedInverter,
     roofPolygon,
     panelPlacement,
-    buildingDetails,
     additionalParams,
     updateAdditionalParams,
     pvgisResult,
@@ -45,9 +48,13 @@ export default function Step5Results() {
     prevStep,
     countryCode,
     getCountryConfig,
+    latitude,
+    longitude,
+    address: storeAddress,
   } = usePVGISCalculatorStore()
 
   const [showAdvanced, setShowAdvanced] = useState(false)
+  const [isDownloading, setIsDownloading] = useState(false)
 
   // Get country-specific configuration
   const countryConfig = getCountryConfig()
@@ -77,11 +84,9 @@ export default function Step5Results() {
     selectedPanel && panelCount ? (selectedPanel.power * panelCount) / 1000 : 0
   const panelCost = selectedPanel ? selectedPanel.price * panelCount : 0
   const inverterCost = selectedInverter?.price || 0
-  // Installation cost varies by roof material (base from country config)
-  const roofMaterialMultiplier =
-    buildingDetails?.roofMaterialCostMultiplier || 1.0
-  const installationCostPerKwp = countryConfig?.installationCostPerKwp || 1000
-  const installationCost = systemPowerKw * installationCostPerKwp * roofMaterialMultiplier
+  // Installation cost: industry-standard rate per kWp
+  const installationCostPerKwp = countryConfig?.installationCostPerKwp || 1500
+  const installationCost = systemPowerKw * installationCostPerKwp
   const totalInvestment = panelCost + inverterCost + installationCost
 
   // Country-specific subsidies
@@ -133,6 +138,65 @@ export default function Step5Results() {
 
   const netYield = totalSavings - netInvestment
   const paybackYears = annualSavings > 0 ? netInvestment / annualSavings : 0
+
+  // Handle report download
+  const handleDownloadReport = async () => {
+    if (
+      !pvgisResult ||
+      !selectedPanel ||
+      !latitude ||
+      !longitude ||
+      !storeAddress
+    ) {
+      alert('Missing required data. Please complete all steps first.')
+      return
+    }
+
+    setIsDownloading(true)
+    try {
+      await reportService.downloadPVGISReport({
+        latitude,
+        longitude,
+        address: storeAddress,
+        countryCode,
+        panelCount,
+        panelPower: selectedPanel.power,
+        panelWidth: selectedPanel.width,
+        panelHeight: selectedPanel.height,
+        panelName: selectedPanel.name,
+        inverterName: selectedInverter?.name,
+        inverterPower: selectedInverter ? selectedInverter.power : undefined,
+        roofArea: roofPolygon?.area,
+        roofPolygon: roofPolygon || undefined,
+        orientation: panelPlacement.orientation,
+        tilt: panelPlacement.tilt,
+        yearlyProduction: pvgisResult.yearlyProduction,
+        monthlyProduction: pvgisResult.monthlyProduction,
+        dailyAverage: pvgisResult.dailyAverage,
+        co2Reduction: pvgisResult.co2Reduction,
+        panelCost,
+        inverterCost,
+        installationCost,
+        totalInvestment: totalWithVAT,
+        vatRate,
+        subsidies,
+        netInvestment,
+        annualSavings,
+        totalSavings,
+        netYield,
+        paybackYears,
+        electricityTariff,
+        feedInTariff,
+        selfConsumptionRate,
+        language: locale as 'de' | 'fr' | 'it' | 'en' | 'sr' | 'es',
+      })
+    } catch (error) {
+      console.error('Failed to download report:', error)
+      alert('Failed to download report. Please try again.')
+    } finally {
+      setIsDownloading(false)
+    }
+  }
 
   if (isLoading) {
     return (
@@ -232,6 +296,194 @@ export default function Step5Results() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Monthly Production Chart */}
+          {pvgisResult && pvgisResult.monthlyProduction.length === 12 && (
+            <Card>
+              <CardHeader>
+                <CardTitle className='flex items-center gap-2 text-lg'>
+                  <BarChart3 className='w-5 h-5' />
+                  Monthly Production
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className='space-y-4'>
+                  <div className='flex items-end justify-between gap-1 h-48'>
+                    {pvgisResult.monthlyProduction.map((production, index) => {
+                      const monthNames = [
+                        'Jan',
+                        'Feb',
+                        'Mar',
+                        'Apr',
+                        'May',
+                        'Jun',
+                        'Jul',
+                        'Aug',
+                        'Sep',
+                        'Oct',
+                        'Nov',
+                        'Dec',
+                      ]
+                      const maxProduction = Math.max(
+                        ...pvgisResult.monthlyProduction
+                      )
+                      const heightPercent = (production / maxProduction) * 100
+
+                      return (
+                        <div
+                          key={index}
+                          className='flex flex-col items-center flex-1 gap-2'
+                        >
+                          <div className='relative group flex-1 w-full flex items-end'>
+                            <div
+                              className='w-full bg-gradient-to-t from-primary to-primary/60 rounded-t transition-all hover:opacity-80'
+                              style={{ height: `${heightPercent}%` }}
+                            >
+                              {/* Tooltip on hover */}
+                              <div className='absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-popover text-popover-foreground text-xs rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10'>
+                                {formatNumber(production)} kWh
+                              </div>
+                            </div>
+                          </div>
+                          <span className='text-xs text-muted-foreground'>
+                            {monthNames[index]}
+                          </span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <div className='flex justify-between text-sm pt-3 border-t'>
+                    <div>
+                      <p className='text-muted-foreground'>Peak Month</p>
+                      <p className='font-semibold'>
+                        {formatNumber(
+                          Math.max(...pvgisResult.monthlyProduction)
+                        )}{' '}
+                        kWh
+                      </p>
+                    </div>
+                    <div className='text-right'>
+                      <p className='text-muted-foreground'>Lowest Month</p>
+                      <p className='font-semibold'>
+                        {formatNumber(
+                          Math.min(...pvgisResult.monthlyProduction)
+                        )}{' '}
+                        kWh
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Electricity Prices - IMPORTANT for accurate calculations */}
+          <Card className='border-amber-500 bg-amber-500/5'>
+            <CardHeader className='pb-4'>
+              <CardTitle className='flex items-center gap-2 text-lg'>
+                <Zap className='w-5 h-5 text-amber-500' />
+                💡 Your Electricity Prices
+              </CardTitle>
+              <p className='text-sm text-muted-foreground'>
+                <strong>Important:</strong> Enter your actual rates from your
+                electricity bill for accurate savings calculations. These
+                greatly affect your payback period.
+              </p>
+            </CardHeader>
+            <CardContent className='space-y-4'>
+              <div className='grid md:grid-cols-2 gap-4'>
+                {/* Electricity Tariff */}
+                <div className='space-y-2'>
+                  <Label className='font-semibold text-base'>
+                    Electricity Price (Rp/kWh)
+                  </Label>
+                  <div className='relative'>
+                    <Input
+                      type='number'
+                      value={
+                        additionalParams.electricityTariff
+                          ? additionalParams.electricityTariff * 100
+                          : ''
+                      }
+                      onChange={(e) =>
+                        updateAdditionalParams({
+                          electricityTariff:
+                            parseFloat(e.target.value) / 100 || 0,
+                        })
+                      }
+                      placeholder={`${(
+                        (countryConfig?.electricityPrice || 0.27) * 100
+                      ).toFixed(1)}`}
+                      step={0.1}
+                      min={0}
+                      className='pr-16 h-12 text-lg'
+                    />
+                    <span className='absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground font-medium'>
+                      Rp/kWh
+                    </span>
+                  </div>
+                  <p className='text-xs text-muted-foreground'>
+                    {additionalParams.electricityTariff
+                      ? `✓ Using your rate: ${(
+                          additionalParams.electricityTariff * 100
+                        ).toFixed(1)} Rp/kWh`
+                      : `Using Swiss average: ${(
+                          (countryConfig?.electricityPrice || 0.27) * 100
+                        ).toFixed(1)} Rp/kWh`}
+                  </p>
+                </div>
+
+                {/* Feed-in Tariff */}
+                <div className='space-y-2'>
+                  <Label className='font-semibold text-base'>
+                    Feed-in Tariff (Rp/kWh)
+                  </Label>
+                  <div className='relative'>
+                    <Input
+                      type='number'
+                      value={
+                        additionalParams.feedInTariff
+                          ? additionalParams.feedInTariff * 100
+                          : ''
+                      }
+                      onChange={(e) =>
+                        updateAdditionalParams({
+                          feedInTariff: parseFloat(e.target.value) / 100 || 0,
+                        })
+                      }
+                      placeholder={`${(
+                        (countryConfig?.feedInTariff || 0.08) * 100
+                      ).toFixed(1)}`}
+                      step={0.1}
+                      min={0}
+                      className='pr-16 h-12 text-lg'
+                    />
+                    <span className='absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground font-medium'>
+                      Rp/kWh
+                    </span>
+                  </div>
+                  <p className='text-xs text-muted-foreground'>
+                    {additionalParams.feedInTariff
+                      ? `✓ Using your rate: ${(
+                          additionalParams.feedInTariff * 100
+                        ).toFixed(1)} Rp/kWh`
+                      : `Using Swiss average: ${(
+                          (countryConfig?.feedInTariff || 0.08) * 100
+                        ).toFixed(1)} Rp/kWh`}
+                  </p>
+                </div>
+              </div>
+
+              <div className='p-3 rounded-lg bg-amber-100 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800'>
+                <p className='text-sm text-amber-900 dark:text-amber-100'>
+                  <strong>💡 Where to find:</strong> Check your latest
+                  electricity bill. The electricity price is what you pay per
+                  kWh consumed. The feed-in tariff is what you earn for excess
+                  energy exported to the grid.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Financial Details */}
           <div className='grid md:grid-cols-2 gap-6'>
@@ -374,110 +626,6 @@ export default function Step5Results() {
             </CardContent>
           </Card>
 
-          {/* Electricity Prices - IMPORTANT for accurate calculations */}
-          <Card className='border-amber-500/50 bg-amber-500/5'>
-            <CardHeader className='pb-2'>
-              <CardTitle className='flex items-center gap-2 text-lg'>
-                <Zap className='w-5 h-5 text-amber-500' />
-                Your Electricity Prices
-              </CardTitle>
-              <p className='text-sm text-muted-foreground'>
-                Enter your actual rates from your electricity bill for accurate
-                savings calculations
-              </p>
-            </CardHeader>
-            <CardContent className='space-y-4'>
-              <div className='grid md:grid-cols-2 gap-4'>
-                {/* Electricity Tariff */}
-                <div className='space-y-2'>
-                  <Label className='font-semibold'>
-                    Electricity Price (Rp/kWh)
-                  </Label>
-                  <div className='relative'>
-                    <Input
-                      type='number'
-                      value={
-                        additionalParams.electricityTariff
-                          ? additionalParams.electricityTariff * 100
-                          : ''
-                      }
-                      onChange={(e) =>
-                        updateAdditionalParams({
-                          electricityTariff:
-                            parseFloat(e.target.value) / 100 || 0,
-                        })
-                      }
-                      placeholder={`${(
-                        (countryConfig?.electricityPrice || 0.27) * 100
-                      ).toFixed(1)}`}
-                      step={0.1}
-                      min={0}
-                      className='pr-16'
-                    />
-                    <span className='absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground'>
-                      Rp/kWh
-                    </span>
-                  </div>
-                  <p className='text-xs text-muted-foreground'>
-                    {additionalParams.electricityTariff
-                      ? `✓ Using your rate: ${(
-                          additionalParams.electricityTariff * 100
-                        ).toFixed(1)} Rp/kWh`
-                      : `Using Swiss average: ${(
-                          (countryConfig?.electricityPrice || 0.27) * 100
-                        ).toFixed(1)} Rp/kWh`}
-                  </p>
-                </div>
-
-                {/* Feed-in Tariff */}
-                <div className='space-y-2'>
-                  <Label className='font-semibold'>
-                    Feed-in Tariff (Rp/kWh)
-                  </Label>
-                  <div className='relative'>
-                    <Input
-                      type='number'
-                      value={
-                        additionalParams.feedInTariff
-                          ? additionalParams.feedInTariff * 100
-                          : ''
-                      }
-                      onChange={(e) =>
-                        updateAdditionalParams({
-                          feedInTariff: parseFloat(e.target.value) / 100 || 0,
-                        })
-                      }
-                      placeholder={`${(
-                        (countryConfig?.feedInTariff || 0.08) * 100
-                      ).toFixed(1)}`}
-                      step={0.1}
-                      min={0}
-                      className='pr-16'
-                    />
-                    <span className='absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground'>
-                      Rp/kWh
-                    </span>
-                  </div>
-                  <p className='text-xs text-muted-foreground'>
-                    {additionalParams.feedInTariff
-                      ? `✓ Using your rate: ${(
-                          additionalParams.feedInTariff * 100
-                        ).toFixed(1)} Rp/kWh`
-                      : `Using Swiss average: ${(
-                          (countryConfig?.feedInTariff || 0.08) * 100
-                        ).toFixed(1)} Rp/kWh`}
-                  </p>
-                </div>
-              </div>
-
-              <p className='text-xs text-amber-600 bg-amber-100 dark:bg-amber-900/30 p-2 rounded'>
-                💡 Tip: Find these rates on your electricity bill or contact
-                your provider. Accurate rates ensure precise savings
-                calculations for your contract.
-              </p>
-            </CardContent>
-          </Card>
-
           {/* Advanced Settings */}
           <Collapsible open={showAdvanced} onOpenChange={setShowAdvanced}>
             <CollapsibleTrigger asChild>
@@ -583,20 +731,6 @@ export default function Step5Results() {
                   </p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Roof Material</p>
-                  <p className='font-semibold capitalize'>
-                    {buildingDetails?.roofMaterial?.replace('-', ' ') ||
-                      'Tiles'}
-                  </p>
-                </div>
-                <div>
-                  <p className='text-muted-foreground'>Building</p>
-                  <p className='font-semibold'>
-                    {buildingDetails?.floors || 2} floors (~
-                    {buildingDetails?.buildingHeight || 6}m)
-                  </p>
-                </div>
-                <div>
                   <p className='text-muted-foreground'>Panel Coverage</p>
                   <p className='font-semibold'>
                     {roofPolygon && selectedPanel
@@ -639,9 +773,15 @@ export default function Step5Results() {
               <Mail className='w-4 h-4 mr-2' />
               Request Quote
             </Button>
-            <Button variant='outline' className='flex-1' size='lg'>
+            <Button
+              variant='outline'
+              className='flex-1'
+              size='lg'
+              onClick={handleDownloadReport}
+              disabled={isDownloading || !pvgisResult}
+            >
               <Download className='w-4 h-4 mr-2' />
-              Download Report
+              {isDownloading ? 'Generating...' : 'Download Report'}
             </Button>
           </div>
         </div>

@@ -13,11 +13,7 @@ export interface RoofPolygon {
 
 export interface BuildingDetails {
   roofType?: 'flat' | 'gable' | 'hip' | 'shed'
-  buildingHeight?: number // in meters
-  floors?: number
   roofPitch?: number // degrees for sloped roofs
-  roofMaterial?: string // e.g., 'tiles', 'slate', 'metal', 'flat-membrane'
-  roofMaterialCostMultiplier?: number // affects installation cost
 }
 
 export interface SolarPanel {
@@ -296,7 +292,7 @@ export const usePVGISCalculatorStore = create<PVGISCalculatorStore>()(
               co2FactorKgPerKwh: data.data.co2FactorKgPerKwh,
               optimalTilt: 35, // Swiss latitude optimal
               averageHouseholdConsumption: 4500, // Swiss average
-              installationCostPerKwp: 1000, // Will come from backend equipment pricing
+              installationCostPerKwp: 1500, // Swiss market average (1500-2500 CHF/kWp)
             }
 
             set({
