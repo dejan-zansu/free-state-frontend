@@ -7,20 +7,24 @@ import Portfolio from '@/components/Portfolio'
 import Stats from '@/components/Stats'
 import YourPartner from '@/components/YourPartner'
 
-export default function HomePage() {
+const CommercialPage = () => {
   return (
     <main>
       <Hero
-        title='Smart solar solutions for private homes'
-        description='Clean energy, predictable costs, and full service, all without investment.'
+        title='Scalable solar solutions for commercial properties'
+        description='From planning to operation, we deliver long-term performance, price stability, and sustainable impact.'
+        showCTAs={false}
+        isCommercial
       />
-      <Deals />
+       <Deals />
       <ForBusinesses />
       <Benefits />
       <YourPartner />
       <Portfolio />
       <Stats />
-      <Partners />
+      <Partners />  
     </main>
   )
 }
+
+export default CommercialPage

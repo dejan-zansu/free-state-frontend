@@ -10,7 +10,12 @@
     "solutions": "Soluciones solares",
     "companies": "Empresas",
     "portfolio": "Portfolio",
-    "investors": "Para inversores"
+    "investors": "Para inversores",
+    "solarAbo": "SolarAbo",
+    "howItWorks": "Cómo funciona",
+    "aboutUs": "Sobre nosotros",
+    "commercialProperties": "Propiedades comerciales",
+    "residentialProperties": "Propiedades residenciales"
   },
   "footer": {
     "copyright": "©2025 FREESTATE AG. TODOS LOS DERECHOS RESERVADOS.",
@@ -38,16 +43,12 @@
       "cta": {
         "primary": "Comenzar",
         "secondary": "Calculadora"
+      },
+      "nav": {
+        "solarAbo": "SolarAbo",
+        "products": "Productos",
+        "onlineStarter": "Online Starter"
       }
-    },
-    "mission": {
-      "title": "Nuestra Misión",
-      "description": "Nuestra misión es hacer que la energía solar limpia sea accesible para todos sin inversión inicial, sin riesgos y con máxima transparencia.",
-      "learnMore": "Saber más"
-    },
-    "smartEnergy": {
-      "title": "Energía solar inteligente",
-      "description": "Electricidad asequible, seguridad completa, industria sostenible"
     },
     "stats": {
       "projects": "Proyectos Realizados",
@@ -75,9 +76,10 @@
     "deals": {
       "title": "Ofertas actuales",
       "subtitle": "Con beneficios de por vida",
-      "learnMore": "Saber más",
+      "learnMore": "Detalles del producto",
       "from": "desde",
       "month": "/mes",
+      "orderNow": "Ordenar ahora",
       "cards": [
         {
           "title": "SolarAbo Home",

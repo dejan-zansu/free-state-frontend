@@ -28,7 +28,12 @@
     "solutions": "Solarlösungen",
     "companies": "Unternehmen",
     "portfolio": "Portfolio",
-    "investors": "Für Investoren"
+    "investors": "Für Investoren",
+    "solarAbo": "SolarAbo",
+    "howItWorks": "So funktioniert's",
+    "aboutUs": "Über uns",
+    "commercialProperties": "Gewerbeimmobilien",
+    "residentialProperties": "Wohnimmobilien"
   },
   "home": {
     "hero": {
@@ -38,16 +43,12 @@
       "cta": {
         "primary": "Jetzt starten",
         "secondary": "Kalkulator"
+      },
+      "nav": {
+        "solarAbo": "SolarAbo",
+        "products": "Produkte",
+        "onlineStarter": "Online Starter"
       }
-    },
-    "mission": {
-      "title": "Unsere Mission",
-      "description": "Unsere Mission ist es, saubere Solarenergie für alle zugänglich zu machen – ohne Investitionskosten, ohne Risiko und mit maximaler Transparenz.",
-      "learnMore": "Mehr erfahren"
-    },
-    "smartEnergy": {
-      "title": "Smarte Solarenergie",
-      "description": "Günstiger Strom, volle Sicherheit, nachhaltige Industrie"
     },
     "stats": {
       "projects": "Realisierte Projekte",
@@ -58,9 +59,10 @@
     "deals": {
       "title": "Aktuelle Deals",
       "subtitle": "Mit lebenslangem vorteil",
-      "learnMore": "Mehr Erfahren",
+      "learnMore": "Produktdetails",
       "from": "ab",
       "month": "/ Monat",
+      "orderNow": "Jetzt bestellen",
       "cards": [
         {
           "title": "SolarAbo Home",
@@ -200,7 +202,7 @@
     "yourPartner": {
       "title": "Ihr Partner",
       "subtitle": "Smart solar solutions for businesses.",
-      "cta": "Get Started",
+      "cta": "Jetzt starten",
       "learnMore": "Mehr erfahren",
       "items": {
         "item1": {

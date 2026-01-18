@@ -1,4 +1,5 @@
 import AllInclusiveIcon from './AllInclusiveIcon'
+import BatteryIcon from './BatteryIcon'
 import EnergySystemIcon from './EnergySystemIcon'
 import HomeIcon from './HomeIcon'
 import HouseWithSunIcon from './HouseWithSunIcon'
@@ -10,8 +11,7 @@ import MobileScreenIcon from './MobileScreenIcon'
 import SolarSystemIcon from './SolarSystemIcon'
 
 export {
-  AllInclusiveIcon,
-  EnergySystemIcon,
+  AllInclusiveIcon, BatteryIcon, EnergySystemIcon,
   HomeIcon,
   HouseWithSunIcon,
   LeafIcon,
@@ -19,5 +19,6 @@ export {
   LogoLight,
   MinimalLogoIcon,
   MobileScreenIcon,
-  SolarSystemIcon,
+  SolarSystemIcon
 }
+

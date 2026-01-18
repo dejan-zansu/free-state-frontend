@@ -28,7 +28,12 @@
     "solutions": "Solar solutions",
     "companies": "Companies",
     "portfolio": "Portfolio",
-    "investors": "For investors"
+    "investors": "For investors",
+    "solarAbo": "SolarAbo",
+    "howItWorks": "How it works",
+    "aboutUs": "About us",
+    "commercialProperties": "Commercial properties",
+    "residentialProperties": "Residential properties"
   },
   "home": {
     "hero": {
@@ -38,16 +43,12 @@
       "cta": {
         "primary": "Get started",
         "secondary": "Calculator"
+      },
+      "nav": {
+        "solarAbo": "SolarAbo",
+        "products": "Products",
+        "onlineStarter": "Online Starter"
       }
-    },
-    "mission": {
-      "title": "Our Mission",
-      "description": "Our mission is to make clean solar energy accessible to everyone with no upfront investment, no risk, and maximum transparency.",
-      "learnMore": "Learn more"
-    },
-    "smartEnergy": {
-      "title": "Smart Solar Energy",
-      "description": "Affordable electricity, complete security, sustainable industry"
     },
     "stats": {
       "projects": "Completed Projects",
@@ -58,9 +59,10 @@
     "deals": {
       "title": "Current deals",
       "subtitle": "With lifelong benefits",
-      "learnMore": "Learn More",
+      "learnMore": "Product Details",
       "from": "from",
       "month": "/month",
+      "orderNow": "Order now",
       "cards": [
         {
           "title": "SolarAbo Home",

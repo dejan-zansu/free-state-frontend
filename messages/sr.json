@@ -10,7 +10,12 @@
     "solutions": "Solarna rešenja",
     "companies": "Kompanije",
     "portfolio": "Portfolio",
-    "investors": "Za investitore"
+    "investors": "Za investitore",
+    "solarAbo": "SolarAbo",
+    "howItWorks": "Kako funkcioniše",
+    "aboutUs": "O nama",
+    "commercialProperties": "Komercijalne nekretnine",
+    "residentialProperties": "Stambene nekretnine"
   },
   "footer": {
     "copyright": "©2025 FREESTATE AG. SVA PRAVA ZADRŽANA.",
@@ -38,16 +43,12 @@
       "cta": {
         "primary": "Počni",
         "secondary": "Kalkulator"
+      },
+      "nav": {
+        "solarAbo": "SolarAbo",
+        "products": "Proizvodi",
+        "onlineStarter": "Online Starter"
       }
-    },
-    "mission": {
-      "title": "Naša Misija",
-      "description": "Naša misija je da učinimo čistu solarnu energiju dostupnom svima bez početne investicije, bez rizika i sa maksimalnom transparentnošću.",
-      "learnMore": "Saznaj više"
-    },
-    "smartEnergy": {
-      "title": "Pametna solarna energija",
-      "description": "Pristupačna struja, potpuna sigurnost, održiva industrija"
     },
     "stats": {
       "projects": "Realizovani Projekti",
@@ -75,9 +76,10 @@
     "deals": {
       "title": "Trenutne ponude",
       "subtitle": "Sa doživotnim prednostima",
-      "learnMore": "Saznaj više",
+      "learnMore": "Detalji proizvoda",
       "from": "od",
       "month": "/mesec",
+      "orderNow": "Naruči sada",
       "cards": [
         {
           "title": "SolarAbo Home",
@@ -208,11 +210,11 @@
           "description": "Nekorišćeni krovovi postaju izvori energije."
         },
         "item2": {
-          "title": "Smanjiti troškove energije",
+          "title": "Manji troškovi struje",
           "description": "Do 30–40% uštede – dugoročno i predvidljivo."
         },
         "item3": {
-          "title": "Smanjiti ugljenični otisak",
+          "title": "Manja emisija ugljen-dioksida",
           "description": "Do 12 t CO₂ godišnje – za vašu kompaniju."
         }
       }

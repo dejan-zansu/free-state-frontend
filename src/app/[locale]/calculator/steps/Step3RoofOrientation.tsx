@@ -30,7 +30,7 @@ const ROOF_TYPES = [
     id: 'flat',
     name: 'Flat Roof',
     defaultPitch: 15, // Panel tilt on mounting racks
-    description: '0-5° roof pitch'
+    description: '0-5° roof pitch',
   },
   {
     id: 'low-slope',
@@ -85,13 +85,16 @@ export default function Step3RoofOrientation() {
 
   // Initialize from store or set defaults
   useEffect(() => {
+    // Don't auto-change roof type if user has explicitly selected flat roof
+    if (selectedRoofType === 'flat') return
+
     // Determine roof type from current tilt
     const currentTilt = panelPlacement.tilt
     if (currentTilt <= 5) setSelectedRoofType('flat')
     else if (currentTilt <= 15) setSelectedRoofType('low-slope')
     else if (currentTilt <= 35) setSelectedRoofType('medium')
     else setSelectedRoofType('steep')
-  }, [panelPlacement.tilt])
+  }, [panelPlacement.tilt, selectedRoofType])
 
   const handleRoofTypeChange = (typeId: string) => {
     setSelectedRoofType(typeId)
@@ -398,8 +401,8 @@ export default function Step3RoofOrientation() {
                     <p className='font-medium'>Optimization Tips</p>
                     <ul className='text-muted-foreground space-y-1'>
                       <li>
-                        • South-facing panels (180°) receive the most sunlight in
-                        Switzerland
+                        • South-facing panels (180°) receive the most sunlight
+                        in Switzerland
                       </li>
                       <li>
                         • A tilt of 30-35° is optimal for maximizing yearly
@@ -410,7 +413,8 @@ export default function Step3RoofOrientation() {
                         consume more electricity in morning/evening
                       </li>
                       <li>
-                        • For flat roofs, panels can face any direction using tilted mounting racks
+                        • For flat roofs, panels can face any direction using
+                        tilted mounting racks
                       </li>
                     </ul>
                   </div>
@@ -429,11 +433,7 @@ export default function Step3RoofOrientation() {
               <ArrowLeft className='w-4 h-4' />
               Back
             </Button>
-            <Button
-              onClick={nextStep}
-              disabled={!canProceed}
-              className='gap-2'
-            >
+            <Button onClick={nextStep} disabled={!canProceed} className='gap-2'>
               Continue
               <ArrowRight className='w-4 h-4' />
             </Button>

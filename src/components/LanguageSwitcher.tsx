@@ -1,5 +1,6 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import { useParams, usePathname, useRouter } from 'next/navigation'
 import {
   Select,
@@ -18,6 +19,15 @@ const localeLabels: Record<string, string> = {
   it: 'IT',
   es: 'ES',
   sr: 'SR',
+}
+
+const localeFlags: Record<string, string> = {
+  en: '🇬🇧',
+  de: '🇩🇪',
+  fr: '🇫🇷',
+  it: '🇮🇹',
+  es: '🇪🇸',
+  sr: '🇷🇸',
 }
 
 interface LanguageSwitcherProps {
@@ -41,12 +51,13 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   return (
     <Select value={currentLocale} onValueChange={handleLocaleChange}>
       <SelectTrigger
-        className={`h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none! ${
-          isScrolled ? 'text-[#062E25]' : 'text-white'
-        }`}
+        className={cn('h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none! ml-6', isScrolled ? 'text-[#062E25]' : 'text-white')}
       >
         <SelectValue>
           <div className='flex items-center gap-2'>
+            <span className='text-base leading-none'>
+              {localeFlags[currentLocale] || '🌐'}
+            </span>
             <span className='font-bold'>
               {localeLabels[currentLocale] || currentLocale.toUpperCase()}
             </span>
@@ -61,7 +72,12 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
       >
         {locales.map((locale: string) => (
           <SelectItem key={locale} value={locale}>
-            {localeLabels[locale] || locale.toUpperCase()}
+            <div className='flex items-center gap-2.5'>
+              <span className='text-base leading-none'>
+                {localeFlags[locale]}
+              </span>
+              <span>{localeLabels[locale] || locale.toUpperCase()}</span>
+            </div>
           </SelectItem>
         ))}
       </SelectContent>

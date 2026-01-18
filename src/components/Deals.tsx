@@ -1,8 +1,9 @@
 import { ArrowRight, Info, Settings, ShieldCheck } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import Link from 'next/link'
-import { EnergySystemIcon, HomeIcon, LeafIcon } from './icons'
+import { BatteryIcon, EnergySystemIcon, LeafIcon } from './icons'
 import ReductionIcon from './icons/ReductionIcon'
+import { LinkButton } from './ui/link-button'
 
 const Deals = async () => {
   const t = await getTranslations('home.deals')
@@ -54,36 +55,7 @@ const Deals = async () => {
       price: t('cards.2.price'),
       term: t('cards.2.term'),
     },
-    {
-      title: t('cards.3.title'),
-      subtitle: t('cards.3.subtitle'),
-      benefit1: t('cards.3.benefit1'),
-      benefit2: t('cards.3.benefit2'),
-      benefit3: t('cards.3.benefit3'),
-      feature1: t('cards.3.feature1'),
-      feature2: t('cards.3.feature2'),
-      feature3: t('cards.3.feature3'),
-      feature4: t('cards.3.feature4'),
-      explanationLabel: t('cards.3.explanation.label'),
-      explanationText: t('cards.3.explanation.text'),
-      price: t('cards.3.price'),
-      term: t('cards.3.term'),
-    },
-    {
-      title: t('cards.4.title'),
-      subtitle: t('cards.4.subtitle'),
-      benefit1: t('cards.4.benefit1'),
-      benefit2: t('cards.4.benefit2'),
-      benefit3: t('cards.4.benefit3'),
-      feature1: t('cards.4.feature1'),
-      feature2: t('cards.4.feature2'),
-      feature3: t('cards.4.feature3'),
-      feature4: t('cards.4.feature4'),
-      explanationLabel: t('cards.4.explanation.label'),
-      explanationText: t('cards.4.explanation.text'),
-      price: t('cards.4.price'),
-      term: t('cards.4.term'),
-    },
+  
   ]
 
   return (
@@ -97,15 +69,16 @@ const Deals = async () => {
         </p>
       </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-[1440px] mx-auto'>
+      <div className='flex gap-4 max-w-[1440px] mx-auto'>
         {deals.map((deal, index) => (
-          <div key={index} className='rounded-lg overflow-hidden'>
-            <div className='p-4 flex items-start gap-2 bg-[#1B332D]'>
-              <div className='shrink-0 w-12 h-12 rounded-full border border-solar flex items-center justify-center'>
-                <HomeIcon className='w-6 h-6' />
+          <div key={index} className='rounded-lg overflow-hidden relative border border-[#B7C2BF] w-full flex-1'>
+            <div className='p-6 flex gap-2 bg-[#1B332D] justify-center items-center'>
+              <div className='shrink-0 w-20 h-20 rounded-full border border-solar flex items-center justify-center'>
+                {/* <HomeIcon className='w-10' /> */}
+                <BatteryIcon className='text-[#B7FE1A]' />
               </div>
               <div>
-                <h3 className='text-solar text-xl font-semibold mb-2'>
+                <h3 className='text-solar text-2xl font-semibold mb-1 leading-none'>
                   {deal.title}
                 </h3>
                 <p className='text-white/90 text-base font-light'>
@@ -113,39 +86,33 @@ const Deals = async () => {
                 </p>
               </div>
             </div>
-
             <div>
-              <div className='bg-[#154138]'>
-                <div className='flex items-center gap-3 border-b border-white py-4 px-6'>
-                  <LeafIcon className='text-solar w-4 h-4 shrink-0' />
-                  <p className='text-white text-base font-light'>
+              <div>
+                <div className='flex items-center gap-3 border-b border-[#1F433B]/50 py-4 px-6'>
+                  <LeafIcon className='text-solar w-2.5 h-2.5 shrink-0' />
+                  <p className='text-foreground text-base font-bold'>
                     {deal.benefit1}
                   </p>
                 </div>
-                <div className='flex items-center gap-3 border-b border-white py-4 px-6'>
-                  <LeafIcon className='text-solar w-4 h-4 shrink-0' />
+                <div className='flex items-center gap-3 border-b border-[#1F433B]/50 py-4 px-6'>
+                  <LeafIcon className='text-solar w-2.5 h-2.5 shrink-0' />
 
-                  <p className='text-white text-base font-light'>
+                  <p className='text-foreground text-base font-bold'>
                     {deal.benefit2}
                   </p>
                 </div>
-                <div className='flex items-center gap-3 py-4 px-6'>
-                  <LeafIcon className='text-solar w-4 h-4 shrink-0' />
-                  <p className='text-white text-base font-light'>
+                <div className='flex items-center gap-3 border-b border-[#1F433B]/50 py-4 px-6'>
+                  <LeafIcon className='text-solar w-2.5 h-2.5 shrink-0' />
+                  <p className='text-foreground text-base font-bold'>
                     {deal.benefit3}
                   </p>
                 </div>
               </div>
             </div>
             <div className='relative'>
-              <div
-                className='absolute inset-0 bg-cover bg-center'
-                style={{
-                  backgroundImage: "url('/images/deals-bg.png')",
-                }}
-              />
+          
               <div className='relative pb-6'>
-                <div className='space-y-4 px-6 py-8'>
+                <div className='space-y-4 px-6 py-5 border-b border-[#1F433B]/50'>
                   <div className='flex items-center gap-3'>
                     <Settings className='w-4 h-4 text-foreground shrink-0' />
                     <span className='text-foreground'>{deal.feature1}</span>
@@ -164,10 +131,10 @@ const Deals = async () => {
                   </div>
                 </div>
 
-                <div className='mb-6 px-6'>
-                  <div className='flex items-center gap-2 mb-2'>
+                <div className='mb-5 px-6 mt-5'>
+                  <div className='flex items-center gap-2 mb-4'>
                     <Info className='w-4 h-4 text-foreground' />
-                    <h4 className='text-foreground'>{deal.explanationLabel}</h4>
+                    <p className='text-foreground'>{deal.explanationLabel}</p>
                   </div>
                   <p className='text-foreground/80 text-sm font-light'>
                     {deal.explanationText}
@@ -175,9 +142,9 @@ const Deals = async () => {
                 </div>
 
                 <div className='mb-6'>
-                  <div className='bg-solar p-2 px-6'>
+                  <div className='bg-[#F8F8F8] py-5 px-6 border border-[#B7C2BF] rounded-lg mx-5'>
                     <div className=' flex items-center justify-between mb-3'>
-                      <div className='flex items-center gap-1'>
+                      <div className='flex items-center gap-1 w-full'>
                         {(() => {
                           const priceLower = deal.price.toLowerCase()
                           const isCustomPricing =
@@ -218,9 +185,9 @@ const Deals = async () => {
                             )
 
                           return (
-                            <>
+                            <div className='flex items-center gap-1'>
                               {!isOneTime && (
-                                <span className='text-foreground text-sm font-light'>
+                                <span className='text-foreground text-sm font-medium'>
                                   {t('from')}
                                 </span>
                               )}
@@ -228,18 +195,28 @@ const Deals = async () => {
                                 {cleanPrice}
                               </p>
                               {!isOneTime && (
-                                <p className='text-foreground text-sm font-light'>
+                                <p className='text-foreground text-sm font-medium'>
                                   {t('month')}
                                 </p>
                               )}
-                            </>
+                              
+                            </div>
                           )
                         })()}
                       </div>
                     </div>
-                    <p className='text-foreground/80 text-sm font-light'>
+                    <p className='text-foreground/80 text-sm font-medium'>
                       {deal.term}
                     </p>
+                    <LinkButton
+                              variant='tertiary'
+
+          href='/get-started'
+          locale={locale}
+          className='w-full text-center uppercase mt-5 max-w-[280px] mx-auto'
+        >
+          {t('orderNow')}
+        </LinkButton>
                   </div>
                 </div>
 
