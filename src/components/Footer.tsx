@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import LogoLight from './icons/LogoLight'
+
 const Footer = () => {
   const t = useTranslations('footer')
   const locale = useParams().locale as string

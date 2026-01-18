@@ -24,6 +24,8 @@ const Header = () => {
     `/${locale}/calculator`,
     `/${locale}/contact`,
     `/${locale}/portfolio`,
+    `/${locale}/how-it-works`,
+    `/${locale}/solar-abo`,
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some((path) =>
@@ -78,9 +80,6 @@ const Header = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
-    // Mock search functionality
-    console.log('Searching for:', searchQuery)
-    // TODO: Implement actual search
   }
 
   return (

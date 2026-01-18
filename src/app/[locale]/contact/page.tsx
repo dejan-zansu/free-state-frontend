@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { Mail, Phone, MapPin } from 'lucide-react'
+import Partners from '@/components/Partners'
 
 const ContactPage = async () => {
   const t = await getTranslations('contact')
@@ -26,7 +27,7 @@ const ContactPage = async () => {
   ]
 
   return (
-    <main className='relative py-24 bg-background min-h-screen'>
+    <div className='relative py-24 bg-background min-h-screen'>
       <div className='max-w-327.5 mx-auto px-6'>
         <div className='text-center mb-12'>
           <h1 className='text-foreground text-5xl font-semibold mb-4'>
@@ -82,7 +83,8 @@ const ContactPage = async () => {
           })}
         </div>
       </div>
-    </main>
+      <Partners />
+    </div>
   )
 }
 
