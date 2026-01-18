@@ -77,7 +77,7 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
           <div className='shrink-0'>
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
-              href='/get-started'
+              href='/calculator'
               locale={locale}
             >
               {t('hero.nav.onlineStarter')}
