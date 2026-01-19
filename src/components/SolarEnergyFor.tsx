@@ -1,8 +1,9 @@
 import { getLocale, getTranslations } from 'next-intl/server'
 import MinimalLogoIcon from './icons/MinimalLogoIcon'
+import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
 
-const ForBusinesses = async () => {
+const SolarEnergyFor = async ({isCommercial = false}) => {
   const t = await getTranslations('home.forBusinesses')
   const locale = await getLocale()
 
@@ -19,6 +20,9 @@ const ForBusinesses = async () => {
 
   return (
     <section className='relative pt-24'>
+      <div className='flex justify-center mb-10'>
+      <Badge variant='secondary'>{isCommercial ? 'For businesses' : 'For home'}</Badge>
+      </div>
       <h2 className='text-foreground text-5xl font-semibold text-center relative z-20'>
         {t('title')}
       </h2>
@@ -27,7 +31,7 @@ const ForBusinesses = async () => {
           <div
             className='absolute inset-0 bg-cover bg-top'
             style={{
-              backgroundImage: "url('/images/solar-farm.png')",
+              backgroundImage: isCommercial ? "url('/images/solar-farm-commercial.png')" : "url('/images/solar-farm.png')",
             }}
           />
         </div>
@@ -69,7 +73,7 @@ const ForBusinesses = async () => {
             </div>
           </div>
           <div className='mt-10 flex justify-center'>
-            <LinkButton variant='secondary' href='/get-started' locale={locale}>
+            <LinkButton variant={isCommercial ? 'secondary' : 'primary'} href='/solar-abo' locale={locale}>
               {t('cta')}
             </LinkButton>
           </div>
@@ -79,4 +83,4 @@ const ForBusinesses = async () => {
   )
 }
 
-export default ForBusinesses
+export default SolarEnergyFor

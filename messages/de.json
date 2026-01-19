@@ -9,6 +9,7 @@
     "contact": "Kontakt",
     "navigation": "Navigation",
     "community": "Community",
+    "cta": "Jetzt starten",
     "links": {
       "home": "Home",
       "solarSolutions": "Solarlösungen",
@@ -21,6 +22,17 @@
       "instagram": "Instagram",
       "impressum": "Impressum"
     }
+  },
+  "contactHero": {
+    "badge": "Kontakt aufnehmen",
+    "title": "Kontakt",
+    "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei"
+  },
+  "contactStats": {
+    "experience": "Jahre Erfahrung",
+    "customers": "Zufriedene Kunden",
+    "installations": "Erfolgreiche Installationen",
+    "savings": "Stromeinsparung"
   },
   "nav": {
     "home": "Home",
@@ -47,7 +59,13 @@
       "nav": {
         "solarAbo": "SolarAbo",
         "products": "Produkte",
-        "onlineStarter": "Online Starter"
+        "onlineStarter": "Online Starter",
+        "solarAboHome": "SolarAbo Home",
+        "solarAboHomeStorage": "SolarAbo Home Storage",
+        "solarAboMulti": "SolarAbo Multi",
+        "solarAboBusiness": "SolarAbo Business",
+        "solarAboAgro": "SolarAbo Agro",
+        "solarAboPublic": "SolarAbo Public"
       }
     },
     "stats": {
@@ -237,6 +255,68 @@
       "value": "Free State AG\nSchweiz"
     }
   },
+  "contactForm": {
+    "eyebrow": "Support",
+    "title": "Gemeinsam etwas\nGrosses schaffen",
+    "entityType": {
+      "placeholder": "Firma oder Privatperson?",
+      "company": "Firma",
+      "private": "Privatperson"
+    },
+    "salutation": {
+      "placeholder": "Anrede",
+      "mr": "Herr",
+      "mrs": "Frau",
+      "diverse": "Divers"
+    },
+    "firstName": {
+      "label": "Vorname",
+      "placeholder": "Geben Sie Ihren Vornamen ein"
+    },
+    "lastName": {
+      "label": "Nachname",
+      "placeholder": "Geben Sie Ihren Nachnamen ein"
+    },
+    "postalCode": {
+      "label": "Postleitzahl",
+      "placeholder": "Geben Sie Ihre Postleitzahl ein"
+    },
+    "city": {
+      "label": "Stadt",
+      "placeholder": "Geben Sie Ihre Stadt ein"
+    },
+    "phone": {
+      "label": "Telefon",
+      "placeholder": "Geben Sie Ihre Telefonnummer ein"
+    },
+    "email": {
+      "label": "E-Mail",
+      "placeholder": "E-Mail eingeben"
+    },
+    "message": {
+      "label": "Ihre Nachricht eingeben",
+      "placeholder": "Nachricht"
+    },
+    "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung gelesen und verstanden habe.",
+    "submit": "Absenden",
+    "card": {
+      "address": {
+        "title": "Adresse",
+        "value": "Stettemerstrasse 40, 8207 Schaffhausen"
+      },
+      "contact": {
+        "title": "Kontakt",
+        "phone": "Telefon: +41 52 525 33 05"
+      },
+      "email": {
+        "title": "E-Mail",
+        "value": "info@freestate.ch"
+      },
+      "social": {
+        "title": "Bleiben Sie verbunden"
+      }
+    }
+  },
   "portfolioPage": {
     "title": "Portfolio",
     "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
@@ -336,5 +416,277 @@
         }
       }
     }
+  },
+  "calculator": {
+    "steps": {
+      "step1": {
+        "title": "Standort",
+        "description": "Geben Sie Ihre Adresse ein"
+      },
+      "step2": {
+        "title": "Dachfläche",
+        "description": "Zeichnen Sie Ihr Dach"
+      },
+      "step3": {
+        "title": "Ausrichtung",
+        "description": "Dachwinkel & Richtung"
+      },
+      "step4": {
+        "title": "System",
+        "description": "Module & Wechselrichter"
+      },
+      "step5": {
+        "title": "Ergebnisse",
+        "description": "Ihr Solarpotenzial"
+      }
+    },
+    "step1": {
+      "title": "Geben Sie Ihre Adresse ein",
+      "placeholder": "Nach einer Adresse suchen...",
+      "button": "Start"
+    },
+    "step2": {
+      "title": "Zeichnen Sie Ihre Dachfläche",
+      "instructions": {
+        "main": "Klicken Sie auf die Karte, um den Bereich zu umreißen, in dem Sie Solarpanels installieren möchten.",
+        "list": [
+          "Zeichnen Sie die Umrisse Ihres Daches von oben gesehen",
+          "Klicken Sie, um Punkte hinzuzufügen, Kantenabstände werden automatisch angezeigt",
+          "Klicken Sie in der Nähe des ersten Punktes, um das Polygon automatisch zu vervollständigen",
+          "Nach dem Abschluss können Sie Punkte ziehen, um anzupassen",
+          "Vermeiden Sie überlappende Linien für genaue Messungen"
+        ]
+      },
+      "buttons": {
+        "startDrawing": "Zeichnen beginnen",
+        "completePolygon": "Polygon abschließen",
+        "undoLastPoint": "Letzten Punkt rückgängig",
+        "clearAll": "Alles löschen",
+        "saveArea": "Bereich speichern",
+        "redraw": "Neu zeichnen",
+        "back": "Zurück",
+        "next": "Weiter"
+      },
+      "keyboardShortcuts": {
+        "title": "💡 Tastenkürzel:",
+        "backspace": "Letzten Punkt rückgängig",
+        "enter": "Polygon abschließen",
+        "esc": "Zeichnen abbrechen"
+      },
+      "autoComplete": "✓ Klicken Sie in der Nähe des ersten Punktes, um automatisch zu vervollständigen",
+      "selfIntersecting": "⚠️ Polygonlinien kreuzen sich. Bitte neu zeichnen ohne überlappende Kanten für genaue Flächenberechnung.",
+      "labels": {
+        "area": "Fläche:",
+        "perimeter": "Umfang:",
+        "points": "Punkte:",
+        "roofArea": "Dachfläche:"
+      },
+      "info": "💡 Dies ist die horizontale Projektionsfläche. Die tatsächliche Dachoberfläche wird basierend auf der Dachneigung in späteren Schritten berechnet.",
+      "loading": "Lädt...",
+      "cancelConfirm": "Zeichnen abbrechen? Dies löscht alle Punkte.",
+      "minPointsAlert": "Bitte zeichnen Sie mindestens 3 Punkte, um ein Polygon zu erstellen",
+      "minPointsAlert2": "Bitte zeichnen Sie mindestens 3 Punkte"
+    },
+    "step3": {
+      "title": "Panel-Ausrichtung",
+      "subtitle": "Konfigurieren Sie den Winkel und die Richtung Ihrer Solarpanels für genaue Produktionsschätzungen",
+      "availableRoofArea": "Verfügbare Dachfläche",
+      "configurationEfficiency": "Konfigurationseffizienz",
+      "vsOptimal": "vs. optimale Einrichtung",
+      "roofType": {
+        "title": "Dachtyp & Panel-Neigung",
+        "flatDescription": "Panel-Neigung auf Montagerahmen (Dach ist flach)",
+        "slopedDescription": "Panel-Neigung entspricht Dachneigung (bündige Montage)",
+        "types": {
+          "flat": {
+            "name": "Flachdach",
+            "description": "0-5° Dachneigung"
+          },
+          "lowSlope": {
+            "name": "Flaches Dach",
+            "description": "5-15° Dachneigung"
+          },
+          "medium": {
+            "name": "Mittlere Neigung",
+            "description": "15-35° Dachneigung"
+          },
+          "steep": {
+            "name": "Steiles Dach",
+            "description": "35-60° Dachneigung"
+          }
+        },
+        "panelTiltAngle": "Panel-Neigungswinkel",
+        "flatInfo": "Optimal für Flachdach-Installation",
+        "slopedInfo": "Entspricht Dachneigung (bündige Montage)"
+      },
+      "panelDirection": {
+        "title": "Panel-Richtung",
+        "flatDescription": "Flachdächer: Panels auf geneigten Rahmen montiert",
+        "slopedDescription": "Geneigte Dächer: Panels zeigen in dieselbe Richtung wie das Dach",
+        "selectPlaceholder": "Richtung auswählen",
+        "orientations": {
+          "south": {
+            "label": "Süden",
+            "description": "Optimal"
+          },
+          "southEast": {
+            "label": "Süd-Ost",
+            "description": "Gute Morgensonne"
+          },
+          "southWest": {
+            "label": "Süd-West",
+            "description": "Gute Abendsonne"
+          },
+          "east": {
+            "label": "Osten",
+            "description": "Morgenproduktion"
+          },
+          "west": {
+            "label": "Westen",
+            "description": "Abendproduktion"
+          },
+          "north": {
+            "label": "Norden",
+            "description": "Nicht empfohlen"
+          }
+        },
+        "direction": "Richtung:",
+        "customDirection": "Benutzerdefinierte Richtung (optional)",
+        "degrees": "Grad",
+        "customInfo": "Verwenden Sie die Voreinstellungen oben oder geben Sie eine präzise Richtung ein (0°=Norden, 90°=Osten, 180°=Süden, 270°=Westen)"
+      },
+      "flatRoofAlert": {
+        "title": "Flachdach-Installation:",
+        "description": "Panels werden auf geneigten Rahmen (typischerweise 10-20°) montiert, um die Produktion zu optimieren und Wasserabfluss zu ermöglichen. Sie haben volle Freiheit bei der Wahl der Panel-Richtung - Süden (180°) ist optimal für maximale Jahresproduktion in der Schweiz."
+      },
+      "optimizationTips": {
+        "title": "Optimierungstipps",
+        "tips": [
+          "Südgerichtete Panels (180°) erhalten das meiste Sonnenlicht in der Schweiz",
+          "Eine Neigung von 30-35° ist optimal für maximale Jahresproduktion",
+          "Ost/West-Ausrichtungen können vorteilhaft sein, wenn Sie morgens/abends mehr Strom verbrauchen",
+          "Bei Flachdächern können Panels mit geneigten Montagerahmen in jede Richtung zeigen"
+        ]
+      },
+      "buttons": {
+        "back": "Zurück",
+        "continue": "Weiter"
+      }
+    },
+    "step4": {
+      "systemSize": "Systemgröße",
+      "panels": "Panels",
+      "estCost": "Geschätzte Kosten",
+      "tabs": {
+        "panels": "Panels",
+        "inverter": "Wechselrichter"
+      },
+      "loadingPanels": "Panels werden geladen...",
+      "loadingInverters": "Wechselrichter werden geladen...",
+      "noPanels": "Keine Panels verfügbar",
+      "noInverters": "Keine Wechselrichter verfügbar",
+      "retry": "Wiederholen",
+      "efficiency": "Effizienz",
+      "numberOfPanels": "Anzahl der Panels",
+      "maxFit": "Max. passend:",
+      "coverage": "Abdeckung",
+      "capacity": "Kapazität",
+      "panelCost": "Panel-Kosten",
+      "coverageLabel": "Abdeckung",
+      "panelArea": "Panel-Fläche",
+      "recommendedInverter": "Empfohlene Wechselrichtergröße:",
+      "dcAcRatio": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme. Mehrere Wechselrichter sind bei größeren Systemen üblich.",
+      "bestFit": "Beste Passung",
+      "dcAcRatioLabel": "DC/AC-Verhältnis",
+      "inverterCost": "Wechselrichter-Kosten",
+      "buttons": {
+        "back": "Zurück",
+        "calculate": "Berechnen"
+      }
+    },
+    "step5": {
+      "loading": {
+        "title": "Ihr Solarpotenzial wird berechnet...",
+        "error": "Berechnungsfehler",
+        "tryAgain": "Erneut versuchen",
+        "goBack": "Zurück"
+      },
+      "title": "Ihr Solarpotenzial",
+      "editSystem": "System bearbeiten",
+      "systemSize": "Systemgröße",
+      "panels": "Panels",
+      "annualProduction": "Jahresproduktion",
+      "kwhPerYear": "kWh/Jahr",
+      "annualSavings": "Jährliche Einsparungen",
+      "perYear": "pro Jahr",
+      "paybackPeriod": "Amortisationszeit",
+      "years": "Jahre",
+      "monthlyProduction": "Monatsproduktion",
+      "peakMonth": "Spitzenmonat",
+      "lowestMonth": "Niedrigster Monat",
+      "electricityPrices": {
+        "title": "💡 Ihre Strompreise",
+        "important": "Wichtig:",
+        "description": "Geben Sie Ihre tatsächlichen Tarife von Ihrer Stromrechnung ein, um genaue Einsparungsberechnungen zu erhalten. Diese beeinflussen Ihre Amortisationszeit erheblich.",
+        "electricityPrice": "Strompreis (Rp/kWh)",
+        "feedInTariff": "Einspeisetarif (Rp/kWh)",
+        "usingYourRate": "✓ Verwenden Sie Ihren Tarif:",
+        "usingSwissAverage": "Verwenden Sie den Schweizer Durchschnitt:",
+        "whereToFind": "💡 Wo zu finden:",
+        "whereToFindText": "Prüfen Sie Ihre letzte Stromrechnung. Der Strompreis ist das, was Sie pro verbrauchter kWh zahlen. Der Einspeisetarif ist das, was Sie für überschüssige Energie erhalten, die ins Netz exportiert wird."
+      },
+      "investment": {
+        "title": "Investition",
+        "panels": "Panels",
+        "inverter": "Wechselrichter",
+        "installation": "Installation",
+        "vat": "MWST",
+        "total": "Gesamt",
+        "governmentSubsidy": "Staatliche Subvention",
+        "netInvestment": "Netto-Investition"
+      },
+      "returns": {
+        "title": "30-Jahres-Rendite",
+        "totalProduction": "Gesamtproduktion",
+        "selfConsumed": "Eigenverbrauch",
+        "gridExportIncome": "Einspeiseeinnahmen",
+        "totalSavings": "Gesamteinsparungen",
+        "minusInvestment": "Abzüglich Investition",
+        "netProfit": "Netto-Gewinn"
+      },
+      "environmental": {
+        "title": "Umweltauswirkungen",
+        "annualCo2Reduction": "Jährliche CO₂-Reduktion",
+        "kmByCar": "km mit dem Auto"
+      },
+      "advancedSettings": {
+        "show": "Erweiterte Einstellungen anzeigen",
+        "hide": "Erweiterte Einstellungen ausblenden",
+        "annualConsumption": "Jährlicher Stromverbrauch",
+        "kwhPerYear": "kWh/Jahr",
+        "includeVat": "MWST einschließen",
+        "addVat": "Hinzufügen",
+        "vatToInvestment": "% MWST zur Investition"
+      },
+      "systemConfiguration": {
+        "title": "Systemkonfiguration",
+        "panelType": "Panel-Typ",
+        "inverter": "Wechselrichter",
+        "orientation": "Ausrichtung",
+        "azimuth": "Azimut",
+        "tilt": "Neigung",
+        "roofArea": "Dachfläche",
+        "panelCoverage": "Panel-Abdeckung",
+        "dailyAverage": "Tagesdurchschnitt",
+        "specificYield": "Spezifischer Ertrag",
+        "kwhPerKwp": "kWh/kWp"
+      },
+      "actions": {
+        "requestQuote": "Angebot anfordern",
+        "downloadReport": "Bericht herunterladen",
+        "generating": "Wird generiert..."
+      }
+    },
+    "error": "Fehler"
   }
 }

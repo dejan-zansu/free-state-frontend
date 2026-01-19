@@ -10,6 +10,7 @@ import {
   Trash2,
   Undo2,
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -17,6 +18,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
 export default function PVGISStep2RoofDrawing() {
+  const t = useTranslations('calculator.step2')
   const {
     latitude,
     longitude,
@@ -594,7 +596,7 @@ export default function PVGISStep2RoofDrawing() {
       const finalPoints = pointsToFinish || points
 
       if (finalPoints.length < 3) {
-        alert('Please draw at least 3 points to create a polygon')
+        alert(t('minPointsAlert'))
         return
       }
 
@@ -626,7 +628,7 @@ export default function PVGISStep2RoofDrawing() {
   // Save polygon
   const savePolygon = () => {
     if (points.length < 3) {
-      alert('Please draw at least 3 points')
+      alert(t('minPointsAlert2'))
       return
     }
 
@@ -678,7 +680,7 @@ export default function PVGISStep2RoofDrawing() {
       if (event.key === 'Escape') {
         // Cancel drawing
         if (points.length > 0) {
-          if (confirm('Cancel drawing? This will clear all points.')) {
+          if (confirm(t('cancelConfirm'))) {
             clearPolygon()
           }
         }
@@ -729,23 +731,16 @@ export default function PVGISStep2RoofDrawing() {
           <CardHeader>
             <CardTitle className='flex items-center gap-2'>
               <MapPin className='w-5 h-5 text-primary' />
-              Draw Your Roof Area
+              {t('title')}
             </CardTitle>
           </CardHeader>
           <CardContent className='space-y-4'>
             <div className='text-sm text-muted-foreground space-y-2'>
-              <p>
-                Click on the map to outline the area where you want to install
-                solar panels.
-              </p>
+              <p>{t('instructions.main')}</p>
               <ul className='list-disc list-inside space-y-1 text-xs'>
-                <li>Draw the outline of your roof as seen from above</li>
-                <li>
-                  Click to add points, edge distances are shown automatically
-                </li>
-                <li>Click near the first point to auto-complete the polygon</li>
-                <li>After completing, you can drag points to adjust</li>
-                <li>Avoid overlapping lines for accurate measurements</li>
+                {t.raw('instructions.list').map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
             </div>
 
@@ -753,7 +748,7 @@ export default function PVGISStep2RoofDrawing() {
               {!isDrawing && points.length === 0 && (
                 <Button onClick={startDrawing} className='gap-2 w-full'>
                   <PenTool className='w-4 h-4' />
-                  Start Drawing
+                  {t('buttons.startDrawing')}
                 </Button>
               )}
               {isDrawing && (
@@ -764,11 +759,11 @@ export default function PVGISStep2RoofDrawing() {
                     className='gap-2 w-full'
                     disabled={points.length < 3}
                   >
-                    Complete Polygon ({points.length} points)
+                    {t('buttons.completePolygon')} ({points.length} points)
                   </Button>
                   {nearFirstPoint && points.length >= 3 && (
                     <div className='text-xs text-center text-green-600 font-medium py-1'>
-                      ✓ Click near the first point to auto-complete
+                      {t('autoComplete')}
                     </div>
                   )}
                   <Button
@@ -778,7 +773,7 @@ export default function PVGISStep2RoofDrawing() {
                     disabled={points.length === 0}
                   >
                     <Undo2 className='w-4 h-4' />
-                    Undo Last Point
+                    {t('buttons.undoLastPoint')}
                   </Button>
                   <Button
                     onClick={clearPolygon}
@@ -786,28 +781,28 @@ export default function PVGISStep2RoofDrawing() {
                     className='gap-2 w-full'
                   >
                     <Trash2 className='w-4 h-4' />
-                    Clear All
+                    {t('buttons.clearAll')}
                   </Button>
                   <div className='text-xs text-muted-foreground space-y-1 pt-2 border-t'>
-                    <p>💡 Keyboard shortcuts:</p>
+                    <p>{t('keyboardShortcuts.title')}</p>
                     <ul className='list-disc list-inside pl-2 space-y-0.5'>
                       <li>
                         <kbd className='px-1.5 py-0.5 bg-muted rounded text-xs'>
                           Backspace
                         </kbd>{' '}
-                        - Undo last point
+                        - {t('keyboardShortcuts.backspace')}
                       </li>
                       <li>
                         <kbd className='px-1.5 py-0.5 bg-muted rounded text-xs'>
                           Enter
                         </kbd>{' '}
-                        - Complete polygon
+                        - {t('keyboardShortcuts.enter')}
                       </li>
                       <li>
                         <kbd className='px-1.5 py-0.5 bg-muted rounded text-xs'>
                           Esc
                         </kbd>{' '}
-                        - Cancel drawing
+                        - {t('keyboardShortcuts.esc')}
                       </li>
                     </ul>
                   </div>
@@ -817,19 +812,18 @@ export default function PVGISStep2RoofDrawing() {
                 <>
                   {isSelfIntersecting && (
                     <div className='p-3 rounded-lg bg-destructive/10 border border-destructive/30 text-destructive text-sm'>
-                      ⚠️ Polygon lines are crossing. Please redraw without
-                      overlapping edges for accurate area calculation.
+                      {t('selfIntersecting')}
                     </div>
                   )}
                   <div className='p-3 rounded-lg bg-muted text-sm space-y-1'>
                     <div className='flex justify-between'>
-                      <span className='text-muted-foreground'>Area:</span>
+                      <span className='text-muted-foreground'>{t('labels.area')}</span>
                       <span className='font-medium'>
                         {calculateArea(points).toFixed(1)} m²
                       </span>
                     </div>
                     <div className='flex justify-between'>
-                      <span className='text-muted-foreground'>Perimeter:</span>
+                      <span className='text-muted-foreground'>{t('labels.perimeter')}</span>
                       <span className='font-medium'>
                         {calculatePerimeter(points).toFixed(1)} m
                       </span>
@@ -841,7 +835,7 @@ export default function PVGISStep2RoofDrawing() {
                     disabled={isSelfIntersecting}
                   >
                     <Save className='w-4 h-4' />
-                    Save Area
+                    {t('buttons.saveArea')}
                   </Button>
                   <Button
                     onClick={clearPolygon}
@@ -849,7 +843,7 @@ export default function PVGISStep2RoofDrawing() {
                     className='gap-2 w-full'
                   >
                     <Trash2 className='w-4 h-4' />
-                    Redraw
+                    {t('buttons.redraw')}
                   </Button>
                 </>
               )}
@@ -859,27 +853,26 @@ export default function PVGISStep2RoofDrawing() {
               <div className='p-4 rounded-lg bg-primary/10 border border-primary/20 space-y-2'>
                 <div className='flex justify-between items-center'>
                   <span className='text-sm text-muted-foreground'>
-                    Roof Area:
+                    {t('labels.roofArea')}
                   </span>
                   <span className='text-lg font-semibold text-primary'>
                     {roofPolygon.area.toFixed(1)} m²
                   </span>
                 </div>
                 <div className='flex justify-between items-center text-sm'>
-                  <span className='text-muted-foreground'>Perimeter:</span>
+                  <span className='text-muted-foreground'>{t('labels.perimeter')}</span>
                   <span className='font-medium'>
                     {calculatePerimeter(roofPolygon.coordinates).toFixed(1)} m
                   </span>
                 </div>
                 <div className='flex justify-between items-center text-sm'>
-                  <span className='text-muted-foreground'>Points:</span>
+                  <span className='text-muted-foreground'>{t('labels.points')}</span>
                   <span className='font-medium'>
                     {roofPolygon.coordinates.length}
                   </span>
                 </div>
                 <p className='text-xs text-muted-foreground pt-2 border-t'>
-                  💡 This is the horizontal projection area. Actual roof surface
-                  will be calculated based on roof pitch in later steps.
+                  {t('info')}
                 </p>
               </div>
             )}
@@ -894,7 +887,7 @@ export default function PVGISStep2RoofDrawing() {
             className='gap-2 w-full'
           >
             <ChevronLeft className='w-4 h-4' />
-            Back
+            {t('buttons.back')}
           </Button>
 
           <Button
@@ -923,11 +916,11 @@ export default function PVGISStep2RoofDrawing() {
                     d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z'
                   />
                 </svg>
-                Loading...
+                {t('loading')}
               </>
             ) : (
               <>
-                Next
+                {t('buttons.next')}
                 <ChevronRight className='w-4 h-4' />
               </>
             )}

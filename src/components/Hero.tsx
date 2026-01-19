@@ -55,7 +55,7 @@ const Hero = async ({
 
           {showCTAs && (
             <div className='flex items-center gap-4'>
-              <LinkButton variant='primary' href='/get-started' locale={locale}>
+              <LinkButton variant='primary' href='/solar-abo' locale={locale}>
                 {t('hero.cta.primary')}
               </LinkButton>
 

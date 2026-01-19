@@ -1,26 +1,26 @@
 import Benefits from '@/components/Benefits'
 import Deals from '@/components/Deals'
-import ForBusinesses from '@/components/ForBusinesses'
 import Hero from '@/components/Hero'
 import Partners from '@/components/Partners'
 import Portfolio from '@/components/Portfolio'
+import SolarEnergyFor from '@/components/SolarEnergyFor'
 import Stats from '@/components/Stats'
 import YourPartner from '@/components/YourPartner'
 
 export default function HomePage() {
   return (
-    <main>
+    <div>
       <Hero
         title='Smart solar solutions for private homes'
         description='Clean energy, predictable costs, and full service, all without investment.'
       />
       <Deals />
-      <ForBusinesses />
+      <SolarEnergyFor />
       <Benefits />
       <YourPartner />
       <Portfolio />
       <Stats />
       <Partners />
-    </main>
+    </div>
   )
 }

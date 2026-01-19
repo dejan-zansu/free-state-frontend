@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useState, useEffect } from 'react'
 import {
   ArrowLeft,
@@ -24,55 +25,8 @@ import {
 } from '@/components/ui/select'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
-// Common roof types with default panel tilt angles
-const ROOF_TYPES = [
-  {
-    id: 'flat',
-    name: 'Flat Roof',
-    defaultPitch: 15, // Panel tilt on mounting racks
-    description: '0-5° roof pitch',
-  },
-  {
-    id: 'low-slope',
-    name: 'Low Slope',
-    defaultPitch: 15,
-    description: '5-15° roof pitch',
-  },
-  {
-    id: 'medium',
-    name: 'Medium Pitch',
-    defaultPitch: 30,
-    description: '15-35° roof pitch',
-  },
-  {
-    id: 'steep',
-    name: 'Steep Pitch',
-    defaultPitch: 45,
-    description: '35-60° roof pitch',
-  },
-]
-
-// Orientation presets
-const ORIENTATIONS = [
-  { value: 180, label: 'South', icon: '↓', description: 'Optimal' },
-  {
-    value: 135,
-    label: 'South-East',
-    icon: '↘',
-    description: 'Good morning sun',
-  },
-  {
-    value: 225,
-    label: 'South-West',
-    icon: '↙',
-    description: 'Good evening sun',
-  },
-  { value: 90, label: 'East', icon: '→', description: 'Morning production' },
-  { value: 270, label: 'West', icon: '←', description: 'Evening production' },
-  { value: 0, label: 'North', icon: '↑', description: 'Not recommended' },
-]
-
 export default function Step3RoofOrientation() {
+  const t = useTranslations('calculator.step3')
   const {
     roofPolygon,
     panelPlacement,
@@ -82,6 +36,54 @@ export default function Step3RoofOrientation() {
   } = usePVGISCalculatorStore()
 
   const [selectedRoofType, setSelectedRoofType] = useState<string>('medium')
+
+  // Roof types with translations
+  const ROOF_TYPES = [
+    {
+      id: 'flat',
+      name: t('roofType.types.flat.name'),
+      defaultPitch: 15,
+      description: t('roofType.types.flat.description'),
+    },
+    {
+      id: 'low-slope',
+      name: t('roofType.types.lowSlope.name'),
+      defaultPitch: 15,
+      description: t('roofType.types.lowSlope.description'),
+    },
+    {
+      id: 'medium',
+      name: t('roofType.types.medium.name'),
+      defaultPitch: 30,
+      description: t('roofType.types.medium.description'),
+    },
+    {
+      id: 'steep',
+      name: t('roofType.types.steep.name'),
+      defaultPitch: 45,
+      description: t('roofType.types.steep.description'),
+    },
+  ]
+
+  // Orientation presets with translations
+  const ORIENTATIONS = [
+    { value: 180, label: t('panelDirection.orientations.south.label'), icon: '↓', description: t('panelDirection.orientations.south.description') },
+    {
+      value: 135,
+      label: t('panelDirection.orientations.southEast.label'),
+      icon: '↘',
+      description: t('panelDirection.orientations.southEast.description'),
+    },
+    {
+      value: 225,
+      label: t('panelDirection.orientations.southWest.label'),
+      icon: '↙',
+      description: t('panelDirection.orientations.southWest.description'),
+    },
+    { value: 90, label: t('panelDirection.orientations.east.label'), icon: '→', description: t('panelDirection.orientations.east.description') },
+    { value: 270, label: t('panelDirection.orientations.west.label'), icon: '←', description: t('panelDirection.orientations.west.description') },
+    { value: 0, label: t('panelDirection.orientations.north.label'), icon: '↑', description: t('panelDirection.orientations.north.description') },
+  ]
 
   // Initialize from store or set defaults
   useEffect(() => {
@@ -160,10 +162,9 @@ export default function Step3RoofOrientation() {
           <div className='space-y-6'>
             {/* Header */}
             <div className='text-center space-y-2'>
-              <h1 className='text-2xl font-bold'>Panel Orientation</h1>
+              <h1 className='text-2xl font-bold'>{t('title')}</h1>
               <p className='text-muted-foreground'>
-                Configure your solar panel angle and direction for accurate
-                production estimates
+                {t('subtitle')}
               </p>
             </div>
 
@@ -174,7 +175,7 @@ export default function Step3RoofOrientation() {
                   <div className='flex items-center justify-between'>
                     <div>
                       <p className='text-sm text-muted-foreground'>
-                        Available roof area
+                        {t('availableRoofArea')}
                       </p>
                       <p className='text-2xl font-bold text-primary'>
                         {roofPolygon.area.toFixed(1)} m²
@@ -182,7 +183,7 @@ export default function Step3RoofOrientation() {
                     </div>
                     <div className='text-right'>
                       <p className='text-sm text-muted-foreground'>
-                        Configuration efficiency
+                        {t('configurationEfficiency')}
                       </p>
                       <p
                         className={`text-2xl font-bold ${
@@ -196,7 +197,7 @@ export default function Step3RoofOrientation() {
                         {efficiencyFactor}%
                       </p>
                       <p className='text-xs text-muted-foreground mt-0.5'>
-                        vs. optimal setup
+                        {t('vsOptimal')}
                       </p>
                     </div>
                   </div>
@@ -210,12 +211,12 @@ export default function Step3RoofOrientation() {
                 <CardHeader className='pb-4'>
                   <CardTitle className='flex items-center gap-2 text-lg'>
                     <RotateCcw className='w-5 h-5' />
-                    Roof Type & Panel Tilt
+                    {t('roofType.title')}
                   </CardTitle>
                   <p className='text-xs text-muted-foreground mt-1'>
                     {selectedRoofType === 'flat'
-                      ? 'Panel tilt on mounting racks (roof is flat)'
-                      : 'Panel tilt matches roof pitch (flush mounting)'}
+                      ? t('roofType.flatDescription')
+                      : t('roofType.slopedDescription')}
                   </p>
                 </CardHeader>
                 <CardContent className='space-y-4'>
@@ -242,11 +243,11 @@ export default function Step3RoofOrientation() {
                   <div className='pt-4 border-t'>
                     <div className='flex items-center justify-between p-3 rounded-lg bg-muted/50'>
                       <div>
-                        <p className='text-sm font-medium'>Panel Tilt Angle</p>
+                        <p className='text-sm font-medium'>{t('roofType.panelTiltAngle')}</p>
                         <p className='text-xs text-muted-foreground'>
                           {selectedRoofType === 'flat'
-                            ? 'Optimal for flat roof installation'
-                            : 'Matches roof pitch (flush mounting)'}
+                            ? t('roofType.flatInfo')
+                            : t('roofType.slopedInfo')}
                         </p>
                       </div>
                       <div className='text-right'>
@@ -264,16 +265,16 @@ export default function Step3RoofOrientation() {
                 <CardHeader className='pb-4'>
                   <CardTitle className='flex items-center gap-2 text-lg'>
                     <Compass className='w-5 h-5' />
-                    Panel Direction
+                    {t('panelDirection.title')}
                   </CardTitle>
                   {selectedRoofType === 'flat' && (
                     <p className='text-xs text-muted-foreground mt-1'>
-                      Flat roofs: panels mounted on tilted frames
+                      {t('panelDirection.flatDescription')}
                     </p>
                   )}
                   {selectedRoofType !== 'flat' && (
                     <p className='text-xs text-muted-foreground mt-1'>
-                      Sloped roofs: panels face same direction as roof
+                      {t('panelDirection.slopedDescription')}
                     </p>
                   )}
                 </CardHeader>
@@ -283,7 +284,7 @@ export default function Step3RoofOrientation() {
                     onValueChange={handleOrientationChange}
                   >
                     <SelectTrigger>
-                      <SelectValue placeholder='Select direction' />
+                      <SelectValue placeholder={t('panelDirection.selectPlaceholder')} />
                     </SelectTrigger>
                     <SelectContent>
                       {ORIENTATIONS.map((o) => (
@@ -340,7 +341,7 @@ export default function Step3RoofOrientation() {
                   </div>
 
                   <p className='text-center text-sm'>
-                    Direction:{' '}
+                    {t('panelDirection.direction')}{' '}
                     <span className='font-medium'>
                       {getOrientationLabel(panelPlacement.orientation)}
                     </span>{' '}
@@ -350,7 +351,7 @@ export default function Step3RoofOrientation() {
                   {/* Custom Azimuth Input */}
                   <div className='pt-4 border-t'>
                     <Label className='text-sm'>
-                      Custom Direction (optional)
+                      {t('panelDirection.customDirection')}
                     </Label>
                     <div className='flex items-center gap-2 mt-2'>
                       <Input
@@ -366,12 +367,11 @@ export default function Step3RoofOrientation() {
                         className='w-24'
                       />
                       <span className='text-sm text-muted-foreground'>
-                        degrees
+                        {t('panelDirection.degrees')}
                       </span>
                     </div>
                     <p className='text-xs text-muted-foreground mt-1'>
-                      Use presets above or enter precise direction (0°=North,
-                      90°=East, 180°=South, 270°=West)
+                      {t('panelDirection.customInfo')}
                     </p>
                   </div>
                 </CardContent>
@@ -383,11 +383,8 @@ export default function Step3RoofOrientation() {
               <Alert className='bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-900'>
                 <Info className='w-4 h-4' />
                 <AlertDescription>
-                  <span className='font-medium'>Flat Roof Installation: </span>
-                  Panels will be mounted on tilted frames (typically 10-20°) to
-                  optimize production and allow water runoff. You have full
-                  freedom to choose panel direction - South (180°) is optimal
-                  for maximum annual production in Switzerland.
+                  <span className='font-medium'>{t('flatRoofAlert.title')} </span>
+                  {t('flatRoofAlert.description')}
                 </AlertDescription>
               </Alert>
             )}
@@ -398,24 +395,11 @@ export default function Step3RoofOrientation() {
                 <div className='flex gap-3'>
                   <Sun className='w-5 h-5 text-primary shrink-0 mt-0.5' />
                   <div className='text-sm space-y-1'>
-                    <p className='font-medium'>Optimization Tips</p>
+                    <p className='font-medium'>{t('optimizationTips.title')}</p>
                     <ul className='text-muted-foreground space-y-1'>
-                      <li>
-                        • South-facing panels (180°) receive the most sunlight
-                        in Switzerland
-                      </li>
-                      <li>
-                        • A tilt of 30-35° is optimal for maximizing yearly
-                        production
-                      </li>
-                      <li>
-                        • East/West orientations can be beneficial if you
-                        consume more electricity in morning/evening
-                      </li>
-                      <li>
-                        • For flat roofs, panels can face any direction using
-                        tilted mounting racks
-                      </li>
+                      {t.raw('optimizationTips.tips').map((tip: string, index: number) => (
+                        <li key={index}>• {tip}</li>
+                      ))}
                     </ul>
                   </div>
                 </div>
@@ -431,10 +415,10 @@ export default function Step3RoofOrientation() {
           <div className='flex justify-between max-w-4xl mx-auto'>
             <Button variant='outline' onClick={prevStep} className='gap-2'>
               <ArrowLeft className='w-4 h-4' />
-              Back
+              {t('buttons.back')}
             </Button>
             <Button onClick={nextStep} disabled={!canProceed} className='gap-2'>
-              Continue
+              {t('buttons.continue')}
               <ArrowRight className='w-4 h-4' />
             </Button>
           </div>

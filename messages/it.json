@@ -22,6 +22,7 @@
     "contact": "Contatto",
     "navigation": "Navigazione",
     "community": "Comunità",
+    "cta": "Inizia",
     "links": {
       "home": "Home",
       "solarSolutions": "Soluzioni solari",
@@ -47,7 +48,13 @@
       "nav": {
         "solarAbo": "SolarAbo",
         "products": "Prodotti",
-        "onlineStarter": "Online Starter"
+        "onlineStarter": "Online Starter",
+        "solarAboHome": "SolarAbo Home",
+        "solarAboHomeStorage": "SolarAbo Home Storage",
+        "solarAboMulti": "SolarAbo Multi",
+        "solarAboBusiness": "SolarAbo Business",
+        "solarAboAgro": "SolarAbo Agro",
+        "solarAboPublic": "SolarAbo Public"
       }
     },
     "stats": {
@@ -336,5 +343,277 @@
         }
       }
     }
+  },
+  "calculator": {
+    "steps": {
+      "step1": {
+        "title": "Posizione",
+        "description": "Inserisci il tuo indirizzo"
+      },
+      "step2": {
+        "title": "Area del tetto",
+        "description": "Disegna il tuo tetto"
+      },
+      "step3": {
+        "title": "Orientamento",
+        "description": "Angolo & direzione del tetto"
+      },
+      "step4": {
+        "title": "Sistema",
+        "description": "Pannelli & inverter"
+      },
+      "step5": {
+        "title": "Risultati",
+        "description": "Il tuo potenziale solare"
+      }
+    },
+    "step1": {
+      "title": "Inserisci il tuo indirizzo",
+      "placeholder": "Cerca un indirizzo...",
+      "button": "Inizia"
+    },
+    "step2": {
+      "title": "Disegna l'area del tuo tetto",
+      "instructions": {
+        "main": "Clicca sulla mappa per delineare l'area dove vuoi installare i pannelli solari.",
+        "list": [
+          "Disegna il contorno del tuo tetto visto dall'alto",
+          "Clicca per aggiungere punti, le distanze dei bordi sono mostrate automaticamente",
+          "Clicca vicino al primo punto per completare automaticamente il poligono",
+          "Dopo aver completato, puoi trascinare i punti per regolare",
+          "Evita linee sovrapposte per misurazioni accurate"
+        ]
+      },
+      "buttons": {
+        "startDrawing": "Inizia a disegnare",
+        "completePolygon": "Completa poligono",
+        "undoLastPoint": "Annulla ultimo punto",
+        "clearAll": "Cancella tutto",
+        "saveArea": "Salva area",
+        "redraw": "Ridisegna",
+        "back": "Indietro",
+        "next": "Avanti"
+      },
+      "keyboardShortcuts": {
+        "title": "💡 Scorciatoie da tastiera:",
+        "backspace": "Annulla ultimo punto",
+        "enter": "Completa poligono",
+        "esc": "Annulla disegno"
+      },
+      "autoComplete": "✓ Clicca vicino al primo punto per completare automaticamente",
+      "selfIntersecting": "⚠️ Le linee del poligono si incrociano. Si prega di ridisegnare senza bordi sovrapposti per un calcolo accurato dell'area.",
+      "labels": {
+        "area": "Area:",
+        "perimeter": "Perimetro:",
+        "points": "Punti:",
+        "roofArea": "Area del tetto:"
+      },
+      "info": "💡 Questa è l'area di proiezione orizzontale. La superficie effettiva del tetto sarà calcolata in base all'inclinazione del tetto nei passaggi successivi.",
+      "loading": "Caricamento...",
+      "cancelConfirm": "Annullare il disegno? Questo cancellerà tutti i punti.",
+      "minPointsAlert": "Si prega di disegnare almeno 3 punti per creare un poligono",
+      "minPointsAlert2": "Si prega di disegnare almeno 3 punti"
+    },
+    "step3": {
+      "title": "Orientamento dei Pannelli",
+      "subtitle": "Configura l'angolo e la direzione dei tuoi pannelli solari per stime di produzione accurate",
+      "availableRoofArea": "Area del tetto disponibile",
+      "configurationEfficiency": "Efficienza della configurazione",
+      "vsOptimal": "vs. configurazione ottimale",
+      "roofType": {
+        "title": "Tipo di tetto e inclinazione pannelli",
+        "flatDescription": "Inclinazione pannelli su telai di montaggio (tetto piatto)",
+        "slopedDescription": "Inclinazione pannelli corrisponde alla pendenza del tetto (montaggio a filo)",
+        "types": {
+          "flat": {
+            "name": "Tetto piatto",
+            "description": "Pendenza tetto 0-5°"
+          },
+          "lowSlope": {
+            "name": "Pendenza bassa",
+            "description": "Pendenza tetto 5-15°"
+          },
+          "medium": {
+            "name": "Pendenza media",
+            "description": "Pendenza tetto 15-35°"
+          },
+          "steep": {
+            "name": "Pendenza ripida",
+            "description": "Pendenza tetto 35-60°"
+          }
+        },
+        "panelTiltAngle": "Angolo di inclinazione pannelli",
+        "flatInfo": "Ottimale per installazione su tetto piatto",
+        "slopedInfo": "Corrisponde alla pendenza del tetto (montaggio a filo)"
+      },
+      "panelDirection": {
+        "title": "Direzione dei pannelli",
+        "flatDescription": "Tetti piatti: pannelli montati su telai inclinati",
+        "slopedDescription": "Tetti inclinati: pannelli orientati nella stessa direzione del tetto",
+        "selectPlaceholder": "Seleziona direzione",
+        "orientations": {
+          "south": {
+            "label": "Sud",
+            "description": "Ottimale"
+          },
+          "southEast": {
+            "label": "Sud-Est",
+            "description": "Buon sole mattutino"
+          },
+          "southWest": {
+            "label": "Sud-Ovest",
+            "description": "Buon sole serale"
+          },
+          "east": {
+            "label": "Est",
+            "description": "Produzione mattutina"
+          },
+          "west": {
+            "label": "Ovest",
+            "description": "Produzione serale"
+          },
+          "north": {
+            "label": "Nord",
+            "description": "Non raccomandato"
+          }
+        },
+        "direction": "Direzione:",
+        "customDirection": "Direzione personalizzata (opzionale)",
+        "degrees": "gradi",
+        "customInfo": "Usa le preimpostazioni sopra o inserisci una direzione precisa (0°=Nord, 90°=Est, 180°=Sud, 270°=Ovest)"
+      },
+      "flatRoofAlert": {
+        "title": "Installazione su tetto piatto:",
+        "description": "I pannelli saranno montati su telai inclinati (tipicamente 10-20°) per ottimizzare la produzione e permettere lo scolo dell'acqua. Hai piena libertà di scegliere la direzione dei pannelli - Sud (180°) è ottimale per la massima produzione annua in Svizzera."
+      },
+      "optimizationTips": {
+        "title": "Consigli di ottimizzazione",
+        "tips": [
+          "I pannelli orientati a sud (180°) ricevono la maggior quantità di sole in Svizzera",
+          "Un'inclinazione di 30-35° è ottimale per massimizzare la produzione annua",
+          "Le orientazioni Est/Ovest possono essere vantaggiose se consumi più elettricità al mattino/sera",
+          "Per i tetti piatti, i pannelli possono essere orientati in qualsiasi direzione usando telai di montaggio inclinati"
+        ]
+      },
+      "buttons": {
+        "back": "Indietro",
+        "continue": "Continua"
+      }
+    },
+    "step4": {
+      "systemSize": "Dimensione sistema",
+      "panels": "Pannelli",
+      "estCost": "Costo stimato",
+      "tabs": {
+        "panels": "Pannelli",
+        "inverter": "Inverter"
+      },
+      "loadingPanels": "Caricamento pannelli...",
+      "loadingInverters": "Caricamento inverter...",
+      "noPanels": "Nessun pannello disponibile",
+      "noInverters": "Nessun inverter disponibile",
+      "retry": "Riprova",
+      "efficiency": "efficienza",
+      "numberOfPanels": "Numero di pannelli",
+      "maxFit": "Max. adatto:",
+      "coverage": "copertura",
+      "capacity": "Capacità",
+      "panelCost": "Costo pannelli",
+      "coverageLabel": "Copertura",
+      "panelArea": "Area pannelli",
+      "recommendedInverter": "Dimensione inverter raccomandata:",
+      "dcAcRatio": "Rapporto DC/AC: 1,2-1,5:1 è ottimale. Lo standard industriale è 1,1-1,5:1 per sistemi residenziali. Più inverter sono comuni per sistemi più grandi.",
+      "bestFit": "Miglior adattamento",
+      "dcAcRatioLabel": "Rapporto DC/AC",
+      "inverterCost": "Costo inverter",
+      "buttons": {
+        "back": "Indietro",
+        "calculate": "Calcola"
+      }
+    },
+    "step5": {
+      "loading": {
+        "title": "Calcolo del tuo potenziale solare...",
+        "error": "Errore di calcolo",
+        "tryAgain": "Riprova",
+        "goBack": "Indietro"
+      },
+      "title": "Il Tuo Potenziale Solare",
+      "editSystem": "Modifica sistema",
+      "systemSize": "Dimensione sistema",
+      "panels": "pannelli",
+      "annualProduction": "Produzione annua",
+      "kwhPerYear": "kWh/anno",
+      "annualSavings": "Risparmi annuali",
+      "perYear": "all'anno",
+      "paybackPeriod": "Periodo di ammortamento",
+      "years": "anni",
+      "monthlyProduction": "Produzione mensile",
+      "peakMonth": "Mese di picco",
+      "lowestMonth": "Mese più basso",
+      "electricityPrices": {
+        "title": "💡 I Tuoi Prezzi dell'Elettricità",
+        "important": "Importante:",
+        "description": "Inserisci le tue tariffe effettive dalla bolletta elettrica per calcoli di risparmio accurati. Questi influenzano notevolmente il tuo periodo di ammortamento.",
+        "electricityPrice": "Prezzo elettricità (Rp/kWh)",
+        "feedInTariff": "Tariffa di immissione (Rp/kWh)",
+        "usingYourRate": "✓ Usando la tua tariffa:",
+        "usingSwissAverage": "Usando la media svizzera:",
+        "whereToFind": "💡 Dove trovare:",
+        "whereToFindText": "Controlla la tua ultima bolletta elettrica. Il prezzo dell'elettricità è quello che paghi per kWh consumato. La tariffa di immissione è quello che guadagni per l'energia in eccesso esportata alla rete."
+      },
+      "investment": {
+        "title": "Investimento",
+        "panels": "Pannelli",
+        "inverter": "Inverter",
+        "installation": "Installazione",
+        "vat": "IVA",
+        "total": "Totale",
+        "governmentSubsidy": "Sussidio governativo",
+        "netInvestment": "Investimento netto"
+      },
+      "returns": {
+        "title": "Rendimenti a 30 anni",
+        "totalProduction": "Produzione totale",
+        "selfConsumed": "Autoconsumo",
+        "gridExportIncome": "Reddito esportazione rete",
+        "totalSavings": "Risparmi totali",
+        "minusInvestment": "Meno investimento",
+        "netProfit": "Profitto netto"
+      },
+      "environmental": {
+        "title": "Impatto ambientale",
+        "annualCo2Reduction": "Riduzione annuale CO₂",
+        "kmByCar": "km in auto"
+      },
+      "advancedSettings": {
+        "show": "Mostra impostazioni avanzate",
+        "hide": "Nascondi impostazioni avanzate",
+        "annualConsumption": "Consumo annuale elettricità",
+        "kwhPerYear": "kWh/anno",
+        "includeVat": "Includi IVA",
+        "addVat": "Aggiungi",
+        "vatToInvestment": "% IVA all'investimento"
+      },
+      "systemConfiguration": {
+        "title": "Configurazione sistema",
+        "panelType": "Tipo pannello",
+        "inverter": "Inverter",
+        "orientation": "Orientamento",
+        "azimuth": "azimut",
+        "tilt": "Inclinazione",
+        "roofArea": "Area tetto",
+        "panelCoverage": "Copertura pannelli",
+        "dailyAverage": "Media giornaliera",
+        "specificYield": "Resa specifica",
+        "kwhPerKwp": "kWh/kWp"
+      },
+      "actions": {
+        "requestQuote": "Richiedi preventivo",
+        "downloadReport": "Scarica rapporto",
+        "generating": "Generazione in corso..."
+      }
+    },
+    "error": "Errore"
   }
 }

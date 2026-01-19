@@ -1,8 +1,9 @@
+import { cn } from '@/lib/utils'
 import { getLocale, getTranslations } from 'next-intl/server'
 import { AllInclusiveIcon, HouseWithSunIcon, SolarSystemIcon } from './icons'
 import { LinkButton } from './ui/link-button'
 
-const Benefits = async () => {
+const Benefits = async ({isCommercial = false}) => {
   const locale = await getLocale()
   const t = await getTranslations('home.benefits')
 
@@ -37,7 +38,7 @@ const Benefits = async () => {
         </div>
         <div className='flex justify-center mb-10'>
           <LinkButton
-            variant='outline-primary'
+            variant={isCommercial ? 'secondary' : 'outline-primary'}
             href='/calculator'
             locale={locale}
           >
@@ -56,7 +57,7 @@ const Benefits = async () => {
                 <div
                   className='absolute inset-0 rounded-[20px]'
                   style={{
-                    backgroundImage: "url('/images/solar-adventages.png')",
+                    backgroundImage: isCommercial ? "url('/images/solar-adventages-commercial.png')" : "url('/images/solar-adventages.png')",
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
@@ -66,9 +67,9 @@ const Benefits = async () => {
 
                 <div className='relative z-10 mb-8 flex items-center justify-center'>
                   <div className='relative w-[142px] h-[142px] flex items-center justify-center'>
-                    <div className='absolute inset-0 rounded-full bg-white/10 border border-solar' />
+                    <div className={cn('absolute inset-0 rounded-full bg-white/10 border border-solar', isCommercial && 'border-white')} />
                     <div className='relative z-10'>
-                      <Icon className='w-[83px] h-[83px] text-solar' />
+                      <Icon className={cn('w-[83px] h-[83px] text-solar', isCommercial && 'text-white')} />
                     </div>
                   </div>
                 </div>
@@ -85,7 +86,7 @@ const Benefits = async () => {
                       }}
                     />
                     <div className='relative z-10'>
-                      <h3 className='text-solar text-xl font-bold uppercase mb-4'>
+                      <h3 className={cn('text-solar text-xl font-bold uppercase mb-4', isCommercial && 'text-energy')}>
                         {feature.title}
                       </h3>
                       <p className='text-white/80 text-base font-light leading-normal text-start'>

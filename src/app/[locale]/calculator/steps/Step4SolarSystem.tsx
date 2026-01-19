@@ -9,6 +9,7 @@ import {
   Battery,
   Loader2,
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -22,6 +23,7 @@ import {
 } from '@/stores/pvgis-calculator.store'
 
 export default function Step4SolarSystem() {
+  const t = useTranslations('calculator.step4')
   const {
     latitude,
     longitude,
@@ -133,7 +135,7 @@ export default function Step4SolarSystem() {
         }
       } catch (err) {
         console.error('Error fetching equipment:', err)
-        setEquipmentError('Failed to load equipment. Please try again.')
+        setEquipmentError(t('retry'))
       } finally {
         setEquipmentLoading(false)
       }
@@ -535,17 +537,17 @@ export default function Step4SolarSystem() {
             <CardContent className='py-4'>
               <div className='grid grid-cols-3 gap-4 text-center'>
                 <div>
-                  <p className='text-xs text-muted-foreground'>System Size</p>
+                  <p className='text-xs text-muted-foreground'>{t('systemSize')}</p>
                   <p className='text-xl font-bold text-primary'>
                     {systemPowerKw.toFixed(1)} kWp
                   </p>
                 </div>
                 <div>
-                  <p className='text-xs text-muted-foreground'>Panels</p>
+                  <p className='text-xs text-muted-foreground'>{t('panels')}</p>
                   <p className='text-xl font-bold'>{panelCount}</p>
                 </div>
                 <div>
-                  <p className='text-xs text-muted-foreground'>Est. Cost</p>
+                  <p className='text-xs text-muted-foreground'>{t('estCost')}</p>
                   <p className='text-xl font-bold'>
                     CHF {formatNumber(totalCost)}
                   </p>
@@ -558,11 +560,11 @@ export default function Step4SolarSystem() {
             <TabsList className='grid w-full grid-cols-2'>
               <TabsTrigger value='panels' className='gap-2'>
                 <Zap className='w-4 h-4' />
-                Panels
+                {t('tabs.panels')}
               </TabsTrigger>
               <TabsTrigger value='inverter' className='gap-2'>
                 <Battery className='w-4 h-4' />
-                Inverter
+                {t('tabs.inverter')}
               </TabsTrigger>
             </TabsList>
 
@@ -572,7 +574,7 @@ export default function Step4SolarSystem() {
                 <div className='flex items-center justify-center py-8'>
                   <Loader2 className='w-6 h-6 animate-spin text-primary' />
                   <span className='ml-2 text-muted-foreground'>
-                    Loading panels...
+                    {t('loadingPanels')}
                   </span>
                 </div>
               ) : equipmentError ? (
@@ -584,12 +586,12 @@ export default function Step4SolarSystem() {
                     className='mt-2'
                     onClick={() => window.location.reload()}
                   >
-                    Retry
+                    {t('retry')}
                   </Button>
                 </div>
               ) : availablePanels.length === 0 ? (
                 <div className='text-center py-8 text-muted-foreground'>
-                  <p>No panels available</p>
+                  <p>{t('noPanels')}</p>
                 </div>
               ) : (
                 <>
@@ -615,7 +617,7 @@ export default function Step4SolarSystem() {
                               {panel.name}
                             </h3>
                             <p className='text-xs text-muted-foreground'>
-                              {panel.efficiency.toFixed(1)}% efficiency •{' '}
+                              {panel.efficiency.toFixed(1)}% {t('efficiency')} •{' '}
                               {panel.width.toFixed(2)}×{panel.height.toFixed(2)}
                               m
                             </p>
@@ -637,7 +639,7 @@ export default function Step4SolarSystem() {
                     <div className='p-4 border rounded-lg bg-muted/30'>
                       <div className='flex items-center justify-between mb-3'>
                         <span className='text-sm font-medium'>
-                          Number of Panels
+                          {t('numberOfPanels')}
                         </span>
                         <span className='text-2xl font-bold text-primary'>
                           {panelCount}
@@ -653,7 +655,7 @@ export default function Step4SolarSystem() {
                       <div className='flex justify-between text-xs text-muted-foreground mt-2'>
                         <span>1</span>
                         <span>
-                          Max fit: {actualMaxPanels}{' '}
+                          {t('maxFit')} {actualMaxPanels}{' '}
                           {roofPolygon && selectedPanel && (
                             <span className='text-primary'>
                               (
@@ -664,7 +666,7 @@ export default function Step4SolarSystem() {
                                   roofPolygon.area) *
                                 100
                               ).toFixed(0)}
-                              % coverage)
+                              % {t('coverage')})
                             </span>
                           )}
                         </span>
@@ -673,7 +675,7 @@ export default function Step4SolarSystem() {
                       <div className='grid grid-cols-2 gap-3 pt-3 mt-3 border-t text-sm'>
                         <div>
                           <p className='text-xs text-muted-foreground'>
-                            Capacity
+                            {t('capacity')}
                           </p>
                           <p className='font-semibold'>
                             {systemPowerKw.toFixed(2)} kWp
@@ -681,7 +683,7 @@ export default function Step4SolarSystem() {
                         </div>
                         <div>
                           <p className='text-xs text-muted-foreground'>
-                            Panel Cost
+                            {t('panelCost')}
                           </p>
                           <p className='font-semibold'>
                             CHF {formatNumber(totalPanelCost)}
@@ -689,7 +691,7 @@ export default function Step4SolarSystem() {
                         </div>
                         <div>
                           <p className='text-xs text-muted-foreground'>
-                            Coverage
+                            {t('coverageLabel')}
                           </p>
                           <p className='font-semibold'>
                             {roofPolygon
@@ -706,7 +708,7 @@ export default function Step4SolarSystem() {
                         </div>
                         <div>
                           <p className='text-xs text-muted-foreground'>
-                            Panel Area
+                            {t('panelArea')}
                           </p>
                           <p className='font-semibold'>
                             {(
@@ -729,16 +731,14 @@ export default function Step4SolarSystem() {
               {systemPowerKw > 0 && (
                 <div className='p-3 rounded-lg bg-muted/50 text-sm'>
                   <p>
-                    Recommended inverter size:{' '}
+                    {t('recommendedInverter')}{' '}
                     <span className='font-semibold'>
                       {(systemPowerKw / 1.5).toFixed(1)} -{' '}
                       {(systemPowerKw / 1.2).toFixed(1)} kW
                     </span>
                   </p>
                   <p className='text-xs text-muted-foreground mt-1'>
-                    (DC/AC ratio: 1.2-1.5:1 is optimal. Industry standard is
-                    1.1-1.5:1 for residential systems. Multiple inverters are
-                    common for larger systems.)
+                    ({t('dcAcRatio')})
                   </p>
                 </div>
               )}
@@ -747,12 +747,12 @@ export default function Step4SolarSystem() {
                 <div className='flex items-center justify-center py-8'>
                   <Loader2 className='w-6 h-6 animate-spin text-primary' />
                   <span className='ml-2 text-muted-foreground'>
-                    Loading inverters...
+                    {t('loadingInverters')}
                   </span>
                 </div>
               ) : availableInverters.length === 0 ? (
                 <div className='text-center py-8 text-muted-foreground'>
-                  <p>No inverters available</p>
+                  <p>{t('noInverters')}</p>
                 </div>
               ) : (
                 <div className='grid gap-3'>
@@ -778,7 +778,7 @@ export default function Step4SolarSystem() {
                         {status === 'recommended' &&
                           selectedInverter?.id !== inverter.id && (
                             <span className='absolute top-2 right-2 px-2 py-0.5 bg-green-500 text-white text-xs rounded-full'>
-                              Best fit
+                              {t('bestFit')}
                             </span>
                           )}
                         <div className='flex justify-between items-start'>
@@ -811,7 +811,7 @@ export default function Step4SolarSystem() {
                   <div className='grid grid-cols-2 gap-4'>
                     <div>
                       <p className='text-xs text-muted-foreground'>
-                        DC/AC Ratio
+                        {t('dcAcRatioLabel')}
                       </p>
                       <p className='text-lg font-semibold'>
                         {(systemPowerKw / selectedInverter.power).toFixed(2)}:1
@@ -819,7 +819,7 @@ export default function Step4SolarSystem() {
                     </div>
                     <div>
                       <p className='text-xs text-muted-foreground'>
-                        Inverter Cost
+                        {t('inverterCost')}
                       </p>
                       <p className='text-lg font-semibold'>
                         CHF {formatNumber(selectedInverter.price)}
@@ -973,7 +973,7 @@ export default function Step4SolarSystem() {
               className='gap-2 flex-1'
             >
               <ArrowLeft className='w-4 h-4' />
-              Back
+              {t('buttons.back')}
             </Button>
             <Button
               onClick={nextStep}
@@ -984,7 +984,7 @@ export default function Step4SolarSystem() {
                 <span className='animate-spin'>⏳</span>
               ) : (
                 <>
-                  Calculate
+                  {t('buttons.calculate')}
                   <ArrowRight className='w-4 h-4' />
                 </>
               )}

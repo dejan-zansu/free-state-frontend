@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 
 import { Progress } from '@/components/ui/progress'
@@ -11,17 +12,18 @@ import Step3RoofOrientation from './steps/Step3RoofOrientation'
 import Step4SolarSystem from './steps/Step4SolarSystem'
 import Step5Results from './steps/Step5Results'
 
-const steps = [
-  { id: 1, title: 'Location', description: 'Enter your address' },
-  { id: 2, title: 'Roof Area', description: 'Draw your roof' },
-  { id: 3, title: 'Orientation', description: 'Roof angle & direction' },
-  { id: 4, title: 'System', description: 'Panels & inverter' },
-  { id: 5, title: 'Results', description: 'Your solar potential' },
-]
-
 export default function PVGISCalculatorPage() {
+  const t = useTranslations('calculator')
   const { currentStep, error, setError, latitude, longitude, roofPolygon } =
     usePVGISCalculatorStore()
+
+  const steps = [
+    { id: 1, title: t('steps.step1.title'), description: t('steps.step1.description') },
+    { id: 2, title: t('steps.step2.title'), description: t('steps.step2.description') },
+    { id: 3, title: t('steps.step3.title'), description: t('steps.step3.description') },
+    { id: 4, title: t('steps.step4.title'), description: t('steps.step4.description') },
+    { id: 5, title: t('steps.step5.title'), description: t('steps.step5.description') },
+  ]
 
   useEffect(() => {
     setError(null)
@@ -123,7 +125,7 @@ export default function PVGISCalculatorPage() {
       <main className='flex-1 overflow-hidden relative'>
         {error && (
           <div className='p-4 mx-6 mt-6 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive max-w-5xl'>
-            <p className='font-medium'>Error</p>
+            <p className='font-medium'>{t('error')}</p>
             <p className='text-sm'>{error}</p>
           </div>
         )}

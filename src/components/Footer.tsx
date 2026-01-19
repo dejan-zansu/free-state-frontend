@@ -1,13 +1,17 @@
 'use client'
+import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { useParams, usePathname } from 'next/navigation'
 import LogoLight from './icons/LogoLight'
+import { LinkButton } from './ui/link-button'
 
 const Footer = () => {
   const t = useTranslations('footer')
   const locale = useParams().locale as string
+  const pathname = usePathname()
+  const isCommercial = pathname?.includes('/commercial')
   const navigationLinks = [
     { label: t('links.home'), href: `/${locale}`, hasArrow: false },
     {
@@ -51,12 +55,12 @@ const Footer = () => {
   ]
 
   return (
-    <footer className='relative text-white overflow-hidden bg-[#011F19]'>
+    <footer className={cn('relative text-white overflow-hidden', isCommercial ? 'bg-[#191D1C]' : 'bg-[#011F19]')}>
       <div className='absolute inset-0 z-0'>
         <div
           className='absolute inset-0 bg-cover bg-center'
           style={{
-            backgroundImage: "url('/images/solar-panels.png')",
+            backgroundImage: isCommercial ? "url('/images/footer-bg-commercial.png')" : "url('/images/solar-panels.png')",
             filter: 'blur(3px)',
           }}
         />
@@ -86,7 +90,7 @@ const Footer = () => {
           </div>
           <div className='flex flex-1 justify-between'>
             <div>
-              <h3 className='text-solar font-medium mb-6'>{t('contact')}</h3>
+              <h3 className={cn('font-medium mb-6', isCommercial ? 'text-energy' : 'text-solar')}>{t('contact')}</h3>
               <ul className='space-y-4'>
                 {contactLinks.map((link) => (
                   <li key={link.href}>
@@ -105,7 +109,7 @@ const Footer = () => {
             </div>
 
             <div>
-              <h3 className='text-solar font-medium mb-6'>{t('navigation')}</h3>
+              <h3 className={cn('font-medium mb-6', isCommercial ? 'text-energy' : 'text-solar')}>{t('navigation')}</h3>
               <ul className='space-y-4'>
                 {navigationLinks.map((link) => (
                   <li key={link.href}>
@@ -123,7 +127,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h3 className='text-solar font-medium mb-6'>{t('community')}</h3>
+              <h3 className={cn('font-medium mb-6', isCommercial ? 'text-energy' : 'text-solar')}>{t('community')}</h3>
               <ul className='space-y-4'>
                 {communityLinks.map((link) => (
                   <li key={link.href}>
@@ -150,10 +154,17 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className='pt-8'>
+        <div className='pt-8 flex items-center justify-between'>
           <p className='text-muted-text-light text-xs font-normal uppercase tracking-wide'>
             {t('copyright')}
           </p>
+          <LinkButton
+            variant={isCommercial ? 'secondary' : 'primary'}
+            href='/calculator'
+            locale={locale}
+          >
+            {t('cta')}
+          </LinkButton>
         </div>
       </div>
     </footer>

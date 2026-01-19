@@ -22,6 +22,7 @@
     "contact": "Contacto",
     "navigation": "Navegación",
     "community": "Comunidad",
+    "cta": "Comenzar",
     "links": {
       "home": "Inicio",
       "solarSolutions": "Soluciones solares",
@@ -47,7 +48,13 @@
       "nav": {
         "solarAbo": "SolarAbo",
         "products": "Productos",
-        "onlineStarter": "Online Starter"
+        "onlineStarter": "Online Starter",
+        "solarAboHome": "SolarAbo Home",
+        "solarAboHomeStorage": "SolarAbo Home Storage",
+        "solarAboMulti": "SolarAbo Multi",
+        "solarAboBusiness": "SolarAbo Business",
+        "solarAboAgro": "SolarAbo Agro",
+        "solarAboPublic": "SolarAbo Public"
       }
     },
     "stats": {
@@ -336,5 +343,277 @@
         }
       }
     }
+  },
+  "calculator": {
+    "steps": {
+      "step1": {
+        "title": "Ubicación",
+        "description": "Ingrese su dirección"
+      },
+      "step2": {
+        "title": "Área del techo",
+        "description": "Dibuje su techo"
+      },
+      "step3": {
+        "title": "Orientación",
+        "description": "Ángulo y dirección del techo"
+      },
+      "step4": {
+        "title": "Sistema",
+        "description": "Paneles e inversor"
+      },
+      "step5": {
+        "title": "Resultados",
+        "description": "Su potencial solar"
+      }
+    },
+    "step1": {
+      "title": "Ingrese su dirección",
+      "placeholder": "Buscar una dirección...",
+      "button": "Comenzar"
+    },
+    "step2": {
+      "title": "Dibuje el área de su techo",
+      "instructions": {
+        "main": "Haga clic en el mapa para delinear el área donde desea instalar paneles solares.",
+        "list": [
+          "Dibuje el contorno de su techo visto desde arriba",
+          "Haga clic para agregar puntos, las distancias de los bordes se muestran automáticamente",
+          "Haga clic cerca del primer punto para completar automáticamente el polígono",
+          "Después de completar, puede arrastrar puntos para ajustar",
+          "Evite líneas superpuestas para mediciones precisas"
+        ]
+      },
+      "buttons": {
+        "startDrawing": "Comenzar a dibujar",
+        "completePolygon": "Completar polígono",
+        "undoLastPoint": "Deshacer último punto",
+        "clearAll": "Borrar todo",
+        "saveArea": "Guardar área",
+        "redraw": "Redibujar",
+        "back": "Atrás",
+        "next": "Siguiente"
+      },
+      "keyboardShortcuts": {
+        "title": "💡 Atajos de teclado:",
+        "backspace": "Deshacer último punto",
+        "enter": "Completar polígono",
+        "esc": "Cancelar dibujo"
+      },
+      "autoComplete": "✓ Haga clic cerca del primer punto para completar automáticamente",
+      "selfIntersecting": "⚠️ Las líneas del polígono se cruzan. Por favor, redibuje sin bordes superpuestos para un cálculo preciso del área.",
+      "labels": {
+        "area": "Área:",
+        "perimeter": "Perímetro:",
+        "points": "Puntos:",
+        "roofArea": "Área del techo:"
+      },
+      "info": "💡 Esta es el área de proyección horizontal. La superficie real del techo se calculará en función de la inclinación del techo en pasos posteriores.",
+      "loading": "Cargando...",
+      "cancelConfirm": "¿Cancelar dibujo? Esto borrará todos los puntos.",
+      "minPointsAlert": "Por favor, dibuje al menos 3 puntos para crear un polígono",
+      "minPointsAlert2": "Por favor, dibuje al menos 3 puntos"
+    },
+    "step3": {
+      "title": "Orientación de los Paneles",
+      "subtitle": "Configure el ángulo y la dirección de sus paneles solares para estimaciones de producción precisas",
+      "availableRoofArea": "Área de techo disponible",
+      "configurationEfficiency": "Eficiencia de la configuración",
+      "vsOptimal": "vs. configuración óptima",
+      "roofType": {
+        "title": "Tipo de techo e inclinación de paneles",
+        "flatDescription": "Inclinación de paneles en marcos de montaje (techo plano)",
+        "slopedDescription": "Inclinación de paneles coincide con la pendiente del techo (montaje al ras)",
+        "types": {
+          "flat": {
+            "name": "Techo plano",
+            "description": "Pendiente de techo 0-5°"
+          },
+          "lowSlope": {
+            "name": "Pendiente baja",
+            "description": "Pendiente de techo 5-15°"
+          },
+          "medium": {
+            "name": "Pendiente media",
+            "description": "Pendiente de techo 15-35°"
+          },
+          "steep": {
+            "name": "Pendiente pronunciada",
+            "description": "Pendiente de techo 35-60°"
+          }
+        },
+        "panelTiltAngle": "Ángulo de inclinación de paneles",
+        "flatInfo": "Óptimo para instalación en techo plano",
+        "slopedInfo": "Coincide con la pendiente del techo (montaje al ras)"
+      },
+      "panelDirection": {
+        "title": "Dirección de los paneles",
+        "flatDescription": "Techos planos: paneles montados en marcos inclinados",
+        "slopedDescription": "Techos inclinados: paneles orientados en la misma dirección que el techo",
+        "selectPlaceholder": "Seleccionar dirección",
+        "orientations": {
+          "south": {
+            "label": "Sur",
+            "description": "Óptimo"
+          },
+          "southEast": {
+            "label": "Sur-Este",
+            "description": "Buen sol matutino"
+          },
+          "southWest": {
+            "label": "Sur-Oeste",
+            "description": "Buen sol vespertino"
+          },
+          "east": {
+            "label": "Este",
+            "description": "Producción matutina"
+          },
+          "west": {
+            "label": "Oeste",
+            "description": "Producción vespertina"
+          },
+          "north": {
+            "label": "Norte",
+            "description": "No recomendado"
+          }
+        },
+        "direction": "Dirección:",
+        "customDirection": "Dirección personalizada (opcional)",
+        "degrees": "grados",
+        "customInfo": "Use los ajustes preestablecidos arriba o ingrese una dirección precisa (0°=Norte, 90°=Este, 180°=Sur, 270°=Oeste)"
+      },
+      "flatRoofAlert": {
+        "title": "Instalación en techo plano:",
+        "description": "Los paneles se montarán en marcos inclinados (típicamente 10-20°) para optimizar la producción y permitir el drenaje del agua. Tiene total libertad para elegir la dirección de los paneles - Sur (180°) es óptimo para la máxima producción anual en Suiza."
+      },
+      "optimizationTips": {
+        "title": "Consejos de optimización",
+        "tips": [
+          "Los paneles orientados al sur (180°) reciben la mayor cantidad de sol en Suiza",
+          "Una inclinación de 30-35° es óptima para maximizar la producción anual",
+          "Las orientaciones Este/Oeste pueden ser beneficiosas si consume más electricidad por la mañana/tarde",
+          "Para techos planos, los paneles pueden orientarse en cualquier dirección usando marcos de montaje inclinados"
+        ]
+      },
+      "buttons": {
+        "back": "Atrás",
+        "continue": "Continuar"
+      }
+    },
+    "step4": {
+      "systemSize": "Tamaño del sistema",
+      "panels": "Paneles",
+      "estCost": "Costo estimado",
+      "tabs": {
+        "panels": "Paneles",
+        "inverter": "Inversor"
+      },
+      "loadingPanels": "Cargando paneles...",
+      "loadingInverters": "Cargando inversores...",
+      "noPanels": "No hay paneles disponibles",
+      "noInverters": "No hay inversores disponibles",
+      "retry": "Reintentar",
+      "efficiency": "eficiencia",
+      "numberOfPanels": "Número de paneles",
+      "maxFit": "Máx. ajuste:",
+      "coverage": "cobertura",
+      "capacity": "Capacidad",
+      "panelCost": "Costo de paneles",
+      "coverageLabel": "Cobertura",
+      "panelArea": "Área de paneles",
+      "recommendedInverter": "Tamaño de inversor recomendado:",
+      "dcAcRatio": "Ratio DC/AC: 1,2-1,5:1 es óptimo. El estándar de la industria es 1,1-1,5:1 para sistemas residenciales. Múltiples inversores son comunes para sistemas más grandes.",
+      "bestFit": "Mejor ajuste",
+      "dcAcRatioLabel": "Ratio DC/AC",
+      "inverterCost": "Costo del inversor",
+      "buttons": {
+        "back": "Atrás",
+        "calculate": "Calcular"
+      }
+    },
+    "step5": {
+      "loading": {
+        "title": "Calculando su potencial solar...",
+        "error": "Error de cálculo",
+        "tryAgain": "Intentar de nuevo",
+        "goBack": "Atrás"
+      },
+      "title": "Su Potencial Solar",
+      "editSystem": "Editar sistema",
+      "systemSize": "Tamaño del sistema",
+      "panels": "paneles",
+      "annualProduction": "Producción anual",
+      "kwhPerYear": "kWh/año",
+      "annualSavings": "Ahorros anuales",
+      "perYear": "por año",
+      "paybackPeriod": "Período de recuperación",
+      "years": "años",
+      "monthlyProduction": "Producción mensual",
+      "peakMonth": "Mes pico",
+      "lowestMonth": "Mes más bajo",
+      "electricityPrices": {
+        "title": "💡 Sus Precios de Electricidad",
+        "important": "Importante:",
+        "description": "Ingrese sus tarifas reales de su factura de electricidad para cálculos de ahorro precisos. Estos afectan en gran medida su período de recuperación.",
+        "electricityPrice": "Precio de electricidad (Rp/kWh)",
+        "feedInTariff": "Tarifa de inyección (Rp/kWh)",
+        "usingYourRate": "✓ Usando su tarifa:",
+        "usingSwissAverage": "Usando el promedio suizo:",
+        "whereToFind": "💡 Dónde encontrar:",
+        "whereToFindText": "Revise su última factura de electricidad. El precio de la electricidad es lo que paga por kWh consumido. La tarifa de inyección es lo que gana por el exceso de energía exportada a la red."
+      },
+      "investment": {
+        "title": "Inversión",
+        "panels": "Paneles",
+        "inverter": "Inversor",
+        "installation": "Instalación",
+        "vat": "IVA",
+        "total": "Total",
+        "governmentSubsidy": "Subsidio gubernamental",
+        "netInvestment": "Inversión neta"
+      },
+      "returns": {
+        "title": "Retornos a 30 años",
+        "totalProduction": "Producción total",
+        "selfConsumed": "Autoconsumo",
+        "gridExportIncome": "Ingresos por exportación a la red",
+        "totalSavings": "Ahorros totales",
+        "minusInvestment": "Menos inversión",
+        "netProfit": "Beneficio neto"
+      },
+      "environmental": {
+        "title": "Impacto ambiental",
+        "annualCo2Reduction": "Reducción anual de CO₂",
+        "kmByCar": "km en coche"
+      },
+      "advancedSettings": {
+        "show": "Mostrar configuración avanzada",
+        "hide": "Ocultar configuración avanzada",
+        "annualConsumption": "Consumo anual de electricidad",
+        "kwhPerYear": "kWh/año",
+        "includeVat": "Incluir IVA",
+        "addVat": "Agregar",
+        "vatToInvestment": "% IVA a la inversión"
+      },
+      "systemConfiguration": {
+        "title": "Configuración del sistema",
+        "panelType": "Tipo de panel",
+        "inverter": "Inversor",
+        "orientation": "Orientación",
+        "azimuth": "azimut",
+        "tilt": "Inclinación",
+        "roofArea": "Área del techo",
+        "panelCoverage": "Cobertura de paneles",
+        "dailyAverage": "Promedio diario",
+        "specificYield": "Rendimiento específico",
+        "kwhPerKwp": "kWh/kWp"
+      },
+      "actions": {
+        "requestQuote": "Solicitar cotización",
+        "downloadReport": "Descargar informe",
+        "generating": "Generando..."
+      }
+    },
+    "error": "Error"
   }
 }

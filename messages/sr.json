@@ -22,6 +22,7 @@
     "contact": "Kontakt",
     "navigation": "Navigacija",
     "community": "Zajednica",
+    "cta": "Počni",
     "links": {
       "home": "Početna",
       "solarSolutions": "Solarna rešenja",
@@ -47,7 +48,13 @@
       "nav": {
         "solarAbo": "SolarAbo",
         "products": "Proizvodi",
-        "onlineStarter": "Online Starter"
+        "onlineStarter": "Online Starter",
+        "solarAboHome": "SolarAbo Home",
+        "solarAboHomeStorage": "SolarAbo Home Storage",
+        "solarAboMulti": "SolarAbo Multi",
+        "solarAboBusiness": "SolarAbo Business",
+        "solarAboAgro": "SolarAbo Agro",
+        "solarAboPublic": "SolarAbo Public"
       }
     },
     "stats": {
@@ -336,5 +343,277 @@
         }
       }
     }
+  },
+  "calculator": {
+    "steps": {
+      "step1": {
+        "title": "Lokacija",
+        "description": "Unesite vašu adresu"
+      },
+      "step2": {
+        "title": "Površina krova",
+        "description": "Nacrtajte vaš krov"
+      },
+      "step3": {
+        "title": "Orijentacija",
+        "description": "Ugao i smer krova"
+      },
+      "step4": {
+        "title": "Sistem",
+        "description": "Paneli i inverter"
+      },
+      "step5": {
+        "title": "Rezultati",
+        "description": "Vaš solarni potencijal"
+      }
+    },
+    "step1": {
+      "title": "Unesite vašu adresu",
+      "placeholder": "Pretražite adresu...",
+      "button": "Počni"
+    },
+    "step2": {
+      "title": "Nacrtajte površinu vašeg krova",
+      "instructions": {
+        "main": "Kliknite na mapu da ocrtate oblast gde želite da instalirate solarne panele.",
+        "list": [
+          "Nacrtajte obris vašeg krova gledano odozgo",
+          "Kliknite da dodate tačke, udaljenosti ivica se automatski prikazuju",
+          "Kliknite blizu prve tačke da automatski završite poligon",
+          "Nakon završetka, možete povlačiti tačke da podesite",
+          "Izbegavajte preklapajuće linije za tačna merenja"
+        ]
+      },
+      "buttons": {
+        "startDrawing": "Počni crtanje",
+        "completePolygon": "Završi poligon",
+        "undoLastPoint": "Poništi poslednju tačku",
+        "clearAll": "Obriši sve",
+        "saveArea": "Sačuvaj oblast",
+        "redraw": "Ponovo nacrtaj",
+        "back": "Nazad",
+        "next": "Sledeće"
+      },
+      "keyboardShortcuts": {
+        "title": "💡 Prečice na tastaturi:",
+        "backspace": "Poništi poslednju tačku",
+        "enter": "Završi poligon",
+        "esc": "Otkaži crtanje"
+      },
+      "autoComplete": "✓ Kliknite blizu prve tačke da automatski završite",
+      "selfIntersecting": "⚠️ Linije poligona se seku. Molimo ponovo nacrtajte bez preklapajućih ivica za tačan izračun površine.",
+      "labels": {
+        "area": "Površina:",
+        "perimeter": "Obim:",
+        "points": "Tačke:",
+        "roofArea": "Površina krova:"
+      },
+      "info": "💡 Ovo je horizontalna projekcija površine. Stvarna površina krova će biti izračunata na osnovu nagiba krova u kasnijim koracima.",
+      "loading": "Učitavanje...",
+      "cancelConfirm": "Otkaži crtanje? Ovo će obrisati sve tačke.",
+      "minPointsAlert": "Molimo nacrtajte najmanje 3 tačke da kreirate poligon",
+      "minPointsAlert2": "Molimo nacrtajte najmanje 3 tačke"
+    },
+    "step3": {
+      "title": "Orijentacija Panela",
+      "subtitle": "Konfigurišite ugao i smer vaših solarnih panela za tačne procene proizvodnje",
+      "availableRoofArea": "Dostupna površina krova",
+      "configurationEfficiency": "Efikasnost konfiguracije",
+      "vsOptimal": "vs. optimalna postavka",
+      "roofType": {
+        "title": "Tip krova i nagib panela",
+        "flatDescription": "Nagib panela na montažnim okvirima (krov je ravan)",
+        "slopedDescription": "Nagib panela odgovara nagibu krova (montaža u ravnini)",
+        "types": {
+          "flat": {
+            "name": "Ravan krov",
+            "description": "Nagib krova 0-5°"
+          },
+          "lowSlope": {
+            "name": "Blagi nagib",
+            "description": "Nagib krova 5-15°"
+          },
+          "medium": {
+            "name": "Srednji nagib",
+            "description": "Nagib krova 15-35°"
+          },
+          "steep": {
+            "name": "Strm nagib",
+            "description": "Nagib krova 35-60°"
+          }
+        },
+        "panelTiltAngle": "Ugao nagiba panela",
+        "flatInfo": "Optimalno za instalaciju na ravnom krovu",
+        "slopedInfo": "Odgovara nagibu krova (montaža u ravnini)"
+      },
+      "panelDirection": {
+        "title": "Smer panela",
+        "flatDescription": "Ravni krovovi: paneli montirani na nagnutim okvirima",
+        "slopedDescription": "Nagnuti krovovi: paneli okrenuti u istom smeru kao krov",
+        "selectPlaceholder": "Izaberite smer",
+        "orientations": {
+          "south": {
+            "label": "Jug",
+            "description": "Optimalno"
+          },
+          "southEast": {
+            "label": "Jugoistok",
+            "description": "Dobro jutarnje sunce"
+          },
+          "southWest": {
+            "label": "Jugozapad",
+            "description": "Dobro večernje sunce"
+          },
+          "east": {
+            "label": "Istok",
+            "description": "Jutarnja proizvodnja"
+          },
+          "west": {
+            "label": "Zapad",
+            "description": "Večernja proizvodnja"
+          },
+          "north": {
+            "label": "Sever",
+            "description": "Nije preporučeno"
+          }
+        },
+        "direction": "Smer:",
+        "customDirection": "Prilagođeni smer (opciono)",
+        "degrees": "stepeni",
+        "customInfo": "Koristite unapred postavljene opcije iznad ili unesite precizan smer (0°=Sever, 90°=Istok, 180°=Jug, 270°=Zapad)"
+      },
+      "flatRoofAlert": {
+        "title": "Instalacija na ravnom krovu:",
+        "description": "Paneli će biti montirani na nagnutim okvirima (obično 10-20°) da bi se optimizovala proizvodnja i omogućilo odvodnjavanje vode. Imate punu slobodu da birate smer panela - Jug (180°) je optimalno za maksimalnu godišnju proizvodnju u Švajcarskoj."
+      },
+      "optimizationTips": {
+        "title": "Saveti za optimizaciju",
+        "tips": [
+          "Paneli okrenuti ka jugu (180°) primaju najviše sunčeve svetlosti u Švajcarskoj",
+          "Nagib od 30-35° je optimalan za maksimizaciju godišnje proizvodnje",
+          "Orijentacije Istok/Zapad mogu biti korisne ako trošite više struje ujutru/naveče",
+          "Za ravne krovove, paneli mogu biti okrenuti u bilo kom smeru koristeći nagnute montažne okvire"
+        ]
+      },
+      "buttons": {
+        "back": "Nazad",
+        "continue": "Nastavi"
+      }
+    },
+    "step4": {
+      "systemSize": "Veličina sistema",
+      "panels": "Paneli",
+      "estCost": "Procenjeni trošak",
+      "tabs": {
+        "panels": "Paneli",
+        "inverter": "Inverter"
+      },
+      "loadingPanels": "Učitavanje panela...",
+      "loadingInverters": "Učitavanje invertora...",
+      "noPanels": "Nema dostupnih panela",
+      "noInverters": "Nema dostupnih invertora",
+      "retry": "Pokušaj ponovo",
+      "efficiency": "efikasnost",
+      "numberOfPanels": "Broj panela",
+      "maxFit": "Maks. pristaje:",
+      "coverage": "pokrivenost",
+      "capacity": "Kapacitet",
+      "panelCost": "Trošak panela",
+      "coverageLabel": "Pokrivenost",
+      "panelArea": "Površina panela",
+      "recommendedInverter": "Preporučena veličina invertora:",
+      "dcAcRatio": "DC/AC odnos: 1,2-1,5:1 je optimalan. Industrijska norma je 1,1-1,5:1 za stambene sisteme. Više invertora je uobičajeno za veće sisteme.",
+      "bestFit": "Najbolje pristaje",
+      "dcAcRatioLabel": "DC/AC odnos",
+      "inverterCost": "Trošak invertora",
+      "buttons": {
+        "back": "Nazad",
+        "calculate": "Izračunaj"
+      }
+    },
+    "step5": {
+      "loading": {
+        "title": "Računanje vašeg solarnog potencijala...",
+        "error": "Greška u računanju",
+        "tryAgain": "Pokušaj ponovo",
+        "goBack": "Nazad"
+      },
+      "title": "Vaš Solarni Potencijal",
+      "editSystem": "Izmeni sistem",
+      "systemSize": "Veličina sistema",
+      "panels": "panela",
+      "annualProduction": "Godišnja proizvodnja",
+      "kwhPerYear": "kWh/godina",
+      "annualSavings": "Godišnje uštede",
+      "perYear": "godišnje",
+      "paybackPeriod": "Period povraćaja",
+      "years": "godina",
+      "monthlyProduction": "Mesečna proizvodnja",
+      "peakMonth": "Meseci vrhunca",
+      "lowestMonth": "Najniži mesec",
+      "electricityPrices": {
+        "title": "💡 Vaše Cene Struje",
+        "important": "Važno:",
+        "description": "Unesite vaše stvarne tarife sa računa za struju za tačne izračune ušteda. Ovo u velikoj meri utiče na vaš period povraćaja.",
+        "electricityPrice": "Cena struje (Rp/kWh)",
+        "feedInTariff": "Tarifa za uneto (Rp/kWh)",
+        "usingYourRate": "✓ Koristeći vašu tarifu:",
+        "usingSwissAverage": "Koristeći švajcarski prosek:",
+        "whereToFind": "💡 Gde naći:",
+        "whereToFindText": "Proverite vaš poslednji račun za struju. Cena struje je ono što plaćate po kWh potrošenom. Tarifa za uneto je ono što zarađujete za višak energije izvezen u mrežu."
+      },
+      "investment": {
+        "title": "Investicija",
+        "panels": "Paneli",
+        "inverter": "Inverter",
+        "installation": "Instalacija",
+        "vat": "PDV",
+        "total": "Ukupno",
+        "governmentSubsidy": "Državna subvencija",
+        "netInvestment": "Neto investicija"
+      },
+      "returns": {
+        "title": "Povraćaj na 30 godina",
+        "totalProduction": "Ukupna proizvodnja",
+        "selfConsumed": "Sopstvena potrošnja",
+        "gridExportIncome": "Prihodi od izvoza u mrežu",
+        "totalSavings": "Ukupne uštede",
+        "minusInvestment": "Minus investicija",
+        "netProfit": "Neto profit"
+      },
+      "environmental": {
+        "title": "Uticaj na životnu sredinu",
+        "annualCo2Reduction": "Godišnje smanjenje CO₂",
+        "kmByCar": "km autom"
+      },
+      "advancedSettings": {
+        "show": "Prikaži napredne postavke",
+        "hide": "Sakrij napredne postavke",
+        "annualConsumption": "Godišnja potrošnja struje",
+        "kwhPerYear": "kWh/godina",
+        "includeVat": "Uključi PDV",
+        "addVat": "Dodaj",
+        "vatToInvestment": "% PDV na investiciju"
+      },
+      "systemConfiguration": {
+        "title": "Konfiguracija sistema",
+        "panelType": "Tip panela",
+        "inverter": "Inverter",
+        "orientation": "Orijentacija",
+        "azimuth": "azimut",
+        "tilt": "Nagib",
+        "roofArea": "Površina krova",
+        "panelCoverage": "Pokrivenost panela",
+        "dailyAverage": "Dnevni prosek",
+        "specificYield": "Specifični prinos",
+        "kwhPerKwp": "kWh/kWp"
+      },
+      "actions": {
+        "requestQuote": "Zatraži ponudu",
+        "downloadReport": "Preuzmi izveštaj",
+        "generating": "Generisanje..."
+      }
+    },
+    "error": "Greška"
   }
 }

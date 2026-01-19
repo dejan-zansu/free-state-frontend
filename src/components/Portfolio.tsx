@@ -4,7 +4,7 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Portfolio = async () => {
+const Portfolio = async ({isCommercial = false}) => {
   const t = await getTranslations('home.portfolio')
   const locale = await getLocale()
 
@@ -49,8 +49,9 @@ const Portfolio = async () => {
             <div
               key={index}
               className={cn(
-                'group relative overflow-hidden rounded-2xl bg-[#062E25] w-full max-w-xs h-128 flex flex-col',
-                index === 1 ? '-mt-8' : ''
+                'group relative overflow-hidden rounded-2xl w-full max-w-xs h-128 flex flex-col',
+                index === 1 ? '-mt-8' : '',
+                isCommercial ? 'bg-[#191D1C]' : 'bg-[#062E25]'
               )}
             >
               <div className='px-4 pt-10 pb-8'>
@@ -58,7 +59,7 @@ const Portfolio = async () => {
                   <div
                     className={cn(
                       'text-white opacity-80 text-8xl font-bold uppercase leading-[80px] tracking-tighter',
-                      index === 1 && 'text-[#9EE028]'
+                      index === 1 ? isCommercial ? 'text-energy' : 'text-[#9EE028]' : ''
                     )}
                   >
                     {item.number}

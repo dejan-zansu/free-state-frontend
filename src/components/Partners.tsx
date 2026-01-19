@@ -1,22 +1,53 @@
 'use client'
 
+import { cn } from '@/lib/utils'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
-import Image from 'next/image'
+import { usePathname } from 'next/navigation'
+import PartnerAllianzIcon from './icons/PartnerAllianzIcon'
+import PartnerBluesunIcon from './icons/PartnerBluesunIcon'
+import PartnerFusionSolarIcon from './icons/PartnerFusionSolarIcon'
+import PartnerK2Icon from './icons/PartnerK2Icon'
+import PartnerSofarIcon from './icons/PartnerSofarIcon'
+import PartnerSolarMarketIcon from './icons/PartnerSolarMarketIcon'
+import PartnerSparIcon from './icons/PartnerSparIcon'
+import PartnerUBSIcon from './icons/PartnerUBSIcon'
 
 const Partners = () => {
+  const pathname = usePathname()
+  const isCommercial = pathname?.includes('/commercial')
   const partners = [
     {
       name: 'Allianz',
-      image: '/images/partners/allianz.png',
+      Icon: PartnerAllianzIcon,
     },
     {
       name: 'UBS',
-      image: '/images/partners/ubs.png',
+      Icon: PartnerUBSIcon,
     },
     {
-      name: 'ZURICH',
-      image: '/images/partners/zurich.png',
+      name: 'Sofar',
+      Icon: PartnerSofarIcon,
+    },
+    {
+      name: 'Bluesun',
+      Icon: PartnerBluesunIcon,
+    },
+    {
+      name: 'Fusion Solar',
+      Icon: PartnerFusionSolarIcon,
+    },
+    {
+      name: 'K2',
+      Icon: PartnerK2Icon,
+    },
+    {
+      name: 'Spar',
+      Icon: PartnerSparIcon,
+    },
+    {
+      name: 'Solar Market',
+      Icon: PartnerSolarMarketIcon,
     },
   ]
 
@@ -37,23 +68,20 @@ const Partners = () => {
   )
 
   return (
-    <section className='py-8 bg-solar'>
+    <section className={cn('py-5', isCommercial ? 'bg-[#3D3858]' : 'bg-solar')}>
       <div className='overflow-hidden' ref={emblaRef}>
         <div className='flex items-center'>
-          {repeatedPartners.map((partner, index) => (
-            <div
-              key={`${partner.name}-${index}`}
-              className='flex-none px-4 lg:px-8'
-            >
-              <Image
-                src={partner.image}
-                alt={partner.name}
-                width={100}
-                height={100}
-                className='object-contain'
-              />
-            </div>
-          ))}
+          {repeatedPartners.map((partner, index) => {
+            const Icon = partner.Icon
+            return (
+              <div
+                key={`${partner.name}-${index}`}
+                className='flex-none px-4 lg:px-8 flex items-center justify-center'
+              >
+                <Icon className={cn(isCommercial ? 'text-white' : 'text-[#062E25]')} />
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

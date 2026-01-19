@@ -2,6 +2,7 @@
 
 import { Loader } from '@googlemaps/js-api-loader'
 import { MapPin, Search } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useRef } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -10,6 +11,7 @@ import { Input } from '@/components/ui/input'
 import { usePVGISCalculatorStore } from '@/stores/pvgis-calculator.store'
 
 export default function PVGISStep1Address() {
+  const t = useTranslations('calculator.step1')
   const { setLocation, address, latitude, nextStep } = usePVGISCalculatorStore()
   const inputWrapperRef = useRef<HTMLDivElement>(null)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
@@ -81,7 +83,7 @@ export default function PVGISStep1Address() {
         <CardHeader>
           <CardTitle className='flex items-center gap-2 text-2xl'>
             <MapPin className='w-6 h-6 text-primary' />
-            Enter Your Address
+            {t('title')}
           </CardTitle>
         </CardHeader>
         <CardContent className='space-y-4'>
@@ -90,7 +92,7 @@ export default function PVGISStep1Address() {
               <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground' />
               <Input
                 type='text'
-                placeholder='Search for an address...'
+                placeholder={t('placeholder')}
                 className='pl-10 h-12 text-lg'
                 defaultValue={address}
               />
@@ -100,7 +102,7 @@ export default function PVGISStep1Address() {
               disabled={!latitude || !address}
               className='h-12 px-8'
             >
-              Start
+              {t('button')}
             </Button>
           </div>
         </CardContent>

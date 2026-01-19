@@ -1,5 +1,7 @@
 'use client'
 
+import { cn } from '@/lib/utils'
+import { ArrowRight, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
@@ -7,8 +9,6 @@ import { useEffect, useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import LanguageSwitcher from './LanguageSwitcher'
-import { cn } from '@/lib/utils'
-import { ArrowRight, Search, X } from 'lucide-react'
 
 const Header = () => {
   const params = useParams()
@@ -22,10 +22,10 @@ const Header = () => {
 
   const pagesWithDarkHeader = [
     `/${locale}/calculator`,
-    `/${locale}/contact`,
     `/${locale}/portfolio`,
     `/${locale}/how-it-works`,
     `/${locale}/solar-abo`,
+    `/${locale}/about-us`,
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some((path) =>

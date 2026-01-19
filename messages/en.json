@@ -9,6 +9,7 @@
     "contact": "Contact",
     "navigation": "Navigation",
     "community": "Community",
+    "cta": "Get Started",
     "links": {
       "home": "Home",
       "solarSolutions": "Solar Solutions",
@@ -21,6 +22,17 @@
       "instagram": "Instagram",
       "impressum": "Impressum"
     }
+  },
+  "contactHero": {
+    "badge": "Get in touch",
+    "title": "Contact",
+    "subtitle": "Your energy, our responsibility sustainable and worry-free"
+  },
+  "contactStats": {
+    "experience": "Years of Experience",
+    "customers": "Satisfied Customers",
+    "installations": "Successful Installations",
+    "savings": "Energy Savings"
   },
   "nav": {
     "home": "Home",
@@ -47,7 +59,13 @@
       "nav": {
         "solarAbo": "SolarAbo",
         "products": "Products",
-        "onlineStarter": "Online Starter"
+        "onlineStarter": "Online Starter",
+        "solarAboHome": "SolarAbo Home",
+        "solarAboHomeStorage": "SolarAbo Home Storage",
+        "solarAboMulti": "SolarAbo Multi",
+        "solarAboBusiness": "SolarAbo Business",
+        "solarAboAgro": "SolarAbo Agro",
+        "solarAboPublic": "SolarAbo Public"
       }
     },
     "stats": {
@@ -237,6 +255,68 @@
       "value": "Free State AG\nSwitzerland"
     }
   },
+  "contactForm": {
+    "eyebrow": "Support",
+    "title": "Join Us in Creating\nSomething Great",
+    "entityType": {
+      "placeholder": "Company or private individual?",
+      "company": "Company",
+      "private": "Private individual"
+    },
+    "salutation": {
+      "placeholder": "Salutation",
+      "mr": "Mr",
+      "mrs": "Mrs",
+      "diverse": "Diverse"
+    },
+    "firstName": {
+      "label": "First name",
+      "placeholder": "Enter your First name"
+    },
+    "lastName": {
+      "label": "Last name",
+      "placeholder": "Enter your Last name"
+    },
+    "postalCode": {
+      "label": "Postal Code",
+      "placeholder": "Enter your postal code"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "Enter your city"
+    },
+    "phone": {
+      "label": "Phone",
+      "placeholder": "Enter your phone"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter email"
+    },
+    "message": {
+      "label": "Enter your message",
+      "placeholder": "Message"
+    },
+    "privacy": "I hereby confirm that I have read and understood the privacy policy.",
+    "submit": "Submit",
+    "card": {
+      "address": {
+        "title": "Address",
+        "value": "Stettemerstrasse 40, 8207 Schaffhausen"
+      },
+      "contact": {
+        "title": "Contact",
+        "phone": "Telefon: +41 52 525 33 05"
+      },
+      "email": {
+        "title": "Email",
+        "value": "info@freestate.ch"
+      },
+      "social": {
+        "title": "Stay Connected"
+      }
+    }
+  },
   "portfolioPage": {
     "title": "Portfolio",
     "subtitle": "Your energy, our responsibility – sustainable and worry-free",
@@ -336,5 +416,277 @@
         }
       }
     }
+  },
+  "calculator": {
+    "steps": {
+      "step1": {
+        "title": "Location",
+        "description": "Enter your address"
+      },
+      "step2": {
+        "title": "Roof Area",
+        "description": "Draw your roof"
+      },
+      "step3": {
+        "title": "Orientation",
+        "description": "Roof angle & direction"
+      },
+      "step4": {
+        "title": "System",
+        "description": "Panels & inverter"
+      },
+      "step5": {
+        "title": "Results",
+        "description": "Your solar potential"
+      }
+    },
+    "step1": {
+      "title": "Enter Your Address",
+      "placeholder": "Search for an address...",
+      "button": "Start"
+    },
+    "step2": {
+      "title": "Draw Your Roof Area",
+      "instructions": {
+        "main": "Click on the map to outline the area where you want to install solar panels.",
+        "list": [
+          "Draw the outline of your roof as seen from above",
+          "Click to add points, edge distances are shown automatically",
+          "Click near the first point to auto-complete the polygon",
+          "After completing, you can drag points to adjust",
+          "Avoid overlapping lines for accurate measurements"
+        ]
+      },
+      "buttons": {
+        "startDrawing": "Start Drawing",
+        "completePolygon": "Complete Polygon",
+        "undoLastPoint": "Undo Last Point",
+        "clearAll": "Clear All",
+        "saveArea": "Save Area",
+        "redraw": "Redraw",
+        "back": "Back",
+        "next": "Next"
+      },
+      "keyboardShortcuts": {
+        "title": "💡 Keyboard shortcuts:",
+        "backspace": "Undo last point",
+        "enter": "Complete polygon",
+        "esc": "Cancel drawing"
+      },
+      "autoComplete": "✓ Click near the first point to auto-complete",
+      "selfIntersecting": "⚠️ Polygon lines are crossing. Please redraw without overlapping edges for accurate area calculation.",
+      "labels": {
+        "area": "Area:",
+        "perimeter": "Perimeter:",
+        "points": "Points:",
+        "roofArea": "Roof Area:"
+      },
+      "info": "💡 This is the horizontal projection area. Actual roof surface will be calculated based on roof pitch in later steps.",
+      "loading": "Loading...",
+      "cancelConfirm": "Cancel drawing? This will clear all points.",
+      "minPointsAlert": "Please draw at least 3 points to create a polygon",
+      "minPointsAlert2": "Please draw at least 3 points"
+    },
+    "step3": {
+      "title": "Panel Orientation",
+      "subtitle": "Configure your solar panel angle and direction for accurate production estimates",
+      "availableRoofArea": "Available roof area",
+      "configurationEfficiency": "Configuration efficiency",
+      "vsOptimal": "vs. optimal setup",
+      "roofType": {
+        "title": "Roof Type & Panel Tilt",
+        "flatDescription": "Panel tilt on mounting racks (roof is flat)",
+        "slopedDescription": "Panel tilt matches roof pitch (flush mounting)",
+        "types": {
+          "flat": {
+            "name": "Flat Roof",
+            "description": "0-5° roof pitch"
+          },
+          "lowSlope": {
+            "name": "Low Slope",
+            "description": "5-15° roof pitch"
+          },
+          "medium": {
+            "name": "Medium Pitch",
+            "description": "15-35° roof pitch"
+          },
+          "steep": {
+            "name": "Steep Pitch",
+            "description": "35-60° roof pitch"
+          }
+        },
+        "panelTiltAngle": "Panel Tilt Angle",
+        "flatInfo": "Optimal for flat roof installation",
+        "slopedInfo": "Matches roof pitch (flush mounting)"
+      },
+      "panelDirection": {
+        "title": "Panel Direction",
+        "flatDescription": "Flat roofs: panels mounted on tilted frames",
+        "slopedDescription": "Sloped roofs: panels face same direction as roof",
+        "selectPlaceholder": "Select direction",
+        "orientations": {
+          "south": {
+            "label": "South",
+            "description": "Optimal"
+          },
+          "southEast": {
+            "label": "South-East",
+            "description": "Good morning sun"
+          },
+          "southWest": {
+            "label": "South-West",
+            "description": "Good evening sun"
+          },
+          "east": {
+            "label": "East",
+            "description": "Morning production"
+          },
+          "west": {
+            "label": "West",
+            "description": "Evening production"
+          },
+          "north": {
+            "label": "North",
+            "description": "Not recommended"
+          }
+        },
+        "direction": "Direction:",
+        "customDirection": "Custom Direction (optional)",
+        "degrees": "degrees",
+        "customInfo": "Use presets above or enter precise direction (0°=North, 90°=East, 180°=South, 270°=West)"
+      },
+      "flatRoofAlert": {
+        "title": "Flat Roof Installation:",
+        "description": "Panels will be mounted on tilted frames (typically 10-20°) to optimize production and allow water runoff. You have full freedom to choose panel direction - South (180°) is optimal for maximum annual production in Switzerland."
+      },
+      "optimizationTips": {
+        "title": "Optimization Tips",
+        "tips": [
+          "South-facing panels (180°) receive the most sunlight in Switzerland",
+          "A tilt of 30-35° is optimal for maximizing yearly production",
+          "East/West orientations can be beneficial if you consume more electricity in morning/evening",
+          "For flat roofs, panels can face any direction using tilted mounting racks"
+        ]
+      },
+      "buttons": {
+        "back": "Back",
+        "continue": "Continue"
+      }
+    },
+    "step4": {
+      "systemSize": "System Size",
+      "panels": "Panels",
+      "estCost": "Est. Cost",
+      "tabs": {
+        "panels": "Panels",
+        "inverter": "Inverter"
+      },
+      "loadingPanels": "Loading panels...",
+      "loadingInverters": "Loading inverters...",
+      "noPanels": "No panels available",
+      "noInverters": "No inverters available",
+      "retry": "Retry",
+      "efficiency": "efficiency",
+      "numberOfPanels": "Number of Panels",
+      "maxFit": "Max fit:",
+      "coverage": "coverage",
+      "capacity": "Capacity",
+      "panelCost": "Panel Cost",
+      "coverageLabel": "Coverage",
+      "panelArea": "Panel Area",
+      "recommendedInverter": "Recommended inverter size:",
+      "dcAcRatio": "DC/AC ratio: 1.2-1.5:1 is optimal. Industry standard is 1.1-1.5:1 for residential systems. Multiple inverters are common for larger systems.",
+      "bestFit": "Best fit",
+      "dcAcRatioLabel": "DC/AC Ratio",
+      "inverterCost": "Inverter Cost",
+      "buttons": {
+        "back": "Back",
+        "calculate": "Calculate"
+      }
+    },
+    "step5": {
+      "loading": {
+        "title": "Calculating your solar potential...",
+        "error": "Calculation Error",
+        "tryAgain": "Try Again",
+        "goBack": "Go Back"
+      },
+      "title": "Your Solar Potential",
+      "editSystem": "Edit System",
+      "systemSize": "System Size",
+      "panels": "panels",
+      "annualProduction": "Annual Production",
+      "kwhPerYear": "kWh/year",
+      "annualSavings": "Annual Savings",
+      "perYear": "per year",
+      "paybackPeriod": "Payback Period",
+      "years": "years",
+      "monthlyProduction": "Monthly Production",
+      "peakMonth": "Peak Month",
+      "lowestMonth": "Lowest Month",
+      "electricityPrices": {
+        "title": "💡 Your Electricity Prices",
+        "important": "Important:",
+        "description": "Enter your actual rates from your electricity bill for accurate savings calculations. These greatly affect your payback period.",
+        "electricityPrice": "Electricity Price (Rp/kWh)",
+        "feedInTariff": "Feed-in Tariff (Rp/kWh)",
+        "usingYourRate": "✓ Using your rate:",
+        "usingSwissAverage": "Using Swiss average:",
+        "whereToFind": "💡 Where to find:",
+        "whereToFindText": "Check your latest electricity bill. The electricity price is what you pay per kWh consumed. The feed-in tariff is what you earn for excess energy exported to the grid."
+      },
+      "investment": {
+        "title": "Investment",
+        "panels": "Panels",
+        "inverter": "Inverter",
+        "installation": "Installation",
+        "vat": "VAT",
+        "total": "Total",
+        "governmentSubsidy": "Government Subsidy",
+        "netInvestment": "Net Investment"
+      },
+      "returns": {
+        "title": "30-Year Returns",
+        "totalProduction": "Total Production",
+        "selfConsumed": "Self-consumed",
+        "gridExportIncome": "Grid export income",
+        "totalSavings": "Total Savings",
+        "minusInvestment": "Minus Investment",
+        "netProfit": "Net Profit"
+      },
+      "environmental": {
+        "title": "Environmental Impact",
+        "annualCo2Reduction": "Annual CO₂ reduction",
+        "kmByCar": "km by car"
+      },
+      "advancedSettings": {
+        "show": "Show Advanced Settings",
+        "hide": "Hide Advanced Settings",
+        "annualConsumption": "Annual Electricity Consumption",
+        "kwhPerYear": "kWh/year",
+        "includeVat": "Include VAT",
+        "addVat": "Add",
+        "vatToInvestment": "% VAT to investment"
+      },
+      "systemConfiguration": {
+        "title": "System Configuration",
+        "panelType": "Panel Type",
+        "inverter": "Inverter",
+        "orientation": "Orientation",
+        "azimuth": "azimuth",
+        "tilt": "Tilt",
+        "roofArea": "Roof Area",
+        "panelCoverage": "Panel Coverage",
+        "dailyAverage": "Daily Average",
+        "specificYield": "Specific Yield",
+        "kwhPerKwp": "kWh/kWp"
+      },
+      "actions": {
+        "requestQuote": "Request Quote",
+        "downloadReport": "Download Report",
+        "generating": "Generating..."
+      }
+    },
+    "error": "Error"
   }
 }

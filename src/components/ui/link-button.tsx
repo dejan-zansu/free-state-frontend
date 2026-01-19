@@ -14,6 +14,7 @@ const linkButtonVariants = cva(
         secondary:
           'bg-energy border border-energy hover:bg-energy/90 text-white',
         tertiary: 'bg-[#062E25] text-white hover:bg-solar hover:text-solar-foreground',
+        quaternary: 'bg-[#3D3858] text-white hover:bg-energy/90 hover:border-energy border border-[#3D3858]',
         'outline-primary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-secondary':
@@ -47,6 +48,7 @@ const LinkButton = React.forwardRef<
   const isPrimary = variant === 'primary' || variant === undefined
   const isSecondary = variant === 'secondary'
   const isTertiary = variant === 'tertiary'
+  const isQuaternary = variant === 'quaternary'
   const isOutlinePrimary = variant === 'outline-primary'
   const isOutlineSecondary = variant === 'outline-secondary'
 
@@ -74,6 +76,7 @@ const LinkButton = React.forwardRef<
           isPrimary && 'bg-[#062E25]',
           isSecondary && 'bg-white',
           isTertiary && 'bg-solar group-hover:bg-[#062E25]',
+          isQuaternary && 'bg-white group-hover:bg-white',
           isOutlinePrimary && 'bg-[#062E25]',
           isOutlineSecondary && 'bg-solar'
         )}
@@ -84,6 +87,7 @@ const LinkButton = React.forwardRef<
             isPrimary && 'text-white',
             isSecondary && 'text-energy',
             isTertiary && 'text-[#062E25] group-hover:text-white',
+            isQuaternary && 'text-[#3D3858]',
             isOutlinePrimary && 'text-white',
             isOutlineSecondary && 'text-solar-foreground'
           )}
@@ -94,6 +98,7 @@ const LinkButton = React.forwardRef<
             isPrimary && 'text-white',
             isSecondary && 'text-energy',
             isTertiary && 'text-[#062E25] group-hover:text-white',
+            isQuaternary && 'text-energy',
             isOutlinePrimary && 'text-white',
             isOutlineSecondary && 'text-solar-foreground'
           )}

@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import { ArrowRight, Info, Settings, ShieldCheck } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import Link from 'next/link'
@@ -5,7 +6,7 @@ import { BatteryIcon, EnergySystemIcon, LeafIcon } from './icons'
 import ReductionIcon from './icons/ReductionIcon'
 import { LinkButton } from './ui/link-button'
 
-const Deals = async () => {
+const Deals = async ({isCommercial = false}) => {
   const t = await getTranslations('home.deals')
   const locale = await getLocale()
 
@@ -72,13 +73,13 @@ const Deals = async () => {
       <div className='flex gap-4 max-w-[1440px] mx-auto'>
         {deals.map((deal, index) => (
           <div key={index} className='rounded-lg overflow-hidden relative border border-[#B7C2BF] w-full flex-1'>
-            <div className='p-6 flex gap-2 bg-[#1B332D] justify-center items-center'>
-              <div className='shrink-0 w-20 h-20 rounded-full border border-solar flex items-center justify-center'>
+            <div className={cn('p-6 flex gap-2 justify-center items-center', isCommercial ? 'bg-[#3D3858]' : 'bg-[#1B332D]')}>
+              <div className={cn('shrink-0 w-20 h-20 rounded-full border flex items-center justify-center', isCommercial ? 'border-white' : 'border-solar')}>
                 {/* <HomeIcon className='w-10' /> */}
-                <BatteryIcon className='text-[#B7FE1A]' />
+                <BatteryIcon className={cn(isCommercial ? 'text-white' : 'text-[#B7FE1A]')} />
               </div>
               <div>
-                <h3 className='text-solar text-2xl font-semibold mb-1 leading-none'>
+                <h3 className={cn('text-2xl font-semibold mb-1 leading-none', isCommercial ? 'text-white' : 'text-solar')}>
                   {deal.title}
                 </h3>
                 <p className='text-white/90 text-base font-light'>
@@ -209,14 +210,13 @@ const Deals = async () => {
                       {deal.term}
                     </p>
                     <LinkButton
-                              variant='tertiary'
-
-          href='/get-started'
-          locale={locale}
-          className='w-full text-center uppercase mt-5 max-w-[280px] mx-auto'
-        >
-          {t('orderNow')}
-        </LinkButton>
+                      variant={isCommercial ? 'quaternary' : 'tertiary'}
+                      href='/calculator'
+                      locale={locale}
+                      className='w-full text-center uppercase mt-5 max-w-[280px] mx-auto'
+                    >
+                      {t('orderNow')}
+                    </LinkButton>
                   </div>
                 </div>
 

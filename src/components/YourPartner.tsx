@@ -1,9 +1,10 @@
+import { cn } from '@/lib/utils'
 import { ArrowRight } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 import { LinkButton } from './ui/link-button'
 
-const YourPartner = async () => {
+const YourPartner = async ({isCommercial = false}) => {
   const t = await getTranslations('home.yourPartner')
   const locale = await getLocale()
 
@@ -12,16 +13,19 @@ const YourPartner = async () => {
       title: t('items.item1.title'),
       description: t('items.item1.description'),
       bgImage: '/images/partner-1.png',
+      bgImageCommercial: '/images/partner-1-commercial.png',
     },
     {
       title: t('items.item2.title'),
       description: t('items.item2.description'),
       bgImage: '/images/partner-2.png',
+      bgImageCommercial: '/images/partner-2-commercial.png',
     },
     {
       title: t('items.item3.title'),
       description: t('items.item3.description'),
       bgImage: '/images/partner-3.png',
+      bgImageCommercial: '/images/partner-3-commercial.png',
     },
   ]
 
@@ -38,7 +42,7 @@ const YourPartner = async () => {
         </div>
         <LinkButton
           variant='outline-primary'
-          href='/get-started'
+          href='/calculator'
           locale={locale}
           className='h-fit'
         >
@@ -51,14 +55,14 @@ const YourPartner = async () => {
             key={item.title}
             className='flex-1 relative aspect-464/439 overflow-hidden'
             style={{
-              backgroundImage: `url(${item.bgImage})`,
+              backgroundImage: `url(${isCommercial ? item.bgImageCommercial : item.bgImage})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundColor: '#154138',
             }}
           >
             <div className='absolute bottom-6 left-0 right-0 p-6'>
-              <h3 className='text-solar text-2xl font-semibold mb-2'>
+              <h3 className={cn('text-solar text-2xl font-semibold mb-2', isCommercial && 'text-white')}>
                 {item.title}
               </h3>
               <p className='text-white/80 font-light'>{item.description}</p>

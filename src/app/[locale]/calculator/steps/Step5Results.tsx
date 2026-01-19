@@ -12,6 +12,7 @@ import {
   TrendingUp,
   Zap,
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -31,6 +32,7 @@ import { reportService } from '@/services/report.service'
 import { useParams } from 'next/navigation'
 
 export default function Step5Results() {
+  const t = useTranslations('calculator.step5')
   const params = useParams()
   const locale = (params?.locale as string) || 'de'
   const {
@@ -204,7 +206,7 @@ export default function Step5Results() {
         <div className='text-center space-y-4'>
           <div className='w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto' />
           <p className='text-lg font-medium'>
-            Calculating your solar potential...
+            {t('loading.title')}
           </p>
         </div>
       </div>
@@ -217,14 +219,14 @@ export default function Step5Results() {
         <Card className='max-w-md'>
           <CardContent className='pt-6 text-center space-y-4'>
             <div className='text-destructive text-5xl'>⚠️</div>
-            <h2 className='text-xl font-semibold'>Calculation Error</h2>
+            <h2 className='text-xl font-semibold'>{t('loading.error')}</h2>
             <p className='text-muted-foreground'>{error}</p>
             <div className='flex gap-2 justify-center'>
               <Button variant='outline' onClick={prevStep}>
                 <ArrowLeft className='w-4 h-4 mr-2' />
-                Go Back
+                {t('loading.goBack')}
               </Button>
-              <Button onClick={() => calculatePVGISResults()}>Try Again</Button>
+              <Button onClick={() => calculatePVGISResults()}>{t('loading.tryAgain')}</Button>
             </div>
           </CardContent>
         </Card>
@@ -241,12 +243,12 @@ export default function Step5Results() {
             <div>
               <h1 className='text-2xl font-bold flex items-center gap-2'>
                 <Sun className='w-6 h-6 text-primary' />
-                Your Solar Potential
+                {t('title')}
               </h1>
             </div>
             <Button variant='outline' onClick={prevStep}>
               <ArrowLeft className='w-4 h-4 mr-2' />
-              Edit System
+              {t('editSystem')}
             </Button>
           </div>
 
@@ -254,12 +256,12 @@ export default function Step5Results() {
           <div className='grid md:grid-cols-4 gap-4'>
             <Card className='bg-gradient-to-br from-primary/20 to-primary/5 border-primary/30'>
               <CardContent className='pt-6'>
-                <p className='text-sm text-muted-foreground'>System Size</p>
+                <p className='text-sm text-muted-foreground'>{t('systemSize')}</p>
                 <p className='text-3xl font-bold text-primary'>
                   {systemPowerKw.toFixed(1)} kWp
                 </p>
                 <p className='text-xs text-muted-foreground mt-1'>
-                  {panelCount} panels
+                  {panelCount} {t('panels')}
                 </p>
               </CardContent>
             </Card>
@@ -267,32 +269,32 @@ export default function Step5Results() {
             <Card className='bg-gradient-to-br from-green-500/20 to-green-500/5 border-green-500/30'>
               <CardContent className='pt-6'>
                 <p className='text-sm text-muted-foreground'>
-                  Annual Production
+                  {t('annualProduction')}
                 </p>
                 <p className='text-3xl font-bold text-green-600'>
                   {formatNumber(yearlyProduction)}
                 </p>
-                <p className='text-xs text-muted-foreground mt-1'>kWh/year</p>
+                <p className='text-xs text-muted-foreground mt-1'>{t('kwhPerYear')}</p>
               </CardContent>
             </Card>
 
             <Card className='bg-gradient-to-br from-blue-500/20 to-blue-500/5 border-blue-500/30'>
               <CardContent className='pt-6'>
-                <p className='text-sm text-muted-foreground'>Annual Savings</p>
+                <p className='text-sm text-muted-foreground'>{t('annualSavings')}</p>
                 <p className='text-3xl font-bold text-blue-600'>
                   {formatMoney(annualSavings)}
                 </p>
-                <p className='text-xs text-muted-foreground mt-1'>per year</p>
+                <p className='text-xs text-muted-foreground mt-1'>{t('perYear')}</p>
               </CardContent>
             </Card>
 
             <Card className='bg-gradient-to-br from-purple-500/20 to-purple-500/5 border-purple-500/30'>
               <CardContent className='pt-6'>
-                <p className='text-sm text-muted-foreground'>Payback Period</p>
+                <p className='text-sm text-muted-foreground'>{t('paybackPeriod')}</p>
                 <p className='text-3xl font-bold text-purple-600'>
                   {paybackYears.toFixed(1)}
                 </p>
-                <p className='text-xs text-muted-foreground mt-1'>years</p>
+                <p className='text-xs text-muted-foreground mt-1'>{t('years')}</p>
               </CardContent>
             </Card>
           </div>
@@ -303,7 +305,7 @@ export default function Step5Results() {
               <CardHeader>
                 <CardTitle className='flex items-center gap-2 text-lg'>
                   <BarChart3 className='w-5 h-5' />
-                  Monthly Production
+                  {t('monthlyProduction')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -354,7 +356,7 @@ export default function Step5Results() {
                   </div>
                   <div className='flex justify-between text-sm pt-3 border-t'>
                     <div>
-                      <p className='text-muted-foreground'>Peak Month</p>
+                      <p className='text-muted-foreground'>{t('peakMonth')}</p>
                       <p className='font-semibold'>
                         {formatNumber(
                           Math.max(...pvgisResult.monthlyProduction)
@@ -363,7 +365,7 @@ export default function Step5Results() {
                       </p>
                     </div>
                     <div className='text-right'>
-                      <p className='text-muted-foreground'>Lowest Month</p>
+                      <p className='text-muted-foreground'>{t('lowestMonth')}</p>
                       <p className='font-semibold'>
                         {formatNumber(
                           Math.min(...pvgisResult.monthlyProduction)
@@ -382,12 +384,10 @@ export default function Step5Results() {
             <CardHeader className='pb-4'>
               <CardTitle className='flex items-center gap-2 text-lg'>
                 <Zap className='w-5 h-5 text-amber-500' />
-                💡 Your Electricity Prices
+                {t('electricityPrices.title')}
               </CardTitle>
               <p className='text-sm text-muted-foreground'>
-                <strong>Important:</strong> Enter your actual rates from your
-                electricity bill for accurate savings calculations. These
-                greatly affect your payback period.
+                <strong>{t('electricityPrices.important')}</strong> {t('electricityPrices.description')}
               </p>
             </CardHeader>
             <CardContent className='space-y-4'>
@@ -395,7 +395,7 @@ export default function Step5Results() {
                 {/* Electricity Tariff */}
                 <div className='space-y-2'>
                   <Label className='font-semibold text-base'>
-                    Electricity Price (Rp/kWh)
+                    {t('electricityPrices.electricityPrice')}
                   </Label>
                   <div className='relative'>
                     <Input
@@ -424,10 +424,10 @@ export default function Step5Results() {
                   </div>
                   <p className='text-xs text-muted-foreground'>
                     {additionalParams.electricityTariff
-                      ? `✓ Using your rate: ${(
+                      ? `${t('electricityPrices.usingYourRate')} ${(
                           additionalParams.electricityTariff * 100
                         ).toFixed(1)} Rp/kWh`
-                      : `Using Swiss average: ${(
+                      : `${t('electricityPrices.usingSwissAverage')} ${(
                           (countryConfig?.electricityPrice || 0.27) * 100
                         ).toFixed(1)} Rp/kWh`}
                   </p>
@@ -436,7 +436,7 @@ export default function Step5Results() {
                 {/* Feed-in Tariff */}
                 <div className='space-y-2'>
                   <Label className='font-semibold text-base'>
-                    Feed-in Tariff (Rp/kWh)
+                    {t('electricityPrices.feedInTariff')}
                   </Label>
                   <div className='relative'>
                     <Input
@@ -464,10 +464,10 @@ export default function Step5Results() {
                   </div>
                   <p className='text-xs text-muted-foreground'>
                     {additionalParams.feedInTariff
-                      ? `✓ Using your rate: ${(
+                      ? `${t('electricityPrices.usingYourRate')} ${(
                           additionalParams.feedInTariff * 100
                         ).toFixed(1)} Rp/kWh`
-                      : `Using Swiss average: ${(
+                      : `${t('electricityPrices.usingSwissAverage')} ${(
                           (countryConfig?.feedInTariff || 0.08) * 100
                         ).toFixed(1)} Rp/kWh`}
                   </p>
@@ -476,10 +476,7 @@ export default function Step5Results() {
 
               <div className='p-3 rounded-lg bg-amber-100 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800'>
                 <p className='text-sm text-amber-900 dark:text-amber-100'>
-                  <strong>💡 Where to find:</strong> Check your latest
-                  electricity bill. The electricity price is what you pay per
-                  kWh consumed. The feed-in tariff is what you earn for excess
-                  energy exported to the grid.
+                  <strong>{t('electricityPrices.whereToFind')}</strong> {t('electricityPrices.whereToFindText')}
                 </p>
               </div>
             </CardContent>
@@ -491,42 +488,42 @@ export default function Step5Results() {
               <CardHeader>
                 <CardTitle className='flex items-center gap-2 text-lg'>
                   <DollarSign className='w-5 h-5' />
-                  Investment
+                  {t('investment.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent className='space-y-3'>
                 <div className='flex justify-between'>
                   <span className='text-muted-foreground'>
-                    Panels ({panelCount}×)
+                    {t('investment.panels')} ({panelCount}×)
                   </span>
                   <span>{formatMoney(panelCost)}</span>
                 </div>
                 <div className='flex justify-between'>
-                  <span className='text-muted-foreground'>Inverter</span>
+                  <span className='text-muted-foreground'>{t('investment.inverter')}</span>
                   <span>{formatMoney(inverterCost)}</span>
                 </div>
                 <div className='flex justify-between'>
-                  <span className='text-muted-foreground'>Installation</span>
+                  <span className='text-muted-foreground'>{t('investment.installation')}</span>
                   <span>{formatMoney(installationCost)}</span>
                 </div>
                 {additionalParams.vatPayable && (
                   <div className='flex justify-between text-muted-foreground'>
-                    <span>VAT ({(vatRate * 100).toFixed(1)}%)</span>
+                    <span>{t('investment.vat')} ({(vatRate * 100).toFixed(1)}%)</span>
                     <span>{formatMoney(totalInvestment * vatRate)}</span>
                   </div>
                 )}
                 <div className='flex justify-between pt-2 border-t font-semibold'>
-                  <span>Total</span>
+                  <span>{t('investment.total')}</span>
                   <span>{formatMoney(totalWithVAT)}</span>
                 </div>
                 {subsidies > 0 && (
                   <div className='flex justify-between text-green-600'>
-                    <span>Government Subsidy</span>
+                    <span>{t('investment.governmentSubsidy')}</span>
                     <span>- {formatMoney(subsidies)}</span>
                   </div>
                 )}
                 <div className='flex justify-between pt-2 border-t font-bold text-lg'>
-                  <span>Net Investment</span>
+                  <span>{t('investment.netInvestment')}</span>
                   <span className='text-primary'>
                     {formatMoney(netInvestment)}
                   </span>
@@ -538,13 +535,13 @@ export default function Step5Results() {
               <CardHeader>
                 <CardTitle className='flex items-center gap-2 text-lg'>
                   <TrendingUp className='w-5 h-5' />
-                  {systemLifetime}-Year Returns
+                  {t('returns.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent className='space-y-3'>
                 <div className='flex justify-between'>
                   <span className='text-muted-foreground'>
-                    Total Production
+                    {t('returns.totalProduction')}
                   </span>
                   <span>
                     {formatNumber(yearlyProduction * systemLifetime * 0.94)} kWh
@@ -552,7 +549,7 @@ export default function Step5Results() {
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-muted-foreground'>
-                    Self-consumed ({(selfConsumptionRate * 100).toFixed(0)}%)
+                    {t('returns.selfConsumed')} ({(selfConsumptionRate * 100).toFixed(0)}%)
                   </span>
                   <span>
                     {formatMoney(
@@ -565,7 +562,7 @@ export default function Step5Results() {
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-muted-foreground'>
-                    Grid export income
+                    {t('returns.gridExportIncome')}
                   </span>
                   <span>
                     {formatMoney(
@@ -579,17 +576,17 @@ export default function Step5Results() {
                   </span>
                 </div>
                 <div className='flex justify-between pt-2 border-t'>
-                  <span className='font-semibold'>Total Savings</span>
+                  <span className='font-semibold'>{t('returns.totalSavings')}</span>
                   <span className='font-semibold'>
                     {formatMoney(totalSavings)}
                   </span>
                 </div>
                 <div className='flex justify-between text-muted-foreground'>
-                  <span>Minus Investment</span>
+                  <span>{t('returns.minusInvestment')}</span>
                   <span>- {formatMoney(netInvestment)}</span>
                 </div>
                 <div className='flex justify-between pt-2 border-t font-bold text-lg'>
-                  <span>Net Profit</span>
+                  <span>{t('returns.netProfit')}</span>
                   <span
                     className={netYield > 0 ? 'text-green-600' : 'text-red-600'}
                   >
@@ -607,9 +604,9 @@ export default function Step5Results() {
                 <div className='flex items-center gap-3'>
                   <Leaf className='w-8 h-8 text-green-600' />
                   <div>
-                    <p className='font-semibold'>Environmental Impact</p>
+                    <p className='font-semibold'>{t('environmental.title')}</p>
                     <p className='text-sm text-muted-foreground'>
-                      Annual CO₂ reduction
+                      {t('environmental.annualCo2Reduction')}
                     </p>
                   </div>
                 </div>
@@ -618,8 +615,7 @@ export default function Step5Results() {
                     {formatNumber(pvgisResult?.co2Reduction || 0)} kg
                   </p>
                   <p className='text-xs text-muted-foreground'>
-                    ≈ {formatNumber((pvgisResult?.co2Reduction || 0) / 0.12)} km
-                    by car
+                    ≈ {formatNumber((pvgisResult?.co2Reduction || 0) / 0.12)} {t('environmental.kmByCar')}
                   </p>
                 </div>
               </div>
@@ -631,7 +627,7 @@ export default function Step5Results() {
             <CollapsibleTrigger asChild>
               <Button variant='outline' className='w-full gap-2'>
                 <Settings className='w-4 h-4' />
-                {showAdvanced ? 'Hide' : 'Show'} Advanced Settings
+                {showAdvanced ? t('advancedSettings.hide') : t('advancedSettings.show')}
               </Button>
             </CollapsibleTrigger>
             <CollapsibleContent className='pt-4'>
@@ -642,7 +638,7 @@ export default function Step5Results() {
                     <div className='space-y-2'>
                       <Label className='flex items-center gap-2'>
                         <Zap className='w-4 h-4' />
-                        Annual Electricity Consumption
+                        {t('advancedSettings.annualConsumption')}
                       </Label>
                       <div className='space-y-3'>
                         <Slider
@@ -664,7 +660,7 @@ export default function Step5Results() {
                             {formatNumber(
                               additionalParams.electricityConsumption
                             )}{' '}
-                            kWh/year
+                            {t('advancedSettings.kwhPerYear')}
                           </span>
                           <span className='text-muted-foreground'>
                             20,000 kWh
@@ -676,11 +672,11 @@ export default function Step5Results() {
                     {/* VAT */}
                     <div className='flex items-center justify-between p-4 border rounded-lg'>
                       <div>
-                        <Label className='font-semibold'>Include VAT</Label>
+                        <Label className='font-semibold'>{t('advancedSettings.includeVat')}</Label>
                         <p className='text-sm text-muted-foreground'>
-                          Add{' '}
+                          {t('advancedSettings.addVat')}{' '}
                           {((countryConfig?.vatRate || 0.081) * 100).toFixed(1)}
-                          % VAT to investment
+                          {t('advancedSettings.vatToInvestment')}
                         </p>
                       </div>
                       <Switch
@@ -701,37 +697,37 @@ export default function Step5Results() {
             <CardHeader>
               <CardTitle className='flex items-center gap-2 text-lg'>
                 <BarChart3 className='w-5 h-5' />
-                System Configuration
+                {t('systemConfiguration.title')}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className='grid grid-cols-2 md:grid-cols-4 gap-4 text-sm'>
                 <div>
-                  <p className='text-muted-foreground'>Panel Type</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.panelType')}</p>
                   <p className='font-semibold'>{selectedPanel?.name}</p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Inverter</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.inverter')}</p>
                   <p className='font-semibold'>{selectedInverter?.name}</p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Orientation</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.orientation')}</p>
                   <p className='font-semibold'>
-                    {panelPlacement.orientation}° azimuth
+                    {panelPlacement.orientation}° {t('systemConfiguration.azimuth')}
                   </p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Tilt</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.tilt')}</p>
                   <p className='font-semibold'>{panelPlacement.tilt}°</p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Roof Area</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.roofArea')}</p>
                   <p className='font-semibold'>
                     {roofPolygon ? formatNumber(roofPolygon.area, 1) : 0} m²
                   </p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Panel Coverage</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.panelCoverage')}</p>
                   <p className='font-semibold'>
                     {roofPolygon && selectedPanel
                       ? (
@@ -746,7 +742,7 @@ export default function Step5Results() {
                   </p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Daily Average</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.dailyAverage')}</p>
                   <p className='font-semibold'>
                     {pvgisResult
                       ? formatNumber(pvgisResult.dailyAverage, 1)
@@ -755,12 +751,12 @@ export default function Step5Results() {
                   </p>
                 </div>
                 <div>
-                  <p className='text-muted-foreground'>Specific Yield</p>
+                  <p className='text-muted-foreground'>{t('systemConfiguration.specificYield')}</p>
                   <p className='font-semibold'>
                     {systemPowerKw > 0
                       ? formatNumber(yearlyProduction / systemPowerKw)
                       : 0}{' '}
-                    kWh/kWp
+                    {t('systemConfiguration.kwhPerKwp')}
                   </p>
                 </div>
               </div>
@@ -771,7 +767,7 @@ export default function Step5Results() {
           <div className='flex gap-4'>
             <Button className='flex-1' size='lg'>
               <Mail className='w-4 h-4 mr-2' />
-              Request Quote
+              {t('actions.requestQuote')}
             </Button>
             <Button
               variant='outline'
@@ -781,7 +777,7 @@ export default function Step5Results() {
               disabled={isDownloading || !pvgisResult}
             >
               <Download className='w-4 h-4 mr-2' />
-              {isDownloading ? 'Generating...' : 'Download Report'}
+              {isDownloading ? t('actions.generating') : t('actions.downloadReport')}
             </Button>
           </div>
         </div>

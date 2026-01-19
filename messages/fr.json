@@ -22,6 +22,7 @@
     "contact": "Contact",
     "navigation": "Navigation",
     "community": "Communauté",
+    "cta": "Commencer",
     "links": {
       "home": "Accueil",
       "solarSolutions": "Solutions solaires",
@@ -47,7 +48,13 @@
       "nav": {
         "solarAbo": "SolarAbo",
         "products": "Produits",
-        "onlineStarter": "Online Starter"
+        "onlineStarter": "Online Starter",
+        "solarAboHome": "SolarAbo Home",
+        "solarAboHomeStorage": "SolarAbo Home Storage",
+        "solarAboMulti": "SolarAbo Multi",
+        "solarAboBusiness": "SolarAbo Business",
+        "solarAboAgro": "SolarAbo Agro",
+        "solarAboPublic": "SolarAbo Public"
       }
     },
     "stats": {
@@ -336,5 +343,277 @@
         }
       }
     }
+  },
+  "calculator": {
+    "steps": {
+      "step1": {
+        "title": "Emplacement",
+        "description": "Entrez votre adresse"
+      },
+      "step2": {
+        "title": "Surface du toit",
+        "description": "Dessinez votre toit"
+      },
+      "step3": {
+        "title": "Orientation",
+        "description": "Angle & direction du toit"
+      },
+      "step4": {
+        "title": "Système",
+        "description": "Panneaux & onduleur"
+      },
+      "step5": {
+        "title": "Résultats",
+        "description": "Votre potentiel solaire"
+      }
+    },
+    "step1": {
+      "title": "Entrez votre adresse",
+      "placeholder": "Rechercher une adresse...",
+      "button": "Commencer"
+    },
+    "step2": {
+      "title": "Dessinez la surface de votre toit",
+      "instructions": {
+        "main": "Cliquez sur la carte pour délimiter la zone où vous souhaitez installer des panneaux solaires.",
+        "list": [
+          "Dessinez le contour de votre toit vu d'en haut",
+          "Cliquez pour ajouter des points, les distances des bords sont affichées automatiquement",
+          "Cliquez près du premier point pour compléter automatiquement le polygone",
+          "Après avoir terminé, vous pouvez faire glisser les points pour ajuster",
+          "Évitez les lignes qui se chevauchent pour des mesures précises"
+        ]
+      },
+      "buttons": {
+        "startDrawing": "Commencer à dessiner",
+        "completePolygon": "Compléter le polygone",
+        "undoLastPoint": "Annuler le dernier point",
+        "clearAll": "Tout effacer",
+        "saveArea": "Enregistrer la zone",
+        "redraw": "Redessiner",
+        "back": "Retour",
+        "next": "Suivant"
+      },
+      "keyboardShortcuts": {
+        "title": "💡 Raccourcis clavier :",
+        "backspace": "Annuler le dernier point",
+        "enter": "Compléter le polygone",
+        "esc": "Annuler le dessin"
+      },
+      "autoComplete": "✓ Cliquez près du premier point pour compléter automatiquement",
+      "selfIntersecting": "⚠️ Les lignes du polygone se croisent. Veuillez redessiner sans bords qui se chevauchent pour un calcul précis de la surface.",
+      "labels": {
+        "area": "Surface :",
+        "perimeter": "Périmètre :",
+        "points": "Points :",
+        "roofArea": "Surface du toit :"
+      },
+      "info": "💡 Il s'agit de la surface de projection horizontale. La surface réelle du toit sera calculée en fonction de l'inclinaison du toit dans les étapes suivantes.",
+      "loading": "Chargement...",
+      "cancelConfirm": "Annuler le dessin ? Cela effacera tous les points.",
+      "minPointsAlert": "Veuillez dessiner au moins 3 points pour créer un polygone",
+      "minPointsAlert2": "Veuillez dessiner au moins 3 points"
+    },
+    "step3": {
+      "title": "Orientation des Panneaux",
+      "subtitle": "Configurez l'angle et la direction de vos panneaux solaires pour des estimations de production précises",
+      "availableRoofArea": "Surface de toit disponible",
+      "configurationEfficiency": "Efficacité de la configuration",
+      "vsOptimal": "vs. configuration optimale",
+      "roofType": {
+        "title": "Type de toit et inclinaison des panneaux",
+        "flatDescription": "Inclinaison des panneaux sur supports de montage (toit plat)",
+        "slopedDescription": "Inclinaison des panneaux correspond à la pente du toit (montage à fleur)",
+        "types": {
+          "flat": {
+            "name": "Toit plat",
+            "description": "Pente de toit 0-5°"
+          },
+          "lowSlope": {
+            "name": "Pente faible",
+            "description": "Pente de toit 5-15°"
+          },
+          "medium": {
+            "name": "Pente moyenne",
+            "description": "Pente de toit 15-35°"
+          },
+          "steep": {
+            "name": "Pente raide",
+            "description": "Pente de toit 35-60°"
+          }
+        },
+        "panelTiltAngle": "Angle d'inclinaison des panneaux",
+        "flatInfo": "Optimal pour installation sur toit plat",
+        "slopedInfo": "Correspond à la pente du toit (montage à fleur)"
+      },
+      "panelDirection": {
+        "title": "Direction des panneaux",
+        "flatDescription": "Toits plats: panneaux montés sur cadres inclinés",
+        "slopedDescription": "Toits en pente: panneaux orientés dans la même direction que le toit",
+        "selectPlaceholder": "Sélectionner la direction",
+        "orientations": {
+          "south": {
+            "label": "Sud",
+            "description": "Optimal"
+          },
+          "southEast": {
+            "label": "Sud-Est",
+            "description": "Bon ensoleillement matinal"
+          },
+          "southWest": {
+            "label": "Sud-Ouest",
+            "description": "Bon ensoleillement vespéral"
+          },
+          "east": {
+            "label": "Est",
+            "description": "Production matinale"
+          },
+          "west": {
+            "label": "Ouest",
+            "description": "Production vespérale"
+          },
+          "north": {
+            "label": "Nord",
+            "description": "Non recommandé"
+          }
+        },
+        "direction": "Direction:",
+        "customDirection": "Direction personnalisée (optionnel)",
+        "degrees": "degrés",
+        "customInfo": "Utilisez les préréglages ci-dessus ou entrez une direction précise (0°=Nord, 90°=Est, 180°=Sud, 270°=Ouest)"
+      },
+      "flatRoofAlert": {
+        "title": "Installation sur toit plat:",
+        "description": "Les panneaux seront montés sur cadres inclinés (typiquement 10-20°) pour optimiser la production et permettre l'écoulement de l'eau. Vous avez toute liberté de choisir la direction des panneaux - Sud (180°) est optimal pour une production annuelle maximale en Suisse."
+      },
+      "optimizationTips": {
+        "title": "Conseils d'optimisation",
+        "tips": [
+          "Les panneaux orientés au sud (180°) reçoivent le plus de soleil en Suisse",
+          "Une inclinaison de 30-35° est optimale pour maximiser la production annuelle",
+          "Les orientations Est/Ouest peuvent être bénéfiques si vous consommez plus d'électricité le matin/soir",
+          "Pour les toits plats, les panneaux peuvent être orientés dans n'importe quelle direction en utilisant des supports de montage inclinés"
+        ]
+      },
+      "buttons": {
+        "back": "Retour",
+        "continue": "Continuer"
+      }
+    },
+    "step4": {
+      "systemSize": "Taille du système",
+      "panels": "Panneaux",
+      "estCost": "Coût estimé",
+      "tabs": {
+        "panels": "Panneaux",
+        "inverter": "Onduleur"
+      },
+      "loadingPanels": "Chargement des panneaux...",
+      "loadingInverters": "Chargement des onduleurs...",
+      "noPanels": "Aucun panneau disponible",
+      "noInverters": "Aucun onduleur disponible",
+      "retry": "Réessayer",
+      "efficiency": "efficacité",
+      "numberOfPanels": "Nombre de panneaux",
+      "maxFit": "Max. adapté:",
+      "coverage": "couverture",
+      "capacity": "Capacité",
+      "panelCost": "Coût des panneaux",
+      "coverageLabel": "Couverture",
+      "panelArea": "Surface des panneaux",
+      "recommendedInverter": "Taille d'onduleur recommandée:",
+      "dcAcRatio": "Ratio DC/AC: 1,2-1,5:1 est optimal. La norme industrielle est 1,1-1,5:1 pour les systèmes résidentiels. Plusieurs onduleurs sont courants pour les systèmes plus grands.",
+      "bestFit": "Meilleur ajustement",
+      "dcAcRatioLabel": "Ratio DC/AC",
+      "inverterCost": "Coût de l'onduleur",
+      "buttons": {
+        "back": "Retour",
+        "calculate": "Calculer"
+      }
+    },
+    "step5": {
+      "loading": {
+        "title": "Calcul de votre potentiel solaire...",
+        "error": "Erreur de calcul",
+        "tryAgain": "Réessayer",
+        "goBack": "Retour"
+      },
+      "title": "Votre Potentiel Solaire",
+      "editSystem": "Modifier le système",
+      "systemSize": "Taille du système",
+      "panels": "panneaux",
+      "annualProduction": "Production annuelle",
+      "kwhPerYear": "kWh/an",
+      "annualSavings": "Économies annuelles",
+      "perYear": "par an",
+      "paybackPeriod": "Période de récupération",
+      "years": "années",
+      "monthlyProduction": "Production mensuelle",
+      "peakMonth": "Mois de pointe",
+      "lowestMonth": "Mois le plus bas",
+      "electricityPrices": {
+        "title": "💡 Vos Prix de l'Électricité",
+        "important": "Important:",
+        "description": "Entrez vos tarifs réels de votre facture d'électricité pour des calculs d'économies précis. Ceux-ci affectent grandement votre période de récupération.",
+        "electricityPrice": "Prix de l'électricité (Rp/kWh)",
+        "feedInTariff": "Tarif de rachat (Rp/kWh)",
+        "usingYourRate": "✓ Utilisation de votre tarif:",
+        "usingSwissAverage": "Utilisation de la moyenne suisse:",
+        "whereToFind": "💡 Où trouver:",
+        "whereToFindText": "Vérifiez votre dernière facture d'électricité. Le prix de l'électricité est ce que vous payez par kWh consommé. Le tarif de rachat est ce que vous gagnez pour l'énergie excédentaire exportée vers le réseau."
+      },
+      "investment": {
+        "title": "Investissement",
+        "panels": "Panneaux",
+        "inverter": "Onduleur",
+        "installation": "Installation",
+        "vat": "TVA",
+        "total": "Total",
+        "governmentSubsidy": "Subvention gouvernementale",
+        "netInvestment": "Investissement net"
+      },
+      "returns": {
+        "title": "Rendements sur 30 ans",
+        "totalProduction": "Production totale",
+        "selfConsumed": "Autoconsommation",
+        "gridExportIncome": "Revenus d'exportation réseau",
+        "totalSavings": "Économies totales",
+        "minusInvestment": "Moins investissement",
+        "netProfit": "Bénéfice net"
+      },
+      "environmental": {
+        "title": "Impact environnemental",
+        "annualCo2Reduction": "Réduction annuelle de CO₂",
+        "kmByCar": "km en voiture"
+      },
+      "advancedSettings": {
+        "show": "Afficher les paramètres avancés",
+        "hide": "Masquer les paramètres avancés",
+        "annualConsumption": "Consommation annuelle d'électricité",
+        "kwhPerYear": "kWh/an",
+        "includeVat": "Inclure la TVA",
+        "addVat": "Ajouter",
+        "vatToInvestment": "% TVA à l'investissement"
+      },
+      "systemConfiguration": {
+        "title": "Configuration du système",
+        "panelType": "Type de panneau",
+        "inverter": "Onduleur",
+        "orientation": "Orientation",
+        "azimuth": "azimut",
+        "tilt": "Inclinaison",
+        "roofArea": "Surface du toit",
+        "panelCoverage": "Couverture des panneaux",
+        "dailyAverage": "Moyenne quotidienne",
+        "specificYield": "Rendement spécifique",
+        "kwhPerKwp": "kWh/kWp"
+      },
+      "actions": {
+        "requestQuote": "Demander un devis",
+        "downloadReport": "Télécharger le rapport",
+        "generating": "Génération en cours..."
+      }
+    },
+    "error": "Erreur"
   }
 }

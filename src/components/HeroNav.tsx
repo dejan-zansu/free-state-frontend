@@ -15,16 +15,17 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
   const t = useTranslations('home')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
-  const solarAboLinks = [
-    { label: 'SolarAbo Home', href: `/${locale}/solar-abo/home` },
-    {
-      label: 'SolarAbo Home Storage',
-      href: `/${locale}/solar-abo/home-storage`,
-    },
-    { label: 'SolarAbo Business', href: `/${locale}/solar-abo/business` },
-    { label: 'SolarAbo Agro', href: `/${locale}/solar-abo/agro` },
-    { label: 'SolarAbo Multi', href: `/${locale}/solar-abo/multi` },
-  ]
+  const solarAboLinks = isCommercial
+    ? [
+        { label: t('hero.nav.solarAboBusiness'), href: `/${locale}/solar-abo/business` },
+        { label: t('hero.nav.solarAboAgro'), href: `/${locale}/solar-abo/agro` },
+        { label: t('hero.nav.solarAboPublic'), href: `/${locale}/solar-abo/public` },
+      ]
+    : [
+        { label: t('hero.nav.solarAboHome'), href: `/${locale}/solar-abo/home` },
+        { label: t('hero.nav.solarAboHomeStorage'), href: `/${locale}/solar-abo/home-storage` },
+        { label: t('hero.nav.solarAboMulti'), href: `/${locale}/solar-abo/multi` },
+      ]
 
   const productLinks = [
     { label: 'Solar Panels', href: `/${locale}/products/panels` },
