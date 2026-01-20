@@ -39,7 +39,7 @@ const Benefits = async ({isCommercial = false}) => {
         <div className='flex justify-center mb-10'>
           <LinkButton
             variant={isCommercial ? 'secondary' : 'outline-primary'}
-            href='/calculator'
+            href='/solar-abo'
             locale={locale}
           >
             {t('learnMore')}
