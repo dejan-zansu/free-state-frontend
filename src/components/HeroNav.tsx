@@ -17,14 +17,14 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
 
   const solarAboLinks = isCommercial
     ? [
-        { label: t('hero.nav.solarAboBusiness'), href: `/${locale}/solar-abo/business` },
-        { label: t('hero.nav.solarAboAgro'), href: `/${locale}/solar-abo/agro` },
-        { label: t('hero.nav.solarAboPublic'), href: `/${locale}/solar-abo/public` },
+        { label: t('hero.nav.solarAboBusiness'), href: `/${locale}/solar-abo/solar-abo-business` },
+        { label: t('hero.nav.solarAboAgro'), href: `/${locale}/solar-abo/solar-abo-agro` },
+        { label: t('hero.nav.solarAboPublic'), href: `/${locale}/solar-abo/solar-abo-public` },
       ]
     : [
-        { label: t('hero.nav.solarAboHome'), href: `/${locale}/solar-abo/home` },
-        { label: t('hero.nav.solarAboHomeStorage'), href: `/${locale}/solar-abo/home-storage` },
-        { label: t('hero.nav.solarAboMulti'), href: `/${locale}/solar-abo/multi` },
+        { label: t('hero.nav.solarAboHome'), href: `/${locale}/solar-abo/solar-abo-home` },
+        { label: t('hero.nav.solarAboHomeStorage'), href: `/${locale}/solar-abo/solar-abo-home-storage` },
+        { label: t('hero.nav.solarAboMulti'), href: `/${locale}/solar-abo/solar-abo-multi` },
       ]
 
   const productLinks = [
@@ -42,22 +42,22 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
   const dropdownLinks = hoveredItem === 'solarAbo' ? solarAboLinks : productLinks
 
   return (
-    <div className='absolute top-[100px] left-1/2 -translate-x-1/2 w-full flex justify-center z-20'>
+    <div className='absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full flex justify-center z-20 px-4'>
       <div
         className={cn(
-          'inline-flex flex-col gap-0 pl-[30px] pr-[9px] bg-white/20 backdrop-blur-[30px] rounded-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2',
+          'inline-flex flex-col gap-0 pl-4 sm:pl-6 md:pl-[30px] pr-2 sm:pr-4 md:pr-[9px] bg-white/20 backdrop-blur-[30px] rounded-2xl sm:rounded-[24px] md:rounded-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2 max-w-[calc(100vw-2rem)]',
         )}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <div className='flex items-center gap-[30px]'>
-          <div className='flex items-center gap-9'>
+        <div className='flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-[30px]'>
+          <div className='flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-9'>
             <div
               className='relative'
               onMouseEnter={() => setHoveredItem('solarAbo')}
             >
               <Link
                 href={`/${locale}/solar-abo`}
-                className='text-white font-medium text-base hover:opacity-80 transition-opacity block whitespace-nowrap'
+                className='text-white font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap'
               >
                 {t('hero.nav.solarAbo')}
               </Link>
@@ -69,17 +69,18 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
             >
               <Link
                 href={`/${locale}/products`}
-                className='text-white font-medium text-base hover:opacity-80 transition-opacity block whitespace-nowrap'
+                className='text-white font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap'
               >
                 {t('hero.nav.products')}
               </Link>
             </div>
           </div>
-          <div className='shrink-0'>
+          <div className='shrink-0 w-full sm:w-auto'>
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href='/calculator'
               locale={locale}
+              className='w-full sm:w-auto text-sm sm:text-base'
             >
               {t('hero.nav.onlineStarter')}
             </LinkButton>

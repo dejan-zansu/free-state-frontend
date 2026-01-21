@@ -37,7 +37,7 @@ const Footer = () => {
       href: 'https://facebook.com',
       hasArrow: false,
     },
-    { label: t('links.twitter'), href: 'https://twitter.com', hasArrow: false },
+    { label: t('links.linkedin'), href: 'https://www.linkedin.com/company/agribusiness-training-institute-of-free-state/', hasArrow: false },
     {
       label: t('links.instagram'),
       href: 'https://www.instagram.com/free_state_ag',

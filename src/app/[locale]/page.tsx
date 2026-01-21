@@ -9,7 +9,7 @@ import YourPartner from '@/components/YourPartner'
 
 export default function HomePage() {
   return (
-    <div>
+    <div className='w-full overflow-x-hidden'>
       <Hero
         title='Smart solar solutions for private homes'
         description='Clean energy, predictable costs, and full service, all without investment.'

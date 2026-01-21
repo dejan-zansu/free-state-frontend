@@ -26,17 +26,17 @@ const Benefits = async ({isCommercial = false}) => {
   ]
 
   return (
-    <section className='relative pt-24 bg-background'>
-      <div className='max-w-[1111px] mx-auto px-6'>
-        <div className='text-center mb-10'>
-          <h2 className='text-foreground text-5xl font-semibold mb-4'>
+    <section className='relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 bg-background'>
+      <div className='max-w-[1111px] mx-auto px-4 sm:px-6'>
+        <div className='text-center mb-8 sm:mb-10'>
+          <h2 className='text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4'>
             {t('title')}
           </h2>
-          <p className='text-foreground/80 text-xl font-light max-w-2xl mx-auto'>
+          <p className='text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-2'>
             {t('subtitle')}
           </p>
         </div>
-        <div className='flex justify-center mb-10'>
+        <div className='flex justify-center mb-8 sm:mb-10'>
           <LinkButton
             variant={isCommercial ? 'secondary' : 'outline-primary'}
             href='/solar-abo'
@@ -52,10 +52,10 @@ const Benefits = async ({isCommercial = false}) => {
             return (
               <div
                 key={index}
-                className='relative bg-[#0D4841] rounded-[20px] pt-8 flex flex-col items-center text-center min-h-[372px] overflow-hidden'
+                className='relative bg-[#0D4841] rounded-[16px] sm:rounded-[20px] pt-6 sm:pt-8 flex flex-col items-center text-center min-h-[300px] sm:min-h-[350px] md:min-h-[372px] overflow-hidden'
               >
                 <div
-                  className='absolute inset-0 rounded-[20px]'
+                  className='absolute inset-0 rounded-[16px] sm:rounded-[20px]'
                   style={{
                     backgroundImage: isCommercial ? "url('/images/solar-adventages-commercial.png')" : "url('/images/solar-adventages.png')",
                     backgroundSize: 'cover',
@@ -65,17 +65,17 @@ const Benefits = async ({isCommercial = false}) => {
                   }}
                 />
 
-                <div className='relative z-10 mb-8 flex items-center justify-center'>
-                  <div className='relative w-[142px] h-[142px] flex items-center justify-center'>
+                <div className='relative z-10 mb-6 sm:mb-8 flex items-center justify-center'>
+                  <div className='relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[142px] md:h-[142px] flex items-center justify-center'>
                     <div className={cn('absolute inset-0 rounded-full bg-white/10 border border-solar', isCommercial && 'border-white')} />
                     <div className='relative z-10'>
-                      <Icon className={cn('w-[83px] h-[83px] text-solar', isCommercial && 'text-white')} />
+                      <Icon className={cn('w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[83px] md:h-[83px] text-solar', isCommercial && 'text-white')} />
                     </div>
                   </div>
                 </div>
 
                 <div className='relative z-10 flex-1 flex flex-col justify-end w-full'>
-                  <div className='relative px-8 pb-10 pt-2.5'>
+                  <div className='relative px-4 sm:px-6 md:px-8 pb-6 sm:pb-8 md:pb-10 pt-2.5'>
                     <div
                       className='absolute inset-0'
                       style={{
@@ -86,10 +86,10 @@ const Benefits = async ({isCommercial = false}) => {
                       }}
                     />
                     <div className='relative z-10'>
-                      <h3 className={cn('text-solar text-xl font-bold uppercase mb-4', isCommercial && 'text-energy')}>
+                      <h3 className={cn('text-solar text-lg sm:text-xl font-bold uppercase mb-3 sm:mb-4', isCommercial && 'text-energy')}>
                         {feature.title}
                       </h3>
-                      <p className='text-white/80 text-base font-light leading-normal text-start'>
+                      <p className='text-white/80 text-sm sm:text-base font-light leading-normal text-start'>
                         {feature.description}
                       </p>
                     </div>

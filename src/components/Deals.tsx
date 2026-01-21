@@ -60,19 +60,19 @@ const Deals = async ({isCommercial = false}) => {
   ]
 
   return (
-    <section className='relative pt-24 max-w-[1440px] mx-auto px-6'>
-      <div className='text-center mb-10'>
-        <h2 className='text-foreground text-5xl font-semibold mb-4'>
+    <section className='relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 max-w-[1440px] mx-auto px-4 sm:px-6'>
+      <div className='text-center mb-8 sm:mb-10'>
+        <h2 className='text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4'>
           {t('title')}
         </h2>
-        <p className='text-foreground/80 text-xl font-light max-w-2xl mx-auto'>
+        <p className='text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-2'>
           {t('subtitle')}
         </p>
       </div>
 
-      <div className='flex gap-4 max-w-[1440px] mx-auto'>
+      <div className='flex flex-col md:flex-row gap-4 max-w-[1440px] mx-auto'>
         {deals.map((deal, index) => (
-          <div key={index} className='rounded-lg overflow-hidden relative border border-[#B7C2BF] w-full flex-1'>
+          <div key={index} className='rounded-lg overflow-hidden relative border border-[#B7C2BF] w-full md:flex-1'>
             <div className={cn('p-6 flex gap-2 justify-center items-center', isCommercial ? 'bg-[#3D3858]' : 'bg-[#1B332D]')}>
               <div className={cn('shrink-0 w-20 h-20 rounded-full border flex items-center justify-center', isCommercial ? 'border-white' : 'border-solar')}>
                 {/* <HomeIcon className='w-10' /> */}

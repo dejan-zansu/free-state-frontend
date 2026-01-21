@@ -30,35 +30,35 @@ const Portfolio = async ({isCommercial = false}) => {
   ]
 
   return (
-    <section className='relative py-24 bg-background'>
-      <div className='max-w-327.5 mx-auto px-6'>
+    <section className='relative py-12 sm:py-16 md:py-20 lg:py-24 bg-background'>
+      <div className='max-w-327.5 mx-auto px-4 sm:px-6'>
         <div className='text-center mb-4'>
-          <h2 className='text-foreground text-5xl font-semibold'>
+          <h2 className='text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold'>
             {t('title')}
           </h2>
         </div>
 
-        <div className='text-center mb-17.5'>
-          <p className='text-foreground/80 text-xl font-light max-w-2xl mx-auto'>
+        <div className='text-center mb-8 sm:mb-12 md:mb-17.5'>
+          <p className='text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-2'>
             {t('subtitle')}
           </p>
         </div>
 
-        <div className='flex gap-6 justify-center'>
+        <div className='flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center'>
           {portfolioItems.map((item, index) => (
             <div
               key={index}
               className={cn(
-                'group relative overflow-hidden rounded-2xl w-full max-w-xs h-128 flex flex-col',
-                index === 1 ? '-mt-8' : '',
+                'group relative overflow-hidden rounded-2xl w-full max-w-xs h-auto sm:h-128 flex flex-col',
+                index === 1 ? 'md:-mt-8' : '',
                 isCommercial ? 'bg-[#191D1C]' : 'bg-[#062E25]'
               )}
             >
-              <div className='px-4 pt-10 pb-8'>
-                <div className='flex items-start gap-3'>
+              <div className='px-4 pt-6 sm:pt-8 md:pt-10 pb-6 sm:pb-8'>
+                <div className='flex items-start gap-2 sm:gap-3'>
                   <div
                     className={cn(
-                      'text-white opacity-80 text-8xl font-bold uppercase leading-[80px] tracking-tighter',
+                      'text-white opacity-80 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase leading-[50px] sm:leading-[60px] md:leading-[70px] lg:leading-[80px] tracking-tighter shrink-0',
                       index === 1 ? isCommercial ? 'text-energy' : 'text-[#9EE028]' : ''
                     )}
                   >
@@ -66,7 +66,7 @@ const Portfolio = async ({isCommercial = false}) => {
                   </div>
 
                   <div>
-                    <h3 className='text-white opacity-80 text-base font-bold uppercase mb-2'>
+                    <h3 className='text-white opacity-80 text-sm sm:text-base font-bold uppercase mb-2'>
                       {item.title}
                     </h3>
                     <p className='text-white opacity-80 text-xs font-light whitespace-pre-line'>
@@ -76,7 +76,7 @@ const Portfolio = async ({isCommercial = false}) => {
                 </div>
               </div>
 
-              <div className='relative w-full flex-1 overflow-hidden'>
+              <div className='relative w-full flex-1 overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[300px]'>
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -84,7 +84,7 @@ const Portfolio = async ({isCommercial = false}) => {
                   className='object-cover '
                 />
 
-                <div className='absolute bottom-6 left-6'>
+                <div className='absolute bottom-4 sm:bottom-6 left-4 sm:left-6'>
                   <Link
                     href={`/${locale}/portfolio`}
                     className='inline-flex items-center gap-2 text-white font-medium group/link transition-opacity duration-300 hover:opacity-80'

@@ -31,7 +31,7 @@
       "aboutUs": "Sobre nosotros",
       "contact": "Contacto",
       "facebook": "Facebook",
-      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
       "instagram": "Instagram",
       "impressum": "Aviso legal"
     }
@@ -612,6 +612,38 @@
         "requestQuote": "Solicitar cotización",
         "downloadReport": "Descargar informe",
         "generating": "Generando..."
+      }
+    },
+    "solarAboHome": {
+      "includes": {
+        "title": "Qué está incluido",
+        "subtitle": "En SolarAbo Home",
+        "items": {
+          "solarModules": {
+            "title": "Módulos solares",
+            "subtitle": "450 Wp"
+          },
+          "inverter": {
+            "title": "Inversor",
+            "subtitle": "Conversión"
+          },
+          "monitoringApp": {
+            "title": "Aplicación de monitoreo",
+            "subtitle": "Datos en vivo"
+          },
+          "installation": {
+            "title": "Instalación",
+            "subtitle": "Llave en mano"
+          },
+          "serviceInsurance": {
+            "title": "Servicio y seguro",
+            "subtitle": "Cubierto"
+          },
+          "batteryStorage": {
+            "title": "Almacenamiento de batería",
+            "subtitle": "Autoconsumo"
+          }
+        }
       }
     },
     "error": "Error"

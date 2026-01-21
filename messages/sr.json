@@ -31,7 +31,7 @@
       "aboutUs": "O nama",
       "contact": "Kontakt",
       "facebook": "Facebook",
-      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
       "instagram": "Instagram",
       "impressum": "Impresum"
     }
@@ -612,6 +612,38 @@
         "requestQuote": "Zatraži ponudu",
         "downloadReport": "Preuzmi izveštaj",
         "generating": "Generisanje..."
+      }
+    },
+    "solarAboHome": {
+      "includes": {
+        "title": "Šta je uključeno",
+        "subtitle": "U SolarAbo Home",
+        "items": {
+          "solarModules": {
+            "title": "Solarni moduli",
+            "subtitle": "450 Wp"
+          },
+          "inverter": {
+            "title": "Inverter",
+            "subtitle": "Konverzija"
+          },
+          "monitoringApp": {
+            "title": "Aplikacija za praćenje",
+            "subtitle": "Podaci u realnom vremenu"
+          },
+          "installation": {
+            "title": "Instalacija",
+            "subtitle": "Ključ u ruke"
+          },
+          "serviceInsurance": {
+            "title": "Servis i osiguranje",
+            "subtitle": "Pokriveno"
+          },
+          "batteryStorage": {
+            "title": "Baterijsko skladište",
+            "subtitle": "Sopstvena potrošnja"
+          }
+        }
       }
     },
     "error": "Greška"

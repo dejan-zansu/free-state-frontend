@@ -30,13 +30,13 @@ const YourPartner = async ({isCommercial = false}) => {
   ]
 
   return (
-    <section className='relative pt-24 max-w-[1440px] mx-auto'>
-      <div className='flex justify-between px-6'>
+    <section className='relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 max-w-[1440px] mx-auto'>
+      <div className='flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-6 px-4 sm:px-6'>
         <div>
-          <h2 className='text-foreground text-5xl font-semibold relative'>
+          <h2 className='text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold relative'>
             {t('title')}
           </h2>
-          <p className='text-foreground/80 text-xl font-light max-w-2xl mx-auto'>
+          <p className='text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mt-2 sm:mt-0'>
             {t('subtitle')}
           </p>
         </div>
@@ -44,16 +44,16 @@ const YourPartner = async ({isCommercial = false}) => {
           variant='outline-primary'
           href='/calculator'
           locale={locale}
-          className='h-fit'
+          className='h-fit w-full sm:w-auto'
         >
           {t('cta')}
         </LinkButton>
       </div>
-      <div className='flex flex-row gap-6 mt-14 px-6'>
+      <div className='flex flex-col sm:flex-row gap-4 sm:gap-6 mt-8 sm:mt-10 md:mt-14 px-4 sm:px-6'>
         {items.map((item) => (
           <div
             key={item.title}
-            className='flex-1 relative aspect-464/439 overflow-hidden'
+            className='flex-1 relative aspect-464/439 overflow-hidden min-h-[300px] sm:min-h-[400px]'
             style={{
               backgroundImage: `url(${isCommercial ? item.bgImageCommercial : item.bgImage})`,
               backgroundSize: 'cover',
@@ -61,11 +61,11 @@ const YourPartner = async ({isCommercial = false}) => {
               backgroundColor: '#154138',
             }}
           >
-            <div className='absolute bottom-6 left-0 right-0 p-6'>
-              <h3 className={cn('text-solar text-2xl font-semibold mb-2', isCommercial && 'text-white')}>
+            <div className='absolute bottom-4 sm:bottom-6 left-0 right-0 p-4 sm:p-6'>
+              <h3 className={cn('text-solar text-xl sm:text-2xl font-semibold mb-2', isCommercial && 'text-white')}>
                 {item.title}
               </h3>
-              <p className='text-white/80 font-light'>{item.description}</p>
+              <p className='text-white/80 font-light text-sm sm:text-base'>{item.description}</p>
 
               <Link
                 href={`/${locale}/learn-more`}

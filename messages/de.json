@@ -18,7 +18,7 @@
       "aboutUs": "Über uns",
       "contact": "Kontakt",
       "facebook": "Facebook",
-      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
       "instagram": "Instagram",
       "impressum": "Impressum"
     }
@@ -685,6 +685,38 @@
         "requestQuote": "Angebot anfordern",
         "downloadReport": "Bericht herunterladen",
         "generating": "Wird generiert..."
+      }
+    },
+    "solarAboHome": {
+      "includes": {
+        "title": "Was ist enthalten",
+        "subtitle": "In SolarAbo Home",
+        "items": {
+          "solarModules": {
+            "title": "Solarmodule",
+            "subtitle": "450 Wp"
+          },
+          "inverter": {
+            "title": "Wechselrichter",
+            "subtitle": "Umwandlung"
+          },
+          "monitoringApp": {
+            "title": "Monitoring-App",
+            "subtitle": "Live-Daten"
+          },
+          "installation": {
+            "title": "Installation",
+            "subtitle": "Schlüsselfertig"
+          },
+          "serviceInsurance": {
+            "title": "Service & Versicherung",
+            "subtitle": "Abgedeckt"
+          },
+          "batteryStorage": {
+            "title": "Batteriespeicher",
+            "subtitle": "Eigenverbrauch"
+          }
+        }
       }
     },
     "error": "Fehler"

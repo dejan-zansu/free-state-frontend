@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { ArrowRight, Search, X } from 'lucide-react'
+import { ArrowRight, Menu, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
@@ -9,6 +9,12 @@ import { useEffect, useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import LanguageSwitcher from './LanguageSwitcher'
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from './ui/sheet'
 
 const Header = () => {
   const params = useParams()
@@ -19,6 +25,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const pagesWithDarkHeader = [
     `/${locale}/calculator`,
@@ -85,24 +92,26 @@ const Header = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 transition-all duration-300 ${
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 transition-all duration-300',
           showDarkHeader ? 'bg-white shadow-sm' : 'bg-transparent'
-        }`}
+        )}
       >
         <div className='max-w-360 mx-auto'>
-          <div className='grid grid-cols-[auto_1fr_auto] items-center gap-4'>
+          <div className='grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4'>
             <Link
               href={`/${locale}`}
               className='flex items-center gap-2 shrink-0'
             >
               {showDarkHeader ? (
-                <LogoDark className='h-7.25 w-auto' />
+                <LogoDark className='h-6 sm:h-7.25 w-auto' />
               ) : (
-                <LogoLight className='h-7.25 w-auto' />
+                <LogoLight className='h-6 sm:h-7.25 w-auto' />
               )}
             </Link>
 
-            <nav className='flex items-center justify-center gap-0.75 flex-wrap'>
+            {/* Desktop Navigation */}
+            <nav className='hidden md:flex items-center justify-center gap-0.75 flex-wrap'>
               {navItems.map((item, index) => (
                 <Link
                   key={item.href}
@@ -147,12 +156,26 @@ const Header = () => {
               ))}
             </nav>
 
-            <div className='flex items-center justify-end shrink-0'>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className={cn(
+                'md:hidden p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
+                showDarkHeader
+                  ? 'text-[#062E25] hover:bg-[#E6EAE9]'
+                  : 'text-white hover:bg-white/20'
+              )}
+              aria-label='Open menu'
+            >
+              <Menu className='w-6 h-6' />
+            </button>
+
+            <div className='flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6'>
               <LanguageSwitcher isScrolled={showDarkHeader} />
               <Link
                 href={`/${locale}/contact`}
                 className={cn(
-                  'font-medium whitespace-nowrap transition-all duration-200 hover:opacity-90 shrink-0 ml-6',
+                  'font-medium whitespace-nowrap transition-all duration-200 hover:opacity-90 shrink-0 text-sm sm:text-base hidden sm:block',
                   showDarkHeader ? 'text-[#062E25]' : 'text-white'
                 )}
               >
@@ -161,7 +184,7 @@ const Header = () => {
               <button
                 onClick={() => setIsSearchOpen(true)}
                 className={cn(
-                  'p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0 ml-6',
+                  'p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
                   showDarkHeader
                     ? 'text-[#062E25] hover:bg-[#E6EAE9]'
                     : 'text-white hover:bg-white/20'
@@ -175,6 +198,63 @@ const Header = () => {
         </div>
       </header>
 
+      {/* Mobile Menu */}
+      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+        <SheetContent side='right' className='w-[300px] sm:w-[400px]'>
+          <SheetHeader>
+            <SheetTitle className='sr-only'>Navigation Menu</SheetTitle>
+          </SheetHeader>
+          <nav className='flex flex-col gap-2 mt-8'>
+            {navItems.map((item, index) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={cn(
+                  'px-4 py-3 rounded-lg font-medium transition-all duration-200 relative',
+                  isActive(item.href)
+                    ? 'bg-[#E6EAE9] text-[#062E25]'
+                    : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]',
+                  index === 0 && 'pr-12',
+                  index === 0 &&
+                    !showCommercial &&
+                    'bg-solar text-solar-foreground hover:bg-solar/90',
+                  index === 0 &&
+                    showCommercial &&
+                    'bg-energy text-white hover:bg-energy/90'
+                )}
+              >
+                {item.label}
+                {index === 0 && (
+                  <ArrowRight
+                    className={cn(
+                      'w-4 h-4 -rotate-45 absolute right-4 top-1/2 -translate-y-1/2',
+                      index === 0 && !showCommercial
+                        ? 'text-solar-foreground'
+                        : index === 0 && showCommercial
+                          ? 'text-white'
+                          : 'text-[#062E25]'
+                    )}
+                  />
+                )}
+              </Link>
+            ))}
+            <Link
+              href={`/${locale}/contact`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={cn(
+                'px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4',
+                isActive(`/${locale}/contact`)
+                  ? 'bg-[#E6EAE9] text-[#062E25]'
+                  : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
+              )}
+            >
+              {tHeader('contact')}
+            </Link>
+          </nav>
+        </SheetContent>
+      </Sheet>
+
       {/* Search Overlay */}
       <div
         className={cn(
@@ -182,10 +262,10 @@ const Header = () => {
           isSearchOpen
             ? 'translate-y-0 opacity-100'
             : '-translate-y-full opacity-0 pointer-events-none',
-          'top-[88px]' // Header height
+          'top-[72px] sm:top-[88px]' // Responsive header height
         )}
       >
-        <div className='max-w-360 w-full px-6 py-4'>
+        <div className='max-w-360 w-full px-4 sm:px-6 py-4'>
           <form
             onSubmit={handleSearch}
             className={cn(

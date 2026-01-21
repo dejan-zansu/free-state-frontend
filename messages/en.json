@@ -18,7 +18,7 @@
       "aboutUs": "About Us",
       "contact": "Contact",
       "facebook": "Facebook",
-      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
       "instagram": "Instagram",
       "impressum": "Impressum"
     }
@@ -236,6 +236,103 @@
           "description": "Up to 12 t CO₂ per year – for your company."
         }
       }
+    }
+  },
+  "solarAboHome": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
+      "title": "SolarAbo Home",
+      "subtitle": "For single-family homes without battery storage",
+      "cta": "Start the Solar Calculator",
+      "tag": "No registration required · No obligation",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\ninvestment",
+          "electricity": "Up to 30% lower\nelectricity price"
+        },
+        "right": {
+          "maintenance": "Maintenance\nincluded",
+          "reduction": "CO₂ reduction\nup to 2 t/year"
+        }
+      }
+    },
+    "includes": {
+      "title": "What's included",
+      "subtitle": "In SolarAbo Home",
+      "items": {
+        "solarModules": {
+          "title": "Solar modules",
+          "subtitle": "450 Wp"
+        },
+        "inverter": {
+          "title": "Inverter",
+          "subtitle": "Conversion"
+        },
+        "monitoringApp": {
+          "title": "Monitoring app",
+          "subtitle": "Live data"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Turnkey"
+        },
+        "serviceInsurance": {
+          "title": "Service & insurance",
+          "subtitle": "Covered"
+        },
+        "batteryStorage": {
+          "title": "Battery storage",
+          "subtitle": "Self-consumption"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How SolarAbo Home works",
+      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
+      "steps": {
+        "step1": "You provide the roof",
+        "step2": "We invest",
+        "step3": "You use the solar energy",
+        "step4": "You pay\nmonthly",
+        "step5": "The system becomes yours"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & Contract",
+      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
+      "pricing": {
+        "from": "from",
+        "amount": "CHF 39.95",
+        "perMonth": "/month"
+      },
+      "features": {
+        "contractTerm": "Contract term: 35 yrs",
+        "buybackOption": "Buyback option",
+        "noUpfrontCosts": "No upfront costs",
+        "batteryStorage": "Battery storage included"
+      },
+      "disclaimer": "Fixed monthly fee for your solar system with battery, fully managed by us."
+    },
+    "rightForYou": {
+      "title": "Is this package right for you?",
+      "idealForTitle": "Ideal for you",
+      "notIdealForTitle": "Not ideal for you",
+      "idealFor": {
+        "singleFamily": "Single-family home",
+        "predictableCosts": "Predictable costs",
+        "noUpfront": "No upfront investment",
+        "noMaintenance": "No maintenance"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Need battery storage",
+        "commercial": "Commercial building"
+      }
+    },
+    "cta": {
+      "topButton": "See if SolarAbo Home Storage works for your roof",
+      "heading": "See if SolarAbo Home Storage works for your roof",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/calculator"
     }
   },
   "contact": {
