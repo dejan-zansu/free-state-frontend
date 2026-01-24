@@ -791,13 +791,17 @@
     "steps": {
       "step1": {
         "title": "Address",
-        "description": "Enter your Swiss address"
+        "description": "Select roof segments"
       },
       "step2": {
+        "title": "Usable Area",
+        "description": "Define usable space"
+      },
+      "step3": {
         "title": "Solar System",
         "description": "Choose your panels"
       },
-      "step3": {
+      "step4": {
         "title": "Results",
         "description": "Your solar potential"
       }
@@ -809,7 +813,7 @@
       "coordinates": "Coordinates",
       "mapInfo": "Click on any colored roof on the map to select it for analysis. The colors show solar potential - red/orange is excellent, yellow/green is good, blue is lower.",
       "clickRoofInfo": "Click on colored roof segments on the map to select them. Each click adds a segment to your selection. Click again on a selected segment to remove it.",
-      "continue": "Configure System",
+      "continue": "Define Usable Area",
       "loading": "Loading building data...",
       "buildingFound": "Building Found",
       "roofSegments": "Roof Segments",
@@ -837,6 +841,48 @@
       "selectedRoofParts": "Selected Roof Parts",
       "roofPart": "Roof Part"
     },
+    "step2Usable": {
+      "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
+      "backToSelection": "Back to Selection",
+      "totalArea": "Total Area",
+      "restricted": "Restricted",
+      "usable": "Usable",
+      "roofProperties": "Roof Properties",
+      "roofType": "Roof Type",
+      "roofTypes": {
+        "flat": "Flat Roof",
+        "lowSlope": "Low Slope (< 15°)",
+        "medium": "Medium Pitch (15-35°)",
+        "steep": "Steep (> 35°)"
+      },
+      "buildingFloors": "Building Floors",
+      "roofMaterial": "Roof Material",
+      "materials": {
+        "bitumen": "Bitumen",
+        "gravel": "Gravel",
+        "greenRoof": "Green Roof",
+        "granulate": "Granulate",
+        "tiles": "Tiles",
+        "metal": "Metal Sheet",
+        "unknown": "Unknown"
+      },
+      "restrictedAreas": "Restricted Areas",
+      "restrictedInfo": "Draw areas where panels cannot be installed (skylights, chimneys, HVAC, etc.)",
+      "addRestrictedArea": "Add Restricted Area",
+      "cancelDrawing": "Cancel",
+      "drawingMode": "Drawing Mode Active",
+      "drawingInstructions": "Click on the map to draw polygon corners. Double-click to finish.",
+      "drawingModeActive": "Drawing Mode - Click to add points",
+      "area": "Area",
+      "clearAll": "Clear All",
+      "noRestrictedAreas": "No restricted areas defined",
+      "loadingMap": "Loading map...",
+      "legend": "Legend",
+      "legendSegment": "Selected Segment",
+      "legendRestricted": "Restricted Area",
+      "back": "Back",
+      "continue": "Configure System"
+    },
     "step2": {
       "buildingInfo": "Building Information",
       "totalArea": "Total Roof Area",
@@ -863,7 +909,7 @@
         "clickMap": "Click elsewhere to load a different building"
       }
     },
-    "step2System": {
+    "step3System": {
       "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
       "backToSelection": "Back to Selection",
       "systemSize": "System Size",
@@ -895,7 +941,7 @@
       "back": "Back",
       "continue": "View Results"
     },
-    "step3": {
+    "step4": {
       "title": "Your Solar Potential",
       "subtitle": "Based on official Swiss federal roof data",
       "noData": "No data available",

@@ -78,11 +78,12 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
   return [(lng * 100) / 36, (lat * 100) / 36]
 }
 
-export default function SonnendachStep2SolarSystem() {
-  const t = useTranslations('sonnendach.step2System')
+export default function SonnendachStep3SolarSystem() {
+  const t = useTranslations('sonnendach.step3System')
   const {
     building,
     getSelectedSegments,
+    restrictedAreas,
     selectedPanel,
     selectedInverter,
     panelCount,
@@ -215,6 +216,31 @@ export default function SonnendachStep2SolarSystem() {
     }
   }, [systemPowerKw, selectedInverter, selectInverter, availableInverters])
 
+  // Point in polygon check helper
+  const isPointInPolygonHelper = useCallback((lng: number, lat: number, polygonCoords: number[][]): boolean => {
+    let inside = false
+    for (let i = 0, j = polygonCoords.length - 1; i < polygonCoords.length; j = i++) {
+      const xi = polygonCoords[i][0], yi = polygonCoords[i][1]
+      const xj = polygonCoords[j][0], yj = polygonCoords[j][1]
+      const intersect = yi > lat !== yj > lat &&
+        lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
+      if (intersect) inside = !inside
+    }
+    return inside
+  }, [])
+
+  // Check if any corner of a panel is in any restricted area
+  const isPanelInRestrictedArea = useCallback((corners: number[][]): boolean => {
+    for (const area of restrictedAreas) {
+      for (const corner of corners) {
+        if (isPointInPolygonHelper(corner[0], corner[1], area.coordinates)) {
+          return true
+        }
+      }
+    }
+    return false
+  }, [restrictedAreas, isPointInPolygonHelper])
+
   // Calculate panel positions within a polygon
   const calculatePanelPositionsInPolygon = useCallback(
     (
@@ -240,18 +266,10 @@ export default function SonnendachStep2SolarSystem() {
 
       // Point in polygon check
       const isPointInPolygon = (lng: number, lat: number): boolean => {
-        let inside = false
-        for (let i = 0, j = polygonCoords.length - 1; i < polygonCoords.length; j = i++) {
-          const xi = polygonCoords[i][0], yi = polygonCoords[i][1]
-          const xj = polygonCoords[j][0], yj = polygonCoords[j][1]
-          const intersect = yi > lat !== yj > lat &&
-            lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
-          if (intersect) inside = !inside
-        }
-        return inside
+        return isPointInPolygonHelper(lng, lat, polygonCoords)
       }
 
-      // Check if all 4 corners of a panel are inside
+      // Check if all 4 corners of a panel are inside the roof segment
       const isPanelInPolygon = (corners: number[][]): boolean => {
         return corners.every(c => isPointInPolygon(c[0], c[1]))
       }
@@ -311,7 +329,8 @@ export default function SonnendachStep2SolarSystem() {
             ]
           })
 
-          if (isPanelInPolygon(corners)) {
+          // Check if panel is inside the roof segment AND not in any restricted area
+          if (isPanelInPolygon(corners) && !isPanelInRestrictedArea(corners)) {
             positions.push({ corners })
           }
         }
@@ -319,10 +338,10 @@ export default function SonnendachStep2SolarSystem() {
 
       return positions
     },
-    []
+    [isPointInPolygonHelper, isPanelInRestrictedArea]
   )
 
-  // Calculate max panels that fit in all selected segments
+  // Calculate max panels that fit in all selected segments (excluding restricted areas)
   const calculateMaxPanels = useCallback(() => {
     if (!selectedPanel || selectedSegments.length === 0) return 0
 
@@ -334,7 +353,7 @@ export default function SonnendachStep2SolarSystem() {
       totalPanels += positions.length
     }
     return totalPanels
-  }, [selectedPanel, selectedSegments, calculatePanelPositionsInPolygon])
+  }, [selectedPanel, selectedSegments, calculatePanelPositionsInPolygon, restrictedAreas])
 
   // Track previous panel ID to detect panel changes
   const prevPanelIdRef = useRef<string | null>(null)
@@ -373,11 +392,12 @@ export default function SonnendachStep2SolarSystem() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 20,
+        maxZoom: 19,  // Sonnendach layer doesn't support zoom 20+
         crossOrigin: 'anonymous',
       }),
       opacity: 0.5,
       minZoom: 15,
+      maxZoom: 19,
     })
 
     const segmentSource = new VectorSource()
@@ -767,12 +787,12 @@ export default function SonnendachStep2SolarSystem() {
         {/* Navigation */}
         <div className="p-4 border-t sticky bottom-0 bg-background">
           <div className="flex gap-2">
-            <Button variant="outline" onClick={() => goToStep(1)} className="gap-2 flex-1">
+            <Button variant="outline" onClick={() => goToStep(2)} className="gap-2 flex-1">
               <ChevronLeft className="w-4 h-4" />
               {t('back')}
             </Button>
             <Button
-              onClick={() => goToStep(3)}
+              onClick={() => goToStep(4)}
               disabled={!canProceed}
               className="gap-2 flex-1"
             >

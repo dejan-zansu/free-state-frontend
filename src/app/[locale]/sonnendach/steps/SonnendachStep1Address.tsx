@@ -225,11 +225,12 @@ export default function SonnendachStep1Address() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 20,
+        maxZoom: 19,  // Sonnendach layer doesn't support zoom 20+
         crossOrigin: 'anonymous',
       }),
       opacity: 0.7,
       minZoom: 15,
+      maxZoom: 19,  // Don't request tiles beyond zoom 19
     })
 
     const vectorSource = new VectorSource()

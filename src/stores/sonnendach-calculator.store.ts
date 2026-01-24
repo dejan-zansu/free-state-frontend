@@ -34,6 +34,24 @@ export interface Inverter {
   price: number        // CHF
 }
 
+// Roof properties types
+export type RoofType = 'flat' | 'low_slope' | 'medium' | 'steep'
+export type RoofMaterial = 'bitumen' | 'gravel' | 'green_roof' | 'granulate' | 'tiles' | 'metal' | 'unknown'
+
+export interface RoofProperties {
+  roofType: RoofType
+  buildingFloors: number
+  roofMaterial: RoofMaterial
+}
+
+// Restricted area (exclusion zone)
+export interface RestrictedArea {
+  id: string
+  coordinates: number[][]  // WGS84 [lng, lat] pairs
+  area: number             // m²
+  label?: string           // e.g., "Skylight", "Chimney", "HVAC"
+}
+
 // Calculator state
 interface SonnendachCalculatorState {
   // Navigation
@@ -51,7 +69,11 @@ interface SonnendachCalculatorState {
   selectedSegmentIds: string[]  // IDs of selected roof segments
   isFetchingBuilding: boolean
 
-  // Step 2: Solar System Configuration
+  // Step 2: Usable Area (Nutzfläche)
+  roofProperties: RoofProperties
+  restrictedAreas: RestrictedArea[]
+
+  // Step 3: Solar System Configuration
   selectedPanel: SolarPanel | null
   selectedInverter: Inverter | null
   panelCount: number
@@ -95,7 +117,15 @@ interface SonnendachCalculatorActions {
   // Direct segment data (for new flow where segments are selected individually)
   setSelectedSegmentsData: (segments: RoofSegment[]) => void
 
-  // Step 2: Solar System
+  // Step 2: Usable Area
+  setRoofProperties: (properties: Partial<RoofProperties>) => void
+  addRestrictedArea: (area: RestrictedArea) => void
+  removeRestrictedArea: (id: string) => void
+  clearRestrictedAreas: () => void
+  getUsableArea: () => number
+  getTotalRestrictedArea: () => number
+
+  // Step 3: Solar System
   selectPanel: (panel: SolarPanel) => void
   selectInverter: (inverter: Inverter) => void
   setPanelCount: (count: number) => void
@@ -111,7 +141,7 @@ type SonnendachCalculatorStore = SonnendachCalculatorState & SonnendachCalculato
 const initialState: SonnendachCalculatorState = {
   // Navigation
   currentStep: 1,
-  totalSteps: 3,
+  totalSteps: 4,
 
   // Step 1
   address: '',
@@ -124,7 +154,15 @@ const initialState: SonnendachCalculatorState = {
   selectedSegmentIds: [],
   isFetchingBuilding: false,
 
-  // Step 2: Solar System
+  // Step 2: Usable Area
+  roofProperties: {
+    roofType: 'flat',
+    buildingFloors: 1,
+    roofMaterial: 'unknown',
+  },
+  restrictedAreas: [],
+
+  // Step 3: Solar System
   selectedPanel: null,
   selectedInverter: null,
   panelCount: 0,
@@ -357,7 +395,38 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         })
       },
 
-      // Step 2: Solar System
+      // Step 2: Usable Area
+      setRoofProperties: (properties: Partial<RoofProperties>) => {
+        const { roofProperties } = get()
+        set({ roofProperties: { ...roofProperties, ...properties } })
+      },
+
+      addRestrictedArea: (area: RestrictedArea) => {
+        const { restrictedAreas } = get()
+        set({ restrictedAreas: [...restrictedAreas, area] })
+      },
+
+      removeRestrictedArea: (id: string) => {
+        const { restrictedAreas } = get()
+        set({ restrictedAreas: restrictedAreas.filter((a) => a.id !== id) })
+      },
+
+      clearRestrictedAreas: () => {
+        set({ restrictedAreas: [] })
+      },
+
+      getUsableArea: () => {
+        const { selectedArea, restrictedAreas } = get()
+        const totalRestricted = restrictedAreas.reduce((sum, a) => sum + a.area, 0)
+        return Math.max(0, selectedArea - totalRestricted)
+      },
+
+      getTotalRestrictedArea: () => {
+        const { restrictedAreas } = get()
+        return restrictedAreas.reduce((sum, a) => sum + a.area, 0)
+      },
+
+      // Step 3: Solar System
       selectPanel: (panel: SolarPanel) => {
         set({ selectedPanel: panel })
       },
@@ -394,6 +463,8 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         currentStep: state.currentStep,
         building: state.building,
         selectedSegmentIds: state.selectedSegmentIds,
+        roofProperties: state.roofProperties,
+        restrictedAreas: state.restrictedAreas,
         selectedPanel: state.selectedPanel,
         selectedInverter: state.selectedInverter,
         panelCount: state.panelCount,

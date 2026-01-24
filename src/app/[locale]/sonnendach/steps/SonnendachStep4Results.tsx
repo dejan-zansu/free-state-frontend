@@ -18,8 +18,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
 
-export default function SonnendachStep3Results() {
-  const t = useTranslations('sonnendach.step3')
+export default function SonnendachStep4Results() {
+  const t = useTranslations('sonnendach.step4')
   const {
     building,
     selectedArea,
@@ -280,7 +280,7 @@ export default function SonnendachStep3Results() {
 
         {/* Navigation */}
         <div className='flex gap-4'>
-          <Button variant='outline' onClick={() => goToStep(2)} className='gap-2'>
+          <Button variant='outline' onClick={() => goToStep(3)} className='gap-2'>
             <ChevronLeft className='w-4 h-4' />
             {t('back')}
           </Button>
