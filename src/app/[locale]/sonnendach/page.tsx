@@ -7,16 +7,16 @@ import { Progress } from '@/components/ui/progress'
 import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
 
 import SonnendachStep1Address from './steps/SonnendachStep1Address'
-import SonnendachStep2RoofSelection from './steps/SonnendachStep2RoofSelection'
 import SonnendachStep3Results from './steps/SonnendachStep3Results'
 
 export default function SonnendachCalculatorPage() {
   const t = useTranslations('sonnendach')
   const { currentStep, error, clearError } = useSonnendachCalculatorStore()
 
+  // Simplified 2-step flow: Selection -> Results
+  // (Step 1 now combines address search + roof selection)
   const steps = [
     { id: 1, title: t('steps.step1.title'), description: t('steps.step1.description') },
-    { id: 2, title: t('steps.step2.title'), description: t('steps.step2.description') },
     { id: 3, title: t('steps.step3.title'), description: t('steps.step3.description') },
   ]
 
@@ -24,15 +24,14 @@ export default function SonnendachCalculatorPage() {
     clearError()
   }, [currentStep, clearError])
 
-  const totalSteps = steps.length
-  const progress = ((currentStep - 1) / (totalSteps - 1)) * 100
+  // Map internal step to display step for progress calculation
+  const displayStep = currentStep === 3 ? 2 : 1
+  const progress = ((displayStep - 1) / (steps.length - 1)) * 100
 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
         return <SonnendachStep1Address />
-      case 2:
-        return <SonnendachStep2RoofSelection />
       case 3:
         return <SonnendachStep3Results />
       default:
@@ -48,9 +47,9 @@ export default function SonnendachCalculatorPage() {
             <div className='space-y-2'>
               <Progress value={progress} className='h-2' />
               <div className='hidden md:flex items-center justify-between text-xs'>
-                {steps.map((step) => {
+                {steps.map((step, index) => {
                   const isCurrentStep = currentStep === step.id
-                  const isCompleted = currentStep > step.id
+                  const isCompleted = displayStep > (index + 1)
                   return (
                     <div
                       key={step.id}

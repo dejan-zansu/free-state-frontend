@@ -69,6 +69,9 @@ interface SonnendachCalculatorActions {
   getSelectedSegments: () => RoofSegment[]
   calculateTotals: () => void
 
+  // Direct segment data (for new flow where segments are selected individually)
+  setSelectedSegmentsData: (segments: RoofSegment[]) => void
+
   // Reset
   reset: () => void
   clearError: () => void
@@ -290,6 +293,35 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         set({
           selectedArea: Math.round(selectedArea * 10) / 10,
           selectedPotentialKwh: Math.round(selectedPotentialKwh),
+          estimatedPanelCount,
+        })
+      },
+
+      // Direct segment data (for new flow)
+      setSelectedSegmentsData: (segments: RoofSegment[]) => {
+        // Create a pseudo-building from the selected segments
+        const totalArea = segments.reduce((sum, s) => sum + s.area, 0)
+        const totalPotentialKwh = segments.reduce((sum, s) => sum + s.electricityYield, 0)
+        const estimatedPanelCount = segments.reduce((sum, s) => sum + (s.estimatedPanels || 0), 0)
+
+        // Find best suitability class
+        const bestSuitability = segments.length > 0
+          ? Math.max(...segments.map((s) => s.suitability.class))
+          : 1
+
+        set({
+          building: {
+            buildingId: 0,
+            center: { lat: 0, lng: 0, x: 0, y: 0 },
+            roofSegments: segments,
+            totalArea: Math.round(totalArea * 10) / 10,
+            totalPotentialKwh: Math.round(totalPotentialKwh),
+            suitabilityClass: bestSuitability,
+            suitabilityLabel: '',
+          },
+          selectedSegmentIds: segments.map((s) => s.id),
+          selectedArea: Math.round(totalArea * 10) / 10,
+          selectedPotentialKwh: Math.round(totalPotentialKwh),
           estimatedPanelCount,
         })
       },

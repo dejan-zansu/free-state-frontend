@@ -26,7 +26,7 @@ export default function SonnendachStep3Results() {
     selectedPotentialKwh,
     estimatedPanelCount,
     getSelectedSegments,
-    prevStep,
+    goToStep,
     reset,
   } = useSonnendachCalculatorStore()
 
@@ -262,7 +262,7 @@ export default function SonnendachStep3Results() {
 
         {/* Navigation */}
         <div className='flex gap-4'>
-          <Button variant='outline' onClick={prevStep} className='gap-2'>
+          <Button variant='outline' onClick={() => goToStep(1)} className='gap-2'>
             <ChevronLeft className='w-4 h-4' />
             {t('back')}
           </Button>

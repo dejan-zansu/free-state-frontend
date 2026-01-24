@@ -63,31 +63,71 @@ export default function SonnendachStep2RoofSelection() {
 
   const [mapLoaded, setMapLoaded] = useState(false)
 
+  // Highlight color for selected segments
+  const SELECTED_COLOR = '#1B332D'
+  const SELECTED_STROKE = '#b7fe1a' // Bright accent for visibility
+
   // Get style for a segment
   const getSegmentStyle = useCallback(
     (segmentId: string, isHovered: boolean = false) => {
-      const segment = building?.roofSegments.find((s) => s.id === segmentId)
+      const segment = building?.roofSegments.find(s => s.id === segmentId)
       if (!segment) return new Style()
 
       const isSelected = selectedSegmentIds.includes(segmentId)
       const suitabilityColor = segment.suitability.color
 
+      if (isSelected) {
+        return new Style({
+          fill: new Fill({
+            color: `${SELECTED_COLOR}CC`, // 80% opacity
+          }),
+          stroke: new Stroke({
+            color: SELECTED_STROKE,
+            width: 3,
+          }),
+        })
+      }
+
       return new Style({
         fill: new Fill({
-          color: isSelected
-            ? `${suitabilityColor}99` // 60% opacity
-            : isHovered
-              ? `${suitabilityColor}80` // 50% opacity
-              : `${suitabilityColor}4D`, // 30% opacity
+          color: isHovered
+            ? `${suitabilityColor}B3` // 70% opacity on hover
+            : `${suitabilityColor}80`, // 50% opacity default (more visible)
         }),
         stroke: new Stroke({
-          color: isSelected ? '#b7fe1a' : suitabilityColor,
-          width: isSelected ? 3 : 2,
+          color: '#ffffff', // White border for visibility
+          width: 2,
         }),
       })
     },
     [building, selectedSegmentIds]
   )
+
+  // Convert LV95 coordinates to WGS84 (fallback if backend doesn't provide them)
+  const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
+    // Shift to origin
+    const y1 = (easting - 2600000) / 1000000
+    const x1 = (northing - 1200000) / 1000000
+
+    // Calculate latitude
+    const lat =
+      16.9023892 +
+      3.238272 * x1 -
+      0.270978 * y1 * y1 -
+      0.002528 * x1 * x1 -
+      0.0447 * y1 * y1 * x1 -
+      0.014 * x1 * x1 * x1
+
+    // Calculate longitude
+    const lng =
+      2.6779094 +
+      4.728982 * y1 +
+      0.791484 * y1 * x1 +
+      0.1306 * y1 * x1 * x1 -
+      0.0436 * y1 * y1 * y1
+
+    return [(lng * 100) / 36, (lat * 100) / 36] // [lng, lat]
+  }
 
   // Draw roof segments on map
   const drawRoofSegments = useCallback(() => {
@@ -96,17 +136,45 @@ export default function SonnendachStep2RoofSelection() {
     // Clear existing features
     vectorSourceRef.current.clear()
 
+    console.log('Drawing roof segments:', building.roofSegments.length)
+
+    // Debug: log first segment's geometry
+    if (building.roofSegments.length > 0) {
+      const firstSeg = building.roofSegments[0]
+      console.log('First segment geometry:', {
+        hasCoordinates: !!firstSeg.geometry.coordinates?.length,
+        hasWGS84: !!firstSeg.geometry.coordinatesWGS84?.length,
+        lv95Sample: firstSeg.geometry.coordinates?.[0]?.[0],
+        wgs84Sample: firstSeg.geometry.coordinatesWGS84?.[0]?.[0],
+      })
+    }
+
     // Add each segment as a feature
-    building.roofSegments.forEach((segment) => {
-      // Use WGS84 coordinates if available, otherwise skip
-      const wgs84Coords = segment.geometry.coordinatesWGS84
-      if (!wgs84Coords || wgs84Coords.length === 0) return
+    building.roofSegments.forEach((segment, index) => {
+      // Try WGS84 coordinates first, fall back to converting LV95
+      let wgs84Coords = segment.geometry.coordinatesWGS84
+
+      if (!wgs84Coords || wgs84Coords.length === 0) {
+        // Convert LV95 coordinates to WGS84
+        const lv95Coords = segment.geometry.coordinates
+        if (!lv95Coords || lv95Coords.length === 0) {
+          console.warn(`Segment ${index} has no coordinates`)
+          return
+        }
+
+        wgs84Coords = lv95Coords.map(ring =>
+          ring.map(point => lv95ToWgs84(point[0], point[1]))
+        )
+      }
 
       const coordinates = wgs84Coords[0]
-      if (!coordinates || coordinates.length < 3) return
+      if (!coordinates || coordinates.length < 3) {
+        console.warn(`Segment ${index} has insufficient coordinates`)
+        return
+      }
 
       // Convert WGS84 [lng, lat] to Web Mercator
-      const webMercatorCoords = coordinates.map((coord) => fromLonLat(coord))
+      const webMercatorCoords = coordinates.map(coord => fromLonLat(coord))
 
       const polygon = new Polygon([webMercatorCoords])
 
@@ -118,6 +186,8 @@ export default function SonnendachStep2RoofSelection() {
       feature.setStyle(getSegmentStyle(segment.id))
       vectorSourceRef.current?.addFeature(feature)
     })
+
+    console.log('Features added:', vectorSourceRef.current?.getFeatures().length)
   }, [building, getSegmentStyle])
 
   // Initialize map
@@ -149,10 +219,10 @@ export default function SonnendachStep2RoofSelection() {
       const vectorSource = new VectorSource()
       vectorSourceRef.current = vectorSource
 
-      // Create vector layer for our segment overlays
+      // Create vector layer for our segment overlays (high z-index to be on top)
       const vectorLayer = new VectorLayer({
         source: vectorSource,
-        zIndex: 10,
+        zIndex: 100,
       })
 
       // Get center from building (WGS84)
@@ -183,8 +253,8 @@ export default function SonnendachStep2RoofSelection() {
       drawRoofSegments()
 
       // Add click handler for segment selection
-      map.on('click', async (event) => {
-        const feature = map.forEachFeatureAtPixel(event.pixel, (f) => f)
+      map.on('click', async event => {
+        const feature = map.forEachFeatureAtPixel(event.pixel, f => f)
 
         if (feature) {
           const segmentId = feature.get('segmentId')
@@ -195,12 +265,12 @@ export default function SonnendachStep2RoofSelection() {
       })
 
       // Add pointer cursor on hover
-      map.on('pointermove', (event) => {
-        const feature = map.forEachFeatureAtPixel(event.pixel, (f) => f)
+      map.on('pointermove', event => {
+        const feature = map.forEachFeatureAtPixel(event.pixel, f => f)
         map.getTargetElement().style.cursor = feature ? 'pointer' : ''
 
         // Update hover styles
-        vectorSource.getFeatures().forEach((f) => {
+        vectorSource.getFeatures().forEach(f => {
           const segmentId = f.get('segmentId')
           const isHovered = f === feature
           f.setStyle(getSegmentStyle(segmentId, isHovered))
@@ -215,7 +285,7 @@ export default function SonnendachStep2RoofSelection() {
   useEffect(() => {
     if (!mapLoaded || !vectorSourceRef.current) return
 
-    vectorSourceRef.current.getFeatures().forEach((feature) => {
+    vectorSourceRef.current.getFeatures().forEach(feature => {
       const segmentId = feature.get('segmentId')
       feature.setStyle(getSegmentStyle(segmentId))
     })
@@ -256,114 +326,124 @@ export default function SonnendachStep2RoofSelection() {
 
   if (!building) {
     return (
-      <div className='h-full flex items-center justify-center'>
-        <div className='text-center'>
-          <Loader2 className='w-8 h-8 animate-spin mx-auto mb-4 text-primary' />
-          <p className='text-muted-foreground'>{t('loadingBuilding')}</p>
+      <div className="h-full flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-8 h-8 animate-spin mx-auto mb-4 text-primary" />
+          <p className="text-muted-foreground">{t('loadingBuilding')}</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className='h-full flex'>
+    <div className="h-full flex">
       {/* Sidebar */}
-      <div className='w-[400px] border-r bg-background overflow-y-auto p-4 space-y-4'>
+      <div className="w-[400px] border-r bg-background overflow-y-auto p-4 space-y-4">
         {/* Building Info */}
         <Card>
-          <CardHeader className='pb-2'>
-            <CardTitle className='text-lg flex items-center gap-2'>
-              <Building2 className='w-5 h-5 text-primary' />
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Building2 className="w-5 h-5 text-primary" />
               {t('buildingInfo')}
             </CardTitle>
           </CardHeader>
-          <CardContent className='space-y-2 text-sm'>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('totalArea')}</span>
-              <span className='font-medium'>{building.totalArea} m²</span>
+          <CardContent className="space-y-2 text-sm">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">{t('totalArea')}</span>
+              <span className="font-medium">{building.totalArea} m²</span>
             </div>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('totalPotential')}</span>
-              <span className='font-medium'>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">
+                {t('totalPotential')}
+              </span>
+              <span className="font-medium">
                 {building.totalPotentialKwh.toLocaleString()} kWh/year
               </span>
             </div>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('roofSegments')}</span>
-              <span className='font-medium'>{building.roofSegments.length}</span>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">{t('roofSegments')}</span>
+              <span className="font-medium">
+                {building.roofSegments.length}
+              </span>
             </div>
           </CardContent>
         </Card>
 
         {/* Selection Summary */}
-        <Card className='border-primary/50 bg-primary/5'>
-          <CardHeader className='pb-2'>
-            <CardTitle className='text-lg flex items-center gap-2'>
-              <CheckCircle2 className='w-5 h-5 text-primary' />
+        <Card className="border-primary/50 bg-primary/5">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <CheckCircle2 className="w-5 h-5 text-primary" />
               {t('selectedSummary')}
             </CardTitle>
           </CardHeader>
-          <CardContent className='space-y-2 text-sm'>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('selectedSegments')}</span>
-              <span className='font-medium'>
+          <CardContent className="space-y-2 text-sm">
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">
+                {t('selectedSegments')}
+              </span>
+              <span className="font-medium">
                 {selectedSegmentIds.length} / {building.roofSegments.length}
               </span>
             </div>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('selectedArea')}</span>
-              <span className='font-medium'>{selectedArea} m²</span>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">{t('selectedArea')}</span>
+              <span className="font-medium">{selectedArea} m²</span>
             </div>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('selectedPotential')}</span>
-              <span className='font-medium'>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">
+                {t('selectedPotential')}
+              </span>
+              <span className="font-medium">
                 {selectedPotentialKwh.toLocaleString()} kWh/year
               </span>
             </div>
-            <div className='flex justify-between'>
-              <span className='text-muted-foreground'>{t('estimatedPanels')}</span>
-              <span className='font-medium'>{estimatedPanelCount}</span>
+            <div className="flex justify-between">
+              <span className="text-muted-foreground">
+                {t('estimatedPanels')}
+              </span>
+              <span className="font-medium">{estimatedPanelCount}</span>
             </div>
           </CardContent>
         </Card>
 
         {/* Quick Selection */}
         <Card>
-          <CardHeader className='pb-2'>
-            <CardTitle className='text-sm'>{t('quickSelection')}</CardTitle>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">{t('quickSelection')}</CardTitle>
           </CardHeader>
-          <CardContent className='space-y-2'>
+          <CardContent className="space-y-2">
             <Button
-              variant='outline'
-              size='sm'
-              className='w-full justify-start'
+              variant="outline"
+              size="sm"
+              className="w-full justify-start"
               onClick={selectAllSegments}
             >
               {t('selectAll')}
             </Button>
             <Button
-              variant='outline'
-              size='sm'
-              className='w-full justify-start'
+              variant="outline"
+              size="sm"
+              className="w-full justify-start"
               onClick={() => selectSegmentsByMinSuitability(3)}
             >
               {t('selectGoodAndAbove')}
             </Button>
             <Button
-              variant='outline'
-              size='sm'
-              className='w-full justify-start'
+              variant="outline"
+              size="sm"
+              className="w-full justify-start"
               onClick={() => selectSegmentsByMinSuitability(4)}
             >
               {t('selectVeryGoodAndAbove')}
             </Button>
             <Button
-              variant='ghost'
-              size='sm'
-              className='w-full justify-start text-muted-foreground'
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start text-muted-foreground"
               onClick={clearSegmentSelection}
             >
-              <XCircle className='w-4 h-4 mr-2' />
+              <XCircle className="w-4 h-4 mr-2" />
               {t('clearSelection')}
             </Button>
           </CardContent>
@@ -371,11 +451,11 @@ export default function SonnendachStep2RoofSelection() {
 
         {/* Roof Segments List */}
         <Card>
-          <CardHeader className='pb-2'>
-            <CardTitle className='text-sm'>{t('roofSegmentsList')}</CardTitle>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">{t('roofSegmentsList')}</CardTitle>
           </CardHeader>
-          <CardContent className='space-y-2'>
-            {building.roofSegments.map((segment) => {
+          <CardContent className="space-y-2">
+            {building.roofSegments.map(segment => {
               const isSelected = selectedSegmentIds.includes(segment.id)
               const suitability = SUITABILITY_CLASSES[segment.suitability.class]
 
@@ -389,36 +469,38 @@ export default function SonnendachStep2RoofSelection() {
                   }`}
                   onClick={() => toggleSegmentSelection(segment.id)}
                 >
-                  <div className='flex items-start gap-3'>
+                  <div className="flex items-start gap-3">
                     <Checkbox
                       checked={isSelected}
                       onCheckedChange={() => toggleSegmentSelection(segment.id)}
-                      className='mt-1'
+                      className="mt-1"
                     />
-                    <div className='flex-1 min-w-0'>
-                      <div className='flex items-center gap-2 mb-1'>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
                         <div
-                          className='w-3 h-3 rounded-full'
-                          style={{ backgroundColor: suitability?.color || '#888' }}
+                          className="w-3 h-3 rounded-full"
+                          style={{
+                            backgroundColor: suitability?.color || '#888',
+                          }}
                         />
-                        <span className='text-sm font-medium capitalize'>
+                        <span className="text-sm font-medium capitalize">
                           {suitability?.label || 'Unknown'}
                         </span>
                       </div>
-                      <div className='grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-muted-foreground'>
-                        <div className='flex items-center gap-1'>
-                          <Ruler className='w-3 h-3' />
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                        <div className="flex items-center gap-1">
+                          <Ruler className="w-3 h-3" />
                           {segment.area} m²
                         </div>
-                        <div className='flex items-center gap-1'>
-                          <Compass className='w-3 h-3' />
+                        <div className="flex items-center gap-1">
+                          <Compass className="w-3 h-3" />
                           {segment.azimuthCardinal} ({segment.azimuth}°)
                         </div>
-                        <div className='flex items-center gap-1'>
-                          <Sun className='w-3 h-3' />
+                        <div className="flex items-center gap-1">
+                          <Sun className="w-3 h-3" />
                           {segment.electricityYield.toLocaleString()} kWh
                         </div>
-                        <div className='flex items-center gap-1'>
+                        <div className="flex items-center gap-1">
                           Tilt: {segment.tilt}°
                         </div>
                       </div>
@@ -432,18 +514,18 @@ export default function SonnendachStep2RoofSelection() {
 
         {/* Legend */}
         <Card>
-          <CardHeader className='pb-2'>
-            <CardTitle className='text-sm'>{t('legend')}</CardTitle>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-sm">{t('legend')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className='grid grid-cols-2 gap-2 text-xs'>
+            <div className="grid grid-cols-2 gap-2 text-xs">
               {Object.entries(SUITABILITY_CLASSES).map(([key, value]) => (
-                <div key={key} className='flex items-center gap-2'>
+                <div key={key} className="flex items-center gap-2">
                   <div
-                    className='w-3 h-3 rounded-full'
+                    className="w-3 h-3 rounded-full"
                     style={{ backgroundColor: value.color }}
                   />
-                  <span className='capitalize'>{value.label}</span>
+                  <span className="capitalize">{value.label}</span>
                 </div>
               ))}
             </div>
@@ -451,53 +533,54 @@ export default function SonnendachStep2RoofSelection() {
         </Card>
 
         {/* Navigation */}
-        <div className='flex gap-2 pt-4 border-t'>
-          <Button variant='outline' onClick={prevStep} className='flex-1 gap-2'>
-            <ChevronLeft className='w-4 h-4' />
+        <div className="flex gap-2 pt-4 border-t">
+          <Button variant="outline" onClick={prevStep} className="flex-1 gap-2">
+            <ChevronLeft className="w-4 h-4" />
             {t('back')}
           </Button>
           <Button
             onClick={nextStep}
             disabled={!canContinue || isFetchingBuilding}
-            className='flex-1 gap-2'
+            className="flex-1 gap-2"
           >
             {isFetchingBuilding ? (
-              <Loader2 className='w-4 h-4 animate-spin' />
+              <Loader2 className="w-4 h-4 animate-spin" />
             ) : (
               <>
                 {t('continue')}
-                <ChevronRight className='w-4 h-4' />
+                <ChevronRight className="w-4 h-4" />
               </>
             )}
           </Button>
         </div>
       </div>
 
-      {/* Map */}
-      <div className='flex-1 relative'>
+      <div className="flex-1 relative">
         {isFetchingBuilding && (
-          <div className='absolute inset-0 bg-background/50 backdrop-blur-sm z-10 flex items-center justify-center'>
-            <div className='text-center'>
-              <Loader2 className='w-8 h-8 animate-spin mx-auto mb-2 text-primary' />
-              <p className='text-sm text-muted-foreground'>{t('loadingBuilding')}</p>
+          <div className="absolute inset-0 bg-background/50 backdrop-blur-sm z-10 flex items-center justify-center">
+            <div className="text-center">
+              <Loader2 className="w-8 h-8 animate-spin mx-auto mb-2 text-primary" />
+              <p className="text-sm text-muted-foreground">
+                {t('loadingBuilding')}
+              </p>
             </div>
           </div>
         )}
 
         {error && (
-          <div className='absolute top-4 left-4 right-4 z-10 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm'>
+          <div className="absolute top-4 left-4 right-4 z-10 p-3 rounded-lg bg-destructive/10 border border-destructive/20 text-destructive text-sm">
             {error}
           </div>
         )}
 
-        <div className='absolute top-4 right-4 z-10 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs'>
-          <p className='font-medium mb-1'>{t('mapHelp.title')}</p>
-          <ul className='text-muted-foreground space-y-0.5'>
+        <div className="absolute top-4 right-4 z-10 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs">
+          <p className="font-medium mb-1">{t('mapHelp.title')}</p>
+          <ul className="text-muted-foreground space-y-0.5">
             <li>{t('mapHelp.click')}</li>
           </ul>
         </div>
 
-        <div ref={mapRef} className='w-full h-full' />
+        <div ref={mapRef} className="w-full h-full" />
       </div>
     </div>
   )
