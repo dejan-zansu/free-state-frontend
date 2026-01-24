@@ -356,7 +356,7 @@ export default function SonnendachStep1Address() {
   const handleContinue = () => {
     const { setSelectedSegmentsData } = useSonnendachCalculatorStore.getState()
     setSelectedSegmentsData(selectedSegments)
-    goToStep(3)
+    goToStep(2)
   }
 
   return (

@@ -24,7 +24,9 @@ export default function SonnendachStep3Results() {
     building,
     selectedArea,
     selectedPotentialKwh,
-    estimatedPanelCount,
+    selectedPanel,
+    selectedInverter,
+    panelCount,
     getSelectedSegments,
     goToStep,
     reset,
@@ -55,12 +57,16 @@ export default function SonnendachStep3Results() {
   // Calculate CO2 savings (Swiss grid factor: ~26g CO2/kWh, but offset vs EU average: ~400g)
   const co2SavingsKg = Math.round(selectedPotentialKwh * 0.4) // 400g per kWh
 
-  // Estimate system size in kWp (assuming 400W panels)
-  const systemSizeKwp = Math.round((estimatedPanelCount * 400) / 1000 * 10) / 10
+  // Use actual panel data from selection
+  const systemSizeKwp = selectedPanel && panelCount
+    ? Math.round((selectedPanel.power * panelCount) / 1000 * 10) / 10
+    : 0
 
-  // Financial estimates (simplified)
-  const installationCostPerKwp = 2200 // CHF
-  const estimatedCost = Math.round(systemSizeKwp * installationCostPerKwp)
+  // Financial estimates using actual equipment costs
+  const panelCost = selectedPanel ? selectedPanel.price * panelCount : 0
+  const inverterCost = selectedInverter ? selectedInverter.price : 0
+  const installationCost = Math.round(systemSizeKwp * 800) // Installation labor ~800 CHF/kWp
+  const estimatedCost = panelCost + inverterCost + installationCost
   const federalSubsidy = Math.round(600 + systemSizeKwp * 350) // Simplified Swiss subsidy
   const netCost = estimatedCost - Math.min(federalSubsidy, estimatedCost * 0.3)
 
@@ -119,7 +125,7 @@ export default function SonnendachStep3Results() {
           <Card className='text-center'>
             <CardContent className='pt-6'>
               <Building2 className='w-8 h-8 text-primary mx-auto mb-2' />
-              <p className='text-2xl font-bold'>{estimatedPanelCount}</p>
+              <p className='text-2xl font-bold'>{panelCount}</p>
               <p className='text-sm text-muted-foreground'>{t('panels')}</p>
             </CardContent>
           </Card>
@@ -185,6 +191,18 @@ export default function SonnendachStep3Results() {
                   <span className='text-muted-foreground'>{t('systemSize')}</span>
                   <span className='font-medium'>{systemSizeKwp} kWp</span>
                 </div>
+                {selectedPanel && (
+                  <div className='flex justify-between text-sm'>
+                    <span className='text-muted-foreground'>{t('panelType')}</span>
+                    <span className='font-medium'>{selectedPanel.name}</span>
+                  </div>
+                )}
+                {selectedInverter && (
+                  <div className='flex justify-between text-sm'>
+                    <span className='text-muted-foreground'>{t('inverter')}</span>
+                    <span className='font-medium'>{selectedInverter.name}</span>
+                  </div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -262,7 +280,7 @@ export default function SonnendachStep3Results() {
 
         {/* Navigation */}
         <div className='flex gap-4'>
-          <Button variant='outline' onClick={() => goToStep(1)} className='gap-2'>
+          <Button variant='outline' onClick={() => goToStep(2)} className='gap-2'>
             <ChevronLeft className='w-4 h-4' />
             {t('back')}
           </Button>

@@ -13,6 +13,27 @@ import type {
   RoofSegment,
 } from '@/types/sonnendach'
 
+// Equipment types
+export interface SolarPanel {
+  id: string
+  name: string
+  power: number        // Watts
+  width: number        // meters
+  height: number       // meters
+  efficiency: number   // percent
+  manufacturer: string
+  price: number        // CHF
+}
+
+export interface Inverter {
+  id: string
+  name: string
+  power: number        // kW
+  manufacturer: string
+  efficiency: number   // percent
+  price: number        // CHF
+}
+
 // Calculator state
 interface SonnendachCalculatorState {
   // Navigation
@@ -30,9 +51,11 @@ interface SonnendachCalculatorState {
   selectedSegmentIds: string[]  // IDs of selected roof segments
   isFetchingBuilding: boolean
 
-  // Step 3: Configuration (for future use)
-  panelType: string
-  installationCostPerKwp: number
+  // Step 2: Solar System Configuration
+  selectedPanel: SolarPanel | null
+  selectedInverter: Inverter | null
+  panelCount: number
+  maxPanelCount: number
 
   // Results (calculated from selected segments)
   selectedArea: number           // m²
@@ -72,6 +95,12 @@ interface SonnendachCalculatorActions {
   // Direct segment data (for new flow where segments are selected individually)
   setSelectedSegmentsData: (segments: RoofSegment[]) => void
 
+  // Step 2: Solar System
+  selectPanel: (panel: SolarPanel) => void
+  selectInverter: (inverter: Inverter) => void
+  setPanelCount: (count: number) => void
+  setMaxPanelCount: (count: number) => void
+
   // Reset
   reset: () => void
   clearError: () => void
@@ -90,14 +119,16 @@ const initialState: SonnendachCalculatorState = {
   searchResults: [],
   isSearching: false,
 
-  // Step 2
+  // Building & Roof Selection
   building: null,
   selectedSegmentIds: [],
   isFetchingBuilding: false,
 
-  // Step 3
-  panelType: 'standard',
-  installationCostPerKwp: 2200,
+  // Step 2: Solar System
+  selectedPanel: null,
+  selectedInverter: null,
+  panelCount: 0,
+  maxPanelCount: 0,
 
   // Results
   selectedArea: 0,
@@ -326,6 +357,24 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         })
       },
 
+      // Step 2: Solar System
+      selectPanel: (panel: SolarPanel) => {
+        set({ selectedPanel: panel })
+      },
+
+      selectInverter: (inverter: Inverter) => {
+        set({ selectedInverter: inverter })
+      },
+
+      setPanelCount: (count: number) => {
+        const { maxPanelCount } = get()
+        set({ panelCount: Math.min(count, maxPanelCount) })
+      },
+
+      setMaxPanelCount: (count: number) => {
+        set({ maxPanelCount: count })
+      },
+
       // Reset
       reset: () => {
         set(initialState)
@@ -345,6 +394,9 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         currentStep: state.currentStep,
         building: state.building,
         selectedSegmentIds: state.selectedSegmentIds,
+        selectedPanel: state.selectedPanel,
+        selectedInverter: state.selectedInverter,
+        panelCount: state.panelCount,
       }),
     }
   )

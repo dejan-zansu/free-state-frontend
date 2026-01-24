@@ -794,8 +794,8 @@
         "description": "Enter your Swiss address"
       },
       "step2": {
-        "title": "Roof Selection",
-        "description": "Select roof segments"
+        "title": "Solar System",
+        "description": "Choose your panels"
       },
       "step3": {
         "title": "Results",
@@ -809,7 +809,7 @@
       "coordinates": "Coordinates",
       "mapInfo": "Click on any colored roof on the map to select it for analysis. The colors show solar potential - red/orange is excellent, yellow/green is good, blue is lower.",
       "clickRoofInfo": "Click on colored roof segments on the map to select them. Each click adds a segment to your selection. Click again on a selected segment to remove it.",
-      "continue": "View Results",
+      "continue": "Configure System",
       "loading": "Loading building data...",
       "buildingFound": "Building Found",
       "roofSegments": "Roof Segments",
@@ -863,6 +863,38 @@
         "clickMap": "Click elsewhere to load a different building"
       }
     },
+    "step2System": {
+      "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
+      "backToSelection": "Back to Selection",
+      "systemSize": "System Size",
+      "panels": "Panels",
+      "estCost": "Est. Cost",
+      "tabPanels": "Panels",
+      "tabInverter": "Inverter",
+      "loadingPanels": "Loading panels...",
+      "loadingInverters": "Loading inverters...",
+      "loadingMap": "Loading map...",
+      "noPanels": "No panels available",
+      "noInverters": "No inverters available",
+      "retry": "Retry",
+      "efficiency": "efficiency",
+      "numberOfPanels": "Number of Panels",
+      "maxFit": "Max fit",
+      "capacity": "Capacity",
+      "panelCost": "Panel Cost",
+      "panelArea": "Panel Area",
+      "roofSegments": "Roof Segments",
+      "recommendedInverter": "Recommended inverter size:",
+      "dcAcRatioInfo": "DC/AC ratio 1.2-1.5:1 is optimal",
+      "dcAcRatio": "DC/AC Ratio",
+      "inverterCost": "Inverter Cost",
+      "bestFit": "Best fit",
+      "legend": "Legend",
+      "legendSegment": "Selected Segment",
+      "legendPanel": "Solar Panel",
+      "back": "Back",
+      "continue": "View Results"
+    },
     "step3": {
       "title": "Your Solar Potential",
       "subtitle": "Based on official Swiss federal roof data",
@@ -873,6 +905,8 @@
       "averageTilt": "Average Tilt",
       "dominantOrientation": "Dominant Orientation",
       "systemSize": "System Size",
+      "panelType": "Panel",
+      "inverter": "Inverter",
       "financialEstimate": "Financial Estimate",
       "estimatedCost": "Estimated Cost",
       "federalSubsidy": "Federal Subsidy (est.)",
