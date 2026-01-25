@@ -720,5 +720,64 @@
       }
     },
     "error": "Fehler"
+  },
+  "sonnendach": {
+    "error": "Fehler",
+    "steps": {
+      "step1": {
+        "title": "Adresse",
+        "description": "Dachsegmente auswählen"
+      },
+      "step2": {
+        "title": "Nutzfläche",
+        "description": "Nutzbare Fläche definieren"
+      },
+      "step3": {
+        "title": "Solaranlage",
+        "description": "Wählen Sie Ihre Panels"
+      },
+      "step4": {
+        "title": "Verbrauch",
+        "description": "Immobilie & Nutzung"
+      },
+      "step5": {
+        "title": "Ergebnisse",
+        "description": "Ihr Solarpotenzial"
+      }
+    },
+    "step5": {
+      "title": "Ihr Solarpotenzial",
+      "subtitle": "Basierend auf offiziellen Schweizer Bundesdachdaten",
+      "noData": "Keine Daten verfügbar",
+      "roofVisualization": "Ihre Solaranlage",
+      "roofArea": "Dachfläche",
+      "usableArea": "Nutzbare Fläche",
+      "restricted": "eingeschränkt",
+      "panels": "Panels",
+      "selectedRoofs": "Ausgewählte Dachsegmente",
+      "totalRoofArea": "Gesamte Dachfläche",
+      "restrictedAreas": "Eingeschränkte Bereiche",
+      "averageTilt": "Durchschnittliche Neigung",
+      "dominantOrientation": "Dominante Ausrichtung",
+      "systemSize": "Systemgröße",
+      "panelType": "Panel",
+      "inverter": "Wechselrichter",
+      "financialEstimate": "Finanzielle Schätzung",
+      "estimatedCost": "Geschätzte Kosten",
+      "federalSubsidy": "Bundessubvention (geschätzt)",
+      "netCost": "Nettokosten",
+      "yearlySavings": "Jährliche Einsparungen",
+      "paybackPeriod": "Amortisationszeit",
+      "disclaimer": "Dies sind Schätzungen basierend auf durchschnittlichen Schweizer Werten. Tatsächliche Kosten und Einsparungen können je nach Ihrer spezifischen Situation, Geräteauswahl und Stromtarifen variieren.",
+      "dataSource": {
+        "title": "Datenquelle: Sonnendach.ch",
+        "description": "Diese Analyse verwendet offizielle Daten des Bundesamts für Energie (BFE), kombiniert mit Gebäudedaten von swisstopo und Sonneneinstrahlungsdaten von MeteoSwiss."
+      },
+      "back": "Zurück",
+      "startOver": "Neu starten",
+      "requestQuote": "Angebot anfordern",
+      "downloadReport": "Bericht herunterladen",
+      "downloadingReport": "Wird generiert..."
+    }
   }
 }

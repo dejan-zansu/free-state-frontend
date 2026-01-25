@@ -54,6 +54,8 @@ const SONNENDACH_URL =
 // Colors
 const SELECTED_SEGMENT_COLOR = '#1B332D'
 const SELECTED_SEGMENT_STROKE = '#b7fe1a'
+const NON_SELECTED_SEGMENT_COLOR = '#6B7280'  // Gray for non-selected segments
+const NON_SELECTED_SEGMENT_STROKE = '#9CA3AF'
 const RESTRICTED_FILL_COLOR = '#EF4444'
 const RESTRICTED_STROKE_COLOR = '#DC2626'
 const DRAWING_FILL_COLOR = '#F97316'
@@ -63,6 +65,11 @@ const DRAWING_STROKE_COLOR = '#EA580C'
 const selectedSegmentStyle = new Style({
   fill: new Fill({ color: `${SELECTED_SEGMENT_COLOR}66` }),
   stroke: new Stroke({ color: SELECTED_SEGMENT_STROKE, width: 2 }),
+})
+
+const nonSelectedSegmentStyle = new Style({
+  fill: new Fill({ color: `${NON_SELECTED_SEGMENT_COLOR}33` }),
+  stroke: new Stroke({ color: NON_SELECTED_SEGMENT_STROKE, width: 1, lineDash: [4, 4] }),
 })
 
 const restrictedAreaStyle = new Style({
@@ -123,9 +130,106 @@ const calculatePolygonArea = (coords: number[][]): number => {
   return Math.abs(area / 2)
 }
 
+// Check if polygon A contains polygon B (simplified - checks if all points of B are inside A)
+const isPolygonInsidePolygon = (innerCoords: number[][], outerCoords: number[][]): boolean => {
+  if (innerCoords.length < 3 || outerCoords.length < 3) return false
+
+  // Check if all points of inner polygon are inside outer polygon
+  for (const point of innerCoords) {
+    let inside = false
+    for (let i = 0, j = outerCoords.length - 1; i < outerCoords.length; j = i++) {
+      const xi = outerCoords[i][0], yi = outerCoords[i][1]
+      const xj = outerCoords[j][0], yj = outerCoords[j][1]
+      const intersect = yi > point[1] !== yj > point[1] &&
+        point[0] < ((xj - xi) * (point[1] - yi)) / (yj - yi) + xi
+      if (intersect) inside = !inside
+    }
+    if (!inside) return false
+  }
+  return true
+}
+
+// Diagnostic function to analyze segment nesting
+const analyzeSegmentNesting = (segments: { id: string; area: number; geometry: { coordinatesWGS84?: number[][][] } }[]) => {
+  console.log('=== SEGMENT NESTING ANALYSIS ===')
+  console.log(`Total segments: ${segments.length}`)
+
+  const analysis: Array<{
+    segmentId: string
+    reportedArea: number
+    calculatedArea: number
+    areaDifference: number
+    containedSegments: string[]
+    containedTotalArea: number
+  }> = []
+
+  for (const segment of segments) {
+    const coords = segment.geometry.coordinatesWGS84?.[0] || []
+    if (coords.length < 3) continue
+
+    const calculatedArea = calculatePolygonArea(coords)
+    const containedSegments: string[] = []
+    let containedTotalArea = 0
+
+    // Check if this segment contains any other segments
+    for (const otherSegment of segments) {
+      if (otherSegment.id === segment.id) continue
+
+      const otherCoords = otherSegment.geometry.coordinatesWGS84?.[0] || []
+      if (otherCoords.length < 3) continue
+
+      if (isPolygonInsidePolygon(otherCoords, coords)) {
+        containedSegments.push(otherSegment.id)
+        containedTotalArea += otherSegment.area
+      }
+    }
+
+    analysis.push({
+      segmentId: segment.id,
+      reportedArea: segment.area,
+      calculatedArea: Math.round(calculatedArea * 10) / 10,
+      areaDifference: Math.round((calculatedArea - segment.area) * 10) / 10,
+      containedSegments,
+      containedTotalArea,
+    })
+  }
+
+  // Log segments that contain other segments
+  const containingSegments = analysis.filter(a => a.containedSegments.length > 0)
+
+  if (containingSegments.length > 0) {
+    console.log('\n📦 SEGMENTS CONTAINING OTHER SEGMENTS:')
+    for (const seg of containingSegments) {
+      console.log(`\nSegment ${seg.segmentId}:`)
+      console.log(`  - Reported area (API): ${seg.reportedArea} m²`)
+      console.log(`  - Calculated polygon area: ${seg.calculatedArea} m²`)
+      console.log(`  - Difference: ${seg.areaDifference} m²`)
+      console.log(`  - Contains ${seg.containedSegments.length} inner segment(s): ${seg.containedSegments.join(', ')}`)
+      console.log(`  - Total area of contained segments: ${seg.containedTotalArea} m²`)
+
+      // Determine if API already excludes inner segments
+      const expectedAreaIfExcluded = seg.calculatedArea - seg.containedTotalArea
+      const closerToCalculated = Math.abs(seg.reportedArea - seg.calculatedArea) < Math.abs(seg.reportedArea - expectedAreaIfExcluded)
+
+      if (closerToCalculated) {
+        console.log(`  ⚠️ API area ≈ full polygon area → Inner segments likely INCLUDED in outer area`)
+      } else {
+        console.log(`  ✓ API area ≈ polygon minus inner → Inner segments likely EXCLUDED from outer area`)
+      }
+    }
+  } else {
+    console.log('\n✓ No nested segments found - all segments are independent')
+  }
+
+  console.log('\n=== END ANALYSIS ===')
+  return analysis
+}
+
 export default function SonnendachStep2UsableArea() {
   const t = useTranslations('sonnendach.step2Usable')
   const {
+    building,
+    selectedSegmentIds,
     getSelectedSegments,
     selectedArea,
     roofProperties,
@@ -136,8 +240,17 @@ export default function SonnendachStep2UsableArea() {
     clearRestrictedAreas,
     getUsableArea,
     getTotalRestrictedArea,
+    getRestrictedAreasInNonSelectedSegments,
     goToStep,
   } = useSonnendachCalculatorStore()
+
+  // Get non-selected segments from the same building
+  const nonSelectedSegments = building?.roofSegments.filter(
+    s => !selectedSegmentIds.includes(s.id)
+  ) || []
+
+  // Get restricted areas that overlap with non-selected segments
+  const overlappingRestrictedAreas = getRestrictedAreasInNonSelectedSegments()
 
   const selectedSegments = getSelectedSegments()
   // Store segments in a ref to avoid re-initialization
@@ -155,6 +268,13 @@ export default function SonnendachStep2UsableArea() {
   const drawInteractionRef = useRef<Draw | null>(null)
   const mapInitializedRef = useRef(false)
 
+  // Run segment nesting analysis for debugging
+  useEffect(() => {
+    if (building?.roofSegments && building.roofSegments.length > 1) {
+      analyzeSegmentNesting(building.roofSegments)
+    }
+  }, [building?.roofSegments])
+
   // Initialize map - only run once
   useEffect(() => {
     if (!mapRef.current || mapInitializedRef.current) return
@@ -166,7 +286,7 @@ export default function SonnendachStep2UsableArea() {
     const satelliteLayer = new TileLayer({
       source: new XYZ({
         url: SWISS_SATELLITE_URL,
-        maxZoom: 20,
+        maxZoom: 28,  // Swiss imagery supports very high zoom
         crossOrigin: 'anonymous',
       }),
     })
@@ -174,12 +294,12 @@ export default function SonnendachStep2UsableArea() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 19,  // Sonnendach layer doesn't support zoom 20+
+        maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
       opacity: 0.5,
       minZoom: 15,
-      maxZoom: 19,  // Don't request tiles beyond zoom 19
+      // No layer maxZoom - allows tiles to be upscaled at higher zoom levels
     })
 
     const segmentSource = new VectorSource()
@@ -232,8 +352,8 @@ export default function SonnendachStep2UsableArea() {
       layers: [satelliteLayer, sonnendachLayer, segmentLayer, restrictedLayer, drawLayer],
       view: new View({
         center: fromLonLat([centerLng, centerLat]),
-        zoom: 19,
-        maxZoom: 21,
+        zoom: 20,
+        maxZoom: 28,  // Allow very close zoom (~0.5 meter scale)
         minZoom: 15,
       }),
       controls: defaultControls({
@@ -247,6 +367,37 @@ export default function SonnendachStep2UsableArea() {
     mapInitializedRef.current = true
     setIsLoadingMap(false)
     console.log('[Map] Map initialized successfully:', map)
+
+    // Get all segments from the building (including non-selected)
+    const allSegments = useSonnendachCalculatorStore.getState().building?.roofSegments || []
+    const selectedIds = useSonnendachCalculatorStore.getState().selectedSegmentIds
+
+    // Draw non-selected segments first (so selected ones appear on top)
+    for (const segment of allSegments) {
+      if (selectedIds.includes(segment.id)) continue // Skip selected segments for now
+
+      let wgs84Coords = segment.geometry.coordinatesWGS84
+      if (!wgs84Coords || wgs84Coords.length === 0) {
+        const lv95Coords = segment.geometry.coordinates
+        if (lv95Coords && lv95Coords.length > 0) {
+          wgs84Coords = lv95Coords.map(ring =>
+            ring.map(point => lv95ToWgs84(point[0], point[1]))
+          )
+        }
+      }
+
+      if (wgs84Coords && wgs84Coords[0] && wgs84Coords[0].length >= 3) {
+        const webMercatorCoords = wgs84Coords[0].map(coord => fromLonLat(coord))
+        const polygon = new Polygon([webMercatorCoords])
+        const feature = new Feature({
+          geometry: polygon,
+          segmentId: segment.id,
+          isNonSelected: true,
+        })
+        feature.setStyle(nonSelectedSegmentStyle)
+        segmentSource.addFeature(feature)
+      }
+    }
 
     // Draw selected segments
     for (const segment of segments) {
@@ -629,6 +780,23 @@ export default function SonnendachStep2UsableArea() {
                   {t('noRestrictedAreas')}
                 </p>
               )}
+
+              {/* Warning about restricted areas overlapping with non-selected segments */}
+              {overlappingRestrictedAreas.length > 0 && (
+                <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm">
+                  <p className="font-medium text-amber-600">{t('overlapWarning')}</p>
+                  <p className="text-muted-foreground text-xs mt-1">
+                    {t('overlapWarningDetail', { count: overlappingRestrictedAreas.length })}
+                  </p>
+                </div>
+              )}
+
+              {/* Info about non-selected segments if there are any */}
+              {nonSelectedSegments.length > 0 && (
+                <div className="p-3 rounded-lg bg-muted/50 text-xs text-muted-foreground">
+                  <p>{t('nonSelectedSegmentsInfo', { count: nonSelectedSegments.length })}</p>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>
@@ -676,6 +844,15 @@ export default function SonnendachStep2UsableArea() {
               />
               <span>{t('legendSegment')}</span>
             </div>
+            {nonSelectedSegments.length > 0 && (
+              <div className="flex items-center gap-2">
+                <div
+                  className="w-4 h-3 rounded-sm border border-dashed"
+                  style={{ backgroundColor: `${NON_SELECTED_SEGMENT_COLOR}33`, borderColor: NON_SELECTED_SEGMENT_STROKE }}
+                />
+                <span>{t('legendNonSelected')}</span>
+              </div>
+            )}
             <div className="flex items-center gap-2">
               <div
                 className="w-4 h-3 rounded-sm border"

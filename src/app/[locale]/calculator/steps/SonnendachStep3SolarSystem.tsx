@@ -241,11 +241,49 @@ export default function SonnendachStep3SolarSystem() {
     return false
   }, [restrictedAreas, isPointInPolygonHelper])
 
+  // FUTURE FEATURE: Inner segment exclusion
+  // This function checks if a panel would be placed inside another segment (e.g., inner segment within outer)
+  // Currently commented out to match solarapp.ch behavior which uses API area values directly
+  // Uncomment this and add isPanelInOtherSegment check in calculatePanelPositionsInPolygon to enable
+  /*
+  const isPanelInOtherSegment = useCallback((corners: number[][], currentSegmentId: string): boolean => {
+    if (!building) return false
+
+    // Calculate panel center
+    const centerLng = corners.reduce((sum, c) => sum + c[0], 0) / corners.length
+    const centerLat = corners.reduce((sum, c) => sum + c[1], 0) / corners.length
+
+    // Check against all OTHER segments in the building
+    for (const segment of building.roofSegments) {
+      if (segment.id === currentSegmentId) continue // Skip current segment
+
+      // Get WGS84 coordinates - convert from LV95 if needed
+      let segmentCoords = segment.geometry.coordinatesWGS84?.[0]
+      if (!segmentCoords || segmentCoords.length === 0) {
+        const lv95Coords = segment.geometry.coordinates?.[0]
+        if (lv95Coords && lv95Coords.length >= 3) {
+          segmentCoords = lv95Coords.map(point => lv95ToWgs84(point[0], point[1]))
+        }
+      }
+
+      if (!segmentCoords || segmentCoords.length < 3) continue
+
+      // Check if panel center is inside this other segment
+      if (isPointInPolygonHelper(centerLng, centerLat, segmentCoords)) {
+        console.log(`[Panel Exclusion] Panel at (${centerLng.toFixed(6)}, ${centerLat.toFixed(6)}) excluded - inside segment ${segment.id}`)
+        return true
+      }
+    }
+    return false
+  }, [building, isPointInPolygonHelper])
+  */
+
   // Calculate panel positions within a polygon
   const calculatePanelPositionsInPolygon = useCallback(
     (
       polygonCoords: number[][],
-      panel: SolarPanel
+      panel: SolarPanel,
+      _segmentId?: string  // Reserved for future inner segment exclusion feature
     ): Array<{ corners: number[][] }> => {
       if (polygonCoords.length < 3) return []
 
@@ -260,9 +298,13 @@ export default function SonnendachStep3SolarSystem() {
       const panelWidth = panel.width
       const panelHeight = panel.height
 
-      // Spacing (5cm gap)
-      const spacingX = panelWidth + 0.05
-      const spacingY = panelHeight + 0.05
+      // Spacing matching solarapp.ch defaults
+      // - Randabstand (edge distance): 0.5m - applied via edge check
+      // - Hindernisabstand (obstacle/panel distance): 0.02m
+      const panelGap = 0.02        // 2cm between panels (Hindernisabstand)
+
+      const spacingX = panelWidth + panelGap
+      const spacingY = panelHeight + panelGap
 
       // Point in polygon check
       const isPointInPolygon = (lng: number, lat: number): boolean => {
@@ -330,6 +372,7 @@ export default function SonnendachStep3SolarSystem() {
           })
 
           // Check if panel is inside the roof segment AND not in any restricted area
+          // FUTURE: Add && !isPanelInOtherSegment(corners, segmentId) to exclude panels in inner segments
           if (isPanelInPolygon(corners) && !isPanelInRestrictedArea(corners)) {
             positions.push({ corners })
           }
@@ -349,7 +392,7 @@ export default function SonnendachStep3SolarSystem() {
     for (const segment of selectedSegments) {
       const coords = segment.geometry.coordinatesWGS84?.[0] || []
       if (coords.length < 3) continue
-      const positions = calculatePanelPositionsInPolygon(coords, selectedPanel)
+      const positions = calculatePanelPositionsInPolygon(coords, selectedPanel, segment.id)
       totalPanels += positions.length
     }
     return totalPanels
@@ -384,7 +427,7 @@ export default function SonnendachStep3SolarSystem() {
     const satelliteLayer = new TileLayer({
       source: new XYZ({
         url: SWISS_SATELLITE_URL,
-        maxZoom: 20,
+        maxZoom: 28,  // Swiss imagery supports very high zoom
         crossOrigin: 'anonymous',
       }),
     })
@@ -392,12 +435,12 @@ export default function SonnendachStep3SolarSystem() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 19,  // Sonnendach layer doesn't support zoom 20+
+        maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
       opacity: 0.5,
       minZoom: 15,
-      maxZoom: 19,
+      // No layer maxZoom - allows tiles to be upscaled at higher zoom levels
     })
 
     const segmentSource = new VectorSource()
@@ -441,7 +484,7 @@ export default function SonnendachStep3SolarSystem() {
       view: new View({
         center: fromLonLat([centerLng, centerLat]),
         zoom: 20,
-        maxZoom: 22,
+        maxZoom: 28,  // Allow very close zoom (~0.5 meter scale)
         minZoom: 15,
       }),
       controls: defaultControls({
@@ -506,7 +549,7 @@ export default function SonnendachStep3SolarSystem() {
       const coords = segment.geometry.coordinatesWGS84?.[0] || []
       if (coords.length < 3) continue
 
-      const positions = calculatePanelPositionsInPolygon(coords, selectedPanel)
+      const positions = calculatePanelPositionsInPolygon(coords, selectedPanel, segment.id)
 
       for (const pos of positions) {
         if (panelsDrawn >= panelsToShow) break

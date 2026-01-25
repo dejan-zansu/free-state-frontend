@@ -81,6 +81,7 @@ export default function SonnendachStep1Address() {
   const [isLoadingMap, setIsLoadingMap] = useState(true)
   const [isFetchingSegment, setIsFetchingSegment] = useState(false)
   const [selectedSegments, setSelectedSegments] = useState<RoofSegment[]>([])
+  const [allBuildingSegments, setAllBuildingSegments] = useState<RoofSegment[]>([])
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
@@ -182,6 +183,14 @@ export default function SonnendachStep1Address() {
       const building = await sonnendachService.getBuildingData(lv95.y, lv95.x)
 
       if (building && building.roofSegments.length > 0) {
+        // Store ALL segments from this building for inner segment detection
+        // Merge with existing segments (in case user clicks on multiple buildings)
+        setAllBuildingSegments(prev => {
+          const existingIds = new Set(prev.map(s => s.id))
+          const newSegments = building.roofSegments.filter(s => !existingIds.has(s.id))
+          return [...prev, ...newSegments]
+        })
+
         // Find the exact segment that was clicked using clickedSegmentId
         const clickedSegment = building.clickedSegmentId
           ? building.roofSegments.find(s => s.id === building.clickedSegmentId)
@@ -217,7 +226,7 @@ export default function SonnendachStep1Address() {
     const satelliteLayer = new TileLayer({
       source: new XYZ({
         url: SWISS_SATELLITE_URL,
-        maxZoom: 20,
+        maxZoom: 28,  // Swiss imagery supports very high zoom
         crossOrigin: 'anonymous',
       }),
     })
@@ -225,12 +234,12 @@ export default function SonnendachStep1Address() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 19,  // Sonnendach layer doesn't support zoom 20+
+        maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
       opacity: 0.7,
       minZoom: 15,
-      maxZoom: 19,  // Don't request tiles beyond zoom 19
+      // No layer maxZoom - allows tiles to be upscaled at higher zoom levels
     })
 
     const vectorSource = new VectorSource()
@@ -247,7 +256,7 @@ export default function SonnendachStep1Address() {
       view: new View({
         center: fromLonLat([8.5417, 47.3769]),
         zoom: 18,
-        maxZoom: 22,
+        maxZoom: 28,  // Allow very close zoom (~0.5 meter scale)
         minZoom: 10,
       }),
       controls: defaultControls({
@@ -348,6 +357,7 @@ export default function SonnendachStep1Address() {
   // Clear all selections
   const handleClearSelection = () => {
     setSelectedSegments([])
+    setAllBuildingSegments([])
     if (vectorSourceRef.current) {
       vectorSourceRef.current.clear()
     }
@@ -356,7 +366,8 @@ export default function SonnendachStep1Address() {
   // Handle continue
   const handleContinue = () => {
     const { setSelectedSegmentsData } = useSonnendachCalculatorStore.getState()
-    setSelectedSegmentsData(selectedSegments)
+    // Pass both selected segments AND all building segments for inner segment detection
+    setSelectedSegmentsData(selectedSegments, allBuildingSegments)
     goToStep(2)
   }
 

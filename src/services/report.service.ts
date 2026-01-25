@@ -24,7 +24,7 @@ export interface ReportParams {
   language?: 'de' | 'fr' | 'it' | 'en'
 }
 
-export interface PVGISReportParams {
+export interface SonnendachReportParams {
   // Location
   latitude: number
   longitude: number
@@ -51,6 +51,9 @@ export interface PVGISReportParams {
     coordinates: Array<{ lat: number; lng: number }>
     area: number
   }
+
+  // Roof visualization image (base64 encoded PNG)
+  roofImage?: string
 
   // Panel placement
   orientation: number
@@ -79,6 +82,7 @@ export interface PVGISReportParams {
   electricityTariff: number
   feedInTariff: number
   selfConsumptionRate: number
+  annualConsumption?: number // kWh/year - household consumption
 
   // Report settings
   language?: 'de' | 'fr' | 'it' | 'en' | 'sr' | 'es'
@@ -147,13 +151,17 @@ class ReportService {
   }
 
   /**
-   * Download PVGIS-based solar report as PDF
+   * Download Sonnendach-based solar report as PDF
    */
-  async downloadPVGISReport(params: PVGISReportParams): Promise<void> {
+  async downloadSonnendachReport(params: SonnendachReportParams): Promise<void> {
+    console.log('[ReportService] Starting API call to /reports/sonnendach-report')
+    console.log('[ReportService] Params:', { address: params.address, panelCount: params.panelCount })
     try {
-      const response = await api.post('/reports/pvgis-report', params, {
+      const response = await api.post('/reports/sonnendach-report', params, {
         responseType: 'blob',
+        timeout: 60000, // 60 second timeout for PDF generation
       })
+      console.log('[ReportService] Response received, status:', response.status)
 
       // Create blob URL and trigger download
       const blob = new Blob([response.data], { type: 'application/pdf' })

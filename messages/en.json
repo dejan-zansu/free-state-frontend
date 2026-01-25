@@ -802,14 +802,18 @@
         "description": "Choose your panels"
       },
       "step4": {
+        "title": "Consumption",
+        "description": "Property & usage"
+      },
+      "step5": {
         "title": "Results",
         "description": "Your solar potential"
       }
     },
     "step1": {
       "title": "Find Your Building",
-      "subtitle": "Search for an address or click on a roof on the map",
-      "placeholder": "Search for a Swiss address...",
+      "subtitle": "Click on a colored area to add it to the solar system",
+      "placeholder": "Search for an address",
       "coordinates": "Coordinates",
       "mapInfo": "Click on any colored roof on the map to select it for analysis. The colors show solar potential - red/orange is excellent, yellow/green is good, blue is lower.",
       "clickRoofInfo": "Click on colored roof segments on the map to select them. Each click adds a segment to your selection. Click again on a selected segment to remove it.",
@@ -876,9 +880,13 @@
       "area": "Area",
       "clearAll": "Clear All",
       "noRestrictedAreas": "No restricted areas defined",
+      "overlapWarning": "Restricted area in non-selected segment",
+      "overlapWarningDetail": "{count} restricted area(s) are inside roof segments that you didn't select. These will not be subtracted from your usable area.",
+      "nonSelectedSegmentsInfo": "There are {count} other roof segment(s) on this building (shown in gray). Restricted areas drawn over these segments won't affect your usable area calculation.",
       "loadingMap": "Loading map...",
       "legend": "Legend",
       "legendSegment": "Selected Segment",
+      "legendNonSelected": "Non-Selected Segment",
       "legendRestricted": "Restricted Area",
       "back": "Back",
       "continue": "Configure System"
@@ -941,13 +949,119 @@
       "back": "Back",
       "continue": "View Results"
     },
-    "step4": {
-      "title": "Your Solar Potential",
-      "subtitle": "Based on official Swiss federal roof data",
+    "step4Consumption": {
+      "title": "Property & Consumption",
+      "subtitle": "Enter your property details and energy consumption for accurate calculations",
+      "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
+      "backToSelection": "Back to Selection",
+      "propertyInfo": {
+        "title": "Property Information",
+        "propertyType": "Property Type",
+        "selectPropertyType": "Select property type",
+        "types": {
+          "residential": "Residential",
+          "commercial": "Commercial",
+          "industrial": "Industrial",
+          "agricultural": "Agricultural"
+        },
+        "newBuilding": "New Building",
+        "evCharging": "EV Charging Station",
+        "heatPumpHotWater": "Heat Pump (Hot Water)",
+        "heatPumpHeating": "Heat Pump (Heating)",
+        "electricityProvider": "Electricity Provider",
+        "selectProvider": "Select provider",
+        "providers": {
+          "standard": "Standard / Unknown",
+          "ewz": "EWZ (Zurich)",
+          "axpo": "Axpo",
+          "bkw": "BKW",
+          "other": "Other"
+        }
+      },
+      "consumption": {
+        "title": "Energy Consumption",
+        "residents": "Number of Residents",
+        "annualCost": "Annual Electricity Cost",
+        "annualCostPlaceholder": "e.g. 1500",
+        "annualKwh": "Annual Consumption",
+        "annualKwhPlaceholder": "e.g. 4500",
+        "kwhHelp": "You can find this on your electricity bill. Average Swiss household: 4,500 kWh/year"
+      },
+      "tariffs": {
+        "title": "Electricity Tariffs",
+        "electricityTariff": "Electricity Tariff",
+        "feedInTariff": "Feed-in Tariff",
+        "auto": "Auto",
+        "manual": "Manual",
+        "autoDescription": "Using Swiss average rate (25 Rp/kWh)",
+        "feedInAutoDescription": "Using Swiss average feed-in rate (12 Rp/kWh)"
+      },
+      "common": {
+        "yes": "Yes",
+        "no": "No",
+        "none": "None"
+      },
+      "reports": {
+        "energyFlow": {
+          "title": "Self-Consumption",
+          "production": "Production",
+          "productionTooltip": "Annual solar electricity production from your system",
+          "consumption": "Consumption",
+          "consumptionTooltip": "Your total annual electricity consumption",
+          "selfConsumption": "Self-Consumption",
+          "selfConsumptionTooltip": "Solar electricity used directly in your home",
+          "feedIn": "Feed-in",
+          "feedInTooltip": "Excess solar electricity sold to the grid",
+          "independence": "Independence",
+          "independenceTooltip": "Percentage of your consumption covered by solar",
+          "gridPurchase": "Grid Purchase",
+          "gridPurchaseTooltip": "Electricity still needed from the grid",
+          "gridFeedIn": "Grid Feed-in",
+          "gridFeedInTooltip": "Surplus electricity exported to the grid"
+        },
+        "keyFigures": {
+          "title": "Key Figures",
+          "investment": "Investment",
+          "investmentTooltip": "Total cost of the solar system installation",
+          "grossReturn": "Gross Return (25 yrs)",
+          "grossReturnTooltip": "Total savings and income over 25 years",
+          "subsidies": "Subsidies / Tax Benefits",
+          "subsidiesTooltip": "Federal subsidies and cantonal tax deductions",
+          "annualReturn": "Annual Return",
+          "annualReturnTooltip": "Yearly return on your investment",
+          "netInvestment": "Net Investment",
+          "netInvestmentTooltip": "Investment after subsidies and tax benefits",
+          "annualYield": "Annual Yield",
+          "annualYieldTooltip": "Yearly savings from self-consumption + feed-in revenue"
+        },
+        "roiChart": {
+          "title": "Return on Investment",
+          "years": "Years",
+          "year": "Year",
+          "cumulative": "Cumulative Cash Flow",
+          "payback": "Payback",
+          "paybackInfo": "Investment recovered after {years} years"
+        },
+        "monthlyChart": {
+          "title": "Monthly Analysis",
+          "production": "Production",
+          "consumption": "Consumption",
+          "selfConsumption": "Self-Consumption"
+        }
+      },
+      "back": "Back",
+      "continue": "View Results"
+    },
+    "step5": {
       "noData": "No data available",
+      "roofVisualization": "Your Solar Installation",
       "roofArea": "Roof Area",
+      "usableArea": "Usable Area",
+      "restricted": "restricted",
       "panels": "Panels",
       "selectedRoofs": "Selected Roof Segments",
+      "totalRoofArea": "Total Roof Area",
+      "restrictedAreas": "Restricted Areas",
       "averageTilt": "Average Tilt",
       "dominantOrientation": "Dominant Orientation",
       "systemSize": "System Size",
@@ -960,13 +1074,11 @@
       "yearlySavings": "Yearly Savings",
       "paybackPeriod": "Payback Period",
       "disclaimer": "These are estimates based on average Swiss values. Actual costs and savings may vary based on your specific situation, equipment choices, and electricity rates.",
-      "dataSource": {
-        "title": "Data Source: Sonnendach.ch",
-        "description": "This analysis uses official data from the Swiss Federal Office of Energy (SFOE), combining building data from swisstopo and solar radiation data from MeteoSwiss."
-      },
       "back": "Back",
       "startOver": "Start Over",
-      "requestQuote": "Request Quote"
+      "requestQuote": "Request Quote",
+      "downloadReport": "Download Report",
+      "downloadingReport": "Generating..."
     }
   }
 }

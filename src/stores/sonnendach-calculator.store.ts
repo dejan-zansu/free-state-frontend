@@ -44,6 +44,30 @@ export interface RoofProperties {
   roofMaterial: RoofMaterial
 }
 
+// Property and consumption types
+export type PropertyType = 'residential' | 'commercial' | 'industrial' | 'agricultural'
+
+export interface ConsumptionData {
+  // Property Info
+  propertyType: PropertyType
+  isNewBuilding: boolean
+  evChargingStations: number
+  heatPumpHotWater: boolean
+  heatPumpHeating: boolean
+  electricityProvider: string
+
+  // Consumption
+  residents: number
+  annualElectricityCost: number  // CHF
+  annualConsumptionKwh: number   // kWh/year
+
+  // Tariffs
+  electricityTariffAuto: boolean
+  electricityTariff: number      // Rp/kWh
+  feedInTariffAuto: boolean
+  feedInTariff: number           // Rp/kWh
+}
+
 // Restricted area (exclusion zone)
 export interface RestrictedArea {
   id: string
@@ -78,6 +102,9 @@ interface SonnendachCalculatorState {
   selectedInverter: Inverter | null
   panelCount: number
   maxPanelCount: number
+
+  // Step 4: Consumption & Tariffs
+  consumption: ConsumptionData
 
   // Results (calculated from selected segments)
   selectedArea: number           // m²
@@ -115,7 +142,7 @@ interface SonnendachCalculatorActions {
   calculateTotals: () => void
 
   // Direct segment data (for new flow where segments are selected individually)
-  setSelectedSegmentsData: (segments: RoofSegment[]) => void
+  setSelectedSegmentsData: (segments: RoofSegment[], allBuildingSegments?: RoofSegment[]) => void
 
   // Step 2: Usable Area
   setRoofProperties: (properties: Partial<RoofProperties>) => void
@@ -124,12 +151,17 @@ interface SonnendachCalculatorActions {
   clearRestrictedAreas: () => void
   getUsableArea: () => number
   getTotalRestrictedArea: () => number
+  getEffectiveRestrictedArea: () => number
+  getRestrictedAreasInNonSelectedSegments: () => RestrictedArea[]
 
   // Step 3: Solar System
   selectPanel: (panel: SolarPanel) => void
   selectInverter: (inverter: Inverter) => void
   setPanelCount: (count: number) => void
   setMaxPanelCount: (count: number) => void
+
+  // Step 4: Consumption
+  setConsumption: (data: Partial<ConsumptionData>) => void
 
   // Reset
   reset: () => void
@@ -141,7 +173,7 @@ type SonnendachCalculatorStore = SonnendachCalculatorState & SonnendachCalculato
 const initialState: SonnendachCalculatorState = {
   // Navigation
   currentStep: 1,
-  totalSteps: 4,
+  totalSteps: 5,
 
   // Step 1
   address: '',
@@ -167,6 +199,23 @@ const initialState: SonnendachCalculatorState = {
   selectedInverter: null,
   panelCount: 0,
   maxPanelCount: 0,
+
+  // Step 4: Consumption
+  consumption: {
+    propertyType: 'residential',
+    isNewBuilding: false,
+    evChargingStations: 0,
+    heatPumpHotWater: false,
+    heatPumpHeating: false,
+    electricityProvider: 'standard',
+    residents: 2,
+    annualElectricityCost: 0,
+    annualConsumptionKwh: 0,
+    electricityTariffAuto: true,
+    electricityTariff: 25,
+    feedInTariffAuto: true,
+    feedInTariff: 12,
+  },
 
   // Results
   selectedArea: 0,
@@ -367,7 +416,8 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
       },
 
       // Direct segment data (for new flow)
-      setSelectedSegmentsData: (segments: RoofSegment[]) => {
+      // allBuildingSegments: optional array of ALL segments from the building (for inner segment detection)
+      setSelectedSegmentsData: (segments: RoofSegment[], allBuildingSegments?: RoofSegment[]) => {
         // Create a pseudo-building from the selected segments
         const totalArea = segments.reduce((sum, s) => sum + s.area, 0)
         const totalPotentialKwh = segments.reduce((sum, s) => sum + s.electricityYield, 0)
@@ -378,11 +428,16 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
           ? Math.max(...segments.map((s) => s.suitability.class))
           : 1
 
+        // Use all building segments if provided, otherwise just selected segments
+        const allSegments = allBuildingSegments && allBuildingSegments.length > 0
+          ? allBuildingSegments
+          : segments
+
         set({
           building: {
             buildingId: 0,
             center: { lat: 0, lng: 0, x: 0, y: 0 },
-            roofSegments: segments,
+            roofSegments: allSegments,  // Store ALL segments for inner segment detection
             totalArea: Math.round(totalArea * 10) / 10,
             totalPotentialKwh: Math.round(totalPotentialKwh),
             suitabilityClass: bestSuitability,
@@ -416,9 +471,113 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
       },
 
       getUsableArea: () => {
-        const { selectedArea, restrictedAreas } = get()
-        const totalRestricted = restrictedAreas.reduce((sum, a) => sum + a.area, 0)
-        return Math.max(0, selectedArea - totalRestricted)
+        const { selectedArea } = get()
+        // Use getEffectiveRestrictedArea which accounts for overlaps with non-selected segments
+        const effectiveRestricted = get().getEffectiveRestrictedArea()
+        return Math.max(0, selectedArea - effectiveRestricted)
+      },
+
+      // Calculate effective restricted area, excluding overlaps with non-selected segments
+      // This helps handle the case where inner segments exist within outer segments
+      getEffectiveRestrictedArea: () => {
+        const { building, selectedSegmentIds, restrictedAreas } = get()
+        if (!building || restrictedAreas.length === 0) return 0
+
+        // Get non-selected segment polygons
+        const nonSelectedSegments = building.roofSegments.filter(
+          s => !selectedSegmentIds.includes(s.id)
+        )
+
+        if (nonSelectedSegments.length === 0) {
+          // No non-selected segments, use full restricted area
+          return restrictedAreas.reduce((sum, a) => sum + a.area, 0)
+        }
+
+        // For each restricted area, check if its center point is inside a non-selected segment
+        // This is a simplified check - a full solution would use polygon intersection (e.g., turf.js)
+        let effectiveArea = 0
+
+        for (const restricted of restrictedAreas) {
+          const restrictedCoords = restricted.coordinates
+          if (restrictedCoords.length < 3) continue
+
+          // Calculate center of restricted area
+          const centerLng = restrictedCoords.reduce((sum, c) => sum + c[0], 0) / restrictedCoords.length
+          const centerLat = restrictedCoords.reduce((sum, c) => sum + c[1], 0) / restrictedCoords.length
+
+          // Check if center is inside any non-selected segment
+          let isInsideNonSelected = false
+          for (const segment of nonSelectedSegments) {
+            const segmentCoords = segment.geometry.coordinatesWGS84?.[0] || []
+            if (segmentCoords.length < 3) continue
+
+            // Point-in-polygon check
+            let inside = false
+            for (let i = 0, j = segmentCoords.length - 1; i < segmentCoords.length; j = i++) {
+              const xi = segmentCoords[i][0], yi = segmentCoords[i][1]
+              const xj = segmentCoords[j][0], yj = segmentCoords[j][1]
+              const intersect = yi > centerLat !== yj > centerLat &&
+                centerLng < ((xj - xi) * (centerLat - yi)) / (yj - yi) + xi
+              if (intersect) inside = !inside
+            }
+
+            if (inside) {
+              isInsideNonSelected = true
+              break
+            }
+          }
+
+          // Only count restricted area if it's NOT inside a non-selected segment
+          if (!isInsideNonSelected) {
+            effectiveArea += restricted.area
+          }
+        }
+
+        return effectiveArea
+      },
+
+      // Get restricted areas that overlap with non-selected segments
+      // Useful for showing warnings to the user
+      getRestrictedAreasInNonSelectedSegments: () => {
+        const { building, selectedSegmentIds, restrictedAreas } = get()
+        if (!building || restrictedAreas.length === 0) return []
+
+        const nonSelectedSegments = building.roofSegments.filter(
+          s => !selectedSegmentIds.includes(s.id)
+        )
+
+        if (nonSelectedSegments.length === 0) return []
+
+        const overlappingAreas: RestrictedArea[] = []
+
+        for (const restricted of restrictedAreas) {
+          const restrictedCoords = restricted.coordinates
+          if (restrictedCoords.length < 3) continue
+
+          const centerLng = restrictedCoords.reduce((sum, c) => sum + c[0], 0) / restrictedCoords.length
+          const centerLat = restrictedCoords.reduce((sum, c) => sum + c[1], 0) / restrictedCoords.length
+
+          for (const segment of nonSelectedSegments) {
+            const segmentCoords = segment.geometry.coordinatesWGS84?.[0] || []
+            if (segmentCoords.length < 3) continue
+
+            let inside = false
+            for (let i = 0, j = segmentCoords.length - 1; i < segmentCoords.length; j = i++) {
+              const xi = segmentCoords[i][0], yi = segmentCoords[i][1]
+              const xj = segmentCoords[j][0], yj = segmentCoords[j][1]
+              const intersect = yi > centerLat !== yj > centerLat &&
+                centerLng < ((xj - xi) * (centerLat - yi)) / (yj - yi) + xi
+              if (intersect) inside = !inside
+            }
+
+            if (inside) {
+              overlappingAreas.push(restricted)
+              break
+            }
+          }
+        }
+
+        return overlappingAreas
       },
 
       getTotalRestrictedArea: () => {
@@ -442,6 +601,12 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
 
       setMaxPanelCount: (count: number) => {
         set({ maxPanelCount: count })
+      },
+
+      // Step 4: Consumption
+      setConsumption: (data: Partial<ConsumptionData>) => {
+        const { consumption } = get()
+        set({ consumption: { ...consumption, ...data } })
       },
 
       // Reset
@@ -468,6 +633,7 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         selectedPanel: state.selectedPanel,
         selectedInverter: state.selectedInverter,
         panelCount: state.panelCount,
+        consumption: state.consumption,
       }),
     }
   )

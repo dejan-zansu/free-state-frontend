@@ -9,18 +9,20 @@ import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.sto
 import SonnendachStep1Address from './steps/SonnendachStep1Address'
 import SonnendachStep2UsableArea from './steps/SonnendachStep2UsableArea'
 import SonnendachStep3SolarSystem from './steps/SonnendachStep3SolarSystem'
-import SonnendachStep4Results from './steps/SonnendachStep4Results'
+import SonnendachStep4Consumption from './steps/SonnendachStep4Consumption'
+import SonnendachStep5Results from './steps/SonnendachStep5Results'
 
 export default function SonnendachCalculatorPage() {
   const t = useTranslations('sonnendach')
   const { currentStep, error, clearError } = useSonnendachCalculatorStore()
 
-  // 4-step flow: Address/Selection -> Usable Area -> Solar System -> Results
+  // 5-step flow: Address/Selection -> Usable Area -> Solar System -> Consumption -> Results
   const steps = [
     { id: 1, title: t('steps.step1.title'), description: t('steps.step1.description') },
     { id: 2, title: t('steps.step2.title'), description: t('steps.step2.description') },
     { id: 3, title: t('steps.step3.title'), description: t('steps.step3.description') },
     { id: 4, title: t('steps.step4.title'), description: t('steps.step4.description') },
+    { id: 5, title: t('steps.step5.title'), description: t('steps.step5.description') },
   ]
 
   useEffect(() => {
@@ -38,7 +40,9 @@ export default function SonnendachCalculatorPage() {
       case 3:
         return <SonnendachStep3SolarSystem />
       case 4:
-        return <SonnendachStep4Results />
+        return <SonnendachStep4Consumption />
+      case 5:
+        return <SonnendachStep5Results />
       default:
         return <SonnendachStep1Address />
     }
