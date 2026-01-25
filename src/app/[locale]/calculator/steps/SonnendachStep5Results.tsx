@@ -111,13 +111,24 @@ export default function SonnendachStep5Results() {
     try {
       // Capture the roof visualization map
       console.log('[Report] Capturing map image...')
+      console.log('[Report] mapRef.current exists:', !!mapRef.current)
       let roofImage: string | undefined
       if (mapRef.current) {
-        const capturedImage = await mapRef.current.captureImage()
-        if (capturedImage) {
-          roofImage = capturedImage
-          console.log('[Report] Map captured, size:', capturedImage.length)
+        try {
+          const capturedImage = await mapRef.current.captureImage()
+          console.log('[Report] captureImage returned:', capturedImage ? `string of length ${capturedImage.length}` : 'null/undefined')
+          if (capturedImage) {
+            roofImage = capturedImage
+            console.log('[Report] Map captured successfully')
+            console.log('[Report] Image starts with:', capturedImage.substring(0, 50))
+          } else {
+            console.log('[Report] captureImage returned null/undefined')
+          }
+        } catch (captureError) {
+          console.error('[Report] Error capturing image:', captureError)
         }
+      } else {
+        console.log('[Report] mapRef.current is null/undefined')
       }
 
       // Calculate coordinates from selected segments

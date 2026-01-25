@@ -211,33 +211,48 @@ const RoofVisualizationMap = forwardRef<RoofVisualizationMapRef, RoofVisualizati
     )
 
     // Helper function to capture the map canvas
-    const captureMapCanvas = (map: Map): string | null => {
+    const captureMapCanvas = (): string | null => {
       try {
-        console.log('[RoofVisualizationMap] Capturing canvas...')
-        const mapCanvas = document.createElement('canvas')
-        const size = map.getSize()
-        if (!size) {
-          console.log('[RoofVisualizationMap] No map size')
+        console.log('[RoofVisualizationMap] captureMapCanvas called')
+
+        // Use the DOM ref directly instead of map.getTargetElement()
+        // because the map might be detached from the DOM after re-renders
+        const mapElement = mapRef.current
+        console.log('[RoofVisualizationMap] Map element from ref:', mapElement ? 'exists' : 'null')
+        if (!mapElement) {
+          console.log('[RoofVisualizationMap] No map element from ref')
           return null
         }
 
+        // Get size from DOM element
+        const rect = mapElement.getBoundingClientRect()
+        console.log('[RoofVisualizationMap] Element size:', rect.width, 'x', rect.height)
+        if (rect.width === 0 || rect.height === 0) {
+          console.log('[RoofVisualizationMap] Invalid element size')
+          return null
+        }
+        const size: [number, number] = [rect.width, rect.height]
+
+        const mapCanvas = document.createElement('canvas')
         mapCanvas.width = size[0]
         mapCanvas.height = size[1]
+        console.log('[RoofVisualizationMap] Canvas size:', mapCanvas.width, 'x', mapCanvas.height)
+
         const mapContext = mapCanvas.getContext('2d')
         if (!mapContext) {
           console.log('[RoofVisualizationMap] No canvas context')
           return null
         }
 
-        // Get all canvas elements from the map
-        const mapElement = map.getTargetElement()
         const canvases = mapElement.querySelectorAll('canvas')
-        console.log('[RoofVisualizationMap] Found', canvases.length, 'canvases')
+        console.log('[RoofVisualizationMap] Found', canvases.length, 'canvases in DOM')
 
-        canvases.forEach((canvas) => {
-          if (canvas.width > 0) {
+        let canvasesDrawn = 0
+        canvases.forEach((canvas, index) => {
+          console.log(`[RoofVisualizationMap] Canvas ${index}: ${canvas.width}x${canvas.height}`)
+          if (canvas.width > 0 && canvas.height > 0) {
             const opacity = (canvas.parentNode as HTMLElement)?.style?.opacity
-            mapContext.globalAlpha = opacity === '' ? 1 : Number(opacity)
+            mapContext.globalAlpha = opacity === '' || opacity === undefined ? 1 : Number(opacity)
 
             const transform = canvas.style.transform
             const matrix = transform
@@ -251,15 +266,28 @@ const RoofVisualizationMap = forwardRef<RoofVisualizationMapRef, RoofVisualizati
               )
             }
 
-            mapContext.drawImage(canvas, 0, 0)
+            try {
+              mapContext.drawImage(canvas, 0, 0)
+              canvasesDrawn++
+              console.log(`[RoofVisualizationMap] Drew canvas ${index}`)
+            } catch (drawError) {
+              console.error(`[RoofVisualizationMap] Error drawing canvas ${index}:`, drawError)
+            }
           }
         })
+
+        console.log('[RoofVisualizationMap] Total canvases drawn:', canvasesDrawn)
+
+        if (canvasesDrawn === 0) {
+          console.log('[RoofVisualizationMap] No canvases were drawn!')
+          return null
+        }
 
         mapContext.globalAlpha = 1
         mapContext.setTransform(1, 0, 0, 1, 0, 0)
 
         const dataUrl = mapCanvas.toDataURL('image/png')
-        console.log('[RoofVisualizationMap] Captured image, length:', dataUrl.length)
+        console.log('[RoofVisualizationMap] Generated data URL, length:', dataUrl.length)
         return dataUrl
       } catch (error) {
         console.error('[RoofVisualizationMap] Error capturing map:', error)
@@ -284,7 +312,7 @@ const RoofVisualizationMap = forwardRef<RoofVisualizationMapRef, RoofVisualizati
           const doCapture = () => {
             if (resolved) return
             resolved = true
-            const result = captureMapCanvas(map)
+            const result = captureMapCanvas()
             resolve(result)
           }
 

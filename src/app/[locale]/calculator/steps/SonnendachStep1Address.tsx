@@ -46,7 +46,7 @@ const SELECTED_STROKE = '#b7fe1a'
 
 // Selected segment style
 const selectedStyle = new Style({
-  fill: new Fill({ color: `${SELECTED_COLOR}` }),
+  fill: new Fill({ color: `${SELECTED_COLOR}CC` }),  // 80% opacity to match Step 2
   stroke: new Stroke({ color: SELECTED_STROKE, width: 3 }),
 })
 
@@ -237,7 +237,7 @@ export default function SonnendachStep1Address() {
         maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
-      opacity: 0.7,
+      opacity: 0.5,  // Match Step 2 opacity
       minZoom: 15,
       // No layer maxZoom - allows tiles to be upscaled at higher zoom levels
     })
