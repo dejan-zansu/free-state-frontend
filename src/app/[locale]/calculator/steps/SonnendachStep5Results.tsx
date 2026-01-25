@@ -2,10 +2,8 @@
 
 import {
   ChevronLeft,
-  Sun,
   Zap,
   Ruler,
-  Compass,
   TrendingUp,
   Leaf,
   Building2,
