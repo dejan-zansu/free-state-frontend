@@ -193,6 +193,10 @@
       "learnMore": "Saber más"
     },
     "forBusinesses": {
+      "badge": {
+        "businesses": "Para empresas",
+        "home": "Para el hogar"
+      },
       "title": "Energía solar para empresas",
       "contentTitle": "Energía solar",
       "description": "Le ayudamos a aprovechar al máximo su superficie de techo, reducir los costos de energía y construir un suministro de energía sostenible. Desde la planificación hasta la implementación llave en mano, acompañamos su proyecto: eficiente, confiable y adaptado a su empresa.",

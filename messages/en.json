@@ -204,6 +204,10 @@
       "learnMore": "Learn more"
     },
     "forBusinesses": {
+      "badge": {
+        "businesses": "For businesses",
+        "home": "For home"
+      },
       "title": "Solar energy for businesses",
       "contentTitle": "Solar energy",
       "description": "We help you make optimal use of your roof space, reduce energy costs and build a sustainable energy supply. From planning to turnkey implementation, we accompany your project – efficient, reliable and tailored to your company.",

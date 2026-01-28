@@ -193,6 +193,10 @@
       "learnMore": "En savoir plus"
     },
     "forBusinesses": {
+      "badge": {
+        "businesses": "Pour les entreprises",
+        "home": "Pour la maison"
+      },
       "title": "Énergie solaire pour les entreprises",
       "contentTitle": "Énergie solaire",
       "description": "Nous vous aidons à optimiser l'utilisation de votre surface de toit, à réduire les coûts énergétiques et à construire un approvisionnement énergétique durable. De la planification à la mise en œuvre clé en main, nous accompagnons votre projet – efficace, fiable et adapté à votre entreprise.",

@@ -59,7 +59,7 @@ const Deals = async ({ isCommercial = false }) => {
   ]
 
   return (
-    <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 max-w-[1440px] mx-auto px-4 sm:px-6">
+    <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 max-w-[1440px] mx-auto px-4 sm:px-6 bg-[#FDFFF5]">
       <div className="text-center mb-8 sm:mb-10">
         <h2 className="text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4">
           {t('title')}

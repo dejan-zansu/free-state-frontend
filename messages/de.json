@@ -204,6 +204,10 @@
       "learnMore": "Mehr Erfahren"
     },
     "forBusinesses": {
+      "badge": {
+        "businesses": "Für Unternehmen",
+        "home": "Für Zuhause"
+      },
       "title": "Solarenergie für Unternehmen",
       "contentTitle": "Solarenergie",
       "description": "Wir helfen Ihnen, Ihre Dachfläche optimal zu nutzen, Energiekosten zu senken und eine nachhaltige Energieversorgung aufzubauen. Von der Planung bis zur schlüsselfertigen Umsetzung begleiten wir Ihr Projekt – effizient, zuverlässig und auf Ihr Unternehmen abgestimmt.",

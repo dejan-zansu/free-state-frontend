@@ -193,6 +193,10 @@
       "learnMore": "Saznaj više"
     },
     "forBusinesses": {
+      "badge": {
+        "businesses": "Za kompanije",
+        "home": "Za dom"
+      },
       "title": "Solarna energija za kompanije",
       "contentTitle": "Solarna energija",
       "description": "Pomažemo vam da optimalno iskoristite svoju krovnu površinu, smanjite troškove energije i izgradite održivo snabdevanje energijom. Od planiranja do ključ u ruke implementacije, pratimo vaš projekat – efikasno, pouzdano i prilagođeno vašoj kompaniji.",

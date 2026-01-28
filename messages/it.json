@@ -193,6 +193,10 @@
       "learnMore": "Scopri di più"
     },
     "forBusinesses": {
+      "badge": {
+        "businesses": "Per le aziende",
+        "home": "Per la casa"
+      },
       "title": "Energia solare per le aziende",
       "contentTitle": "Energia solare",
       "description": "Vi aiutiamo a sfruttare al meglio la superficie del vostro tetto, ridurre i costi energetici e costruire un approvvigionamento energetico sostenibile. Dalla pianificazione all'implementazione chiavi in mano, accompagniamo il vostro progetto – efficiente, affidabile e su misura per la vostra azienda.",
