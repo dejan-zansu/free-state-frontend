@@ -75,7 +75,7 @@ const Benefits = async ({ isCommercial = false }) => {
                 </div>
 
                 <div className="relative z-10 flex-1 flex flex-col justify-end w-full bg-[#E5E6DE]">
-                  <div className="relative px-4 sm:px-6 md:px-8 pb-6 sm:pb-8 md:pb-10 pt-2.5">
+                  <div className="relative px-4 sm:px-6 md:px-8 pb-6 sm:pb-8 md:pb-10 pt-5">
                     <div className="relative z-10">
                       <h3 className="text-foreground text-lg sm:text-xl font-bold uppercase mb-3 sm:mb-4">
                         {feature.title}

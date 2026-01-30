@@ -240,6 +240,16 @@
           "description": "Up to 12 t CO₂ per year – for your company."
         }
       }
+    },
+    "whoWeAre": {
+      "eyebrow": "Who we are?",
+      "title": "More than energy,\nyour long-term partners.",
+      "quote": "Our mission is to strip away the financial and technical barriers to clean energy by taking on the entire investment and complexity ourselves, ensuring a completely worry-free experience for every homeowner.",
+      "author": "Ivan Mirić, CEO of FreeState AG",
+      "video": {
+        "play": "Play video",
+        "pause": "Pause video"
+      }
     }
   },
   "solarAboHome": {
@@ -812,6 +822,18 @@
       "step5": {
         "title": "Results",
         "description": "Your solar potential"
+      },
+      "step6": {
+        "title": "Personal Info",
+        "description": "Your contact details"
+      },
+      "step7": {
+        "title": "Contract Review",
+        "description": "Confirm your offer"
+      },
+      "step8": {
+        "title": "Signature",
+        "description": "Sign digitally"
       }
     },
     "step1": {
@@ -1083,6 +1105,218 @@
       "requestQuote": "Request Quote",
       "downloadReport": "Download Report",
       "downloadingReport": "Generating..."
+    },
+    "step6PersonalInfo": {
+      "title": "Personal Information",
+      "subtitle": "Please enter your contact details to receive your personalized offer.",
+      "personalInfo": {
+        "title": "Contact Details",
+        "firstName": "First Name",
+        "firstNamePlaceholder": "John",
+        "lastName": "Last Name",
+        "lastNamePlaceholder": "Doe",
+        "email": "Email",
+        "emailPlaceholder": "john.doe@email.ch",
+        "phone": "Phone",
+        "phonePlaceholder": "+41 79 123 45 67",
+        "phoneHint": "For SMS verification when signing the contract",
+        "password": "Password",
+        "passwordPlaceholder": "At least 8 characters",
+        "passwordHint": "For access to your customer portal"
+      },
+      "installationAddress": {
+        "title": "Installation Address",
+        "street": "Street",
+        "streetPlaceholder": "Example Street",
+        "streetNumber": "No.",
+        "streetNumberPlaceholder": "1a",
+        "postalCode": "Postal Code",
+        "postalCodePlaceholder": "8000",
+        "city": "City",
+        "cityPlaceholder": "Zurich",
+        "canton": "Canton",
+        "selectCanton": "Select canton"
+      },
+      "billingAddress": {
+        "title": "Billing Address",
+        "sameAsInstallation": "Same as installation address"
+      },
+      "propertyOwnership": {
+        "title": "Property Ownership",
+        "isOwner": "I am the owner of the property",
+        "ownerInfo": "Owner Information",
+        "ownerName": "Owner Name",
+        "ownerNamePlaceholder": "Name of the owner",
+        "ownerEmail": "Owner Email",
+        "ownerEmailPlaceholder": "owner@email.ch",
+        "ownerPhone": "Owner Phone",
+        "ownerPhonePlaceholder": "+41 79 123 45 67"
+      },
+      "consents": {
+        "title": "Consents",
+        "terms": "I accept the Terms and Conditions",
+        "privacy": "I accept the Privacy Policy",
+        "marketing": "I would like to receive newsletters and offers (optional)"
+      },
+      "validation": {
+        "required": "This field is required",
+        "invalidEmail": "Invalid email address",
+        "invalidPhone": "Invalid phone number (Swiss format)",
+        "passwordTooShort": "Password must be at least 8 characters"
+      }
+    },
+    "step7ContractReview": {
+      "title": "Contract Review",
+      "subtitle": "Review the details of your solar system and select your package.",
+      "systemSummary": {
+        "title": "System Summary",
+        "systemSize": "System Size",
+        "panelCount": "Panel Count",
+        "annualProduction": "Annual Production",
+        "selfConsumption": "Self-Consumption"
+      },
+      "packageSelection": {
+        "title": "Package Selection",
+        "subtitle": "Choose the package that best fits your needs",
+        "basic": {
+          "name": "Basic",
+          "description": "Entry-level package",
+          "feature1": "Standard panels & inverter",
+          "feature2": "10-year warranty",
+          "feature3": "Online monitoring"
+        },
+        "comfort": {
+          "name": "Comfort",
+          "description": "Most popular choice",
+          "feature1": "Premium panels & inverter",
+          "feature2": "15-year warranty",
+          "feature3": "Advanced monitoring",
+          "feature4": "Annual maintenance"
+        },
+        "premium": {
+          "name": "Premium",
+          "description": "All-inclusive",
+          "feature1": "Top-tier panels & inverter",
+          "feature2": "25-year warranty",
+          "feature3": "Smart home integration",
+          "feature4": "Priority support"
+        },
+        "recommended": "Recommended"
+      },
+      "priceSummary": {
+        "title": "Price Summary",
+        "equipment": "Equipment & Installation",
+        "subtotal": "Subtotal",
+        "federalSubsidy": "Federal Subsidy",
+        "total": "Total",
+        "vatIncluded": "VAT included"
+      },
+      "importantNotice": {
+        "title": "Important Notice",
+        "content": "This is a preliminary offer based on your inputs. Final costs will be confirmed after an on-site inspection by our team. The prices and subsidies shown are estimates and may vary."
+      },
+      "acknowledgments": {
+        "title": "Acknowledgments",
+        "preliminary": "I understand this is a preliminary offer that will be finalized after the on-site inspection.",
+        "termsAccepted": "I have read and accept the Terms and Conditions.",
+        "dataProcessing": "I consent to the processing of my data according to the Privacy Policy."
+      },
+      "errors": {
+        "selectPackage": "Please select a package",
+        "acceptAcknowledgments": "Please confirm all acknowledgments",
+        "contractCreation": "Error creating contract"
+      },
+      "creatingContract": "Creating contract..."
+    },
+    "step8Signature": {
+      "title": "Digital Signature",
+      "subtitle": "Sign your contract securely with SMS verification",
+      "summary": {
+        "title": "Contract Summary",
+        "document": "Document",
+        "preliminaryAgreement": "Preliminary Agreement",
+        "contractNumber": "Contract Number",
+        "signer": "Signer",
+        "email": "Email"
+      },
+      "initiating": {
+        "title": "Sending verification code...",
+        "message": "Please wait while we send you the code."
+      },
+      "otp": {
+        "title": "SMS Verification",
+        "sentTo": "We have sent a 6-digit code to:",
+        "verify": "Verify & Sign",
+        "verifying": "Verifying...",
+        "didntReceive": "Didn't receive the code?",
+        "resend": "Resend code"
+      },
+      "failed": {
+        "title": "Verification Failed",
+        "message": "An error occurred while sending the code.",
+        "retry": "Try Again",
+        "retrying": "Retrying..."
+      },
+      "security": {
+        "title": "Secure Signature",
+        "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws."
+      },
+      "downloadContract": "Download Contract"
+    },
+    "confirmation": {
+      "title": "Thank You!",
+      "subtitle": "Your contract has been successfully signed.",
+      "contractSummary": {
+        "title": "Contract Summary",
+        "contractNumber": "Contract Number",
+        "signedBy": "Signed By",
+        "systemSize": "System Size",
+        "panels": "Panel Count"
+      },
+      "download": {
+        "title": "Signed Contract",
+        "description": "Download your signed contract as PDF.",
+        "button": "Download PDF"
+      },
+      "nextSteps": {
+        "title": "Next Steps",
+        "step1": {
+          "title": "Email Confirmation",
+          "description": "You will receive an email confirmation with all details shortly."
+        },
+        "step2": {
+          "title": "On-Site Inspection",
+          "description": "Our team will contact you within 2-3 business days to schedule a site visit."
+        },
+        "step3": {
+          "title": "Final Offer",
+          "description": "After the inspection, you will receive a binding offer."
+        },
+        "step4": {
+          "title": "Installation",
+          "description": "Upon your approval, installation will begin within 4-6 weeks."
+        }
+      },
+      "contact": {
+        "title": "Questions?",
+        "description": "Our team is here to help."
+      },
+      "emailNote": {
+        "title": "Email Confirmation",
+        "message": "A confirmation has been sent to {email}."
+      },
+      "actions": {
+        "newCalculation": "New Calculation",
+        "backToHome": "Back to Home"
+      }
     }
+  },
+  "common": {
+    "back": "Back",
+    "next": "Next",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "save": "Save",
+    "loading": "Loading..."
   }
 }

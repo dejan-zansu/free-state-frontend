@@ -240,6 +240,16 @@
           "description": "Bis zu 12 t CO₂ pro Jahr – für Ihr Unternehmen."
         }
       }
+    },
+    "whoWeAre": {
+      "eyebrow": "Wer wir sind?",
+      "title": "Mehr als Energie,\nIhre langfristigen Partner.",
+      "quote": "Unsere Mission ist es, die finanziellen und technischen Hürden für saubere Energie zu beseitigen, indem wir die gesamte Investition und Komplexität selbst übernehmen und so jedem Hausbesitzer ein sorgenfreies Erlebnis garantieren.",
+      "author": "Ivan Mirić, CEO von FreeState AG",
+      "video": {
+        "play": "Video abspielen",
+        "pause": "Video pausieren"
+      }
     }
   },
   "contact": {
@@ -747,6 +757,18 @@
       "step5": {
         "title": "Ergebnisse",
         "description": "Ihr Solarpotenzial"
+      },
+      "step6": {
+        "title": "Persönliche Daten",
+        "description": "Ihre Kontaktdaten"
+      },
+      "step7": {
+        "title": "Vertragsprüfung",
+        "description": "Angebot bestätigen"
+      },
+      "step8": {
+        "title": "Unterschrift",
+        "description": "Digital signieren"
       }
     },
     "step1": {
@@ -1011,6 +1033,218 @@
       "requestQuote": "Angebot anfordern",
       "downloadReport": "Bericht herunterladen",
       "downloadingReport": "Wird generiert..."
+    },
+    "step6PersonalInfo": {
+      "title": "Persönliche Daten",
+      "subtitle": "Bitte geben Sie Ihre Kontaktdaten ein, um Ihr persönliches Angebot zu erhalten.",
+      "personalInfo": {
+        "title": "Kontaktdaten",
+        "firstName": "Vorname",
+        "firstNamePlaceholder": "Max",
+        "lastName": "Nachname",
+        "lastNamePlaceholder": "Muster",
+        "email": "E-Mail",
+        "emailPlaceholder": "max.muster@email.ch",
+        "phone": "Telefon",
+        "phonePlaceholder": "+41 79 123 45 67",
+        "phoneHint": "Für die SMS-Verifizierung bei der Vertragsunterzeichnung",
+        "password": "Passwort",
+        "passwordPlaceholder": "Mindestens 8 Zeichen",
+        "passwordHint": "Für den Zugang zu Ihrem Kundenportal"
+      },
+      "installationAddress": {
+        "title": "Installationsadresse",
+        "street": "Strasse",
+        "streetPlaceholder": "Musterstrasse",
+        "streetNumber": "Nr.",
+        "streetNumberPlaceholder": "1a",
+        "postalCode": "PLZ",
+        "postalCodePlaceholder": "8000",
+        "city": "Ort",
+        "cityPlaceholder": "Zürich",
+        "canton": "Kanton",
+        "selectCanton": "Kanton auswählen"
+      },
+      "billingAddress": {
+        "title": "Rechnungsadresse",
+        "sameAsInstallation": "Gleich wie Installationsadresse"
+      },
+      "propertyOwnership": {
+        "title": "Eigentumsverhältnisse",
+        "isOwner": "Ich bin Eigentümer der Immobilie",
+        "ownerInfo": "Eigentümerinformationen",
+        "ownerName": "Name des Eigentümers",
+        "ownerNamePlaceholder": "Name des Eigentümers",
+        "ownerEmail": "E-Mail des Eigentümers",
+        "ownerEmailPlaceholder": "eigentuemer@email.ch",
+        "ownerPhone": "Telefon des Eigentümers",
+        "ownerPhonePlaceholder": "+41 79 123 45 67"
+      },
+      "consents": {
+        "title": "Einwilligungen",
+        "terms": "Ich akzeptiere die Allgemeinen Geschäftsbedingungen",
+        "privacy": "Ich akzeptiere die Datenschutzerklärung",
+        "marketing": "Ich möchte Newsletter und Angebote erhalten (optional)"
+      },
+      "validation": {
+        "required": "Dieses Feld ist erforderlich",
+        "invalidEmail": "Ungültige E-Mail-Adresse",
+        "invalidPhone": "Ungültige Telefonnummer (Schweizer Format)",
+        "passwordTooShort": "Passwort muss mindestens 8 Zeichen lang sein"
+      }
+    },
+    "step7ContractReview": {
+      "title": "Vertragsüberprüfung",
+      "subtitle": "Überprüfen Sie die Details Ihrer Solaranlage und wählen Sie Ihr Paket.",
+      "systemSummary": {
+        "title": "Systemübersicht",
+        "systemSize": "Systemgrösse",
+        "panelCount": "Anzahl Panels",
+        "annualProduction": "Jährliche Produktion",
+        "selfConsumption": "Eigenverbrauch"
+      },
+      "packageSelection": {
+        "title": "Paketauswahl",
+        "subtitle": "Wählen Sie das Paket, das am besten zu Ihren Bedürfnissen passt",
+        "basic": {
+          "name": "Basic",
+          "description": "Einstiegspaket",
+          "feature1": "Standard Panels & Wechselrichter",
+          "feature2": "10 Jahre Garantie",
+          "feature3": "Online-Monitoring"
+        },
+        "comfort": {
+          "name": "Comfort",
+          "description": "Beliebteste Wahl",
+          "feature1": "Premium Panels & Wechselrichter",
+          "feature2": "15 Jahre Garantie",
+          "feature3": "Erweitertes Monitoring",
+          "feature4": "Jährliche Wartung"
+        },
+        "premium": {
+          "name": "Premium",
+          "description": "Rundum-sorglos",
+          "feature1": "Top-Tier Panels & Wechselrichter",
+          "feature2": "25 Jahre Garantie",
+          "feature3": "Smart Home Integration",
+          "feature4": "Prioritäts-Support"
+        },
+        "recommended": "Empfohlen"
+      },
+      "priceSummary": {
+        "title": "Preisübersicht",
+        "equipment": "Anlage & Installation",
+        "subtotal": "Zwischensumme",
+        "federalSubsidy": "Bundessubvention",
+        "total": "Gesamtbetrag",
+        "vatIncluded": "inkl. MwSt."
+      },
+      "importantNotice": {
+        "title": "Wichtiger Hinweis",
+        "content": "Dies ist ein vorläufiges Angebot basierend auf Ihren Eingaben. Die endgültigen Kosten werden nach einer Vor-Ort-Besichtigung durch unser Team bestätigt. Die angegebenen Preise und Subventionen sind Schätzungen und können variieren."
+      },
+      "acknowledgments": {
+        "title": "Bestätigungen",
+        "preliminary": "Ich verstehe, dass dies ein vorläufiges Angebot ist, das nach der Vor-Ort-Besichtigung finalisiert wird.",
+        "termsAccepted": "Ich habe die Allgemeinen Geschäftsbedingungen gelesen und akzeptiere sie.",
+        "dataProcessing": "Ich stimme der Verarbeitung meiner Daten gemäss der Datenschutzerklärung zu."
+      },
+      "errors": {
+        "selectPackage": "Bitte wählen Sie ein Paket aus",
+        "acceptAcknowledgments": "Bitte bestätigen Sie alle Punkte",
+        "contractCreation": "Fehler bei der Vertragserstellung"
+      },
+      "creatingContract": "Vertrag wird erstellt..."
+    },
+    "step8Signature": {
+      "title": "Digitale Unterschrift",
+      "subtitle": "Unterzeichnen Sie Ihren Vertrag sicher mit SMS-Verifizierung",
+      "summary": {
+        "title": "Vertragsübersicht",
+        "document": "Dokument",
+        "preliminaryAgreement": "Vorläufige Vereinbarung",
+        "contractNumber": "Vertragsnummer",
+        "signer": "Unterzeichner",
+        "email": "E-Mail"
+      },
+      "initiating": {
+        "title": "Verifizierungscode wird gesendet...",
+        "message": "Bitte warten Sie, während wir Ihnen den Code senden."
+      },
+      "otp": {
+        "title": "SMS-Verifizierung",
+        "sentTo": "Wir haben einen 6-stelligen Code gesendet an:",
+        "verify": "Verifizieren & Unterschreiben",
+        "verifying": "Wird verifiziert...",
+        "didntReceive": "Code nicht erhalten?",
+        "resend": "Code erneut senden"
+      },
+      "failed": {
+        "title": "Verifizierung fehlgeschlagen",
+        "message": "Beim Senden des Codes ist ein Fehler aufgetreten.",
+        "retry": "Erneut versuchen",
+        "retrying": "Wird erneut versucht..."
+      },
+      "security": {
+        "title": "Sichere Signatur",
+        "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen."
+      },
+      "downloadContract": "Vertrag herunterladen"
+    },
+    "confirmation": {
+      "title": "Vielen Dank!",
+      "subtitle": "Ihr Vertrag wurde erfolgreich unterzeichnet.",
+      "contractSummary": {
+        "title": "Vertragsübersicht",
+        "contractNumber": "Vertragsnummer",
+        "signedBy": "Unterzeichnet von",
+        "systemSize": "Systemgrösse",
+        "panels": "Anzahl Panels"
+      },
+      "download": {
+        "title": "Unterzeichneter Vertrag",
+        "description": "Laden Sie Ihren unterschriebenen Vertrag als PDF herunter.",
+        "button": "PDF herunterladen"
+      },
+      "nextSteps": {
+        "title": "Nächste Schritte",
+        "step1": {
+          "title": "Bestätigung per E-Mail",
+          "description": "Sie erhalten in Kürze eine E-Mail-Bestätigung mit allen Details."
+        },
+        "step2": {
+          "title": "Vor-Ort-Besichtigung",
+          "description": "Unser Team wird sich innerhalb von 2-3 Werktagen für einen Besichtigungstermin melden."
+        },
+        "step3": {
+          "title": "Finales Angebot",
+          "description": "Nach der Besichtigung erhalten Sie ein verbindliches Angebot."
+        },
+        "step4": {
+          "title": "Installation",
+          "description": "Nach Ihrer Zustimmung beginnt die Installation innerhalb von 4-6 Wochen."
+        }
+      },
+      "contact": {
+        "title": "Fragen?",
+        "description": "Unser Team steht Ihnen gerne zur Verfügung."
+      },
+      "emailNote": {
+        "title": "E-Mail-Bestätigung",
+        "message": "Eine Bestätigung wurde an {email} gesendet."
+      },
+      "actions": {
+        "newCalculation": "Neue Berechnung",
+        "backToHome": "Zur Startseite"
+      }
     }
+  },
+  "common": {
+    "back": "Zurück",
+    "next": "Weiter",
+    "continue": "Weiter",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "loading": "Lädt..."
   }
 }

@@ -3,8 +3,10 @@
 import Image from 'next/image'
 import { Play, Pause } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 const WhoWeAre = () => {
+  const t = useTranslations('home.whoWeAre')
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isHovered, setIsHovered] = useState(false)
@@ -33,19 +35,15 @@ const WhoWeAre = () => {
           <div className="w-full lg:max-w-[508px] shrink-0">
             <div className="flex flex-col">
               <p className="text-foreground/80 text-2xl font-normal mb-5">
-                Who we are?
+                {t('eyebrow')}
               </p>
 
-              <h2 className="text-foreground text-5xl font-medium mb-7">
-                More than energy,
-                <br /> your long-term partners.
+              <h2 className="text-foreground text-5xl font-medium mb-7 whitespace-pre-line">
+                {t('title')}
               </h2>
 
               <p className="text-foreground/80 text-base font-light leading-[1.5em] max-w-[487px]">
-                &ldquo;Our mission is to strip away the financial and technical
-                barriers to clean energy by taking on the entire investment and
-                complexity ourselves, ensuring a completely worry-free
-                experience for every homeowner.&rdquo;
+                &ldquo;{t('quote')}&rdquo;
               </p>
 
               <div className="flex items-start gap-3 flex-col mt-5">
@@ -60,7 +58,7 @@ const WhoWeAre = () => {
                 </div>
                 <div className="flex flex-col">
                   <p className="text-foreground text-lg font-semibold leading-[1.33em]">
-                    Ivan Mirić, CEO of FreeState AG
+                    {t('author')}
                   </p>
                 </div>
               </div>
@@ -101,7 +99,7 @@ const WhoWeAre = () => {
                 <button
                   onClick={togglePlayPause}
                   className="relative w-[45.49px] h-[45.49px] rounded-full bg-foreground/80 backdrop-blur-sm flex items-center justify-center hover:bg-foreground/90 transition-colors cursor-pointer"
-                  aria-label={isPlaying ? 'Pause video' : 'Play video'}
+                  aria-label={isPlaying ? t('video.pause') : t('video.play')}
                 >
                   {isPlaying ? (
                     <Pause

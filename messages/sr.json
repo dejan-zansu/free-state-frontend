@@ -229,6 +229,16 @@
           "description": "Do 12 t CO₂ godišnje – za vašu kompaniju."
         }
       }
+    },
+    "whoWeAre": {
+      "eyebrow": "Ko smo mi?",
+      "title": "Više od energije,\nvaši dugoročni partneri.",
+      "quote": "Naša misija je da uklonimo finansijske i tehničke barijere za čistu energiju preuzimajući celokupnu investiciju i složenost na sebe, obezbeđujući potpuno bezbrižno iskustvo za svakog vlasnika nekretnine.",
+      "author": "Ivan Mirić, CEO FreeState AG",
+      "video": {
+        "play": "Pusti video",
+        "pause": "Pauziraj video"
+      }
     }
   },
   "contact": {

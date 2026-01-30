@@ -22,20 +22,26 @@ const Hero = async ({
   const heroDescription = description || t('hero.subtitle')
 
   return (
-    <section className='relative min-h-[500px] md:min-h-[600px] lg:min-h-[736px] flex justify-center overflow-hidden'>
-      <div className='absolute inset-0 z-0'>
+    <section
+      className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[736px] flex justify-center overflow-hidden"
+      style={{
+        background:
+          'linear-gradient(180deg, rgba(253, 255, 245, 1) 2%, rgba(234, 237, 223, 1) 100%)',
+      }}
+    >
+      <div className="absolute inset-0 z-0">
         <div
-          className='absolute inset-0 bg-cover bg-center'
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('/images/${isCommercial ? 'hero-solar-panels-2.webp' : 'hero-solar-panels.webp'}')`,
+            backgroundImage: `url('/images/${isCommercial ? 'home-with-panels-commercial.jpg' : 'home-with-panels.jpg'}')`,
           }}
         />
       </div>
 
-      <div className='relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[120px] sm:pt-[160px] md:pt-[200px] lg:pt-[225px] w-full'>
+      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[120px] sm:pt-[160px] md:pt-[200px] lg:pt-[225px] w-full">
         <HeroNav locale={locale} isCommercial={isCommercial} />
 
-        <div className='flex flex-col items-center text-center'>
+        <div className="flex flex-col items-center text-center">
           <h1
             className={cn(
               'text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-4 whitespace-pre-line max-w-[800px] px-2',
@@ -54,16 +60,21 @@ const Hero = async ({
           </p>
 
           {showCTAs && (
-            <div className='flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4'>
-              <LinkButton variant='primary' href='/solar-abo' locale={locale} className='w-full sm:w-auto'>
+            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
+              <LinkButton
+                variant="primary"
+                href="/solar-abo"
+                locale={locale}
+                className="w-full sm:w-auto"
+              >
                 {t('hero.cta.primary')}
               </LinkButton>
 
               <LinkButton
-                variant='outline-secondary'
-                href='/calculator'
+                variant="outline-secondary"
+                href="/calculator"
                 locale={locale}
-                className='w-full sm:w-auto'
+                className="w-full sm:w-auto"
               >
                 {t('hero.cta.secondary')}
               </LinkButton>

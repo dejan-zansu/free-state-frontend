@@ -5,6 +5,7 @@ import Partners from '@/components/Partners'
 import Portfolio from '@/components/Portfolio'
 import SolarEnergyFor from '@/components/SolarEnergyFor'
 import Stats from '@/components/Stats'
+import Testimonials from '@/components/Testimonials'
 import WhoWeAre from '@/components/WhoWeAre'
 import YourPartner from '@/components/YourPartner'
 
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Benefits />
       <YourPartner />
       <Portfolio />
+      <Testimonials />
       <Stats />
       <Partners />
     </div>

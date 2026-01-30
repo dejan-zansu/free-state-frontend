@@ -229,6 +229,16 @@
           "description": "Hasta 12 t CO₂ al año – para su empresa."
         }
       }
+    },
+    "whoWeAre": {
+      "eyebrow": "¿Quiénes somos?",
+      "title": "Más que energía,\nsus socios a largo plazo.",
+      "quote": "Nuestra misión es eliminar las barreras financieras y técnicas de la energía limpia asumiendo toda la inversión y complejidad nosotros mismos, garantizando una experiencia completamente libre de preocupaciones para cada propietario.",
+      "author": "Ivan Mirić, CEO de FreeState AG",
+      "video": {
+        "play": "Reproducir video",
+        "pause": "Pausar video"
+      }
     }
   },
   "contact": {
