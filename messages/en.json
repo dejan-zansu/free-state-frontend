@@ -5,22 +5,48 @@
     "contact": "Contact"
   },
   "footer": {
-    "copyright": "©2025 FREESTATE AG. ALLE RECHTE VORBEHALTEN.",
-    "contact": "Contact",
-    "navigation": "Navigation",
-    "community": "Community",
-    "cta": "Get Started",
-    "links": {
-      "home": "Home",
-      "solarSolutions": "Solar Solutions",
-      "companies": "Companies",
-      "portfolio": "Portfolio",
-      "aboutUs": "About Us",
-      "contact": "Contact",
-      "facebook": "Facebook",
-      "linkedin": "LinkedIn",
-      "instagram": "Instagram",
-      "impressum": "Impressum"
+    "copyright": "© Free State AG. All rights reserved.",
+    "tagline": "Solar energy as infrastructure. Built for the long term. Designed for economic performance.",
+    "cta": "Start your solar project",
+    "solarAbo": {
+      "title": "SolarAbo",
+      "singleFamily": "Single-family home",
+      "multiFamily": "Multi-family building (ZEV)",
+      "businesses": "Businesses",
+      "agriculture": "Agriculture",
+      "publicBuildings": "Public buildings"
+    },
+    "products": {
+      "title": "Products",
+      "solarSystems": "Solar systems",
+      "batteryStorage": "Battery storage",
+      "heatPumps": "Heat pumps",
+      "chargingStations": "Charging stations",
+      "energyManagement": "Energy management"
+    },
+    "company": {
+      "title": "Company",
+      "aboutUs": "About us",
+      "history": "History & development",
+      "mission": "Mission & responsibility",
+      "team": "Team & Organisation",
+      "investors": "Investors & partnerships",
+      "careers": "Careers"
+    },
+    "knowledgeMedia": {
+      "title": "Knowledge & media",
+      "faq": "Solar know-how / FAQ",
+      "mediaPress": "Media & press"
+    },
+    "legal": {
+      "title": "Legal",
+      "legalNotice": "Legal notice",
+      "privacyPolicy": "Privacy policy",
+      "agb": "AGB"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "kontakt": "Kontakt"
     }
   },
   "contactHero": {
@@ -82,23 +108,6 @@
       "month": "/month",
       "orderNow": "Order now",
       "cards": [
-        {
-          "title": "SolarAbo Home",
-          "subtitle": "For single-family homes without storage",
-          "feature1": "Black-Module 450 Wp + High-performance inverter",
-          "feature2": "Live-Monitoring via App – Production, consumption, savings in real-time",
-          "feature3": "Insurance & maintenance included",
-          "feature4": "CO₂ reduction: up to 2 t per year",
-          "term": "35-year term with buyback option",
-          "price": "from CHF 39.95 /month",
-          "benefit1": "0 CHF investment – instead of CHF 25,000 purchase price",
-          "benefit2": "30% cheaper electricity than your current grid price",
-          "benefit3": "Free activation (instead of CHF 990)",
-          "explanation": {
-            "label": "Simply explained:",
-            "text": "Like a mobile subscription. You use the system, we take care of construction, financing, operation and service. After the term, the system belongs to you – free of charge."
-          }
-        },
         {
           "title": "SolarAbo Home Storage",
           "subtitle": "Single-family home with battery storage",

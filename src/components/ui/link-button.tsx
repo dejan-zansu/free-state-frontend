@@ -13,13 +13,17 @@ const linkButtonVariants = cva(
         primary: 'bg-solar text-solar-foreground hover:bg-solar/90',
         secondary:
           'bg-energy border border-energy hover:bg-energy/90 text-white',
-        tertiary: 'bg-[#062E25] text-white hover:bg-solar hover:text-solar-foreground',
-        quaternary: 'bg-[#3D3858] text-white hover:bg-energy/90 hover:border-energy border border-[#3D3858]',
+        tertiary:
+          'bg-[#062E25] text-white hover:bg-solar hover:text-solar-foreground',
+        quaternary:
+          'bg-[#3D3858] text-white hover:bg-energy/90 hover:border-energy border border-[#3D3858]',
         'outline-primary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-secondary':
           'bg-white/5 border border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
         'outline-tertiary':
+          'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+        'outline-quaternary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
       },
     },
@@ -30,7 +34,8 @@ const linkButtonVariants = cva(
 )
 
 interface LinkButtonProps
-  extends React.ComponentProps<typeof Link>,
+  extends
+    React.ComponentProps<typeof Link>,
     VariantProps<typeof linkButtonVariants> {
   locale?: string
 }
@@ -54,6 +59,7 @@ const LinkButton = React.forwardRef<
   const isOutlinePrimary = variant === 'outline-primary'
   const isOutlineSecondary = variant === 'outline-secondary'
   const isOutlineTertiary = variant === 'outline-tertiary'
+  const isOutlineQuaternary = variant === 'outline-quaternary'
 
   const isFullWidth = className && className.includes('w-full')
 
@@ -82,7 +88,8 @@ const LinkButton = React.forwardRef<
           isQuaternary && 'bg-white group-hover:bg-white',
           isOutlinePrimary && 'bg-[#062E25]',
           isOutlineSecondary && 'bg-solar',
-          isOutlineTertiary && 'bg-[#b7fe1a]'
+          isOutlineTertiary && 'bg-[#b7fe1a]',
+          isOutlineQuaternary && 'bg-energy'
         )}
       >
         <ArrowRight
@@ -94,7 +101,8 @@ const LinkButton = React.forwardRef<
             isQuaternary && 'text-[#3D3858]',
             isOutlinePrimary && 'text-white',
             isOutlineSecondary && 'text-solar-foreground',
-            isOutlineTertiary && 'text-[#062E25]'
+            isOutlineTertiary && 'text-[#062E25]',
+            isOutlineQuaternary && 'text-white'
           )}
         />
         <ArrowRight
@@ -106,7 +114,8 @@ const LinkButton = React.forwardRef<
             isQuaternary && 'text-energy',
             isOutlinePrimary && 'text-white',
             isOutlineSecondary && 'text-solar-foreground',
-            isOutlineTertiary && 'text-[#062E25]'
+            isOutlineTertiary && 'text-[#062E25]',
+            isOutlineQuaternary && 'text-white'
           )}
         />
       </div>

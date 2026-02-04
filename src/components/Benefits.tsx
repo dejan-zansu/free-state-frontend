@@ -26,7 +26,7 @@ const Benefits = async ({ isCommercial = false }) => {
   ]
 
   return (
-    <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 bg-[#FDFFF5]">
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#FDFFF5]">
       <div className="max-w-[1111px] mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10 max-w-[530px] mx-auto">
           <h2 className="text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4">

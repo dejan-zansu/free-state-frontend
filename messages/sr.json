@@ -18,22 +18,48 @@
     "residentialProperties": "Stambene nekretnine"
   },
   "footer": {
-    "copyright": "©2025 FREESTATE AG. SVA PRAVA ZADRŽANA.",
-    "contact": "Kontakt",
-    "navigation": "Navigacija",
-    "community": "Zajednica",
-    "cta": "Počni",
-    "links": {
-      "home": "Početna",
-      "solarSolutions": "Solarna rešenja",
-      "companies": "Kompanije",
-      "portfolio": "Portfolio",
+    "copyright": "© Free State AG. Sva prava zadržana.",
+    "tagline": "Solarna energija kao infrastruktura. Izgrađena za dugoročnost. Dizajnirana za ekonomske performanse.",
+    "cta": "Pokrenite svoj solarni projekat",
+    "solarAbo": {
+      "title": "SolarAbo",
+      "singleFamily": "Porodična kuća",
+      "multiFamily": "Višeporodična zgrada (ZEV)",
+      "businesses": "Preduzeća",
+      "agriculture": "Poljoprivreda",
+      "publicBuildings": "Javne zgrade"
+    },
+    "products": {
+      "title": "Proizvodi",
+      "solarSystems": "Solarni sistemi",
+      "batteryStorage": "Baterijski skladište",
+      "heatPumps": "Toplotne pumpe",
+      "chargingStations": "Stanice za punjenje",
+      "energyManagement": "Upravljanje energijom"
+    },
+    "company": {
+      "title": "Kompanija",
       "aboutUs": "O nama",
-      "contact": "Kontakt",
-      "facebook": "Facebook",
-      "linkedin": "LinkedIn",
-      "instagram": "Instagram",
-      "impressum": "Impresum"
+      "history": "Istorija i razvoj",
+      "mission": "Misija i odgovornost",
+      "team": "Tim i organizacija",
+      "investors": "Investitori i partnerstva",
+      "careers": "Karijere"
+    },
+    "knowledgeMedia": {
+      "title": "Znanje i mediji",
+      "faq": "Solarno znanje / FAQ",
+      "mediaPress": "Mediji i štampa"
+    },
+    "legal": {
+      "title": "Pravno",
+      "legalNotice": "Pravna napomena",
+      "privacyPolicy": "Politika privatnosti",
+      "agb": "Opšti uslovi"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "kontakt": "Kontakt"
     }
   },
   "home": {
@@ -88,23 +114,6 @@
       "month": "/mesec",
       "orderNow": "Naruči sada",
       "cards": [
-        {
-          "title": "SolarAbo Home",
-          "subtitle": "Za porodične kuće bez skladišta",
-          "feature1": "Crni modul 450 Wp + Visokoeffikasni inverter",
-          "feature2": "Praćenje u realnom vremenu preko App – Proizvodnja, potrošnja, ušteda u realnom vremenu",
-          "feature3": "Osiguranje i održavanje uključeni",
-          "feature4": "Smanjenje CO₂: do 2 t godišnje",
-          "term": "Rok od 35 godina sa opcijom otkupa",
-          "price": "od CHF 39.95 /mesec",
-          "benefit1": "0 CHF investicija – umesto CHF 25,000 cena kupovine",
-          "benefit2": "30% jeftinija struja od vaše trenutne mrežne cene",
-          "benefit3": "BESPLATNA AKTIVACIJA (umesto CHF 990)",
-          "explanation": {
-            "label": "Jednostavno objašnjeno:",
-            "text": "Kao mobilna pretplata. Vi koristite sistem, mi se brinemo o izgradnji, finansiranju, radu i servisu. Posle roka, sistem vam pripada – besplatno."
-          }
-        },
         {
           "title": "SolarAbo Home Storage",
           "subtitle": "Porodična kuća sa baterijskim skladištem",

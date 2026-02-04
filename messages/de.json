@@ -5,22 +5,48 @@
     "contact": "Kontakt"
   },
   "footer": {
-    "copyright": "©2025 FREESTATE AG. ALLE RECHTE VORBEHALTEN.",
-    "contact": "Kontakt",
-    "navigation": "Navigation",
-    "community": "Community",
-    "cta": "Jetzt starten",
-    "links": {
-      "home": "Home",
-      "solarSolutions": "Solarlösungen",
-      "companies": "Unternehmen",
-      "portfolio": "Portfolio",
+    "copyright": "© Free State AG. Alle Rechte vorbehalten.",
+    "tagline": "Solarenergie als Infrastruktur. Langfristig gebaut. Für wirtschaftliche Leistung konzipiert.",
+    "cta": "Starten Sie Ihr Solarprojekt",
+    "solarAbo": {
+      "title": "SolarAbo",
+      "singleFamily": "Einfamilienhaus",
+      "multiFamily": "Mehrfamilienhaus (ZEV)",
+      "businesses": "Unternehmen",
+      "agriculture": "Landwirtschaft",
+      "publicBuildings": "Öffentliche Gebäude"
+    },
+    "products": {
+      "title": "Produkte",
+      "solarSystems": "Solaranlagen",
+      "batteryStorage": "Batteriespeicher",
+      "heatPumps": "Wärmepumpen",
+      "chargingStations": "Ladestationen",
+      "energyManagement": "Energiemanagement"
+    },
+    "company": {
+      "title": "Unternehmen",
       "aboutUs": "Über uns",
-      "contact": "Kontakt",
-      "facebook": "Facebook",
-      "linkedin": "LinkedIn",
-      "instagram": "Instagram",
-      "impressum": "Impressum"
+      "history": "Geschichte & Entwicklung",
+      "mission": "Mission & Verantwortung",
+      "team": "Team & Organisation",
+      "investors": "Investoren & Partnerschaften",
+      "careers": "Karriere"
+    },
+    "knowledgeMedia": {
+      "title": "Wissen & Medien",
+      "faq": "Solar Know-how / FAQ",
+      "mediaPress": "Medien & Presse"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "legalNotice": "Impressum",
+      "privacyPolicy": "Datenschutz",
+      "agb": "AGB"
+    },
+    "contact": {
+      "title": "Kontakt",
+      "kontakt": "Kontakt"
     }
   },
   "contactHero": {
@@ -82,23 +108,6 @@
       "month": "/ Monat",
       "orderNow": "Jetzt bestellen",
       "cards": [
-        {
-          "title": "SolarAbo Home",
-          "subtitle": "Für Einfamilienhäuser ohne Speicher",
-          "feature1": "Black-Module 450 Wp + Hochleistungs-Wechselrichter",
-          "feature2": "Live-Monitoring via App – Produktion, Verbrauch, Einsparung in Echtzeit",
-          "feature3": "Versicherung & Wartung inklusive",
-          "feature4": "CO₂-Reduktion: bis 2 t pro Jahr",
-          "term": "Laufzeit 35 Jahre mit Rückkaufoption",
-          "price": "ab CHF 39.95 / Monat",
-          "benefit1": "0 CHF Investition – statt CHF 25 000 Kaufpreis",
-          "benefit2": "30 % günstigerer Strom als dein aktueller Netzpreis",
-          "benefit3": "GRATIS AKTIVIERUNG (statt CHF 990)",
-          "explanation": {
-            "label": "Einfach erklärt:",
-            "text": "Wie bei einem Handy-Abo. Du nutzt die Anlage, wir übernehmen Bau, Finanzierung, Betrieb und Service. Nach der Laufzeit gehört dir die Anlage – kostenlos."
-          }
-        },
         {
           "title": "SolarAbo Home Storage",
           "subtitle": "Einfamilienhaus mit Batteriespeicher",

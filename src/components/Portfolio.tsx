@@ -1,103 +1,158 @@
+'use client'
+
 import { cn } from '@/lib/utils'
-import { ArrowRight } from 'lucide-react'
-import { getLocale, getTranslations } from 'next-intl/server'
+import useEmblaCarousel from 'embla-carousel-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useCallback, useEffect, useState } from 'react'
+import { LinkButton } from './ui/link-button'
 
-const Portfolio = async ({isCommercial = false}) => {
-  const t = await getTranslations('home.portfolio')
-  const locale = await getLocale()
+interface PortfolioItem {
+  number: string
+  title: string
+  description: string
+  image: string
+  link: string
+}
 
-  const portfolioItems = [
-    {
-      number: '02',
-      title: t('item2.title'),
-      details: t('item2.details'),
-      image: '/images/portfolio/portfolio-2.png',
-    },
-    {
-      number: '01',
-      title: t('item1.title'),
-      details: t('item1.details'),
-      image: '/images/portfolio/portfolio-1.png',
-    },
-    {
-      number: '03',
-      title: t('item3.title'),
-      details: t('item3.details'),
-      image: '/images/portfolio/portfolio-3.png',
-    },
-  ]
+interface PortfolioProps {
+  isCommercial?: boolean
+  locale: string
+  translations: {
+    title: string
+    learnMore: string
+    items: {
+      number: string
+      title: string
+      description: string
+    }[]
+  }
+}
+
+const Portfolio = ({
+  isCommercial = false,
+  locale,
+  translations,
+}: PortfolioProps) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const portfolioItems: PortfolioItem[] = translations.items.map(item => ({
+    number: item.number,
+    title: item.title,
+    description: item.description,
+    image: '/images/portfolio-example.png',
+    link: `/${locale}/portfolio`,
+  }))
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setCurrentSlide(emblaApi.selectedScrollSnap())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    onSelect()
+    emblaApi.on('select', onSelect)
+    return () => {
+      emblaApi.off('select', onSelect)
+    }
+  }, [emblaApi, onSelect])
+
+  const goToPrevious = useCallback(() => {
+    emblaApi?.scrollPrev()
+  }, [emblaApi])
+
+  const goToNext = useCallback(() => {
+    emblaApi?.scrollNext()
+  }, [emblaApi])
+
+  const currentItem = portfolioItems[currentSlide]
 
   return (
-    <section className='relative py-12 sm:py-16 md:py-20 lg:py-24 bg-background'>
-      <div className='max-w-327.5 mx-auto px-4 sm:px-6'>
-        <div className='text-center mb-4'>
-          <h2 className='text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold'>
-            {t('title')}
-          </h2>
-        </div>
+    <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-[#EBEDE1]">
+      <div className="text-center mb-8 sm:mb-10 max-w-[530px] mx-auto">
+        <h2 className="text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4">
+          Portfolio
+        </h2>
+        <p className="text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-2">
+          Sustainable energy, long-term cost savings, and full transparency –
+          with no investment risk on your side.
+        </p>
+      </div>
+      <div className="relative w-full h-[500px] sm:h-[550px] md:h-[600px] lg:h-[650px] overflow-hidden rounded-3xl mx-auto max-w-[1400px] px-4 sm:px-6">
+        <div className="relative w-full h-full rounded-3xl overflow-hidden">
+          <div ref={emblaRef} className="h-full overflow-hidden">
+            <div className="flex h-full">
+              {portfolioItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="relative flex-[0_0_100%] min-w-0 h-full"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <div className='text-center mb-8 sm:mb-12 md:mb-17.5'>
-          <p className='text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-2'>
-            {t('subtitle')}
-          </p>
-        </div>
+          <button
+            onClick={goToPrevious}
+            className="absolute top-1/2 -translate-y-1/2 left-4 sm:left-6 z-20 size-12 rounded-full bg-[#EBEDE1] flex items-center justify-center transition-all duration-300 hover:bg-[#EBEDE1]/80"
+            aria-label="Previous slide"
+          >
+            <ArrowLeft className="w-5 h-5 text-gray-800" />
+          </button>
 
-        <div className='flex flex-col md:flex-row gap-4 sm:gap-6 justify-center items-center'>
-          {portfolioItems.map((item, index) => (
+          <button
+            onClick={goToNext}
+            className="absolute top-1/2 -translate-y-1/2 right-4 sm:right-6 z-20 size-12 rounded-full bg-[#EBEDE1] flex items-center justify-center transition-all duration-300 hover:bg-[#EBEDE1]/80"
+            aria-label="Next slide"
+          >
+            <ArrowRight className="w-5 h-5 text-gray-800" />
+          </button>
+
+          <div className="absolute top-1/2 -translate-y-1/2 left-16 sm:left-20 md:left-24 lg:left-28 z-10">
             <div
-              key={index}
               className={cn(
-                'group relative overflow-hidden rounded-2xl w-full max-w-xs h-auto sm:h-128 flex flex-col',
-                index === 1 ? 'md:-mt-8' : '',
-                isCommercial ? 'bg-[#191D1C]' : 'bg-[#062E25]'
+                'p-6 sm:p-8 rounded-2xl backdrop-blur-sm w-[220px] sm:w-[260px] md:w-[280px]',
+                isCommercial
+                  ? 'bg-linear-to-br from-[#191D1C]/90 to-[#191D1C]/70'
+                  : 'bg-linear-to-br from-[#062E25]/90 to-[#062E25]/70'
               )}
             >
-              <div className='px-4 pt-6 sm:pt-8 md:pt-10 pb-6 sm:pb-8'>
-                <div className='flex items-start gap-2 sm:gap-3'>
-                  <div
-                    className={cn(
-                      'text-white opacity-80 text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase leading-[50px] sm:leading-[60px] md:leading-[70px] lg:leading-[80px] tracking-tighter shrink-0',
-                      index === 1 ? isCommercial ? 'text-energy' : 'text-[#9EE028]' : ''
-                    )}
-                  >
-                    {item.number}
-                  </div>
-
-                  <div>
-                    <h3 className='text-white opacity-80 text-sm sm:text-base font-bold uppercase mb-2'>
-                      {item.title}
-                    </h3>
-                    <p className='text-white opacity-80 text-xs font-light whitespace-pre-line'>
-                      {item.details}
-                    </p>
-                  </div>
-                </div>
+              <div className="mb-4">
+                <span
+                  className={cn(
+                    'text-6xl sm:text-7xl font-bold tracking-tight',
+                    isCommercial ? 'text-energy' : 'text-[#9EE028]'
+                  )}
+                >
+                  {currentItem.number}
+                </span>
               </div>
 
-              <div className='relative w-full flex-1 overflow-hidden min-h-[200px] sm:min-h-[250px] md:min-h-[300px]'>
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className='object-cover '
-                />
+              <h3 className="text-white text-lg sm:text-xl md:text-2xl font-semibold mb-2">
+                {currentItem.title}
+              </h3>
 
-                <div className='absolute bottom-4 sm:bottom-6 left-4 sm:left-6'>
-                  <Link
-                    href={`/${locale}/portfolio`}
-                    className='inline-flex items-center gap-2 text-white font-medium group/link transition-opacity duration-300 hover:opacity-80'
-                  >
-                    <span className='inline-flex items-center gap-2 border-b border-white pb-0.5'>
-                      <span>{t('learnMore')}</span>
-                      <ArrowRight className='w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1' />
-                    </span>
-                  </Link>
-                </div>
-              </div>
+              <p className="text-white/70 text-sm sm:text-base font-light mb-7 whitespace-pre-line leading-relaxed">
+                {currentItem.description}
+              </p>
+
+              <LinkButton
+                href={currentItem.link}
+                variant={isCommercial ? 'secondary' : 'primary'}
+              >
+                {translations.learnMore}
+              </LinkButton>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

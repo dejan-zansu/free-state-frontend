@@ -1,9 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
-import Image from 'next/image'
-import useEmblaCarousel from 'embla-carousel-react'
 import { cn } from '@/lib/utils'
+import useEmblaCarousel from 'embla-carousel-react'
+import Image from 'next/image'
+import { useCallback, useEffect, useState } from 'react'
 
 interface Testimonial {
   id: number
@@ -149,7 +149,7 @@ const Testimonials = () => {
       }}
     >
       <div className="max-w-[1440px] mx-auto">
-        <h2 className="text-foreground text-3xl sm:text-4xl md:text-[45px] font-medium mb-12 sm:mb-16 md:mb-20 px-8 sm:px-12 md:px-16">
+        <h2 className="text-foreground text-3xl sm:text-4xl md:text-[45px] font-medium mb-4 px-8 sm:px-12 md:px-16">
           Real roofs. Real results.
         </h2>
 

@@ -12,19 +12,52 @@ const Deals = async ({ isCommercial = false }) => {
 
   const deals = [
     {
-      title: t('cards.0.title'),
-      subtitle: t('cards.0.subtitle'),
-      benefit1: t('cards.0.benefit1'),
-      benefit2: t('cards.0.benefit2'),
-      benefit3: t('cards.0.benefit3'),
-      feature1: t('cards.0.feature1'),
-      feature2: t('cards.0.feature2'),
-      feature3: t('cards.0.feature3'),
-      feature4: t('cards.0.feature4'),
-      explanationLabel: t('cards.0.explanation.label'),
-      explanationText: t('cards.0.explanation.text'),
-      price: t('cards.0.price'),
-      term: t('cards.0.term'),
+      title: t('cards.1.title'),
+      subtitle: t('cards.1.subtitle'),
+      benefit1: t('cards.1.benefit1'),
+      benefit2: t('cards.1.benefit2'),
+      benefit3: t('cards.1.benefit3'),
+      feature1: t('cards.1.feature1'),
+      feature2: t('cards.1.feature2'),
+      feature3: t('cards.1.feature3'),
+      feature4: t('cards.1.feature4'),
+      explanationLabel: t('cards.1.explanation.label'),
+      explanationText: t('cards.1.explanation.text'),
+      price: t('cards.1.price'),
+      term: t('cards.1.term'),
+    },
+    {
+      title: t('cards.2.title'),
+      subtitle: t('cards.2.subtitle'),
+      benefit1: t('cards.2.benefit1'),
+      benefit2: t('cards.2.benefit2'),
+      benefit3: t('cards.2.benefit3'),
+      feature1: t('cards.2.feature1'),
+      feature2: t('cards.2.feature2'),
+      feature3: t('cards.2.feature3'),
+      feature4: t('cards.2.feature4'),
+      explanationLabel: t('cards.2.explanation.label'),
+      explanationText: t('cards.2.explanation.text'),
+      price: t('cards.2.price'),
+      term: t('cards.2.term'),
+    },
+  ]
+
+  const commercialDeals = [
+    {
+      title: t('cards.1.title'),
+      subtitle: t('cards.1.subtitle'),
+      benefit1: t('cards.1.benefit1'),
+      benefit2: t('cards.1.benefit2'),
+      benefit3: t('cards.1.benefit3'),
+      feature1: t('cards.1.feature1'),
+      feature2: t('cards.1.feature2'),
+      feature3: t('cards.1.feature3'),
+      feature4: t('cards.1.feature4'),
+      explanationLabel: t('cards.1.explanation.label'),
+      explanationText: t('cards.1.explanation.text'),
+      price: t('cards.1.price'),
+      term: t('cards.1.term'),
     },
     {
       title: t('cards.1.title'),
@@ -58,6 +91,8 @@ const Deals = async ({ isCommercial = false }) => {
     },
   ]
 
+  const dealsToShow = isCommercial ? commercialDeals : deals
+
   return (
     <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 max-w-[1440px] mx-auto px-4 sm:px-6 bg-[#FDFFF5]">
       <div className="text-center mb-8 sm:mb-10">
@@ -69,11 +104,11 @@ const Deals = async ({ isCommercial = false }) => {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-4 max-w-[1292px] mx-auto">
-        {deals.map((deal, index) => (
+      <div className="flex flex-col md:flex-row gap-4 max-w-[1292px] mx-auto justify-center items-start">
+        {dealsToShow.map((deal, index) => (
           <div
             key={index}
-            className="rounded-lg overflow-hidden relative border border-[#B7C2BF] w-full md:flex-1"
+            className="rounded-lg overflow-hidden relative border border-[#B7C2BF] w-full md:flex-1 max-w-[480px]"
           >
             <div
               className={cn(
@@ -87,7 +122,6 @@ const Deals = async ({ isCommercial = false }) => {
                   isCommercial ? 'border-white' : 'border-solar'
                 )}
               >
-                {/* <HomeIcon className='w-10' /> */}
                 <BatteryIcon
                   className={cn(isCommercial ? 'text-white' : 'text-[#B7FE1A]')}
                 />

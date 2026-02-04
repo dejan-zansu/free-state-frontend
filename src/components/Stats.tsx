@@ -12,7 +12,7 @@ const Stats = async () => {
 
   return (
     <section className="py-8 relative">
-      <div className="max-w-327.5 mx-auto px-4 sm:px-6">
+      <div className="mx-auto px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
           {stats
             .flatMap((stat, index) => [
