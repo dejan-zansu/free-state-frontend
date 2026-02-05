@@ -23,7 +23,6 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
       ]
     : [
         { label: t('hero.nav.solarAboHome'), href: `/${locale}/solar-abo/solar-abo-home` },
-        { label: t('hero.nav.solarAboHomeStorage'), href: `/${locale}/solar-abo/solar-abo-home-storage` },
         { label: t('hero.nav.solarAboMulti'), href: `/${locale}/solar-abo/solar-abo-multi` },
       ]
 

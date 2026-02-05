@@ -37,7 +37,9 @@ const Footer = () => {
   const pathname = usePathname()
   const isCommercial = pathname?.includes('/commercial')
   const isLight =
-    pathname?.includes('/solar-systems') || pathname?.includes('/heat-pumps')
+    pathname?.includes('/solar-systems') ||
+    pathname?.includes('/heat-pumps') ||
+    pathname?.includes('/solar-abo')
 
   const solarAboLinks = [
     {
@@ -177,8 +179,8 @@ const Footer = () => {
   return (
     <footer
       className={cn(
-        'bg-solar',
-        isCommercial ? 'bg-[#3D3858]' : isLight ? 'bg-transparent' : 'bg-solar'
+        'bg-solar relative',
+        isCommercial ? 'bg-[#3D3858]' : isLight ? 'bg-transparent -mt-[40px]' : 'bg-solar'
       )}
     >
       <div
@@ -254,7 +256,7 @@ const Footer = () => {
           </>
         )}
 
-        <div className="relative z-10 max-w-[1380px] mx-auto px-6 pt-16 pb-8">
+        <div className="relative max-w-[1380px] mx-auto px-6 pt-16 pb-8 z-20">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-8">
             <div className="w-fit">
               <Link href={`/${locale}`} className="inline-block">

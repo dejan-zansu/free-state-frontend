@@ -1,19 +1,30 @@
-import SolarAboHomeCTA from '@/components/SolarAboHomeCTA'
-import SolarAboHomeHero from '@/components/SolarAboHomeHero'
 import SolarAboHomeHowItWorks from '@/components/SolarAboHomeHowItWorks'
-import SolarAboHomeIncludes from '@/components/SolarAboHomeIncludes'
-import SolarAboHomePricing from '@/components/SolarAboHomePricing'
-import SolarAboHomeRightForYou from '@/components/SolarAboHomeRightForYou'
+import {
+  SolarAboCTA,
+  SolarAboHero,
+  SolarAboIncludes,
+  SolarAboPricing,
+  SolarAboRightForYou,
+  VideoSection,
+} from '@/components/solar-abo'
 
 const SolarAboHomePage = () => {
   return (
-    <div className='w-full overflow-x-hidden'>
-      <SolarAboHomeHero />
-      <SolarAboHomeIncludes />
+    <div className="w-full overflow-x-hidden">
+      <SolarAboHero
+        translationNamespace="solarAboHome"
+        imageSrc="/images/solar-abo-home.png"
+        imageAlt="SolarAbo Home"
+      />
+      <VideoSection />
+      <SolarAboIncludes translationNamespace="solarAboHome" />
       <SolarAboHomeHowItWorks />
-      <SolarAboHomePricing />
-      <SolarAboHomeRightForYou />
-      <SolarAboHomeCTA />
+      <SolarAboPricing
+        translationNamespace="solarAboHome"
+        backgroundImage="/images/solar-abo-home-roof.png"
+      />
+      <SolarAboRightForYou translationNamespace="solarAboHome" />
+      <SolarAboCTA translationNamespace="solarAboHome" />
     </div>
   )
 }

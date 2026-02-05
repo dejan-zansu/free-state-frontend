@@ -28,7 +28,7 @@ const YourPartner = async ({ isCommercial = false }) => {
   ]
 
   return (
-    <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 bg-[#FDFFF5] border-b border-foreground/20">
+    <section className="relative pt-12 sm:pt-16 md:pt-20 lg:pt-24 bg-[#FDFFF5] border-b border-foreground/20 pb-10">
       <div className="max-w-[1440px] mx-auto ">
         <div className="flex flex-col sm:flex-row sm:justify-between gap-4 sm:gap-6 px-4 sm:px-6 mb-8 sm:mb-10 md:mb-14">
           <div>

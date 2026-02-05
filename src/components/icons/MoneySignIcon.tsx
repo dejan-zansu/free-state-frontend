@@ -1,13 +1,14 @@
-import { SVGProps } from "react"
+import { SVGProps } from 'react'
 const MoneySignIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={36}
     height={36}
+    viewBox="0 0 36 36"
     fill="none"
     {...props}
   >
-    <g stroke="#062E25" strokeWidth={1.5} opacity={0.8}>
+    <g stroke="currentColor" strokeWidth={1.5}>
       <circle cx={17.75} cy={17.75} r={17} />
       <path
         strokeLinecap="round"

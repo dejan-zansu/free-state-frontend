@@ -45,7 +45,10 @@ const SolarAboHomeIncludes = async ({ showBatteryStorage = false }: SolarAboHome
   }
 
   return (
-    <section className='relative py-16 sm:pt-16 bg-white'>
+    <section
+      className='relative py-16 sm:pt-16 bg-[#E8EADD]'
+      style={{ borderRadius: '70px 70px 0 0' }}
+    >
       <div className='max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px]'>
       
         <div className='mb-12 sm:mb-14 max-w-[320px]'>

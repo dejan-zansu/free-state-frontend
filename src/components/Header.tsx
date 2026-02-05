@@ -3,18 +3,14 @@
 import { cn } from '@/lib/utils'
 import { ArrowRight, Menu, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import LanguageSwitcher from './LanguageSwitcher'
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from './ui/sheet'
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
 
 const Header = () => {
   const params = useParams()
@@ -35,7 +31,7 @@ const Header = () => {
     `/${locale}/about-us`,
   ]
 
-  const shouldUseDarkHeader = pagesWithDarkHeader.some((path) =>
+  const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
     pathname?.startsWith(path)
   )
 
@@ -97,21 +93,27 @@ const Header = () => {
           showDarkHeader ? 'bg-white shadow-sm' : 'bg-transparent'
         )}
       >
-        <div className='max-w-360 mx-auto'>
-          <div className='grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4'>
+        <div className="max-w-360 mx-auto">
+          <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
             <Link
               href={`/${locale}`}
-              className='flex items-center gap-2 shrink-0'
+              className="flex items-center gap-2 shrink-0"
             >
               {showDarkHeader ? (
-                <LogoDark className='h-6 sm:h-7.25 w-auto' />
+                <LogoDark className="h-6 sm:h-7.25 w-auto" />
               ) : (
-                <LogoLight className='h-6 sm:h-7.25 w-auto' />
+                <LogoLight className="h-6 sm:h-7.25 w-auto" />
               )}
+              <Image
+                src="/images/swiss-flag.png"
+                alt="Swiss flag"
+                width={18}
+                height={18}
+                className="size-[18px]"
+              />
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className='hidden md:flex items-center justify-center gap-0.75 flex-wrap'>
+            <nav className="hidden md:flex items-center justify-center gap-0.75 flex-wrap">
               {navItems.map((item, index) => (
                 <Link
                   key={item.href}
@@ -165,12 +167,12 @@ const Header = () => {
                   ? 'text-[#062E25] hover:bg-[#E6EAE9]'
                   : 'text-white hover:bg-white/20'
               )}
-              aria-label='Open menu'
+              aria-label="Open menu"
             >
-              <Menu className='w-6 h-6' />
+              <Menu className="w-6 h-6" />
             </button>
 
-            <div className='flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6'>
+            <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
               <LanguageSwitcher isScrolled={showDarkHeader} />
               <Link
                 href={`/${locale}/contact`}
@@ -189,9 +191,9 @@ const Header = () => {
                     ? 'text-[#062E25] hover:bg-[#E6EAE9]'
                     : 'text-white hover:bg-white/20'
                 )}
-                aria-label='Search'
+                aria-label="Search"
               >
-                <Search className='w-5 h-5' />
+                <Search className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -200,11 +202,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-        <SheetContent side='right' className='w-[300px] sm:w-[400px]'>
+        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
           <SheetHeader>
-            <SheetTitle className='sr-only'>Navigation Menu</SheetTitle>
+            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           </SheetHeader>
-          <nav className='flex flex-col gap-2 mt-8'>
+          <nav className="flex flex-col gap-2 mt-8">
             {navItems.map((item, index) => (
               <Link
                 key={item.href}
@@ -265,7 +267,7 @@ const Header = () => {
           'top-[72px] sm:top-[88px]' // Responsive header height
         )}
       >
-        <div className='max-w-360 w-full px-4 sm:px-6 py-4'>
+        <div className="max-w-360 w-full px-4 sm:px-6 py-4">
           <form
             onSubmit={handleSearch}
             className={cn(
@@ -275,7 +277,7 @@ const Header = () => {
                 : 'bg-white/95 backdrop-blur-md border border-white/30'
             )}
           >
-            <div className='flex-1 relative'>
+            <div className="flex-1 relative">
               <Search
                 className={cn(
                   'absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 transition-colors',
@@ -283,10 +285,10 @@ const Header = () => {
                 )}
               />
               <input
-                type='text'
+                type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder='Search...'
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder="Search..."
                 autoFocus
                 className={cn(
                   'w-full pl-10 pr-4 py-2 rounded-lg border-0 transition-all duration-200 outline-none focus:ring-0 bg-transparent',
@@ -295,7 +297,7 @@ const Header = () => {
               />
             </div>
             <button
-              type='button'
+              type="button"
               onClick={() => {
                 setIsSearchOpen(false)
                 setSearchQuery('')
@@ -305,7 +307,7 @@ const Header = () => {
                 'text-[#062E25] hover:bg-[#E6EAE9]'
               )}
             >
-              <X className='w-5 h-5' />
+              <X className="w-5 h-5" />
             </button>
           </form>
         </div>

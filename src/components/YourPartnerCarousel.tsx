@@ -60,7 +60,7 @@ const YourPartnerCarousel = ({
                   </span>
                 </Link>
               </div>
-              <div className="order-1 md:order-2 w-full max-w-[482px]">
+              <div className="order-1 md:order-2 w-full max-w-[420px]">
                 <div className="relative aspect-4/3 w-full">
                   <Image
                     src={isCommercial ? item.bgImageCommercial : item.bgImage}

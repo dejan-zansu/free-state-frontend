@@ -7,10 +7,10 @@ import SolarAboHomeRightForYou from '@/components/SolarAboHomeRightForYou'
 
 const SolarAboHomeBatteryPage = () => {
   return (
-    <div className='w-full overflow-x-hidden'>
-      <SolarAboHomeHero 
-        imageSrc='/images/illustrations/solar-abo-home-storage.png'
-        imageAlt='SolarAbo Home Battery'
+    <div className="w-full overflow-x-hidden">
+      <SolarAboHomeHero
+        imageSrc="/images/illustrations/solar-abo-home-storage.png"
+        imageAlt="SolarAbo Home Battery"
       />
       <SolarAboHomeIncludes showBatteryStorage={true} />
       <SolarAboHomeHowItWorks />
