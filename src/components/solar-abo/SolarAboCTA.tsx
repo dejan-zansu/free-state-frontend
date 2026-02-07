@@ -1,20 +1,31 @@
+import { cn } from '@/lib/utils'
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
 
 export interface SolarAboCTAProps {
   translationNamespace: string
+  commercial?: boolean
 }
 
-const SolarAboCTA = async ({ translationNamespace }: SolarAboCTAProps) => {
+const SolarAboCTA = async ({
+  translationNamespace,
+  commercial = false,
+}: SolarAboCTAProps) => {
   const t = await getTranslations(translationNamespace)
 
   return (
-    <section className="relative w-full min-h-[543px] overflow-hidden bg-[#062E25] pb-[60px]">
+    <section
+      className={cn(
+        'relative w-full min-h-[543px] overflow-hidden pb-[60px]',
+        commercial ? 'bg-[#191D1C]' : 'bg-[#062E25]'
+      )}
+    >
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            'linear-gradient(146deg, rgba(6, 46, 37, 1) 0%, rgba(9, 63, 53, 1) 49%, rgba(21, 139, 126, 1) 100%)',
+          background: commercial
+            ? 'linear-gradient(144deg, rgba(25, 29, 28, 1) 0%, rgba(26, 30, 29, 1) 35%, rgba(61, 56, 88, 1) 100%)'
+            : 'linear-gradient(146deg, rgba(6, 46, 37, 1) 0%, rgba(9, 63, 53, 1) 49%, rgba(21, 139, 126, 1) 100%)',
           zIndex: 1,
         }}
       />
@@ -26,8 +37,8 @@ const SolarAboCTA = async ({ translationNamespace }: SolarAboCTAProps) => {
           height: '374px',
           right: '0px',
           top: '-224px',
-          background: '#B7FE1A',
-          filter: 'blur(490px)',
+          background: commercial ? '#3D3858' : '#B7FE1A',
+          filter: commercial ? 'blur(310px)' : 'blur(490px)',
           borderRadius: '50%',
           zIndex: 2,
         }}
@@ -40,8 +51,8 @@ const SolarAboCTA = async ({ translationNamespace }: SolarAboCTAProps) => {
           height: '291px',
           right: '40px',
           top: '-256px',
-          background: '#B7FE1A',
-          filter: 'blur(170px)',
+          background: commercial ? '#3D3858' : '#B7FE1A',
+          filter: commercial ? 'blur(160px)' : 'blur(170px)',
           borderRadius: '50%',
           zIndex: 2,
         }}
@@ -68,7 +79,10 @@ const SolarAboCTA = async ({ translationNamespace }: SolarAboCTAProps) => {
             </h2>
           </div>
 
-          <LinkButton variant="primary" href={t('cta.ctaLink')}>
+          <LinkButton
+            variant={commercial ? 'secondary' : 'primary'}
+            href={t('cta.ctaLink')}
+          >
             {t('cta.ctaText')}
           </LinkButton>
         </div>

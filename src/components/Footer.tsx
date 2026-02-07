@@ -1,10 +1,13 @@
 'use client'
 import { cn } from '@/lib/utils'
+import { Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useParams, usePathname } from 'next/navigation'
+import { useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
+import { ArrowButton } from './ui/arrow-button'
 import { LinkButton } from './ui/link-button'
 
 const FacebookIcon = ({ className }: { className?: string }) => (
@@ -35,6 +38,7 @@ const Footer = () => {
   const t = useTranslations('footer')
   const locale = useParams().locale as string
   const pathname = usePathname()
+  const [email, setEmail] = useState('')
   const isCommercial = pathname?.includes('/commercial')
   const isLight =
     pathname?.includes('/solar-systems') ||
@@ -146,13 +150,11 @@ const Footer = () => {
         className={cn(
           'font-semibold mb-4 text-sm',
           titleClassName ||
-            (isCommercial && isLight
-              ? 'text-energy'
+            (isLight
+              ? 'text-primary'
               : isCommercial
                 ? 'text-energy'
-                : isLight
-                  ? 'text-primary'
-                  : 'text-solar')
+                : 'text-solar')
         )}
       >
         {title}
@@ -181,10 +183,10 @@ const Footer = () => {
     <footer
       className={cn(
         'bg-solar relative',
-        isCommercial
-          ? 'bg-[#3D3858]'
-          : isLight
-            ? 'bg-transparent -mt-[40px]'
+        isLight
+          ? 'bg-transparent -mt-[40px]'
+          : isCommercial
+            ? 'bg-[#3D3858]'
             : 'bg-solar'
       )}
     >
@@ -201,10 +203,10 @@ const Footer = () => {
             height: '961px',
             left: '0px',
             top: '-46px',
-            background: isCommercial
-              ? 'linear-gradient(106.37deg, #191D1C 52.8%, #3D3858 155.13%)'
-              : isLight
-                ? 'linear-gradient(333.03deg, #F3F4EE 41.26%, #D3D8BF 85.88%)'
+            background: isLight
+              ? 'linear-gradient(333.03deg, #F3F4EE 41.26%, #D3D8BF 85.88%)'
+              : isCommercial
+                ? 'linear-gradient(106.37deg, #191D1C 52.8%, #3D3858 155.13%)'
                 : 'linear-gradient(107.86deg, #062E25 24.4%, #139477 221.35%)',
             filter: isLight ? 'blur(0px)' : 'blur(5.5px)',
             zIndex: 1,
@@ -261,7 +263,156 @@ const Footer = () => {
           </>
         )}
 
-        <div className="relative max-w-[1380px] mx-auto px-6 pt-16 pb-8 z-20">
+        <div className="relative z-20 max-w-[1380px] mx-auto px-6 pt-12 pb-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+            <div className="flex flex-col gap-2.5">
+              <span
+                className={cn(
+                  'text-base font-medium tracking-tight',
+                  isLight ? 'text-[#062E25]' : 'text-white'
+                )}
+              >
+                {t('stayConnected')}
+              </span>
+              <div className="flex gap-4">
+                {socialLinks.map(social => (
+                  <Link
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      'w-9 h-9 rounded-full flex items-center justify-center transition-colors',
+                      isLight
+                        ? 'bg-[#9F3E4F] text-white hover:opacity-80'
+                        : isCommercial
+                          ? 'bg-[#9F3E4F] text-white hover:opacity-80'
+                          : 'bg-solar text-[#062E25] hover:opacity-80'
+                    )}
+                    aria-label={social.label}
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-end gap-5">
+              <div className="flex flex-col gap-2.5">
+                <span
+                  className={cn(
+                    'text-base font-medium tracking-tight',
+                    isLight ? 'text-[#062E25]' : 'text-white'
+                  )}
+                >
+                  {t('signUpForUpdates')}
+                </span>
+                <div
+                  className={cn(
+                    'flex items-center px-3 py-2 rounded-[5px] border backdrop-blur-[65px]',
+                    isLight
+                      ? 'bg-[#EAEDDF] border-[#B5C0B1]'
+                      : 'bg-transparent border-white/30'
+                  )}
+                >
+                  <input
+                    type="email"
+                    placeholder={t('enterEmail')}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className={cn(
+                      'bg-transparent text-sm font-medium outline-none w-[200px] sm:w-[260px] placeholder:opacity-50',
+                      isLight
+                        ? 'text-[#062E25] placeholder:text-[#062E25]'
+                        : 'text-white placeholder:text-white'
+                    )}
+                  />
+                </div>
+              </div>
+              <ArrowButton
+                variant={isCommercial ? 'secondary' : 'primary'}
+                size="sm"
+              >
+                <span className="text-sm font-medium">{t('subscribe')}</span>
+              </ArrowButton>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-start sm:items-end gap-5">
+              <div className="flex flex-col gap-2.5">
+                <span
+                  className={cn(
+                    'text-base font-medium tracking-tight',
+                    isLight ? 'text-[#062E25]' : 'text-white'
+                  )}
+                >
+                  {t('callUs')}
+                </span>
+                <div
+                  className={cn(
+                    'flex items-center px-3 py-2 rounded-[5px] border backdrop-blur-[65px] opacity-70',
+                    isLight
+                      ? 'bg-transparent border-[#062E25]'
+                      : 'bg-transparent border-white/30'
+                  )}
+                >
+                  <span
+                    className={cn(
+                      'text-xs font-medium',
+                      isLight ? 'text-[#062E25]' : 'text-white'
+                    )}
+                  >
+                    {t('callHours')}
+                  </span>
+                </div>
+              </div>
+              <a
+                href="tel:+41525253305"
+                className={cn(
+                  'flex items-center gap-2.5 pl-2.5 pr-1 py-1 rounded-full font-medium text-sm transition-colors',
+                  isLight
+                    ? 'bg-[#9F3E4F] text-white hover:opacity-90'
+                    : isCommercial
+                      ? 'bg-[#9F3E4F] text-white hover:opacity-90'
+                      : 'bg-solar text-[#062E25] hover:opacity-90'
+                )}
+              >
+                +41 52 525 33 05
+                <span
+                  className={cn(
+                    'w-[30px] h-[30px] rounded-full flex items-center justify-center',
+                    isLight
+                      ? 'bg-white/20'
+                      : isCommercial
+                        ? 'bg-white/20'
+                        : 'bg-[#062E25]/10'
+                  )}
+                >
+                  <Phone
+                    className={cn(
+                      'w-3.5 h-3.5',
+                      isLight
+                        ? 'text-white'
+                        : isCommercial
+                          ? 'text-white'
+                          : 'text-[#062E25]'
+                    )}
+                  />
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="relative z-20 max-w-[1380px] mx-auto px-6">
+          <div
+            className={cn(
+              'h-px w-full',
+              isLight ? 'bg-[#062E25]/10' : 'bg-white/10'
+            )}
+          />
+        </div>
+
+        <div className="relative max-w-[1380px] mx-auto px-6 pt-8 pb-8 z-20">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-8">
             <div className="w-fit">
               <Link href={`/${locale}`} className="inline-block">
@@ -298,36 +449,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="mt-16 flex gap-4">
-            {socialLinks.map(social => (
-              <Link
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  'w-7 h-7 rounded-full flex items-center justify-center border transition-colors',
-                  isLight
-                    ? 'border-card-foreground bg-card-foreground text-solar hover:opacity-80'
-                    : isCommercial
-                      ? 'border-white bg-white text-energy hover:opacity-80'
-                      : 'border-solar bg-solar text-card-foreground hover:opacity-80'
-                )}
-                aria-label={social.label}
-              >
-                <social.icon className="w-3.5 h-3.5" />
-              </Link>
-            ))}
-          </div>
-
-          <div
-            className={cn(
-              'mt-2.5 h-px max-w-[330px] w-full',
-              isLight ? 'bg-border' : 'bg-white/20'
-            )}
-          />
-
-          <div className="mt-2.5 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          <div className="mt-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div>
               <p
                 className={cn(
@@ -340,7 +462,7 @@ const Footer = () => {
               <p
                 className={cn(
                   'text-xs font-normal italic mt-1 max-w-[250px]',
-                  isLight ? 'text-primary' : 'text-muted-text-light/40'
+                  isLight ? 'text-primary/40' : 'text-muted-text-light/40'
                 )}
               >
                 {t('tagline')}

@@ -52,14 +52,18 @@ const SolarAboPublicPage = () => {
         isCommercial
       />
       <VideoSection />
-      <SolarAboIncludes translationNamespace="solarAboPublic" items={items} />
+      <SolarAboIncludes
+        translationNamespace="solarAboPublic"
+        items={items}
+        isCommercial
+      />
       <SolarAboPublicHowItWorks />
       <SolarAboPricing
         translationNamespace="solarAboPublic"
         backgroundImage="/images/solar-abo-home-roof.png"
       />
-      <SolarAboRightForYou translationNamespace="solarAboPublic" />
-      <SolarAboCTA translationNamespace="solarAboPublic" />
+      <SolarAboRightForYou translationNamespace="solarAboPublic" commercial />
+      <SolarAboCTA translationNamespace="solarAboPublic" commercial />
     </div>
   )
 }

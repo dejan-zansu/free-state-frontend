@@ -10,6 +10,7 @@ export interface SolarAboIncludesProps {
     title: string
     subtitle: string
   }[]
+  isCommercial?: boolean
 }
 
 const SolarAboIncludes = async ({
@@ -17,6 +18,7 @@ const SolarAboIncludes = async ({
   showBatteryStorage = false,
   showBillingPlatform = false,
   items,
+  isCommercial = false,
 }: SolarAboIncludesProps) => {
   const t = await getTranslations(translationNamespace)
   console.log(items)
@@ -61,6 +63,7 @@ const SolarAboIncludes = async ({
               title={item.title}
               subtitle={item.subtitle}
               compact
+              commercial={isCommercial}
             />
           ))}
         </div>

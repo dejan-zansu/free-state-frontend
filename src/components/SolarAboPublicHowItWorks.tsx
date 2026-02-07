@@ -46,7 +46,12 @@ const SolarAboPublicHowItWorks = () => {
   ]
 
   return (
-    <HowItWorks title={t('title')} subtitle={t('subtitle')} steps={steps} />
+    <HowItWorks
+      title={t('title')}
+      subtitle={t('subtitle')}
+      steps={steps}
+      isCommercial
+    />
   )
 }
 

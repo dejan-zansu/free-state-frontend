@@ -5,7 +5,7 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const arrowButtonVariants = cva(
-  'group relative inline-flex items-center pl-6 pr-1 py-1 rounded-full font-medium transition-all gap-3',
+  'group relative inline-flex items-center rounded-full font-medium transition-all',
   {
     variants: {
       variant: {
@@ -18,9 +18,15 @@ const arrowButtonVariants = cva(
         'outline-secondary':
           'bg-white/5 border border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
       },
+      size: {
+        sm: 'pl-4 pr-0.5 py-0.5 gap-2',
+        default: 'pl-6 pr-1 py-1 gap-3',
+        lg: 'pl-8 pr-1.5 py-1.5 gap-4',
+      },
     },
     defaultVariants: {
       variant: 'primary',
+      size: 'default',
     },
   }
 )
@@ -30,7 +36,7 @@ interface ArrowButtonProps
     VariantProps<typeof arrowButtonVariants> {}
 
 const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
-  ({ className, variant, children, ...props }, ref) => {
+  ({ className, variant, size, children, ...props }, ref) => {
     const isPrimary = variant === 'primary' || variant === undefined
     const isSecondary = variant === 'secondary'
     const isTertiary = variant === 'tertiary'
@@ -43,7 +49,7 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
       <button
         ref={ref}
         className={cn(
-          arrowButtonVariants({ variant }),
+          arrowButtonVariants({ variant, size }),
           isFullWidth && 'flex justify-between w-full',
           className
         )}
@@ -56,7 +62,8 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
         )}
         <div
           className={cn(
-            'relative w-10 h-10 flex items-center justify-center rounded-full overflow-hidden',
+            'relative flex items-center justify-center rounded-full overflow-hidden',
+            size === 'sm' ? 'w-7 h-7' : size === 'lg' ? 'w-12 h-12' : 'w-10 h-10',
             isPrimary && 'bg-[#062E25]',
             isSecondary && 'bg-white',
             isTertiary && 'bg-solar group-hover:bg-[#062E25]',
@@ -66,7 +73,8 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
         >
           <ArrowRight
             className={cn(
-              'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
+              '-rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
+              size === 'sm' ? 'w-3 h-3' : size === 'lg' ? 'w-5 h-5' : 'w-4 h-4',
               isPrimary && 'text-white',
               isSecondary && 'text-energy',
               isTertiary && 'text-[#062E25] group-hover:text-white',
@@ -76,7 +84,8 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
           />
           <ArrowRight
             className={cn(
-              'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100',
+              '-rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100',
+              size === 'sm' ? 'w-3 h-3' : size === 'lg' ? 'w-5 h-5' : 'w-4 h-4',
               isPrimary && 'text-white',
               isSecondary && 'text-energy',
               isTertiary && 'text-[#062E25] group-hover:text-white',

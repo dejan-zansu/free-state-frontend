@@ -1,3 +1,4 @@
+import * as React from "react"
 const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -7,12 +8,12 @@ const CloseIcon = (props: React.SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path
-      stroke="#062E25"
+      stroke="currentColor"
       strokeWidth={1.5}
       d="M20.75 10.75c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10Z"
     />
     <path
-      stroke="#062E25"
+      stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={1.5}

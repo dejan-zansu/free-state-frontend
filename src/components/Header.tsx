@@ -25,7 +25,6 @@ const Header = () => {
 
   const pagesWithDarkHeader = [
     `/${locale}/calculator`,
-    `/${locale}/portfolio`,
     `/${locale}/how-it-works`,
     `/${locale}/solar-abo`,
     `/${locale}/commercial/solar-abo`,
@@ -72,6 +71,7 @@ const Header = () => {
     { label: t('howItWorks'), href: `/${locale}/how-it-works` },
     { label: t('portfolio'), href: `/${locale}/portfolio` },
     { label: t('aboutUs'), href: `/${locale}/about-us` },
+    { label: tHeader('contact'), href: `/${locale}/contact` },
   ]
 
   const isActive = (href: string) => {
@@ -177,13 +177,13 @@ const Header = () => {
             <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
               <LanguageSwitcher isScrolled={showDarkHeader} />
               <Link
-                href={`/${locale}/contact`}
+                href={`/${locale}/login`}
                 className={cn(
                   'font-medium whitespace-nowrap transition-all duration-200 hover:opacity-90 shrink-0 text-sm sm:text-base hidden sm:block',
                   showDarkHeader ? 'text-[#062E25]' : 'text-white'
                 )}
               >
-                {tHeader('contact')}
+                {tHeader('myHome')}
               </Link>
               <button
                 onClick={() => setIsSearchOpen(true)}
@@ -244,16 +244,16 @@ const Header = () => {
               </Link>
             ))}
             <Link
-              href={`/${locale}/contact`}
+              href={`/${locale}/login`}
               onClick={() => setIsMobileMenuOpen(false)}
               className={cn(
                 'px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4',
-                isActive(`/${locale}/contact`)
+                isActive(`/${locale}/login`)
                   ? 'bg-[#E6EAE9] text-[#062E25]'
                   : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
               )}
             >
-              {tHeader('contact')}
+              {tHeader('myHome')}
             </Link>
           </nav>
         </SheetContent>

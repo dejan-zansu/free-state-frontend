@@ -13,22 +13,22 @@ const SolarAboBusinessPage = () => {
   const t = useTranslations('solarAboBusiness')
   const items = [
     {
-      image: '/images/illustrations/solar-modules.png',
+      image: '/images/illustrations/solar-modules-commercial.png',
       title: t('includes.items.solarModules.title'),
       subtitle: t('includes.items.solarModules.subtitle'),
     },
     {
-      image: '/images/illustrations/inverter.png',
+      image: '/images/illustrations/inverter-commercial.png',
       title: t('includes.items.inverter.title'),
       subtitle: t('includes.items.inverter.subtitle'),
     },
     {
-      image: '/images/illustrations/monitoring-app.png',
+      image: '/images/illustrations/monitoring-app-commercial.png',
       title: t('includes.items.monitoringApp.title'),
       subtitle: t('includes.items.monitoringApp.subtitle'),
     },
     {
-      image: '/images/illustrations/installation.png',
+      image: '/images/illustrations/installation-commercial.png',
       title: t('includes.items.installation.title'),
       subtitle: t('includes.items.installation.subtitle'),
     },
@@ -38,7 +38,7 @@ const SolarAboBusinessPage = () => {
       subtitle: t('includes.items.serviceInsurance.subtitle'),
     },
     {
-      image: '/images/illustrations/battery-storage.png',
+      image: '/images/illustrations/battery-storage-commercial.png',
       title: t('includes.items.batteryStorage.title'),
       subtitle: t('includes.items.batteryStorage.subtitle'),
     },
@@ -52,14 +52,18 @@ const SolarAboBusinessPage = () => {
         isCommercial
       />
       <VideoSection />
-      <SolarAboIncludes translationNamespace="solarAboBusiness" items={items} />
+      <SolarAboIncludes
+        translationNamespace="solarAboBusiness"
+        items={items}
+        isCommercial
+      />
       <SolarAboBusinessHowItWorks />
       <SolarAboPricing
         translationNamespace="solarAboBusiness"
         backgroundImage="/images/solar-abo-home-roof.png"
       />
-      <SolarAboRightForYou translationNamespace="solarAboBusiness" />
-      <SolarAboCTA translationNamespace="solarAboBusiness" />
+      <SolarAboRightForYou translationNamespace="solarAboBusiness" commercial />
+      <SolarAboCTA translationNamespace="solarAboBusiness" commercial />
     </div>
   )
 }

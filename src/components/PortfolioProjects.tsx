@@ -9,48 +9,48 @@ const PortfolioProjects = async () => {
     {
       title: t('items.industrialZurich.title'),
       image: '/images/projects/industrial-building-zurich.png',
-      tags: ['500 kWp', 'Industrial Rooftop'],
+      tags: ['500 kWp', t('tags.industrialRooftop')],
     },
     {
       title: t('items.industrialBern.title'),
       image: '/images/projects/industrial-building-bern.png',
-      tags: ['400 kWp', 'Industrial Rooftop'],
+      tags: ['400 kWp', t('tags.industrialRooftop')],
     },
     {
       title: t('items.industrialAargau1.title'),
       image: '/images/projects/industrial-building-aargau.png',
-      tags: ['350 kWp', 'Industrial Rooftop'],
+      tags: ['350 kWp', t('tags.industrialRooftop')],
     },
     {
       title: t('items.industrialLuzern1.title'),
       image: '/images/projects/industrial-building-luzern.png',
-      tags: ['450 kWp', 'Industrial Rooftop'],
+      tags: ['450 kWp', t('tags.industrialRooftop')],
     },
     {
       title: t('items.industrialChur.title'),
       image: '/images/projects/industrial-building-chur.png',
-      tags: ['250 kWp', 'Industrial Rooftop'],
+      tags: ['250 kWp', t('tags.industrialRooftop')],
     },
     {
       title: t('items.industrialAargau3.title'),
       image: '/images/projects/industrial-building-aargau-2.png',
-      tags: ['280 kWp', 'Industrial Rooftop'],
+      tags: ['280 kWp', t('tags.industrialRooftop')],
     },
     {
       title: t('items.farmThun.title'),
       image: '/images/projects/farm-thun.png',
-      tags: ['200 kWp', 'Agricultural'],
+      tags: ['200 kWp', t('tags.agricultural')],
     },
     {
       title: t('items.industrialLuzern2.title'),
       image: '/images/projects/industrial-building-luzern-2.png',
-      tags: ['380 kWp', 'Industrial Rooftop'],
+      tags: ['380 kWp', t('tags.industrialRooftop')],
     },
 
     // {
     //   title: t('items.industrialGeneva.title'),
     //   image: '/images/projects/industrial-building-genf.jpeg',
-    //   tags: ['420 kWp', 'Industrial Rooftop'],
+    //   tags: ['420 kWp', t('tags.industrialRooftop')],
     // },
   ]
 
@@ -111,7 +111,7 @@ const PortfolioProjects = async () => {
                   underlineColor='#062E25'
                   className='text-[#062E25] text-base leading-[14px] tracking-[-0.02em]'
                 >
-                  View Project
+                  {t('viewProject')}
                 </UnderlineLink>
               </div>
             </div>

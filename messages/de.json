@@ -2,12 +2,19 @@
   "title": "Free State AG",
   "header": {
     "logoAlt": "Free State AG Logo",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "myHome": "Mein Zuhause"
   },
   "footer": {
     "copyright": "© Free State AG. Alle Rechte vorbehalten.",
     "tagline": "Solarenergie als Infrastruktur. Langfristig gebaut. Für wirtschaftliche Leistung konzipiert.",
     "cta": "Starten Sie Ihr Solarprojekt",
+    "stayConnected": "BLEIBEN SIE VERBUNDEN",
+    "signUpForUpdates": "FÜR UPDATES ANMELDEN",
+    "enterEmail": "E-Mail eingeben",
+    "subscribe": "Abonnieren",
+    "callUs": "RUFEN SIE UNS AN",
+    "callHours": "Mo-Fr 9-18 (kostenlos)",
     "solarAbo": {
       "title": "SolarAbo",
       "singleFamily": "Einfamilienhaus",
@@ -827,6 +834,9 @@
   "portfolioPage": {
     "title": "Portfolio",
     "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+    "hero": {
+      "title": "Unsere Solarprojekte\nin der ganzen Schweiz"
+    },
     "strategy": {
       "title": "Strategie",
       "description": "Die Free State AG ist ein etablierter Produzent von Grünstrom in der Schweiz und betreibt moderne Solarkraftwerke. Mittelfristig strebt das Unternehmen an, ein vielfältiges und ausgewogenes Portfolio an erneuerbaren Energien mit einer installierten Gesamtleistung von 59 Megawatt * aufzubauen. Ziel ist es, sich als einer der führenden Betreiber von erneuerbaren Energien in der Schweiz zu positionieren.",
@@ -837,6 +847,11 @@
     "projects": {
       "title": "Solarprojekte in Aktion",
       "description": "Eine Auswahl von Solaranlagen im Versorgungs- und Gewerbebereich, die in der gesamten Schweiz realisiert wurden - von der Planung bis zum Betrieb.",
+      "viewProject": "Projekt ansehen",
+      "tags": {
+        "industrialRooftop": "Industriedach",
+        "agricultural": "Landwirtschaft"
+      },
       "items": {
         "industrialZurich": {
           "title": "Industriegebäude Zürich",

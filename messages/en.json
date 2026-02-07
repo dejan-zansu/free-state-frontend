@@ -2,12 +2,19 @@
   "title": "Free State AG",
   "header": {
     "logoAlt": "Free State AG logo",
-    "contact": "Contact"
+    "contact": "Contact",
+    "myHome": "My Home"
   },
   "footer": {
     "copyright": "© Free State AG. All rights reserved.",
     "tagline": "Solar energy as infrastructure. Built for the long term. Designed for economic performance.",
     "cta": "Start your solar project",
+    "stayConnected": "STAY CONNECTED",
+    "signUpForUpdates": "SIGN-UP FOR UPDATES",
+    "enterEmail": "Enter email",
+    "subscribe": "Subscribe",
+    "callUs": "CALL US",
+    "callHours": "Mo-Fr 9-18 (toll free)",
     "solarAbo": {
       "title": "SolarAbo",
       "singleFamily": "Single-family home",
@@ -827,6 +834,9 @@
   "portfolioPage": {
     "title": "Portfolio",
     "subtitle": "Your energy, our responsibility – sustainable and worry-free",
+    "hero": {
+      "title": "Our solar projects\nacross Switzerland"
+    },
     "strategy": {
       "title": "Strategy",
       "description": "Free State AG is an established producer of green electricity in Switzerland and operates modern solar power plants. In the medium term, the company aims to build a diverse and balanced portfolio of renewable energies with a total installed capacity of 59 megawatts*. The goal is to position itself as one of the leading operators of renewable energies in Switzerland.",
@@ -837,6 +847,11 @@
     "projects": {
       "title": "Solar projects in action",
       "description": "A selection of utility-scale and commercial solar installations delivered across Switzerland - from planning to operation.",
+      "viewProject": "View Project",
+      "tags": {
+        "industrialRooftop": "Industrial Rooftop",
+        "agricultural": "Agricultural"
+      },
       "items": {
         "industrialZurich": {
           "title": "Industrial building Zurich",

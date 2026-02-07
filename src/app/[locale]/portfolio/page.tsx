@@ -5,7 +5,7 @@ import PortfolioStrategy from '@/components/PortfolioStrategy'
 
 const PortfolioPage = async () => {
   return (
-    <main className='mt-[84px]'>
+    <main>
       <PortfolioHero />
       <PortfolioProjects />
       <PortfolioStrategy />

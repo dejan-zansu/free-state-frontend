@@ -15,9 +15,16 @@ interface HowItWorksProps {
   subtitle: string
   steps: HowItWorksStep[]
   className?: string
+  isCommercial?: boolean
 }
 
-const HowItWorks = ({ title, subtitle, steps, className }: HowItWorksProps) => {
+const HowItWorks = ({
+  title,
+  subtitle,
+  steps,
+  className,
+  isCommercial = false,
+}: HowItWorksProps) => {
   return (
     <section className={cn('py-16 sm:py-20 lg:py-24 bg-[#FDFFF5]', className)}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
@@ -45,13 +52,37 @@ const HowItWorks = ({ title, subtitle, steps, className }: HowItWorksProps) => {
               >
                 {isTop ? (
                   <>
-                    <div className="relative flex items-center justify-center w-[100px] h-[100px] bg-[#062E25] rounded-2xl">
-                      <Icon className="text-[#9EE028]" style={step.iconStyle} />
+                    <div
+                      className={cn(
+                        'relative flex items-center justify-center w-[100px] h-[100px] rounded-2xl',
+                        isCommercial ? 'bg-[#3D3858]' : 'bg-[#062E25]'
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          isCommercial ? 'text-white' : 'text-[#9EE028]'
+                        )}
+                        style={step.iconStyle}
+                      />
 
-                      <div className="absolute bottom-0 translate-y-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px] border-t-[#062E25]" />
+                      <div
+                        className={cn(
+                          'absolute bottom-0 translate-y-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-t-[16px]',
+                          isCommercial
+                            ? 'border-t-[#3D3858]'
+                            : 'border-t-[#062E25]'
+                        )}
+                      />
                     </div>
 
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#B7FE1A] text-[#062E25] text-lg mt-8">
+                    <div
+                      className={cn(
+                        'flex items-center justify-center w-12 h-12 rounded-full text-lg mt-8',
+                        isCommercial
+                          ? 'bg-energy text-white'
+                          : 'bg-[#B7FE1A] text-[#062E25]'
+                      )}
+                    >
                       {step.number}
                     </div>
 
@@ -65,14 +96,38 @@ const HowItWorks = ({ title, subtitle, steps, className }: HowItWorksProps) => {
                       {step.text}
                     </p>
 
-                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#B7FE1A] text-[#062E25] text-lg mb-8">
+                    <div
+                      className={cn(
+                        'flex items-center justify-center w-12 h-12 rounded-full text-lg mb-8',
+                        isCommercial
+                          ? 'bg-energy text-white'
+                          : 'bg-[#B7FE1A] text-[#062E25]'
+                      )}
+                    >
                       {step.number}
                     </div>
 
-                    <div className="relative flex items-center justify-center w-[100px] h-[100px] bg-[#062E25] rounded-2xl">
-                      <Icon className="text-[#9EE028]" style={step.iconStyle} />
+                    <div
+                      className={cn(
+                        'relative flex items-center justify-center w-[100px] h-[100px] rounded-2xl',
+                        isCommercial ? 'bg-[#3D3858]' : 'bg-[#062E25]'
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          isCommercial ? 'text-white' : 'text-[#9EE028]'
+                        )}
+                        style={step.iconStyle}
+                      />
 
-                      <div className="absolute top-0 -translate-y-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[16px] border-b-[#062E25]" />
+                      <div
+                        className={cn(
+                          'absolute top-0 -translate-y-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[12px] border-l-transparent border-r-[12px] border-r-transparent border-b-[16px]',
+                          isCommercial
+                            ? 'border-b-[#3D3858]'
+                            : 'border-b-[#062E25]'
+                        )}
+                      />
                     </div>
                   </>
                 )}

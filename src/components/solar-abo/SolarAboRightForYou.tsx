@@ -1,12 +1,15 @@
+import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 import { CheckIcon, CloseIcon } from '../icons'
 
 export interface SolarAboRightForYouProps {
   translationNamespace: string
+  commercial?: boolean
 }
 
 const SolarAboRightForYou = async ({
   translationNamespace,
+  commercial = false,
 }: SolarAboRightForYouProps) => {
   const t = await getTranslations(translationNamespace)
 
@@ -35,15 +38,36 @@ const SolarAboRightForYou = async ({
         {/* Cards Container */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-[1200px] mx-auto">
           {/* Ideal For Card */}
-          <div className="bg-[#B7FE1A] rounded-2xl p-6 sm:p-8 lg:p-10">
-            <h3 className="text-[#062E25] text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8">
+          <div
+            className={cn(
+              'rounded-2xl p-6 sm:p-8 lg:p-10',
+              commercial ? 'bg-[#9F3E4F]' : 'bg-[#B7FE1A]'
+            )}
+          >
+            <h3
+              className={cn(
+                'text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8',
+                commercial ? 'text-white' : 'text-[#062E25]'
+              )}
+            >
               {t('rightForYou.idealForTitle')}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               {idealFor.map((item, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <CheckIcon />
-                  <p className="text-[#062E25] text-base sm:text-lg font-normal">
+                <div
+                  key={index}
+                  className={cn(
+                    'flex items-start gap-3',
+                    commercial ? 'text-white' : 'text-[#295823]'
+                  )}
+                >
+                  <CheckIcon className="shrink-0 mt-0.5" />
+                  <p
+                    className={cn(
+                      'text-base sm:text-lg font-normal',
+                      commercial ? 'text-white/80' : 'text-[#062E25]'
+                    )}
+                  >
                     {item}
                   </p>
                 </div>
@@ -52,15 +76,20 @@ const SolarAboRightForYou = async ({
           </div>
 
           {/* Not Ideal For Card */}
-          <div className="bg-white border border-[#062E25] rounded-2xl p-6 sm:p-8 lg:p-10">
+          <div
+            className={cn(
+              'border border-[#062E25] rounded-2xl p-6 sm:p-8 lg:p-10',
+              commercial ? 'bg-[#F3F4EE]' : 'bg-white'
+            )}
+          >
             <h3 className="text-[#062E25] text-2xl sm:text-3xl font-semibold mb-6 sm:mb-8 line-through decoration-thickness-[0.5px] decoration-opacity-40">
               {t('rightForYou.notIdealForTitle')}
             </h3>
-            <div className="flex flex-col gap-4 sm:gap-5">
+            <div className="flex flex-col gap-4 sm:gap-5 text-[#062E25]">
               {notIdealFor.map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
-                  <CloseIcon />
-                  <p className="text-[#062E25] text-base sm:text-lg font-normal">
+                  <CloseIcon className="shrink-0 mt-0.5" />
+                  <p className="text-[#062E25]/80 text-base sm:text-lg font-normal">
                     {item}
                   </p>
                 </div>

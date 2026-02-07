@@ -51,14 +51,18 @@ const SolarAboAgroPage = () => {
         imageAlt="SolarAbo Agro"
       />
       <VideoSection />
-      <SolarAboIncludes translationNamespace="solarAboAgro" items={items} />
+      <SolarAboIncludes
+        translationNamespace="solarAboAgro"
+        items={items}
+        isCommercial
+      />
       <SolarAboAgroHowItWorks />
       <SolarAboPricing
         translationNamespace="solarAboAgro"
         backgroundImage="/images/solar-abo-home-roof.png"
       />
-      <SolarAboRightForYou translationNamespace="solarAboAgro" />
-      <SolarAboCTA translationNamespace="solarAboAgro" />
+      <SolarAboRightForYou translationNamespace="solarAboAgro" commercial />
+      <SolarAboCTA translationNamespace="solarAboAgro" commercial />
     </div>
   )
 }
