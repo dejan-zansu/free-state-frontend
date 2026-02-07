@@ -28,7 +28,9 @@ const Header = () => {
     `/${locale}/portfolio`,
     `/${locale}/how-it-works`,
     `/${locale}/solar-abo`,
+    `/${locale}/commercial/solar-abo`,
     `/${locale}/about-us`,
+    `/${locale}/battery-storage`,
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
@@ -264,7 +266,7 @@ const Header = () => {
           isSearchOpen
             ? 'translate-y-0 opacity-100'
             : '-translate-y-full opacity-0 pointer-events-none',
-          'top-[72px] sm:top-[88px]' // Responsive header height
+          'top-[72px] sm:top-[88px]'
         )}
       >
         <div className="max-w-360 w-full px-4 sm:px-6 py-4">

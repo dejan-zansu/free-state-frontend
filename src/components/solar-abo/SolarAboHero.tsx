@@ -1,4 +1,6 @@
 import { LinkButton } from '@/components/ui/link-button'
+import HeroNavLight from '@/components/HeroNavLight'
+import { cn } from '@/lib/utils'
 import { DollarSign, Settings, TrendingDown } from 'lucide-react'
 import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
@@ -9,19 +11,122 @@ export interface SolarAboHeroProps {
   translationNamespace: string
   imageSrc: string
   imageAlt?: string
+  isCommercial?: boolean
+  elipseClassNames?: string
+}
+
+interface StatItemProps {
+  icon: React.ReactNode
+  mobileIcon: React.ReactNode
+  text: string
+  align: 'left' | 'right'
+  isCommercial: boolean
+}
+
+const StatItem = ({
+  icon,
+  mobileIcon,
+  text,
+  align,
+  isCommercial,
+}: StatItemProps) => {
+  const iconBgClass = isCommercial ? 'bg-[#3D3858]' : 'bg-solar'
+  const isRight = align === 'right'
+
+  return (
+    <>
+      <div
+        className={cn(
+          'hidden lg:flex items-center gap-5',
+          isRight && 'flex-row-reverse'
+        )}
+      >
+        <div
+          className={cn(
+            'w-[71px] h-[71px] flex items-center justify-center rounded-full',
+            iconBgClass
+          )}
+        >
+          {icon}
+        </div>
+        <p
+          className={cn(
+            'text-[#062E25]/80 text-[22px] font-medium leading-[1.09em] whitespace-pre-line',
+            isRight ? 'text-right' : 'text-left'
+          )}
+        >
+          {text}
+        </p>
+      </div>
+
+      <div
+        className={cn(
+          'lg:hidden flex items-center gap-4',
+          isRight && 'flex-row-reverse sm:flex-row'
+        )}
+      >
+        <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
+          {mobileIcon}
+        </div>
+        <p
+          className={cn(
+            'text-[#062E25]/80 text-base sm:text-lg font-medium leading-[1.09em] whitespace-pre-line',
+            isRight ? 'text-right sm:text-left' : ''
+          )}
+        >
+          {text}
+        </p>
+      </div>
+    </>
+  )
 }
 
 const SolarAboHero = async ({
   translationNamespace,
   imageSrc,
   imageAlt = 'SolarAbo',
+  isCommercial = false,
+  elipseClassNames,
 }: SolarAboHeroProps) => {
   const t = await getTranslations(translationNamespace)
   const locale = await getLocale()
 
+  const iconClass = isCommercial ? 'text-white' : 'text-[#062E25]'
+
+  const leftStats = [
+    {
+      icon: <MoneySignIcon className={iconClass} />,
+      mobileIcon: (
+        <MoneySignIcon className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
+      ),
+      text: t('hero.stats.left.investment'),
+    },
+    {
+      icon: <SaleIcon className={iconClass} />,
+      mobileIcon: <SaleIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
+      text: t('hero.stats.left.electricity'),
+    },
+  ]
+
+  const rightStats = [
+    {
+      icon: <ShieldIcon className={iconClass} />,
+      mobileIcon: (
+        <ShieldIcon className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
+      ),
+      text: t('hero.stats.right.maintenance'),
+    },
+    {
+      icon: <CO2ReductionIcon className={iconClass} />,
+      mobileIcon: <CO2ReductionIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
+      text: t('hero.stats.right.reduction'),
+    },
+  ]
+
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#FDFFF5]">
-      <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-6 pt-[138px] pb-1">
+      <HeroNavLight locale={locale} isCommercial={isCommercial} />
+      <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-6 pt-[160px] sm:pt-[180px] md:pt-[200px] pb-1">
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center gap-5 mb-12 sm:mb-16 lg:mb-20 w-full">
             <div
@@ -45,7 +150,11 @@ const SolarAboHero = async ({
             </p>
 
             <div>
-              <LinkButton href="/calculator" locale={locale}>
+              <LinkButton
+                href="/calculator"
+                locale={locale}
+                variant={isCommercial ? 'outline-quaternary' : 'primary'}
+              >
                 {t('hero.cta')}
               </LinkButton>
             </div>
@@ -56,6 +165,12 @@ const SolarAboHero = async ({
           </div>
 
           <div className="relative w-full max-w-[666px] aspect-666/498 mx-auto">
+            <div
+              className={cn(
+                'bg-solar/30 absolute top-0 left-[45%] -translate-x-1/2 w-[50%] h-[30%] rounded-full blur-[60px]',
+                elipseClassNames
+              )}
+            />
             <Image
               src={imageSrc}
               alt={imageAlt}
@@ -67,90 +182,48 @@ const SolarAboHero = async ({
         </div>
 
         <div className="hidden lg:flex absolute left-[30px] top-[641px] flex-col gap-10">
-          <div className="flex items-center gap-5">
-            <div className="w-[71px] h-[71px] flex-none order-0 grow-0 flex items-center justify-center bg-solar rounded-full">
-              <MoneySignIcon className="text-[#062E25]" />
-            </div>
-            <p className="text-[#062E25]/80 text-[22px] font-medium leading-[1.09em] text-left whitespace-pre-line">
-              {t('hero.stats.left.investment')}
-            </p>
-          </div>
-          <div className="flex items-center gap-5">
-            <div className="w-[71px] h-[71px] flex-none order-0 grow-0 flex items-center justify-center bg-solar rounded-full">
-              <SaleIcon />
-            </div>
-            <p className="text-[#062E25]/80 text-[22px] font-medium leading-[1.09em] text-left whitespace-pre-line">
-              {t('hero.stats.left.electricity')}
-            </p>
-          </div>
+          {leftStats.map((stat, index) => (
+            <StatItem
+              key={index}
+              {...stat}
+              align="left"
+              isCommercial={isCommercial}
+            />
+          ))}
         </div>
 
         <div className="hidden lg:flex absolute right-[30px] top-[641px] flex-col gap-10 items-end">
-          <div className="flex items-center gap-5 flex-row-reverse">
-            <div className="w-[71px] h-[71px] flex-none order-0 grow-0 flex items-center justify-center bg-solar rounded-full">
-              <ShieldIcon />
-            </div>
-            <p className="text-[#062E25]/80 text-[22px] font-medium leading-[1.09em] text-right whitespace-pre-line">
-              {t('hero.stats.right.maintenance')}
-            </p>
-          </div>
-          <div className="flex items-center gap-5 flex-row-reverse">
-            <div className="w-[71px] h-[71px] flex-none order-0 grow-0 flex items-center justify-center bg-solar rounded-full">
-              <CO2ReductionIcon />
-            </div>
-            <p className="text-[#062E25]/80 text-[22px] font-medium leading-[1.09em] text-right whitespace-pre-line">
-              {t('hero.stats.right.reduction')}
-            </p>
-          </div>
+          {rightStats.map((stat, index) => (
+            <StatItem
+              key={index}
+              {...stat}
+              align="right"
+              isCommercial={isCommercial}
+            />
+          ))}
         </div>
 
         <div className="lg:hidden w-full mt-8 space-y-6">
           <div className="flex flex-col sm:flex-row gap-6">
             <div className="flex-1 space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
-                  <DollarSign
-                    className="w-6 h-6 sm:w-8 sm:h-8 text-[#062E25]"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <p className="text-[#062E25]/80 text-base sm:text-lg font-medium leading-[1.09em] whitespace-pre-line">
-                  {t('hero.stats.left.investment')}
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
-                  <TrendingDown
-                    className="w-6 h-6 sm:w-8 sm:h-8 text-[#062E25]"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <p className="text-[#062E25]/80 text-base sm:text-lg font-medium leading-[1.09em] whitespace-pre-line">
-                  {t('hero.stats.left.electricity')}
-                </p>
-              </div>
+              {leftStats.map((stat, index) => (
+                <StatItem
+                  key={index}
+                  {...stat}
+                  align="left"
+                  isCommercial={isCommercial}
+                />
+              ))}
             </div>
-
             <div className="flex-1 space-y-6">
-              <div className="flex items-center gap-4 flex-row-reverse sm:flex-row">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
-                  <Settings
-                    className="w-6 h-6 sm:w-8 sm:h-8 text-[#062E25]"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <p className="text-[#062E25]/80 text-base sm:text-lg font-medium leading-[1.09em] text-right sm:text-left whitespace-pre-line">
-                  {t('hero.stats.right.maintenance')}
-                </p>
-              </div>
-              <div className="flex items-center gap-4 flex-row-reverse sm:flex-row">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
-                  <ReductionIcon className="w-6 h-6 sm:w-8 sm:h-8" />
-                </div>
-                <p className="text-[#062E25]/80 text-base sm:text-lg font-medium leading-[1.09em] text-right sm:text-left whitespace-pre-line">
-                  {t('hero.stats.right.reduction')}
-                </p>
-              </div>
+              {rightStats.map((stat, index) => (
+                <StatItem
+                  key={index}
+                  {...stat}
+                  align="right"
+                  isCommercial={isCommercial}
+                />
+              ))}
             </div>
           </div>
         </div>

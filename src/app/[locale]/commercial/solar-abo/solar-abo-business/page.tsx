@@ -1,4 +1,4 @@
-import SolarAboMultiHowItWorks from '@/components/SolarAboMultiHowItWorks'
+import SolarAboBusinessHowItWorks from '@/components/SolarAboBusinessHowItWorks'
 import {
   SolarAboCTA,
   SolarAboHero,
@@ -9,8 +9,8 @@ import {
 } from '@/components/solar-abo'
 import { useTranslations } from 'next-intl'
 
-const SolarAboMultiPage = () => {
-  const t = useTranslations('solarAboMulti')
+const SolarAboBusinessPage = () => {
+  const t = useTranslations('solarAboBusiness')
   const items = [
     {
       image: '/images/illustrations/solar-modules.png',
@@ -23,11 +23,6 @@ const SolarAboMultiPage = () => {
       subtitle: t('includes.items.inverter.subtitle'),
     },
     {
-      image: '/images/illustrations/billing-platform.png',
-      title: t('includes.items.zevBillingPlatform.title'),
-      subtitle: t('includes.items.zevBillingPlatform.subtitle'),
-    },
-    {
       image: '/images/illustrations/monitoring-app.png',
       title: t('includes.items.monitoringApp.title'),
       subtitle: t('includes.items.monitoringApp.subtitle'),
@@ -38,6 +33,11 @@ const SolarAboMultiPage = () => {
       subtitle: t('includes.items.installation.subtitle'),
     },
     {
+      image: '/images/illustrations/service-insurance.png',
+      title: t('includes.items.serviceInsurance.title'),
+      subtitle: t('includes.items.serviceInsurance.subtitle'),
+    },
+    {
       image: '/images/illustrations/battery-storage.png',
       title: t('includes.items.batteryStorage.title'),
       subtitle: t('includes.items.batteryStorage.subtitle'),
@@ -46,21 +46,22 @@ const SolarAboMultiPage = () => {
   return (
     <div className="w-full overflow-x-hidden">
       <SolarAboHero
-        translationNamespace="solarAboMulti"
-        imageSrc="/images/solar-abo-multi.png"
-        imageAlt="SolarAbo Multi"
+        translationNamespace="solarAboBusiness"
+        imageSrc="/images/solar-abo-business.png"
+        imageAlt="SolarAbo Business"
+        isCommercial
       />
       <VideoSection />
-      <SolarAboIncludes translationNamespace="solarAboMulti" items={items} />
-      <SolarAboMultiHowItWorks />
+      <SolarAboIncludes translationNamespace="solarAboBusiness" items={items} />
+      <SolarAboBusinessHowItWorks />
       <SolarAboPricing
-        translationNamespace="solarAboMulti"
+        translationNamespace="solarAboBusiness"
         backgroundImage="/images/solar-abo-home-roof.png"
       />
-      <SolarAboRightForYou translationNamespace="solarAboMulti" />
-      <SolarAboCTA translationNamespace="solarAboMulti" />
+      <SolarAboRightForYou translationNamespace="solarAboBusiness" />
+      <SolarAboCTA translationNamespace="solarAboBusiness" />
     </div>
   )
 }
 
-export default SolarAboMultiPage
+export default SolarAboBusinessPage

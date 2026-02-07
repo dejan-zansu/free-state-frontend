@@ -10,24 +10,16 @@ import {
   SelectValue,
 } from './ui/select'
 
-const locales = ['en', 'de', 'fr', 'it', 'es', 'sr']
+const locales = ['en', 'de']
 
 const localeLabels: Record<string, string> = {
   en: 'EN',
   de: 'DE',
-  fr: 'FR',
-  it: 'IT',
-  es: 'ES',
-  sr: 'SR',
 }
 
 const localeFlags: Record<string, string> = {
   en: '🇬🇧',
   de: '🇩🇪',
-  fr: '🇫🇷',
-  it: '🇮🇹',
-  es: '🇪🇸',
-  sr: '🇷🇸',
 }
 
 interface LanguageSwitcherProps {
@@ -51,29 +43,32 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   return (
     <Select value={currentLocale} onValueChange={handleLocaleChange}>
       <SelectTrigger
-        className={cn('h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none! ml-6', isScrolled ? 'text-[#062E25]' : 'text-white')}
+        className={cn(
+          'h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none! ml-6',
+          isScrolled ? 'text-[#062E25]' : 'text-white'
+        )}
       >
         <SelectValue>
-          <div className='flex items-center gap-2'>
-            <span className='text-base leading-none'>
+          <div className="flex items-center gap-2">
+            <span className="text-base leading-none">
               {localeFlags[currentLocale] || '🌐'}
             </span>
-            <span className='font-bold'>
+            <span className="font-bold">
               {localeLabels[currentLocale] || currentLocale.toUpperCase()}
             </span>
           </div>
         </SelectValue>
       </SelectTrigger>
       <SelectContent
-        className='min-w-[80px]'
-        position='popper'
+        className="min-w-[80px]"
+        position="popper"
         sideOffset={4}
         collisionPadding={100}
       >
         {locales.map((locale: string) => (
           <SelectItem key={locale} value={locale}>
-            <div className='flex items-center gap-2.5'>
-              <span className='text-base leading-none'>
+            <div className="flex items-center gap-2.5">
+              <span className="text-base leading-none">
                 {localeFlags[locale]}
               </span>
               <span>{localeLabels[locale] || locale.toUpperCase()}</span>

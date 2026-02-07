@@ -90,7 +90,7 @@
         "solarAboMulti": "SolarAbo Multi",
         "solarAboBusiness": "SolarAbo Business",
         "solarAboAgro": "SolarAbo Agro",
-        "solarAboPublic": "SolarAbo Public"
+        "solarAboPublic": "SolarAbo Public Buildings"
       }
     },
     "stats": {
@@ -353,6 +353,394 @@
     "cta": {
       "topButton": "See if SolarAbo Home Storage works for your roof",
       "heading": "See if SolarAbo Home Storage works for your roof",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboMulti": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
+      "title": "SolarAbo Multi",
+      "subtitle": "For apartment buildings and shared energy communities (ZEV / LEG)",
+      "cta": "Start the Solar Calculator",
+      "tag": "No registration required · No obligation",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\ninvestment",
+          "electricity": "Up to 30% lower\nelectricity price"
+        },
+        "right": {
+          "maintenance": "Maintenance\nincluded",
+          "reduction": "CO₂ reduction\nup to 2 t/year"
+        }
+      }
+    },
+    "includes": {
+      "title": "What's included",
+      "subtitle": "In SolarAbo Multi",
+      "items": {
+        "solarModules": {
+          "title": "Shared solar system",
+          "subtitle": "Shared solar system"
+        },
+        "inverter": {
+          "title": "Central inverter system",
+          "subtitle": "Optimized conversion"
+        },
+        "zevBillingPlatform": {
+          "title": "ZEV billing platform",
+          "subtitle": "Self-consumption"
+        },
+        "monitoringApp": {
+          "title": "Monitoring",
+          "subtitle": "Per apartment"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Turnkey"
+        },
+        "batteryStorage": {
+          "title": "Battery storage",
+          "subtitle": "Self-consumption"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How SolarAbo Multi works",
+      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
+      "steps": {
+        "step1": "You provide the roof",
+        "step2": "We invest",
+        "step3": "You use the solar energy",
+        "step4": "You pay\nmonthly",
+        "step5": "The system becomes yours"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & Contract",
+      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
+      "pricing": {
+        "from": "from",
+        "amount": "CHF 39.95",
+        "perMonth": "/month"
+      },
+      "features": {
+        "contractTerm": "Contract term: 35 yrs",
+        "buybackOption": "Buyback option",
+        "noUpfrontCosts": "No upfront costs",
+        "batteryStorage": "Battery storage included"
+      },
+      "disclaimer": "Fixed monthly fee for your solar system with battery, fully managed by us."
+    },
+    "rightForYou": {
+      "title": "Is this package right for you?",
+      "idealForTitle": "Ideal for you",
+      "notIdealForTitle": "Not ideal for you",
+      "idealFor": {
+        "singleFamily": "Single-family home",
+        "predictableCosts": "Predictable costs",
+        "noUpfront": "No upfront investment",
+        "noMaintenance": "No maintenance"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Need battery storage",
+        "commercial": "Commercial building"
+      }
+    },
+    "cta": {
+      "topButton": "See if SolarAbo Multi works for your roof",
+      "heading": "See if SolarAbo Multi works for your roof",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboBusiness": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. ESG benefits.",
+      "title": "SolarAbo Business",
+      "subtitle": "For commercial and industrial buildings",
+      "cta": "Start the Solar Calculator",
+      "tag": "No registration required · No obligation",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\ninvestment",
+          "electricity": "Fixed price\n0.18 CHF/kWh"
+        },
+        "right": {
+          "maintenance": "Maintenance\nincluded",
+          "reduction": "CO₂ reduction\nup to 50 t/year"
+        }
+      }
+    },
+    "includes": {
+      "title": "What's included",
+      "subtitle": "In SolarAbo Business",
+      "items": {
+        "solarModules": {
+          "title": "Commercial PV system",
+          "subtitle": "100–1,000 kWp"
+        },
+        "inverter": {
+          "title": "Industrial inverter",
+          "subtitle": "High performance"
+        },
+        "monitoringApp": {
+          "title": "Energy management",
+          "subtitle": "Real-time analytics"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Turnkey"
+        },
+        "serviceInsurance": {
+          "title": "Service & insurance",
+          "subtitle": "Covered"
+        },
+        "batteryStorage": {
+          "title": "Battery storage",
+          "subtitle": "Optional"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How SolarAbo Business works",
+      "subtitle": "Simple, transparent, and worry-free – energy cost reduction for your business.",
+      "steps": {
+        "step1": "You provide the roof",
+        "step2": "We invest",
+        "step3": "You use the solar energy",
+        "step4": "You pay a\nfixed price per kWh",
+        "step5": "The system becomes yours"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & Contract",
+      "subtitle": "Fixed energy price for long-term planning security.",
+      "pricing": {
+        "from": "from",
+        "amount": "0.18 CHF/kWh",
+        "perMonth": "fixed"
+      },
+      "features": {
+        "contractTerm": "Contract term: 20–25 yrs",
+        "buybackOption": "Buyback option",
+        "noUpfrontCosts": "No upfront costs",
+        "batteryStorage": "Battery storage optional"
+      },
+      "disclaimer": "Fixed price per kWh including maintenance and insurance – fully managed by us."
+    },
+    "rightForYou": {
+      "title": "Is this package right for you?",
+      "idealForTitle": "Ideal for you",
+      "notIdealForTitle": "Not ideal for you",
+      "idealFor": {
+        "singleFamily": "Commercial building",
+        "predictableCosts": "Long-term cost planning",
+        "noUpfront": "No upfront investment",
+        "noMaintenance": "ESG goals"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Residential property",
+        "commercial": "Small roof area"
+      }
+    },
+    "cta": {
+      "topButton": "See if SolarAbo Business works for your building",
+      "heading": "See if SolarAbo Business works for your building",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboAgro": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. Reliable service.",
+      "title": "SolarAbo Agro",
+      "subtitle": "For farms and agricultural operations",
+      "cta": "Start the Solar Calculator",
+      "tag": "No registration required · No obligation",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\ninvestment",
+          "electricity": "Up to 40% lower\nelectricity costs"
+        },
+        "right": {
+          "maintenance": "Service guarantee\nincluded",
+          "reduction": "CO₂ reduction\nup to 20 t/year"
+        }
+      }
+    },
+    "includes": {
+      "title": "What's included",
+      "subtitle": "In SolarAbo Agro",
+      "items": {
+        "solarModules": {
+          "title": "Agricultural PV system",
+          "subtitle": "Up to 500 kWp"
+        },
+        "inverter": {
+          "title": "Inverter system",
+          "subtitle": "Farm-optimized"
+        },
+        "monitoringApp": {
+          "title": "Monitoring app",
+          "subtitle": "Live data"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Turnkey"
+        },
+        "serviceInsurance": {
+          "title": "Service guarantee",
+          "subtitle": "Covered"
+        },
+        "heatPump": {
+          "title": "Heat pump connection",
+          "subtitle": "Optional"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How SolarAbo Agro works",
+      "subtitle": "Simple, transparent, and worry-free – tailored for agricultural operations.",
+      "steps": {
+        "step1": "You provide the roof",
+        "step2": "We invest",
+        "step3": "You use the solar energy",
+        "step4": "You pay\nmonthly",
+        "step5": "The system becomes yours"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & Contract",
+      "subtitle": "Flexible contract terms tailored to your farm's needs.",
+      "pricing": {
+        "from": "from",
+        "amount": "Custom pricing",
+        "perMonth": ""
+      },
+      "features": {
+        "contractTerm": "Flexible contract terms",
+        "buybackOption": "Buyback option",
+        "noUpfrontCosts": "No upfront costs",
+        "batteryStorage": "Storage & heat pump optional"
+      },
+      "disclaimer": "Roof usage contract with service guarantee – fully managed by us."
+    },
+    "rightForYou": {
+      "title": "Is this package right for you?",
+      "idealForTitle": "Ideal for you",
+      "notIdealForTitle": "Not ideal for you",
+      "idealFor": {
+        "singleFamily": "Farm or agricultural operation",
+        "predictableCosts": "Large hall or stable roof",
+        "noUpfront": "Electricity cost reduction",
+        "noMaintenance": "Service guarantee included"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Residential property",
+        "commercial": "Small operation"
+      }
+    },
+    "cta": {
+      "topButton": "See if SolarAbo Agro works for your farm",
+      "heading": "See if SolarAbo Agro works for your farm",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboPublic": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. Sustainable example.",
+      "title": "SolarAbo Public",
+      "subtitle": "For schools, hospitals, and municipal buildings",
+      "cta": "Start the Solar Calculator",
+      "tag": "No registration required · No obligation",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\ninvestment",
+          "electricity": "Up to 30% lower\nelectricity costs"
+        },
+        "right": {
+          "maintenance": "Maintenance\nincluded",
+          "reduction": "CO₂ reduction\nup to 30 t/year"
+        }
+      }
+    },
+    "includes": {
+      "title": "What's included",
+      "subtitle": "In SolarAbo Public",
+      "items": {
+        "solarModules": {
+          "title": "Public building PV system",
+          "subtitle": "Customized capacity"
+        },
+        "inverter": {
+          "title": "Professional inverter",
+          "subtitle": "High efficiency"
+        },
+        "monitoringApp": {
+          "title": "Monitoring dashboard",
+          "subtitle": "Transparency for citizens"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Turnkey"
+        },
+        "serviceInsurance": {
+          "title": "Service & insurance",
+          "subtitle": "Covered"
+        },
+        "batteryStorage": {
+          "title": "Battery storage",
+          "subtitle": "Optional"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "How SolarAbo Public works",
+      "subtitle": "Simple, transparent, and worry-free – setting a sustainable example for your community.",
+      "steps": {
+        "step1": "You provide the roof",
+        "step2": "We invest",
+        "step3": "You use the solar energy",
+        "step4": "You pay\nmonthly",
+        "step5": "The system becomes yours"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & Contract",
+      "subtitle": "Predictable costs for public budgets.",
+      "pricing": {
+        "from": "from",
+        "amount": "Custom pricing",
+        "perMonth": ""
+      },
+      "features": {
+        "contractTerm": "Flexible contract terms",
+        "buybackOption": "Buyback option",
+        "noUpfrontCosts": "No upfront costs",
+        "batteryStorage": "Battery storage optional"
+      },
+      "disclaimer": "Fixed monthly fee for your solar system – fully managed by us."
+    },
+    "rightForYou": {
+      "title": "Is this package right for you?",
+      "idealForTitle": "Ideal for you",
+      "notIdealForTitle": "Not ideal for you",
+      "idealFor": {
+        "singleFamily": "Public building",
+        "predictableCosts": "School or educational facility",
+        "noUpfront": "Hospital or care facility",
+        "noMaintenance": "Municipal property"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Residential property",
+        "commercial": "Commercial business"
+      }
+    },
+    "cta": {
+      "topButton": "See if SolarAbo Public works for your building",
+      "heading": "See if SolarAbo Public works for your building",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -1326,5 +1714,191 @@
     "cancel": "Cancel",
     "save": "Save",
     "loading": "Loading..."
+  },
+  "batteryStorage": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
+      "title": "Battery Storage",
+      "subtitle": "For single-family homes without battery storage"
+    },
+    "revenue": {
+      "title": "Turn Energy Storage into a Revenue Engine",
+      "subtitle": "Battery storage doesn't just reduce costs, it actively generates value across your energy system.",
+      "steps": {
+        "solar": {
+          "title": "Solar",
+          "description": "Produce energy when conditions are optimal."
+        },
+        "storage": {
+          "title": "Storage",
+          "description": "Store surplus instead of selling it at low prices."
+        },
+        "smartDispatch": {
+          "title": "Smart Dispatch",
+          "description": "Decide when to use, store, or sell energy."
+        },
+        "revenue": {
+          "title": "Revenue",
+          "description": "Lower costs. New revenue streams."
+        }
+      }
+    },
+    "features": {
+      "title": "What Energy Storage enables",
+      "items": {
+        "peakCostReduction": {
+          "title": "Peak Cost Reduction",
+          "description": "Reduce peak loads and avoid expensive grid charges."
+        },
+        "flexibleEnergySales": {
+          "title": "Flexible Energy Sales",
+          "description": "Sell energy when prices are favorable."
+        },
+        "gridServices": {
+          "title": "Grid Services",
+          "description": "Earn additional revenue by supporting grid stability."
+        },
+        "selfConsumption": {
+          "title": "Self-Consumption",
+          "description": "Use more of your own energy."
+        }
+      }
+    },
+    "gridServices": {
+      "title": "Maximizing Returns from Grid Services",
+      "description": "Energy storage allows participation in grid service markets, where flexibility is rewarded. Your system is automatically dispatched to support the grid and generate additional income.",
+      "financialBenefits": {
+        "title": "Financial Benefits",
+        "item1": "Additional revenue from grid availability",
+        "item2": "No active trading required",
+        "item3": "Passive income stream"
+      },
+      "automatedParticipation": {
+        "title": "Fully automated participation",
+        "item1": "Suitable grid connection",
+        "item2": "Approved storage system",
+        "item3": "Location-specific eligibility"
+      }
+    },
+    "predictableReturns": {
+      "title": "Energy Storage with Predictable Returns",
+      "description": "For selected projects, FreeState AG offers energy storage models with predefined return structures. This ensures planning security while unlocking long-term value from flexibility markets.",
+      "financialBenefits": {
+        "title": "Financial Benefits",
+        "item1": "Predictable annual returns",
+        "item2": "Reduced market exposure",
+        "item3": "Long-term revenue visibility"
+      },
+      "automatedParticipation": {
+        "title": "Fully automated participation",
+        "item1": "Minimum system size",
+        "item2": "Contractual availability commitment",
+        "item3": "Site assessment and approval"
+      }
+    },
+    "landLease": {
+      "title": "Earn from Your Land - Without Investment",
+      "description": "If you own suitable land or infrastructure, FreeState AG can install and operate energy storage systems on your site. You receive fixed lease payments without investment or operational effort.",
+      "financialBenefits": {
+        "title": "Financial Benefits",
+        "item1": "Fixed location lease income",
+        "item2": "No capital expenditure",
+        "item3": "No operational responsibility"
+      },
+      "automatedParticipation": {
+        "title": "Fully automated participation",
+        "item1": "Suitable site location",
+        "item2": "Grid access availability",
+        "item3": "Long-term lease agreement"
+      }
+    },
+    "cta": {
+      "badge": "Battery Storage",
+      "title": "Get a Storage Strategy for Your Site",
+      "subtitle": "We evaluate your location, grid connection, and revenue potential.",
+      "button": "Start the Solar Calculator"
+    }
+  },
+  "heatPumps": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
+      "title": "Heat Pumps",
+      "subtitle": "For single-family homes without battery storage"
+    },
+    "valueCreation": {
+      "title": "Value Creation with Heat Pumps",
+      "subtitle": "Highly efficient heating and cooling powered by electricity, not fossil fuels.",
+      "steps": {
+        "ambientEnergy": {
+          "title": "Ambient Energy",
+          "description": "Heat extracted from air, ground, or water."
+        },
+        "heatPumpSystem": {
+          "title": "Heat Pump System",
+          "description": "Electricity upgrades low-temperature energy to usable heat."
+        },
+        "smartDistribution": {
+          "title": "Smart Distribution",
+          "description": "Heating and cooling delivered exactly when needed."
+        },
+        "lowerCosts": {
+          "title": "Lower Costs & Emissions",
+          "description": "Reduced energy bills and CO₂ footprint."
+        }
+      }
+    },
+    "features": {
+      "title": "Why Heat Pumps Are the Smarter Heating Solution",
+      "items": {
+        "exceptionalEfficiency": {
+          "title": "Exceptional Efficiency",
+          "description": "Up to 4x more heat output per unit of electricity."
+        },
+        "lowerOperatingCosts": {
+          "title": "Lower Operating Costs",
+          "description": "Significantly reduced heating expenses over time."
+        },
+        "heatingCooling": {
+          "title": "Heating & Cooling",
+          "description": "Year-round comfort from a single solution."
+        },
+        "futureTechnology": {
+          "title": "Future Technology",
+          "description": "Designed for renewable energy and smart grids."
+        }
+      }
+    },
+    "integratedSystems": {
+      "title": "Designed for Integrated Energy Systems",
+      "description": "Heat pumps deliver the highest value when integrated with on-site energy generation and smart energy management. FreeState designs systems where heating, electricity, and storage operate as one optimized energy ecosystem.",
+      "systemAdvantages": {
+        "title": "System Advantages",
+        "item1": "Higher self-consumption of solar energy",
+        "item2": "Reduced grid dependency",
+        "item3": "Optimized energy use across seasons"
+      },
+      "planningRequirements": {
+        "title": "Planning Requirements",
+        "item1": "Building characteristics",
+        "item2": "Electrical capacity",
+        "item3": "Load profile analysis"
+      }
+    },
+    "reliablePerformance": {
+      "title": "Reliable Performance in Real-World Conditions",
+      "description": "Modern heat pumps are engineered to operate efficiently even at low outdoor temperatures. With proper system design and sizing, they deliver stable comfort throughout the year.",
+      "operationalReliability": {
+        "title": "Operational Reliability",
+        "item1": "Proven, mature technology",
+        "item2": "Low maintenance requirements",
+        "item3": "Long system lifespan"
+      },
+      "keyDesignFactors": {
+        "title": "Key Design Factors",
+        "item1": "Insulation level",
+        "item2": "Heat distribution system",
+        "item3": "Local climate conditions"
+      }
+    }
   }
 }

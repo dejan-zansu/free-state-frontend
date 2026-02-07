@@ -90,7 +90,7 @@
         "solarAboMulti": "SolarAbo Multi",
         "solarAboBusiness": "SolarAbo Business",
         "solarAboAgro": "SolarAbo Agro",
-        "solarAboPublic": "SolarAbo Public"
+        "solarAboPublic": "SolarAbo Public Facilities"
       }
     },
     "stats": {
@@ -258,6 +258,491 @@
         "play": "Video abspielen",
         "pause": "Video pausieren"
       }
+    }
+  },
+  "solarAboHome": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+      "title": "SolarAbo Home",
+      "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\nInvestment",
+          "electricity": "Bis zu 30 % geringerer\nStrompreis"
+        },
+        "right": {
+          "maintenance": "Wartung\ninklusive",
+          "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
+        }
+      }
+    },
+    "includes": {
+      "title": "Was ist enthalten",
+      "subtitle": "In SolarAbo Home",
+      "items": {
+        "solarModules": {
+          "title": "Solarmodule",
+          "subtitle": "450 Wp"
+        },
+        "inverter": {
+          "title": "Wechselrichter",
+          "subtitle": "Umwandlung"
+        },
+        "monitoringApp": {
+          "title": "Monitoring-App",
+          "subtitle": "Live-Daten"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Schlüsselfertig"
+        },
+        "serviceInsurance": {
+          "title": "Service & Versicherung",
+          "subtitle": "Abgedeckt"
+        },
+        "batteryStorage": {
+          "title": "Batteriespeicher",
+          "subtitle": "Eigenverbrauch"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert SolarAbo Home",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+      "steps": {
+        "step1": "Sie stellen das Dach",
+        "step2": "Wir investieren",
+        "step3": "Sie nutzen den Solarstrom",
+        "step4": "Sie zahlen\nmonatlich",
+        "step5": "Die Anlage wird Ihr Eigentum"
+      }
+    },
+    "pricing": {
+      "title": "Preis & Vertrag",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+      "pricing": {
+        "from": "ab",
+        "amount": "CHF 39.95",
+        "perMonth": "/Monat"
+      },
+      "features": {
+        "contractTerm": "Vertragslaufzeit: 35 Jahre",
+        "buybackOption": "Rückkaufoption",
+        "noUpfrontCosts": "Keine Anschaffungskosten",
+        "batteryStorage": "Batteriespeicher inklusive"
+      },
+      "disclaimer": "Fester Monatspreis für Ihre Solaranlage mit Batterie, vollständig von uns betreut."
+    },
+    "rightForYou": {
+      "title": "Passt dieses Paket zu Ihnen?",
+      "idealForTitle": "Ideal für Sie",
+      "notIdealForTitle": "Nicht ideal für Sie",
+      "idealFor": {
+        "singleFamily": "Einfamilienhaus",
+        "predictableCosts": "Kalkulierbare Kosten",
+        "noUpfront": "Kein Anschaffungsinvestment",
+        "noMaintenance": "Keine Wartung"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Batteriespeicher benötigt",
+        "commercial": "Gewerbegebäude"
+      }
+    },
+    "cta": {
+      "topButton": "Prüfen Sie, ob SolarAbo Home Storage zu Ihrem Dach passt",
+      "heading": "Prüfen Sie, ob SolarAbo Home Storage zu Ihrem Dach passt",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboMulti": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+      "title": "SolarAbo Multi",
+      "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\nInvestment",
+          "electricity": "Bis zu 30 % geringerer\nStrompreis"
+        },
+        "right": {
+          "maintenance": "Wartung\ninklusive",
+          "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
+        }
+      }
+    },
+    "includes": {
+      "title": "Was ist enthalten",
+      "subtitle": "In SolarAbo Multi",
+      "items": {
+        "solarModules": {
+          "title": "Gemeinsames Solarsystem",
+          "subtitle": "Gemeinsames Solarsystem"
+        },
+        "inverter": {
+          "title": "Zentrales Wechselrichtersystem",
+          "subtitle": "Optimierte Umwandlung"
+        },
+        "zevBillingPlatform": {
+          "title": "ZEV-Abrechnungsplattform",
+          "subtitle": "Eigenverbrauch"
+        },
+        "monitoringApp": {
+          "title": "Monitoring",
+          "subtitle": "Pro Wohnung"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Schlüsselfertig"
+        },
+        "batteryStorage": {
+          "title": "Batteriespeicher",
+          "subtitle": "Eigenverbrauch"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert SolarAbo Multi",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+      "steps": {
+        "step1": "Sie stellen das Dach",
+        "step2": "Wir investieren",
+        "step3": "Sie nutzen den Solarstrom",
+        "step4": "Sie zahlen\nmonatlich",
+        "step5": "Die Anlage wird Ihr Eigentum"
+      }
+    },
+    "pricing": {
+      "title": "Preis & Vertrag",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+      "pricing": {
+        "from": "ab",
+        "amount": "CHF 39.95",
+        "perMonth": "/Monat"
+      },
+      "features": {
+        "contractTerm": "Vertragslaufzeit: 35 Jahre",
+        "buybackOption": "Rückkaufoption",
+        "noUpfrontCosts": "Keine Anschaffungskosten",
+        "batteryStorage": "Batteriespeicher inklusive"
+      },
+      "disclaimer": "Fester Monatspreis für Ihre Solaranlage mit Batterie, vollständig von uns betreut."
+    },
+    "rightForYou": {
+      "title": "Passt dieses Paket zu Ihnen?",
+      "idealForTitle": "Ideal für Sie",
+      "notIdealForTitle": "Nicht ideal für Sie",
+      "idealFor": {
+        "singleFamily": "Mehrfamilienhaus",
+        "predictableCosts": "Kalkulierbare Kosten",
+        "noUpfront": "Kein Anschaffungsinvestment",
+        "noMaintenance": "Keine Wartung"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Batteriespeicher benötigt",
+        "commercial": "Gewerbegebäude"
+      }
+    },
+    "cta": {
+      "topButton": "Prüfen Sie, ob SolarAbo Multi zu Ihrem Dach passt",
+      "heading": "Prüfen Sie, ob SolarAbo Multi zu Ihrem Dach passt",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboBusiness": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. ESG-Vorteile.",
+      "title": "SolarAbo Business",
+      "subtitle": "Für Gewerbe- und Industriegebäude",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\nInvestment",
+          "electricity": "Fixpreis\n0.18 CHF/kWh"
+        },
+        "right": {
+          "maintenance": "Wartung\ninklusive",
+          "reduction": "CO₂-Reduktion\nbis 50 t/Jahr"
+        }
+      }
+    },
+    "includes": {
+      "title": "Was ist enthalten",
+      "subtitle": "In SolarAbo Business",
+      "items": {
+        "solarModules": {
+          "title": "Gewerbliche PV-Anlage",
+          "subtitle": "100–1.000 kWp"
+        },
+        "inverter": {
+          "title": "Industrie-Wechselrichter",
+          "subtitle": "Hochleistung"
+        },
+        "monitoringApp": {
+          "title": "Energiemanagement",
+          "subtitle": "Echtzeit-Analysen"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Schlüsselfertig"
+        },
+        "serviceInsurance": {
+          "title": "Service & Versicherung",
+          "subtitle": "Abgedeckt"
+        },
+        "batteryStorage": {
+          "title": "Batteriespeicher",
+          "subtitle": "Optional"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert SolarAbo Business",
+      "subtitle": "Einfach, transparent und sorgenfrei – Energiekostenreduktion für Ihr Unternehmen.",
+      "steps": {
+        "step1": "Sie stellen das Dach",
+        "step2": "Wir investieren",
+        "step3": "Sie nutzen den Solarstrom",
+        "step4": "Sie zahlen einen\nFixpreis pro kWh",
+        "step5": "Die Anlage wird Ihr Eigentum"
+      }
+    },
+    "pricing": {
+      "title": "Preis & Vertrag",
+      "subtitle": "Fester Energiepreis für langfristige Planungssicherheit.",
+      "pricing": {
+        "from": "ab",
+        "amount": "0.18 CHF/kWh",
+        "perMonth": "fix"
+      },
+      "features": {
+        "contractTerm": "Vertragslaufzeit: 20–25 Jahre",
+        "buybackOption": "Rückkaufoption",
+        "noUpfrontCosts": "Keine Anschaffungskosten",
+        "batteryStorage": "Batteriespeicher optional"
+      },
+      "disclaimer": "Fixpreis pro kWh inklusive Wartung und Versicherung – vollständig von uns betreut."
+    },
+    "rightForYou": {
+      "title": "Passt dieses Paket zu Ihnen?",
+      "idealForTitle": "Ideal für Sie",
+      "notIdealForTitle": "Nicht ideal für Sie",
+      "idealFor": {
+        "singleFamily": "Gewerbegebäude",
+        "predictableCosts": "Langfristige Kostenplanung",
+        "noUpfront": "Kein Anschaffungsinvestment",
+        "noMaintenance": "ESG-Ziele"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Wohnimmobilie",
+        "commercial": "Kleine Dachfläche"
+      }
+    },
+    "cta": {
+      "topButton": "Prüfen Sie, ob SolarAbo Business zu Ihrem Gebäude passt",
+      "heading": "Prüfen Sie, ob SolarAbo Business zu Ihrem Gebäude passt",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboAgro": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Zuverlässiger Service.",
+      "title": "SolarAbo Agro",
+      "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\nInvestment",
+          "electricity": "Bis zu 40 % geringere\nStromkosten"
+        },
+        "right": {
+          "maintenance": "Service-Garantie\ninklusive",
+          "reduction": "CO₂-Reduktion\nbis 20 t/Jahr"
+        }
+      }
+    },
+    "includes": {
+      "title": "Was ist enthalten",
+      "subtitle": "In SolarAbo Agro",
+      "items": {
+        "solarModules": {
+          "title": "Landwirtschaftliche PV-Anlage",
+          "subtitle": "Bis 500 kWp"
+        },
+        "inverter": {
+          "title": "Wechselrichtersystem",
+          "subtitle": "Hofoptimiert"
+        },
+        "monitoringApp": {
+          "title": "Monitoring-App",
+          "subtitle": "Live-Daten"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Schlüsselfertig"
+        },
+        "serviceInsurance": {
+          "title": "Service-Garantie",
+          "subtitle": "Abgedeckt"
+        },
+        "heatPump": {
+          "title": "Wärmepumpen-Anbindung",
+          "subtitle": "Optional"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert SolarAbo Agro",
+      "subtitle": "Einfach, transparent und sorgenfrei – massgeschneidert für landwirtschaftliche Betriebe.",
+      "steps": {
+        "step1": "Sie stellen das Dach",
+        "step2": "Wir investieren",
+        "step3": "Sie nutzen den Solarstrom",
+        "step4": "Sie zahlen\nmonatlich",
+        "step5": "Die Anlage wird Ihr Eigentum"
+      }
+    },
+    "pricing": {
+      "title": "Preis & Vertrag",
+      "subtitle": "Flexible Vertragslaufzeiten, massgeschneidert für Ihren Hof.",
+      "pricing": {
+        "from": "ab",
+        "amount": "Individuelle Preisgestaltung",
+        "perMonth": ""
+      },
+      "features": {
+        "contractTerm": "Flexible Vertragslaufzeiten",
+        "buybackOption": "Rückkaufoption",
+        "noUpfrontCosts": "Keine Anschaffungskosten",
+        "batteryStorage": "Speicher & Wärmepumpe optional"
+      },
+      "disclaimer": "Dachnutzungsvertrag mit Service-Garantie – vollständig von uns betreut."
+    },
+    "rightForYou": {
+      "title": "Passt dieses Paket zu Ihnen?",
+      "idealForTitle": "Ideal für Sie",
+      "notIdealForTitle": "Nicht ideal für Sie",
+      "idealFor": {
+        "singleFamily": "Bauernhof oder landwirtschaftlicher Betrieb",
+        "predictableCosts": "Grosse Hallen- oder Stalldachfläche",
+        "noUpfront": "Stromkostenreduktion",
+        "noMaintenance": "Service-Garantie inklusive"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Wohnimmobilie",
+        "commercial": "Kleiner Betrieb"
+      }
+    },
+    "cta": {
+      "topButton": "Prüfen Sie, ob SolarAbo Agro zu Ihrem Hof passt",
+      "heading": "Prüfen Sie, ob SolarAbo Agro zu Ihrem Hof passt",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator"
+    }
+  },
+  "solarAboPublic": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Nachhaltiges Vorbild.",
+      "title": "SolarAbo Public",
+      "subtitle": "Für Schulen, Spitäler und Gemeindegebäude",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "0 CHF\nInvestment",
+          "electricity": "Bis zu 30 % geringere\nStromkosten"
+        },
+        "right": {
+          "maintenance": "Wartung\ninklusive",
+          "reduction": "CO₂-Reduktion\nbis 30 t/Jahr"
+        }
+      }
+    },
+    "includes": {
+      "title": "Was ist enthalten",
+      "subtitle": "In SolarAbo Public",
+      "items": {
+        "solarModules": {
+          "title": "PV-Anlage für öffentliche Gebäude",
+          "subtitle": "Individuelle Kapazität"
+        },
+        "inverter": {
+          "title": "Professioneller Wechselrichter",
+          "subtitle": "Hohe Effizienz"
+        },
+        "monitoringApp": {
+          "title": "Monitoring-Dashboard",
+          "subtitle": "Transparenz für Bürger"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Schlüsselfertig"
+        },
+        "serviceInsurance": {
+          "title": "Service & Versicherung",
+          "subtitle": "Abgedeckt"
+        },
+        "batteryStorage": {
+          "title": "Batteriespeicher",
+          "subtitle": "Optional"
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert SolarAbo Public",
+      "subtitle": "Einfach, transparent und sorgenfrei – ein nachhaltiges Vorbild für Ihre Gemeinde.",
+      "steps": {
+        "step1": "Sie stellen das Dach",
+        "step2": "Wir investieren",
+        "step3": "Sie nutzen den Solarstrom",
+        "step4": "Sie zahlen\nmonatlich",
+        "step5": "Die Anlage wird Ihr Eigentum"
+      }
+    },
+    "pricing": {
+      "title": "Preis & Vertrag",
+      "subtitle": "Kalkulierbare Kosten für öffentliche Budgets.",
+      "pricing": {
+        "from": "ab",
+        "amount": "Individuelle Preisgestaltung",
+        "perMonth": ""
+      },
+      "features": {
+        "contractTerm": "Flexible Vertragslaufzeiten",
+        "buybackOption": "Rückkaufoption",
+        "noUpfrontCosts": "Keine Anschaffungskosten",
+        "batteryStorage": "Batteriespeicher optional"
+      },
+      "disclaimer": "Fester Monatspreis für Ihre Solaranlage – vollständig von uns betreut."
+    },
+    "rightForYou": {
+      "title": "Passt dieses Paket zu Ihnen?",
+      "idealForTitle": "Ideal für Sie",
+      "notIdealForTitle": "Nicht ideal für Sie",
+      "idealFor": {
+        "singleFamily": "Öffentliches Gebäude",
+        "predictableCosts": "Schule oder Bildungseinrichtung",
+        "noUpfront": "Spital oder Pflegeeinrichtung",
+        "noMaintenance": "Gemeindeimmobilie"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Wohnimmobilie",
+        "commercial": "Gewerbliches Unternehmen"
+      }
+    },
+    "cta": {
+      "topButton": "Prüfen Sie, ob SolarAbo Public zu Ihrem Gebäude passt",
+      "heading": "Prüfen Sie, ob SolarAbo Public zu Ihrem Gebäude passt",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator"
     }
   },
   "contact": {
@@ -739,6 +1224,103 @@
             "subtitle": "Eigenverbrauch"
           }
         }
+      }
+    },
+    "solarAboMulti": {
+      "hero": {
+        "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+        "title": "SolarAbo Multi",
+        "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
+        "cta": "Solarrechner starten",
+        "tag": "Keine Registrierung nötig · Unverbindlich",
+        "stats": {
+          "left": {
+            "investment": "0 CHF\nInvestment",
+            "electricity": "Bis zu 30 % geringerer\nStrompreis"
+          },
+          "right": {
+            "maintenance": "Wartung\ninklusive",
+            "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
+          }
+        }
+      },
+      "includes": {
+        "title": "Was ist enthalten",
+        "subtitle": "In SolarAbo Multi",
+        "items": {
+          "solarModules": {
+            "title": "Gemeinsames Solarsystem",
+            "subtitle": "Gemeinsames Solarsystem"
+          },
+          "inverter": {
+            "title": "Zentrales Wechselrichtersystem",
+            "subtitle": "Optimierte Umwandlung"
+          },
+          "zevBillingPlatform": {
+            "title": "ZEV-Abrechnungsplattform",
+            "subtitle": "Eigenverbrauch"
+          },
+          "monitoringApp": {
+            "title": "Monitoring",
+            "subtitle": "Pro Wohnung"
+          },
+          "installation": {
+            "title": "Installation",
+            "subtitle": "Schlüsselfertig"
+          },
+          "batteryStorage": {
+            "title": "Batteriespeicher",
+            "subtitle": "Eigenverbrauch"
+          }
+        }
+      },
+      "howItWorks": {
+        "title": "So funktioniert SolarAbo Multi",
+        "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+        "steps": {
+          "step1": "Sie stellen das Dach",
+          "step2": "Wir investieren",
+          "step3": "Sie nutzen den Solarstrom",
+          "step4": "Sie zahlen\nmonatlich",
+          "step5": "Die Anlage wird Ihr Eigentum"
+        }
+      },
+      "pricing": {
+        "title": "Preis & Vertrag",
+        "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+        "pricing": {
+          "from": "ab",
+          "amount": "CHF 39.95",
+          "perMonth": "/Monat"
+        },
+        "features": {
+          "contractTerm": "Vertragslaufzeit: 35 Jahre",
+          "buybackOption": "Rückkaufoption",
+          "noUpfrontCosts": "Keine Anschaffungskosten",
+          "batteryStorage": "Batteriespeicher inklusive"
+        },
+        "disclaimer": "Fester Monatspreis für Ihre Solaranlage mit Batterie, vollständig von uns betreut."
+      },
+      "rightForYou": {
+        "title": "Passt dieses Paket zu Ihnen?",
+        "idealForTitle": "Ideal für Sie",
+        "notIdealForTitle": "Nicht ideal für Sie",
+        "idealFor": {
+          "singleFamily": "Mehrfamilienhaus",
+          "predictableCosts": "Kalkulierbare Kosten",
+          "noUpfront": "Kein Anschaffungsinvestment",
+          "noMaintenance": "Keine Wartung"
+        },
+        "notIdealFor": {
+          "batteryStorage": "Batteriespeicher benötigt",
+          "commercial": "Gewerbegebäude"
+        }
+      },
+      "cta": {
+        "topButton": "Prüfen Sie, ob SolarAbo Multi zu Ihrem Dach passt",
+        "heading": "Prüfen Sie, ob SolarAbo Multi zu Ihrem Dach passt",
+        "ctaText": "Solarrechner starten",
+        "ctaLink": "/calculator"
       }
     },
     "error": "Fehler"
@@ -1254,5 +1836,191 @@
     "cancel": "Abbrechen",
     "save": "Speichern",
     "loading": "Lädt..."
+  },
+  "batteryStorage": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+      "title": "Batteriespeicher",
+      "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher"
+    },
+    "revenue": {
+      "title": "Energiespeicher als Einnahmequelle",
+      "subtitle": "Batteriespeicher senken nicht nur Kosten, sondern schaffen aktiv Mehrwert in Ihrem Energiesystem.",
+      "steps": {
+        "solar": {
+          "title": "Solar",
+          "description": "Energie produzieren, wenn die Bedingungen optimal sind."
+        },
+        "storage": {
+          "title": "Speicher",
+          "description": "Überschuss speichern statt günstig verkaufen."
+        },
+        "smartDispatch": {
+          "title": "Smart Dispatch",
+          "description": "Entscheiden, wann Energie genutzt, gespeichert oder verkauft wird."
+        },
+        "revenue": {
+          "title": "Einnahmen",
+          "description": "Geringere Kosten. Neue Einnahmequellen."
+        }
+      }
+    },
+    "features": {
+      "title": "Was Energiespeicher ermöglicht",
+      "items": {
+        "peakCostReduction": {
+          "title": "Spitzenlast-Reduktion",
+          "description": "Spitzenlasten reduzieren und teure Netzgebühren vermeiden."
+        },
+        "flexibleEnergySales": {
+          "title": "Flexibler Energieverkauf",
+          "description": "Energie verkaufen, wenn die Preise günstig sind."
+        },
+        "gridServices": {
+          "title": "Netzdienstleistungen",
+          "description": "Zusätzliche Einnahmen durch Unterstützung der Netzstabilität."
+        },
+        "selfConsumption": {
+          "title": "Eigenverbrauch",
+          "description": "Mehr eigene Energie nutzen."
+        }
+      }
+    },
+    "gridServices": {
+      "title": "Maximale Rendite aus Netzdienstleistungen",
+      "description": "Energiespeicher ermöglicht die Teilnahme an Netzdienstleistungsmärkten, wo Flexibilität belohnt wird. Ihr System wird automatisch zur Unterstützung des Netzes eingesetzt und generiert zusätzliche Einnahmen.",
+      "financialBenefits": {
+        "title": "Finanzielle Vorteile",
+        "item1": "Zusätzliche Einnahmen durch Netzverfügbarkeit",
+        "item2": "Kein aktiver Handel erforderlich",
+        "item3": "Passiver Einkommensstrom"
+      },
+      "automatedParticipation": {
+        "title": "Vollautomatische Teilnahme",
+        "item1": "Geeigneter Netzanschluss",
+        "item2": "Zugelassenes Speichersystem",
+        "item3": "Standortspezifische Berechtigung"
+      }
+    },
+    "predictableReturns": {
+      "title": "Energiespeicher mit planbaren Renditen",
+      "description": "Für ausgewählte Projekte bietet FreeState AG Energiespeichermodelle mit vordefinierten Renditestrukturen. Dies gewährleistet Planungssicherheit und erschliesst langfristigen Wert aus Flexibilitätsmärkten.",
+      "financialBenefits": {
+        "title": "Finanzielle Vorteile",
+        "item1": "Planbare Jahresrenditen",
+        "item2": "Reduzierte Marktexposition",
+        "item3": "Langfristige Einnahmensicherheit"
+      },
+      "automatedParticipation": {
+        "title": "Vollautomatische Teilnahme",
+        "item1": "Mindestsystemgrösse",
+        "item2": "Vertragliche Verfügbarkeitsverpflichtung",
+        "item3": "Standortbewertung und Genehmigung"
+      }
+    },
+    "landLease": {
+      "title": "Verdienen Sie mit Ihrem Land - ohne Investment",
+      "description": "Wenn Sie über geeignetes Land oder Infrastruktur verfügen, kann FreeState AG Energiespeichersysteme auf Ihrem Gelände installieren und betreiben. Sie erhalten feste Pachtzahlungen ohne Investment oder Betriebsaufwand.",
+      "financialBenefits": {
+        "title": "Finanzielle Vorteile",
+        "item1": "Feste Standort-Pachteinnahmen",
+        "item2": "Keine Kapitalausgaben",
+        "item3": "Keine Betriebsverantwortung"
+      },
+      "automatedParticipation": {
+        "title": "Vollautomatische Teilnahme",
+        "item1": "Geeigneter Standort",
+        "item2": "Netzzugangsverfügbarkeit",
+        "item3": "Langfristiger Pachtvertrag"
+      }
+    },
+    "cta": {
+      "badge": "Batteriespeicher",
+      "title": "Holen Sie sich eine Speicherstrategie für Ihren Standort",
+      "subtitle": "Wir bewerten Ihren Standort, Netzanschluss und Ertragspotenzial.",
+      "button": "Solarrechner starten"
+    }
+  },
+  "heatPumps": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+      "title": "Wärmepumpen",
+      "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher"
+    },
+    "valueCreation": {
+      "title": "Wertschöpfung mit Wärmepumpen",
+      "subtitle": "Hocheffizientes Heizen und Kühlen mit Strom statt fossilen Brennstoffen.",
+      "steps": {
+        "ambientEnergy": {
+          "title": "Umgebungsenergie",
+          "description": "Wärme aus Luft, Boden oder Wasser gewonnen."
+        },
+        "heatPumpSystem": {
+          "title": "Wärmepumpensystem",
+          "description": "Strom wandelt Niedertemperaturenergie in nutzbare Wärme um."
+        },
+        "smartDistribution": {
+          "title": "Intelligente Verteilung",
+          "description": "Heizung und Kühlung genau dann geliefert, wenn benötigt."
+        },
+        "lowerCosts": {
+          "title": "Geringere Kosten & Emissionen",
+          "description": "Reduzierte Energierechnungen und CO₂-Fussabdruck."
+        }
+      }
+    },
+    "features": {
+      "title": "Warum Wärmepumpen die klügere Heizlösung sind",
+      "items": {
+        "exceptionalEfficiency": {
+          "title": "Aussergewöhnliche Effizienz",
+          "description": "Bis zu 4x mehr Wärmeleistung pro Stromeinheit."
+        },
+        "lowerOperatingCosts": {
+          "title": "Geringere Betriebskosten",
+          "description": "Deutlich reduzierte Heizkosten im Laufe der Zeit."
+        },
+        "heatingCooling": {
+          "title": "Heizen & Kühlen",
+          "description": "Ganzjähriger Komfort aus einer einzigen Lösung."
+        },
+        "futureTechnology": {
+          "title": "Zukunftstechnologie",
+          "description": "Konzipiert für erneuerbare Energien und intelligente Netze."
+        }
+      }
+    },
+    "integratedSystems": {
+      "title": "Konzipiert für integrierte Energiesysteme",
+      "description": "Wärmepumpen liefern den höchsten Wert, wenn sie mit Vor-Ort-Energieerzeugung und intelligentem Energiemanagement integriert werden. FreeState entwirft Systeme, bei denen Heizung, Strom und Speicher als ein optimiertes Energie-Ökosystem funktionieren.",
+      "systemAdvantages": {
+        "title": "Systemvorteile",
+        "item1": "Höherer Eigenverbrauch von Solarenergie",
+        "item2": "Reduzierte Netzabhängigkeit",
+        "item3": "Optimierte Energienutzung über alle Jahreszeiten"
+      },
+      "planningRequirements": {
+        "title": "Planungsanforderungen",
+        "item1": "Gebäudeeigenschaften",
+        "item2": "Elektrische Kapazität",
+        "item3": "Lastprofilanalyse"
+      }
+    },
+    "reliablePerformance": {
+      "title": "Zuverlässige Leistung unter realen Bedingungen",
+      "description": "Moderne Wärmepumpen sind so konzipiert, dass sie auch bei niedrigen Aussentemperaturen effizient arbeiten. Mit der richtigen Systemauslegung und Dimensionierung liefern sie das ganze Jahr über stabilen Komfort.",
+      "operationalReliability": {
+        "title": "Betriebszuverlässigkeit",
+        "item1": "Bewährte, ausgereifte Technologie",
+        "item2": "Geringer Wartungsaufwand",
+        "item3": "Lange Systemlebensdauer"
+      },
+      "keyDesignFactors": {
+        "title": "Wichtige Designfaktoren",
+        "item1": "Dämmungsniveau",
+        "item2": "Wärmeverteilungssystem",
+        "item3": "Lokale Klimabedingungen"
+      }
+    }
   }
 }

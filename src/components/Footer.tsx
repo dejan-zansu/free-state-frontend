@@ -39,7 +39,8 @@ const Footer = () => {
   const isLight =
     pathname?.includes('/solar-systems') ||
     pathname?.includes('/heat-pumps') ||
-    pathname?.includes('/solar-abo')
+    pathname?.includes('/solar-abo') ||
+    pathname?.includes('/battery-storage')
 
   const solarAboLinks = [
     {
@@ -164,7 +165,7 @@ const Footer = () => {
               className={cn(
                 'text-sm font-normal transition-colors',
                 isLight
-                  ? 'text-primary hover:text-primary/80'
+                  ? 'text-[#062E2580] hover:text-[#062E25]'
                   : 'text-muted-text-light hover:text-white'
               )}
             >
@@ -180,7 +181,11 @@ const Footer = () => {
     <footer
       className={cn(
         'bg-solar relative',
-        isCommercial ? 'bg-[#3D3858]' : isLight ? 'bg-transparent -mt-[40px]' : 'bg-solar'
+        isCommercial
+          ? 'bg-[#3D3858]'
+          : isLight
+            ? 'bg-transparent -mt-[40px]'
+            : 'bg-solar'
       )}
     >
       <div

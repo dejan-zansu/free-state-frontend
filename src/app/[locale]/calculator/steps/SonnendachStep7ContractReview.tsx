@@ -128,13 +128,15 @@ export default function SonnendachStep7ContractReview() {
   const co2Savings = getCo2Savings()
 
   // Calculate package prices
-  const packagesWithPrices = PACKAGES.map((pkg) => ({
+  const packagesWithPrices = PACKAGES.map(pkg => ({
     ...pkg,
     price: Math.round(totalInvestment * pkg.priceMultiplier),
-    netPrice: Math.round((totalInvestment * pkg.priceMultiplier) - subsidies),
+    netPrice: Math.round(totalInvestment * pkg.priceMultiplier - subsidies),
   }))
 
-  const selectedPackage = packagesWithPrices.find((p) => p.code === selectedPackageCode)
+  const selectedPackage = packagesWithPrices.find(
+    p => p.code === selectedPackageCode
+  )
 
   // Handle acknowledgment toggle
   const toggleAcknowledgment = (type: string) => {
@@ -152,7 +154,9 @@ export default function SonnendachStep7ContractReview() {
     'CONTRACT_REVIEW',
   ]
 
-  const allAcknowledged = requiredAcknowledgments.every((ack) => acknowledgments.includes(ack))
+  const allAcknowledged = requiredAcknowledgments.every(ack =>
+    acknowledgments.includes(ack)
+  )
 
   // Handle create contract and proceed to signature
   const handleProceedToSign = async () => {
@@ -170,7 +174,7 @@ export default function SonnendachStep7ContractReview() {
         address,
         latitude: 0, // These would come from selectedLocation
         longitude: 0,
-        selectedSegments: selectedSegments.map((s) => ({
+        selectedSegments: selectedSegments.map(s => ({
           id: s.id,
           area: s.area,
           potentialKwh: s.electricityYield,
@@ -183,7 +187,7 @@ export default function SonnendachStep7ContractReview() {
           buildingFloors: roofProperties.buildingFloors,
           roofMaterial: roofProperties.roofMaterial,
         },
-        restrictedAreas: restrictedAreas.map((r) => ({
+        restrictedAreas: restrictedAreas.map(r => ({
           id: r.id,
           coordinates: r.coordinates,
           area: r.area,
@@ -262,7 +266,9 @@ export default function SonnendachStep7ContractReview() {
       nextStep()
     } catch (err) {
       console.error('Failed to create contract:', err)
-      setCreateError(err instanceof Error ? err.message : 'Failed to create contract')
+      setCreateError(
+        err instanceof Error ? err.message : 'Failed to create contract'
+      )
     } finally {
       setIsCreatingContract(false)
     }
@@ -271,7 +277,6 @@ export default function SonnendachStep7ContractReview() {
   return (
     <div className="h-full overflow-y-auto">
       <div className="container mx-auto px-4 py-6 max-w-5xl">
-        {/* Header */}
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-foreground">{t('title')}</h2>
           <p className="text-muted-foreground mt-1">{t('subtitle')}</p>
@@ -284,7 +289,6 @@ export default function SonnendachStep7ContractReview() {
         )}
 
         <div className="space-y-6">
-          {/* System Summary */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
@@ -296,35 +300,47 @@ export default function SonnendachStep7ContractReview() {
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center p-3 bg-muted/50 rounded-lg">
                   <p className="text-2xl font-bold text-energy">{panelCount}</p>
-                  <p className="text-sm text-muted-foreground">{t('systemSummary.panels')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('systemSummary.panels')}
+                  </p>
                 </div>
                 <div className="text-center p-3 bg-muted/50 rounded-lg">
-                  <p className="text-2xl font-bold text-energy">{formatSwissNumber(systemSizeKwp, 2)}</p>
+                  <p className="text-2xl font-bold text-energy">
+                    {formatSwissNumber(systemSizeKwp, 2)}
+                  </p>
                   <p className="text-sm text-muted-foreground">kWp</p>
                 </div>
                 <div className="text-center p-3 bg-muted/50 rounded-lg">
-                  <p className="text-2xl font-bold text-energy">{formatSwissNumber(estimatedProduction)}</p>
+                  <p className="text-2xl font-bold text-energy">
+                    {formatSwissNumber(estimatedProduction)}
+                  </p>
                   <p className="text-sm text-muted-foreground">kWh/Jahr</p>
                 </div>
                 <div className="text-center p-3 bg-muted/50 rounded-lg">
-                  <p className="text-2xl font-bold text-energy">{formatSwissNumber(co2Savings)}</p>
+                  <p className="text-2xl font-bold text-energy">
+                    {formatSwissNumber(co2Savings)}
+                  </p>
                   <p className="text-sm text-muted-foreground">kg CO₂/Jahr</p>
                 </div>
               </div>
 
               <div className="mt-4 p-3 bg-muted/30 rounded-lg">
                 <p className="text-sm">
-                  <span className="font-medium">{t('systemSummary.address')}:</span> {address}
+                  <span className="font-medium">
+                    {t('systemSummary.address')}:
+                  </span>{' '}
+                  {address}
                 </p>
                 <p className="text-sm mt-1">
-                  <span className="font-medium">{t('systemSummary.equipment')}:</span>{' '}
+                  <span className="font-medium">
+                    {t('systemSummary.equipment')}:
+                  </span>{' '}
                   {panelCount}× {selectedPanel?.name} + {selectedInverter?.name}
                 </p>
               </div>
             </CardContent>
           </Card>
 
-          {/* Package Selection */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
@@ -334,7 +350,7 @@ export default function SonnendachStep7ContractReview() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {packagesWithPrices.map((pkg) => (
+                {packagesWithPrices.map(pkg => (
                   <div
                     key={pkg.code}
                     onClick={() => selectPackage(pkg.code)}
@@ -351,14 +367,18 @@ export default function SonnendachStep7ContractReview() {
                     )}
 
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="font-bold text-lg">{t(`packages.${pkg.code.toLowerCase()}.name`)}</h3>
+                      <h3 className="font-bold text-lg">
+                        {t(`packages.${pkg.code.toLowerCase()}.name`)}
+                      </h3>
                       {selectedPackageCode === pkg.code && (
                         <Check className="h-5 w-5 text-energy" />
                       )}
                     </div>
 
                     <div className="mb-4">
-                      <p className="text-2xl font-bold">{formatCurrency(pkg.price)}</p>
+                      <p className="text-2xl font-bold">
+                        {formatCurrency(pkg.price)}
+                      </p>
                       <p className="text-sm text-muted-foreground">
                         {t('packages.netPrice')}: {formatCurrency(pkg.netPrice)}
                       </p>
@@ -366,12 +386,17 @@ export default function SonnendachStep7ContractReview() {
 
                     <div className="flex items-center gap-2 mb-3 text-sm">
                       <Shield className="h-4 w-4 text-energy" />
-                      <span>{pkg.warrantyYears} {t('packages.yearsWarranty')}</span>
+                      <span>
+                        {pkg.warrantyYears} {t('packages.yearsWarranty')}
+                      </span>
                     </div>
 
                     <ul className="space-y-2">
                       {pkg.features.slice(0, 4).map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                        >
                           <Check className="h-3 w-3 text-energy mt-0.5 shrink-0" />
                           <span>{feature}</span>
                         </li>
@@ -383,7 +408,6 @@ export default function SonnendachStep7ContractReview() {
             </CardContent>
           </Card>
 
-          {/* Price Summary */}
           {selectedPackage && (
             <Card>
               <CardHeader>
@@ -395,8 +419,12 @@ export default function SonnendachStep7ContractReview() {
               <CardContent>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-muted-foreground">{t('priceSummary.grossPrice')}</span>
-                    <span className="font-medium">{formatCurrency(selectedPackage.price)}</span>
+                    <span className="text-muted-foreground">
+                      {t('priceSummary.grossPrice')}
+                    </span>
+                    <span className="font-medium">
+                      {formatCurrency(selectedPackage.price)}
+                    </span>
                   </div>
                   <div className="flex justify-between items-center text-green-600">
                     <span>{t('priceSummary.subsidies')}</span>
@@ -404,8 +432,12 @@ export default function SonnendachStep7ContractReview() {
                   </div>
                   <Separator />
                   <div className="flex justify-between items-center">
-                    <span className="font-bold">{t('priceSummary.netPrice')}</span>
-                    <span className="font-bold text-lg text-energy">{formatCurrency(selectedPackage.netPrice)}</span>
+                    <span className="font-bold">
+                      {t('priceSummary.netPrice')}
+                    </span>
+                    <span className="font-bold text-lg text-energy">
+                      {formatCurrency(selectedPackage.netPrice)}
+                    </span>
                   </div>
                   <div className="flex justify-between items-center text-sm text-muted-foreground">
                     <span>{t('priceSummary.annualSavings')}</span>
@@ -413,14 +445,16 @@ export default function SonnendachStep7ContractReview() {
                   </div>
                   <div className="flex justify-between items-center text-sm text-muted-foreground">
                     <span>{t('priceSummary.payback')}</span>
-                    <span>~{formatSwissNumber(paybackYears, 1)} {t('priceSummary.years')}</span>
+                    <span>
+                      ~{formatSwissNumber(paybackYears, 1)}{' '}
+                      {t('priceSummary.years')}
+                    </span>
                   </div>
                 </div>
               </CardContent>
             </Card>
           )}
 
-          {/* Important Notice */}
           <Card className="border-amber-200 bg-amber-50/50">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg text-amber-800">
@@ -446,7 +480,6 @@ export default function SonnendachStep7ContractReview() {
             </CardContent>
           </Card>
 
-          {/* Acknowledgments */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-lg">
@@ -459,9 +492,14 @@ export default function SonnendachStep7ContractReview() {
                 <Checkbox
                   id="ack-preliminary"
                   checked={acknowledgments.includes('PRELIMINARY_QUOTE_NOTICE')}
-                  onCheckedChange={() => toggleAcknowledgment('PRELIMINARY_QUOTE_NOTICE')}
+                  onCheckedChange={() =>
+                    toggleAcknowledgment('PRELIMINARY_QUOTE_NOTICE')
+                  }
                 />
-                <Label htmlFor="ack-preliminary" className="text-sm font-normal cursor-pointer leading-relaxed">
+                <Label
+                  htmlFor="ack-preliminary"
+                  className="text-sm font-normal cursor-pointer leading-relaxed"
+                >
                   {t('acknowledgments.preliminary')}
                 </Label>
               </div>
@@ -470,9 +508,14 @@ export default function SonnendachStep7ContractReview() {
                 <Checkbox
                   id="ack-sitevisit"
                   checked={acknowledgments.includes('SITE_VISIT_CONSENT')}
-                  onCheckedChange={() => toggleAcknowledgment('SITE_VISIT_CONSENT')}
+                  onCheckedChange={() =>
+                    toggleAcknowledgment('SITE_VISIT_CONSENT')
+                  }
                 />
-                <Label htmlFor="ack-sitevisit" className="text-sm font-normal cursor-pointer leading-relaxed">
+                <Label
+                  htmlFor="ack-sitevisit"
+                  className="text-sm font-normal cursor-pointer leading-relaxed"
+                >
                   {t('acknowledgments.siteVisit')}
                 </Label>
               </div>
@@ -481,9 +524,14 @@ export default function SonnendachStep7ContractReview() {
                 <Checkbox
                   id="ack-contract"
                   checked={acknowledgments.includes('CONTRACT_REVIEW')}
-                  onCheckedChange={() => toggleAcknowledgment('CONTRACT_REVIEW')}
+                  onCheckedChange={() =>
+                    toggleAcknowledgment('CONTRACT_REVIEW')
+                  }
                 />
-                <Label htmlFor="ack-contract" className="text-sm font-normal cursor-pointer leading-relaxed">
+                <Label
+                  htmlFor="ack-contract"
+                  className="text-sm font-normal cursor-pointer leading-relaxed"
+                >
                   {t('acknowledgments.contractReview')}
                 </Label>
               </div>
@@ -491,16 +539,21 @@ export default function SonnendachStep7ContractReview() {
           </Card>
         </div>
 
-        {/* Navigation */}
         <div className="flex justify-between items-center mt-8 pt-6 border-t">
-          <Button variant="outline" onClick={() => goToStep(6)} className="gap-2">
+          <Button
+            variant="outline"
+            onClick={() => goToStep(6)}
+            className="gap-2"
+          >
             <ChevronLeft className="h-4 w-4" />
             {tCommon('back')}
           </Button>
 
           <Button
             onClick={handleProceedToSign}
-            disabled={!selectedPackageCode || !allAcknowledged || isCreatingContract}
+            disabled={
+              !selectedPackageCode || !allAcknowledged || isCreatingContract
+            }
             className="gap-2 bg-energy hover:bg-energy/90"
           >
             {isCreatingContract ? (

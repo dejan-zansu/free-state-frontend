@@ -6,12 +6,12 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useState } from 'react'
 
-interface HeroNavProps {
+interface HeroNavLightProps {
   locale: string
   isCommercial?: boolean
 }
 
-const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
+const HeroNavLight = ({ locale, isCommercial = false }: HeroNavLightProps) => {
   const t = useTranslations('home')
   const tFooter = useTranslations('footer')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
@@ -70,7 +70,10 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
     <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full flex justify-center z-20 px-4">
       <div
         className={cn(
-          'inline-flex flex-col gap-0 pl-4 sm:pl-6 md:pl-[30px] pr-2 sm:pr-4 md:pr-[9px] bg-white/20 backdrop-blur-[30px] rounded-2xl sm:rounded-[24px] md:rounded-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2 max-w-[calc(100vw-2rem)]'
+          'inline-flex flex-col gap-0 pl-4 sm:pl-6 md:pl-[30px] pr-2 sm:pr-4 md:pr-[9px] bg-white/30 backdrop-blur-[30px] rounded-2xl sm:rounded-[24px] md:rounded-[30px] border border-[#9CA9A6]/30 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2 max-w-[calc(100vw-2rem)]',
+          isCommercial
+            ? 'shadow-[0px_25px_34px_0px_rgba(159,62,79,0.1)]'
+            : 'shadow-[0px_25px_34px_0px_rgba(183,254,26,0.1)]'
         )}
         onMouseLeave={() => setHoveredItem(null)}
       >
@@ -82,7 +85,7 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
             >
               <Link
                 href={`/${locale}/solar-abo`}
-                className="text-white font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
+                className="text-[#062E25] font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.solarAbo')}
               </Link>
@@ -94,7 +97,7 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
             >
               <Link
                 href={`/${locale}/products`}
-                className="text-white font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
+                className="text-[#062E25] font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.products')}
               </Link>
@@ -105,19 +108,17 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
               variant={isCommercial ? 'secondary' : 'primary'}
               href="/calculator"
               locale={locale}
-              className="w-full sm:w-auto text-sm sm:text-base"
             >
               {t('hero.nav.onlineStarter')}
             </LinkButton>
           </div>
         </div>
 
-        {/* Expanded Links Section - appears inside the same box */}
         <div
           className={cn(
             'flex flex-col gap-2 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
             hasDropdown
-              ? 'max-h-[500px] opacity-100 pt-4 mt-2 border-t border-white/10'
+              ? 'max-h-[500px] opacity-100 pt-4 mt-2 border-t border-[#062E25]/10'
               : 'max-h-0 opacity-0 pt-0 mt-0 border-t-0'
           )}
         >
@@ -126,7 +127,7 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
               key={link.href}
               href={link.href}
               className={cn(
-                'px-4 py-2.5 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-300 whitespace-nowrap',
+                'px-4 py-2.5 text-foreground text-sm font-medium rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap',
                 hasDropdown
                   ? 'translate-y-0 opacity-100'
                   : '-translate-y-1 opacity-0'
@@ -146,4 +147,4 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
   )
 }
 
-export default HeroNav
+export default HeroNavLight
