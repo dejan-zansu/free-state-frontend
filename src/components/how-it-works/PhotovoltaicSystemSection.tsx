@@ -1,53 +1,51 @@
-import { cn } from '@/lib/utils'
+import {
+  AllInclusiveIcon,
+  HouseWithSunIcon,
+  SolarSystemIcon,
+} from '@/components/icons'
+import { LinkButton } from '@/components/ui/link-button'
 import { getLocale, getTranslations } from 'next-intl/server'
-import { AllInclusiveIcon, HouseWithSunIcon, SolarSystemIcon } from './icons'
-import { LinkButton } from './ui/link-button'
 
-const Benefits = async ({ isCommercial = false }) => {
+const PhotovoltaicSystemSection = async () => {
   const locale = await getLocale()
-  const t = await getTranslations('home.benefits')
+  const t = await getTranslations('howItWorks')
 
   const features = [
     {
       icon: HouseWithSunIcon,
-      title: t('noInvestment.title'),
-      description: t('noInvestment.description'),
+      title: t('photovoltaic.solarPanels.title'),
+      description: t('photovoltaic.solarPanels.description'),
     },
     {
       icon: AllInclusiveIcon,
-      title: t('fullService.title'),
-      description: t('fullService.description'),
+      title: t('photovoltaic.inverter.title'),
+      description: t('photovoltaic.inverter.description'),
     },
     {
       icon: SolarSystemIcon,
-      title: t('longTerm.title'),
-      description: t('longTerm.description'),
+      title: t('photovoltaic.electricityMeter.title'),
+      description: t('photovoltaic.electricityMeter.description'),
     },
   ]
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#FDFFF5]">
-      <div className="max-w-[1111px] mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8 sm:mb-10 max-w-[530px] mx-auto">
-          <h2 className="text-foreground text-3xl sm:text-4xl md:text-5xl font-semibold mb-3 sm:mb-4">
-            {t('title')}
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#EAEDDF]">
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 sm:mb-10 max-w-[536px] mx-auto">
+          <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium leading-[1em] mb-8 sm:mb-10">
+            {t('photovoltaic.title')}
           </h2>
-          <p className="text-foreground/80 text-base sm:text-lg md:text-xl font-light max-w-2xl mx-auto px-2">
-            {t('subtitle')}
-          </p>
-        </div>
-        <div className="flex justify-center mb-8 sm:mb-10">
           <LinkButton
             variant="outline-tertiary-dark"
             href="/solar-abo"
             locale={locale}
             className="bg-transparent"
           >
-            {t('learnMore')}
+            {t('photovoltaic.learnMore')}
           </LinkButton>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {features.map((feature, index) => {
             const Icon = feature.icon
             return (
@@ -57,19 +55,9 @@ const Benefits = async ({ isCommercial = false }) => {
               >
                 <div className="relative z-10 mb-6 sm:mb-8 flex items-center justify-center">
                   <div className="relative w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[142px] md:h-[142px] flex items-center justify-center">
-                    <div
-                      className={cn(
-                        'absolute inset-0 rounded-full border border-solar bg-[#062E25]',
-                        isCommercial && 'border-white bg-[#3D3858]'
-                      )}
-                    />
+                    <div className="absolute inset-0 rounded-full border border-solar bg-[#062E25]" />
                     <div className="relative z-10">
-                      <Icon
-                        className={cn(
-                          'w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[83px] md:h-[83px] text-solar',
-                          isCommercial && 'text-white'
-                        )}
-                      />
+                      <Icon className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] md:w-[83px] md:h-[83px] text-solar" />
                     </div>
                   </div>
                 </div>
@@ -95,4 +83,4 @@ const Benefits = async ({ isCommercial = false }) => {
   )
 }
 
-export default Benefits
+export default PhotovoltaicSystemSection

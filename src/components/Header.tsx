@@ -25,11 +25,11 @@ const Header = () => {
 
   const pagesWithDarkHeader = [
     `/${locale}/calculator`,
-    `/${locale}/how-it-works`,
     `/${locale}/solar-abo`,
     `/${locale}/commercial/solar-abo`,
     `/${locale}/about-us`,
     `/${locale}/battery-storage`,
+    `/${locale}/login`,
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
@@ -67,7 +67,7 @@ const Header = () => {
     showCommercial
       ? { label: t('commercialProperties'), href: `/${locale}/commercial` }
       : { label: t('residentialProperties'), href: `/${locale}` },
-    { label: t('solarAbo'), href: `/${locale}/solar-abo` },
+    // { label: t('solarAbo'), href: `/${locale}/solar-abo` },
     { label: t('howItWorks'), href: `/${locale}/how-it-works` },
     { label: t('portfolio'), href: `/${locale}/portfolio` },
     { label: t('aboutUs'), href: `/${locale}/about-us` },
@@ -160,7 +160,6 @@ const Header = () => {
               ))}
             </nav>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className={cn(
@@ -179,8 +178,10 @@ const Header = () => {
               <Link
                 href={`/${locale}/login`}
                 className={cn(
-                  'font-medium whitespace-nowrap transition-all duration-200 hover:opacity-90 shrink-0 text-sm sm:text-base hidden sm:block',
-                  showDarkHeader ? 'text-[#062E25]' : 'text-white'
+                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-90 shrink-0 text-sm sm:text-base hidden sm:block',
+                  showDarkHeader
+                    ? 'bg-[#E6EAE9] text-[#062E25]'
+                    : 'bg-solar text-solar-foreground'
                 )}
               >
                 {tHeader('myHome')}
@@ -246,12 +247,7 @@ const Header = () => {
             <Link
               href={`/${locale}/login`}
               onClick={() => setIsMobileMenuOpen(false)}
-              className={cn(
-                'px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4',
-                isActive(`/${locale}/login`)
-                  ? 'bg-[#E6EAE9] text-[#062E25]'
-                  : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
-              )}
+              className="px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4 bg-[#E6EAE9] text-[#062E25]"
             >
               {tHeader('myHome')}
             </Link>

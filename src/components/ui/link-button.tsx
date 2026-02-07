@@ -23,6 +23,8 @@ const linkButtonVariants = cva(
           'bg-white/5 border border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
         'outline-tertiary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+        'outline-tertiary-dark':
+          'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-quaternary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
       },
@@ -38,12 +40,14 @@ interface LinkButtonProps
     React.ComponentProps<typeof Link>,
     VariantProps<typeof linkButtonVariants> {
   locale?: string
+  icon?: React.ReactNode
+  iconWrapperClassName?: string
 }
 
 const LinkButton = React.forwardRef<
   React.ElementRef<typeof Link>,
   LinkButtonProps
->(({ className, variant, locale, href, children, ...props }, ref) => {
+>(({ className, variant, locale, href, children, icon, iconWrapperClassName, ...props }, ref) => {
   const getHrefWithLocale = () => {
     if (!locale || typeof href !== 'string') return href
     if (href.startsWith(`/${locale}/`) || href === `/${locale}`) return href
@@ -59,6 +63,7 @@ const LinkButton = React.forwardRef<
   const isOutlinePrimary = variant === 'outline-primary'
   const isOutlineSecondary = variant === 'outline-secondary'
   const isOutlineTertiary = variant === 'outline-tertiary'
+  const isOutlineTertiaryDark = variant === 'outline-tertiary-dark'
   const isOutlineQuaternary = variant === 'outline-quaternary'
 
   const isFullWidth = className && className.includes('w-full')
@@ -89,35 +94,45 @@ const LinkButton = React.forwardRef<
           isOutlinePrimary && 'bg-[#062E25]',
           isOutlineSecondary && 'bg-solar',
           isOutlineTertiary && 'bg-[#b7fe1a]',
-          isOutlineQuaternary && 'bg-energy'
+          isOutlineTertiaryDark && 'bg-[#062E25]',
+          isOutlineQuaternary && 'bg-energy',
+          iconWrapperClassName
         )}
       >
-        <ArrowRight
-          className={cn(
-            'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
-            isPrimary && 'text-white',
-            isSecondary && 'text-energy',
-            isTertiary && 'text-[#062E25] group-hover:text-white',
-            isQuaternary && 'text-[#3D3858]',
-            isOutlinePrimary && 'text-white',
-            isOutlineSecondary && 'text-solar-foreground',
-            isOutlineTertiary && 'text-[#062E25]',
-            isOutlineQuaternary && 'text-white'
-          )}
-        />
-        <ArrowRight
-          className={cn(
-            'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100',
-            isPrimary && 'text-white',
-            isSecondary && 'text-energy',
-            isTertiary && 'text-[#062E25] group-hover:text-white',
-            isQuaternary && 'text-energy',
-            isOutlinePrimary && 'text-white',
-            isOutlineSecondary && 'text-solar-foreground',
-            isOutlineTertiary && 'text-[#062E25]',
-            isOutlineQuaternary && 'text-white'
-          )}
-        />
+        {icon ? (
+          icon
+        ) : (
+          <>
+            <ArrowRight
+              className={cn(
+                'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
+                isPrimary && 'text-white',
+                isSecondary && 'text-energy',
+                isTertiary && 'text-[#062E25] group-hover:text-white',
+                isQuaternary && 'text-[#3D3858]',
+                isOutlinePrimary && 'text-white',
+                isOutlineSecondary && 'text-solar-foreground',
+                isOutlineTertiary && 'text-[#062E25]',
+                isOutlineTertiaryDark && 'text-white',
+                isOutlineQuaternary && 'text-white'
+              )}
+            />
+            <ArrowRight
+              className={cn(
+                'w-4 h-4 -rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100',
+                isPrimary && 'text-white',
+                isSecondary && 'text-energy',
+                isTertiary && 'text-[#062E25] group-hover:text-white',
+                isQuaternary && 'text-energy',
+                isOutlinePrimary && 'text-white',
+                isOutlineSecondary && 'text-solar-foreground',
+                isOutlineTertiary && 'text-[#062E25]',
+                isOutlineTertiaryDark && 'text-white',
+                isOutlineQuaternary && 'text-white'
+              )}
+            />
+          </>
+        )}
       </div>
     </Link>
   )

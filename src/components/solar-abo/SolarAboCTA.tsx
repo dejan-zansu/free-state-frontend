@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils'
 import { LinkButton } from '@/components/ui/link-button'
+import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 
 export interface SolarAboCTAProps {

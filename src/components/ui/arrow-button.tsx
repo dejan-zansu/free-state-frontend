@@ -20,6 +20,7 @@ const arrowButtonVariants = cva(
       },
       size: {
         sm: 'pl-4 pr-0.5 py-0.5 gap-2',
+        md: 'pl-5 pr-px py-px gap-2.5',
         default: 'pl-6 pr-1 py-1 gap-3',
         lg: 'pl-8 pr-1.5 py-1.5 gap-4',
       },
@@ -63,7 +64,7 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
         <div
           className={cn(
             'relative flex items-center justify-center rounded-full overflow-hidden',
-            size === 'sm' ? 'w-7 h-7' : size === 'lg' ? 'w-12 h-12' : 'w-10 h-10',
+            size === 'sm' ? 'w-7 h-7' : size === 'md' ? 'w-8 h-8' : size === 'lg' ? 'w-12 h-12' : 'w-10 h-10',
             isPrimary && 'bg-[#062E25]',
             isSecondary && 'bg-white',
             isTertiary && 'bg-solar group-hover:bg-[#062E25]',
@@ -74,7 +75,7 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
           <ArrowRight
             className={cn(
               '-rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
-              size === 'sm' ? 'w-3 h-3' : size === 'lg' ? 'w-5 h-5' : 'w-4 h-4',
+              size === 'sm' ? 'w-3 h-3' : size === 'md' ? 'w-3.5 h-3.5' : size === 'lg' ? 'w-5 h-5' : 'w-4 h-4',
               isPrimary && 'text-white',
               isSecondary && 'text-energy',
               isTertiary && 'text-[#062E25] group-hover:text-white',
@@ -85,7 +86,7 @@ const ArrowButton = React.forwardRef<HTMLButtonElement, ArrowButtonProps>(
           <ArrowRight
             className={cn(
               '-rotate-45 absolute left-1/2 top-1/2 -translate-x-1/2 translate-y-6 opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100',
-              size === 'sm' ? 'w-3 h-3' : size === 'lg' ? 'w-5 h-5' : 'w-4 h-4',
+              size === 'sm' ? 'w-3 h-3' : size === 'md' ? 'w-3.5 h-3.5' : size === 'lg' ? 'w-5 h-5' : 'w-4 h-4',
               isPrimary && 'text-white',
               isSecondary && 'text-energy',
               isTertiary && 'text-[#062E25] group-hover:text-white',

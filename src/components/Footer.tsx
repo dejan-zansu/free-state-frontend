@@ -44,7 +44,8 @@ const Footer = () => {
     pathname?.includes('/solar-systems') ||
     pathname?.includes('/heat-pumps') ||
     pathname?.includes('/solar-abo') ||
-    pathname?.includes('/battery-storage')
+    pathname?.includes('/battery-storage') ||
+    pathname?.includes('/how-it-works')
 
   const solarAboLinks = [
     {
@@ -282,12 +283,14 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      'w-9 h-9 rounded-full flex items-center justify-center transition-colors',
-                      isLight
-                        ? 'bg-[#9F3E4F] text-white hover:opacity-80'
-                        : isCommercial
-                          ? 'bg-[#9F3E4F] text-white hover:opacity-80'
-                          : 'bg-solar text-[#062E25] hover:opacity-80'
+                      'w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80',
+                      isLight && isCommercial
+                        ? 'bg-[#9F3E4F] text-white'
+                        : isLight
+                          ? 'bg-[#062E25] text-solar'
+                          : isCommercial
+                            ? 'bg-[#9F3E4F] text-white'
+                            : 'bg-solar text-[#062E25]'
                     )}
                     aria-label={social.label}
                   >
@@ -309,7 +312,7 @@ const Footer = () => {
                 </span>
                 <div
                   className={cn(
-                    'flex items-center px-3 py-2 rounded-[5px] border backdrop-blur-[65px]',
+                    'flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px]',
                     isLight
                       ? 'bg-[#EAEDDF] border-[#B5C0B1]'
                       : 'bg-transparent border-white/30'
@@ -331,9 +334,10 @@ const Footer = () => {
               </div>
               <ArrowButton
                 variant={isCommercial ? 'secondary' : 'primary'}
-                size="sm"
+                size="md"
+                className="h-9 text-xs"
               >
-                <span className="text-sm font-medium">{t('subscribe')}</span>
+                {t('subscribe')}
               </ArrowButton>
             </div>
 
@@ -349,7 +353,7 @@ const Footer = () => {
                 </span>
                 <div
                   className={cn(
-                    'flex items-center px-3 py-2 rounded-[5px] border backdrop-blur-[65px] opacity-70',
+                    'flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px] opacity-70',
                     isLight
                       ? 'bg-transparent border-[#062E25]'
                       : 'bg-transparent border-white/30'
@@ -365,40 +369,25 @@ const Footer = () => {
                   </span>
                 </div>
               </div>
-              <a
+              <LinkButton
                 href="tel:+41525253305"
-                className={cn(
-                  'flex items-center gap-2.5 pl-2.5 pr-1 py-1 rounded-full font-medium text-sm transition-colors',
-                  isLight
-                    ? 'bg-[#9F3E4F] text-white hover:opacity-90'
-                    : isCommercial
-                      ? 'bg-[#9F3E4F] text-white hover:opacity-90'
-                      : 'bg-solar text-[#062E25] hover:opacity-90'
+                variant={isCommercial ? 'secondary' : 'primary'}
+                className="h-9 text-xs"
+                iconWrapperClassName={cn(
+                  'w-[30px] h-[30px]',
+                  isCommercial ? 'bg-white/20' : 'bg-[#062E25]/10'
                 )}
-              >
-                +41 52 525 33 05
-                <span
-                  className={cn(
-                    'w-[30px] h-[30px] rounded-full flex items-center justify-center',
-                    isLight
-                      ? 'bg-white/20'
-                      : isCommercial
-                        ? 'bg-white/20'
-                        : 'bg-[#062E25]/10'
-                  )}
-                >
+                icon={
                   <Phone
                     className={cn(
-                      'w-3.5 h-3.5',
-                      isLight
-                        ? 'text-white'
-                        : isCommercial
-                          ? 'text-white'
-                          : 'text-[#062E25]'
+                      'w-3.5 h-3.5 group-hover:animate-phone-ring',
+                      isCommercial ? 'text-white' : 'text-[#062E25]'
                     )}
                   />
-                </span>
-              </a>
+                }
+              >
+                +41 52 525 33 05
+              </LinkButton>
             </div>
           </div>
         </div>

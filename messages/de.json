@@ -2037,5 +2037,96 @@
         "item3": "Lokale Klimabedingungen"
       }
     }
+  },
+  "howItWorks": {
+    "hero": {
+      "title": "Wie eine Solaranlage\nfunktioniert"
+    },
+    "section": {
+      "title": "So funktioniert's",
+      "subtitle": "Wie funktioniert eine Solaranlage?",
+      "description": "Eine Solaranlage wandelt die Strahlungsenergie des Sonnenlichts in nutzbaren Strom um. Die Solarmodule auf dem Dach fangen mithilfe von Solarzellen die Sonnenstrahlen ein und erzeugen so Gleichstrom (DC). Dieser Gleichstrom wird dann von einem Wechselrichter in Wechselstrom (AC), also elektrischen Strom, umgewandelt.\n\nSolarstrom ist also Strom, der durch den photovoltaischen Effekt in Solarzellen erzeugt wird. Bei der Stromerzeugung entstehen keine Abgase.",
+      "imageCaption": "Die folgende Grafik zeigt, wie eine Solaranlage funktioniert, einschliesslich der Positionierung der wichtigsten Elemente im Haus:",
+      "imageAlt": "Diagramm, das zeigt, wie eine Solaranlage in einem Haus funktioniert",
+      "labels": {
+        "smartEnergyControl": "Smart Energy Control",
+        "evChargingStation": "EV-Ladestation",
+        "batteryStorage": "Batteriespeicher",
+        "heatPump": "Wärmepumpe"
+      }
+    },
+    "solarPanel": {
+      "title": "Wie ein Solarpanel funktioniert",
+      "description": "Solarpanels können Sonnenlicht in Strom umwandeln. Ermöglicht wird dies durch Halbleiter (Silizium), die Strom leiten. Sobald Sonnenlicht auf das Solarpanel scheint, werden Elektronen angeregt. Die Elektronen bewegen sich dann durch die Schichten des Solarpanels zum Wechselrichter. Die Elektronen transportieren den Strom dorthin, wo die Energie benötigt wird. Je nach Bedarf geht die Energie direkt an die Endverbraucher (Glühbirne, PC, Batterie usw.), wo der Strom für die spätere Nutzung zur Verfügung steht.",
+      "infoCard": "Solarmodule – auch Solarpanels genannt – bestehen aus vielen kleinen Solarzellen. Wenn viele Solarmodule miteinander verbunden werden, spricht man von einer Solaranlage."
+    },
+    "photovoltaic": {
+      "title": "Aufbau der Photovoltaikanlage",
+      "learnMore": "Mehr erfahren",
+      "solarPanels": {
+        "title": "Solarpanels",
+        "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
+      },
+      "inverter": {
+        "title": "Wechselrichter",
+        "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
+      },
+      "electricityMeter": {
+        "title": "Stromzähler",
+        "description": "Sie tragen keine finanziellen Risiken – wir übernehmen alle Kosten für die Planung, Installation und Wartung Ihrer Solaranlage."
+      }
+    },
+    "cta": {
+      "topButton": "Solaranlage",
+      "heading": "Jetzt ein kostenloses, unverbindliches Angebot einholen!",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator"
+    }
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "subtitle": "Wie wir mit Ihren persönlichen Daten umgehen",
+    "intro": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+    "dataCollection": {
+      "title": "Datenerfassung auf unserer Website",
+      "content": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.\n\nIhre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. in ein Kontaktformular eingegebene Daten), oder automatisch durch unsere IT-Systeme beim Besuch der Website erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Diese Daten werden automatisch beim Betreten unserer Website erfasst."
+    },
+    "automaticData": {
+      "title": "Automatisch erfasste Daten",
+      "content": "Beim Besuch unserer Website speichern unsere Webserver vorübergehend jeden Zugriff in einer Protokolldatei. Folgende Daten werden erfasst und bis zur automatisierten Löschung gespeichert:\n\n• IP-Adresse des anfragenden Rechners\n• Datum und Uhrzeit des Zugriffs\n• Name und URL der abgerufenen Datei\n• Website, von der aus der Zugriff erfolgt (Referrer-URL)\n• Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners\n• Name Ihres Access-Providers"
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie richten keinen Schaden an.\n\nWir nutzen Cookies dazu, unser Angebot nutzerfreundlich zu gestalten. Einige Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.\n\nWenn Sie dies nicht wünschen, können Sie Ihren Browser so einrichten, dass er Sie über das Setzen von Cookies informiert und Sie dies nur im Einzelfall erlauben."
+    },
+    "analytics": {
+      "title": "Webanalyse (Matomo)",
+      "content": "Diese Website nutzt Matomo für die Webanalyse. Matomo verwendet Cookies, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden auf unserem Server in der Schweiz gespeichert.\n\nDie IP-Adresse wird unmittelbar nach der Verarbeitung und vor deren Speicherung anonymisiert. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern. Wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können."
+    },
+    "socialMedia": {
+      "title": "Social Media Plugins",
+      "content": "Unsere Seiten enthalten Plugins von sozialen Netzwerken (z.B. Twitter, Instagram). Diese Plugins erkennen Sie an den jeweiligen Logos. Wenn Sie diese Plugins aktivieren, wird eine direkte Verbindung zwischen Ihrem Browser und dem Server des jeweiligen sozialen Netzwerks hergestellt.\n\nWir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch die sozialen Netzwerke erhalten. Weitere Informationen hierzu finden Sie in den Datenschutzerklärungen der jeweiligen Netzwerke."
+    },
+    "googleMaps": {
+      "title": "Google Maps",
+      "content": "Diese Website nutzt den Dienst Google Maps. Anbieter ist Google Ireland Limited. Bei Nutzung von Google Maps werden Informationen über Ihre Benutzung dieser Website (einschliesslich Ihrer IP-Adresse) an einen Server von Google übertragen und dort gespeichert.\n\nWeitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: https://policies.google.com/privacy"
+    },
+    "newsletter": {
+      "title": "Newsletter",
+      "content": "Wenn Sie den auf der Website angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen eine E-Mail-Adresse sowie Informationen, welche uns die Überprüfung gestatten, dass Sie der Inhaber der angegebenen E-Mail-Adresse sind.\n\nDie im Rahmen der Newsletter-Anmeldung eingegebenen Daten werden ausschliesslich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) verarbeitet. Die erteilte Einwilligung können Sie jederzeit widerrufen. Die Rechtmässigkeit der bereits erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt."
+    },
+    "userRights": {
+      "title": "Ihre Rechte",
+      "content": "Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben ausserdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.\n\nWenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Ausserdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.\n\nDes Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu."
+    },
+    "dataRetention": {
+      "title": "Datenspeicherung",
+      "content": "Die von uns erhobenen Daten werden nach Beendigung des Vertragsverhältnisses und Ablauf der gesetzlichen Aufbewahrungsfristen gelöscht. Werden die Daten für die Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Massnahmen benötigt, ist eine vorzeitige Löschung der Daten nur möglich, wenn vertragliche oder gesetzliche Verpflichtungen einer Löschung nicht entgegenstehen."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "content": "Bei Fragen zum Datenschutz wenden Sie sich bitte an:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05"
+    },
+    "lastUpdated": "Zuletzt aktualisiert: Februar 2026"
   }
 }
