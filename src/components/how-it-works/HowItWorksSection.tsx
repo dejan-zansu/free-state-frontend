@@ -13,7 +13,7 @@ const HowItWorksSection = async () => {
   ]
 
   return (
-    <section className="bg-[#FDFFF5] py-12 md:py-[50px]">
+    <section className="bg-[#FDFFF5] py-12">
       <div className="max-w-[942px] mx-auto px-4">
         <div className="flex flex-col items-center text-center gap-5 mb-[50px]">
           <h2 className="text-[#062E25] text-3xl md:text-[45px] font-medium leading-[1em]">

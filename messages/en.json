@@ -2064,6 +2064,32 @@
         }
       },
       "cta": "More information about the costs"
+    },
+    "selectionCriteria": {
+      "title": "Further selection criteria",
+      "quote": "\"Generally, we recommend aligning the size of the PV system with your consumption or choosing a larger system.\"",
+      "roofCondition": {
+        "title": "Roof condition",
+        "description": "A solar power system has a lifespan of 30 years, meaning the roof should be designed to last at least that long. If the roof is already porous or older than 40 years, an integrated roof system is a good option."
+      },
+      "onRoofOrInRoof": {
+        "title": "On-roof or in-roof",
+        "description": "In Switzerland, rooftop solar systems are the most popular. The solar modules are mounted on a substructure, leaving the original roof intact. Rooftop systems are cost-effective and can be installed very quickly.\n\nWith an integrated roof system, the photovoltaic system replaces the roof covering. This option can therefore be considered for older roofs that need renovation or for new construction. The solar modules are available in various colors. Color coordination can create a particularly elegant look. Integrated roof systems are approximately 20 percent more expensive than on-roof systems. However, no roof covering is required."
+      },
+      "desiredAppearance": {
+        "title": "Desired appearance",
+        "description": "Helion offers solar modules in classic silver-grey, anthracite and, upon request, in other color shades."
+      }
+    },
+    "installation": {
+      "title": "Installation of a solar system",
+      "subtitle": "The installation costs are fully included in the price of the solar system.",
+      "description": "We install the system with our team of experienced professionals: electricians, roofers, carpenters, plumbers, and sheet metal workers. Depending on the size of the solar system, installation takes between 2 days and one week.",
+      "maintenance": {
+        "title": "Maintenance of a solar system",
+        "description": "We ensure the highest quality in component selection and installation. Our photovoltaic systems have an average lifespan of 30 years and require very little maintenance. You receive a 20-25 year warranty from the module manufacturer. Only the inverter needs to be replaced every 12 years.\n\nOptionally, you can take out a monitoring contract with FreeState to ensure you are covered for the entire 30-year lifespan of your system. Furthermore, we guarantee the energy yield for the first 10 years, thus securing the long-term operation of your PV system (see our terms and conditions for full details)."
+      },
+      "bottomNote": "At FreeState, you get a top-quality photovoltaic system at affordable prices. Starting from just CHF 10,000, including subsidies and tax savings, you can become your own electricity producer and thus independent of rising electricity costs. And last but not least: you'll be making a positive contribution to the environment."
     }
   },
   "privacyPolicy": {

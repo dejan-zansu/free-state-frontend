@@ -2186,6 +2186,32 @@
         }
       },
       "cta": "Mehr Informationen zu den Kosten"
+    },
+    "selectionCriteria": {
+      "title": "Weitere Auswahlkriterien",
+      "quote": "\"Generell empfehlen wir, die Grösse der PV-Anlage an Ihren Verbrauch anzupassen oder eine grössere Anlage zu wählen.\"",
+      "roofCondition": {
+        "title": "Dachzustand",
+        "description": "Eine Solaranlage hat eine Lebensdauer von 30 Jahren, das heisst, das Dach sollte mindestens so lange halten. Wenn das Dach bereits porös oder älter als 40 Jahre ist, ist ein integriertes Dachsystem eine gute Option."
+      },
+      "onRoofOrInRoof": {
+        "title": "Aufdach oder Indach",
+        "description": "In der Schweiz sind Aufdach-Solaranlagen am beliebtesten. Die Solarmodule werden auf einer Unterkonstruktion montiert, wobei das ursprüngliche Dach intakt bleibt. Aufdach-Systeme sind kostengünstig und können sehr schnell installiert werden.\n\nBei einem integrierten Dachsystem ersetzt die Photovoltaikanlage die Dacheindeckung. Diese Option kann daher bei älteren Dächern, die renoviert werden müssen, oder bei Neubauten in Betracht gezogen werden. Die Solarmodule sind in verschiedenen Farben erhältlich. Durch Farbabstimmung kann ein besonders elegantes Erscheinungsbild erzielt werden. Integrierte Dachsysteme sind etwa 20 Prozent teurer als Aufdach-Systeme. Allerdings ist keine Dacheindeckung erforderlich."
+      },
+      "desiredAppearance": {
+        "title": "Gewünschtes Erscheinungsbild",
+        "description": "Helion bietet Solarmodule in klassischem Silbergrau, Anthrazit und auf Wunsch in weiteren Farbtönen an."
+      }
+    },
+    "installation": {
+      "title": "Installation einer Solaranlage",
+      "subtitle": "Die Installationskosten sind vollständig im Preis der Solaranlage enthalten.",
+      "description": "Wir installieren die Anlage mit unserem Team erfahrener Fachleute: Elektriker, Dachdecker, Zimmerer, Klempner und Spengler. Je nach Grösse der Solaranlage dauert die Installation zwischen 2 Tagen und einer Woche.",
+      "maintenance": {
+        "title": "Wartung einer Solaranlage",
+        "description": "Wir achten auf höchste Qualität bei der Komponentenauswahl und Installation. Unsere Photovoltaikanlagen haben eine durchschnittliche Lebensdauer von 30 Jahren und erfordern nur sehr wenig Wartung. Sie erhalten eine 20-25 Jahre Garantie vom Modulhersteller. Nur der Wechselrichter muss alle 12 Jahre ersetzt werden.\n\nOptional können Sie einen Überwachungsvertrag mit FreeState abschliessen, um für die gesamte 30-jährige Lebensdauer Ihrer Anlage abgesichert zu sein. Darüber hinaus garantieren wir den Energieertrag für die ersten 10 Jahre und sichern so den langfristigen Betrieb Ihrer PV-Anlage (siehe unsere AGB für vollständige Details)."
+      },
+      "bottomNote": "Bei FreeState erhalten Sie eine hochwertige Photovoltaikanlage zu erschwinglichen Preisen. Ab nur CHF 10.000, inklusive Subventionen und Steuerersparnissen, können Sie Ihr eigener Stromproduzent werden und sich so von steigenden Stromkosten unabhängig machen. Und nicht zuletzt: Sie leisten einen positiven Beitrag für die Umwelt."
     }
   },
   "privacyPolicy": {

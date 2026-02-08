@@ -29,7 +29,7 @@ const PhotovoltaicSystemSection = async () => {
   ]
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 lg:py-24 bg-[#EAEDDF]">
+    <section className="relative py-12 sm:py-16 md:py-12 bg-[#EAEDDF]">
       <div className="max-w-[1120px] mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 sm:mb-10 max-w-[536px] mx-auto">
           <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium leading-[1em] mb-8 sm:mb-10">
