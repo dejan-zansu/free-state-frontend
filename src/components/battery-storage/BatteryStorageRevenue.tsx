@@ -1,7 +1,6 @@
-import React from 'react'
+import LongArrow from '@/components/icons/LongArrow'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import LongArrow from '@/components/icons/LongArrow'
 
 const BatteryStorageRevenue = async () => {
   const t = await getTranslations('batteryStorage')
@@ -38,7 +37,7 @@ const BatteryStorageRevenue = async () => {
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 justify-items-center">
-          {steps.map((step) => (
+          {steps.map(step => (
             <div
               key={step.key}
               className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full overflow-hidden border border-[#062E25] bg-white"
@@ -55,7 +54,7 @@ const BatteryStorageRevenue = async () => {
         </div>
 
         <div className="mt-4 md:mt-6 bg-[#062E25] rounded-full h-14 md:h-16 lg:h-18 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 items-center relative">
-          {steps.map((step) => (
+          {steps.map(step => (
             <span
               key={step.key}
               className="text-[#B7FE1A]/80 text-xs sm:text-sm md:text-base lg:text-xl font-medium tracking-tight text-center"
@@ -63,14 +62,13 @@ const BatteryStorageRevenue = async () => {
               {t(`revenue.steps.${step.key}.title`)}
             </span>
           ))}
-          {/* Arrows positioned between grid cells */}
-          <LongArrow className="hidden lg:block absolute left-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2" />
-          <LongArrow className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
-          <LongArrow className="hidden lg:block absolute left-3/4 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <LongArrow className="hidden lg:block absolute left-1/4 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
+          <LongArrow className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
+          <LongArrow className="hidden lg:block absolute left-3/4 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white" />
         </div>
 
         <div className="mt-4 md:mt-6 grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {steps.map((step) => (
+          {steps.map(step => (
             <p
               key={step.key}
               className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-medium leading-snug tracking-tight text-center"

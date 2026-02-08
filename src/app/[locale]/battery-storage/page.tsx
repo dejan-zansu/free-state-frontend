@@ -1,3 +1,4 @@
+
 import BatteryStorageHero from '@/components/battery-storage/BatteryStorageHero'
 import BatteryStorageRevenue from '@/components/battery-storage/BatteryStorageRevenue'
 import BatteryStorageFeatures from '@/components/battery-storage/BatteryStorageFeatures'

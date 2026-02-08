@@ -5,10 +5,22 @@ const BatteryStorageFeatures = async () => {
   const t = await getTranslations('batteryStorage')
 
   const features = [
-    { key: 'peakCostReduction' },
-    { key: 'flexibleEnergySales' },
-    { key: 'gridServices' },
-    { key: 'selfConsumption' },
+    {
+      key: 'peakCostReduction',
+      icon: '/images/illustrations/panels-icon-without-bg.png',
+    },
+    {
+      key: 'flexibleEnergySales',
+      icon: '/images/illustrations/inverter-icon-without-bg.png',
+    },
+    {
+      key: 'gridServices',
+      icon: '/images/illustrations/installation-icon-without-bg.png',
+    },
+    {
+      key: 'selfConsumption',
+      icon: '/images/illustrations/monitoring-icon-without-bg.png',
+    },
   ]
 
   return (
@@ -33,7 +45,16 @@ const BatteryStorageFeatures = async () => {
                 key={feature.key}
                 className="bg-[#FDFFF5] border border-[#062E25] rounded-xl p-3 sm:p-4 md:p-5 flex flex-col items-center text-center gap-2 sm:gap-3"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-[#B7FE1A] flex items-center justify-center flex-shrink-0" />
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 rounded-full bg-[#B7FE1A] flex items-center justify-center flex-shrink-0">
+                  <Image
+                    src={feature.icon}
+                    alt={t(`features.items.${feature.key}.title`)}
+                    width={100}
+                    height={100}
+                    className="object-cover"
+                    quality={100}
+                  />
+                </div>
 
                 <div className="flex flex-col gap-1 sm:gap-2">
                   <h3 className="text-[#062E25] text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-tight">
