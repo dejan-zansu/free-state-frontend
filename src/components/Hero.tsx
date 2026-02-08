@@ -1,6 +1,6 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { cn } from '@/lib/utils'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import HeroNav from './HeroNav'
 
 interface HeroProps {
@@ -17,7 +17,6 @@ const Hero = async ({
   isCommercial = false,
 }: HeroProps = {}) => {
   const t = await getTranslations('home')
-  const locale = await getLocale()
   const heroTitle = title || t('hero.title')
   const heroDescription = description || t('hero.subtitle')
 
@@ -39,7 +38,7 @@ const Hero = async ({
       </div>
 
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[120px] sm:pt-[160px] md:pt-[200px] lg:pt-[225px] w-full">
-        <HeroNav locale={locale} isCommercial={isCommercial} />
+        <HeroNav isCommercial={isCommercial} />
 
         <div className="flex flex-col items-center text-center">
           <h1
@@ -64,7 +63,6 @@ const Hero = async ({
               <LinkButton
                 variant="primary"
                 href="/solar-abo"
-                locale={locale}
                 className="w-full sm:w-auto"
               >
                 {t('hero.cta.primary')}
@@ -73,7 +71,6 @@ const Hero = async ({
               <LinkButton
                 variant="outline-secondary"
                 href="/calculator"
-                locale={locale}
                 className="w-full sm:w-auto"
               >
                 {t('hero.cta.secondary')}

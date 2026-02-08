@@ -1,11 +1,10 @@
 'use client'
 
+import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { ArrowRight, Menu, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
@@ -13,9 +12,7 @@ import LanguageSwitcher from './LanguageSwitcher'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
 
 const Header = () => {
-  const params = useParams()
   const pathname = usePathname()
-  const locale = params.locale as string
   const t = useTranslations('nav')
   const tHeader = useTranslations('header')
   const [isScrolled, setIsScrolled] = useState(false)
@@ -24,12 +21,15 @@ const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   const pagesWithDarkHeader = [
-    `/${locale}/calculator`,
-    `/${locale}/solar-abo`,
-    `/${locale}/commercial/solar-abo`,
-    `/${locale}/about-us`,
-    `/${locale}/battery-storage`,
-    `/${locale}/login`,
+    '/calculator',
+    '/solar-abo',
+    '/commercial/solar-abo',
+    '/about-us',
+    '/battery-storage',
+    '/login',
+    '/solar-systems',
+    '/heat-pumps',
+    '/charging-stations',
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
@@ -61,22 +61,29 @@ const Header = () => {
     }
   }, [isSearchOpen])
 
-  const showCommercial = !pathname?.startsWith(`/${locale}/commercial`)
+  const showCommercial = !pathname?.startsWith('/commercial')
 
   const navItems = [
     showCommercial
-      ? { label: t('commercialProperties'), href: `/${locale}/commercial` }
-      : { label: t('residentialProperties'), href: `/${locale}` },
-    // { label: t('solarAbo'), href: `/${locale}/solar-abo` },
-    { label: t('howItWorks'), href: `/${locale}/how-it-works` },
-    { label: t('portfolio'), href: `/${locale}/portfolio` },
-    { label: t('aboutUs'), href: `/${locale}/about-us` },
-    { label: tHeader('contact'), href: `/${locale}/contact` },
+      ? { label: t('commercialProperties'), href: '/commercial' as const }
+      : { label: t('residentialProperties'), href: '/' as const },
+    { label: t('howItWorks'), href: '/how-it-works' as const },
+    { label: t('portfolio'), href: '/portfolio' as const },
+    { label: t('aboutUs'), href: '/about-us' as const },
+    { label: tHeader('contact'), href: '/contact' as const },
   ]
 
-  const isActive = (href: string) => {
-    if (href === `/${locale}`) {
-      return pathname === `/${locale}` || pathname === `/${locale}/`
+  const isActive = (
+    href:
+      | '/'
+      | '/commercial'
+      | '/how-it-works'
+      | '/portfolio'
+      | '/about-us'
+      | '/contact'
+  ) => {
+    if (href === '/') {
+      return pathname === '/'
     }
     return pathname?.startsWith(href)
   }
@@ -97,10 +104,7 @@ const Header = () => {
       >
         <div className="max-w-360 mx-auto">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
-            <Link
-              href={`/${locale}`}
-              className="flex items-center gap-2 shrink-0"
-            >
+            <Link href="/" className="flex items-center gap-2 shrink-0">
               {showDarkHeader ? (
                 <LogoDark className="h-6 sm:h-7.25 w-auto" />
               ) : (
@@ -176,12 +180,9 @@ const Header = () => {
             <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
               <LanguageSwitcher isScrolled={showDarkHeader} />
               <Link
-                href={`/${locale}/login`}
+                href="/login"
                 className={cn(
-                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-90 shrink-0 text-sm sm:text-base hidden sm:block',
-                  showDarkHeader
-                    ? 'bg-[#E6EAE9] text-[#062E25]'
-                    : 'bg-solar text-solar-foreground'
+                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base hidden sm:block bg-solar text-solar-foreground'
                 )}
               >
                 {tHeader('myHome')}
@@ -245,7 +246,7 @@ const Header = () => {
               </Link>
             ))}
             <Link
-              href={`/${locale}/login`}
+              href="/login"
               onClick={() => setIsMobileMenuOpen(false)}
               className="px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4 bg-[#E6EAE9] text-[#062E25]"
             >

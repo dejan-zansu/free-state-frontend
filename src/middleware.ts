@@ -1,37 +1,7 @@
-import { NextRequest, NextResponse } from 'next/server'
+import createMiddleware from 'next-intl/middleware'
+import { routing } from './i18n/routing'
 
-const locales = ['en', 'de', 'fr', 'it', 'es', 'sr']
-const defaultLocale = 'en'
-
-export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-  
-  // Extract locale from pathname (format: /{locale}/...)
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
-
-  // If pathname already has a locale, set it in cookie and continue
-  if (pathnameHasLocale) {
-    const pathnameSegments = pathname.split('/').filter(Boolean)
-    const locale = pathnameSegments[0]
-    
-    // Set locale cookie
-    const response = NextResponse.next()
-    response.cookies.set('locale', locale, {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 365, // 1 year
-      sameSite: 'lax',
-    })
-    
-    return response
-  }
-
-  // If no locale in pathname, redirect to default locale
-  const locale = request.cookies.get('locale')?.value || defaultLocale
-  const newUrl = new URL(`/${locale}${pathname}`, request.url)
-  return NextResponse.redirect(newUrl)
-}
+export default createMiddleware(routing)
 
 export const config = {
   matcher: [

@@ -1,9 +1,10 @@
 import { ArrowRight } from 'lucide-react'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
+import { ComponentProps } from 'react'
 
 interface UnderlineLinkProps {
-  href: string
+  href: ComponentProps<typeof Link>['href']
   children: React.ReactNode
   className?: string
   underlineColor?: string

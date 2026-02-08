@@ -38,7 +38,6 @@ const PhotovoltaicSystemSection = async () => {
           <LinkButton
             variant="outline-tertiary-dark"
             href="/solar-abo"
-            locale={locale}
             className="bg-transparent"
           >
             {t('photovoltaic.learnMore')}

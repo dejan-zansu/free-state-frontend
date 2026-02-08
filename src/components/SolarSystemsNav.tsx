@@ -1,18 +1,15 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useLocale } from 'next-intl'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 
 const SolarSystemsNav = () => {
-  const locale = useLocale()
-
   const navItems = [
-    { label: 'Commercial properties', href: `/${locale}/commercial`, isActive: false },
-    { label: 'SolarAbo', href: `/${locale}/solar-abo`, isActive: false },
-    { label: 'How it works', href: `/${locale}/how-it-works`, isActive: false },
-    { label: 'Portfolio', href: `/${locale}/portfolio`, isActive: false },
-    { label: 'About us', href: `/${locale}/about-us`, isActive: false },
+    { label: 'Commercial properties', href: '/commercial' as const, isActive: false },
+    { label: 'SolarAbo', href: '/solar-abo' as const, isActive: false },
+    { label: 'How it works', href: '/how-it-works' as const, isActive: false },
+    { label: 'Portfolio', href: '/portfolio' as const, isActive: false },
+    { label: 'About us', href: '/about-us' as const, isActive: false },
   ]
 
   return (

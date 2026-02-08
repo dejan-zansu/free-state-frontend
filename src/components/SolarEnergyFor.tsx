@@ -85,7 +85,6 @@ const SolarEnergyFor = async ({ isCommercial = false }) => {
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href="/solar-abo"
-              locale={locale}
             >
               {t('cta')}
             </LinkButton>

@@ -1,9 +1,8 @@
 'use client'
 import { cn } from '@/lib/utils'
+import { Link, usePathname } from '@/i18n/navigation'
 import { Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { useParams, usePathname } from 'next/navigation'
 import { useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
@@ -36,7 +35,6 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 
 const Footer = () => {
   const t = useTranslations('footer')
-  const locale = useParams().locale as string
   const pathname = usePathname()
   const [email, setEmail] = useState('')
   const isCommercial = pathname?.includes('/commercial')
@@ -50,68 +48,68 @@ const Footer = () => {
   const solarAboLinks = [
     {
       label: t('solarAbo.singleFamily'),
-      href: `/${locale}/solar-abo/single-family`,
+      href: '/solar-abo/single-family' as const,
     },
     {
       label: t('solarAbo.multiFamily'),
-      href: `/${locale}/solar-abo/multi-family`,
+      href: '/solar-abo/multi-family' as const,
     },
     {
       label: t('solarAbo.businesses'),
-      href: `/${locale}/solar-abo/businesses`,
+      href: '/solar-abo/businesses' as const,
     },
     {
       label: t('solarAbo.agriculture'),
-      href: `/${locale}/solar-abo/agriculture`,
+      href: '/solar-abo/agriculture' as const,
     },
     {
       label: t('solarAbo.publicBuildings'),
-      href: `/${locale}/solar-abo/public-buildings`,
+      href: '/solar-abo/public-buildings' as const,
     },
   ]
 
   const productLinks = [
     {
       label: t('products.solarSystems'),
-      href: `/${locale}/solar-systems`,
+      href: '/solar-systems' as const,
     },
     {
       label: t('products.batteryStorage'),
-      href: `/${locale}/battery-storage`,
+      href: '/battery-storage' as const,
     },
-    { label: t('products.heatPumps'), href: `/${locale}/heat-pumps` },
+    { label: t('products.heatPumps'), href: '/heat-pumps' as const },
     {
       label: t('products.chargingStations'),
-      href: `/${locale}/charging-stations`,
+      href: '/charging-stations' as const,
     },
     {
       label: t('products.energyManagement'),
-      href: `/${locale}/energy-management`,
+      href: '/energy-management' as const,
     },
   ]
 
   const companyLinks = [
-    { label: t('company.aboutUs'), href: `/${locale}/about-us` },
-    { label: t('company.history'), href: `/${locale}/history` },
-    { label: t('company.mission'), href: `/${locale}/mission` },
-    { label: t('company.team'), href: `/${locale}/team` },
-    { label: t('company.investors'), href: `/${locale}/investors` },
-    { label: t('company.careers'), href: `/${locale}/careers` },
+    { label: t('company.aboutUs'), href: '/about-us' as const },
+    { label: t('company.history'), href: '/history' as const },
+    { label: t('company.mission'), href: '/mission' as const },
+    { label: t('company.team'), href: '/team' as const },
+    { label: t('company.investors'), href: '/investors' as const },
+    { label: t('company.careers'), href: '/careers' as const },
   ]
 
   const knowledgeMediaLinks = [
-    { label: t('knowledgeMedia.faq'), href: `/${locale}/faq` },
-    { label: t('knowledgeMedia.mediaPress'), href: `/${locale}/media` },
+    { label: t('knowledgeMedia.faq'), href: '/faq' as const },
+    { label: t('knowledgeMedia.mediaPress'), href: '/media' as const },
   ]
 
   const legalLinks = [
-    { label: t('legal.legalNotice'), href: `/${locale}/impressum` },
-    { label: t('legal.privacyPolicy'), href: `/${locale}/privacy-policy` },
-    { label: t('legal.agb'), href: `/${locale}/agb` },
+    { label: t('legal.legalNotice'), href: '/impressum' as const },
+    { label: t('legal.privacyPolicy'), href: '/privacy-policy' as const },
+    { label: t('legal.agb'), href: '/agb' as const },
   ]
 
   const contactLinks = [
-    { label: t('contact.kontakt'), href: `/${locale}/contact` },
+    { label: t('contact.kontakt'), href: '/contact' as const },
   ]
 
   const socialLinks = [
@@ -143,7 +141,8 @@ const Footer = () => {
     titleClassName,
   }: {
     title: string
-    links: { label: string; href: string }[]
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    links: { label: string; href: any }[]
     titleClassName?: string
   }) => (
     <div>
@@ -277,7 +276,7 @@ const Footer = () => {
               </span>
               <div className="flex gap-4">
                 {socialLinks.map(social => (
-                  <Link
+                  <a
                     key={social.label}
                     href={social.href}
                     target="_blank"
@@ -295,7 +294,7 @@ const Footer = () => {
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4" />
-                  </Link>
+                  </a>
                 ))}
               </div>
             </div>
@@ -404,7 +403,7 @@ const Footer = () => {
         <div className="relative max-w-[1380px] mx-auto px-6 pt-8 pb-8 z-20">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-8">
             <div className="w-fit">
-              <Link href={`/${locale}`} className="inline-block">
+              <Link href="/" className="inline-block">
                 {isLight ? (
                   <LogoDark className="h-10 w-auto" />
                 ) : (
@@ -460,7 +459,6 @@ const Footer = () => {
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href="/calculator"
-              locale={locale}
             >
               {t('cta')}
             </LinkButton>

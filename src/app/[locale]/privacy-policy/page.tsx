@@ -1,10 +1,8 @@
-import { getTranslations } from 'next-intl/server'
 import HeroNav from '@/components/HeroNav'
-import { getLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 const PrivacyPolicyPage = async () => {
   const t = await getTranslations('privacyPolicy')
-  const locale = await getLocale()
 
   const sections = [
     {
@@ -73,8 +71,8 @@ const PrivacyPolicyPage = async () => {
         />
 
         <div className="relative z-10 max-w-[1310px] mx-auto px-6 h-full">
-          <HeroNav locale={locale} />
-          <div className="flex flex-col gap-5 pt-[140px] pb-12">
+          <HeroNav />
+          <div className="flex flex-col gap-5 pt-[340px] pb-12">
             <h1 className="text-white text-4xl sm:text-5xl lg:text-[55px] font-medium leading-[1.1em]">
               {t('title')}
             </h1>
@@ -104,9 +102,7 @@ const PrivacyPolicyPage = async () => {
             ))}
 
             <div className="mt-12 pt-8 border-t border-border">
-              <p className="text-foreground/50 text-sm">
-                {t('lastUpdated')}
-              </p>
+              <p className="text-foreground/50 text-sm">{t('lastUpdated')}</p>
             </div>
           </div>
         </div>

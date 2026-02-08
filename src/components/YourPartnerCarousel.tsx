@@ -7,9 +7,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel'
+import { Link } from '@/i18n/navigation'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
 
 interface PartnerItem {
   title: string
@@ -21,14 +21,12 @@ interface PartnerItem {
 interface YourPartnerCarouselProps {
   items: PartnerItem[]
   learnMoreText: string
-  locale: string
   isCommercial?: boolean
 }
 
 const YourPartnerCarousel = ({
   items,
   learnMoreText,
-  locale,
   isCommercial = false,
 }: YourPartnerCarouselProps) => {
   return (
@@ -51,7 +49,7 @@ const YourPartnerCarousel = ({
                   {item.description}
                 </p>
                 <Link
-                  href={`/${locale}/learn-more`}
+                  href="/learn-more"
                   className="inline-flex items-center gap-2 text-primary font-medium group/link transition-opacity duration-300 hover:opacity-80"
                 >
                   <span className="inline-flex items-center gap-2 border-b border-primary pb-0.5">

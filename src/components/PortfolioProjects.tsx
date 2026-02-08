@@ -106,7 +106,7 @@ const PortfolioProjects = async () => {
                 </h3>
 
                 <UnderlineLink
-                  href='#'
+                  href='/portfolio'
                   variant='separate'
                   underlineColor='#062E25'
                   className='text-[#062E25] text-base leading-[14px] tracking-[-0.02em]'

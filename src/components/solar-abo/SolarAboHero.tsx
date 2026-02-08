@@ -1,11 +1,9 @@
 import { LinkButton } from '@/components/ui/link-button'
 import HeroNavLight from '@/components/HeroNavLight'
 import { cn } from '@/lib/utils'
-import { DollarSign, Settings, TrendingDown } from 'lucide-react'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { CO2ReductionIcon, MoneySignIcon, SaleIcon, ShieldIcon } from '../icons'
-import ReductionIcon from '../icons/ReductionIcon'
 
 export interface SolarAboHeroProps {
   translationNamespace: string
@@ -89,7 +87,6 @@ const SolarAboHero = async ({
   elipseClassNames,
 }: SolarAboHeroProps) => {
   const t = await getTranslations(translationNamespace)
-  const locale = await getLocale()
 
   const iconClass = isCommercial ? 'text-white' : 'text-[#062E25]'
 
@@ -125,7 +122,7 @@ const SolarAboHero = async ({
 
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#FDFFF5]">
-      <HeroNavLight locale={locale} isCommercial={isCommercial} />
+      <HeroNavLight isCommercial={isCommercial} />
       <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-6 pt-[160px] sm:pt-[180px] md:pt-[200px] pb-1">
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center gap-5 mb-12 sm:mb-16 lg:mb-20 w-full">
@@ -152,7 +149,6 @@ const SolarAboHero = async ({
             <div>
               <LinkButton
                 href="/calculator"
-                locale={locale}
                 variant={isCommercial ? 'outline-quaternary' : 'primary'}
               >
                 {t('hero.cta')}

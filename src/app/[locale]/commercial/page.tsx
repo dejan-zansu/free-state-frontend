@@ -48,7 +48,6 @@ const CommercialPage = async () => {
       <Benefits isCommercial />
       <Portfolio
         isCommercial
-        locale={locale}
         translations={portfolioTranslations}
       />
       <YourPartner isCommercial />

@@ -40,7 +40,6 @@ const Benefits = async ({ isCommercial = false }) => {
           <LinkButton
             variant="outline-tertiary-dark"
             href="/solar-abo"
-            locale={locale}
             className="bg-transparent"
           >
             {t('learnMore')}

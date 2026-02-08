@@ -1,75 +1,76 @@
+import HandIcon from '@/components/icons/HandIcon'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
-const SolarSystemsFeatures = () => {
+const SolarSystemsFeatures = async () => {
+  const t = await getTranslations('solarSystems')
+
   const features = [
     {
-      icon: 'https://placehold.co/71x71/B7FE1A/062E25?text=⏳',
-      title: 'Long lifespan\n& warranty',
+      key: 'highEfficiency',
+      icon: HandIcon,
     },
     {
-      icon: 'https://placehold.co/71x71/B7FE1A/062E25?text=🏠',
-      title: 'Suitable for\nprivate &\ncommercial roofs',
+      key: 'seamlessIntegration',
+      icon: HandIcon,
     },
     {
-      icon: 'https://placehold.co/71x71/B7FE1A/062E25?text=⚡',
-      title: 'High efficiency\nmodules',
+      key: 'longLifespan',
+      icon: HandIcon,
     },
     {
-      icon: 'https://placehold.co/71x71/B7FE1A/062E25?text=🔌',
-      title: 'Seamless integration\nwith SolarAbo',
+      key: 'suitableRoofs',
+      icon: HandIcon,
     },
   ]
 
   return (
-    <section className="relative py-16 sm:py-20 lg:py-24 bg-[#EAEDDF]">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px]">
-        {/* Header */}
-        <div className="mb-12 sm:mb-16 lg:mb-20 max-w-[614px]">
-          <h2 className="text-[#062E25] text-3xl sm:text-4xl lg:text-[45px] font-medium leading-[1em] mb-5">
-            Built for performance.
-          </h2>
-          <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-normal leading-[1.36em] tracking-[-0.02em]">
-            Designed for SolarAbo.
-          </p>
-        </div>
-
-        {/* Features Grid */}
-        <div className="flex flex-col gap-10 mb-16 max-w-[249px]">
-          {features.map((feature, index) => (
-            <div key={index} className="flex items-center gap-5">
-              <div className="relative w-[71px] h-[71px] shrink-0">
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={71}
-                  height={71}
-                  className="object-contain"
-                />
-              </div>
-              <p className="text-[#062E25]/80 text-base font-normal leading-[1.375em] tracking-[-0.02em] whitespace-pre-line">
-                {feature.title}
+    <section className="relative bg-[#FDFFF5]">
+      <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12 lg:gap-0">
+          <div className="flex flex-col gap-12 lg:gap-16 max-w-xl lg:max-w-[640px]">
+            <div className="flex flex-col gap-5">
+              <h2 className="text-[#062E25] text-3xl sm:text-4xl lg:text-[45px] font-medium leading-none tracking-tight">
+                {t('features.title')}
+              </h2>
+              <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-normal leading-relaxed tracking-tight">
+                {t('features.subtitle')}
               </p>
             </div>
-          ))}
-        </div>
 
-        {/* Product Image Section */}
-        <div className="relative w-full rounded-[30px] overflow-hidden bg-gradient-to-b from-[#062E25] to-[#1B332D] min-h-[400px] flex items-center justify-center">
-          <div className="absolute inset-0 opacity-20">
-            <Image
-              src="https://placehold.co/1380x625/062E25/FFFFFF?text=Solar+Panel+Product"
-              alt="Solar Panel Product"
-              fill
-              className="object-cover"
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-10">
+              {features.map((feature) => (
+                <div key={feature.key} className="flex items-center gap-5">
+                  <div className="flex-shrink-0 w-[71px] h-[71px] rounded-full bg-[#062E25] flex items-center justify-center">
+                    <feature.icon className="w-8 h-8 text-[#B7FE1A]" />
+                  </div>
+                  <span className="text-[#062E25]/80 text-lg lg:text-[22px] font-medium leading-tight tracking-tight whitespace-pre-line">
+                    {t(`features.items.${feature.key}`)}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="relative z-10 text-center py-20">
-            <p className="text-white/60 text-2xl sm:text-3xl font-light">
-              SolarAbo H 2
-            </p>
+
+          <div className="relative w-full lg:w-1/2 xl:w-[55%] aspect-[733/402] lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2">
+            <Image
+              src="/images/battery-storage/home-with-battery-storage.png"
+              alt={t('features.title')}
+              fill
+              className="object-contain"
+              quality={100}
+            />
           </div>
         </div>
       </div>
+
+      <div
+        className="absolute bottom-0 left-0 right-0 h-px opacity-20"
+        style={{
+          background:
+            'linear-gradient(54deg, rgba(6, 46, 37, 1) 74%, rgba(3, 107, 83, 1) 100%)',
+        }}
+      />
     </section>
   )
 }

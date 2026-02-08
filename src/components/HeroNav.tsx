@@ -1,17 +1,16 @@
 'use client'
 
 import { LinkButton } from '@/components/ui/link-button'
+import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { useState } from 'react'
 
 interface HeroNavProps {
-  locale: string
   isCommercial?: boolean
 }
 
-const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
+const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
   const t = useTranslations('home')
   const tFooter = useTranslations('footer')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
@@ -20,45 +19,45 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
     ? [
         {
           label: t('hero.nav.solarAboBusiness'),
-          href: `/${locale}/commercial/solar-abo/solar-abo-business`,
+          href: '/commercial/solar-abo/solar-abo-business' as const,
         },
         {
           label: t('hero.nav.solarAboAgro'),
-          href: `/${locale}/commercial/solar-abo/solar-abo-agro`,
+          href: '/commercial/solar-abo/solar-abo-agro' as const,
         },
         {
           label: t('hero.nav.solarAboPublic'),
-          href: `/${locale}/commercial/solar-abo/solar-abo-public`,
+          href: '/commercial/solar-abo/solar-abo-public' as const,
         },
       ]
     : [
         {
           label: t('hero.nav.solarAboHome'),
-          href: `/${locale}/solar-abo/solar-abo-home`,
+          href: '/solar-abo/solar-abo-home' as const,
         },
         {
           label: t('hero.nav.solarAboMulti'),
-          href: `/${locale}/solar-abo/solar-abo-multi`,
+          href: '/solar-abo/solar-abo-multi' as const,
         },
       ]
 
   const productLinks = [
     {
       label: tFooter('products.solarSystems'),
-      href: `/${locale}/solar-systems`,
+      href: '/solar-systems' as const,
     },
     {
       label: tFooter('products.batteryStorage'),
-      href: `/${locale}/battery-storage`,
+      href: '/battery-storage' as const,
     },
-    { label: tFooter('products.heatPumps'), href: `/${locale}/heat-pumps` },
+    { label: tFooter('products.heatPumps'), href: '/heat-pumps' as const },
     {
       label: tFooter('products.chargingStations'),
-      href: `/${locale}/charging-stations`,
+      href: '/charging-stations' as const,
     },
     {
       label: tFooter('products.energyManagement'),
-      href: `/${locale}/energy-management`,
+      href: '/energy-management' as const,
     },
   ]
 
@@ -81,7 +80,7 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
               onMouseEnter={() => setHoveredItem('solarAbo')}
             >
               <Link
-                href={`/${locale}/solar-abo`}
+                href="/solar-abo"
                 className="text-white font-medium text-xs sm:text-sm md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
               >
                 {t('hero.nav.solarAbo')}
@@ -93,7 +92,7 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
               onMouseEnter={() => setHoveredItem('products')}
             >
               <Link
-                href={`/${locale}/products`}
+                href="/products"
                 className="text-white font-medium text-xs sm:text-sm md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
               >
                 {t('hero.nav.products')}
@@ -104,7 +103,6 @@ const HeroNav = ({ locale, isCommercial = false }: HeroNavProps) => {
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href="/calculator"
-              locale={locale}
               className="text-xs sm:text-sm md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
             >
               {t('hero.nav.onlineStarter')}

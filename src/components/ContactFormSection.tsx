@@ -11,16 +11,14 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { useState } from 'react'
 import { Facebook, FacebookIcon, InstagramIcon, LinkedinIcon } from 'lucide-react'
 import { ArrowButton } from './ui/arrow-button'
 
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
-  const locale = useParams().locale as string
 
   const [formData, setFormData] = useState({
     entityType: '',
@@ -207,7 +205,7 @@ const ContactFormSection = () => {
                   className='text-xs text-foreground/40 cursor-pointer'
                 >
                   <Link
-                    href={`/${locale}/pirvacy-policy`}
+                    href="/privacy-policy"
                     onClick={(e) => e.stopPropagation()}
                     className='hover:underline'
                   >

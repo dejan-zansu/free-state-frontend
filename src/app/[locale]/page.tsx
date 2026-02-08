@@ -46,7 +46,7 @@ export default async function HomePage() {
       <Deals />
       <SolarEnergyFor />
       <Benefits />
-      <Portfolio locale={locale} translations={portfolioTranslations} />
+      <Portfolio translations={portfolioTranslations} />
       <YourPartner />
       <Testimonials />
       <Stats />

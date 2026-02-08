@@ -1,14 +1,13 @@
 import { cn } from '@/lib/utils'
+import { Link } from '@/i18n/navigation'
 import { ArrowRight, Info, Settings, ShieldCheck } from 'lucide-react'
-import { getLocale, getTranslations } from 'next-intl/server'
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { BatteryIcon, EnergySystemIcon, LeafIcon } from './icons'
 import ReductionIcon from './icons/ReductionIcon'
 import { LinkButton } from './ui/link-button'
 
 const Deals = async ({ isCommercial = false }) => {
   const t = await getTranslations('home.deals')
-  const locale = await getLocale()
 
   const deals = [
     {
@@ -263,7 +262,6 @@ const Deals = async ({ isCommercial = false }) => {
                     <LinkButton
                       variant={isCommercial ? 'quaternary' : 'tertiary'}
                       href="/calculator"
-                      locale={locale}
                       className="w-full text-center uppercase mt-5 max-w-[280px] mx-auto"
                     >
                       {t('orderNow')}
@@ -273,7 +271,7 @@ const Deals = async ({ isCommercial = false }) => {
 
                 <div className="flex justify-start px-6">
                   <Link
-                    href={`/${locale}/deals`}
+                    href="/deals"
                     className="inline-flex items-center gap-2 text-foreground group/link transition-opacity duration-300 hover:opacity-80"
                   >
                     <span className="inline-flex items-center gap-2 border-b border-foreground pb-0.5">

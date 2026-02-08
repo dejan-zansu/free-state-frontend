@@ -1730,6 +1730,37 @@
     "save": "Save",
     "loading": "Loading..."
   },
+  "solarSystems": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
+      "title": "Solar Systems",
+      "subtitle": "Solar modules for efficient, long-term energy production"
+    },
+    "features": {
+      "title": "Built for performance.",
+      "subtitle": "Designed for SolarAbo.",
+      "items": {
+        "highEfficiency": "High efficiency\nmodules",
+        "seamlessIntegration": "Seamless integration\nwith SolarAbo",
+        "longLifespan": "Long lifespan\n& warranty",
+        "suitableRoofs": "Suitable for\nprivate &\ncommercial roofs"
+      }
+    },
+    "modules": {
+      "title": "Solar modules designed\nfor modern homes",
+      "subtitle": "Clean integration. Proven performance.",
+      "description": "High-performance solar modules that integrate seamlessly with your roof, delivering reliable energy without visual compromise."
+    },
+    "quality": {
+      "title": "Quality that lasts for decades",
+      "items": {
+        "highPerformance": "High-performance photovoltaic technology",
+        "longTermUse": "Designed for long-term outdoor use",
+        "certifiedQuality": "Certified quality & manufacturer warranties",
+        "expertSelected": "Selected by SolarAbo experts"
+      }
+    }
+  },
   "batteryStorage": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
@@ -1914,6 +1945,27 @@
         "item2": "Heat distribution system",
         "item3": "Local climate conditions"
       }
+    },
+    "solutions": {
+      "title": "Heat Pump Solutions for Different Applications",
+      "residential": {
+        "title": "Residential Buildings",
+        "description": "Efficient heating and cooling for single and multi-family homes."
+      },
+      "agricultural": {
+        "title": "Agricultural Facilities",
+        "description": "Stable temperatures for operations, storage, and livestock."
+      },
+      "commercial": {
+        "title": "Commercial & Public Buildings",
+        "description": "Scalable solutions for offices, schools, and municipal buildings."
+      }
+    },
+    "cta": {
+      "badge": "Heat Pump",
+      "title": "Find the Right Heat Pump Setup for Your Site",
+      "subtitle": "Find the Right Heat Pump Setup for Your Site",
+      "button": "Start the Solar Calculator"
     }
   },
   "howItWorks": {
@@ -1959,6 +2011,59 @@
       "heading": "Get a free, no-obligation quote now!",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
+    },
+    "pricing": {
+      "whichSystem": {
+        "title": "Which solar system is right for me?",
+        "description": "When choosing the right solar system, you should consider not only your energy consumption but also the size and current characteristics of your roof. You can also choose between a roof-mounted or roof-integrated system, as well as various solar panel colors.",
+        "householdConsumption": {
+          "title": "Household consumption",
+          "description": "First, you need to determine your household's annual electricity consumption. The solar system should at least cover the household's electricity consumption."
+        },
+        "roofArea": {
+          "title": "Size of the roof area",
+          "description": "The roof area determines how many solar panels, and therefore the maximum power output, can be installed. The panels must be arranged in such a way that they cover your household's electricity consumption."
+        }
+      },
+      "requiredOutput": {
+        "title": "Required photovoltaic system output per household",
+        "description": "The electrical output of a photovoltaic system is measured in kWp (kilowatt peak). In Switzerland, depending on location and efficiency, an average of 800-1,300 kilowatt-hours (kWh) can be generated per kWp per year. The following table shows the average required output for different household sizes and the resulting size of the solar system."
+      },
+      "table": {
+        "headers": {
+          "household": "Household",
+          "power": "Power in kWp",
+          "size": "Size of the solar power system"
+        },
+        "rows": {
+          "car": {
+            "household": "Car",
+            "power": "3 kWp",
+            "size": "approx. 19 m²"
+          },
+          "twoPerson": {
+            "household": "two-person",
+            "power": "3 kWp",
+            "size": "approx. 19 m²"
+          },
+          "threePerson": {
+            "household": "three-person",
+            "power": "4 kWp",
+            "size": "approx. 25 m²"
+          },
+          "fourPerson": {
+            "household": "four-person",
+            "power": "7 kWp",
+            "size": "approx. 40 m²"
+          },
+          "fivePerson": {
+            "household": "five-person / car",
+            "power": "10 kWp",
+            "size": "approx. 60 m²"
+          }
+        }
+      },
+      "cta": "More information about the costs"
     }
   },
   "privacyPolicy": {
@@ -2006,5 +2111,12 @@
       "content": "If you have any questions about data protection, please contact us at:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSwitzerland\n\nEmail: info@freestate.ch\nPhone: +41 52 525 33 05"
     },
     "lastUpdated": "Last updated: February 2026"
+  },
+  "chargingStations": {
+    "hero": {
+      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
+      "title": "Charging Stations",
+      "subtitle": "For single-family homes without battery storage"
+    }
   }
 }

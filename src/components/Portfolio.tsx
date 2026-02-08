@@ -17,7 +17,6 @@ interface PortfolioItem {
 
 interface PortfolioProps {
   isCommercial?: boolean
-  locale: string
   translations: {
     title: string
     learnMore: string
@@ -31,7 +30,6 @@ interface PortfolioProps {
 
 const Portfolio = ({
   isCommercial = false,
-  locale,
   translations,
 }: PortfolioProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
@@ -42,7 +40,7 @@ const Portfolio = ({
     title: item.title,
     description: item.description,
     image: '/images/portfolio-example.png',
-    link: `/${locale}/portfolio`,
+    link: '/portfolio',
   }))
 
   const onSelect = useCallback(() => {
@@ -146,7 +144,7 @@ const Portfolio = ({
               </p>
 
               <LinkButton
-                href={currentItem.link}
+                href={currentItem.link as '/portfolio'}
                 variant={isCommercial ? 'secondary' : 'primary'}
               >
                 {translations.learnMore}

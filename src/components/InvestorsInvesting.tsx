@@ -1,10 +1,9 @@
-import { getTranslations, getLocale } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { LinkButton } from '@/components/ui/link-button'
 
 const InvestorsInvesting = async () => {
   const t = await getTranslations('investorsPage.investing')
   const tContact = await getTranslations('contact')
-  const locale = await getLocale()
 
   return (
     <section className='relative py-24 bg-background'>
@@ -21,7 +20,7 @@ const InvestorsInvesting = async () => {
           </p>
 
           <div className='flex justify-center'>
-            <LinkButton variant='primary' href={`/${locale}/contact`}>
+            <LinkButton variant='primary' href="/contact">
               {tContact('title')}
             </LinkButton>
           </div>

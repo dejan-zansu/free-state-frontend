@@ -1,10 +1,9 @@
 import Stats from '@/components/Stats'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import HeroNav from './HeroNav'
 
 const PortfolioHero = async () => {
   const t = await getTranslations('portfolioPage')
-  const locale = await getLocale()
 
   return (
     <section className="relative min-h-[879px] flex justify-center overflow-hidden">
@@ -18,7 +17,7 @@ const PortfolioHero = async () => {
       </div>
 
       <div className="relative z-10 max-w-360 mx-auto px-6 pt-[120px] sm:pt-[160px] md:pt-[200px] pb-16 w-full">
-        <HeroNav locale={locale} />
+        <HeroNav />
         <div className="flex flex-col items-center text-center">
           <h1 className="text-white text-7xl font-medium mb-4 whitespace-pre-line">
             {t('hero.title')}

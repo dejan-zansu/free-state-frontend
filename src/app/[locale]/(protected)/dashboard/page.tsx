@@ -12,8 +12,7 @@ import {
   TrendingUp,
   Zap,
 } from 'lucide-react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { Link, useRouter } from '@/i18n/navigation'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -40,28 +39,28 @@ export default function DashboardPage() {
       title: 'Solar Calculator',
       description: "Calculate your roof's solar potential",
       icon: Calculator,
-      href: '/calculator',
+      href: '/calculator' as const,
       color: 'bg-solar/10 text-solar',
     },
     {
       title: 'My Quotes',
       description: 'View and manage your quotes',
       icon: FileText,
-      href: '/quotes',
+      href: '/quotes' as const,
       color: 'bg-energy/10 text-energy',
     },
     {
       title: 'Analytics',
       description: 'Track your energy production',
       icon: BarChart3,
-      href: '/analytics',
+      href: '/analytics' as const,
       color: 'bg-primary/10 text-primary',
     },
     {
       title: 'Settings',
       description: 'Manage your account settings',
       icon: Settings,
-      href: '/settings',
+      href: '/settings' as const,
       color: 'bg-muted text-muted-foreground',
     },
   ]

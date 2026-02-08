@@ -1,13 +1,12 @@
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import HeroNav from './HeroNav'
 
 const HowItWorksHero = async () => {
-  const locale = await getLocale()
   const t = await getTranslations('howItWorks')
 
   return (
     <section className="relative min-h-[600px] md:min-h-[700px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]">
-      <HeroNav locale={locale} />
+      <HeroNav />
 
       <div
         className="absolute inset-0 bg-cover bg-center"

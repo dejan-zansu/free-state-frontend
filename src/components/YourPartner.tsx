@@ -1,10 +1,9 @@
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { LinkButton } from './ui/link-button'
 import YourPartnerCarousel from './YourPartnerCarousel'
 
 const YourPartner = async ({ isCommercial = false }) => {
   const t = await getTranslations('home.yourPartner')
-  const locale = await getLocale()
 
   const items = [
     {
@@ -42,7 +41,6 @@ const YourPartner = async ({ isCommercial = false }) => {
           <LinkButton
             variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
             href="/calculator"
-            locale={locale}
             className="h-fit w-full sm:w-auto bg-transparent"
           >
             {t('cta')}
@@ -52,7 +50,6 @@ const YourPartner = async ({ isCommercial = false }) => {
           <YourPartnerCarousel
             items={items}
             learnMoreText={t('learnMore')}
-            locale={locale}
             isCommercial={isCommercial}
           />
         </div>

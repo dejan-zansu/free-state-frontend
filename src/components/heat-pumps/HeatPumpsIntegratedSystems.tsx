@@ -1,5 +1,6 @@
-import { getTranslations } from 'next-intl/server'
 import LeafIcon from '@/components/icons/LeafIcon'
+import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 
 const HeatPumpsIntegratedSystems = async () => {
   const t = await getTranslations('heatPumps')
@@ -32,31 +33,30 @@ const HeatPumpsIntegratedSystems = async () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
-          {/* Image placeholder */}
           <div className="w-full lg:w-1/2">
-            <div className="relative aspect-[596/498] w-full rounded-[10px] overflow-hidden bg-[#D9D9D9]">
-              <div className="absolute inset-0 flex items-center justify-center text-[#062E25]/40 text-sm">
-                Image placeholder
-              </div>
+            <div className="relative aspect-[596/498] w-full rounded-[10px] overflow-hidden">
+              <Image
+                src="/images/heat-pumps/heat-pump-energy-system.png"
+                alt={t('integratedSystems.title')}
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
 
-          {/* Content */}
           <div className="w-full lg:w-1/2 flex flex-col gap-6 lg:gap-8">
-            {/* Description */}
             <p className="text-[#062E25]/80 text-lg md:text-[22px] font-normal leading-relaxed tracking-tight">
               {t('integratedSystems.description')}
             </p>
 
-            {/* System Advantages */}
             <div className="flex flex-col gap-4">
               <h3 className="text-[#062E25] text-lg md:text-[22px] font-bold leading-relaxed tracking-tight">
                 {t('integratedSystems.systemAdvantages.title')}
               </h3>
               <div className="flex flex-col gap-3 pl-8 md:pl-12">
-                {systemAdvantages.map((key) => (
+                {systemAdvantages.map(key => (
                   <div key={key} className="flex items-center gap-2">
-                    <LeafIcon className="w-3.5 h-3.5 flex-shrink-0" stroke="#B7FE1A" />
+                    <LeafIcon className="w-3.5 h-3.5 flex-shrink-0 text-solar" />
                     <span className="text-[#062E25]/80 text-sm md:text-base font-medium leading-relaxed tracking-tight italic">
                       {t(key)}
                     </span>
@@ -65,15 +65,14 @@ const HeatPumpsIntegratedSystems = async () => {
               </div>
             </div>
 
-            {/* Planning Requirements */}
             <div className="flex flex-col gap-4">
               <h3 className="text-[#062E25] text-lg md:text-[22px] font-bold leading-relaxed tracking-tight">
                 {t('integratedSystems.planningRequirements.title')}
               </h3>
               <div className="flex flex-col gap-3 pl-8 md:pl-12">
-                {planningRequirements.map((key) => (
+                {planningRequirements.map(key => (
                   <div key={key} className="flex items-center gap-2">
-                    <LeafIcon className="w-3.5 h-3.5 flex-shrink-0" stroke="#B7FE1A" />
+                    <LeafIcon className="w-3.5 h-3.5 flex-shrink-0 text-solar" />
                     <span className="text-[#062E25]/80 text-sm md:text-base font-medium leading-relaxed tracking-tight italic">
                       {t(key)}
                     </span>

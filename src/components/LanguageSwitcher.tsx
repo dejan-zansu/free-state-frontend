@@ -1,7 +1,10 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { useParams, usePathname, useRouter } from 'next/navigation'
+import { usePathname, useRouter } from '@/i18n/navigation'
+import { useLocale } from 'next-intl'
+import { useTransition } from 'react'
+import { locales } from '@/i18n/routing'
 import {
   Select,
   SelectContent,
@@ -9,8 +12,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select'
-
-const locales = ['en', 'de']
 
 const localeLabels: Record<string, string> = {
   en: 'EN',
@@ -27,25 +28,28 @@ interface LanguageSwitcherProps {
 }
 
 const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
-  const params = useParams()
   const pathname = usePathname()
   const router = useRouter()
-  const currentLocale = (params.locale as string) || 'en'
+  const currentLocale = useLocale()
+  const [isPending, startTransition] = useTransition()
 
   const handleLocaleChange = (newLocale: string) => {
-    const segments = pathname.split('/')
-    segments[1] = newLocale
-    const newPath = segments.join('/')
-    router.push(newPath)
-    router.refresh()
+    startTransition(() => {
+      router.replace(
+        // @ts-expect-error - pathname type is complex with pathnames config
+        { pathname },
+        { locale: newLocale }
+      )
+    })
   }
 
   return (
-    <Select value={currentLocale} onValueChange={handleLocaleChange}>
+    <Select value={currentLocale} onValueChange={handleLocaleChange} disabled={isPending}>
       <SelectTrigger
         className={cn(
           'h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none! ml-6',
-          isScrolled ? 'text-[#062E25]' : 'text-white'
+          isScrolled ? 'text-[#062E25]' : 'text-white',
+          isPending && 'opacity-50'
         )}
       >
         <SelectValue>

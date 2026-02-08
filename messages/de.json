@@ -1852,6 +1852,37 @@
     "save": "Speichern",
     "loading": "Lädt..."
   },
+  "solarSystems": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+      "title": "Solaranlagen",
+      "subtitle": "Solarmodule für effiziente, langfristige Energieproduktion"
+    },
+    "features": {
+      "title": "Gebaut für Leistung.",
+      "subtitle": "Entwickelt für SolarAbo.",
+      "items": {
+        "highEfficiency": "Hocheffiziente\nModule",
+        "seamlessIntegration": "Nahtlose Integration\nmit SolarAbo",
+        "longLifespan": "Lange Lebensdauer\n& Garantie",
+        "suitableRoofs": "Geeignet für\nprivate &\ngewerbliche Dächer"
+      }
+    },
+    "modules": {
+      "title": "Solarmodule für\nmoderne Häuser",
+      "subtitle": "Saubere Integration. Bewährte Leistung.",
+      "description": "Hochleistungs-Solarmodule, die sich nahtlos in Ihr Dach integrieren und zuverlässige Energie ohne optische Kompromisse liefern."
+    },
+    "quality": {
+      "title": "Qualität, die Jahrzehnte hält",
+      "items": {
+        "highPerformance": "Hochleistungs-Photovoltaik-Technologie",
+        "longTermUse": "Für langfristigen Ausseneinsatz konzipiert",
+        "certifiedQuality": "Zertifizierte Qualität & Herstellergarantien",
+        "expertSelected": "Von SolarAbo-Experten ausgewählt"
+      }
+    }
+  },
   "batteryStorage": {
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
@@ -2036,6 +2067,27 @@
         "item2": "Wärmeverteilungssystem",
         "item3": "Lokale Klimabedingungen"
       }
+    },
+    "solutions": {
+      "title": "Wärmepumpen-Lösungen für verschiedene Anwendungen",
+      "residential": {
+        "title": "Wohngebäude",
+        "description": "Effizientes Heizen und Kühlen für Ein- und Mehrfamilienhäuser."
+      },
+      "agricultural": {
+        "title": "Landwirtschaftliche Anlagen",
+        "description": "Stabile Temperaturen für Betrieb, Lagerung und Viehzucht."
+      },
+      "commercial": {
+        "title": "Gewerbe- & öffentliche Gebäude",
+        "description": "Skalierbare Lösungen für Büros, Schulen und kommunale Gebäude."
+      }
+    },
+    "cta": {
+      "badge": "Wärmepumpe",
+      "title": "Finden Sie das richtige Wärmepumpen-Setup für Ihren Standort",
+      "subtitle": "Finden Sie das richtige Wärmepumpen-Setup für Ihren Standort",
+      "button": "Solarrechner starten"
     }
   },
   "howItWorks": {
@@ -2081,6 +2133,59 @@
       "heading": "Jetzt ein kostenloses, unverbindliches Angebot einholen!",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
+    },
+    "pricing": {
+      "whichSystem": {
+        "title": "Welche Solaranlage ist die richtige für mich?",
+        "description": "Bei der Wahl der richtigen Solaranlage sollten Sie nicht nur Ihren Energieverbrauch, sondern auch die Grösse und die aktuellen Eigenschaften Ihres Daches berücksichtigen. Sie können auch zwischen einer Aufdach- oder einer dachintegrierten Anlage sowie verschiedenen Solarpanelfarben wählen.",
+        "householdConsumption": {
+          "title": "Haushaltsverbrauch",
+          "description": "Zunächst müssen Sie den jährlichen Stromverbrauch Ihres Haushalts ermitteln. Die Solaranlage sollte mindestens den Stromverbrauch des Haushalts decken."
+        },
+        "roofArea": {
+          "title": "Grösse der Dachfläche",
+          "description": "Die Dachfläche bestimmt, wie viele Solarpanels und damit welche maximale Leistung installiert werden kann. Die Panels müssen so angeordnet werden, dass sie den Stromverbrauch Ihres Haushalts decken."
+        }
+      },
+      "requiredOutput": {
+        "title": "Erforderliche Photovoltaikanlagen-Leistung pro Haushalt",
+        "description": "Die elektrische Leistung einer Photovoltaikanlage wird in kWp (Kilowatt Peak) gemessen. In der Schweiz können je nach Standort und Effizienz durchschnittlich 800-1.300 Kilowattstunden (kWh) pro kWp und Jahr erzeugt werden. Die folgende Tabelle zeigt die durchschnittlich erforderliche Leistung für verschiedene Haushaltsgrössen und die daraus resultierende Grösse der Solaranlage."
+      },
+      "table": {
+        "headers": {
+          "household": "Haushalt",
+          "power": "Leistung in kWp",
+          "size": "Grösse der Solaranlage"
+        },
+        "rows": {
+          "car": {
+            "household": "Auto",
+            "power": "3 kWp",
+            "size": "ca. 19 m²"
+          },
+          "twoPerson": {
+            "household": "Zwei-Personen",
+            "power": "3 kWp",
+            "size": "ca. 19 m²"
+          },
+          "threePerson": {
+            "household": "Drei-Personen",
+            "power": "4 kWp",
+            "size": "ca. 25 m²"
+          },
+          "fourPerson": {
+            "household": "Vier-Personen",
+            "power": "7 kWp",
+            "size": "ca. 40 m²"
+          },
+          "fivePerson": {
+            "household": "Fünf-Personen / Auto",
+            "power": "10 kWp",
+            "size": "ca. 60 m²"
+          }
+        }
+      },
+      "cta": "Mehr Informationen zu den Kosten"
     }
   },
   "privacyPolicy": {
@@ -2128,5 +2233,12 @@
       "content": "Bei Fragen zum Datenschutz wenden Sie sich bitte an:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05"
     },
     "lastUpdated": "Zuletzt aktualisiert: Februar 2026"
+  },
+  "chargingStations": {
+    "hero": {
+      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
+      "title": "Ladestationen",
+      "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher"
+    }
   }
 }

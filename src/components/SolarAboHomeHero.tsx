@@ -1,6 +1,6 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { DollarSign, Settings, TrendingDown } from 'lucide-react'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { CO2ReductionIcon, MoneySignIcon, SaleIcon, ShieldIcon } from './icons'
 import ReductionIcon from './icons/ReductionIcon'
@@ -15,7 +15,6 @@ const SolarAboHomeHero = async ({
   imageAlt = 'SolarAbo Home',
 }: SolarAboHomeHeroProps = {}) => {
   const t = await getTranslations('solarAboHome.hero')
-  const locale = await getLocale()
 
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#FDFFF5]">
@@ -43,9 +42,7 @@ const SolarAboHomeHero = async ({
             </p>
 
             <div>
-              <LinkButton href="/calculator" locale={locale}>
-                {t('cta')}
-              </LinkButton>
+              <LinkButton href="/calculator">{t('cta')}</LinkButton>
             </div>
 
             <p className="text-[#17302A]/80 text-sm sm:text-base font-medium leading-[1.875em] text-center italic">
