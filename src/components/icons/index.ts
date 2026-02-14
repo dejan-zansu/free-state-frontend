@@ -15,16 +15,25 @@ import MoneySignIcon from './MoneySignIcon'
 import SaleIcon from './SaleIcon'
 import ShieldIcon from './ShieldIcon'
 import SolarSystemIcon from './SolarSystemIcon'
+import LightBulbWithPointerWiteBg from './LightBulbWithPointerWiteBg'
 
 export {
-  AllInclusiveIcon, BatteryIcon, CheckIcon,
-  CloseIcon, CO2ReductionIcon, EnergySystemIcon,
+  AllInclusiveIcon,
+  BatteryIcon,
+  CheckIcon,
+  CloseIcon,
+  CO2ReductionIcon,
+  EnergySystemIcon,
   HomeIcon,
   HouseWithSunIcon,
   LeafIcon,
   LogoDark,
   LogoLight,
   MinimalLogoIcon,
-  MobileScreenIcon, MoneySignIcon, SaleIcon, ShieldIcon, SolarSystemIcon
+  MobileScreenIcon,
+  MoneySignIcon,
+  SaleIcon,
+  ShieldIcon,
+  SolarSystemIcon,
+  LightBulbWithPointerWiteBg,
 }
-

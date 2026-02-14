@@ -2090,6 +2090,179 @@
         "description": "We ensure the highest quality in component selection and installation. Our photovoltaic systems have an average lifespan of 30 years and require very little maintenance. You receive a 20-25 year warranty from the module manufacturer. Only the inverter needs to be replaced every 12 years.\n\nOptionally, you can take out a monitoring contract with FreeState to ensure you are covered for the entire 30-year lifespan of your system. Furthermore, we guarantee the energy yield for the first 10 years, thus securing the long-term operation of your PV system (see our terms and conditions for full details)."
       },
       "bottomNote": "At FreeState, you get a top-quality photovoltaic system at affordable prices. Starting from just CHF 10,000, including subsidies and tax savings, you can become your own electricity producer and thus independent of rising electricity costs. And last but not least: you'll be making a positive contribution to the environment."
+    },
+    "batteryStorage": {
+      "title": "Optional: Battery storage",
+      "description": "A battery storage system and a heat pump can be used to complement a photovoltaic system. These two additional components can significantly increase the self-consumption of energy in an apartment building or a single-family home – and thus optimize the use of the solar system.",
+      "infoCard": "The cost of a solar power system depends primarily on the surface area and the power output (kWp). Even at the time of purchase, solar modules can differ in power output by up to 20%."
+    }
+  },
+  "cost": {
+    "hero": {
+      "title": "Cost of a solar system"
+    },
+    "costSection": {
+      "title": "How much does a solar power system cost?",
+      "paragraph1": "A photovoltaic system on a small roof of a detached house can now be installed for as little as CHF 19,500 (including subsidies and tax savings). This is a guideline figure, as various factors influence the price of the photovoltaic system.",
+      "paragraph2": "The net investment costs for the photovoltaic system are significantly reduced by <subsidies>subsidies</subsidies> – depending on the canton, these subsidies can amount to several thousand Swiss francs. Helion handles all registrations and applications, ensuring you receive the maximum possible subsidies.",
+      "infoCard": "The cost of a solar power system depends mainly on the following factors: roof size and output, choice of solar modules, material costs (inverter + substructure) and scaffolding including fuse box."
+    },
+    "pricingSection": {
+      "title": "Cost of a solar system in CHF",
+      "note": "Acquisition costs per household after 30% deduction of subsidies & 25% tax savings",
+      "table": {
+        "headers": {
+          "roofSize": "Roof size",
+          "residents": "Residents",
+          "costPerSqm": "Cost per m² in CHF",
+          "cost": "Cost in CHF"
+        },
+        "rows": {
+          "threePerson": {
+            "roofSize": "approx. 25 m²",
+            "residents": "three-person",
+            "costPerSqm": "approx. CHF 780.",
+            "cost": "CHF 19,500"
+          },
+          "fourPerson": {
+            "roofSize": "approx. 40 m²",
+            "residents": "four-person",
+            "costPerSqm": "approx. CHF 550.",
+            "cost": "CHF 22,000"
+          },
+          "fivePerson": {
+            "roofSize": "approx. 60 m²",
+            "residents": "five-person / car",
+            "costPerSqm": "approx. CHF 434.",
+            "cost": "CHF 26,000"
+          }
+        }
+      }
+    },
+    "cta": {
+      "topButton": "Cost of a Solar System",
+      "heading": "Get a free, no-obligation quote now!",
+      "subtitle": "Configure your own system in minutes with our solar calculator and receive a concrete offer immediately:",
+      "items": {
+        "investmentCosts": "Investment costs",
+        "subsidies": "Subsidies & tax deductions",
+        "efficiency": "Economic efficiency & energy balance"
+      },
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/solar-abo-calculator",
+      "note": "free - uncomplicated - precise - non-binding"
+    },
+    "financing": {
+      "title": "Financing the solar system",
+      "subtitle": "We provide comprehensive advice on investment selection and support you with various financing solutions.",
+      "bullets": {
+        "monthlyPayments": "No high one-time investment costs, instead monthly payments",
+        "installmentPlan": "With the installment payment plan, the photovoltaic system belongs to you after 10-15 years.",
+        "maintenance": "Thanks to additional maintenance packages, your system is always in top condition."
+      },
+      "idealTime": {
+        "title": "The ideal time to buy",
+        "description": "Due to high demand for photovoltaic systems, the solar market has seen considerable activity in recent years. Why is now the best time to buy a solar system?\n\nHowever, due to high demand, the authorities are reaching their financial limits. Consequently, subsidies for solar power systems are decreasing annually.\n\nThe best and cheapest time to buy a solar power system is right now. The longer you wait, the less funding will be available to you.",
+        "infoCard": "Photovoltaic systems now cost only 20% of what they did ten years ago. At the same time, subsidies are decreasing annually."
+      }
+    },
+    "furtherTopics": {
+      "title": "Further topics on solar systems",
+      "learnMore": "Learn more",
+      "cards": {
+        "financialSupport": {
+          "title": "Financial support",
+          "description": "Are solar power systems subsidized?"
+        },
+        "cost": {
+          "title": "Cost",
+          "description": "How much does a system cost?"
+        },
+        "monitoringAndService": {
+          "title": "Monitoring and Service",
+          "description": "Service at the highest level"
+        },
+        "amortization": {
+          "title": "Amortization",
+          "description": "When is a photovoltaic system worthwhile?"
+        }
+      }
+    }
+  },
+  "amortization": {
+    "hero": {
+      "title": "Amortization \n of a solar system",
+      "description": "Is a solar power system worthwhile?"
+    },
+    "cta": {
+      "eyebrow": "Amortization",
+      "heading": "Economic arguments in favor of a solar power system",
+      "items": {
+        "independent": "They make themselves independent",
+        "electricityBill": "They reduce your electricity bill",
+        "propertyValue": "They increase the value of your property",
+        "subsidies": "They benefit from government subsidies.",
+        "taxBill": "They optimize your tax bill",
+        "sellExcess": "You can sell the excess electricity."
+      },
+      "ctaText": "Regarding Costs",
+      "ctaLink": "/cost"
+    },
+    "payback": {
+      "title": "When does a solar power system pay for itself?",
+      "block1": {
+        "infoCard": "With a lifespan of 30 years, your system can even generate income for you. If energy prices rise, which is inevitable in the future, the system will pay for itself much faster.",
+        "description": "The payback period for solar power systems depends on various factors. Generally, solar power systems pay for themselves within 8 to 12 years."
+      },
+      "block2": {
+        "infoCard": "To calculate the amortization period of your photovoltaic system in years, the purchase and installation costs are divided by the sum of income and depreciation.",
+        "description": "Below you will find the amortization calculation for your solar system. This will allow you to approximate the amortization of your solar system."
+      }
+    },
+    "solarCta": {
+      "topButton": "Cost of a Solar System",
+      "heading": "Get a free, no-obligation quote now!",
+      "subtitle": "Configure your own system in minutes with our solar calculator and receive a concrete offer immediately:",
+      "items": {
+        "investmentCosts": "Investment costs",
+        "subsidies": "Subsidies & tax deductions",
+        "efficiency": "Economic efficiency & energy balance"
+      },
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/solar-abo-calculator",
+      "note": "free - uncomplicated - precise - non-binding"
+    },
+    "calculator": {
+      "title": "Example calculation of amortization",
+      "costCard": {
+        "header": "3-person household approx. 4 kWp = 25 m²",
+        "items": {
+          "costs": "Costs approximately 17,000.",
+          "oneOffPayment": "less one-off payment of 2,760.",
+          "taxSavings": "less €3,500 tax savings at 25%",
+          "localSubsidies": "less local subsidies"
+        },
+        "investmentLabel": "Investment of",
+        "investmentAmount": "€10,740.",
+        "yieldNote": "Annual electricity yield approx. 4000 kWh"
+      },
+      "yieldCard": {
+        "selfConsumption": "With 45%\nself-consumption",
+        "annualYield": "Annual electricity yield approx.\n4000 kWh",
+        "feedIn": "55% of the yield is fed into the grid at 10 Rp per kWh = 220.- per year",
+        "onSite": "45% is consumed on-site → Reduction of the electricity bill\nby 470.- (assuming an energy purchase price of CHF 0.26 per kWh)",
+        "paybackLabel": "Payback",
+        "paybackYears": "14 years"
+      }
+    },
+    "costOverview": {
+      "title": "How much does a solar power system cost?",
+      "description": "Prices for solar power systems have fallen significantly in recent years. Currently, conditions are extremely favorable for achieving high profitability with solar power systems.\n\nSelf-generated solar power is significantly cheaper than electricity from the grid:",
+      "items": {
+        "gridElectricity": "Electricity from the power plant costs  23 cents.",
+        "solarPower": "The solar power, including operating costs, costs  12 cents."
+      },
+      "infoCard": "The more you use your self-produced electricity, the more profitable your solar system becomes - and the cheaper your electricity bill will be."
     }
   },
   "privacyPolicy": {
@@ -2143,6 +2316,127 @@
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
       "title": "Charging Stations",
       "subtitle": "For single-family homes without battery storage"
+    }
+  },
+  "solarAboCalculator": {
+    "progress": {
+      "step1": "Building",
+      "step2": "Household",
+      "step3": "Devices",
+      "step4": "Roof",
+      "step5": "Covering",
+      "step6": "Contact"
+    },
+    "step1": {
+      "title": "What is the type of building?",
+      "helper": "Select your building type:",
+      "options": {
+        "singleFamily": "Single-family house",
+        "apartment": "Apartment building",
+        "trade": "Trade",
+        "office": "Office building"
+      }
+    },
+    "step2": {
+      "title": "How many people live in your household?",
+      "helper": "State the number of people including children:",
+      "options": {
+        "1": "1 person",
+        "2": "2 people",
+        "3": "3 people",
+        "4": "4 people",
+        "5": "5 and more people"
+      }
+    },
+    "step3": {
+      "title": "Do you own high-power devices?",
+      "helper": "This allows us to better estimate your electricity needs and, consequently, the optimal size of your solar system. Please select the existing consumers. Also indicate devices you intend to install in the future.",
+      "devices": {
+        "heatPumpHeating": "Heat pump heating",
+        "electricHeating": "Electric heating",
+        "electricBoiler": "Electric boiler",
+        "evChargingStation": "Electric vehicle charging station",
+        "swimmingPoolSauna": "Swimming pool and/or sauna"
+      }
+    },
+    "step4": {
+      "title": "Which roof areas would you like to use for your energy project?",
+      "helper": "Click on all roof areas to be considered for your offer.",
+      "searchPlaceholder": "Enter your address...",
+      "results": "results",
+      "suitability": "Degree of suitability of the roof surface",
+      "veryGood": "Very good",
+      "moderate": "Moderate",
+      "selected": "Selected",
+      "loading": "Loading building data..."
+    },
+    "step5": {
+      "title": "How is your roof covered?",
+      "helper": "Select the type of roof covering you have. We use this to calculate the costs for assembly and fastening.",
+      "options": {
+        "tiled": "Tiled roof",
+        "tin": "Tin roof",
+        "other": "Other"
+      }
+    },
+    "step6": {
+      "title": "Your contact details for the detailed offer",
+      "helper": "We would be happy to issue the offer to you personally. We still need your contact details for this.",
+      "salutation": {
+        "label": "Salutation",
+        "options": {
+          "mr": "Mr",
+          "woman": "Ms",
+          "family": "Family"
+        }
+      },
+      "firstName": "First name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Enter your last name",
+      "phoneNumber": "Phone number",
+      "phoneNumberPlaceholder": "Enter your phone number",
+      "remarks": "Remarks",
+      "remarksPlaceholder": "Any additional information or questions...",
+      "submit": "Request offer",
+      "successMessage": "Thank you! We will contact you shortly with your personalized offer.",
+      "offerPreview": {
+        "title": "YOUR OFFER",
+        "subtitle": "Personalized solar system recommendation"
+      }
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next"
+    }
+  },
+  "solarSystemCarport": {
+    "hero": {
+      "title": "Solar system\nfor carport",
+      "description": "Make the most of your carport's roof space!"
+    },
+    "overview": {
+      "eyebrow": "Amortization",
+      "title": "Solar system for carport",
+      "description": "Make the most of your carport's roof space! With a solar system from Helion on a Uninorm carport, you not only benefit from environmentally friendly solar power, but also protect your car from the elements.",
+      "advantagesTitle": "Your advantages at a glance",
+      "advantages": {
+        "dualUse": "Dual use: Transform the roof of your carport into a small solar power plant.",
+        "independence": "Independence: Reduce your electricity bill and protect yourself against rising energy prices.",
+        "subsidies": "Subsidies & tax savings: Benefit from attractive subsidies and tax advantages in Switzerland.",
+        "sustainability": "Sustainability: Help drive the energy transition forward and reduce your carbon footprint.",
+        "easyIntegration": "Easy integration: Thanks to our partnership with Uninorm, you receive a perfectly integrated solution that is optimally tailored to your carport."
+      }
+    },
+    "photovoltaicsCarports": {
+      "title": "Photovoltaics and carports – the perfect match",
+      "description": "Uninorm carports use high-quality photovoltaic modules to generate solar energy on site, offering an eco-friendly and cost-efficient solution.",
+      "card": {
+        "title": "Photovoltaics on the carport",
+        "efficientEnergy": "Efficient energy generation: Make optimal use of the roof area of your carport for electricity production.",
+        "lowInvestment": "Low investment costs: Compared to other solar systems, installation on a carport is more cost-effective.",
+        "easyAccess": "Easy access: Maintenance and cleaning of the solar modules are easily accessible."
+      }
     }
   }
 }

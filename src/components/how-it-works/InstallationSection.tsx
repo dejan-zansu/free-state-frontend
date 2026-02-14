@@ -13,13 +13,13 @@ const InstallationSection = async () => {
               <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium leading-[1em]">
                 {t('installation.title')}
               </h2>
-              <p className="text-[#062E25]/80 text-lg md:text-[22px] leading-[1.36] tracking-[-0.02em]">
+              <p className="text-[#062E25]/80 text-lg md:text-[22px]">
                 {t('installation.subtitle')}
               </p>
             </div>
 
             <div className="flex flex-col items-center gap-8 md:gap-[60px] max-w-[844px]">
-              <p className="text-[#062E25]/80 text-lg md:text-[22px] leading-[1.36] tracking-[-0.02em] text-center">
+              <p className="text-[#062E25]/80 text-lg md:text-[22px] text-center">
                 {t('installation.description')}
               </p>
             </div>
@@ -29,14 +29,14 @@ const InstallationSection = async () => {
             <div className="relative w-full rounded-[12px] overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#062E25] via-[#139477]/0 to-transparent rounded-[12px]" />
 
-              <div className="relative m-[1px] rounded-[11px] p-8 md:p-12 overflow-hidden">
+              <div className="relative m-[1px] ml-[0.5px] rounded-[11px] p-8 md:p-12 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#B7FE1A] to-transparent" />
                 <div className="relative z-10 flex flex-col lg:flex-row gap-8 lg:gap-[120px]">
                   <div className="flex flex-col gap-5 lg:max-w-[519px]">
-                    <h3 className="text-[#062E25]/80 text-lg md:text-[22px] font-bold leading-[1.36] tracking-[-0.02em]">
+                    <h3 className="text-[#062E25]/80 text-lg md:text-[22px] font-bold">
                       {t('installation.maintenance.title')}
                     </h3>
-                    <p className="text-[#062E25]/80 text-lg md:text-[22px] leading-[1.36] tracking-[-0.02em] whitespace-pre-line">
+                    <p className="text-[#062E25]/80 text-lg md:text-[22px]">
                       {t('installation.maintenance.description')}
                     </p>
                   </div>

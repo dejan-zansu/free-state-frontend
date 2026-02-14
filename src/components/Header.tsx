@@ -104,7 +104,7 @@ const Header = () => {
       >
         <div className="max-w-360 mx-auto">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
-            <Link href="/" className="flex items-center gap-2 shrink-0">
+            <Link href="/" className="flex items-top gap-2 shrink-0">
               {showDarkHeader ? (
                 <LogoDark className="h-6 sm:h-7.25 w-auto" />
               ) : (
@@ -113,9 +113,9 @@ const Header = () => {
               <Image
                 src="/images/swiss-flag.png"
                 alt="Swiss flag"
-                width={18}
-                height={18}
-                className="size-[18px]"
+                width={2}
+                height={2}
+                className="size-3"
               />
             </Link>
 

@@ -2212,6 +2212,11 @@
         "description": "Wir achten auf höchste Qualität bei der Komponentenauswahl und Installation. Unsere Photovoltaikanlagen haben eine durchschnittliche Lebensdauer von 30 Jahren und erfordern nur sehr wenig Wartung. Sie erhalten eine 20-25 Jahre Garantie vom Modulhersteller. Nur der Wechselrichter muss alle 12 Jahre ersetzt werden.\n\nOptional können Sie einen Überwachungsvertrag mit FreeState abschliessen, um für die gesamte 30-jährige Lebensdauer Ihrer Anlage abgesichert zu sein. Darüber hinaus garantieren wir den Energieertrag für die ersten 10 Jahre und sichern so den langfristigen Betrieb Ihrer PV-Anlage (siehe unsere AGB für vollständige Details)."
       },
       "bottomNote": "Bei FreeState erhalten Sie eine hochwertige Photovoltaikanlage zu erschwinglichen Preisen. Ab nur CHF 10.000, inklusive Subventionen und Steuerersparnissen, können Sie Ihr eigener Stromproduzent werden und sich so von steigenden Stromkosten unabhängig machen. Und nicht zuletzt: Sie leisten einen positiven Beitrag für die Umwelt."
+    },
+    "batteryStorage": {
+      "title": "Optional: Batteriespeicher",
+      "description": "Ein Batteriespeicher und eine Wärmepumpe können zur Ergänzung einer Photovoltaikanlage eingesetzt werden. Diese beiden zusätzlichen Komponenten können den Eigenverbrauch von Energie in einem Mehrfamilienhaus oder einem Einfamilienhaus deutlich steigern – und somit die Nutzung der Solaranlage optimieren.",
+      "infoCard": "Die Kosten einer Solaranlage hängen hauptsächlich von der Fläche und der Leistung (kWp) ab. Bereits beim Kauf können sich Solarmodule in ihrer Leistung um bis zu 20 % unterscheiden."
     }
   },
   "privacyPolicy": {
@@ -2265,6 +2270,203 @@
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Ladestationen",
       "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher"
+    }
+  },
+  "cost": {
+    "hero": {
+      "title": "Kosten einer Solaranlage"
+    },
+    "costSection": {
+      "title": "Was kostet eine Solaranlage?",
+      "paragraph1": "Eine Photovoltaikanlage auf einem kleinen Dach eines Einfamilienhauses kann bereits ab CHF 19'500 installiert werden (inkl. Förderungen und Steuerersparnissen). Dies ist ein Richtwert, da verschiedene Faktoren den Preis der Photovoltaikanlage beeinflussen.",
+      "paragraph2": "Die Netto-Investitionskosten für die Photovoltaikanlage werden durch <subsidies>Förderungen</subsidies> erheblich reduziert – je nach Kanton können diese Förderungen mehrere tausend Franken betragen. Helion übernimmt alle Anmeldungen und Anträge und stellt sicher, dass Sie die maximal möglichen Förderungen erhalten.",
+      "infoCard": "Die Kosten einer Solaranlage hängen hauptsächlich von folgenden Faktoren ab: Dachgrösse und Leistung, Wahl der Solarmodule, Materialkosten (Wechselrichter + Unterkonstruktion) und Gerüst inkl. Sicherungskasten."
+    },
+    "pricingSection": {
+      "title": "Kosten einer Solaranlage in CHF",
+      "note": "Anschaffungskosten pro Haushalt nach 30% Abzug von Förderungen & 25% Steuerersparnis",
+      "table": {
+        "headers": {
+          "roofSize": "Dachgrösse",
+          "residents": "Bewohner",
+          "costPerSqm": "Kosten pro m² in CHF",
+          "cost": "Kosten in CHF"
+        },
+        "rows": {
+          "threePerson": {
+            "roofSize": "ca. 25 m²",
+            "residents": "3-Personen",
+            "costPerSqm": "ca. CHF 780.",
+            "cost": "CHF 19'500"
+          },
+          "fourPerson": {
+            "roofSize": "ca. 40 m²",
+            "residents": "4-Personen",
+            "costPerSqm": "ca. CHF 550.",
+            "cost": "CHF 22'000"
+          },
+          "fivePerson": {
+            "roofSize": "ca. 60 m²",
+            "residents": "5-Personen / Auto",
+            "costPerSqm": "ca. CHF 434.",
+            "cost": "CHF 26'000"
+          }
+        }
+      }
+    },
+    "cta": {
+      "topButton": "Kosten einer Solaranlage",
+      "heading": "Jetzt ein kostenloses, unverbindliches Angebot einholen!",
+      "subtitle": "Konfigurieren Sie Ihre eigene Anlage in wenigen Minuten mit unserem Solarrechner und erhalten Sie sofort ein konkretes Angebot:",
+      "items": {
+        "investmentCosts": "Investitionskosten",
+        "subsidies": "Subventionen & Steuerabzüge",
+        "efficiency": "Wirtschaftlichkeit & Energiebilanz"
+      },
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/solar-abo-calculator",
+      "note": "kostenlos - unkompliziert - präzise - unverbindlich"
+    },
+    "financing": {
+      "title": "Finanzierung der Solaranlage",
+      "subtitle": "Wir beraten Sie umfassend bei der Investitionsauswahl und unterstützen Sie mit verschiedenen Finanzierungslösungen.",
+      "bullets": {
+        "monthlyPayments": "Keine hohen einmaligen Investitionskosten, stattdessen monatliche Zahlungen",
+        "installmentPlan": "Mit dem Ratenzahlungsplan gehört die Photovoltaikanlage nach 10-15 Jahren Ihnen.",
+        "maintenance": "Dank zusätzlicher Wartungspakete ist Ihre Anlage immer in Topzustand."
+      },
+      "idealTime": {
+        "title": "Der ideale Kaufzeitpunkt",
+        "description": "Aufgrund der hohen Nachfrage nach Photovoltaikanlagen hat der Solarmarkt in den letzten Jahren erhebliche Aktivität verzeichnet. Warum ist jetzt der beste Zeitpunkt, eine Solaranlage zu kaufen?\n\nAufgrund der hohen Nachfrage stossen die Behörden jedoch an ihre finanziellen Grenzen. Folglich sinken die Subventionen für Solaranlagen jährlich.\n\nDer beste und günstigste Zeitpunkt für den Kauf einer Solaranlage ist genau jetzt. Je länger Sie warten, desto weniger Fördermittel stehen Ihnen zur Verfügung.",
+        "infoCard": "Photovoltaikanlagen kosten heute nur noch 20% dessen, was sie vor zehn Jahren gekostet haben. Gleichzeitig sinken die Subventionen jährlich."
+      }
+    },
+    "furtherTopics": {
+      "title": "Weitere Themen zu Solaranlagen",
+      "learnMore": "Mehr erfahren",
+      "cards": {
+        "financialSupport": {
+          "title": "Finanzielle Unterstützung",
+          "description": "Werden Solaranlagen subventioniert?"
+        },
+        "cost": {
+          "title": "Kosten",
+          "description": "Was kostet eine Anlage?"
+        },
+        "monitoringAndService": {
+          "title": "Überwachung und Service",
+          "description": "Service auf höchstem Niveau"
+        },
+        "amortization": {
+          "title": "Amortisation",
+          "description": "Wann lohnt sich eine Photovoltaikanlage?"
+        }
+      }
+    }
+  },
+  "amortization": {
+    "hero": {
+      "title": "Amortisation \n einer Solaranlage",
+      "description": "Lohnt sich eine Solaranlage?"
+    },
+    "cta": {
+      "eyebrow": "Amortisation",
+      "heading": "Wirtschaftliche Argumente für eine Solaranlage",
+      "items": {
+        "independent": "Sie machen sich unabhängig",
+        "electricityBill": "Sie reduzieren Ihre Stromrechnung",
+        "propertyValue": "Sie steigern den Wert Ihrer Immobilie",
+        "subsidies": "Sie profitieren von staatlichen Subventionen.",
+        "taxBill": "Sie optimieren Ihre Steuerrechnung",
+        "sellExcess": "Sie können den überschüssigen Strom verkaufen."
+      },
+      "ctaText": "Zu den Kosten",
+      "ctaLink": "/cost"
+    },
+    "payback": {
+      "title": "Wann amortisiert sich eine Solaranlage?",
+      "block1": {
+        "infoCard": "Mit einer Lebensdauer von 30 Jahren kann Ihre Anlage sogar Einnahmen für Sie generieren. Wenn die Energiepreise steigen, was in Zukunft unvermeidlich ist, amortisiert sich die Anlage viel schneller.",
+        "description": "Die Amortisationszeit von Solaranlagen hängt von verschiedenen Faktoren ab. Generell amortisieren sich Solaranlagen innerhalb von 8 bis 12 Jahren."
+      },
+      "block2": {
+        "infoCard": "Um die Amortisationszeit Ihrer Photovoltaikanlage in Jahren zu berechnen, werden die Anschaffungs- und Installationskosten durch die Summe aus Einnahmen und Abschreibungen geteilt.",
+        "description": "Nachfolgend finden Sie die Amortisationsberechnung für Ihre Solaranlage. Damit können Sie die Amortisation Ihrer Solaranlage annähernd berechnen."
+      }
+    },
+    "solarCta": {
+      "topButton": "Kosten einer Solaranlage",
+      "heading": "Jetzt ein kostenloses, unverbindliches Angebot einholen!",
+      "subtitle": "Konfigurieren Sie Ihre eigene Anlage in wenigen Minuten mit unserem Solarrechner und erhalten Sie sofort ein konkretes Angebot:",
+      "items": {
+        "investmentCosts": "Investitionskosten",
+        "subsidies": "Subventionen & Steuerabzüge",
+        "efficiency": "Wirtschaftlichkeit & Energiebilanz"
+      },
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/solar-abo-calculator",
+      "note": "kostenlos - unkompliziert - präzise - unverbindlich"
+    },
+    "calculator": {
+      "title": "Beispielrechnung der Amortisation",
+      "costCard": {
+        "header": "3-Personen-Haushalt ca. 4 kWp = 25 m²",
+        "items": {
+          "costs": "Kosten ca. 17'000.",
+          "oneOffPayment": "abzüglich Einmalvergütung von 2'760.",
+          "taxSavings": "abzüglich 3'500 Steuerersparnis bei 25%",
+          "localSubsidies": "abzüglich Gemeindesubventionen"
+        },
+        "investmentLabel": "Investition von",
+        "investmentAmount": "CHF 10'740.",
+        "yieldNote": "Jährlicher Stromertrag ca. 4000 kWh"
+      },
+      "yieldCard": {
+        "selfConsumption": "Bei 45%\nEigenverbrauch",
+        "annualYield": "Jährlicher Stromertrag ca.\n4000 kWh",
+        "feedIn": "55% des Ertrags wird ins Netz eingespeist zu 10 Rp pro kWh = 220.- pro Jahr",
+        "onSite": "45% wird vor Ort verbraucht → Reduzierung der Stromrechnung\num 470.- (bei einem Energiebezugspreis von CHF 0.26 pro kWh)",
+        "paybackLabel": "Amortisation",
+        "paybackYears": "14 Jahre"
+      }
+    },
+    "costOverview": {
+      "title": "Was kostet eine Solaranlage?",
+      "description": "Die Preise für Solaranlagen sind in den letzten Jahren deutlich gesunken. Derzeit sind die Bedingungen äusserst günstig, um mit Solaranlagen eine hohe Rentabilität zu erzielen.\n\nSelbst erzeugter Solarstrom ist deutlich günstiger als Strom aus dem Netz:",
+      "items": {
+        "gridElectricity": "Strom aus dem Kraftwerk kostet  23 Rappen.",
+        "solarPower": "Der Solarstrom, inklusive Betriebskosten, kostet  12 Rappen."
+      },
+      "infoCard": "Je mehr Sie Ihren selbst produzierten Strom nutzen, desto rentabler wird Ihre Solaranlage – und desto günstiger wird Ihre Stromrechnung."
+    }
+  },
+  "solarSystemCarport": {
+    "hero": {
+      "title": "Solaranlage\nfür Carport",
+      "description": "Nutzen Sie die Dachfläche Ihres Carports optimal!"
+    },
+    "overview": {
+      "eyebrow": "Amortisation",
+      "title": "Solaranlage für Carport",
+      "description": "Nutzen Sie die Dachfläche Ihres Carports optimal! Mit einer Solaranlage von Helion auf einem Uninorm-Carport profitieren Sie nicht nur von umweltfreundlichem Solarstrom, sondern schützen auch Ihr Auto vor Witterungseinflüssen.",
+      "advantagesTitle": "Ihre Vorteile auf einen Blick",
+      "advantages": {
+        "dualUse": "Doppelnutzung: Verwandeln Sie das Dach Ihres Carports in ein kleines Solarkraftwerk.",
+        "independence": "Unabhängigkeit: Senken Sie Ihre Stromrechnung und schützen Sie sich vor steigenden Energiepreisen.",
+        "subsidies": "Förderungen & Steuervorteile: Profitieren Sie von attraktiven Förderungen und Steuervorteilen in der Schweiz.",
+        "sustainability": "Nachhaltigkeit: Treiben Sie die Energiewende voran und reduzieren Sie Ihren CO2-Fussabdruck.",
+        "easyIntegration": "Einfache Integration: Dank unserer Partnerschaft mit Uninorm erhalten Sie eine perfekt integrierte Lösung, die optimal auf Ihren Carport abgestimmt ist."
+      }
+    },
+    "photovoltaicsCarports": {
+      "title": "Photovoltaik und Carports – die perfekte Kombination",
+      "description": "Uninorm-Carports nutzen hochwertige Photovoltaikmodule zur Erzeugung von Solarenergie vor Ort und bieten eine umweltfreundliche und kosteneffiziente Lösung.",
+      "card": {
+        "title": "Photovoltaik auf dem Carport",
+        "efficientEnergy": "Effiziente Energieerzeugung: Nutzen Sie die Dachfläche Ihres Carports optimal für die Stromproduktion.",
+        "lowInvestment": "Geringe Investitionskosten: Im Vergleich zu anderen Solaranlagen ist die Installation auf einem Carport kostengünstiger.",
+        "easyAccess": "Einfacher Zugang: Wartung und Reinigung der Solarmodule sind leicht zugänglich."
+      }
     }
   }
 }

@@ -43,7 +43,9 @@ const Footer = () => {
     pathname?.includes('/heat-pumps') ||
     pathname?.includes('/solar-abo') ||
     pathname?.includes('/battery-storage') ||
-    pathname?.includes('/how-it-works')
+    pathname?.includes('/how-it-works') ||
+    pathname?.includes('/cost') ||
+    pathname?.includes('/amortization')
 
   const solarAboLinks = [
     {
