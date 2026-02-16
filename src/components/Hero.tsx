@@ -24,15 +24,14 @@ const Hero = async ({
     <section
       className="relative min-h-[500px] md:min-h-[600px] lg:min-h-[736px] flex justify-center overflow-hidden"
       style={{
-        background:
-          'linear-gradient(180deg, rgba(253, 255, 245, 1) 2%, rgba(234, 237, 223, 1) 100%)',
+        background: '#FDFFF5',
       }}
     >
       <div className="absolute inset-0 z-0">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center rounded-b-[40px]"
           style={{
-            backgroundImage: `url('/images/${isCommercial ? 'home-with-panels-commercial.jpg' : 'home-with-panels.jpg'}')`,
+            backgroundImage: `url('/images/solar-panels-hero.jpg')`,
           }}
         />
       </div>
