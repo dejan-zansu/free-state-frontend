@@ -27,7 +27,7 @@ export default function Step6ContactDetails() {
 
   return (
     <div className='h-full overflow-y-auto'>
-      <div className='container mx-auto px-4 py-8 max-w-4xl'>
+      <div className='container mx-auto px-4 pt-8 pb-16 max-w-4xl'>
         <div className='grid lg:grid-cols-2 gap-8'>
           <div>
             <h1 className='text-2xl font-bold'>{t('title')}</h1>

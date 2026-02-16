@@ -12,7 +12,7 @@ import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { fromLonLat } from 'ol/proj'
+import { fromLonLat, toLonLat } from 'ol/proj'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -87,7 +87,10 @@ export default function Step4RoofAreas() {
   const inputRef = useRef<HTMLInputElement>(null)
   const mapInitializedRef = useRef(false)
   const selectedSegmentsRef = useRef<string[]>([])
+  const buildingRef = useRef(building)
+  const isFetchingRef = useRef(false)
   selectedSegmentsRef.current = selectedSegmentIds
+  buildingRef.current = building
 
   const drawSegmentOnMap = useCallback((segment: RoofSegment, isSelected: boolean) => {
     if (!vectorSourceRef.current) return
@@ -125,17 +128,58 @@ export default function Step4RoofAreas() {
   }, [])
 
   const redrawAllSegments = useCallback(() => {
-    if (!vectorSourceRef.current || !building) return
+    if (!vectorSourceRef.current || !buildingRef.current) return
     vectorSourceRef.current.clear()
-    building.roofSegments.forEach(segment => {
+    buildingRef.current.roofSegments.forEach(segment => {
       const isSelected = selectedSegmentsRef.current.includes(segment.id)
       drawSegmentOnMap(segment, isSelected)
     })
-  }, [building, drawSegmentOnMap])
+  }, [drawSegmentOnMap])
 
   useEffect(() => {
-    redrawAllSegments()
-  }, [selectedSegmentIds, redrawAllSegments])
+    if (building) {
+      redrawAllSegments()
+    }
+  }, [selectedSegmentIds, building, redrawAllSegments])
+
+  const handleMapClick = useCallback(async (coordinate: number[], pixel: number[]) => {
+    const map = mapInstanceRef.current
+    if (!map) return
+
+    const clickedFeature = map.forEachFeatureAtPixel(pixel, f => f)
+    if (clickedFeature) {
+      const segmentId = clickedFeature.get('segmentId')
+      if (segmentId) {
+        toggleSegment(segmentId)
+        return
+      }
+    }
+
+    if (isFetchingRef.current) return
+    isFetchingRef.current = true
+    setIsFetchingBuilding(true)
+
+    try {
+      const [lng, lat] = toLonLat(coordinate)
+      const lv95 = await sonnendachService.convertToLV95(lat, lng)
+      const buildingData = await sonnendachService.getBuildingData(lv95.x, lv95.y)
+
+      if (buildingData && buildingData.roofSegments.length > 0) {
+        setBuilding(buildingData)
+
+        const center = fromLonLat([buildingData.center.lng, buildingData.center.lat])
+        map.getView().animate({ center, zoom: 19, duration: 500 })
+      }
+    } catch (error) {
+      console.error('No building data at this location:', error)
+    } finally {
+      setIsFetchingBuilding(false)
+      isFetchingRef.current = false
+    }
+  }, [toggleSegment, setBuilding, setIsFetchingBuilding])
+
+  const handleMapClickRef = useRef(handleMapClick)
+  handleMapClickRef.current = handleMapClick
 
   useEffect(() => {
     if (!mapRef.current || mapInitializedRef.current) return
@@ -158,21 +202,15 @@ export default function Step4RoofAreas() {
     })
 
     map.on('click', (evt) => {
-      const clickedFeature = map.forEachFeatureAtPixel(evt.pixel, f => f)
-      if (clickedFeature) {
-        const segmentId = clickedFeature.get('segmentId')
-        if (segmentId) {
-          toggleSegment(segmentId)
-        }
-      }
+      handleMapClickRef.current(evt.coordinate, evt.pixel as unknown as number[])
     })
 
     mapInstanceRef.current = map
     mapInitializedRef.current = true
     setIsLoadingMap(false)
 
-    if (building) {
-      const center = fromLonLat([building.center.lng, building.center.lat])
+    if (buildingRef.current) {
+      const center = fromLonLat([buildingRef.current.center.lng, buildingRef.current.center.lat])
       map.getView().animate({ center, zoom: 19, duration: 500 })
       redrawAllSegments()
     }
@@ -202,7 +240,7 @@ export default function Step4RoofAreas() {
           fields: ['formatted_address', 'geometry'],
         })
 
-        autocomplete.addListener('place_changed', async () => {
+        autocomplete.addListener('place_changed', () => {
           const place = autocomplete?.getPlace()
           if (place?.geometry?.location && place.formatted_address) {
             const lat = place.geometry.location.lat()
@@ -210,20 +248,15 @@ export default function Step4RoofAreas() {
 
             setAddress(place.formatted_address)
             setShowResults(false)
-            setIsFetchingBuilding(true)
 
-            try {
-              const buildingData = await sonnendachService.getBuildingDataFromWGS84(lat, lng)
-              setBuilding(buildingData)
-
-              if (mapInstanceRef.current) {
-                const center = fromLonLat([lng, lat])
-                mapInstanceRef.current.getView().animate({ center, zoom: 19, duration: 500 })
-              }
-            } catch (error) {
-              console.error('Failed to fetch building data:', error)
-            } finally {
-              setIsFetchingBuilding(false)
+            if (mapInstanceRef.current) {
+              const view = mapInstanceRef.current.getView()
+              const currentZoom = view.getZoom() || 18
+              view.animate({
+                center: fromLonLat([lng, lat]),
+                zoom: Math.max(currentZoom, 19),
+                duration: 500,
+              })
             }
           }
         })
@@ -233,7 +266,7 @@ export default function Step4RoofAreas() {
     }
 
     initAutocomplete()
-  }, [setAddress, setBuilding, setIsFetchingBuilding])
+  }, [setAddress])
 
   const handleSearch = async () => {
     if (!address.trim()) return
@@ -249,24 +282,20 @@ export default function Step4RoofAreas() {
     }
   }
 
-  const handleSelectResult = async (location: SonnendachLocation) => {
+  const handleSelectResult = (location: SonnendachLocation) => {
     setSelectedLocation(location)
     setAddress(location.attrs.label)
     setShowResults(false)
-    setIsFetchingBuilding(true)
 
-    try {
-      const buildingData = await sonnendachService.getBuildingData(location.attrs.x, location.attrs.y)
-      setBuilding(buildingData)
-
-      if (mapInstanceRef.current) {
-        const center = fromLonLat([location.attrs.lon, location.attrs.lat])
-        mapInstanceRef.current.getView().animate({ center, zoom: 19, duration: 500 })
-      }
-    } catch (error) {
-      console.error('Failed to fetch building:', error)
-    } finally {
-      setIsFetchingBuilding(false)
+    if (mapInstanceRef.current) {
+      const center = fromLonLat([location.attrs.lon, location.attrs.lat])
+      const view = mapInstanceRef.current.getView()
+      const currentZoom = view.getZoom() || 18
+      view.animate({
+        center,
+        zoom: Math.max(currentZoom, 19),
+        duration: 500,
+      })
     }
   }
 
@@ -275,97 +304,93 @@ export default function Step4RoofAreas() {
 
   return (
     <div className='h-full overflow-y-auto'>
-      <div className='container mx-auto px-4 py-8 max-w-4xl'>
+      <div className='container mx-auto px-4 pt-8 pb-16 max-w-4xl'>
         <div className='mb-6'>
           <h1 className='text-2xl font-bold'>{t('title')}</h1>
           <p className='mt-2 text-muted-foreground'>{t('helper')}</p>
         </div>
 
-        <div className='grid lg:grid-cols-[1fr,400px] gap-6'>
-          <div className='space-y-4'>
-            <div className='relative'>
-              <Input
-                ref={inputRef}
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                placeholder={t('searchPlaceholder')}
-                className='pr-10'
-              />
-              <button
-                type='button'
-                onClick={handleSearch}
-                className='absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground'
-              >
-                {isSearching ? <Loader2 className='h-5 w-5 animate-spin' /> : <Search className='h-5 w-5' />}
-              </button>
-
-              {showResults && searchResults.length > 0 && (
-                <div className='absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-md'>
-                  <div className='flex items-center justify-between border-b px-3 py-2'>
-                    <span className='text-sm text-muted-foreground'>{searchResults.length} {t('results')}</span>
-                    <button onClick={() => setShowResults(false)} className='text-muted-foreground hover:text-foreground'>
-                      <X className='h-4 w-4' />
-                    </button>
-                  </div>
-                  <ul className='max-h-60 overflow-auto py-1'>
-                    {searchResults.map((result) => (
-                      <li key={result.id}>
-                        <button
-                          type='button'
-                          onClick={() => handleSelectResult(result)}
-                          className='w-full px-3 py-2 text-left text-sm hover:bg-accent'
-                        >
-                          {result.attrs.label}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className='space-y-4'>
-            <div
-              ref={mapRef}
-              className={cn(
-                'h-[350px] w-full rounded-lg border bg-muted overflow-hidden',
-                isLoadingMap && 'flex items-center justify-center'
-              )}
+        <div className='space-y-4'>
+          <div className='relative'>
+            <Input
+              ref={inputRef}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+              placeholder={t('searchPlaceholder')}
+              className='pr-10'
+            />
+            <button
+              type='button'
+              onClick={handleSearch}
+              className='absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground'
             >
-              {isLoadingMap && <Loader2 className='h-8 w-8 animate-spin text-muted-foreground' />}
-            </div>
+              {isSearching ? <Loader2 className='h-5 w-5 animate-spin' /> : <Search className='h-5 w-5' />}
+            </button>
 
-            <div className='flex items-center justify-between rounded-lg border p-4'>
-              <div>
-                <p className='text-sm text-muted-foreground'>{t('suitability')}</p>
-                <div className='mt-1 flex gap-1'>
-                  {[1, 2, 3, 4, 5].map((cls) => (
-                    <div
-                      key={cls}
-                      className='h-2 w-8 rounded'
-                      style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
-                    />
+            {showResults && searchResults.length > 0 && (
+              <div className='absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-md'>
+                <div className='flex items-center justify-between border-b px-3 py-2'>
+                  <span className='text-sm text-muted-foreground'>{searchResults.length} {t('results')}</span>
+                  <button onClick={() => setShowResults(false)} className='text-muted-foreground hover:text-foreground'>
+                    <X className='h-4 w-4' />
+                  </button>
+                </div>
+                <ul className='max-h-60 overflow-auto py-1'>
+                  {searchResults.map((result) => (
+                    <li key={result.id}>
+                      <button
+                        type='button'
+                        onClick={() => handleSelectResult(result)}
+                        className='w-full px-3 py-2 text-left text-sm hover:bg-accent'
+                      >
+                        {result.attrs.label}
+                      </button>
+                    </li>
                   ))}
-                </div>
-                <div className='mt-1 flex justify-between text-xs text-muted-foreground'>
-                  <span>{t('veryGood')}</span>
-                  <span>{t('moderate')}</span>
-                </div>
-              </div>
-              <div className='text-right'>
-                <p className='text-sm text-muted-foreground'>{t('selected')}</p>
-                <p className='text-2xl font-bold'>{Math.round(selectedArea)} m²</p>
-              </div>
-            </div>
-
-            {isFetchingBuilding && (
-              <div className='flex items-center gap-2 text-sm text-muted-foreground'>
-                <Loader2 className='h-4 w-4 animate-spin' />
-                {t('loading')}
+                </ul>
               </div>
             )}
+          </div>
+
+          <div
+            ref={mapRef}
+            className={cn(
+              'h-[450px] w-full rounded-lg border bg-muted overflow-hidden',
+              isLoadingMap && 'flex items-center justify-center'
+            )}
+          >
+            {isLoadingMap && <Loader2 className='h-8 w-8 animate-spin text-muted-foreground' />}
+          </div>
+
+          {isFetchingBuilding && (
+            <div className='flex items-center gap-2 text-sm text-muted-foreground'>
+              <Loader2 className='h-4 w-4 animate-spin' />
+              {t('loading')}
+            </div>
+          )}
+
+          <div className='flex items-center justify-between rounded-lg border p-4'>
+            <div>
+              <p className='text-sm text-muted-foreground'>{t('suitability')}</p>
+              <div className='mt-1 flex gap-1'>
+                {[1, 2, 3, 4, 5].map((cls) => (
+                  <div
+                    key={cls}
+                    className='h-2 w-8 rounded'
+                    style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
+                  />
+                ))}
+              </div>
+              <div className='mt-1 flex justify-between text-xs text-muted-foreground'>
+                <span>{t('veryGood')}</span>
+                <span>{t('moderate')}</span>
+              </div>
+            </div>
+            <div className='text-right'>
+              <p className='text-sm text-muted-foreground'>{t('selected')}</p>
+              <p className='text-2xl font-bold'>{Math.round(selectedArea)} m²</p>
+            </div>
           </div>
         </div>
 

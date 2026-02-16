@@ -3,6 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
 
+export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
 export type RoofCoveringType = 'tiled' | 'tin' | 'other'

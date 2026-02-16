@@ -24,7 +24,7 @@ export default function Step1BuildingType() {
 
   return (
     <div className='h-full overflow-y-auto'>
-      <div className='container mx-auto px-4 py-8 max-w-lg'>
+      <div className='container mx-auto px-4 pt-8 pb-16 max-w-lg'>
         <div className='mb-8'>
           <h1 className='text-2xl font-bold'>{t('title')}</h1>
           <p className='mt-2 text-muted-foreground'>{t('helper')}</p>

@@ -9,8 +9,8 @@ import { useSolarAboCalculatorStore, type RoofCoveringType } from '@/stores/sola
 import { cn } from '@/lib/utils'
 
 const roofOptions: { type: RoofCoveringType; image: string | null; labelKey: string }[] = [
-  { type: 'tiled', image: '/images/roof-tiled.jpg', labelKey: 'tiled' },
-  { type: 'tin', image: '/images/roof-tin.jpg', labelKey: 'tin' },
+  { type: 'tiled', image: 'https://placehold.co/128x128/e2e8f0/475569?text=Tiled', labelKey: 'tiled' },
+  { type: 'tin', image: 'https://placehold.co/128x128/e2e8f0/475569?text=Tin', labelKey: 'tin' },
   { type: 'other', image: null, labelKey: 'other' },
 ]
 
@@ -26,7 +26,7 @@ export default function Step5RoofCovering() {
 
   return (
     <div className='h-full overflow-y-auto'>
-      <div className='container mx-auto px-4 py-8 max-w-lg'>
+      <div className='container mx-auto px-4 pt-8 pb-16 max-w-lg'>
         <div className='mb-8'>
           <h1 className='text-2xl font-bold'>{t('title')}</h1>
           <p className='mt-2 text-muted-foreground'>{t('helper')}</p>
