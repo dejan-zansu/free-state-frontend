@@ -2468,5 +2468,121 @@
         "easyAccess": "Einfacher Zugang: Wartung und Reinigung der Solarmodule sind leicht zugänglich."
       }
     }
+  },
+  "solarCalculator": {
+    "hero": {
+      "title": "kostenlos\nberechnen",
+      "description": "Entdecken Sie in 4 Schritten die Energieleistung Ihres Daches, die Amortisationszeit und verfügbare Förderungen."
+    },
+    "howItWorks": {
+      "title": "Von der Beratung bis zur Installation",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Mobilfunkabo.",
+      "steps": {
+        "step1": {
+          "number": "01",
+          "title": "Kostenlos & unverbindlich"
+        },
+        "step2": {
+          "number": "02",
+          "title": "Schweizweit optimiert für das kosteneffizienteste Ergebnis"
+        },
+        "step3": {
+          "number": "03",
+          "title": "Präzise Prognose der Stromproduktion und Amortisation"
+        },
+        "step4": {
+          "number": "04",
+          "title": "Geeignet für alle Gebäude"
+        }
+      }
+    },
+    "whatYouReceive": {
+      "eyebrow": "Service",
+      "title": "Was Sie erhalten",
+      "description": "Unser unverbindliches Richtangebot enthält die wichtigsten Informationen zu:",
+      "items": {
+        "costs": "Kosten & Erträge",
+        "funding": "Fördermöglichkeiten",
+        "savings": "Einsparpotenzial",
+        "tariffs": "Beste Tarife"
+      },
+      "cta": "Entdecken Sie Ihr Solarpotenzial",
+      "ctaLink": "/solar-abo-calculator"
+    },
+    "whyFreeState": {
+      "title": "Warum FreeState?",
+      "cards": {
+        "experience": {
+          "title": "Erfahrung",
+          "subtitle": "15'000+ installierte Systeme"
+        },
+        "localPresence": {
+          "title": "Lokale Präsenz",
+          "subtitle": "Serviceteams in der ganzen Schweiz"
+        },
+        "comprehensiveService": {
+          "title": "Umfassender Service",
+          "subtitle": "Beratung, Finanzierung, Installation & Wartung"
+        },
+        "exclusiveTariffs": {
+          "title": "Exklusive Tarife",
+          "subtitle": "Stromerlöse dank Helion ONE Exklusivtarifen"
+        }
+      }
+    },
+    "solarAbo": {
+      "eyebrow": "SolarAbo",
+      "title": "Bis zu 60% tiefere Energiekosten",
+      "description": "SolarAbo verbindet Ihre Solaranlage, Speicher, Wärmepumpe und Elektrofahrzeug und nutzt KI, um den Eigenverbrauch zu maximieren und Überschussstrom zum besten Tarif zu verkaufen."
+    },
+    "cards": {
+      "investment": {
+        "title": "Ihre Investition",
+        "subtitle": "0 CHF – wir kümmern uns um alles"
+      },
+      "control": {
+        "title": "Vollautomatische Steuerung",
+        "subtitle": "KI-optimiertes Energiemanagement"
+      },
+      "yield": {
+        "title": "Maximaler Ertrag",
+        "subtitle": "Beste Tarife für Überschussstrom"
+      },
+      "monitoring": {
+        "title": "Live-Monitoring",
+        "subtitle": "Echtzeit-Energiedaten per App"
+      }
+    },
+    "faq": {
+      "title": "FAQ zum Solarrechner",
+      "items": {
+        "howItWorks": {
+          "question": "Wie funktioniert der Solarrechner?",
+          "answer": "Er analysiert Standort, Dachausrichtung, Fläche und Neigung und gibt Ihnen eine realistische Einschätzung der Stromproduktion, des Eigenverbrauchs und der Amortisation."
+        },
+        "isFree": {
+          "question": "Ist der Solarrechner kostenlos?",
+          "answer": "Ja, unser Solarrechner ist völlig kostenlos. Sie erhalten ein unverbindliches Richtangebot ohne Registrierung."
+        },
+        "howQuickly": {
+          "question": "Wie schnell erhalte ich ein Angebot?",
+          "answer": "Sie erhalten Ihr persönliches Richtangebot innerhalb weniger Minuten nach Abschluss des 4-Schritte-Prozesses im Solarrechner."
+        },
+        "funding": {
+          "question": "Welche Förderoptionen werden berücksichtigt?",
+          "answer": "Unser Rechner berücksichtigt alle relevanten Bundes- und Kantonssubventionen, einschliesslich der Einmalvergütung für Solaranlagen und zusätzlicher kantonaler Förderprogramme."
+        },
+        "roofSuitable": {
+          "question": "Ist mein Dach geeignet?",
+          "answer": "Die meisten Dächer in der Schweiz sind für Solaranlagen geeignet. Unser Rechner analysiert Ihre spezifische Dachausrichtung, Neigung und Fläche, um das optimale Setup für Ihr Gebäude zu bestimmen."
+        }
+      }
+    },
+    "bottomCta": {
+      "eyebrow": "Solarrechner",
+      "title": "Jetzt starten!\nNutzen Sie den Solarrechner für ein Angebot.",
+      "cta": "Solarrechner starten",
+      "ctaLink": "/solar-abo-calculator"
+    }
   }
 }

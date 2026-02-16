@@ -15,7 +15,7 @@ const roofOptions: { type: RoofCoveringType; image: string | null; labelKey: str
 ]
 
 export default function Step5RoofCovering() {
-  const t = useTranslations('solarAboCalculator.step5')
+  const t = useTranslations('solarAboCalculator.step6')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const { roofCovering, setRoofCovering, prevStep, nextStep } = useSolarAboCalculatorStore()
 
@@ -77,7 +77,7 @@ export default function Step5RoofCovering() {
           ))}
         </div>
 
-        <div className='mt-8'>
+        <div className='mt-8 flex gap-4 justify-end'>
           <Button variant='outline' onClick={prevStep}>
             {tNav('back')}
           </Button>

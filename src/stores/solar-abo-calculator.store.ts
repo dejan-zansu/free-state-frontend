@@ -29,6 +29,7 @@ interface SolarAboCalculatorState {
   currentStep: number
   totalSteps: number
 
+  selectedPackage: SolarAboPackage | null
   buildingType: BuildingType | null
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
@@ -49,6 +50,7 @@ interface SolarAboCalculatorActions {
   nextStep: () => void
   prevStep: () => void
   goToStep: (step: number) => void
+  setSelectedPackage: (pkg: SolarAboPackage) => void
   setBuildingType: (type: BuildingType) => void
   setHouseholdSize: (size: HouseholdSize) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
@@ -76,8 +78,9 @@ const initialContact: ContactDetails = {
 
 const initialState: SolarAboCalculatorState = {
   currentStep: 1,
-  totalSteps: 6,
+  totalSteps: 7,
 
+  selectedPackage: null,
   buildingType: null,
   householdSize: null,
   devices: {
@@ -126,6 +129,10 @@ export const useSolarAboCalculatorStore = create<
         if (step >= 1 && step <= totalSteps) {
           set({ currentStep: step })
         }
+      },
+
+      setSelectedPackage: (pkg: SolarAboPackage) => {
+        set({ selectedPackage: pkg })
       },
 
       setBuildingType: (type: BuildingType) => {
@@ -217,6 +224,7 @@ export const useSolarAboCalculatorStore = create<
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
         currentStep: state.currentStep,
+        selectedPackage: state.selectedPackage,
         buildingType: state.buildingType,
         householdSize: state.householdSize,
         devices: state.devices,

@@ -14,7 +14,7 @@ const buildingOptions: { type: BuildingType; icon: React.ReactNode; labelKey: st
 ]
 
 export default function Step1BuildingType() {
-  const t = useTranslations('solarAboCalculator.step1')
+  const t = useTranslations('solarAboCalculator.step2')
   const { buildingType, setBuildingType, nextStep } = useSolarAboCalculatorStore()
 
   const handleSelect = (type: BuildingType) => {

@@ -57,7 +57,7 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
 }
 
 export default function Step4RoofAreas() {
-  const t = useTranslations('solarAboCalculator.step4')
+  const t = useTranslations('solarAboCalculator.step5')
   const tNav = useTranslations('solarAboCalculator.navigation')
 
   const {
@@ -92,40 +92,48 @@ export default function Step4RoofAreas() {
   selectedSegmentsRef.current = selectedSegmentIds
   buildingRef.current = building
 
-  const drawSegmentOnMap = useCallback((segment: RoofSegment, isSelected: boolean) => {
-    if (!vectorSourceRef.current) return
+  const drawSegmentOnMap = useCallback(
+    (segment: RoofSegment, isSelected: boolean) => {
+      if (!vectorSourceRef.current) return
 
-    let wgs84Coords = segment.geometry.coordinatesWGS84
-    if (!wgs84Coords || wgs84Coords.length === 0) {
-      const lv95Coords = segment.geometry.coordinates
-      if (!lv95Coords || lv95Coords.length === 0) return
-      wgs84Coords = lv95Coords.map(ring =>
-        ring.map(point => lv95ToWgs84(point[0], point[1]))
-      )
-    }
+      let wgs84Coords = segment.geometry.coordinatesWGS84
+      if (!wgs84Coords || wgs84Coords.length === 0) {
+        const lv95Coords = segment.geometry.coordinates
+        if (!lv95Coords || lv95Coords.length === 0) return
+        wgs84Coords = lv95Coords.map(ring =>
+          ring.map(point => lv95ToWgs84(point[0], point[1]))
+        )
+      }
 
-    const coordinates = wgs84Coords[0]
-    if (!coordinates || coordinates.length < 3) return
+      const coordinates = wgs84Coords[0]
+      if (!coordinates || coordinates.length < 3) return
 
-    const webMercatorCoords = coordinates.map(coord => fromLonLat(coord))
-    const polygon = new Polygon([webMercatorCoords])
-    const feature = new Feature({
-      geometry: polygon,
-      segmentId: segment.id,
-    })
+      const webMercatorCoords = coordinates.map(coord => fromLonLat(coord))
+      const polygon = new Polygon([webMercatorCoords])
+      const feature = new Feature({
+        geometry: polygon,
+        segmentId: segment.id,
+      })
 
-    if (isSelected) {
-      feature.setStyle(selectedStyle)
-    } else {
-      const color = segment.suitability?.color || SUITABILITY_CLASSES[segment.suitability?.class || 3]?.color || '#22C55E'
-      feature.setStyle(new Style({
-        fill: new Fill({ color: `${color}80` }),
-        stroke: new Stroke({ color, width: 2 }),
-      }))
-    }
+      if (isSelected) {
+        feature.setStyle(selectedStyle)
+      } else {
+        const color =
+          segment.suitability?.color ||
+          SUITABILITY_CLASSES[segment.suitability?.class || 3]?.color ||
+          '#22C55E'
+        feature.setStyle(
+          new Style({
+            fill: new Fill({ color: `${color}80` }),
+            stroke: new Stroke({ color, width: 2 }),
+          })
+        )
+      }
 
-    vectorSourceRef.current.addFeature(feature)
-  }, [])
+      vectorSourceRef.current.addFeature(feature)
+    },
+    []
+  )
 
   const redrawAllSegments = useCallback(() => {
     if (!vectorSourceRef.current || !buildingRef.current) return
@@ -142,41 +150,50 @@ export default function Step4RoofAreas() {
     }
   }, [selectedSegmentIds, building, redrawAllSegments])
 
-  const handleMapClick = useCallback(async (coordinate: number[], pixel: number[]) => {
-    const map = mapInstanceRef.current
-    if (!map) return
+  const handleMapClick = useCallback(
+    async (coordinate: number[], pixel: number[]) => {
+      const map = mapInstanceRef.current
+      if (!map) return
 
-    const clickedFeature = map.forEachFeatureAtPixel(pixel, f => f)
-    if (clickedFeature) {
-      const segmentId = clickedFeature.get('segmentId')
-      if (segmentId) {
-        toggleSegment(segmentId)
-        return
+      const clickedFeature = map.forEachFeatureAtPixel(pixel, f => f)
+      if (clickedFeature) {
+        const segmentId = clickedFeature.get('segmentId')
+        if (segmentId) {
+          toggleSegment(segmentId)
+          return
+        }
       }
-    }
 
-    if (isFetchingRef.current) return
-    isFetchingRef.current = true
-    setIsFetchingBuilding(true)
+      if (isFetchingRef.current) return
+      isFetchingRef.current = true
+      setIsFetchingBuilding(true)
 
-    try {
-      const [lng, lat] = toLonLat(coordinate)
-      const lv95 = await sonnendachService.convertToLV95(lat, lng)
-      const buildingData = await sonnendachService.getBuildingData(lv95.x, lv95.y)
+      try {
+        const [lng, lat] = toLonLat(coordinate)
+        const lv95 = await sonnendachService.convertToLV95(lat, lng)
+        const buildingData = await sonnendachService.getBuildingData(
+          lv95.y,
+          lv95.x
+        )
 
-      if (buildingData && buildingData.roofSegments.length > 0) {
-        setBuilding(buildingData)
+        if (buildingData && buildingData.roofSegments.length > 0) {
+          setBuilding(buildingData)
 
-        const center = fromLonLat([buildingData.center.lng, buildingData.center.lat])
-        map.getView().animate({ center, zoom: 19, duration: 500 })
+          const center = fromLonLat([
+            buildingData.center.lng,
+            buildingData.center.lat,
+          ])
+          map.getView().animate({ center, zoom: 19, duration: 500 })
+        }
+      } catch (error) {
+        console.error('No building data at this location:', error)
+      } finally {
+        setIsFetchingBuilding(false)
+        isFetchingRef.current = false
       }
-    } catch (error) {
-      console.error('No building data at this location:', error)
-    } finally {
-      setIsFetchingBuilding(false)
-      isFetchingRef.current = false
-    }
-  }, [toggleSegment, setBuilding, setIsFetchingBuilding])
+    },
+    [toggleSegment, setBuilding, setIsFetchingBuilding]
+  )
 
   const handleMapClickRef = useRef(handleMapClick)
   handleMapClickRef.current = handleMapClick
@@ -189,10 +206,22 @@ export default function Step4RoofAreas() {
 
     const map = new Map({
       target: mapRef.current,
-      controls: defaultControls({ zoom: true, rotate: false, attribution: false }),
+      controls: defaultControls({
+        zoom: true,
+        rotate: false,
+        attribution: false,
+      }),
       layers: [
-        new TileLayer({ source: new XYZ({ url: SWISS_SATELLITE_URL, crossOrigin: 'anonymous' }) }),
-        new TileLayer({ source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }), opacity: 0.7 }),
+        new TileLayer({
+          source: new XYZ({
+            url: SWISS_SATELLITE_URL,
+            crossOrigin: 'anonymous',
+          }),
+        }),
+        new TileLayer({
+          source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }),
+          opacity: 0.7,
+        }),
         new VectorLayer({ source: vectorSource }),
       ],
       view: new View({
@@ -201,8 +230,11 @@ export default function Step4RoofAreas() {
       }),
     })
 
-    map.on('click', (evt) => {
-      handleMapClickRef.current(evt.coordinate, evt.pixel as unknown as number[])
+    map.on('click', evt => {
+      handleMapClickRef.current(
+        evt.coordinate,
+        evt.pixel as unknown as number[]
+      )
     })
 
     mapInstanceRef.current = map
@@ -210,7 +242,10 @@ export default function Step4RoofAreas() {
     setIsLoadingMap(false)
 
     if (buildingRef.current) {
-      const center = fromLonLat([buildingRef.current.center.lng, buildingRef.current.center.lat])
+      const center = fromLonLat([
+        buildingRef.current.center.lng,
+        buildingRef.current.center.lat,
+      ])
       map.getView().animate({ center, zoom: 19, duration: 500 })
       redrawAllSegments()
     }
@@ -303,46 +338,55 @@ export default function Step4RoofAreas() {
   const canProceed = selectedSegmentIds.length > 0
 
   return (
-    <div className='h-full overflow-y-auto'>
-      <div className='container mx-auto px-4 pt-8 pb-16 max-w-4xl'>
-        <div className='mb-6'>
-          <h1 className='text-2xl font-bold'>{t('title')}</h1>
-          <p className='mt-2 text-muted-foreground'>{t('helper')}</p>
+    <div className="h-full overflow-y-auto">
+      <div className="container mx-auto px-4 pt-8 pb-16 max-w-4xl">
+        <div className="mb-6">
+          <h1 className="text-2xl font-bold">{t('title')}</h1>
+          <p className="mt-2 text-muted-foreground">{t('helper')}</p>
         </div>
 
-        <div className='space-y-4'>
-          <div className='relative'>
+        <div className="space-y-4">
+          <div className="relative">
             <Input
               ref={inputRef}
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+              onChange={e => setAddress(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleSearch()}
               placeholder={t('searchPlaceholder')}
-              className='pr-10'
+              className="pr-10"
             />
             <button
-              type='button'
+              type="button"
               onClick={handleSearch}
-              className='absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground'
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground"
             >
-              {isSearching ? <Loader2 className='h-5 w-5 animate-spin' /> : <Search className='h-5 w-5' />}
+              {isSearching ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : (
+                <Search className="h-5 w-5" />
+              )}
             </button>
 
             {showResults && searchResults.length > 0 && (
-              <div className='absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-md'>
-                <div className='flex items-center justify-between border-b px-3 py-2'>
-                  <span className='text-sm text-muted-foreground'>{searchResults.length} {t('results')}</span>
-                  <button onClick={() => setShowResults(false)} className='text-muted-foreground hover:text-foreground'>
-                    <X className='h-4 w-4' />
+              <div className="absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-md">
+                <div className="flex items-center justify-between border-b px-3 py-2">
+                  <span className="text-sm text-muted-foreground">
+                    {searchResults.length} {t('results')}
+                  </span>
+                  <button
+                    onClick={() => setShowResults(false)}
+                    className="text-muted-foreground hover:text-foreground"
+                  >
+                    <X className="h-4 w-4" />
                   </button>
                 </div>
-                <ul className='max-h-60 overflow-auto py-1'>
-                  {searchResults.map((result) => (
+                <ul className="max-h-60 overflow-auto py-1">
+                  {searchResults.map(result => (
                     <li key={result.id}>
                       <button
-                        type='button'
+                        type="button"
                         onClick={() => handleSelectResult(result)}
-                        className='w-full px-3 py-2 text-left text-sm hover:bg-accent'
+                        className="w-full px-3 py-2 text-left text-sm hover:bg-accent"
                       >
                         {result.attrs.label}
                       </button>
@@ -360,45 +404,51 @@ export default function Step4RoofAreas() {
               isLoadingMap && 'flex items-center justify-center'
             )}
           >
-            {isLoadingMap && <Loader2 className='h-8 w-8 animate-spin text-muted-foreground' />}
+            {isLoadingMap && (
+              <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+            )}
           </div>
 
           {isFetchingBuilding && (
-            <div className='flex items-center gap-2 text-sm text-muted-foreground'>
-              <Loader2 className='h-4 w-4 animate-spin' />
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Loader2 className="h-4 w-4 animate-spin" />
               {t('loading')}
             </div>
           )}
 
-          <div className='flex items-center justify-between rounded-lg border p-4'>
+          <div className="flex items-center justify-between rounded-lg border p-4">
             <div>
-              <p className='text-sm text-muted-foreground'>{t('suitability')}</p>
-              <div className='mt-1 flex gap-1'>
-                {[1, 2, 3, 4, 5].map((cls) => (
+              <p className="text-sm text-muted-foreground">
+                {t('suitability')}
+              </p>
+              <div className="mt-1 flex gap-1">
+                {[1, 2, 3, 4, 5].map(cls => (
                   <div
                     key={cls}
-                    className='h-2 w-8 rounded'
+                    className="h-2 w-8 rounded"
                     style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
                   />
                 ))}
               </div>
-              <div className='mt-1 flex justify-between text-xs text-muted-foreground'>
+              <div className="mt-1 flex justify-between text-xs text-muted-foreground">
                 <span>{t('veryGood')}</span>
                 <span>{t('moderate')}</span>
               </div>
             </div>
-            <div className='text-right'>
-              <p className='text-sm text-muted-foreground'>{t('selected')}</p>
-              <p className='text-2xl font-bold'>{Math.round(selectedArea)} m²</p>
+            <div className="text-right">
+              <p className="text-sm text-muted-foreground">{t('selected')}</p>
+              <p className="text-2xl font-bold">
+                {Math.round(selectedArea)} m²
+              </p>
             </div>
           </div>
         </div>
 
-        <div className='mt-8 flex gap-4'>
-          <Button variant='outline' onClick={prevStep}>
+        <div className="mt-8 flex gap-4 justify-end">
+          <Button variant="outline" onClick={prevStep}>
             {tNav('back')}
           </Button>
-          <Button className='flex-1' onClick={nextStep} disabled={!canProceed}>
+          <Button className="w-fit" onClick={nextStep} disabled={!canProceed}>
             {tNav('next')}
           </Button>
         </div>

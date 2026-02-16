@@ -10,7 +10,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { useSolarAboCalculatorStore, type Salutation } from '@/stores/solar-abo-calculator.store'
 
 export default function Step6ContactDetails() {
-  const t = useTranslations('solarAboCalculator.step6')
+  const t = useTranslations('solarAboCalculator.step7')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const { contact, setContact, prevStep } = useSolarAboCalculatorStore()
 
@@ -115,11 +115,11 @@ export default function Step6ContactDetails() {
           </div>
         </div>
 
-        <div className='mt-8 flex gap-4'>
+        <div className='mt-8 flex gap-4 justify-end'>
           <Button variant='outline' onClick={prevStep}>
             {tNav('back')}
           </Button>
-          <Button className='flex-1' onClick={handleSubmit} disabled={!isValid}>
+          <Button className='w-fit' onClick={handleSubmit} disabled={!isValid}>
             {t('submit')}
           </Button>
         </div>

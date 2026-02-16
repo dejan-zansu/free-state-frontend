@@ -70,7 +70,7 @@ const Hero = async ({
 
               <LinkButton
                 variant="outline-secondary"
-                href="/calculator"
+                href={isCommercial ? '/calculator' : '/solar-abo-calculator'}
                 className="w-full sm:w-auto"
               >
                 {t('hero.cta.secondary')}

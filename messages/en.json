@@ -2320,14 +2320,27 @@
   },
   "solarAboCalculator": {
     "progress": {
-      "step1": "Building",
-      "step2": "Household",
-      "step3": "Devices",
-      "step4": "Roof",
-      "step5": "Covering",
-      "step6": "Contact"
+      "step1": "Package",
+      "step2": "Building",
+      "step3": "Household",
+      "step4": "Devices",
+      "step5": "Roof",
+      "step6": "Covering",
+      "step7": "Contact"
     },
     "step1": {
+      "title": "Choose your SolarAbo package",
+      "helper": "Select the package that best fits your property type.",
+      "options": {
+        "home": "SolarAbo Home",
+        "homeDesc": "For single-family homes without battery storage",
+        "multi": "SolarAbo Multi",
+        "multiDesc": "For apartment buildings and shared energy communities (ZEV / LEG)"
+      },
+      "learnMore": "Learn more about",
+      "or": "or"
+    },
+    "step2": {
       "title": "What is the type of building?",
       "helper": "Select your building type:",
       "options": {
@@ -2337,7 +2350,7 @@
         "office": "Office building"
       }
     },
-    "step2": {
+    "step3": {
       "title": "How many people live in your household?",
       "helper": "State the number of people including children:",
       "options": {
@@ -2348,7 +2361,7 @@
         "5": "5 and more people"
       }
     },
-    "step3": {
+    "step4": {
       "title": "Do you own high-power devices?",
       "helper": "This allows us to better estimate your electricity needs and, consequently, the optimal size of your solar system. Please select the existing consumers. Also indicate devices you intend to install in the future.",
       "devices": {
@@ -2359,7 +2372,7 @@
         "swimmingPoolSauna": "Swimming pool and/or sauna"
       }
     },
-    "step4": {
+    "step5": {
       "title": "Which roof areas would you like to use for your energy project?",
       "helper": "Click on all roof areas to be considered for your offer.",
       "searchPlaceholder": "Enter your address...",
@@ -2370,7 +2383,7 @@
       "selected": "Selected",
       "loading": "Loading building data..."
     },
-    "step5": {
+    "step6": {
       "title": "How is your roof covered?",
       "helper": "Select the type of roof covering you have. We use this to calculate the costs for assembly and fastening.",
       "options": {
@@ -2379,7 +2392,7 @@
         "other": "Other"
       }
     },
-    "step6": {
+    "step7": {
       "title": "Your contact details for the detailed offer",
       "helper": "We would be happy to issue the offer to you personally. We still need your contact details for this.",
       "salutation": {
@@ -2437,6 +2450,122 @@
         "lowInvestment": "Low investment costs: Compared to other solar systems, installation on a carport is more cost-effective.",
         "easyAccess": "Easy access: Maintenance and cleaning of the solar modules are easily accessible."
       }
+    }
+  },
+  "solarCalculator": {
+    "hero": {
+      "title": "calculate\nfor free",
+      "description": "Discover in 4 steps your roof's energy output, payback time, and available subsidies."
+    },
+    "howItWorks": {
+      "title": "From consultation to installation",
+      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
+      "steps": {
+        "step1": {
+          "number": "01",
+          "title": "Free & no obligation"
+        },
+        "step2": {
+          "number": "02",
+          "title": "Optimized throughout Switzerland for the most cost-effective result"
+        },
+        "step3": {
+          "number": "03",
+          "title": "Precise forecast of electricity production and amortization"
+        },
+        "step4": {
+          "number": "04",
+          "title": "Suitable for all buildings"
+        }
+      }
+    },
+    "whatYouReceive": {
+      "eyebrow": "Service",
+      "title": "What you will receive",
+      "description": "Our non-binding indicative offer includes the most important information about:",
+      "items": {
+        "costs": "Costs & returns",
+        "funding": "Funding opportunities",
+        "savings": "Savings potential",
+        "tariffs": "Best tariffs"
+      },
+      "cta": "Discover your solar potential",
+      "ctaLink": "/solar-abo-calculator"
+    },
+    "whyFreeState": {
+      "title": "Why FreeState?",
+      "cards": {
+        "experience": {
+          "title": "Experience",
+          "subtitle": "15,000+ installed systems"
+        },
+        "localPresence": {
+          "title": "Local presence",
+          "subtitle": "Service teams across Switzerland"
+        },
+        "comprehensiveService": {
+          "title": "Comprehensive service",
+          "subtitle": "Consultation, financing, installation & maintenance"
+        },
+        "exclusiveTariffs": {
+          "title": "Exclusive tariffs",
+          "subtitle": "Electricity revenue thanks to Helion ONE exclusive tariffs"
+        }
+      }
+    },
+    "solarAbo": {
+      "eyebrow": "SolarAbo",
+      "title": "Up to 60% lower energy costs",
+      "description": "SolarAbo connects your solar system, storage, heat pump, and EV, using AI to maximize self-consumption and sell surplus power at the best rate."
+    },
+    "cards": {
+      "investment": {
+        "title": "Your investment",
+        "subtitle": "0 CHF – we handle everything"
+      },
+      "control": {
+        "title": "Fully automated control",
+        "subtitle": "AI-optimized energy management"
+      },
+      "yield": {
+        "title": "Maximum yield",
+        "subtitle": "Best tariffs for surplus power"
+      },
+      "monitoring": {
+        "title": "Live monitoring",
+        "subtitle": "Real-time energy data via app"
+      }
+    },
+    "faq": {
+      "title": "FAQ about the solar calculator",
+      "items": {
+        "howItWorks": {
+          "question": "How does the solar calculator work?",
+          "answer": "It analyzes location, roof orientation, area and slope and gives you a realistic assessment of electricity production, self-consumption and amortization."
+        },
+        "isFree": {
+          "question": "Is the solar calculator free?",
+          "answer": "Yes, our solar calculator is completely free to use. You receive a non-binding indicative offer with no registration required."
+        },
+        "howQuickly": {
+          "question": "How quickly will I receive a quote?",
+          "answer": "You will receive your personalized indicative offer within minutes of completing the 4-step process in the solar calculator."
+        },
+        "funding": {
+          "question": "Which funding options are considered?",
+          "answer": "Our calculator takes into account all relevant federal and cantonal subsidies, including the one-time payment for solar systems and additional cantonal funding programs."
+        },
+        "roofSuitable": {
+          "question": "Is my roof suitable?",
+          "answer": "Most roofs in Switzerland are suitable for solar systems. Our calculator analyzes your specific roof orientation, slope, and area to determine the optimal setup for your building."
+        }
+      }
+    },
+    "bottomCta": {
+      "eyebrow": "Solar Calculator",
+      "title": "Get started now!\nUse the solar calculator to get a quote.",
+      "cta": "Start the Solar Calculator",
+      "ctaLink": "/solar-abo-calculator"
     }
   }
 }
