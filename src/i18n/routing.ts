@@ -283,6 +283,34 @@ export const routing = defineRouting({
       en: '/charging-stations',
       de: '/ladestationen',
     },
+    '/cost': {
+      en: '/cost',
+      de: '/kosten',
+    },
+    '/amortization': {
+      en: '/amortization',
+      de: '/amortisation',
+    },
+    '/solar-calculator': {
+      en: '/solar-calculator',
+      de: '/solarrechner',
+    },
+    '/solar-system-carport': {
+      en: '/solar-system-carport',
+      de: '/solaranlage-carport',
+    },
+    '/service': {
+      en: '/service',
+      de: '/service',
+    },
+    '/energy-storage': {
+      en: '/energy-storage',
+      de: '/stromspeicher',
+    },
+    '/repowering': {
+      en: '/repowering',
+      de: '/repowering',
+    },
     '/energy-management': {
       en: '/energy-management',
       de: '/energiemanagement',

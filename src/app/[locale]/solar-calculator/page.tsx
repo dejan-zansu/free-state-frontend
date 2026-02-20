@@ -3,7 +3,7 @@ import { LinkButton } from '@/components/ui/link-button'
 import HowItWorksSection from '@/components/solar-calculator/HowItWorksSection'
 import WhatYouReceiveSection from '@/components/solar-calculator/WhatYouReceiveSection'
 import WhyFreeStateSection from '@/components/solar-calculator/WhyFreeStateSection'
-import SolarAboSection from '@/components/solar-calculator/SolarAboSection'
+import SolarAboShowcaseSection from '@/components/solar-calculator/SolarAboShowcaseSection'
 import SolarAboCardsSection from '@/components/solar-calculator/SolarAboCardsSection'
 import FAQSection from '@/components/solar-calculator/FAQSection'
 import BottomCTASection from '@/components/solar-calculator/BottomCTASection'
@@ -16,7 +16,7 @@ const SolarCalculatorPage = async () => {
     <main>
       <div className="bg-[#EAEDDF]">
         <PageHero
-          backgroundImage="/images/solar-calculator-hero-bg.png"
+          backgroundImage="/images/calculator-hero-bg.png"
           title={t('hero.title')}
           description={t('hero.description')}
         >
@@ -31,7 +31,7 @@ const SolarCalculatorPage = async () => {
       <HowItWorksSection />
       <WhatYouReceiveSection />
       <WhyFreeStateSection />
-      <SolarAboSection />
+      <SolarAboShowcaseSection />
       <SolarAboCardsSection />
       <FAQSection />
       <BottomCTASection />

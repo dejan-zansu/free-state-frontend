@@ -97,7 +97,15 @@
         "solarAboMulti": "SolarAbo Multi",
         "solarAboBusiness": "SolarAbo Business",
         "solarAboAgro": "SolarAbo Agro",
-        "solarAboPublic": "SolarAbo Public Facilities"
+        "solarAboPublic": "SolarAbo Public Facilities",
+        "howItWorks": "Funktionsweise",
+        "cost": "Kosten",
+        "amortization": "Amortisation",
+        "carportSolarSystem": "Carport-Solaranlage",
+        "solarCalculator": "Solarrechner",
+        "service": "Service",
+        "energyStorage": "Stromspeicher",
+        "repowering": "Repowering"
       }
     },
     "stats": {
@@ -2467,6 +2475,86 @@
         "lowInvestment": "Geringe Investitionskosten: Im Vergleich zu anderen Solaranlagen ist die Installation auf einem Carport kostengünstiger.",
         "easyAccess": "Einfacher Zugang: Wartung und Reinigung der Solarmodule sind leicht zugänglich."
       }
+    },
+    "technicalDetails": {
+      "eyebrow": "Technische Details:",
+      "title": "Solaranlagen für Einzel-\nund Doppelcarports",
+      "from": "ab",
+      "footnote": "*Durchschnittlicher Energieverbrauch ca. 18 kWh/100km",
+      "singleCarport": {
+        "title": "Einzelcarport",
+        "panels": "6 Solarmodule",
+        "output": "Gesamtleistung: 2,7 kWp",
+        "annualProduction": "Jährliche Solarstromproduktion: ca. 2.539 kWh",
+        "drivingRange": "Mit dieser Energiemenge können Sie Ihr Elektroauto ca. 14.100 Kilometer* fahren.",
+        "price": "CHF 15.000"
+      },
+      "doubleCarport": {
+        "title": "Doppelcarport",
+        "panels": "12 Solarmodule",
+        "output": "Gesamtleistung: 5,5 kWp",
+        "annualProduction": "Jährliche Solarstromproduktion: ca. 5.078 kWh",
+        "drivingRange": "Das reicht für eine Fahrleistung von rund 28.200 Kilometern* pro Jahr mit Ihrem Elektroauto.",
+        "price": "CHF 18.000"
+      }
+    },
+    "whySolarCarport": {
+      "eyebrow": "Installation",
+      "title": "Warum Solarpanels auf Ihrem Carport installieren?",
+      "description": "Eine Solaranlage auf Ihrem Carport ermöglicht die Nutzung nachhaltiger Energie und schützt gleichzeitig Ihr Fahrzeug. Sie reduziert die Abhängigkeit von steigenden Strompreisen und unterstützt den Klimaschutz. Mit massgeschneiderten Carports von Uninorm erhalten Sie maximale Energieeffizienz ohne Abstriche beim Design."
+    },
+    "evCharging": {
+      "eyebrow": "Laden",
+      "title": "E-Auto laden direkt am Solar-Carport.",
+      "description": "Helion bietet auch eine passende Ladestation für Ihr Elektroauto an, die direkt in Ihre Solaranlage integriert werden kann. So nutzen Sie den vom Carport produzierten Strom effizient für Ihre Fahrten.",
+      "advantagesTitle": "Vorteile einer integrierten Ladestation",
+      "advantages": {
+        "freeRefueling": "Kostenloses Tanken mit Solarstrom",
+        "co2Neutral": "CO\u2082-neutrales Fahren und sicher",
+        "convenientCharging": "Bequemes Laden zu Hause"
+      }
+    },
+    "howItWorks": {
+      "title": "Von der Beratung bis zur Installation",
+      "subtitle": "Einfach, transparent und sorgenfrei \u2013 wie ein Mobilfunkabo.",
+      "steps": {
+        "step1": "Carport\nausw\u00e4hlen",
+        "step2": "Preis\nberechnen",
+        "step3": "Telefon-\ngespr\u00e4ch",
+        "step4": "Vor-Ort-\nBeratung",
+        "step5": "Installation"
+      }
+    },
+    "faq": {
+      "title": "FAQ zu Solaranlagen auf Carports",
+      "items": {
+        "installationTime": {
+          "question": "Wie lange dauert die Installation einer Solaranlage auf meinem Carport?",
+          "answer": "Die Installation dauert in der Regel 1\u20132 Tage, je nach den \u00f6rtlichen Gegebenheiten."
+        },
+        "subsidies": {
+          "question": "Gibt es spezielle F\u00f6rderungen f\u00fcr Solar-Carports?",
+          "answer": "Ja, in der Schweiz gibt es verschiedene F\u00f6rderprogramme f\u00fcr Solaranlagen, auch auf Carports. Dazu geh\u00f6ren die Einmalverg\u00fctung von Pronovo sowie m\u00f6gliche kantonale F\u00f6rderungen. Wir beraten Sie gerne zu den verf\u00fcgbaren M\u00f6glichkeiten."
+        },
+        "electricityProduction": {
+          "question": "Wie viel Strom produziert ein Solarpanel auf einem Carport?",
+          "answer": "Die Stromproduktion h\u00e4ngt von der Gr\u00f6sse Ihres Carports und der Anzahl der Solarmodule ab. Ein Einzelcarport mit 6 Modulen produziert ca. 2.539 kWh pro Jahr, w\u00e4hrend ein Doppelcarport mit 12 Modulen ca. 5.078 kWh pro Jahr erzeugt."
+        },
+        "evCharging": {
+          "question": "Kann ich den erzeugten Solarstrom zum Laden meines Elektroautos nutzen?",
+          "answer": "Auf jeden Fall! Mit einer integrierten Ladestation k\u00f6nnen Sie den auf Ihrem Carport erzeugten Solarstrom direkt zum Laden Ihres Elektroautos nutzen. So fahren Sie CO\u2082-neutral und sparen Treibstoffkosten."
+        },
+        "energyStorage": {
+          "question": "Kann ich die erzeugte Energie speichern?",
+          "answer": "Ja, mit einem Batteriespeicher k\u00f6nnen Sie \u00fcbersch\u00fcssige Solarenergie speichern und sp\u00e4ter nutzen, beispielsweise am Abend oder an bew\u00f6lkten Tagen. Wir bieten passende Speicherl\u00f6sungen an, die sich nahtlos in Ihren Solar-Carport integrieren lassen."
+        }
+      }
+    },
+    "testimonial": {
+      "title": "Das sagen unsere\nKunden",
+      "quote": "Projektplanung und Ausf\u00fchrung verliefen reibungslos und professionell. Das Team war freundlich, kompetent, w\u00e4hrend des gesamten Prozesses transparent und hat alle Anliegen effizient bearbeitet.",
+      "authorName": "Franz McLaren",
+      "verifiedOwner": "Verifizierter Besitzer"
     }
   },
   "solarCalculator": {
@@ -2583,6 +2671,324 @@
       "title": "Jetzt starten!\nNutzen Sie den Solarrechner für ein Angebot.",
       "cta": "Solarrechner starten",
       "ctaLink": "/solar-abo-calculator"
+    }
+  },
+  "energyStorage": {
+    "hero": {
+      "title": "Energiespeicher"
+    },
+    "whatIs": {
+      "eyebrow": "Speicher",
+      "title": "Was ist ein Energiespeicher?",
+      "description": "Ein Batteriespeicher ist die ideale Ergänzung zu einer Solaranlage, denn Haushalte benötigen nicht so viel Solarstrom, wie sie produzieren. Der Energiespeicher speichert die überschüssige Energie, die die Photovoltaikanlage tagsüber erzeugt. Dank des Batteriespeichers steht Solarstrom auch abends, nachts und morgens zur Verfügung."
+    },
+    "benefits": {
+      "title": "Der Solaranlagen-Selbstcheck",
+      "items": {
+        "independentPower": "Sie profitieren von einer unabhängigen Stromversorgung",
+        "risingPrices": "Weniger abhängig von steigenden Strompreisen.",
+        "emissionFree": "Sie verbrauchen 100 % emissionsfreien Strom.",
+        "dayAndNight": "Sie können Ihre Solarenergie Tag und Nacht nutzen."
+      }
+    },
+    "comparison": {
+      "title": "FreeState Speichersystem-Vergleich",
+      "columns": {
+        "huawei": "Huawei",
+        "sun": "Sun",
+        "e3dc": "E3DC"
+      },
+      "manufacturer": {
+        "label": "Hersteller"
+      },
+      "inverter": {
+        "label": "Wechselrichter",
+        "huawei": "Nur mit dem angegebenen Wechselrichter nutzbar (DC-System)\n\nKTL-M1",
+        "sun": "Kompatibel mit jedem Wechselrichter (AC-System)",
+        "e3dc": "All in One"
+      },
+      "storageCapacity": {
+        "label": "Speicherkapazität"
+      },
+      "capacity": {
+        "huawei": "5–90 kWh",
+        "sun": "11–55 kWh",
+        "e3dc": "4 – 84 kWh"
+      },
+      "emergencyPower": {
+        "label": "Notstrom",
+        "huawei": "2 Beleuchtungsgruppen\n(z.B. Kühlschrank\n& Wohnzimmerbeleuchtung)",
+        "sun": "Ganzes Haus ohne\nWärmepumpe",
+        "e3dc": "Ganzes Haus\nmit Wärmepumpe"
+      },
+      "islandOperation": {
+        "label": "Inselbetrieb",
+        "huawei": "Ja, eingeschränkt",
+        "sun": "In Prüfung",
+        "e3dc": "Ja"
+      },
+      "costs": {
+        "label": "Kosten/Richtpreise:",
+        "huawei": "14 kWh:\nAb CHF 12'000.–\n21 kWh:\nAb CHF 17'000.–",
+        "sun": "11 kWh:\nAb CHF 13'000.–\n22 kWh:\nAb CHF 17'000.–",
+        "e3dc": "14 kWh:\nAb CHF 21'000.–\n18 kWh:\nAb CHF 24'000.–\n21 kWh:\nAb CHF 25'000.–"
+      },
+      "footnotes": {
+        "note1": "montiert, exkl. MwSt.",
+        "note2": "Preise ohne Wechselrichter, Notstrom oder Inselbetrieb (ausser E3DC)"
+      },
+      "smartEnergy": {
+        "label": "SmartEnergy, Helion ONE\nMontiert, exkl. MwSt.",
+        "note1": "Ab CHF 1'500 (nur Datenlogger, ohne Verbrauchsmessung)",
+        "note2": "Ab CHF 3'900.–, mit Boilersteuerung 50% und 100%"
+      },
+      "cta": "Jetzt Offerte erhalten",
+      "ctaLink": "/kontakt"
+    },
+    "howItWorks": {
+      "eyebrow": "Speicher",
+      "title": "Wie funktioniert ein\nEnergiespeicher?",
+      "description": "Solarenergie kann direkt genutzt, in einer Batterie gespeichert oder ins Netz eingespeist werden. Überschüssiger Strom lädt die Batterie, die das Haus von abends bis morgens versorgt; Netzstrom wird nur genutzt, wenn die Batterie leer ist.\n\nOptimale Leistung hängt von der richtigen System- und Batteriegrösse ab, idealerweise kombiniert mit intelligenter Energiesteuerung."
+    },
+    "perfectCombination": {
+      "eyebrow": "Photovoltaikanlage und Stromspeicher",
+      "title": "Die perfekte Kombination",
+      "description": "Konfigurieren Sie Ihre eigene Solaranlage in wenigen Minuten mit unserem Solarrechner und erhalten Sie sofort ein konkretes Angebot:",
+      "ctaText": "Jetzt kostenloses, unverbindliches Angebot erhalten!",
+      "ctaLink": "/solar-calculator"
+    },
+    "whenMakesSense": {
+      "title": "Wann ist ein Batteriespeicher sinnvoll?",
+      "description": "Solarmodule produzieren mittags am meisten Strom, wenn der Haushaltsverbrauch in der Regel gering ist.\n\nOhne Speicher wird überschüssige Energie zu niedrigen Vergütungssätzen ins Netz eingespeist. Die Maximierung des Eigenverbrauchs steigert die Rentabilität und senkt die Stromkosten.",
+      "infoCard": "Mit einer geeigneten Speicherlösung kann der Eigenverbrauch von 30–35 % auf rund 70 % gesteigert werden"
+    },
+    "installation": {
+      "eyebrow": "Speicher",
+      "title": "Installation des Batteriespeichers",
+      "description": "Basierend auf Ihrer spezifischen Situation und Ihren Bedürfnissen empfehlen unsere Experten entweder das AC- oder DC-System. Die Installation wird von unseren erfahrenen Spezialisten durchgeführt, die alle vom Hersteller zertifiziert sind. Helion registriert jede installierte Batterie automatisch bei Inobat und gewährleistet so die fachgerechte Entsorgung Ihres alternden Energiespeichers"
+    },
+    "solutions": {
+      "eyebrow": "PV-Anlage",
+      "title": "Unsere Speicherlösungen",
+      "description": "Wir arbeiten mit führenden Herstellern zusammen, um Ihnen zuverlässige, leistungsstarke Energiespeichersysteme anzubieten, die auf Ihre Bedürfnisse zugeschnitten sind.",
+      "warrantyLabel": "Garantie",
+      "optionsLabel": "Optionen",
+      "cta": "Jetzt Offerte erhalten",
+      "ctaLink": "/kontakt",
+      "products": {
+        "e3dc": {
+          "name": "E3DC",
+          "featuresLabel": "Hauptmerkmale",
+          "features": "Notstromversorgung für das ganze Haus|Integrierter Wechselrichter (bis 15 kWp)|Erweiterbare Kapazität (18–21 kWh)|Intelligentes Energiemanagement|Fernsteuerung & Smart-Home-Integration|Solaroptimiertes E-Auto-Laden",
+          "warranty": "10 Jahre Herstellergarantie|Kostenloser Service",
+          "options": "Wallbox-Ladestation|Bidirektionale Ladeschnittstelle|Modbus / KNX Konnektivität|Loxone-Integration"
+        },
+        "sonnen": {
+          "name": "sonnenBatterie",
+          "featuresLabel": "Hauptmerkmale",
+          "features": "Lithium-Eisenphosphat-Technologie|Intelligente Software für höheren Eigenverbrauch|App-basiertes Monitoring & Analysen|Kapazität: 11–55 kWh|Jederzeit erweiterbar",
+          "warranty": "10 Jahre Systemgarantie (80 % Kapazität)",
+          "options": "Notstrom (Sonnen Protect 8000)"
+        },
+        "byd": {
+          "name": "BYD",
+          "featuresLabel": "Hauptmerkmale",
+          "features": "Platzsparendes Design|Modular & erweiterbar|Kompatibel mit Kostal & SolarEdge|20 Jahre Batterie-Expertise",
+          "warranty": "10 Jahre auf BYD-Batterie|5–12 Jahre auf Wechselrichter (je nach Marke)"
+        },
+        "huawei": {
+          "name": "HUAWEI LUNA",
+          "featuresLabel": "Highlights",
+          "features": "Modular & erweiterbar|Kompatibel mit Huawei-Wechselrichtern (1- & 3-phasig)|Intelligente App-Integration|100 % Entladetiefe",
+          "warranty": "10 Jahre Garantie (80 % nutzbare Energie)"
+        }
+      }
+    }
+  },
+  "service": {
+    "hero": {
+      "title": "Wartung, Überwachung und Service"
+    },
+    "solarSeason": {
+      "eyebrow": "Service",
+      "title": "Starten Sie die Solarsaison richtig",
+      "description": "Etwa 80 % der jährlichen Solarenergie werden zwischen März und Oktober erzeugt – die produktivste Zeit für Solarmodule. Ein Systemcheck zu Saisonbeginn ist empfehlenswert, da der Winter Schäden verursacht haben kann. Während offensichtliche Probleme selbst erkannt werden können, hilft eine professionelle Inspektion, versteckte Schäden, Leistungsverluste oder Verschmutzungen durch Vögel, Laub oder Staub aufzudecken."
+    },
+    "highestLevel": {
+      "eyebrow": "Service",
+      "title": "Service auf höchstem Niveau",
+      "description": "Wir bieten unseren Solarmodul- und Batteriespeicher-Service in der gesamten Schweiz an. Unsere erfahrenen Servicetechniker sind regional aufgestellt und können daher schnell vor Ort sein. Kleinere Störungen oder Schäden können wir sogar innerhalb weniger Werktage beheben.\n\nUnsere Leistungen gelten sowohl für von uns errichtete Photovoltaikanlagen und Batteriespeichersysteme als auch für von Dritten installierte Anlagen."
+    },
+    "selfCheck": {
+      "title": "Der Solaranlagen-Selbstcheck",
+      "description": "Sie können einen ersten Check selbst durchführen. Für eine gründliche Untersuchung empfehlen wir Ihnen, einen unserer Spezialisten hinzuzuziehen.",
+      "yieldMonitoring": "Ertragsüberwachung:",
+      "items": {
+        "yield": "Überprüfen Sie den Ertrag Ihrer Solaranlage über die App oder das Webinterface und vergleichen Sie ihn mit den Daten des Vorjahres. Wenn Sie ungewöhnliche Veränderungen feststellen, kontaktieren Sie uns, damit wir nachforschen können.",
+        "panels": "Wenn es sicher möglich ist, überprüfen Sie die Module auf Wetterschäden oder starke Verschmutzung. Regelmässige Wartung hilft, Probleme frühzeitig zu erkennen und grössere Schäden zu vermeiden."
+      }
+    },
+    "pricing": {
+      "title": "Einmaliger Investitions-Check ab CHF 510.-",
+      "expanded": {
+        "label": "Ohne Wartungsvertrag",
+        "description": "Für den Systemcheck ist kein Wartungsvertrag erforderlich. Dieses Angebot gilt für Photovoltaikanlagen bis 19,99 kWp."
+      },
+      "items": {
+        "inspection": "Sichtprüfung der Oberfläche",
+        "measurements": "Messungen",
+        "repairs": "Reparaturen"
+      }
+    },
+    "maintenance": {
+      "eyebrow": "Service",
+      "title": "Unsere Wartungsleistungen",
+      "description": "FreeState bietet Wartungsverträge mit unterschiedlichem Leistungsumfang an: Überwachung, Inspektion und Inspektion mit vollständigem Systemcheck. Die enthaltenen Leistungen variieren je nach Paket.\n\nWir warten sowohl FreeState- als auch Drittanbieter-Solaranlagen. Batteriespeichersysteme werden vollständig unterstützt."
+    },
+    "monitoring": {
+      "title": "Wartungsvertrag Überwachung",
+      "items": {
+        "notification": "Sofortige Benachrichtigung: Sie erhalten umgehend Fehlermeldungen mit klaren Empfehlungen für die nächsten Schritte.",
+        "visualization": "Visualisierung: Leistung, Eigenverbrauch und Status Ihrer Anlage werden rund um die Uhr überwacht und angezeigt.",
+        "storage": "Speicheroptimierung: Kontinuierliche Überwachung hilft, die Effizienz Ihres Energiespeichers zu maximieren.",
+        "faultSupport": "Störungs- & Fehlerunterstützung: Wir erkennen, analysieren und beheben Systemstörungen und Verbindungsprobleme schnell.",
+        "includedServices": "Enthaltene Leistungen: Garantieabgedeckte Reparaturen und GSM-Datenübertragungskosten sind in Ihrem Vertrag enthalten.",
+        "dataSecurity": "Datensicherheit: Überwachungsprotokolle liefern dokumentierte Nachweise zur Unterstützung von Garantieansprüchen."
+      },
+      "cta": "Starten Sie jetzt Ihre Preisanfrage",
+      "ctaLink": "/contact"
+    },
+    "inquiry": {
+      "eyebrow": "Anfrage",
+      "title": "Wartung\nPreisanfrage",
+      "firstName": { "label": "Vorname", "placeholder": "Geben Sie Ihren Vornamen ein" },
+      "lastName": { "label": "Nachname", "placeholder": "Geben Sie Ihren Nachnamen ein" },
+      "email": { "label": "E-Mail", "placeholder": "Geben Sie Ihre E-Mail ein" },
+      "phone": { "label": "Telefonnummer", "placeholder": "Geben Sie Ihre Telefonnummer ein" },
+      "street": { "label": "Strasse, Hausnummer", "placeholder": "Geben Sie Ihre Strasse und Hausnummer ein" },
+      "postalCode": { "label": "Postleitzahl", "placeholder": "Geben Sie Ihre Postleitzahl ein" },
+      "location": { "label": "Ort", "placeholder": "Geben Sie Ihren Ort ein" },
+      "maintenanceServices": {
+        "label": "Welche Wartungsleistungen interessieren Sie? *",
+        "monitoring": "Wartungsvertrag Überwachung",
+        "inspection": "Wartungsvertrag, Pflege, Inspektion",
+        "systemCheck": "Wartungsvertrag, Wartung, Systemcheck",
+        "investmentCheck": "Einmaliger Investitions-Check"
+      },
+      "freeStateSystem": {
+        "label": "Haben Sie eine Photovoltaikanlage von FreeState?",
+        "yes": "Ja, von FreeState",
+        "no": "Nein, von einem anderen Unternehmen"
+      },
+      "systemOutput": { "label": "Photovoltaikanlagen-Leistung in kWp *", "placeholder": "Bitte füllen Sie dieses Pflichtfeld aus." },
+      "internetAccess": { "label": "Haben Sie zu Hause Internetzugang? *", "placeholder": "Bitte wählen" },
+      "internetOptions": { "yes": "Ja", "no": "Nein" },
+      "products": {
+        "label": "Welche Produkte verwenden Sie? *",
+        "solarAboPrivate": "SolarAbo Privat",
+        "solarAboBusiness": "SolarAbo Business",
+        "huaweiInverters": "Huawei-Wechselrichter",
+        "sonnenBattery": "Sonnen Batteriespeicher",
+        "e3dcBattery": "E3DC Batteriespeicher",
+        "vartaBattery": "VARTA Batteriespeicher",
+        "sungrowBattery": "Sungrow Batteriespeicher",
+        "huaweiBattery": "Huawei Batteriespeicher",
+        "bydBattery": "BYD Batteriespeicher",
+        "teslaBattery": "Tesla Batteriespeicher"
+      },
+      "message": { "label": "Möchten Sie uns noch etwas mitteilen?", "placeholder": "Nachricht" },
+      "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung gelesen und verstanden habe.",
+      "submit": "Absenden",
+      "success": "Ihre Anfrage wurde erfolgreich übermittelt. Wir werden uns in Kürze bei Ihnen melden.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    },
+    "hotline": {
+      "eyebrow": "Rechner",
+      "title": "Service-Hotline –\nWir sind für Sie da!",
+      "description": "Haben Sie Fragen zur Wartung oder Überwachung?\nFunktioniert Ihre Anlage nicht richtig? Rufen Sie uns an, wir sind für Sie da!",
+      "phone": "+41 52 525 33 05",
+      "email": "info@freestate.ch",
+      "cta": "Kontaktieren Sie uns",
+      "ctaLink": "/contact"
+    }
+  },
+  "repowering": {
+    "hero": {
+      "title": "Repowering",
+      "description": "Rüsten Sie Ihre Solaranlage mit Repowering auf – für höhere Effizienz, mehr Ertrag und langfristige Leistung.",
+      "cta": "Kostenloses Repowering-Angebot"
+    },
+    "repoweringCta": {
+      "title": "Solar-Repowering. Gleiche Fläche. Höherer Ertrag."
+    },
+    "customerBenefits": {
+      "title": "Die Kundenvorteile",
+      "description": "Mit FreeState erhalten Sie ein intelligentes Energiemanagement für maximale Effizienz.",
+      "existingFacility": "Bestehende Anlage\nohne Steuerung",
+      "newFacility": "Neue Anlage\nmit SolarAbo",
+      "rows": {
+        "moduleAlignment": {
+          "label": "Modulausrichtung",
+          "existing": "Nordost-Südwest",
+          "new": "Nordost-Südwest"
+        },
+        "yearOfConstruction": {
+          "label": "Baujahr",
+          "existing": "2017",
+          "new": "2025"
+        },
+        "installedPower": {
+          "label": "Installierte Leistung",
+          "existing": "18,56 kWp",
+          "new": "29,14 kWp (↑ 57%)"
+        },
+        "numberOfModules": {
+          "label": "Anzahl Module",
+          "existing": "64",
+          "new": "62"
+        },
+        "annualYield": {
+          "label": "Jahresertrag",
+          "existing": "19.043 kWh",
+          "new": "29.898 kWh (↑ 57%)"
+        },
+        "totalArea": {
+          "label": "Gesamtfläche",
+          "existing": "105 m²",
+          "new": "124 m²"
+        }
+      }
+    },
+    "services": {
+      "title": "Unsere Repowering-Dienstleistungen",
+      "cards": {
+        "photovoltaics": {
+          "title": "Photovoltaik",
+          "description": "Machen Sie Ihre Immobilie solarbetrieben."
+        },
+        "heatPump": {
+          "title": "Wärmepumpe",
+          "description": "Sie profitieren von niedrigen Heizkosten."
+        },
+        "chargingSolution": {
+          "title": "Ladelösung",
+          "description": "Steigen Sie ein in die Elektromobilität."
+        }
+      }
+    },
+    "quoteForm": {
+      "title": "Holen Sie sich hier Ihr kostenloses Repowering-Angebot.",
+      "firstName": "Vorname",
+      "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+      "lastName": "Nachname",
+      "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+      "interestedIn": "Ich interessiere mich für Repowering",
+      "optionPhotovoltaics": "Photovoltaik / Energiespeicher",
+      "optionHeatPump": "Wärmepumpe",
+      "optionChargingStation": "Ladestation",
+      "callbackLabel": "Bitte rufen Sie mich nächste Woche für eine kostenlose Erstberatung zurück.",
+      "callbackYes": "Ja gerne",
+      "submit": "Jetzt Angebot einholen"
     }
   }
 }

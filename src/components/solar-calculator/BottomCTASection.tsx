@@ -59,7 +59,7 @@ const BottomCTASection = async () => {
               </span>
             </div>
 
-            <h2 className="text-white text-4xl sm:text-5xl lg:text-[65px] font-medium leading-[103%] text-center capitalize max-w-[900px] whitespace-pre-line">
+            <h2 className="text-white text-4xl sm:text-5xl lg:text-[65px] font-medium leading-[103%] text-center capitalize max-w-[1200px] whitespace-pre-line">
               {t('title')}
             </h2>
           </div>

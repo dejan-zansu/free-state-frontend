@@ -97,7 +97,15 @@
         "solarAboMulti": "SolarAbo Multi",
         "solarAboBusiness": "SolarAbo Business",
         "solarAboAgro": "SolarAbo Agro",
-        "solarAboPublic": "SolarAbo Public Buildings"
+        "solarAboPublic": "SolarAbo Public Buildings",
+        "howItWorks": "How it works",
+        "cost": "Cost",
+        "amortization": "Amortization",
+        "carportSolarSystem": "Carport solar system",
+        "solarCalculator": "Solar calculator",
+        "service": "Service",
+        "energyStorage": "Energy storage",
+        "repowering": "Repowering"
       }
     },
     "stats": {
@@ -2450,6 +2458,86 @@
         "lowInvestment": "Low investment costs: Compared to other solar systems, installation on a carport is more cost-effective.",
         "easyAccess": "Easy access: Maintenance and cleaning of the solar modules are easily accessible."
       }
+    },
+    "technicalDetails": {
+      "eyebrow": "Technical details:",
+      "title": "Solar systems for single\nand double carports",
+      "from": "from",
+      "footnote": "*Average energy consumption approx. 18 kWh/100km",
+      "singleCarport": {
+        "title": "Single carport",
+        "panels": "6 solar panels",
+        "output": "Total output: 2.7 kWp",
+        "annualProduction": "Annual solar power production: approx. 2,539 kWh",
+        "drivingRange": "With this amount of energy, you can drive your electric car approximately 14,100 kilometers*.",
+        "price": "CHF 15,000"
+      },
+      "doubleCarport": {
+        "title": "Double carport",
+        "panels": "12 solar panels",
+        "output": "Total output: 5.5 kWp",
+        "annualProduction": "Annual solar power production: approx. 5,078 kWh",
+        "drivingRange": "That's enough for a driving range of around 28,200 kilometers* per year with your electric car.",
+        "price": "CHF 18,000"
+      }
+    },
+    "whySolarCarport": {
+      "eyebrow": "Installation",
+      "title": "Why install solar panels on your carport?",
+      "description": "A solar panel system on your carport lets you use sustainable energy while protecting your vehicle. It reduces dependence on rising electricity prices and supports climate protection. With custom-designed carports from Uninorm, you get maximum energy efficiency without sacrificing style."
+    },
+    "evCharging": {
+      "eyebrow": "Charging",
+      "title": "EV charging directly at your solar carport.",
+      "description": "Helion also offers a suitable charging station for your electric car, which can be integrated directly into your solar system. This way, you can efficiently use the electricity produced by your carport for your journeys.",
+      "advantagesTitle": "Advantages of an integrated charging station",
+      "advantages": {
+        "freeRefueling": "Free refueling with solar power",
+        "co2Neutral": "CO\u2082-neutral driving and safe",
+        "convenientCharging": "Convenient charging at home"
+      }
+    },
+    "howItWorks": {
+      "title": "From consultation to installation",
+      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
+      "steps": {
+        "step1": "Select\nCarport",
+        "step2": "Calculate\nPrice",
+        "step3": "Phone\ncall",
+        "step4": "On-site\nConsultation",
+        "step5": "Installation"
+      }
+    },
+    "faq": {
+      "title": "FAQ about solar systems on carports",
+      "items": {
+        "installationTime": {
+          "question": "How long does it take to install a solar panel system on my carport?",
+          "answer": "Installation typically takes 1-2 days, depending on local conditions."
+        },
+        "subsidies": {
+          "question": "Are there any special subsidies for solar carports?",
+          "answer": "Yes, in Switzerland there are various subsidy programs for solar installations, including on carports. These include one-time remuneration from Pronovo and possible cantonal subsidies. We will be happy to advise you on the available options."
+        },
+        "electricityProduction": {
+          "question": "How much electricity does a solar panel on a carport produce?",
+          "answer": "The electricity production depends on the size of your carport and the number of solar panels. A single carport with 6 panels produces approximately 2,539 kWh per year, while a double carport with 12 panels produces approximately 5,078 kWh per year."
+        },
+        "evCharging": {
+          "question": "Can I use the solar power I produce to charge my electric car?",
+          "answer": "Absolutely! With an integrated charging station, you can use the solar power generated on your carport directly to charge your electric car. This allows you to drive CO\u2082-neutral and save on fuel costs."
+        },
+        "energyStorage": {
+          "question": "Can I store the generated energy?",
+          "answer": "Yes, with a battery storage system, you can store excess solar energy and use it later, for example in the evening or on cloudy days. We offer suitable storage solutions that can be seamlessly integrated with your solar carport."
+        }
+      }
+    },
+    "testimonial": {
+      "title": "Here's what our\ncustomers say",
+      "quote": "Project planning and execution were smooth and professional. The team was friendly, competent, transparent throughout the process, and handled any issues efficiently.",
+      "authorName": "Franz McLaren",
+      "verifiedOwner": "verified owner"
     }
   },
   "solarCalculator": {
@@ -2566,6 +2654,324 @@
       "title": "Get started now!\nUse the solar calculator to get a quote.",
       "cta": "Start the Solar Calculator",
       "ctaLink": "/solar-abo-calculator"
+    }
+  },
+  "energyStorage": {
+    "hero": {
+      "title": "Energy storage"
+    },
+    "whatIs": {
+      "eyebrow": "Storage",
+      "title": "What is an energy storage?",
+      "description": "A battery storage system is the ideal complement to a solar power system, because households don't need as much solar power as they produce. The energy storage system stores the excess energy produced by the photovoltaic system during the day. Thanks to the battery storage, solar power is also available in the evenings, at night, and in the mornings."
+    },
+    "benefits": {
+      "title": "The solar system self-check",
+      "items": {
+        "independentPower": "You benefit from an independent power supply",
+        "risingPrices": "Less dependent on rising electricity prices.",
+        "emissionFree": "They consume 100% emission-free electricity.",
+        "dayAndNight": "You can use your solar energy day and night."
+      }
+    },
+    "comparison": {
+      "title": "FreeState storage system comparison",
+      "columns": {
+        "huawei": "Huawei",
+        "sun": "Sun",
+        "e3dc": "E3DC"
+      },
+      "manufacturer": {
+        "label": "Manufacturer"
+      },
+      "inverter": {
+        "label": "Inverter",
+        "huawei": "Only usable with the specified inverter (DC system)\n\nKTL-M1",
+        "sun": "Compatible with any inverter (AC system)",
+        "e3dc": "All in One"
+      },
+      "storageCapacity": {
+        "label": "Storage Capacity"
+      },
+      "capacity": {
+        "huawei": "5–90 kWh",
+        "sun": "11–55 kWh",
+        "e3dc": "4 – 84 kWh"
+      },
+      "emergencyPower": {
+        "label": "Emergency power",
+        "huawei": "2 lighting groups\n(e.g., refrigerator\n& living room lighting)",
+        "sun": "Entire house without\na heat pump",
+        "e3dc": "Entire house\nwith heat pump"
+      },
+      "islandOperation": {
+        "label": "Island operation",
+        "huawei": "Yes, limited",
+        "sun": "Under review",
+        "e3dc": "Yes"
+      },
+      "costs": {
+        "label": "Costs/Indicative Prices:",
+        "huawei": "14 kWh:\nFrom CHF 12,000.–\n21 kWh:\nFrom CHF 17,000.–",
+        "sun": "11 kWh:\nFrom CHF 13,000.–\n22 kWh:\nFrom CHF 17,000.–",
+        "e3dc": "14 kWh:\nFrom CHF 21,000.–\n18 kWh:\nFrom CHF 24,000.–\n21 kWh:\nFrom CHF 25,000.–"
+      },
+      "footnotes": {
+        "note1": "installed, excl. VAT",
+        "note2": "Prices exclude inverter, emergency power or off-grid operation (except E3DC)"
+      },
+      "smartEnergy": {
+        "label": "SmartEnergy, Helion ONE\nInstalled, excluding VAT.",
+        "note1": "From CHF 1,500 (Data logger only, without consumption measurement)",
+        "note2": "From CHF 3,900.–, with boiler control 50% and 100%"
+      },
+      "cta": "Get a quote now",
+      "ctaLink": "/contact"
+    },
+    "howItWorks": {
+      "eyebrow": "Storage",
+      "title": "How does an energy\nstorage system work?",
+      "description": "Solar energy can be used directly, stored in a battery, or fed into the grid. Excess power charges the battery, supplying the home from evening to morning; grid power is used only when the battery is empty.\n\nOptimal performance depends on the right system and battery size, ideally combined with intelligent energy control."
+    },
+    "perfectCombination": {
+      "eyebrow": "Photovoltaic system and electricity storage",
+      "title": "The perfect combination",
+      "description": "Configure your own solar system in minutes with our solar calculator and receive a concrete offer immediately:",
+      "ctaText": "Get a free, no-obligation quote now!",
+      "ctaLink": "/solar-calculator"
+    },
+    "whenMakesSense": {
+      "title": "When does a battery storage system make sense?",
+      "description": "Solar panels produce the most electricity at midday, when household consumption is usually low.\n\nWithout storage, excess energy is fed into the grid at low compensation rates. Maximizing self-consumption increases profitability and reduces electricity costs.",
+      "infoCard": "With a suitable storage solution, self-consumption can be increased from 30-35% to around 70%"
+    },
+    "installation": {
+      "eyebrow": "Storage",
+      "title": "Battery Storage Installation",
+      "description": "Based on your specific situation and needs, our experts will recommend either the AC or DC system. Installation is carried out by our experienced specialists, all of whom are certified by the manufacturer. Helion automatically registers each installed battery with Inobat, ensuring the proper disposal of your aging energy storage system"
+    },
+    "solutions": {
+      "eyebrow": "PV System",
+      "title": "Our Storage Solutions",
+      "description": "We work with leading manufacturers to offer you reliable, high-performance energy storage systems tailored to your needs.",
+      "warrantyLabel": "Warranty",
+      "optionsLabel": "Options",
+      "cta": "Get a quote now",
+      "ctaLink": "/contact",
+      "products": {
+        "e3dc": {
+          "name": "E3DC",
+          "featuresLabel": "Key Features",
+          "features": "Whole-home emergency power|Integrated inverter (up to 15 kWp)|Expandable capacity (18–21 kWh)|Smart energy management|Remote control & home automation integration|Solar-optimized EV charging",
+          "warranty": "10-year manufacturer warranty|Free service",
+          "options": "Wallbox charging station|Bidirectional charging interface|Modbus / KNX connectivity|Loxone integration"
+        },
+        "sonnen": {
+          "name": "sonnenBatterie",
+          "featuresLabel": "Key Features",
+          "features": "Lithium iron phosphate technology|Smart software for higher self-consumption|App-based monitoring & analytics|Capacity: 11–55 kWh|Expandable at any time",
+          "warranty": "10-year system warranty (80% capacity)",
+          "options": "Emergency power (Sonnen Protect 8000)"
+        },
+        "byd": {
+          "name": "BYD",
+          "featuresLabel": "Key Features",
+          "features": "Space-saving design|Modular & expandable|Compatible with Kostal & SolarEdge|20 years of battery expertise",
+          "warranty": "10 years on BYD battery|5–12 years on inverters (depending on brand)"
+        },
+        "huawei": {
+          "name": "HUAWEI LUNA",
+          "featuresLabel": "Highlights",
+          "features": "Modular & expandable|Compatible with Huawei inverters (1- & 3-phase)|Smart app integration|100% depth of discharge",
+          "warranty": "10-year warranty (80% usable energy)"
+        }
+      }
+    }
+  },
+  "service": {
+    "hero": {
+      "title": "Maintenance, monitoring and service"
+    },
+    "solarSeason": {
+      "eyebrow": "Service",
+      "title": "Start the Solar Season Right",
+      "description": "About 80% of yearly solar energy is generated between March and October, making it the most productive period for solar panels. A system check at the start of the season is recommended, as winter may have caused damage. While owners can spot obvious issues themselves, a professional inspection helps detect hidden damage, performance losses, or soiling from birds, leaves, or dust."
+    },
+    "highestLevel": {
+      "eyebrow": "Service",
+      "title": "Service at the highest level",
+      "description": "We offer our solar panel and battery storage service throughout Switzerland. Our experienced service technicians are regionally based and can therefore be on-site quickly. We can even resolve minor malfunctions or damage within a few working days.\n\nOur services apply both to photovoltaic systems and battery storage systems built by us and to systems installed by third parties."
+    },
+    "selfCheck": {
+      "title": "The solar system self-check",
+      "description": "You can perform an initial check yourself. For a thorough examination, we recommend that you consult one of our specialists.",
+      "yieldMonitoring": "Yield Monitoring:",
+      "items": {
+        "yield": "Check your solar system's yield via the app or web interface and compare it with last year's data. If you notice unusual changes, contact us so we can investigate.",
+        "panels": "If it's safe to do so, inspect the panels for weather damage or heavy soiling. Regular maintenance helps detect issues early and prevent more serious problems."
+      }
+    },
+    "pricing": {
+      "title": "One-time investment check from CHF 510.-",
+      "expanded": {
+        "label": "Without a maintenance contract",
+        "description": "No maintenance contract is required for the system check. This offer applies to photovoltaic systems up to 19.99 kWp."
+      },
+      "items": {
+        "inspection": "Visual inspection of the surface",
+        "measurements": "Measurements",
+        "repairs": "Repairs"
+      }
+    },
+    "maintenance": {
+      "eyebrow": "Service",
+      "title": "Our maintenance services",
+      "description": "FreeState offers maintenance contracts with different levels of coverage: monitoring, inspection, and inspection with full system check. Included services vary by package.\n\nWe service both FreeState and third-party solar systems. Battery storage systems are fully supported."
+    },
+    "monitoring": {
+      "title": "Maintenance contract monitoring",
+      "items": {
+        "notification": "Immediate notification: You receive prompt error alerts with clear recommendations for next steps.",
+        "visualization": "Visualization: Your system's performance, self-consumption, and status are monitored and displayed 24/7.",
+        "storage": "Storage optimization: Continuous monitoring helps maximize the efficiency of your energy storage.",
+        "faultSupport": "Failure & Fault Support: We detect, analyze, and quickly resolve system faults and connection issues.",
+        "includedServices": "Included services: Warranty-covered repairs and GSM data transmission costs are included in your contract.",
+        "dataSecurity": "Data security: Monitoring logs provide documented evidence to support warranty claims."
+      },
+      "cta": "Start your price inquiry now",
+      "ctaLink": "/contact"
+    },
+    "inquiry": {
+      "eyebrow": "Inquiry",
+      "title": "Maintenance\nPrice Inquiry",
+      "firstName": { "label": "First name", "placeholder": "Enter your First name" },
+      "lastName": { "label": "Last name", "placeholder": "Enter your Last name" },
+      "email": { "label": "Email", "placeholder": "Enter your email" },
+      "phone": { "label": "Telephone number", "placeholder": "Enter your telephone number" },
+      "street": { "label": "Street, house number", "placeholder": "Enter your street and house number" },
+      "postalCode": { "label": "Postal code", "placeholder": "Enter your postal code" },
+      "location": { "label": "Location", "placeholder": "Enter your location" },
+      "maintenanceServices": {
+        "label": "Which maintenance services are you interested in? *",
+        "monitoring": "Maintenance contract monitoring",
+        "inspection": "Maintenance contract, upkeep, inspection",
+        "systemCheck": "Maintenance contract, servicing, system check",
+        "investmentCheck": "One-time investment check"
+      },
+      "freeStateSystem": {
+        "label": "Do you have a photovoltaic system from FreeState?",
+        "yes": "Yes, from FreeState",
+        "no": "No, from another company"
+      },
+      "systemOutput": { "label": "Photovoltaic system output in kWp *", "placeholder": "Please fill in this required field." },
+      "internetAccess": { "label": "Do you have internet access at home? *", "placeholder": "Please select" },
+      "internetOptions": { "yes": "Yes", "no": "No" },
+      "products": {
+        "label": "Which products are you using? *",
+        "solarAboPrivate": "SolarAbo Private",
+        "solarAboBusiness": "SolarAbo Business",
+        "huaweiInverters": "Huawei inverters",
+        "sonnenBattery": "Sonnen battery storage",
+        "e3dcBattery": "E3DC Battery Storage",
+        "vartaBattery": "VARTA battery storage",
+        "sungrowBattery": "Sungrow battery storage",
+        "huaweiBattery": "Huawei battery storage",
+        "bydBattery": "BYD battery storage",
+        "teslaBattery": "Tesla battery storage"
+      },
+      "message": { "label": "Is there anything else you'd like to tell us?", "placeholder": "Message" },
+      "privacy": "I hereby confirm that I have read and understood the privacy policy.",
+      "submit": "Submit",
+      "success": "Your inquiry has been submitted successfully. We will get back to you shortly.",
+      "error": "Something went wrong. Please try again."
+    },
+    "hotline": {
+      "eyebrow": "Calculator",
+      "title": "Service Hotline -\nWe are here for you!",
+      "description": "Do you have questions about maintenance or monitoring?\nIs your system malfunctioning? Give us a call, we're here for you!",
+      "phone": "+41 52 525 33 05",
+      "email": "info@freestate.ch",
+      "cta": "Contact us",
+      "ctaLink": "/contact"
+    }
+  },
+  "repowering": {
+    "hero": {
+      "title": "Repowering",
+      "description": "Upgrade your solar system with repowering for higher efficiency, more output, and long-term performance.",
+      "cta": "Free repowering offer"
+    },
+    "repoweringCta": {
+      "title": "Solar repowering. Same area. Higher yield."
+    },
+    "customerBenefits": {
+      "title": "The Customer Benefits",
+      "description": "With FreeState, you get smart energy management for maximum efficiency.",
+      "existingFacility": "Existing facility\nwithout control",
+      "newFacility": "New facility\nwith SolarAbo",
+      "rows": {
+        "moduleAlignment": {
+          "label": "Module alignment",
+          "existing": "Northeast-Southwest",
+          "new": "Northeast-Southwest"
+        },
+        "yearOfConstruction": {
+          "label": "Year of construction",
+          "existing": "2017",
+          "new": "2025"
+        },
+        "installedPower": {
+          "label": "Installed power",
+          "existing": "18.56 kWp",
+          "new": "29.14 kWp (↑ 57%)"
+        },
+        "numberOfModules": {
+          "label": "Number of modules",
+          "existing": "64",
+          "new": "62"
+        },
+        "annualYield": {
+          "label": "Annual yield",
+          "existing": "19,043 kWh",
+          "new": "29,898 kWh (↑ 57%)"
+        },
+        "totalArea": {
+          "label": "Total area",
+          "existing": "105 m²",
+          "new": "124 m²"
+        }
+      }
+    },
+    "services": {
+      "title": "Our Repowering Services",
+      "cards": {
+        "photovoltaics": {
+          "title": "Photovoltaics",
+          "description": "Make your property solar-powered."
+        },
+        "heatPump": {
+          "title": "Heat Pump",
+          "description": "They benefit from low heating costs."
+        },
+        "chargingSolution": {
+          "title": "Charging Solution",
+          "description": "Get started with electromobility."
+        }
+      }
+    },
+    "quoteForm": {
+      "title": "Get your free repowering offer here.",
+      "firstName": "First name",
+      "firstNamePlaceholder": "Enter your First name",
+      "lastName": "Last name",
+      "lastNamePlaceholder": "Enter your Last name",
+      "interestedIn": "I am interested in repowering",
+      "optionPhotovoltaics": "Photovoltaics / Energy storage",
+      "optionHeatPump": "Heat Pump",
+      "optionChargingStation": "Charging Station",
+      "callbackLabel": "Please call me back next week for a free initial consultation.",
+      "callbackYes": "Yes gladly",
+      "submit": "Get a quote now"
     }
   }
 }
