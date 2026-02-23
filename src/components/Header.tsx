@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import LanguageSwitcher from './LanguageSwitcher'
+import MobileNavLinks from './MobileNavLinks'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
 
 const Header = () => {
@@ -164,19 +165,6 @@ const Header = () => {
               ))}
             </nav>
 
-            <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className={cn(
-                'md:hidden p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
-                showDarkHeader
-                  ? 'text-[#062E25] hover:bg-[#E6EAE9]'
-                  : 'text-white hover:bg-white/20'
-              )}
-              aria-label="Open menu"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-
             <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
               <LanguageSwitcher isScrolled={showDarkHeader} />
               <Link
@@ -199,6 +187,18 @@ const Header = () => {
               >
                 <Search className="w-5 h-5" />
               </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(true)}
+                className={cn(
+                  'md:hidden p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
+                  showDarkHeader
+                    ? 'text-[#062E25] hover:bg-[#E6EAE9]'
+                    : 'text-white hover:bg-white/20'
+                )}
+                aria-label="Open menu"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
             </div>
           </div>
         </div>
@@ -206,11 +206,11 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+        <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
           <SheetHeader>
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           </SheetHeader>
-          <nav className="flex flex-col gap-2 mt-8">
+          <nav className="flex flex-col gap-2 mt-8 px-4">
             {navItems.map((item, index) => (
               <Link
                 key={item.href}
@@ -253,6 +253,12 @@ const Header = () => {
               {tHeader('myHome')}
             </Link>
           </nav>
+          <div className="mt-4 pt-4 border-t border-[#E6EAE9] px-4">
+            <MobileNavLinks
+              isCommercial={pathname?.startsWith('/commercial')}
+              onNavigate={() => setIsMobileMenuOpen(false)}
+            />
+          </div>
         </SheetContent>
       </Sheet>
 

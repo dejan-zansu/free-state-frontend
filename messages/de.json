@@ -105,7 +105,16 @@
         "solarCalculator": "Solarrechner",
         "service": "Service",
         "energyStorage": "Stromspeicher",
-        "repowering": "Repowering"
+        "repowering": "Repowering",
+        "withSolarSystem": "Mit Solaranlage",
+        "howLargePlantsWorks": "Wie Grossanlagen funktionieren",
+        "howSolarPowerSystemWorks": "Wie eine Solaranlage funktioniert",
+        "projectDevelopment": "Projektentwicklung",
+        "solarCarport": "Solar Carport",
+        "apartmentBuilding": "Mehrfamilienhaus",
+        "fastChargingStations": "Schnellladestationen",
+        "bidirectionalCharging": "Bidirektionales Laden",
+        "chargingCompany": "Unternehmen"
       }
     },
     "stats": {
@@ -2098,6 +2107,176 @@
       "button": "Solarrechner starten"
     }
   },
+  "heatPumpsHowItWorks": {
+    "hero": {
+      "title": "So funktioniert's",
+      "subtitle": "Eine Wärmepumpe arbeitet umgekehrt und entzieht der Umgebung Wärme zum Heizen."
+    },
+    "construction": {
+      "eyebrow": "Wärmepumpe",
+      "title": "Aufbau einer Wärmepumpe",
+      "description": "Eine Wärmepumpe besteht aus einer Wärmequelle, dem Pumpengerät und einem Wärmeverteilsystem. Sie arbeitet in einem geschlossenen Kreislauf: Der Verdampfer entzieht Wärme, der Kompressor erhöht die Temperatur, der Kondensator überträgt sie an das Heizsystem und das Expansionsventil setzt den Kreislauf zurück."
+    },
+    "howItWorks": {
+      "title": "So funktioniert die\nWärmepumpe",
+      "subtitle": "Eine Wärmepumpe hat drei Komponenten: die Wärmequelle, das Pumpengerät und das Verteilsystem.",
+      "steps": {
+        "1": "Wärmequelle",
+        "2": "Wärmepumpe",
+        "3": "Wärmeverteilung"
+      }
+    },
+    "heatPumpTypes": {
+      "title": "Wärmepumpentypen",
+      "subtitle": "Je nach Energiequelle (Erde, Wasser oder Luft) sind verschiedene Wärmepumpentypen verfügbar.",
+      "steps": {
+        "1": "Erdwärmepumpe",
+        "2": "Wasser-Wasser-Wärmepumpe",
+        "3": "Luft-Wasser-Wärmepumpe"
+      }
+    },
+    "heatPumpTypesDetail": {
+      "title": "So funktionieren diese drei Wärmepumpen:",
+      "cards": {
+        "1": "Erdwärmepumpe (Geothermie): Nutzt die stabile Bodentemperatur für hocheffizientes Heizen. Erfordert Bohrungen, höhere Investitionen und eine Genehmigung der Gemeinde.",
+        "2": "Wasser-Wasser-Wärmepumpe: Nutzt Grundwasser oder Oberflächenwasser für sehr hohe Effizienz. Erfordert geeignete Wasserbedingungen und behördliche Genehmigungen.",
+        "3": "Luft-Wasser-Wärmepumpe: Entzieht der Umgebungsluft Wärme zum Heizen. Einfachere Installation und geringere Anschaffungskosten."
+      }
+    },
+    "cta": {
+      "topButton": "Wärmepumpen",
+      "heading": "Jetzt ein kostenloses, unverbindliches Angebot erhalten!",
+      "ctaText": "Solar-Rechner starten",
+      "ctaLink": "/calculator"
+    },
+    "installation": {
+      "eyebrow": "Installation",
+      "title": "Innen- oder Aussen-\naufstellung?",
+      "subtitle": "Luft-Wasser-Wärmepumpen können innen oder aussen aufgestellt werden, beide Varianten sind gleichwertig.",
+      "bullets": {
+        "1": "Innen: Gerät im Keller, mit Aussenluftansaugung und -abführung.",
+        "2": "Aussen: Kompaktes Gerät draussen überträgt Wärme nach innen.",
+        "3": "Split: Verdampfer aussen, Kondensator innen."
+      }
+    },
+    "indoor": {
+      "title": "Wärmepumpe für\nInnenaufstellung",
+      "pros": {
+        "1": "Kein Aussengerät",
+        "2": "Minimale Lärmbelästigung"
+      },
+      "cons": {
+        "1": "Platzbedarf",
+        "2": "Wandluftkanäle"
+      }
+    },
+    "outdoor": {
+      "title": "Aussen-Wärmepumpe",
+      "pros": {
+        "1": "Einfache Nachrüstung",
+        "2": "Minimaler Fassadeneingriff",
+        "3": "Wandmontiertes Gerät"
+      },
+      "cons": {
+        "1": "Sichtbares Aussengerät",
+        "2": "Lärmemissionen",
+        "3": "Externe Verrohrung"
+      }
+    },
+    "split": {
+      "title": "Split-Wärmepumpe",
+      "pros": {
+        "1": "Minimaler Innenraumbedarf"
+      },
+      "cons": {
+        "1": "Externe Kältemittelleitungen"
+      }
+    },
+    "whichHeatPump": {
+      "title": "Welche Wärmepumpe brauche ich?",
+      "description": "Luft-Wasser-Wärmepumpen sind einfach zu installieren, kostengünstig und die am häufigsten verwendeten in der Schweiz.\n\nErdwärmepumpen sind hocheffizient, erfordern aber mehr Installationsaufwand, während Wasserwärmepumpen extrem effizient sind, aber aufgrund von Vorschriften selten genehmigt werden. Die beste Option hängt von Ihrem spezifischen Grundstück ab.",
+      "stat": "Im Jahr 2016 waren fast 67 % aller in der Schweiz verkauften Wärmepumpen Luft-Wasser-Wärmepumpen."
+    },
+    "products": {
+      "eyebrow": "Produkte",
+      "title": "Wärmepumpen – Produkte und Hersteller",
+      "cta": "Mehr Informationen",
+      "items": {
+        "1": {
+          "brand": "Stiebel Eltron",
+          "description": "Luft-Wasser-Wärmepumpe (Aussenaufstellung)",
+          "link": "/contact"
+        },
+        "2": {
+          "brand": "Stiebel Eltron",
+          "description": "Luft-Wasser-Wärmepumpe (Innenaufstellung)",
+          "link": "/contact"
+        },
+        "3": {
+          "brand": "Stiebel Eltron",
+          "description": "Erdwärmepumpe (Erdsonde)",
+          "link": "/contact"
+        }
+      }
+    },
+    "comparison": {
+      "title": "Wärmepumpe versus Ölheizung",
+      "columns": {
+        "airWater": "Luft-Wasser",
+        "brineWater": "Sole-Wasser",
+        "oilHeating": "Ölheizung"
+      },
+      "rows": {
+        "installationEffort": {
+          "label": "Installationsaufwand",
+          "airWater": "mittel",
+          "brineWater": "hoch",
+          "oilHeating": "mittel"
+        },
+        "acquisitionCosts": {
+          "label": "Anschaffungskosten",
+          "airWater": "mittel",
+          "brineWater": "hoch",
+          "oilHeating": "tief"
+        },
+        "efficiency": {
+          "label": "Effizienz",
+          "airWater": "mittel",
+          "brineWater": "hoch",
+          "oilHeating": "tief"
+        },
+        "energyCosts": {
+          "label": "Energiekosten",
+          "airWater": "mittel",
+          "brineWater": "tief",
+          "oilHeating": "hoch"
+        }
+      }
+    },
+    "advantages": {
+      "eyebrow": "Vorteile",
+      "title": "Weitere Vorteile\nvon Wärmepumpen",
+      "bullets": {
+        "1": "Langfristig günstiger als Öl",
+        "2": "Günstigeres Heizen über die Zeit",
+        "3": "Verbraucht 3× weniger Energie",
+        "4": "70–80 % erneuerbare Energie",
+        "5": "Umweltfreundlicher als Öl",
+        "6": "Wartungsarm, 20 Jahre Lebensdauer"
+      }
+    },
+    "whyFreeState": {
+      "title": "Warum FreeState?",
+      "features": {
+        "1": "Alles aus einer Hand",
+        "2": "Ein 24/7-Service",
+        "3": "Produktqualität",
+        "4": "Raum- und Schalldesign",
+        "5": "Umfassende Fachkompetenz",
+        "6": "Ausfallsicherheit"
+      }
+    }
+  },
   "howItWorks": {
     "hero": {
       "title": "Wie eine Solaranlage\nfunktioniert"
@@ -2919,7 +3098,13 @@
       "cta": "Kostenloses Repowering-Angebot"
     },
     "repoweringCta": {
-      "title": "Solar-Repowering. Gleiche Fläche. Höherer Ertrag."
+      "title": "Solar-Repowering. Gleiche Fläche. Höherer Ertrag.",
+      "bullets": {
+        "1": "Veraltete Komponenten ersetzen, um den Ertrag zu steigern – ohne mehr Fläche zu benötigen.",
+        "2": "Zuverlässigkeit verbessern durch den Austausch defekter oder alternder Teile.",
+        "3": "Eigenverbrauch steigern und Kosten senken mit moderner, effizienter Technologie."
+      },
+      "cta": "Jetzt Kontakt aufnehmen"
     },
     "customerBenefits": {
       "title": "Die Kundenvorteile",
@@ -2989,6 +3174,458 @@
       "callbackLabel": "Bitte rufen Sie mich nächste Woche für eine kostenlose Erstberatung zurück.",
       "callbackYes": "Ja gerne",
       "submit": "Jetzt Angebot einholen"
+    }
+  },
+ 
+  "heatPumpsCost": {
+    "hero": {
+      "title": "Kosten einer Wärmepumpe in der Schweiz"
+    },
+    "intro": {
+      "eyebrow": "Wärmepumpe",
+      "title": "Kosten für eine Wärmepumpe",
+      "description": "Die Kosten für eine Wärmepumpe hängen davon ab, ob Sie ein altes System ersetzen oder ein neues installieren, sowie vom Installationsort. Luft-Wasser-Systeme sind günstiger und einfacher zu installieren, während Erdwärmesysteme eine höhere Anfangsinvestition erfordern, aber eine grössere Effizienz und niedrigere langfristige Betriebskosten bieten."
+    },
+    "comparison": {
+      "title": "Der Solaranlagen-Selbstcheck",
+      "headers": {
+        "purchase": "Anschaffung in CHF",
+        "maintenance": "Wartungskosten in CHF (jährlich)",
+        "energy": "Energie in CHF (jährlich)"
+      },
+      "rows": {
+        "airToWater": {
+          "label": "Luft-Wasser-Wärmepumpe",
+          "purchase": "36'500 CHF",
+          "maintenance": "150 CHF",
+          "energy": "1'210 CHF"
+        },
+        "groundSource": {
+          "label": "Sole-Wasser-Wärmepumpe",
+          "purchase": "49'500 CHF",
+          "maintenance": "100 CHF",
+          "energy": "940 CHF"
+        },
+        "oilHeating": {
+          "label": "Ölheizung",
+          "purchase": "23'000 CHF",
+          "maintenance": "780 CHF",
+          "energy": "2'640 CHF"
+        }
+      },
+      "caption": "Tabelle: Zahlen für eine durchschnittliche Installation mit 150 m² Energiebezugsfläche (z.B. Einfamilienhaus) und 22'000 kWh Energiebedarf (= 2'600 l Heizöl)",
+      "cta": "Kostenvergleich starten"
+    },
+    "funding": {
+      "eyebrow": "Wärmepumpe",
+      "title": "Förderung für Wärmepumpen",
+      "description": "Um effizienteres Heizen zu fördern, unterstützen Schweizer Kantone und Gemeinden aktiv die Einführung von Wärmepumpen-Heizsystemen. Daher stehen zahlreiche Subventionen für die Installation von Wärmepumpen zur Verfügung."
+    },
+    "support": {
+      "eyebrow": "Förderung",
+      "title": "Welche Unterstützung kann ich erwarten?",
+      "description": "Basel-Stadt subventioniert Sole-Wasser-Wärmepumpen mit bis zu CHF 25'850, während Bern bis zu CHF 6'000 bietet.",
+      "checkItem": "Prüfen Sie lokale Energiesubventionen auf Energiefranken mit Ihrer Postleitzahl.",
+      "cta": "Energiefranken"
+    },
+    "taxDeduction": {
+      "eyebrow": "Wärmepumpe",
+      "title": "Steuerabzug",
+      "description": "Die Schweizer Regierung unterstützt Wärmepumpen-Installationen mit Subventionen und Steuervorteilen. Je nach Projekttyp können Investitionen bis zu 100% steuerlich abzugsfähig sein."
+    },
+    "quoteCTA": {
+      "eyebrow": "Förderung",
+      "title": "Jetzt ein kostenloses, unverbindliches Angebot erhalten!",
+      "description": "Konfigurieren Sie die richtige Wärmepumpe in Minuten mit unserem Rechner und erhalten Sie sofort ein konkretes Angebot:",
+      "cta": "Wärmepumpen-Rechner starten"
+    },
+    "energySolutions": {
+      "title": "Unsere Energielösungen",
+      "cards": {
+        "photovoltaics": {
+          "title": "Photovoltaik",
+          "description": "Machen Sie Ihre Immobilie solarbetrieben.",
+          "link": "Solaranlagen"
+        },
+        "heatPump": {
+          "title": "Wärmepumpe",
+          "description": "Sie profitieren von niedrigen Heizkosten.",
+          "link": "Wärmepumpe"
+        },
+        "chargingSolution": {
+          "title": "Ladelösung",
+          "description": "Starten Sie mit der Elektromobilität.",
+          "link": "Ladelösungen"
+        }
+      }
+    }
+  },
+  "heatPumpsService": {
+    "hero": {
+      "title": "Service für Wärmepumpen"
+    },
+    "hotline": {
+      "eyebrow": "Wir sind für Sie da",
+      "title": "Service-Hotline - Wir und unsere Partner sind für Sie da!",
+      "cta": "Kontakt"
+    },
+    "emergency": {
+      "title": "Wärmepumpen-Notfall?",
+      "items": {
+        "coldInHouse": "Kalt im Haus, kein Warmwasser",
+        "problemWithPump": "Problem mit der Wärmepumpe",
+        "controlNotWorking": "Wärmepumpensteuerung funktioniert nicht",
+        "pumpNotWorking": "Die Wärmepumpe funktioniert nicht",
+        "tooColdOrWarm": "Zu kalt oder zu warm im Haus",
+        "strangeNoises": "Seltsame Geräusche von der Wärmepumpe"
+      }
+    },
+    "manufacturerSupport": {
+      "title": "Hersteller-Support für sofortige Hilfe kontaktieren",
+      "cards": {
+        "stiebelEltron1": {
+          "title": "Stiebel Eltron",
+          "description": "Für Notfälle, rufen Sie 0844 333 444 an",
+          "link": "Stiebel Eltron Services",
+          "href": "https://www.stiebel-eltron.ch"
+        },
+        "stiebelEltron2": {
+          "title": "Stiebel Eltron",
+          "description": "Für Notfälle, rufen Sie 0844 333 444 an",
+          "link": "Stiebel Eltron Services",
+          "href": "https://www.stiebel-eltron.ch"
+        },
+        "stiebelEltron3": {
+          "title": "Stiebel Eltron",
+          "description": "Für Notfälle, rufen Sie 0844 333 444 an",
+          "link": "Stiebel Eltron Services",
+          "href": "https://www.stiebel-eltron.ch"
+        }
+      }
+    },
+    "hydraulic": {
+      "title": "Heizungs- oder Wassernotfall?",
+      "subtitle": "Hydraulisches Problem wie:",
+      "items": {
+        "circulationPump": "Die Umwälzpumpe ist defekt.",
+        "dripping": "Es tropft, es gibt einen Ablauf.",
+        "noWaterPressure": "Kein Wasserdruck",
+        "waterOnGround": "Wasser auf dem Boden",
+        "noUnderfloor": "Keine Fussbodenheizung oder Heizkörper."
+      },
+      "footer": "Kontaktieren Sie unseren regionalen Servicepartner."
+    },
+    "servicePartner": {
+      "title": "Servicepartner",
+      "company": "TP Heiztechnik GmbH (kostenpflichtig)",
+      "contact": {
+        "phone": "+41 62 530 21 82",
+        "email": "info@tp-heiztechnik.ch",
+        "website": "www.tp-heiztechnik.ch"
+      },
+      "cta": "Kontakt"
+    }
+  },
+  "heatPumpsWithSolarSystem": {
+    "hero": {
+      "title": "Wärmepumpen mit\nSolaranlage"
+    },
+    "howHeatPumpWorks": {
+      "title": "Wie funktioniert eine\nWärmepumpe?",
+      "description": "Wärmepumpen sind hocheffiziente, schnell installierte nachhaltige Heizsysteme, die Energie aus Luft, Boden oder Wasser gewinnen – am häufigsten als Luft-Wasser-Modelle – und eine zuverlässige Alternative zu fossilen Brennstoffen bieten.",
+      "steps": {
+        "1": "Erdwärmepumpe (Erdsonde)",
+        "2": "Wasser-Wasser-Wärmepumpe",
+        "3": "Luft-Wasser-Wärmepumpe"
+      }
+    },
+    "idealCombination": {
+      "eyebrow": "Unschlagbares Duo",
+      "title": "Wärmepumpe + Photovoltaik:\ndie ideale Kombination",
+      "description": "Obwohl Wärmepumpen eine höhere Anfangsinvestition erfordern, bieten sie niedrige Betriebskosten und werden mit einer Photovoltaikanlage noch wirtschaftlicher. Selbst erzeugter Solarstrom ist deutlich günstiger als Netzstrom, und ein höherer Eigenverbrauch maximiert die Einsparungen, da die Einspeisevergütungen in der Regel niedrig sind."
+    },
+    "solarBenefits": {
+      "selfConsumption": {
+        "title": "Solaren Eigenverbrauch\nsteigern",
+        "description": "Maximieren Sie den Strom, den Sie selbst nutzen, indem Sie einen Batteriespeicher hinzufügen, damit überschüssiger Solarstrom auch dann verfügbar bleibt, wenn die Sonne nicht scheint."
+      },
+      "heatWithSolar": {
+        "title": "Heizen mit\nSolarstrom",
+        "description": "Die Kombination von Photovoltaik mit einer Wärmepumpe senkt die Heizkosten, steigert die Effizienz und erhöht die Energieunabhängigkeit."
+      }
+    },
+    "energyEfficiency": {
+      "title": "Optimieren Sie Ihre\nEnergieeffizienz",
+      "description": "Solarstrom versorgt zuerst Ihren Haushalt, die Wärmepumpe und das Elektroauto, während überschüssige Energie in einer Batterie gespeichert oder ins Netz eingespeist wird. Er kann auch Warmwasser erzeugen, wobei intelligente Steuerungen die Verteilung optimieren und die Systemleistung maximieren."
+    },
+    "costsInstallation": {
+      "title": "Kosten und Installation",
+      "description": "Sich nur auf den Kaufpreis zu konzentrieren ist kurzsichtig, da Ölheizungen aufgrund höherer Betriebskosten langfristig oft teurer sind. Wärmepumpen und Photovoltaikanlagen halten rund 20 Jahre, wobei je nach Standort Subventionen und Steuervorteile verfügbar sind.\n\nEine professionelle Installation gewährleistet optimale Leistung, ob bei der Integration einer neuen oder bestehenden Solaranlage. Mit über 7.000 abgeschlossenen Projekten bieten wir Erfahrung und massgeschneiderte Lösungen – kontaktieren Sie uns für ein individuelles Angebot.",
+      "cta": "Jetzt Wärmepumpen-Angebot anfordern"
+    }
+  },
+  "apartmentBuilding": {
+    "hero": {
+      "title": "Ladestationen für\nMehrfamilienhäuser"
+    },
+    "evChargingIntro": {
+      "eyebrow": "Wohnungseigentümer",
+      "title": "E-Laden in\nMehrfamilienhäusern installieren",
+      "description": "Wir helfen Immobilienbesitzern bei der Planung skalierbarer E-Ladelösungen.\n\nErhalten Sie eine unverbindliche Schätzung mit unserem Online-Rechner."
+    },
+    "calculatorCta": {
+      "eyebrow": "Berechnen",
+      "title": "Berechnen Sie jetzt den Preis Ihrer Ladestation.",
+      "description": "Berechnet den Preis Ihrer Ladestation anhand weniger Angaben.",
+      "cta": "Solar-Rechner starten",
+      "subtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+    },
+    "freeStateOffers": {
+      "title": "FreeState bietet Ihnen das",
+      "bullets": {
+        "owners": "Für Eigentümer und Hausverwaltungen: Wir planen, installieren und warten die Ladeinfrastruktur, mit einem volldigitalen Abrechnungssystem für die Verwaltung.",
+        "condominiums": "Für Stockwerkeigentümer: Wir installieren skalierbare Ladeinfrastruktur und Stationen nach Bedarf, mit klarer Ausbauplanung und transparenter, flexibler Abrechnung."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "preEquipped": {
+          "question": "Können Parkplätze für zukünftige Ladestationen vorgerüstet werden?",
+          "answer": "Ja, Parkplätze können mit der notwendigen elektrischen Infrastruktur vorgerüstet werden, sodass Ladestationen später ohne grössere Bauarbeiten hinzugefügt werden können."
+        },
+        "integration": {
+          "question": "Wie können zukünftige Ladestationen integriert werden?",
+          "answer": "Zukünftige Ladestationen können durch skalierbare Infrastrukturplanung integriert werden, wobei die elektrische Kapazität und Kabelführung für Erweiterungen vorbereitet werden."
+        },
+        "installation": {
+          "question": "Wer bezahlt die Installation?",
+          "answer": "Die Installationskosten werden in der Regel zwischen dem Eigentümer und den einzelnen Nutzern aufgeteilt, abhängig vom gewählten Modell und den lokalen Vorschriften."
+        },
+        "acDc": {
+          "question": "Brauche ich AC- oder DC-Ladestationen?",
+          "answer": "Für Mehrfamilienhäuser sind AC-Ladestationen in der Regel die beste Wahl, da sie kostengünstiger und für das Laden über Nacht ausreichend sind. DC-Schnelllader sind typischerweise für kommerzielle Anwendungen vorgesehen."
+        },
+        "taxBreaks": {
+          "question": "Gibt es Steuervergünstigungen für Ladeinfrastruktur?",
+          "answer": "Ja, viele Schweizer Kantone bieten Steuerabzüge und Subventionen für die Installation von E-Ladeinfrastruktur in Wohngebäuden an."
+        }
+      }
+    }
+  },
+  "howLargePlantsWorks": {
+    "hero": {
+      "title": "Wie eine Solaranlage\nfunktioniert"
+    },
+    "howItWorks": {
+      "title": "So funktioniert es",
+      "subtitle": "Wie funktionieren grosse Solaranlagen?",
+      "description": "Die Solarpanels auf dem Dach fangen Sonnenlicht mit Solarzellen ein und erzeugen Gleichstrom (DC). Der Wechselrichter wandelt diesen Gleichstrom dann in Wechselstrom (AC) um, der für Ihren elektrischen Bedarf genutzt werden kann.",
+      "graphicDescription": "Die folgende Grafik eines grossen Gewerbegebäudes erklärt, wie die Solaranlage funktioniert und zeigt die Platzierung der wichtigsten Elemente im Gebäude:",
+      "items": {
+        "solarPanels": "Solarpanels (Aufdach)",
+        "inverter": "Wechselrichter",
+        "fuseBox": "Sicherungskasten",
+        "hotWaterBoiler": "Warmwasserspeicher",
+        "batteryStorage": "Batteriespeicher",
+        "evCharging": "EV-Ladestation",
+        "heatPump": "Wärmepumpe"
+      }
+    },
+    "solarPanelWorks": {
+      "title": "Wie ein Solarpanel funktioniert",
+      "description": "Industriegebäude mit grossen Flachdächern sind ideal für Solarpanels und ermöglichen eine optimale Neigung und Ausrichtung für maximalen Ertrag.\n\nWir analysieren Ihren Jahresverbrauch und Ihre Dachfläche, um die ideale Anlagengrösse zu bestimmen und Möglichkeiten zu identifizieren, energieintensive Prozesse mit der Solarproduktion für grössere Einsparungen abzustimmen.",
+      "tip": "Das Ziel ist es, die Anlage an Ihren Verbrauch anzupassen und die Eigennutzung von Solarstrom zu maximieren, besonders während der Spitzenproduktion."
+    },
+    "inRoofOnRoof": {
+      "title": "Indach oder Aufdach",
+      "description": "Eine Photovoltaikanlage hält über 30 Jahre, daher muss das Dach in gutem Zustand sein und nicht bald ersetzt werden müssen. Wenn das Dach über 40 Jahre alt ist, wird eine Sanierung empfohlen.\n\nBeim Austausch eines Schrägdachs reduziert eine integrierte PV-Anlage die Dachkosten und bietet eine kosteneffiziente Möglichkeit, ein neues Dach mit Solarstrom zu kombinieren."
+    },
+    "storageSelfConsumption": {
+      "title": "Speicher für höheren\nEigenverbrauch",
+      "description": "Um die Einsparungen zu maximieren, erhöhen Sie den Eigenverbrauch Ihres Solarstroms. Eine Batterie speichert überschüssige Tagesenergie, damit Sie diese später nutzen können, anstatt Strom aus dem Netz zu kaufen.",
+      "cta": "Kosten"
+    },
+    "selfConsumptionControl": {
+      "title": "Eigenverbrauch mit Steuerung erhöhen",
+      "description": "Unser Smart Energy Steuerungssystem schaltet energieintensive Geräte ein, wenn Solarstrom verfügbar ist. Dies erhöht den Eigenverbrauch und reduziert so den Bedarf an externem Kohle- und/oder Atomstrom.",
+      "tip": "Speicherlösungen oder Steuerungssysteme können Ihren Eigenverbrauch auf bis zu 80% erhöhen."
+    },
+    "installation": {
+      "title": "Installation von grossen\nSolaranlagen",
+      "description": "Helion beschäftigt erfahrene Fachkräfte wie Elektriker, Dachdecker, Zimmerer, Klempner und Blecharbeiter. Damit Sie so schnell wie möglich von Ihrer Anlage profitieren können, installieren unsere Fachleute sie von Anfang bis Ende. Die Installationskosten sind vollständig im Kaufpreis enthalten."
+    },
+    "monitoring": {
+      "eyebrow": "Monitoring",
+      "title": "Überwachung Ihrer Anlage",
+      "description": "Mit jahrzehntelanger Solar-Expertise und über 6.000 Anlagen in der Schweiz bietet FreeState 24/7-Überwachung, schnelle Fehlererkennung und regelmässige Inspektionen, um sicherzustellen, dass Ihre Solaranlage über 30 Jahre zuverlässig arbeitet."
+    },
+    "quoteCTA": {
+      "eyebrow": "Kosten einer Solaranlage",
+      "title": "Jetzt ein kostenloses, unverbindliches Angebot erhalten!",
+      "description": "Konfigurieren Sie Ihre eigene Anlage in wenigen Minuten mit unserem Solarrechner und erhalten Sie sofort ein konkretes Angebot:",
+      "checklist": {
+        "investmentCosts": "Investitionskosten",
+        "subsidies": "Förderungen & Steuerabzüge",
+        "efficiency": "Wirtschaftlichkeit & Energiebilanz"
+      },
+      "cta": "Solarrechner starten",
+      "ctaSubtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+    }
+  },
+  "projectDevelopment": {
+    "hero": {
+      "title": "Projektentwicklung",
+      "description": "FreeState liefert EPC-Dienstleistungen für Photovoltaikanlagen in der ganzen Schweiz."
+    },
+    "epc": {
+      "eyebrow": "EPC",
+      "title": "Was bedeutet EPC?",
+      "items": {
+        "engineering": "E-Engineering: Planung, Genehmigungen, Überwachung, Abnahme",
+        "procurement": "P - Beschaffung: Komponenten und Dienstleistungen",
+        "construction": "C – Konstruktion: DC, AC-Integration, Tiefbau, Logistik"
+      }
+    },
+    "turnkey": {
+      "eyebrow": "Schlüsselfertig",
+      "title": "Schlüsselfertige Solaranlagen",
+      "items": {
+        "approval": "Verkauf des Projekts nach Genehmigungserteilung",
+        "construction": "Verkauf des Projekts nach Baubeginn",
+        "commissioning": "Verkauf des Projekts nach Inbetriebnahme"
+      }
+    },
+    "investBanner": {
+      "title": "Sie investieren, wir bauen."
+    },
+    "approach": {
+      "title": "Unser Ansatz",
+      "steps": {
+        "propertySearch": {
+          "title": "Immobiliensuche",
+          "description": "Wir bewerten Schweizer Dächer auf ihre Solareignung und sichern langfristige Nutzungsvereinbarungen."
+        },
+        "projectDevelopment": {
+          "title": "Projektentwicklung",
+          "description": "Wir übernehmen die gesamte Planung, Technik, Genehmigung und Gestaltung, um das Projekt baureif zu machen."
+        },
+        "building": {
+          "title": "Bau",
+          "description": "Unsere erfahrenen Teams steuern den gesamten Bauprozess, von der Beschaffung bis zur Installation und Qualitätssicherung."
+        },
+        "commissioning": {
+          "title": "Inbetriebnahme und Übergang in die Betriebsphase",
+          "description": "Wir übernehmen den Netzanschluss, die Systemprüfung und die Übergabe für einen reibungslosen Betriebsstart."
+        },
+        "result": {
+          "title": "Ergebnis",
+          "description": "Ein voll funktionsfähiges Solarkraftwerk, das saubere Energie und langfristige Renditen auf Ihre Investition liefert."
+        }
+      }
+    }
+  },
+  "solarCarport": {
+    "hero": {
+      "title": "Solar Carport",
+      "description": "Vollservice mit Generalunternehmer-Modell"
+    },
+    "imageShowcase": {
+      "leftLabel": "Carport-Typologie passend zur Umgebung",
+      "rightLabel": "Visualisierung des Solar-Carport-Projekts"
+    },
+    "videoShowcase": {
+      "alt": "Solar-Carport-Video",
+      "play": "Abspielen"
+    },
+    "generalContractor": {
+      "title": "Kompletter Generalunternehmer-Service",
+      "subtitle": "End-to-End-Projektmanagement — von der Planung bis zum Betrieb.",
+      "steps": {
+        "strategicPlanning": "Strategische Planung",
+        "feasibilityStudy": "Machbarkeitsstudie",
+        "designEngineering": "Design & Engineering",
+        "tenderPreparation": "Ausschreibungs-vorbereitung",
+        "siteConstruction": "Bau vor Ort",
+        "operationMaintenance": "Betrieb & Wartung"
+      }
+    },
+    "parkingRoofs": {
+      "eyebrow": "Parkdächer",
+      "title": "Solarenergie\nvon Parkdächern",
+      "description": "Verwandeln Sie ungenutzten Parkraum in eine Solarstromquelle mit einem Helion Carport.",
+      "items": {
+        "doorstep": "Erzeugen Sie Solarstrom direkt vor Ihrer Haustür oder am Arbeitsplatz.",
+        "costs": "Senken Sie die Stromkosten mit intelligentem Energiemanagement.",
+        "protection": "Schützen Sie Fahrzeuge vor Sonne, Regen und Schnee — nachhaltig."
+      }
+    },
+    "customSolar": {
+      "eyebrow": "Massgeschneidert",
+      "title": "Massgeschneiderte Solar-\nlösungen für Carports",
+      "description": "Wir entwerfen massgeschneiderte Solar-Carports für Privathaushalte und Unternehmen und verwalten jeden Schritt als Ihr Generalunternehmer.",
+      "items": {
+        "consultation": "Persönliche Beratung und Ertragsanalyse",
+        "planning": "Planung, Genehmigung und Montage",
+        "integration": "Integration des Energiesystems mit FreeState für maximalen Ertrag",
+        "combinable": "Optional kombinierbar mit Speicher, Ladestation und Wärmepumpe"
+      }
+    }
+  },
+  "chargingStationsApartmentBuilding": {
+    "hero": {
+      "title": "Ladestation\n im Wohnhaus"
+    }
+  },
+  "chargingStationsCompany": {
+    "hero": {
+      "title": "Ladestation\n bei der Firma"
+    },
+    "chargingSolutions": {
+      "eyebrow": "Lösungen für Unternehmen",
+      "title": "Ladelösungen\nfür Unternehmen",
+      "description": "Immer mehr Unternehmen setzen auf E-Ladestationen, um Kosten zu senken, die Nachhaltigkeit zu verbessern und die Mitarbeiter- und Kundenbindung zu stärken."
+    },
+    "companySolution": {
+      "title": "Die Ladelösung\nfür Ihr Unternehmen",
+      "description": "Ladelösungen helfen Flottenbetreibern, von Förderungen, Lastmanagement und automatisierter Stationssteuerung zu profitieren. Kontaktieren Sie uns für Beratung oder Planung.",
+      "cta": "Solarrechner starten"
+    },
+    "freeStateOffers": {
+      "title": "FreeState bietet Ihnen das",
+      "bullets": {
+        "owners": "Für Eigentümer und Verwalter: Wir planen, installieren und warten die Ladeinfrastruktur mit einem volldigitalen Abrechnungssystem.",
+        "condominiums": "Für Stockwerkeigentümer: Wir installieren skalierbare Ladeinfrastruktur und Stationen nach Bedarf, mit klarer Ausbauplanung und transparenter, flexibler Abrechnung."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "preEquipped": {
+          "question": "Können Parkplätze für zukünftige Ladestationen vorgerüstet werden?",
+          "answer": "Ja, Parkplätze können mit der notwendigen elektrischen Infrastruktur vorgerüstet werden, sodass später einfach Ladestationen hinzugefügt werden können, ohne grössere Bauarbeiten."
+        },
+        "acDc": {
+          "question": "Brauche ich AC- oder DC-Ladestationen?",
+          "answer": "Für die meisten Unternehmen reichen AC-Ladestationen für das tägliche Laden der Mitarbeiter aus. DC-Schnellladegeräte können für Flottenfahrzeuge erforderlich sein, die kurze Ladezeiten benötigen."
+        },
+        "billing": {
+          "question": "Können Mitarbeiter, Gäste und Kunden unterschiedlich abgerechnet werden?",
+          "answer": "Ja, unser digitales Abrechnungssystem unterstützt differenzierte Preise für Mitarbeiter, Gäste und Kunden, mit transparenter Berichterstattung und flexiblen Tarifstrukturen."
+        },
+        "homeCharging": {
+          "question": "Können meine Mitarbeiter zu Hause laden?",
+          "answer": "Ja, wir bieten Heimladelösungen für Mitarbeiter an, die sich in das Abrechnungssystem Ihres Unternehmens integrieren und eine nahtlose Erstattung und Nutzungserfassung ermöglichen."
+        },
+        "fleetOverload": {
+          "question": "Wird eine grosse Flotte das Ladenetz überlasten?",
+          "answer": "Nein, unser intelligentes Lastmanagementsystem verteilt die Ladeleistung über alle Stationen, um eine Netzüberlastung zu verhindern und gleichzeitig sicherzustellen, dass alle Fahrzeuge rechtzeitig geladen werden."
+        },
+        "taxBreaks": {
+          "question": "Gibt es Steuererleichterungen für Ladelösungen?",
+          "answer": "Ja, viele Schweizer Kantone bieten Steuerabzüge und Subventionen für die Installation von E-Ladeinfrastruktur bei Geschäftsliegenschaften an."
+        }
+      }
     }
   }
 }

@@ -1,7 +1,34 @@
 import { getTranslations } from 'next-intl/server'
+import { LinkButton } from '@/components/ui/link-button'
+
+const CheckmarkIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={20}
+    height={20}
+    viewBox="0 0 22 22"
+    fill="none"
+    className="shrink-0"
+  >
+    <path
+      d="M21.2326 11C21.2326 5.34871 16.6513 0.767442 11 0.767442C5.34871 0.767442 0.767442 5.34871 0.767442 11C0.767442 16.6513 5.34871 21.2326 11 21.2326C16.6513 21.2326 21.2326 16.6513 21.2326 11Z"
+      stroke="#B7FE1A"
+      strokeWidth={1.5}
+    />
+    <path
+      d="M6.90698 11.5116L9.46512 14.0698L15.093 7.93023"
+      stroke="#B7FE1A"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
 
 const RepoweringCtaSection = async () => {
   const t = await getTranslations('repowering')
+
+  const bullets = ['1', '2', '3'] as const
 
   return (
     <section className="relative min-h-[651px] flex items-center justify-center overflow-hidden">
@@ -32,12 +59,27 @@ const RepoweringCtaSection = async () => {
           </h2>
 
           <div
-            className="w-full rounded-[16px] p-8 md:p-10 min-h-[376px] backdrop-blur-[40px]"
+            className="w-full rounded-[16px] p-8 md:p-10 backdrop-blur-[40px] flex flex-col justify-center items-end gap-[30px]"
             style={{
               background: 'rgba(185, 205, 191, 0.3)',
               border: '1px solid rgba(246, 246, 246, 0.6)',
             }}
-          />
+          >
+            <div className="flex flex-col gap-5 w-full">
+              {bullets.map((key) => (
+                <div key={key} className="flex items-center gap-[11px]">
+                  <CheckmarkIcon />
+                  <p className="text-white/80 text-lg md:text-[22px] font-medium tracking-[-0.02em]">
+                    {t(`repoweringCta.bullets.${key}`)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <LinkButton variant="primary" href="/contact">
+              {t('repoweringCta.cta')}
+            </LinkButton>
+          </div>
         </div>
       </div>
     </section>

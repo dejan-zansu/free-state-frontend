@@ -16,6 +16,7 @@ import SaleIcon from './SaleIcon'
 import ShieldIcon from './ShieldIcon'
 import SolarSystemIcon from './SolarSystemIcon'
 import LightBulbWithPointerWiteBg from './LightBulbWithPointerWiteBg'
+import MoreIcon from './MoreIcon'
 
 export {
   AllInclusiveIcon,
@@ -36,4 +37,5 @@ export {
   ShieldIcon,
   SolarSystemIcon,
   LightBulbWithPointerWiteBg,
+  MoreIcon,
 }

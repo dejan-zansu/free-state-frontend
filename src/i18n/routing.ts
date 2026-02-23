@@ -67,6 +67,22 @@ export const routing = defineRouting({
       es: '/bombas-de-calor',
       sr: '/toplotne-pumpe',
     },
+    '/heat-pumps/how-it-works': {
+      en: '/heat-pumps/how-it-works',
+      de: '/waermepumpen/funktionsweise',
+    },
+    '/heat-pumps/cost': {
+      en: '/heat-pumps/cost',
+      de: '/waermepumpen/kosten',
+    },
+    '/heat-pumps/service': {
+      en: '/heat-pumps/service',
+      de: '/waermepumpen/service',
+    },
+    '/heat-pumps/heat-pumps-with-solar-system': {
+      en: '/heat-pumps/heat-pumps-with-solar-system',
+      de: '/waermepumpen/waermepumpen-mit-solaranlage',
+    },
     '/investors': {
       en: '/investors',
       de: '/investoren',
@@ -216,6 +232,47 @@ export const routing = defineRouting({
       it: '/commerciale/abbonamento-solare/abbonamento-pubblico',
       es: '/comercial/suscripcion-solar/suscripcion-publica',
       sr: '/komercijalno/solarni-abo/solarni-abo-javni',
+    },
+
+    '/commercial/solar-systems': {
+      en: '/commercial/solar-systems',
+      de: '/gewerbe/solaranlagen',
+    },
+    '/commercial/solar-systems/how-large-plants-works': {
+      en: '/commercial/solar-systems/how-large-plants-works',
+      de: '/gewerbe/solaranlagen/wie-grossanlagen-funktionieren',
+    },
+    '/commercial/solar-systems/how-solar-power-system-works': {
+      en: '/commercial/solar-systems/how-solar-power-system-works',
+      de: '/gewerbe/solaranlagen/wie-eine-solaranlage-funktioniert',
+    },
+    '/commercial/solar-systems/project-development': {
+      en: '/commercial/solar-systems/project-development',
+      de: '/gewerbe/solaranlagen/projektentwicklung',
+    },
+    '/commercial/solar-systems/solar-carport': {
+      en: '/commercial/solar-systems/solar-carport',
+      de: '/gewerbe/solaranlagen/solar-carport',
+    },
+    '/commercial/charging-stations': {
+      en: '/commercial/charging-stations',
+      de: '/gewerbe/ladestationen',
+    },
+    '/commercial/charging-stations/apartment-building': {
+      en: '/commercial/charging-stations/apartment-building',
+      de: '/gewerbe/ladestationen/mehrfamilienhaus',
+    },
+    '/commercial/charging-stations/fast-charging-stations': {
+      en: '/commercial/charging-stations/fast-charging-stations',
+      de: '/gewerbe/ladestationen/schnellladestationen',
+    },
+    '/commercial/charging-stations/bidirectional-charging-station': {
+      en: '/commercial/charging-stations/bidirectional-charging-station',
+      de: '/gewerbe/ladestationen/bidirektionale-ladestation',
+    },
+    '/commercial/charging-stations/company': {
+      en: '/commercial/charging-stations/company',
+      de: '/gewerbe/ladestationen/unternehmen',
     },
 
     // Auth & user pages

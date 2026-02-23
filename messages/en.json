@@ -105,7 +105,16 @@
         "solarCalculator": "Solar calculator",
         "service": "Service",
         "energyStorage": "Energy storage",
-        "repowering": "Repowering"
+        "repowering": "Repowering",
+        "withSolarSystem": "With solar system",
+        "howLargePlantsWorks": "How large plants work",
+        "howSolarPowerSystemWorks": "How a solar system works",
+        "projectDevelopment": "Project development",
+        "solarCarport": "Solar carport",
+        "apartmentBuilding": "Apartment building",
+        "fastChargingStations": "Fast charging stations",
+        "bidirectionalCharging": "Bidirectional charging",
+        "chargingCompany": "Company"
       }
     },
     "stats": {
@@ -1976,6 +1985,176 @@
       "button": "Start the Solar Calculator"
     }
   },
+  "heatPumpsHowItWorks": {
+    "hero": {
+      "title": "How it works",
+      "subtitle": "A heat pump works in reverse, extracting ambient heat for heating."
+    },
+    "construction": {
+      "eyebrow": "Heat Pump",
+      "title": "Construction of a heat pump",
+      "description": "A heat pump includes a heat source, the pump unit, and a heat distribution system. It operates in a closed cycle: the evaporator extracts heat, the compressor increases its temperature, the condenser transfers it to the heating system, and the expansion valve resets the cycle."
+    },
+    "howItWorks": {
+      "title": "This is how the\nheat pump works",
+      "subtitle": "A heat pump has three components: the heat source, pump unit, and distribution system.",
+      "steps": {
+        "1": "Heat Source",
+        "2": "Heat pump",
+        "3": "Heat distribution"
+      }
+    },
+    "heatPumpTypes": {
+      "title": "Heat pump types",
+      "subtitle": "Depending on the energy source (ground, water, or air), different heat pump types are available.",
+      "steps": {
+        "1": "Ground source heat pump",
+        "2": "Water-to-water heat pump",
+        "3": "Air-to-water heat pump"
+      }
+    },
+    "heatPumpTypesDetail": {
+      "title": "How these three heat pumps work:",
+      "cards": {
+        "1": "Ground source heat pump (geothermal): Uses stable ground temperature for highly efficient heating. Requires drilling, higher investment, and municipal approval.",
+        "2": "Water-to-water heat pump: Uses groundwater or surface water for very high efficiency. Needs suitable water conditions and official permits.",
+        "3": "Air-to-water heat pump: Extracts heat from ambient air to heat the home. Simpler installation and lower upfront cost."
+      }
+    },
+    "cta": {
+      "topButton": "Heat Pumps",
+      "heading": "Get a free, no-obligation quote now!",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/calculator"
+    },
+    "installation": {
+      "eyebrow": "Installation",
+      "title": "Indoor or outdoor\ninstallation?",
+      "subtitle": "Air-to-water heat pumps can be installed indoors or outdoors, both equally viable.",
+      "bullets": {
+        "1": "Indoor: unit in the basement, with outside air intake and exhaust.",
+        "2": "Outdoor: compact unit outside transfers heat indoors.",
+        "3": "Split: evaporator outside, condenser inside."
+      }
+    },
+    "indoor": {
+      "title": "Heat pump for\nindoor installation",
+      "pros": {
+        "1": "No outdoor unit",
+        "2": "Minimal noise pollution"
+      },
+      "cons": {
+        "1": "Space requirements",
+        "2": "Wall air ducts"
+      }
+    },
+    "outdoor": {
+      "title": "Outdoor heat pump",
+      "pros": {
+        "1": "Easy retrofit",
+        "2": "Minimal facade impact",
+        "3": "Wall-mounted unit"
+      },
+      "cons": {
+        "1": "Visible outdoor unit",
+        "2": "Noise emissions",
+        "3": "External piping"
+      }
+    },
+    "split": {
+      "title": "Split heat pump",
+      "pros": {
+        "1": "Minimal indoor space"
+      },
+      "cons": {
+        "1": "External coolant lines"
+      }
+    },
+    "whichHeatPump": {
+      "title": "Which heat pump do I need?",
+      "description": "Air-to-water heat pumps are easy to install, cost-effective, and the most common in Switzerland.\n\nGround source heat pumps are highly efficient but require more installation effort, while water source systems are extremely efficient yet rarely approved due to regulations. The best option depends on your specific property.",
+      "stat": "In 2016, almost 67% of all heat pumps sold in Switzerland were air-to-water heat pumps."
+    },
+    "products": {
+      "eyebrow": "Products",
+      "title": "Heat pumps - products and manufacturers",
+      "cta": "More information",
+      "items": {
+        "1": {
+          "brand": "Stiebel Eltron",
+          "description": "Air-to-water heat pump (installed outdoors)",
+          "link": "/contact"
+        },
+        "2": {
+          "brand": "Stiebel Eltron",
+          "description": "Air-to-water heat pump (indoor installation)",
+          "link": "/contact"
+        },
+        "3": {
+          "brand": "Stiebel Eltron",
+          "description": "Ground source heat pump (ground probe)",
+          "link": "/contact"
+        }
+      }
+    },
+    "comparison": {
+      "title": "Heat pump versus oil heating",
+      "columns": {
+        "airWater": "Air-water",
+        "brineWater": "Brine water",
+        "oilHeating": "Oil heating"
+      },
+      "rows": {
+        "installationEffort": {
+          "label": "Installation effort",
+          "airWater": "medium",
+          "brineWater": "high",
+          "oilHeating": "medium"
+        },
+        "acquisitionCosts": {
+          "label": "Acquisition costs",
+          "airWater": "medium",
+          "brineWater": "high",
+          "oilHeating": "deep"
+        },
+        "efficiency": {
+          "label": "Efficiency",
+          "airWater": "medium",
+          "brineWater": "high",
+          "oilHeating": "deep"
+        },
+        "energyCosts": {
+          "label": "Energy costs",
+          "airWater": "medium",
+          "brineWater": "deep",
+          "oilHeating": "high"
+        }
+      }
+    },
+    "advantages": {
+      "eyebrow": "Advantages",
+      "title": "Further advantages\nof heat pumps",
+      "bullets": {
+        "1": "Lower long-term costs than oil",
+        "2": "Cheaper heating over time",
+        "3": "Uses 3× less energy",
+        "4": "70–80% renewable energy",
+        "5": "More eco-friendly than oil",
+        "6": "Low maintenance, 20-year lifespan"
+      }
+    },
+    "whyFreeState": {
+      "title": "Why FreeState?",
+      "features": {
+        "1": "Everything from a single source",
+        "2": "A 24/7 service",
+        "3": "Product quality",
+        "4": "Spatial and sound design",
+        "5": "Comprehensive expertise",
+        "6": "Fail-safety"
+      }
+    }
+  },
   "howItWorks": {
     "hero": {
       "title": "How a solar\npower system works"
@@ -2902,7 +3081,13 @@
       "cta": "Free repowering offer"
     },
     "repoweringCta": {
-      "title": "Solar repowering. Same area. Higher yield."
+      "title": "Solar repowering. Same area. Higher yield.",
+      "bullets": {
+        "1": "Replace outdated components to increase output without using more space.",
+        "2": "Improve reliability by upgrading faulty or aging parts.",
+        "3": "Boost self-consumption and reduce costs with modern, efficient technology."
+      },
+      "cta": "Get in touch now"
     },
     "customerBenefits": {
       "title": "The Customer Benefits",
@@ -2972,6 +3157,457 @@
       "callbackLabel": "Please call me back next week for a free initial consultation.",
       "callbackYes": "Yes gladly",
       "submit": "Get a quote now"
+    }
+  },
+  "heatPumpsCost": {
+    "hero": {
+      "title": "Costs of heat pumps in Switzerland"
+    },
+    "intro": {
+      "eyebrow": "Heat Pump",
+      "title": "Costs for a heat pump",
+      "description": "Heat pump costs depend on whether you're replacing an old system or installing a new one, as well as the installation location. Air-to-water systems are cheaper and easier to install, while geothermal systems require higher upfront investment but offer greater efficiency and lower long-term operating costs."
+    },
+    "comparison": {
+      "title": "The solar system self-check",
+      "headers": {
+        "purchase": "Purchase in CHF",
+        "maintenance": "Maintenance fees in CHF (annually)",
+        "energy": "Energy in CHF (annually)"
+      },
+      "rows": {
+        "airToWater": {
+          "label": "Air-to-water heat pump",
+          "purchase": "36,500 CHF",
+          "maintenance": "150 CHF",
+          "energy": "1,210 CHF"
+        },
+        "groundSource": {
+          "label": "Ground source heat pump",
+          "purchase": "49,500 CHF",
+          "maintenance": "100 CHF",
+          "energy": "940 CHF"
+        },
+        "oilHeating": {
+          "label": "Oil heating",
+          "purchase": "23,000 CHF",
+          "maintenance": "780 CHF",
+          "energy": "2,640 CHF"
+        }
+      },
+      "caption": "Table: Figures for an average installation with 150 m² energy reference area (e.g., single-family house) and 22,000 kWh energy demand (= 2,600 l heating oil)",
+      "cta": "Start cost comparison"
+    },
+    "funding": {
+      "eyebrow": "Heat Pump",
+      "title": "Funding for heat pumps",
+      "description": "To promote more efficient heating, Swiss cantons and municipalities actively support the adoption of heat pump heating systems. Therefore, numerous subsidies are available for the installation of heat pumps."
+    },
+    "support": {
+      "eyebrow": "Support",
+      "title": "What kind of support can I expect?",
+      "description": "Basel-Stadt subsidizes brine-to-water heat pumps up to CHF 25,850, while Bern offers up to CHF 6,000.",
+      "checkItem": "Check local energy subsidies on Energy Francs using your postcode.",
+      "cta": "Energy francs"
+    },
+    "taxDeduction": {
+      "eyebrow": "Heat Pump",
+      "title": "Tax deduction",
+      "description": "The Swiss government supports heat pump installations with subsidies and tax benefits. Depending on the project type, investments can be up to 100% tax-deductible."
+    },
+    "quoteCTA": {
+      "eyebrow": "Support",
+      "title": "Get a free, no-obligation quote now!",
+      "description": "Configure the right heat pump in minutes with our calculator and receive a concrete offer immediately:",
+      "cta": "Start heat pump calculator"
+    },
+    "energySolutions": {
+      "title": "Our energy solutions",
+      "cards": {
+        "photovoltaics": {
+          "title": "Photovoltaics",
+          "description": "Make your property solar-powered.",
+          "link": "Solar Systems"
+        },
+        "heatPump": {
+          "title": "Heat pump",
+          "description": "They benefit from low heating costs.",
+          "link": "Heat Pump"
+        },
+        "chargingSolution": {
+          "title": "Charging solution",
+          "description": "Get started with electromobility.",
+          "link": "Charging Solutions"
+        }
+      }
+    }
+  },
+  "heatPumpsService": {
+    "hero": {
+      "title": "Service for heat pumps"
+    },
+    "hotline": {
+      "eyebrow": "We are here for you",
+      "title": "Service Hotline - We and our partners are here for you!",
+      "cta": "Contact"
+    },
+    "emergency": {
+      "title": "Heat pump emergency?",
+      "items": {
+        "coldInHouse": "Cold in the house, no hot water",
+        "problemWithPump": "Problem with the heat pump",
+        "controlNotWorking": "Heat pump control is not working",
+        "pumpNotWorking": "The heat pump is not working",
+        "tooColdOrWarm": "Too cold or too warm in the house",
+        "strangeNoises": "Strange noises from heat pump"
+      }
+    },
+    "manufacturerSupport": {
+      "title": "Contact Manufacturer Support for Immediate Assistance",
+      "cards": {
+        "stiebelEltron1": {
+          "title": "Stiebel Eltron",
+          "description": "For emergencies, call 0844 333 444",
+          "link": "Stiebel Eltron Services",
+          "href": "https://www.stiebel-eltron.ch"
+        },
+        "stiebelEltron2": {
+          "title": "Stiebel Eltron",
+          "description": "For emergencies, call 0844 333 444",
+          "link": "Stiebel Eltron Services",
+          "href": "https://www.stiebel-eltron.ch"
+        },
+        "stiebelEltron3": {
+          "title": "Stiebel Eltron",
+          "description": "For emergencies, call 0844 333 444",
+          "link": "Stiebel Eltron Services",
+          "href": "https://www.stiebel-eltron.ch"
+        }
+      }
+    },
+    "hydraulic": {
+      "title": "Heating or water system emergency?",
+      "subtitle": "Hydraulic problem such as:",
+      "items": {
+        "circulationPump": "The circulation pump is defective.",
+        "dripping": "It's dripping, there's a runoff.",
+        "noWaterPressure": "No water pressure",
+        "waterOnGround": "Water on the ground",
+        "noUnderfloor": "No underfloor heating or radiators."
+      },
+      "footer": "Contact our regional service partner."
+    },
+    "servicePartner": {
+      "title": "Service partner",
+      "company": "TP Heiztechnik GmbH (fee applies)",
+      "contact": {
+        "phone": "+41 62 530 21 82",
+        "email": "info@tp-heiztechnik.ch",
+        "website": "www.tp-heiztechnik.ch"
+      },
+      "cta": "Contact"
+    }
+  },
+  "heatPumpsWithSolarSystem": {
+    "hero": {
+      "title": "Heat pumps with\nsolar system"
+    },
+    "howHeatPumpWorks": {
+      "title": "How does a heat\npump work?",
+      "description": "Heat pumps are highly efficient, quickly installed sustainable heating systems that extract energy from air, ground, or water—most commonly as air-to-water models—offering a reliable alternative to fossil fuels.",
+      "steps": {
+        "1": "Ground source heat pump (ground probe)",
+        "2": "Water-to-water heat pump",
+        "3": "Air-to-water heat pump"
+      }
+    },
+    "idealCombination": {
+      "eyebrow": "Unbeatable duo",
+      "title": "Heat pump + photovoltaics:\nthe ideal combination",
+      "description": "Although heat pumps require a higher upfront investment, they offer low operating costs and become even more economical with a photovoltaic system. Self-generated solar power is significantly cheaper than grid electricity, and higher self-consumption maximizes savings, as feed-in tariffs are usually low."
+    },
+    "solarBenefits": {
+      "selfConsumption": {
+        "title": "Boost solar\nself-consumption",
+        "description": "Maximize the electricity you use yourself by adding a battery storage system, so excess solar power remains available when the sun isn't shining."
+      },
+      "heatWithSolar": {
+        "title": "Heat with\nsolar power",
+        "description": "Combining photovoltaics with a heat pump lowers heating costs, boosts efficiency, and increases energy independence."
+      }
+    },
+    "energyEfficiency": {
+      "title": "Optimize your\nenergy efficiency",
+      "description": "Solar power first supplies your household, heat pump, and EV, while excess energy is stored in a battery or fed into the grid. It can also heat domestic water, with smart controls optimizing distribution and maximizing system performance."
+    },
+    "costsInstallation": {
+      "title": "Costs and installation",
+      "description": "Focusing only on purchase price is short-sighted, as oil heating often costs more over time due to higher operating expenses. Heat pumps and photovoltaic systems last around 20 years, with subsidies and tax incentives available depending on your location.\n\nProfessional installation ensures optimal performance, whether integrating a new or existing solar system. With over 7,000 completed projects, we offer experience and tailored solutions—contact us for a personalized quote.",
+      "cta": "Request a heat pump quote now"
+    }
+  },
+  "apartmentBuilding": {
+    "hero": {
+      "title": "Charging stations for\napartment buildings"
+    },
+    "evChargingIntro": {
+      "eyebrow": "Apartment Owners",
+      "title": "Install EV Charging\nin Apartments",
+      "description": "We help property owners plan scalable EV charging solutions.\n\nGet a non-binding estimate with our online calculator."
+    },
+    "calculatorCta": {
+      "eyebrow": "Calculate",
+      "title": "Calculate the price of your charging station now.",
+      "description": "Calculates the price of your charging station based on just a few details.",
+      "cta": "Start the Solar Calculator",
+      "subtext": "free - uncomplicated - precise - non-binding"
+    },
+    "freeStateOffers": {
+      "title": "FreeState offers you this",
+      "bullets": {
+        "owners": "For owners and property managers: we design, install, and maintain charging infrastructure, with a fully digital billing system handling administration.",
+        "condominiums": "For condominium owners: we install scalable charging infrastructure and stations as needed, with clear expansion planning and transparent, flexible billing."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "preEquipped": {
+          "question": "Can parking areas be pre-equipped for future charging stations?",
+          "answer": "Yes, parking areas can be pre-equipped with the necessary electrical infrastructure, making it easy to add charging stations later without major construction work."
+        },
+        "integration": {
+          "question": "How can future charging stations be integrated?",
+          "answer": "Future charging stations can be integrated through scalable infrastructure planning, ensuring the electrical capacity and cable routing are prepared for expansion."
+        },
+        "installation": {
+          "question": "Who pays for the installation?",
+          "answer": "Installation costs are typically shared between the property owner and individual users, depending on the chosen model and local regulations."
+        },
+        "acDc": {
+          "question": "Do I need AC or DC charging stations?",
+          "answer": "For apartment buildings, AC charging stations are usually the best choice as they are more cost-effective and sufficient for overnight charging. DC fast chargers are typically reserved for commercial applications."
+        },
+        "taxBreaks": {
+          "question": "Are there tax breaks for charging infrastructure?",
+          "answer": "Yes, many Swiss cantons offer tax deductions and subsidies for the installation of EV charging infrastructure in residential buildings."
+        }
+      }
+    }
+  },
+  "howLargePlantsWorks": {
+    "hero": {
+      "title": "How a solar\npower system works"
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subtitle": "How do large solar power plants work?",
+      "description": "The solar panels on the roof capture sunlight using solar cells and produce direct current (DC). The inverter then converts this DC into alternating current (AC), which can be used for your electrical needs.",
+      "graphicDescription": "The following graphic of a large commercial property explains how the solar system works and shows the placement of the most important elements in the building:",
+      "items": {
+        "solarPanels": "Solar panels (on-roof)",
+        "inverter": "Inverter",
+        "fuseBox": "Fuse box / panel",
+        "hotWaterBoiler": "Hot water boiler",
+        "batteryStorage": "Battery storage",
+        "evCharging": "EV charging station",
+        "heatPump": "Heat pump"
+      }
+    },
+    "solarPanelWorks": {
+      "title": "How a solar panel works",
+      "description": "Industrial buildings with large flat roofs are ideal for solar panels, allowing optimal tilt and orientation for maximum yield.\n\nWe analyze your annual consumption and roof area to determine the ideal system size and identify opportunities to align energy-intensive processes with solar production for greater savings.",
+      "tip": "The goal is to size the system to match your consumption and maximize self-use of solar power, especially during peak production."
+    },
+    "inRoofOnRoof": {
+      "title": "In-roof or on-roof",
+      "description": "A photovoltaic system lasts 30+ years, so the roof must be in good condition and not require replacement soon. If the roof is over 40 years old, renovation is recommended.\n\nWhen replacing a pitched roof, an integrated PV system reduces roofing costs and offers a cost-efficient way to combine a new roof with solar power."
+    },
+    "storageSelfConsumption": {
+      "title": "Storage for higher\nself-consumption",
+      "description": "To maximize savings, increase self-consumption of your solar power. A battery stores excess daytime energy, so you can use it later instead of buying electricity from the grid.",
+      "cta": "Cost"
+    },
+    "selfConsumptionControl": {
+      "title": "Increase self-consumption with control",
+      "description": "Our Smart Energy control system switches on energy-intensive appliances when solar power is available. This increases self-consumption, thus reducing the need for external coal and/or nuclear power.",
+      "tip": "Storage solutions or control systems can increase your self-consumption by up to 80%."
+    },
+    "installation": {
+      "title": "Installation of large\nsolar power plants",
+      "description": "Helion employs experienced professionals such as electricians, roofers, carpenters, plumbers, and sheet metal workers. To ensure you can benefit from your system as quickly as possible, our professionals will install it from start to finish. Installation costs are fully included in the purchase price."
+    },
+    "monitoring": {
+      "eyebrow": "Monitoring",
+      "title": "Monitoring your system",
+      "description": "With decades of solar expertise and over 6,000 systems in Switzerland, FreeState provides 24/7 monitoring, rapid fault detection, and regular inspections to ensure your solar system operates reliably for over 30 years."
+    },
+    "quoteCTA": {
+      "eyebrow": "Cost of a Solar System",
+      "title": "Get a free, no-obligation quote now!",
+      "description": "Configure your own system in minutes with our solar calculator and receive a concrete offer immediately:",
+      "checklist": {
+        "investmentCosts": "Investment costs",
+        "subsidies": "Subsidies & tax deductions",
+        "efficiency": "Economic efficiency & energy balance"
+      },
+      "cta": "Start the Solar Calculator",
+      "ctaSubtext": "free - uncomplicated - precise - non-binding"
+    }
+  },
+  "projectDevelopment": {
+    "hero": {
+      "title": "Project development",
+      "description": "FreeState delivers EPC services for photovoltaic power plants across Switzerland."
+    },
+    "epc": {
+      "eyebrow": "EPC",
+      "title": "What does EPC mean?",
+      "items": {
+        "engineering": "E-Engineering: planning, permits, supervision, acceptance",
+        "procurement": "P - Procurement: Components and services",
+        "construction": "C – Construction: DC, AC integration, civil works, logistics"
+      }
+    },
+    "turnkey": {
+      "eyebrow": "Turnkey",
+      "title": "Turnkey solar power plants",
+      "items": {
+        "approval": "Sale of the project after approval is granted",
+        "construction": "Sale of the project after construction begins",
+        "commissioning": "Sale of the project after commissioning"
+      }
+    },
+    "investBanner": {
+      "title": "You invest, we build."
+    },
+    "approach": {
+      "title": "Our approach",
+      "steps": {
+        "propertySearch": {
+          "title": "Property search",
+          "description": "We assess Swiss rooftops for solar viability and secure long-term usage agreements."
+        },
+        "projectDevelopment": {
+          "title": "Project development",
+          "description": "We handle all planning, engineering, permitting, and design to prepare the project for construction."
+        },
+        "building": {
+          "title": "Building",
+          "description": "Our experienced teams manage the full construction process, from procurement to installation and quality assurance."
+        },
+        "commissioning": {
+          "title": "Commissioning and transition to the operational phase",
+          "description": "We handle grid connection, system testing, and handover to ensure a smooth start of operations."
+        },
+        "result": {
+          "title": "Result",
+          "description": "A fully operational solar power plant delivering clean energy and long-term returns on your investment."
+        }
+      }
+    }
+  },
+  "solarCarport": {
+    "hero": {
+      "title": "Solar Carport",
+      "description": "Complete service with a general contractor model"
+    },
+    "imageShowcase": {
+      "leftLabel": "Carport typology to match the surroundings",
+      "rightLabel": "Visualization of the solar carport project"
+    },
+    "videoShowcase": {
+      "alt": "Solar carport video",
+      "play": "Play"
+    },
+    "generalContractor": {
+      "title": "Complete General Contractor Service",
+      "subtitle": "End-to-end project management — from planning to operation.",
+      "steps": {
+        "strategicPlanning": "Strategic Planning",
+        "feasibilityStudy": "Feasibility Study",
+        "designEngineering": "Design & Engineering",
+        "tenderPreparation": "Tender Preparation",
+        "siteConstruction": "Site Construction",
+        "operationMaintenance": "Operation & Maintenance"
+      }
+    },
+    "parkingRoofs": {
+      "eyebrow": "Parking roofs",
+      "title": "Solar energy\nfrom parking roofs",
+      "description": "Turn unused parking space into a solar power source with a Helion carport.",
+      "items": {
+        "doorstep": "Generate solar power at your doorstep or workplace.",
+        "costs": "Lower electricity costs with smart energy management.",
+        "protection": "Protect vehicles from sun, rain, and snow — sustainably."
+      }
+    },
+    "customSolar": {
+      "eyebrow": "Custom solar",
+      "title": "Custom solar\nsolutions for carports",
+      "description": "We design tailored solar carports for homes and businesses, managing every step as your general contractor.",
+      "items": {
+        "consultation": "Personal consultation and profit analysis",
+        "planning": "Planning, approval and assembly",
+        "integration": "Energy system integration with FreeState for maximum yield",
+        "combinable": "Optionally combinable with storage, charging station and heat pump"
+      }
+    }
+  },
+  "chargingStationsApartmentBuilding": {
+    "hero": {
+      "title": "Charging station in\n the apartment building"
+    }
+  },
+  "chargingStationsCompany": {
+    "hero": {
+      "title": "Charging station\n at the company"
+    },
+    "chargingSolutions": {
+      "eyebrow": "Solutions for business",
+      "title": "Charging solutions\nfor businesses",
+      "description": "More companies are adopting EV charging to reduce costs and improve sustainability, while increasing employee and customer loyalty."
+    },
+    "companySolution": {
+      "title": "Your company's\ncharging solution",
+      "description": "Charging solutions help fleet operators benefit from subsidies, load management, and automated station control. Contact us for consultation or planning.",
+      "cta": "Start solar calculator"
+    },
+    "freeStateOffers": {
+      "title": "FreeState offers you this",
+      "bullets": {
+        "owners": "For owners and property managers: we design, install, and maintain charging infrastructure, with a fully digital billing system handling administration.",
+        "condominiums": "For condominium owners: we install scalable charging infrastructure and stations as needed, with clear expansion planning and transparent, flexible billing."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "preEquipped": {
+          "question": "Can parking areas be pre-equipped for future charging?",
+          "answer": "Yes, parking areas can be pre-equipped with the necessary electrical infrastructure, making it easy to add charging stations later without major construction work."
+        },
+        "acDc": {
+          "question": "Do I need AC or DC charging stations?",
+          "answer": "For most company settings, AC charging stations are sufficient for daily employee charging. DC fast chargers may be needed for fleet vehicles that require quick turnaround times."
+        },
+        "billing": {
+          "question": "Can employees, guests, and customers be billed differently?",
+          "answer": "Yes, our digital billing system supports differentiated pricing for employees, guests, and customers, with transparent reporting and flexible rate structures."
+        },
+        "homeCharging": {
+          "question": "Can I allow my employees to charge their devices at home?",
+          "answer": "Yes, we offer home charging solutions for employees that integrate with your company's billing system, enabling seamless reimbursement and usage tracking."
+        },
+        "fleetOverload": {
+          "question": "Will a large fleet overload the charging network?",
+          "answer": "No, our intelligent load management system distributes charging power across all stations to prevent grid overload while ensuring all vehicles are charged on time."
+        },
+        "taxBreaks": {
+          "question": "Are there tax breaks for charging solutions?",
+          "answer": "Yes, many Swiss cantons offer tax deductions and subsidies for the installation of EV charging infrastructure at commercial properties."
+        }
+      }
     }
   }
 }

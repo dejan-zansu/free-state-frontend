@@ -4,7 +4,7 @@ const SolarSystemsHero = () => {
   return (
     <ProductHeroLight
       translationNamespace="solarSystems"
-      imageSrc="/images/solar-panels-2.png"
+      imageSrc="/images/solar-systems-hero.png"
     />
   )
 }

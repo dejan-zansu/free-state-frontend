@@ -36,14 +36,6 @@ const RepoweringServicesSection = () => {
 
   return (
     <section className="bg-[#EAEDDF] py-12 md:py-[50px] overflow-hidden">
-      <div
-        className="h-px w-full opacity-20 mb-12 md:mb-[50px]"
-        style={{
-          background:
-            'linear-gradient(54deg, rgba(6, 46, 37, 1) 74%, rgba(3, 107, 83, 1) 100%)',
-        }}
-      />
-
       <div className="max-w-[1316px] mx-auto px-4 sm:px-6 lg:px-[62px]">
         <div className="flex flex-col items-center gap-10 md:gap-[60px]">
           <h2 className="text-[#062E25] text-3xl md:text-[45px] font-medium text-center">
@@ -64,24 +56,11 @@ const RepoweringServicesSection = () => {
                   className="pl-2.5 basis-[85%] sm:basis-[45%] lg:basis-1/3"
                 >
                   <div
-                    className="relative w-full h-[370px] rounded-[20px] overflow-hidden bg-[#0D4841]"
+                    className="relative w-full h-[370px] rounded-[20px] overflow-hidden"
                     style={{ border: '1px solid #809792' }}
                   >
-                    <div
-                      className="absolute inset-0 bg-cover bg-center blur-[14px] scale-110"
-                      style={{
-                        backgroundImage: `url('/images/repowering/repowering-card-bg.png')`,
-                      }}
-                    />
-                    <div className="absolute inset-0 bg-[#00281F]/51" />
-
                     <div className="relative z-10 flex items-center justify-center pt-[30px]">
-                      <Image
-                        src={card.icon}
-                        alt=""
-                        width={142}
-                        height={142}
-                      />
+                      <Image src={card.icon} alt="" width={142} height={142} />
                     </div>
 
                     <div
@@ -119,14 +98,6 @@ const RepoweringServicesSection = () => {
           </Carousel>
         </div>
       </div>
-
-      <div
-        className="h-px w-full opacity-20 mt-12 md:mt-[50px]"
-        style={{
-          background:
-            'linear-gradient(54deg, rgba(6, 46, 37, 1) 74%, rgba(3, 107, 83, 1) 100%)',
-        }}
-      />
     </section>
   )
 }
