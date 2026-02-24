@@ -1,29 +1,14 @@
-import { getTranslations } from 'next-intl/server'
+'use client'
 
-const ArrowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={25}
-    height={24}
-    viewBox="0 0 25 24"
-    fill="none"
-    className="shrink-0"
-  >
-    <circle cx={12.5} cy={12} r={11.5} stroke="#B7FE1A" strokeWidth={0.57} />
-    <path
-      d="M9.5 15L15.5 9M15.5 9H10.5M15.5 9V14"
-      stroke="#B7FE1A"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
+import { useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { FAQItem } from '@/components/ui/faq-item'
 
 const questions = ['1', '2', '3', '4', '5'] as const
 
-const FAQSection = async () => {
-  const t = await getTranslations('singleFamilyHome')
+const FAQSection = () => {
+  const t = useTranslations('singleFamilyHome')
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section className="relative min-h-[782px] overflow-hidden">
@@ -42,7 +27,8 @@ const FAQSection = async () => {
       <div
         className="absolute inset-0 rounded-t-[40px]"
         style={{
-          background: 'linear-gradient(0deg, rgba(7, 51, 42, 0) 0%, rgba(7, 51, 42, 1) 86%)',
+          background:
+            'linear-gradient(0deg, rgba(7, 51, 42, 0) 0%, rgba(7, 51, 42, 1) 86%)',
         }}
       />
 
@@ -53,26 +39,17 @@ const FAQSection = async () => {
           </h2>
 
           <div className="flex flex-col gap-5 w-full max-w-[652px]">
-            {questions.map((key) => (
-              <div
+            {questions.map((key, index) => (
+              <FAQItem
                 key={key}
-                className="relative rounded-[16px] overflow-hidden"
-              >
-                <div
-                  className="absolute inset-0 backdrop-blur-[70px]"
-                  style={{
-                    background: 'rgba(123, 135, 126, 0.32)',
-                    border: '1px solid rgba(246, 246, 246, 0.4)',
-                    borderRadius: '16px',
-                  }}
-                />
-                <div className="relative z-10 flex items-center justify-between gap-[50px] p-[30px]">
-                  <span className="text-white/80 text-lg font-normal tracking-[-0.02em]">
-                    {t(`faq.questions.${key}`)}
-                  </span>
-                  <ArrowIcon />
-                </div>
-              </div>
+                question={t(`faq.items.${key}.question`)}
+                answer={t(`faq.items.${key}.answer`)}
+                isOpen={openIndex === index}
+                onToggle={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
+                variant="dark"
+              />
             ))}
           </div>
         </div>

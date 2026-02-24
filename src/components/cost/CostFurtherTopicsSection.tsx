@@ -64,14 +64,6 @@ const CostFurtherTopicsSection = async () => {
           </div>
         </div>
       </div>
-
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px opacity-20"
-        style={{
-          background:
-            'linear-gradient(54deg, rgba(6, 46, 37, 1) 74%, rgba(3, 107, 83, 1) 100%)',
-        }}
-      />
     </section>
   )
 }

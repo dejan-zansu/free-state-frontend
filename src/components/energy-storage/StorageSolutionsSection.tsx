@@ -35,7 +35,13 @@ const DiamondBullet = () => (
 const CheckBullet = () => (
   <div className="w-[14px] h-[14px] shrink-0 rounded-full bg-[#B7FE1A] flex items-center justify-center">
     <svg width="6" height="4" viewBox="0 0 6 4" fill="none">
-      <path d="M0.5 2.1L2.16 3.5L5.5 0.5" stroke="#062E25" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M0.5 2.1L2.16 3.5L5.5 0.5"
+        stroke="#062E25"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   </div>
 )
@@ -55,7 +61,7 @@ const StorageSolutionsSection = async () => {
           'linear-gradient(180deg, rgba(242, 244, 232, 1) 78%, rgba(220, 233, 230, 1) 100%)',
       }}
     >
-      <div className="max-w-[907px] mx-auto px-4 sm:px-6 pt-12 md:pt-[50px] pb-4">
+      <div className="max-w-[907px] mx-auto px-4 sm:px-6 pt-12 md:pt-[50px] pb-[56px]">
         <div className="flex flex-col items-center gap-5">
           <div
             className="flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-[#062E25] w-fit"
@@ -80,13 +86,15 @@ const StorageSolutionsSection = async () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 md:gap-0">
-        {products.map(product => {
+      <div className="flex flex-col gap-[30px]">
+        {products.map((product, index) => {
           const featuresRaw = t(`solutions.products.${product.key}.features`)
           const features = featuresRaw.split('|')
           const warrantyRaw = t(`solutions.products.${product.key}.warranty`)
           const warranties = warrantyRaw.split('|')
-          const hasOptions = (product.hasSections as readonly string[]).includes('options')
+          const hasOptions = (
+            product.hasSections as readonly string[]
+          ).includes('options')
           const options = hasOptions
             ? t(`solutions.products.${product.key}.options`).split('|')
             : []
@@ -97,7 +105,7 @@ const StorageSolutionsSection = async () => {
               className="relative max-w-[1440px] mx-auto w-full border border-[#B7C2BF] rounded-t-[30px] bg-[#FDFFF5] overflow-hidden"
             >
               <div className="max-w-[1038px] mx-auto px-4 sm:px-6 lg:px-0 py-12 md:py-[50px]">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-[100px] justify-center">
+                <div className={`flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-[100px] justify-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
                   <div className="flex flex-col gap-5 w-full md:w-[238px] shrink-0">
                     <div className="flex flex-col gap-4">
                       <span className="text-[#062E25] text-base font-bold capitalize">

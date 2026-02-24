@@ -11,7 +11,6 @@ import { getLocale, getTranslations } from 'next-intl/server'
 
 const CommercialPage = async () => {
   const t = await getTranslations('home.portfolio')
-  const locale = await getLocale()
 
   const portfolioTranslations = {
     title: t('title'),
@@ -46,10 +45,7 @@ const CommercialPage = async () => {
       <Deals isCommercial />
       <SolarEnergyFor isCommercial />
       <Benefits isCommercial />
-      <Portfolio
-        isCommercial
-        translations={portfolioTranslations}
-      />
+      <Portfolio isCommercial translations={portfolioTranslations} />
       <YourPartner isCommercial />
       <Testimonials />
       <Stats />

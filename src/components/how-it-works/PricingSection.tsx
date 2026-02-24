@@ -91,81 +91,44 @@ const PricingSection = async () => {
             </div>
 
             <div className="w-full overflow-x-auto">
-              <div className="relative rounded-[16px] overflow-hidden border border-[#062E25] backdrop-blur-[20px]">
-                {/* Row 1: Household */}
-                <div className="flex">
-                  <div className="w-[100px] sm:w-[120px] md:w-[140px] shrink-0 bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center">
-                    <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
-                      {t('pricing.table.headers.household')}
-                    </span>
-                  </div>
-                  <div className="flex-1 flex bg-[#E4E9D3] backdrop-blur-[20px]">
+              <div
+                className="relative rounded-[16px] overflow-hidden border border-[#062E25] backdrop-blur-[20px] grid"
+                style={{
+                  gridTemplateColumns: `minmax(100px, auto) repeat(${tableData.length}, 1fr)`,
+                }}
+              >
+                {(
+                  [
+                    { header: t('pricing.table.headers.household'), key: 'household' },
+                    { header: t('pricing.table.headers.power'), key: 'power' },
+                    { header: t('pricing.table.headers.size'), key: 'size' },
+                  ] as const
+                ).map(({ header, key }) => (
+                  <>
+                    <div
+                      key={`${key}-header`}
+                      className="bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center"
+                    >
+                      <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
+                        {header}
+                      </span>
+                    </div>
                     {tableData.map((row, index) => (
                       <div
-                        key={index}
-                        className={`flex-1 px-2 py-4 sm:px-3 sm:py-5 md:px-4 md:py-6 flex items-center justify-center ${
+                        key={`${key}-${index}`}
+                        className={`bg-[#E4E9D3] backdrop-blur-[20px] px-2 py-4 sm:px-3 sm:py-5 md:px-4 md:py-6 flex items-center justify-center ${
                           index < tableData.length - 1
                             ? 'border-r border-[#062E25]/50'
                             : ''
                         }`}
                       >
                         <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-normal leading-tight tracking-[-0.02em] whitespace-nowrap text-center">
-                          {row.household}
+                          {row[key]}
                         </span>
                       </div>
                     ))}
-                  </div>
-                </div>
-
-                {/* Row 2: Power */}
-                <div className="flex">
-                  <div className="w-[100px] sm:w-[120px] md:w-[140px] shrink-0 bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center">
-                    <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
-                      {t('pricing.table.headers.power')}
-                    </span>
-                  </div>
-                  <div className="flex-1 flex bg-[#E4E9D3] backdrop-blur-[20px]">
-                    {tableData.map((row, index) => (
-                      <div
-                        key={index}
-                        className={`flex-1 px-2 py-4 sm:px-3 sm:py-5 md:px-4 md:py-6 flex items-center justify-center ${
-                          index < tableData.length - 1
-                            ? 'border-r border-[#062E25]/50'
-                            : ''
-                        }`}
-                      >
-                        <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-normal leading-tight tracking-[-0.02em] whitespace-nowrap text-center">
-                          {row.power}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Row 3: Size */}
-                <div className="flex">
-                  <div className="w-[100px] sm:w-[120px] md:w-[140px] shrink-0 bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center">
-                    <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
-                      {t('pricing.table.headers.size')}
-                    </span>
-                  </div>
-                  <div className="flex-1 flex bg-[#E4E9D3] backdrop-blur-[20px]">
-                    {tableData.map((row, index) => (
-                      <div
-                        key={index}
-                        className={`flex-1 px-2 py-4 sm:px-3 sm:py-5 md:px-4 md:py-6 flex items-center justify-center ${
-                          index < tableData.length - 1
-                            ? 'border-r border-[#062E25]/50'
-                            : ''
-                        }`}
-                      >
-                        <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-normal leading-tight tracking-[-0.02em] whitespace-nowrap text-center">
-                          {row.size}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                  </>
+                ))}
               </div>
             </div>
 

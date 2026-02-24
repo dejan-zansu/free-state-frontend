@@ -187,6 +187,7 @@ const Testimonials = () => {
                         alt={`${testimonial.name}'s solar installation`}
                         fill
                         className="object-cover"
+                        unoptimized
                       />
                       <div
                         className="absolute inset-0"
@@ -204,6 +205,7 @@ const Testimonials = () => {
                               alt={testimonial.name}
                               fill
                               className="object-cover"
+                              unoptimized
                             />
                           </div>
                           <div className="flex flex-col">

@@ -8,7 +8,6 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
-import LogoDark from '@/components/icons/LogoDark'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -57,7 +56,6 @@ export default function LoginPage() {
     <div className="flex-1 flex min-h-screen">
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 bg-white">
         <div className="w-full max-w-md">
-          <LogoDark className="mb-8 w-auto h-12" />
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2 text-[#062E25]">
               Welcome back
@@ -222,11 +220,13 @@ export default function LoginPage() {
 
       <div className="hidden lg:block lg:w-1/2 relative">
         <Image
-          src="/images/solar-farm-roofs.png"
+          src="/images/battery-storage/roof-with-panels-sunny-day.png"
           alt="Solar panels on rooftops"
           fill
           className="object-cover"
           priority
+          quality={100}
+          unoptimized
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />

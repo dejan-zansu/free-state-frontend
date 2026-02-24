@@ -3174,9 +3174,89 @@
       "callbackLabel": "Bitte rufen Sie mich nächste Woche für eine kostenlose Erstberatung zurück.",
       "callbackYes": "Ja gerne",
       "submit": "Jetzt Angebot einholen"
+    },
+    "faq": {
+      "title": "FAQ Repowering",
+      "items": {
+        "whatIsRepowering": {
+          "question": "Was bedeutet Photovoltaik-Repowering?",
+          "answer": "Repowering modernisiert Ihre bestehende PV-Anlage mit modernen Komponenten, um Leistung, Effizienz und Lebensdauer zu steigern."
+        },
+        "whenWorthwhile": {
+          "question": "Wann lohnt sich Repowering und welche Vorteile bietet es?",
+          "answer": "Repowering lohnt sich, wenn Ihre Anlage über 10–15 Jahre alt ist, einen reduzierten Ertrag zeigt oder moderne Technologie die Leistung auf gleicher Fläche deutlich steigern kann."
+        },
+        "whichComponents": {
+          "question": "Welche Komponenten müssen beim Repowering ersetzt werden?",
+          "answer": "Typischerweise werden Solarmodule, Wechselrichter und Verkabelung ersetzt. Die Unterkonstruktion kann oft erhalten bleiben, wenn sie noch in gutem Zustand ist."
+        },
+        "newInverter": {
+          "question": "Brauche ich einen neuen Wechselrichter für ein Repowering-Projekt?",
+          "answer": "In den meisten Fällen ja. Ältere Wechselrichter sind oft nicht mit modernen, leistungsstärkeren Modulen kompatibel und entsprechen nicht den aktuellen Effizienzstandards."
+        },
+        "substructure": {
+          "question": "Kann die Unterkonstruktion bleiben?",
+          "answer": "Oft ja, sofern sie strukturell einwandfrei und mit den neuen Modulen kompatibel ist. Unsere Experten prüfen dies bei der Vor-Ort-Besichtigung."
+        },
+        "heatPumpsEv": {
+          "question": "Repowering für Wärmepumpen und E-Auto-Ladestationen?",
+          "answer": "Repowering kann mit Wärmepumpen-Integration und E-Ladelösungen kombiniert werden, um Ihren Eigenverbrauch und die Gesamtenergieeffizienz zu maximieren."
+        },
+        "howItWorks": {
+          "question": "Wie läuft ein Solar-Repowering-Projekt ab?",
+          "answer": "Wir beginnen mit einer Vor-Ort-Bewertung, entwerfen das optimale Upgrade, kümmern uns um alle Genehmigungen und die Installation und stellen die Inbetriebnahme und Überwachung sicher."
+        },
+        "costsPayback": {
+          "question": "Repowering-Kosten & Amortisation?",
+          "answer": "Die Kosten hängen von der Anlagengrösse und den ersetzten Komponenten ab. Dank höherer Erträge und aktueller Fördermittel liegen die Amortisationszeiten typischerweise bei 8–12 Jahren."
+        },
+        "legalRegulations": {
+          "question": "Gibt es rechtliche Vorschriften für Repowering?",
+          "answer": "Ja, Baubewilligungen und Netzanschlussvorschriften können gelten. Wir kümmern uns um alle regulatorischen Anforderungen als Teil unseres Services."
+        },
+        "subsidies": {
+          "question": "Gibt es Fördermittel für Repowering?",
+          "answer": "Ja, Repowering-Projekte können für Bundes- und Kantonsförderungen qualifizieren. Wir helfen Ihnen, alle verfügbaren Fördermittel zu identifizieren und zu beantragen."
+        },
+        "existingKev": {
+          "question": "Was passiert mit bestehenden KEV-Anlagen?",
+          "answer": "Bestehende KEV-Verträge bleiben gültig. Repowering kann jedoch die Bedingungen beeinflussen, daher ist eine sorgfältige Planung wichtig, um Ihren Einspeisetarif zu erhalten."
+        },
+        "kevExpiry": {
+          "question": "Was passiert, wenn die bestehende KEV ausläuft?",
+          "answer": "Nach Ablauf der KEV können Sie auf Eigenverbrauchsoptimierung umstellen oder einen neuen Einspeisetarif mit Ihrem Energieversorger aushandeln."
+        },
+        "feedInTariff": {
+          "question": "Wie wirkt sich Repowering auf den Einspeisetarif aus (ohne KEV)?",
+          "answer": "Repowering kann Ihre Einspeisetarif-Bedingungen ändern. Wir beraten Sie zur besten Strategie, um Ihre Erträge zu maximieren."
+        },
+        "optimalTime": {
+          "question": "Wann ist der optimale Zeitpunkt für Repowering?",
+          "answer": "Der beste Zeitpunkt ist, wenn der Ertrag Ihrer Anlage merklich gesunken ist, Komponenten das Ende ihrer Lebensdauer erreichen oder Fördermittel die Investition attraktiv machen."
+        },
+        "selfConsumption": {
+          "question": "Kann ich meinen Eigenverbrauch durch Repowering optimieren?",
+          "answer": "Absolut. Moderne Module produzieren mehr Strom, und in Kombination mit Batteriespeicher können Sie Ihren Eigenverbrauchsanteil deutlich steigern."
+        },
+        "notBuiltByFreeState": {
+          "question": "Kann ich Repowering bestellen, auch wenn meine Anlage nicht von FreeState gebaut wurde?",
+          "answer": "Ja, wir bieten Repowering für alle bestehenden Solaranlagen an, unabhängig vom ursprünglichen Installateur."
+        },
+        "oldPanels": {
+          "question": "Was passiert mit meinen alten Solarmodulen?",
+          "answer": "Alte Module werden gemäss Schweizer Vorschriften fachgerecht recycelt. Wir übernehmen den gesamten Entsorgungsprozess."
+        },
+        "taxBenefits": {
+          "question": "Kann ich Steuervorteile für ein Repowering-Projekt geltend machen?",
+          "answer": "Ja, Repowering-Investitionen sind in der Schweiz in der Regel als energiesparende Sanierungsmassnahmen steuerlich absetzbar."
+        },
+        "addSolarAbo": {
+          "question": "Ist es möglich, einfach ein SolarAbo zur bestehenden Anlage hinzuzufügen?",
+          "answer": "Ja, in vielen Fällen können wir Ihre bestehende Anlage in ein SolarAbo-Modell integrieren und Repowering mit unserem Rundum-Service kombinieren."
+        }
+      }
     }
   },
- 
   "heatPumpsCost": {
     "hero": {
       "title": "Kosten einer Wärmepumpe in der Schweiz"

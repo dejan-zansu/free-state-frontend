@@ -13,7 +13,7 @@ const WhatYouReceiveSection = async () => {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
+            'linear-gradient(175deg, #07332A 23.45%, #093F35 56.41%, #158B7E 130.37%)',
         }}
       />
 

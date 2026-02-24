@@ -31,7 +31,7 @@ const RepoweringCtaSection = async () => {
   const bullets = ['1', '2', '3'] as const
 
   return (
-    <section className="relative min-h-[651px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[651px] flex items-center justify-center overflow-hidden -mt-[40px]">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{

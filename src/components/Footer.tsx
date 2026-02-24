@@ -45,7 +45,10 @@ const Footer = () => {
     pathname?.includes('/battery-storage') ||
     pathname?.includes('/how-it-works') ||
     pathname?.includes('/cost') ||
-    pathname?.includes('/amortization')
+    pathname?.includes('/amortization') ||
+    pathname?.includes('/solar-system-carport') ||
+    pathname?.includes('/solar-calculator') ||
+    pathname?.includes('/service')
 
   const solarAboLinks = [
     {
@@ -206,7 +209,7 @@ const Footer = () => {
             left: '0px',
             top: '-46px',
             background: isLight
-              ? 'linear-gradient(333.03deg, #F3F4EE 41.26%, #D3D8BF 85.88%)'
+              ? 'linear-gradient(333.03deg, #EAECDE 41.26%, #D3D8BF 85.88%)'
               : isCommercial
                 ? 'linear-gradient(106.37deg, #191D1C 52.8%, #3D3858 155.13%)'
                 : 'linear-gradient(107.86deg, #062E25 24.4%, #139477 221.35%)',

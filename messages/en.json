@@ -3157,6 +3157,87 @@
       "callbackLabel": "Please call me back next week for a free initial consultation.",
       "callbackYes": "Yes gladly",
       "submit": "Get a quote now"
+    },
+    "faq": {
+      "title": "FAQ Repowering",
+      "items": {
+        "whatIsRepowering": {
+          "question": "What does photovoltaic repowering mean?",
+          "answer": "Repowering upgrades your existing PV system with modern components to increase performance, efficiency, and lifespan."
+        },
+        "whenWorthwhile": {
+          "question": "When is repowering worthwhile and what advantages does it offer?",
+          "answer": "Repowering is worthwhile when your system is over 10–15 years old, showing reduced output, or when modern technology can significantly boost performance on the same area."
+        },
+        "whichComponents": {
+          "question": "Which components need to be replaced during repowering?",
+          "answer": "Typically solar modules, inverters, and cabling are replaced. The mounting structure can often be retained if it is still in good condition."
+        },
+        "newInverter": {
+          "question": "Do I need a new inverter for a repowering project?",
+          "answer": "In most cases, yes. Older inverters are often incompatible with modern, higher-output modules and lack current efficiency standards."
+        },
+        "substructure": {
+          "question": "Can the substructure remain?",
+          "answer": "Often yes, provided it is structurally sound and compatible with the new modules. Our experts will assess this during the on-site inspection."
+        },
+        "heatPumpsEv": {
+          "question": "Repowering for heat pumps and EV chargers?",
+          "answer": "Repowering can be combined with heat pump integration and EV charging solutions to maximize your self-consumption and overall energy efficiency."
+        },
+        "howItWorks": {
+          "question": "How does a solar repowering project work?",
+          "answer": "We start with an on-site assessment, design the optimal upgrade, handle all permits and installation, and ensure everything is commissioned and monitored."
+        },
+        "costsPayback": {
+          "question": "Repowering costs & payback?",
+          "answer": "Costs depend on system size and components replaced. Thanks to higher yields and current subsidies, payback periods are typically 8–12 years."
+        },
+        "legalRegulations": {
+          "question": "Are there legal regulations for repowering?",
+          "answer": "Yes, building permits and grid connection regulations may apply. We handle all regulatory requirements as part of our service."
+        },
+        "subsidies": {
+          "question": "Are there subsidies available for repowering?",
+          "answer": "Yes, repowering projects can qualify for federal and cantonal subsidies. We help you identify and apply for all available funding."
+        },
+        "existingKev": {
+          "question": "What will happen to existing KEV installations?",
+          "answer": "Existing KEV contracts remain valid. However, repowering may affect the terms, so careful planning is essential to preserve your feed-in tariff."
+        },
+        "kevExpiry": {
+          "question": "What happens when the existing KEV expires?",
+          "answer": "After KEV expiry, you can switch to self-consumption optimization or negotiate a new feed-in tariff with your energy provider."
+        },
+        "feedInTariff": {
+          "question": "How does repowering affect the feed-in tariff (excluding KEV)?",
+          "answer": "Repowering may change your feed-in tariff conditions. We advise on the best strategy to maximize your returns."
+        },
+        "optimalTime": {
+          "question": "When is the optimal time for repowering?",
+          "answer": "The best time is when your system's output has noticeably declined, components are reaching end-of-life, or when subsidies make the investment attractive."
+        },
+        "selfConsumption": {
+          "question": "Can I optimize my self-consumption through repowering?",
+          "answer": "Absolutely. Modern modules produce more power, and combined with battery storage, you can significantly increase your self-consumption rate."
+        },
+        "notBuiltByFreeState": {
+          "question": "Can I order repowering even if my system wasn't built by FreeState?",
+          "answer": "Yes, we offer repowering for all existing solar systems regardless of the original installer."
+        },
+        "oldPanels": {
+          "question": "What happens to my old solar panels?",
+          "answer": "Old panels are professionally recycled in accordance with Swiss regulations. We handle the complete disposal process."
+        },
+        "taxBenefits": {
+          "question": "Can I claim tax benefits for a repowering project?",
+          "answer": "Yes, repowering investments are generally tax-deductible in Switzerland as energy-saving renovation measures."
+        },
+        "addSolarAbo": {
+          "question": "Is it possible to simply add a SolarAbo to the existing system?",
+          "answer": "Yes, in many cases we can integrate your existing system into a SolarAbo model, combining repowering with our all-inclusive service."
+        }
+      }
     }
   },
   "heatPumpsCost": {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { cn } from '@/lib/utils'
+import { FAQItem } from '@/components/ui/faq-item'
 import Image from 'next/image'
 
 const faqKeys = [
@@ -44,39 +44,16 @@ const CarportFAQSection = () => {
 
           <div className="flex flex-col gap-5 w-full max-w-[652px]">
             {faqKeys.map((key, index) => (
-              <div
+              <FAQItem
                 key={key}
-                className="bg-[rgba(123,135,126,0.32)] border border-[rgba(246,246,246,0.4)] backdrop-blur-[70px] rounded-2xl overflow-hidden"
-              >
-                <button
-                  onClick={() =>
-                    setOpenIndex(openIndex === index ? null : index)
-                  }
-                  className="w-full px-[30px] py-[30px] flex items-center justify-between gap-[50px] text-left"
-                >
-                  <span className="text-white/80 text-lg">
-                    {t(`items.${key}.question`)}
-                  </span>
-                  <span
-                    className={cn(
-                      'flex items-center justify-center w-[25px] h-[24px] shrink-0 rounded-sm bg-[#B7FE1A] text-[#062E25] text-lg font-medium transition-transform',
-                      openIndex === index && 'rotate-45'
-                    )}
-                  >
-                    +
-                  </span>
-                </button>
-
-                {openIndex === index && (
-                  <div className="px-[30px] pb-[30px]">
-                    <div className="border-t border-[rgba(246,246,246,0.2)] pt-5">
-                      <p className="text-white/80 text-base font-light">
-                        {t(`items.${key}.answer`)}
-                      </p>
-                    </div>
-                  </div>
-                )}
-              </div>
+                question={t(`items.${key}.question`)}
+                answer={t(`items.${key}.answer`)}
+                isOpen={openIndex === index}
+                onToggle={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
+                variant="dark"
+              />
             ))}
           </div>
         </div>

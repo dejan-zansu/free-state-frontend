@@ -43,7 +43,7 @@ const BottomCTASection = async () => {
         }}
       />
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 pt-[131px] pb-12">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 pt-[131px] pb-[88px]">
         <div className="flex flex-col items-center gap-10 mx-auto">
           <div className="flex flex-col items-center gap-5 w-full">
             <div

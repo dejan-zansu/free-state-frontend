@@ -1,11 +1,11 @@
-import { SolarSystemIcon, ShieldIcon, AllInclusiveIcon, MoneySignIcon } from '@/components/icons'
 import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 
 const cards = [
-  { key: 'experience', Icon: SolarSystemIcon },
-  { key: 'localPresence', Icon: ShieldIcon },
-  { key: 'comprehensiveService', Icon: AllInclusiveIcon },
-  { key: 'exclusiveTariffs', Icon: MoneySignIcon },
+  { key: 'experience', icon: '/images/star-icon.png' },
+  { key: 'localPresence', icon: '/images/map-pin-icon.png' },
+  { key: 'comprehensiveService', icon: '/images/note-icon.png' },
+  { key: 'exclusiveTariffs', icon: '/images/market-up-icon.png' },
 ] as const
 
 const WhyFreeStateSection = async () => {
@@ -19,7 +19,7 @@ const WhyFreeStateSection = async () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cards.map(({ key, Icon }) => (
+          {cards.map(({ key, icon }) => (
             <div
               key={key}
               className="flex flex-col items-center rounded-xl border border-[#062E25] overflow-hidden"
@@ -31,12 +31,13 @@ const WhyFreeStateSection = async () => {
             >
               <div className="flex flex-col items-center gap-5 pt-[30px] pb-8 px-6 w-full">
                 <div
-                  className="flex items-center justify-center w-[132px] h-[132px] rounded-full bg-[#F3F4EE]"
+                  className="flex items-center justify-center w-[132px] h-[132px] rounded-full bg-[#F3F4EE] overflow-hidden"
                   style={{
                     boxShadow: '0px 0px 44px 0px rgba(183, 254, 26, 0.3)',
                   }}
                 >
-                  <Icon className="w-16 h-16 text-[#062E25]" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={icon} alt="" />
                 </div>
                 <div className="flex flex-col items-center gap-[10px] w-full">
                   <h3 className="text-white text-lg md:text-[22px] font-medium tracking-[-0.02em] text-center">

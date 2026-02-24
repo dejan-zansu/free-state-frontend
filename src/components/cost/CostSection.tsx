@@ -17,7 +17,9 @@ const CostSection = async () => {
             <br />
             <p>
               {t.rich('costSection.paragraph2', {
-                subsidies: chunks => <span className="underline">{chunks}</span>,
+                subsidies: chunks => (
+                  <span className="underline">{chunks}</span>
+                ),
               })}
             </p>
           </div>

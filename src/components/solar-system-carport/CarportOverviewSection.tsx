@@ -59,6 +59,16 @@ const CarportOverviewSection = async () => {
           </div>
 
           <div className="relative w-full lg:w-[821px] h-[400px] sm:h-[500px] lg:h-[708px] shrink-0">
+            <div
+              className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none"
+              style={{
+                width: '442px',
+                height: '442px',
+                borderRadius: '442px',
+                background: 'rgba(183, 254, 26, 0.14)',
+                filter: 'blur(85px)',
+              }}
+            />
             <Image
               src="/images/solar-system-carport.png"
               alt="Solar system for carport"

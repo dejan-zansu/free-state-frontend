@@ -1,5 +1,6 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
+import LeafIcon from '../icons/LeafIcon'
 
 const itemKeys = [
   'notification',
@@ -17,20 +18,25 @@ const MonitoringSection = async () => {
     <section className="relative w-full overflow-hidden bg-[#4A9A99]">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/service/service-monitoring-bg-439fa7.png')" }}
+        style={{
+          backgroundImage:
+            "url('/images/service/service-monitoring-bg-439fa7.png')",
+        }}
       />
       <div className="absolute inset-0 bg-black/20" />
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 99%)',
+          background:
+            'linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 99%)',
           opacity: 0.2,
         }}
       />
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(0deg, rgba(74, 154, 153, 0) 9%, rgba(74, 154, 153, 1) 100%)',
+          background:
+            'linear-gradient(0deg, rgba(74, 154, 153, 0) 9%, rgba(74, 154, 153, 1) 100%)',
         }}
       />
 
@@ -54,17 +60,21 @@ const MonitoringSection = async () => {
 
               <div className="relative z-10 px-6 sm:px-10 py-8 sm:py-[30px]">
                 <div className="flex flex-col gap-5">
-                  {itemKeys.map(key => (
-                    <div key={key} className="flex items-start gap-2">
-                      <div
-                        className="w-[13px] h-[13px] shrink-0 mt-1.5 rounded-l-[5px] rounded-r-0"
-                        style={{ border: '1.5px solid #B7FE1A' }}
-                      />
-                      <span className="text-white/80 text-base md:text-[22px] font-bold tracking-[-0.02em]">
-                        {t(`monitoring.items.${key}`)}
-                      </span>
-                    </div>
-                  ))}
+                  {itemKeys.map(key => {
+                    const text = t(`monitoring.items.${key}`)
+                    const colonIdx = text.indexOf(':')
+                    const bold = colonIdx !== -1 ? text.slice(0, colonIdx + 1) : text
+                    const rest = colonIdx !== -1 ? text.slice(colonIdx + 1) : ''
+                    return (
+                      <div key={key} className="flex items-center gap-2">
+                        <LeafIcon className="w-[13px] h-[13px] text-solar shrink-0 mt-1" />
+                        <span className="text-white/80 text-base md:text-[22px] tracking-[-0.02em]">
+                          <strong className="font-bold">{bold}</strong>
+                          {rest && <span className="font-light">{rest}</span>}
+                        </span>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </div>

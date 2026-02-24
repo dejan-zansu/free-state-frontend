@@ -24,8 +24,18 @@ const EvChargingSection = async () => {
       <div className="max-w-[1440px] mx-auto px-4 sm:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-10">
           <div className="relative w-full lg:w-[688px] h-[400px] sm:h-[500px] lg:h-[594px] shrink-0">
+            <div
+              className="absolute top-1/2 left-0 -translate-y-1/2 pointer-events-none"
+              style={{
+                width: '442px',
+                height: '442px',
+                borderRadius: '442px',
+                background: 'rgba(183, 254, 26, 0.14)',
+                filter: 'blur(85px)',
+              }}
+            />
             <Image
-              src="/images/ev-charging-carport.png"
+              src="/images/ev-charging-station.png"
               alt={t('evCharging.title')}
               fill
               className="object-contain"

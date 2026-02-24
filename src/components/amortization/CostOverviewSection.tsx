@@ -36,11 +36,13 @@ const CostOverviewSection = async () => {
             </div>
 
             <div className="flex flex-col items-center gap-5 lg:w-[527px]">
-              <Image
-                src="/images/amortization-cost-icon.svg"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/light-bulb-with-pointer.png"
                 alt=""
                 width={100}
                 height={114}
+                className="mix-blend-multiply"
               />
 
               <div

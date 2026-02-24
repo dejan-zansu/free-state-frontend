@@ -1,12 +1,3 @@
-'use client'
-
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
@@ -42,60 +33,46 @@ const RepoweringServicesSection = () => {
             {t('title')}
           </h2>
 
-          <Carousel
-            opts={{
-              loop: true,
-              align: 'start',
-            }}
-            className="w-full max-w-[1220px]"
-          >
-            <CarouselContent className="-ml-2.5">
-              {cards.map(card => (
-                <CarouselItem
-                  key={card.key}
-                  className="pl-2.5 basis-[85%] sm:basis-[45%] lg:basis-1/3"
-                >
-                  <div
-                    className="relative w-full h-[370px] rounded-[20px] overflow-hidden"
-                    style={{ border: '1px solid #809792' }}
-                  >
-                    <div className="relative z-10 flex items-center justify-center pt-[30px]">
-                      <Image src={card.icon} alt="" width={142} height={142} />
-                    </div>
+          <div className="flex flex-wrap justify-center gap-2.5 w-full max-w-[1220px]">
+            {cards.map(card => (
+              <div
+                key={card.key}
+                className="relative w-full sm:w-[calc(50%-5px)] lg:w-[calc(33.333%-7px)] h-[370px] rounded-[20px] overflow-hidden"
+                style={{ border: '1px solid #809792' }}
+              >
+                <div className="relative z-10 flex items-center justify-center pt-[30px]">
+                  <Image src={card.icon} alt="" width={142} height={142} />
+                </div>
 
-                    <div
-                      className="absolute bottom-0 left-0 right-0 h-[177px] backdrop-blur-[26px]"
-                      style={{
-                        background: '#E5E6DE',
-                        borderTop: '1px solid #809792',
-                      }}
-                    >
-                      <div className="flex flex-col gap-5 px-8 py-5">
-                        <div className="flex flex-col gap-2.5">
-                          <h3 className="text-[#062E25] text-lg md:text-[22px] font-bold capitalize text-center">
-                            {t(`cards.${card.key}.title`)}
-                          </h3>
-                          <p className="text-[#062E25]/80 text-sm md:text-base font-light tracking-[-0.02em] text-center">
-                            {t(`cards.${card.key}.description`)}
-                          </p>
-                        </div>
-                        <div className="flex justify-center">
-                          <Image
-                            src={card.logo}
-                            alt=""
-                            width={card.logoWidth}
-                            height={23}
-                          />
-                        </div>
-                      </div>
+                <div
+                  className="absolute bottom-0 left-0 right-0 h-[177px] backdrop-blur-[26px]"
+                  style={{
+                    background: '#E5E6DE',
+                    borderTop: '1px solid #809792',
+                  }}
+                >
+                  <div className="flex flex-col gap-5 px-8 py-5">
+                    <div className="flex flex-col gap-2.5">
+                      <h3 className="text-[#062E25] text-lg md:text-[22px] font-bold capitalize text-center">
+                        {t(`cards.${card.key}.title`)}
+                      </h3>
+                      <p className="text-[#062E25]/80 text-sm md:text-base font-light tracking-[-0.02em] text-center">
+                        {t(`cards.${card.key}.description`)}
+                      </p>
+                    </div>
+                    <div className="flex justify-center">
+                      <Image
+                        src={card.logo}
+                        alt=""
+                        width={card.logoWidth}
+                        height={23}
+                      />
                     </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="-left-4 lg:-left-14 size-12 bg-[#FDFFF5] border-0 hover:bg-[#FDFFF5]/80" />
-            <CarouselNext className="-right-4 lg:-right-14 size-12 bg-[#FDFFF5] border-0 hover:bg-[#FDFFF5]/80" />
-          </Carousel>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { LinkButton } from '@/components/ui/link-button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 interface HeroNavProps {
   isCommercial?: boolean
@@ -14,6 +14,11 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
   const t = useTranslations('home')
   const tFooter = useTranslations('footer')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const lastActiveItem = useRef<string | null>(null)
+
+  if (hoveredItem) {
+    lastActiveItem.current = hoveredItem
+  }
 
   const solarAboLinks = isCommercial
     ? [
@@ -155,12 +160,13 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
       ]
 
   const hasDropdown = hoveredItem === 'solarAbo' || hoveredItem === 'products'
+  const displayItem = hoveredItem || lastActiveItem.current
 
   return (
     <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full hidden md:flex justify-center z-20 px-4">
       <div
         className={cn(
-          'inline-flex flex-col items-center bg-white/20 backdrop-blur-[30px] border border-white/22 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden max-w-[calc(100vw-2rem)]',
+          'inline-flex flex-col items-center bg-white/20 backdrop-blur-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-w-[calc(100vw-2rem)]',
           hasDropdown
             ? 'rounded-[20px] sm:rounded-[24px] md:rounded-[30px]'
             : 'rounded-full sm:rounded-[24px] md:rounded-[30px]'
@@ -199,74 +205,95 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
 
         <div
           className={cn(
-            'self-stretch overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]',
+            'grid transition-[grid-template-rows,grid-template-columns] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
             hasDropdown
-              ? 'max-h-[800px] opacity-100'
-              : 'max-h-0 opacity-0'
+              ? 'grid-rows-[1fr] grid-cols-[1fr]'
+              : 'grid-rows-[0fr] grid-cols-[0fr]'
           )}
         >
-          <div className="border-t border-white/10 px-3 sm:px-4 md:px-5 pt-3 pb-2">
-            {hoveredItem === 'solarAbo' && (
-              <div className="flex flex-col gap-1">
-                {solarAboLinks.map((link, index) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={cn(
-                      'px-4 py-2.5 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-500 whitespace-nowrap',
-                      hasDropdown
-                        ? 'translate-y-0 opacity-100'
-                        : '-translate-y-1 opacity-0'
-                    )}
-                    style={{
-                      transitionDelay: hasDropdown
-                        ? `${150 + index * 50}ms`
-                        : `${(solarAboLinks.length - index) * 30}ms`,
-                    }}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-            {hoveredItem === 'products' && (
-              <div className="flex flex-col md:flex-row md:gap-2 lg:gap-4">
-                {productLinks.map((product, columnIndex) => (
-                  <div
-                    key={product.href}
-                    className={cn(
-                      'flex flex-col transition-all duration-500',
-                      hasDropdown
-                        ? 'translate-y-0 opacity-100'
-                        : '-translate-y-1 opacity-0'
-                    )}
-                    style={{
-                      transitionDelay: hasDropdown
-                        ? `${150 + columnIndex * 70}ms`
-                        : '0ms',
-                    }}
-                  >
+          <div className="overflow-hidden min-h-0 min-w-0">
+            <div
+              className={cn(
+                'border-t border-white/10 px-3 sm:px-4 md:px-5 pt-3 pb-2 transition-opacity duration-300 ease-out',
+                hasDropdown ? 'opacity-100' : 'opacity-0'
+              )}
+            >
+              <div className="grid">
+                <div
+                  className={cn(
+                    'col-start-1 row-start-1 flex flex-col gap-1 transition-all duration-300',
+                    displayItem === 'solarAbo' && hasDropdown
+                      ? 'opacity-100 visible'
+                      : 'opacity-0 invisible'
+                  )}
+                >
+                  {solarAboLinks.map((link, index) => (
                     <Link
-                      href={product.href}
-                      className="px-3 py-2 text-white text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors whitespace-nowrap block"
+                      key={link.href}
+                      href={link.href}
+                      className={cn(
+                        'px-4 py-2.5 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-400 whitespace-nowrap',
+                        displayItem === 'solarAbo' && hasDropdown
+                          ? 'translate-y-0 opacity-100'
+                          : '-translate-y-1 opacity-0'
+                      )}
+                      style={{
+                        transitionDelay:
+                          displayItem === 'solarAbo' && hasDropdown
+                            ? `${100 + index * 40}ms`
+                            : '0ms',
+                      }}
                     >
-                      {product.label}
+                      {link.label}
                     </Link>
-                    {'subLinks' in product &&
-                      product.subLinks?.map((sub) => (
-                        <Link
-                          key={sub.href}
-                          href={sub.href}
-                          className="px-3 py-1.5 text-white/70 text-xs rounded-lg hover:bg-white/10 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1.5"
-                        >
-                          <span className="text-white/40">→</span>
-                          {sub.label}
-                        </Link>
-                      ))}
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <div
+                  className={cn(
+                    'col-start-1 row-start-1 flex flex-col md:flex-row md:gap-2 lg:gap-4 transition-all duration-300',
+                    displayItem === 'products' && hasDropdown
+                      ? 'opacity-100 visible'
+                      : 'opacity-0 invisible'
+                  )}
+                >
+                  {productLinks.map((product, columnIndex) => (
+                    <div
+                      key={product.href}
+                      className={cn(
+                        'flex flex-col transition-all duration-400',
+                        displayItem === 'products' && hasDropdown
+                          ? 'translate-y-0 opacity-100'
+                          : '-translate-y-1 opacity-0'
+                      )}
+                      style={{
+                        transitionDelay:
+                          displayItem === 'products' && hasDropdown
+                            ? `${100 + columnIndex * 50}ms`
+                            : '0ms',
+                      }}
+                    >
+                      <Link
+                        href={product.href}
+                        className="px-3 py-2 text-white text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors whitespace-nowrap block"
+                      >
+                        {product.label}
+                      </Link>
+                      {'subLinks' in product &&
+                        product.subLinks?.map(sub => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            className="px-3 py-1.5 text-white/90 text-sm rounded-lg hover:bg-white/10 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1.5"
+                          >
+                            <span className="text-white/40">→</span>
+                            {sub.label}
+                          </Link>
+                        ))}
+                    </div>
+                  ))}
+                </div>
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import EvChargingSection from '@/components/solar-system-carport/EvChargingSecti
 import PhotovoltaicsCarportsSection from '@/components/solar-system-carport/PhotovoltaicsCarportsSection'
 import SingleDoubleCarportSection from '@/components/solar-system-carport/SingleDoubleCarportSection'
 import WhySolarCarportSection from '@/components/solar-system-carport/WhySolarCarportSection'
+import EnergySolutionsSection from '@/components/heat-pumps/cost/EnergySolutionsSection'
 import { getTranslations } from 'next-intl/server'
 
 const SolarSystemCarportPage = async () => {
@@ -29,6 +30,7 @@ const SolarSystemCarportPage = async () => {
       <CarportHowItWorks />
       <CarportFAQSection />
       <CustomerTestimonialSection />
+      <EnergySolutionsSection />
     </main>
   )
 }

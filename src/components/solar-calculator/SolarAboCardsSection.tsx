@@ -2,7 +2,10 @@ import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 
 const cards = [
-  { key: 'investment', icon: '/images/solar-calculator/card-icon-investment.png' },
+  {
+    key: 'investment',
+    icon: '/images/solar-calculator/card-icon-investment.png',
+  },
   { key: 'control', icon: '/images/solar-calculator/card-icon-control.png' },
   { key: 'yield', icon: '/images/solar-calculator/card-icon-yield.png' },
 ] as const
@@ -46,25 +49,15 @@ const SolarAboCardsSection = async () => {
         }}
       />
 
-      <div className="relative z-10 max-w-[1120px] mx-auto px-4 sm:px-8 py-[151px]">
+      <div className="relative z-10 max-w-[1120px] mx-auto px-4 sm:px-8 py-[151px] pb-[191px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {cards.map(({ key, icon }) => (
             <div
               key={key}
               className="relative flex flex-col overflow-hidden rounded-[20px] border border-[#809792] h-[266px]"
-              style={{
-                background: '#0D4841',
-                boxShadow:
-                  '0px 4px 24px 0px rgba(0, 0, 0, 0.45), inset 0px 0px 44px 0px rgba(0, 0, 0, 0.4)',
-              }}
             >
               <div className="flex-1 flex items-start justify-center pt-[30px]">
-                <div
-                  className="flex items-center justify-center w-[142px] h-[142px] rounded-full bg-white border border-[#B7FE1A]"
-                  style={{
-                    boxShadow: '0px 0px 44px 0px rgba(183, 254, 26, 0.3)',
-                  }}
-                >
+                <div className="flex items-center justify-center w-[142px] h-[142px] rounded-full bg-white border border-[#B7FE1A]">
                   <Image
                     src={icon}
                     alt={t(`${key}.title`)}
@@ -77,11 +70,7 @@ const SolarAboCardsSection = async () => {
 
               <div
                 className="flex items-center justify-center h-[73px] border-t border-[#809792]"
-                style={{
-                  background: '#E5E6DE',
-                  backdropFilter: 'blur(26.4px)',
-                  WebkitBackdropFilter: 'blur(26.4px)',
-                }}
+                style={{ background: '#E5E6DE' }}
               >
                 <span className="text-[#062E25] text-lg md:text-[22px] font-bold tracking-[-0.02em] text-center capitalize">
                   {t(`${key}.title`)}

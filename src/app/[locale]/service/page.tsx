@@ -20,15 +20,14 @@ const ServicePage = async () => {
           title={t('hero.title')}
         />
       </div>
-
       <SolarSeasonSection />
+      <ServiceHotlineSection />
       <ServiceHighestLevelSection />
       <SelfCheckSection />
       <ServicePricingSection />
       <MaintenanceServicesSection />
       <MonitoringSection />
       <MaintenanceInquirySection />
-      <ServiceHotlineSection />
     </main>
   )
 }

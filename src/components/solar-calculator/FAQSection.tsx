@@ -2,25 +2,26 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Plus, Minus } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { FAQItem } from '@/components/ui/faq-item'
 
-const faqKeys = ['howItWorks', 'isFree', 'howQuickly', 'funding', 'roofSuitable'] as const
+const faqKeys = [
+  'howItWorks',
+  'isFree',
+  'howQuickly',
+  'funding',
+  'roofSuitable',
+] as const
 
 const FAQSection = () => {
   const t = useTranslations('solarCalculator.faq')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden -mt-[40px] rounded-t-[40px]">
       <div
-        className="absolute inset-x-0 top-[1px] bottom-0 rounded-t-[40px] overflow-hidden border border-[#63836F] border-b-0"
+        className="absolute -inset-1"
         style={{
-          backgroundImage: `
-            linear-gradient(0deg, rgba(242, 244, 232, 0) 18%, rgba(242, 244, 232, 1) 92%),
-            linear-gradient(0deg, rgba(168, 200, 193, 0.4), rgba(168, 200, 193, 0.4)),
-            url(/images/solar-calculator-faq-section.png)
-          `,
+          backgroundImage: 'url(/images/solar-calculator-faq-section.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -33,49 +34,18 @@ const FAQSection = () => {
           </h2>
 
           <div className="flex flex-col gap-5 w-full max-w-[652px]">
-            {faqKeys.map((key, index) => {
-              const isOpen = openIndex === index
-
-              return (
-                <button
-                  key={key}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className={cn(
-                    'w-full rounded-2xl border text-left transition-all overflow-hidden',
-                    'border-white/40'
-                  )}
-                  style={{
-                    background: 'rgba(198, 213, 202, 0.32)',
-                    backdropFilter: 'blur(70px)',
-                    WebkitBackdropFilter: 'blur(70px)',
-                  }}
-                >
-                  <div className="p-[30px]">
-                    <div className="flex items-center justify-between gap-[50px]">
-                      <h3 className="text-[#062E25]/80 text-base md:text-lg font-normal tracking-[-0.02em]">
-                        {t(`items.${key}.question`)}
-                      </h3>
-                      <div className="flex items-center justify-center w-[25px] h-[24px] shrink-0 rounded-[6px] bg-[#B7FE1A] border border-[#036B53]/50">
-                        {isOpen ? (
-                          <Minus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
-                        ) : (
-                          <Plus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
-                        )}
-                      </div>
-                    </div>
-
-                    {isOpen && (
-                      <>
-                        <div className="mt-5 mb-5 h-px bg-[#30524A]/20" />
-                        <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em]">
-                          {t(`items.${key}.answer`)}
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </button>
-              )
-            })}
+            {faqKeys.map((key, index) => (
+              <FAQItem
+                key={key}
+                question={t(`items.${key}.question`)}
+                answer={t(`items.${key}.answer`)}
+                isOpen={openIndex === index}
+                onToggle={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
+                variant="light"
+              />
+            ))}
           </div>
         </div>
       </div>

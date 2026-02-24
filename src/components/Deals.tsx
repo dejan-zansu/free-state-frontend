@@ -1,9 +1,9 @@
 import { cn } from '@/lib/utils'
-import { Link } from '@/i18n/navigation'
-import { ArrowRight, Info, Settings, ShieldCheck } from 'lucide-react'
+import { Info, Settings, ShieldCheck } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import { BatteryIcon, EnergySystemIcon, LeafIcon } from './icons'
 import ReductionIcon from './icons/ReductionIcon'
+import { LearnMoreLink } from './ui/learn-more-link'
 import { LinkButton } from './ui/link-button'
 
 const Deals = async ({ isCommercial = false }) => {
@@ -270,15 +270,9 @@ const Deals = async ({ isCommercial = false }) => {
                 </div>
 
                 <div className="flex justify-start px-6">
-                  <Link
-                    href="/deals"
-                    className="inline-flex items-center gap-2 text-foreground group/link transition-opacity duration-300 hover:opacity-80"
-                  >
-                    <span className="inline-flex items-center gap-2 border-b border-foreground pb-0.5">
-                      <span>{t('learnMore')}</span>
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
-                    </span>
-                  </Link>
+                  <LearnMoreLink href="/deals">
+                    {t('learnMore')}
+                  </LearnMoreLink>
                 </div>
               </div>
             </div>

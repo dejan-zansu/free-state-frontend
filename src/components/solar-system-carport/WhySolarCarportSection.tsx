@@ -16,7 +16,7 @@ const WhySolarCarportSection = async () => {
       <div className="absolute -top-[256px] right-[24px] w-[291px] h-[291px] rounded-full bg-[#B7FE1A] blur-[170px]" />
 
       <div className="flex flex-col lg:flex-row">
-        <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-[640px]">
+        <div className="relative w-full lg:w-1/2 h-[300px] sm:h-[400px] lg:h-auto lg:self-stretch">
           <Image
             src="/images/why-solar-system-on-carport.png"
             alt={t('whySolarCarport.title')}
