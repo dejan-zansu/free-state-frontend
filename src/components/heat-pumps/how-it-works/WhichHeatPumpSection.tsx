@@ -12,19 +12,6 @@ const WhichHeatPumpSection = async () => {
           'linear-gradient(146deg, rgba(6, 46, 37, 1) 0%, rgba(9, 63, 53, 1) 49%, rgba(21, 139, 126, 1) 100%)',
       }}
     >
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: '374px',
-          height: '374px',
-          right: '0px',
-          top: '-147px',
-          background: 'rgba(183, 254, 26, 0.5)',
-          filter: 'blur(490px)',
-          borderRadius: '50%',
-        }}
-      />
-
       <div className="relative z-10 max-w-[1210px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-[50px]">
           <h2 className="text-white text-3xl sm:text-4xl md:text-[45px] font-medium text-center">
@@ -37,15 +24,14 @@ const WhichHeatPumpSection = async () => {
             </p>
 
             <div className="flex items-center gap-[13px]">
-              <div className="relative w-[100px] h-[100px] shrink-0">
-                <div className="absolute inset-0 bg-white rounded-[20px] flex items-center justify-center">
-                  <Image
-                    src="/images/heat-pumps/how-it-works/heat-pump-icon.svg"
-                    alt=""
-                    width={80}
-                    height={70}
-                  />
-                </div>
+              <div className="relative w-[115px] h-[100px] shrink-0">
+                <Image
+                  src="/images/light-bulb-icon-green-border.png"
+                  alt=""
+                  width={115}
+                  height={100}
+                  className="object-cover"
+                />
               </div>
 
               <div

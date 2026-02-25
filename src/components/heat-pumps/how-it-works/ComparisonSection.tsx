@@ -1,7 +1,13 @@
 import { getTranslations } from 'next-intl/server'
 
-const rows = ['installationEffort', 'acquisitionCosts', 'efficiency', 'energyCosts'] as const
+const rows = [
+  'installationEffort',
+  'efficiency',
+  'acquisitionCosts',
+  'energyCosts',
+] as const
 const columns = ['airWater', 'brineWater', 'oilHeating'] as const
+const gridCols = 'grid grid-cols-4'
 
 const ComparisonSection = async () => {
   const t = await getTranslations('heatPumpsHowItWorks')
@@ -20,47 +26,44 @@ const ComparisonSection = async () => {
             {t('comparison.title')}
           </h2>
 
-          <div className="w-full overflow-x-auto">
-            <table className="w-full border-collapse min-w-[600px]">
-              <thead>
-                <tr>
-                  <th className="text-left p-3" />
-                  {columns.map((col) => (
-                    <th
-                      key={col}
-                      className="text-left p-3 text-[#062E25]/80 text-lg font-normal tracking-[-0.02em] rounded-t-[16px] backdrop-blur-[20px]"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        border: '1px solid rgba(6, 46, 37, 0.4)',
-                      }}
-                    >
-                      {t(`comparison.columns.${col}`)}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row) => (
-                  <tr key={row}>
-                    <td className="p-3 text-[#062E25] text-lg font-semibold tracking-[-0.02em]">
-                      {t(`comparison.rows.${row}.label`)}
-                    </td>
-                    {columns.map((col) => (
-                      <td
-                        key={col}
-                        className="p-3 text-[#062E25] text-lg font-semibold tracking-[-0.02em] backdrop-blur-[20px]"
-                        style={{
-                          background: '#B7FE1A',
-                          border: '1px solid rgba(6, 46, 37, 0.4)',
-                        }}
-                      >
-                        {t(`comparison.rows.${row}.${col}`)}
-                      </td>
-                    ))}
-                  </tr>
+          <div className="w-full overflow-x-auto border border-[#062E25]/40 rounded-2xl">
+            <div className="min-w-[600px] flex flex-col">
+              <div
+                className={`${gridCols} rounded-t-2xl backdrop-blur-[20px]`}
+                style={{
+                  background: 'rgba(255, 255, 255, 0.1)',
+                }}
+              >
+                <span className="px-5 py-3" />
+                {columns.map(col => (
+                  <span
+                    key={col}
+                    className="px-5 py-3 text-[#062E25]/80 text-lg font-normal tracking-[-0.02em]"
+                  >
+                    {t(`comparison.columns.${col}`)}
+                  </span>
                 ))}
-              </tbody>
-            </table>
+              </div>
+
+              {rows.map((row, index) => (
+                <div
+                  key={row}
+                  className={`${gridCols} ${index % 2 === 0 ? 'bg-[#B7FE1A] rounded-t-2xl border border-[#062E25]/40' : ''}`}
+                >
+                  <span className="px-5 py-4 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
+                    {t(`comparison.rows.${row}.label`)}
+                  </span>
+                  {columns.map(col => (
+                    <span
+                      key={col}
+                      className="px-5 py-4 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]"
+                    >
+                      {t(`comparison.rows.${row}.${col}`)}
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

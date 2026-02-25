@@ -12,6 +12,7 @@ import ProductsSection from '@/components/heat-pumps/how-it-works/ProductsSectio
 import ComparisonSection from '@/components/heat-pumps/how-it-works/ComparisonSection'
 import AdvantagesSection from '@/components/heat-pumps/how-it-works/AdvantagesSection'
 import WhyFreeStateSection from '@/components/heat-pumps/how-it-works/WhyFreeStateSection'
+import FurtherTopicsSection from '@/components/heat-pumps/how-it-works/FurtherTopicsSection'
 import SolarAboCTA from '@/components/solar-abo/SolarAboCTA'
 import { getTranslations } from 'next-intl/server'
 
@@ -39,6 +40,7 @@ const HeatPumpsHowItWorksPage = async () => {
       <ComparisonSection />
       <AdvantagesSection />
       <WhyFreeStateSection />
+      <FurtherTopicsSection />
     </main>
   )
 }

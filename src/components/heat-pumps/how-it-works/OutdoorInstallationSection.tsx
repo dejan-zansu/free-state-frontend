@@ -51,7 +51,7 @@ const OutdoorInstallationSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/487]">
           <Image
-            src="/images/heat-pumps/how-it-works/heat-pump-indoor-749664.png"
+            src="/images/heat-pumps/outdoor-heat-pump.png"
             alt={t('outdoor.title')}
             fill
             className="object-cover"

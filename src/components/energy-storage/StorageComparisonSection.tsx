@@ -16,25 +16,31 @@ const StorageComparisonSection = async () => {
             {t('title')}
           </h2>
 
-          <div className="w-full overflow-x-auto">
+          <div className="w-full overflow-x-auto border border-[#062E25]/40 border-top rounded-2xl">
             <div className="min-w-[700px] flex flex-col">
               <div className={`${gridCols} bg-[#B7FE1A] rounded-t-2xl`}>
                 <span className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
                   {t('manufacturer.label')}
                 </span>
                 {columns.map(col => (
-                  <span key={col} className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
+                  <span
+                    key={col}
+                    className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]"
+                  >
                     {t(`columns.${col}`)}
                   </span>
                 ))}
               </div>
 
-              <div className={`${gridCols} border border-[#062E25]/40`}>
+              <div className={`${gridCols}`}>
                 <span className="px-5 py-4 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
                   {t('inverter.label')}
                 </span>
                 {columns.map(col => (
-                  <span key={col} className="px-5 py-4 text-[#062E25]/80 text-lg italic tracking-[-0.02em] whitespace-pre-line">
+                  <span
+                    key={col}
+                    className="px-5 py-4 text-[#062E25]/80 text-lg italic tracking-[-0.02em] whitespace-pre-line"
+                  >
                     {t(`inverter.${col}`)}
                   </span>
                 ))}
@@ -45,18 +51,24 @@ const StorageComparisonSection = async () => {
                   {t('storageCapacity.label')}
                 </span>
                 {columns.map(col => (
-                  <span key={col} className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
+                  <span
+                    key={col}
+                    className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]"
+                  >
                     {t(`capacity.${col}`)}
                   </span>
                 ))}
               </div>
 
-              <div className={`${gridCols} border border-[#062E25]/40`}>
+              <div className={`${gridCols}`}>
                 <span className="px-5 py-4 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
                   {t('emergencyPower.label')}
                 </span>
                 {columns.map(col => (
-                  <span key={col} className="px-5 py-4 text-[#062E25]/80 text-lg italic tracking-[-0.02em] whitespace-pre-line">
+                  <span
+                    key={col}
+                    className="px-5 py-4 text-[#062E25]/80 text-lg italic tracking-[-0.02em] whitespace-pre-line"
+                  >
                     {t(`emergencyPower.${col}`)}
                   </span>
                 ))}
@@ -67,16 +79,19 @@ const StorageComparisonSection = async () => {
                   {t('islandOperation.label')}
                 </span>
                 {columns.map(col => (
-                  <span key={col} className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
+                  <span
+                    key={col}
+                    className="px-5 py-3 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]"
+                  >
                     {t(`islandOperation.${col}`)}
                   </span>
                 ))}
               </div>
 
-              <div className="rounded-2xl bg-[#E4E9D3]">
-                <div className={`${gridCols} border border-[#062E25]/40`}>
+              <div>
+                <div className={`${gridCols}`}>
                   <div className="px-5 py-4 flex flex-col gap-4">
-                    <span className="text-[#062E25]/80 text-lg font-semibold italic tracking-[-0.02em]">
+                    <span className="text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em]">
                       {t('costs.label')}
                     </span>
                     <div className="flex flex-col gap-2">
@@ -95,13 +110,18 @@ const StorageComparisonSection = async () => {
                     </div>
                   </div>
                   {columns.map(col => (
-                    <span key={col} className="px-5 py-4 text-[#062E25]/80 text-lg italic tracking-[-0.02em] whitespace-pre-line">
+                    <span
+                      key={col}
+                      className="px-5 py-4 text-[#062E25]/80 text-lg italic tracking-[-0.02em] whitespace-pre-line"
+                    >
                       {t(`costs.${col}`)}
                     </span>
                   ))}
                 </div>
 
-                <div className={`${gridCols} bg-[#B7FE1A] rounded-t-2xl mt-8`}>
+                <div
+                  className={`${gridCols} bg-[#E4E9D3] rounded-t-2xl mt-8 rounded-b-2xl`}
+                >
                   <span className="px-5 py-5 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em] whitespace-pre-line">
                     {t('smartEnergy.label')}
                   </span>

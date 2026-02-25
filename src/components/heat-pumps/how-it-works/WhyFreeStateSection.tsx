@@ -1,29 +1,15 @@
 import { getTranslations } from 'next-intl/server'
-
-const ArrowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={25}
-    height={24}
-    viewBox="0 0 25 24"
-    fill="none"
-    className="shrink-0"
-  >
-    <circle cx={12.5} cy={12} r={11.5} stroke="#B7FE1A" strokeWidth={0.57} />
-    <path
-      d="M9.5 15L15.5 9M15.5 9H10.5M15.5 9V14"
-      stroke="#B7FE1A"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
+import WhyFreeStateFeatures from './WhyFreeStateFeatures'
 
 const features = ['1', '2', '3', '4', '5', '6'] as const
 
 const WhyFreeStateSection = async () => {
   const t = await getTranslations('heatPumpsHowItWorks')
+
+  const items = features.map((key) => ({
+    question: t(`whyFreeState.features.${key}.title`),
+    answer: t(`whyFreeState.features.${key}.description`),
+  }))
 
   return (
     <section className="relative min-h-[843px] overflow-hidden">
@@ -52,29 +38,7 @@ const WhyFreeStateSection = async () => {
             {t('whyFreeState.title')}
           </h2>
 
-          <div className="flex flex-col gap-5 w-full max-w-[652px]">
-            {features.map((key) => (
-              <div
-                key={key}
-                className="relative rounded-[16px] overflow-hidden"
-              >
-                <div
-                  className="absolute inset-0 backdrop-blur-[70px]"
-                  style={{
-                    background: 'rgba(123, 135, 126, 0.32)',
-                    border: '1px solid rgba(246, 246, 246, 0.4)',
-                    borderRadius: '16px',
-                  }}
-                />
-                <div className="relative z-10 flex items-center justify-between gap-[50px] p-[30px]">
-                  <span className="text-white/80 text-lg font-normal tracking-[-0.02em]">
-                    {t(`whyFreeState.features.${key}`)}
-                  </span>
-                  <ArrowIcon />
-                </div>
-              </div>
-            ))}
-          </div>
+          <WhyFreeStateFeatures items={items} />
         </div>
       </div>
     </section>

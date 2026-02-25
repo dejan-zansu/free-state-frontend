@@ -2016,9 +2016,18 @@
     "heatPumpTypesDetail": {
       "title": "How these three heat pumps work:",
       "cards": {
-        "1": "Ground source heat pump (geothermal): Uses stable ground temperature for highly efficient heating. Requires drilling, higher investment, and municipal approval.",
-        "2": "Water-to-water heat pump: Uses groundwater or surface water for very high efficiency. Needs suitable water conditions and official permits.",
-        "3": "Air-to-water heat pump: Extracts heat from ambient air to heat the home. Simpler installation and lower upfront cost."
+        "1": {
+          "title": "Ground source heat pump (geothermal)",
+          "description": "Uses stable ground temperature for highly efficient heating. Requires drilling, higher investment, and municipal approval."
+        },
+        "2": {
+          "title": "Water-to-water heat pump",
+          "description": "Uses groundwater or surface water for very high efficiency. Needs suitable water conditions and official permits."
+        },
+        "3": {
+          "title": "Air-to-water heat pump",
+          "description": "Extracts heat from ambient air to heat the home. Simpler installation and lower upfront cost."
+        }
       }
     },
     "cta": {
@@ -2146,12 +2155,50 @@
     "whyFreeState": {
       "title": "Why FreeState?",
       "features": {
-        "1": "Everything from a single source",
-        "2": "A 24/7 service",
-        "3": "Product quality",
-        "4": "Spatial and sound design",
-        "5": "Comprehensive expertise",
-        "6": "Fail-safety"
+        "1": {
+          "title": "Everything from a single source",
+          "description": "From consultation and planning to installation and maintenance — we handle every step so you don't have to."
+        },
+        "2": {
+          "title": "A 24/7 service",
+          "description": "Our support team is available around the clock, ensuring your heat pump system runs smoothly at all times."
+        },
+        "3": {
+          "title": "Product quality",
+          "description": "We use only premium, certified components from leading manufacturers for lasting performance."
+        },
+        "4": {
+          "title": "Spatial and sound design",
+          "description": "Our systems are designed to integrate seamlessly into your living space with minimal noise impact."
+        },
+        "5": {
+          "title": "Comprehensive expertise",
+          "description": "Our certified specialists bring years of experience in heat pump technology and energy solutions."
+        },
+        "6": {
+          "title": "Fail-safety",
+          "description": "Built-in redundancy and monitoring ensure your system operates reliably, even in extreme conditions."
+        }
+      }
+    },
+    "furtherTopics": {
+      "title": "Further topics on heat pumps",
+      "cards": {
+        "financing": {
+          "title": "Financing heat pump",
+          "description": "Finance or buy a heat pump?",
+          "link": "Learn more"
+        },
+        "cost": {
+          "title": "Cost",
+          "description": "How much does a heat pump cost?",
+          "link": "Learn more"
+        },
+        "systemComparison": {
+          "title": "System comparison",
+          "description": "Which system is right for you?",
+          "link": "Learn more"
+        }
       }
     }
   },

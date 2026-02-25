@@ -1,26 +1,26 @@
 import { TopicCard } from '@/components/ui/topic-card'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 const cards = [
   {
-    key: 'photovoltaics',
-    icon: '/images/repowering/repowering-icon-photovoltaics.svg',
-    href: '/solar-abo' as const,
+    key: 'financing',
+    icon: '/images/heat-pumps/financing-heat-pump.png',
+    href: '/heat-pumps/cost' as const,
   },
   {
-    key: 'heatPump',
-    icon: '/images/repowering/repowering-icon-heatpump.svg',
+    key: 'cost',
+    icon: '/images/heat-pumps/cost-heat-pump.png',
+    href: '/heat-pumps/cost' as const,
+  },
+  {
+    key: 'systemComparison',
+    icon: '/images/heat-pumps/comparison-heat-pump.png',
     href: '/heat-pumps' as const,
-  },
-  {
-    key: 'chargingSolution',
-    icon: '/images/repowering/repowering-icon-charging.svg',
-    href: '/charging-stations' as const,
   },
 ] as const
 
-const EnergySolutionsSection = () => {
-  const t = useTranslations('heatPumpsCost.energySolutions')
+const FurtherTopicsSection = async () => {
+  const t = await getTranslations('heatPumpsHowItWorks.furtherTopics')
 
   return (
     <section className="relative bg-[#EAEDDF] py-12 md:py-[50px] overflow-hidden">
@@ -30,7 +30,7 @@ const EnergySolutionsSection = () => {
             {t('title')}
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-2.5 w-full max-w-[1220px]">
+          <div className="flex flex-wrap justify-center gap-5 w-full max-w-[1120px]">
             {cards.map((card) => (
               <TopicCard
                 key={card.key}
@@ -48,4 +48,4 @@ const EnergySolutionsSection = () => {
   )
 }
 
-export default EnergySolutionsSection
+export default FurtherTopicsSection

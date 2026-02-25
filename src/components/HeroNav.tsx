@@ -166,7 +166,8 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
     <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full hidden md:flex justify-center z-20 px-4">
       <div
         className={cn(
-          'inline-flex flex-col items-center bg-white/20 backdrop-blur-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-w-[calc(100vw-2rem)]',
+          'inline-flex flex-col bg-white/20 backdrop-blur-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-w-[calc(100vw-2rem)]',
+          displayItem === 'solarAbo' ? 'items-start' : 'items-center',
           hasDropdown
             ? 'rounded-[20px] sm:rounded-[24px] md:rounded-[30px]'
             : 'rounded-full sm:rounded-[24px] md:rounded-[30px]'
@@ -221,10 +222,10 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
               <div className="grid">
                 <div
                   className={cn(
-                    'col-start-1 row-start-1 flex flex-col gap-1 transition-all duration-300',
+                    'col-start-1 row-start-1 transition-all duration-300',
                     displayItem === 'solarAbo' && hasDropdown
-                      ? 'opacity-100 visible'
-                      : 'opacity-0 invisible'
+                      ? 'flex flex-col gap-1 opacity-100 visible'
+                      : 'opacity-0 invisible w-0 h-0 overflow-hidden'
                   )}
                 >
                   {solarAboLinks.map((link, index) => (
@@ -250,10 +251,10 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
                 </div>
                 <div
                   className={cn(
-                    'col-start-1 row-start-1 flex flex-col md:flex-row md:gap-2 lg:gap-4 transition-all duration-300',
+                    'col-start-1 row-start-1 transition-all duration-300',
                     displayItem === 'products' && hasDropdown
-                      ? 'opacity-100 visible'
-                      : 'opacity-0 invisible'
+                      ? 'flex flex-col md:flex-row md:gap-2 lg:gap-4 opacity-100 visible'
+                      : 'opacity-0 invisible w-0 h-0 overflow-hidden'
                   )}
                 >
                   {productLinks.map((product, columnIndex) => (

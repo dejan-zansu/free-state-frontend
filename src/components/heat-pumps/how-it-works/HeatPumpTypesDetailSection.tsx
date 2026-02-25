@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 
 const cards = ['1', '2', '3'] as const
@@ -18,12 +19,10 @@ const HeatPumpTypesDetailSection = async () => {
         style={{
           background: `
             linear-gradient(0deg, rgba(74, 154, 153, 0) 0%, rgba(74, 154, 153, 1) 78%),
-            linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 99%)
+            linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 130%)
           `,
         }}
       />
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="absolute inset-0 bg-[#B9CF70]/20" />
 
       <div className="relative z-10 max-w-[571px] mx-auto px-4 sm:px-6 py-12 md:py-[50px]">
         <div className="flex flex-col items-center gap-[50px]">
@@ -32,18 +31,23 @@ const HeatPumpTypesDetailSection = async () => {
           </h2>
 
           <div className="flex flex-col items-center gap-5 w-full">
-            {cards.map((key) => (
+            {cards.map(key => (
               <div
                 key={key}
-                className="w-full rounded-[16px] p-10 backdrop-blur-[40px]"
+                className={cn('w-fit rounded-[16px] p-10 backdrop-blur-[40px]', key === '2' && 'max-w-[490px]')}
                 style={{
                   background: 'rgba(185, 205, 191, 0.2)',
                   border: '1px solid rgba(246, 246, 246, 0.4)',
                 }}
               >
-                <p className="text-white/80 text-lg md:text-[22px] font-medium tracking-[-0.02em]">
-                  {t(`heatPumpTypesDetail.cards.${key}`)}
-                </p>
+                <div className="flex flex-col gap-1.5">
+                  <p className="text-white text-lg md:text-[22px] font-semibold">
+                    {t(`heatPumpTypesDetail.cards.${key}.title`)}
+                  </p>
+                  <p className="text-white/70 text-base md:text-lg font-medium">
+                    {t(`heatPumpTypesDetail.cards.${key}.description`)}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

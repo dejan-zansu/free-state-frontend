@@ -88,7 +88,7 @@ const IndoorInstallationSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/487]">
           <Image
-            src="/images/heat-pumps/how-it-works/heat-pump-indoor-749664.png"
+            src="/images/heat-pumps/heat-pump-indoor.png"
             alt={t('indoor.title')}
             fill
             className="object-cover"

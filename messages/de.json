@@ -2138,9 +2138,18 @@
     "heatPumpTypesDetail": {
       "title": "So funktionieren diese drei Wärmepumpen:",
       "cards": {
-        "1": "Erdwärmepumpe (Geothermie): Nutzt die stabile Bodentemperatur für hocheffizientes Heizen. Erfordert Bohrungen, höhere Investitionen und eine Genehmigung der Gemeinde.",
-        "2": "Wasser-Wasser-Wärmepumpe: Nutzt Grundwasser oder Oberflächenwasser für sehr hohe Effizienz. Erfordert geeignete Wasserbedingungen und behördliche Genehmigungen.",
-        "3": "Luft-Wasser-Wärmepumpe: Entzieht der Umgebungsluft Wärme zum Heizen. Einfachere Installation und geringere Anschaffungskosten."
+        "1": {
+          "title": "Erdwärmepumpe (Geothermie)",
+          "description": "Nutzt die stabile Bodentemperatur für hocheffizientes Heizen. Erfordert Bohrungen, höhere Investitionen und eine Genehmigung der Gemeinde."
+        },
+        "2": {
+          "title": "Wasser-Wasser-Wärmepumpe",
+          "description": "Nutzt Grundwasser oder Oberflächenwasser für sehr hohe Effizienz. Erfordert geeignete Wasserbedingungen und behördliche Genehmigungen."
+        },
+        "3": {
+          "title": "Luft-Wasser-Wärmepumpe",
+          "description": "Entzieht der Umgebungsluft Wärme zum Heizen. Einfachere Installation und geringere Anschaffungskosten."
+        }
       }
     },
     "cta": {
@@ -2268,12 +2277,50 @@
     "whyFreeState": {
       "title": "Warum FreeState?",
       "features": {
-        "1": "Alles aus einer Hand",
-        "2": "Ein 24/7-Service",
-        "3": "Produktqualität",
-        "4": "Raum- und Schalldesign",
-        "5": "Umfassende Fachkompetenz",
-        "6": "Ausfallsicherheit"
+        "1": {
+          "title": "Alles aus einer Hand",
+          "description": "Von der Beratung und Planung bis zur Installation und Wartung — wir kümmern uns um jeden Schritt."
+        },
+        "2": {
+          "title": "Ein 24/7-Service",
+          "description": "Unser Support-Team ist rund um die Uhr verfügbar und sorgt dafür, dass Ihre Wärmepumpe jederzeit reibungslos läuft."
+        },
+        "3": {
+          "title": "Produktqualität",
+          "description": "Wir verwenden ausschliesslich hochwertige, zertifizierte Komponenten führender Hersteller für dauerhafte Leistung."
+        },
+        "4": {
+          "title": "Raum- und Schalldesign",
+          "description": "Unsere Systeme sind so konzipiert, dass sie sich nahtlos in Ihren Wohnraum einfügen — mit minimaler Lärmbelastung."
+        },
+        "5": {
+          "title": "Umfassende Fachkompetenz",
+          "description": "Unsere zertifizierten Spezialisten bringen jahrelange Erfahrung in Wärmepumpentechnik und Energielösungen mit."
+        },
+        "6": {
+          "title": "Ausfallsicherheit",
+          "description": "Eingebaute Redundanz und Überwachung gewährleisten einen zuverlässigen Betrieb, selbst unter extremen Bedingungen."
+        }
+      }
+    },
+    "furtherTopics": {
+      "title": "Weitere Themen zu Wärmepumpen",
+      "cards": {
+        "financing": {
+          "title": "Finanzierung Wärmepumpe",
+          "description": "Wärmepumpe finanzieren oder kaufen?",
+          "link": "Mehr erfahren"
+        },
+        "cost": {
+          "title": "Kosten",
+          "description": "Was kostet eine Wärmepumpe?",
+          "link": "Mehr erfahren"
+        },
+        "systemComparison": {
+          "title": "Systemvergleich",
+          "description": "Welches System passt zu Ihnen?",
+          "link": "Mehr erfahren"
+        }
       }
     }
   },
