@@ -344,6 +344,18 @@ export const routing = defineRouting({
       en: '/charging-stations',
       de: '/ladestationen',
     },
+    '/charging-stations/apartment-building': {
+      en: '/charging-stations/apartment-building',
+      de: '/ladestationen/mehrfamilienhaus',
+    },
+    '/charging-stations/single-family-home': {
+      en: '/charging-stations/single-family-home',
+      de: '/ladestationen/einfamilienhaus',
+    },
+    '/charging-stations/bidirectional-charging-station': {
+      en: '/charging-stations/bidirectional-charging-station',
+      de: '/ladestationen/bidirektionale-ladestation',
+    },
     '/cost': {
       en: '/cost',
       de: '/kosten',

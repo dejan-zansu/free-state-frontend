@@ -115,7 +115,8 @@
         "fastChargingStations": "Schnellladestationen",
         "bidirectionalCharging": "Bidirektionales Laden",
         "chargingCompany": "Unternehmen",
-        "heatPumpProducts": "Produktportfolio Wärmepumpen"
+        "heatPumpProducts": "Produktportfolio Wärmepumpen",
+        "singleFamilyHome": "Einfamilienhaus"
       }
     },
     "stats": {

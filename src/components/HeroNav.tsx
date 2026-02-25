@@ -155,19 +155,15 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
           subLinks: [
             {
               label: t('hero.nav.apartmentBuilding'),
-              href: '/commercial/charging-stations/apartment-building' as const,
+              href: '/charging-stations/apartment-building' as const,
             },
             {
-              label: t('hero.nav.fastChargingStations'),
-              href: '/commercial/charging-stations/fast-charging-stations' as const,
+              label: t('hero.nav.singleFamilyHome'),
+              href: '/charging-stations/single-family-home' as const,
             },
             {
               label: t('hero.nav.bidirectionalCharging'),
-              href: '/commercial/charging-stations/bidirectional-charging-station' as const,
-            },
-            {
-              label: t('hero.nav.chargingCompany'),
-              href: '/commercial/charging-stations/company' as const,
+              href: '/charging-stations/bidirectional-charging-station' as const,
             },
           ],
         },

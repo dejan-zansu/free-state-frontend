@@ -115,7 +115,8 @@
         "fastChargingStations": "Fast charging stations",
         "bidirectionalCharging": "Bidirectional charging",
         "chargingCompany": "Company",
-        "heatPumpProducts": "Product Portfolio Heat Pumps"
+        "heatPumpProducts": "Product Portfolio Heat Pumps",
+        "singleFamilyHome": "Single family home"
       }
     },
     "stats": {
