@@ -143,6 +143,10 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
               label: t('hero.nav.withSolarSystem'),
               href: '/heat-pumps/heat-pumps-with-solar-system' as const,
             },
+            {
+              label: t('hero.nav.heatPumpProducts'),
+              href: '/heat-pumps/products' as const,
+            },
           ],
         },
         {

@@ -7,7 +7,7 @@ const HowHeatPumpWorksSection = async () => {
   const t = await getTranslations('heatPumpsWithSolarSystem')
 
   return (
-    <section className="relative">
+    <section className="relative bg-[#F2F4E8]">
       <div className="flex flex-col lg:flex-row">
         <div
           className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 lg:px-0 py-12 lg:py-0"
@@ -26,9 +26,9 @@ const HowHeatPumpWorksSection = async () => {
             </p>
 
             <div className="flex flex-col gap-[10px] mt-4">
-              {steps.map((step) => (
+              {steps.map(step => (
                 <div key={step} className="flex items-center gap-2">
-                  <span className="w-[18px] h-[18px] flex items-center justify-center rounded-[9px] border-[1.5px] border-[#036B53] text-[#062E25] text-[9px] font-bold">
+                  <span className="w-[18px] h-[18px] flex items-center justify-center rounded-[9px] border-[1.5px] border-[#036B53] text-[#062E25] text-[9px] font-bold ">
                     {step}
                   </span>
                   <span className="text-[#062E25]/80 text-sm font-medium tracking-[-0.02em]">
@@ -42,7 +42,7 @@ const HowHeatPumpWorksSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/487]">
           <Image
-            src="/images/heat-pumps-with-solar-system/heat-pump-solar-diagram-749664.png"
+            src="/images/heat-pumps/how-does-a-heat-pump-work.png"
             alt={t('howHeatPumpWorks.title')}
             fill
             className="object-cover"

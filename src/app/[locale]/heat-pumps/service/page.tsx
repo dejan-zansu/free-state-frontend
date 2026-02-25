@@ -11,11 +11,15 @@ const HeatPumpsServicePage = async () => {
 
   return (
     <main>
-      <PageHero
-        backgroundImage="/images/heat-pumps-service/hero-bg.png"
-        title={t('hero.title')}
-      />
-      <ServiceHotlineSection />
+      <div className="relative z-10">
+        <PageHero
+          backgroundImage="/images/heat-pumps/service-hero-bg.png"
+          title={t('hero.title')}
+        />
+      </div>
+      <div className="-mt-[30px]">
+        <ServiceHotlineSection />
+      </div>
       <EmergencySection />
       <ManufacturerSupportSection />
       <HydraulicEmergencySection />

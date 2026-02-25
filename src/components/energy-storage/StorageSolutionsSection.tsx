@@ -86,8 +86,8 @@ const StorageSolutionsSection = async () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-[30px]">
-        {products.map((product, index) => {
+      <div className="flex flex-col gap-8 md:gap-0">
+        {products.map(product => {
           const featuresRaw = t(`solutions.products.${product.key}.features`)
           const features = featuresRaw.split('|')
           const warrantyRaw = t(`solutions.products.${product.key}.warranty`)
@@ -105,7 +105,7 @@ const StorageSolutionsSection = async () => {
               className="relative max-w-[1440px] mx-auto w-full border border-[#B7C2BF] rounded-t-[30px] bg-[#FDFFF5] overflow-hidden"
             >
               <div className="max-w-[1038px] mx-auto px-4 sm:px-6 lg:px-0 py-12 md:py-[50px]">
-                <div className={`flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-[100px] justify-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-[100px] justify-center">
                   <div className="flex flex-col gap-5 w-full md:w-[238px] shrink-0">
                     <div className="flex flex-col gap-4">
                       <span className="text-[#062E25] text-base font-bold capitalize">

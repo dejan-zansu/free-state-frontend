@@ -1,23 +1,12 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
 
+const rows = ['airToWater', 'groundSource', 'oilHeating'] as const
+const columns = ['purchase', 'maintenance', 'energy'] as const
+const gridCols = 'grid grid-cols-4'
+
 const CostComparisonSection = async () => {
   const t = await getTranslations('heatPumpsCost')
-
-  const rows = [
-    {
-      key: 'airToWater',
-      style: 'glass' as const,
-    },
-    {
-      key: 'groundSource',
-      style: 'solid' as const,
-    },
-    {
-      key: 'oilHeating',
-      style: 'solid' as const,
-    },
-  ]
 
   return (
     <section className="relative overflow-hidden">
@@ -41,68 +30,52 @@ const CostComparisonSection = async () => {
         </h2>
 
         <div className="max-w-[1118px] mx-auto">
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[700px] border-separate border-spacing-y-0">
-              <thead>
-                <tr>
-                  <th className="rounded-l-2xl bg-[#E4E9D3] border border-[#062E25]/40 border-r-0 px-5 py-3 text-left text-[#062E25]/80 text-sm md:text-lg font-bold tracking-[-0.02em]" />
-                  <th className="bg-[#E4E9D3] border-y border-[#062E25]/40 px-5 py-3 text-left text-[#062E25]/80 text-sm md:text-lg font-bold tracking-[-0.02em]">
-                    {t('comparison.headers.purchase')}
-                  </th>
-                  <th className="bg-[#E4E9D3] border-y border-[#062E25]/40 px-5 py-3 text-left text-[#062E25]/80 text-sm md:text-lg font-bold tracking-[-0.02em]">
-                    {t('comparison.headers.maintenance')}
-                  </th>
-                  <th className="rounded-r-2xl bg-[#E4E9D3] border border-[#062E25]/40 border-l-0 px-5 py-3 text-left text-[#062E25]/80 text-sm md:text-lg font-bold tracking-[-0.02em]">
-                    {t('comparison.headers.energy')}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, index) => {
-                  const isGlass = index === 0
-                  return (
-                    <tr key={row.key}>
-                      <td
-                        className={`px-5 py-3 text-sm md:text-lg tracking-[-0.02em] ${
-                          isGlass
-                            ? 'rounded-l-none text-white/80 bg-white/10 border border-white/20 border-r-0'
-                            : 'rounded-l-2xl text-[#062E25]/80 bg-[#E4E9D3] border border-[#062E25]/40 border-r-0'
+          <div className="w-full overflow-x-auto border border-white/20 rounded-2xl">
+            <div className="min-w-[700px] flex flex-col">
+              <div
+                className={`${gridCols} rounded-t-2xl backdrop-blur-[20px]`}
+                style={{ background: 'rgba(255, 255, 255, 0.1)' }}
+              >
+                <span className="px-5 py-3" />
+                {columns.map((col) => (
+                  <span
+                    key={col}
+                    className="px-5 py-3 text-white/80 text-sm md:text-lg font-bold tracking-[-0.02em]"
+                  >
+                    {t(`comparison.headers.${col}`)}
+                  </span>
+                ))}
+              </div>
+
+              {rows.map((row, index) => {
+                const isGlass = index % 2 !== 0
+                return (
+                  <div
+                    key={row}
+                    className={`${gridCols} ${isGlass ? 'backdrop-blur-[20px]' : 'bg-[#E4E9D3]'}`}
+                    style={isGlass ? { background: 'rgba(255, 255, 255, 0.1)' } : undefined}
+                  >
+                    <span
+                      className={`px-5 py-4 text-sm md:text-lg tracking-[-0.02em] ${
+                        isGlass ? 'text-white/80' : 'text-[#062E25]/80'
+                      }`}
+                    >
+                      {t(`comparison.rows.${row}.label`)}
+                    </span>
+                    {columns.map((col) => (
+                      <span
+                        key={col}
+                        className={`px-5 py-4 text-sm md:text-lg font-bold tracking-[-0.02em] ${
+                          isGlass ? 'text-white/80' : 'text-[#062E25]/80'
                         }`}
                       >
-                        {t(`comparison.rows.${row.key}.label`)}
-                      </td>
-                      <td
-                        className={`px-5 py-3 text-sm md:text-lg font-bold tracking-[-0.02em] ${
-                          isGlass
-                            ? 'text-white/80 bg-white/10 border-y border-white/20'
-                            : 'text-[#062E25]/80 bg-[#E4E9D3] border-y border-[#062E25]/40'
-                        }`}
-                      >
-                        {t(`comparison.rows.${row.key}.purchase`)}
-                      </td>
-                      <td
-                        className={`px-5 py-3 text-sm md:text-lg font-bold tracking-[-0.02em] ${
-                          isGlass
-                            ? 'text-white/80 bg-white/10 border-y border-white/20'
-                            : 'text-[#062E25]/80 bg-[#E4E9D3] border-y border-[#062E25]/40'
-                        }`}
-                      >
-                        {t(`comparison.rows.${row.key}.maintenance`)}
-                      </td>
-                      <td
-                        className={`px-5 py-3 text-sm md:text-lg font-bold tracking-[-0.02em] ${
-                          isGlass
-                            ? 'rounded-r-none text-white/80 bg-white/10 border border-white/20 border-l-0'
-                            : 'rounded-r-2xl text-[#062E25]/80 bg-[#E4E9D3] border border-[#062E25]/40 border-l-0'
-                        }`}
-                      >
-                        {t(`comparison.rows.${row.key}.energy`)}
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
+                        {t(`comparison.rows.${row}.${col}`)}
+                      </span>
+                    ))}
+                  </div>
+                )
+              })}
+            </div>
           </div>
 
           <p className="text-white/80 text-xs mt-4 tracking-[-0.02em]">

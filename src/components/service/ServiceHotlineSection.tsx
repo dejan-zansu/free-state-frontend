@@ -75,17 +75,6 @@ const ServiceHotlineSection = async () => {
 
             <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-10">
               <a
-                href={`tel:${t('hotline.phone').replace(/\s/g, '')}`}
-                className="flex items-center gap-2"
-              >
-                <div className="flex items-center justify-center w-[30px] h-[30px] rounded-[15px] bg-[#B7FE1A]">
-                  <Phone className="w-[15px] h-[15px] text-[#062E25]" />
-                </div>
-                <span className="text-white/80 text-base md:text-[22px] font-medium tracking-[-0.02em]">
-                  {t('hotline.phone')}
-                </span>
-              </a>
-              <a
                 href={`mailto:${t('hotline.email')}`}
                 className="flex items-center gap-2"
               >
@@ -94,6 +83,17 @@ const ServiceHotlineSection = async () => {
                 </div>
                 <span className="text-white/80 text-base md:text-[22px] font-medium tracking-[-0.02em]">
                   {t('hotline.email')}
+                </span>
+              </a>
+              <a
+                href={`tel:${t('hotline.phone').replace(/\s/g, '')}`}
+                className="flex items-center gap-2"
+              >
+                <div className="flex items-center justify-center w-[30px] h-[30px] rounded-[15px] bg-[#B7FE1A]">
+                  <Phone className="w-[15px] h-[15px] text-[#062E25]" />
+                </div>
+                <span className="text-white/80 text-base md:text-[22px] font-medium tracking-[-0.02em]">
+                  {t('hotline.phone')}
                 </span>
               </a>
             </div>

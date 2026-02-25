@@ -106,7 +106,7 @@
         "service": "Service",
         "energyStorage": "Energy storage",
         "repowering": "Repowering",
-        "withSolarSystem": "With solar system",
+        "withSolarSystem": "Heat pump with solar system",
         "howLargePlantsWorks": "How large plants work",
         "howSolarPowerSystemWorks": "How a solar system works",
         "projectDevelopment": "Project development",
@@ -114,7 +114,8 @@
         "apartmentBuilding": "Apartment building",
         "fastChargingStations": "Fast charging stations",
         "bidirectionalCharging": "Bidirectional charging",
-        "chargingCompany": "Company"
+        "chargingCompany": "Company",
+        "heatPumpProducts": "Product Portfolio Heat Pumps"
       }
     },
     "stats": {
@@ -3289,7 +3290,7 @@
   },
   "heatPumpsCost": {
     "hero": {
-      "title": "Costs of heat pumps in Switzerland"
+      "title": "Costs of heat\n pumps in Switzerland"
     },
     "intro": {
       "eyebrow": "Heat Pump",
@@ -3347,7 +3348,7 @@
       "eyebrow": "Support",
       "title": "Get a free, no-obligation quote now!",
       "description": "Configure the right heat pump in minutes with our calculator and receive a concrete offer immediately:",
-      "cta": "Start heat pump calculator"
+      "cta": "Start solar calculator"
     },
     "energySolutions": {
       "title": "Our energy solutions",
@@ -3436,6 +3437,42 @@
       "cta": "Contact"
     }
   },
+  "heatPumpsProducts": {
+    "hero": {
+      "title": "Product Portfolio\nHeat Pumps",
+      "description": "Solar modules for efficient, long-term energy production"
+    },
+    "outdoorTable": {
+      "title": "Air-to-water heat pump for outdoor installation",
+      "columns": {
+        "manufacturer": "Manufacturer",
+        "types": "Types",
+        "maxHeatingOutput": "Max heating output",
+        "maxFlowTemp": "Max flow temp",
+        "maxSCOP": "Max SCOP",
+        "refrigerant": "Refrigerant"
+      }
+    },
+    "indoorHero": {
+      "title": "Air-to-water heat pumps for indoor installation"
+    },
+    "groundSourceTable": {
+      "title": "Ground source heat pumps (brine-to-water heat pumps)",
+      "columns": {
+        "manufacturer": "Manufacturer",
+        "types": "Types",
+        "maxHeatingOutput": "Max heating output",
+        "maxFlowTemp": "Max flow temp",
+        "maxSCOP": "Max SCOP",
+        "refrigerant": "Refrigerant"
+      }
+    },
+    "nibe": {
+      "eyebrow": "NIBE",
+      "title": "NIBE heat pumps",
+      "description": "Nibe heat pumps stand out for high energy efficiency and low operating costs, using renewable sources like air, ground, and water. They offer a wide product range with advanced inverter technology and smart controls for precise, user-friendly operation.\n\nDesigned for sustainability, quiet performance, and long lifespan, Nibe systems are reliable, low-maintenance, and suitable for both new builds and renovations, backed by comprehensive service and support."
+    }
+  },
   "heatPumpsWithSolarSystem": {
     "hero": {
       "title": "Heat pumps with\nsolar system"
@@ -3448,6 +3485,10 @@
         "2": "Water-to-water heat pump",
         "3": "Air-to-water heat pump"
       }
+    },
+    "advantages": {
+      "title": "Advantages of\nyour heat pump",
+      "description": "Unlike oil heating, heat pumps emit very little CO₂ and operate highly efficiently, generating four to five units of heat from one unit of electricity."
     },
     "idealCombination": {
       "eyebrow": "Unbeatable duo",

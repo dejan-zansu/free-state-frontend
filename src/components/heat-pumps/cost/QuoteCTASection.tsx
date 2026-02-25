@@ -50,7 +50,7 @@ const QuoteCTASection = async () => {
           </p>
         </div>
 
-        <LinkButton variant="primary" href="/heat-pumps/calculator">
+        <LinkButton variant="primary" href="/solar-abo-calculator">
           {t('quoteCTA.cta')}
         </LinkButton>
       </div>

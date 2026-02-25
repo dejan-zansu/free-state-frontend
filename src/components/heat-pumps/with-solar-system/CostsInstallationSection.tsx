@@ -9,20 +9,14 @@ const CostsInstallationSection = async () => {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: 'url(/images/heat-pumps-with-solar-system/costs-installation-bg-4962ac.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          background: `
+            linear-gradient(0deg, rgba(74, 154, 153, 0) 0%, #4A9A99 78.07%),
+            linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%),
+            linear-gradient(0deg, rgba(185, 207, 112, 0.20) 0%, rgba(185, 207, 112, 0.20) 100%),
+            url(/images/heat-pumps-with-solar-system/costs-installation-bg-4962ac.png) lightgray -109px -982.676px / 115.128% 305.675% no-repeat
+          `,
         }}
       />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(0deg, rgba(74, 154, 153, 0) 0%, rgba(74, 154, 153, 1) 78%), linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 99%)',
-          mixBlendMode: 'multiply',
-        }}
-      />
-      <div className="absolute inset-0 bg-black/20" />
 
       <div className="relative z-10 max-w-[786px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-[50px]">
         <div className="flex flex-col items-center gap-[50px] w-full">

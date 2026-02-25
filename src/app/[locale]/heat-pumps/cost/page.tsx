@@ -14,8 +14,9 @@ const HeatPumpsCostPage = async () => {
   return (
     <main>
       <PageHero
-        backgroundImage="/images/heat-pumps-cost/hero-bg.png"
+        backgroundImage="/images/heat-pumps/heat-pumps-cost-hero-bg.png"
         title={t('hero.title')}
+        className="bg-[#EAEDDF]"
       />
       <CostIntroSection />
       <CostComparisonSection />

@@ -1,5 +1,6 @@
 import { LearnMoreLink } from '@/components/ui/learn-more-link'
 import { Link } from '@/i18n/navigation'
+import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 type TopicCardProps = {
@@ -7,7 +8,9 @@ type TopicCardProps = {
   title: string
   description: string
   linkText: string
-  href: React.ComponentProps<typeof Link>['href']
+  href: React.ComponentProps<typeof Link>['href'] | string
+  external?: boolean
+  iconClassName?: string
 }
 
 const TopicCard = ({
@@ -16,6 +19,8 @@ const TopicCard = ({
   description,
   linkText,
   href,
+  external,
+  iconClassName,
 }: TopicCardProps) => {
   return (
     <div
@@ -23,7 +28,7 @@ const TopicCard = ({
       style={{ border: '1px solid #809792' }}
     >
       <div className="relative z-10 flex items-center justify-center pt-[30px]">
-        <Image src={icon} alt="" width={142} height={142} />
+        <Image src={icon} alt="" width={142} height={142} className={iconClassName} />
       </div>
 
       <div
@@ -43,7 +48,23 @@ const TopicCard = ({
             </p>
           </div>
           <div className="flex justify-start">
-            <LearnMoreLink href={href}>{linkText}</LearnMoreLink>
+            {external ? (
+              <a
+                href={href as string}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary font-medium group/link transition-opacity duration-300 hover:opacity-80"
+              >
+                <span className="inline-flex items-center gap-2 border-b border-primary pb-0.5">
+                  <span>{linkText}</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+                </span>
+              </a>
+            ) : (
+              <LearnMoreLink href={href as React.ComponentProps<typeof Link>['href']}>
+                {linkText}
+              </LearnMoreLink>
+            )}
           </div>
         </div>
       </div>

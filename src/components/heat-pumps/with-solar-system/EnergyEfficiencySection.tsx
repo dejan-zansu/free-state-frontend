@@ -9,7 +9,7 @@ const EnergyEfficiencySection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/488]">
           <Image
-            src="/images/heat-pumps-with-solar-system/energy-efficiency-diagram.png"
+            src="/images/heat-pumps/heat-pump-optimize.png"
             alt={t('energyEfficiency.title')}
             fill
             className="object-cover"

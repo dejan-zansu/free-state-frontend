@@ -16,6 +16,14 @@ const EmergencySection = async () => {
   return (
     <section className="relative">
       <div className="flex flex-col lg:flex-row">
+        <div className="relative w-full lg:w-1/2 min-h-[300px] lg:min-h-[488px]">
+          <Image
+            src="/images/heat-pumps/heat-pump-emergency.png"
+            alt={t('emergency.title')}
+            fill
+            className="object-cover"
+          />
+        </div>
         <div
           className="relative w-full lg:w-1/2 py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-0"
           style={{
@@ -32,7 +40,7 @@ const EmergencySection = async () => {
               {items.map((key, index) => (
                 <div key={key} className="flex items-center gap-2">
                   <div className="w-[18px] h-[18px] rounded-[9px] border-[1.5px] border-[#036B53] flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#062E25] text-[9px] font-bold">
+                    <span className="text-[#062E25] text-[9px] font-bold leading-none">
                       {index + 1}
                     </span>
                   </div>
@@ -50,15 +58,6 @@ const EmergencySection = async () => {
               background:
                 'linear-gradient(54deg, rgba(6, 46, 37, 1) 74%, rgba(3, 107, 83, 1) 100%)',
             }}
-          />
-        </div>
-
-        <div className="relative w-full lg:w-1/2 min-h-[300px] lg:min-h-[488px]">
-          <Image
-            src="/images/heat-pumps-service/emergency-image-749664.png"
-            alt={t('emergency.title')}
-            fill
-            className="object-cover"
           />
         </div>
       </div>

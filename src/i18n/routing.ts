@@ -83,6 +83,10 @@ export const routing = defineRouting({
       en: '/heat-pumps/heat-pumps-with-solar-system',
       de: '/waermepumpen/waermepumpen-mit-solaranlage',
     },
+    '/heat-pumps/products': {
+      en: '/heat-pumps/products',
+      de: '/waermepumpen/produkte',
+    },
     '/investors': {
       en: '/investors',
       de: '/investoren',

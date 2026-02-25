@@ -54,7 +54,7 @@ const ServicePartnerSection = async () => {
 
         <div className="relative w-full lg:w-1/2 min-h-[300px] lg:min-h-[488px]">
           <Image
-            src="/images/heat-pumps-service/emergency-image-749664.png"
+            src="/images/heat-pumps/service-partner.png"
             alt={t('servicePartner.title')}
             fill
             className="object-cover"

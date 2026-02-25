@@ -39,7 +39,7 @@ const SolarBenefitsSection = async () => {
       />
 
       <div className="relative z-10 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-[90px]">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
           <div className="w-full lg:w-1/3 flex flex-col gap-5">
             <h2 className="text-white text-3xl sm:text-4xl md:text-[45px] font-medium">
               {t('solarBenefits.selfConsumption.title')}
@@ -49,12 +49,13 @@ const SolarBenefitsSection = async () => {
             </p>
           </div>
 
-          <div className="hidden lg:flex flex-shrink-0 items-center justify-center">
+          <div className="hidden lg:flex w-1/3 items-center justify-center">
             <Image
-              src="/images/heat-pumps-with-solar-system/solar-self-consumption-icon.png"
+              src="/images/heat-pumps/boost-solar-consumption.png"
               alt=""
-              width={257}
+              width={426}
               height={285}
+              className="w-full h-auto"
             />
           </div>
 

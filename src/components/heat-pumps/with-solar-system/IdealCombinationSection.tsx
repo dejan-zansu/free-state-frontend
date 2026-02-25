@@ -20,18 +20,18 @@ const IdealCombinationSection = async () => {
           left: '-112px',
           top: '-92px',
           background: 'rgba(183, 254, 26, 0.5)',
-          filter: 'blur(490px)',
+          filter: 'blur(245px)',
           borderRadius: '50%',
         }}
       />
 
-      <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
+      <div className="relative z-10 max-w-[1120px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
         <div className="w-full lg:w-auto flex justify-center lg:justify-start flex-shrink-0">
           <Image
-            src="/images/heat-pumps-with-solar-system/heat-pump-photovoltaic-icon.svg"
+            src="/images/heat-pumps/heat-pump-photovoltaics.png"
             alt={t('idealCombination.title')}
-            width={247}
-            height={285}
+            width={329}
+            height={356}
           />
         </div>
 

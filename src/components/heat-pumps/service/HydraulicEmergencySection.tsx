@@ -14,7 +14,7 @@ const HydraulicEmergencySection = async () => {
 
   return (
     <section className="relative">
-      <div className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row-reverse">
         <div
           className="relative w-full lg:w-1/2 py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-0"
           style={{
@@ -22,7 +22,7 @@ const HydraulicEmergencySection = async () => {
               'linear-gradient(180deg, rgba(242, 244, 232, 1) 78%, rgba(220, 233, 230, 1) 100%)',
           }}
         >
-          <div className="max-w-[409px] mx-auto lg:ml-auto lg:mr-[80px]">
+          <div className="max-w-[409px] mx-auto lg:mr-auto lg:ml-[80px]">
             <div className="flex flex-col gap-5 mb-5">
               <h2 className="text-[#062E25] text-3xl md:text-[45px] font-medium">
                 {t('hydraulic.title')}
@@ -63,7 +63,7 @@ const HydraulicEmergencySection = async () => {
 
         <div className="relative w-full lg:w-1/2 min-h-[300px] lg:min-h-[488px]">
           <Image
-            src="/images/heat-pumps-service/emergency-image-749664.png"
+            src="/images/heat-pumps/heating-or-water-system.png"
             alt={t('hydraulic.title')}
             fill
             className="object-cover"

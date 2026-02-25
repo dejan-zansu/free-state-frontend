@@ -106,7 +106,7 @@
         "service": "Service",
         "energyStorage": "Stromspeicher",
         "repowering": "Repowering",
-        "withSolarSystem": "Mit Solaranlage",
+        "withSolarSystem": "Wärmepumpe mit Solaranlage",
         "howLargePlantsWorks": "Wie Grossanlagen funktionieren",
         "howSolarPowerSystemWorks": "Wie eine Solaranlage funktioniert",
         "projectDevelopment": "Projektentwicklung",
@@ -114,7 +114,8 @@
         "apartmentBuilding": "Mehrfamilienhaus",
         "fastChargingStations": "Schnellladestationen",
         "bidirectionalCharging": "Bidirektionales Laden",
-        "chargingCompany": "Unternehmen"
+        "chargingCompany": "Unternehmen",
+        "heatPumpProducts": "Produktportfolio Wärmepumpen"
       }
     },
     "stats": {
@@ -3306,7 +3307,7 @@
   },
   "heatPumpsCost": {
     "hero": {
-      "title": "Kosten einer Wärmepumpe in der Schweiz"
+      "title": "Kosten einer\n Wärmepumpe in der Schweiz"
     },
     "intro": {
       "eyebrow": "Wärmepumpe",
@@ -3364,7 +3365,7 @@
       "eyebrow": "Förderung",
       "title": "Jetzt ein kostenloses, unverbindliches Angebot erhalten!",
       "description": "Konfigurieren Sie die richtige Wärmepumpe in Minuten mit unserem Rechner und erhalten Sie sofort ein konkretes Angebot:",
-      "cta": "Wärmepumpen-Rechner starten"
+      "cta": "Solarrechner starten"
     },
     "energySolutions": {
       "title": "Unsere Energielösungen",
@@ -3453,6 +3454,42 @@
       "cta": "Kontakt"
     }
   },
+  "heatPumpsProducts": {
+    "hero": {
+      "title": "Produktportfolio\nWärmepumpen",
+      "description": "Solarmodule für eine effiziente, langfristige Energieerzeugung"
+    },
+    "outdoorTable": {
+      "title": "Luft-Wasser-Wärmepumpe für Aussenaufstellung",
+      "columns": {
+        "manufacturer": "Hersteller",
+        "types": "Typen",
+        "maxHeatingOutput": "Max. Heizleistung",
+        "maxFlowTemp": "Max. Vorlauftemp.",
+        "maxSCOP": "Max. SCOP",
+        "refrigerant": "Kältemittel"
+      }
+    },
+    "indoorHero": {
+      "title": "Luft-Wasser-Wärmepumpen für Innenaufstellung"
+    },
+    "groundSourceTable": {
+      "title": "Sole-Wasser-Wärmepumpen (Erdwärmepumpen)",
+      "columns": {
+        "manufacturer": "Hersteller",
+        "types": "Typen",
+        "maxHeatingOutput": "Max. Heizleistung",
+        "maxFlowTemp": "Max. Vorlauftemp.",
+        "maxSCOP": "Max. SCOP",
+        "refrigerant": "Kältemittel"
+      }
+    },
+    "nibe": {
+      "eyebrow": "NIBE",
+      "title": "NIBE Wärmepumpen",
+      "description": "Nibe Wärmepumpen zeichnen sich durch hohe Energieeffizienz und niedrige Betriebskosten aus und nutzen erneuerbare Quellen wie Luft, Boden und Wasser. Sie bieten eine breite Produktpalette mit fortschrittlicher Invertertechnologie und intelligenter Steuerung für präzisen, benutzerfreundlichen Betrieb.\n\nKonzipiert für Nachhaltigkeit, leisen Betrieb und lange Lebensdauer sind Nibe-Systeme zuverlässig, wartungsarm und sowohl für Neubauten als auch für Sanierungen geeignet, unterstützt durch umfassenden Service und Support."
+    }
+  },
   "heatPumpsWithSolarSystem": {
     "hero": {
       "title": "Wärmepumpen mit\nSolaranlage"
@@ -3465,6 +3502,10 @@
         "2": "Wasser-Wasser-Wärmepumpe",
         "3": "Luft-Wasser-Wärmepumpe"
       }
+    },
+    "advantages": {
+      "title": "Vorteile Ihrer\nWärmepumpe",
+      "description": "Im Gegensatz zur Ölheizung stossen Wärmepumpen sehr wenig CO₂ aus und arbeiten hocheffizient – aus einer Einheit Strom erzeugen sie vier bis fünf Einheiten Wärme."
     },
     "idealCombination": {
       "eyebrow": "Unschlagbares Duo",
