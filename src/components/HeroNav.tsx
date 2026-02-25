@@ -171,14 +171,14 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             },
           ],
         },
-        {
-          label: tFooter('products.batteryStorage'),
-          href: '/battery-storage' as const,
-        },
-        {
-          label: tFooter('products.energyManagement'),
-          href: '/energy-management' as const,
-        },
+        // {
+        //   label: tFooter('products.batteryStorage'),
+        //   href: '/battery-storage' as const,
+        // },
+        // {
+        //   label: tFooter('products.energyManagement'),
+        //   href: '/energy-management' as const,
+        // },
       ]
 
   const hasDropdown = hoveredItem === 'solarAbo' || hoveredItem === 'products'
