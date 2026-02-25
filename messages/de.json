@@ -3742,7 +3742,52 @@
   },
   "chargingStationsApartmentBuilding": {
     "hero": {
-      "title": "Ladestation\n im Wohnhaus"
+      "title": "Mehrfamilienhaus",
+      "description": "Solarmodule für effiziente, langfristige Energieerzeugung"
+    },
+    "evChargingIntro": {
+      "eyebrow": "E-Ladestationen",
+      "title": "E-Ladestationen im\nMehrfamilienhaus",
+      "description": "Wir unterstützen Immobilienbesitzer bei der Planung und Installation zukunftssicherer Ladeinfrastruktur.\n\nErhalten Sie eine unverbindliche Kostenschätzung mit unserem Online-Rechner."
+    },
+    "calculatorCta": {
+      "eyebrow": "Berechnen",
+      "title": "Berechnen Sie jetzt den Preis Ihrer Ladestation.",
+      "description": "Berechnet den Preis Ihrer Ladestation anhand weniger Angaben.",
+      "cta": "Solarrechner starten",
+      "subtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+    },
+    "freeStateOffers": {
+      "title": "Das bietet Ihnen FreeState",
+      "bullets": {
+        "owners": "Für Eigentümer und Hausverwaltungen: Wir planen, installieren und warten die Ladeinfrastruktur – mit einem volldigitalen Abrechnungssystem für die Verwaltung.",
+        "condominiums": "Für Stockwerkeigentümer: Wir installieren skalierbare Ladeinfrastruktur und Stationen nach Bedarf, mit klarer Ausbauplanung und transparenter, flexibler Abrechnung."
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "preEquipped": {
+          "question": "Können Parkplätze für zukünftige Ladestationen vorgerüstet werden?",
+          "answer": "Ja, durch die vorausschauende Installation von Leerrohren und Stromverteilung können Parkplätze effizient für die spätere Errichtung von Ladestationen vorbereitet werden. Dies reduziert zukünftige Installationskosten erheblich."
+        },
+        "integration": {
+          "question": "Wie können zukünftige Ladestationen integriert werden?",
+          "answer": "Unsere Ladeinfrastruktur ist modular aufgebaut und ermöglicht eine schrittweise Erweiterung. Neue Ladestationen können einfach an die bestehende Infrastruktur angeschlossen werden, ohne aufwändige Umbauarbeiten."
+        },
+        "installation": {
+          "question": "Wer bezahlt die Installation?",
+          "answer": "Die Kostenverteilung kann flexibel gestaltet werden – zwischen Eigentümergemeinschaft, einzelnen Eigentümern oder Mietern. Wir beraten Sie zu den verschiedenen Finanzierungsmodellen und möglichen Förderprogrammen."
+        },
+        "acDc": {
+          "question": "Brauche ich AC- oder DC-Ladestationen?",
+          "answer": "Für Mehrfamilienhäuser empfehlen wir in der Regel AC-Ladestationen (11-22 kW), da diese kostengünstiger sind und für das Laden über Nacht ideal geeignet sind. DC-Schnellladestationen sind für den Heimbereich meist nicht erforderlich."
+        },
+        "taxBreaks": {
+          "question": "Gibt es Steuervergünstigungen für Ladeinfrastruktur?",
+          "answer": "Ja, es gibt verschiedene Förderprogramme und steuerliche Vorteile für die Installation von Ladeinfrastruktur. Wir informieren Sie über aktuelle kantonale und bundesweite Fördermöglichkeiten."
+        }
+      }
     }
   },
   "chargingStationsCompany": {
@@ -3794,6 +3839,63 @@
           "answer": "Ja, viele Schweizer Kantone bieten Steuerabzüge und Subventionen für die Installation von E-Ladeinfrastruktur bei Geschäftsliegenschaften an."
         }
       }
+    }
+  },
+  "chargingStationsSingleFamilyHome": {
+    "hero": {
+      "title": "Single - Family House",
+      "description": "Solar modules for efficient, long-term energy production"
+    },
+    "intro": {
+      "eyebrow": "Einfamilienhäuser",
+      "title": "Ihr Haus, Ihre\nLadestation",
+      "description": "Erschwingliche Ladestationen sind für jeden Bedarf erhältlich. FreeState-Modelle bieten Lastmanagement, Fernzugriff und die Möglichkeit, Ihr E-Auto mit eigenem Solarstrom zu laden."
+    },
+    "weOffer": {
+      "title": "Das bieten wir Ihnen",
+      "description": "Wir planen und installieren intelligente Heimladelösungen mit hochwertigen Partnerprodukten, vollständig integriert mit Ihrer Solaranlage oder Wärmepumpe – einschliesslich bidirektionalem Laden – und unterstützt durch laufenden technischen Service.\n\nErhalten Sie in wenigen Minuten eine unverbindliche Kostenschätzung mit unserem Online-Angebotsrechner."
+    },
+    "calculator": {
+      "eyebrow": "Berechnen",
+      "title": "Berechnen Sie jetzt den Preis Ihrer Ladestation.",
+      "description": "Berechnet den Preis Ihrer Ladestation anhand weniger Angaben.",
+      "ctaText": "Solar-Rechner starten",
+      "ctaSubtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+    },
+    "bidirectionalCharging": {
+      "title": "Bidirektionales Solarladen",
+      "description": "Bidirektionales Laden ermöglicht es Ihrem E-Auto, Solarstrom zu speichern und an Ihr Zuhause zurückzugeben, wodurch der Eigenverbrauch und die Energieunabhängigkeit steigen. Fahrzeug- und Ladegerätkompatibilität ist erforderlich, und die Kosten sind derzeit höher als bei Standardsystemen."
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "1": {
+          "question": "Kann ich mein Elektroauto an einer Haushaltssteckdose laden?",
+          "answer": "Obwohl es technisch möglich ist, ist das Laden an einer normalen Haushaltssteckdose langsam und für den regelmässigen Gebrauch nicht empfohlen. Eine dedizierte Wallbox bietet schnelleres, sichereres und effizienteres Laden für Ihr Elektrofahrzeug."
+        },
+        "2": {
+          "question": "Welche Ladeleistung brauche ich?",
+          "answer": "Für den Heimgebrauch reichen 11 kW in der Regel aus und decken die meisten täglichen Fahrbedürfnisse über Nacht ab. Bei höherem Kilometeraufkommen bietet ein 22-kW-Ladegerät schnellere Ladezeiten."
+        },
+        "3": {
+          "question": "Was bedeuten AC und DC?",
+          "answer": "AC (Wechselstrom) ist der Standard für das Laden zu Hause mit einer Wallbox mit bis zu 22 kW. DC (Gleichstrom) wird für Schnellladestationen verwendet und bietet viel höhere Leistungen, erfordert jedoch spezialisierte und teurere Ausrüstung."
+        },
+        "4": {
+          "question": "Was bedeuten die verschiedenen Steckertypen?",
+          "answer": "Typ 2 ist der europäische Standard für AC-Laden und ist mit allen modernen E-Fahrzeugen kompatibel. CCS (Combined Charging System) kombiniert Typ 2 mit DC-Schnellladefähigkeit und ist damit der vielseitigste verfügbare Anschluss."
+        },
+        "5": {
+          "question": "Welche Kabellänge brauche ich?",
+          "answer": "Die ideale Kabellänge hängt davon ab, wo Ihre Ladestation im Verhältnis zu Ihrem Parkplatz installiert ist. In der Regel reicht ein 5-Meter-Kabel für die meisten Heiminstallationen aus, aber 7,5 Meter bieten mehr Flexibilität."
+        }
+      }
+    }
+  },
+  "bidirectionalChargingStation": {
+    "hero": {
+      "title": "Bidirectional Charging Station",
+      "description": "Bidirectional charging turns your EV into energy storage, supplying power when needed or most valuable."
     }
   }
 }

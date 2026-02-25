@@ -31,7 +31,11 @@ const StorageSelfConsumptionSection = async () => {
             <p className="text-[#062E25]/80 text-lg md:text-[22px] font-medium tracking-[-0.02em]">
               {t('storageSelfConsumption.description')}
             </p>
-            <LinkButton href="/commercial/cost" variant="quaternary">
+            <LinkButton
+              href="/commercial/cost"
+              variant="quaternary"
+              className="w-fit"
+            >
               {t('storageSelfConsumption.cta')}
             </LinkButton>
           </div>

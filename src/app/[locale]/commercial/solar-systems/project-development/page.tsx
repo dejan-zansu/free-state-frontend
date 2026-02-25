@@ -13,6 +13,8 @@ const ProjectDevelopmentPage = async () => {
         title={t('hero.title')}
         description={t('hero.description')}
         backgroundImage="/images/project-development-hero.png"
+        isCommercial
+        className="bg-[#4F4970]"
       />
       <EPCSection />
       <TurnkeySection />

@@ -19,15 +19,12 @@ const InstallationSection = async () => {
             'linear-gradient(0deg, rgba(234, 237, 223, 0) 9%, rgba(234, 237, 223, 1) 100%)',
         }}
       />
+
+      <div className="absolute inset-0 bg-black/20" />
       <div
         className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 99%)',
-        }}
+        style={{ background: 'rgba(173, 66, 197, 0.2)' }}
       />
-      <div className="absolute inset-0 bg-black/20" />
-      <div className="absolute inset-0" style={{ background: 'rgba(173, 66, 197, 0.2)' }} />
 
       <div className="relative z-10 w-full max-w-[571px] mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="flex flex-col gap-[50px]">

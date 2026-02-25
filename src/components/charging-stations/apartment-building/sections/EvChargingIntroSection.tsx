@@ -2,12 +2,12 @@ import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
 const EvChargingIntroSection = async () => {
-  const t = await getTranslations('apartmentBuilding')
+  const t = await getTranslations('chargingStationsApartmentBuilding')
 
   return (
     <section className="relative bg-[#FDFFF5] py-12 md:py-16 lg:py-20">
       <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[60px]">
-        <div className="flex flex-col gap-5 max-w-[385px]">
+        <div className="flex flex-col gap-5 max-w-[438px]">
           <div
             className="flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-[#062E25] w-fit"
             style={{
@@ -34,7 +34,7 @@ const EvChargingIntroSection = async () => {
           <Image
             src="/images/apartment-building/ev-charging-apartment-owners.svg"
             alt={t('evChargingIntro.title')}
-            width={242}
+            width={270}
             height={325}
           />
         </div>

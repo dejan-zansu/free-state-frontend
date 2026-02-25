@@ -55,7 +55,7 @@ const QuoteCTASection = async () => {
 
           <div className="flex flex-col items-center gap-5">
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-5">
-              {checklistItems.map((item) => (
+              {checklistItems.map(item => (
                 <div key={item} className="flex items-center gap-2">
                   <div className="w-[13px] h-[13px] rotate-45 border-[1.5px] border-[#9F3E4F] shrink-0" />
                   <span className="text-white/80 text-lg md:text-[22px] font-medium tracking-[-0.02em]">
@@ -67,11 +67,7 @@ const QuoteCTASection = async () => {
           </div>
 
           <div className="flex flex-col items-center gap-5">
-            <LinkButton
-              href="/solar-calculator"
-              variant="outline-tertiary-dark"
-              iconWrapperClassName="!bg-[#9F3E4F]"
-            >
+            <LinkButton href="/solar-calculator" variant="outline-secondary">
               {t('quoteCTA.cta')}
             </LinkButton>
             <p className="text-white/80 text-base font-light tracking-[-0.02em] text-center">

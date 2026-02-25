@@ -2,7 +2,7 @@ import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
 
 const CalculatorCTASection = async () => {
-  const t = await getTranslations('apartmentBuilding')
+  const t = await getTranslations('chargingStationsApartmentBuilding')
 
   return (
     <section
@@ -19,7 +19,7 @@ const CalculatorCTASection = async () => {
           height: '374px',
           right: '0px',
           top: '-200px',
-          background: 'rgba(228, 198, 255, 0.5)',
+          background: 'rgba(183, 254, 26, 0.5)',
           filter: 'blur(490px)',
           borderRadius: '50%',
         }}
@@ -31,7 +31,7 @@ const CalculatorCTASection = async () => {
           height: '291px',
           right: '40px',
           top: '-232px',
-          background: 'rgba(228, 198, 255, 0.5)',
+          background: 'rgba(183, 254, 26, 0.5)',
           filter: 'blur(170px)',
           borderRadius: '50%',
         }}

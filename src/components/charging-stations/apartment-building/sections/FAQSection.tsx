@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 const faqKeys = ['preEquipped', 'integration', 'installation', 'acDc', 'taxBreaks'] as const
 
 const FAQSection = () => {
-  const t = useTranslations('apartmentBuilding.faq')
+  const t = useTranslations('chargingStationsApartmentBuilding.faq')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
@@ -17,8 +17,8 @@ const FAQSection = () => {
         className="absolute inset-x-0 top-[1px] bottom-0 rounded-t-[40px] overflow-hidden border border-[#63836F] border-b-0"
         style={{
           backgroundImage: `
-            linear-gradient(0deg, rgba(86, 73, 112, 0) 0%, rgba(86, 73, 112, 1) 86%),
-            linear-gradient(0deg, rgba(180, 168, 200, 0.4), rgba(180, 168, 200, 0.4)),
+            linear-gradient(0deg, rgba(7, 51, 42, 0) 0%, rgba(7, 51, 42, 1) 86%),
+            linear-gradient(0deg, rgba(168, 200, 193, 0.4), rgba(168, 200, 193, 0.4)),
             url(/images/apartment-building/faq-bg-598af0.png)
           `,
           backgroundSize: 'cover',

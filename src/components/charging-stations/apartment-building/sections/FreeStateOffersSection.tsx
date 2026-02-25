@@ -4,7 +4,7 @@ import Image from 'next/image'
 const bullets = ['owners', 'condominiums'] as const
 
 const FreeStateOffersSection = async () => {
-  const t = await getTranslations('apartmentBuilding')
+  const t = await getTranslations('chargingStationsApartmentBuilding')
 
   return (
     <section className="relative">

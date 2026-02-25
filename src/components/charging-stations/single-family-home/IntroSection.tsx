@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
 const IntroSection = async () => {
-  const t = await getTranslations('singleFamilyHome')
+  const t = await getTranslations('chargingStationsSingleFamilyHome')
 
   return (
     <section className="relative bg-[#FDFFF5] py-12 md:py-16 lg:py-20">

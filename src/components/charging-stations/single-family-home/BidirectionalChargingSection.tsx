@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
 const BidirectionalChargingSection = async () => {
-  const t = await getTranslations('singleFamilyHome')
+  const t = await getTranslations('chargingStationsSingleFamilyHome')
 
   return (
     <section className="relative">

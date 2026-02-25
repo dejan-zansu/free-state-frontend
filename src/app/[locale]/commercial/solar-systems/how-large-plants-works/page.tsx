@@ -16,6 +16,8 @@ const HowLargePlantsWorksPage = async () => {
       <PageHero
         title={t('hero.title')}
         backgroundImage="/images/how-large-plants-works-hero.png"
+        isCommercial
+        className="bg-[#4F4970]"
       />
       <HowItWorksSection />
       <SolarPanelWorksSection />

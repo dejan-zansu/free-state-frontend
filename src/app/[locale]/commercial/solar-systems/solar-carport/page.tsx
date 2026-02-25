@@ -14,6 +14,8 @@ const SolarCarportPage = async () => {
         title={t('hero.title')}
         description={t('hero.description')}
         backgroundImage="/images/solar-carport-hero.png"
+        isCommercial
+        className="bg-[#4F4970]"
       />
       <ImageShowcaseSection />
       <ParkingRoofsSection />

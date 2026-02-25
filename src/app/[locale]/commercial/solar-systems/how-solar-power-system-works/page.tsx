@@ -9,6 +9,8 @@ const HowSolarPowerSystemWorksPage = async () => {
         title={t('hero.title')}
         description={t('hero.description')}
         backgroundImage="/images/how-solar-power-system-works-hero.png"
+        isCommercial
+        className="bg-[#4F4970]"
       />
     </main>
   )

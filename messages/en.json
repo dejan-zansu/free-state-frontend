@@ -3725,7 +3725,52 @@
   },
   "chargingStationsApartmentBuilding": {
     "hero": {
-      "title": "Charging station in\n the apartment building"
+      "title": "Apartment Building",
+      "description": "Solar modules for efficient, long-term energy production"
+    },
+    "evChargingIntro": {
+      "eyebrow": "EV Charging",
+      "title": "EV Charging in\nApartment Buildings",
+      "description": "We support property owners in planning and installing future-ready charging infrastructure.\n\nGet a non-binding cost estimate with our online calculator."
+    },
+    "calculatorCta": {
+      "eyebrow": "Calculate",
+      "title": "Calculate the price of your charging station now.",
+      "description": "Calculates the price of your charging station based on just a few details.",
+      "cta": "Start the Solar Calculator",
+      "subtext": "free - uncomplicated - precise - non-binding"
+    },
+    "freeStateOffers": {
+      "title": "FreeState offers you this",
+      "bullets": {
+        "owners": "For owners and property managers: we design, install, and maintain charging infrastructure, with a fully digital billing system handling administration.",
+        "condominiums": "For condominium owners: we install scalable charging infrastructure and stations as needed, with clear expansion planning and transparent, flexible billing."
+      }
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "preEquipped": {
+          "question": "Can parking areas be pre-equipped for future charging stations?",
+          "answer": "Yes, through the proactive installation of cable conduits and power distribution, parking areas can be efficiently prepared for the later installation of charging stations. This significantly reduces future installation costs."
+        },
+        "integration": {
+          "question": "How can future charging stations be integrated?",
+          "answer": "Our charging infrastructure is modularly designed, enabling step-by-step expansion. New charging stations can be easily connected to the existing infrastructure without major renovation work."
+        },
+        "installation": {
+          "question": "Who pays for the installation?",
+          "answer": "Cost distribution can be flexibly arranged between the owners' association, individual owners, or tenants. We advise you on the various financing models and possible subsidy programs."
+        },
+        "acDc": {
+          "question": "Do I need AC or DC charging stations?",
+          "answer": "For apartment buildings, we generally recommend AC charging stations (11-22 kW), as they are more cost-effective and ideal for overnight charging. DC fast-charging stations are usually not required for residential use."
+        },
+        "taxBreaks": {
+          "question": "Are there tax breaks for charging infrastructure?",
+          "answer": "Yes, there are various subsidy programs and tax advantages for the installation of charging infrastructure. We inform you about current cantonal and federal funding opportunities."
+        }
+      }
     }
   },
   "chargingStationsCompany": {
@@ -3777,6 +3822,63 @@
           "answer": "Yes, many Swiss cantons offer tax deductions and subsidies for the installation of EV charging infrastructure at commercial properties."
         }
       }
+    }
+  },
+  "chargingStationsSingleFamilyHome": {
+    "hero": {
+      "title": "Single - Family House",
+      "description": "Solar modules for efficient, long-term energy production"
+    },
+    "intro": {
+      "eyebrow": "Family houses",
+      "title": "Your house, your\ncharging station",
+      "description": "Affordable charging stations are available for every need. FreeState models offer load management, remote access, and the option to charge your EV with your own solar power."
+    },
+    "weOffer": {
+      "title": "We offer you this",
+      "description": "We plan and install smart home charging solutions using high-quality partner products, fully integrated with your solar system or heat pump—including bidirectional charging—and supported by ongoing technical service.\n\nGet a non-binding cost estimate in minutes with our online quote calculator."
+    },
+    "calculator": {
+      "eyebrow": "Calculate",
+      "title": "Calculate the price of your charging station now.",
+      "description": "Calculates the price of your charging station based on just a few details.",
+      "ctaText": "Start the Solar Calculator",
+      "ctaSubtext": "free - uncomplicated - precise - non-binding"
+    },
+    "bidirectionalCharging": {
+      "title": "Bidirectional Solar Charging",
+      "description": "Bidirectional charging lets your EV store solar power and supply it back to your home, increasing self-consumption and energy independence. Vehicle and charger compatibility is required, and costs are currently higher than standard systems."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "1": {
+          "question": "Can I charge my electric car using a household socket?",
+          "answer": "While technically possible, charging from a standard household socket is slow and not recommended for regular use. A dedicated wallbox provides faster, safer, and more efficient charging for your electric vehicle."
+        },
+        "2": {
+          "question": "What charging power do I need?",
+          "answer": "For home use, 11 kW is typically sufficient and covers most daily driving needs overnight. If you have higher mileage requirements, a 22 kW charger offers faster charging times."
+        },
+        "3": {
+          "question": "What do AC and DC mean?",
+          "answer": "AC (alternating current) is the standard for home charging, using a wallbox with up to 22 kW. DC (direct current) is used for fast charging stations, offering much higher power levels but requiring specialized and more expensive equipment."
+        },
+        "4": {
+          "question": "What do the different plug types mean?",
+          "answer": "Type 2 is the European standard for AC charging and is compatible with all modern EVs. CCS (Combined Charging System) combines Type 2 with DC fast charging capability, making it the most versatile connector available."
+        },
+        "5": {
+          "question": "What cable length do I need?",
+          "answer": "The ideal cable length depends on where your charging station is installed relative to your parking spot. Typically, a 5-meter cable is sufficient for most home installations, but 7.5 meters provides more flexibility."
+        }
+      }
+    }
+  },
+  "bidirectionalChargingStation": {
+    "hero": {
+      "title": "Bidirectional Charging Station",
+      "description": "Bidirectional charging turns your EV into energy storage, supplying power when needed or most valuable."
     }
   }
 }

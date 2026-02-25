@@ -1,7 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 
 const WeOfferSection = async () => {
-  const t = await getTranslations('singleFamilyHome')
+  const t = await getTranslations('chargingStationsSingleFamilyHome')
 
   return (
     <section

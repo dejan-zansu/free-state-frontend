@@ -7,7 +7,7 @@ import { FAQItem } from '@/components/ui/faq-item'
 const questions = ['1', '2', '3', '4', '5'] as const
 
 const FAQSection = () => {
-  const t = useTranslations('singleFamilyHome')
+  const t = useTranslations('chargingStationsSingleFamilyHome')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
