@@ -10,6 +10,7 @@ interface FAQItemProps {
   onToggle: () => void
   variant?: 'dark' | 'light'
   className?: string
+  iconClassName?: string
 }
 
 const FAQItem = ({
@@ -19,6 +20,7 @@ const FAQItem = ({
   onToggle,
   variant = 'dark',
   className,
+  iconClassName,
 }: FAQItemProps) => {
   const isDark = variant === 'dark'
 
@@ -49,11 +51,11 @@ const FAQItem = ({
         >
           {question}
         </span>
-        <div className="border border-[#036B53] rounded-full p-1">
+        <div className={cn('border border-[#036B53] rounded-full p-1', iconClassName)}>
           {isOpen ? (
-            <Minus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
+            <Minus className={cn('w-3 h-3 text-[#036B53]', iconClassName)} strokeWidth={2.5} />
           ) : (
-            <Plus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
+            <Plus className={cn('w-3 h-3 text-[#036B53]', iconClassName)} strokeWidth={2.5} />
           )}
         </div>
       </button>

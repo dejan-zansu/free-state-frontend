@@ -5,7 +5,7 @@ const ChargingSolutionsSection = async () => {
   const t = await getTranslations('chargingStationsCompany')
 
   return (
-    <section className="relative">
+    <section className="relative overflow-hidden -mt-[40px] z-10">
       <div className="flex flex-col lg:flex-row">
         <div
           className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 lg:px-0 py-12 lg:py-0"

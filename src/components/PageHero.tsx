@@ -9,6 +9,7 @@ interface PageHeroProps {
   children?: ReactNode
   className?: string
   contentClassName?: string
+  isCommercial?: boolean
 }
 
 const PageHero = ({
@@ -18,15 +19,16 @@ const PageHero = ({
   children,
   className,
   contentClassName,
+  isCommercial = false,
 }: PageHeroProps) => {
   return (
     <section
       className={cn(
-        'relative min-h-[550px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]',
+        'relative z-20 min-h-[550px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]',
         className
       )}
     >
-      <HeroNav />
+      <HeroNav isCommercial={isCommercial} />
 
       {backgroundImage && (
         <div

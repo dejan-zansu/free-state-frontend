@@ -48,7 +48,11 @@ const Footer = () => {
     pathname?.includes('/amortization') ||
     pathname?.includes('/solar-system-carport') ||
     pathname?.includes('/solar-calculator') ||
-    pathname?.includes('/service')
+    pathname?.includes('/service') ||
+    pathname?.includes('/project-development') ||
+    pathname?.includes('/solar-carport') ||
+    pathname?.includes('/charging-stations') ||
+    pathname?.includes('/company')
 
   const solarAboLinks = [
     {
@@ -187,11 +191,11 @@ const Footer = () => {
   return (
     <footer
       className={cn(
-        'bg-solar relative',
+        'bg-solar relative z-20',
         isLight
           ? 'bg-transparent -mt-[40px]'
           : isCommercial
-            ? 'bg-[#3D3858]'
+            ? 'bg-transparent -mt-[40px]'
             : 'bg-solar'
       )}
     >

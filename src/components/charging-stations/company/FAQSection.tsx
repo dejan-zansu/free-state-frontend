@@ -2,8 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Plus, Minus } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { FAQItem } from '@/components/ui/faq-item'
 
 const faqKeys = [
   'preEquipped',
@@ -19,7 +18,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden pb-[40px]">
       <div
         className="absolute inset-x-0 top-[1px] bottom-0 rounded-t-[40px] overflow-hidden border border-[#63836F] border-b-0"
         style={{
@@ -40,49 +39,18 @@ const FAQSection = () => {
           </h2>
 
           <div className="flex flex-col gap-5 w-full max-w-[652px]">
-            {faqKeys.map((key, index) => {
-              const isOpen = openIndex === index
-
-              return (
-                <button
-                  key={key}
-                  onClick={() => setOpenIndex(isOpen ? null : index)}
-                  className={cn(
-                    'w-full rounded-2xl border text-left transition-all overflow-hidden',
-                    'border-white/40'
-                  )}
-                  style={{
-                    background: 'rgba(123, 135, 126, 0.32)',
-                    backdropFilter: 'blur(70px)',
-                    WebkitBackdropFilter: 'blur(70px)',
-                  }}
-                >
-                  <div className="p-[30px]">
-                    <div className="flex items-center justify-between gap-[50px]">
-                      <h3 className="text-white/80 text-base md:text-lg font-normal tracking-[-0.02em]">
-                        {t(`items.${key}.question`)}
-                      </h3>
-                      <div className="flex items-center justify-center w-[25px] h-[24px] shrink-0 rounded-[6px] bg-[#B7FE1A] border border-[#B7FE1A]/50">
-                        {isOpen ? (
-                          <Minus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
-                        ) : (
-                          <Plus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
-                        )}
-                      </div>
-                    </div>
-
-                    {isOpen && (
-                      <>
-                        <div className="mt-5 mb-5 h-px bg-white/20" />
-                        <p className="text-white/80 text-base font-light tracking-[-0.02em]">
-                          {t(`items.${key}.answer`)}
-                        </p>
-                      </>
-                    )}
-                  </div>
-                </button>
-              )
-            })}
+            {faqKeys.map((key, index) => (
+              <FAQItem
+                key={key}
+                question={t(`items.${key}.question`)}
+                answer={t(`items.${key}.answer`)}
+                isOpen={openIndex === index}
+                onToggle={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
+                iconClassName="text-white border-white"
+              />
+            ))}
           </div>
         </div>
       </div>

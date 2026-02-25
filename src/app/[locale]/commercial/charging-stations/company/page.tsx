@@ -10,7 +10,12 @@ const CompanyPage = async () => {
 
   return (
     <main>
-      <PageHero title={t('hero.title')} />
+      <PageHero
+        isCommercial
+        title={t('hero.title')}
+        backgroundImage="/images/charging-stations-company-hero.png"
+        className="bg-[#4F4970]"
+      />
       <ChargingSolutionsSection />
       <CompanySolutionSection />
       <FreeStateOffersSection />

@@ -8,6 +8,14 @@ const CompanySolutionSection = async () => {
   return (
     <section className="relative">
       <div className="flex flex-col lg:flex-row">
+        <div className="relative w-full lg:w-1/2 aspect-[720/586]">
+          <Image
+            src="/images/charging-stations/company/company-solution-image-30964f.png"
+            alt={t('companySolution.title')}
+            fill
+            className="object-cover"
+          />
+        </div>
         <div
           className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 lg:px-0 py-12 lg:py-0"
           style={{
@@ -24,19 +32,14 @@ const CompanySolutionSection = async () => {
               {t('companySolution.description')}
             </p>
 
-            <LinkButton variant="tertiary" href="/solar-abo-calculator">
+            <LinkButton
+              variant="quaternary"
+              href="/solar-calculator"
+              className="w-fit"
+            >
               {t('companySolution.cta')}
             </LinkButton>
           </div>
-        </div>
-
-        <div className="relative w-full lg:w-1/2 aspect-[720/586]">
-          <Image
-            src="/images/charging-stations/company/company-solution-image-30964f.png"
-            alt={t('companySolution.title')}
-            fill
-            className="object-cover"
-          />
         </div>
       </div>
     </section>

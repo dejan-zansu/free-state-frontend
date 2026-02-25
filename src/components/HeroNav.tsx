@@ -200,7 +200,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
           <div className="shrink-0">
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
-              href="/calculator"
+              href={isCommercial ? '/calculator' : '/solar-abo-calculator'}
               className="text-xs sm:text-sm md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
             >
               {t('hero.nav.onlineStarter')}

@@ -122,7 +122,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
           <div className="shrink-0 w-full sm:w-auto">
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
-              href="/calculator"
+              href={isCommercial ? '/calculator' : '/solar-abo-calculator'}
             >
               {t('hero.nav.onlineStarter')}
             </LinkButton>
@@ -160,7 +160,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
           {hoveredItem === 'products' &&
             (() => {
               let itemIndex = 0
-              return productLinks.map((link) => {
+              return productLinks.map(link => {
                 const currentIndex = itemIndex++
                 return (
                   <div key={link.href}>
@@ -181,7 +181,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
                       {link.label}
                     </Link>
                     {'subLinks' in link &&
-                      link.subLinks?.map((sub) => {
+                      link.subLinks?.map(sub => {
                         const subIndex = itemIndex++
                         return (
                           <Link
