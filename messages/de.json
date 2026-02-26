@@ -3893,10 +3893,287 @@
       }
     }
   },
+  "fastChargingStations": {
+    "hero": {
+      "title": "Schnell\u00ADlade\u00ADstationen",
+      "description": ""
+    },
+    "offersSection": {
+      "title": "Bieten Sie auch\nSchnellladestationen an",
+      "description": "Schnellladestationen werden an Tankstellen, Einkaufszentren und Firmengeländen installiert und bieten starkes kommerzielles Potenzial. Wir unterstützen Sie bei Planung und Umsetzung – kontaktieren Sie uns, um Ihr Projekt zu besprechen.",
+      "cta": "Kontakt"
+    },
+    "freeStateOffers": {
+      "title": "FreeState bietet Ihnen das",
+      "description": "Wir entwerfen, planen, installieren und warten Ihre Hochgeschwindigkeits-Ladestation. Sie erhalten alle Leistungen von der Konzeption über den Bauantrag bis zum Betrieb als Paket, können aber auf Wunsch auch Einzelleistungen in Anspruch nehmen. Unsere Dienstleistungen sind auch modular verfügbar."
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "items": {
+        "benefits": {
+          "question": "Wer profitiert von Schnellladestationen?",
+          "answer": "Schnellladestationen profitieren Tankstellenbetreiber, Einkaufszentren, Hotels, Restaurants, Flottenbetreiber und jedes Unternehmen, das E-Auto-fahrende Kunden anziehen möchte. Sie bieten einen Wettbewerbsvorteil und eine zusätzliche Einnahmequelle."
+        },
+        "acDcHpc": {
+          "question": "Was bedeuten AC, DC und High Power Charging?",
+          "answer": "AC (Wechselstrom) ist die Standard-Lademethode. DC (Gleichstrom) umgeht das bordeigene Ladegerät des Autos für schnellere Geschwindigkeiten. High Power Charging (HPC) liefert 150 kW oder mehr und ermöglicht die schnellstmöglichen Ladezeiten."
+        },
+        "chargingTimes": {
+          "question": "Welche Ladezeiten sind an Schnellladestationen möglich?",
+          "answer": "Mit DC-Schnellladegeräten (50-150 kW) dauert eine 80%-Ladung etwa 30-60 Minuten. High Power Charger (150-350 kW) können 80% in nur 15-30 Minuten erreichen, abhängig von den Fähigkeiten des Fahrzeugs."
+        },
+        "gridRequirements": {
+          "question": "Netzanforderungen für Schnellladestationen?",
+          "answer": "Schnellladestationen erfordern einen Mittelspannungs-Netzanschluss, abhängig von der Anzahl der Ladegeräte und deren Leistung. Eine Netzkapazitätsbewertung ist während der Planungsphase unerlässlich, um eine ausreichende Stromversorgung sicherzustellen."
+        },
+        "subsidies": {
+          "question": "Gibt es Fördermittel für Schnellladestationen?",
+          "answer": "Ja, verschiedene Schweizer Bundes- und Kantonsprogramme bieten Fördermittel für öffentlich zugängliche Schnellladeinfrastruktur. Verfügbarkeit und Höhe hängen vom Standort, der Zugänglichkeit und den technischen Spezifikationen der Installation ab."
+        }
+      }
+    }
+  },
   "bidirectionalChargingStation": {
     "hero": {
-      "title": "Bidirectional Charging Station",
-      "description": "Bidirectional charging turns your EV into energy storage, supplying power when needed or most valuable."
+      "title": "Bidirektionale Ladestation",
+      "description": "Bidirektionales Laden verwandelt Ihr Elektrofahrzeug in einen Energiespeicher, der Strom liefert, wenn er benötigt wird oder am wertvollsten ist."
+    },
+    "howItWorks": {
+      "eyebrow": "Bidirektionale Ladestation",
+      "title": "Wie funktioniert es?"
+    },
+    "benefitsComparison": {
+      "title": "Bidirektionales Laden lohnt sich für alle.",
+      "description": "Mit oder ohne Solaranlage – bidirektionales Laden senkt die Kosten und schafft neue Einnahmequellen, die bestehende Systeme aufwerten.",
+      "headers": {
+        "advantage": "Ihr Vorteil",
+        "withSolar": "Mit Solaranlage",
+        "withoutSolar": "Ohne Solaranlage"
+      },
+      "rows": {
+        "flexibility": "Rendite auf Flexibilität",
+        "flexibilityNote": "(nur mit Batterie)",
+        "electricityBill": "Niedrigere Stromrechnung",
+        "selfSufficiency": "Mehrtägige Autarkie"
+      },
+      "footnote": "Je nach Situation ergibt sich ein jährlicher finanzieller Vorteil von bis zu CHF 520 mit Solaranlage oder bis zu CHF 300 ohne Solaranlage. Details zum finanziellen Vorteil folgen:"
+    },
+    "marketingFlexibility": {
+      "title": "Marketing Flexibilität",
+      "description": "Ihre EV-Batterie kann dem virtuellen Kraftwerk von Helion beitreten, das Netz unterstützen und einen FLEXBONUS durch Bereitschafts- und Spitzentarifzahlungen verdienen.",
+      "additionalIncome": "Zusätzliches Einkommen über FLEXBONUS:",
+      "cards": {
+        "withSolar": {
+          "title": "Mit Solaranlage",
+          "amount": "bis zu CHF 170 pro Jahr"
+        },
+        "systemComparison": {
+          "title": "Systemvergleich",
+          "amount": "bis zu CHF 170 pro Jahr"
+        }
+      },
+      "note": "Hinweis: Das hier genannte Ertragspotenzial kann nur unter optimalen Bedingungen erreicht werden – dazu gehören etwa 60% Einsteckzeit, eine grosse Poolgrösse, günstige Marktentwicklung und ausreichend verfügbare Batteriekapazität."
+    },
+    "keyFacts": {
+      "title": "Bidirektionales Laden: Wichtige Fakten",
+      "description": "Bidirektionales Laden integriert Ihr Elektrofahrzeug in Ihr Heimenergiesystem, das automatisch von Helion ONE™ für optimale Energienutzung verwaltet wird – bei transparenter Berücksichtigung aktueller technischer Einschränkungen.",
+      "steps": {
+        "1": "Kleine Lasten benötigen einen Hausbatteriepuffer (>1,8 kW Grenze).",
+        "2": "Grosse Lasten laufen direkt; Entladung begrenzt auf 20–80% SoC."
+      }
+    },
+    "carBattery": {
+      "eyebrow": "Autobatterie",
+      "title": "Ihre Autobatterie wird Teil von\nFreeState™",
+      "description": "Ihre EV-Batterie erschliesst Einsparungen und Einnahmen, während FreeState™ den Energieverbrauch automatisch in Echtzeit optimiert.",
+      "cta": "Angebot anfordern"
+    },
+    "homeIndependence": {
+      "title": "Mehr Unabhängigkeit für Ihr Zuhause",
+      "cards": {
+        "homeBattery": "Hausbatteriekapazität",
+        "evBattery": "EV-Batteriekapazität"
+      },
+      "capacityComparison": {
+        "title": "Kapazitätsvergleich:",
+        "description": "Eine Elektroautobatterie hat die fünf- bis zehnfache Kapazität einer typischen Hausbatterie. Damit können Sie Ihren Solarstrom länger nutzen und bis zu mehrere Tage unabhängig vom Netz bleiben. Bidirektionales Laden stärkt Ihr Energiesystem und erhöht Ihre Autarkie deutlich."
+      }
+    },
+    "chargingPaysOff": {
+      "title": "Bidirektionales Laden lohnt sich",
+      "description": "Statt CHF 3'600 für eine herkömmliche Ladestation investieren Sie rund CHF 5'700 und machen so die Batterie Ihres Elektroautos zum Teil Ihres Energiesystems. Ihr zusätzlicher finanzieller Vorteil: Weitere Einsparungen und Einnahmen."
+    },
+    "funding": {
+      "title": "Förderung für bidirektionale Ladestationen",
+      "cantons": {
+        "bern": {
+          "name": "Kanton Bern",
+          "amount": "CHF 3'000 pro installierte bidirektionale DC-Ladestation."
+        },
+        "graubunden": {
+          "name": "Kanton Graubünden",
+          "amount": "CHF 2'000 pro installierte bidirektionale DC-Ladestation"
+        },
+        "lucerne": {
+          "name": "Kanton Luzern",
+          "amount": "CHF 2'000 pro installierte bidirektionale DC-Ladestation."
+        },
+        "schaffhausen": {
+          "name": "Kanton Schaffhausen",
+          "amount": "CHF 2'000 einmaliger Investitionsbeitrag pro bidirektionale DC-Ladestation."
+        },
+        "ticino": {
+          "name": "Kanton Tessin",
+          "amount": "CHF 4'000 pro installierte bidirektionale Ladestation."
+        },
+        "thurgau": {
+          "name": "Kanton Thurgau",
+          "amount": "Einmaliger Investitionsbeitrag von CHF 2'000 pro Ladestation."
+        },
+        "uri": {
+          "name": "Kanton Uri",
+          "amount": "CHF 2'000.- Pauschale pro installierte bidirektionale DC-Ladestation."
+        },
+        "zurich": {
+          "name": "Kanton Zürich",
+          "amount": "CHF 2'000 pro installierte bidirektionale DC-Ladestation."
+        }
+      }
+    },
+    "personalizedOffer": {
+      "title": "Interessieren Sie sich für ein persönliches Angebot?",
+      "description": "Helions bidirektionales Laden verwandelt Ihr Elektroauto in eine Powerbank für Ihr Zuhause. Das spart Stromkosten, generiert attraktive Zusatzeinnahmen und gibt Ihnen mehr Unabhängigkeit.",
+      "callToAction": "Fordern Sie jetzt Ihr persönliches Angebot an und erfahren Sie, wie Sie von bidirektionalem Laden profitieren können.",
+      "form": {
+        "title": "Angebot anfordern",
+        "question": "Für welche Situation möchten Sie ein persönliches, unverbindliches Angebot? *",
+        "options": {
+          "withSolar": "Solaranlage mit bidirektionaler Ladestation",
+          "addToSolar": "Bidirektionales Laden zu bestehender Solaranlage hinzufügen",
+          "withoutSolar": "Bidirektionales Laden ohne Solaranlage hinzufügen"
+        },
+        "submit": "Weiter"
+      }
+    },
+    "vehicleList": {
+      "title": "Liste der Elektrofahrzeuge, die\nbidirektionales Laden unterstützen.",
+      "description": "Viele Autohersteller haben bereits Fahrzeuge auf den Markt gebracht, die bidirektionales Laden ermöglichen. Da immer mehr Hersteller die bidirektionale Technologie übernehmen, wird diese Liste voraussichtlich bald wachsen.",
+      "headers": {
+        "makeModel": "Marke / Modell",
+        "bidiReady": "BiDi-fähig",
+        "software": "Software"
+      },
+      "vehicles": {
+        "vwId": {
+          "name": "VW ID Familie",
+          "battery": "Mindestbatterie 77 kWh",
+          "software": "Ab 3.7"
+        },
+        "vwBuzz": {
+          "name": "VW ID. Buzz",
+          "battery": "Mindestbatterie 77 kWh",
+          "software": "Ab 3.7"
+        },
+        "skoda": {
+          "name": "Škoda Enyaq & Elroq",
+          "battery": "Mindestbatterie 77 kWh",
+          "bidiReady": "Ab 2026"
+        },
+        "cupra": {
+          "name": "Cupra Born & Tavascan",
+          "battery": "Mindestbatterie 77 kWh",
+          "bidiReady": "Ab 2026"
+        },
+        "ford": {
+          "name": "Ford Explorer & Capri",
+          "battery": "Mindestbatterie 77 kWh",
+          "bidiReady": "Ab 2026"
+        }
+      }
+    },
+    "chargingTypes": {
+      "title": "Arten des\nbidirektionalen Ladens",
+      "description": "Es gibt verschiedene Konzepte des bidirektionalen Ladens; dies sind die häufigsten:",
+      "types": {
+        "1": "Vehicle-to-Grid (V2G)",
+        "2": "Vehicle-to-Home (V2H)",
+        "3": "Vehicle-to-Building (V2B)",
+        "4": "Vehicle-to-Load (V2L)"
+      }
+    },
+    "standards": {
+      "eyebrow": "S&R",
+      "title": "Standards und Regulierungen",
+      "description": "ISO 15118-20 (2022) definiert Kommunikationsstandards für bidirektionales Laden zwischen Elektrofahrzeugen und Wallboxen. Hersteller müssen nun kompatible, kosteneffiziente Systeme liefern."
+    },
+    "newsletter": {
+      "title": "BiDi Newsletter",
+      "description": "Alle unsere Solarprojekte können dank Helion ONE™ einfach um bidirektionales Laden erweitert werden. Interessieren Sie sich für die neuesten Informationen zum bidirektionalen Laden?\n\nDann melden Sie sich für unseren BiDi Newsletter an.",
+      "form": {
+        "firstName": "Vorname",
+        "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+        "lastName": "Nachname",
+        "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+        "email": "E-Mail",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
+        "privacyNotice": "FreeState respektiert Ihre Privatsphäre und verwendet Ihre Daten nur zur Verwaltung Ihres Kontos und zur Bereitstellung angeforderter Dienste.",
+        "consent": "Ich stimme zu, weitere Benachrichtigungen von FreeState zu erhalten",
+        "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzrichtlinie zu und können sich jederzeit abmelden.",
+        "submit": "Weiter"
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen\nzum bidirektionalen Laden",
+      "items": {
+        "whatIs": {
+          "question": "Was ist bidirektionales Laden und wie funktioniert es?",
+          "answer": "Bidirektionales Laden ermöglicht es Ihrem Elektrofahrzeug, nicht nur Strom aus dem Netz zu beziehen, sondern auch zurückzuspeisen. Ihre EV-Batterie wird zu einem mobilen Energiespeicher, der Ihr Zuhause versorgen oder das Netz unterstützen kann."
+        },
+        "benefits": {
+          "question": "Was sind die Vorteile des bidirektionalen Ladens?",
+          "answer": "Bidirektionales Laden senkt Ihre Stromkosten, generiert Zusatzeinnahmen durch Netzdienstleistungen, erhöht Ihre Energieunabhängigkeit und maximiert die Nutzung Ihrer Solaranlage."
+        },
+        "advantages": {
+          "question": "Welche Vorteile hat bidirektionales Laden?",
+          "answer": "Zu den wichtigsten Vorteilen gehören niedrigere Energiekosten, potenzielle Einnahmen aus Flexibilitätsdiensten, grössere Autarkie, optimierte Solarenergienutzung und ein reduzierter CO2-Fussabdruck."
+        },
+        "batteryHarm": {
+          "question": "Ist bidirektionales Laden schädlich für die Batterie?",
+          "answer": "Moderne EV-Batterien sind für Tausende von Ladezyklen ausgelegt. Bidirektionales Laden im Bereich von 20-80% Ladezustand minimiert die Batterieabnutzung, und intelligente Managementsysteme sorgen für optimale Batteriegesundheit."
+        },
+        "evCompatibility": {
+          "question": "Kann jedes Elektroauto bidirektional geladen werden?",
+          "answer": "Noch nicht. Bidirektionales Laden erfordert spezifische Hardware- und Softwareunterstützung des Fahrzeugherstellers. Derzeit unterstützen ausgewählte Modelle von VW, Škoda, Cupra und Ford diese Technologie, weitere werden erwartet."
+        },
+        "savings": {
+          "question": "Kann man mit einer EV-Batterie sparen oder verdienen?",
+          "answer": "Ja. Sie können sparen, indem Sie gespeicherten Solarstrom anstelle von Netzstrom nutzen, und verdienen durch Flexibilitätsdienste (FLEXBONUS), indem Sie Ihre Batterie zur Netzstabilisierung bei Spitzenlast bereitstellen."
+        },
+        "rangeLimit": {
+          "question": "Könnte Ihre EV-Batterie entladen werden und die Reichweite einschränken?",
+          "answer": "Nein. Das System entlädt nur zwischen 20-80% Ladezustand und Sie können Mindestladelevels festlegen. Ihre Fahrbedürfnisse haben immer Vorrang vor der Hausenergieversorgung."
+        },
+        "requirements": {
+          "question": "Was wird für bidirektionales Laden benötigt?",
+          "answer": "Sie benötigen ein kompatibles Elektrofahrzeug, eine bidirektionale DC-Ladestation und ein intelligentes Energiemanagementsystem wie Helion ONE™. Eine Solaranlage wird empfohlen, ist aber nicht erforderlich."
+        },
+        "specialChargers": {
+          "question": "Brauchen Elektrofahrzeuge spezielle Ladegeräte für bidirektionale Nutzung?",
+          "answer": "Ja. Bidirektionales Laden erfordert eine DC-Wallbox, die speziell für bidirektionalen Stromfluss konzipiert ist. Standard-AC-Ladegeräte können bidirektionales Laden nicht unterstützen."
+        },
+        "warranty": {
+          "question": "Beeinflusst bidirektionales Laden die Batterielebensdauer oder Garantie?",
+          "answer": "Bei Verwendung innerhalb empfohlener Parameter (20-80% SoC) hat bidirektionales Laden minimale Auswirkungen auf die Batterielebensdauer. Prüfen Sie bei Ihrem Fahrzeughersteller die Garantiedetails."
+        },
+        "legalSwiss": {
+          "question": "Ist bidirektionales Laden in der Schweiz überhaupt erlaubt?",
+          "answer": "Ja. Die Schweiz erlaubt bidirektionales Laden und mehrere Kantone unterstützen es aktiv durch Förderprogramme. Der regulatorische Rahmen ist unter den ISO 15118-20 Standards gut etabliert."
+        },
+        "financialSupport": {
+          "question": "Wird bidirektionales Laden finanziell unterstützt?",
+          "answer": "Ja. Mehrere Schweizer Kantone bieten finanzielle Anreize von CHF 2'000 bis CHF 4'000 pro installierte bidirektionale Ladestation. Überprüfen Sie den Förderbereich für Details zu Ihrem Kanton."
+        }
+      }
     }
   }
 }

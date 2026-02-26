@@ -197,7 +197,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             <div onMouseEnter={() => setHoveredItem('solarAbo')}>
               <Link
                 href="/solar-abo"
-                className="text-white font-medium text-xs sm:text-sm md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
+                className="text-white font-medium text-xs sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
               >
                 {t('hero.nav.solarAbo')}
               </Link>
@@ -205,7 +205,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             <div onMouseEnter={() => setHoveredItem('products')}>
               <Link
                 href="/products"
-                className="text-white font-medium text-xs sm:text-sm md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
+                className="text-white font-medium text-xs sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
               >
                 {t('hero.nav.products')}
               </Link>
@@ -215,7 +215,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/calculator' : '/solar-abo-calculator'}
-              className="text-xs sm:text-sm md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
+              className="text-xs sm:text-base md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
             >
               {t('hero.nav.onlineStarter')}
             </LinkButton>
@@ -251,7 +251,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
                       key={link.href}
                       href={link.href}
                       className={cn(
-                        'px-4 py-2.5 text-white text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-400 whitespace-nowrap',
+                        'px-4 py-2.5 text-white text-base font-medium rounded-lg hover:bg-white/10 transition-all duration-400 whitespace-nowrap',
                         displayItem === 'solarAbo' && hasDropdown
                           ? 'translate-y-0 opacity-100'
                           : '-translate-y-1 opacity-0'
@@ -293,7 +293,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
                     >
                       <Link
                         href={product.href}
-                        className="px-3 py-2 text-white text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors whitespace-nowrap block"
+                        className="px-3 py-2 text-white text-base font-semibold rounded-lg hover:bg-white/10 transition-colors whitespace-nowrap block"
                       >
                         {product.label}
                       </Link>
@@ -302,7 +302,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
                           <Link
                             key={sub.href}
                             href={sub.href}
-                            className="px-3 py-1.5 text-white/90 text-sm rounded-lg hover:bg-white/10 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1.5"
+                            className="px-3 py-1.5 text-white/90 text-base rounded-lg hover:bg-white/10 hover:text-white transition-colors whitespace-nowrap flex items-center gap-1.5"
                           >
                             <span className="text-white/40">→</span>
                             {sub.label}

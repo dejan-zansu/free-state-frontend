@@ -3876,10 +3876,287 @@
       }
     }
   },
+  "fastChargingStations": {
+    "hero": {
+      "title": "Fast Charging\nStations",
+      "description": ""
+    },
+    "offersSection": {
+      "title": "Offer fast charging\nstations too",
+      "description": "Fast charging stations are installed at gas stations, shopping centers, and company sites, offering strong commercial potential. We support you with planning and implementation—contact us to discuss your project.",
+      "cta": "Contact"
+    },
+    "freeStateOffers": {
+      "title": "FreeState offers you this",
+      "description": "We design, plan, install, and maintain your high-speed charging station. You receive all services from concept and building permit application to operation as a package, but we can also provide individual services upon request. Our services are also available on a modular basis."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "benefits": {
+          "question": "Who benefits from fast charging stations?",
+          "answer": "Fast charging stations benefit gas station operators, shopping centers, hotels, restaurants, fleet operators, and any business looking to attract EV-driving customers. They provide a competitive advantage and additional revenue stream."
+        },
+        "acDcHpc": {
+          "question": "What do AC, DC, and High Power Charging mean?",
+          "answer": "AC (Alternating Current) charging is the standard slow charging method. DC (Direct Current) charging bypasses the car's onboard charger for faster speeds. High Power Charging (HPC) delivers 150 kW or more, enabling the fastest possible charging times."
+        },
+        "chargingTimes": {
+          "question": "What charging times are possible at fast charging stations?",
+          "answer": "With DC fast chargers (50-150 kW), an 80% charge takes approximately 30-60 minutes. High Power Chargers (150-350 kW) can achieve 80% in as little as 15-30 minutes, depending on the vehicle's capabilities."
+        },
+        "gridRequirements": {
+          "question": "Grid requirements for fast charging stations?",
+          "answer": "Fast charging stations require a medium-voltage grid connection, depending on the number of chargers and their power output. A grid capacity assessment is essential during the planning phase to ensure sufficient power supply."
+        },
+        "subsidies": {
+          "question": "Are there subsidies available for fast charging stations?",
+          "answer": "Yes, various Swiss federal and cantonal programs offer subsidies for publicly accessible fast charging infrastructure. The availability and amount depend on the location, accessibility, and technical specifications of the installation."
+        }
+      }
+    }
+  },
   "bidirectionalChargingStation": {
     "hero": {
       "title": "Bidirectional Charging Station",
       "description": "Bidirectional charging turns your EV into energy storage, supplying power when needed or most valuable."
+    },
+    "howItWorks": {
+      "eyebrow": "Bidirectional Charging Station",
+      "title": "how it works?"
+    },
+    "benefitsComparison": {
+      "title": "Bidirectional charging pays off for everyone.",
+      "description": "With or without solar panels, bidirectional charging lowers costs and creates new revenue opportunities—adding extra value to existing systems.",
+      "headers": {
+        "advantage": "Your advantage",
+        "withSolar": "With solar panels",
+        "withoutSolar": "Without solar panels"
+      },
+      "rows": {
+        "flexibility": "Return on flexibility",
+        "flexibilityNote": "(only with a battery)",
+        "electricityBill": "Lower electricity bill",
+        "selfSufficiency": "Multi-day self-sufficiency"
+      },
+      "footnote": "Depending on the situation, this results in an annual financial benefit of up to CHF 520 with a solar system or up to CHF 300 without a solar system. Details of the financial benefit follow:"
+    },
+    "marketingFlexibility": {
+      "title": "Marketing Flexibility",
+      "description": "Your EV battery can join Helion's virtual power plant, supporting the grid and earning a FLEXBONUS through standby and peak-rate payments.",
+      "additionalIncome": "Additional income via FLEXBONUS:",
+      "cards": {
+        "withSolar": {
+          "title": "With solar system",
+          "amount": "up to CHF 170 per year"
+        },
+        "systemComparison": {
+          "title": "system comparison",
+          "amount": "up to CHF 170 per year"
+        }
+      },
+      "note": "Note: The yield potential mentioned here can only be achieved under optimal conditions – these include around 60% plug-in time, a large pool size, favorable market development and sufficient available battery capacity."
+    },
+    "keyFacts": {
+      "title": "Bidirectional Charging: Key Facts",
+      "description": "Bidirectional charging integrates your EV into your home energy system, managed automatically by Helion ONE™ for optimal energy use—while transparently addressing current technical limitations.",
+      "steps": {
+        "1": "Small loads need a home battery buffer (>1.8 kW limit).",
+        "2": "Large loads run directly; discharge limited to 20–80% SoC."
+      }
+    },
+    "carBattery": {
+      "eyebrow": "Car Battery",
+      "title": "Your car battery becomes part of\nFreeState™",
+      "description": "Your EV battery unlocks savings and revenue, while FreeState™ automatically optimizes energy use in real time.",
+      "cta": "Request a quote"
+    },
+    "homeIndependence": {
+      "title": "More independence for your home",
+      "cards": {
+        "homeBattery": "Home battery capacity",
+        "evBattery": "EV battery capacity"
+      },
+      "capacityComparison": {
+        "title": "Capacity comparison:",
+        "description": "An electric car battery has five to ten times the capacity of a typical home battery. This allows you to use your solar power for longer and remain independent of the grid for up to several days. Bidirectional charging strengthens your energy system and significantly increases your self-sufficiency."
+      }
+    },
+    "chargingPaysOff": {
+      "title": "Bidirectional charging pays off",
+      "description": "Instead of CHF 3,600 for a conventional charging station, you invest around CHF 5,700 and thus make your electric car's battery part of your energy system. Your added financial benefit: Additional savings and revenue."
+    },
+    "funding": {
+      "title": "Funding for bidirectional charging stations",
+      "cantons": {
+        "bern": {
+          "name": "Canton of Bern",
+          "amount": "CHF 3,000 per installed bidirectional DC charging station."
+        },
+        "graubunden": {
+          "name": "Canton of Graubünden",
+          "amount": "CHF 2,000 per installed bidirectional DC charging station"
+        },
+        "lucerne": {
+          "name": "Canton of Lucerne",
+          "amount": "CHF 2,000 per installed bidirectional DC charging station."
+        },
+        "schaffhausen": {
+          "name": "Canton of Schaffhausen",
+          "amount": "CHF 2,000 one-time investment contribution per bidirectional DC charging station."
+        },
+        "ticino": {
+          "name": "Canton of Ticino",
+          "amount": "CHF 4,000 per installed bidirectional charging station."
+        },
+        "thurgau": {
+          "name": "Canton Thurgau",
+          "amount": "One-time investment contribution of CHF 2,000 per charging station."
+        },
+        "uri": {
+          "name": "Canton of Uri",
+          "amount": "CHF 2,000.- flat rate per installed bidirectional DC charging station."
+        },
+        "zurich": {
+          "name": "Canton of Zurich",
+          "amount": "CHF 2,000 per installed bidirectional DC charging station."
+        }
+      }
+    },
+    "personalizedOffer": {
+      "title": "Are you interested in a personalized offer?",
+      "description": "Helion's bidirectional charging turns your electric car into a power bank for your home. This saves you electricity costs, generates attractive additional income, and gives you greater independence.",
+      "callToAction": "Request your personalized quote now and find out how you can benefit from bidirectional charging.",
+      "form": {
+        "title": "Request a quote",
+        "question": "For which situation would you like a personal, non-binding quote? *",
+        "options": {
+          "withSolar": "Solar system with bidirectional charging station",
+          "addToSolar": "Add bidirectional charging to your existing solar system",
+          "withoutSolar": "Add bidirectional charging without solar"
+        },
+        "submit": "Next"
+      }
+    },
+    "vehicleList": {
+      "title": "List of electric vehicles that\nsupport bidirectional charging.",
+      "description": "Many automakers have already launched vehicles that enable bidirectional charging. As more and more automakers adopt bidirectional technology, this list is expected to grow soon.",
+      "headers": {
+        "makeModel": "Make / Model",
+        "bidiReady": "BiDi-ready",
+        "software": "Software"
+      },
+      "vehicles": {
+        "vwId": {
+          "name": "VW ID Family",
+          "battery": "Minimum battery 77 kWh",
+          "software": "From 3.7"
+        },
+        "vwBuzz": {
+          "name": "VW ID. Buzz",
+          "battery": "Minimum battery 77 kWh",
+          "software": "From 3.7"
+        },
+        "skoda": {
+          "name": "Škoda Enyaq & Elroq",
+          "battery": "Minimum battery 77 kWh",
+          "bidiReady": "From 2026"
+        },
+        "cupra": {
+          "name": "Cupra Born & Tavascan",
+          "battery": "Minimum battery 77 kWh",
+          "bidiReady": "From 2026"
+        },
+        "ford": {
+          "name": "Ford Explorer & Capri",
+          "battery": "Minimum battery 77 kWh",
+          "bidiReady": "From 2026"
+        }
+      }
+    },
+    "chargingTypes": {
+      "title": "Types of\nbidirectional charging",
+      "description": "There are various concepts of bidirectional loading; these are the most common:",
+      "types": {
+        "1": "Vehicle-to-Grid (V2G)",
+        "2": "Vehicle-to-Home (V2H)",
+        "3": "Vehicle-to-Building (V2B)",
+        "4": "Vehicle-to-Load (V2L)"
+      }
+    },
+    "standards": {
+      "eyebrow": "S&A",
+      "title": "Standards and Regulations",
+      "description": "ISO 15118-20 (2022) defines communication standards for bidirectional charging between EVs and wallboxes. Manufacturers must now deliver compatible, cost-effective systems."
+    },
+    "newsletter": {
+      "title": "BiDi Newsletter",
+      "description": "All our solar projects can be easily upgraded to include bidirectional charging thanks to Helion ONE™. Are you interested in the latest information about bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
+      "form": {
+        "firstName": "First name",
+        "firstNamePlaceholder": "Enter your First name",
+        "lastName": "Last name",
+        "lastNamePlaceholder": "Enter your Last name",
+        "email": "Email",
+        "emailPlaceholder": "Enter your email",
+        "privacyNotice": "FreeState respects your privacy and uses your data only to manage your account and provide requested services.",
+        "consent": "I agree to receive other notifications from FreeState",
+        "disclaimer": "By submitting, you agree to data processing per our Privacy Policy and can unsubscribe at any time.",
+        "submit": "Next"
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions\nabout bidirectional loading",
+      "items": {
+        "whatIs": {
+          "question": "What is bidirectional charging and how does it work?",
+          "answer": "Bidirectional charging allows your electric vehicle to not only draw power from the grid but also feed it back. Your EV battery becomes a mobile energy storage system that can power your home or support the grid."
+        },
+        "benefits": {
+          "question": "What are the benefits of bidirectional charging?",
+          "answer": "Bidirectional charging reduces your electricity costs, generates additional income through grid services, increases your energy independence, and maximizes the use of your solar system."
+        },
+        "advantages": {
+          "question": "What are the advantages of bidirectional charging?",
+          "answer": "Key advantages include lower energy bills, potential revenue from flexibility services, greater self-sufficiency, optimized solar energy usage, and a reduced carbon footprint."
+        },
+        "batteryHarm": {
+          "question": "Is bidirectional charging harmful to the battery?",
+          "answer": "Modern EV batteries are designed for thousands of charge cycles. Bidirectional charging within the 20-80% state of charge range minimizes battery degradation, and smart management systems ensure optimal battery health."
+        },
+        "evCompatibility": {
+          "question": "Can every electric car be charged bidirectionally?",
+          "answer": "Not yet. Bidirectional charging requires specific hardware and software support from the vehicle manufacturer. Currently, select models from VW, Škoda, Cupra, and Ford support this technology, with more expected soon."
+        },
+        "savings": {
+          "question": "Can you save or earn with an EV battery?",
+          "answer": "Yes. You can save by using stored solar energy instead of grid power, and earn through flexibility services (FLEXBONUS) by allowing your battery to support grid stability during peak demand."
+        },
+        "rangeLimit": {
+          "question": "Could your EV battery be drained, limiting your driving range?",
+          "answer": "No. The system only discharges between 20-80% state of charge and you can set minimum charge levels. Your driving needs always take priority over home energy supply."
+        },
+        "requirements": {
+          "question": "What is required for bidirectional charging?",
+          "answer": "You need a compatible EV, a bidirectional DC charging station, and a smart energy management system like Helion ONE™. A solar system is recommended but not required."
+        },
+        "specialChargers": {
+          "question": "Do EVs need special chargers for bidirectional use?",
+          "answer": "Yes. Bidirectional charging requires a DC wallbox specifically designed for two-way power flow. Standard AC chargers cannot support bidirectional charging."
+        },
+        "warranty": {
+          "question": "Does bidirectional charging affect battery lifespan or warranty?",
+          "answer": "When used within recommended parameters (20-80% SoC), bidirectional charging has minimal impact on battery lifespan. Check with your vehicle manufacturer regarding warranty specifics."
+        },
+        "legalSwiss": {
+          "question": "Is bidirectional charging even allowed in Switzerland?",
+          "answer": "Yes. Switzerland permits bidirectional charging, and several cantons actively support it through funding programs. The regulatory framework is well-established under ISO 15118-20 standards."
+        },
+        "financialSupport": {
+          "question": "Is bidirectional charging financially supported?",
+          "answer": "Yes. Several Swiss cantons offer financial incentives ranging from CHF 2,000 to CHF 4,000 per installed bidirectional charging station. Check the funding section for details on your canton."
+        }
+      }
     }
   }
 }

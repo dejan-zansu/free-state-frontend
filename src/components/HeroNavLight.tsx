@@ -101,7 +101,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
             >
               <Link
                 href="/solar-abo"
-                className="text-[#062E25] font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
+                className="text-[#062E25] font-medium text-base sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.solarAbo')}
               </Link>
@@ -113,7 +113,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
             >
               <Link
                 href="/products"
-                className="text-[#062E25] font-medium text-sm sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
+                className="text-[#062E25] font-medium text-base sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.products')}
               </Link>
@@ -143,7 +143,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'px-4 py-2.5 text-foreground text-sm font-medium rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap',
+                  'px-4 py-2.5 text-foreground text-base font-medium rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap',
                   hasDropdown
                     ? 'translate-y-0 opacity-100'
                     : '-translate-y-1 opacity-0'
@@ -167,7 +167,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
                     <Link
                       href={link.href}
                       className={cn(
-                        'px-4 py-2 text-foreground text-sm font-semibold rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap block',
+                        'px-4 py-2 text-foreground text-base font-semibold rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap block',
                         hasDropdown
                           ? 'translate-y-0 opacity-100'
                           : '-translate-y-1 opacity-0'
@@ -188,7 +188,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
                             key={sub.href}
                             href={sub.href}
                             className={cn(
-                              'pl-8 pr-4 py-1.5 text-foreground/60 text-sm rounded-lg hover:bg-[#062E25]/10 hover:text-foreground transition-all duration-300 whitespace-nowrap flex items-center gap-2',
+                              'pl-8 pr-4 py-1.5 text-foreground/60 text-base rounded-lg hover:bg-[#062E25]/10 hover:text-foreground transition-all duration-300 whitespace-nowrap flex items-center gap-2',
                               hasDropdown
                                 ? 'translate-y-0 opacity-100'
                                 : '-translate-y-1 opacity-0'
