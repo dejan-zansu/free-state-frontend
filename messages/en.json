@@ -3929,15 +3929,15 @@
       "title": "Bidirectional charging pays off for everyone.",
       "description": "With or without solar panels, bidirectional charging lowers costs and creates new revenue opportunities—adding extra value to existing systems.",
       "headers": {
-        "advantage": "Your advantage",
+        "yourAdvantage": "Your advantage",
         "withSolar": "With solar panels",
         "withoutSolar": "Without solar panels"
       },
       "rows": {
-        "flexibility": "Return on flexibility",
-        "flexibilityNote": "(only with a battery)",
-        "electricityBill": "Lower electricity bill",
-        "selfSufficiency": "Multi-day self-sufficiency"
+        "returnOnFlexibility": "Return on flexibility",
+        "returnOnFlexibilityNote": "(only with a battery)",
+        "lowerElectricityBill": "Lower electricity bill",
+        "multiDaySelfSufficiency": "Multi-day self-sufficiency"
       },
       "footnote": "Depending on the situation, this results in an annual financial benefit of up to CHF 520 with a solar system or up to CHF 300 without a solar system. Details of the financial benefit follow:"
     },
@@ -4031,9 +4031,9 @@
         "title": "Request a quote",
         "question": "For which situation would you like a personal, non-binding quote? *",
         "options": {
-          "withSolar": "Solar system with bidirectional charging station",
-          "addToSolar": "Add bidirectional charging to your existing solar system",
-          "withoutSolar": "Add bidirectional charging without solar"
+          "option1": "Solar system with bidirectional charging station",
+          "option2": "Add bidirectional charging to your existing solar system",
+          "option3": "Add bidirectional charging without solar"
         },
         "submit": "Next"
       }
@@ -4050,27 +4050,32 @@
         "vwId": {
           "name": "VW ID Family",
           "battery": "Minimum battery 77 kWh",
+          "bidiReady": "true",
           "software": "From 3.7"
         },
         "vwBuzz": {
           "name": "VW ID. Buzz",
           "battery": "Minimum battery 77 kWh",
+          "bidiReady": "true",
           "software": "From 3.7"
         },
         "skoda": {
           "name": "Škoda Enyaq & Elroq",
           "battery": "Minimum battery 77 kWh",
-          "bidiReady": "From 2026"
+          "bidiReady": "From 2026",
+          "software": ""
         },
         "cupra": {
           "name": "Cupra Born & Tavascan",
           "battery": "Minimum battery 77 kWh",
-          "bidiReady": "From 2026"
+          "bidiReady": "From 2026",
+          "software": ""
         },
         "ford": {
           "name": "Ford Explorer & Capri",
           "battery": "Minimum battery 77 kWh",
-          "bidiReady": "From 2026"
+          "bidiReady": "From 2026",
+          "software": ""
         }
       }
     },
@@ -4099,7 +4104,7 @@
         "lastNamePlaceholder": "Enter your Last name",
         "email": "Email",
         "emailPlaceholder": "Enter your email",
-        "privacyNotice": "FreeState respects your privacy and uses your data only to manage your account and provide requested services.",
+        "privacy": "FreeState respects your privacy and uses your data only to manage your account and provide requested services.",
         "consent": "I agree to receive other notifications from FreeState",
         "disclaimer": "By submitting, you agree to data processing per our Privacy Policy and can unsubscribe at any time.",
         "submit": "Next"

@@ -3946,15 +3946,15 @@
       "title": "Bidirektionales Laden lohnt sich für alle.",
       "description": "Mit oder ohne Solaranlage – bidirektionales Laden senkt die Kosten und schafft neue Einnahmequellen, die bestehende Systeme aufwerten.",
       "headers": {
-        "advantage": "Ihr Vorteil",
+        "yourAdvantage": "Ihr Vorteil",
         "withSolar": "Mit Solaranlage",
         "withoutSolar": "Ohne Solaranlage"
       },
       "rows": {
-        "flexibility": "Rendite auf Flexibilität",
-        "flexibilityNote": "(nur mit Batterie)",
-        "electricityBill": "Niedrigere Stromrechnung",
-        "selfSufficiency": "Mehrtägige Autarkie"
+        "returnOnFlexibility": "Rendite auf Flexibilität",
+        "returnOnFlexibilityNote": "(nur mit Batterie)",
+        "lowerElectricityBill": "Niedrigere Stromrechnung",
+        "multiDaySelfSufficiency": "Mehrtägige Autarkie"
       },
       "footnote": "Je nach Situation ergibt sich ein jährlicher finanzieller Vorteil von bis zu CHF 520 mit Solaranlage oder bis zu CHF 300 ohne Solaranlage. Details zum finanziellen Vorteil folgen:"
     },
@@ -4048,9 +4048,9 @@
         "title": "Angebot anfordern",
         "question": "Für welche Situation möchten Sie ein persönliches, unverbindliches Angebot? *",
         "options": {
-          "withSolar": "Solaranlage mit bidirektionaler Ladestation",
-          "addToSolar": "Bidirektionales Laden zu bestehender Solaranlage hinzufügen",
-          "withoutSolar": "Bidirektionales Laden ohne Solaranlage hinzufügen"
+          "option1": "Solaranlage mit bidirektionaler Ladestation",
+          "option2": "Bidirektionales Laden zu bestehender Solaranlage hinzufügen",
+          "option3": "Bidirektionales Laden ohne Solaranlage hinzufügen"
         },
         "submit": "Weiter"
       }
@@ -4067,27 +4067,32 @@
         "vwId": {
           "name": "VW ID Familie",
           "battery": "Mindestbatterie 77 kWh",
+          "bidiReady": "true",
           "software": "Ab 3.7"
         },
         "vwBuzz": {
           "name": "VW ID. Buzz",
           "battery": "Mindestbatterie 77 kWh",
+          "bidiReady": "true",
           "software": "Ab 3.7"
         },
         "skoda": {
           "name": "Škoda Enyaq & Elroq",
           "battery": "Mindestbatterie 77 kWh",
-          "bidiReady": "Ab 2026"
+          "bidiReady": "Ab 2026",
+          "software": ""
         },
         "cupra": {
           "name": "Cupra Born & Tavascan",
           "battery": "Mindestbatterie 77 kWh",
-          "bidiReady": "Ab 2026"
+          "bidiReady": "Ab 2026",
+          "software": ""
         },
         "ford": {
           "name": "Ford Explorer & Capri",
           "battery": "Mindestbatterie 77 kWh",
-          "bidiReady": "Ab 2026"
+          "bidiReady": "Ab 2026",
+          "software": ""
         }
       }
     },
@@ -4116,7 +4121,7 @@
         "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
         "email": "E-Mail",
         "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
-        "privacyNotice": "FreeState respektiert Ihre Privatsphäre und verwendet Ihre Daten nur zur Verwaltung Ihres Kontos und zur Bereitstellung angeforderter Dienste.",
+        "privacy": "FreeState respektiert Ihre Privatsphäre und verwendet Ihre Daten nur zur Verwaltung Ihres Kontos und zur Bereitstellung angeforderter Dienste.",
         "consent": "Ich stimme zu, weitere Benachrichtigungen von FreeState zu erhalten",
         "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzrichtlinie zu und können sich jederzeit abmelden.",
         "submit": "Weiter"
