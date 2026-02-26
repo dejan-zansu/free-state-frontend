@@ -4,7 +4,10 @@ const HomeIndependenceSection = async () => {
   const t = await getTranslations('bidirectionalChargingStation')
 
   return (
-    <section className="relative py-12 md:py-16" style={{ background: '#EAEDDF' }}>
+    <section
+      className="relative py-12 md:py-16"
+      style={{ background: '#EAEDDF' }}
+    >
       <div
         className="absolute rounded-full"
         style={{
@@ -42,12 +45,7 @@ const HomeIndependenceSection = async () => {
               </div>
             </div>
 
-            <div
-              className="rounded-[20px] w-[360px] h-[388px] relative overflow-hidden p-8 flex flex-col justify-center"
-              style={{
-                background: 'linear-gradient(126deg, rgba(6, 46, 37, 1) 23%, rgba(19, 148, 119, 1) 100%)',
-              }}
-            >
+            <div className="rounded-[20px] w-[360px] h-[388px] relative overflow-hidden p-8 flex flex-col justify-center">
               <div
                 className="absolute rounded-full"
                 style={{
