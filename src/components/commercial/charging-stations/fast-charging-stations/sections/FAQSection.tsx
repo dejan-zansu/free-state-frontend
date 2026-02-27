@@ -26,7 +26,7 @@ const FAQSection = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-[925px] mx-auto px-4 sm:px-8 pt-[51px] pb-[51px]">
+      <div className="relative z-10 max-w-[925px] mx-auto px-4 sm:px-8 pt-[51px] pb-[91px]">
         <div className="flex flex-col items-center gap-[50px]">
           <h2 className="text-white text-3xl sm:text-4xl md:text-[45px] font-medium text-center">
             {t('title')}

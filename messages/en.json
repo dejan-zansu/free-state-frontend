@@ -111,6 +111,7 @@
         "howSolarPowerSystemWorks": "How a solar system works",
         "projectDevelopment": "Project development",
         "solarCarport": "Solar carport",
+        "contracting": "Contracting",
         "apartmentBuilding": "Apartment building",
         "fastChargingStations": "Fast charging stations",
         "bidirectionalCharging": "Bidirectional charging",
@@ -3721,6 +3722,63 @@
         "planning": "Planning, approval and assembly",
         "integration": "Energy system integration with FreeState for maximum yield",
         "combinable": "Optionally combinable with storage, charging station and heat pump"
+      }
+    }
+  },
+  "contracting": {
+    "hero": {
+      "title": "Contracting",
+      "description": "Solar modules for efficient, long-term energy production"
+    },
+    "contractingModel": {
+      "eyebrow": "Contracting",
+      "title": "Solar Contracting Model",
+      "description": "We install a tailored solar system on your property\nwith no upfront investment, while you benefit in multiple ways.",
+      "items": {
+        "affordableSolar": "Affordable solar power directly from your own roof",
+        "rentalIncome": "Attractive annual rental income\ndepending on the size of the property.",
+        "noResponsibility": "No responsibility for operation, maintenance or repair"
+      }
+    },
+    "solarFuture": {
+      "title": "Solar energy for the future",
+      "description": "We assess your roof, develop the technical concept, and manage the entire project lifecycle — financing, construction, operation, and maintenance included.\n\nAll risks and investment costs are borne by the contractor, while clear contractual agreements secure rights and responsibilities. Roofs from 200 m² are generally suitable, and acquisition options are defined upfront."
+    },
+    "ourServices": {
+      "title": "Our Services",
+      "description": "With our long-standing experience in solar power plants, we provide end-to-end services from a single source — giving you one point of contact for the entire project.",
+      "items": {
+        "consultation": "Consultation",
+        "feasibilityStudy": "Feasibility Study",
+        "preliminaryStudy": "Preliminary Study",
+        "roofUsageAgreement": "Roof Usage Agreement",
+        "planning": "Planning",
+        "projectManagement": "Project Management",
+        "installation": "Installation",
+        "commissioning": "Commissioning",
+        "operationsMaintenance": "Operations & Maintenance",
+        "repoweringOptimization": "Repowering & Optimization"
+      }
+    },
+    "repoweringServices": {
+      "title": "Our Repowering Services",
+      "cards": {
+        "numberOne": {
+          "title": "No. 1 in Switzerland",
+          "description": "500+ employees. Switzerland's\nlargest solar installer and storage\nmarket leader."
+        },
+        "customers": {
+          "title": "15,000+ customers",
+          "description": "10+ years' experience. 6,000+\ncompleted PV projects of all sizes."
+        },
+        "yieldGuarantee": {
+          "title": "Yield Guarantee",
+          "description": "10-year energy yield guarantee\nand long-term system operation."
+        },
+        "regionalist": {
+          "title": "Regionalist",
+          "description": "Locally rooted. Fast\nresponse. Reliable service."
+        }
       }
     }
   },

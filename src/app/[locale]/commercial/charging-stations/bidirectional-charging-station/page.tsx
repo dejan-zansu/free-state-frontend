@@ -25,7 +25,6 @@ const BidirectionalChargingStationPage = async () => {
         title={t('hero.title')}
         description={t('hero.description')}
         backgroundImage="/images/bidirectional-charging-station.png"
-        className="bg-[#4F4970]"
       />
       <HowItWorksSection />
       <BenefitsComparisonSection />

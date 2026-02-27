@@ -14,7 +14,6 @@ const ApartmentBuildingPage = async () => {
         isCommercial
         title={t('hero.title')}
         backgroundImage="/images/apartment-building.png"
-        className="bg-[#4F4970]"
       />
       <EvChargingIntroSection />
       <CalculatorCTASection />

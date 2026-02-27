@@ -26,7 +26,7 @@ const CustomSolarSection = async () => {
             />
           </div>
 
-          <div className="flex flex-col gap-5 max-w-[384px]">
+          <div className="flex flex-col gap-5 max-w-[450px]">
             <div
               className="flex items-center justify-center px-4 py-[10px] rounded-full border border-[#062E25] w-fit"
               style={{
@@ -48,7 +48,7 @@ const CustomSolarSection = async () => {
             </p>
 
             <div className="flex flex-col gap-4 mt-2">
-              {items.map((item) => (
+              {items.map(item => (
                 <div key={item} className="flex items-start gap-[10px]">
                   <Image
                     src="/images/commercial/project-development/checkmark-green.svg"

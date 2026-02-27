@@ -5,7 +5,7 @@ const ImageShowcaseSection = async () => {
   const t = await getTranslations('solarCarport')
 
   return (
-    <section className="relative">
+    <section className="relative -mt-[40px]">
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image

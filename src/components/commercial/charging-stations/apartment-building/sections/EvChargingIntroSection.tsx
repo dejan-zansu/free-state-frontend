@@ -5,7 +5,7 @@ const EvChargingIntroSection = async () => {
   const t = await getTranslations('apartmentBuilding')
 
   return (
-    <section className="relative bg-[#FDFFF5] py-12 md:py-16 lg:py-20">
+    <section className="relative bg-[#FDFFF5] py-12 md:py-16 lg:py-20 -mt-[40px]">
       <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[60px]">
         <div className="flex flex-col gap-5 max-w-[405px]">
           <div

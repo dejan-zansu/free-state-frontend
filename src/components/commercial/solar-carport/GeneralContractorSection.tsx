@@ -44,11 +44,11 @@ const GeneralContractorSection = async () => {
           </p>
         </div>
 
-        <div className="hidden lg:grid grid-cols-6 gap-x-4 items-end">
+        <div className="hidden lg:grid grid-cols-6 gap-x-4 items-start">
           {steps.map((step) => (
             <div
               key={step.num}
-              className={`flex flex-col items-center gap-5 ${step.position === 'bottom' ? 'mt-[120px]' : ''}`}
+              className={`flex flex-col items-center gap-5 ${step.position === 'bottom' ? 'mt-[122px]' : ''}`}
             >
               {step.position === 'bottom' && (
                 <span className="text-white/80 text-xl md:text-[26px] font-medium tracking-[-0.02em] text-center">

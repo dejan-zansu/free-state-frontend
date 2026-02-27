@@ -196,7 +196,6 @@ export const routing = defineRouting({
       sr: '/solarni-abo/solarni-abo-biznis',
     },
 
-
     '/commercial': {
       en: '/commercial',
       de: '/gewerbe',
@@ -246,10 +245,6 @@ export const routing = defineRouting({
       en: '/commercial/solar-systems/how-large-plants-works',
       de: '/gewerbe/solaranlagen/wie-grossanlagen-funktionieren',
     },
-    '/commercial/solar-systems/how-solar-power-system-works': {
-      en: '/commercial/solar-systems/how-solar-power-system-works',
-      de: '/gewerbe/solaranlagen/wie-eine-solaranlage-funktioniert',
-    },
     '/commercial/solar-systems/project-development': {
       en: '/commercial/solar-systems/project-development',
       de: '/gewerbe/solaranlagen/projektentwicklung',
@@ -257,6 +252,10 @@ export const routing = defineRouting({
     '/commercial/solar-systems/solar-carport': {
       en: '/commercial/solar-systems/solar-carport',
       de: '/gewerbe/solaranlagen/solar-carport',
+    },
+    '/commercial/solar-systems/contracting': {
+      en: '/commercial/solar-systems/contracting',
+      de: '/gewerbe/solaranlagen/contracting',
     },
     '/commercial/charging-stations': {
       en: '/commercial/charging-stations',

@@ -12,7 +12,7 @@ const FastChargingStationsPage = async () => {
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}
-        backgroundImage="/images/apartment-building-hero-bg.png"
+        backgroundImage="/images/fast-cgarging-stations-hero-bg.png"
         isCommercial
         className="bg-[#4F4970]"
       />

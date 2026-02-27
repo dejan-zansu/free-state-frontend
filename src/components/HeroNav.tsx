@@ -57,16 +57,16 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
               href: '/commercial/solar-systems/how-large-plants-works' as const,
             },
             {
-              label: t('hero.nav.howSolarPowerSystemWorks'),
-              href: '/commercial/solar-systems/how-solar-power-system-works' as const,
-            },
-            {
               label: t('hero.nav.projectDevelopment'),
               href: '/commercial/solar-systems/project-development' as const,
             },
             {
               label: t('hero.nav.solarCarport'),
               href: '/commercial/solar-systems/solar-carport' as const,
+            },
+            {
+              label: t('hero.nav.contracting'),
+              href: '/commercial/solar-systems/contracting' as const,
             },
           ],
         },
