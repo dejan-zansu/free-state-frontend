@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server'
-import Image from 'next/image'
 import { LinkButton } from '@/components/ui/link-button'
 
 const ChargeLevelSection = async () => {
@@ -13,13 +12,6 @@ const ChargeLevelSection = async () => {
           'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
       }}
     >
-      <Image
-        src="/images/bidirectional-charging/charge-level-bg.png"
-        alt=""
-        fill
-        className="object-cover pointer-events-none"
-      />
-
       <div
         className="absolute pointer-events-none"
         style={{
@@ -29,18 +21,6 @@ const ChargeLevelSection = async () => {
           top: '-200px',
           background: 'rgba(183, 254, 26, 0.5)',
           filter: 'blur(490px)',
-          borderRadius: '50%',
-        }}
-      />
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          width: '291px',
-          height: '291px',
-          right: '40px',
-          top: '-232px',
-          background: 'rgba(183, 254, 26, 0.5)',
-          filter: 'blur(170px)',
           borderRadius: '50%',
         }}
       />

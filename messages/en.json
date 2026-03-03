@@ -2563,7 +2563,9 @@
       "step4": "Roof",
       "step5": "Covering",
       "step6": "Results",
-      "step7": "Contact"
+      "step7": "Contact",
+      "step8": "Review",
+      "step9": "Sign"
     },
     "step1": {
       "title": "Choose your SolarAbo package",
@@ -2709,7 +2711,124 @@
         "title": "Thank You!",
         "message": "Your request has been submitted successfully. Our team will review your solar potential and prepare a personalized offer.",
         "nextSteps": "You will receive an email confirmation shortly. A solar consultant will contact you within 2 business days.",
+        "signContract": "Sign Contract Online",
         "newCalculation": "Start new calculation"
+      }
+    },
+    "contractReview": {
+      "title": "Contract Review",
+      "subtitle": "Review your Solar ABO agreement details before signing.",
+      "systemSummary": {
+        "title": "System Summary",
+        "panels": "Panels",
+        "savings": "Savings/Year",
+        "roofArea": "Roof Area",
+        "address": "Address",
+        "package": "Package",
+        "selfConsumption": "Self-Consumption"
+      },
+      "aboBenefit": {
+        "title": "Solar ABO — Zero Investment",
+        "point1": "Free State AG installs and maintains the solar system on your roof at no cost to you.",
+        "point2": "You benefit from clean solar energy and save on your electricity bill.",
+        "point3": "After 25 years, the system becomes your property."
+      },
+      "importantNotice": {
+        "title": "Important Notice",
+        "point1": "This is a preliminary agreement based on the information you provided.",
+        "point2": "Our technical team will visit your property for a final assessment.",
+        "point3": "You may cancel this agreement at no cost before accepting the final offer."
+      },
+      "acknowledgments": {
+        "title": "Acknowledgments",
+        "preliminary": "I understand this is a preliminary agreement that will be finalized after the on-site inspection.",
+        "siteVisit": "I consent to a site visit by the Free State AG technical team.",
+        "contractReview": "I have reviewed the contract details and wish to proceed with the digital signature."
+      },
+      "creatingContract": "Creating contract...",
+      "proceedToSign": "Proceed to Sign"
+    },
+    "signature": {
+      "title": "Digital Signature",
+      "subtitle": "Sign your Solar ABO agreement securely with SMS verification",
+      "summary": {
+        "title": "Contract Summary",
+        "document": "Document",
+        "aboAgreement": "Solar ABO Agreement",
+        "contractNumber": "Contract Number",
+        "signer": "Signer",
+        "email": "Email"
+      },
+      "initiating": {
+        "title": "Sending verification code...",
+        "message": "Please wait while we send you the code."
+      },
+      "otp": {
+        "title": "SMS Verification",
+        "sentTo": "We have sent a 6-digit code to:",
+        "verify": "Verify & Sign",
+        "verifying": "Verifying...",
+        "didntReceive": "Didn't receive the code?",
+        "resend": "Resend code"
+      },
+      "failed": {
+        "title": "Verification Failed",
+        "message": "An error occurred while sending the code.",
+        "retry": "Try Again",
+        "retrying": "Retrying..."
+      },
+      "security": {
+        "title": "Secure Signature",
+        "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws."
+      },
+      "downloadContract": "Download Contract"
+    },
+    "signatureConfirmation": {
+      "title": "Thank You!",
+      "subtitle": "Your Solar ABO agreement has been successfully signed.",
+      "contractSummary": {
+        "title": "Contract Summary",
+        "contractNumber": "Contract Number",
+        "signedBy": "Signed By",
+        "systemSize": "System Size",
+        "panels": "Panel Count",
+        "savings": "Annual Savings"
+      },
+      "download": {
+        "title": "Signed Contract",
+        "description": "Download your signed contract as PDF.",
+        "button": "Download PDF"
+      },
+      "nextSteps": {
+        "title": "Next Steps",
+        "step1": {
+          "title": "Email Confirmation",
+          "description": "You will receive an email confirmation with all details shortly."
+        },
+        "step2": {
+          "title": "On-Site Inspection",
+          "description": "Our team will contact you within 2-3 business days to schedule a site visit."
+        },
+        "step3": {
+          "title": "System Installation",
+          "description": "After the final assessment, we will schedule the installation of your solar system."
+        },
+        "step4": {
+          "title": "Start Saving",
+          "description": "Once installed, you immediately start benefiting from free solar electricity."
+        }
+      },
+      "contact": {
+        "title": "Questions?",
+        "description": "Our team is here to help."
+      },
+      "emailNote": {
+        "title": "Email Confirmation",
+        "message": "A confirmation has been sent to {email}."
+      },
+      "actions": {
+        "newCalculation": "New Calculation",
+        "backToHome": "Back to Home"
       }
     },
     "navigation": {

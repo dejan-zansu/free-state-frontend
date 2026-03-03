@@ -11,10 +11,15 @@ import Step4RoofAreas from './steps/Step4RoofAreas'
 import Step5RoofCovering from './steps/Step5RoofCovering'
 import StepResults from './steps/StepResults'
 import Step6ContactDetails from './steps/Step6ContactDetails'
+import StepContractReview from './steps/StepContractReview'
+import StepSignature from './steps/StepSignature'
+import StepConfirmation from './steps/StepConfirmation'
 
 export default function SolarAboCalculatorPage() {
   const t = useTranslations('solarAboCalculator')
-  const { currentStep } = useSolarAboCalculatorStore()
+  const { currentStep, signatureStatus } = useSolarAboCalculatorStore()
+
+  const isConfirmation = currentStep === 10 || signatureStatus === 'signed'
 
   const steps = [
     { id: 1, label: t('progress.step1') },
@@ -24,9 +29,15 @@ export default function SolarAboCalculatorPage() {
     { id: 5, label: t('progress.step5') },
     { id: 6, label: t('progress.step6') },
     { id: 7, label: t('progress.step7') },
+    { id: 8, label: t('progress.step8') },
+    { id: 9, label: t('progress.step9') },
   ]
 
   const renderStep = () => {
+    if (isConfirmation) {
+      return <StepConfirmation />
+    }
+
     switch (currentStep) {
       case 1:
         return <Step1BuildingType />
@@ -42,6 +53,10 @@ export default function SolarAboCalculatorPage() {
         return <StepResults />
       case 7:
         return <Step6ContactDetails />
+      case 8:
+        return <StepContractReview />
+      case 9:
+        return <StepSignature />
       default:
         return <Step1BuildingType />
     }
@@ -49,48 +64,50 @@ export default function SolarAboCalculatorPage() {
 
   return (
     <div className='flex flex-col' style={{ height: 'calc(100vh - 84px)', marginTop: '84px' }}>
-      <div className='bg-background/80 backdrop-blur-sm z-40 shrink-0'>
-        <div className='container mx-auto px-4 py-4'>
-          <div className='flex items-center justify-center gap-1 overflow-x-auto'>
-            {steps.map((step, index) => (
-              <div key={step.id} className='flex items-center'>
-                <div className='flex flex-col items-center'>
-                  <div
-                    className={cn(
-                      'flex h-7 w-7 items-center justify-center rounded-full text-xs font-medium transition-colors',
-                      currentStep === step.id
-                        ? 'bg-primary text-primary-foreground'
-                        : currentStep > step.id
-                          ? 'bg-primary/20 text-primary'
-                          : 'bg-muted text-muted-foreground'
-                    )}
-                  >
-                    {step.id}
+      {!isConfirmation && (
+        <div className='bg-background/80 backdrop-blur-sm z-40 shrink-0'>
+          <div className='container mx-auto px-4 py-4'>
+            <div className='flex items-center justify-center gap-1 overflow-x-auto'>
+              {steps.map((step, index) => (
+                <div key={step.id} className='flex items-center'>
+                  <div className='flex flex-col items-center'>
+                    <div
+                      className={cn(
+                        'flex h-7 w-7 items-center justify-center rounded-full text-xs font-medium transition-colors',
+                        currentStep === step.id
+                          ? 'bg-primary text-primary-foreground'
+                          : currentStep > step.id
+                            ? 'bg-primary/20 text-primary'
+                            : 'bg-muted text-muted-foreground'
+                      )}
+                    >
+                      {step.id}
+                    </div>
+                    <span
+                      className={cn(
+                        'mt-1 text-[10px] whitespace-nowrap hidden sm:block',
+                        currentStep === step.id
+                          ? 'font-medium text-foreground'
+                          : 'text-muted-foreground'
+                      )}
+                    >
+                      {step.label}
+                    </span>
                   </div>
-                  <span
-                    className={cn(
-                      'mt-1 text-[10px] whitespace-nowrap hidden sm:block',
-                      currentStep === step.id
-                        ? 'font-medium text-foreground'
-                        : 'text-muted-foreground'
-                    )}
-                  >
-                    {step.label}
-                  </span>
+                  {index < steps.length - 1 && (
+                    <div
+                      className={cn(
+                        'mx-1 h-0.5 w-6 sm:w-10 transition-colors',
+                        currentStep > step.id ? 'bg-primary' : 'bg-muted'
+                      )}
+                    />
+                  )}
                 </div>
-                {index < steps.length - 1 && (
-                  <div
-                    className={cn(
-                      'mx-1 h-0.5 w-6 sm:w-10 transition-colors',
-                      currentStep > step.id ? 'bg-primary' : 'bg-muted'
-                    )}
-                  />
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       <main className='flex-1 overflow-hidden'>
         <div className='h-full'>{renderStep()}</div>

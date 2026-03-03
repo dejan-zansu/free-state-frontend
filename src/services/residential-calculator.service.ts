@@ -48,10 +48,33 @@ interface SubmitResponse {
   }
 }
 
+interface CreateContractPayload {
+  projectId: string
+  acknowledgments: string[]
+  language: string
+}
+
+interface CreateContractResponse {
+  success: boolean
+  data: {
+    contractId: string
+    contractNumber: string
+    pdfUrl: string
+  }
+}
+
 class ResidentialCalculatorService {
   async submit(payload: SubmitPayload): Promise<SubmitResponse> {
     const response = await api.post<SubmitResponse>(
       '/residential-calculator/submit',
+      payload
+    )
+    return response.data
+  }
+
+  async createContract(payload: CreateContractPayload): Promise<CreateContractResponse> {
+    const response = await api.post<CreateContractResponse>(
+      '/residential-calculator/contract',
       payload
     )
     return response.data

@@ -17,6 +17,7 @@ export default function Step6ContactDetails() {
     contact,
     setContact,
     prevStep,
+    nextStep,
     isSubmitting,
     isSubmitted,
     submissionError,
@@ -47,9 +48,14 @@ export default function Step6ContactDetails() {
           <h1 className='mt-6 text-2xl font-bold'>{t('confirmation.title')}</h1>
           <p className='mt-4 text-muted-foreground'>{t('confirmation.message')}</p>
           <p className='mt-2 text-muted-foreground'>{t('confirmation.nextSteps')}</p>
-          <Button className='mt-8' onClick={reset}>
-            {t('confirmation.newCalculation')}
-          </Button>
+          <div className='mt-8 flex flex-col gap-3 items-center'>
+            <Button onClick={nextStep}>
+              {t('confirmation.signContract')}
+            </Button>
+            <Button variant='outline' onClick={reset}>
+              {t('confirmation.newCalculation')}
+            </Button>
+          </div>
         </div>
       </div>
     )

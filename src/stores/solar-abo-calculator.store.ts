@@ -4,6 +4,8 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
 
+export type SignatureStatus = 'idle' | 'initiating' | 'otp_sent' | 'verifying' | 'signed' | 'failed'
+
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
@@ -80,6 +82,17 @@ interface SolarAboCalculatorState {
   isSubmitting: boolean
   isSubmitted: boolean
   submissionError: string | null
+
+  createdProjectId: string | null
+  createdContractId: string | null
+  contractNumber: string | null
+  contractPdfUrl: string | null
+  acknowledgments: string[]
+  signatureStatus: SignatureStatus
+  signatureRequestId: string | null
+  maskedPhone: string | null
+  signatureExpiresAt: Date | null
+  signedPdfUrl: string | null
 }
 
 interface SolarAboCalculatorActions {
@@ -110,6 +123,13 @@ interface SolarAboCalculatorActions {
   getMonthlyProduction: () => number[]
   getRecommendedPackage: () => SolarAboPackage
   submitCalculation: () => Promise<void>
+  addAcknowledgment: (type: string) => void
+  removeAcknowledgment: (type: string) => void
+  createContract: () => Promise<void>
+  setSignatureRequestData: (data: { requestId: string; maskedPhone: string; expiresAt: Date }) => void
+  setSignatureStatus: (status: SignatureStatus) => void
+  setSignedPdfUrl: (url: string) => void
+  resetSignature: () => void
   reset: () => void
 }
 
@@ -124,7 +144,7 @@ const initialContact: ContactDetails = {
 
 const initialState: SolarAboCalculatorState = {
   currentStep: 1,
-  totalSteps: 7,
+  totalSteps: 9,
 
   buildingType: null,
   householdSize: null,
@@ -150,6 +170,17 @@ const initialState: SolarAboCalculatorState = {
   isSubmitting: false,
   isSubmitted: false,
   submissionError: null,
+
+  createdProjectId: null,
+  createdContractId: null,
+  contractNumber: null,
+  contractPdfUrl: null,
+  acknowledgments: [],
+  signatureStatus: 'idle',
+  signatureRequestId: null,
+  maskedPhone: null,
+  signatureExpiresAt: null,
+  signedPdfUrl: null,
 }
 
 export const useSolarAboCalculatorStore = create<
@@ -331,7 +362,7 @@ export const useSolarAboCalculatorStore = create<
         set({ isSubmitting: true, submissionError: null })
 
         try {
-          await residentialCalculatorService.submit({
+          const response = await residentialCalculatorService.submit({
             contact: {
               salutation: state.contact.salutation || 'mr',
               firstName: state.contact.firstName,
@@ -359,7 +390,11 @@ export const useSolarAboCalculatorStore = create<
               recommendedPackage: state.getRecommendedPackage(),
             },
           })
-          set({ isSubmitting: false, isSubmitted: true })
+          set({
+            isSubmitting: false,
+            isSubmitted: true,
+            createdProjectId: response.data.projectId,
+          })
         } catch (error: unknown) {
           const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
           set({
@@ -367,6 +402,65 @@ export const useSolarAboCalculatorStore = create<
             submissionError: axiosError?.response?.data?.error?.message || 'Submission failed',
           })
         }
+      },
+
+      addAcknowledgment: (type: string) => {
+        const { acknowledgments } = get()
+        if (!acknowledgments.includes(type)) {
+          set({ acknowledgments: [...acknowledgments, type] })
+        }
+      },
+
+      removeAcknowledgment: (type: string) => {
+        const { acknowledgments } = get()
+        set({ acknowledgments: acknowledgments.filter((a) => a !== type) })
+      },
+
+      createContract: async () => {
+        const state = get()
+        if (!state.createdProjectId) return
+
+        try {
+          const response = await residentialCalculatorService.createContract({
+            projectId: state.createdProjectId,
+            acknowledgments: state.acknowledgments,
+            language: 'de',
+          })
+          set({
+            createdContractId: response.data.contractId,
+            contractNumber: response.data.contractNumber,
+            contractPdfUrl: response.data.pdfUrl,
+          })
+        } catch (error: unknown) {
+          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+          throw new Error(axiosError?.response?.data?.error?.message || 'Failed to create contract')
+        }
+      },
+
+      setSignatureRequestData: (data) => {
+        set({
+          signatureRequestId: data.requestId,
+          maskedPhone: data.maskedPhone,
+          signatureExpiresAt: data.expiresAt,
+          signatureStatus: 'otp_sent',
+        })
+      },
+
+      setSignatureStatus: (status: SignatureStatus) => {
+        set({ signatureStatus: status })
+      },
+
+      setSignedPdfUrl: (url: string) => {
+        set({ signedPdfUrl: url, signatureStatus: 'signed' })
+      },
+
+      resetSignature: () => {
+        set({
+          signatureStatus: 'idle',
+          signatureRequestId: null,
+          maskedPhone: null,
+          signatureExpiresAt: null,
+        })
       },
 
       reset: () => {
@@ -387,6 +481,11 @@ export const useSolarAboCalculatorStore = create<
         selectedSegmentIds: state.selectedSegmentIds,
         roofCovering: state.roofCovering,
         contact: state.contact,
+        createdProjectId: state.createdProjectId,
+        createdContractId: state.createdContractId,
+        contractNumber: state.contractNumber,
+        contractPdfUrl: state.contractPdfUrl,
+        acknowledgments: state.acknowledgments,
       }),
     }
   )

@@ -4197,7 +4197,9 @@
       "step4": "Dach",
       "step5": "Abdeckung",
       "step6": "Ergebnisse",
-      "step7": "Kontakt"
+      "step7": "Kontakt",
+      "step8": "Prüfung",
+      "step9": "Signieren"
     },
     "step1": {
       "title": "Wählen Sie Ihr SolarAbo-Paket",
@@ -4343,7 +4345,124 @@
         "title": "Vielen Dank!",
         "message": "Ihre Anfrage wurde erfolgreich übermittelt. Unser Team wird Ihr Solarpotenzial prüfen und ein individuelles Angebot erstellen.",
         "nextSteps": "Sie erhalten in Kürze eine E-Mail-Bestätigung. Ein Solarberater wird Sie innerhalb von 2 Werktagen kontaktieren.",
+        "signContract": "Vertrag online unterschreiben",
         "newCalculation": "Neue Berechnung starten"
+      }
+    },
+    "contractReview": {
+      "title": "Vertragsprüfung",
+      "subtitle": "Überprüfen Sie die Details Ihrer Solar ABO Vereinbarung vor der Unterzeichnung.",
+      "systemSummary": {
+        "title": "Systemübersicht",
+        "panels": "Module",
+        "savings": "Einsparung/Jahr",
+        "roofArea": "Dachfläche",
+        "address": "Adresse",
+        "package": "Paket",
+        "selfConsumption": "Eigenverbrauch"
+      },
+      "aboBenefit": {
+        "title": "Solar ABO — Keine Investition",
+        "point1": "Die Free State AG installiert und wartet die Solaranlage auf Ihrem Dach — kostenlos für Sie.",
+        "point2": "Sie profitieren von sauberem Solarstrom und sparen bei Ihrer Stromrechnung.",
+        "point3": "Nach 25 Jahren geht die Anlage in Ihr Eigentum über."
+      },
+      "importantNotice": {
+        "title": "Wichtiger Hinweis",
+        "point1": "Dies ist eine vorläufige Vereinbarung basierend auf Ihren Angaben.",
+        "point2": "Unser technisches Team wird Ihre Liegenschaft für eine endgültige Bewertung besichtigen.",
+        "point3": "Sie können diese Vereinbarung jederzeit vor Annahme des endgültigen Angebots kostenlos kündigen."
+      },
+      "acknowledgments": {
+        "title": "Bestätigungen",
+        "preliminary": "Ich verstehe, dass dies eine vorläufige Vereinbarung ist, die nach der Vor-Ort-Besichtigung finalisiert wird.",
+        "siteVisit": "Ich stimme einer Besichtigung durch das technische Team der Free State AG zu.",
+        "contractReview": "Ich habe die Vertragsdetails geprüft und möchte mit der digitalen Unterschrift fortfahren."
+      },
+      "creatingContract": "Vertrag wird erstellt...",
+      "proceedToSign": "Zur Unterschrift"
+    },
+    "signature": {
+      "title": "Digitale Unterschrift",
+      "subtitle": "Unterschreiben Sie Ihre Solar ABO Vereinbarung sicher per SMS-Verifizierung",
+      "summary": {
+        "title": "Vertragsübersicht",
+        "document": "Dokument",
+        "aboAgreement": "Solar ABO Vereinbarung",
+        "contractNumber": "Vertragsnummer",
+        "signer": "Unterzeichner",
+        "email": "E-Mail"
+      },
+      "initiating": {
+        "title": "Verifizierungscode wird gesendet...",
+        "message": "Bitte warten Sie, während wir Ihnen den Code senden."
+      },
+      "otp": {
+        "title": "SMS-Verifizierung",
+        "sentTo": "Wir haben einen 6-stelligen Code gesendet an:",
+        "verify": "Verifizieren & Unterschreiben",
+        "verifying": "Wird verifiziert...",
+        "didntReceive": "Code nicht erhalten?",
+        "resend": "Code erneut senden"
+      },
+      "failed": {
+        "title": "Verifizierung fehlgeschlagen",
+        "message": "Beim Senden des Codes ist ein Fehler aufgetreten.",
+        "retry": "Erneut versuchen",
+        "retrying": "Wird erneut versucht..."
+      },
+      "security": {
+        "title": "Sichere Unterschrift",
+        "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen."
+      },
+      "downloadContract": "Vertrag herunterladen"
+    },
+    "signatureConfirmation": {
+      "title": "Vielen Dank!",
+      "subtitle": "Ihre Solar ABO Vereinbarung wurde erfolgreich unterschrieben.",
+      "contractSummary": {
+        "title": "Vertragsübersicht",
+        "contractNumber": "Vertragsnummer",
+        "signedBy": "Unterschrieben von",
+        "systemSize": "Anlagengrösse",
+        "panels": "Anzahl Module",
+        "savings": "Jährliche Einsparung"
+      },
+      "download": {
+        "title": "Unterschriebener Vertrag",
+        "description": "Laden Sie Ihren unterschriebenen Vertrag als PDF herunter.",
+        "button": "PDF herunterladen"
+      },
+      "nextSteps": {
+        "title": "Nächste Schritte",
+        "step1": {
+          "title": "E-Mail-Bestätigung",
+          "description": "Sie erhalten in Kürze eine E-Mail-Bestätigung mit allen Details."
+        },
+        "step2": {
+          "title": "Vor-Ort-Besichtigung",
+          "description": "Unser Team wird Sie innerhalb von 2-3 Werktagen kontaktieren, um einen Besichtigungstermin zu vereinbaren."
+        },
+        "step3": {
+          "title": "Anlageninstallation",
+          "description": "Nach der endgültigen Bewertung planen wir die Installation Ihrer Solaranlage."
+        },
+        "step4": {
+          "title": "Sofort sparen",
+          "description": "Nach der Installation profitieren Sie sofort von kostenlosem Solarstrom."
+        }
+      },
+      "contact": {
+        "title": "Fragen?",
+        "description": "Unser Team hilft Ihnen gerne weiter."
+      },
+      "emailNote": {
+        "title": "E-Mail-Bestätigung",
+        "message": "Eine Bestätigung wurde an {email} gesendet."
+      },
+      "actions": {
+        "newCalculation": "Neue Berechnung",
+        "backToHome": "Zurück zur Startseite"
       }
     },
     "navigation": {

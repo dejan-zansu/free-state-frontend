@@ -47,7 +47,7 @@ const KeyFactsSection = async () => {
 
         <div className="w-full lg:w-1/2 relative aspect-[720/487]">
           <Image
-            src="/images/bidirectional-charging/key-facts-right-749664.png"
+            src="/images/bidirectional-charging/key-facts.png"
             alt={t('keyFacts.title')}
             fill
             className="object-cover"

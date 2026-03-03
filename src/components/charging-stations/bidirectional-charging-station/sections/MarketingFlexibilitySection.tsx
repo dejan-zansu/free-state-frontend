@@ -1,10 +1,14 @@
 import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 
 const MarketingFlexibilitySection = async () => {
   const t = await getTranslations('bidirectionalChargingStation')
 
   return (
-    <section className="relative py-12 md:py-16" style={{ background: '#EAEDDF' }}>
+    <section
+      className="relative py-12 md:py-16"
+      style={{ background: '#EAEDDF' }}
+    >
       <div
         className="absolute rounded-full"
         style={{
@@ -32,9 +36,14 @@ const MarketingFlexibilitySection = async () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-[20px] max-w-[740px] mx-auto">
-            <div className="bg-[#0D4841] border border-[#809792] rounded-[20px] w-[360px] h-[317px] relative overflow-hidden">
-              <div className="flex items-center justify-center h-full pb-[125px]">
-                <div className="w-[142px] h-[142px]" />
+            <div className="border border-[#809792] rounded-[20px] w-[360px] h-[317px] relative overflow-hidden">
+              <div className="relative z-10 flex items-center justify-center pt-[30px]">
+                <Image
+                  src="/images/bidirectional-charging/roof-with-solar-system.png"
+                  alt={t('marketingFlexibility.cards.withSolar.title')}
+                  width={142}
+                  height={142}
+                />
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-[125px] bg-[#E5E6DE] backdrop-blur-[26px] border-t border-[#809792] flex flex-col items-center justify-center px-4">
                 <h3 className="text-[#062E25] text-[22px] font-bold text-center capitalize">
@@ -46,9 +55,14 @@ const MarketingFlexibilitySection = async () => {
               </div>
             </div>
 
-            <div className="bg-[#0D4841] border border-[#809792] rounded-[20px] w-[360px] h-[317px] relative overflow-hidden">
-              <div className="flex items-center justify-center h-full pb-[125px]">
-                <div className="w-[142px] h-[142px]" />
+            <div className="border border-[#809792] rounded-[20px] w-[360px] h-[317px] relative overflow-hidden">
+              <div className="relative z-10 flex items-center justify-center pt-[30px]">
+                <Image
+                  src="/images/bidirectional-charging/roof-without-solar-system.png"
+                  alt={t('marketingFlexibility.cards.systemComparison.title')}
+                  width={142}
+                  height={142}
+                />
               </div>
               <div className="absolute bottom-0 left-0 right-0 h-[125px] bg-[#E5E6DE] backdrop-blur-[26px] border-t border-[#809792] flex flex-col items-center justify-center px-4">
                 <h3 className="text-[#062E25] text-[22px] font-bold text-center capitalize">
