@@ -12,7 +12,7 @@ import PersonalizedOfferSection from '@/components/commercial/charging-stations/
 import VehicleListSection from '@/components/commercial/charging-stations/bidirectional-charging-station/sections/VehicleListSection'
 import ChargingTypesSection from '@/components/commercial/charging-stations/bidirectional-charging-station/sections/ChargingTypesSection'
 import StandardsSection from '@/components/commercial/charging-stations/bidirectional-charging-station/sections/StandardsSection'
-import NewsletterSection from '@/components/commercial/charging-stations/bidirectional-charging-station/sections/NewsletterSection'
+import NewsletterSection from '@/components/charging-stations/bidirectional-charging-station/sections/NewsletterSection'
 import FAQSection from '@/components/commercial/charging-stations/bidirectional-charging-station/sections/FAQSection'
 import { getTranslations } from 'next-intl/server'
 
@@ -22,10 +22,11 @@ const BidirectionalChargingStationPage = async () => {
   return (
     <main>
       <PageHero
-        isCommercial
         title={t('hero.title')}
         description={t('hero.description')}
-        backgroundImage="/images/bidirectional-charging-station.png"
+        backgroundImage="/images/bidirectional-charging/hero-bg-commercial.png"
+        isCommercial
+        className="bg-[#4F4970]"
       />
       <HowItWorksSection />
       <BenefitsComparisonSection />
@@ -34,7 +35,7 @@ const BidirectionalChargingStationPage = async () => {
       <CarBatteryCTASection />
       <HomeIndependenceSection />
       <ChargingPaysOffSection />
-      <ChargeLevelSection />
+      <ChargeLevelSection variant="purple" />
       <FundingSection />
       <PersonalizedOfferSection />
       <VehicleListSection />

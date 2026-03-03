@@ -6,7 +6,7 @@ const HowItWorksSection = async () => {
 
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden py-16 md:py-20 lg:py-24 -mt-[40px]"
       style={{
         background:
           'linear-gradient(146deg, rgba(234, 237, 223, 1) 0%, rgba(234, 237, 223, 1) 49%, rgba(253, 255, 245, 1) 100%)',

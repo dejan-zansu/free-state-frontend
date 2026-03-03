@@ -32,7 +32,7 @@ const FundingSection = async () => {
             {cantons.map((canton, index) => (
               <div
                 key={canton.key}
-                className={`grid grid-cols-2 border border-[#062E25]/40 backdrop-blur-[20px] ${
+                className={`grid grid-cols-2 border border-[#062E25]/30 backdrop-blur-[20px] ${
                   canton.highlighted ? 'bg-[#B7FE1A]' : 'bg-white/10'
                 } ${index === 0 ? 'rounded-t-2xl' : ''}`}
               >

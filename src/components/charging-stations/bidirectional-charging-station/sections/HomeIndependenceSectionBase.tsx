@@ -6,7 +6,6 @@ interface HomeIndependenceSectionBaseProps {
   glowColor: string
   evBatteryImage: string
   homeBatteryImage: string
-  overlapping?: boolean
 }
 
 const HomeIndependenceSectionBase = async ({
@@ -14,7 +13,6 @@ const HomeIndependenceSectionBase = async ({
   glowColor,
   evBatteryImage,
   homeBatteryImage,
-  overlapping = false,
 }: HomeIndependenceSectionBaseProps) => {
   const t = await getTranslations('bidirectionalChargingStation')
 
@@ -42,11 +40,9 @@ const HomeIndependenceSectionBase = async ({
             {t('homeIndependence.title')}
           </h2>
 
-          <div
-            className={`flex flex-col lg:flex-row justify-center w-full ${!overlapping ? 'gap-[20px]' : ''}`}
-          >
+          <div className="flex flex-col lg:flex-row justify-center w-full">
             <div
-              className={`rounded-[20px] w-full lg:w-[360px] h-[388px] relative overflow-hidden p-8 flex flex-col justify-center shrink-0 border border-[#809792] ${overlapping ? 'z-30' : ''}`}
+              className="rounded-[20px] w-full lg:w-[360px] h-[388px] relative overflow-hidden p-8 flex flex-col justify-center shrink-0 border border-[#809792] z-30"
               style={{ background: cardGradient }}
             >
               <div
@@ -72,7 +68,7 @@ const HomeIndependenceSectionBase = async ({
             </div>
 
             <div
-              className={`border border-[#809792] rounded-[20px] w-full lg:w-[406px] h-[388px] shrink-0 overflow-hidden flex flex-col bg-[#EAEDDF] ${overlapping ? 'z-20 -mt-[32px] lg:mt-0 lg:-ml-[32px]' : ''}`}
+              className="border border-[#809792] rounded-[20px] w-full lg:w-[406px] h-[388px] shrink-0 overflow-hidden flex flex-col bg-[#EAEDDF] z-20 -mt-[32px] lg:mt-0 lg:-ml-[32px]"
             >
               <div className="flex-1 flex items-center justify-center">
                 <Image
@@ -91,7 +87,7 @@ const HomeIndependenceSectionBase = async ({
             </div>
 
             <div
-              className={`border border-[#809792] rounded-[20px] w-full lg:w-[401px] h-[388px] shrink-0 overflow-hidden flex flex-col bg-[#EAEDDF] ${overlapping ? 'z-10 -mt-[32px] lg:mt-0 lg:-ml-[32px]' : ''}`}
+              className="border border-[#809792] rounded-[20px] w-full lg:w-[401px] h-[388px] shrink-0 overflow-hidden flex flex-col bg-[#EAEDDF] z-10 -mt-[32px] lg:mt-0 lg:-ml-[32px]"
             >
               <div className="flex-1 flex items-center justify-center">
                 <Image

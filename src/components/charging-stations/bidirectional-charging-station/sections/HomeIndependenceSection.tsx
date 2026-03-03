@@ -6,7 +6,6 @@ const HomeIndependenceSection = () => (
     glowColor="rgba(183, 254, 26, 0.5)"
     evBatteryImage="/images/bidirectional-charging/ev-battery-capacity.png"
     homeBatteryImage="/images/bidirectional-charging/home-battery.png"
-    overlapping
   />
 )
 

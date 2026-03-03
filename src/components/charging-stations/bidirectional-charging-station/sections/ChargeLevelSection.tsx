@@ -1,26 +1,42 @@
 import { getTranslations } from 'next-intl/server'
 import { LinkButton } from '@/components/ui/link-button'
 
-const ChargeLevelSection = async () => {
+interface ChargeLevelSectionProps {
+  variant?: 'green' | 'purple'
+}
+
+const VARIANT_STYLES = {
+  green: {
+    background:
+      'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
+    glow: 'rgba(183, 254, 26, 0.5)',
+  },
+  purple: {
+    background:
+      'linear-gradient(180deg, rgba(59, 46, 88, 1) 47%, rgba(31, 25, 41, 1) 100%)',
+    glow: '#D9D9D9',
+  },
+}
+
+const ChargeLevelSection = async ({ variant = 'green' }: ChargeLevelSectionProps) => {
   const t = await getTranslations('bidirectionalChargingStation')
+  const styles = VARIANT_STYLES[variant]
 
   return (
     <section
       className="relative overflow-hidden"
-      style={{
-        background:
-          'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
-      }}
+      style={{ background: styles.background }}
     >
       <div
         className="absolute pointer-events-none"
         style={{
-          width: '374px',
-          height: '374px',
-          right: '0px',
-          top: '-200px',
-          background: 'rgba(183, 254, 26, 0.5)',
-          filter: 'blur(490px)',
+          width: variant === 'purple' ? '266px' : '374px',
+          height: variant === 'purple' ? '266px' : '374px',
+          ...(variant === 'purple'
+            ? { left: '50%', top: '-156px', transform: 'translateX(-50%)' }
+            : { right: '0px', top: '-200px' }),
+          background: styles.glow,
+          filter: variant === 'purple' ? 'blur(544px)' : 'blur(490px)',
           borderRadius: '50%',
         }}
       />
