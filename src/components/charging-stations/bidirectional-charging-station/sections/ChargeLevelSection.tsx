@@ -1,17 +1,25 @@
-import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
+import { LinkButton } from '@/components/ui/link-button'
 
-const CalculatorCTASection = async () => {
-  const t = await getTranslations('chargingStationsApartmentBuilding')
+const ChargeLevelSection = async () => {
+  const t = await getTranslations('bidirectionalChargingStation')
 
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-20 lg:py-24"
+      className="relative overflow-hidden"
       style={{
         background:
-          'linear-gradient(146deg, rgba(234, 237, 223, 1) 0%, rgba(234, 237, 223, 1) 49%, rgba(253, 255, 245, 1) 100%)',
+          'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
       }}
     >
+      <Image
+        src="/images/bidirectional-charging/charge-level-bg.png"
+        alt=""
+        fill
+        className="object-cover pointer-events-none"
+      />
+
       <div
         className="absolute pointer-events-none"
         style={{
@@ -37,41 +45,36 @@ const CalculatorCTASection = async () => {
         }}
       />
 
-      <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-[60px]">
+      <div className="relative z-10 max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 lg:py-24 flex flex-col items-center gap-[60px]">
         <div className="flex flex-col items-center gap-[50px]">
           <div className="flex flex-col items-center gap-5">
             <div
-              className="flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-[#062E25] w-fit"
+              className="flex items-center justify-center px-4 py-[10px] rounded-[20px] border w-fit"
               style={{
+                borderColor: 'rgba(255, 255, 255, 0.2)',
                 background: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(65px)',
                 WebkitBackdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-[#062E25] text-base font-light tracking-[-0.02em]">
-                {t('calculatorCta.eyebrow')}
+              <span className="text-white text-base font-light tracking-[-0.02em]">
+                {t('chargeLevel.eyebrow')}
               </span>
             </div>
 
-            <h2 className="text-[#062E25] text-4xl sm:text-5xl lg:text-[65px] font-medium text-center capitalize">
-              {t('calculatorCta.title')}
+            <h2 className="text-white text-4xl sm:text-5xl lg:text-[65px] font-medium text-center capitalize whitespace-pre-line">
+              {t('chargeLevel.title')}
             </h2>
           </div>
 
-          <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[682px]">
-            {t('calculatorCta.description')}
+          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[594px]">
+            {t('chargeLevel.description')}
           </p>
         </div>
 
-        <div className="flex flex-col items-center gap-5">
-          <LinkButton variant="tertiary" href="/calculator">
-            {t('calculatorCta.cta')}
-          </LinkButton>
-
-          <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] text-center">
-            {t('calculatorCta.subtext')}
-          </p>
-        </div>
+        <LinkButton variant="primary" href="/contact">
+          {t('chargeLevel.cta')}
+        </LinkButton>
       </div>
 
       <div
@@ -85,4 +88,4 @@ const CalculatorCTASection = async () => {
   )
 }
 
-export default CalculatorCTASection
+export default ChargeLevelSection

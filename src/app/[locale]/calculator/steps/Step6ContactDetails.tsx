@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { CheckCircle2, Loader2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -12,17 +13,46 @@ import { useSolarAboCalculatorStore, type Salutation } from '@/stores/solar-abo-
 export default function Step6ContactDetails() {
   const t = useTranslations('solarAboCalculator.step7')
   const tNav = useTranslations('solarAboCalculator.navigation')
-  const { contact, setContact, prevStep } = useSolarAboCalculatorStore()
+  const {
+    contact,
+    setContact,
+    prevStep,
+    isSubmitting,
+    isSubmitted,
+    submissionError,
+    submitCalculation,
+    reset,
+  } = useSolarAboCalculatorStore()
+
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)
 
   const isValid =
     contact.salutation &&
     contact.firstName.trim() &&
     contact.lastName.trim() &&
+    contact.email.trim() &&
+    isValidEmail &&
     contact.phoneNumber.trim()
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!isValid) return
-    alert(t('successMessage'))
+    await submitCalculation()
+  }
+
+  if (isSubmitted) {
+    return (
+      <div className='h-full overflow-y-auto'>
+        <div className='container mx-auto px-4 pt-16 pb-16 max-w-lg text-center'>
+          <CheckCircle2 className='mx-auto h-16 w-16 text-green-500' />
+          <h1 className='mt-6 text-2xl font-bold'>{t('confirmation.title')}</h1>
+          <p className='mt-4 text-muted-foreground'>{t('confirmation.message')}</p>
+          <p className='mt-2 text-muted-foreground'>{t('confirmation.nextSteps')}</p>
+          <Button className='mt-8' onClick={reset}>
+            {t('confirmation.newCalculation')}
+          </Button>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -90,6 +120,19 @@ export default function Step6ContactDetails() {
             </div>
 
             <div className='space-y-2'>
+              <Label htmlFor='email'>
+                {t('email')} <span className='text-destructive'>*</span>
+              </Label>
+              <Input
+                id='email'
+                type='email'
+                value={contact.email}
+                onChange={(e) => setContact({ email: e.target.value })}
+                placeholder={t('emailPlaceholder')}
+              />
+            </div>
+
+            <div className='space-y-2'>
               <Label htmlFor='phoneNumber'>
                 {t('phoneNumber')} <span className='text-destructive'>*</span>
               </Label>
@@ -112,14 +155,21 @@ export default function Step6ContactDetails() {
                 rows={4}
               />
             </div>
+
+            {submissionError && (
+              <div className='text-sm text-destructive bg-destructive/10 p-3 rounded-md'>
+                {submissionError}
+              </div>
+            )}
           </div>
         </div>
 
         <div className='mt-8 flex gap-4 justify-end'>
-          <Button variant='outline' onClick={prevStep}>
+          <Button variant='outline' onClick={prevStep} disabled={isSubmitting}>
             {tNav('back')}
           </Button>
-          <Button className='w-fit' onClick={handleSubmit} disabled={!isValid}>
+          <Button className='w-fit' onClick={handleSubmit} disabled={!isValid || isSubmitting}>
+            {isSubmitting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
             {t('submit')}
           </Button>
         </div>

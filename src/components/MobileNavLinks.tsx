@@ -249,7 +249,7 @@ const MobileNavLinks = ({
       <div className="pt-2">
         <LinkButton
           variant="primary"
-          href="/calculator"
+          href={isCommercial ? '/commercial/calculator' : '/calculator'}
           className="w-full text-sm"
         >
           {t('hero.nav.onlineStarter')}

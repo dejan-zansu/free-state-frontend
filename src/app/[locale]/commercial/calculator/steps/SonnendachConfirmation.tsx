@@ -69,7 +69,7 @@ export default function SonnendachConfirmation() {
 
   const handleStartNew = () => {
     reset()
-    window.location.href = '/calculator'
+    window.location.href = '/commercial/calculator'
   }
 
   return (

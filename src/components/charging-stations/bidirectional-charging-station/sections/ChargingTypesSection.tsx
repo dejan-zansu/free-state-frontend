@@ -65,7 +65,7 @@ const ChargingTypesSection = async () => {
 
         <div className="w-full lg:w-1/2 relative aspect-[720/487]">
           <Image
-            src="/images/bidirectional-charging/charging-types-right-749664.png"
+            src="/images/bidirectional-charging-station/types-of-bidirectional-charging.png"
             alt={t('chargingTypes.title')}
             fill
             className="object-cover"

@@ -10,7 +10,8 @@ const PersonalizedOfferSection = async () => {
     <section
       className="relative py-12 md:py-16"
       style={{
-        background: 'linear-gradient(181deg, rgba(243, 245, 233, 1) 8%, rgba(220, 233, 230, 1) 100%)',
+        background:
+          'linear-gradient(181deg, rgba(243, 245, 233, 1) 8%, rgba(220, 233, 230, 1) 100%)',
       }}
     >
       <div className="max-w-[916px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,8 +41,11 @@ const PersonalizedOfferSection = async () => {
                   {t('personalizedOffer.form.question')}
                 </p>
                 <div className="flex flex-col gap-[7px]">
-                  {radioOptions.map((option) => (
-                    <div key={option} className="flex flex-row items-center gap-[10px]">
+                  {radioOptions.map(option => (
+                    <div
+                      key={option}
+                      className="flex flex-row items-center gap-[10px]"
+                    >
                       <div className="w-[15px] h-[15px] rounded-full border border-[#4A9A99] shrink-0" />
                       <span className="text-[#062E25]/60 text-xs font-medium tracking-[-0.02em]">
                         {t(`personalizedOffer.form.options.${option}`)}
@@ -49,7 +53,11 @@ const PersonalizedOfferSection = async () => {
                     </div>
                   ))}
                 </div>
-                <LinkButton variant="tertiary" href="/contact">
+                <LinkButton
+                  variant="tertiary"
+                  href="/contact"
+                  className="w-fit"
+                >
                   {t('personalizedOffer.form.submit')}
                 </LinkButton>
               </div>

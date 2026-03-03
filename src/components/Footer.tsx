@@ -467,7 +467,7 @@ const Footer = () => {
             </div>
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
-              href="/calculator"
+              href={isCommercial ? '/commercial/calculator' : '/calculator'}
             >
               {t('cta')}
             </LinkButton>

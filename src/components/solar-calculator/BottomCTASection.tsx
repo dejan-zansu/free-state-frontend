@@ -66,7 +66,7 @@ const BottomCTASection = async () => {
 
           <LinkButton
             variant="primary"
-            href={t('ctaLink') as '/solar-abo-calculator'}
+            href={t('ctaLink') as '/calculator'}
           >
             {t('cta')}
           </LinkButton>

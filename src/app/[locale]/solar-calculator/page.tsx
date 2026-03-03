@@ -21,7 +21,7 @@ const SolarCalculatorPage = async () => {
           description={t('hero.description')}
         >
           <div className="mt-8">
-            <LinkButton variant="primary" href="/solar-abo-calculator">
+            <LinkButton variant="primary" href="/calculator">
               Start the Solar Calculator
             </LinkButton>
           </div>

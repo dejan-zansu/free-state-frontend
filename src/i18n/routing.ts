@@ -27,13 +27,13 @@ export const routing = defineRouting({
       es: '/contacto',
       sr: '/kontakt',
     },
-    '/calculator': {
-      en: '/calculator',
-      de: '/rechner',
-      fr: '/calculateur',
-      it: '/calcolatore',
-      es: '/calculadora',
-      sr: '/kalkulator',
+    '/commercial/calculator': {
+      en: '/commercial/calculator',
+      de: '/gewerbe/rechner',
+      fr: '/commercial/calculateur',
+      it: '/commerciale/calcolatore',
+      es: '/comercial/calculadora',
+      sr: '/komercijalno/kalkulator',
     },
     '/how-it-works': {
       en: '/how-it-works',

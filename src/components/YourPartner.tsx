@@ -40,7 +40,7 @@ const YourPartner = async ({ isCommercial = false }) => {
           </div>
           <LinkButton
             variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
-            href="/calculator"
+            href={isCommercial ? '/commercial/calculator' : '/calculator'}
             className="h-fit w-full sm:w-auto bg-transparent"
           >
             {t('cta')}

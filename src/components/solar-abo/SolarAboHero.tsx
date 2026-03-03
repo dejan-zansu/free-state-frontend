@@ -148,7 +148,7 @@ const SolarAboHero = async ({
 
             <div>
               <LinkButton
-                href="/calculator"
+                href={isCommercial ? '/commercial/calculator' : '/calculator'}
                 variant={isCommercial ? 'outline-quaternary' : 'primary'}
               >
                 {t('hero.cta')}

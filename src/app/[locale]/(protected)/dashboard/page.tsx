@@ -39,7 +39,7 @@ export default function DashboardPage() {
       title: 'Solar Calculator',
       description: "Calculate your roof's solar potential",
       icon: Calculator,
-      href: '/calculator' as const,
+      href: '/commercial/calculator' as const,
       color: 'bg-solar/10 text-solar',
     },
     {
@@ -154,7 +154,7 @@ export default function DashboardPage() {
             <Button
               size='lg'
               className='bg-solar hover:bg-solar/90 text-solar-foreground'
-              onClick={() => router.push('/calculator')}
+              onClick={() => router.push('/commercial/calculator')}
             >
               Launch Calculator
               <ArrowRight className='w-5 h-5 ml-2' />
@@ -197,7 +197,7 @@ export default function DashboardPage() {
             <p className='text-muted-foreground mb-4'>
               Start by using our solar calculator to get your first quote
             </p>
-            <Button onClick={() => router.push('/calculator')}>
+            <Button onClick={() => router.push('/commercial/calculator')}>
               Get Started
             </Button>
           </CardContent>

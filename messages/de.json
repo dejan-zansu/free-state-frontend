@@ -4004,6 +4004,12 @@
       "title": "Bidirektionales Laden lohnt sich",
       "description": "Statt CHF 3'600 für eine herkömmliche Ladestation investieren Sie rund CHF 5'700 und machen so die Batterie Ihres Elektroautos zum Teil Ihres Energiesystems. Ihr zusätzlicher finanzieller Vorteil: Weitere Einsparungen und Einnahmen."
     },
+    "chargeLevel": {
+      "eyebrow": "Ladestand",
+      "title": "Immer volle\nKontrolle über den Ladestand",
+      "description": "Mit der FreeState™ App überwachen Sie Ihre EV-Batterie, legen einen Mindestladestand fest und optimieren die Nutzung von Überschussenergie.",
+      "cta": "Offerte anfragen"
+    },
     "funding": {
       "title": "Förderung für bidirektionale Ladestationen",
       "cantons": {
@@ -4126,7 +4132,8 @@
         "consent": "Ich stimme zu, weitere Benachrichtigungen von FreeState zu erhalten",
         "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzrichtlinie zu und können sich jederzeit abmelden.",
         "submit": "Weiter"
-      }
+      },
+      "success": "Vielen Dank für Ihre Anmeldung zu unserem BiDi Newsletter! Sie erhalten die neuesten Updates zum bidirektionalen Laden."
     },
     "faq": {
       "title": "Häufig gestellte Fragen\nzum bidirektionalen Laden",
@@ -4180,6 +4187,168 @@
           "answer": "Ja. Mehrere Schweizer Kantone bieten finanzielle Anreize von CHF 2'000 bis CHF 4'000 pro installierte bidirektionale Ladestation. Überprüfen Sie den Förderbereich für Details zu Ihrem Kanton."
         }
       }
+    }
+  },
+  "solarAboCalculator": {
+    "progress": {
+      "step1": "Gebäude",
+      "step2": "Haushalt",
+      "step3": "Geräte",
+      "step4": "Dach",
+      "step5": "Abdeckung",
+      "step6": "Ergebnisse",
+      "step7": "Kontakt"
+    },
+    "step1": {
+      "title": "Wählen Sie Ihr SolarAbo-Paket",
+      "helper": "Wählen Sie das Paket, das am besten zu Ihrem Gebäudetyp passt.",
+      "options": {
+        "home": "SolarAbo Home",
+        "homeDesc": "Für Einfamilienhäuser ohne Batteriespeicher",
+        "multi": "SolarAbo Multi",
+        "multiDesc": "Für Mehrfamilienhäuser und Energiegemeinschaften (ZEV / LEG)"
+      },
+      "learnMore": "Erfahren Sie mehr über",
+      "or": "oder"
+    },
+    "step2": {
+      "title": "Um welchen Gebäudetyp handelt es sich?",
+      "helper": "Wählen Sie Ihren Gebäudetyp:",
+      "options": {
+        "singleFamily": "Einfamilienhaus",
+        "apartment": "Mehrfamilienhaus",
+        "trade": "Gewerbe",
+        "office": "Bürogebäude"
+      }
+    },
+    "step3": {
+      "title": "Wie viele Personen leben in Ihrem Haushalt?",
+      "helper": "Geben Sie die Anzahl Personen inklusive Kinder an:",
+      "options": {
+        "1": "1 Person",
+        "2": "2 Personen",
+        "3": "3 Personen",
+        "4": "4 Personen",
+        "5": "5 und mehr Personen"
+      }
+    },
+    "step4": {
+      "title": "Besitzen Sie Hochleistungsgeräte?",
+      "helper": "Dies ermöglicht uns, Ihren Strombedarf und damit die optimale Grösse Ihrer Solaranlage besser einzuschätzen. Bitte wählen Sie vorhandene Verbraucher. Geben Sie auch Geräte an, die Sie künftig installieren möchten.",
+      "devices": {
+        "heatPumpHeating": "Wärmepumpenheizung",
+        "electricHeating": "Elektroheizung",
+        "electricBoiler": "Elektroboiler",
+        "evChargingStation": "Elektroauto-Ladestation",
+        "swimmingPoolSauna": "Schwimmbad und/oder Sauna"
+      }
+    },
+    "step5": {
+      "title": "Welche Dachflächen möchten Sie für Ihr Energieprojekt nutzen?",
+      "helper": "Klicken Sie auf alle Dachflächen, die für Ihr Angebot berücksichtigt werden sollen.",
+      "searchPlaceholder": "Geben Sie Ihre Adresse ein...",
+      "results": "Ergebnisse",
+      "suitability": "Eignungsgrad der Dachfläche",
+      "veryGood": "Sehr gut",
+      "moderate": "Mittel",
+      "selected": "Ausgewählt",
+      "loading": "Gebäudedaten werden geladen..."
+    },
+    "step6": {
+      "title": "Wie ist Ihr Dach gedeckt?",
+      "helper": "Wählen Sie die Art Ihrer Dacheindeckung. Wir verwenden dies zur Berechnung der Montage- und Befestigungskosten.",
+      "options": {
+        "tiled": "Ziegeldach",
+        "tin": "Blechdach",
+        "other": "Andere"
+      }
+    },
+    "results": {
+      "title": "Ihr Solarpotenzial",
+      "subtitle": "Basierend auf Ihren Dach- und Haushaltsdaten zeigen wir Ihnen, was Solarenergie für Sie leisten kann.",
+      "metrics": {
+        "production": "kWh/Jahr",
+        "savings": "pro Jahr",
+        "selfSufficiency": "Eigenverbrauch",
+        "co2": "kg CO₂/Jahr"
+      },
+      "chart": {
+        "title": "Monatliche Produktion",
+        "tooltipLabel": "Produktion"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mär",
+        "apr": "Apr",
+        "may": "Mai",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Okt",
+        "nov": "Nov",
+        "dec": "Dez"
+      },
+      "system": {
+        "title": "Ihre Solaranlage",
+        "size": "Anlagengrösse",
+        "panels": "Geschätzte Panelanzahl",
+        "area": "Genutzte Dachfläche",
+        "consumption": "Jahresverbrauch"
+      },
+      "abo": {
+        "title": "Solar ABO — Keine Investition",
+        "description": "Mit Solar ABO installiert und wartet die Free State AG die Solaranlage auf Ihrem Dach — kostenlos für Sie.",
+        "savings": "Sie profitieren von sauberem Solarstrom und sparen CHF {amount} pro Jahr bei Ihrer Stromrechnung."
+      },
+      "package": {
+        "title": "Empfohlenes Paket",
+        "home": "SolarAbo Home",
+        "homeDesc": "Für Einfamilienhäuser",
+        "multi": "SolarAbo Multi",
+        "multiDesc": "Für Mehrfamilienhäuser",
+        "recommended": "Empfohlen"
+      },
+      "cta": "Kostenloses Angebot erhalten"
+    },
+    "step7": {
+      "title": "Ihre Kontaktdaten für das detaillierte Angebot",
+      "helper": "Wir erstellen Ihnen gerne ein persönliches Angebot. Dafür benötigen wir noch Ihre Kontaktdaten.",
+      "salutation": {
+        "label": "Anrede",
+        "options": {
+          "mr": "Herr",
+          "woman": "Frau",
+          "family": "Familie"
+        }
+      },
+      "firstName": "Vorname",
+      "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+      "lastName": "Nachname",
+      "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+      "email": "E-Mail",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "phoneNumber": "Telefonnummer",
+      "phoneNumberPlaceholder": "Geben Sie Ihre Telefonnummer ein",
+      "remarks": "Bemerkungen",
+      "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
+      "submit": "Angebot anfordern",
+      "successMessage": "Vielen Dank! Wir werden Sie in Kürze mit Ihrem personalisierten Angebot kontaktieren.",
+      "offerPreview": {
+        "title": "IHR ANGEBOT",
+        "subtitle": "Personalisierte Solaranlagen-Empfehlung"
+      },
+      "confirmation": {
+        "title": "Vielen Dank!",
+        "message": "Ihre Anfrage wurde erfolgreich übermittelt. Unser Team wird Ihr Solarpotenzial prüfen und ein individuelles Angebot erstellen.",
+        "nextSteps": "Sie erhalten in Kürze eine E-Mail-Bestätigung. Ein Solarberater wird Sie innerhalb von 2 Werktagen kontaktieren.",
+        "newCalculation": "Neue Berechnung starten"
+      }
+    },
+    "navigation": {
+      "back": "Zurück",
+      "next": "Weiter"
     }
   }
 }

@@ -123,7 +123,7 @@ const SolarCalculatorCTA = async ({
           <div className="flex flex-col items-center gap-5">
             <LinkButton
               variant={dark ? 'primary' : 'tertiary'}
-              href={t(`${translationKey}.ctaLink`) as '/solar-abo-calculator'}
+              href={t(`${translationKey}.ctaLink`) as '/calculator'}
             >
               {t(`${translationKey}.ctaText`)}
             </LinkButton>

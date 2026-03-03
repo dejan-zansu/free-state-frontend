@@ -261,7 +261,7 @@ const Deals = async ({ isCommercial = false }) => {
                     </p>
                     <LinkButton
                       variant={isCommercial ? 'quaternary' : 'tertiary'}
-                      href="/calculator"
+                      href={isCommercial ? '/commercial/calculator' : '/calculator'}
                       className="w-full text-center uppercase mt-5 max-w-[280px] mx-auto"
                     >
                       {t('orderNow')}

@@ -81,7 +81,7 @@ const SolarAboCTA = async ({
 
           <LinkButton
             variant={commercial ? 'secondary' : 'primary'}
-            href={t('cta.ctaLink') as '/calculator'}
+            href={t('cta.ctaLink') as '/calculator' | '/commercial/calculator'}
           >
             {t('cta.ctaText')}
           </LinkButton>

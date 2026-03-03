@@ -6,6 +6,7 @@ import KeyFactsSection from '@/components/charging-stations/bidirectional-chargi
 import CarBatteryCTASection from '@/components/charging-stations/bidirectional-charging-station/sections/CarBatteryCTASection'
 import HomeIndependenceSection from '@/components/charging-stations/bidirectional-charging-station/sections/HomeIndependenceSection'
 import ChargingPaysOffSection from '@/components/charging-stations/bidirectional-charging-station/sections/ChargingPaysOffSection'
+import ChargeLevelSection from '@/components/charging-stations/bidirectional-charging-station/sections/ChargeLevelSection'
 import FundingSection from '@/components/charging-stations/bidirectional-charging-station/sections/FundingSection'
 import PersonalizedOfferSection from '@/components/charging-stations/bidirectional-charging-station/sections/PersonalizedOfferSection'
 import VehicleListSection from '@/components/charging-stations/bidirectional-charging-station/sections/VehicleListSection'
@@ -32,6 +33,7 @@ const BidirectionalChargingStationPage = async () => {
       <CarBatteryCTASection />
       <HomeIndependenceSection />
       <ChargingPaysOffSection />
+      <ChargeLevelSection />
       <FundingSection />
       <PersonalizedOfferSection />
       <VehicleListSection />

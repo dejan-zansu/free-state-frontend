@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
+import { residentialCalculatorService } from '@/services/residential-calculator.service'
 
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
@@ -21,15 +22,46 @@ export interface ContactDetails {
   salutation: Salutation | null
   firstName: string
   lastName: string
+  email: string
   phoneNumber: string
   remarks: string
 }
+
+const ELECTRICITY_PRICE = 0.27
+const CO2_FACTOR = 0.128
+const SPECIFIC_YIELD = 950
+const AVG_PANEL_POWER = 0.42
+
+const BASE_CONSUMPTION: Record<number, number> = {
+  1: 1600,
+  2: 2500,
+  3: 3200,
+  4: 3800,
+  5: 4500,
+}
+
+const DEVICE_CONSUMPTION: Record<keyof HighPowerDevices, number> = {
+  heatPumpHeating: 5000,
+  electricHeating: 8000,
+  electricBoiler: 2500,
+  evChargingStation: 2500,
+  swimmingPoolSauna: 2500,
+}
+
+const DEVICE_SELF_CONSUMPTION_BONUS: Record<keyof HighPowerDevices, number> = {
+  heatPumpHeating: 0.08,
+  electricHeating: 0.04,
+  electricBoiler: 0.03,
+  evChargingStation: 0.05,
+  swimmingPoolSauna: 0.02,
+}
+
+const MONTHLY_FACTORS = [0.04, 0.05, 0.08, 0.10, 0.12, 0.12, 0.13, 0.12, 0.10, 0.07, 0.04, 0.03]
 
 interface SolarAboCalculatorState {
   currentStep: number
   totalSteps: number
 
-  selectedPackage: SolarAboPackage | null
   buildingType: BuildingType | null
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
@@ -44,13 +76,16 @@ interface SolarAboCalculatorState {
   roofCovering: RoofCoveringType | null
 
   contact: ContactDetails
+
+  isSubmitting: boolean
+  isSubmitted: boolean
+  submissionError: string | null
 }
 
 interface SolarAboCalculatorActions {
   nextStep: () => void
   prevStep: () => void
   goToStep: (step: number) => void
-  setSelectedPackage: (pkg: SolarAboPackage) => void
   setBuildingType: (type: BuildingType) => void
   setHouseholdSize: (size: HouseholdSize) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
@@ -65,6 +100,16 @@ interface SolarAboCalculatorActions {
   setContact: (contact: Partial<ContactDetails>) => void
   getSelectedSegments: () => RoofSegment[]
   getSelectedArea: () => number
+  getEstimatedConsumption: () => number
+  getAnnualProduction: () => number
+  getSystemSizeKwp: () => number
+  getEstimatedPanelCount: () => number
+  getSelfConsumptionRate: () => number
+  getAnnualSavings: () => number
+  getCo2Savings: () => number
+  getMonthlyProduction: () => number[]
+  getRecommendedPackage: () => SolarAboPackage
+  submitCalculation: () => Promise<void>
   reset: () => void
 }
 
@@ -72,6 +117,7 @@ const initialContact: ContactDetails = {
   salutation: null,
   firstName: '',
   lastName: '',
+  email: '',
   phoneNumber: '',
   remarks: '',
 }
@@ -80,7 +126,6 @@ const initialState: SolarAboCalculatorState = {
   currentStep: 1,
   totalSteps: 7,
 
-  selectedPackage: null,
   buildingType: null,
   householdSize: null,
   devices: {
@@ -101,6 +146,10 @@ const initialState: SolarAboCalculatorState = {
   roofCovering: null,
 
   contact: initialContact,
+
+  isSubmitting: false,
+  isSubmitted: false,
+  submissionError: null,
 }
 
 export const useSolarAboCalculatorStore = create<
@@ -129,10 +178,6 @@ export const useSolarAboCalculatorStore = create<
         if (step >= 1 && step <= totalSteps) {
           set({ currentStep: step })
         }
-      },
-
-      setSelectedPackage: (pkg: SolarAboPackage) => {
-        set({ selectedPackage: pkg })
       },
 
       setBuildingType: (type: BuildingType) => {
@@ -215,6 +260,115 @@ export const useSolarAboCalculatorStore = create<
           .reduce((sum, s) => sum + s.area, 0)
       },
 
+      getEstimatedConsumption: () => {
+        const { householdSize, devices } = get()
+        const base = BASE_CONSUMPTION[householdSize || 3] || 3200
+        const deviceExtra = (Object.keys(devices) as (keyof HighPowerDevices)[])
+          .filter(key => devices[key])
+          .reduce((sum, key) => sum + DEVICE_CONSUMPTION[key], 0)
+        return base + deviceExtra
+      },
+
+      getAnnualProduction: () => {
+        const segments = get().getSelectedSegments()
+        return segments.reduce((sum, s) => sum + s.electricityYield, 0)
+      },
+
+      getSystemSizeKwp: () => {
+        const production = get().getAnnualProduction()
+        if (production === 0) return 0
+        return production / SPECIFIC_YIELD
+      },
+
+      getEstimatedPanelCount: () => {
+        const kwp = get().getSystemSizeKwp()
+        if (kwp === 0) return 0
+        return Math.ceil(kwp / AVG_PANEL_POWER)
+      },
+
+      getSelfConsumptionRate: () => {
+        const consumption = get().getEstimatedConsumption()
+        const production = get().getAnnualProduction()
+        const { devices } = get()
+
+        if (production === 0) return 0
+
+        const ratio = consumption / production
+        let rate = 0.30 + ratio * 0.20
+
+        const deviceBonuses = (Object.keys(devices) as (keyof HighPowerDevices)[])
+          .filter(key => devices[key])
+          .reduce((sum, key) => sum + DEVICE_SELF_CONSUMPTION_BONUS[key], 0)
+
+        rate += deviceBonuses
+        return Math.min(rate, 0.55)
+      },
+
+      getAnnualSavings: () => {
+        const production = get().getAnnualProduction()
+        const selfConsumptionRate = get().getSelfConsumptionRate()
+        const selfConsumedKwh = production * selfConsumptionRate
+        return selfConsumedKwh * ELECTRICITY_PRICE
+      },
+
+      getCo2Savings: () => {
+        const production = get().getAnnualProduction()
+        return production * CO2_FACTOR
+      },
+
+      getMonthlyProduction: () => {
+        const annual = get().getAnnualProduction()
+        return MONTHLY_FACTORS.map(f => annual * f)
+      },
+
+      getRecommendedPackage: (): SolarAboPackage => {
+        const { buildingType } = get()
+        return buildingType === 'single_family' ? 'home' : 'multi'
+      },
+
+      submitCalculation: async () => {
+        const state = get()
+        set({ isSubmitting: true, submissionError: null })
+
+        try {
+          await residentialCalculatorService.submit({
+            contact: {
+              salutation: state.contact.salutation || 'mr',
+              firstName: state.contact.firstName,
+              lastName: state.contact.lastName,
+              email: state.contact.email,
+              phone: state.contact.phoneNumber,
+              remarks: state.contact.remarks,
+            },
+            calculation: {
+              address: state.address,
+              lat: state.building?.center.lat || 0,
+              lng: state.building?.center.lng || 0,
+              selectedSegments: state.getSelectedSegments(),
+              selectedArea: state.getSelectedArea(),
+              buildingType: state.buildingType || 'single_family',
+              householdSize: state.householdSize || 3,
+              devices: state.devices,
+              roofCovering: state.roofCovering || 'tiled',
+              estimatedProduction: state.getAnnualProduction(),
+              estimatedConsumption: state.getEstimatedConsumption(),
+              selfConsumptionRate: state.getSelfConsumptionRate(),
+              annualSavings: state.getAnnualSavings(),
+              co2Savings: state.getCo2Savings(),
+              systemSizeKwp: state.getSystemSizeKwp(),
+              recommendedPackage: state.getRecommendedPackage(),
+            },
+          })
+          set({ isSubmitting: false, isSubmitted: true })
+        } catch (error: unknown) {
+          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+          set({
+            isSubmitting: false,
+            submissionError: axiosError?.response?.data?.error?.message || 'Submission failed',
+          })
+        }
+      },
+
       reset: () => {
         set(initialState)
       },
@@ -224,7 +378,6 @@ export const useSolarAboCalculatorStore = create<
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
         currentStep: state.currentStep,
-        selectedPackage: state.selectedPackage,
         buildingType: state.buildingType,
         householdSize: state.householdSize,
         devices: state.devices,

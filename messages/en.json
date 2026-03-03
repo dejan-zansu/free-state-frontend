@@ -2557,12 +2557,12 @@
   },
   "solarAboCalculator": {
     "progress": {
-      "step1": "Package",
-      "step2": "Building",
-      "step3": "Household",
-      "step4": "Devices",
-      "step5": "Roof",
-      "step6": "Covering",
+      "step1": "Building",
+      "step2": "Household",
+      "step3": "Devices",
+      "step4": "Roof",
+      "step5": "Covering",
+      "step6": "Results",
       "step7": "Contact"
     },
     "step1": {
@@ -2629,6 +2629,55 @@
         "other": "Other"
       }
     },
+    "results": {
+      "title": "Your Solar Potential",
+      "subtitle": "Based on your roof and household data, here is what solar energy can do for you.",
+      "metrics": {
+        "production": "kWh/year",
+        "savings": "per year",
+        "selfSufficiency": "Self-sufficiency",
+        "co2": "kg CO₂/year"
+      },
+      "chart": {
+        "title": "Monthly Production",
+        "tooltipLabel": "Production"
+      },
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      },
+      "system": {
+        "title": "Your Solar System",
+        "size": "System size",
+        "panels": "Estimated panels",
+        "area": "Roof area used",
+        "consumption": "Annual consumption"
+      },
+      "abo": {
+        "title": "Solar ABO — Zero Investment",
+        "description": "With Solar ABO, Free State AG installs and maintains the solar system on your roof — at no cost to you.",
+        "savings": "You benefit from clean solar energy and save CHF {amount} per year on your electricity bill."
+      },
+      "package": {
+        "title": "Recommended Package",
+        "home": "SolarAbo Home",
+        "homeDesc": "For single-family homes",
+        "multi": "SolarAbo Multi",
+        "multiDesc": "For multi-family buildings",
+        "recommended": "Recommended"
+      },
+      "cta": "Get Your Free Offer"
+    },
     "step7": {
       "title": "Your contact details for the detailed offer",
       "helper": "We would be happy to issue the offer to you personally. We still need your contact details for this.",
@@ -2644,6 +2693,8 @@
       "firstNamePlaceholder": "Enter your first name",
       "lastName": "Last name",
       "lastNamePlaceholder": "Enter your last name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
       "phoneNumber": "Phone number",
       "phoneNumberPlaceholder": "Enter your phone number",
       "remarks": "Remarks",
@@ -2653,6 +2704,12 @@
       "offerPreview": {
         "title": "YOUR OFFER",
         "subtitle": "Personalized solar system recommendation"
+      },
+      "confirmation": {
+        "title": "Thank You!",
+        "message": "Your request has been submitted successfully. Our team will review your solar potential and prepare a personalized offer.",
+        "nextSteps": "You will receive an email confirmation shortly. A solar consultant will contact you within 2 business days.",
+        "newCalculation": "Start new calculation"
       }
     },
     "navigation": {
@@ -4044,6 +4101,12 @@
       "title": "Bidirectional charging pays off",
       "description": "Instead of CHF 3,600 for a conventional charging station, you invest around CHF 5,700 and thus make your electric car's battery part of your energy system. Your added financial benefit: Additional savings and revenue."
     },
+    "chargeLevel": {
+      "eyebrow": "Charge Level",
+      "title": "Always full\ncontrol over the charge level",
+      "description": "With the FreeState™ app, you monitor your EV battery, set a minimum charge level, and optimize surplus energy use.",
+      "cta": "Request a quote"
+    },
     "funding": {
       "title": "Funding for bidirectional charging stations",
       "cantons": {
@@ -4166,7 +4229,8 @@
         "consent": "I agree to receive other notifications from FreeState",
         "disclaimer": "By submitting, you agree to data processing per our Privacy Policy and can unsubscribe at any time.",
         "submit": "Next"
-      }
+      },
+      "success": "Thank you for subscribing to our BiDi newsletter! You will receive the latest updates on bidirectional charging."
     },
     "faq": {
       "title": "Frequently asked questions\nabout bidirectional loading",

@@ -1,113 +1,98 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { useEffect } from 'react'
+import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
+import { cn } from '@/lib/utils'
 
-import { Progress } from '@/components/ui/progress'
-import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
+import Step1BuildingType from './steps/Step1BuildingType'
+import Step2HouseholdSize from './steps/Step2HouseholdSize'
+import Step3Devices from './steps/Step3Devices'
+import Step4RoofAreas from './steps/Step4RoofAreas'
+import Step5RoofCovering from './steps/Step5RoofCovering'
+import StepResults from './steps/StepResults'
+import Step6ContactDetails from './steps/Step6ContactDetails'
 
-import SonnendachStep1Address from './steps/SonnendachStep1Address'
-import SonnendachStep2UsableArea from './steps/SonnendachStep2UsableArea'
-import SonnendachStep3SolarSystem from './steps/SonnendachStep3SolarSystem'
-import SonnendachStep4Consumption from './steps/SonnendachStep4Consumption'
-import SonnendachStep5Results from './steps/SonnendachStep5Results'
-import SonnendachStep6PersonalInfo from './steps/SonnendachStep6PersonalInfo'
-import SonnendachStep7ContractReview from './steps/SonnendachStep7ContractReview'
-import SonnendachStep8Signature from './steps/SonnendachStep8Signature'
-import SonnendachConfirmation from './steps/SonnendachConfirmation'
+export default function SolarAboCalculatorPage() {
+  const t = useTranslations('solarAboCalculator')
+  const { currentStep } = useSolarAboCalculatorStore()
 
-export default function SonnendachCalculatorPage() {
-  const t = useTranslations('sonnendach')
-  const { currentStep, error, clearError, signatureStatus } = useSonnendachCalculatorStore()
-
-  // Check if we're on the confirmation page (after successful signature)
-  const isConfirmation = currentStep === 9 || signatureStatus === 'signed'
-
-  // 8-step flow + confirmation
   const steps = [
-    { id: 1, title: t('steps.step1.title'), description: t('steps.step1.description') },
-    { id: 2, title: t('steps.step2.title'), description: t('steps.step2.description') },
-    { id: 3, title: t('steps.step3.title'), description: t('steps.step3.description') },
-    { id: 4, title: t('steps.step4.title'), description: t('steps.step4.description') },
-    { id: 5, title: t('steps.step5.title'), description: t('steps.step5.description') },
-    { id: 6, title: t('steps.step6.title'), description: t('steps.step6.description') },
-    { id: 7, title: t('steps.step7.title'), description: t('steps.step7.description') },
-    { id: 8, title: t('steps.step8.title'), description: t('steps.step8.description') },
+    { id: 1, label: t('progress.step1') },
+    { id: 2, label: t('progress.step2') },
+    { id: 3, label: t('progress.step3') },
+    { id: 4, label: t('progress.step4') },
+    { id: 5, label: t('progress.step5') },
+    { id: 6, label: t('progress.step6') },
+    { id: 7, label: t('progress.step7') },
   ]
 
-  useEffect(() => {
-    clearError()
-  }, [currentStep, clearError])
-
-  const progress = ((currentStep - 1) / (steps.length - 1)) * 100
-
   const renderStep = () => {
-    // Show confirmation page after successful signature
-    if (isConfirmation) {
-      return <SonnendachConfirmation />
-    }
-
     switch (currentStep) {
       case 1:
-        return <SonnendachStep1Address />
+        return <Step1BuildingType />
       case 2:
-        return <SonnendachStep2UsableArea />
+        return <Step2HouseholdSize />
       case 3:
-        return <SonnendachStep3SolarSystem />
+        return <Step3Devices />
       case 4:
-        return <SonnendachStep4Consumption />
+        return <Step4RoofAreas />
       case 5:
-        return <SonnendachStep5Results />
+        return <Step5RoofCovering />
       case 6:
-        return <SonnendachStep6PersonalInfo />
+        return <StepResults />
       case 7:
-        return <SonnendachStep7ContractReview />
-      case 8:
-        return <SonnendachStep8Signature />
+        return <Step6ContactDetails />
       default:
-        return <SonnendachStep1Address />
+        return <Step1BuildingType />
     }
   }
 
   return (
     <div className='flex flex-col' style={{ height: 'calc(100vh - 84px)', marginTop: '84px' }}>
-      {currentStep !== 1 && !isConfirmation && (
-        <div className='bg-background/80 backdrop-blur-sm z-40 shrink-0'>
-          <div className='container mx-auto px-4 py-4'>
-            <div className='space-y-2'>
-              <Progress value={progress} className='h-2' />
-              <div className='hidden md:flex items-center justify-between text-xs'>
-                {steps.map((step, index) => {
-                  const isCurrentStep = currentStep === step.id
-                  const isCompleted = currentStep > step.id
-                  return (
-                    <div
-                      key={step.id}
-                      className={`text-center ${
-                        isCurrentStep
-                          ? 'font-semibold'
-                          : isCompleted
-                            ? 'text-energy'
-                            : 'text-muted-foreground'
-                      }`}
-                    >
-                      {step.title}
-                    </div>
-                  )
-                })}
+      <div className='bg-background/80 backdrop-blur-sm z-40 shrink-0'>
+        <div className='container mx-auto px-4 py-4'>
+          <div className='flex items-center justify-center gap-1 overflow-x-auto'>
+            {steps.map((step, index) => (
+              <div key={step.id} className='flex items-center'>
+                <div className='flex flex-col items-center'>
+                  <div
+                    className={cn(
+                      'flex h-7 w-7 items-center justify-center rounded-full text-xs font-medium transition-colors',
+                      currentStep === step.id
+                        ? 'bg-primary text-primary-foreground'
+                        : currentStep > step.id
+                          ? 'bg-primary/20 text-primary'
+                          : 'bg-muted text-muted-foreground'
+                    )}
+                  >
+                    {step.id}
+                  </div>
+                  <span
+                    className={cn(
+                      'mt-1 text-[10px] whitespace-nowrap hidden sm:block',
+                      currentStep === step.id
+                        ? 'font-medium text-foreground'
+                        : 'text-muted-foreground'
+                    )}
+                  >
+                    {step.label}
+                  </span>
+                </div>
+                {index < steps.length - 1 && (
+                  <div
+                    className={cn(
+                      'mx-1 h-0.5 w-6 sm:w-10 transition-colors',
+                      currentStep > step.id ? 'bg-primary' : 'bg-muted'
+                    )}
+                  />
+                )}
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      )}
-      <main className='flex-1 overflow-hidden relative'>
-        {error && (
-          <div className='p-4 mx-6 mt-6 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive max-w-5xl'>
-            <p className='font-medium'>{t('error')}</p>
-            <p className='text-sm'>{error}</p>
-          </div>
-        )}
+      </div>
 
+      <main className='flex-1 overflow-hidden'>
         <div className='h-full'>{renderStep()}</div>
       </main>
     </div>

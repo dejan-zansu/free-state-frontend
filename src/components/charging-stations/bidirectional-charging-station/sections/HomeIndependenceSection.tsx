@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 
 const HomeIndependenceSection = async () => {
   const t = await getTranslations('bidirectionalChargingStation')
@@ -9,14 +10,15 @@ const HomeIndependenceSection = async () => {
       style={{ background: '#EAEDDF' }}
     >
       <div
-        className="absolute rounded-full"
+        className="absolute pointer-events-none"
         style={{
-          left: '-174px',
-          top: '-122px',
           width: '374px',
           height: '374px',
+          left: '-174px',
+          top: '-122px',
           background: 'rgba(183, 254, 26, 0.5)',
           filter: 'blur(490px)',
+          borderRadius: '50%',
         }}
       />
 
@@ -26,35 +28,23 @@ const HomeIndependenceSection = async () => {
             {t('homeIndependence.title')}
           </h2>
 
-          <div className="flex flex-wrap justify-center gap-[20px]">
-            <div className="bg-[#0D4841] border border-[#809792] rounded-[20px] w-[401px] h-[388px] relative overflow-hidden">
-              <div className="flex items-center justify-center h-full pb-[125px]" />
-              <div className="absolute bottom-0 left-0 right-0 h-[125px] bg-[#E5E6DE] backdrop-blur-[26px] border-t border-[#809792] flex items-center justify-center px-4">
-                <h3 className="text-[#062E25] text-[22px] font-bold text-center">
-                  {t('homeIndependence.cards.homeBattery')}
-                </h3>
-              </div>
-            </div>
-
-            <div className="bg-[#0D4841] border border-[#809792] rounded-[20px] w-[406px] h-[388px] relative overflow-hidden">
-              <div className="flex items-center justify-center h-full pb-[125px]" />
-              <div className="absolute bottom-0 left-0 right-0 h-[125px] bg-[#E5E6DE] backdrop-blur-[26px] border-t border-[#809792] flex items-center justify-center px-4">
-                <h3 className="text-[#062E25] text-[22px] font-bold text-center">
-                  {t('homeIndependence.cards.evBattery')}
-                </h3>
-              </div>
-            </div>
-
-            <div className="rounded-[20px] w-[360px] h-[388px] relative overflow-hidden p-8 flex flex-col justify-center">
+          <div className="flex flex-col lg:flex-row justify-center gap-[20px] w-full">
+            <div
+              className="rounded-[20px] w-full lg:w-[360px] h-[388px] relative overflow-hidden p-8 flex flex-col justify-center shrink-0 border border-[#809792]"
+              style={{
+                background: 'linear-gradient(126deg, rgba(6, 46, 37, 1) 23%, rgba(19, 148, 119, 1) 100%)',
+              }}
+            >
               <div
-                className="absolute rounded-full"
+                className="absolute pointer-events-none"
                 style={{
                   right: '-50px',
-                  bottom: '-50px',
-                  width: '200px',
-                  height: '200px',
-                  background: 'rgba(183, 254, 26, 0.3)',
-                  filter: 'blur(100px)',
+                  bottom: '-100px',
+                  width: '268px',
+                  height: '268px',
+                  background: 'rgba(183, 254, 26, 0.5)',
+                  filter: 'blur(360px)',
+                  borderRadius: '50%',
                 }}
               />
               <div className="relative z-10 flex flex-col gap-4">
@@ -64,6 +54,34 @@ const HomeIndependenceSection = async () => {
                 <p className="text-white/80 text-[22px] font-light tracking-[-0.02em]">
                   {t('homeIndependence.capacityComparison.description')}
                 </p>
+              </div>
+            </div>
+
+            <div className="border border-[#809792] rounded-[20px] w-full lg:w-[406px] h-[388px] relative overflow-hidden shrink-0">
+              <Image
+                src="/images/bidirectional-charging/ev-battery-card.png"
+                alt={t('homeIndependence.cards.evBattery')}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-[125px] bg-[#E5E6DE] backdrop-blur-[26px] border-t border-[#809792] flex items-center justify-center px-4">
+                <h3 className="text-[#062E25] text-[22px] font-bold text-center">
+                  {t('homeIndependence.cards.evBattery')}
+                </h3>
+              </div>
+            </div>
+
+            <div className="border border-[#809792] rounded-[20px] w-full lg:w-[401px] h-[388px] relative overflow-hidden shrink-0">
+              <Image
+                src="/images/bidirectional-charging/home-battery-card.png"
+                alt={t('homeIndependence.cards.homeBattery')}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute bottom-0 left-0 right-0 h-[125px] bg-[#E5E6DE] backdrop-blur-[26px] border-t border-[#809792] flex items-center justify-center px-4">
+                <h3 className="text-[#062E25] text-[22px] font-bold text-center">
+                  {t('homeIndependence.cards.homeBattery')}
+                </h3>
               </div>
             </div>
           </div>

@@ -64,7 +64,7 @@ const CalculatorCTASection = async () => {
         </div>
 
         <div className="flex flex-col items-center gap-5">
-          <LinkButton variant="quaternary" href="/solar-abo-calculator">
+          <LinkButton variant="quaternary" href="/commercial/calculator">
             {t('calculatorCta.cta')}
           </LinkButton>
 
