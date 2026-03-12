@@ -4,7 +4,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
 
-export type SignatureStatus = 'idle' | 'initiating' | 'otp_sent' | 'verifying' | 'signed' | 'failed'
+export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
@@ -29,36 +29,66 @@ export interface ContactDetails {
   remarks: string
 }
 
-const ELECTRICITY_PRICE = 0.27
-const CO2_FACTOR = 0.128
-const SPECIFIC_YIELD = 950
-const AVG_PANEL_POWER = 0.42
+// ElCom 2026 average residential tariff (Rp./kWh → CHF/kWh)
+// Source: ElCom tariff data, swissinfo.ch
+const ELECTRICITY_PRICE = 0.277
 
+// Swiss consumer electricity mix (production + imports), VSE 2021
+// Source: strom.ch "CO2-Gehalt des Strommix Schweiz"
+const CO2_FACTOR = 0.128
+
+// Swiss national average specific yield (IEA-PVPS 2013-2022: 954 kWh/kWp)
+// Rounded to 1000 for Swiss Plateau with typical (not optimal) orientations
+// Source: IEA-PVPS National Survey Report Switzerland 2024
+const SPECIFIC_YIELD = 1000
+
+// Standard residential panel ~425W (2025 industry average, TOPCon mainstream)
+// Source: Clean Energy Reviews, SolarTechOnline 2025 surveys
+const AVG_PANEL_POWER = 0.425
+
+// BFE/Nipkow study "Typischer Haushalt-Stromverbrauch" (2021), single-family house values
+// Excludes electric heating, heat pump, and electric hot water
+// Source: pubdb.bfe.admin.ch, homegate.ch, wwz.ch
+// 3-person and 5-person values interpolated from 1/2/4-person official data
 const BASE_CONSUMPTION: Record<number, number> = {
-  1: 1600,
-  2: 2500,
-  3: 3200,
-  4: 3800,
-  5: 4500,
+  1: 2700,
+  2: 3550,
+  3: 4400,
+  4: 5200,
+  5: 5600,
 }
 
+// Annual device consumption (kWh/year)
+// Sources: Viessmann CH (heat pump), 21energy/energie-experten (electric heating),
+// BFE/ee-news.ch (boiler ~1000 kWh/person, avg 3-person HH), AXA.ch/Zurich.ch (EV at 15k km/yr),
+// Hayward/pv-berechnung.de (pool ~3000) + arrigato.ch (sauna ~350)
 const DEVICE_CONSUMPTION: Record<keyof HighPowerDevices, number> = {
   heatPumpHeating: 5000,
-  electricHeating: 8000,
-  electricBoiler: 2500,
+  electricHeating: 12000,
+  electricBoiler: 3000,
   evChargingStation: 2500,
-  swimmingPoolSauna: 2500,
+  swimmingPoolSauna: 3350,
 }
 
+// Self-consumption rate increase per device (percentage points)
+// Based on PV-Calor field data, Fraunhofer ISE measurements, HTW Berlin studies
+// Heat pump: +10-25pp measured, using conservative 10pp (winter mismatch limits benefit)
+// EV: +10-20pp with solar-optimized charging, using 12pp (assumes some smart charging)
+// Boiler: +5-10pp with PV-controlled timer, using 5pp
+// Electric heating: minimal benefit (winter consumption vs summer PV), using 2pp
+// Pool/sauna: marginal (seasonal/occasional use), using 2pp
 const DEVICE_SELF_CONSUMPTION_BONUS: Record<keyof HighPowerDevices, number> = {
-  heatPumpHeating: 0.08,
-  electricHeating: 0.04,
-  electricBoiler: 0.03,
-  evChargingStation: 0.05,
+  heatPumpHeating: 0.10,
+  electricHeating: 0.02,
+  electricBoiler: 0.05,
+  evChargingStation: 0.12,
   swimmingPoolSauna: 0.02,
 }
 
-const MONTHLY_FACTORS = [0.04, 0.05, 0.08, 0.10, 0.12, 0.12, 0.13, 0.12, 0.10, 0.07, 0.04, 0.03]
+// Monthly solar production distribution for Swiss Plateau (Bern, 46.95N)
+// PVGIS ERA5 data (2005-2023 averages), 30-degree tilt, south-facing
+// Source: EU Joint Research Centre PVGIS v5.3
+const MONTHLY_FACTORS = [0.047, 0.062, 0.091, 0.104, 0.105, 0.113, 0.117, 0.108, 0.095, 0.074, 0.047, 0.037]
 
 interface SolarAboCalculatorState {
   currentStep: number
@@ -89,9 +119,8 @@ interface SolarAboCalculatorState {
   contractPdfUrl: string | null
   acknowledgments: string[]
   signatureStatus: SignatureStatus
-  signatureRequestId: string | null
-  maskedPhone: string | null
-  signatureExpiresAt: Date | null
+  signatureProcessId: string | null
+  signingUrl: string | null
   signedPdfUrl: string | null
 }
 
@@ -126,7 +155,7 @@ interface SolarAboCalculatorActions {
   addAcknowledgment: (type: string) => void
   removeAcknowledgment: (type: string) => void
   createContract: () => Promise<void>
-  setSignatureRequestData: (data: { requestId: string; maskedPhone: string; expiresAt: Date }) => void
+  setSignatureRequestData: (data: { processId: string; signingUrl: string }) => void
   setSignatureStatus: (status: SignatureStatus) => void
   setSignedPdfUrl: (url: string) => void
   resetSignature: () => void
@@ -177,9 +206,8 @@ const initialState: SolarAboCalculatorState = {
   contractPdfUrl: null,
   acknowledgments: [],
   signatureStatus: 'idle',
-  signatureRequestId: null,
-  maskedPhone: null,
-  signatureExpiresAt: null,
+  signatureProcessId: null,
+  signingUrl: null,
   signedPdfUrl: null,
 }
 
@@ -324,14 +352,21 @@ export const useSolarAboCalculatorStore = create<
 
         if (production === 0) return 0
 
+        // HTW Berlin / PV-Calor model: base self-consumption depends on
+        // consumption-to-production ratio. Without optimization, typical
+        // residential systems achieve 25-35% (PV-Calor, HTW Berlin studies).
+        // Formula calibrated to match: ratio=0.5 → ~30%, ratio=1.0 → ~38%, ratio=2.0 → ~45%
         const ratio = consumption / production
-        let rate = 0.30 + ratio * 0.20
+        let rate = 0.25 + 0.15 * Math.min(ratio, 2.0) * (1 - 0.25 * Math.min(ratio, 2.0) / 2.0)
 
         const deviceBonuses = (Object.keys(devices) as (keyof HighPowerDevices)[])
           .filter(key => devices[key])
           .reduce((sum, key) => sum + DEVICE_SELF_CONSUMPTION_BONUS[key], 0)
 
         rate += deviceBonuses
+
+        // Without battery, practical maximum is ~55% (PV-Calor field data)
+        // With all devices optimized, theoretical max ~55% achievable
         return Math.min(rate, 0.55)
       },
 
@@ -439,10 +474,9 @@ export const useSolarAboCalculatorStore = create<
 
       setSignatureRequestData: (data) => {
         set({
-          signatureRequestId: data.requestId,
-          maskedPhone: data.maskedPhone,
-          signatureExpiresAt: data.expiresAt,
-          signatureStatus: 'otp_sent',
+          signatureProcessId: data.processId,
+          signingUrl: data.signingUrl,
+          signatureStatus: 'pending',
         })
       },
 
@@ -457,9 +491,8 @@ export const useSolarAboCalculatorStore = create<
       resetSignature: () => {
         set({
           signatureStatus: 'idle',
-          signatureRequestId: null,
-          maskedPhone: null,
-          signatureExpiresAt: null,
+          signatureProcessId: null,
+          signingUrl: null,
         })
       },
 

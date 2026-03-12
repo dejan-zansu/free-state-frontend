@@ -2750,7 +2750,7 @@
     },
     "signature": {
       "title": "Digital Signature",
-      "subtitle": "Sign your Solar ABO agreement securely with SMS verification",
+      "subtitle": "Sign your Solar ABO agreement securely via Swisscom Sign",
       "summary": {
         "title": "Contract Summary",
         "document": "Document",
@@ -2760,26 +2760,35 @@
         "email": "Email"
       },
       "initiating": {
-        "title": "Sending verification code...",
-        "message": "Please wait while we send you the code."
+        "title": "Preparing signing process...",
+        "message": "Please wait while we set up the signing process."
       },
-      "otp": {
-        "title": "SMS Verification",
-        "sentTo": "We have sent a 6-digit code to:",
-        "verify": "Verify & Sign",
-        "verifying": "Verifying...",
-        "didntReceive": "Didn't receive the code?",
-        "resend": "Resend code"
+      "signing": {
+        "title": "Ready to Sign",
+        "description": "Click the button below to open the secure Swisscom Sign page, where you will verify your identity and sign the contract.",
+        "openButton": "Open Signing Page",
+        "waiting": "Waiting for your signature...",
+        "clickAbove": "Click the button above to open the signing page."
+      },
+      "signed": {
+        "title": "Contract Signed!",
+        "message": "Your contract has been signed successfully."
+      },
+      "expired": {
+        "title": "Signing Expired",
+        "message": "The signing session has expired. Please start again.",
+        "retry": "Start New Signing",
+        "retrying": "Starting..."
       },
       "failed": {
-        "title": "Verification Failed",
-        "message": "An error occurred while sending the code.",
+        "title": "Signing Failed",
+        "message": "An error occurred while setting up the signing process.",
         "retry": "Try Again",
         "retrying": "Retrying..."
       },
       "security": {
         "title": "Secure Signature",
-        "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws."
+        "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws (ZertES/SCSE)."
       },
       "downloadContract": "Download Contract"
     },

@@ -1,22 +1,21 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import {
   ChevronLeft,
   Shield,
-  Smartphone,
-  Check,
-  RefreshCw,
+  ExternalLink,
   FileCheck,
   AlertCircle,
   Loader2,
+  CheckCircle2,
+  Clock,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 import { contractService } from '@/services/contract.service'
 import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
 
@@ -29,7 +28,6 @@ export default function SonnendachStep8Signature() {
     signatureStatus,
     setSignatureStatus,
     setSignatureRequestData,
-    maskedPhone,
     setSignedPdfUrl,
     resetSignature,
     acknowledgments,
@@ -39,47 +37,12 @@ export default function SonnendachStep8Signature() {
     createdContractId,
   } = useSonnendachCalculatorStore()
 
-  const [otpDigits, setOtpDigits] = useState(['', '', '', '', '', ''])
   const [isInitiating, setIsInitiating] = useState(false)
-  const [isVerifying, setIsVerifying] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [resendCooldown, setResendCooldown] = useState(0)
+  const [isPolling, setIsPolling] = useState(false)
+  const [signingUrl, setSigningUrl] = useState<string | null>(null)
 
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([])
-
-  // Handle OTP input
-  const handleOtpChange = (index: number, value: string) => {
-    if (!/^\d*$/.test(value)) return
-
-    const newDigits = [...otpDigits]
-    newDigits[index] = value.slice(-1)
-    setOtpDigits(newDigits)
-
-    // Auto-focus next input
-    if (value && index < 5) {
-      inputRefs.current[index + 1]?.focus()
-    }
-  }
-
-  const handleOtpKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !otpDigits[index] && index > 0) {
-      inputRefs.current[index - 1]?.focus()
-    }
-  }
-
-  const handleOtpPaste = (e: React.ClipboardEvent) => {
-    e.preventDefault()
-    const pastedData = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6)
-    const newDigits = [...otpDigits]
-    for (let i = 0; i < pastedData.length; i++) {
-      newDigits[i] = pastedData[i]
-    }
-    setOtpDigits(newDigits)
-    inputRefs.current[Math.min(pastedData.length, 5)]?.focus()
-  }
-
-  // Initiate signature
-  const handleInitiateSignature = async () => {
+  const handleInitiateSignature = useCallback(async () => {
     if (!createdContractId) {
       setError('Contract not found. Please go back and try again.')
       return
@@ -92,83 +55,68 @@ export default function SonnendachStep8Signature() {
       const response = await contractService.initiateSignature(createdContractId, acknowledgments)
 
       setSignatureRequestData({
-        requestId: response.signatureRequestId,
-        maskedPhone: response.maskedPhone,
-        expiresAt: new Date(response.expiresAt),
+        requestId: response.processId,
+        maskedPhone: '',
+        expiresAt: new Date(Date.now() + 30 * 60 * 1000),
       })
 
+      setSigningUrl(response.signingUrl)
       setSignatureStatus('otp_sent')
-      setResendCooldown(60)
     } catch (err) {
       console.error('Failed to initiate signature:', err)
-      setError(err instanceof Error ? err.message : 'Failed to send verification code')
+      setError(err instanceof Error ? err.message : 'Failed to start signing process')
       setSignatureStatus('failed')
     } finally {
       setIsInitiating(false)
     }
+  }, [createdContractId, acknowledgments, setSignatureRequestData, setSignatureStatus])
+
+  const handleOpenSigningPage = () => {
+    if (signingUrl) {
+      window.open(signingUrl, '_blank')
+      setIsPolling(true)
+    }
   }
 
-  // Verify OTP
-  const handleVerifyOtp = async () => {
-    const otp = otpDigits.join('')
-    if (otp.length !== 6) {
-      setError('Please enter the complete 6-digit code')
-      return
-    }
-
-    if (!createdContractId) {
-      setError('Contract not found')
-      return
-    }
-
-    setIsVerifying(true)
-    setError(null)
+  const checkStatus = useCallback(async () => {
+    if (!createdContractId) return
 
     try {
-      const response = await contractService.verifySignature(createdContractId, otp)
+      const result = await contractService.checkSignatureStatus(createdContractId)
 
-      if (response.success) {
-        setSignedPdfUrl(response.signedPdfUrl)
+      if (result.status === 'COMPLETED') {
         setSignatureStatus('signed')
-        // Move to confirmation step
+        if (result.signedPdfUrl) {
+          setSignedPdfUrl(result.signedPdfUrl)
+        }
+        setIsPolling(false)
         nextStep()
+      } else if (result.status === 'EXPIRED') {
+        setSignatureStatus('failed')
+        setIsPolling(false)
+        setError(t('failed.message'))
       }
     } catch (err) {
-      console.error('Failed to verify signature:', err)
-      setError(err instanceof Error ? err.message : 'Invalid verification code')
-      setOtpDigits(['', '', '', '', '', ''])
-      inputRefs.current[0]?.focus()
-    } finally {
-      setIsVerifying(false)
+      console.error('Failed to check signature status:', err)
     }
-  }
+  }, [createdContractId, setSignatureStatus, setSignedPdfUrl, nextStep, t])
 
-  // Resend OTP
-  const handleResendOtp = async () => {
-    if (resendCooldown > 0) return
-    await handleInitiateSignature()
-  }
-
-  // Cooldown timer
-  useEffect(() => {
-    if (resendCooldown > 0) {
-      const timer = setTimeout(() => setResendCooldown(resendCooldown - 1), 1000)
-      return () => clearTimeout(timer)
-    }
-  }, [resendCooldown])
-
-  // Auto-initiate signature when component mounts (if not already initiated)
   useEffect(() => {
     if (signatureStatus === 'idle' && createdContractId) {
       handleInitiateSignature()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    if (!isPolling || signatureStatus === 'signed') return
+
+    const interval = setInterval(checkStatus, 5000)
+    return () => clearInterval(interval)
+  }, [isPolling, signatureStatus, checkStatus])
 
   return (
     <div className="h-full overflow-y-auto">
       <div className="container mx-auto px-4 py-6 max-w-2xl">
-        {/* Header */}
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-foreground">{t('title')}</h2>
           <p className="text-muted-foreground mt-1">{t('subtitle')}</p>
@@ -181,7 +129,6 @@ export default function SonnendachStep8Signature() {
           </Alert>
         )}
 
-        {/* Signature Summary */}
         <Card className="mb-6">
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
@@ -209,7 +156,6 @@ export default function SonnendachStep8Signature() {
           </CardContent>
         </Card>
 
-        {/* Signature Flow */}
         {signatureStatus === 'idle' || signatureStatus === 'initiating' ? (
           <Card>
             <CardContent className="py-12 text-center">
@@ -218,74 +164,34 @@ export default function SonnendachStep8Signature() {
               <p className="text-muted-foreground mt-1">{t('initiating.message')}</p>
             </CardContent>
           </Card>
-        ) : signatureStatus === 'otp_sent' || signatureStatus === 'verifying' ? (
+        ) : signatureStatus === 'otp_sent' ? (
           <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-lg">
-                <Smartphone className="h-5 w-5 text-energy" />
-                {t('otp.title')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="py-8 space-y-6">
               <div className="text-center">
-                <p className="text-muted-foreground">
-                  {t('otp.sentTo')}
+                <div className="w-16 h-16 bg-energy/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <ExternalLink className="h-8 w-8 text-energy" />
+                </div>
+                <p className="text-lg font-medium">{t('signing.title') || 'Ready to Sign'}</p>
+                <p className="text-muted-foreground mt-2">
+                  {t('signing.description') || 'Click the button below to open the secure Swisscom Sign page.'}
                 </p>
-                <p className="font-medium text-lg mt-1">{maskedPhone || '+41 ** *** ** **'}</p>
               </div>
 
-              {/* OTP Input */}
-              <div className="flex justify-center gap-2">
-                {otpDigits.map((digit, index) => (
-                  <Input
-                    key={index}
-                    ref={(el: HTMLInputElement | null) => { inputRefs.current[index] = el }}
-                    type="text"
-                    inputMode="numeric"
-                    maxLength={1}
-                    value={digit}
-                    onChange={(e) => handleOtpChange(index, e.target.value)}
-                    onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                    onPaste={handleOtpPaste}
-                    className="w-12 h-14 text-center text-2xl font-bold"
-                    disabled={isVerifying}
-                  />
-                ))}
-              </div>
-
-              {/* Verify Button */}
               <Button
-                onClick={handleVerifyOtp}
-                disabled={otpDigits.some((d) => !d) || isVerifying}
-                className="w-full bg-energy hover:bg-energy/90"
+                onClick={handleOpenSigningPage}
+                className="w-full gap-2 bg-energy hover:bg-energy/90"
+                size="lg"
               >
-                {isVerifying ? (
-                  <>
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    {t('otp.verifying')}
-                  </>
-                ) : (
-                  <>
-                    <Check className="h-4 w-4 mr-2" />
-                    {t('otp.verify')}
-                  </>
-                )}
+                <ExternalLink className="h-4 w-4" />
+                {t('signing.openButton') || 'Open Signing Page'}
               </Button>
 
-              {/* Resend */}
-              <div className="text-center">
-                <p className="text-sm text-muted-foreground mb-2">{t('otp.didntReceive')}</p>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={handleResendOtp}
-                  disabled={resendCooldown > 0 || isInitiating}
-                  className="gap-2"
-                >
-                  <RefreshCw className={`h-4 w-4 ${isInitiating ? 'animate-spin' : ''}`} />
-                  {resendCooldown > 0 ? `${t('otp.resend')} (${resendCooldown}s)` : t('otp.resend')}
-                </Button>
-              </div>
+              {isPolling && (
+                <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  <span className="text-sm">{t('signing.waiting') || 'Waiting for your signature...'}</span>
+                </div>
+              )}
             </CardContent>
           </Card>
         ) : signatureStatus === 'failed' ? (
@@ -294,7 +200,7 @@ export default function SonnendachStep8Signature() {
               <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
               <p className="text-lg font-medium text-destructive">{t('failed.title')}</p>
               <p className="text-muted-foreground mt-1 mb-4">{t('failed.message')}</p>
-              <Button onClick={handleInitiateSignature} disabled={isInitiating}>
+              <Button onClick={() => { resetSignature(); handleInitiateSignature() }} disabled={isInitiating}>
                 {isInitiating ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -308,7 +214,6 @@ export default function SonnendachStep8Signature() {
           </Card>
         ) : null}
 
-        {/* Security Note */}
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <div className="flex items-start gap-3">
             <Shield className="h-5 w-5 text-energy shrink-0 mt-0.5" />
@@ -321,7 +226,6 @@ export default function SonnendachStep8Signature() {
           </div>
         </div>
 
-        {/* Navigation */}
         <div className="flex justify-between items-center mt-8 pt-6 border-t">
           <Button
             variant="outline"
@@ -335,7 +239,6 @@ export default function SonnendachStep8Signature() {
             {tCommon('back')}
           </Button>
 
-          {/* Download unsigned contract */}
           {contractPreview?.pdfUrl && (
             <Button
               variant="ghost"

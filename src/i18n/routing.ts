@@ -283,6 +283,14 @@ export const routing = defineRouting({
       en: '/forgot-password',
       de: '/passwort-vergessen',
     },
+    '/set-password': {
+      en: '/set-password',
+      de: '/passwort-setzen',
+    },
+    '/verify-email': {
+      en: '/verify-email',
+      de: '/email-verifizieren',
+    },
     '/terms': {
       en: '/terms',
       de: '/agb',

@@ -4384,7 +4384,7 @@
     },
     "signature": {
       "title": "Digitale Unterschrift",
-      "subtitle": "Unterschreiben Sie Ihre Solar ABO Vereinbarung sicher per SMS-Verifizierung",
+      "subtitle": "Unterschreiben Sie Ihre Solar ABO Vereinbarung sicher über Swisscom Sign",
       "summary": {
         "title": "Vertragsübersicht",
         "document": "Dokument",
@@ -4394,26 +4394,35 @@
         "email": "E-Mail"
       },
       "initiating": {
-        "title": "Verifizierungscode wird gesendet...",
-        "message": "Bitte warten Sie, während wir Ihnen den Code senden."
+        "title": "Signaturprozess wird vorbereitet...",
+        "message": "Bitte warten Sie, während wir den Signaturprozess einrichten."
       },
-      "otp": {
-        "title": "SMS-Verifizierung",
-        "sentTo": "Wir haben einen 6-stelligen Code gesendet an:",
-        "verify": "Verifizieren & Unterschreiben",
-        "verifying": "Wird verifiziert...",
-        "didntReceive": "Code nicht erhalten?",
-        "resend": "Code erneut senden"
+      "signing": {
+        "title": "Bereit zum Unterschreiben",
+        "description": "Klicken Sie auf die Schaltfläche unten, um die sichere Swisscom Sign Seite zu öffnen, wo Sie Ihre Identität verifizieren und den Vertrag unterschreiben.",
+        "openButton": "Signaturseite öffnen",
+        "waiting": "Warten auf Ihre Unterschrift...",
+        "clickAbove": "Klicken Sie oben auf die Schaltfläche, um die Signaturseite zu öffnen."
+      },
+      "signed": {
+        "title": "Vertrag unterschrieben!",
+        "message": "Ihr Vertrag wurde erfolgreich unterschrieben."
+      },
+      "expired": {
+        "title": "Signatur abgelaufen",
+        "message": "Die Signatursitzung ist abgelaufen. Bitte starten Sie erneut.",
+        "retry": "Neue Signatur starten",
+        "retrying": "Wird gestartet..."
       },
       "failed": {
-        "title": "Verifizierung fehlgeschlagen",
-        "message": "Beim Senden des Codes ist ein Fehler aufgetreten.",
+        "title": "Signatur fehlgeschlagen",
+        "message": "Beim Einrichten des Signaturprozesses ist ein Fehler aufgetreten.",
         "retry": "Erneut versuchen",
         "retrying": "Wird erneut versucht..."
       },
       "security": {
         "title": "Sichere Unterschrift",
-        "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen."
+        "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen (ZertES/SCSE)."
       },
       "downloadContract": "Vertrag herunterladen"
     },

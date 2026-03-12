@@ -127,15 +127,14 @@ export interface ContractResponse {
 }
 
 export interface SignatureInitiationResponse {
-  signatureRequestId: string
-  maskedPhone: string
-  expiresAt: string
+  processId: string
+  signingUrl: string
 }
 
-export interface SignatureVerificationResponse {
-  success: boolean
-  signedAt: string
-  signedPdfUrl: string
+export interface SignatureStatusResponse {
+  status: 'CREATED' | 'PENDING' | 'COMPLETED' | 'EXPIRED'
+  signedAt?: string
+  signedPdfUrl?: string
 }
 
 export interface ContractDetails {
@@ -262,37 +261,13 @@ class ContractService {
     return data.data
   }
 
-  /**
-   * Verify OTP and complete signature
-   */
-  async verifySignature(contractId: string, otp: string): Promise<SignatureVerificationResponse> {
-    const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/verify`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ otp }),
-    })
-
-    const data = await response.json()
-
-    if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to verify signature')
-    }
-
-    return data.data
-  }
-
-  /**
-   * Get signature status
-   */
-  async getSignatureStatus(contractId: string): Promise<{ status: string; signedAt?: string }> {
+  async checkSignatureStatus(contractId: string): Promise<SignatureStatusResponse> {
     const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/status`)
 
     const data = await response.json()
 
     if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to get signature status')
+      throw new Error(data.error?.message || 'Failed to check signature status')
     }
 
     return data.data

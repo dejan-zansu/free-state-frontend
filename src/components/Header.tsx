@@ -91,9 +91,22 @@ const Header = () => {
   }
 
   const showDarkHeader = shouldUseDarkHeader || isScrolled
+  const isCalculatorPage = (pathname as string) === '/calculator' || (pathname as string)?.startsWith('/calculator/')
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
+  }
+
+  if (isCalculatorPage) {
+    return (
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 bg-white shadow-sm">
+        <div className="max-w-360 mx-auto flex items-center justify-center">
+          <Link href="/">
+            <LogoDark className="h-6 sm:h-7.25 w-auto" />
+          </Link>
+        </div>
+      </header>
+    )
   }
 
   return (
