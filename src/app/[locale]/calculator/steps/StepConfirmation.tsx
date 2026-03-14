@@ -80,7 +80,7 @@ export default function StepConfirmation() {
   }
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div>
       <div className="container mx-auto px-4 py-8 max-w-2xl">
         <div className="text-center mb-8">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">

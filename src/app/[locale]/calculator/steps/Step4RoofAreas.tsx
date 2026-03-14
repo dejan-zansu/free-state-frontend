@@ -179,6 +179,12 @@ export default function Step4RoofAreas() {
         if (buildingData && buildingData.roofSegments.length > 0) {
           setBuilding(buildingData)
 
+          buildingData.roofSegments.forEach(segment => {
+            if (!selectedSegmentsRef.current.includes(segment.id)) {
+              toggleSegment(segment.id)
+            }
+          })
+
           const center = fromLonLat([
             buildingData.center.lng,
             buildingData.center.lat,
@@ -338,27 +344,44 @@ export default function Step4RoofAreas() {
   const canProceed = selectedSegmentIds.length > 0
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="container mx-auto px-4 pt-8 pb-16 max-w-4xl">
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold">{t('title')}</h1>
-          <p className="mt-2 text-muted-foreground">{t('helper')}</p>
-        </div>
+    <div className="relative h-full w-full">
+      {/* Full-screen map */}
+      <div
+        ref={mapRef}
+        className={cn(
+          'absolute inset-0 w-full h-full bg-muted',
+          isLoadingMap && 'flex items-center justify-center',
+        )}
+      >
+        {isLoadingMap && (
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        )}
+      </div>
 
-        <div className="space-y-4">
-          <div className="relative">
+      <div className="absolute top-[100px] left-4 z-10 flex flex-col gap-3 w-[320px]">
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: 'rgba(30, 42, 38, 0.85)',
+            backdropFilter: 'blur(20px)',
+          }}
+        >
+          <h2 className="text-xl font-medium text-white">{t('title')}</h2>
+
+          <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('locationLabel')}</p>
+          <div className="mt-1.5 relative">
             <Input
               ref={inputRef}
               value={address}
               onChange={e => setAddress(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSearch()}
               placeholder={t('searchPlaceholder')}
-              className="pr-10"
+              className="bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40 pr-10"
             />
             <button
               type="button"
               onClick={handleSearch}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted-foreground hover:text-foreground"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-white/50 hover:text-white"
             >
               {isSearching ? (
                 <Loader2 className="h-5 w-5 animate-spin" />
@@ -368,14 +391,14 @@ export default function Step4RoofAreas() {
             </button>
 
             {showResults && searchResults.length > 0 && (
-              <div className="absolute z-50 mt-1 w-full rounded-md border bg-popover shadow-md">
-                <div className="flex items-center justify-between border-b px-3 py-2">
-                  <span className="text-sm text-muted-foreground">
+              <div className="absolute z-50 mt-1 w-full rounded-md border border-[#4A5B56] bg-[#2A3B36] shadow-md">
+                <div className="flex items-center justify-between border-b border-[#4A5B56] px-3 py-2">
+                  <span className="text-sm text-white/60">
                     {searchResults.length} {t('results')}
                   </span>
                   <button
                     onClick={() => setShowResults(false)}
-                    className="text-muted-foreground hover:text-foreground"
+                    className="text-white/60 hover:text-white"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -386,7 +409,7 @@ export default function Step4RoofAreas() {
                       <button
                         type="button"
                         onClick={() => handleSelectResult(result)}
-                        className="w-full px-3 py-2 text-left text-sm hover:bg-accent"
+                        className="w-full px-3 py-2 text-left text-sm text-white/80 hover:bg-white/10"
                       >
                         {result.attrs.label}
                       </button>
@@ -397,61 +420,64 @@ export default function Step4RoofAreas() {
             )}
           </div>
 
-          <div
-            ref={mapRef}
-            className={cn(
-              'h-[450px] w-full rounded-lg border bg-muted overflow-hidden',
-              isLoadingMap && 'flex items-center justify-center'
-            )}
-          >
-            {isLoadingMap && (
-              <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-            )}
+          <p className="mt-2 text-xs text-[#EAEDDF]/50 italic">{t('officialMap')}</p>
+
+          <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
+            <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2"/>
+              <path d="M8 5v3M8 10h.01" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+            </svg>
+            <span>{t('clickHint')}</span>
           </div>
 
           {isFetchingBuilding && (
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <div className="mt-3 flex items-center gap-2 text-sm text-[#B7FE1A]">
               <Loader2 className="h-4 w-4 animate-spin" />
               {t('loading')}
             </div>
           )}
+        </div>
 
-          <div className="flex items-center justify-between rounded-lg border p-4">
-            <div>
-              <p className="text-sm text-muted-foreground">
-                {t('suitability')}
-              </p>
-              <div className="mt-1 flex gap-1">
-                {[1, 2, 3, 4, 5].map(cls => (
-                  <div
-                    key={cls}
-                    className="h-2 w-8 rounded"
-                    style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
-                  />
-                ))}
-              </div>
-              <div className="mt-1 flex justify-between text-xs text-muted-foreground">
-                <span>{t('veryGood')}</span>
-                <span>{t('moderate')}</span>
-              </div>
-            </div>
-            <div className="text-right">
-              <p className="text-sm text-muted-foreground">{t('selected')}</p>
-              <p className="text-2xl font-bold">
-                {Math.round(selectedArea)} m²
-              </p>
-            </div>
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: 'rgba(30, 42, 38, 0.85)',
+            backdropFilter: 'blur(20px)',
+          }}
+        >
+          <h2 className="text-xl font-medium text-white">{t('title')}</h2>
+
+          <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('suitability')}</p>
+          <div className="mt-2 h-2.5 rounded-full overflow-hidden flex">
+            {[1, 2, 3, 4, 5].map(cls => (
+              <div
+                key={cls}
+                className="flex-1"
+                style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
+              />
+            ))}
           </div>
-        </div>
+          <div className="mt-1 flex justify-between text-xs text-[#EAEDDF]/50">
+            <span>{t('veryGood')}</span>
+            <span>{t('moderate')}</span>
+          </div>
 
-        <div className="mt-8 flex gap-4 justify-end">
-          <Button variant="outline" onClick={prevStep}>
-            {tNav('back')}
-          </Button>
-          <Button className="w-fit" onClick={nextStep} disabled={!canProceed}>
-            {tNav('next')}
-          </Button>
+          <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
+          <p className="text-3xl font-medium text-[#B7FE1A]">{Math.round(selectedArea)} m²</p>
         </div>
+      </div>
+
+      <div className="fixed bottom-6 right-6 z-50 flex gap-3">
+        <Button
+          variant="outline"
+          onClick={prevStep}
+          className="bg-white/80 backdrop-blur-sm"
+        >
+          {tNav('back')}
+        </Button>
+        <Button onClick={nextStep} disabled={!canProceed}>
+          {tNav('next')}
+        </Button>
       </div>
     </div>
   )

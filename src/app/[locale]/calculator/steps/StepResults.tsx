@@ -31,7 +31,7 @@ export default function StepResults() {
   }))
 
   return (
-    <div className='h-full overflow-y-auto'>
+    <div>
       <div className='container mx-auto px-4 pt-8 pb-16 max-w-4xl'>
         <h1 className='text-2xl font-bold'>{t('title')}</h1>
         <p className='mt-2 text-muted-foreground'>{t('subtitle')}</p>
@@ -181,7 +181,7 @@ export default function StepResults() {
           </CardContent>
         </Card>
 
-        <div className='mt-8 flex gap-4 justify-end'>
+        <div className='fixed bottom-6 right-6 z-50 flex gap-4'>
           <Button variant='outline' onClick={store.prevStep}>
             {tNav('back')}
           </Button>

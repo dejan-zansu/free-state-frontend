@@ -97,7 +97,7 @@ export default function StepContractReview() {
   }
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div>
       <div className="container mx-auto px-4 py-6 max-w-4xl">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-foreground">{t('title')}</h2>
@@ -294,7 +294,7 @@ export default function StepContractReview() {
           </Card>
         </div>
 
-        <div className="flex justify-between items-center mt-8 pt-6 border-t">
+        <div className="fixed bottom-6 right-6 z-50 flex gap-4">
           <Button
             variant="outline"
             onClick={() => goToStep(7)}

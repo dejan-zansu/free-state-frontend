@@ -4190,6 +4190,51 @@
     }
   },
   "solarAboCalculator": {
+    "modelSelection": {
+      "title": "Wählen Sie Ihr Solarmodell",
+      "subtitle": "Wählen Sie, wie Sie Ihre Solaranlage finanzieren und betreiben möchten.",
+      "solarAbo": {
+        "tag": "Nur online",
+        "title": "SolarAbo",
+        "bullet1": "Keine Kapitalinvestition.",
+        "bullet2": "Vertragsbasiertes Modell."
+      },
+      "solarDirect": {
+        "tag": "Volleigentum",
+        "title": "SolarDirect",
+        "bullet1": "Einmalkauf.",
+        "bullet2": "Langfristiges Eigentum."
+      },
+      "learnMore": "Erfahren Sie mehr über SolarAbo und SolarDirect"
+    },
+    "multiPlanning": {
+      "title": "Für wen planen Sie die Anlage?",
+      "subtitle": "Möchten Sie eine grosse Solaranlage für alle Parteien bauen oder eine kleinere, auf Ihre Bedürfnisse optimierte Anlage mit geringerer Investition?",
+      "myNeeds": {
+        "title": "Grösse optimiert für meine Bedürfnisse",
+        "description": "Eine kleinere Anlage, die auf Ihren persönlichen Energieverbrauch zugeschnitten ist, mit geringerer Investition."
+      },
+      "allParties": {
+        "title": "Grösse optimiert für alle Parteien",
+        "description": "Eine grössere Anlage für das gesamte Gebäude, die die Energieproduktion für alle Wohnungen maximiert."
+      }
+    },
+    "apartmentCount": {
+      "title": "Wie viele Wohnungen hat Ihr Mehrfamilienhaus?"
+    },
+    "step1Packages": {
+      "title": "Wählen Sie Ihr {model}-Paket",
+      "subtitle": "Wählen Sie das Paket, das am besten zu Ihrem Gebäudetyp passt",
+      "home": {
+        "title": "{model} Home",
+        "description": "Für Einfamilienhäuser\nmit Batteriespeicher"
+      },
+      "multi": {
+        "title": "{model} Multi",
+        "description": "Für Mehrfamilienhäuser und\ngemeinschaftliche Energieversorgung\n(ZEV / LEG)"
+      },
+      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Multi"
+    },
     "progress": {
       "step1": "Gebäude",
       "step2": "Haushalt",
@@ -4246,9 +4291,12 @@
       }
     },
     "step5": {
-      "title": "Welche Dachflächen möchten Sie für Ihr Energieprojekt nutzen?",
+      "title": "Wählen Sie Ihre Dachflächen",
       "helper": "Klicken Sie auf alle Dachflächen, die für Ihr Angebot berücksichtigt werden sollen.",
+      "locationLabel": "Standort",
       "searchPlaceholder": "Geben Sie Ihre Adresse ein...",
+      "officialMap": "Offizielle Schweizer topografische Karte",
+      "clickHint": "Klicken Sie auf eine farbige Fläche, um sie zur Solaranlage hinzuzufügen.",
       "results": "Ergebnisse",
       "suitability": "Eignungsgrad der Dachfläche",
       "veryGood": "Sehr gut",

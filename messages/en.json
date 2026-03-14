@@ -2556,6 +2556,51 @@
     }
   },
   "solarAboCalculator": {
+    "modelSelection": {
+      "title": "Choose your solar model",
+      "subtitle": "Select how you want to finance and operate your solar system.",
+      "solarAbo": {
+        "tag": "Online",
+        "title": "SolarAbo",
+        "bullet1": "No capital investment.",
+        "bullet2": "Contract-based model."
+      },
+      "solarDirect": {
+        "tag": "Full Ownership",
+        "title": "SolarDirect",
+        "bullet1": "Upfront purchase.",
+        "bullet2": "Long-term asset ownership."
+      },
+      "learnMore": "Learn more about SolarAbo and SolarDirect"
+    },
+    "multiPlanning": {
+      "title": "Who are you planning the facility for?",
+      "subtitle": "Do you want to build a large solar system for all parties or a smaller system optimized for your needs with a lower investment?",
+      "myNeeds": {
+        "title": "Size optimized to my needs",
+        "description": "A smaller system tailored to your personal energy consumption with a lower investment."
+      },
+      "allParties": {
+        "title": "Size optimized for all parties",
+        "description": "A larger system designed for the entire building, maximizing energy production for all apartments."
+      }
+    },
+    "apartmentCount": {
+      "title": "How many apartments are there in your apartment building?"
+    },
+    "step1Packages": {
+      "title": "Choose your {model} package",
+      "subtitle": "Select the package that best fits your property type",
+      "home": {
+        "title": "{model} Home",
+        "description": "For single-family homes\nwith battery storage"
+      },
+      "multi": {
+        "title": "{model} Multi",
+        "description": "For apartment buildings and\nshared energy communities\n(ZEV / LEG)"
+      },
+      "learnMore": "Learn more about {model} Home and {model} Multi"
+    },
     "progress": {
       "step1": "Building",
       "step2": "Household",
@@ -2593,11 +2638,11 @@
       "title": "How many people live in your household?",
       "helper": "State the number of people including children:",
       "options": {
-        "1": "1 person",
-        "2": "2 people",
-        "3": "3 people",
-        "4": "4 people",
-        "5": "5 and more people"
+        "1": "1 Person",
+        "2": "2 People",
+        "3": "3 People",
+        "4": "4 People",
+        "5": "5 or More"
       }
     },
     "step4": {
@@ -2612,9 +2657,12 @@
       }
     },
     "step5": {
-      "title": "Which roof areas would you like to use for your energy project?",
+      "title": "Select your roof areas",
       "helper": "Click on all roof areas to be considered for your offer.",
+      "locationLabel": "Location",
       "searchPlaceholder": "Enter your address...",
+      "officialMap": "Official Swiss topographic map",
+      "clickHint": "Click on a colored area to add it to the solar installation.",
       "results": "results",
       "suitability": "Degree of suitability of the roof surface",
       "veryGood": "Very good",

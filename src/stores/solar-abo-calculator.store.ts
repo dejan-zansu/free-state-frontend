@@ -6,6 +6,8 @@ import { residentialCalculatorService } from '@/services/residential-calculator.
 
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
+export type SolarModel = 'solar-abo' | 'solar-direct'
+export type MultiPlanningType = 'my-needs' | 'all-parties'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
@@ -91,10 +93,14 @@ const DEVICE_SELF_CONSUMPTION_BONUS: Record<keyof HighPowerDevices, number> = {
 const MONTHLY_FACTORS = [0.047, 0.062, 0.091, 0.104, 0.105, 0.113, 0.117, 0.108, 0.095, 0.074, 0.047, 0.037]
 
 interface SolarAboCalculatorState {
+  solarModel: SolarModel | null
   currentStep: number
   totalSteps: number
 
   buildingType: BuildingType | null
+  multiPlanningType: MultiPlanningType | null
+  showMultiInterstitial: boolean
+  apartmentCount: number
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
 
@@ -125,10 +131,14 @@ interface SolarAboCalculatorState {
 }
 
 interface SolarAboCalculatorActions {
+  setSolarModel: (model: SolarModel | null) => void
   nextStep: () => void
   prevStep: () => void
   goToStep: (step: number) => void
   setBuildingType: (type: BuildingType) => void
+  setMultiPlanningType: (type: MultiPlanningType) => void
+  setShowMultiInterstitial: (show: boolean) => void
+  setApartmentCount: (count: number) => void
   setHouseholdSize: (size: HouseholdSize) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
   setAddress: (address: string) => void
@@ -172,10 +182,14 @@ const initialContact: ContactDetails = {
 }
 
 const initialState: SolarAboCalculatorState = {
+  solarModel: null,
   currentStep: 1,
   totalSteps: 9,
 
   buildingType: null,
+  multiPlanningType: null,
+  showMultiInterstitial: false,
+  apartmentCount: 2,
   householdSize: null,
   devices: {
     heatPumpHeating: false,
@@ -218,6 +232,10 @@ export const useSolarAboCalculatorStore = create<
     (set, get) => ({
       ...initialState,
 
+      setSolarModel: (model: SolarModel | null) => {
+        set({ solarModel: model })
+      },
+
       nextStep: () => {
         const { currentStep, totalSteps } = get()
         if (currentStep < totalSteps) {
@@ -241,6 +259,18 @@ export const useSolarAboCalculatorStore = create<
 
       setBuildingType: (type: BuildingType) => {
         set({ buildingType: type })
+      },
+
+      setMultiPlanningType: (type: MultiPlanningType) => {
+        set({ multiPlanningType: type })
+      },
+
+      setShowMultiInterstitial: (show: boolean) => {
+        set({ showMultiInterstitial: show })
+      },
+
+      setApartmentCount: (count: number) => {
+        set({ apartmentCount: Math.max(2, count) })
       },
 
       setHouseholdSize: (size: HouseholdSize) => {
@@ -320,11 +350,17 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getEstimatedConsumption: () => {
-        const { householdSize, devices } = get()
-        const base = BASE_CONSUMPTION[householdSize || 3] || 3200
+        const { householdSize, devices, buildingType, multiPlanningType, apartmentCount } = get()
         const deviceExtra = (Object.keys(devices) as (keyof HighPowerDevices)[])
           .filter(key => devices[key])
           .reduce((sum, key) => sum + DEVICE_CONSUMPTION[key], 0)
+
+        if (buildingType === 'apartment' && multiPlanningType === 'all-parties') {
+          const perApartment = BASE_CONSUMPTION[3] || 4400
+          return perApartment * apartmentCount + deviceExtra
+        }
+
+        const base = BASE_CONSUMPTION[householdSize || 3] || 3200
         return base + deviceExtra
       },
 
@@ -504,8 +540,11 @@ export const useSolarAboCalculatorStore = create<
       name: 'solar-abo-calculator',
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
+        solarModel: state.solarModel,
         currentStep: state.currentStep,
         buildingType: state.buildingType,
+        multiPlanningType: state.multiPlanningType,
+        apartmentCount: state.apartmentCount,
         householdSize: state.householdSize,
         devices: state.devices,
         address: state.address,

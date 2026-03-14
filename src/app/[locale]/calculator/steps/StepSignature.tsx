@@ -114,7 +114,7 @@ export default function StepSignature() {
   }, [isPolling, signatureStatus, checkStatus])
 
   return (
-    <div className="h-full overflow-y-auto">
+    <div>
       <div className="container mx-auto px-4 py-6 max-w-2xl">
         <div className="mb-6 text-center">
           <h2 className="text-2xl font-bold text-foreground">{t('title')}</h2>

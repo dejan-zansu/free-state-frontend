@@ -99,7 +99,7 @@ const Header = () => {
 
   if (isCalculatorPage) {
     return (
-      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 bg-white shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 bg-[#EAEDDF]">
         <div className="max-w-360 mx-auto flex items-center justify-center">
           <Link href="/">
             <LogoDark className="h-6 sm:h-7.25 w-auto" />

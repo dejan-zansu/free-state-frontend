@@ -1,0 +1,83 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+
+import { Button } from '@/components/ui/button'
+import { useSolarAboCalculatorStore, type MultiPlanningType } from '@/stores/solar-abo-calculator.store'
+import { cn } from '@/lib/utils'
+
+const options: { type: MultiPlanningType; titleKey: string; descKey: string }[] = [
+  { type: 'my-needs', titleKey: 'myNeeds.title', descKey: 'myNeeds.description' },
+  { type: 'all-parties', titleKey: 'allParties.title', descKey: 'allParties.description' },
+]
+
+export default function StepMultiPlanning() {
+  const t = useTranslations('solarAboCalculator.multiPlanning')
+  const tNav = useTranslations('solarAboCalculator.navigation')
+  const { multiPlanningType, setMultiPlanningType, setShowMultiInterstitial, nextStep } = useSolarAboCalculatorStore()
+
+  const handleSelect = (type: MultiPlanningType) => {
+    setMultiPlanningType(type)
+    setShowMultiInterstitial(false)
+    nextStep()
+  }
+
+  const handleBack = () => {
+    setShowMultiInterstitial(false)
+    useSolarAboCalculatorStore.getState().prevStep()
+  }
+
+  return (
+    <div>
+      <div className="flex flex-col items-center justify-center px-4 py-12">
+        <div className="text-center mb-10 max-w-xl">
+          <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            {t('title')}
+          </h1>
+          <p className="mt-5 text-lg sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+            {t('subtitle')}
+          </p>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[700px]">
+          {options.map((option) => (
+            <button
+              key={option.type}
+              type="button"
+              onClick={() => handleSelect(option.type)}
+              className={cn(
+                'group flex-1 rounded-[11px] border p-6 text-left transition-all',
+                'hover:border-[#062E25] hover:shadow-lg',
+                multiPlanningType === option.type
+                  ? 'border-[#062E25] bg-[#F5F7EE]'
+                  : 'border-[#546963]/50 bg-white/60'
+              )}
+            >
+              <h3 className="text-lg font-medium text-[#062E25]">
+                {t(option.titleKey)}
+              </h3>
+              <p className="mt-2 text-sm font-light text-[#062E25]/70 tracking-tight">
+                {t(option.descKey)}
+              </p>
+              <div className="mt-4 flex items-center text-[#062E25] group-hover:gap-2 transition-all">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <div className="fixed bottom-6 right-6 z-50 flex gap-4">
+          <Button
+            variant="outline"
+            className="rounded-full border-[#062E25] text-[#062E25] px-6"
+            onClick={handleBack}
+          >
+            {tNav('back')}
+          </Button>
+        </div>
+      </div>
+    </div>
+  )
+}

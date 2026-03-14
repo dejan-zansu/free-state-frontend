@@ -42,7 +42,7 @@ export default function Step6ContactDetails() {
 
   if (isSubmitted) {
     return (
-      <div className='h-full overflow-y-auto'>
+      <div>
         <div className='container mx-auto px-4 pt-16 pb-16 max-w-lg text-center'>
           <CheckCircle2 className='mx-auto h-16 w-16 text-green-500' />
           <h1 className='mt-6 text-2xl font-bold'>{t('confirmation.title')}</h1>
@@ -170,7 +170,7 @@ export default function Step6ContactDetails() {
           </div>
         </div>
 
-        <div className='mt-8 flex gap-4 justify-end'>
+        <div className='fixed bottom-6 right-6 z-50 flex gap-4'>
           <Button variant='outline' onClick={prevStep} disabled={isSubmitting}>
             {tNav('back')}
           </Button>
