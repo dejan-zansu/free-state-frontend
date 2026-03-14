@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { CheckCircle2, Loader2 } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -19,10 +19,8 @@ export default function Step6ContactDetails() {
     prevStep,
     nextStep,
     isSubmitting,
-    isSubmitted,
     submissionError,
     submitCalculation,
-    reset,
   } = useSolarAboCalculatorStore()
 
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)
@@ -38,27 +36,7 @@ export default function Step6ContactDetails() {
   const handleSubmit = async () => {
     if (!isValid) return
     await submitCalculation()
-  }
-
-  if (isSubmitted) {
-    return (
-      <div>
-        <div className='container mx-auto px-4 pt-16 pb-16 max-w-lg text-center'>
-          <CheckCircle2 className='mx-auto h-16 w-16 text-green-500' />
-          <h1 className='mt-6 text-2xl font-bold'>{t('confirmation.title')}</h1>
-          <p className='mt-4 text-muted-foreground'>{t('confirmation.message')}</p>
-          <p className='mt-2 text-muted-foreground'>{t('confirmation.nextSteps')}</p>
-          <div className='mt-8 flex flex-col gap-3 items-center'>
-            <Button onClick={nextStep}>
-              {t('confirmation.signContract')}
-            </Button>
-            <Button variant='outline' onClick={reset}>
-              {t('confirmation.newCalculation')}
-            </Button>
-          </div>
-        </div>
-      </div>
-    )
+    nextStep()
   }
 
   return (
@@ -170,13 +148,13 @@ export default function Step6ContactDetails() {
           </div>
         </div>
 
-        <div className='fixed bottom-6 right-6 z-50 flex gap-4'>
-          <Button variant='outline' onClick={prevStep} disabled={isSubmitting}>
+        <div className='fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4' style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
+          <Button variant='outline' onClick={prevStep} disabled={isSubmitting} style={{ borderColor: "#062E25", color: "#062E25" }}>
             {tNav('back')}
           </Button>
           <Button className='w-fit' onClick={handleSubmit} disabled={!isValid || isSubmitting}>
             {isSubmitting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
-            {t('submit')}
+            {tNav('next')}
           </Button>
         </div>
       </div>

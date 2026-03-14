@@ -262,7 +262,7 @@ export default function StepSignature() {
               resetSignature()
               goToStep(8)
             }}
-            className="gap-2"
+            className="gap-2" style={{ borderColor: "#062E25", color: "#062E25" }}
           >
             <ChevronLeft className="h-4 w-4" />
             {tNav('back')}

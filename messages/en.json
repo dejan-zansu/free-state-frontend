@@ -2571,7 +2571,10 @@
         "bullet1": "Upfront purchase.",
         "bullet2": "Long-term asset ownership."
       },
-      "learnMore": "Learn more about SolarAbo and SolarDirect"
+      "learnMorePrefix": "Learn more about",
+      "learnMoreConnector": "and",
+      "learnMoreSolarAbo": "SolarAbo",
+      "learnMoreSolarDirect": "SolarDirect"
     },
     "multiPlanning": {
       "title": "Who are you planning the facility for?",
@@ -2599,7 +2602,12 @@
         "title": "{model} Multi",
         "description": "For apartment buildings and\nshared energy communities\n(ZEV / LEG)"
       },
-      "learnMore": "Learn more about {model} Home and {model} Multi"
+      "learnMore": "Learn more about {model} Home and {model} Multi",
+      "learnMorePrefix": "Learn more about",
+      "learnMoreConnector": "and",
+      "learnMoreHome": "{model} Home",
+      "learnMoreMulti": "{model} Multi",
+      "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
       "step1": "Building",
@@ -2607,8 +2615,8 @@
       "step3": "Devices",
       "step4": "Roof",
       "step5": "Covering",
-      "step6": "Results",
-      "step7": "Contact",
+      "step6": "Contact",
+      "step7": "Results",
       "step8": "Review",
       "step9": "Sign"
     },

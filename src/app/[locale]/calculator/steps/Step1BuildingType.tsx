@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
@@ -112,13 +113,37 @@ export default function Step1BuildingType() {
         </div>
 
         <p className="mt-5 text-xs font-light text-[#062E25]/60 tracking-tight">
-          {t('learnMore', { model: modelLabel })}
+          {t('learnMorePrefix')}{' '}
+          {solarModel === 'solar-direct' ? (
+            <Link
+              href="/solar-direct"
+              className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
+            >
+              {t('learnMoreSolarDirect')}
+            </Link>
+          ) : (
+            <>
+              <Link
+                href="/solar-abo/solar-abo-home"
+                className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
+              >
+                {t('learnMoreHome', { model: modelLabel })}
+              </Link>
+              {` ${t('learnMoreConnector')} `}
+              <Link
+                href="/solar-abo/solar-abo-multi"
+                className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
+              >
+                {t('learnMoreMulti', { model: modelLabel })}
+              </Link>
+            </>
+          )}
         </p>
 
-        <div className="fixed bottom-6 right-6 z-50 flex gap-3">
+        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
           <Button
             variant="outline"
-            className="rounded-full border-[#062E25] text-[#062E25] px-6"
+            style={{ borderColor: "#062E25", color: "#062E25" }}
             onClick={handleBack}
           >
             {tNav('back')}

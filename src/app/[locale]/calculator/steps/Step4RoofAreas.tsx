@@ -467,11 +467,11 @@ export default function Step4RoofAreas() {
         </div>
       </div>
 
-      <div className="fixed bottom-6 right-6 z-50 flex gap-3">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
         <Button
           variant="outline"
           onClick={prevStep}
-          className="bg-white/80 backdrop-blur-sm"
+          style={{ borderColor: "#062E25", color: "#062E25" }}
         >
           {tNav('back')}
         </Button>

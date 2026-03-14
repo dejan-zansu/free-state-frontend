@@ -24,6 +24,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.1.explanation.text'),
       price: t('cards.1.price'),
       term: t('cards.1.term'),
+      learnMoreHref: '/solar-abo/solar-abo-business' as const,
     },
     {
       title: t('cards.2.title'),
@@ -39,6 +40,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.2.explanation.text'),
       price: t('cards.2.price'),
       term: t('cards.2.term'),
+      learnMoreHref: '/solar-abo/solar-abo-agro' as const,
     },
   ]
 
@@ -57,6 +59,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.1.explanation.text'),
       price: t('cards.1.price'),
       term: t('cards.1.term'),
+      learnMoreHref: '/solar-abo/solar-abo-business' as const,
     },
     {
       title: t('cards.1.title'),
@@ -72,6 +75,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.1.explanation.text'),
       price: t('cards.1.price'),
       term: t('cards.1.term'),
+      learnMoreHref: '/solar-abo/solar-abo-business' as const,
     },
     {
       title: t('cards.2.title'),
@@ -87,6 +91,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.2.explanation.text'),
       price: t('cards.2.price'),
       term: t('cards.2.term'),
+      learnMoreHref: '/solar-abo/solar-abo-agro' as const,
     },
   ]
 
@@ -111,7 +116,7 @@ const Deals = async ({ isCommercial = false }) => {
           >
             <div
               className={cn(
-                'p-6 flex gap-2 justify-center items-center',
+                'p-6 flex gap-2 justify-start items-center',
                 isCommercial ? 'bg-[#3D3858]' : 'bg-[#1B332D]'
               )}
             >
@@ -261,7 +266,9 @@ const Deals = async ({ isCommercial = false }) => {
                     </p>
                     <LinkButton
                       variant={isCommercial ? 'quaternary' : 'tertiary'}
-                      href={isCommercial ? '/commercial/calculator' : '/calculator'}
+                      href={
+                        isCommercial ? '/commercial/calculator' : '/calculator'
+                      }
                       className="w-full text-center uppercase mt-5 max-w-[280px] mx-auto"
                     >
                       {t('orderNow')}
@@ -270,9 +277,7 @@ const Deals = async ({ isCommercial = false }) => {
                 </div>
 
                 <div className="flex justify-start px-6">
-                  <LearnMoreLink href="/deals">
-                    {t('learnMore')}
-                  </LearnMoreLink>
+                  <LearnMoreLink href={deal.learnMoreHref}>{t('learnMore')}</LearnMoreLink>
                 </div>
               </div>
             </div>

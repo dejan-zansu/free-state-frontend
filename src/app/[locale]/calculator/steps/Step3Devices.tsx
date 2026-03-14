@@ -1,14 +1,14 @@
 'use client'
 
-import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import {
   useSolarAboCalculatorStore,
   type HighPowerDevices,
 } from '@/stores/solar-abo-calculator.store'
-import { cn } from '@/lib/utils'
 
 const deviceOptions: {
   key: keyof HighPowerDevices
@@ -85,7 +85,7 @@ export default function Step3Devices() {
                   />
                 </div>
                 <div className="flex items-center gap-2.5 mt-5">
-                  <span className="text-[18px] text-[#062E25] capitalize">
+                  <span className="text-sm md:text-base text-[#062E25] capitalize">
                     {t(`devices.${option.labelKey}`)}
                   </span>
                 </div>
@@ -94,8 +94,14 @@ export default function Step3Devices() {
           })}
         </div>
 
-        <div className="fixed bottom-6 right-6 z-50 flex gap-4">
-          <Button variant="outline" onClick={prevStep}>
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
+          <Button variant="outline" onClick={prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
             {tNav('back')}
           </Button>
           <Button

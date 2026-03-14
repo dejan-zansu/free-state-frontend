@@ -294,11 +294,11 @@ export default function StepContractReview() {
           </Card>
         </div>
 
-        <div className="fixed bottom-6 right-6 z-50 flex gap-4">
+        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
           <Button
             variant="outline"
             onClick={() => goToStep(7)}
-            className="gap-2"
+            className="gap-2" style={{ borderColor: "#062E25", color: "#062E25" }}
           >
             <ChevronLeft className="h-4 w-4" />
             {tNav('back')}

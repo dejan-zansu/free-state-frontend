@@ -4205,7 +4205,10 @@
         "bullet1": "Einmalkauf.",
         "bullet2": "Langfristiges Eigentum."
       },
-      "learnMore": "Erfahren Sie mehr über SolarAbo und SolarDirect"
+      "learnMorePrefix": "Mehr erfahren über",
+      "learnMoreConnector": "und",
+      "learnMoreSolarAbo": "SolarAbo",
+      "learnMoreSolarDirect": "SolarDirect"
     },
     "multiPlanning": {
       "title": "Für wen planen Sie die Anlage?",
@@ -4233,7 +4236,12 @@
         "title": "{model} Multi",
         "description": "Für Mehrfamilienhäuser und\ngemeinschaftliche Energieversorgung\n(ZEV / LEG)"
       },
-      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Multi"
+      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Multi",
+      "learnMorePrefix": "Mehr erfahren über",
+      "learnMoreConnector": "und",
+      "learnMoreHome": "{model} Home",
+      "learnMoreMulti": "{model} Multi",
+      "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
       "step1": "Gebäude",
@@ -4241,8 +4249,8 @@
       "step3": "Geräte",
       "step4": "Dach",
       "step5": "Abdeckung",
-      "step6": "Ergebnisse",
-      "step7": "Kontakt",
+      "step6": "Kontakt",
+      "step7": "Ergebnisse",
       "step8": "Prüfung",
       "step9": "Signieren"
     },

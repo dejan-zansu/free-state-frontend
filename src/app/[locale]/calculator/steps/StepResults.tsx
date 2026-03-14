@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Zap, TrendingUp, Sun, Leaf, PanelTop, Ruler, BarChart3, Home, Building2 } from 'lucide-react'
+import { Zap, TrendingUp, Sun, Leaf, PanelTop, BarChart3 } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 
 import { Button } from '@/components/ui/button'
@@ -23,7 +23,6 @@ export default function StepResults() {
   const panelCount = store.getEstimatedPanelCount()
   const selectedArea = store.getSelectedArea()
   const monthlyProduction = store.getMonthlyProduction()
-  const recommendedPackage = store.getRecommendedPackage()
 
   const chartData = MONTH_KEYS.map((key, i) => ({
     name: t(`months.${key}`),
@@ -145,44 +144,9 @@ export default function StepResults() {
           </CardContent>
         </Card>
 
-        <Card className='mt-8'>
-          <CardContent className='pt-6'>
-            <h2 className='text-lg font-semibold mb-4'>{t('package.title')}</h2>
-            <div className='grid grid-cols-2 gap-4'>
-              <Card
-                className={`cursor-default ${recommendedPackage === 'home' ? 'border-primary ring-2 ring-primary/20' : ''}`}
-              >
-                <CardContent className='pt-6 text-center'>
-                  <Home className='mx-auto h-8 w-8 text-primary' />
-                  <p className='mt-2 font-semibold'>{t('package.home')}</p>
-                  <p className='text-sm text-muted-foreground'>{t('package.homeDesc')}</p>
-                  {recommendedPackage === 'home' && (
-                    <span className='mt-2 inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full'>
-                      {t('package.recommended')}
-                    </span>
-                  )}
-                </CardContent>
-              </Card>
-              <Card
-                className={`cursor-default ${recommendedPackage === 'multi' ? 'border-primary ring-2 ring-primary/20' : ''}`}
-              >
-                <CardContent className='pt-6 text-center'>
-                  <Building2 className='mx-auto h-8 w-8 text-primary' />
-                  <p className='mt-2 font-semibold'>{t('package.multi')}</p>
-                  <p className='text-sm text-muted-foreground'>{t('package.multiDesc')}</p>
-                  {recommendedPackage === 'multi' && (
-                    <span className='mt-2 inline-block text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded-full'>
-                      {t('package.recommended')}
-                    </span>
-                  )}
-                </CardContent>
-              </Card>
-            </div>
-          </CardContent>
-        </Card>
 
-        <div className='fixed bottom-6 right-6 z-50 flex gap-4'>
-          <Button variant='outline' onClick={store.prevStep}>
+        <div className='fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4' style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
+          <Button variant='outline' onClick={store.prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
             {tNav('back')}
           </Button>
           <Button onClick={store.nextStep}>
