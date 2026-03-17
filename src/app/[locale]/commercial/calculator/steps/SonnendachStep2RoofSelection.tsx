@@ -1,14 +1,14 @@
 'use client'
 
 import {
+  Building2,
+  CheckCircle2,
   ChevronLeft,
   ChevronRight,
-  Loader2,
-  Building2,
-  Sun,
-  Ruler,
   Compass,
-  CheckCircle2,
+  Loader2,
+  Ruler,
+  Sun,
   XCircle,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -17,10 +17,10 @@ import { defaults as defaultControls } from 'ol/control'
 import { Polygon } from 'ol/geom'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
+import { fromLonLat } from 'ol/proj'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
-import { fromLonLat } from 'ol/proj'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -187,7 +187,10 @@ export default function SonnendachStep2RoofSelection() {
       vectorSourceRef.current?.addFeature(feature)
     })
 
-    console.log('Features added:', vectorSourceRef.current?.getFeatures().length)
+    console.log(
+      'Features added:',
+      vectorSourceRef.current?.getFeatures().length
+    )
   }, [building, getSegmentStyle])
 
   // Initialize map
@@ -487,7 +490,7 @@ export default function SonnendachStep2RoofSelection() {
                           {suitability?.label || 'Unknown'}
                         </span>
                       </div>
-                      <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-xs text-muted-foreground">
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-muted-foreground">
                         <div className="flex items-center gap-1">
                           <Ruler className="w-3 h-3" />
                           {segment.area} m²
@@ -518,7 +521,7 @@ export default function SonnendachStep2RoofSelection() {
             <CardTitle className="text-sm">{t('legend')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-2 gap-2 text-xs">
+            <div className="grid grid-cols-2 gap-2 text-sm">
               {Object.entries(SUITABILITY_CLASSES).map(([key, value]) => (
                 <div key={key} className="flex items-center gap-2">
                   <div
@@ -573,7 +576,7 @@ export default function SonnendachStep2RoofSelection() {
           </div>
         )}
 
-        <div className="absolute top-4 right-4 z-10 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs">
+        <div className="absolute top-4 right-4 z-10 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-sm">
           <p className="font-medium mb-1">{t('mapHelp.title')}</p>
           <ul className="text-muted-foreground space-y-0.5">
             <li>{t('mapHelp.click')}</li>

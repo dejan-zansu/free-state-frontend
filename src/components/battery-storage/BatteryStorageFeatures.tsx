@@ -60,7 +60,7 @@ const BatteryStorageFeatures = async () => {
                   <h3 className="text-[#062E25] text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-tight">
                     {t(`features.items.${feature.key}.title`)}
                   </h3>
-                  <p className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-medium leading-snug tracking-tight">
+                  <p className="text-[#062E25]/80 text-sm sm:text-sm md:text-base font-medium leading-snug tracking-tight">
                     {t(`features.items.${feature.key}.description`)}
                   </p>
                 </div>

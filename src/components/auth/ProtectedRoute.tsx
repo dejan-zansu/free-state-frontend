@@ -9,12 +9,14 @@ interface ProtectedRouteProps {
   children: React.ReactNode
   allowedRoles?: UserRole[]
   redirectTo?: string
+  adminRedirect?: string
 }
 
 export function ProtectedRoute({
   children,
   allowedRoles,
   redirectTo = '/login',
+  adminRedirect,
 }: ProtectedRouteProps) {
   const router = useRouter()
   const { isAuthenticated, isInitialized, user, checkAuth } = useAuthStore()
@@ -30,12 +32,16 @@ export function ProtectedRoute({
   }, [isInitialized, isAuthenticated, router, redirectTo])
 
   useEffect(() => {
-    if (isInitialized && isAuthenticated && allowedRoles && user) {
-      if (!allowedRoles.includes(user.role)) {
+    if (isInitialized && isAuthenticated && user) {
+      if (adminRedirect && user.role === 'ADMIN') {
+        router.push(adminRedirect)
+        return
+      }
+      if (allowedRoles && !allowedRoles.includes(user.role)) {
         router.push('/unauthorized')
       }
     }
-  }, [isInitialized, isAuthenticated, allowedRoles, user, router])
+  }, [isInitialized, isAuthenticated, allowedRoles, adminRedirect, user, router])
 
   if (!isInitialized) {
     return (
@@ -70,6 +76,10 @@ export function ProtectedRoute({
   }
 
   if (!isAuthenticated) {
+    return null
+  }
+
+  if (adminRedirect && user?.role === 'ADMIN') {
     return null
   }
 

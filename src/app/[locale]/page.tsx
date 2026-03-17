@@ -37,10 +37,7 @@ export default async function HomePage() {
 
   return (
     <div className="w-full overflow-x-hidden">
-      <Hero
-        title="Smart solar solutions for private homes"
-        description="Clean energy, predictable costs, and full service, all without investment."
-      />
+      <Hero />
       <WhoWeAre />
       <Deals />
       <SolarEnergyFor />

@@ -1,19 +1,19 @@
 'use client'
 
-import { useEffect } from 'react'
+import { Link } from '@/i18n/navigation'
+import confetti from 'canvas-confetti'
 import {
+  Calendar,
   CheckCircle2,
   Download,
-  Mail,
-  Phone,
-  Calendar,
   FileText,
   Home,
+  Mail,
+  Phone,
   Zap,
 } from 'lucide-react'
-import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import confetti from 'canvas-confetti'
+import { useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -70,7 +70,10 @@ export default function StepConfirmation() {
 
   const handleDownloadContract = () => {
     if (createdContractId) {
-      window.open(contractService.getDownloadUrl(createdContractId, true), '_blank')
+      window.open(
+        contractService.getDownloadUrl(createdContractId, true),
+        '_blank'
+      )
     }
   }
 
@@ -86,7 +89,9 @@ export default function StepConfirmation() {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 className="h-12 w-12 text-green-600" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">{t('title')}</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            {t('title')}
+          </h1>
           <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
         </div>
 
@@ -99,26 +104,40 @@ export default function StepConfirmation() {
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.contractNumber')}</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.contractNumber')}
+              </span>
               <span className="font-medium">{contractNumber || '-'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.signedBy')}</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.signedBy')}
+              </span>
               <span className="font-medium">
                 {contact.firstName} {contact.lastName}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.systemSize')}</span>
-              <span className="font-medium">{getSystemSizeKwp().toFixed(2)} kWp</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.systemSize')}
+              </span>
+              <span className="font-medium">
+                {getSystemSizeKwp().toFixed(2)} kWp
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.panels')}</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.panels')}
+              </span>
               <span className="font-medium">{getEstimatedPanelCount()}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.savings')}</span>
-              <span className="font-medium">CHF {formatSwissNumber(getAnnualSavings(), 0)}/Jahr</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.savings')}
+              </span>
+              <span className="font-medium">
+                CHF {formatSwissNumber(getAnnualSavings(), 0)}/Jahr
+              </span>
             </div>
           </CardContent>
         </Card>
@@ -132,7 +151,9 @@ export default function StepConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('download.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('download.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('download.description')}
+                  </p>
                 </div>
               </div>
               <Button onClick={handleDownloadContract}>
@@ -157,7 +178,9 @@ export default function StepConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step1.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step1.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step1.description')}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -166,7 +189,9 @@ export default function StepConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step2.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step2.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step2.description')}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -175,7 +200,9 @@ export default function StepConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step3.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step3.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step3.description')}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -184,7 +211,9 @@ export default function StepConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step4.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step4.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step4.description')}
+                  </p>
                 </div>
               </li>
             </ol>
@@ -222,7 +251,7 @@ export default function StepConfirmation() {
             <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <div>
               <p className="font-medium text-sm">{t('emailNote.title')}</p>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 {t('emailNote.message', { email: contact.email })}
               </p>
             </div>
@@ -230,7 +259,11 @@ export default function StepConfirmation() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button variant="outline" onClick={handleStartNew} className="flex-1 gap-2">
+          <Button
+            variant="outline"
+            onClick={handleStartNew}
+            className="flex-1 gap-2"
+          >
             <Zap className="h-4 w-4" />
             {t('actions.newCalculation')}
           </Button>

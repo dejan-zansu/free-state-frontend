@@ -1,21 +1,21 @@
 'use client'
 
-import { useState } from 'react'
 import {
   ChevronLeft,
   ChevronRight,
-  User,
-  Mail,
-  Phone,
-  MapPin,
-  Lock,
   Eye,
   EyeOff,
-  Home,
   FileText,
+  Home,
+  Lock,
+  Mail,
+  MapPin,
+  Phone,
   Shield,
+  User,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -35,9 +35,32 @@ import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.sto
 
 // Swiss cantons
 const SWISS_CANTONS = [
-  'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR',
-  'JU', 'LU', 'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG',
-  'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH',
+  'AG',
+  'AI',
+  'AR',
+  'BE',
+  'BL',
+  'BS',
+  'FR',
+  'GE',
+  'GL',
+  'GR',
+  'JU',
+  'LU',
+  'NE',
+  'NW',
+  'OW',
+  'SG',
+  'SH',
+  'SO',
+  'SZ',
+  'TG',
+  'TI',
+  'UR',
+  'VD',
+  'VS',
+  'ZG',
+  'ZH',
 ]
 
 export default function SonnendachStep6PersonalInfo() {
@@ -67,7 +90,9 @@ export default function SonnendachStep6PersonalInfo() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [confirmPassword, setConfirmPassword] = useState('')
-  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({})
+  const [validationErrors, setValidationErrors] = useState<
+    Record<string, string>
+  >({})
 
   // Parse installation address from calculator address
   const parseAddress = (fullAddress: string) => {
@@ -114,7 +139,11 @@ export default function SonnendachStep6PersonalInfo() {
     }
     if (!personalInfo.phone.trim()) {
       errors.phone = t('validation.phoneRequired')
-    } else if (!/^\+41\s?7[5-9]\s?\d{3}\s?\d{2}\s?\d{2}$/.test(personalInfo.phone.replace(/\s/g, ''))) {
+    } else if (
+      !/^\+41\s?7[5-9]\s?\d{3}\s?\d{2}\s?\d{2}$/.test(
+        personalInfo.phone.replace(/\s/g, '')
+      )
+    ) {
       errors.phone = t('validation.phoneInvalid')
     }
     if (!personalInfo.password) {
@@ -159,7 +188,10 @@ export default function SonnendachStep6PersonalInfo() {
     }
 
     // Property ownership validation
-    if (!propertyOwnership.isPropertyOwner && !propertyOwnership.propertyOwnerName?.trim()) {
+    if (
+      !propertyOwnership.isPropertyOwner &&
+      !propertyOwnership.propertyOwnerName?.trim()
+    ) {
       errors.ownerName = t('validation.ownerNameRequired')
     }
 
@@ -208,30 +240,46 @@ export default function SonnendachStep6PersonalInfo() {
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">{t('contactDetails.firstName')} *</Label>
+                  <Label htmlFor="firstName">
+                    {t('contactDetails.firstName')} *
+                  </Label>
                   <Input
                     id="firstName"
                     value={personalInfo.firstName}
-                    onChange={(e) => setPersonalInfo({ firstName: e.target.value })}
+                    onChange={e =>
+                      setPersonalInfo({ firstName: e.target.value })
+                    }
                     placeholder={t('contactDetails.firstNamePlaceholder')}
-                    className={validationErrors.firstName ? 'border-destructive' : ''}
+                    className={
+                      validationErrors.firstName ? 'border-destructive' : ''
+                    }
                   />
                   {validationErrors.firstName && (
-                    <p className="text-xs text-destructive">{validationErrors.firstName}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.firstName}
+                    </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">{t('contactDetails.lastName')} *</Label>
+                  <Label htmlFor="lastName">
+                    {t('contactDetails.lastName')} *
+                  </Label>
                   <Input
                     id="lastName"
                     value={personalInfo.lastName}
-                    onChange={(e) => setPersonalInfo({ lastName: e.target.value })}
+                    onChange={e =>
+                      setPersonalInfo({ lastName: e.target.value })
+                    }
                     placeholder={t('contactDetails.lastNamePlaceholder')}
-                    className={validationErrors.lastName ? 'border-destructive' : ''}
+                    className={
+                      validationErrors.lastName ? 'border-destructive' : ''
+                    }
                   />
                   {validationErrors.lastName && (
-                    <p className="text-xs text-destructive">{validationErrors.lastName}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.lastName}
+                    </p>
                   )}
                 </div>
               </div>
@@ -245,13 +293,15 @@ export default function SonnendachStep6PersonalInfo() {
                       id="email"
                       type="email"
                       value={personalInfo.email}
-                      onChange={(e) => setPersonalInfo({ email: e.target.value })}
+                      onChange={e => setPersonalInfo({ email: e.target.value })}
                       placeholder={t('contactDetails.emailPlaceholder')}
                       className={`pl-10 ${validationErrors.email ? 'border-destructive' : ''}`}
                     />
                   </div>
                   {validationErrors.email && (
-                    <p className="text-xs text-destructive">{validationErrors.email}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.email}
+                    </p>
                   )}
                 </div>
 
@@ -263,15 +313,19 @@ export default function SonnendachStep6PersonalInfo() {
                       id="phone"
                       type="tel"
                       value={personalInfo.phone}
-                      onChange={(e) => setPersonalInfo({ phone: e.target.value })}
+                      onChange={e => setPersonalInfo({ phone: e.target.value })}
                       placeholder="+41 79 123 45 67"
                       className={`pl-10 ${validationErrors.phone ? 'border-destructive' : ''}`}
                     />
                   </div>
                   {validationErrors.phone && (
-                    <p className="text-xs text-destructive">{validationErrors.phone}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.phone}
+                    </p>
                   )}
-                  <p className="text-xs text-muted-foreground">{t('contactDetails.phoneHint')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('contactDetails.phoneHint')}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -288,25 +342,43 @@ export default function SonnendachStep6PersonalInfo() {
             <CardContent className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="md:col-span-2 space-y-2">
-                  <Label htmlFor="installStreet">{t('installationAddress.street')} *</Label>
+                  <Label htmlFor="installStreet">
+                    {t('installationAddress.street')} *
+                  </Label>
                   <Input
                     id="installStreet"
                     value={installationAddress.street}
-                    onChange={(e) => setInstallationAddress({ ...installationAddress, street: e.target.value })}
+                    onChange={e =>
+                      setInstallationAddress({
+                        ...installationAddress,
+                        street: e.target.value,
+                      })
+                    }
                     placeholder={t('installationAddress.streetPlaceholder')}
-                    className={validationErrors.installStreet ? 'border-destructive' : ''}
+                    className={
+                      validationErrors.installStreet ? 'border-destructive' : ''
+                    }
                   />
                   {validationErrors.installStreet && (
-                    <p className="text-xs text-destructive">{validationErrors.installStreet}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.installStreet}
+                    </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="installNumber">{t('installationAddress.number')}</Label>
+                  <Label htmlFor="installNumber">
+                    {t('installationAddress.number')}
+                  </Label>
                   <Input
                     id="installNumber"
                     value={installationAddress.streetNumber || ''}
-                    onChange={(e) => setInstallationAddress({ ...installationAddress, streetNumber: e.target.value })}
+                    onChange={e =>
+                      setInstallationAddress({
+                        ...installationAddress,
+                        streetNumber: e.target.value,
+                      })
+                    }
                     placeholder="1a"
                   />
                 </div>
@@ -314,45 +386,84 @@ export default function SonnendachStep6PersonalInfo() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="installPostalCode">{t('installationAddress.postalCode')} *</Label>
+                  <Label htmlFor="installPostalCode">
+                    {t('installationAddress.postalCode')} *
+                  </Label>
                   <Input
                     id="installPostalCode"
                     value={installationAddress.postalCode}
-                    onChange={(e) => setInstallationAddress({ ...installationAddress, postalCode: e.target.value })}
+                    onChange={e =>
+                      setInstallationAddress({
+                        ...installationAddress,
+                        postalCode: e.target.value,
+                      })
+                    }
                     placeholder="8001"
                     maxLength={4}
-                    className={validationErrors.installPostalCode ? 'border-destructive' : ''}
+                    className={
+                      validationErrors.installPostalCode
+                        ? 'border-destructive'
+                        : ''
+                    }
                   />
                   {validationErrors.installPostalCode && (
-                    <p className="text-xs text-destructive">{validationErrors.installPostalCode}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.installPostalCode}
+                    </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="installCity">{t('installationAddress.city')} *</Label>
+                  <Label htmlFor="installCity">
+                    {t('installationAddress.city')} *
+                  </Label>
                   <Input
                     id="installCity"
                     value={installationAddress.city}
-                    onChange={(e) => setInstallationAddress({ ...installationAddress, city: e.target.value })}
+                    onChange={e =>
+                      setInstallationAddress({
+                        ...installationAddress,
+                        city: e.target.value,
+                      })
+                    }
                     placeholder="Zürich"
-                    className={validationErrors.installCity ? 'border-destructive' : ''}
+                    className={
+                      validationErrors.installCity ? 'border-destructive' : ''
+                    }
                   />
                   {validationErrors.installCity && (
-                    <p className="text-xs text-destructive">{validationErrors.installCity}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.installCity}
+                    </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="installCanton">{t('installationAddress.canton')} *</Label>
+                  <Label htmlFor="installCanton">
+                    {t('installationAddress.canton')} *
+                  </Label>
                   <Select
                     value={installationAddress.canton}
-                    onValueChange={(value) => setInstallationAddress({ ...installationAddress, canton: value })}
+                    onValueChange={value =>
+                      setInstallationAddress({
+                        ...installationAddress,
+                        canton: value,
+                      })
+                    }
                   >
-                    <SelectTrigger className={validationErrors.installCanton ? 'border-destructive' : ''}>
-                      <SelectValue placeholder={t('installationAddress.selectCanton')} />
+                    <SelectTrigger
+                      className={
+                        validationErrors.installCanton
+                          ? 'border-destructive'
+                          : ''
+                      }
+                    >
+                      <SelectValue
+                        placeholder={t('installationAddress.selectCanton')}
+                      />
                     </SelectTrigger>
                     <SelectContent>
-                      {SWISS_CANTONS.map((canton) => (
+                      {SWISS_CANTONS.map(canton => (
                         <SelectItem key={canton} value={canton}>
                           {canton}
                         </SelectItem>
@@ -360,7 +471,9 @@ export default function SonnendachStep6PersonalInfo() {
                     </SelectContent>
                   </Select>
                   {validationErrors.installCanton && (
-                    <p className="text-xs text-destructive">{validationErrors.installCanton}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.installCanton}
+                    </p>
                   )}
                 </div>
               </div>
@@ -369,9 +482,14 @@ export default function SonnendachStep6PersonalInfo() {
                 <Checkbox
                   id="sameAddress"
                   checked={sameAsInstallation}
-                  onCheckedChange={(checked) => setSameAsInstallation(checked === true)}
+                  onCheckedChange={checked =>
+                    setSameAsInstallation(checked === true)
+                  }
                 />
-                <Label htmlFor="sameAddress" className="text-sm font-normal cursor-pointer">
+                <Label
+                  htmlFor="sameAddress"
+                  className="text-sm font-normal cursor-pointer"
+                >
                   {t('installationAddress.sameAsBilling')}
                 </Label>
               </div>
@@ -390,25 +508,43 @@ export default function SonnendachStep6PersonalInfo() {
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="md:col-span-2 space-y-2">
-                    <Label htmlFor="billStreet">{t('billingAddress.street')} *</Label>
+                    <Label htmlFor="billStreet">
+                      {t('billingAddress.street')} *
+                    </Label>
                     <Input
                       id="billStreet"
                       value={billingAddress.street}
-                      onChange={(e) => setBillingAddress({ ...billingAddress, street: e.target.value })}
+                      onChange={e =>
+                        setBillingAddress({
+                          ...billingAddress,
+                          street: e.target.value,
+                        })
+                      }
                       placeholder={t('billingAddress.streetPlaceholder')}
-                      className={validationErrors.billStreet ? 'border-destructive' : ''}
+                      className={
+                        validationErrors.billStreet ? 'border-destructive' : ''
+                      }
                     />
                     {validationErrors.billStreet && (
-                      <p className="text-xs text-destructive">{validationErrors.billStreet}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.billStreet}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="billNumber">{t('billingAddress.number')}</Label>
+                    <Label htmlFor="billNumber">
+                      {t('billingAddress.number')}
+                    </Label>
                     <Input
                       id="billNumber"
                       value={billingAddress.streetNumber || ''}
-                      onChange={(e) => setBillingAddress({ ...billingAddress, streetNumber: e.target.value })}
+                      onChange={e =>
+                        setBillingAddress({
+                          ...billingAddress,
+                          streetNumber: e.target.value,
+                        })
+                      }
                       placeholder="1a"
                     />
                   </div>
@@ -416,45 +552,81 @@ export default function SonnendachStep6PersonalInfo() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="billPostalCode">{t('billingAddress.postalCode')} *</Label>
+                    <Label htmlFor="billPostalCode">
+                      {t('billingAddress.postalCode')} *
+                    </Label>
                     <Input
                       id="billPostalCode"
                       value={billingAddress.postalCode}
-                      onChange={(e) => setBillingAddress({ ...billingAddress, postalCode: e.target.value })}
+                      onChange={e =>
+                        setBillingAddress({
+                          ...billingAddress,
+                          postalCode: e.target.value,
+                        })
+                      }
                       placeholder="8001"
                       maxLength={4}
-                      className={validationErrors.billPostalCode ? 'border-destructive' : ''}
+                      className={
+                        validationErrors.billPostalCode
+                          ? 'border-destructive'
+                          : ''
+                      }
                     />
                     {validationErrors.billPostalCode && (
-                      <p className="text-xs text-destructive">{validationErrors.billPostalCode}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.billPostalCode}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="billCity">{t('billingAddress.city')} *</Label>
+                    <Label htmlFor="billCity">
+                      {t('billingAddress.city')} *
+                    </Label>
                     <Input
                       id="billCity"
                       value={billingAddress.city}
-                      onChange={(e) => setBillingAddress({ ...billingAddress, city: e.target.value })}
+                      onChange={e =>
+                        setBillingAddress({
+                          ...billingAddress,
+                          city: e.target.value,
+                        })
+                      }
                       placeholder="Zürich"
-                      className={validationErrors.billCity ? 'border-destructive' : ''}
+                      className={
+                        validationErrors.billCity ? 'border-destructive' : ''
+                      }
                     />
                     {validationErrors.billCity && (
-                      <p className="text-xs text-destructive">{validationErrors.billCity}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.billCity}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="billCanton">{t('billingAddress.canton')} *</Label>
+                    <Label htmlFor="billCanton">
+                      {t('billingAddress.canton')} *
+                    </Label>
                     <Select
                       value={billingAddress.canton}
-                      onValueChange={(value) => setBillingAddress({ ...billingAddress, canton: value })}
+                      onValueChange={value =>
+                        setBillingAddress({ ...billingAddress, canton: value })
+                      }
                     >
-                      <SelectTrigger className={validationErrors.billCanton ? 'border-destructive' : ''}>
-                        <SelectValue placeholder={t('billingAddress.selectCanton')} />
+                      <SelectTrigger
+                        className={
+                          validationErrors.billCanton
+                            ? 'border-destructive'
+                            : ''
+                        }
+                      >
+                        <SelectValue
+                          placeholder={t('billingAddress.selectCanton')}
+                        />
                       </SelectTrigger>
                       <SelectContent>
-                        {SWISS_CANTONS.map((canton) => (
+                        {SWISS_CANTONS.map(canton => (
                           <SelectItem key={canton} value={canton}>
                             {canton}
                           </SelectItem>
@@ -462,7 +634,9 @@ export default function SonnendachStep6PersonalInfo() {
                       </SelectContent>
                     </Select>
                     {validationErrors.billCanton && (
-                      <p className="text-xs text-destructive">{validationErrors.billCanton}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.billCanton}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -480,8 +654,12 @@ export default function SonnendachStep6PersonalInfo() {
             </CardHeader>
             <CardContent className="space-y-4">
               <RadioGroup
-                value={propertyOwnership.isPropertyOwner ? 'owner' : 'authorized'}
-                onValueChange={(value) => setPropertyOwnership({ isPropertyOwner: value === 'owner' })}
+                value={
+                  propertyOwnership.isPropertyOwner ? 'owner' : 'authorized'
+                }
+                onValueChange={value =>
+                  setPropertyOwnership({ isPropertyOwner: value === 'owner' })
+                }
               >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="owner" id="owner" />
@@ -491,7 +669,10 @@ export default function SonnendachStep6PersonalInfo() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="authorized" id="authorized" />
-                  <Label htmlFor="authorized" className="font-normal cursor-pointer">
+                  <Label
+                    htmlFor="authorized"
+                    className="font-normal cursor-pointer"
+                  >
                     {t('propertyOwnership.isAuthorized')}
                   </Label>
                 </div>
@@ -500,29 +681,47 @@ export default function SonnendachStep6PersonalInfo() {
               {!propertyOwnership.isPropertyOwner && (
                 <div className="mt-4 p-4 bg-muted/50 rounded-lg space-y-4">
                   <div className="space-y-2">
-                    <Label htmlFor="ownerName">{t('propertyOwnership.ownerName')} *</Label>
+                    <Label htmlFor="ownerName">
+                      {t('propertyOwnership.ownerName')} *
+                    </Label>
                     <Input
                       id="ownerName"
                       value={propertyOwnership.propertyOwnerName || ''}
-                      onChange={(e) => setPropertyOwnership({ propertyOwnerName: e.target.value })}
+                      onChange={e =>
+                        setPropertyOwnership({
+                          propertyOwnerName: e.target.value,
+                        })
+                      }
                       placeholder={t('propertyOwnership.ownerNamePlaceholder')}
-                      className={validationErrors.ownerName ? 'border-destructive' : ''}
+                      className={
+                        validationErrors.ownerName ? 'border-destructive' : ''
+                      }
                     />
                     {validationErrors.ownerName && (
-                      <p className="text-xs text-destructive">{validationErrors.ownerName}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.ownerName}
+                      </p>
                     )}
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="ownerEmail">{t('propertyOwnership.ownerEmail')}</Label>
+                    <Label htmlFor="ownerEmail">
+                      {t('propertyOwnership.ownerEmail')}
+                    </Label>
                     <Input
                       id="ownerEmail"
                       type="email"
                       value={propertyOwnership.propertyOwnerEmail || ''}
-                      onChange={(e) => setPropertyOwnership({ propertyOwnerEmail: e.target.value })}
+                      onChange={e =>
+                        setPropertyOwnership({
+                          propertyOwnerEmail: e.target.value,
+                        })
+                      }
                       placeholder={t('propertyOwnership.ownerEmailPlaceholder')}
                     />
-                    <p className="text-xs text-muted-foreground">{t('propertyOwnership.ownerEmailHint')}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t('propertyOwnership.ownerEmailHint')}
+                    </p>
                   </div>
                 </div>
               )}
@@ -538,18 +737,24 @@ export default function SonnendachStep6PersonalInfo() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">{t('accountSetup.description')}</p>
+              <p className="text-sm text-muted-foreground">
+                {t('accountSetup.description')}
+              </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="password">{t('accountSetup.password')} *</Label>
+                  <Label htmlFor="password">
+                    {t('accountSetup.password')} *
+                  </Label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="password"
                       type={showPassword ? 'text' : 'password'}
                       value={personalInfo.password}
-                      onChange={(e) => setPersonalInfo({ password: e.target.value })}
+                      onChange={e =>
+                        setPersonalInfo({ password: e.target.value })
+                      }
                       placeholder="••••••••"
                       className={`pl-10 pr-10 ${validationErrors.password ? 'border-destructive' : ''}`}
                     />
@@ -558,37 +763,55 @@ export default function SonnendachStep6PersonalInfo() {
                       onClick={() => setShowPassword(!showPassword)}
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     >
-                      {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      {showPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
                     </button>
                   </div>
                   {validationErrors.password && (
-                    <p className="text-xs text-destructive">{validationErrors.password}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.password}
+                    </p>
                   )}
-                  <p className="text-xs text-muted-foreground">{t('accountSetup.passwordHint')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('accountSetup.passwordHint')}
+                  </p>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="confirmPassword">{t('accountSetup.confirmPassword')} *</Label>
+                  <Label htmlFor="confirmPassword">
+                    {t('accountSetup.confirmPassword')} *
+                  </Label>
                   <div className="relative">
                     <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                     <Input
                       id="confirmPassword"
                       type={showConfirmPassword ? 'text' : 'password'}
                       value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
+                      onChange={e => setConfirmPassword(e.target.value)}
                       placeholder="••••••••"
                       className={`pl-10 pr-10 ${validationErrors.confirmPassword ? 'border-destructive' : ''}`}
                     />
                     <button
                       type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
                       className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     >
-                      {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      {showConfirmPassword ? (
+                        <EyeOff className="h-4 w-4" />
+                      ) : (
+                        <Eye className="h-4 w-4" />
+                      )}
                     </button>
                   </div>
                   {validationErrors.confirmPassword && (
-                    <p className="text-xs text-destructive">{validationErrors.confirmPassword}</p>
+                    <p className="text-sm text-destructive">
+                      {validationErrors.confirmPassword}
+                    </p>
                   )}
                 </div>
               </div>
@@ -597,7 +820,9 @@ export default function SonnendachStep6PersonalInfo() {
                 <Label>{t('accountSetup.language')}</Label>
                 <Select
                   value={personalInfo.preferredLanguage}
-                  onValueChange={(value: 'de' | 'fr' | 'it' | 'en') => setPersonalInfo({ preferredLanguage: value })}
+                  onValueChange={(value: 'de' | 'fr' | 'it' | 'en') =>
+                    setPersonalInfo({ preferredLanguage: value })
+                  }
                 >
                   <SelectTrigger className="w-full md:w-48">
                     <SelectValue />
@@ -627,15 +852,24 @@ export default function SonnendachStep6PersonalInfo() {
                   <Checkbox
                     id="terms"
                     checked={consents.terms}
-                    onCheckedChange={(checked) => setConsents({ terms: checked === true })}
-                    className={validationErrors.terms ? 'border-destructive' : ''}
+                    onCheckedChange={checked =>
+                      setConsents({ terms: checked === true })
+                    }
+                    className={
+                      validationErrors.terms ? 'border-destructive' : ''
+                    }
                   />
                   <div className="space-y-1">
-                    <Label htmlFor="terms" className="text-sm font-normal cursor-pointer leading-relaxed">
+                    <Label
+                      htmlFor="terms"
+                      className="text-sm font-normal cursor-pointer leading-relaxed"
+                    >
                       {t('consents.termsLabel')} *
                     </Label>
                     {validationErrors.terms && (
-                      <p className="text-xs text-destructive">{validationErrors.terms}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.terms}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -644,15 +878,24 @@ export default function SonnendachStep6PersonalInfo() {
                   <Checkbox
                     id="privacy"
                     checked={consents.privacy}
-                    onCheckedChange={(checked) => setConsents({ privacy: checked === true })}
-                    className={validationErrors.privacy ? 'border-destructive' : ''}
+                    onCheckedChange={checked =>
+                      setConsents({ privacy: checked === true })
+                    }
+                    className={
+                      validationErrors.privacy ? 'border-destructive' : ''
+                    }
                   />
                   <div className="space-y-1">
-                    <Label htmlFor="privacy" className="text-sm font-normal cursor-pointer leading-relaxed">
+                    <Label
+                      htmlFor="privacy"
+                      className="text-sm font-normal cursor-pointer leading-relaxed"
+                    >
                       {t('consents.privacyLabel')} *
                     </Label>
                     {validationErrors.privacy && (
-                      <p className="text-xs text-destructive">{validationErrors.privacy}</p>
+                      <p className="text-sm text-destructive">
+                        {validationErrors.privacy}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -661,9 +904,14 @@ export default function SonnendachStep6PersonalInfo() {
                   <Checkbox
                     id="marketing"
                     checked={consents.marketing}
-                    onCheckedChange={(checked) => setConsents({ marketing: checked === true })}
+                    onCheckedChange={checked =>
+                      setConsents({ marketing: checked === true })
+                    }
                   />
-                  <Label htmlFor="marketing" className="text-sm font-normal cursor-pointer leading-relaxed">
+                  <Label
+                    htmlFor="marketing"
+                    className="text-sm font-normal cursor-pointer leading-relaxed"
+                  >
                     {t('consents.marketingLabel')}
                   </Label>
                 </div>
@@ -674,12 +922,20 @@ export default function SonnendachStep6PersonalInfo() {
 
         {/* Navigation */}
         <div className="flex justify-between items-center mt-8 pt-6 border-t">
-          <Button variant="outline" onClick={() => goToStep(5)} className="gap-2">
+          <Button
+            variant="outline"
+            onClick={() => goToStep(5)}
+            className="gap-2"
+          >
             <ChevronLeft className="h-4 w-4" />
             {tCommon('back')}
           </Button>
 
-          <Button onClick={handleNext} disabled={isLoading} className="gap-2 bg-energy hover:bg-energy/90">
+          <Button
+            onClick={handleNext}
+            disabled={isLoading}
+            className="gap-2 bg-energy hover:bg-energy/90"
+          >
             {t('continueToQuote')}
             <ChevronRight className="h-4 w-4" />
           </Button>

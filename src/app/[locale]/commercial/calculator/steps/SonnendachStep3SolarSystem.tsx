@@ -1,12 +1,12 @@
 'use client'
 
 import {
+  Battery,
+  Check,
   ChevronLeft,
   ChevronRight,
-  Check,
-  Zap,
-  Battery,
   Loader2,
+  Zap,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Feature, Map, View } from 'ol'
@@ -14,10 +14,10 @@ import { defaults as defaultControls } from 'ol/control'
 import { Polygon } from 'ol/geom'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
+import { fromLonLat } from 'ol/proj'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
-import { fromLonLat } from 'ol/proj'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -25,9 +25,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
-  useSonnendachCalculatorStore,
-  SolarPanel,
   Inverter,
+  SolarPanel,
+  useSonnendachCalculatorStore,
 } from '@/stores/sonnendach-calculator.store'
 
 import 'ol/ol.css'
@@ -191,13 +191,16 @@ export default function SonnendachStep3SolarSystem() {
   }, [selectedPanel, selectPanel])
 
   // Calculate system power
-  const systemPowerKw = selectedPanel && panelCount
-    ? (selectedPanel.power * panelCount) / 1000
-    : 0
+  const systemPowerKw =
+    selectedPanel && panelCount ? (selectedPanel.power * panelCount) / 1000 : 0
 
   // Auto-select best inverter based on system power
   useEffect(() => {
-    if (systemPowerKw > 0 && !selectedInverter && availableInverters.length > 0) {
+    if (
+      systemPowerKw > 0 &&
+      !selectedInverter &&
+      availableInverters.length > 0
+    ) {
       const bestInverter = availableInverters.reduce((best, inv) => {
         const ratio = systemPowerKw / inv.power
         const bestRatio = systemPowerKw / best.power
@@ -217,29 +220,42 @@ export default function SonnendachStep3SolarSystem() {
   }, [systemPowerKw, selectedInverter, selectInverter, availableInverters])
 
   // Point in polygon check helper
-  const isPointInPolygonHelper = useCallback((lng: number, lat: number, polygonCoords: number[][]): boolean => {
-    let inside = false
-    for (let i = 0, j = polygonCoords.length - 1; i < polygonCoords.length; j = i++) {
-      const xi = polygonCoords[i][0], yi = polygonCoords[i][1]
-      const xj = polygonCoords[j][0], yj = polygonCoords[j][1]
-      const intersect = yi > lat !== yj > lat &&
-        lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
-      if (intersect) inside = !inside
-    }
-    return inside
-  }, [])
+  const isPointInPolygonHelper = useCallback(
+    (lng: number, lat: number, polygonCoords: number[][]): boolean => {
+      let inside = false
+      for (
+        let i = 0, j = polygonCoords.length - 1;
+        i < polygonCoords.length;
+        j = i++
+      ) {
+        const xi = polygonCoords[i][0],
+          yi = polygonCoords[i][1]
+        const xj = polygonCoords[j][0],
+          yj = polygonCoords[j][1]
+        const intersect =
+          yi > lat !== yj > lat &&
+          lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi
+        if (intersect) inside = !inside
+      }
+      return inside
+    },
+    []
+  )
 
   // Check if any corner of a panel is in any restricted area
-  const isPanelInRestrictedArea = useCallback((corners: number[][]): boolean => {
-    for (const area of restrictedAreas) {
-      for (const corner of corners) {
-        if (isPointInPolygonHelper(corner[0], corner[1], area.coordinates)) {
-          return true
+  const isPanelInRestrictedArea = useCallback(
+    (corners: number[][]): boolean => {
+      for (const area of restrictedAreas) {
+        for (const corner of corners) {
+          if (isPointInPolygonHelper(corner[0], corner[1], area.coordinates)) {
+            return true
+          }
         }
       }
-    }
-    return false
-  }, [restrictedAreas, isPointInPolygonHelper])
+      return false
+    },
+    [restrictedAreas, isPointInPolygonHelper]
+  )
 
   // FUTURE FEATURE: Inner segment exclusion
   // This function checks if a panel would be placed inside another segment (e.g., inner segment within outer)
@@ -283,13 +299,15 @@ export default function SonnendachStep3SolarSystem() {
     (
       polygonCoords: number[][],
       panel: SolarPanel,
-      _segmentId?: string  // Reserved for future inner segment exclusion feature
+      _segmentId?: string // Reserved for future inner segment exclusion feature
     ): Array<{ corners: number[][] }> => {
       if (polygonCoords.length < 3) return []
 
       // Calculate centroid
-      const centerLng = polygonCoords.reduce((sum, p) => sum + p[0], 0) / polygonCoords.length
-      const centerLat = polygonCoords.reduce((sum, p) => sum + p[1], 0) / polygonCoords.length
+      const centerLng =
+        polygonCoords.reduce((sum, p) => sum + p[0], 0) / polygonCoords.length
+      const centerLat =
+        polygonCoords.reduce((sum, p) => sum + p[1], 0) / polygonCoords.length
 
       const metersPerDegreeLat = 111320
       const metersPerDegreeLng = 111320 * Math.cos((centerLat * Math.PI) / 180)
@@ -301,7 +319,7 @@ export default function SonnendachStep3SolarSystem() {
       // Spacing matching solarapp.ch defaults
       // - Randabstand (edge distance): 0.5m - applied via edge check
       // - Hindernisabstand (obstacle/panel distance): 0.02m
-      const panelGap = 0.02        // 2cm between panels (Hindernisabstand)
+      const panelGap = 0.02 // 2cm between panels (Hindernisabstand)
 
       const spacingX = panelWidth + panelGap
       const spacingY = panelHeight + panelGap
@@ -325,16 +343,20 @@ export default function SonnendachStep3SolarSystem() {
 
       const positions: Array<{ corners: number[][] }> = []
 
-      const gridStepsX = Math.ceil((maxExtent * metersPerDegreeLng) / spacingX) + 2
-      const gridStepsY = Math.ceil((maxExtent * metersPerDegreeLat) / spacingY) + 2
+      const gridStepsX =
+        Math.ceil((maxExtent * metersPerDegreeLng) / spacingX) + 2
+      const gridStepsY =
+        Math.ceil((maxExtent * metersPerDegreeLat) / spacingY) + 2
 
       // Calculate longest edge angle for rotation
       let longestLength = 0
       let angle = 0
       for (let i = 0; i < polygonCoords.length; i++) {
         const j = (i + 1) % polygonCoords.length
-        const dx = (polygonCoords[j][0] - polygonCoords[i][0]) * metersPerDegreeLng
-        const dy = (polygonCoords[j][1] - polygonCoords[i][1]) * metersPerDegreeLat
+        const dx =
+          (polygonCoords[j][0] - polygonCoords[i][0]) * metersPerDegreeLng
+        const dy =
+          (polygonCoords[j][1] - polygonCoords[i][1]) * metersPerDegreeLat
         const length = Math.sqrt(dx * dx + dy * dy)
         if (length > longestLength) {
           longestLength = length
@@ -392,11 +414,20 @@ export default function SonnendachStep3SolarSystem() {
     for (const segment of selectedSegments) {
       const coords = segment.geometry.coordinatesWGS84?.[0] || []
       if (coords.length < 3) continue
-      const positions = calculatePanelPositionsInPolygon(coords, selectedPanel, segment.id)
+      const positions = calculatePanelPositionsInPolygon(
+        coords,
+        selectedPanel,
+        segment.id
+      )
       totalPanels += positions.length
     }
     return totalPanels
-  }, [selectedPanel, selectedSegments, calculatePanelPositionsInPolygon, restrictedAreas])
+  }, [
+    selectedPanel,
+    selectedSegments,
+    calculatePanelPositionsInPolygon,
+    restrictedAreas,
+  ])
 
   // Track previous panel ID to detect panel changes
   const prevPanelIdRef = useRef<string | null>(null)
@@ -422,12 +453,17 @@ export default function SonnendachStep3SolarSystem() {
 
   // Initialize map
   useEffect(() => {
-    if (!mapRef.current || mapInitializedRef.current || selectedSegments.length === 0) return
+    if (
+      !mapRef.current ||
+      mapInitializedRef.current ||
+      selectedSegments.length === 0
+    )
+      return
 
     const satelliteLayer = new TileLayer({
       source: new XYZ({
         url: SWISS_SATELLITE_URL,
-        maxZoom: 28,  // Swiss imagery supports very high zoom
+        maxZoom: 28, // Swiss imagery supports very high zoom
         crossOrigin: 'anonymous',
       }),
     })
@@ -435,7 +471,7 @@ export default function SonnendachStep3SolarSystem() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
+        maxZoom: 19, // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
       opacity: 0.5,
@@ -460,10 +496,14 @@ export default function SonnendachStep3SolarSystem() {
     })
 
     // Calculate center from selected segments
-    let centerLng = 0, centerLat = 0, count = 0
+    let centerLng = 0,
+      centerLat = 0,
+      count = 0
     for (const segment of selectedSegments) {
-      const coords = segment.geometry.coordinatesWGS84?.[0] ||
-        segment.geometry.coordinates?.[0]?.map(c => lv95ToWgs84(c[0], c[1])) || []
+      const coords =
+        segment.geometry.coordinatesWGS84?.[0] ||
+        segment.geometry.coordinates?.[0]?.map(c => lv95ToWgs84(c[0], c[1])) ||
+        []
       for (const coord of coords) {
         centerLng += coord[0]
         centerLat += coord[1]
@@ -484,7 +524,7 @@ export default function SonnendachStep3SolarSystem() {
       view: new View({
         center: fromLonLat([centerLng, centerLat]),
         zoom: 20,
-        maxZoom: 28,  // Allow very close zoom (~0.5 meter scale)
+        maxZoom: 28, // Allow very close zoom (~0.5 meter scale)
         minZoom: 15,
       }),
       controls: defaultControls({
@@ -533,7 +573,12 @@ export default function SonnendachStep3SolarSystem() {
 
   // Draw panels on map
   useEffect(() => {
-    if (!panelSourceRef.current || !selectedPanel || selectedSegments.length === 0) return
+    if (
+      !panelSourceRef.current ||
+      !selectedPanel ||
+      selectedSegments.length === 0
+    )
+      return
 
     // Clear existing panels
     panelSourceRef.current.clear()
@@ -549,7 +594,11 @@ export default function SonnendachStep3SolarSystem() {
       const coords = segment.geometry.coordinatesWGS84?.[0] || []
       if (coords.length < 3) continue
 
-      const positions = calculatePanelPositionsInPolygon(coords, selectedPanel, segment.id)
+      const positions = calculatePanelPositionsInPolygon(
+        coords,
+        selectedPanel,
+        segment.id
+      )
 
       for (const pos of positions) {
         if (panelsDrawn >= panelsToShow) break
@@ -562,14 +611,20 @@ export default function SonnendachStep3SolarSystem() {
         panelsDrawn++
       }
     }
-  }, [selectedPanel, panelCount, selectedSegments, calculatePanelPositionsInPolygon])
+  }, [
+    selectedPanel,
+    panelCount,
+    selectedSegments,
+    calculatePanelPositionsInPolygon,
+  ])
 
   // Calculate costs
   const totalPanelCost = selectedPanel ? selectedPanel.price * panelCount : 0
   const totalInverterCost = selectedInverter ? selectedInverter.price : 0
   const totalCost = totalPanelCost + totalInverterCost
 
-  const formatNumber = (num: number) => new Intl.NumberFormat('de-CH').format(num)
+  const formatNumber = (num: number) =>
+    new Intl.NumberFormat('de-CH').format(num)
 
   const canProceed = selectedPanel && panelCount > 0 && selectedInverter
 
@@ -603,18 +658,24 @@ export default function SonnendachStep3SolarSystem() {
             <CardContent className="py-4">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <p className="text-xs text-muted-foreground">{t('systemSize')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('systemSize')}
+                  </p>
                   <p className="text-xl font-bold text-primary">
                     {systemPowerKw.toFixed(1)} kWp
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{t('panels')}</p>
+                  <p className="text-sm text-muted-foreground">{t('panels')}</p>
                   <p className="text-xl font-bold">{panelCount}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{t('estCost')}</p>
-                  <p className="text-xl font-bold">CHF {formatNumber(totalCost)}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('estCost')}
+                  </p>
+                  <p className="text-xl font-bold">
+                    CHF {formatNumber(totalCost)}
+                  </p>
                 </div>
               </div>
             </CardContent>
@@ -637,7 +698,9 @@ export default function SonnendachStep3SolarSystem() {
               {equipmentLoading ? (
                 <div className="flex items-center justify-center py-8">
                   <Loader2 className="w-6 h-6 animate-spin text-primary" />
-                  <span className="ml-2 text-muted-foreground">{t('loadingPanels')}</span>
+                  <span className="ml-2 text-muted-foreground">
+                    {t('loadingPanels')}
+                  </span>
                 </div>
               ) : equipmentError ? (
                 <div className="text-center py-8 text-destructive">
@@ -658,7 +721,7 @@ export default function SonnendachStep3SolarSystem() {
               ) : (
                 <>
                   <div className="grid gap-3">
-                    {availablePanels.map((panel) => (
+                    {availablePanels.map(panel => (
                       <button
                         key={panel.id}
                         onClick={() => selectPanel(panel)}
@@ -675,15 +738,22 @@ export default function SonnendachStep3SolarSystem() {
                         )}
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="font-semibold text-sm">{panel.name}</h3>
-                            <p className="text-xs text-muted-foreground">
+                            <h3 className="font-semibold text-sm">
+                              {panel.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
                               {panel.efficiency.toFixed(1)}% {t('efficiency')} •{' '}
-                              {panel.width.toFixed(2)}×{panel.height.toFixed(2)}m
+                              {panel.width.toFixed(2)}×{panel.height.toFixed(2)}
+                              m
                             </p>
                           </div>
                           <div className="text-right">
-                            <p className="text-lg font-bold text-primary">{panel.power}W</p>
-                            <p className="text-xs text-muted-foreground">CHF {panel.price}</p>
+                            <p className="text-lg font-bold text-primary">
+                              {panel.power}W
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              CHF {panel.price}
+                            </p>
                           </div>
                         </div>
                       </button>
@@ -693,39 +763,64 @@ export default function SonnendachStep3SolarSystem() {
                   {selectedPanel && maxPanelCount > 0 && (
                     <div className="p-4 border rounded-lg bg-muted/30">
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium">{t('numberOfPanels')}</span>
-                        <span className="text-2xl font-bold text-primary">{panelCount}</span>
+                        <span className="text-sm font-medium">
+                          {t('numberOfPanels')}
+                        </span>
+                        <span className="text-2xl font-bold text-primary">
+                          {panelCount}
+                        </span>
                       </div>
                       <Slider
                         value={[panelCount]}
-                        onValueChange={(value) => setPanelCount(value[0])}
+                        onValueChange={value => setPanelCount(value[0])}
                         min={1}
                         max={maxPanelCount}
                         step={1}
                       />
-                      <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                      <div className="flex justify-between text-sm text-muted-foreground mt-2">
                         <span>1</span>
-                        <span>{t('maxFit')}: {maxPanelCount}</span>
+                        <span>
+                          {t('maxFit')}: {maxPanelCount}
+                        </span>
                       </div>
 
                       <div className="grid grid-cols-2 gap-3 pt-3 mt-3 border-t text-sm">
                         <div>
-                          <p className="text-xs text-muted-foreground">{t('capacity')}</p>
-                          <p className="font-semibold">{systemPowerKw.toFixed(2)} kWp</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-muted-foreground">{t('panelCost')}</p>
-                          <p className="font-semibold">CHF {formatNumber(totalPanelCost)}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-muted-foreground">{t('panelArea')}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {t('capacity')}
+                          </p>
                           <p className="font-semibold">
-                            {(panelCount * selectedPanel.width * selectedPanel.height).toFixed(1)} m²
+                            {systemPowerKw.toFixed(2)} kWp
                           </p>
                         </div>
                         <div>
-                          <p className="text-xs text-muted-foreground">{t('roofSegments')}</p>
-                          <p className="font-semibold">{selectedSegments.length}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {t('panelCost')}
+                          </p>
+                          <p className="font-semibold">
+                            CHF {formatNumber(totalPanelCost)}
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">
+                            {t('panelArea')}
+                          </p>
+                          <p className="font-semibold">
+                            {(
+                              panelCount *
+                              selectedPanel.width *
+                              selectedPanel.height
+                            ).toFixed(1)}{' '}
+                            m²
+                          </p>
+                        </div>
+                        <div>
+                          <p className="text-sm text-muted-foreground">
+                            {t('roofSegments')}
+                          </p>
+                          <p className="font-semibold">
+                            {selectedSegments.length}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -741,10 +836,11 @@ export default function SonnendachStep3SolarSystem() {
                   <p>
                     {t('recommendedInverter')}{' '}
                     <span className="font-semibold">
-                      {(systemPowerKw / 1.5).toFixed(1)} - {(systemPowerKw / 1.2).toFixed(1)} kW
+                      {(systemPowerKw / 1.5).toFixed(1)} -{' '}
+                      {(systemPowerKw / 1.2).toFixed(1)} kW
                     </span>
                   </p>
-                  <p className="text-xs text-muted-foreground mt-1">
+                  <p className="text-sm text-muted-foreground mt-1">
                     {t('dcAcRatioInfo')}
                   </p>
                 </div>
@@ -753,7 +849,9 @@ export default function SonnendachStep3SolarSystem() {
               {equipmentLoading ? (
                 <div className="flex items-center justify-center py-8">
                   <Loader2 className="w-6 h-6 animate-spin text-primary" />
-                  <span className="ml-2 text-muted-foreground">{t('loadingInverters')}</span>
+                  <span className="ml-2 text-muted-foreground">
+                    {t('loadingInverters')}
+                  </span>
                 </div>
               ) : availableInverters.length === 0 ? (
                 <div className="text-center py-8 text-muted-foreground">
@@ -761,7 +859,7 @@ export default function SonnendachStep3SolarSystem() {
                 </div>
               ) : (
                 <div className="grid gap-3">
-                  {availableInverters.map((inverter) => {
+                  {availableInverters.map(inverter => {
                     const status = getInverterStatus(inverter)
                     return (
                       <button
@@ -771,8 +869,8 @@ export default function SonnendachStep3SolarSystem() {
                           selectedInverter?.id === inverter.id
                             ? 'border-primary bg-primary/5'
                             : status === 'recommended'
-                            ? 'border-green-500/50 bg-green-500/5'
-                            : 'border-border hover:border-primary/50'
+                              ? 'border-green-500/50 bg-green-500/5'
+                              : 'border-border hover:border-primary/50'
                         }`}
                       >
                         {selectedInverter?.id === inverter.id && (
@@ -780,21 +878,27 @@ export default function SonnendachStep3SolarSystem() {
                             <Check className="w-3 h-3 text-white" />
                           </div>
                         )}
-                        {status === 'recommended' && selectedInverter?.id !== inverter.id && (
-                          <span className="absolute top-2 right-2 px-2 py-0.5 bg-green-500 text-white text-xs rounded-full">
-                            {t('bestFit')}
-                          </span>
-                        )}
+                        {status === 'recommended' &&
+                          selectedInverter?.id !== inverter.id && (
+                            <span className="absolute top-2 right-2 px-2 py-0.5 bg-green-500 text-white text-sm rounded-full">
+                              {t('bestFit')}
+                            </span>
+                          )}
                         <div className="flex justify-between items-start">
                           <div>
-                            <h3 className="font-semibold text-sm">{inverter.name}</h3>
-                            <p className="text-xs text-muted-foreground">
-                              {inverter.manufacturer} • {inverter.efficiency}% {t('efficiency')}
+                            <h3 className="font-semibold text-sm">
+                              {inverter.name}
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                              {inverter.manufacturer} • {inverter.efficiency}%{' '}
+                              {t('efficiency')}
                             </p>
                           </div>
                           <div className="text-right">
-                            <p className="text-lg font-bold text-primary">{inverter.power} kW</p>
-                            <p className="text-xs text-muted-foreground">
+                            <p className="text-lg font-bold text-primary">
+                              {inverter.power} kW
+                            </p>
+                            <p className="text-sm text-muted-foreground">
                               CHF {formatNumber(inverter.price)}
                             </p>
                           </div>
@@ -809,13 +913,17 @@ export default function SonnendachStep3SolarSystem() {
                 <div className="p-4 border rounded-lg bg-muted/30">
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <p className="text-xs text-muted-foreground">{t('dcAcRatio')}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {t('dcAcRatio')}
+                      </p>
                       <p className="text-lg font-semibold">
                         {(systemPowerKw / selectedInverter.power).toFixed(2)}:1
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs text-muted-foreground">{t('inverterCost')}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {t('inverterCost')}
+                      </p>
                       <p className="text-lg font-semibold">
                         CHF {formatNumber(selectedInverter.price)}
                       </p>
@@ -830,7 +938,11 @@ export default function SonnendachStep3SolarSystem() {
         {/* Navigation */}
         <div className="p-4 border-t sticky bottom-0 bg-background">
           <div className="flex gap-2">
-            <Button variant="outline" onClick={() => goToStep(2)} className="gap-2 flex-1">
+            <Button
+              variant="outline"
+              onClick={() => goToStep(2)}
+              className="gap-2 flex-1"
+            >
               <ChevronLeft className="w-4 h-4" />
               {t('back')}
             </Button>
@@ -848,32 +960,44 @@ export default function SonnendachStep3SolarSystem() {
 
       {/* Right Panel - Map */}
       <div className="flex-1 relative">
-        <div ref={mapRef} className="w-full h-full" style={{ minHeight: '400px' }} />
+        <div
+          ref={mapRef}
+          className="w-full h-full"
+          style={{ minHeight: '400px' }}
+        />
 
         {isLoadingMap && (
           <div className="absolute inset-0 flex items-center justify-center bg-background/80">
             <div className="flex flex-col items-center gap-2">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
-              <span className="text-sm text-muted-foreground">{t('loadingMap')}</span>
+              <span className="text-sm text-muted-foreground">
+                {t('loadingMap')}
+              </span>
             </div>
           </div>
         )}
 
         {/* Map Legend */}
-        <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs">
+        <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-sm">
           <p className="font-medium mb-2">{t('legend')}</p>
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <div
                 className="w-4 h-3 rounded-sm border"
-                style={{ backgroundColor: `${SELECTED_SEGMENT_COLOR}66`, borderColor: SELECTED_SEGMENT_STROKE }}
+                style={{
+                  backgroundColor: `${SELECTED_SEGMENT_COLOR}66`,
+                  borderColor: SELECTED_SEGMENT_STROKE,
+                }}
               />
               <span>{t('legendSegment')}</span>
             </div>
             <div className="flex items-center gap-2">
               <div
                 className="w-4 h-3 rounded-sm border"
-                style={{ backgroundColor: `${PANEL_FILL_COLOR}CC`, borderColor: PANEL_STROKE_COLOR }}
+                style={{
+                  backgroundColor: `${PANEL_FILL_COLOR}CC`,
+                  borderColor: PANEL_STROKE_COLOR,
+                }}
               />
               <span>{t('legendPanel')}</span>
             </div>

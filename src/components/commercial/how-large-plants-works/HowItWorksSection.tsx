@@ -64,9 +64,9 @@ const HowItWorksSection = async () => {
 
               <div className="flex flex-col gap-6 md:gap-[38px] items-center">
                 <div className="flex flex-wrap gap-6 md:gap-[60px] justify-center">
-                  {items.slice(0, 2).map((item) => (
+                  {items.slice(0, 2).map(item => (
                     <div key={item.num} className="flex items-center gap-2">
-                      <span className="w-6 h-6 flex items-center justify-center rounded-xl border-2 border-[#9F3E4F] text-[#062E25] text-xs font-bold shrink-0">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-xl border-2 border-[#9F3E4F] text-[#062E25] text-sm font-bold shrink-0">
                         {item.num}
                       </span>
                       <span className="text-[#062E25] text-lg md:text-[22px] font-bold tracking-[-0.02em] capitalize">
@@ -77,9 +77,9 @@ const HowItWorksSection = async () => {
                 </div>
 
                 <div className="flex flex-wrap gap-6 md:gap-10 justify-center">
-                  {items.slice(2, 5).map((item) => (
+                  {items.slice(2, 5).map(item => (
                     <div key={item.num} className="flex items-center gap-2">
-                      <span className="w-6 h-6 flex items-center justify-center rounded-xl border-2 border-[#9F3E4F] text-[#062E25] text-xs font-bold shrink-0">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-xl border-2 border-[#9F3E4F] text-[#062E25] text-sm font-bold shrink-0">
                         {item.num}
                       </span>
                       <span className="text-[#062E25] text-lg md:text-[22px] font-bold tracking-[-0.02em] capitalize">
@@ -90,9 +90,9 @@ const HowItWorksSection = async () => {
                 </div>
 
                 <div className="flex flex-wrap gap-6 md:gap-10 justify-center">
-                  {items.slice(5).map((item) => (
+                  {items.slice(5).map(item => (
                     <div key={item.num} className="flex items-center gap-2">
-                      <span className="w-6 h-6 flex items-center justify-center rounded-xl border-2 border-[#9F3E4F] text-[#062E25] text-xs font-bold shrink-0">
+                      <span className="w-6 h-6 flex items-center justify-center rounded-xl border-2 border-[#9F3E4F] text-[#062E25] text-sm font-bold shrink-0">
                         {item.num}
                       </span>
                       <span className="text-[#062E25] text-lg md:text-[22px] font-bold tracking-[-0.02em] capitalize">

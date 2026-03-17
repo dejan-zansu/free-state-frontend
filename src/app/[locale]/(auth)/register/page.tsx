@@ -184,7 +184,7 @@ export default function RegisterPage() {
                   {...register('firstName')}
                 />
                 {errors.firstName && (
-                  <p className="text-xs text-destructive">
+                  <p className="text-sm text-destructive">
                     {errors.firstName.message}
                   </p>
                 )}
@@ -198,7 +198,7 @@ export default function RegisterPage() {
                   {...register('lastName')}
                 />
                 {errors.lastName && (
-                  <p className="text-xs text-destructive">
+                  <p className="text-sm text-destructive">
                     {errors.lastName.message}
                   </p>
                 )}
@@ -216,7 +216,7 @@ export default function RegisterPage() {
                 {...register('email')}
               />
               {errors.email && (
-                <p className="text-xs text-destructive">
+                <p className="text-sm text-destructive">
                   {errors.email.message}
                 </p>
               )}
@@ -290,7 +290,7 @@ export default function RegisterPage() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-xs mt-2">
+              <div className="grid grid-cols-2 gap-2 text-sm mt-2">
                 <div
                   className={`flex items-center gap-1.5 ${hasMinLength ? 'text-energy' : 'text-muted-foreground'}`}
                 >
@@ -318,7 +318,7 @@ export default function RegisterPage() {
               </div>
 
               {errors.password && (
-                <p className="text-xs text-destructive">
+                <p className="text-sm text-destructive">
                   {errors.password.message}
                 </p>
               )}
@@ -348,7 +348,7 @@ export default function RegisterPage() {
                 </button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-xs text-destructive">
+                <p className="text-sm text-destructive">
                   {errors.confirmPassword.message}
                 </p>
               )}
@@ -390,7 +390,7 @@ export default function RegisterPage() {
               )}
             </Button>
 
-            <p className="text-xs text-muted-foreground text-center mt-4">
+            <p className="text-sm text-muted-foreground text-center mt-4">
               By creating an account, you agree to our{' '}
               <Link href="/terms" className="text-primary hover:underline">
                 Terms of Service

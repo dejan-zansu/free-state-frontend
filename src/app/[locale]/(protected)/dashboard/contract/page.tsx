@@ -1,17 +1,45 @@
 'use client'
 
+import {
+  AlertCircle,
+  CheckCircle2,
+  Clock,
+  Download,
+  FileSignature,
+} from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { FileSignature, Download, Clock, CheckCircle2, AlertCircle } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { customerPortalService, type ContractSummary } from '@/services/customer-portal.service'
+import {
+  customerPortalService,
+  type ContractSummary,
+} from '@/services/customer-portal.service'
 
-const STATUS_BADGE: Record<string, { label: string; color: string; icon: typeof CheckCircle2 }> = {
-  PENDING: { label: 'Pending Signature', color: 'bg-amber-100 text-amber-700', icon: Clock },
-  SIGNED: { label: 'Signed', color: 'bg-green-100 text-green-700', icon: CheckCircle2 },
-  FAILED: { label: 'Failed', color: 'bg-red-100 text-red-700', icon: AlertCircle },
-  EXPIRED: { label: 'Expired', color: 'bg-gray-100 text-gray-600', icon: AlertCircle },
+const STATUS_BADGE: Record<
+  string,
+  { label: string; color: string; icon: typeof CheckCircle2 }
+> = {
+  PENDING: {
+    label: 'Pending Signature',
+    color: 'bg-amber-100 text-amber-700',
+    icon: Clock,
+  },
+  SIGNED: {
+    label: 'Signed',
+    color: 'bg-green-100 text-green-700',
+    icon: CheckCircle2,
+  },
+  FAILED: {
+    label: 'Failed',
+    color: 'bg-red-100 text-red-700',
+    icon: AlertCircle,
+  },
+  EXPIRED: {
+    label: 'Expired',
+    color: 'bg-gray-100 text-gray-600',
+    icon: AlertCircle,
+  },
 }
 
 export default function ContractPage() {
@@ -43,7 +71,8 @@ export default function ContractPage() {
             <FileSignature className="h-12 w-12 text-[#062E25]/20 mx-auto mb-4" />
             <p className="text-[#062E25]/60 mb-2">No contracts yet.</p>
             <p className="text-sm text-[#062E25]/40">
-              Complete the solar calculator and choose to sign a contract to get started.
+              Complete the solar calculator and choose to sign a contract to get
+              started.
             </p>
           </CardContent>
         </Card>
@@ -56,8 +85,9 @@ export default function ContractPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-8">My Contract</h1>
 
       <div className="space-y-6">
-        {contracts.map((contract) => {
-          const badge = STATUS_BADGE[contract.signatureStatus] || STATUS_BADGE.PENDING
+        {contracts.map(contract => {
+          const badge =
+            STATUS_BADGE[contract.signatureStatus] || STATUS_BADGE.PENDING
           const BadgeIcon = badge.icon
 
           return (
@@ -69,19 +99,25 @@ export default function ContractPage() {
                       <h2 className="text-lg font-semibold text-[#062E25]">
                         {contract.contractNumber}
                       </h2>
-                      <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${badge.color}`}>
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-sm font-medium ${badge.color}`}
+                      >
                         <BadgeIcon className="h-3 w-3" />
                         {badge.label}
                       </span>
                     </div>
-                    <p className="text-sm text-[#062E25]/60">{contract.address}</p>
+                    <p className="text-sm text-[#062E25]/60">
+                      {contract.address}
+                    </p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm mb-6">
                   <div>
                     <p className="text-[#062E25]/60">Type</p>
-                    <p className="font-medium text-[#062E25]">{contract.contractType}</p>
+                    <p className="font-medium text-[#062E25]">
+                      {contract.contractType}
+                    </p>
                   </div>
                   <div>
                     <p className="text-[#062E25]/60">Created</p>
@@ -93,7 +129,9 @@ export default function ContractPage() {
                     <p className="text-[#062E25]/60">Valid Until</p>
                     <p className="font-medium text-[#062E25]">
                       {contract.validUntil
-                        ? new Date(contract.validUntil).toLocaleDateString('de-CH')
+                        ? new Date(contract.validUntil).toLocaleDateString(
+                            'de-CH'
+                          )
                         : '-'}
                     </p>
                   </div>
@@ -101,7 +139,9 @@ export default function ContractPage() {
                     <p className="text-[#062E25]/60">Signed</p>
                     <p className="font-medium text-[#062E25]">
                       {contract.customerSignedAt
-                        ? new Date(contract.customerSignedAt).toLocaleDateString('de-CH')
+                        ? new Date(
+                            contract.customerSignedAt
+                          ).toLocaleDateString('de-CH')
                         : 'Not yet'}
                     </p>
                   </div>
@@ -113,7 +153,12 @@ export default function ContractPage() {
                       variant="outline"
                       size="sm"
                       style={{ borderColor: '#062E25', color: '#062E25' }}
-                      onClick={() => window.open(`${process.env.NEXT_PUBLIC_API_URL}/contracts/${contract.id}/pdf`, '_blank')}
+                      onClick={() =>
+                        window.open(
+                          `${process.env.NEXT_PUBLIC_API_URL}/contracts/${contract.id}/pdf`,
+                          '_blank'
+                        )
+                      }
                     >
                       <Download className="h-4 w-4 mr-2" />
                       Download Contract
@@ -123,7 +168,12 @@ export default function ContractPage() {
                     <Button
                       size="sm"
                       className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
-                      onClick={() => window.open(`${process.env.NEXT_PUBLIC_API_URL}/contracts/${contract.id}/pdf?signed=true`, '_blank')}
+                      onClick={() =>
+                        window.open(
+                          `${process.env.NEXT_PUBLIC_API_URL}/contracts/${contract.id}/pdf?signed=true`,
+                          '_blank'
+                        )
+                      }
                     >
                       <Download className="h-4 w-4 mr-2" />
                       Download Signed Contract

@@ -1,5 +1,5 @@
-import { getTranslations } from 'next-intl/server'
 import { LinkButton } from '@/components/ui/link-button'
+import { getTranslations } from 'next-intl/server'
 
 const PersonalizedOfferSection = async () => {
   const t = await getTranslations('bidirectionalChargingStation')
@@ -37,7 +37,7 @@ const PersonalizedOfferSection = async () => {
                 <h3 className="text-[#062E25] text-[22px] font-bold tracking-[-0.02em]">
                   {t('personalizedOffer.form.title')}
                 </h3>
-                <p className="text-[#062E25]/60 text-xs font-medium tracking-[-0.02em]">
+                <p className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
                   {t('personalizedOffer.form.question')}
                 </p>
                 <div className="flex flex-col gap-[7px]">
@@ -47,7 +47,7 @@ const PersonalizedOfferSection = async () => {
                       className="flex flex-row items-center gap-[10px]"
                     >
                       <div className="w-[15px] h-[15px] rounded-full border border-[#4A9A99] shrink-0" />
-                      <span className="text-[#062E25]/60 text-xs font-medium tracking-[-0.02em]">
+                      <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
                         {t(`personalizedOffer.form.options.${option}`)}
                       </span>
                     </div>

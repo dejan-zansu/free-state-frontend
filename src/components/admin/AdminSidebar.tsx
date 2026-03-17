@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { cn } from '@/lib/utils'
@@ -33,28 +33,29 @@ interface NavItem {
 export function AdminSidebar() {
   const pathname = usePathname()
   const locale = useLocale()
+  const t = useTranslations('admin.sidebar')
   const [equipmentOpen, setEquipmentOpen] = useState(pathname.includes('/equipment'))
 
   const prefix = `/${locale}/admin`
 
   const navItems: NavItem[] = [
-    { label: 'Dashboard', href: `${prefix}/dashboard`, icon: LayoutDashboard },
-    { label: 'Users', href: `${prefix}/users`, icon: Users },
-    { label: 'Leads', href: `${prefix}/leads`, icon: BarChart3 },
-    { label: 'Contracts', href: `${prefix}/contracts`, icon: FileText },
+    { label: t('dashboard'), href: `${prefix}/dashboard`, icon: LayoutDashboard },
+    { label: t('users'), href: `${prefix}/users`, icon: Users },
+    { label: t('leads'), href: `${prefix}/leads`, icon: BarChart3 },
+    { label: t('contracts'), href: `${prefix}/contracts`, icon: FileText },
     {
-      label: 'Equipment',
+      label: t('equipment'),
       href: `${prefix}/equipment`,
       icon: Settings,
       children: [
-        { label: 'Manufacturers', href: `${prefix}/equipment/manufacturers`, icon: Factory },
-        { label: 'Solar Panels', href: `${prefix}/equipment/solar-panels`, icon: PanelTop },
-        { label: 'Inverters', href: `${prefix}/equipment/inverters`, icon: Zap },
-        { label: 'Batteries', href: `${prefix}/equipment/batteries`, icon: Battery },
-        { label: 'Mounting Systems', href: `${prefix}/equipment/mounting-systems`, icon: Box },
-        { label: 'EMS', href: `${prefix}/equipment/ems`, icon: CircuitBoard },
-        { label: 'Heat Pumps', href: `${prefix}/equipment/heat-pumps`, icon: Flame },
-        { label: 'Packages', href: `${prefix}/equipment/packages`, icon: Package },
+        { label: t('manufacturers'), href: `${prefix}/equipment/manufacturers`, icon: Factory },
+        { label: t('solarPanels'), href: `${prefix}/equipment/solar-panels`, icon: PanelTop },
+        { label: t('inverters'), href: `${prefix}/equipment/inverters`, icon: Zap },
+        { label: t('batteries'), href: `${prefix}/equipment/batteries`, icon: Battery },
+        { label: t('mountingSystems'), href: `${prefix}/equipment/mounting-systems`, icon: Box },
+        { label: t('ems'), href: `${prefix}/equipment/ems`, icon: CircuitBoard },
+        { label: t('heatPumps'), href: `${prefix}/equipment/heat-pumps`, icon: Flame },
+        { label: t('packages'), href: `${prefix}/equipment/packages`, icon: Package },
       ],
     },
   ]
@@ -64,7 +65,7 @@ export function AdminSidebar() {
   return (
     <aside className="w-64 min-h-screen border-r border-[#062E25]/10 bg-white shrink-0">
       <div className="p-6 border-b border-[#062E25]/10">
-        <h2 className="text-lg font-bold text-[#062E25]">Admin Panel</h2>
+        <h2 className="text-lg font-bold text-[#062E25]">{t('title')}</h2>
       </div>
       <nav className="p-3 space-y-1">
         {navItems.map((item) => {

@@ -57,7 +57,7 @@ const BatteryStorageRevenue = async () => {
           {steps.map(step => (
             <span
               key={step.key}
-              className="text-[#B7FE1A]/80 text-xs sm:text-sm md:text-base lg:text-xl font-medium tracking-tight text-center"
+              className="text-[#B7FE1A]/80 text-sm sm:text-sm md:text-base lg:text-xl font-medium tracking-tight text-center"
             >
               {t(`revenue.steps.${step.key}.title`)}
             </span>
@@ -71,7 +71,7 @@ const BatteryStorageRevenue = async () => {
           {steps.map(step => (
             <p
               key={step.key}
-              className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-medium leading-snug tracking-tight text-center"
+              className="text-[#062E25]/80 text-sm sm:text-sm md:text-base font-medium leading-snug tracking-tight text-center"
             >
               {t(`revenue.steps.${step.key}.description`)}
             </p>

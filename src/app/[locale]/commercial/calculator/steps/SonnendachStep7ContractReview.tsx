@@ -1,17 +1,17 @@
 'use client'
 
-import { useState } from 'react'
 import {
+  AlertTriangle,
+  Check,
   ChevronLeft,
   ChevronRight,
-  Sun,
-  Check,
-  AlertTriangle,
   FileText,
   Package,
   Shield,
+  Sun,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -361,7 +361,7 @@ export default function SonnendachStep7ContractReview() {
                     }`}
                   >
                     {pkg.isRecommended && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 text-xs font-medium bg-energy text-white rounded-full">
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-2 py-0.5 text-sm font-medium bg-energy text-white rounded-full">
                         {t('packages.recommended')}
                       </span>
                     )}
@@ -395,7 +395,7 @@ export default function SonnendachStep7ContractReview() {
                       {pkg.features.slice(0, 4).map((feature, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start gap-2 text-xs text-muted-foreground"
+                          className="flex items-start gap-2 text-sm text-muted-foreground"
                         >
                           <Check className="h-3 w-3 text-energy mt-0.5 shrink-0" />
                           <span>{feature}</span>

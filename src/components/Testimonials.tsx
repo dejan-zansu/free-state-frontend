@@ -221,7 +221,7 @@ const Testimonials = () => {
                           </div>
                         </div>
 
-                        <p className="text-white/80 text-xs sm:text-sm font-light leading-[1.3]">
+                        <p className="text-white/80 text-sm sm:text-sm font-light leading-[1.3]">
                           {testimonial.quote}
                         </p>
                         <div className="flex gap-0.5 mt-2.5 sm:mt-3">

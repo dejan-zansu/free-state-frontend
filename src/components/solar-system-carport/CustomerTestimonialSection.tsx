@@ -68,10 +68,10 @@ const CustomerTestimonialSection = async () => {
                   </div>
                   <div className="flex flex-col gap-[10px]">
                     <div className="flex flex-col">
-                      <span className="text-white text-xs font-medium">
+                      <span className="text-white text-sm font-medium">
                         {t('testimonial.authorName')}
                       </span>
-                      <span className="flex items-center gap-1 text-white/90 text-xs font-light">
+                      <span className="flex items-center gap-1 text-white/90 text-sm font-light">
                         {t('testimonial.verifiedOwner')}
                         <svg
                           width={13}
@@ -112,7 +112,7 @@ const CustomerTestimonialSection = async () => {
                       fill="#04DA8D"
                     />
                   </svg>
-                  <span className="text-white text-xs font-medium">
+                  <span className="text-white text-sm font-medium">
                     Trustpilot
                   </span>
                 </div>

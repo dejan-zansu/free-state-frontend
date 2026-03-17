@@ -1,17 +1,17 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
 import {
+  AlertCircle,
+  CheckCircle2,
   ChevronLeft,
-  Shield,
+  Clock,
   ExternalLink,
   FileCheck,
-  AlertCircle,
   Loader2,
-  CheckCircle2,
-  Clock,
+  Shield,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useCallback, useEffect, useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -53,7 +53,10 @@ export default function StepSignature() {
     setError(null)
 
     try {
-      const response = await contractService.initiateSignature(createdContractId, acknowledgments)
+      const response = await contractService.initiateSignature(
+        createdContractId,
+        acknowledgments
+      )
 
       setSignatureRequestData({
         processId: response.processId,
@@ -63,12 +66,19 @@ export default function StepSignature() {
       setSignatureStatus('pending')
     } catch (err) {
       console.error('Failed to initiate signature:', err)
-      setError(err instanceof Error ? err.message : 'Failed to start signing process')
+      setError(
+        err instanceof Error ? err.message : 'Failed to start signing process'
+      )
       setSignatureStatus('failed')
     } finally {
       setIsInitiating(false)
     }
-  }, [createdContractId, acknowledgments, setSignatureRequestData, setSignatureStatus])
+  }, [
+    createdContractId,
+    acknowledgments,
+    setSignatureRequestData,
+    setSignatureStatus,
+  ])
 
   const handleOpenSigningPage = () => {
     if (signingUrl) {
@@ -81,7 +91,8 @@ export default function StepSignature() {
     if (!createdContractId) return
 
     try {
-      const result = await contractService.checkSignatureStatus(createdContractId)
+      const result =
+        await contractService.checkSignatureStatus(createdContractId)
 
       if (result.status === 'COMPLETED') {
         setSignatureStatus('signed')
@@ -137,19 +148,29 @@ export default function StepSignature() {
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('summary.document')}</span>
+              <span className="text-muted-foreground">
+                {t('summary.document')}
+              </span>
               <span className="font-medium">{t('summary.aboAgreement')}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('summary.contractNumber')}</span>
+              <span className="text-muted-foreground">
+                {t('summary.contractNumber')}
+              </span>
               <span className="font-medium">{contractNumber || '-'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('summary.signer')}</span>
-              <span className="font-medium">{contact.firstName} {contact.lastName}</span>
+              <span className="text-muted-foreground">
+                {t('summary.signer')}
+              </span>
+              <span className="font-medium">
+                {contact.firstName} {contact.lastName}
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('summary.email')}</span>
+              <span className="text-muted-foreground">
+                {t('summary.email')}
+              </span>
               <span className="font-medium">{contact.email}</span>
             </div>
           </CardContent>
@@ -160,7 +181,9 @@ export default function StepSignature() {
             <CardContent className="py-12 text-center">
               <div className="animate-spin w-12 h-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4" />
               <p className="text-lg font-medium">{t('initiating.title')}</p>
-              <p className="text-muted-foreground mt-1">{t('initiating.message')}</p>
+              <p className="text-muted-foreground mt-1">
+                {t('initiating.message')}
+              </p>
             </CardContent>
           </Card>
         ) : signatureStatus === 'pending' ? (
@@ -171,7 +194,9 @@ export default function StepSignature() {
                   <ExternalLink className="h-8 w-8 text-primary" />
                 </div>
                 <p className="text-lg font-medium">{t('signing.title')}</p>
-                <p className="text-muted-foreground mt-2">{t('signing.description')}</p>
+                <p className="text-muted-foreground mt-2">
+                  {t('signing.description')}
+                </p>
               </div>
 
               <Button
@@ -202,8 +227,16 @@ export default function StepSignature() {
             <CardContent className="py-12 text-center">
               <Clock className="h-12 w-12 text-amber-500 mx-auto mb-4" />
               <p className="text-lg font-medium">{t('expired.title')}</p>
-              <p className="text-muted-foreground mt-1 mb-4">{t('expired.message')}</p>
-              <Button onClick={() => { resetSignature(); handleInitiateSignature() }} disabled={isInitiating}>
+              <p className="text-muted-foreground mt-1 mb-4">
+                {t('expired.message')}
+              </p>
+              <Button
+                onClick={() => {
+                  resetSignature()
+                  handleInitiateSignature()
+                }}
+                disabled={isInitiating}
+              >
                 {isInitiating ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -219,9 +252,19 @@ export default function StepSignature() {
           <Card className="border-destructive">
             <CardContent className="py-12 text-center">
               <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
-              <p className="text-lg font-medium text-destructive">{t('failed.title')}</p>
-              <p className="text-muted-foreground mt-1 mb-4">{t('failed.message')}</p>
-              <Button onClick={() => { resetSignature(); handleInitiateSignature() }} disabled={isInitiating}>
+              <p className="text-lg font-medium text-destructive">
+                {t('failed.title')}
+              </p>
+              <p className="text-muted-foreground mt-1 mb-4">
+                {t('failed.message')}
+              </p>
+              <Button
+                onClick={() => {
+                  resetSignature()
+                  handleInitiateSignature()
+                }}
+                disabled={isInitiating}
+              >
                 {isInitiating ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
@@ -237,8 +280,12 @@ export default function StepSignature() {
           <Card className="border-green-500">
             <CardContent className="py-12 text-center">
               <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" />
-              <p className="text-lg font-medium text-green-700">{t('signed.title')}</p>
-              <p className="text-muted-foreground mt-1">{t('signed.message')}</p>
+              <p className="text-lg font-medium text-green-700">
+                {t('signed.title')}
+              </p>
+              <p className="text-muted-foreground mt-1">
+                {t('signed.message')}
+              </p>
             </CardContent>
           </Card>
         ) : null}
@@ -248,7 +295,7 @@ export default function StepSignature() {
             <Shield className="h-5 w-5 text-primary shrink-0 mt-0.5" />
             <div>
               <p className="font-medium text-sm">{t('security.title')}</p>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 {t('security.message')}
               </p>
             </div>
@@ -262,17 +309,15 @@ export default function StepSignature() {
               resetSignature()
               goToStep(8)
             }}
-            className="gap-2" style={{ borderColor: "#062E25", color: "#062E25" }}
+            className="gap-2"
+            style={{ borderColor: '#062E25', color: '#062E25' }}
           >
             <ChevronLeft className="h-4 w-4" />
             {tNav('back')}
           </Button>
 
           {contractPdfUrl && createdContractId && (
-            <Button
-              variant="ghost"
-              asChild
-            >
+            <Button variant="ghost" asChild>
               <a
                 href={contractService.getDownloadUrl(createdContractId)}
                 target="_blank"

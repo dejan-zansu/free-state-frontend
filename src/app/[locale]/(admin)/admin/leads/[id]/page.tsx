@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -19,6 +19,8 @@ const LEAD_STATUSES = ['NEW', 'CONTACTED', 'QUALIFIED', 'PROPOSAL_SENT', 'NEGOTI
 export default function AdminLeadDetailPage() {
   const params = useParams()
   const locale = useLocale()
+  const t = useTranslations('admin.leads')
+  const tc = useTranslations('admin.common')
   const [lead, setLead] = useState<AdminLead | null>(null)
   const [salesReps, setSalesReps] = useState<SalesRep[]>([])
   const [loading, setLoading] = useState(true)
@@ -61,7 +63,7 @@ export default function AdminLeadDetailPage() {
   }
 
   if (!lead) {
-    return <p className="text-[#062E25]/60">Lead not found.</p>
+    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
   }
 
   return (
@@ -69,7 +71,7 @@ export default function AdminLeadDetailPage() {
       <div className="flex items-center gap-3 mb-6">
         <Button variant="ghost" size="sm" asChild>
           <Link href={`/${locale}/admin/leads`}>
-            <ArrowLeft className="h-4 w-4 mr-1" /> Back
+            <ArrowLeft className="h-4 w-4 mr-1" /> {t('back')}
           </Link>
         </Button>
         <h1 className="text-2xl font-bold text-[#062E25]">
@@ -81,28 +83,28 @@ export default function AdminLeadDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">Lead Info</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('leadInfo')}</h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">Property Address</label>
+                <label className="text-sm text-[#062E25]/60">{t('propertyAddress')}</label>
                 <p className="font-medium text-[#062E25]">{lead.propertyAddress}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Source</label>
+                <label className="text-sm text-[#062E25]/60">{t('source')}</label>
                 <p className="font-medium text-[#062E25]">{lead.source}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Interested Package</label>
+                <label className="text-sm text-[#062E25]/60">{t('interestedPackage')}</label>
                 <p className="font-medium text-[#062E25]">{lead.interestedPackage || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Estimated Budget</label>
+                <label className="text-sm text-[#062E25]/60">{t('estimatedBudget')}</label>
                 <p className="font-medium text-[#062E25]">
                   {lead.estimatedBudget ? `CHF ${lead.estimatedBudget.toLocaleString('de-CH')}` : '-'}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Created</label>
+                <label className="text-sm text-[#062E25]/60">{t('created')}</label>
                 <p className="font-medium text-[#062E25]">
                   {new Date(lead.createdAt).toLocaleDateString('de-CH')}
                 </p>
@@ -113,10 +115,10 @@ export default function AdminLeadDetailPage() {
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">Manage</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('manage')}</h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">Status</label>
+                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
                 <Select
                   value={lead.status}
                   onValueChange={(v) => handleUpdate({ status: v })}
@@ -133,17 +135,17 @@ export default function AdminLeadDetailPage() {
                 </Select>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">Assigned To</label>
+                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('assignedTo')}</label>
                 <Select
                   value={lead.assignedTo?.id || ''}
                   onValueChange={(v) => handleUpdate({ assignedToId: v || null })}
                   disabled={saving}
                 >
                   <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Unassigned" />
+                    <SelectValue placeholder={t('unassigned')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="">Unassigned</SelectItem>
+                    <SelectItem value="">{t('unassigned')}</SelectItem>
                     {salesReps.map((rep) => (
                       <SelectItem key={rep.id} value={rep.id}>
                         {rep.firstName} {rep.lastName}
@@ -153,7 +155,7 @@ export default function AdminLeadDetailPage() {
                 </Select>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">Notes</label>
+                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('notes')}</label>
                 <Textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
@@ -166,7 +168,7 @@ export default function AdminLeadDetailPage() {
                   disabled={saving || notes === (lead.notes || '')}
                   className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
                 >
-                  Save Notes
+                  {t('saveNotes')}
                 </Button>
               </div>
             </div>
@@ -175,16 +177,16 @@ export default function AdminLeadDetailPage() {
 
         <Card className="border-[#062E25]/10 lg:col-span-2">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">Contact</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('contact')}</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">Name</label>
+                <label className="text-sm text-[#062E25]/60">{t('name')}</label>
                 <p className="font-medium text-[#062E25]">
                   {lead.customer.user.firstName} {lead.customer.user.lastName}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Email</label>
+                <label className="text-sm text-[#062E25]/60">{t('email')}</label>
                 <p className="font-medium text-[#062E25]">{lead.customer.user.email}</p>
               </div>
             </div>

@@ -1,13 +1,16 @@
 'use client'
 
+import { ChevronDown, Mail, MessageSquare, Phone, Send } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { Send, Mail, Phone, ChevronDown, MessageSquare } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { customerPortalService, type InquirySummary } from '@/services/customer-portal.service'
+import {
+  customerPortalService,
+  type InquirySummary,
+} from '@/services/customer-portal.service'
 
 const FAQ_ITEMS = [
   {
@@ -52,8 +55,11 @@ export default function SupportPage() {
     if (!subject.trim() || !message.trim()) return
     setSending(true)
     try {
-      const inquiry = await customerPortalService.createInquiry({ subject, message })
-      setInquiries((prev) => [inquiry, ...prev])
+      const inquiry = await customerPortalService.createInquiry({
+        subject,
+        message,
+      })
+      setInquiries(prev => [inquiry, ...prev])
       setSubject('')
       setMessage('')
       setSent(true)
@@ -71,7 +77,9 @@ export default function SupportPage() {
 
       <div className="grid lg:grid-cols-2 gap-8">
         <div>
-          <h2 className="text-lg font-semibold text-[#062E25] mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+            Frequently Asked Questions
+          </h2>
           <div className="space-y-2">
             {FAQ_ITEMS.map((item, i) => (
               <Card key={i} className="border-[#062E25]/10">
@@ -79,7 +87,9 @@ export default function SupportPage() {
                   className="w-full p-4 flex items-center justify-between text-left"
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
-                  <span className="font-medium text-sm text-[#062E25]">{item.q}</span>
+                  <span className="font-medium text-sm text-[#062E25]">
+                    {item.q}
+                  </span>
                   <ChevronDown
                     className={`h-4 w-4 text-[#062E25]/40 shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}
                   />
@@ -95,13 +105,21 @@ export default function SupportPage() {
 
           <Card className="mt-6 border-[#062E25]/10">
             <CardContent className="p-5">
-              <h3 className="font-semibold text-[#062E25] mb-3">Direct Contact</h3>
+              <h3 className="font-semibold text-[#062E25] mb-3">
+                Direct Contact
+              </h3>
               <div className="space-y-3 text-sm">
-                <a href="mailto:solar@freestate.ch" className="flex items-center gap-3 text-[#062E25]/70 hover:text-[#062E25]">
+                <a
+                  href="mailto:solar@freestate.ch"
+                  className="flex items-center gap-3 text-[#062E25]/70 hover:text-[#062E25]"
+                >
                   <Mail className="h-4 w-4" />
                   solar@freestate.ch
                 </a>
-                <a href="tel:+41526200050" className="flex items-center gap-3 text-[#062E25]/70 hover:text-[#062E25]">
+                <a
+                  href="tel:+41526200050"
+                  className="flex items-center gap-3 text-[#062E25]/70 hover:text-[#062E25]"
+                >
                   <Phone className="h-4 w-4" />
                   +41 52 620 00 50
                 </a>
@@ -111,18 +129,20 @@ export default function SupportPage() {
         </div>
 
         <div>
-          <h2 className="text-lg font-semibold text-[#062E25] mb-4">Send a Message</h2>
+          <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+            Send a Message
+          </h2>
           <Card className="border-[#062E25]/10">
             <CardContent className="p-5 space-y-4">
               <Input
                 placeholder="Subject"
                 value={subject}
-                onChange={(e) => setSubject(e.target.value)}
+                onChange={e => setSubject(e.target.value)}
               />
               <Textarea
                 placeholder="How can we help you?"
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={e => setMessage(e.target.value)}
                 rows={5}
               />
               <Button
@@ -138,21 +158,28 @@ export default function SupportPage() {
 
           {inquiries.length > 0 && (
             <div className="mt-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">Your Messages</h2>
+              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+                Your Messages
+              </h2>
               <div className="space-y-2">
-                {inquiries.map((inq) => (
+                {inquiries.map(inq => (
                   <Card key={inq.id} className="border-[#062E25]/10">
                     <CardContent className="p-4">
                       <div className="flex items-start gap-3">
                         <MessageSquare className="h-4 w-4 text-[#062E25]/30 mt-0.5 shrink-0" />
                         <div>
-                          <p className="text-sm text-[#062E25]">{inq.message}</p>
-                          <p className="text-xs text-[#062E25]/40 mt-1">
-                            {new Date(inq.createdAt).toLocaleDateString('de-CH', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric',
-                            })}
+                          <p className="text-sm text-[#062E25]">
+                            {inq.message}
+                          </p>
+                          <p className="text-sm text-[#062E25]/40 mt-1">
+                            {new Date(inq.createdAt).toLocaleDateString(
+                              'de-CH',
+                              {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                              }
+                            )}
                           </p>
                         </div>
                       </div>

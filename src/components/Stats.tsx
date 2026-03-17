@@ -28,7 +28,7 @@ const Stats = async () => {
                 </div>
                 <div className="text-foreground">
                   {stat.sublabel && (
-                    <p className="text-xs sm:text-sm mb-1">{stat.sublabel}</p>
+                    <p className="text-sm sm:text-sm mb-1">{stat.sublabel}</p>
                   )}
                   <p className="text-sm sm:text-base">{stat.label}</p>
                 </div>

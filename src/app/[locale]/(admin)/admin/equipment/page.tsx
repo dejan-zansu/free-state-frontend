@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import {
   Battery,
   Box,
@@ -16,24 +16,25 @@ import {
 
 import { Card, CardContent } from '@/components/ui/card'
 
-const equipmentTypes = [
-  { label: 'Manufacturers', href: 'manufacturers', icon: Factory, description: 'Manage equipment manufacturers' },
-  { label: 'Solar Panels', href: 'solar-panels', icon: PanelTop, description: 'Panel models and series' },
-  { label: 'Inverters', href: 'inverters', icon: Zap, description: 'String, micro, and hybrid inverters' },
-  { label: 'Batteries', href: 'batteries', icon: Battery, description: 'Energy storage systems' },
-  { label: 'Mounting Systems', href: 'mounting-systems', icon: Box, description: 'Roof and ground mount systems' },
-  { label: 'Energy Management', href: 'ems', icon: CircuitBoard, description: 'Smart energy controllers' },
-  { label: 'Heat Pumps', href: 'heat-pumps', icon: Flame, description: 'Air, brine, and water heat pumps' },
-  { label: 'Packages', href: 'packages', icon: Package, description: 'Subscription and abo packages' },
-]
-
 export default function AdminEquipmentPage() {
   const locale = useLocale()
+  const t = useTranslations('admin.equipment')
   const prefix = `/${locale}/admin/equipment`
+
+  const equipmentTypes = [
+    { label: t('manufacturers'), href: 'manufacturers', icon: Factory, description: t('manufacturersDesc') },
+    { label: t('solarPanels'), href: 'solar-panels', icon: PanelTop, description: t('solarPanelsDesc') },
+    { label: t('inverters'), href: 'inverters', icon: Zap, description: t('invertersDesc') },
+    { label: t('batteries'), href: 'batteries', icon: Battery, description: t('batteriesDesc') },
+    { label: t('mountingSystems'), href: 'mounting-systems', icon: Box, description: t('mountingSystemsDesc') },
+    { label: t('ems'), href: 'ems', icon: CircuitBoard, description: t('emsDesc') },
+    { label: t('heatPumps'), href: 'heat-pumps', icon: Flame, description: t('heatPumpsDesc') },
+    { label: t('packages'), href: 'packages', icon: Package, description: t('packagesDesc') },
+  ]
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#062E25] mb-6">Equipment Catalog</h1>
+      <h1 className="text-2xl font-bold text-[#062E25] mb-6">{t('title')}</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         {equipmentTypes.map((type) => (

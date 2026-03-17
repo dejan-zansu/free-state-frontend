@@ -1,24 +1,24 @@
 'use client'
 
 import {
-  ChevronLeft,
-  Zap,
-  Ruler,
-  TrendingUp,
-  Leaf,
   Building2,
   CheckCircle2,
+  ChevronLeft,
   Download,
+  Leaf,
   Loader2,
+  Ruler,
+  TrendingUp,
+  Zap,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useRef, useState } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import RoofVisualizationMap, {
   type RoofVisualizationMapRef,
 } from '@/components/calculator/RoofVisualizationMap'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { reportService } from '@/services/report.service'
 import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
@@ -116,11 +116,19 @@ export default function SonnendachStep5Results() {
       if (mapRef.current) {
         try {
           const capturedImage = await mapRef.current.captureImage()
-          console.log('[Report] captureImage returned:', capturedImage ? `string of length ${capturedImage.length}` : 'null/undefined')
+          console.log(
+            '[Report] captureImage returned:',
+            capturedImage
+              ? `string of length ${capturedImage.length}`
+              : 'null/undefined'
+          )
           if (capturedImage) {
             roofImage = capturedImage
             console.log('[Report] Map captured successfully')
-            console.log('[Report] Image starts with:', capturedImage.substring(0, 50))
+            console.log(
+              '[Report] Image starts with:',
+              capturedImage.substring(0, 50)
+            )
           } else {
             console.log('[Report] captureImage returned null/undefined')
           }
@@ -275,7 +283,7 @@ export default function SonnendachStep5Results() {
                 m² {t('usableArea')}
               </p>
               {totalRestrictedArea > 0 && (
-                <p className="text-xs text-muted-foreground mt-1">
+                <p className="text-sm text-muted-foreground mt-1">
                   ({selectedArea} - {Math.round(totalRestrictedArea * 10) / 10}{' '}
                   {t('restricted')})
                 </p>
@@ -331,14 +339,14 @@ export default function SonnendachStep5Results() {
                         <p className="font-medium capitalize">
                           {suitability?.label}
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-sm text-muted-foreground">
                           {segment.azimuthCardinal} facing, {segment.tilt}° tilt
                         </p>
                       </div>
                     </div>
                     <div className="text-right">
                       <p className="font-medium">{segment.area} m²</p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-sm text-muted-foreground">
                         {segment.electricityYield.toLocaleString()} kWh
                       </p>
                     </div>
@@ -462,7 +470,7 @@ export default function SonnendachStep5Results() {
                 </div>
               </div>
 
-              <div className="p-3 rounded-lg bg-muted/50 text-xs text-muted-foreground">
+              <div className="p-3 rounded-lg bg-muted/50 text-sm text-muted-foreground">
                 {t('disclaimer')}
               </div>
             </CardContent>

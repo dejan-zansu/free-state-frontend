@@ -7,6 +7,6 @@ export default function ProtectedLayout({
 }: {
   children: React.ReactNode
 }) {
-  return <ProtectedRoute>{children}</ProtectedRoute>
+  return <ProtectedRoute adminRedirect="/admin/dashboard">{children}</ProtectedRoute>
 }
 

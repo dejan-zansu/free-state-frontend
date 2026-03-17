@@ -2988,7 +2988,7 @@
       "advantagesTitle": "Advantages of an integrated charging station",
       "advantages": {
         "freeRefueling": "Free refueling with solar power",
-        "co2Neutral": "CO\u2082-neutral driving and safe",
+        "co2Neutral": "CO₂-neutral driving and safe",
         "convenientCharging": "Convenient charging at home"
       }
     },
@@ -3020,7 +3020,7 @@
         },
         "evCharging": {
           "question": "Can I use the solar power I produce to charge my electric car?",
-          "answer": "Absolutely! With an integrated charging station, you can use the solar power generated on your carport directly to charge your electric car. This allows you to drive CO\u2082-neutral and save on fuel costs."
+          "answer": "Absolutely! With an integrated charging station, you can use the solar power generated on your carport directly to charge your electric car. This allows you to drive CO₂-neutral and save on fuel costs."
         },
         "energyStorage": {
           "question": "Can I store the generated energy?",
@@ -3339,13 +3339,34 @@
     "inquiry": {
       "eyebrow": "Inquiry",
       "title": "Maintenance\nPrice Inquiry",
-      "firstName": { "label": "First name", "placeholder": "Enter your First name" },
-      "lastName": { "label": "Last name", "placeholder": "Enter your Last name" },
-      "email": { "label": "Email", "placeholder": "Enter your email" },
-      "phone": { "label": "Telephone number", "placeholder": "Enter your telephone number" },
-      "street": { "label": "Street, house number", "placeholder": "Enter your street and house number" },
-      "postalCode": { "label": "Postal code", "placeholder": "Enter your postal code" },
-      "location": { "label": "Location", "placeholder": "Enter your location" },
+      "firstName": {
+        "label": "First name",
+        "placeholder": "Enter your First name"
+      },
+      "lastName": {
+        "label": "Last name",
+        "placeholder": "Enter your Last name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Enter your email"
+      },
+      "phone": {
+        "label": "Telephone number",
+        "placeholder": "Enter your telephone number"
+      },
+      "street": {
+        "label": "Street, house number",
+        "placeholder": "Enter your street and house number"
+      },
+      "postalCode": {
+        "label": "Postal code",
+        "placeholder": "Enter your postal code"
+      },
+      "location": {
+        "label": "Location",
+        "placeholder": "Enter your location"
+      },
       "maintenanceServices": {
         "label": "Which maintenance services are you interested in? *",
         "monitoring": "Maintenance contract monitoring",
@@ -3358,9 +3379,18 @@
         "yes": "Yes, from FreeState",
         "no": "No, from another company"
       },
-      "systemOutput": { "label": "Photovoltaic system output in kWp *", "placeholder": "Please fill in this required field." },
-      "internetAccess": { "label": "Do you have internet access at home? *", "placeholder": "Please select" },
-      "internetOptions": { "yes": "Yes", "no": "No" },
+      "systemOutput": {
+        "label": "Photovoltaic system output in kWp *",
+        "placeholder": "Please fill in this required field."
+      },
+      "internetAccess": {
+        "label": "Do you have internet access at home? *",
+        "placeholder": "Please select"
+      },
+      "internetOptions": {
+        "yes": "Yes",
+        "no": "No"
+      },
       "products": {
         "label": "Which products are you using? *",
         "solarAboPrivate": "SolarAbo Private",
@@ -3374,7 +3404,10 @@
         "bydBattery": "BYD battery storage",
         "teslaBattery": "Tesla battery storage"
       },
-      "message": { "label": "Is there anything else you'd like to tell us?", "placeholder": "Message" },
+      "message": {
+        "label": "Is there anything else you'd like to tell us?",
+        "placeholder": "Message"
+      },
       "privacy": "I hereby confirm that I have read and understood the privacy policy.",
       "submit": "Submit",
       "success": "Your inquiry has been submitted successfully. We will get back to you shortly.",
@@ -4493,6 +4526,160 @@
           "answer": "Yes. Several Swiss cantons offer financial incentives ranging from CHF 2,000 to CHF 4,000 per installed bidirectional charging station. Check the funding section for details on your canton."
         }
       }
+    }
+  },
+  "admin": {
+    "sidebar": {
+      "title": "Admin Panel",
+      "dashboard": "Dashboard",
+      "users": "Users",
+      "leads": "Leads",
+      "contracts": "Contracts",
+      "equipment": "Equipment",
+      "manufacturers": "Manufacturers",
+      "solarPanels": "Solar Panels",
+      "inverters": "Inverters",
+      "batteries": "Batteries",
+      "mountingSystems": "Mounting Systems",
+      "ems": "Energy Management",
+      "heatPumps": "Heat Pumps",
+      "packages": "Packages"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "totalUsers": "Total Users",
+      "activeLeads": "Active Leads",
+      "contracts": "Contracts",
+      "revenueSigned": "Revenue (Signed)",
+      "customers": "customers",
+      "reps": "reps",
+      "new": "new",
+      "qualified": "qualified",
+      "signed": "signed",
+      "pending": "pending",
+      "totalNet": "Total net amount from signed contracts",
+      "leadsByStatus": "Leads by Status",
+      "contractsByStatus": "Contracts by Status"
+    },
+    "users": {
+      "title": "Users",
+      "searchPlaceholder": "Search by name or email...",
+      "allRoles": "All Roles",
+      "allStatuses": "All Statuses",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "leads": "Leads",
+      "joined": "Joined",
+      "view": "View",
+      "noUsers": "No users found",
+      "totalUsers": "{count} total users",
+      "back": "Back",
+      "accountInfo": "Account Info",
+      "phone": "Phone",
+      "emailVerified": "Email Verified",
+      "yes": "Yes",
+      "no": "No",
+      "lastLogin": "Last Login",
+      "never": "Never",
+      "manage": "Manage",
+      "customerProfile": "Customer Profile",
+      "company": "Company",
+      "street": "Street",
+      "city": "City",
+      "canton": "Canton",
+      "activitySummary": "Activity Summary",
+      "assignedLeads": "Assigned Leads",
+      "createdQuotes": "Created Quotes"
+    },
+    "leads": {
+      "title": "Leads",
+      "searchPlaceholder": "Search by address, name, or email...",
+      "allStatuses": "All Statuses",
+      "allSources": "All Sources",
+      "customer": "Customer",
+      "property": "Property",
+      "status": "Status",
+      "source": "Source",
+      "assignedTo": "Assigned To",
+      "created": "Created",
+      "view": "View",
+      "unassigned": "Unassigned",
+      "noLeads": "No leads found",
+      "totalLeads": "{count} total leads",
+      "back": "Back",
+      "leadInfo": "Lead Info",
+      "propertyAddress": "Property Address",
+      "interestedPackage": "Interested Package",
+      "estimatedBudget": "Estimated Budget",
+      "manage": "Manage",
+      "notes": "Notes",
+      "saveNotes": "Save Notes",
+      "contact": "Contact"
+    },
+    "contracts": {
+      "title": "Contracts",
+      "searchPlaceholder": "Search by contract number, name...",
+      "allStatuses": "All Statuses",
+      "allTypes": "All Types",
+      "contractNumber": "Contract #",
+      "customer": "Customer",
+      "type": "Type",
+      "status": "Status",
+      "signature": "Signature",
+      "netAmount": "Net Amount",
+      "created": "Created",
+      "view": "View",
+      "noContracts": "No contracts found",
+      "totalContracts": "{count} total contracts",
+      "back": "Back",
+      "contractDetails": "Contract Details",
+      "package": "Package",
+      "language": "Language",
+      "financials": "Financials",
+      "grossAmount": "Gross Amount",
+      "subsidy": "Subsidy",
+      "signatureStatus": "Signature Status",
+      "notStarted": "Not started",
+      "customerSigned": "Customer Signed",
+      "project": "Project",
+      "projectStatus": "Project Status"
+    },
+    "equipment": {
+      "title": "Equipment Catalog",
+      "manufacturers": "Manufacturers",
+      "manufacturersDesc": "Manage equipment manufacturers",
+      "solarPanels": "Solar Panels",
+      "solarPanelsDesc": "Panel models and series",
+      "inverters": "Inverters",
+      "invertersDesc": "String, micro, and hybrid inverters",
+      "batteries": "Batteries",
+      "batteriesDesc": "Energy storage systems",
+      "mountingSystems": "Mounting Systems",
+      "mountingSystemsDesc": "Roof and ground mount systems",
+      "ems": "Energy Management",
+      "emsDesc": "Smart energy controllers",
+      "heatPumps": "Heat Pumps",
+      "heatPumpsDesc": "Air, brine, and water heat pumps",
+      "packages": "Packages",
+      "packagesDesc": "Subscription and abo packages",
+      "backToEquipment": "Equipment",
+      "addNew": "Add New",
+      "search": "Search...",
+      "allStatus": "All",
+      "active": "Active",
+      "inactive": "Inactive",
+      "edit": "Edit",
+      "noItems": "No items found",
+      "items": "{count} items",
+      "page": "Page {page} of {totalPages}"
+    },
+    "common": {
+      "loading": "Loading...",
+      "failedToLoad": "Failed to load data.",
+      "notFound": "Not found.",
+      "page": "Page {page} of {totalPages}"
     }
   }
 }

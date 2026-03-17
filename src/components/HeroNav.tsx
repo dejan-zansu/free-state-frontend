@@ -197,7 +197,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             <div onMouseEnter={() => setHoveredItem('solarAbo')}>
               <Link
                 href="/solar-abo"
-                className="text-white font-medium text-xs sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
+                className="text-white font-medium text-sm sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
               >
                 {t('hero.nav.solarAbo')}
               </Link>
@@ -205,7 +205,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             <div onMouseEnter={() => setHoveredItem('products')}>
               <Link
                 href="/products"
-                className="text-white font-medium text-xs sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
+                className="text-white font-medium text-sm sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
               >
                 {t('hero.nav.products')}
               </Link>
@@ -215,7 +215,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
-              className="text-xs sm:text-base md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
+              className="text-sm sm:text-base md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
             >
               {t('hero.nav.onlineStarter')}
             </LinkButton>

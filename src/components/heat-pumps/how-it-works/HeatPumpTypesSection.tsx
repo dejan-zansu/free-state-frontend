@@ -25,7 +25,7 @@ const HeatPumpTypesSection = async () => {
           {steps.map((step, i) => (
             <div
               key={step}
-              className={`absolute ${markerPositions[i]} w-[29px] h-[29px] flex items-center justify-center rounded-[14.5px] backdrop-blur-[8.7px] text-white text-xs font-bold hidden lg:flex`}
+              className={`absolute ${markerPositions[i]} w-[29px] h-[29px] flex items-center justify-center rounded-[14.5px] backdrop-blur-[8.7px] text-white text-sm font-bold hidden lg:flex`}
               style={{
                 background: 'rgba(182, 184, 178, 0.6)',
                 border: '0.72px solid rgba(255, 255, 255, 0.7)',
@@ -53,7 +53,7 @@ const HeatPumpTypesSection = async () => {
             </p>
 
             <div className="flex flex-col gap-[10px] mt-4">
-              {steps.map((step) => (
+              {steps.map(step => (
                 <div key={step} className="flex items-center gap-2">
                   <span className="w-[18px] h-[18px] flex items-center justify-center rounded-[9px] border-[1.5px] border-[#036B53] text-[#062E25] text-[9px] font-bold shrink-0">
                     {step}

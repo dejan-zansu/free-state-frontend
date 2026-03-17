@@ -28,7 +28,7 @@ const ProductHeroLight = async ({
                 backdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-[#062E25] text-xs sm:text-sm md:text-base font-medium text-center tracking-tight">
+              <span className="text-[#062E25] text-sm sm:text-sm md:text-base font-medium text-center tracking-tight">
                 {t('hero.eyebrow')}
               </span>
             </div>

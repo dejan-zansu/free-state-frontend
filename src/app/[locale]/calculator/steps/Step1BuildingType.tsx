@@ -140,8 +140,10 @@ export default function Step1BuildingType() {
               <div className="absolute left-[14px] right-[110px] sm:left-[18px] sm:right-[240px] top-[85px] sm:top-[93px] z-10 flex flex-col gap-[4px] sm:gap-[6px]">
                 {pkg.bullets.map(bulletKey => (
                   <div key={bulletKey} className="flex items-center gap-1">
-                    <span className="shrink-0"><CheckIcon /></span>
-                    <span className="text-xs font-light text-[#062E25]/80 tracking-tight">
+                    <span className="shrink-0">
+                      <CheckIcon />
+                    </span>
+                    <span className="text-sm font-light text-[#062E25]/80 tracking-tight">
                       {t(bulletKey)}
                     </span>
                   </div>
@@ -165,7 +167,7 @@ export default function Step1BuildingType() {
           ))}
         </div>
 
-        <p className="mt-5 text-xs font-light text-[#062E25]/60 tracking-tight">
+        <p className="mt-5 text-sm font-light text-[#062E25]/60 tracking-tight">
           {t('learnMorePrefix')}{' '}
           {solarModel === 'solar-direct' ? (
             <Link

@@ -55,7 +55,7 @@ const CostPricingSection = async () => {
               {headers.map((header, rowIndex) => (
                 <div key={rowIndex} className="flex">
                   <div className="w-[120px] sm:w-[150px] md:w-[200px] shrink-0 bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center">
-                    <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-lg font-semibold leading-tight tracking-[-0.02em]">
+                    <span className="text-[#062E25]/80 text-sm sm:text-sm md:text-lg font-semibold leading-tight tracking-[-0.02em]">
                       {header}
                     </span>
                   </div>
@@ -76,7 +76,7 @@ const CostPricingSection = async () => {
                               : ''
                           }`}
                         >
-                          <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-lg font-normal leading-tight tracking-[-0.02em]">
+                          <span className="text-[#062E25]/80 text-sm sm:text-sm md:text-lg font-normal leading-tight tracking-[-0.02em]">
                             {values[rowIndex]}
                           </span>
                         </div>

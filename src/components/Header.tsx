@@ -32,6 +32,7 @@ const Header = () => {
     '/solar-systems',
     '/heat-pumps',
     '/charging-stations',
+    '/dashboard',
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
@@ -91,7 +92,9 @@ const Header = () => {
   }
 
   const showDarkHeader = shouldUseDarkHeader || isScrolled
-  const isCalculatorPage = (pathname as string) === '/calculator' || (pathname as string)?.startsWith('/calculator/')
+  const isCalculatorPage =
+    (pathname as string) === '/calculator' ||
+    (pathname as string)?.startsWith('/calculator/')
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -220,7 +223,10 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-        <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
+        <SheetContent
+          side="right"
+          className="w-[300px] sm:w-[400px] overflow-y-auto"
+        >
           <SheetHeader>
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
           </SheetHeader>

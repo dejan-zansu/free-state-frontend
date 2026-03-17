@@ -37,7 +37,7 @@ const CostComparisonSection = async () => {
                 style={{ background: 'rgba(255, 255, 255, 0.1)' }}
               >
                 <span className="px-5 py-3" />
-                {columns.map((col) => (
+                {columns.map(col => (
                   <span
                     key={col}
                     className="px-5 py-3 text-white/80 text-sm md:text-lg font-bold tracking-[-0.02em]"
@@ -53,7 +53,11 @@ const CostComparisonSection = async () => {
                   <div
                     key={row}
                     className={`${gridCols} ${isGlass ? 'backdrop-blur-[20px]' : 'bg-[#E4E9D3]'}`}
-                    style={isGlass ? { background: 'rgba(255, 255, 255, 0.1)' } : undefined}
+                    style={
+                      isGlass
+                        ? { background: 'rgba(255, 255, 255, 0.1)' }
+                        : undefined
+                    }
                   >
                     <span
                       className={`px-5 py-4 text-sm md:text-lg tracking-[-0.02em] ${
@@ -62,7 +66,7 @@ const CostComparisonSection = async () => {
                     >
                       {t(`comparison.rows.${row}.label`)}
                     </span>
-                    {columns.map((col) => (
+                    {columns.map(col => (
                       <span
                         key={col}
                         className={`px-5 py-4 text-sm md:text-lg font-bold tracking-[-0.02em] ${
@@ -78,7 +82,7 @@ const CostComparisonSection = async () => {
             </div>
           </div>
 
-          <p className="text-white/80 text-xs mt-4 tracking-[-0.02em]">
+          <p className="text-white/80 text-sm mt-4 tracking-[-0.02em]">
             {t('comparison.caption')}
           </p>
         </div>

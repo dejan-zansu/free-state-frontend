@@ -1,6 +1,6 @@
 'use client'
-import { cn } from '@/lib/utils'
 import { Link, usePathname } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 import { Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
@@ -343,7 +343,7 @@ const Footer = () => {
               <ArrowButton
                 variant={isCommercial ? 'secondary' : 'primary'}
                 size="md"
-                className="h-9 text-xs"
+                className="h-9 text-sm"
               >
                 {t('subscribe')}
               </ArrowButton>
@@ -369,7 +369,7 @@ const Footer = () => {
                 >
                   <span
                     className={cn(
-                      'text-xs font-medium',
+                      'text-sm font-medium',
                       isLight ? 'text-[#062E25]' : 'text-white'
                     )}
                   >
@@ -380,7 +380,7 @@ const Footer = () => {
               <LinkButton
                 href="tel:+41525253305"
                 variant={isCommercial ? 'secondary' : 'primary'}
-                className="h-9 text-xs"
+                className="h-9 text-sm"
                 iconWrapperClassName={cn(
                   'w-[30px] h-[30px]',
                   isCommercial ? 'bg-white/20' : 'bg-[#062E25]/10'
@@ -458,7 +458,7 @@ const Footer = () => {
               </p>
               <p
                 className={cn(
-                  'text-xs font-normal italic mt-1 max-w-[250px]',
+                  'text-sm font-normal italic mt-1 max-w-[250px]',
                   isLight ? 'text-primary/40' : 'text-muted-text-light/40'
                 )}
               >

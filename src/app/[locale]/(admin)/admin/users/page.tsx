@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { Button } from '@/components/ui/button'
@@ -16,6 +16,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function AdminUsersPage() {
   const locale = useLocale()
+  const t = useTranslations('admin.users')
   const {
     data,
     isLoading,
@@ -30,22 +31,22 @@ export default function AdminUsersPage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-[#062E25] mb-6">Users</h1>
+      <h1 className="text-2xl font-bold text-[#062E25] mb-6">{t('title')}</h1>
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <Input
-              placeholder="Search by name or email..."
+              placeholder={t('searchPlaceholder')}
               className="max-w-xs"
               onChange={(e) => setSearch(e.target.value)}
             />
             <Select value={filters.role || ''} onValueChange={(v) => setFilter('role', v || undefined)}>
               <SelectTrigger className="w-40">
-                <SelectValue placeholder="All Roles" />
+                <SelectValue placeholder={t('allRoles')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Roles</SelectItem>
+                <SelectItem value="">{t('allRoles')}</SelectItem>
                 <SelectItem value="ADMIN">Admin</SelectItem>
                 <SelectItem value="CUSTOMER">Customer</SelectItem>
                 <SelectItem value="SALES_REP">Sales Rep</SelectItem>
@@ -53,10 +54,10 @@ export default function AdminUsersPage() {
             </Select>
             <Select value={filters.status || ''} onValueChange={(v) => setFilter('status', v || undefined)}>
               <SelectTrigger className="w-48">
-                <SelectValue placeholder="All Statuses" />
+                <SelectValue placeholder={t('allStatuses')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Statuses</SelectItem>
+                <SelectItem value="">{t('allStatuses')}</SelectItem>
                 <SelectItem value="ACTIVE">Active</SelectItem>
                 <SelectItem value="INACTIVE">Inactive</SelectItem>
                 <SelectItem value="PENDING_VERIFICATION">Pending</SelectItem>
@@ -74,12 +75,12 @@ export default function AdminUsersPage() {
               <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Name</TableHead>
-                    <TableHead>Email</TableHead>
-                    <TableHead>Role</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Leads</TableHead>
-                    <TableHead>Joined</TableHead>
+                    <TableHead>{t('name')}</TableHead>
+                    <TableHead>{t('email')}</TableHead>
+                    <TableHead>{t('role')}</TableHead>
+                    <TableHead>{t('status')}</TableHead>
+                    <TableHead>{t('leads')}</TableHead>
+                    <TableHead>{t('joined')}</TableHead>
                     <TableHead />
                   </TableRow>
                 </TableHeader>
@@ -96,7 +97,7 @@ export default function AdminUsersPage() {
                       </TableCell>
                       <TableCell>
                         <Button variant="ghost" size="sm" asChild>
-                          <Link href={`/${locale}/admin/users/${user.id}`}>View</Link>
+                          <Link href={`/${locale}/admin/users/${user.id}`}>{t('view')}</Link>
                         </Button>
                       </TableCell>
                     </TableRow>
@@ -104,7 +105,7 @@ export default function AdminUsersPage() {
                   {data.length === 0 && (
                     <TableRow>
                       <TableCell colSpan={7} className="text-center py-8 text-[#062E25]/40">
-                        No users found
+                        {t('noUsers')}
                       </TableCell>
                     </TableRow>
                   )}
@@ -112,13 +113,13 @@ export default function AdminUsersPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">{total} total users</p>
+                <p className="text-sm text-[#062E25]/60">{t('totalUsers', { count: total })}</p>
                 <div className="flex items-center gap-2">
                   <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage(page - 1)}>
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
                   <span className="text-sm text-[#062E25]/60">
-                    Page {page} of {totalPages}
+                    {t('page', { page, totalPages })}
                   </span>
                   <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage(page + 1)}>
                     <ChevronRight className="h-4 w-4" />

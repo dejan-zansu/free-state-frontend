@@ -2739,17 +2739,17 @@
       "advantagesTitle": "Vorteile einer integrierten Ladestation",
       "advantages": {
         "freeRefueling": "Kostenloses Tanken mit Solarstrom",
-        "co2Neutral": "CO\u2082-neutrales Fahren und sicher",
+        "co2Neutral": "CO₂-neutrales Fahren und sicher",
         "convenientCharging": "Bequemes Laden zu Hause"
       }
     },
     "howItWorks": {
       "title": "Von der Beratung bis zur Installation",
-      "subtitle": "Einfach, transparent und sorgenfrei \u2013 wie ein Mobilfunkabo.",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Mobilfunkabo.",
       "steps": {
-        "step1": "Carport\nausw\u00e4hlen",
+        "step1": "Carport\nauswählen",
         "step2": "Preis\nberechnen",
-        "step3": "Telefon-\ngespr\u00e4ch",
+        "step3": "Telefon-\ngespräch",
         "step4": "Vor-Ort-\nBeratung",
         "step5": "Installation"
       }
@@ -2759,29 +2759,29 @@
       "items": {
         "installationTime": {
           "question": "Wie lange dauert die Installation einer Solaranlage auf meinem Carport?",
-          "answer": "Die Installation dauert in der Regel 1\u20132 Tage, je nach den \u00f6rtlichen Gegebenheiten."
+          "answer": "Die Installation dauert in der Regel 1–2 Tage, je nach den örtlichen Gegebenheiten."
         },
         "subsidies": {
-          "question": "Gibt es spezielle F\u00f6rderungen f\u00fcr Solar-Carports?",
-          "answer": "Ja, in der Schweiz gibt es verschiedene F\u00f6rderprogramme f\u00fcr Solaranlagen, auch auf Carports. Dazu geh\u00f6ren die Einmalverg\u00fctung von Pronovo sowie m\u00f6gliche kantonale F\u00f6rderungen. Wir beraten Sie gerne zu den verf\u00fcgbaren M\u00f6glichkeiten."
+          "question": "Gibt es spezielle Förderungen für Solar-Carports?",
+          "answer": "Ja, in der Schweiz gibt es verschiedene Förderprogramme für Solaranlagen, auch auf Carports. Dazu gehören die Einmalvergütung von Pronovo sowie mögliche kantonale Förderungen. Wir beraten Sie gerne zu den verfügbaren Möglichkeiten."
         },
         "electricityProduction": {
           "question": "Wie viel Strom produziert ein Solarpanel auf einem Carport?",
-          "answer": "Die Stromproduktion h\u00e4ngt von der Gr\u00f6sse Ihres Carports und der Anzahl der Solarmodule ab. Ein Einzelcarport mit 6 Modulen produziert ca. 2.539 kWh pro Jahr, w\u00e4hrend ein Doppelcarport mit 12 Modulen ca. 5.078 kWh pro Jahr erzeugt."
+          "answer": "Die Stromproduktion hängt von der Grösse Ihres Carports und der Anzahl der Solarmodule ab. Ein Einzelcarport mit 6 Modulen produziert ca. 2.539 kWh pro Jahr, während ein Doppelcarport mit 12 Modulen ca. 5.078 kWh pro Jahr erzeugt."
         },
         "evCharging": {
           "question": "Kann ich den erzeugten Solarstrom zum Laden meines Elektroautos nutzen?",
-          "answer": "Auf jeden Fall! Mit einer integrierten Ladestation k\u00f6nnen Sie den auf Ihrem Carport erzeugten Solarstrom direkt zum Laden Ihres Elektroautos nutzen. So fahren Sie CO\u2082-neutral und sparen Treibstoffkosten."
+          "answer": "Auf jeden Fall! Mit einer integrierten Ladestation können Sie den auf Ihrem Carport erzeugten Solarstrom direkt zum Laden Ihres Elektroautos nutzen. So fahren Sie CO₂-neutral und sparen Treibstoffkosten."
         },
         "energyStorage": {
           "question": "Kann ich die erzeugte Energie speichern?",
-          "answer": "Ja, mit einem Batteriespeicher k\u00f6nnen Sie \u00fcbersch\u00fcssige Solarenergie speichern und sp\u00e4ter nutzen, beispielsweise am Abend oder an bew\u00f6lkten Tagen. Wir bieten passende Speicherl\u00f6sungen an, die sich nahtlos in Ihren Solar-Carport integrieren lassen."
+          "answer": "Ja, mit einem Batteriespeicher können Sie überschüssige Solarenergie speichern und später nutzen, beispielsweise am Abend oder an bewölkten Tagen. Wir bieten passende Speicherlösungen an, die sich nahtlos in Ihren Solar-Carport integrieren lassen."
         }
       }
     },
     "testimonial": {
       "title": "Das sagen unsere\nKunden",
-      "quote": "Projektplanung und Ausf\u00fchrung verliefen reibungslos und professionell. Das Team war freundlich, kompetent, w\u00e4hrend des gesamten Prozesses transparent und hat alle Anliegen effizient bearbeitet.",
+      "quote": "Projektplanung und Ausführung verliefen reibungslos und professionell. Das Team war freundlich, kompetent, während des gesamten Prozesses transparent und hat alle Anliegen effizient bearbeitet.",
       "authorName": "Franz McLaren",
       "verifiedOwner": "Verifizierter Besitzer"
     }
@@ -3090,13 +3090,34 @@
     "inquiry": {
       "eyebrow": "Anfrage",
       "title": "Wartung\nPreisanfrage",
-      "firstName": { "label": "Vorname", "placeholder": "Geben Sie Ihren Vornamen ein" },
-      "lastName": { "label": "Nachname", "placeholder": "Geben Sie Ihren Nachnamen ein" },
-      "email": { "label": "E-Mail", "placeholder": "Geben Sie Ihre E-Mail ein" },
-      "phone": { "label": "Telefonnummer", "placeholder": "Geben Sie Ihre Telefonnummer ein" },
-      "street": { "label": "Strasse, Hausnummer", "placeholder": "Geben Sie Ihre Strasse und Hausnummer ein" },
-      "postalCode": { "label": "Postleitzahl", "placeholder": "Geben Sie Ihre Postleitzahl ein" },
-      "location": { "label": "Ort", "placeholder": "Geben Sie Ihren Ort ein" },
+      "firstName": {
+        "label": "Vorname",
+        "placeholder": "Geben Sie Ihren Vornamen ein"
+      },
+      "lastName": {
+        "label": "Nachname",
+        "placeholder": "Geben Sie Ihren Nachnamen ein"
+      },
+      "email": {
+        "label": "E-Mail",
+        "placeholder": "Geben Sie Ihre E-Mail ein"
+      },
+      "phone": {
+        "label": "Telefonnummer",
+        "placeholder": "Geben Sie Ihre Telefonnummer ein"
+      },
+      "street": {
+        "label": "Strasse, Hausnummer",
+        "placeholder": "Geben Sie Ihre Strasse und Hausnummer ein"
+      },
+      "postalCode": {
+        "label": "Postleitzahl",
+        "placeholder": "Geben Sie Ihre Postleitzahl ein"
+      },
+      "location": {
+        "label": "Ort",
+        "placeholder": "Geben Sie Ihren Ort ein"
+      },
       "maintenanceServices": {
         "label": "Welche Wartungsleistungen interessieren Sie? *",
         "monitoring": "Wartungsvertrag Überwachung",
@@ -3109,9 +3130,18 @@
         "yes": "Ja, von FreeState",
         "no": "Nein, von einem anderen Unternehmen"
       },
-      "systemOutput": { "label": "Photovoltaikanlagen-Leistung in kWp *", "placeholder": "Bitte füllen Sie dieses Pflichtfeld aus." },
-      "internetAccess": { "label": "Haben Sie zu Hause Internetzugang? *", "placeholder": "Bitte wählen" },
-      "internetOptions": { "yes": "Ja", "no": "Nein" },
+      "systemOutput": {
+        "label": "Photovoltaikanlagen-Leistung in kWp *",
+        "placeholder": "Bitte füllen Sie dieses Pflichtfeld aus."
+      },
+      "internetAccess": {
+        "label": "Haben Sie zu Hause Internetzugang? *",
+        "placeholder": "Bitte wählen"
+      },
+      "internetOptions": {
+        "yes": "Ja",
+        "no": "Nein"
+      },
       "products": {
         "label": "Welche Produkte verwenden Sie? *",
         "solarAboPrivate": "SolarAbo Privat",
@@ -3125,7 +3155,10 @@
         "bydBattery": "BYD Batteriespeicher",
         "teslaBattery": "Tesla Batteriespeicher"
       },
-      "message": { "label": "Möchten Sie uns noch etwas mitteilen?", "placeholder": "Nachricht" },
+      "message": {
+        "label": "Möchten Sie uns noch etwas mitteilen?",
+        "placeholder": "Nachricht"
+      },
       "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung gelesen und verstanden habe.",
       "submit": "Absenden",
       "success": "Ihre Anfrage wurde erfolgreich übermittelt. Wir werden uns in Kürze bei Ihnen melden.",
@@ -3896,7 +3929,7 @@
   },
   "fastChargingStations": {
     "hero": {
-      "title": "Schnell\u00ADlade\u00ADstationen",
+      "title": "Schnell­lade­stationen",
       "description": ""
     },
     "offersSection": {
@@ -4558,6 +4591,160 @@
       "dataProcessingPrefix": "Ich bin damit einverstanden, dass meine in diesem Formular angegebenen Daten wie in der",
       "dataProcessingLink": "Datenschutzerklärung",
       "dataProcessingSuffix": "beschrieben verarbeitet und für die Angebotserstellung, Vertragsanbahnung, Kundenbetreuung und Marketingzwecke verwendet werden dürfen."
+    }
+  },
+  "admin": {
+    "sidebar": {
+      "title": "Admin-Bereich",
+      "dashboard": "Dashboard",
+      "users": "Benutzer",
+      "leads": "Leads",
+      "contracts": "Verträge",
+      "equipment": "Ausrüstung",
+      "manufacturers": "Hersteller",
+      "solarPanels": "Solarmodule",
+      "inverters": "Wechselrichter",
+      "batteries": "Batterien",
+      "mountingSystems": "Montagesysteme",
+      "ems": "Energiemanagement",
+      "heatPumps": "Wärmepumpen",
+      "packages": "Pakete"
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "totalUsers": "Benutzer gesamt",
+      "activeLeads": "Aktive Leads",
+      "contracts": "Verträge",
+      "revenueSigned": "Umsatz (Unterschrieben)",
+      "customers": "Kunden",
+      "reps": "Vertreter",
+      "new": "neu",
+      "qualified": "qualifiziert",
+      "signed": "unterschrieben",
+      "pending": "ausstehend",
+      "totalNet": "Gesamter Nettobetrag aus unterschriebenen Verträgen",
+      "leadsByStatus": "Leads nach Status",
+      "contractsByStatus": "Verträge nach Status"
+    },
+    "users": {
+      "title": "Benutzer",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "allRoles": "Alle Rollen",
+      "allStatuses": "Alle Status",
+      "name": "Name",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "status": "Status",
+      "leads": "Leads",
+      "joined": "Beigetreten",
+      "view": "Anzeigen",
+      "noUsers": "Keine Benutzer gefunden",
+      "totalUsers": "{count} Benutzer gesamt",
+      "back": "Zurück",
+      "accountInfo": "Kontoinformationen",
+      "phone": "Telefon",
+      "emailVerified": "E-Mail bestätigt",
+      "yes": "Ja",
+      "no": "Nein",
+      "lastLogin": "Letzter Login",
+      "never": "Nie",
+      "manage": "Verwalten",
+      "customerProfile": "Kundenprofil",
+      "company": "Firma",
+      "street": "Strasse",
+      "city": "Stadt",
+      "canton": "Kanton",
+      "activitySummary": "Übersicht Aktivitäten",
+      "assignedLeads": "Zugewiesene Leads",
+      "createdQuotes": "Erstellte Angebote"
+    },
+    "leads": {
+      "title": "Leads",
+      "searchPlaceholder": "Nach Adresse, Name oder E-Mail suchen...",
+      "allStatuses": "Alle Status",
+      "allSources": "Alle Quellen",
+      "customer": "Kunde",
+      "property": "Objekt",
+      "status": "Status",
+      "source": "Quelle",
+      "assignedTo": "Zugewiesen an",
+      "created": "Erstellt",
+      "view": "Anzeigen",
+      "unassigned": "Nicht zugewiesen",
+      "noLeads": "Keine Leads gefunden",
+      "totalLeads": "{count} Leads gesamt",
+      "back": "Zurück",
+      "leadInfo": "Lead-Informationen",
+      "propertyAddress": "Objektadresse",
+      "interestedPackage": "Interessiertes Paket",
+      "estimatedBudget": "Geschätztes Budget",
+      "manage": "Verwalten",
+      "notes": "Notizen",
+      "saveNotes": "Notizen speichern",
+      "contact": "Kontakt"
+    },
+    "contracts": {
+      "title": "Verträge",
+      "searchPlaceholder": "Nach Vertragsnummer, Name suchen...",
+      "allStatuses": "Alle Status",
+      "allTypes": "Alle Typen",
+      "contractNumber": "Vertrag #",
+      "customer": "Kunde",
+      "type": "Typ",
+      "status": "Status",
+      "signature": "Unterschrift",
+      "netAmount": "Nettobetrag",
+      "created": "Erstellt",
+      "view": "Anzeigen",
+      "noContracts": "Keine Verträge gefunden",
+      "totalContracts": "{count} Verträge gesamt",
+      "back": "Zurück",
+      "contractDetails": "Vertragsdetails",
+      "package": "Paket",
+      "language": "Sprache",
+      "financials": "Finanzen",
+      "grossAmount": "Bruttobetrag",
+      "subsidy": "Subvention",
+      "signatureStatus": "Unterschriftsstatus",
+      "notStarted": "Nicht gestartet",
+      "customerSigned": "Kunde unterschrieben",
+      "project": "Projekt",
+      "projectStatus": "Projektstatus"
+    },
+    "equipment": {
+      "title": "Produktkatalog",
+      "manufacturers": "Hersteller",
+      "manufacturersDesc": "Hersteller verwalten",
+      "solarPanels": "Solarmodule",
+      "solarPanelsDesc": "Modulmodelle und Serien",
+      "inverters": "Wechselrichter",
+      "invertersDesc": "String-, Mikro- und Hybridwechselrichter",
+      "batteries": "Batterien",
+      "batteriesDesc": "Energiespeichersysteme",
+      "mountingSystems": "Montagesysteme",
+      "mountingSystemsDesc": "Dach- und Bodenmontagesysteme",
+      "ems": "Energiemanagement",
+      "emsDesc": "Intelligente Energieregler",
+      "heatPumps": "Wärmepumpen",
+      "heatPumpsDesc": "Luft-, Sole- und Wasserwärmepumpen",
+      "packages": "Pakete",
+      "packagesDesc": "Abonnement- und Abo-Pakete",
+      "backToEquipment": "Ausrüstung",
+      "addNew": "Neu hinzufügen",
+      "search": "Suchen...",
+      "allStatus": "Alle",
+      "active": "Aktiv",
+      "inactive": "Inaktiv",
+      "edit": "Bearbeiten",
+      "noItems": "Keine Einträge gefunden",
+      "items": "{count} Einträge",
+      "page": "Seite {page} von {totalPages}"
+    },
+    "common": {
+      "loading": "Laden...",
+      "failedToLoad": "Daten konnten nicht geladen werden.",
+      "notFound": "Nicht gefunden.",
+      "page": "Seite {page} von {totalPages}"
     }
   }
 }

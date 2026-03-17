@@ -31,7 +31,9 @@ const SolarAboCard = ({
         compact
           ? 'w-[160px] sm:w-[180px] lg:w-[200px] h-[228px] pt-5 pb-4'
           : 'w-full max-w-[264px] shrink-0 h-[268px] pt-8 pb-6',
-        commercial ? 'bg-[#3D3858] border-[#3D3858]' : 'bg-[#062E25] border-[#062E25]',
+        commercial
+          ? 'bg-[#3D3858] border-[#3D3858]'
+          : 'bg-[#062E25] border-[#062E25]',
         className
       )}
     >
@@ -39,7 +41,9 @@ const SolarAboCard = ({
         className={cn(
           'relative z-10 flex shrink-0 items-center justify-center overflow-hidden rounded-full border bg-white',
           compact ? 'mb-3 h-[96px] w-[96px]' : 'mb-5 h-[132px] w-[132px]',
-          commercial ? 'border-[#3D3858] drop-shadow-[0_0_44px_rgba(159,62,79,0.3)]' : 'border-[#062E25] drop-shadow-[0_0_44px_rgba(183,254,26,0.3)]'
+          commercial
+            ? 'border-[#3D3858] drop-shadow-[0_0_44px_rgba(159,62,79,0.3)]'
+            : 'border-[#062E25] drop-shadow-[0_0_44px_rgba(183,254,26,0.3)]'
         )}
       >
         <Image
@@ -59,7 +63,9 @@ const SolarAboCard = ({
         <h3
           className={cn(
             'text-center font-medium leading-[1.09em] tracking-[-0.02em] text-white',
-            compact ? 'text-sm lg:text-base' : 'text-lg sm:text-xl lg:text-[22px]'
+            compact
+              ? 'text-sm lg:text-base'
+              : 'text-lg sm:text-xl lg:text-[22px]'
           )}
         >
           {title}
@@ -67,7 +73,7 @@ const SolarAboCard = ({
         <p
           className={cn(
             'text-center font-medium leading-[1.375em] tracking-[-0.02em] text-white/80',
-            compact ? 'text-xs lg:text-sm' : 'text-sm sm:text-base lg:text-base'
+            compact ? 'text-sm lg:text-sm' : 'text-sm sm:text-base lg:text-base'
           )}
         >
           {subtitle}

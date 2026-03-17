@@ -2,16 +2,16 @@
 
 import { Loader } from '@googlemaps/js-api-loader'
 import {
-  MapPin,
-  ChevronRight,
-  Loader2,
   Building2,
-  Info,
   CheckCircle2,
-  XCircle,
-  X,
-  Sun,
+  ChevronRight,
+  Info,
+  Loader2,
+  MapPin,
   Ruler,
+  Sun,
+  X,
+  XCircle,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Feature, Map, View } from 'ol'
@@ -19,11 +19,11 @@ import { defaults as defaultControls } from 'ol/control'
 import { Polygon } from 'ol/geom'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
+import { fromLonLat, toLonLat } from 'ol/proj'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
 import { useEffect, useRef, useState } from 'react'
-import { toLonLat, fromLonLat } from 'ol/proj'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -46,7 +46,7 @@ const SELECTED_STROKE = '#b7fe1a'
 
 // Selected segment style
 const selectedStyle = new Style({
-  fill: new Fill({ color: `${SELECTED_COLOR}CC` }),  // 80% opacity to match Step 2
+  fill: new Fill({ color: `${SELECTED_COLOR}CC` }), // 80% opacity to match Step 2
   stroke: new Stroke({ color: SELECTED_STROKE, width: 3 }),
 })
 
@@ -81,7 +81,9 @@ export default function SonnendachStep1Address() {
   const [isLoadingMap, setIsLoadingMap] = useState(true)
   const [isFetchingSegment, setIsFetchingSegment] = useState(false)
   const [selectedSegments, setSelectedSegments] = useState<RoofSegment[]>([])
-  const [allBuildingSegments, setAllBuildingSegments] = useState<RoofSegment[]>([])
+  const [allBuildingSegments, setAllBuildingSegments] = useState<RoofSegment[]>(
+    []
+  )
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
@@ -187,7 +189,9 @@ export default function SonnendachStep1Address() {
         // Merge with existing segments (in case user clicks on multiple buildings)
         setAllBuildingSegments(prev => {
           const existingIds = new Set(prev.map(s => s.id))
-          const newSegments = building.roofSegments.filter(s => !existingIds.has(s.id))
+          const newSegments = building.roofSegments.filter(
+            s => !existingIds.has(s.id)
+          )
           return [...prev, ...newSegments]
         })
 
@@ -226,7 +230,7 @@ export default function SonnendachStep1Address() {
     const satelliteLayer = new TileLayer({
       source: new XYZ({
         url: SWISS_SATELLITE_URL,
-        maxZoom: 28,  // Swiss imagery supports very high zoom
+        maxZoom: 28, // Swiss imagery supports very high zoom
         crossOrigin: 'anonymous',
       }),
     })
@@ -234,10 +238,10 @@ export default function SonnendachStep1Address() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
+        maxZoom: 19, // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
-      opacity: 0.5,  // Match Step 2 opacity
+      opacity: 0.5, // Match Step 2 opacity
       minZoom: 15,
       // No layer maxZoom - allows tiles to be upscaled at higher zoom levels
     })
@@ -256,7 +260,7 @@ export default function SonnendachStep1Address() {
       view: new View({
         center: fromLonLat([8.5417, 47.3769]),
         zoom: 18,
-        maxZoom: 28,  // Allow very close zoom (~0.5 meter scale)
+        maxZoom: 28, // Allow very close zoom (~0.5 meter scale)
         minZoom: 10,
       }),
       controls: defaultControls({
@@ -493,11 +497,11 @@ export default function SonnendachStep1Address() {
                     <span className="text-sm font-medium">
                       {t('roofPart')} {index + 1}
                     </span>
-                    <span className="text-xs text-muted-foreground capitalize">
+                    <span className="text-sm text-muted-foreground capitalize">
                       ({segment.suitability.label})
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-3 text-sm text-muted-foreground">
                     <span className="flex items-center gap-1">
                       <Ruler className="w-3 h-3" />
                       {segment.area} m²
@@ -557,7 +561,7 @@ export default function SonnendachStep1Address() {
         )}
 
         {/* Map Legend */}
-        <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs">
+        <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-sm">
           <p className="font-medium mb-2">{t('legend')}</p>
           <div className="space-y-1">
             <div className="flex items-center gap-2">
@@ -591,7 +595,7 @@ export default function SonnendachStep1Address() {
         </div>
 
         {/* Help tooltip */}
-        <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs max-w-[200px]">
+        <div className="absolute top-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-sm max-w-[200px]">
           <p className="text-muted-foreground">{t('clickToSelect')}</p>
         </div>
       </div>

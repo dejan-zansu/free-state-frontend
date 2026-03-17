@@ -3,13 +3,12 @@
 import {
   ChevronLeft,
   ChevronRight,
-  Loader2,
   Home,
   Layers,
-  Trash2,
+  Loader2,
   Plus,
   Square,
-  Check,
+  Trash2,
   X,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -19,10 +18,10 @@ import { Polygon } from 'ol/geom'
 import { Draw } from 'ol/interaction'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
+import { fromLonLat, toLonLat } from 'ol/proj'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
-import { fromLonLat, toLonLat } from 'ol/proj'
 import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -37,10 +36,10 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import {
-  useSonnendachCalculatorStore,
-  RoofType,
-  RoofMaterial,
   RestrictedArea,
+  RoofMaterial,
+  RoofType,
+  useSonnendachCalculatorStore,
 } from '@/stores/sonnendach-calculator.store'
 
 import 'ol/ol.css'
@@ -54,7 +53,7 @@ const SONNENDACH_URL =
 // Colors
 const SELECTED_SEGMENT_COLOR = '#1B332D'
 const SELECTED_SEGMENT_STROKE = '#b7fe1a'
-const NON_SELECTED_SEGMENT_COLOR = '#6B7280'  // Gray for non-selected segments
+const NON_SELECTED_SEGMENT_COLOR = '#6B7280' // Gray for non-selected segments
 const NON_SELECTED_SEGMENT_STROKE = '#9CA3AF'
 const RESTRICTED_FILL_COLOR = '#EF4444'
 const RESTRICTED_STROKE_COLOR = '#DC2626'
@@ -69,7 +68,11 @@ const selectedSegmentStyle = new Style({
 
 const nonSelectedSegmentStyle = new Style({
   fill: new Fill({ color: `${NON_SELECTED_SEGMENT_COLOR}33` }),
-  stroke: new Stroke({ color: NON_SELECTED_SEGMENT_STROKE, width: 1, lineDash: [4, 4] }),
+  stroke: new Stroke({
+    color: NON_SELECTED_SEGMENT_STROKE,
+    width: 1,
+    lineDash: [4, 4],
+  }),
 })
 
 const restrictedAreaStyle = new Style({
@@ -79,7 +82,11 @@ const restrictedAreaStyle = new Style({
 
 const drawingStyle = new Style({
   fill: new Fill({ color: `${DRAWING_FILL_COLOR}66` }),
-  stroke: new Stroke({ color: DRAWING_STROKE_COLOR, width: 2, lineDash: [5, 5] }),
+  stroke: new Stroke({
+    color: DRAWING_STROKE_COLOR,
+    width: 2,
+    lineDash: [5, 5],
+  }),
 })
 
 // Convert LV95 to WGS84
@@ -131,16 +138,26 @@ const calculatePolygonArea = (coords: number[][]): number => {
 }
 
 // Check if polygon A contains polygon B (simplified - checks if all points of B are inside A)
-const isPolygonInsidePolygon = (innerCoords: number[][], outerCoords: number[][]): boolean => {
+const isPolygonInsidePolygon = (
+  innerCoords: number[][],
+  outerCoords: number[][]
+): boolean => {
   if (innerCoords.length < 3 || outerCoords.length < 3) return false
 
   // Check if all points of inner polygon are inside outer polygon
   for (const point of innerCoords) {
     let inside = false
-    for (let i = 0, j = outerCoords.length - 1; i < outerCoords.length; j = i++) {
-      const xi = outerCoords[i][0], yi = outerCoords[i][1]
-      const xj = outerCoords[j][0], yj = outerCoords[j][1]
-      const intersect = yi > point[1] !== yj > point[1] &&
+    for (
+      let i = 0, j = outerCoords.length - 1;
+      i < outerCoords.length;
+      j = i++
+    ) {
+      const xi = outerCoords[i][0],
+        yi = outerCoords[i][1]
+      const xj = outerCoords[j][0],
+        yj = outerCoords[j][1]
+      const intersect =
+        yi > point[1] !== yj > point[1] &&
         point[0] < ((xj - xi) * (point[1] - yi)) / (yj - yi) + xi
       if (intersect) inside = !inside
     }
@@ -150,7 +167,13 @@ const isPolygonInsidePolygon = (innerCoords: number[][], outerCoords: number[][]
 }
 
 // Diagnostic function to analyze segment nesting
-const analyzeSegmentNesting = (segments: { id: string; area: number; geometry: { coordinatesWGS84?: number[][][] } }[]) => {
+const analyzeSegmentNesting = (
+  segments: {
+    id: string
+    area: number
+    geometry: { coordinatesWGS84?: number[][][] }
+  }[]
+) => {
   console.log('=== SEGMENT NESTING ANALYSIS ===')
   console.log(`Total segments: ${segments.length}`)
 
@@ -195,7 +218,9 @@ const analyzeSegmentNesting = (segments: { id: string; area: number; geometry: {
   }
 
   // Log segments that contain other segments
-  const containingSegments = analysis.filter(a => a.containedSegments.length > 0)
+  const containingSegments = analysis.filter(
+    a => a.containedSegments.length > 0
+  )
 
   if (containingSegments.length > 0) {
     console.log('\n📦 SEGMENTS CONTAINING OTHER SEGMENTS:')
@@ -204,17 +229,27 @@ const analyzeSegmentNesting = (segments: { id: string; area: number; geometry: {
       console.log(`  - Reported area (API): ${seg.reportedArea} m²`)
       console.log(`  - Calculated polygon area: ${seg.calculatedArea} m²`)
       console.log(`  - Difference: ${seg.areaDifference} m²`)
-      console.log(`  - Contains ${seg.containedSegments.length} inner segment(s): ${seg.containedSegments.join(', ')}`)
-      console.log(`  - Total area of contained segments: ${seg.containedTotalArea} m²`)
+      console.log(
+        `  - Contains ${seg.containedSegments.length} inner segment(s): ${seg.containedSegments.join(', ')}`
+      )
+      console.log(
+        `  - Total area of contained segments: ${seg.containedTotalArea} m²`
+      )
 
       // Determine if API already excludes inner segments
       const expectedAreaIfExcluded = seg.calculatedArea - seg.containedTotalArea
-      const closerToCalculated = Math.abs(seg.reportedArea - seg.calculatedArea) < Math.abs(seg.reportedArea - expectedAreaIfExcluded)
+      const closerToCalculated =
+        Math.abs(seg.reportedArea - seg.calculatedArea) <
+        Math.abs(seg.reportedArea - expectedAreaIfExcluded)
 
       if (closerToCalculated) {
-        console.log(`  ⚠️ API area ≈ full polygon area → Inner segments likely INCLUDED in outer area`)
+        console.log(
+          `  ⚠️ API area ≈ full polygon area → Inner segments likely INCLUDED in outer area`
+        )
       } else {
-        console.log(`  ✓ API area ≈ polygon minus inner → Inner segments likely EXCLUDED from outer area`)
+        console.log(
+          `  ✓ API area ≈ polygon minus inner → Inner segments likely EXCLUDED from outer area`
+        )
       }
     }
   } else {
@@ -245,9 +280,8 @@ export default function SonnendachStep2UsableArea() {
   } = useSonnendachCalculatorStore()
 
   // Get non-selected segments from the same building
-  const nonSelectedSegments = building?.roofSegments.filter(
-    s => !selectedSegmentIds.includes(s.id)
-  ) || []
+  const nonSelectedSegments =
+    building?.roofSegments.filter(s => !selectedSegmentIds.includes(s.id)) || []
 
   // Get restricted areas that overlap with non-selected segments
   const overlappingRestrictedAreas = getRestrictedAreasInNonSelectedSegments()
@@ -286,7 +320,7 @@ export default function SonnendachStep2UsableArea() {
     const satelliteLayer = new TileLayer({
       source: new XYZ({
         url: SWISS_SATELLITE_URL,
-        maxZoom: 28,  // Swiss imagery supports very high zoom
+        maxZoom: 28, // Swiss imagery supports very high zoom
         crossOrigin: 'anonymous',
       }),
     })
@@ -294,7 +328,7 @@ export default function SonnendachStep2UsableArea() {
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
         url: SONNENDACH_URL,
-        maxZoom: 19,  // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
+        maxZoom: 19, // Source stops at 19 (prevents 400 errors), but tiles will be upscaled beyond
         crossOrigin: 'anonymous',
       }),
       opacity: 0.5,
@@ -329,10 +363,14 @@ export default function SonnendachStep2UsableArea() {
     })
 
     // Calculate center from selected segments
-    let centerLng = 0, centerLat = 0, count = 0
+    let centerLng = 0,
+      centerLat = 0,
+      count = 0
     for (const segment of segments) {
-      const coords = segment.geometry.coordinatesWGS84?.[0] ||
-        segment.geometry.coordinates?.[0]?.map(c => lv95ToWgs84(c[0], c[1])) || []
+      const coords =
+        segment.geometry.coordinatesWGS84?.[0] ||
+        segment.geometry.coordinates?.[0]?.map(c => lv95ToWgs84(c[0], c[1])) ||
+        []
       for (const coord of coords) {
         centerLng += coord[0]
         centerLat += coord[1]
@@ -349,11 +387,17 @@ export default function SonnendachStep2UsableArea() {
 
     const map = new Map({
       target: mapRef.current,
-      layers: [satelliteLayer, sonnendachLayer, segmentLayer, restrictedLayer, drawLayer],
+      layers: [
+        satelliteLayer,
+        sonnendachLayer,
+        segmentLayer,
+        restrictedLayer,
+        drawLayer,
+      ],
       view: new View({
         center: fromLonLat([centerLng, centerLat]),
         zoom: 20,
-        maxZoom: 28,  // Allow very close zoom (~0.5 meter scale)
+        maxZoom: 28, // Allow very close zoom (~0.5 meter scale)
         minZoom: 15,
       }),
       controls: defaultControls({
@@ -369,8 +413,10 @@ export default function SonnendachStep2UsableArea() {
     console.log('[Map] Map initialized successfully:', map)
 
     // Get all segments from the building (including non-selected)
-    const allSegments = useSonnendachCalculatorStore.getState().building?.roofSegments || []
-    const selectedIds = useSonnendachCalculatorStore.getState().selectedSegmentIds
+    const allSegments =
+      useSonnendachCalculatorStore.getState().building?.roofSegments || []
+    const selectedIds =
+      useSonnendachCalculatorStore.getState().selectedSegmentIds
 
     // Draw non-selected segments first (so selected ones appear on top)
     for (const segment of allSegments) {
@@ -493,11 +539,11 @@ export default function SonnendachStep2UsableArea() {
     })
     console.log('[Drawing] Created Draw interaction:', draw)
 
-    draw.on('drawstart', (event) => {
+    draw.on('drawstart', event => {
       console.log('[Drawing] drawstart event fired', event)
     })
 
-    draw.on('drawend', (event) => {
+    draw.on('drawend', event => {
       console.log('[Drawing] drawend event fired', event)
       const geometry = event.feature.getGeometry() as Polygon
       const coords = geometry.getCoordinates()[0]
@@ -539,14 +585,16 @@ export default function SonnendachStep2UsableArea() {
       }, 0)
     })
 
-    draw.on('drawabort', (event) => {
+    draw.on('drawabort', event => {
       console.log('[Drawing] drawabort event fired', event)
     })
 
     map.addInteraction(draw)
     drawInteractionRef.current = draw
     setIsDrawing(true)
-    console.log('[Drawing] Draw interaction added to map, isDrawing set to true')
+    console.log(
+      '[Drawing] Draw interaction added to map, isDrawing set to true'
+    )
   }
 
   // Stop drawing mode
@@ -601,17 +649,21 @@ export default function SonnendachStep2UsableArea() {
             <CardContent className="py-4">
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <p className="text-xs text-muted-foreground">{t('totalArea')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('totalArea')}
+                  </p>
                   <p className="text-xl font-bold">{selectedArea} m²</p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{t('restricted')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('restricted')}
+                  </p>
                   <p className="text-xl font-bold text-destructive">
                     -{Math.round(totalRestrictedArea * 10) / 10} m²
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">{t('usable')}</p>
+                  <p className="text-sm text-muted-foreground">{t('usable')}</p>
                   <p className="text-xl font-bold text-primary">
                     {Math.round(usableArea * 10) / 10} m²
                   </p>
@@ -643,9 +695,15 @@ export default function SonnendachStep2UsableArea() {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="flat">{t('roofTypes.flat')}</SelectItem>
-                    <SelectItem value="low_slope">{t('roofTypes.lowSlope')}</SelectItem>
-                    <SelectItem value="medium">{t('roofTypes.medium')}</SelectItem>
-                    <SelectItem value="steep">{t('roofTypes.steep')}</SelectItem>
+                    <SelectItem value="low_slope">
+                      {t('roofTypes.lowSlope')}
+                    </SelectItem>
+                    <SelectItem value="medium">
+                      {t('roofTypes.medium')}
+                    </SelectItem>
+                    <SelectItem value="steep">
+                      {t('roofTypes.steep')}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -658,8 +716,10 @@ export default function SonnendachStep2UsableArea() {
                   min={1}
                   max={50}
                   value={roofProperties.buildingFloors}
-                  onChange={(e) =>
-                    setRoofProperties({ buildingFloors: parseInt(e.target.value) || 1 })
+                  onChange={e =>
+                    setRoofProperties({
+                      buildingFloors: parseInt(e.target.value) || 1,
+                    })
                   }
                 />
               </div>
@@ -677,13 +737,27 @@ export default function SonnendachStep2UsableArea() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="bitumen">{t('materials.bitumen')}</SelectItem>
-                    <SelectItem value="gravel">{t('materials.gravel')}</SelectItem>
-                    <SelectItem value="green_roof">{t('materials.greenRoof')}</SelectItem>
-                    <SelectItem value="granulate">{t('materials.granulate')}</SelectItem>
-                    <SelectItem value="tiles">{t('materials.tiles')}</SelectItem>
-                    <SelectItem value="metal">{t('materials.metal')}</SelectItem>
-                    <SelectItem value="unknown">{t('materials.unknown')}</SelectItem>
+                    <SelectItem value="bitumen">
+                      {t('materials.bitumen')}
+                    </SelectItem>
+                    <SelectItem value="gravel">
+                      {t('materials.gravel')}
+                    </SelectItem>
+                    <SelectItem value="green_roof">
+                      {t('materials.greenRoof')}
+                    </SelectItem>
+                    <SelectItem value="granulate">
+                      {t('materials.granulate')}
+                    </SelectItem>
+                    <SelectItem value="tiles">
+                      {t('materials.tiles')}
+                    </SelectItem>
+                    <SelectItem value="metal">
+                      {t('materials.metal')}
+                    </SelectItem>
+                    <SelectItem value="unknown">
+                      {t('materials.unknown')}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -699,7 +773,9 @@ export default function SonnendachStep2UsableArea() {
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">{t('restrictedInfo')}</p>
+              <p className="text-sm text-muted-foreground">
+                {t('restrictedInfo')}
+              </p>
 
               {/* Drawing Controls */}
               <div className="flex gap-2">
@@ -730,8 +806,12 @@ export default function SonnendachStep2UsableArea() {
 
               {isDrawing && (
                 <div className="p-3 rounded-lg bg-orange-500/10 border border-orange-500/20 text-sm">
-                  <p className="font-medium text-orange-600">{t('drawingMode')}</p>
-                  <p className="text-muted-foreground">{t('drawingInstructions')}</p>
+                  <p className="font-medium text-orange-600">
+                    {t('drawingMode')}
+                  </p>
+                  <p className="text-muted-foreground">
+                    {t('drawingInstructions')}
+                  </p>
                 </div>
               )}
 
@@ -784,17 +864,25 @@ export default function SonnendachStep2UsableArea() {
               {/* Warning about restricted areas overlapping with non-selected segments */}
               {overlappingRestrictedAreas.length > 0 && (
                 <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-sm">
-                  <p className="font-medium text-amber-600">{t('overlapWarning')}</p>
-                  <p className="text-muted-foreground text-xs mt-1">
-                    {t('overlapWarningDetail', { count: overlappingRestrictedAreas.length })}
+                  <p className="font-medium text-amber-600">
+                    {t('overlapWarning')}
+                  </p>
+                  <p className="text-muted-foreground text-sm mt-1">
+                    {t('overlapWarningDetail', {
+                      count: overlappingRestrictedAreas.length,
+                    })}
                   </p>
                 </div>
               )}
 
               {/* Info about non-selected segments if there are any */}
               {nonSelectedSegments.length > 0 && (
-                <div className="p-3 rounded-lg bg-muted/50 text-xs text-muted-foreground">
-                  <p>{t('nonSelectedSegmentsInfo', { count: nonSelectedSegments.length })}</p>
+                <div className="p-3 rounded-lg bg-muted/50 text-sm text-muted-foreground">
+                  <p>
+                    {t('nonSelectedSegmentsInfo', {
+                      count: nonSelectedSegments.length,
+                    })}
+                  </p>
                 </div>
               )}
             </CardContent>
@@ -804,7 +892,11 @@ export default function SonnendachStep2UsableArea() {
         {/* Navigation */}
         <div className="p-4 border-t sticky bottom-0 bg-background">
           <div className="flex gap-2">
-            <Button variant="outline" onClick={() => goToStep(1)} className="gap-2 flex-1">
+            <Button
+              variant="outline"
+              onClick={() => goToStep(1)}
+              className="gap-2 flex-1"
+            >
               <ChevronLeft className="w-4 h-4" />
               {t('back')}
             </Button>
@@ -822,25 +914,34 @@ export default function SonnendachStep2UsableArea() {
 
       {/* Right Panel - Map */}
       <div className="flex-1 relative">
-        <div ref={mapRef} className="w-full h-full" style={{ minHeight: '400px' }} />
+        <div
+          ref={mapRef}
+          className="w-full h-full"
+          style={{ minHeight: '400px' }}
+        />
 
         {isLoadingMap && (
           <div className="absolute inset-0 flex items-center justify-center bg-background/80">
             <div className="flex flex-col items-center gap-2">
               <Loader2 className="w-8 h-8 animate-spin text-primary" />
-              <span className="text-sm text-muted-foreground">{t('loadingMap')}</span>
+              <span className="text-sm text-muted-foreground">
+                {t('loadingMap')}
+              </span>
             </div>
           </div>
         )}
 
         {/* Map Legend */}
-        <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-xs">
+        <div className="absolute bottom-4 right-4 bg-background/90 backdrop-blur-sm p-3 rounded-lg border text-sm">
           <p className="font-medium mb-2">{t('legend')}</p>
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <div
                 className="w-4 h-3 rounded-sm border"
-                style={{ backgroundColor: `${SELECTED_SEGMENT_COLOR}66`, borderColor: SELECTED_SEGMENT_STROKE }}
+                style={{
+                  backgroundColor: `${SELECTED_SEGMENT_COLOR}66`,
+                  borderColor: SELECTED_SEGMENT_STROKE,
+                }}
               />
               <span>{t('legendSegment')}</span>
             </div>
@@ -848,7 +949,10 @@ export default function SonnendachStep2UsableArea() {
               <div className="flex items-center gap-2">
                 <div
                   className="w-4 h-3 rounded-sm border border-dashed"
-                  style={{ backgroundColor: `${NON_SELECTED_SEGMENT_COLOR}33`, borderColor: NON_SELECTED_SEGMENT_STROKE }}
+                  style={{
+                    backgroundColor: `${NON_SELECTED_SEGMENT_COLOR}33`,
+                    borderColor: NON_SELECTED_SEGMENT_STROKE,
+                  }}
                 />
                 <span>{t('legendNonSelected')}</span>
               </div>
@@ -856,7 +960,10 @@ export default function SonnendachStep2UsableArea() {
             <div className="flex items-center gap-2">
               <div
                 className="w-4 h-3 rounded-sm border"
-                style={{ backgroundColor: `${RESTRICTED_FILL_COLOR}88`, borderColor: RESTRICTED_STROKE_COLOR }}
+                style={{
+                  backgroundColor: `${RESTRICTED_FILL_COLOR}88`,
+                  borderColor: RESTRICTED_STROKE_COLOR,
+                }}
               />
               <span>{t('legendRestricted')}</span>
             </div>

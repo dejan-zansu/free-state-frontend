@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
@@ -17,6 +17,8 @@ export default function AdminUserDetailPage() {
   const params = useParams()
   const router = useRouter()
   const locale = useLocale()
+  const t = useTranslations('admin.users')
+  const tc = useTranslations('admin.common')
   const [user, setUser] = useState<AdminUserDetail | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -51,7 +53,7 @@ export default function AdminUserDetailPage() {
   }
 
   if (!user) {
-    return <p className="text-[#062E25]/60">User not found.</p>
+    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
   }
 
   return (
@@ -59,7 +61,7 @@ export default function AdminUserDetailPage() {
       <div className="flex items-center gap-3 mb-6">
         <Button variant="ghost" size="sm" asChild>
           <Link href={`/${locale}/admin/users`}>
-            <ArrowLeft className="h-4 w-4 mr-1" /> Back
+            <ArrowLeft className="h-4 w-4 mr-1" /> {t('back')}
           </Link>
         </Button>
         <h1 className="text-2xl font-bold text-[#062E25]">
@@ -71,28 +73,28 @@ export default function AdminUserDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">Account Info</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('accountInfo')}</h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">Email</label>
+                <label className="text-sm text-[#062E25]/60">{t('email')}</label>
                 <p className="font-medium text-[#062E25]">{user.email}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Phone</label>
+                <label className="text-sm text-[#062E25]/60">{t('phone')}</label>
                 <p className="font-medium text-[#062E25]">{user.phone || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Email Verified</label>
-                <p className="font-medium text-[#062E25]">{user.emailVerified ? 'Yes' : 'No'}</p>
+                <label className="text-sm text-[#062E25]/60">{t('emailVerified')}</label>
+                <p className="font-medium text-[#062E25]">{user.emailVerified ? t('yes') : t('no')}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Last Login</label>
+                <label className="text-sm text-[#062E25]/60">{t('lastLogin')}</label>
                 <p className="font-medium text-[#062E25]">
-                  {user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString('de-CH') : 'Never'}
+                  {user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString('de-CH') : t('never')}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">Joined</label>
+                <label className="text-sm text-[#062E25]/60">{t('joined')}</label>
                 <p className="font-medium text-[#062E25]">
                   {new Date(user.createdAt).toLocaleDateString('de-CH')}
                 </p>
@@ -103,10 +105,10 @@ export default function AdminUserDetailPage() {
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">Manage</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('manage')}</h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">Role</label>
+                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('role')}</label>
                 <Select
                   value={user.role}
                   onValueChange={(v) => handleUpdate('role', v)}
@@ -123,7 +125,7 @@ export default function AdminUserDetailPage() {
                 </Select>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">Status</label>
+                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
                 <Select
                   value={user.status}
                   onValueChange={(v) => handleUpdate('status', v)}
@@ -147,22 +149,22 @@ export default function AdminUserDetailPage() {
         {user.customer && (
           <Card className="border-[#062E25]/10 lg:col-span-2">
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">Customer Profile</h2>
+              <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('customerProfile')}</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <label className="text-sm text-[#062E25]/60">Company</label>
+                  <label className="text-sm text-[#062E25]/60">{t('company')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.companyName || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">Street</label>
+                  <label className="text-sm text-[#062E25]/60">{t('street')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.street || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">City</label>
+                  <label className="text-sm text-[#062E25]/60">{t('city')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.city || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">Canton</label>
+                  <label className="text-sm text-[#062E25]/60">{t('canton')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.canton || '-'}</p>
                 </div>
               </div>
@@ -172,15 +174,15 @@ export default function AdminUserDetailPage() {
 
         <Card className="border-[#062E25]/10 lg:col-span-2">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-2">Activity Summary</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-2">{t('activitySummary')}</h2>
             <div className="flex gap-8">
               <div>
                 <p className="text-2xl font-bold text-[#062E25]">{user._count.assignedLeads}</p>
-                <p className="text-sm text-[#062E25]/60">Assigned Leads</p>
+                <p className="text-sm text-[#062E25]/60">{t('assignedLeads')}</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-[#062E25]">{user._count.createdQuotes}</p>
-                <p className="text-sm text-[#062E25]/60">Created Quotes</p>
+                <p className="text-sm text-[#062E25]/60">{t('createdQuotes')}</p>
               </div>
             </div>
           </CardContent>

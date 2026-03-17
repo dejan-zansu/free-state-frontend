@@ -1,5 +1,5 @@
 import ConditionalFooter from '@/components/ConditionalFooter'
-import Header from '@/components/Header'
+import ConditionalHeader from '@/components/ConditionalHeader'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -28,7 +28,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <div className='flex flex-col min-h-screen'>
-        <Header />
+        <ConditionalHeader />
         <main className='flex-1'>{children}</main>
         <ConditionalFooter locale={locale} />
       </div>

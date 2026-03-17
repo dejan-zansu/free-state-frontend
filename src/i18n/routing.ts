@@ -138,6 +138,20 @@ export const routing = defineRouting({
       sr: '/kontrolna-tabla',
     },
 
+    '/admin/dashboard': '/admin/dashboard',
+    '/admin/users': '/admin/users',
+    '/admin/leads': '/admin/leads',
+    '/admin/contracts': '/admin/contracts',
+    '/admin/equipment': '/admin/equipment',
+    '/admin/equipment/manufacturers': '/admin/equipment/manufacturers',
+    '/admin/equipment/solar-panels': '/admin/equipment/solar-panels',
+    '/admin/equipment/inverters': '/admin/equipment/inverters',
+    '/admin/equipment/batteries': '/admin/equipment/batteries',
+    '/admin/equipment/mounting-systems': '/admin/equipment/mounting-systems',
+    '/admin/equipment/ems': '/admin/equipment/ems',
+    '/admin/equipment/heat-pumps': '/admin/equipment/heat-pumps',
+    '/admin/equipment/packages': '/admin/equipment/packages',
+
     // Solar Abo - Residential
     '/solar-abo': {
       en: '/solar-abo',

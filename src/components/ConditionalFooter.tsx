@@ -10,8 +10,9 @@ interface ConditionalFooterProps {
 export default function ConditionalFooter({}: ConditionalFooterProps) {
   const pathname = usePathname()
   const isCalculatorPage = pathname?.includes('/calculator')
+  const isAdminPage = pathname?.includes('/admin/')
 
-  if (isCalculatorPage) {
+  if (isCalculatorPage || isAdminPage) {
     return null
   }
 

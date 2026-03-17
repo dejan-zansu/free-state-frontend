@@ -1,26 +1,26 @@
 'use client'
 
 import { Loader } from '@googlemaps/js-api-loader'
-import { Search, Loader2, X } from 'lucide-react'
+import { Loader2, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Feature, Map, View } from 'ol'
 import { defaults as defaultControls } from 'ol/control'
 import { Polygon } from 'ol/geom'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
+import { fromLonLat, toLonLat } from 'ol/proj'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
-import { useEffect, useRef, useState, useCallback } from 'react'
-import { fromLonLat, toLonLat } from 'ol/proj'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { cn } from '@/lib/utils'
 import { sonnendachService } from '@/services/sonnendach.service'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
-import type { SonnendachLocation, RoofSegment } from '@/types/sonnendach'
+import type { RoofSegment, SonnendachLocation } from '@/types/sonnendach'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
-import { cn } from '@/lib/utils'
 
 import 'ol/ol.css'
 
@@ -350,7 +350,7 @@ export default function Step4RoofAreas() {
         ref={mapRef}
         className={cn(
           'absolute inset-0 w-full h-full bg-muted',
-          isLoadingMap && 'flex items-center justify-center',
+          isLoadingMap && 'flex items-center justify-center'
         )}
       >
         {isLoadingMap && (
@@ -420,12 +420,29 @@ export default function Step4RoofAreas() {
             )}
           </div>
 
-          <p className="mt-2 text-xs text-[#EAEDDF]/50 italic">{t('officialMap')}</p>
+          <p className="mt-2 text-sm text-[#EAEDDF]/50 italic">
+            {t('officialMap')}
+          </p>
 
           <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
-            <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16" fill="none">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2"/>
-              <path d="M8 5v3M8 10h.01" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+            <svg
+              className="w-4 h-4 mt-0.5 shrink-0"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <circle
+                cx="8"
+                cy="8"
+                r="7"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              />
+              <path
+                d="M8 5v3M8 10h.01"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+              />
             </svg>
             <span>{t('clickHint')}</span>
           </div>
@@ -457,21 +474,29 @@ export default function Step4RoofAreas() {
               />
             ))}
           </div>
-          <div className="mt-1 flex justify-between text-xs text-[#EAEDDF]/50">
+          <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/50">
             <span>{t('veryGood')}</span>
             <span>{t('moderate')}</span>
           </div>
 
           <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
-          <p className="text-3xl font-medium text-[#B7FE1A]">{Math.round(selectedArea)} m²</p>
+          <p className="text-3xl font-medium text-[#B7FE1A]">
+            {Math.round(selectedArea)} m²
+          </p>
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
+      <div
+        className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4"
+        style={{
+          background: 'rgba(234, 237, 223, 0.85)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
         <Button
           variant="outline"
           onClick={prevStep}
-          style={{ borderColor: "#062E25", color: "#062E25" }}
+          style={{ borderColor: '#062E25', color: '#062E25' }}
         >
           {tNav('back')}
         </Button>

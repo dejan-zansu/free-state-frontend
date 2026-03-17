@@ -99,7 +99,10 @@ const PricingSection = async () => {
               >
                 {(
                   [
-                    { header: t('pricing.table.headers.household'), key: 'household' },
+                    {
+                      header: t('pricing.table.headers.household'),
+                      key: 'household',
+                    },
                     { header: t('pricing.table.headers.power'), key: 'power' },
                     { header: t('pricing.table.headers.size'), key: 'size' },
                   ] as const
@@ -109,7 +112,7 @@ const PricingSection = async () => {
                       key={`${key}-header`}
                       className="bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center"
                     >
-                      <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
+                      <span className="text-[#062E25]/80 text-sm sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
                         {header}
                       </span>
                     </div>
@@ -122,7 +125,7 @@ const PricingSection = async () => {
                             : ''
                         }`}
                       >
-                        <span className="text-[#062E25]/80 text-xs sm:text-sm md:text-base font-normal leading-tight tracking-[-0.02em] whitespace-nowrap text-center">
+                        <span className="text-[#062E25]/80 text-sm sm:text-sm md:text-base font-normal leading-tight tracking-[-0.02em] whitespace-nowrap text-center">
                           {row[key]}
                         </span>
                       </div>

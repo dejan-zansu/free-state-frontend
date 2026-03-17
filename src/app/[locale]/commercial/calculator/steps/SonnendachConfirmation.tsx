@@ -247,7 +247,7 @@ export default function SonnendachConfirmation() {
             <Mail className="h-5 w-5 text-energy shrink-0 mt-0.5" />
             <div>
               <p className="font-medium text-sm">{t('emailNote.title')}</p>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-sm text-muted-foreground mt-1">
                 {t('emailNote.message', { email: personalInfo.email })}
               </p>
             </div>

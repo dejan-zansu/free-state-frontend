@@ -1,9 +1,9 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
 
 import {
   useSolarAboCalculatorStore,
@@ -51,7 +51,8 @@ const cards: {
     image: '/images/calculator/solar-abo-card-11b71d.png',
     hasGlow: true,
     bgColor: '#F5F7EE',
-    imageClassName: 'w-[110px] h-[160px] -top-6 sm:-top-10 sm:w-[232px] sm:h-[200px]',
+    imageClassName:
+      'w-[110px] h-[160px] -top-6 sm:-top-10 sm:w-[232px] sm:h-[200px]',
   },
   {
     model: 'solar-direct',
@@ -61,7 +62,8 @@ const cards: {
     image: '/images/calculator/solar-direct-card-5141e7.png',
     hasGlow: false,
     bgColor: '#EEEFE5',
-    imageClassName: 'w-[120px] h-[175px] -top-10 sm:-top-16 sm:w-[250px] sm:h-[220px]',
+    imageClassName:
+      'w-[120px] h-[175px] -top-10 sm:-top-16 sm:w-[250px] sm:h-[220px]',
   },
 ]
 
@@ -115,14 +117,19 @@ export default function SolarModelSelection() {
               {card.bullets.map(bulletKey => (
                 <div key={bulletKey} className="flex items-center gap-1">
                   <CheckIcon />
-                  <span className="text-xs font-light text-[#062E25]/80 tracking-tight">
+                  <span className="text-sm font-light text-[#062E25]/80 tracking-tight">
                     {t(bulletKey)}
                   </span>
                 </div>
               ))}
             </div>
 
-            <div className={cn('absolute right-0 z-0 pointer-events-none', card.imageClassName)}>
+            <div
+              className={cn(
+                'absolute right-0 z-0 pointer-events-none',
+                card.imageClassName
+              )}
+            >
               <Image
                 src={card.image}
                 alt={t(card.titleKey)}
@@ -134,7 +141,7 @@ export default function SolarModelSelection() {
         ))}
       </div>
 
-      <p className="mt-5 text-xs font-light text-[#062E25]/60 tracking-tight">
+      <p className="mt-5 text-sm font-light text-[#062E25]/60 tracking-tight">
         {t('learnMorePrefix')}{' '}
         <Link
           href="/solar-abo"

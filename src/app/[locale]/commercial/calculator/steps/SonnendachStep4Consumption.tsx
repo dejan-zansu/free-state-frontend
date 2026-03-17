@@ -1,37 +1,37 @@
 'use client'
 
-import { useMemo } from 'react'
 import {
+  ArrowDown,
+  Calendar,
+  Car,
   ChevronLeft,
   ChevronRight,
-  Home,
-  Car,
   Droplet,
   Flame,
-  Zap,
-  Users,
-  Receipt,
   Gauge,
-  Sun,
-  ArrowDown,
-  TrendingUp,
+  Home,
   Info,
-  Calendar,
   LineChart as LineChartIcon,
+  Receipt,
+  Sun,
+  TrendingUp,
+  Users,
+  Zap,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { useMemo } from 'react'
 import {
-  LineChart,
-  Line,
-  BarChart,
   Bar,
+  BarChart,
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip as RechartsTooltip,
+  ReferenceLine,
+  ResponsiveContainer,
   XAxis,
   YAxis,
-  CartesianGrid,
-  Tooltip as RechartsTooltip,
-  Legend,
-  ResponsiveContainer,
-  ReferenceLine,
 } from 'recharts'
 
 import { Button } from '@/components/ui/button'
@@ -569,7 +569,7 @@ export default function SonnendachStep4Consumption() {
                       kWh/yr
                     </span>
                   </div>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground">
                     {t('consumption.kwhHelp')}
                   </p>
                 </div>
@@ -635,7 +635,7 @@ export default function SonnendachStep4Consumption() {
                     )}
                   </div>
                   {consumption.electricityTariffAuto && (
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {t('tariffs.autoDescription')}
                     </p>
                   )}
@@ -687,7 +687,7 @@ export default function SonnendachStep4Consumption() {
                     )}
                   </div>
                   {consumption.feedInTariffAuto && (
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-sm text-muted-foreground">
                       {t('tariffs.feedInAutoDescription')}
                     </p>
                   )}
@@ -721,7 +721,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="bg-orange-100 border-2 border-orange-400 rounded-lg p-4 text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.production')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -747,7 +747,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="bg-blue-100 border-2 border-blue-400 rounded-lg p-3 text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.consumption')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -768,7 +768,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="bg-green-100 border-2 border-green-500 rounded-lg p-3 text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.selfConsumption')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -791,7 +791,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="bg-amber-100 border-2 border-amber-500 rounded-lg p-3 text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.feedIn')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -811,7 +811,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.independence')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -828,7 +828,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.gridPurchase')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -846,7 +846,7 @@ export default function SonnendachStep4Consumption() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div className="text-center cursor-help">
-                              <p className="text-xs text-muted-foreground flex items-center gap-1 justify-center">
+                              <p className="text-sm text-muted-foreground flex items-center gap-1 justify-center">
                                 {t('reports.energyFlow.gridFeedIn')}
                                 <Info className="w-3 h-3" />
                               </p>
@@ -1164,7 +1164,7 @@ export default function SonnendachStep4Consumption() {
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
-                  <div className="flex justify-center gap-6 mt-3 text-xs text-muted-foreground">
+                  <div className="flex justify-center gap-6 mt-3 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <div className="w-3 h-3 rounded-sm bg-orange-500" />
                       <span>{t('reports.monthlyChart.production')}</span>
