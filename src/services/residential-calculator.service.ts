@@ -1,7 +1,7 @@
 import api from '@/lib/api'
 import type { RoofSegment } from '@/types/sonnendach'
 
-interface ResidentialCalculatorContact {
+interface ContactPayload {
   salutation: string
   firstName: string
   lastName: string
@@ -10,7 +10,7 @@ interface ResidentialCalculatorContact {
   remarks: string
 }
 
-interface ResidentialCalculatorData {
+interface CalculationPayload {
   address: string
   lat: number
   lng: number
@@ -35,16 +35,42 @@ interface ResidentialCalculatorData {
   recommendedPackage: string
 }
 
-interface SubmitPayload {
-  contact: ResidentialCalculatorContact
-  calculation: ResidentialCalculatorData
+interface CreateAccountPayload {
+  contact: ContactPayload
+  calculation: CalculationPayload
+  consents: {
+    dataProcessing: boolean
+  }
 }
 
-interface SubmitResponse {
+interface CreateAccountResponse {
+  success: boolean
+  data: {
+    userId: string
+    customerId: string
+    projectId: string
+  }
+}
+
+interface RequestOfferPayload {
+  projectId: string
+}
+
+interface RequestOfferResponse {
   success: boolean
   data: {
     leadId: string
-    projectId: string
+  }
+}
+
+interface EmailReportPayload {
+  projectId: string
+}
+
+interface EmailReportResponse {
+  success: boolean
+  data: {
+    sent: boolean
   }
 }
 
@@ -64,9 +90,25 @@ interface CreateContractResponse {
 }
 
 class ResidentialCalculatorService {
-  async submit(payload: SubmitPayload): Promise<SubmitResponse> {
-    const response = await api.post<SubmitResponse>(
-      '/residential-calculator/submit',
+  async createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
+    const response = await api.post<CreateAccountResponse>(
+      '/residential-calculator/create-account',
+      payload
+    )
+    return response.data
+  }
+
+  async requestOffer(payload: RequestOfferPayload): Promise<RequestOfferResponse> {
+    const response = await api.post<RequestOfferResponse>(
+      '/residential-calculator/request-offer',
+      payload
+    )
+    return response.data
+  }
+
+  async emailReport(payload: EmailReportPayload): Promise<EmailReportResponse> {
+    const response = await api.post<EmailReportResponse>(
+      '/residential-calculator/email-report',
       payload
     )
     return response.data

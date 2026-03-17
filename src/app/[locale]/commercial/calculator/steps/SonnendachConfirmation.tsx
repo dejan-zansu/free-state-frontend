@@ -1,19 +1,19 @@
 'use client'
 
-import { useEffect } from 'react'
+import { Link } from '@/i18n/navigation'
+import confetti from 'canvas-confetti'
 import {
+  Calendar,
   CheckCircle2,
   Download,
-  Mail,
-  Phone,
-  Calendar,
   FileText,
   Home,
+  Mail,
+  Phone,
   Zap,
 } from 'lucide-react'
-import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import confetti from 'canvas-confetti'
+import { useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -63,7 +63,10 @@ export default function SonnendachConfirmation() {
 
   const handleDownloadContract = () => {
     if (createdContractId) {
-      window.open(contractService.getDownloadUrl(createdContractId, true), '_blank')
+      window.open(
+        contractService.getDownloadUrl(createdContractId, true),
+        '_blank'
+      )
     }
   }
 
@@ -80,7 +83,9 @@ export default function SonnendachConfirmation() {
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle2 className="h-12 w-12 text-green-600" />
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-2">{t('title')}</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            {t('title')}
+          </h1>
           <p className="text-lg text-muted-foreground">{t('subtitle')}</p>
         </div>
 
@@ -94,21 +99,33 @@ export default function SonnendachConfirmation() {
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.contractNumber')}</span>
-              <span className="font-medium">{contractPreview?.contractNumber || '-'}</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.contractNumber')}
+              </span>
+              <span className="font-medium">
+                {contractPreview?.contractNumber || '-'}
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.signedBy')}</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.signedBy')}
+              </span>
               <span className="font-medium">
                 {personalInfo.firstName} {personalInfo.lastName}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.systemSize')}</span>
-              <span className="font-medium">{getSystemSizeKwp().toFixed(2)} kWp</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.systemSize')}
+              </span>
+              <span className="font-medium">
+                {getSystemSizeKwp().toFixed(2)} kWp
+              </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-muted-foreground">{t('contractSummary.panels')}</span>
+              <span className="text-muted-foreground">
+                {t('contractSummary.panels')}
+              </span>
               <span className="font-medium">{panelCount}</span>
             </div>
           </CardContent>
@@ -124,10 +141,15 @@ export default function SonnendachConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('download.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('download.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('download.description')}
+                  </p>
                 </div>
               </div>
-              <Button onClick={handleDownloadContract} className="bg-energy hover:bg-energy/90">
+              <Button
+                onClick={handleDownloadContract}
+                className="bg-energy hover:bg-energy/90"
+              >
                 {t('download.button')}
               </Button>
             </div>
@@ -150,7 +172,9 @@ export default function SonnendachConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step1.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step1.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step1.description')}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -159,7 +183,9 @@ export default function SonnendachConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step2.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step2.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step2.description')}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -168,7 +194,9 @@ export default function SonnendachConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step3.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step3.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step3.description')}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
@@ -177,7 +205,9 @@ export default function SonnendachConfirmation() {
                 </div>
                 <div>
                   <p className="font-medium">{t('nextSteps.step4.title')}</p>
-                  <p className="text-sm text-muted-foreground">{t('nextSteps.step4.description')}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t('nextSteps.step4.description')}
+                  </p>
                 </div>
               </li>
             </ol>
@@ -196,15 +226,15 @@ export default function SonnendachConfirmation() {
             <p className="text-muted-foreground">{t('contact.description')}</p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button variant="outline" className="flex-1 gap-2" asChild>
-                <a href="mailto:solar@freestate.ch">
+                <a href="mailto:info@freestate.ch">
                   <Mail className="h-4 w-4" />
-                  solar@freestate.ch
+                  info@freestate.ch
                 </a>
               </Button>
               <Button variant="outline" className="flex-1 gap-2" asChild>
-                <a href="tel:+41441234567">
+                <a href="tel:+41525253305">
                   <Phone className="h-4 w-4" />
-                  +41 44 123 45 67
+                  +41 52 525 33 05
                 </a>
               </Button>
             </div>
@@ -226,7 +256,11 @@ export default function SonnendachConfirmation() {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button variant="outline" onClick={handleStartNew} className="flex-1 gap-2">
+          <Button
+            variant="outline"
+            onClick={handleStartNew}
+            className="flex-1 gap-2"
+          >
             <Zap className="h-4 w-4" />
             {t('actions.newCalculation')}
           </Button>

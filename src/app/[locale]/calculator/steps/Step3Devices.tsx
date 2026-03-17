@@ -69,14 +69,23 @@ export default function Step3Devices() {
                 type="button"
                 onClick={() => setDevice(option.key, !isSelected)}
                 className={cn(
-                  'group flex flex-col items-center w-[260px] h-[232px] rounded-[20px] border pt-5 transition-all',
+                  'group relative flex flex-col items-center w-[260px] h-[232px] rounded-[20px] border pt-5 transition-all bg-[#F5F7EE]',
                   'hover:border-[#062E25] hover:shadow-md',
-                  isSelected
-                    ? 'bg-[#B7FE1A]/20 border-[#B7FE1A]'
-                    : 'bg-[#F5F7EE] border-[#809792]'
+                  isSelected ? 'border-[#062E25]' : 'border-[#809792]'
                 )}
               >
-                <div className="w-[142px] h-[142px] flex-shrink-0">
+                <div className={cn(
+                  'absolute top-3 right-3 w-5 h-5 rounded-full border flex items-center justify-center transition-all',
+                  isSelected ? 'bg-[#B7FE1A] border-[#B7FE1A]' : 'bg-transparent border-[#809792]'
+                )}>
+                  {isSelected && (
+                    <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                      <path d="M1 4L3.5 6.5L9 1" stroke="#062E25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </div>
+
+                <div className="w-[142px] h-[142px] shrink-0">
                   <Image
                     src={option.image}
                     alt={t(`devices.${option.labelKey}`)}

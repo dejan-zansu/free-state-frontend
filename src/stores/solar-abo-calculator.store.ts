@@ -11,7 +11,8 @@ export type MultiPlanningType = 'my-needs' | 'all-parties'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
-export type RoofCoveringType = 'tiled' | 'tin' | 'other'
+export type RoofCoveringType = 'tiled' | 'tin' | 'gravel' | 'substrate' | 'other'
+export type RoofType = 'flat' | 'pitched'
 export type Salutation = 'mr' | 'woman' | 'family'
 
 export interface HighPowerDevices {
@@ -30,6 +31,12 @@ export interface ContactDetails {
   phoneNumber: string
   remarks: string
 }
+
+export interface Consents {
+  dataProcessing: boolean
+}
+
+export type ResultsPath = 'download' | 'offer' | 'contract' | null
 
 // ElCom 2026 average residential tariff (Rp./kWh → CHF/kWh)
 // Source: ElCom tariff data, swissinfo.ch
@@ -114,11 +121,16 @@ interface SolarAboCalculatorState {
   roofCovering: RoofCoveringType | null
 
   contact: ContactDetails
+  consents: Consents
 
   isSubmitting: boolean
   isSubmitted: boolean
   submissionError: string | null
+  accountCreated: boolean
+  resultsPath: ResultsPath
 
+  createdUserId: string | null
+  createdCustomerId: string | null
   createdProjectId: string | null
   createdContractId: string | null
   contractNumber: string | null
@@ -150,6 +162,8 @@ interface SolarAboCalculatorActions {
   setIsFetchingBuilding: (isFetching: boolean) => void
   setRoofCovering: (type: RoofCoveringType) => void
   setContact: (contact: Partial<ContactDetails>) => void
+  setConsents: (consents: Partial<Consents>) => void
+  getRoofType: () => RoofType
   getSelectedSegments: () => RoofSegment[]
   getSelectedArea: () => number
   getEstimatedConsumption: () => number
@@ -161,7 +175,10 @@ interface SolarAboCalculatorActions {
   getCo2Savings: () => number
   getMonthlyProduction: () => number[]
   getRecommendedPackage: () => SolarAboPackage
-  submitCalculation: () => Promise<void>
+  createAccount: () => Promise<void>
+  requestOffer: () => Promise<void>
+  emailReport: () => Promise<void>
+  setResultsPath: (path: ResultsPath) => void
   addAcknowledgment: (type: string) => void
   removeAcknowledgment: (type: string) => void
   createContract: () => Promise<void>
@@ -179,6 +196,10 @@ const initialContact: ContactDetails = {
   email: '',
   phoneNumber: '',
   remarks: '',
+}
+
+const initialConsents: Consents = {
+  dataProcessing: false,
 }
 
 const initialState: SolarAboCalculatorState = {
@@ -209,11 +230,16 @@ const initialState: SolarAboCalculatorState = {
   roofCovering: null,
 
   contact: initialContact,
+  consents: initialConsents,
 
   isSubmitting: false,
   isSubmitted: false,
   submissionError: null,
+  accountCreated: false,
+  resultsPath: null,
 
+  createdUserId: null,
+  createdCustomerId: null,
   createdProjectId: null,
   createdContractId: null,
   contractNumber: null,
@@ -335,6 +361,23 @@ export const useSolarAboCalculatorStore = create<
         })
       },
 
+      setConsents: (consents: Partial<Consents>) => {
+        const { consents: currentConsents } = get()
+        set({
+          consents: {
+            ...currentConsents,
+            ...consents,
+          },
+        })
+      },
+
+      getRoofType: (): RoofType => {
+        const segments = get().getSelectedSegments()
+        if (segments.length === 0) return 'pitched'
+        const avgTilt = segments.reduce((sum, s) => sum + s.tilt, 0) / segments.length
+        return avgTilt <= 10 ? 'flat' : 'pitched'
+      },
+
       getSelectedSegments: () => {
         const { building, selectedSegmentIds } = get()
         if (!building) return []
@@ -428,12 +471,12 @@ export const useSolarAboCalculatorStore = create<
         return buildingType === 'single_family' ? 'home' : 'multi'
       },
 
-      submitCalculation: async () => {
+      createAccount: async () => {
         const state = get()
         set({ isSubmitting: true, submissionError: null })
 
         try {
-          const response = await residentialCalculatorService.submit({
+          const response = await residentialCalculatorService.createAccount({
             contact: {
               salutation: state.contact.salutation || 'mr',
               firstName: state.contact.firstName,
@@ -460,10 +503,14 @@ export const useSolarAboCalculatorStore = create<
               systemSizeKwp: state.getSystemSizeKwp(),
               recommendedPackage: state.getRecommendedPackage(),
             },
+            consents: state.consents,
           })
           set({
             isSubmitting: false,
             isSubmitted: true,
+            accountCreated: true,
+            createdUserId: response.data.userId,
+            createdCustomerId: response.data.customerId,
             createdProjectId: response.data.projectId,
           })
         } catch (error: unknown) {
@@ -473,6 +520,40 @@ export const useSolarAboCalculatorStore = create<
             submissionError: axiosError?.response?.data?.error?.message || 'Submission failed',
           })
         }
+      },
+
+      requestOffer: async () => {
+        const state = get()
+        if (!state.createdProjectId) return
+
+        try {
+          await residentialCalculatorService.requestOffer({
+            projectId: state.createdProjectId,
+          })
+          set({ resultsPath: 'offer' })
+        } catch (error: unknown) {
+          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+          throw new Error(axiosError?.response?.data?.error?.message || 'Failed to request offer')
+        }
+      },
+
+      emailReport: async () => {
+        const state = get()
+        if (!state.createdProjectId) return
+
+        try {
+          await residentialCalculatorService.emailReport({
+            projectId: state.createdProjectId,
+          })
+          set({ resultsPath: 'download' })
+        } catch (error: unknown) {
+          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+          throw new Error(axiosError?.response?.data?.error?.message || 'Failed to email report')
+        }
+      },
+
+      setResultsPath: (path: ResultsPath) => {
+        set({ resultsPath: path })
       },
 
       addAcknowledgment: (type: string) => {
@@ -553,6 +634,11 @@ export const useSolarAboCalculatorStore = create<
         selectedSegmentIds: state.selectedSegmentIds,
         roofCovering: state.roofCovering,
         contact: state.contact,
+        consents: state.consents,
+        accountCreated: state.accountCreated,
+        resultsPath: state.resultsPath,
+        createdUserId: state.createdUserId,
+        createdCustomerId: state.createdCustomerId,
         createdProjectId: state.createdProjectId,
         createdContractId: state.createdContractId,
         contractNumber: state.contractNumber,

@@ -28,6 +28,7 @@ export default function SolarAboCalculatorPage() {
     currentStep,
     signatureStatus,
     showMultiInterstitial,
+    resultsPath,
     goToStep,
   } = useSolarAboCalculatorStore()
 

@@ -1,7 +1,20 @@
 'use client'
 
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
-import { Zap, TrendingUp, Sun, Leaf, PanelTop, BarChart3 } from 'lucide-react'
+import {
+  Zap,
+  TrendingUp,
+  Sun,
+  Leaf,
+  PanelTop,
+  BarChart3,
+  Mail,
+  FileSearch,
+  FileSignature,
+  Loader2,
+  CheckCircle2,
+} from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
 
 import { Button } from '@/components/ui/button'
@@ -14,6 +27,12 @@ export default function StepResults() {
   const t = useTranslations('solarAboCalculator.results')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const store = useSolarAboCalculatorStore()
+
+  const [emailSending, setEmailSending] = useState(false)
+  const [emailSent, setEmailSent] = useState(false)
+  const [offerRequesting, setOfferRequesting] = useState(false)
+  const [offerRequested, setOfferRequested] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const annualProduction = store.getAnnualProduction()
   const annualSavings = store.getAnnualSavings()
@@ -28,6 +47,37 @@ export default function StepResults() {
     name: t(`months.${key}`),
     kWh: Math.round(monthlyProduction[i]),
   }))
+
+  const handleEmailReport = async () => {
+    setEmailSending(true)
+    setError(null)
+    try {
+      await store.emailReport()
+      setEmailSent(true)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to send email')
+    } finally {
+      setEmailSending(false)
+    }
+  }
+
+  const handleRequestOffer = async () => {
+    setOfferRequesting(true)
+    setError(null)
+    try {
+      await store.requestOffer()
+      setOfferRequested(true)
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to request offer')
+    } finally {
+      setOfferRequesting(false)
+    }
+  }
+
+  const handleSignContract = () => {
+    store.setResultsPath('contract')
+    store.nextStep()
+  }
 
   return (
     <div>
@@ -144,13 +194,93 @@ export default function StepResults() {
           </CardContent>
         </Card>
 
+        {error && (
+          <div className='mt-4 text-sm text-destructive bg-destructive/10 p-3 rounded-md'>
+            {error}
+          </div>
+        )}
+
+        <div className='mt-10 space-y-4'>
+          <Card className='overflow-hidden'>
+            <CardContent className='p-0'>
+              <div className='flex items-center justify-between p-6'>
+                <div className='flex items-center gap-4'>
+                  <div className='w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center shrink-0'>
+                    <Mail className='h-6 w-6 text-blue-600' />
+                  </div>
+                  <div>
+                    <h3 className='font-semibold'>{t('actions.downloadTitle')}</h3>
+                    <p className='text-sm text-muted-foreground'>{t('actions.downloadDescription')}</p>
+                  </div>
+                </div>
+                <Button
+                  variant='outline'
+                  onClick={handleEmailReport}
+                  disabled={emailSending || emailSent}
+                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                  className='shrink-0'
+                >
+                  {emailSending && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+                  {emailSent && <CheckCircle2 className='mr-2 h-4 w-4 text-green-600' />}
+                  {emailSent ? t('actions.emailSent') : t('actions.downloadButton')}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className='overflow-hidden'>
+            <CardContent className='p-0'>
+              <div className='flex items-center justify-between p-6'>
+                <div className='flex items-center gap-4'>
+                  <div className='w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center shrink-0'>
+                    <FileSearch className='h-6 w-6 text-amber-600' />
+                  </div>
+                  <div>
+                    <h3 className='font-semibold'>{t('actions.offerTitle')}</h3>
+                    <p className='text-sm text-muted-foreground'>{t('actions.offerDescription')}</p>
+                  </div>
+                </div>
+                <Button
+                  variant='outline'
+                  onClick={handleRequestOffer}
+                  disabled={offerRequesting || offerRequested}
+                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                  className='shrink-0'
+                >
+                  {offerRequesting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+                  {offerRequested && <CheckCircle2 className='mr-2 h-4 w-4 text-green-600' />}
+                  {offerRequested ? t('actions.offerSent') : t('actions.offerButton')}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className='overflow-hidden border-[#062E25]/30'>
+            <CardContent className='p-0'>
+              <div className='flex items-center justify-between p-6'>
+                <div className='flex items-center gap-4'>
+                  <div className='w-12 h-12 bg-[#062E25]/10 rounded-lg flex items-center justify-center shrink-0'>
+                    <FileSignature className='h-6 w-6 text-[#062E25]' />
+                  </div>
+                  <div>
+                    <h3 className='font-semibold'>{t('actions.contractTitle')}</h3>
+                    <p className='text-sm text-muted-foreground'>{t('actions.contractDescription')}</p>
+                  </div>
+                </div>
+                <Button
+                  onClick={handleSignContract}
+                  className='bg-[#062E25] text-white hover:bg-[#062E25]/90 shrink-0'
+                >
+                  {t('actions.contractButton')}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
 
         <div className='fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4' style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
           <Button variant='outline' onClick={store.prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
             {tNav('back')}
-          </Button>
-          <Button onClick={store.nextStep}>
-            {t('cta')}
           </Button>
         </div>
       </div>

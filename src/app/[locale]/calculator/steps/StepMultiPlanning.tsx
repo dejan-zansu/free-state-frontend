@@ -3,18 +3,38 @@
 import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
-import { useSolarAboCalculatorStore, type MultiPlanningType } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
+import {
+  useSolarAboCalculatorStore,
+  type MultiPlanningType,
+} from '@/stores/solar-abo-calculator.store'
 
-const options: { type: MultiPlanningType; titleKey: string; descKey: string }[] = [
-  { type: 'my-needs', titleKey: 'myNeeds.title', descKey: 'myNeeds.description' },
-  { type: 'all-parties', titleKey: 'allParties.title', descKey: 'allParties.description' },
+const options: {
+  type: MultiPlanningType
+  titleKey: string
+  descKey: string
+}[] = [
+  {
+    type: 'my-needs',
+    titleKey: 'myNeeds.title',
+    descKey: 'myNeeds.description',
+  },
+  {
+    type: 'all-parties',
+    titleKey: 'allParties.title',
+    descKey: 'allParties.description',
+  },
 ]
 
 export default function StepMultiPlanning() {
   const t = useTranslations('solarAboCalculator.multiPlanning')
   const tNav = useTranslations('solarAboCalculator.navigation')
-  const { multiPlanningType, setMultiPlanningType, setShowMultiInterstitial, nextStep } = useSolarAboCalculatorStore()
+  const {
+    multiPlanningType,
+    setMultiPlanningType,
+    setShowMultiInterstitial,
+    nextStep,
+  } = useSolarAboCalculatorStore()
 
   const handleSelect = (type: MultiPlanningType) => {
     setMultiPlanningType(type)
@@ -40,7 +60,7 @@ export default function StepMultiPlanning() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[700px]">
-          {options.map((option) => (
+          {options.map(option => (
             <button
               key={option.type}
               type="button"
@@ -59,19 +79,20 @@ export default function StepMultiPlanning() {
               <p className="mt-2 text-sm font-light text-[#062E25]/70 tracking-tight">
                 {t(option.descKey)}
               </p>
-              <div className="mt-4 flex items-center text-[#062E25] group-hover:gap-2 transition-all">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
             </button>
           ))}
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
           <Button
             variant="outline"
-            style={{ borderColor: "#062E25", color: "#062E25" }}
+            style={{ borderColor: '#062E25', color: '#062E25' }}
             onClick={handleBack}
           >
             {tNav('back')}

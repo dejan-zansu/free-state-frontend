@@ -2595,12 +2595,16 @@
       "title": "Choose your {model} package",
       "subtitle": "Select the package that best fits your property type",
       "home": {
+        "tag": "Home",
         "title": "{model} Home",
-        "description": "For single-family homes\nwith battery storage"
+        "bullet1": "For single-family homes",
+        "bullet2": "With battery storage"
       },
       "multi": {
+        "tag": "Multi",
         "title": "{model} Multi",
-        "description": "For apartment buildings and\nshared energy communities\n(ZEV / LEG)"
+        "bullet1": "For apartment buildings",
+        "bullet2": "Shared energy communities (ZEV / LEG)"
       },
       "learnMore": "Learn more about {model} Home and {model} Multi",
       "learnMorePrefix": "Learn more about",
@@ -2681,9 +2685,12 @@
     "step6": {
       "title": "How is your roof covered?",
       "helper": "Select the type of roof covering you have. We use this to calculate the costs for assembly and fastening.",
+      "helperFlat": "Select the type of flat roof covering you have. This determines the mounting system we use.",
       "options": {
         "tiled": "Tiled roof",
         "tin": "Tin roof",
+        "gravel": "Gravel",
+        "substrate": "Substrate / green roof",
         "other": "Other"
       }
     },
@@ -2734,7 +2741,20 @@
         "multiDesc": "For multi-family buildings",
         "recommended": "Recommended"
       },
-      "cta": "Get Your Free Offer"
+      "cta": "Get Your Free Offer",
+      "actions": {
+        "downloadTitle": "Email results",
+        "downloadDescription": "Receive your solar analysis by email — no commitment.",
+        "downloadButton": "Send to my email",
+        "offerTitle": "Request offer",
+        "offerDescription": "We will review your property and prepare a personalized offer with a site visit.",
+        "offerButton": "Request offer",
+        "contractTitle": "Sign contract",
+        "contractDescription": "Proceed directly to review and digitally sign the Dachmietvertrag.",
+        "contractButton": "Continue to contract",
+        "emailSent": "Sent",
+        "offerSent": "Requested"
+      }
     },
     "step7": {
       "title": "Your contact details for the detailed offer",
@@ -2899,6 +2919,11 @@
     "navigation": {
       "back": "Back",
       "next": "Next"
+    },
+    "consents": {
+      "dataProcessingPrefix": "I agree that my data provided in this form may be processed as described in the",
+      "dataProcessingLink": "privacy policy",
+      "dataProcessingSuffix": "and used for the preparation of an offer, for contract preparation, customer support and for marketing purposes."
     }
   },
   "solarSystemCarport": {

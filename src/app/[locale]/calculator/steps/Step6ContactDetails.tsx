@@ -1,9 +1,11 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import Link from 'next/link'
 import { Loader2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
@@ -13,14 +15,17 @@ import { useSolarAboCalculatorStore, type Salutation } from '@/stores/solar-abo-
 export default function Step6ContactDetails() {
   const t = useTranslations('solarAboCalculator.step7')
   const tNav = useTranslations('solarAboCalculator.navigation')
+  const tConsent = useTranslations('solarAboCalculator.consents')
   const {
     contact,
+    consents,
     setContact,
+    setConsents,
     prevStep,
     nextStep,
     isSubmitting,
     submissionError,
-    submitCalculation,
+    createAccount,
   } = useSolarAboCalculatorStore()
 
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.email)
@@ -31,11 +36,12 @@ export default function Step6ContactDetails() {
     contact.lastName.trim() &&
     contact.email.trim() &&
     isValidEmail &&
-    contact.phoneNumber.trim()
+    contact.phoneNumber.trim() &&
+    consents.dataProcessing
 
   const handleSubmit = async () => {
     if (!isValid) return
-    await submitCalculation()
+    await createAccount()
     nextStep()
   }
 
@@ -138,6 +144,25 @@ export default function Step6ContactDetails() {
                 placeholder={t('remarksPlaceholder')}
                 rows={4}
               />
+            </div>
+
+            <div className='pt-2'>
+              <div className='flex items-start gap-3'>
+                <Checkbox
+                  id='consent-data'
+                  checked={consents.dataProcessing}
+                  onCheckedChange={(checked) => setConsents({ dataProcessing: checked === true })}
+                  className='mt-0.5 border-[#062E25]/40 data-[state=checked]:bg-[#062E25] data-[state=checked]:border-[#062E25]'
+                />
+                <label htmlFor='consent-data' className='text-sm cursor-pointer text-[#062E25]/80'>
+                  {tConsent('dataProcessingPrefix')}{' '}
+                  <Link href='/privacy' className='underline underline-offset-2 text-[#062E25] hover:text-[#062E25]/70'>
+                    {tConsent('dataProcessingLink')}
+                  </Link>{' '}
+                  {tConsent('dataProcessingSuffix')}
+                  {' '}<span className='text-destructive'>*</span>
+                </label>
+              </div>
             </div>
 
             {submissionError && (

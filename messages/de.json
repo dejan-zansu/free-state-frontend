@@ -4229,12 +4229,16 @@
       "title": "Wählen Sie Ihr {model}-Paket",
       "subtitle": "Wählen Sie das Paket, das am besten zu Ihrem Gebäudetyp passt",
       "home": {
+        "tag": "Home",
         "title": "{model} Home",
-        "description": "Für Einfamilienhäuser\nmit Batteriespeicher"
+        "bullet1": "Für Einfamilienhäuser",
+        "bullet2": "Mit Batteriespeicher"
       },
       "multi": {
+        "tag": "Multi",
         "title": "{model} Multi",
-        "description": "Für Mehrfamilienhäuser und\ngemeinschaftliche Energieversorgung\n(ZEV / LEG)"
+        "bullet1": "Für Mehrfamilienhäuser",
+        "bullet2": "Gemeinschaftliche Energieversorgung (ZEV / LEG)"
       },
       "learnMore": "Erfahren Sie mehr über {model} Home und {model} Multi",
       "learnMorePrefix": "Mehr erfahren über",
@@ -4315,9 +4319,12 @@
     "step6": {
       "title": "Wie ist Ihr Dach gedeckt?",
       "helper": "Wählen Sie die Art Ihrer Dacheindeckung. Wir verwenden dies zur Berechnung der Montage- und Befestigungskosten.",
+      "helperFlat": "Wählen Sie die Art Ihrer Flachdach-Abdeckung. Dies bestimmt das Montagesystem.",
       "options": {
         "tiled": "Ziegeldach",
         "tin": "Blechdach",
+        "gravel": "Kies",
+        "substrate": "Substrat / Gründach",
         "other": "Andere"
       }
     },
@@ -4368,7 +4375,20 @@
         "multiDesc": "Für Mehrfamilienhäuser",
         "recommended": "Empfohlen"
       },
-      "cta": "Kostenloses Angebot erhalten"
+      "cta": "Kostenloses Angebot erhalten",
+      "actions": {
+        "downloadTitle": "Ergebnisse per E-Mail",
+        "downloadDescription": "Erhalten Sie Ihre Solaranalyse per E-Mail — unverbindlich.",
+        "downloadButton": "An meine E-Mail senden",
+        "offerTitle": "Angebot anfordern",
+        "offerDescription": "Wir prüfen Ihre Liegenschaft und erstellen ein persönliches Angebot mit Vor-Ort-Besichtigung.",
+        "offerButton": "Angebot anfordern",
+        "contractTitle": "Vertrag unterzeichnen",
+        "contractDescription": "Direkt zum Dachmietvertrag weiter und digital unterzeichnen.",
+        "contractButton": "Weiter zum Vertrag",
+        "emailSent": "Gesendet",
+        "offerSent": "Angefordert"
+      }
     },
     "step7": {
       "title": "Ihre Kontaktdaten für das detaillierte Angebot",
@@ -4533,6 +4553,11 @@
     "navigation": {
       "back": "Zurück",
       "next": "Weiter"
+    },
+    "consents": {
+      "dataProcessingPrefix": "Ich bin damit einverstanden, dass meine in diesem Formular angegebenen Daten wie in der",
+      "dataProcessingLink": "Datenschutzerklärung",
+      "dataProcessingSuffix": "beschrieben verarbeitet und für die Angebotserstellung, Vertragsanbahnung, Kundenbetreuung und Marketingzwecke verwendet werden dürfen."
     }
   }
 }

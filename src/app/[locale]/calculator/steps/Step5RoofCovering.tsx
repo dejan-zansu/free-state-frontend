@@ -8,16 +8,32 @@ import { Button } from '@/components/ui/button'
 import { useSolarAboCalculatorStore, type RoofCoveringType } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
 
-const roofOptions: { type: RoofCoveringType; image: string | null; labelKey: string }[] = [
-  { type: 'tiled', image: 'https://placehold.co/128x128/e2e8f0/475569?text=Tiled', labelKey: 'tiled' },
-  { type: 'tin', image: 'https://placehold.co/128x128/e2e8f0/475569?text=Tin', labelKey: 'tin' },
+interface RoofOption {
+  type: RoofCoveringType
+  image: string | null
+  labelKey: string
+}
+
+const pitchedOptions: RoofOption[] = [
+  { type: 'tiled', image: '/images/calculator/roof-tiled.jpg', labelKey: 'tiled' },
+  { type: 'tin', image: '/images/calculator/roof-tin.jpg', labelKey: 'tin' },
+  { type: 'other', image: null, labelKey: 'other' },
+]
+
+const flatOptions: RoofOption[] = [
+  { type: 'gravel', image: '/images/calculator/roof-gravel.jpg', labelKey: 'gravel' },
+  { type: 'substrate', image: '/images/calculator/roof-substrate.jpg', labelKey: 'substrate' },
   { type: 'other', image: null, labelKey: 'other' },
 ]
 
 export default function Step5RoofCovering() {
   const t = useTranslations('solarAboCalculator.step6')
   const tNav = useTranslations('solarAboCalculator.navigation')
-  const { roofCovering, setRoofCovering, prevStep, nextStep } = useSolarAboCalculatorStore()
+  const { roofCovering, setRoofCovering, prevStep, nextStep, getRoofType } =
+    useSolarAboCalculatorStore()
+
+  const roofType = getRoofType()
+  const options = roofType === 'flat' ? flatOptions : pitchedOptions
 
   const handleSelect = (type: RoofCoveringType) => {
     setRoofCovering(type)
@@ -29,11 +45,13 @@ export default function Step5RoofCovering() {
       <div className='container mx-auto px-4 pt-8 pb-16 max-w-lg'>
         <div className='mb-8'>
           <h1 className='text-2xl font-bold'>{t('title')}</h1>
-          <p className='mt-2 text-muted-foreground'>{t('helper')}</p>
+          <p className='mt-2 text-muted-foreground'>
+            {roofType === 'flat' ? t('helperFlat') : t('helper')}
+          </p>
         </div>
 
         <div className='space-y-3'>
-          {roofOptions.map((option) => (
+          {options.map((option) => (
             <button
               key={option.type}
               type='button'
