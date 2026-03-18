@@ -2,8 +2,9 @@
 
 import { useAuthStore } from '@/stores/auth.store'
 import { UserRole } from '@/types/auth'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useRouter } from '@/i18n/navigation'
+import { useEffect, useRef } from 'react'
+import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 
 interface ProtectedRouteProps {
   children: React.ReactNode
@@ -20,71 +21,45 @@ export function ProtectedRoute({
 }: ProtectedRouteProps) {
   const router = useRouter()
   const { isAuthenticated, isInitialized, user, checkAuth } = useAuthStore()
+  const hasRedirected = useRef(false)
 
   useEffect(() => {
     checkAuth()
-  }, [checkAuth])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
-    if (isInitialized && !isAuthenticated) {
-      router.push(redirectTo)
+    if (!isInitialized || hasRedirected.current) return
+
+    if (!isAuthenticated) {
+      hasRedirected.current = true
+      router.replace(redirectTo as any)
+      return
     }
-  }, [isInitialized, isAuthenticated, router, redirectTo])
 
-  useEffect(() => {
-    if (isInitialized && isAuthenticated && user) {
+    if (isAuthenticated && user) {
       if (adminRedirect && user.role === 'ADMIN') {
-        router.push(adminRedirect)
+        hasRedirected.current = true
+        router.replace(adminRedirect as any)
         return
       }
       if (allowedRoles && !allowedRoles.includes(user.role)) {
-        router.push('/unauthorized')
+        hasRedirected.current = true
+        router.replace('/login' as any)
       }
     }
-  }, [isInitialized, isAuthenticated, allowedRoles, adminRedirect, user, router])
+  }, [isInitialized, isAuthenticated, user, allowedRoles, adminRedirect, redirectTo, router])
 
-  if (!isInitialized) {
-    return (
-      <div className='min-h-screen flex items-center justify-center bg-background'>
-        <div className='flex flex-col items-center gap-4'>
-          <div className='relative'>
-            <div className='w-16 h-16 rounded-full border-4 border-solar/20 animate-pulse' />
-            <div className='absolute inset-0 flex items-center justify-center'>
-              <svg
-                className='w-8 h-8 text-solar animate-spin'
-                viewBox='0 0 24 24'
-                fill='none'
-                stroke='currentColor'
-                strokeWidth='2'
-              >
-                <circle cx='12' cy='12' r='5' />
-                <line x1='12' y1='1' x2='12' y2='3' />
-                <line x1='12' y1='21' x2='12' y2='23' />
-                <line x1='4.22' y1='4.22' x2='5.64' y2='5.64' />
-                <line x1='18.36' y1='18.36' x2='19.78' y2='19.78' />
-                <line x1='1' y1='12' x2='3' y2='12' />
-                <line x1='21' y1='12' x2='23' y2='12' />
-                <line x1='4.22' y1='19.78' x2='5.64' y2='18.36' />
-                <line x1='18.36' y1='5.64' x2='19.78' y2='4.22' />
-              </svg>
-            </div>
-          </div>
-          <p className='text-muted-foreground text-sm'>Loading...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (!isAuthenticated) {
-    return null
+  if (!isInitialized || !isAuthenticated) {
+    return <AdminPageLoader fullscreen />
   }
 
   if (adminRedirect && user?.role === 'ADMIN') {
-    return null
+    return <AdminPageLoader fullscreen />
   }
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
-    return null
+    return <AdminPageLoader fullscreen />
   }
 
   return <>{children}</>

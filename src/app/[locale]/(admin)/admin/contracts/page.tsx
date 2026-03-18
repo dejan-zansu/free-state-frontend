@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
+import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -30,6 +31,7 @@ import type { AdminContract } from '@/types/admin'
 export default function AdminContractsPage() {
   const locale = useLocale()
   const t = useTranslations('admin.contracts')
+  const tc = useTranslations('admin.common')
   const {
     data,
     isLoading,
@@ -41,6 +43,7 @@ export default function AdminContractsPage() {
     setFilter,
     filters,
   } = useAdminQuery<AdminContract>(
+    'contracts',
     adminService.listContracts.bind(adminService)
   )
 
@@ -57,14 +60,14 @@ export default function AdminContractsPage() {
               onChange={e => setSearch(e.target.value)}
             />
             <Select
-              value={filters.status || ''}
-              onValueChange={v => setFilter('status', v || undefined)}
+              value={filters.status || '__all__'}
+              onValueChange={v => setFilter('status', v === '__all__' ? undefined : v)}
             >
               <SelectTrigger className="w-48">
                 <SelectValue placeholder={t('allStatuses')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('allStatuses')}</SelectItem>
+                <SelectItem value="__all__">{t('allStatuses')}</SelectItem>
                 <SelectItem value="DRAFT">Draft</SelectItem>
                 <SelectItem value="PENDING_SIGNATURE">
                   Pending Signature
@@ -76,14 +79,14 @@ export default function AdminContractsPage() {
               </SelectContent>
             </Select>
             <Select
-              value={filters.contractType || ''}
-              onValueChange={v => setFilter('contractType', v || undefined)}
+              value={filters.contractType || '__all__'}
+              onValueChange={v => setFilter('contractType', v === '__all__' ? undefined : v)}
             >
               <SelectTrigger className="w-40">
                 <SelectValue placeholder={t('allTypes')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('allTypes')}</SelectItem>
+                <SelectItem value="__all__">{t('allTypes')}</SelectItem>
                 <SelectItem value="PRELIMINARY">Preliminary</SelectItem>
                 <SelectItem value="FINAL">Final</SelectItem>
                 <SelectItem value="AMENDMENT">Amendment</SelectItem>
@@ -92,9 +95,7 @@ export default function AdminContractsPage() {
           </div>
 
           {isLoading ? (
-            <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-            </div>
+            <AdminPageLoader />
           ) : (
             <>
               <Table>
@@ -188,7 +189,7 @@ export default function AdminContractsPage() {
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
                   <span className="text-sm text-[#062E25]/60">
-                    {t('page', { page, totalPages })}
+                    {tc('page', { page, totalPages })}
                   </span>
                   <Button
                     variant="outline"

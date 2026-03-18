@@ -1,6 +1,7 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
+import { useQuery, keepPreviousData } from '@tanstack/react-query'
 
 import type { ListQuery, PaginatedResponse } from '@/types/admin'
 
@@ -11,49 +12,35 @@ interface UseAdminQueryOptions {
 }
 
 export function useAdminQuery<T>(
+  queryKey: string,
   fetcher: (query: ListQuery) => Promise<PaginatedResponse<T>>,
   options: UseAdminQueryOptions = {}
 ) {
   const { initialPage = 1, initialLimit = 25, initialFilters = {} } = options
 
-  const [data, setData] = useState<T[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
   const [page, setPage] = useState(initialPage)
   const [limit, setLimit] = useState(initialLimit)
-  const [total, setTotal] = useState(0)
-  const [totalPages, setTotalPages] = useState(0)
   const [search, setSearchValue] = useState('')
   const [filters, setFilters] = useState<Record<string, string | undefined>>(initialFilters)
 
   const debounceRef = useRef<ReturnType<typeof setTimeout>>(undefined)
+  const fetcherRef = useRef(fetcher)
+  fetcherRef.current = fetcher
 
-  const fetchData = useCallback(async () => {
-    setIsLoading(true)
-    setError(null)
+  const buildQuery = (): ListQuery => {
+    const query: ListQuery = { page, limit }
+    if (search) query.search = search
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) query[key] = value
+    })
+    return query
+  }
 
-    try {
-      const query: ListQuery = { page, limit }
-      if (search) query.search = search
-      Object.entries(filters).forEach(([key, value]) => {
-        if (value) query[key] = value
-      })
-
-      const result = await fetcher(query)
-      setData(result.data)
-      setTotal(result.meta.total)
-      setTotalPages(result.meta.totalPages)
-    } catch (err) {
-      const message = (err as { response?: { data?: { error?: { message?: string } } } })?.response?.data?.error?.message || 'Failed to load data'
-      setError(message)
-    } finally {
-      setIsLoading(false)
-    }
-  }, [fetcher, page, limit, search, filters])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
+  const { data: result, isLoading, error, refetch } = useQuery({
+    queryKey: ['admin', queryKey, 'list', { page, limit, search, filters }],
+    queryFn: () => fetcherRef.current(buildQuery()),
+    placeholderData: keepPreviousData,
+  })
 
   const setSearch = useCallback((value: string) => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
@@ -68,18 +55,14 @@ export function useAdminQuery<T>(
     setPage(1)
   }, [])
 
-  const refetch = useCallback(() => {
-    fetchData()
-  }, [fetchData])
-
   return {
-    data,
+    data: result?.data ?? [],
     isLoading,
-    error,
+    error: error?.message ?? null,
     page,
     limit,
-    total,
-    totalPages,
+    total: result?.meta?.total ?? 0,
+    totalPages: result?.meta?.totalPages ?? 0,
     setPage,
     setLimit,
     setSearch,

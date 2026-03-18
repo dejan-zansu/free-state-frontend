@@ -7,12 +7,12 @@ interface ConditionalFooterProps {
   locale: string
 }
 
+const HIDDEN_PATTERNS = ['/admin/', '/calculator', '/login', '/anmelden', '/register', '/registrieren', '/set-password', '/passwort-setzen', '/forgot-password', '/passwort-vergessen', '/verify-email', '/email-verifizieren']
+
 export default function ConditionalFooter({}: ConditionalFooterProps) {
   const pathname = usePathname()
-  const isCalculatorPage = pathname?.includes('/calculator')
-  const isAdminPage = pathname?.includes('/admin/')
 
-  if (isCalculatorPage || isAdminPage) {
+  if (pathname && HIDDEN_PATTERNS.some(p => pathname.includes(p))) {
     return null
   }
 

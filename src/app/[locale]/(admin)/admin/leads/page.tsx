@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
+import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -30,6 +31,7 @@ import type { AdminLead } from '@/types/admin'
 export default function AdminLeadsPage() {
   const locale = useLocale()
   const t = useTranslations('admin.leads')
+  const tc = useTranslations('admin.common')
   const {
     data,
     isLoading,
@@ -40,7 +42,7 @@ export default function AdminLeadsPage() {
     setSearch,
     setFilter,
     filters,
-  } = useAdminQuery<AdminLead>(adminService.listLeads.bind(adminService))
+  } = useAdminQuery<AdminLead>('leads', adminService.listLeads.bind(adminService))
 
   return (
     <div>
@@ -55,14 +57,14 @@ export default function AdminLeadsPage() {
               onChange={e => setSearch(e.target.value)}
             />
             <Select
-              value={filters.status || ''}
-              onValueChange={v => setFilter('status', v || undefined)}
+              value={filters.status || '__all__'}
+              onValueChange={v => setFilter('status', v === '__all__' ? undefined : v)}
             >
               <SelectTrigger className="w-44">
                 <SelectValue placeholder={t('allStatuses')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('allStatuses')}</SelectItem>
+                <SelectItem value="__all__">{t('allStatuses')}</SelectItem>
                 <SelectItem value="NEW">New</SelectItem>
                 <SelectItem value="CONTACTED">Contacted</SelectItem>
                 <SelectItem value="QUALIFIED">Qualified</SelectItem>
@@ -74,14 +76,14 @@ export default function AdminLeadsPage() {
               </SelectContent>
             </Select>
             <Select
-              value={filters.source || ''}
-              onValueChange={v => setFilter('source', v || undefined)}
+              value={filters.source || '__all__'}
+              onValueChange={v => setFilter('source', v === '__all__' ? undefined : v)}
             >
               <SelectTrigger className="w-40">
                 <SelectValue placeholder={t('allSources')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('allSources')}</SelectItem>
+                <SelectItem value="__all__">{t('allSources')}</SelectItem>
                 <SelectItem value="WEBSITE">Website</SelectItem>
                 <SelectItem value="REFERRAL">Referral</SelectItem>
                 <SelectItem value="ADVERTISEMENT">Advertisement</SelectItem>
@@ -94,9 +96,7 @@ export default function AdminLeadsPage() {
           </div>
 
           {isLoading ? (
-            <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-            </div>
+            <AdminPageLoader />
           ) : (
             <>
               <Table>
@@ -182,7 +182,7 @@ export default function AdminLeadsPage() {
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
                   <span className="text-sm text-[#062E25]/60">
-                    {t('page', { page, totalPages })}
+                    {tc('page', { page, totalPages })}
                   </span>
                   <Button
                     variant="outline"

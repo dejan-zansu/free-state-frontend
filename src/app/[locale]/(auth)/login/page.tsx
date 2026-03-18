@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Link, useRouter } from '@/i18n/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useTranslations } from 'next-intl'
 import { z } from 'zod'
 
 import { Button } from '@/components/ui/button'
@@ -13,17 +14,18 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useAuthStore } from '@/stores/auth.store'
 
-const loginSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string().min(1, 'Password is required'),
-})
-
-type LoginForm = z.infer<typeof loginSchema>
-
 export default function LoginPage() {
   const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
   const { login, isLoading, error, clearError } = useAuthStore()
+  const t = useTranslations('login')
+
+  const loginSchema = z.object({
+    email: z.string().email(t('emailError')),
+    password: z.string().min(1, t('passwordError')),
+  })
+
+  type LoginForm = z.infer<typeof loginSchema>
 
   const {
     register,
@@ -44,12 +46,10 @@ export default function LoginPage() {
       const user = useAuthStore.getState().user
       router.push(user?.role === 'ADMIN' ? '/admin/dashboard' : '/dashboard')
     } catch {
-      // Error is handled by the store
     }
   }
 
   const handleGoogleSignIn = () => {
-    // TODO: Implement Google OAuth
     console.log('Google sign-in clicked')
   }
 
@@ -59,10 +59,10 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2 text-[#062E25]">
-              Welcome back
+              {t('title')}
             </h2>
             <p className="text-gray-600">
-              Sign in to access your solar dashboard
+              {t('subtitle')}
             </p>
           </div>
 
@@ -75,12 +75,12 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-[#062E25]">
-                Email address
+                {t('emailLabel')}
               </Label>
               <Input
                 id="email"
                 type="email"
-                placeholder="name@example.com"
+                placeholder={t('emailPlaceholder')}
                 autoComplete="email"
                 className="h-12 border-gray-300 focus:border-[#062E25] focus:ring-[#062E25]"
                 {...register('email')}
@@ -93,13 +93,13 @@ export default function LoginPage() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password" className="text-[#062E25]">
-                  Password
+                  {t('passwordLabel')}
                 </Label>
                 <Link
                   href="/forgot-password"
                   className="text-sm text-[#062E25] hover:text-[#062E25]/80 transition-colors"
                 >
-                  Forgot password?
+                  {t('forgotPassword')}
                 </Link>
               </div>
               <div className="relative">
@@ -156,11 +156,11 @@ export default function LoginPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                     />
                   </svg>
-                  <span>Signing in...</span>
+                  <span>{t('signingIn')}</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <span>Sign in</span>
+                  <span>{t('signIn')}</span>
                   <ArrowRight className="w-5 h-5" />
                 </div>
               )}
@@ -173,7 +173,7 @@ export default function LoginPage() {
             </div>
             <div className="relative flex justify-center text-sm">
               <span className="px-4 bg-white text-gray-500">
-                Or continue with
+                {t('orContinueWith')}
               </span>
             </div>
           </div>
@@ -202,17 +202,17 @@ export default function LoginPage() {
                 d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
               />
             </svg>
-            Continue with Google
+            {t('continueWithGoogle')}
           </Button>
 
           <div className="mt-8 text-center">
             <p className="text-gray-600">
-              Don&apos;t have an account?{' '}
+              {t('noAccount')}{' '}
               <Link
                 href="/register"
                 className="text-[#062E25] font-medium hover:text-[#062E25]/80 transition-colors"
               >
-                Create account
+                {t('createAccount')}
               </Link>
             </p>
           </div>

@@ -52,7 +52,7 @@ const cards: {
     hasGlow: true,
     bgColor: '#F5F7EE',
     imageClassName:
-      'w-[110px] h-[160px] -top-6 sm:-top-10 sm:w-[232px] sm:h-[200px]',
+      'w-[86px] h-[124px] -top-2 sm:-top-9 sm:w-[198px] sm:h-[170px] hidden md:block',
   },
   {
     model: 'solar-direct',
@@ -63,7 +63,7 @@ const cards: {
     hasGlow: false,
     bgColor: '#EEEFE5',
     imageClassName:
-      'w-[120px] h-[175px] -top-10 sm:-top-16 sm:w-[250px] sm:h-[220px]',
+      'w-[92px] h-[134px] -top-4 sm:-top-12 sm:w-[212px] sm:h-[185px] hidden md:block',
   },
 ]
 
@@ -88,7 +88,7 @@ export default function SolarModelSelection() {
             key={card.model}
             type="button"
             onClick={() => setSolarModel(card.model)}
-            className="group relative flex-1 h-[156px] overflow-visible rounded-[11px] border border-[#546963]/50 text-left transition-all duration-300 ease-out hover:border-[#062E25] hover:shadow-lg hover:scale-[1.03]"
+            className="group relative flex-1 min-h-[172px] overflow-visible rounded-[11px] border border-[#546963]/50 px-4 pb-4 pt-3 text-left transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[#062E25] hover:shadow-lg sm:h-[156px] sm:min-h-0 sm:p-0"
             style={{ backgroundColor: card.bgColor }}
           >
             {card.hasGlow && (
@@ -101,22 +101,24 @@ export default function SolarModelSelection() {
               />
             )}
 
-            <div className="absolute top-0 left-[18px] z-10 -translate-y-1/2">
-              <span className="inline-block rounded-full bg-[#B7FE1A] px-3 py-1 text-[13px] sm:px-4 sm:py-[6px] sm:text-[16px] font-light text-[#062E25] tracking-tight backdrop-blur-[65px]">
+            <div className="absolute top-0 left-4 z-10 -translate-y-1/2 sm:left-[18px]">
+              <span className="inline-block rounded-full bg-[#B7FE1A] px-3 py-1 text-[13px] font-light text-[#062E25] tracking-tight backdrop-blur-[65px] sm:px-4 sm:py-[6px] sm:text-[16px]">
                 {t(card.tagKey)}
               </span>
             </div>
 
-            <div className="absolute left-[14px] right-[110px] sm:left-[18px] sm:right-[240px] top-[50px] sm:top-[60px] z-10 overflow-hidden">
+            <div className="relative z-10 mt-3 mr-[84px] overflow-hidden sm:absolute sm:left-[18px] sm:right-[196px] sm:top-[60px] sm:mt-0 sm:mr-0">
               <h2 className="text-[17px] sm:text-[22px] font-medium text-[#062E25] leading-tight">
                 {t(card.titleKey)}
               </h2>
             </div>
 
-            <div className="absolute left-[14px] right-[110px] sm:left-[18px] sm:right-[240px] top-[85px] sm:top-[93px] z-10 flex flex-col gap-[4px] sm:gap-[6px]">
+            <div className="relative z-10 mt-[10px] mr-[84px] flex flex-col gap-[4px] sm:absolute sm:left-[18px] sm:right-[196px] sm:top-[93px] sm:mt-0 sm:mr-0 sm:gap-[6px]">
               {card.bullets.map(bulletKey => (
                 <div key={bulletKey} className="flex items-center gap-1">
-                  <CheckIcon />
+                  <span className="shrink-0">
+                    <CheckIcon />
+                  </span>
                   <span className="text-sm font-light text-[#062E25]/80 tracking-tight">
                     {t(bulletKey)}
                   </span>

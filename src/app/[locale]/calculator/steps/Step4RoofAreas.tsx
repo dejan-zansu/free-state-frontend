@@ -1,7 +1,7 @@
 'use client'
 
 import { Loader } from '@googlemaps/js-api-loader'
-import { Loader2, Search, X } from 'lucide-react'
+import { ChevronDown, ChevronUp, Loader2, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Feature, Map, View } from 'ol'
 import { defaults as defaultControls } from 'ol/control'
@@ -80,6 +80,7 @@ export default function Step4RoofAreas() {
   const [searchResults, setSearchResults] = useState<SonnendachLocation[]>([])
   const [showResults, setShowResults] = useState(false)
   const [isLoadingMap, setIsLoadingMap] = useState(true)
+  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(true)
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
@@ -260,7 +261,7 @@ export default function Step4RoofAreas() {
       map.setTarget(undefined)
       mapInitializedRef.current = false
     }
-  }, [])
+  }, [redrawAllSegments])
 
   useEffect(() => {
     let autocomplete: google.maps.places.Autocomplete | null = null
@@ -299,6 +300,8 @@ export default function Step4RoofAreas() {
                 duration: 500,
               })
             }
+
+            setIsMobilePanelOpen(false)
           }
         })
       } catch (error) {
@@ -338,10 +341,134 @@ export default function Step4RoofAreas() {
         duration: 500,
       })
     }
+
+    setIsMobilePanelOpen(false)
   }
 
   const selectedArea = getSelectedArea()
   const canProceed = selectedSegmentIds.length > 0
+
+  const searchCard = (
+    <div
+      className="rounded-2xl p-5"
+      style={{
+        background: 'rgba(30, 42, 38, 0.85)',
+        backdropFilter: 'blur(20px)',
+      }}
+    >
+      <h2 className="hidden text-xl font-medium text-white sm:block">
+        {t('title')}
+      </h2>
+
+      <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('locationLabel')}</p>
+      <div className="mt-1.5 relative">
+        <Input
+          ref={inputRef}
+          value={address}
+          onChange={e => setAddress(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && handleSearch()}
+          placeholder={t('searchPlaceholder')}
+          className="bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40 pr-10"
+        />
+        <button
+          type="button"
+          onClick={handleSearch}
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-white/50 hover:text-white"
+        >
+          {isSearching ? (
+            <Loader2 className="h-5 w-5 animate-spin" />
+          ) : (
+            <Search className="h-5 w-5" />
+          )}
+        </button>
+
+        {showResults && searchResults.length > 0 && (
+          <div className="absolute z-50 mt-1 w-full rounded-md border border-[#4A5B56] bg-[#2A3B36] shadow-md">
+            <div className="flex items-center justify-between border-b border-[#4A5B56] px-3 py-2">
+              <span className="text-sm text-white/60">
+                {searchResults.length} {t('results')}
+              </span>
+              <button
+                onClick={() => setShowResults(false)}
+                className="text-white/60 hover:text-white"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+            <ul className="max-h-60 overflow-auto py-1">
+              {searchResults.map(result => (
+                <li key={result.id}>
+                  <button
+                    type="button"
+                    onClick={() => handleSelectResult(result)}
+                    className="w-full px-3 py-2 text-left text-sm text-white/80 hover:bg-white/10"
+                  >
+                    {result.attrs.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      <p className="mt-2 text-sm text-[#EAEDDF]/50 italic">{t('officialMap')}</p>
+
+      <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
+        <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" />
+          <path
+            d="M8 5v3M8 10h.01"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+          />
+        </svg>
+        <span>{t('clickHint')}</span>
+      </div>
+
+      {isFetchingBuilding && (
+        <div className="mt-3 flex items-center gap-2 text-sm text-[#B7FE1A]">
+          <Loader2 className="h-4 w-4 animate-spin" />
+          {t('loading')}
+        </div>
+      )}
+    </div>
+  )
+
+  const statsCard = (
+    <div
+      className="rounded-2xl p-5"
+      style={{
+        background: 'rgba(30, 42, 38, 0.85)',
+        backdropFilter: 'blur(20px)',
+      }}
+    >
+      <h2 className="hidden text-xl font-medium text-white sm:block">
+        {t('title')}
+      </h2>
+
+      <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('suitability')}</p>
+      <div className="mt-2 h-2.5 rounded-full overflow-hidden flex">
+        {[1, 2, 3, 4, 5].map(cls => (
+          <div
+            key={cls}
+            className="flex-1"
+            style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
+          />
+        ))}
+      </div>
+      <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/50">
+        <span>{t('veryGood')}</span>
+        <span>{t('moderate')}</span>
+      </div>
+
+      <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
+      <p className="text-3xl font-medium text-[#B7FE1A]">
+        {Math.round(selectedArea)} m²
+      </p>
+    </div>
+  )
 
   return (
     <div className="relative h-full w-full">
@@ -358,131 +485,46 @@ export default function Step4RoofAreas() {
         )}
       </div>
 
-      <div className="absolute top-[100px] left-4 z-10 flex flex-col gap-3 w-[320px]">
+      <div className="absolute top-[100px] left-4 z-10 hidden sm:flex w-[320px] flex-col gap-3">
+        {searchCard}
+        {statsCard}
+      </div>
+
+      <div className="absolute inset-x-0 bottom-[84px] z-20 px-3 sm:hidden">
         <div
-          className="rounded-2xl p-5"
+          className="overflow-hidden rounded-2xl border border-white/10"
           style={{
-            background: 'rgba(30, 42, 38, 0.85)',
+            background: 'rgba(30, 42, 38, 0.88)',
             backdropFilter: 'blur(20px)',
           }}
         >
-          <h2 className="text-xl font-medium text-white">{t('title')}</h2>
-
-          <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('locationLabel')}</p>
-          <div className="mt-1.5 relative">
-            <Input
-              ref={inputRef}
-              value={address}
-              onChange={e => setAddress(e.target.value)}
-              onKeyDown={e => e.key === 'Enter' && handleSearch()}
-              placeholder={t('searchPlaceholder')}
-              className="bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40 pr-10"
-            />
-            <button
-              type="button"
-              onClick={handleSearch}
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-white/50 hover:text-white"
-            >
-              {isSearching ? (
-                <Loader2 className="h-5 w-5 animate-spin" />
+          <button
+            type="button"
+            onClick={() => setIsMobilePanelOpen(open => !open)}
+            className="flex w-full items-center justify-between px-4 py-3 text-left text-white"
+          >
+            <span className="text-sm font-medium">{t('title')}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-[#B7FE1A]">{Math.round(selectedArea)} m²</span>
+              {isMobilePanelOpen ? (
+                <ChevronDown className="h-4 w-4" />
               ) : (
-                <Search className="h-5 w-5" />
+                <ChevronUp className="h-4 w-4" />
               )}
-            </button>
-
-            {showResults && searchResults.length > 0 && (
-              <div className="absolute z-50 mt-1 w-full rounded-md border border-[#4A5B56] bg-[#2A3B36] shadow-md">
-                <div className="flex items-center justify-between border-b border-[#4A5B56] px-3 py-2">
-                  <span className="text-sm text-white/60">
-                    {searchResults.length} {t('results')}
-                  </span>
-                  <button
-                    onClick={() => setShowResults(false)}
-                    className="text-white/60 hover:text-white"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                </div>
-                <ul className="max-h-60 overflow-auto py-1">
-                  {searchResults.map(result => (
-                    <li key={result.id}>
-                      <button
-                        type="button"
-                        onClick={() => handleSelectResult(result)}
-                        className="w-full px-3 py-2 text-left text-sm text-white/80 hover:bg-white/10"
-                      >
-                        {result.attrs.label}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-
-          <p className="mt-2 text-sm text-[#EAEDDF]/50 italic">
-            {t('officialMap')}
-          </p>
-
-          <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
-            <svg
-              className="w-4 h-4 mt-0.5 shrink-0"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <circle
-                cx="8"
-                cy="8"
-                r="7"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              />
-              <path
-                d="M8 5v3M8 10h.01"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span>{t('clickHint')}</span>
-          </div>
-
-          {isFetchingBuilding && (
-            <div className="mt-3 flex items-center gap-2 text-sm text-[#B7FE1A]">
-              <Loader2 className="h-4 w-4 animate-spin" />
-              {t('loading')}
             </div>
-          )}
-        </div>
+          </button>
 
-        <div
-          className="rounded-2xl p-5"
-          style={{
-            background: 'rgba(30, 42, 38, 0.85)',
-            backdropFilter: 'blur(20px)',
-          }}
-        >
-          <h2 className="text-xl font-medium text-white">{t('title')}</h2>
-
-          <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('suitability')}</p>
-          <div className="mt-2 h-2.5 rounded-full overflow-hidden flex">
-            {[1, 2, 3, 4, 5].map(cls => (
-              <div
-                key={cls}
-                className="flex-1"
-                style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
-              />
-            ))}
+          <div
+            className={cn(
+              'transition-[max-height,opacity] duration-300',
+              isMobilePanelOpen ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0'
+            )}
+          >
+            <div className="space-y-3 overflow-y-auto p-3 pt-0">
+              {searchCard}
+              {statsCard}
+            </div>
           </div>
-          <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/50">
-            <span>{t('veryGood')}</span>
-            <span>{t('moderate')}</span>
-          </div>
-
-          <p className="mt-4 text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
-          <p className="text-3xl font-medium text-[#B7FE1A]">
-            {Math.round(selectedArea)} m²
-          </p>
         </div>
       </div>
 

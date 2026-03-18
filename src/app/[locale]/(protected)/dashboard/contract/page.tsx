@@ -7,6 +7,7 @@ import {
   Download,
   FileSignature,
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -16,35 +17,36 @@ import {
   type ContractSummary,
 } from '@/services/customer-portal.service'
 
-const STATUS_BADGE: Record<
-  string,
-  { label: string; color: string; icon: typeof CheckCircle2 }
-> = {
-  PENDING: {
-    label: 'Pending Signature',
-    color: 'bg-amber-100 text-amber-700',
-    icon: Clock,
-  },
-  SIGNED: {
-    label: 'Signed',
-    color: 'bg-green-100 text-green-700',
-    icon: CheckCircle2,
-  },
-  FAILED: {
-    label: 'Failed',
-    color: 'bg-red-100 text-red-700',
-    icon: AlertCircle,
-  },
-  EXPIRED: {
-    label: 'Expired',
-    color: 'bg-gray-100 text-gray-600',
-    icon: AlertCircle,
-  },
-}
-
 export default function ContractPage() {
+  const t = useTranslations('dashboard.contract')
   const [contracts, setContracts] = useState<ContractSummary[]>([])
   const [loading, setLoading] = useState(true)
+
+  const STATUS_BADGE: Record<
+    string,
+    { label: string; color: string; icon: typeof CheckCircle2 }
+  > = {
+    PENDING: {
+      label: t('pending'),
+      color: 'bg-amber-100 text-amber-700',
+      icon: Clock,
+    },
+    SIGNED: {
+      label: t('signed'),
+      color: 'bg-green-100 text-green-700',
+      icon: CheckCircle2,
+    },
+    FAILED: {
+      label: t('failed'),
+      color: 'bg-red-100 text-red-700',
+      icon: AlertCircle,
+    },
+    EXPIRED: {
+      label: t('expired'),
+      color: 'bg-gray-100 text-gray-600',
+      icon: AlertCircle,
+    },
+  }
 
   useEffect(() => {
     customerPortalService
@@ -65,14 +67,13 @@ export default function ContractPage() {
   if (contracts.length === 0) {
     return (
       <div className="max-w-5xl">
-        <h1 className="text-2xl font-bold text-[#062E25] mb-8">My Contract</h1>
+        <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
         <Card className="border-[#062E25]/10">
           <CardContent className="p-8 text-center">
             <FileSignature className="h-12 w-12 text-[#062E25]/20 mx-auto mb-4" />
-            <p className="text-[#062E25]/60 mb-2">No contracts yet.</p>
+            <p className="text-[#062E25]/60 mb-2">{t('noContracts')}</p>
             <p className="text-sm text-[#062E25]/40">
-              Complete the solar calculator and choose to sign a contract to get
-              started.
+              {t('noContractsHelp')}
             </p>
           </CardContent>
         </Card>
@@ -82,7 +83,7 @@ export default function ContractPage() {
 
   return (
     <div className="max-w-5xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-8">My Contract</h1>
+      <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
 
       <div className="space-y-6">
         {contracts.map(contract => {
@@ -114,19 +115,19 @@ export default function ContractPage() {
 
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm mb-6">
                   <div>
-                    <p className="text-[#062E25]/60">Type</p>
+                    <p className="text-[#062E25]/60">{t('type')}</p>
                     <p className="font-medium text-[#062E25]">
                       {contract.contractType}
                     </p>
                   </div>
                   <div>
-                    <p className="text-[#062E25]/60">Created</p>
+                    <p className="text-[#062E25]/60">{t('created')}</p>
                     <p className="font-medium text-[#062E25]">
                       {new Date(contract.createdAt).toLocaleDateString('de-CH')}
                     </p>
                   </div>
                   <div>
-                    <p className="text-[#062E25]/60">Valid Until</p>
+                    <p className="text-[#062E25]/60">{t('validUntil')}</p>
                     <p className="font-medium text-[#062E25]">
                       {contract.validUntil
                         ? new Date(contract.validUntil).toLocaleDateString(
@@ -136,13 +137,13 @@ export default function ContractPage() {
                     </p>
                   </div>
                   <div>
-                    <p className="text-[#062E25]/60">Signed</p>
+                    <p className="text-[#062E25]/60">{t('signedDate')}</p>
                     <p className="font-medium text-[#062E25]">
                       {contract.customerSignedAt
                         ? new Date(
                             contract.customerSignedAt
                           ).toLocaleDateString('de-CH')
-                        : 'Not yet'}
+                        : t('notYet')}
                     </p>
                   </div>
                 </div>
@@ -161,7 +162,7 @@ export default function ContractPage() {
                       }
                     >
                       <Download className="h-4 w-4 mr-2" />
-                      Download Contract
+                      {t('downloadContract')}
                     </Button>
                   )}
                   {contract.signedPdfUrl && (
@@ -176,7 +177,7 @@ export default function ContractPage() {
                       }
                     >
                       <Download className="h-4 w-4 mr-2" />
-                      Download Signed Contract
+                      {t('downloadSigned')}
                     </Button>
                   )}
                 </div>

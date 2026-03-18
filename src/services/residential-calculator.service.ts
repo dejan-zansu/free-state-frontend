@@ -78,6 +78,7 @@ interface CreateContractPayload {
   projectId: string
   acknowledgments: string[]
   language: string
+  packageId?: string
 }
 
 interface CreateContractResponse {
@@ -89,7 +90,40 @@ interface CreateContractResponse {
   }
 }
 
+export interface CalculatorPackage {
+  id: string
+  code: string
+  name: string
+  description: string
+  features: string[]
+  highlightedFeature: string | null
+  pricePerKwp: number | null
+  currency: string
+  minCapacityKwp: number | null
+  maxCapacityKwp: number | null
+  contractTermYears: number
+  electricitySavingsPercent: number
+  equipment: {
+    equipmentType: string
+    name: string
+    quantity: number
+    isOptional: boolean
+  }[]
+}
+
+interface GetPackagesResponse {
+  success: boolean
+  data: CalculatorPackage[]
+}
+
 class ResidentialCalculatorService {
+  async getPackages(language: string = 'en'): Promise<CalculatorPackage[]> {
+    const response = await api.get<GetPackagesResponse>(
+      `/equipment/packages?lang=${language}`
+    )
+    return response.data.data
+  }
+
   async createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
     const response = await api.post<CreateAccountResponse>(
       '/residential-calculator/create-account',

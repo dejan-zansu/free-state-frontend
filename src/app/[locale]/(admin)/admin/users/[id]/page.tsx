@@ -1,42 +1,42 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
-import { ArrowLeft } from 'lucide-react'
-import Link from 'next/link'
+import { useParams } from 'next/navigation'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useState } from 'react'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
-import { Button } from '@/components/ui/button'
+import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Card, CardContent } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { adminService } from '@/services/admin.service'
 import type { AdminUserDetail } from '@/types/admin'
 
 export default function AdminUserDetailPage() {
   const params = useParams()
-  const router = useRouter()
   const locale = useLocale()
   const t = useTranslations('admin.users')
   const tc = useTranslations('admin.common')
-  const [user, setUser] = useState<AdminUserDetail | null>(null)
-  const [loading, setLoading] = useState(true)
+  const queryClient = useQueryClient()
   const [saving, setSaving] = useState(false)
 
-  useEffect(() => {
-    adminService
-      .getUserById(params.id as string)
-      .then(setUser)
-      .catch(console.error)
-      .finally(() => setLoading(false))
-  }, [params.id])
+  const { data: user, isLoading } = useQuery<AdminUserDetail>({
+    queryKey: ['admin', 'user', params.id],
+    queryFn: () => adminService.getUserById(params.id as string),
+  })
 
   const handleUpdate = async (field: string, value: string) => {
     if (!user) return
     setSaving(true)
     try {
-      const updated = await adminService.updateUser(user.id, { [field]: value })
-      setUser((prev) => prev ? { ...prev, ...updated } : prev)
+      await adminService.updateUser(user.id, { [field]: value })
+      queryClient.invalidateQueries({ queryKey: ['admin', 'user', params.id] })
     } catch (err) {
       console.error(err)
     } finally {
@@ -44,12 +44,8 @@ export default function AdminUserDetailPage() {
     }
   }
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-      </div>
-    )
+  if (isLoading) {
+    return <AdminPageLoader className="h-64" />
   }
 
   if (!user) {
@@ -59,11 +55,6 @@ export default function AdminUserDetailPage() {
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
-        <Button variant="ghost" size="sm" asChild>
-          <Link href={`/${locale}/admin/users`}>
-            <ArrowLeft className="h-4 w-4 mr-1" /> {t('back')}
-          </Link>
-        </Button>
         <h1 className="text-2xl font-bold text-[#062E25]">
           {user.firstName} {user.lastName}
         </h1>
@@ -73,7 +64,9 @@ export default function AdminUserDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('accountInfo')}</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('accountInfo')}
+            </h2>
             <div className="space-y-4">
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('email')}</label>
@@ -85,12 +78,16 @@ export default function AdminUserDetailPage() {
               </div>
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('emailVerified')}</label>
-                <p className="font-medium text-[#062E25]">{user.emailVerified ? t('yes') : t('no')}</p>
+                <p className="font-medium text-[#062E25]">
+                  {user.emailVerified ? t('yes') : t('no')}
+                </p>
               </div>
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('lastLogin')}</label>
                 <p className="font-medium text-[#062E25]">
-                  {user.lastLoginAt ? new Date(user.lastLoginAt).toLocaleString('de-CH') : t('never')}
+                  {user.lastLoginAt
+                    ? new Date(user.lastLoginAt).toLocaleString('de-CH')
+                    : t('never')}
                 </p>
               </div>
               <div>
@@ -105,13 +102,15 @@ export default function AdminUserDetailPage() {
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('manage')}</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('manage')}
+            </h2>
             <div className="space-y-4">
               <div>
                 <label className="text-sm text-[#062E25]/60 mb-1 block">{t('role')}</label>
                 <Select
                   value={user.role}
-                  onValueChange={(v) => handleUpdate('role', v)}
+                  onValueChange={v => handleUpdate('role', v)}
                   disabled={saving}
                 >
                   <SelectTrigger className="w-full">
@@ -128,7 +127,7 @@ export default function AdminUserDetailPage() {
                 <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
                 <Select
                   value={user.status}
-                  onValueChange={(v) => handleUpdate('status', v)}
+                  onValueChange={v => handleUpdate('status', v)}
                   disabled={saving}
                 >
                   <SelectTrigger className="w-full">
@@ -149,7 +148,9 @@ export default function AdminUserDetailPage() {
         {user.customer && (
           <Card className="border-[#062E25]/10 lg:col-span-2">
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('customerProfile')}</h2>
+              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+                {t('customerProfile')}
+              </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
                   <label className="text-sm text-[#062E25]/60">{t('company')}</label>
@@ -174,7 +175,9 @@ export default function AdminUserDetailPage() {
 
         <Card className="border-[#062E25]/10 lg:col-span-2">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-2">{t('activitySummary')}</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-2">
+              {t('activitySummary')}
+            </h2>
             <div className="flex gap-8">
               <div>
                 <p className="text-2xl font-bold text-[#062E25]">{user._count.assignedLeads}</p>

@@ -1,5 +1,5 @@
+import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
-import { MinimalLogoIcon } from '../icons'
 
 export interface SolarAboPricingProps {
   translationNamespace: string
@@ -12,79 +12,109 @@ const SolarAboPricing = async ({
 }: SolarAboPricingProps) => {
   const t = await getTranslations(translationNamespace)
 
-  const features = [
-    t('pricing.features.contractTerm'),
-    t('pricing.features.buybackOption'),
-    t('pricing.features.noUpfrontCosts'),
-    t('pricing.features.batteryStorage'),
+  const rows = [
+    {
+      label: t('pricing.roofSize.label'),
+      value: t('pricing.roofSize.value'),
+    },
+    {
+      label: t('pricing.residents.label'),
+      value: t('pricing.residents.value'),
+    },
+    {
+      label: t('pricing.costPerM2.label'),
+      value: t('pricing.costPerM2.value'),
+    },
   ]
 
   return (
-    <section className="relative w-full min-h-[747px] bg-white overflow-hidden">
-      <div
-        className="absolute w-full max-w-[1442px] h-[652px] left-1/2 -translate-x-1/2 top-[95px]"
-        style={{
-          backgroundImage: `url('${backgroundImage}')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      />
-
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6">
-        <div className="flex flex-col items-center gap-5 pt-[50px] max-w-[619px] mx-auto">
-          <h2 className="text-[#062E25] text-3xl sm:text-4xl lg:text-[45px] font-medium leading-[100%] text-center w-full">
+    <section
+      className="relative w-full bg-[#F3F4EE] overflow-hidden bg-bottom bg-cover bg-no-repeat"
+      style={{
+        backgroundImage: `linear-gradient(180deg, rgba(229, 232, 216, 0) 12%, rgba(229, 232, 216, 1) 75%), linear-gradient(0deg, rgba(242, 243, 236, 0) 0%, rgba(242, 243, 236, 1) 92%), url('${backgroundImage}')`,
+      }}
+    >
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-[50px] pb-16">
+        <div className="flex flex-col items-center gap-5 max-w-[619px] mx-auto">
+          <h2 className="text-[#062E25] text-3xl sm:text-4xl lg:text-[45px] font-medium text-center w-full">
             {t('pricing.title')}
           </h2>
-          <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-normal leading-[30px] text-center tracking-[-0.02em] w-full flex items-center justify-center">
+          <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-light text-center tracking-[-0.02em] w-full">
             {t('pricing.subtitle')}
           </p>
         </div>
 
-        <div className="relative mt-[71px] mb-8 max-w-[579px] mx-auto">
+        <div className="mx-auto mt-16 w-full max-w-[433px]">
           <div
-            className="relative w-full h-[375px] rounded-2xl border border-white/40"
+            className="rounded-2xl border border-[#062E25] overflow-hidden"
             style={{
               background: 'rgba(255, 255, 255, 0.1)',
-              backdropFilter: 'blur(10px)',
-              WebkitBackdropFilter: 'blur(10px)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
             }}
           >
+            <div className="grid grid-cols-[auto_1fr]">
+              {rows.map((row, index) => (
+                <>
+                  <div
+                    key={`label-${index}`}
+                    className="px-5 pt-6 pb-1 flex items-end"
+                  >
+                    <span className="text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em] whitespace-pre-line">
+                      {row.label}
+                    </span>
+                  </div>
+                  <div
+                    key={`value-${index}`}
+                    className="bg-[#E4E9D3] px-5 pt-6 pb-1 flex items-end border-l border-[#062E25]"
+                    style={{
+                      borderTopRightRadius: index === 0 ? '16px' : '0px',
+                      backdropFilter: 'blur(20px)',
+                      WebkitBackdropFilter: 'blur(20px)',
+                    }}
+                  >
+                    <span className="text-[#062E25]/80 text-lg italic font-normal tracking-[-0.02em]">
+                      {row.value}
+                    </span>
+                  </div>
+                </>
+              ))}
+            </div>
+
             <div
-              className="absolute top-0 left-0 w-full h-[124px] bg-[#B7FE1A] flex items-center justify-center"
+              className="px-5 py-5 flex items-center gap-6 sm:gap-10"
               style={{
-                borderRadius: '19px 19px 0px 0px',
+                background:
+                  'linear-gradient(150deg, rgba(176, 255, 0, 1) 0%, rgba(147, 213, 0, 1) 100%)',
               }}
             >
-              <div className="flex items-center gap-2 sm:gap-3">
-                <span className="text-[#062E25]/80 text-xl sm:text-2xl lg:text-[30px] font-medium italic leading-[45px] tracking-[-0.02em] whitespace-nowrap">
-                  {t('pricing.pricing.from')}
-                </span>
-                <span className="text-[#1F433B] text-3xl sm:text-4xl lg:text-[60px] font-bold leading-[50px] tracking-[-0.02em] uppercase whitespace-nowrap">
-                  {t('pricing.pricing.amount')}
-                </span>
-                <span className="text-[#062E25]/80 text-xl sm:text-2xl lg:text-[30px] font-medium italic leading-[45px] tracking-[-0.02em] whitespace-nowrap">
-                  {t('pricing.pricing.perMonth')}
+              <span className="text-[#062E25]/80 text-base sm:text-lg font-medium tracking-[-0.02em] max-w-[117px]">
+                {t('pricing.costLabel')}
+              </span>
+              <div className="flex flex-col gap-1">
+                <div className="flex items-baseline gap-1 text-[#1F433B]/75 line-through decoration-2">
+                  <span className="text-2xl sm:text-3xl font-semibold tracking-[-0.02em] uppercase">
+                    {t('pricing.amount')}
+                  </span>
+                  <span className="text-sm sm:text-base font-semibold tracking-[-0.02em] uppercase">
+                    {t('pricing.currency')}
+                  </span>
+                </div>
+                <span className="text-[#1F433B] text-base sm:text-lg font-bold tracking-[-0.02em]">
+                  {t('pricing.solarAboPrice')}
                 </span>
               </div>
             </div>
 
-            <div className="absolute top-[124px] left-0 right-0 px-6 pt-8 pb-6 flex justify-center">
-              <div className="flex flex-col gap-5">
-                {features.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-4">
-                    <MinimalLogoIcon className="w-3.5 h-3.5 shrink-0 text-solar" />
-                    <p className="text-white/80 text-lg sm:text-xl lg:text-[22px] font-normal leading-[30px] tracking-[-0.02em]">
-                      {feature}
-                    </p>
-                  </div>
-                ))}
-              </div>
+            <div className="flex justify-center py-8">
+              <LinkButton
+                variant="tertiary"
+                href={t('pricing.orderLink') as '/calculator'}
+              >
+                {t('pricing.orderNow')}
+              </LinkButton>
             </div>
           </div>
-
-          <p className="text-white/80 text-sm sm:text-base lg:text-base font-medium italic leading-[30px] text-center tracking-[-0.02em] mt-6 max-w-[515px] mx-auto">
-            {t('pricing.disclaimer')}
-          </p>
         </div>
       </div>
     </section>

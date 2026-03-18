@@ -49,7 +49,7 @@ export default function StepMultiPlanning() {
 
   return (
     <div>
-      <div className="flex flex-col items-center justify-center px-4 py-12">
+      <div className="flex flex-col items-center justify-center px-4 py-12 pb-24">
         <div className="text-center mb-10 max-w-xl">
           <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
             {t('title')}

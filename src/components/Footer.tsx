@@ -52,7 +52,8 @@ const Footer = () => {
     pathname?.includes('/project-development') ||
     pathname?.includes('/solar-carport') ||
     pathname?.includes('/charging-stations') ||
-    pathname?.includes('/company')
+    pathname?.includes('/company') ||
+    pathname?.includes('/repowering')
 
   const solarAboLinks = [
     {

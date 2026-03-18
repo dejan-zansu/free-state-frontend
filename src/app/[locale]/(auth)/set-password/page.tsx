@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, CheckCircle2, Eye, EyeOff } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { useSearchParams } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -13,25 +14,26 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authService } from '@/services/auth.service'
 
-const setPasswordSchema = z
-  .object({
-    password: z.string().min(8, 'Password must be at least 8 characters'),
-    confirmPassword: z.string(),
-  })
-  .refine(data => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
-    path: ['confirmPassword'],
-  })
-
-type SetPasswordForm = z.infer<typeof setPasswordSchema>
-
 export default function SetPasswordPage() {
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
+  const t = useTranslations('setPassword')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isSuccess, setIsSuccess] = useState(false)
+
+  const setPasswordSchema = z
+    .object({
+      password: z.string().min(8, t('passwordMinError')),
+      confirmPassword: z.string(),
+    })
+    .refine(data => data.password === data.confirmPassword, {
+      message: t('passwordsNoMatch'),
+      path: ['confirmPassword'],
+    })
+
+  type SetPasswordForm = z.infer<typeof setPasswordSchema>
 
   const {
     register,
@@ -50,7 +52,7 @@ export default function SetPasswordPage() {
       await authService.resetPassword(token, data.password)
       setIsSuccess(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to set password. The link may have expired.')
+      setError(err instanceof Error ? err.message : t('expiredError'))
     } finally {
       setIsLoading(false)
     }
@@ -60,11 +62,11 @@ export default function SetPasswordPage() {
     return (
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md text-center">
-          <h2 className="text-2xl font-bold text-[#062E25] mb-4">Invalid Link</h2>
-          <p className="text-gray-600 mb-6">This password link is invalid or has expired.</p>
+          <h2 className="text-2xl font-bold text-[#062E25] mb-4">{t('invalidLink')}</h2>
+          <p className="text-gray-600 mb-6">{t('invalidLinkMessage')}</p>
           <Link href="/login">
             <Button className="bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]">
-              Go to Login
+              {t('goToLogin')}
             </Button>
           </Link>
         </div>
@@ -77,11 +79,11 @@ export default function SetPasswordPage() {
       <div className="flex-1 flex items-center justify-center p-8">
         <div className="w-full max-w-md text-center">
           <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-[#062E25] mb-2">Password Set</h2>
-          <p className="text-gray-600 mb-6">Your password has been set successfully. You can now sign in.</p>
+          <h2 className="text-2xl font-bold text-[#062E25] mb-2">{t('successTitle')}</h2>
+          <p className="text-gray-600 mb-6">{t('successMessage')}</p>
           <Link href="/login">
             <Button className="bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]">
-              Sign In <ArrowRight className="w-4 h-4 ml-2" />
+              {t('signIn')} <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </Link>
         </div>
@@ -93,8 +95,8 @@ export default function SetPasswordPage() {
     <div className="flex-1 flex items-center justify-center p-8">
       <div className="w-full max-w-md">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-2 text-[#062E25]">Set your password</h2>
-          <p className="text-gray-600">Choose a password to activate your account.</p>
+          <h2 className="text-3xl font-bold mb-2 text-[#062E25]">{t('title')}</h2>
+          <p className="text-gray-600">{t('subtitle')}</p>
         </div>
 
         {error && (
@@ -105,7 +107,7 @@ export default function SetPasswordPage() {
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div className="space-y-2">
-            <Label htmlFor="password" className="text-[#062E25]">Password</Label>
+            <Label htmlFor="password" className="text-[#062E25]">{t('passwordLabel')}</Label>
             <div className="relative">
               <Input
                 id="password"
@@ -128,7 +130,7 @@ export default function SetPasswordPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="confirmPassword" className="text-[#062E25]">Confirm Password</Label>
+            <Label htmlFor="confirmPassword" className="text-[#062E25]">{t('confirmLabel')}</Label>
             <Input
               id="confirmPassword"
               type={showPassword ? 'text' : 'password'}
@@ -152,11 +154,11 @@ export default function SetPasswordPage() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                 </svg>
-                <span>Setting password...</span>
+                <span>{t('setting')}</span>
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <span>Set Password</span>
+                <span>{t('setPassword')}</span>
                 <ArrowRight className="w-5 h-5" />
               </div>
             )}

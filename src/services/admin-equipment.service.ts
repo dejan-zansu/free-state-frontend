@@ -80,6 +80,16 @@ class AdminEquipmentService {
   updatePackage(id: string, data: Record<string, unknown>) { return this.update('packages', id, data) }
   deletePackage(id: string) { return this.remove('packages', id) }
 
+  async getPackageItems(id: string) {
+    const response = await api.get(`/admin/equipment/packages/${id}/items`)
+    return response.data.data
+  }
+
+  async updatePackageItems(id: string, items: Record<string, unknown>[]) {
+    const response = await api.put(`/admin/equipment/packages/${id}/items`, { items })
+    return response.data.data
+  }
+
   async listPricing(equipmentType: string, equipmentId: string) {
     const response = await api.get(`/admin/equipment/pricing/${equipmentType}/${equipmentId}`)
     return response.data.data

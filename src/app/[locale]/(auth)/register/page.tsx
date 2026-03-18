@@ -3,6 +3,7 @@
 import { Link, useRouter } from '@/i18n/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, Check, Eye, EyeOff, Sun } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -19,29 +20,6 @@ import {
 } from '@/components/ui/select'
 import { useAuthStore } from '@/stores/auth.store'
 
-const registerSchema = z
-  .object({
-    email: z.string().email('Please enter a valid email address'),
-    password: z
-      .string()
-      .min(8, 'Password must be at least 8 characters')
-      .regex(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-        'Password must contain uppercase, lowercase, and a number'
-      ),
-    confirmPassword: z.string(),
-    firstName: z.string().min(1, 'First name is required'),
-    lastName: z.string().min(1, 'Last name is required'),
-    phone: z.string().optional(),
-    preferredLanguage: z.enum(['de', 'fr', 'it', 'en', 'sr', 'es']),
-  })
-  .refine(data => data.password === data.confirmPassword, {
-    message: 'Passwords do not match',
-    path: ['confirmPassword'],
-  })
-
-type RegisterForm = z.infer<typeof registerSchema>
-
 const languages = [
   { value: 'de', label: 'Deutsch', flag: '🇩🇪' },
   { value: 'fr', label: 'Français', flag: '🇫🇷' },
@@ -55,12 +33,36 @@ export default function RegisterPage() {
   const router = useRouter()
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const t = useTranslations('register')
   const {
     register: registerUser,
     isLoading,
     error,
     clearError,
   } = useAuthStore()
+
+  const registerSchema = z
+    .object({
+      email: z.string().email(t('emailError')),
+      password: z
+        .string()
+        .min(8, t('passwordMinError'))
+        .regex(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
+          t('passwordFormatError')
+        ),
+      confirmPassword: z.string(),
+      firstName: z.string().min(1, t('firstNameRequired')),
+      lastName: z.string().min(1, t('lastNameRequired')),
+      phone: z.string().optional(),
+      preferredLanguage: z.enum(['de', 'fr', 'it', 'en', 'sr', 'es']),
+    })
+    .refine(data => data.password === data.confirmPassword, {
+      message: t('passwordsNoMatch'),
+      path: ['confirmPassword'],
+    })
+
+  type RegisterForm = z.infer<typeof registerSchema>
 
   const {
     register,
@@ -83,7 +85,6 @@ export default function RegisterPage() {
 
   const password = watch('password')
 
-  // Password strength indicators
   const hasMinLength = password.length >= 8
   const hasUppercase = /[A-Z]/.test(password)
   const hasLowercase = /[a-z]/.test(password)
@@ -97,7 +98,6 @@ export default function RegisterPage() {
       await registerUser(registerData)
       router.push('/dashboard')
     } catch {
-      // Error is handled by the store
     }
   }
 
@@ -121,23 +121,22 @@ export default function RegisterPage() {
           </div>
 
           <h1 className="text-4xl font-bold mb-6 leading-tight">
-            Start your solar journey today
+            {t('sideTitle')}
           </h1>
 
           <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
-            Join thousands of Swiss homeowners who have switched to clean,
-            affordable solar energy with our innovative subscription model.
+            {t('sideDescription')}
           </p>
 
           <div className="space-y-4">
-            {[
-              'Zero upfront investment required',
-              '30% lower electricity costs from day one',
-              'Professional installation included',
-              '35-year guaranteed performance',
-              'Real-time monitoring app',
-              'Dedicated support team',
-            ].map((benefit, index) => (
+            {([
+              t('benefit1'),
+              t('benefit2'),
+              t('benefit3'),
+              t('benefit4'),
+              t('benefit5'),
+              t('benefit6'),
+            ]).map((benefit, index) => (
               <div key={index} className="flex items-center gap-3">
                 <div className="w-6 h-6 rounded-full bg-energy/20 flex items-center justify-center flex-shrink-0">
                   <Check className="w-4 h-4 text-energy" />
@@ -161,9 +160,9 @@ export default function RegisterPage() {
           </div>
 
           <div className="mb-6">
-            <h2 className="text-3xl font-bold mb-2">Create account</h2>
+            <h2 className="text-3xl font-bold mb-2">{t('title')}</h2>
             <p className="text-muted-foreground">
-              Get started with your personalized solar experience
+              {t('subtitle')}
             </p>
           </div>
 
@@ -176,7 +175,7 @@ export default function RegisterPage() {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="firstName">First name</Label>
+                <Label htmlFor="firstName">{t('firstName')}</Label>
                 <Input
                   id="firstName"
                   placeholder="Max"
@@ -190,7 +189,7 @@ export default function RegisterPage() {
                 )}
               </div>
               <div className="space-y-2">
-                <Label htmlFor="lastName">Last name</Label>
+                <Label htmlFor="lastName">{t('lastName')}</Label>
                 <Input
                   id="lastName"
                   placeholder="Muster"
@@ -206,7 +205,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="email">Email address</Label>
+              <Label htmlFor="email">{t('emailLabel')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -224,9 +223,9 @@ export default function RegisterPage() {
 
             <div className="space-y-2">
               <Label htmlFor="phone">
-                Phone number{' '}
+                {t('phoneLabel')}{' '}
                 <span className="text-muted-foreground font-normal">
-                  (optional)
+                  {t('phoneOptional')}
                 </span>
               </Label>
               <Input
@@ -240,7 +239,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="language">Preferred language</Label>
+              <Label htmlFor="language">{t('languageLabel')}</Label>
               <Select
                 defaultValue="de"
                 onValueChange={value =>
@@ -251,7 +250,7 @@ export default function RegisterPage() {
                 }
               >
                 <SelectTrigger className="h-11">
-                  <SelectValue placeholder="Select language" />
+                  <SelectValue placeholder={t('languagePlaceholder')} />
                 </SelectTrigger>
                 <SelectContent>
                   {languages.map(lang => (
@@ -267,7 +266,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">{t('passwordLabel')}</Label>
               <div className="relative">
                 <Input
                   id="password"
@@ -295,25 +294,25 @@ export default function RegisterPage() {
                   className={`flex items-center gap-1.5 ${hasMinLength ? 'text-energy' : 'text-muted-foreground'}`}
                 >
                   <Check className="w-3 h-3" />
-                  <span>8+ characters</span>
+                  <span>{t('minChars')}</span>
                 </div>
                 <div
                   className={`flex items-center gap-1.5 ${hasUppercase ? 'text-energy' : 'text-muted-foreground'}`}
                 >
                   <Check className="w-3 h-3" />
-                  <span>Uppercase letter</span>
+                  <span>{t('uppercase')}</span>
                 </div>
                 <div
                   className={`flex items-center gap-1.5 ${hasLowercase ? 'text-energy' : 'text-muted-foreground'}`}
                 >
                   <Check className="w-3 h-3" />
-                  <span>Lowercase letter</span>
+                  <span>{t('lowercase')}</span>
                 </div>
                 <div
                   className={`flex items-center gap-1.5 ${hasNumber ? 'text-energy' : 'text-muted-foreground'}`}
                 >
                   <Check className="w-3 h-3" />
-                  <span>Number</span>
+                  <span>{t('number')}</span>
                 </div>
               </div>
 
@@ -325,7 +324,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm password</Label>
+              <Label htmlFor="confirmPassword">{t('confirmPasswordLabel')}</Label>
               <div className="relative">
                 <Input
                   id="confirmPassword"
@@ -380,36 +379,36 @@ export default function RegisterPage() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                     />
                   </svg>
-                  <span>Creating account...</span>
+                  <span>{t('creating')}</span>
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <span>Create account</span>
+                  <span>{t('createAccount')}</span>
                   <ArrowRight className="w-5 h-5" />
                 </div>
               )}
             </Button>
 
             <p className="text-sm text-muted-foreground text-center mt-4">
-              By creating an account, you agree to our{' '}
+              {t('termsText')}{' '}
               <Link href="/terms" className="text-primary hover:underline">
-                Terms of Service
+                {t('termsLink')}
               </Link>{' '}
-              and{' '}
+              {t('and')}{' '}
               <Link href="/privacy" className="text-primary hover:underline">
-                Privacy Policy
+                {t('privacyLink')}
               </Link>
             </p>
           </form>
 
           <div className="mt-8 text-center">
             <p className="text-muted-foreground">
-              Already have an account?{' '}
+              {t('hasAccount')}{' '}
               <Link
                 href="/login"
                 className="text-primary font-medium hover:text-primary/80 transition-colors"
               >
-                Sign in
+                {t('signIn')}
               </Link>
             </p>
           </div>

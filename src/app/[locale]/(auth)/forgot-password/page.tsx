@@ -3,6 +3,7 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
@@ -12,16 +13,17 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authService } from '@/services/auth.service'
 
-const forgotPasswordSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-})
-
-type ForgotPasswordForm = z.infer<typeof forgotPasswordSchema>
-
 export default function ForgotPasswordPage() {
+  const t = useTranslations('forgotPassword')
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  const forgotPasswordSchema = z.object({
+    email: z.string().email(t('emailError')),
+  })
+
+  type ForgotPasswordForm = z.infer<typeof forgotPasswordSchema>
 
   const {
     register,
@@ -42,7 +44,7 @@ export default function ForgotPasswordPage() {
       setError(
         err instanceof Error
           ? err.message
-          : 'Something went wrong. Please try again.'
+          : t('genericError')
       )
     } finally {
       setIsLoading(false)
@@ -55,18 +57,17 @@ export default function ForgotPasswordPage() {
         <div className="w-full max-w-md text-center">
           <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-[#062E25] mb-2">
-            Check your email
+            {t('checkEmail')}
           </h2>
           <p className="text-gray-600 mb-6">
-            If an account with that email exists, we&apos;ve sent you a link to
-            reset your password.
+            {t('checkEmailMessage')}
           </p>
           <Link href="/login">
             <Button
               variant="outline"
               className="border-gray-300 text-[#062E25]"
             >
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Login
+              <ArrowLeft className="w-4 h-4 mr-2" /> {t('backToLogin')}
             </Button>
           </Link>
         </div>
@@ -79,10 +80,10 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-md">
         <div className="mb-8">
           <h2 className="text-3xl font-bold mb-2 text-[#062E25]">
-            Forgot password?
+            {t('title')}
           </h2>
           <p className="text-gray-600">
-            Enter your email and we&apos;ll send you a reset link.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -95,12 +96,12 @@ export default function ForgotPasswordPage() {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           <div className="space-y-2">
             <Label htmlFor="email" className="text-[#062E25]">
-              Email address
+              {t('emailLabel')}
             </Label>
             <Input
               id="email"
               type="email"
-              placeholder="name@example.com"
+              placeholder={t('emailPlaceholder')}
               autoComplete="email"
               className="h-12 border-gray-300 focus:border-[#062E25] focus:ring-[#062E25]"
               {...register('email')}
@@ -136,11 +137,11 @@ export default function ForgotPasswordPage() {
                     d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                   />
                 </svg>
-                <span>Sending...</span>
+                <span>{t('sending')}</span>
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <span>Send Reset Link</span>
+                <span>{t('sendResetLink')}</span>
                 <ArrowRight className="w-5 h-5" />
               </div>
             )}
@@ -152,7 +153,7 @@ export default function ForgotPasswordPage() {
             href="/login"
             className="text-[#062E25] font-medium hover:text-[#062E25]/80 transition-colors"
           >
-            <ArrowLeft className="w-4 h-4 inline mr-1" /> Back to Login
+            <ArrowLeft className="w-4 h-4 inline mr-1" /> {t('backToLogin')}
           </Link>
         </div>
       </div>

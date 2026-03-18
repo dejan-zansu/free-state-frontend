@@ -1,12 +1,11 @@
-import { getLocale, getTranslations } from 'next-intl/server'
+import { cn } from '@/lib/utils'
+import { getTranslations } from 'next-intl/server'
 import MinimalLogoIcon from './icons/MinimalLogoIcon'
 import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
-import { cn } from '@/lib/utils'
 
 const SolarEnergyFor = async ({ isCommercial = false }) => {
   const t = await getTranslations('home.forBusinesses')
-  const locale = await getLocale()
 
   const items = [
     {

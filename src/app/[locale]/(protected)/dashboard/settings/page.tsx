@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Check } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -14,6 +15,7 @@ import { authService } from '@/services/auth.service'
 export default function SettingsPage() {
   const user = useUser()
   const { updateUser } = useAuthStore()
+  const t = useTranslations('dashboard.settings')
 
   const [firstName, setFirstName] = useState(user?.firstName || '')
   const [lastName, setLastName] = useState(user?.lastName || '')
@@ -45,11 +47,11 @@ export default function SettingsPage() {
   const handleChangePassword = async () => {
     setPasswordError('')
     if (newPassword !== confirmPassword) {
-      setPasswordError('Passwords do not match')
+      setPasswordError(t('passwordsNoMatch'))
       return
     }
     if (newPassword.length < 8) {
-      setPasswordError('Password must be at least 8 characters')
+      setPasswordError(t('passwordMinLength'))
       return
     }
 
@@ -63,7 +65,7 @@ export default function SettingsPage() {
       setTimeout(() => setPasswordSaved(false), 3000)
     } catch (err: unknown) {
       const axiosError = err as { response?: { data?: { error?: { message?: string } } } }
-      setPasswordError(axiosError?.response?.data?.error?.message || 'Failed to change password')
+      setPasswordError(axiosError?.response?.data?.error?.message || t('failedPassword'))
     } finally {
       setPasswordSaving(false)
     }
@@ -71,28 +73,28 @@ export default function SettingsPage() {
 
   return (
     <div className="max-w-2xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-8">Settings</h1>
+      <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
 
       <Card className="mb-6 border-[#062E25]/10">
         <CardContent className="p-6">
-          <h2 className="text-lg font-semibold text-[#062E25] mb-4">Profile</h2>
+          <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('profile')}</h2>
           <div className="space-y-4">
             <div>
-              <Label className="text-sm text-[#062E25]/60">Email</Label>
+              <Label className="text-sm text-[#062E25]/60">{t('email')}</Label>
               <Input value={user?.email || ''} disabled className="mt-1 bg-[#062E25]/5" />
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label className="text-sm text-[#062E25]/60">First Name</Label>
+                <Label className="text-sm text-[#062E25]/60">{t('firstName')}</Label>
                 <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} className="mt-1" />
               </div>
               <div>
-                <Label className="text-sm text-[#062E25]/60">Last Name</Label>
+                <Label className="text-sm text-[#062E25]/60">{t('lastName')}</Label>
                 <Input value={lastName} onChange={(e) => setLastName(e.target.value)} className="mt-1" />
               </div>
             </div>
             <div>
-              <Label className="text-sm text-[#062E25]/60">Phone</Label>
+              <Label className="text-sm text-[#062E25]/60">{t('phone')}</Label>
               <Input value={phone} onChange={(e) => setPhone(e.target.value)} className="mt-1" />
             </div>
             <Button
@@ -100,7 +102,7 @@ export default function SettingsPage() {
               disabled={saving}
               className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
             >
-              {saved ? <><Check className="h-4 w-4 mr-2" /> Saved</> : saving ? 'Saving...' : 'Save Changes'}
+              {saved ? <><Check className="h-4 w-4 mr-2" /> {t('saved')}</> : saving ? t('saving') : t('saveChanges')}
             </Button>
           </div>
         </CardContent>
@@ -108,10 +110,10 @@ export default function SettingsPage() {
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
-          <h2 className="text-lg font-semibold text-[#062E25] mb-4">Change Password</h2>
+          <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('changePassword')}</h2>
           <div className="space-y-4">
             <div>
-              <Label className="text-sm text-[#062E25]/60">Current Password</Label>
+              <Label className="text-sm text-[#062E25]/60">{t('currentPassword')}</Label>
               <Input
                 type="password"
                 value={currentPassword}
@@ -120,7 +122,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label className="text-sm text-[#062E25]/60">New Password</Label>
+              <Label className="text-sm text-[#062E25]/60">{t('newPassword')}</Label>
               <Input
                 type="password"
                 value={newPassword}
@@ -129,7 +131,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label className="text-sm text-[#062E25]/60">Confirm New Password</Label>
+              <Label className="text-sm text-[#062E25]/60">{t('confirmPassword')}</Label>
               <Input
                 type="password"
                 value={confirmPassword}
@@ -146,7 +148,7 @@ export default function SettingsPage() {
               variant="outline"
               style={{ borderColor: '#062E25', color: '#062E25' }}
             >
-              {passwordSaved ? <><Check className="h-4 w-4 mr-2" /> Updated</> : passwordSaving ? 'Updating...' : 'Change Password'}
+              {passwordSaved ? <><Check className="h-4 w-4 mr-2" /> {t('updated')}</> : passwordSaving ? t('updating') : t('changePassword')}
             </Button>
           </div>
         </CardContent>

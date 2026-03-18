@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
+import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -17,6 +18,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 export default function AdminUsersPage() {
   const locale = useLocale()
   const t = useTranslations('admin.users')
+  const tc = useTranslations('admin.common')
   const {
     data,
     isLoading,
@@ -27,7 +29,7 @@ export default function AdminUsersPage() {
     setSearch,
     setFilter,
     filters,
-  } = useAdminQuery<AdminUser>(adminService.listUsers.bind(adminService))
+  } = useAdminQuery<AdminUser>('users', adminService.listUsers.bind(adminService))
 
   return (
     <div>
@@ -41,23 +43,23 @@ export default function AdminUsersPage() {
               className="max-w-xs"
               onChange={(e) => setSearch(e.target.value)}
             />
-            <Select value={filters.role || ''} onValueChange={(v) => setFilter('role', v || undefined)}>
+            <Select value={filters.role || '__all__'} onValueChange={(v) => setFilter('role', v === '__all__' ? undefined : v)}>
               <SelectTrigger className="w-40">
                 <SelectValue placeholder={t('allRoles')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('allRoles')}</SelectItem>
+                <SelectItem value="__all__">{t('allRoles')}</SelectItem>
                 <SelectItem value="ADMIN">Admin</SelectItem>
                 <SelectItem value="CUSTOMER">Customer</SelectItem>
                 <SelectItem value="SALES_REP">Sales Rep</SelectItem>
               </SelectContent>
             </Select>
-            <Select value={filters.status || ''} onValueChange={(v) => setFilter('status', v || undefined)}>
+            <Select value={filters.status || '__all__'} onValueChange={(v) => setFilter('status', v === '__all__' ? undefined : v)}>
               <SelectTrigger className="w-48">
                 <SelectValue placeholder={t('allStatuses')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t('allStatuses')}</SelectItem>
+                <SelectItem value="__all__">{t('allStatuses')}</SelectItem>
                 <SelectItem value="ACTIVE">Active</SelectItem>
                 <SelectItem value="INACTIVE">Inactive</SelectItem>
                 <SelectItem value="PENDING_VERIFICATION">Pending</SelectItem>
@@ -67,9 +69,7 @@ export default function AdminUsersPage() {
           </div>
 
           {isLoading ? (
-            <div className="flex justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-            </div>
+            <AdminPageLoader />
           ) : (
             <>
               <Table>
@@ -119,7 +119,7 @@ export default function AdminUsersPage() {
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
                   <span className="text-sm text-[#062E25]/60">
-                    {t('page', { page, totalPages })}
+                    {tc('page', { page, totalPages })}
                   </span>
                   <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage(page + 1)}>
                     <ChevronRight className="h-4 w-4" />

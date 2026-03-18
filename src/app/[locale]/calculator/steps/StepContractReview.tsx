@@ -45,6 +45,10 @@ export default function StepContractReview() {
     getSelectedArea,
     getSelfConsumptionRate,
     getRecommendedPackage,
+    selectedPackageCode,
+    getGrossAmount,
+    getSubsidyAmount,
+    getNetAmount,
   } = useSolarAboCalculatorStore()
 
   const [isCreating, setIsCreating] = useState(false)
@@ -173,7 +177,7 @@ export default function StepContractReview() {
                   <span className="font-medium">
                     {t('systemSummary.package')}:
                   </span>{' '}
-                  {recommendedPackage === 'home' ? 'SolarAbo Home' : 'SolarAbo Multi'}
+                  {selectedPackageCode || (recommendedPackage === 'home' ? 'SolarAbo Home' : 'SolarAbo Multi')}
                 </p>
                 <p className="text-sm mt-1">
                   <span className="font-medium">
@@ -181,6 +185,24 @@ export default function StepContractReview() {
                   </span>{' '}
                   {formatSwissNumber(selfConsumption * 100)}%
                 </p>
+              </div>
+
+              <div className="mt-4 p-3 bg-muted/30 rounded-lg">
+                <p className="text-sm font-medium mb-2">{t('pricing.title')}</p>
+                <div className="space-y-1">
+                  <div className="flex justify-between text-sm">
+                    <span>{t('pricing.gross')}</span>
+                    <span className="font-medium">CHF {formatSwissNumber(getGrossAmount(), 0)}</span>
+                  </div>
+                  <div className="flex justify-between text-sm text-green-700">
+                    <span>{t('pricing.subsidy')}</span>
+                    <span className="font-medium">- CHF {formatSwissNumber(getSubsidyAmount(), 0)}</span>
+                  </div>
+                  <div className="border-t pt-1 flex justify-between text-sm font-semibold">
+                    <span>{t('pricing.net')}</span>
+                    <span>CHF {formatSwissNumber(getNetAmount(), 0)}</span>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>

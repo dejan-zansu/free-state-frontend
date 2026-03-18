@@ -2,32 +2,24 @@
 
 import { BarChart3, FileText, TrendingUp, Users } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 
 import { Card, CardContent } from '@/components/ui/card'
+import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { adminService } from '@/services/admin.service'
 import type { DashboardStats } from '@/types/admin'
 
 export default function AdminDashboardPage() {
   const t = useTranslations('admin.dashboard')
   const tc = useTranslations('admin.common')
-  const [stats, setStats] = useState<DashboardStats | null>(null)
-  const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    adminService
-      .getDashboardStats()
-      .then(setStats)
-      .catch(console.error)
-      .finally(() => setLoading(false))
-  }, [])
+  const { data: stats, isLoading } = useQuery<DashboardStats>({
+    queryKey: ['admin', 'dashboard-stats'],
+    queryFn: () => adminService.getDashboardStats(),
+  })
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-      </div>
-    )
+  if (isLoading) {
+    return <AdminPageLoader className="h-64" />
   }
 
   if (!stats) {

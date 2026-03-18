@@ -4,7 +4,7 @@ import { AdminSidebar } from '@/components/admin/AdminSidebar'
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute'
 import { useUser } from '@/stores/auth.store'
 import { LogOut } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import { useAuthStore } from '@/stores/auth.store'
 import { Button } from '@/components/ui/button'
 
@@ -19,7 +19,7 @@ export default function AdminLayout({
 
   const handleLogout = async () => {
     await logout()
-    router.push('/login')
+    router.replace('/login' as any)
   }
 
   return (

@@ -41,44 +41,128 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
         },
       ]
 
-  const productLinks = [
-    {
-      label: tFooter('products.solarSystems'),
-      href: '/solar-systems' as const,
-      subLinks: [
-        { label: t('hero.nav.howItWorks'), href: '/how-it-works' as const },
-        { label: t('hero.nav.cost'), href: '/cost' as const },
-        { label: t('hero.nav.amortization'), href: '/amortization' as const },
+  const productLinks = isCommercial
+    ? [
         {
-          label: t('hero.nav.carportSolarSystem'),
-          href: '/solar-system-carport' as const,
+          label: tFooter('products.solarSystems'),
+          href: '/commercial/solar-systems' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.howLargePlantsWorks'),
+              href: '/commercial/solar-systems/how-large-plants-works' as const,
+            },
+            {
+              label: t('hero.nav.projectDevelopment'),
+              href: '/commercial/solar-systems/project-development' as const,
+            },
+            {
+              label: t('hero.nav.solarCarport'),
+              href: '/commercial/solar-systems/solar-carport' as const,
+            },
+            {
+              label: t('hero.nav.contracting'),
+              href: '/commercial/solar-systems/contracting' as const,
+            },
+          ],
         },
         {
-          label: t('hero.nav.solarCalculator'),
-          href: '/solar-calculator' as const,
+          label: tFooter('products.chargingStations'),
+          href: '/commercial/charging-stations' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.apartmentBuilding'),
+              href: '/commercial/charging-stations/apartment-building' as const,
+            },
+            {
+              label: t('hero.nav.fastChargingStations'),
+              href: '/commercial/charging-stations/fast-charging-stations' as const,
+            },
+            {
+              label: t('hero.nav.bidirectionalCharging'),
+              href: '/commercial/charging-stations/bidirectional-charging-station' as const,
+            },
+            {
+              label: t('hero.nav.chargingCompany'),
+              href: '/commercial/charging-stations/company' as const,
+            },
+          ],
         },
-        { label: t('hero.nav.service'), href: '/service' as const },
+      ]
+    : [
         {
-          label: t('hero.nav.energyStorage'),
-          href: '/energy-storage' as const,
+          label: tFooter('products.solarSystems'),
+          href: '/solar-systems' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.howItWorks'),
+              href: '/how-it-works' as const,
+            },
+            { label: t('hero.nav.cost'), href: '/cost' as const },
+            {
+              label: t('hero.nav.amortization'),
+              href: '/amortization' as const,
+            },
+            {
+              label: t('hero.nav.carportSolarSystem'),
+              href: '/solar-system-carport' as const,
+            },
+            {
+              label: t('hero.nav.solarCalculator'),
+              href: '/solar-calculator' as const,
+            },
+            { label: t('hero.nav.service'), href: '/service' as const },
+            {
+              label: t('hero.nav.energyStorage'),
+              href: '/energy-storage' as const,
+            },
+            { label: t('hero.nav.repowering'), href: '/repowering' as const },
+          ],
         },
-        { label: t('hero.nav.repowering'), href: '/repowering' as const },
-      ],
-    },
-    {
-      label: tFooter('products.batteryStorage'),
-      href: '/battery-storage' as const,
-    },
-    { label: tFooter('products.heatPumps'), href: '/heat-pumps' as const },
-    {
-      label: tFooter('products.chargingStations'),
-      href: '/charging-stations' as const,
-    },
-    {
-      label: tFooter('products.energyManagement'),
-      href: '/energy-management' as const,
-    },
-  ]
+        {
+          label: tFooter('products.heatPumps'),
+          href: '/heat-pumps' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.howItWorks'),
+              href: '/heat-pumps/how-it-works' as const,
+            },
+            {
+              label: t('hero.nav.cost'),
+              href: '/heat-pumps/cost' as const,
+            },
+            {
+              label: t('hero.nav.service'),
+              href: '/heat-pumps/service' as const,
+            },
+            {
+              label: t('hero.nav.withSolarSystem'),
+              href: '/heat-pumps/heat-pumps-with-solar-system' as const,
+            },
+            {
+              label: t('hero.nav.heatPumpProducts'),
+              href: '/heat-pumps/products' as const,
+            },
+          ],
+        },
+        {
+          label: tFooter('products.chargingStations'),
+          href: '/charging-stations' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.apartmentBuilding'),
+              href: '/charging-stations/apartment-building' as const,
+            },
+            {
+              label: t('hero.nav.singleFamilyHome'),
+              href: '/charging-stations/single-family-home' as const,
+            },
+            {
+              label: t('hero.nav.bidirectionalCharging'),
+              href: '/charging-stations/bidirectional-charging-station' as const,
+            },
+          ],
+        },
+      ]
 
   const hasDropdown = hoveredItem === 'solarAbo' || hoveredItem === 'products'
 
@@ -86,7 +170,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
     <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full flex justify-center z-20 px-4">
       <div
         className={cn(
-          'inline-flex flex-col gap-0 pl-4 sm:pl-6 md:pl-[30px] pr-2 sm:pr-4 md:pr-[9px] bg-white/30 backdrop-blur-[30px] rounded-2xl sm:rounded-[24px] md:rounded-[30px] border border-[#9CA9A6]/30 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2 max-w-[calc(100vw-2rem)]',
+          'inline-flex flex-col items-center gap-0 pl-4 sm:pl-6 md:pl-[30px] pr-2 sm:pr-4 md:pr-[9px] bg-white/30 backdrop-blur-[30px] rounded-2xl sm:rounded-[24px] md:rounded-[30px] border border-[#9CA9A6]/30 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2 max-w-[calc(100vw-2rem)]',
           isCommercial
             ? 'shadow-[0px_25px_34px_0px_rgba(159,62,79,0.1)]'
             : 'shadow-[0px_25px_34px_0px_rgba(183,254,26,0.1)]'
@@ -157,57 +241,44 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
                 {link.label}
               </Link>
             ))}
-          {hoveredItem === 'products' &&
-            (() => {
-              let itemIndex = 0
-              return productLinks.map(link => {
-                const currentIndex = itemIndex++
-                return (
-                  <div key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        'px-4 py-2 text-foreground text-base font-semibold rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap block',
-                        hasDropdown
-                          ? 'translate-y-0 opacity-100'
-                          : '-translate-y-1 opacity-0'
-                      )}
-                      style={{
-                        transitionDelay: hasDropdown
-                          ? `${currentIndex * 40}ms`
-                          : '0ms',
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                    {'subLinks' in link &&
-                      link.subLinks?.map(sub => {
-                        const subIndex = itemIndex++
-                        return (
-                          <Link
-                            key={sub.href}
-                            href={sub.href}
-                            className={cn(
-                              'pl-8 pr-4 py-1.5 text-foreground/60 text-base rounded-lg hover:bg-[#062E25]/10 hover:text-foreground transition-all duration-300 whitespace-nowrap flex items-center gap-2',
-                              hasDropdown
-                                ? 'translate-y-0 opacity-100'
-                                : '-translate-y-1 opacity-0'
-                            )}
-                            style={{
-                              transitionDelay: hasDropdown
-                                ? `${subIndex * 40}ms`
-                                : '0ms',
-                            }}
-                          >
-                            <span className="text-foreground/30">→</span>
-                            {sub.label}
-                          </Link>
-                        )
-                      })}
-                  </div>
-                )
-              })
-            })()}
+          {hoveredItem === 'products' && (
+            <div className="flex flex-col md:flex-row md:gap-2 lg:gap-4">
+              {productLinks.map((link, columnIndex) => (
+                <div
+                  key={link.href}
+                  className={cn(
+                    'flex flex-col transition-all duration-300',
+                    hasDropdown
+                      ? 'translate-y-0 opacity-100'
+                      : '-translate-y-1 opacity-0'
+                  )}
+                  style={{
+                    transitionDelay: hasDropdown
+                      ? `${columnIndex * 50}ms`
+                      : '0ms',
+                  }}
+                >
+                  <Link
+                    href={link.href}
+                    className="px-4 py-2 text-foreground text-base font-semibold rounded-lg hover:bg-[#062E25]/10 transition-colors whitespace-nowrap block"
+                  >
+                    {link.label}
+                  </Link>
+                  {'subLinks' in link &&
+                    link.subLinks?.map(sub => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        className="pl-8 pr-4 py-1.5 text-foreground/60 text-base rounded-lg hover:bg-[#062E25]/10 hover:text-foreground transition-colors whitespace-nowrap flex items-center gap-2"
+                      >
+                        <span className="text-foreground/30">→</span>
+                        {sub.label}
+                      </Link>
+                    ))}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -61,6 +61,22 @@
     "title": "Contact",
     "subtitle": "Your energy, our responsibility sustainable and worry-free"
   },
+  "login": {
+    "title": "Welcome back",
+    "subtitle": "Sign in to access your solar dashboard",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "name@example.com",
+    "emailError": "Please enter a valid email address",
+    "passwordLabel": "Password",
+    "passwordError": "Password is required",
+    "forgotPassword": "Forgot password?",
+    "signingIn": "Signing in...",
+    "signIn": "Sign in",
+    "orContinueWith": "Or continue with",
+    "continueWithGoogle": "Continue with Google",
+    "noAccount": "Don't have an account?",
+    "createAccount": "Create account"
+  },
   "contactStats": {
     "experience": "Years of Experience",
     "customers": "Satisfied Customers",
@@ -348,19 +364,25 @@
     },
     "pricing": {
       "title": "Pricing & Contract",
-      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
-      "pricing": {
-        "from": "from",
-        "amount": "CHF 39.95",
-        "perMonth": "/month"
+      "subtitle": "Simple, transparent, and worry-free, with added energy independence.",
+      "costLabel": "Cost for Solar System in CHF",
+      "amount": "25.000",
+      "currency": "chf",
+      "roofSize": {
+        "label": "Roof Size",
+        "value": "approx. 25 m²"
       },
-      "features": {
-        "contractTerm": "Contract term: 35 yrs",
-        "buybackOption": "Buyback option",
-        "noUpfrontCosts": "No upfront costs",
-        "batteryStorage": "Battery storage included"
+      "residents": {
+        "label": "Residents",
+        "value": "two-person household"
       },
-      "disclaimer": "Fixed monthly fee for your solar system with battery, fully managed by us."
+      "costPerM2": {
+        "label": "Cost per\nm² in CHF",
+        "value": "approx. CHF 780.00"
+      },
+      "solarAboPrice": "With SolarAbo 00.00 CHF",
+      "orderNow": "ORDER NOW",
+      "orderLink": "/calculator"
     },
     "rightForYou": {
       "title": "Is this package right for you?",
@@ -445,19 +467,25 @@
     },
     "pricing": {
       "title": "Pricing & Contract",
-      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
-      "pricing": {
-        "from": "from",
-        "amount": "CHF 39.95",
-        "perMonth": "/month"
+      "subtitle": "Simple, transparent, and worry-free, with added energy independence.",
+      "costLabel": "Cost for Solar System in CHF",
+      "amount": "25.000",
+      "currency": "chf",
+      "roofSize": {
+        "label": "Roof Size",
+        "value": "approx. 50 m²"
       },
-      "features": {
-        "contractTerm": "Contract term: 35 yrs",
-        "buybackOption": "Buyback option",
-        "noUpfrontCosts": "No upfront costs",
-        "batteryStorage": "Battery storage included"
+      "residents": {
+        "label": "Residents",
+        "value": "multi-family household"
       },
-      "disclaimer": "Fixed monthly fee for your solar system with battery, fully managed by us."
+      "costPerM2": {
+        "label": "Cost per\nm² in CHF",
+        "value": "approx. CHF 780.00"
+      },
+      "solarAboPrice": "With SolarAbo 00.00 CHF",
+      "orderNow": "ORDER NOW",
+      "orderLink": "/calculator"
     },
     "rightForYou": {
       "title": "Is this package right for you?",
@@ -543,18 +571,24 @@
     "pricing": {
       "title": "Pricing & Contract",
       "subtitle": "Fixed energy price for long-term planning security.",
-      "pricing": {
-        "from": "from",
-        "amount": "0.18 CHF/kWh",
-        "perMonth": "fixed"
+      "costLabel": "Cost for Solar System in CHF",
+      "amount": "Custom",
+      "currency": "chf",
+      "roofSize": {
+        "label": "Roof Size",
+        "value": "varies"
       },
-      "features": {
-        "contractTerm": "Contract term: 20–25 yrs",
-        "buybackOption": "Buyback option",
-        "noUpfrontCosts": "No upfront costs",
-        "batteryStorage": "Battery storage optional"
+      "residents": {
+        "label": "Usage",
+        "value": "commercial building"
       },
-      "disclaimer": "Fixed price per kWh including maintenance and insurance – fully managed by us."
+      "costPerM2": {
+        "label": "Price per\nkWh in CHF",
+        "value": "from CHF 0.18"
+      },
+      "solarAboPrice": "With SolarAbo Business",
+      "orderNow": "ORDER NOW",
+      "orderLink": "/commercial/calculator"
     },
     "rightForYou": {
       "title": "Is this package right for you?",
@@ -640,18 +674,24 @@
     "pricing": {
       "title": "Pricing & Contract",
       "subtitle": "Flexible contract terms tailored to your farm's needs.",
-      "pricing": {
-        "from": "from",
-        "amount": "Custom pricing",
-        "perMonth": ""
+      "costLabel": "Cost for Solar System in CHF",
+      "amount": "Custom",
+      "currency": "chf",
+      "roofSize": {
+        "label": "Roof Size",
+        "value": "varies"
       },
-      "features": {
-        "contractTerm": "Flexible contract terms",
-        "buybackOption": "Buyback option",
-        "noUpfrontCosts": "No upfront costs",
-        "batteryStorage": "Storage & heat pump optional"
+      "residents": {
+        "label": "Usage",
+        "value": "agricultural operation"
       },
-      "disclaimer": "Roof usage contract with service guarantee – fully managed by us."
+      "costPerM2": {
+        "label": "Price per\nm² in CHF",
+        "value": "custom pricing"
+      },
+      "solarAboPrice": "With SolarAbo Agro",
+      "orderNow": "ORDER NOW",
+      "orderLink": "/commercial/calculator"
     },
     "rightForYou": {
       "title": "Is this package right for you?",
@@ -737,18 +777,24 @@
     "pricing": {
       "title": "Pricing & Contract",
       "subtitle": "Predictable costs for public budgets.",
-      "pricing": {
-        "from": "from",
-        "amount": "Custom pricing",
-        "perMonth": ""
+      "costLabel": "Cost for Solar System in CHF",
+      "amount": "Custom",
+      "currency": "chf",
+      "roofSize": {
+        "label": "Roof Size",
+        "value": "varies"
       },
-      "features": {
-        "contractTerm": "Flexible contract terms",
-        "buybackOption": "Buyback option",
-        "noUpfrontCosts": "No upfront costs",
-        "batteryStorage": "Battery storage optional"
+      "residents": {
+        "label": "Usage",
+        "value": "public building"
       },
-      "disclaimer": "Fixed monthly fee for your solar system – fully managed by us."
+      "costPerM2": {
+        "label": "Price per\nm² in CHF",
+        "value": "custom pricing"
+      },
+      "solarAboPrice": "With SolarAbo Public",
+      "orderNow": "ORDER NOW",
+      "orderLink": "/commercial/calculator"
     },
     "rightForYou": {
       "title": "Is this package right for you?",
@@ -2754,6 +2800,21 @@
         "contractButton": "Continue to contract",
         "emailSent": "Sent",
         "offerSent": "Requested"
+      },
+      "packages": {
+        "title": "Choose Your Package",
+        "subtitle": "Select the package that best fits your needs. Pricing is based on your system size.",
+        "pricePerKwp": "CHF {price}/kWp",
+        "totalEstimate": "Estimated total: CHF {total}",
+        "equipment": "Included Equipment",
+        "optional": "Optional",
+        "selected": "Selected",
+        "select": "Select",
+        "noPackages": "No packages available for your system size.",
+        "grossAmount": "Gross amount",
+        "subsidyAmount": "Subsidy (Einmalvergütung)",
+        "netAmount": "Net amount",
+        "pricingBreakdown": "Pricing Breakdown"
       }
     },
     "step7": {
@@ -2820,6 +2881,12 @@
         "preliminary": "I understand this is a preliminary agreement that will be finalized after the on-site inspection.",
         "siteVisit": "I consent to a site visit by the Free State AG technical team.",
         "contractReview": "I have reviewed the contract details and wish to proceed with the digital signature."
+      },
+      "pricing": {
+        "title": "Pricing Breakdown",
+        "gross": "Gross amount",
+        "subsidy": "Subsidy (Einmalvergütung)",
+        "net": "Net amount"
       },
       "creatingContract": "Creating contract...",
       "proceedToSign": "Proceed to Sign"
@@ -4673,13 +4740,253 @@
       "edit": "Edit",
       "noItems": "No items found",
       "items": "{count} items",
-      "page": "Page {page} of {totalPages}"
+      "page": "Page {page} of {totalPages}",
+      "titles": {
+        "ems": "Energy Management Systems",
+        "batteries": "Batteries",
+        "mountingSystems": "Mounting Systems",
+        "heatPumps": "Heat Pumps",
+        "solarPanels": "Solar Panels",
+        "inverters": "Inverters",
+        "packages": "Packages",
+        "manufacturers": "Manufacturers"
+      },
+      "columns": {
+        "modelNumber": "Model Number",
+        "manufacturer": "Manufacturer",
+        "type": "Type",
+        "power": "Power",
+        "status": "Status",
+        "capacity": "Capacity",
+        "chemistry": "Chemistry",
+        "warranty": "Warranty",
+        "roofType": "Roof Type",
+        "heating": "Heating",
+        "cop": "COP",
+        "series": "Series",
+        "efficiency": "Efficiency",
+        "mpptCount": "MPPT Count",
+        "code": "Code",
+        "name": "Name",
+        "pricePerKwp": "Price/kWp",
+        "items": "Items",
+        "minKwp": "Min kWp",
+        "maxKwp": "Max kWp",
+        "website": "Website",
+        "products": "Products"
+      },
+      "packageDetail": {
+        "back": "Back",
+        "notFound": "Package not found",
+        "packagePricing": "Package Pricing",
+        "pricePerKwp": "Price per kWp",
+        "currency": "Currency",
+        "savePricing": "Save Pricing",
+        "packageUpdated": "Package updated",
+        "packageUpdateFailed": "Failed to update package",
+        "equipmentComposition": "Equipment Composition",
+        "addItem": "Add Item",
+        "addFeature": "Add feature",
+        "feature": "Feature",
+        "noItems": "No equipment items yet. Click \"Add Item\" to start.",
+        "qty": "Qty",
+        "optional": "Optional",
+        "actions": "Actions",
+        "selectEquipment": "Select...",
+        "equipmentId": "Equipment ID",
+        "saveEquipment": "Save Equipment",
+        "itemsSaved": "Equipment items saved",
+        "itemsSaveFailed": "Failed to save items",
+        "pricingPreview": "Pricing Preview",
+        "systemSize": "System Size",
+        "gross": "Gross",
+        "subsidy": "Subsidy",
+        "net": "Net",
+        "solarPanel": "Solar Panel",
+        "inverter": "Inverter",
+        "battery": "Battery",
+        "mountingSystem": "Mounting System",
+        "energyManagementSystem": "Energy Management System",
+        "heatPump": "Heat Pump",
+        "newPackage": "New Package",
+        "create": "Create",
+        "save": "Save",
+        "packageDetails": "Package Details",
+        "minCapacity": "Min Capacity kWp",
+        "maxCapacity": "Max Capacity kWp",
+        "contractTerm": "Contract Term (years)",
+        "savingsPercent": "Savings %",
+        "displayOrder": "Display Order",
+        "highlightedFeature": "Highlighted Feature",
+        "active": "Active",
+        "translations": "Translations",
+        "description": "Description",
+        "features": "Features",
+        "packageCreated": "Package created"
+      }
     },
     "common": {
       "loading": "Loading...",
       "failedToLoad": "Failed to load data.",
       "notFound": "Not found.",
       "page": "Page {page} of {totalPages}"
+    }
+  },
+  "register": {
+    "sideTitle": "Start your solar journey today",
+    "sideDescription": "Join thousands of Swiss homeowners who have switched to clean, affordable solar energy with our innovative subscription model.",
+    "benefit1": "Zero upfront investment required",
+    "benefit2": "30% lower electricity costs from day one",
+    "benefit3": "Professional installation included",
+    "benefit4": "35-year guaranteed performance",
+    "benefit5": "Real-time monitoring app",
+    "benefit6": "Dedicated support team",
+    "title": "Create account",
+    "subtitle": "Get started with your personalized solar experience",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailLabel": "Email address",
+    "emailError": "Please enter a valid email address",
+    "phoneLabel": "Phone number",
+    "phoneOptional": "(optional)",
+    "languageLabel": "Preferred language",
+    "languagePlaceholder": "Select language",
+    "passwordLabel": "Password",
+    "passwordMinError": "Password must be at least 8 characters",
+    "passwordFormatError": "Password must contain uppercase, lowercase, and a number",
+    "passwordsNoMatch": "Passwords do not match",
+    "firstNameRequired": "First name is required",
+    "lastNameRequired": "Last name is required",
+    "confirmPasswordLabel": "Confirm password",
+    "minChars": "8+ characters",
+    "uppercase": "Uppercase letter",
+    "lowercase": "Lowercase letter",
+    "number": "Number",
+    "creating": "Creating account...",
+    "createAccount": "Create account",
+    "termsText": "By creating an account, you agree to our",
+    "termsLink": "Terms of Service",
+    "and": "and",
+    "privacyLink": "Privacy Policy",
+    "hasAccount": "Already have an account?",
+    "signIn": "Sign in"
+  },
+  "verifyEmail": {
+    "verifying": "Verifying your email...",
+    "success": "Email Verified",
+    "successMessage": "Your email has been verified successfully.",
+    "signIn": "Sign In",
+    "failed": "Verification Failed",
+    "invalidLink": "Invalid verification link.",
+    "expiredLink": "Verification failed. The link may have expired.",
+    "goToLogin": "Go to Login"
+  },
+  "forgotPassword": {
+    "title": "Forgot password?",
+    "subtitle": "Enter your email and we'll send you a reset link.",
+    "emailLabel": "Email address",
+    "emailError": "Please enter a valid email address",
+    "emailPlaceholder": "name@example.com",
+    "sending": "Sending...",
+    "sendResetLink": "Send Reset Link",
+    "backToLogin": "Back to Login",
+    "checkEmail": "Check your email",
+    "checkEmailMessage": "If an account with that email exists, we've sent you a link to reset your password.",
+    "genericError": "Something went wrong. Please try again."
+  },
+  "setPassword": {
+    "invalidLink": "Invalid Link",
+    "invalidLinkMessage": "This password link is invalid or has expired.",
+    "goToLogin": "Go to Login",
+    "successTitle": "Password Set",
+    "successMessage": "Your password has been set successfully. You can now sign in.",
+    "signIn": "Sign In",
+    "title": "Set your password",
+    "subtitle": "Choose a password to activate your account.",
+    "passwordLabel": "Password",
+    "confirmLabel": "Confirm Password",
+    "passwordMinError": "Password must be at least 8 characters",
+    "passwordsNoMatch": "Passwords do not match",
+    "setting": "Setting password...",
+    "setPassword": "Set Password",
+    "expiredError": "Failed to set password. The link may have expired."
+  },
+  "dashboard": {
+    "settings": {
+      "title": "Settings",
+      "profile": "Profile",
+      "email": "Email",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "Phone",
+      "saved": "Saved",
+      "saving": "Saving...",
+      "saveChanges": "Save Changes",
+      "changePassword": "Change Password",
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm New Password",
+      "passwordsNoMatch": "Passwords do not match",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "updated": "Updated",
+      "updating": "Updating...",
+      "failedPassword": "Failed to change password"
+    },
+    "contract": {
+      "title": "My Contract",
+      "noContracts": "No contracts yet.",
+      "noContractsHelp": "Complete the solar calculator and choose to sign a contract to get started.",
+      "pending": "Pending Signature",
+      "signed": "Signed",
+      "failed": "Failed",
+      "expired": "Expired",
+      "type": "Type",
+      "created": "Created",
+      "validUntil": "Valid Until",
+      "signedDate": "Signed",
+      "notYet": "Not yet",
+      "downloadContract": "Download Contract",
+      "downloadSigned": "Download Signed Contract"
+    },
+    "project": {
+      "title": "My Project",
+      "noProjects": "No projects yet. Start with our solar calculator.",
+      "package": "Package",
+      "status": "Status",
+      "systemSize": "kWp System Size",
+      "production": "kWh/year Production",
+      "annualSavings": "Annual Savings",
+      "co2Saved": "kg CO₂/year Saved",
+      "systemDetails": "System Details",
+      "estimatedPanels": "Estimated Panels",
+      "selfConsumption": "Self-Consumption Rate",
+      "annualConsumption": "Annual Consumption",
+      "contractStatus": "Contract Status",
+      "noContract": "No contract yet"
+    },
+    "support": {
+      "title": "Support",
+      "faq": "Frequently Asked Questions",
+      "directContact": "Direct Contact",
+      "sendMessage": "Send a Message",
+      "subject": "Subject",
+      "messagePlaceholder": "How can we help you?",
+      "sending": "Sending...",
+      "sent": "Sent!",
+      "sendButton": "Send Message",
+      "yourMessages": "Your Messages",
+      "faq1q": "What is SolarAbo?",
+      "faq1a": "SolarAbo is a subscription model where Free State AG installs and maintains a solar system on your roof at no upfront cost. You benefit from clean energy and pay a monthly fee based on consumption.",
+      "faq2q": "How long is the contract term?",
+      "faq2a": "The standard Dachmietvertrag (roof lease contract) has a term of 35 years, starting from the next quarter after the PV system is commissioned.",
+      "faq3q": "What happens after the contract ends?",
+      "faq3a": "After 35 years, ownership of the PV system transfers to you at no cost, or Free State AG will remove the system if you prefer.",
+      "faq4q": "Can I buy the system early?",
+      "faq4a": "Yes. You have the right to purchase the PV system at any time after 1 year of operation, at the residual value listed in your contract (Anhang 2).",
+      "faq5q": "Who is responsible for maintenance?",
+      "faq5a": "Free State AG handles all maintenance, repairs, and monitoring of the PV system for the duration of the contract.",
+      "faq6q": "How do I sign the contract digitally?",
+      "faq6a": "After reviewing the contract in our calculator, you will be redirected to Swisscom Trust Services for a secure digital signature. You will need your phone for identity verification."
     }
   }
 }

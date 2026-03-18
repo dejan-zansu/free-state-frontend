@@ -132,6 +132,9 @@ interface SolarAboCalculatorState {
   createdUserId: string | null
   createdCustomerId: string | null
   createdProjectId: string | null
+  selectedPackageId: string | null
+  selectedPackageCode: string | null
+  selectedPackagePricePerKwp: number | null
   createdContractId: string | null
   contractNumber: string | null
   contractPdfUrl: string | null
@@ -175,6 +178,10 @@ interface SolarAboCalculatorActions {
   getCo2Savings: () => number
   getMonthlyProduction: () => number[]
   getRecommendedPackage: () => SolarAboPackage
+  setSelectedPackage: (id: string, code: string, pricePerKwp: number | null) => void
+  getGrossAmount: () => number
+  getSubsidyAmount: () => number
+  getNetAmount: () => number
   createAccount: () => Promise<void>
   requestOffer: () => Promise<void>
   emailReport: () => Promise<void>
@@ -241,6 +248,9 @@ const initialState: SolarAboCalculatorState = {
   createdUserId: null,
   createdCustomerId: null,
   createdProjectId: null,
+  selectedPackageId: null,
+  selectedPackageCode: null,
+  selectedPackagePricePerKwp: null,
   createdContractId: null,
   contractNumber: null,
   contractPdfUrl: null,
@@ -471,6 +481,28 @@ export const useSolarAboCalculatorStore = create<
         return buildingType === 'single_family' ? 'home' : 'multi'
       },
 
+      setSelectedPackage: (id: string, code: string, pricePerKwp: number | null) => {
+        set({ selectedPackageId: id, selectedPackageCode: code, selectedPackagePricePerKwp: pricePerKwp })
+      },
+
+      getGrossAmount: () => {
+        const { selectedPackagePricePerKwp } = get()
+        const systemSizeKwp = get().getSystemSizeKwp()
+        if (selectedPackagePricePerKwp) {
+          return selectedPackagePricePerKwp * systemSizeKwp
+        }
+        return systemSizeKwp * 1500
+      },
+
+      getSubsidyAmount: () => {
+        const systemSizeKwp = get().getSystemSizeKwp()
+        return systemSizeKwp * 400
+      },
+
+      getNetAmount: () => {
+        return get().getGrossAmount() - get().getSubsidyAmount()
+      },
+
       createAccount: async () => {
         const state = get()
         set({ isSubmitting: true, submissionError: null })
@@ -577,6 +609,7 @@ export const useSolarAboCalculatorStore = create<
             projectId: state.createdProjectId,
             acknowledgments: state.acknowledgments,
             language: 'de',
+            ...(state.selectedPackageId ? { packageId: state.selectedPackageId } : {}),
           })
           set({
             createdContractId: response.data.contractId,
@@ -640,6 +673,9 @@ export const useSolarAboCalculatorStore = create<
         createdUserId: state.createdUserId,
         createdCustomerId: state.createdCustomerId,
         createdProjectId: state.createdProjectId,
+        selectedPackageId: state.selectedPackageId,
+        selectedPackageCode: state.selectedPackageCode,
+        selectedPackagePricePerKwp: state.selectedPackagePricePerKwp,
         createdContractId: state.createdContractId,
         contractNumber: state.contractNumber,
         contractPdfUrl: state.contractPdfUrl,

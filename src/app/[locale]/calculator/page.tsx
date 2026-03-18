@@ -35,13 +35,13 @@ export default function SolarAboCalculatorPage() {
   if (!solarModel) {
     return (
       <div
-        className="min-h-screen"
+        className="h-screen flex flex-col"
         style={{
           paddingTop: '77px',
           background: PAGE_BG,
         }}
       >
-        <main>
+        <main className="flex-1">
           <SolarModelSelection />
         </main>
       </div>
@@ -51,13 +51,13 @@ export default function SolarAboCalculatorPage() {
   if (showMultiInterstitial) {
     return (
       <div
-        className="min-h-screen"
+        className="h-screen flex flex-col"
         style={{
           paddingTop: '77px',
           background: PAGE_BG,
         }}
       >
-        <main>
+        <main className="flex-1">
           <StepMultiPlanning />
         </main>
       </div>

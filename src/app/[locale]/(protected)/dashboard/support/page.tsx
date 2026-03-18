@@ -1,6 +1,7 @@
 'use client'
 
 import { ChevronDown, Mail, MessageSquare, Phone, Send } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
@@ -12,40 +13,23 @@ import {
   type InquirySummary,
 } from '@/services/customer-portal.service'
 
-const FAQ_ITEMS = [
-  {
-    q: 'What is SolarAbo?',
-    a: 'SolarAbo is a subscription model where Free State AG installs and maintains a solar system on your roof at no upfront cost. You benefit from clean energy and pay a monthly fee based on consumption.',
-  },
-  {
-    q: 'How long is the contract term?',
-    a: 'The standard Dachmietvertrag (roof lease contract) has a term of 35 years, starting from the next quarter after the PV system is commissioned.',
-  },
-  {
-    q: 'What happens after the contract ends?',
-    a: 'After 35 years, ownership of the PV system transfers to you at no cost, or Free State AG will remove the system if you prefer.',
-  },
-  {
-    q: 'Can I buy the system early?',
-    a: 'Yes. You have the right to purchase the PV system at any time after 1 year of operation, at the residual value listed in your contract (Anhang 2).',
-  },
-  {
-    q: 'Who is responsible for maintenance?',
-    a: 'Free State AG handles all maintenance, repairs, and monitoring of the PV system for the duration of the contract.',
-  },
-  {
-    q: 'How do I sign the contract digitally?',
-    a: 'After reviewing the contract in our calculator, you will be redirected to Swisscom Trust Services for a secure digital signature. You will need your phone for identity verification.',
-  },
-]
-
 export default function SupportPage() {
+  const t = useTranslations('dashboard.support')
   const [inquiries, setInquiries] = useState<InquirySummary[]>([])
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+
+  const FAQ_ITEMS = [
+    { q: t('faq1q'), a: t('faq1a') },
+    { q: t('faq2q'), a: t('faq2a') },
+    { q: t('faq3q'), a: t('faq3a') },
+    { q: t('faq4q'), a: t('faq4a') },
+    { q: t('faq5q'), a: t('faq5a') },
+    { q: t('faq6q'), a: t('faq6a') },
+  ]
 
   useEffect(() => {
     customerPortalService.getInquiries().then(setInquiries).catch(console.error)
@@ -73,12 +57,12 @@ export default function SupportPage() {
 
   return (
     <div className="max-w-5xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-8">Support</h1>
+      <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
 
       <div className="grid lg:grid-cols-2 gap-8">
         <div>
           <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-            Frequently Asked Questions
+            {t('faq')}
           </h2>
           <div className="space-y-2">
             {FAQ_ITEMS.map((item, i) => (
@@ -106,7 +90,7 @@ export default function SupportPage() {
           <Card className="mt-6 border-[#062E25]/10">
             <CardContent className="p-5">
               <h3 className="font-semibold text-[#062E25] mb-3">
-                Direct Contact
+                {t('directContact')}
               </h3>
               <div className="space-y-3 text-sm">
                 <a
@@ -130,17 +114,17 @@ export default function SupportPage() {
 
         <div>
           <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-            Send a Message
+            {t('sendMessage')}
           </h2>
           <Card className="border-[#062E25]/10">
             <CardContent className="p-5 space-y-4">
               <Input
-                placeholder="Subject"
+                placeholder={t('subject')}
                 value={subject}
                 onChange={e => setSubject(e.target.value)}
               />
               <Textarea
-                placeholder="How can we help you?"
+                placeholder={t('messagePlaceholder')}
                 value={message}
                 onChange={e => setMessage(e.target.value)}
                 rows={5}
@@ -150,7 +134,7 @@ export default function SupportPage() {
                 disabled={sending || !subject.trim() || !message.trim()}
                 className="bg-[#062E25] text-white hover:bg-[#062E25]/90 w-full"
               >
-                {sending ? 'Sending...' : sent ? 'Sent!' : 'Send Message'}
+                {sending ? t('sending') : sent ? t('sent') : t('sendButton')}
                 {!sending && !sent && <Send className="ml-2 h-4 w-4" />}
               </Button>
             </CardContent>
@@ -159,7 +143,7 @@ export default function SupportPage() {
           {inquiries.length > 0 && (
             <div className="mt-6">
               <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-                Your Messages
+                {t('yourMessages')}
               </h2>
               <div className="space-y-2">
                 {inquiries.map(inq => (
