@@ -14,6 +14,7 @@ import {
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { cn } from '@/lib/utils'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -362,8 +363,14 @@ export default function SupportPage() {
                               {inq.message}
                             </p>
                             <div className="flex items-center gap-2 mt-1.5">
-                              <span className="inline-flex items-center text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">
-                                {t('statusOpen')}
+                              <span className={cn(
+                                'inline-flex items-center text-xs px-2 py-0.5 rounded-full',
+                                inq.status === 'OPEN' && 'bg-amber-100 text-amber-800',
+                                inq.status === 'IN_PROGRESS' && 'bg-blue-100 text-blue-800',
+                                inq.status === 'RESOLVED' && 'bg-green-100 text-green-800',
+                                inq.status === 'CLOSED' && 'bg-gray-100 text-gray-600',
+                              )}>
+                                {t(`status_${inq.status}`)}
                               </span>
                               <span className="flex items-center gap-1 text-xs text-[#062E25]/40">
                                 <Clock className="h-3 w-3" />

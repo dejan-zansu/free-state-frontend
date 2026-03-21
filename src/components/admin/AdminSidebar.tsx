@@ -9,9 +9,13 @@ import {
   FileText,
   Flame,
   LayoutDashboard,
+  Mail,
+  MessageSquareText,
+  Newspaper,
   Package,
   PanelTop,
   Settings,
+  Ticket,
   Users,
   Zap,
 } from 'lucide-react'
@@ -36,9 +40,13 @@ export function AdminSidebar() {
 
   const navItems: NavItem[] = [
     { label: t('dashboard'), href: `${prefix}/dashboard`, icon: LayoutDashboard },
+    { label: t('blog'), href: `${prefix}/blog`, icon: Newspaper },
     { label: t('users'), href: `${prefix}/users`, icon: Users },
     { label: t('leads'), href: `${prefix}/leads`, icon: BarChart3 },
     { label: t('contracts'), href: `${prefix}/contracts`, icon: FileText },
+    { label: t('support'), href: `${prefix}/support`, icon: Ticket },
+    { label: t('contacts'), href: `${prefix}/contacts`, icon: MessageSquareText },
+    { label: t('newsletter'), href: `${prefix}/newsletter`, icon: Mail },
     // { label: t('equipment'), href: `${prefix}/equipment`, icon: Settings },
     { label: t('manufacturers'), href: `${prefix}/equipment/manufacturers`, icon: Factory },
     { label: t('solarPanels'), href: `${prefix}/equipment/solar-panels`, icon: PanelTop },

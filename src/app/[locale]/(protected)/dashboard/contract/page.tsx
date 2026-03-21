@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { PageLoader } from '@/components/ui/page-loader'
 import {
   customerPortalService,
   type ContractSummary,
@@ -57,11 +58,7 @@ export default function ContractPage() {
   }, [])
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-      </div>
-    )
+    return <PageLoader />
   }
 
   if (contracts.length === 0) {
@@ -156,7 +153,7 @@ export default function ContractPage() {
                       style={{ borderColor: '#062E25', color: '#062E25' }}
                       onClick={() =>
                         window.open(
-                          `${process.env.NEXT_PUBLIC_API_URL}/contracts/${contract.id}/pdf`,
+                          `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf`,
                           '_blank'
                         )
                       }
@@ -171,7 +168,7 @@ export default function ContractPage() {
                       className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
                       onClick={() =>
                         window.open(
-                          `${process.env.NEXT_PUBLIC_API_URL}/contracts/${contract.id}/pdf?signed=true`,
+                          `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf?signed=true`,
                           '_blank'
                         )
                       }

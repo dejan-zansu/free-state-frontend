@@ -78,6 +78,7 @@ export interface ContractSummary {
 export interface InquirySummary {
   id: string
   message: string | null
+  status: 'OPEN' | 'IN_PROGRESS' | 'RESOLVED' | 'CLOSED'
   createdAt: string
 }
 

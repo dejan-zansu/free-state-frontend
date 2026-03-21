@@ -1,13 +1,18 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { AlertCircle, ArrowLeft, ArrowRight, Loader2, Mail } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import {
+  AuthSplitLayout,
+  AuthSuccessMark,
+  authPanelCardClass,
+} from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -42,9 +47,7 @@ export default function ForgotPasswordPage() {
       setIsSubmitted(true)
     } catch (err) {
       setError(
-        err instanceof Error
-          ? err.message
-          : t('genericError')
+        err instanceof Error ? err.message : t('genericError')
       )
     } finally {
       setIsLoading(false)
@@ -53,47 +56,70 @@ export default function ForgotPasswordPage() {
 
   if (isSubmitted) {
     return (
-      <div className="flex-1 flex items-center justify-center p-8">
-        <div className="w-full max-w-md text-center">
-          <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-[#062E25] mb-2">
-            {t('checkEmail')}
-          </h2>
-          <p className="text-gray-600 mb-6">
-            {t('checkEmailMessage')}
-          </p>
-          <Link href="/login">
-            <Button
-              variant="outline"
-              className="border-gray-300 text-[#062E25]"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" /> {t('backToLogin')}
-            </Button>
-          </Link>
+      <AuthSplitLayout>
+        <div className="w-full max-w-md">
+          <div className={authPanelCardClass}>
+            <AuthSuccessMark />
+            <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
+              {t('checkEmail')}
+            </h1>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+              {t('checkEmailMessage')}
+            </p>
+            <div className="mt-8">
+              <Link href="/login" className="inline-flex w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  className="h-12 w-full border-[#062E25]/15 bg-white px-8 text-[#062E25] shadow-sm transition-colors hover:bg-[#062E25]/4"
+                >
+                  <ArrowLeft className="mr-2 h-4 w-4" /> {t('backToLogin')}
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+      </AuthSplitLayout>
     )
   }
 
   return (
-    <div className="flex-1 flex items-center justify-center p-8">
+    <AuthSplitLayout>
       <div className="w-full max-w-md">
+        <Link
+          href="/login"
+          className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          {t('backToLogin')}
+        </Link>
+
+        <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#CDEA67]/25 ring-1 ring-[#062E25]/6">
+          <Mail className="h-6 w-6 text-[#062E25]" strokeWidth={1.75} />
+        </div>
+
         <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-2 text-[#062E25]">
+          <h1 className="text-3xl font-bold tracking-tight text-[#062E25] sm:text-[2rem]">
             {t('title')}
-          </h2>
-          <p className="text-gray-600">
+          </h1>
+          <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
             {t('subtitle')}
           </p>
         </div>
 
         {error && (
-          <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
-            {error}
+          <div
+            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm text-red-700 shadow-sm"
+            role="alert"
+          >
+            <AlertCircle
+              className="mt-0.5 h-5 w-5 shrink-0 text-red-600"
+              aria-hidden
+            />
+            <span>{error}</span>
           </div>
         )}
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="email" className="text-[#062E25]">
               {t('emailLabel')}
@@ -103,7 +129,7 @@ export default function ForgotPasswordPage() {
               type="email"
               placeholder={t('emailPlaceholder')}
               autoComplete="email"
-              className="h-12 border-gray-300 focus:border-[#062E25] focus:ring-[#062E25]"
+              className="h-12 rounded-xl border-[#062E25]/12 bg-white text-[15px] shadow-sm transition-shadow placeholder:text-muted-foreground/70 focus-visible:border-[#062E25]/35 focus-visible:ring-[#062E25]/20"
               {...register('email')}
             />
             {errors.email && (
@@ -113,50 +139,33 @@ export default function ForgotPasswordPage() {
 
           <Button
             type="submit"
-            className="w-full h-12 text-base font-medium bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
+            className="h-12 w-full rounded-xl text-base font-semibold shadow-md shadow-[#062E25]/10 transition-all hover:shadow-lg hover:shadow-[#062E25]/15 bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
             disabled={isLoading}
           >
             {isLoading ? (
-              <div className="flex items-center gap-2">
-                <svg
-                  className="animate-spin w-5 h-5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                  />
-                </svg>
-                <span>{t('sending')}</span>
-              </div>
+              <span className="flex items-center justify-center gap-2">
+                <Loader2 className="h-6 w-6 animate-spin" />
+                {t('sending')}
+              </span>
             ) : (
-              <div className="flex items-center gap-2">
-                <span>{t('sendResetLink')}</span>
-                <ArrowRight className="w-5 h-5" />
-              </div>
+              <span className="flex items-center justify-center gap-2">
+                {t('sendResetLink')}
+                <ArrowRight className="h-5 w-5" />
+              </span>
             )}
           </Button>
         </form>
 
-        <div className="mt-8 text-center">
+        <p className="mt-10 text-center text-sm text-muted-foreground">
+          {t('rememberPassword')}{' '}
           <Link
             href="/login"
-            className="text-[#062E25] font-medium hover:text-[#062E25]/80 transition-colors"
+            className="font-semibold text-[#062E25] underline-offset-4 transition-colors hover:text-[#062E25]/85 hover:underline"
           >
-            <ArrowLeft className="w-4 h-4 inline mr-1" /> {t('backToLogin')}
+            {t('signInInstead')}
           </Link>
-        </div>
+        </p>
       </div>
-    </div>
+    </AuthSplitLayout>
   )
 }

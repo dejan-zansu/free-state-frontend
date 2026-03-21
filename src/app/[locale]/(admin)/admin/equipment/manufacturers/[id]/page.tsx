@@ -7,7 +7,7 @@ import { adminEquipmentService } from '@/services/admin-equipment.service'
 const fields: FieldDef[] = [
   { name: 'code', label: 'Code', type: 'text', required: true, section: 'General' },
   { name: 'website', label: 'Website', type: 'text', placeholder: 'https://...', section: 'General' },
-  { name: 'logoUrl', label: 'Logo URL', type: 'text', placeholder: 'https://...', section: 'General' },
+  { name: 'logoUrl', label: 'Logo', type: 'image', section: 'General' },
   { name: 'isActive', label: 'Active', type: 'boolean', section: 'Status' },
 ]
 

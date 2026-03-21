@@ -119,6 +119,7 @@ interface SolarAboCalculatorState {
   isFetchingBuilding: boolean
 
   roofCovering: RoofCoveringType | null
+  roofImage: string | null
 
   contact: ContactDetails
   consents: Consents
@@ -164,6 +165,7 @@ interface SolarAboCalculatorActions {
   setIsSearching: (isSearching: boolean) => void
   setIsFetchingBuilding: (isFetching: boolean) => void
   setRoofCovering: (type: RoofCoveringType) => void
+  setRoofImage: (image: string | null) => void
   setContact: (contact: Partial<ContactDetails>) => void
   setConsents: (consents: Partial<Consents>) => void
   getRoofType: () => RoofType
@@ -235,6 +237,7 @@ const initialState: SolarAboCalculatorState = {
   isFetchingBuilding: false,
 
   roofCovering: null,
+  roofImage: null,
 
   contact: initialContact,
   consents: initialConsents,
@@ -359,6 +362,10 @@ export const useSolarAboCalculatorStore = create<
 
       setRoofCovering: (type: RoofCoveringType) => {
         set({ roofCovering: type })
+      },
+
+      setRoofImage: (image: string | null) => {
+        set({ roofImage: image })
       },
 
       setContact: (contact: Partial<ContactDetails>) => {
@@ -610,6 +617,7 @@ export const useSolarAboCalculatorStore = create<
             acknowledgments: state.acknowledgments,
             language: 'de',
             ...(state.selectedPackageId ? { packageId: state.selectedPackageId } : {}),
+            ...(state.roofImage ? { roofImage: state.roofImage } : {}),
           })
           set({
             createdContractId: response.data.contractId,

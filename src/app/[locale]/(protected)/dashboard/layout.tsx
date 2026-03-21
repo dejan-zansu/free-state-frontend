@@ -14,6 +14,8 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAuthStore, useUser } from '@/stores/auth.store'
+import DashboardHeader from '@/components/DashboardHeader'
+import DashboardFooter from '@/components/DashboardFooter'
 
 const navItems = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
@@ -48,8 +50,9 @@ export default function DashboardLayout({
   }
 
   return (
-    <div className="min-h-screen bg-[#F2F4E8]" style={{ paddingTop: '77px' }}>
-      <div className="flex">
+    <div className="min-h-screen bg-[#F2F4E8] flex flex-col">
+      <DashboardHeader />
+      <div className="flex flex-1" style={{ paddingTop: '77px' }}>
         <aside className="hidden lg:flex w-64 flex-col fixed top-[77px] bottom-0 border-r border-[#062E25]/10 bg-white/60 backdrop-blur-sm">
           <div className="p-6 border-b border-[#062E25]/10">
             <p className="font-semibold text-[#062E25]">
@@ -108,6 +111,9 @@ export default function DashboardLayout({
 
           <div className="p-4 sm:p-6 lg:p-8">{children}</div>
         </main>
+      </div>
+      <div className="lg:ml-64">
+        <DashboardFooter />
       </div>
     </div>
   )

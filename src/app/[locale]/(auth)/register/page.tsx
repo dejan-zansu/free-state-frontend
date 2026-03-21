@@ -2,7 +2,7 @@
 
 import { Link, useRouter } from '@/i18n/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowRight, Check, Eye, EyeOff, Sun } from 'lucide-react'
+import { ArrowRight, Check, Eye, EyeOff, Loader2, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -102,7 +102,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex-1 flex">
+    <div className="flex min-h-0 flex-1">
       <div className="hidden lg:flex lg:flex-1 items-center justify-center p-12 bg-gradient-to-br from-primary via-primary/95 to-primary/90 relative overflow-hidden">
         <div className="absolute top-20 right-20 w-64 h-64 bg-solar/20 rounded-full blur-3xl animate-pulse" />
         <div
@@ -360,25 +360,7 @@ export default function RegisterPage() {
             >
               {isLoading ? (
                 <div className="flex items-center gap-2">
-                  <svg
-                    className="animate-spin w-5 h-5"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
-                    />
-                  </svg>
+                  <Loader2 className="h-6 w-6 animate-spin" />
                   <span>{t('creating')}</span>
                 </div>
               ) : (

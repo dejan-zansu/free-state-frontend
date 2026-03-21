@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl'
 
 export default function Steps() {
   const t = useTranslations('solarAboCalculator')
-  const { currentStep, goToStep } =
+  const { currentStep, goToStep, building } =
     useSolarAboCalculatorStore()
 
   const steps = [
@@ -19,7 +19,7 @@ export default function Steps() {
     { id: 7, label: t('progress.step7') },
   ]
 
-  const isMapStep = currentStep === 4
+  const isMapStep = currentStep === 4 && !!building
 
   return (
     <div

@@ -12,10 +12,12 @@ import {
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { Link } from '@/i18n/navigation'
-import { Facebook, InstagramIcon, LinkedinIcon } from 'lucide-react'
+import { Check, Facebook, InstagramIcon, LinkedinIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { ArrowButton } from './ui/arrow-button'
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
@@ -33,9 +35,29 @@ const ContactFormSection = () => {
     privacy: false,
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    setStatus('loading')
+
+    try {
+      const response = await fetch(`${API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (data.success) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -51,6 +73,15 @@ const ContactFormSection = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div>
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                  <Check className="h-8 w-8 text-green-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-[#062E25] mb-2">{t('successTitle')}</h3>
+                <p className="text-[#062E25]/60">{t('successMessage')}</p>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <Select
@@ -219,10 +250,15 @@ const ContactFormSection = () => {
                 </Label>
               </div>
 
-              <ArrowButton type="submit" variant="primary">
+              {status === 'error' && (
+                <p className="text-red-600 text-sm font-medium">{t('errorMessage')}</p>
+              )}
+
+              <ArrowButton type="submit" variant="primary" disabled={status === 'loading'}>
                 {t('submit')}
               </ArrowButton>
             </form>
+            )}
           </div>
 
           <div className="relative">

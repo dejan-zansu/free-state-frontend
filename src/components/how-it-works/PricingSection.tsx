@@ -1,6 +1,7 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
+import { Fragment } from 'react'
 
 const PricingSection = async () => {
   const t = await getTranslations('howItWorks')
@@ -107,11 +108,8 @@ const PricingSection = async () => {
                     { header: t('pricing.table.headers.size'), key: 'size' },
                   ] as const
                 ).map(({ header, key }) => (
-                  <>
-                    <div
-                      key={`${key}-header`}
-                      className="bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center"
-                    >
+                  <Fragment key={key}>
+                    <div className="bg-white/10 backdrop-blur-[20px] px-3 py-4 sm:px-4 sm:py-5 md:px-5 md:py-6 border-r border-[#062E25] flex items-center justify-center">
                       <span className="text-[#062E25]/80 text-sm sm:text-sm md:text-base font-semibold leading-tight tracking-[-0.02em] text-center">
                         {header}
                       </span>
@@ -130,7 +128,7 @@ const PricingSection = async () => {
                         </span>
                       </div>
                     ))}
-                  </>
+                  </Fragment>
                 ))}
               </div>
             </div>

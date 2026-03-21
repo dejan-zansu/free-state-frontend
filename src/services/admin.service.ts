@@ -1,7 +1,11 @@
 import api from '@/lib/api'
 import type {
+  AdminBlogPost,
+  AdminContactSubmission,
   AdminContract,
+  AdminInquiry,
   AdminLead,
+  AdminNewsletterSubscription,
   AdminUser,
   AdminUserDetail,
   DashboardStats,
@@ -54,6 +58,69 @@ class AdminService {
   async getContractById(id: string): Promise<AdminContract> {
     const response = await api.get<{ success: boolean; data: AdminContract }>(`/admin/contracts/${id}`)
     return response.data.data
+  }
+
+  async listInquiries(query: ListQuery = {}): Promise<PaginatedResponse<AdminInquiry>> {
+    const response = await api.get<PaginatedResponse<AdminInquiry>>('/admin/inquiries', { params: query })
+    return response.data
+  }
+
+  async getInquiryById(id: string): Promise<AdminInquiry> {
+    const response = await api.get<{ success: boolean; data: AdminInquiry }>(`/admin/inquiries/${id}`)
+    return response.data.data
+  }
+
+  async updateInquiry(id: string, data: Partial<{ status: string; adminNotes: string | null }>): Promise<AdminInquiry> {
+    const response = await api.patch<{ success: boolean; data: AdminInquiry }>(`/admin/inquiries/${id}`, data)
+    return response.data.data
+  }
+
+  async listContactSubmissions(query: ListQuery = {}): Promise<PaginatedResponse<AdminContactSubmission>> {
+    const response = await api.get<PaginatedResponse<AdminContactSubmission>>('/admin/contact-submissions', { params: query })
+    return response.data
+  }
+
+  async getContactSubmissionById(id: string): Promise<AdminContactSubmission> {
+    const response = await api.get<{ success: boolean; data: AdminContactSubmission }>(`/admin/contact-submissions/${id}`)
+    return response.data.data
+  }
+
+  async listNewsletterSubscriptions(query: ListQuery = {}): Promise<PaginatedResponse<AdminNewsletterSubscription>> {
+    const response = await api.get<PaginatedResponse<AdminNewsletterSubscription>>('/admin/newsletter-subscriptions', { params: query })
+    return response.data
+  }
+
+  async listBlogPosts(query: ListQuery = {}): Promise<PaginatedResponse<AdminBlogPost>> {
+    const response = await api.get<PaginatedResponse<AdminBlogPost>>('/blog', { params: query })
+    return response.data
+  }
+
+  async getBlogPostById(id: string): Promise<AdminBlogPost> {
+    const response = await api.get<{ success: boolean; data: AdminBlogPost }>(`/blog/${id}`)
+    return response.data.data
+  }
+
+  async createBlogPost(data: Record<string, unknown>): Promise<AdminBlogPost> {
+    const response = await api.post<{ success: boolean; data: AdminBlogPost }>('/blog', data)
+    return response.data.data
+  }
+
+  async updateBlogPost(id: string, data: Record<string, unknown>): Promise<AdminBlogPost> {
+    const response = await api.patch<{ success: boolean; data: AdminBlogPost }>(`/blog/${id}`, data)
+    return response.data.data
+  }
+
+  async deleteBlogPost(id: string): Promise<void> {
+    await api.delete(`/blog/${id}`)
+  }
+
+  async uploadImage(file: File): Promise<string> {
+    const formData = new FormData()
+    formData.append('file', file)
+    const response = await api.post<{ success: boolean; data: { url: string } }>('/admin/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+    return response.data.data.url
   }
 
   async listSalesReps(): Promise<SalesRep[]> {

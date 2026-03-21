@@ -13,11 +13,12 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { ImageUpload } from '@/components/admin/ImageUpload'
 
 export interface FieldDef {
   name: string
   label: string
-  type: 'text' | 'number' | 'boolean' | 'select' | 'textarea' | 'json'
+  type: 'text' | 'number' | 'boolean' | 'select' | 'textarea' | 'json' | 'image'
   required?: boolean
   options?: { value: string; label: string }[]
   placeholder?: string
@@ -195,12 +196,17 @@ export function EquipmentFormPage({
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {sectionFields.map((field) => (
-                  <div key={field.name} className={field.type === 'textarea' || field.type === 'json' ? 'col-span-full' : ''}>
+                  <div key={field.name} className={field.type === 'textarea' || field.type === 'json' || field.type === 'image' ? 'col-span-full' : ''}>
                     <Label htmlFor={field.name} className="text-sm">
                       {field.label}
                       {field.required && <span className="text-destructive ml-1">*</span>}
                     </Label>
-                    {field.type === 'boolean' ? (
+                    {field.type === 'image' ? (
+                      <ImageUpload
+                        value={formData[field.name]}
+                        onChange={(url) => setField(field.name, url)}
+                      />
+                    ) : field.type === 'boolean' ? (
                       <div className="flex items-center gap-2 mt-2">
                         <Checkbox
                           id={field.name}

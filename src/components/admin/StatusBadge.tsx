@@ -19,6 +19,7 @@ const STATUS_COLORS: Record<string, string> = {
   SUSPENDED: 'bg-red-100 text-red-700',
 
   DRAFT: 'bg-gray-100 text-gray-700',
+  PUBLISHED: 'bg-green-100 text-green-700',
   PENDING_SIGNATURE: 'bg-amber-100 text-amber-700',
   OTP_SENT: 'bg-orange-100 text-orange-700',
   SIGNED: 'bg-green-100 text-green-700',
@@ -38,6 +39,11 @@ const STATUS_COLORS: Record<string, string> = {
   PRELIMINARY: 'bg-blue-100 text-blue-700',
   FINAL: 'bg-green-100 text-green-700',
   AMENDMENT: 'bg-amber-100 text-amber-700',
+
+  OPEN: 'bg-amber-100 text-amber-700',
+  IN_PROGRESS: 'bg-blue-100 text-blue-700',
+  RESOLVED: 'bg-green-100 text-green-700',
+  CLOSED: 'bg-gray-100 text-gray-700',
 }
 
 interface StatusBadgeProps {

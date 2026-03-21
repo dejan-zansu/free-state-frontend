@@ -131,7 +131,9 @@ export default function StepContractReview() {
                   <p className="text-sm text-muted-foreground">kWp</p>
                 </div>
                 <div className="text-center p-3 bg-muted/50 rounded-lg">
-                  <p className="text-2xl font-bold text-primary">{panelCount}</p>
+                  <p className="text-2xl font-bold text-primary">
+                    {panelCount}
+                  </p>
                   <p className="text-sm text-muted-foreground">
                     {t('systemSummary.panels')}
                   </p>
@@ -177,7 +179,10 @@ export default function StepContractReview() {
                   <span className="font-medium">
                     {t('systemSummary.package')}:
                   </span>{' '}
-                  {selectedPackageCode || (recommendedPackage === 'home' ? 'SolarAbo Home' : 'SolarAbo Multi')}
+                  {selectedPackageCode ||
+                    (recommendedPackage === 'home'
+                      ? 'SolarAbo Home'
+                      : 'SolarAbo Multi')}
                 </p>
                 <p className="text-sm mt-1">
                   <span className="font-medium">
@@ -192,11 +197,15 @@ export default function StepContractReview() {
                 <div className="space-y-1">
                   <div className="flex justify-between text-sm">
                     <span>{t('pricing.gross')}</span>
-                    <span className="font-medium">CHF {formatSwissNumber(getGrossAmount(), 0)}</span>
+                    <span className="font-medium">
+                      CHF {formatSwissNumber(getGrossAmount(), 0)}
+                    </span>
                   </div>
                   <div className="flex justify-between text-sm text-green-700">
                     <span>{t('pricing.subsidy')}</span>
-                    <span className="font-medium">- CHF {formatSwissNumber(getSubsidyAmount(), 0)}</span>
+                    <span className="font-medium">
+                      - CHF {formatSwissNumber(getSubsidyAmount(), 0)}
+                    </span>
                   </div>
                   <div className="border-t pt-1 flex justify-between text-sm font-semibold">
                     <span>{t('pricing.net')}</span>
@@ -316,11 +325,18 @@ export default function StepContractReview() {
           </Card>
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
           <Button
             variant="outline"
             onClick={() => goToStep(7)}
-            className="gap-2" style={{ borderColor: "#062E25", color: "#062E25" }}
+            className="gap-2"
+            style={{ borderColor: '#062E25', color: '#062E25' }}
           >
             <ChevronLeft className="h-4 w-4" />
             {tNav('back')}
@@ -332,10 +348,7 @@ export default function StepContractReview() {
             className="gap-2"
           >
             {isCreating ? (
-              <>
-                <span className="animate-spin mr-2">⏳</span>
-                {t('creatingContract')}
-              </>
+              <>{t('creatingContract')}</>
             ) : (
               <>
                 {t('proceedToSign')}

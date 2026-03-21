@@ -879,6 +879,9 @@
     },
     "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung gelesen und verstanden habe.",
     "submit": "Absenden",
+    "successTitle": "Nachricht gesendet",
+    "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "card": {
       "address": {
         "title": "Adresse",
@@ -1917,6 +1920,12 @@
     "cancel": "Abbrechen",
     "save": "Speichern",
     "loading": "Lädt..."
+  },
+  "blog": {
+    "title": "Blog",
+    "noPosts": "Noch keine Beiträge vorhanden.",
+    "readMore": "Weiterlesen",
+    "backToBlog": "Zurück zum Blog"
   },
   "solarSystems": {
     "hero": {
@@ -4382,8 +4391,8 @@
       }
     },
     "step5": {
-      "title": "Wählen Sie Ihre Dachflächen",
-      "helper": "Klicken Sie auf alle Dachflächen, die für Ihr Angebot berücksichtigt werden sollen.",
+      "title": "Finden Sie Ihr Gebäude",
+      "helper": "Geben Sie Ihre Adresse ein, um Ihr Dach auf der Solarkarte zu finden.",
       "locationLabel": "Standort",
       "searchPlaceholder": "Geben Sie Ihre Adresse ein...",
       "officialMap": "Offizielle Schweizer topografische Karte",
@@ -4675,7 +4684,11 @@
       "mountingSystems": "Montagesysteme",
       "ems": "Energiemanagement",
       "heatPumps": "Wärmepumpen",
-      "packages": "Pakete"
+      "packages": "Pakete",
+      "blog": "Blog",
+      "support": "Support",
+      "contacts": "Kontaktanfragen",
+      "newsletter": "Newsletter"
     },
     "dashboard": {
       "title": "Dashboard",
@@ -4691,7 +4704,15 @@
       "pending": "ausstehend",
       "totalNet": "Gesamter Nettobetrag aus unterschriebenen Verträgen",
       "leadsByStatus": "Leads nach Status",
-      "contractsByStatus": "Verträge nach Status"
+      "contractsByStatus": "Verträge nach Status",
+      "supportTickets": "Support-Tickets",
+      "open": "offen",
+      "blogPosts": "Blog-Beiträge",
+      "totalPublished": "Veröffentlicht",
+      "contactSubmissions": "Kontaktanfragen",
+      "totalReceived": "Eingegangen",
+      "newsletterSubscribers": "Newsletter-Abonnenten",
+      "totalSubscribed": "Angemeldet"
     },
     "users": {
       "title": "Benutzer",
@@ -4890,6 +4911,85 @@
         "packageCreated": "Paket erstellt"
       }
     },
+    "support": {
+      "title": "Support-Tickets",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "allStatuses": "Alle Status",
+      "statusOpen": "Offen",
+      "statusInProgress": "In Bearbeitung",
+      "statusResolved": "Gelöst",
+      "statusClosed": "Geschlossen",
+      "name": "Name",
+      "message": "Nachricht",
+      "status": "Status",
+      "created": "Erstellt",
+      "view": "Anzeigen",
+      "noTickets": "Keine Support-Tickets gefunden",
+      "totalTickets": "{count} Tickets gesamt",
+      "ticketInfo": "Ticket-Informationen",
+      "manage": "Verwalten",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "address": "Adresse",
+      "adminNotes": "Admin-Notizen",
+      "saveNotes": "Notizen speichern"
+    },
+    "blog": {
+      "title": "Blog-Beiträge",
+      "newPost": "Neuer Beitrag",
+      "editPost": "Beitrag bearbeiten",
+      "searchPlaceholder": "Nach Titel suchen...",
+      "allStatuses": "Alle Status",
+      "draft": "Entwurf",
+      "published": "Veröffentlicht",
+      "postTitle": "Titel",
+      "status": "Status",
+      "author": "Autor",
+      "languages": "Sprachen",
+      "created": "Erstellt",
+      "edit": "Bearbeiten",
+      "noPosts": "Keine Blog-Beiträge gefunden",
+      "totalPosts": "{count} Beiträge gesamt",
+      "slug": "URL-Slug",
+      "coverImage": "Titelbild",
+      "uploadImage": "Bild hochladen",
+      "content": "Inhalt",
+      "excerpt": "Kurzfassung",
+      "excerptPlaceholder": "Kurze Zusammenfassung des Beitrags...",
+      "titlePlaceholder": "Titel des Beitrags",
+      "contentPlaceholder": "Schreiben Sie Ihren Beitrag...",
+      "metaTitle": "Meta-Titel",
+      "metaDescription": "Meta-Beschreibung",
+      "save": "Speichern",
+      "delete": "Löschen",
+      "confirmDelete": "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?"
+    },
+    "contacts": {
+      "title": "Kontaktanfragen",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "city": "Ort",
+      "message": "Nachricht",
+      "created": "Erstellt",
+      "view": "Anzeigen",
+      "noSubmissions": "Keine Kontaktanfragen gefunden",
+      "totalSubmissions": "{count} Anfragen gesamt",
+      "contactInfo": "Kontaktdaten",
+      "entityType": "Typ",
+      "salutation": "Anrede",
+      "address": "Adresse"
+    },
+    "newsletter": {
+      "title": "Newsletter-Abonnenten",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "name": "Name",
+      "email": "E-Mail",
+      "subscribed": "Angemeldet",
+      "noSubscribers": "Keine Abonnenten gefunden",
+      "totalSubscribers": "{count} Abonnenten gesamt"
+    },
     "common": {
       "loading": "Laden...",
       "failedToLoad": "Daten konnten nicht geladen werden.",
@@ -4938,6 +5038,7 @@
   },
   "verifyEmail": {
     "verifying": "E-Mail wird verifiziert...",
+    "verifyingHint": "Das dauert nur einen Moment.",
     "success": "E-Mail verifiziert",
     "successMessage": "Ihre E-Mail wurde erfolgreich verifiziert.",
     "signIn": "Anmelden",
@@ -4957,7 +5058,9 @@
     "backToLogin": "Zurück zum Login",
     "checkEmail": "Überprüfen Sie Ihre E-Mail",
     "checkEmailMessage": "Falls ein Konto mit dieser E-Mail existiert, haben wir Ihnen einen Link zum Zurücksetzen Ihres Passworts gesendet.",
-    "genericError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    "genericError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "rememberPassword": "Passwort wieder eingefallen?",
+    "signInInstead": "Anmelden"
   },
   "setPassword": {
     "invalidLink": "Ungültiger Link",
@@ -5059,6 +5162,10 @@
       "noTickets": "Keine Support-Tickets",
       "noTicketsDesc": "Sie haben noch keine Supportanfragen gestellt.",
       "statusOpen": "Offen",
+      "status_OPEN": "Offen",
+      "status_IN_PROGRESS": "In Bearbeitung",
+      "status_RESOLVED": "Gelöst",
+      "status_CLOSED": "Geschlossen",
       "faq": "Häufig gestellte Fragen",
       "faq1q": "Was ist SolarAbo?",
       "faq1a": "SolarAbo ist ein Abo-Modell, bei dem die Free State AG eine Solaranlage auf Ihrem Dach installiert und wartet – ohne Vorabkosten. Sie profitieren von sauberer Energie und zahlen eine monatliche Gebühr basierend auf dem Verbrauch.",

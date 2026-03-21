@@ -15,6 +15,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Switch } from '@/components/ui/switch'
 import { Textarea } from '@/components/ui/textarea'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { ImageUpload } from '@/components/admin/ImageUpload'
 import { adminEquipmentService } from '@/services/admin-equipment.service'
 
 const EQUIPMENT_TYPES = [
@@ -69,6 +70,7 @@ export default function AdminPackageDetailPage() {
   const [displayOrder, setDisplayOrder] = useState('0')
   const [isActive, setIsActive] = useState(true)
   const [highlightedFeature, setHighlightedFeature] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
   const [translations, setTranslations] = useState<
     Record<string, Record<string, any>>
   >({})
@@ -96,6 +98,7 @@ export default function AdminPackageDetailPage() {
         setDisplayOrder((data as any).displayOrder?.toString() || '0')
         setIsActive((data as any).isActive ?? true)
         setHighlightedFeature((data as any).highlightedFeature || '')
+        setImageUrl((data as any).imageUrl || '')
         if ((data as any).translations && Array.isArray((data as any).translations)) {
           const transMap: Record<string, Record<string, any>> = {}
           ;((data as any).translations as any[]).forEach((t: any) => {
@@ -142,6 +145,7 @@ export default function AdminPackageDetailPage() {
       displayOrder: parseInt(displayOrder) || 0,
       isActive,
       highlightedFeature: highlightedFeature || null,
+      imageUrl: imageUrl || null,
       translations: transArray,
     }
   }
@@ -296,6 +300,10 @@ export default function AdminPackageDetailPage() {
             <CardTitle>{t('packageDetails')}</CardTitle>
           </CardHeader>
           <CardContent>
+            <div className="mb-4">
+              <Label>Image</Label>
+              <ImageUpload value={imageUrl || null} onChange={(url) => setImageUrl(url || '')} />
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               <div>
                 <Label htmlFor="code">{tc('code')} *</Label>

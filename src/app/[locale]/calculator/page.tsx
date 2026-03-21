@@ -30,6 +30,7 @@ export default function SolarAboCalculatorPage() {
     showMultiInterstitial,
     resultsPath,
     goToStep,
+    building,
   } = useSolarAboCalculatorStore()
 
   if (!solarModel) {

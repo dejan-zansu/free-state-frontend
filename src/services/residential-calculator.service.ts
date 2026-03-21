@@ -79,6 +79,7 @@ interface CreateContractPayload {
   acknowledgments: string[]
   language: string
   packageId?: string
+  roofImage?: string
 }
 
 interface CreateContractResponse {

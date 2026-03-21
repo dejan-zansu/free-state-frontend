@@ -1,6 +1,6 @@
 'use client'
 
-import { BarChart3, FileText, TrendingUp, Users } from 'lucide-react'
+import { BarChart3, FileText, Mail, MessageSquareText, Newspaper, Ticket, TrendingUp, Users } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 
@@ -44,6 +44,30 @@ export default function AdminDashboardPage() {
       value: stats.contracts.total,
       icon: FileText,
       detail: `${stats.contracts.byStatus.SIGNED || 0} ${t('signed')}, ${stats.contracts.byStatus.PENDING_SIGNATURE || 0} ${t('pending')}`,
+    },
+    {
+      label: t('supportTickets'),
+      value: stats.supportTickets.total,
+      icon: Ticket,
+      detail: `${stats.supportTickets.byStatus.OPEN || 0} ${t('open')}`,
+    },
+    {
+      label: t('blogPosts'),
+      value: stats.blogPosts.total,
+      icon: Newspaper,
+      detail: t('totalPublished'),
+    },
+    {
+      label: t('contactSubmissions'),
+      value: stats.contactSubmissions.total,
+      icon: MessageSquareText,
+      detail: t('totalReceived'),
+    },
+    {
+      label: t('newsletterSubscribers'),
+      value: stats.newsletterSubscriptions.total,
+      icon: Mail,
+      detail: t('totalSubscribed'),
     },
     {
       label: t('revenueSigned'),

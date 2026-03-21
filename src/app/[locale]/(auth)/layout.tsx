@@ -1,9 +1,11 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useRouter } from '@/i18n/navigation'
+import { Link, useRouter } from '@/i18n/navigation'
+import { useTranslations } from 'next-intl'
 import { useAuthStore } from '@/stores/auth.store'
-import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import LogoDark from '@/components/icons/LogoDark'
+import { PageLoader } from '@/components/ui/page-loader'
 
 export default function AuthLayout({
   children,
@@ -11,6 +13,7 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   const router = useRouter()
+  const tNav = useTranslations('nav')
   const { isAuthenticated, isInitialized, user, checkAuth } = useAuthStore()
 
   useEffect(() => {
@@ -29,11 +32,11 @@ export default function AuthLayout({
   }, [isInitialized, isAuthenticated, user, router])
 
   if (!isInitialized) {
-    return <AdminPageLoader fullscreen />
+    return <PageLoader fullscreen />
   }
 
   if (isAuthenticated) {
-    return <AdminPageLoader fullscreen />
+    return <PageLoader fullscreen />
   }
 
   return (
@@ -55,7 +58,18 @@ export default function AuthLayout({
         }}
       />
 
-      <div className='relative z-10 flex min-h-screen'>{children}</div>
+      <div className='relative z-10 flex min-h-screen flex-col'>
+        <header className='relative z-20 flex shrink-0 items-center border-b border-[#062E25]/10 bg-white/95 px-4 py-3.5 backdrop-blur-md sm:px-8 sm:py-4'>
+          <Link
+            href='/'
+            className='inline-flex items-center rounded-md outline-offset-4 transition-opacity hover:opacity-85 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#062E25]'
+            aria-label={tNav('home')}
+          >
+            <LogoDark className='h-6 w-auto sm:h-7.25' />
+          </Link>
+        </header>
+        <div className='flex min-h-0 flex-1 flex-col'>{children}</div>
+      </div>
     </div>
   )
 }

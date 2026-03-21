@@ -5,6 +5,7 @@ import type { FieldDef, TranslationFieldDef } from '@/components/admin/Equipment
 import { adminEquipmentService } from '@/services/admin-equipment.service'
 
 const fields: FieldDef[] = [
+  { name: 'imageUrl', label: 'Image', type: 'image', section: 'General' },
   { name: 'manufacturerId', label: 'Manufacturer ID', type: 'text', required: true, section: 'General' },
   { name: 'modelNumber', label: 'Model Number', type: 'text', required: true, section: 'General' },
   { name: 'series', label: 'Series', type: 'text', section: 'General' },

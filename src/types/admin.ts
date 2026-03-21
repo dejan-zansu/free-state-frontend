@@ -25,6 +25,19 @@ export interface DashboardStats {
   revenue: {
     totalSigned: number
   }
+  supportTickets: {
+    total: number
+    byStatus: Record<string, number>
+  }
+  contactSubmissions: {
+    total: number
+  }
+  newsletterSubscriptions: {
+    total: number
+  }
+  blogPosts: {
+    total: number
+  }
 }
 
 export interface AdminUser {
@@ -117,6 +130,77 @@ export interface SalesRep {
   firstName: string
   lastName: string
   email: string
+}
+
+export interface AdminInquiry {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  street: string
+  postalCode: string
+  location: string
+  maintenanceServices: string[]
+  hasFreeStateSystem: boolean | null
+  systemOutputKwp: string | null
+  hasInternetAccess: string | null
+  products: string[]
+  message: string | null
+  status: 'OPEN' | 'IN_PROGRESS' | 'RESOLVED' | 'CLOSED'
+  adminNotes: string | null
+  consentPrivacy: boolean
+  createdAt: string
+  updatedAt: string
+}
+
+export interface AdminContactSubmission {
+  id: string
+  entityType: string | null
+  salutation: string | null
+  firstName: string
+  lastName: string
+  postalCode: string
+  city: string
+  phone: string
+  email: string
+  message: string | null
+  consentPrivacy: boolean
+  createdAt: string
+  updatedAt: string
+}
+
+export interface AdminNewsletterSubscription {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  consentMarketing: boolean
+  createdAt: string
+}
+
+export interface AdminBlogPostTranslation {
+  id: string
+  blogPostId: string
+  language: string
+  title: string
+  excerpt: string | null
+  content: string
+  metaTitle: string | null
+  metaDescription: string | null
+}
+
+export interface AdminBlogPost {
+  id: string
+  slug: string
+  coverImageUrl: string | null
+  status: 'DRAFT' | 'PUBLISHED'
+  publishedAt: string | null
+  authorId: string
+  author: { id: string; firstName: string; lastName: string }
+  translations: AdminBlogPostTranslation[]
+  createdAt: string
+  updatedAt: string
 }
 
 export interface ListQuery {

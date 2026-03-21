@@ -261,6 +261,21 @@ class ContractService {
     return data.data
   }
 
+  async getSigningUrl(contractId: string): Promise<string> {
+    const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/url`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    })
+
+    const data = await response.json()
+
+    if (!data.success) {
+      throw new Error(data.error?.message || 'Failed to get signing URL')
+    }
+
+    return data.data.signingUrl
+  }
+
   async checkSignatureStatus(contractId: string): Promise<SignatureStatusResponse> {
     const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/status`)
 

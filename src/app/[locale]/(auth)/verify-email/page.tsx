@@ -1,11 +1,17 @@
 'use client'
 
-import { ArrowRight, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react'
+import { ArrowRight, Loader2 } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
+import {
+  AuthErrorMark,
+  AuthSplitLayout,
+  AuthSuccessMark,
+  authPanelCardClass,
+} from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
 import { authService } from '@/services/auth.service'
 
@@ -33,41 +39,65 @@ export default function VerifyEmailPage() {
   }, [token, t])
 
   return (
-    <div className="flex-1 flex items-center justify-center p-8">
-      <div className="w-full max-w-md text-center">
+    <AuthSplitLayout>
+      <div className="w-full max-w-md">
         {status === 'loading' && (
-          <>
-            <Loader2 className="w-16 h-16 text-[#062E25] mx-auto mb-4 animate-spin" />
-            <h2 className="text-2xl font-bold text-[#062E25] mb-2">{t('verifying')}</h2>
-          </>
+          <div className={authPanelCardClass}>
+            <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#062E25]/5 ring-1 ring-[#062E25]/10">
+              <Loader2
+                className="h-6 w-6 animate-spin text-[#062E25]"
+                aria-hidden
+              />
+            </div>
+            <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
+              {t('verifying')}
+            </h1>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+              {t('verifyingHint')}
+            </p>
+          </div>
         )}
 
         {status === 'success' && (
-          <>
-            <CheckCircle2 className="w-16 h-16 text-green-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-[#062E25] mb-2">{t('success')}</h2>
-            <p className="text-gray-600 mb-6">{t('successMessage')}</p>
-            <Link href="/login">
-              <Button className="bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]">
-                {t('signIn')} <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-          </>
+          <div className={authPanelCardClass}>
+            <AuthSuccessMark />
+            <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
+              {t('success')}
+            </h1>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+              {t('successMessage')}
+            </p>
+            <div className="mt-8">
+              <Link href="/login" className="inline-flex w-full sm:w-auto">
+                <Button className="h-12 w-full rounded-xl bg-[#CDEA67] px-8 text-base font-semibold text-[#062E25] shadow-md shadow-[#062E25]/10 transition-all hover:bg-[#CDEA67]/90 hover:shadow-lg hover:shadow-[#062E25]/15">
+                  {t('signIn')}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
         )}
 
         {status === 'error' && (
-          <>
-            <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-[#062E25] mb-2">{t('failed')}</h2>
-            <p className="text-gray-600 mb-6">{error}</p>
-            <Link href="/login">
-              <Button className="bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]">
-                {t('goToLogin')} <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
-            </Link>
-          </>
+          <div className={authPanelCardClass}>
+            <AuthErrorMark />
+            <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
+              {t('failed')}
+            </h1>
+            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+              {error}
+            </p>
+            <div className="mt-8">
+              <Link href="/login" className="inline-flex w-full sm:w-auto">
+                <Button className="h-12 w-full rounded-xl bg-[#CDEA67] px-8 text-base font-semibold text-[#062E25] shadow-md shadow-[#062E25]/10 transition-all hover:bg-[#CDEA67]/90 hover:shadow-lg hover:shadow-[#062E25]/15">
+                  {t('goToLogin')}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
         )}
       </div>
-    </div>
+    </AuthSplitLayout>
   )
 }

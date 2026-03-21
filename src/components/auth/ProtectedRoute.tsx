@@ -4,7 +4,7 @@ import { useAuthStore } from '@/stores/auth.store'
 import { UserRole } from '@/types/auth'
 import { useRouter } from '@/i18n/navigation'
 import { useEffect, useRef } from 'react'
-import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { PageLoader } from '@/components/ui/page-loader'
 
 interface ProtectedRouteProps {
   children: React.ReactNode
@@ -51,15 +51,15 @@ export function ProtectedRoute({
   }, [isInitialized, isAuthenticated, user, allowedRoles, adminRedirect, redirectTo, router])
 
   if (!isInitialized || !isAuthenticated) {
-    return <AdminPageLoader fullscreen />
+    return <PageLoader fullscreen />
   }
 
   if (adminRedirect && user?.role === 'ADMIN') {
-    return <AdminPageLoader fullscreen />
+    return <PageLoader fullscreen />
   }
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
-    return <AdminPageLoader fullscreen />
+    return <PageLoader fullscreen />
   }
 
   return <>{children}</>

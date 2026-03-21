@@ -5,6 +5,7 @@ import { Zap, TrendingUp, Leaf, PanelTop, Sun, MapPin } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { Card, CardContent } from '@/components/ui/card'
+import { PageLoader } from '@/components/ui/page-loader'
 import { customerPortalService, type ProjectSummary } from '@/services/customer-portal.service'
 
 export default function ProjectPage() {
@@ -21,11 +22,7 @@ export default function ProjectPage() {
   }, [])
 
   if (loading) {
-    return (
-      <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#062E25]" />
-      </div>
-    )
+    return <PageLoader />
   }
 
   if (projects.length === 0) {

@@ -2,6 +2,10 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+.pac-container {
+  z-index: 9999 !important;
+}
+
 @keyframes phone-ring-animation {
   0%,
   100% {
@@ -142,6 +146,30 @@
 
   button {
     @apply cursor-pointer;
+  }
+}
+
+@keyframes solar-ray {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scaleY(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+@keyframes solar-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
