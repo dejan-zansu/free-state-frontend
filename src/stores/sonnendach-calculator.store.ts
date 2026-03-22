@@ -889,9 +889,10 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
       },
 
       getSubsidies: () => {
-        // Swiss federal subsidy: 350 CHF/kWp + 600 CHF base
-        const systemSize = get().getSystemSizeKwp()
-        return Math.round(600 + systemSize * 350)
+        const kWp = get().getSystemSizeKwp()
+        const tier1 = Math.min(kWp, 30) * 360
+        const tier2 = Math.max(0, Math.min(kWp - 30, 70)) * 300
+        return Math.round(tier1 + tier2)
       },
 
       getNetInvestment: () => {

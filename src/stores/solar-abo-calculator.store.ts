@@ -470,8 +470,10 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getSubsidyAmount: () => {
-        const systemSizeKwp = get().getSystemSizeKwp()
-        return systemSizeKwp * 400
+        const kWp = get().getSystemSizeKwp()
+        const tier1 = Math.min(kWp, 30) * 360
+        const tier2 = Math.max(0, Math.min(kWp - 30, 70)) * 300
+        return Math.round(tier1 + tier2)
       },
 
       getNetAmount: () => {

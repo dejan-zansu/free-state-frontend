@@ -24,9 +24,9 @@ export interface CountryConfig {
   vatRate: number // As decimal (0.081 = 8.1%)
 
   // Subsidies
-  subsidyBase: number
-  subsidyPerKw: number
-  subsidyCapKw: number
+  subsidyTier1RatePerKwp: number
+  subsidyTier1CapKwp: number
+  subsidyTier2RatePerKwp: number
 
   // Environmental
   co2FactorKgPerKwh: number
