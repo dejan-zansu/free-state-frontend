@@ -29,8 +29,8 @@ import { adminService } from '@/services/admin.service'
 import type { AdminBlogPost } from '@/types/admin'
 
 function getTitle(post: AdminBlogPost) {
-  const sr = post.translations.find((t) => t.language === 'sr')
-  return sr?.title || post.translations[0]?.title || '-'
+  const de = post.translations.find((t) => t.language === 'de')
+  return de?.title || post.translations[0]?.title || '-'
 }
 
 export default function AdminBlogListPage() {

@@ -7,7 +7,6 @@ import { residentialCalculatorService } from '@/services/residential-calculator.
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
 export type SolarModel = 'solar-abo' | 'solar-direct'
-export type MultiPlanningType = 'my-needs' | 'all-parties'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
@@ -104,10 +103,7 @@ interface SolarAboCalculatorState {
   currentStep: number
   totalSteps: number
 
-  buildingType: BuildingType | null
-  multiPlanningType: MultiPlanningType | null
-  showMultiInterstitial: boolean
-  apartmentCount: number
+  buildingType: BuildingType
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
 
@@ -151,10 +147,6 @@ interface SolarAboCalculatorActions {
   nextStep: () => void
   prevStep: () => void
   goToStep: (step: number) => void
-  setBuildingType: (type: BuildingType) => void
-  setMultiPlanningType: (type: MultiPlanningType) => void
-  setShowMultiInterstitial: (show: boolean) => void
-  setApartmentCount: (count: number) => void
   setHouseholdSize: (size: HouseholdSize) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
   setAddress: (address: string) => void
@@ -214,12 +206,9 @@ const initialConsents: Consents = {
 const initialState: SolarAboCalculatorState = {
   solarModel: null,
   currentStep: 1,
-  totalSteps: 9,
+  totalSteps: 8,
 
-  buildingType: null,
-  multiPlanningType: null,
-  showMultiInterstitial: false,
-  apartmentCount: 2,
+  buildingType: 'single_family',
   householdSize: null,
   devices: {
     heatPumpHeating: false,
@@ -296,21 +285,6 @@ export const useSolarAboCalculatorStore = create<
         }
       },
 
-      setBuildingType: (type: BuildingType) => {
-        set({ buildingType: type })
-      },
-
-      setMultiPlanningType: (type: MultiPlanningType) => {
-        set({ multiPlanningType: type })
-      },
-
-      setShowMultiInterstitial: (show: boolean) => {
-        set({ showMultiInterstitial: show })
-      },
-
-      setApartmentCount: (count: number) => {
-        set({ apartmentCount: Math.max(2, count) })
-      },
 
       setHouseholdSize: (size: HouseholdSize) => {
         set({ householdSize: size })
@@ -410,15 +384,10 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getEstimatedConsumption: () => {
-        const { householdSize, devices, buildingType, multiPlanningType, apartmentCount } = get()
+        const { householdSize, devices } = get()
         const deviceExtra = (Object.keys(devices) as (keyof HighPowerDevices)[])
           .filter(key => devices[key])
           .reduce((sum, key) => sum + DEVICE_CONSUMPTION[key], 0)
-
-        if (buildingType === 'apartment' && multiPlanningType === 'all-parties') {
-          const perApartment = BASE_CONSUMPTION[3] || 4400
-          return perApartment * apartmentCount + deviceExtra
-        }
 
         const base = BASE_CONSUMPTION[householdSize || 3] || 3200
         return base + deviceExtra
@@ -484,8 +453,7 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getRecommendedPackage: (): SolarAboPackage => {
-        const { buildingType } = get()
-        return buildingType === 'single_family' ? 'home' : 'multi'
+        return 'home'
       },
 
       setSelectedPackage: (id: string, code: string, pricePerKwp: number | null) => {
@@ -530,7 +498,7 @@ export const useSolarAboCalculatorStore = create<
               lng: state.building?.center.lng || 0,
               selectedSegments: state.getSelectedSegments(),
               selectedArea: state.getSelectedArea(),
-              buildingType: state.buildingType || 'single_family',
+              buildingType: state.buildingType,
               householdSize: state.householdSize || 3,
               devices: state.devices,
               roofCovering: state.roofCovering || 'tiled',
@@ -665,8 +633,6 @@ export const useSolarAboCalculatorStore = create<
         solarModel: state.solarModel,
         currentStep: state.currentStep,
         buildingType: state.buildingType,
-        multiPlanningType: state.multiPlanningType,
-        apartmentCount: state.apartmentCount,
         householdSize: state.householdSize,
         devices: state.devices,
         address: state.address,

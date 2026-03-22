@@ -10,16 +10,16 @@ export default function Steps() {
     useSolarAboCalculatorStore()
 
   const steps = [
-    { id: 1, label: t('progress.step1') },
-    { id: 2, label: t('progress.step2') },
-    { id: 3, label: t('progress.step3') },
-    { id: 4, label: t('progress.step4') },
-    { id: 5, label: t('progress.step5') },
-    { id: 6, label: t('progress.step6') },
-    { id: 7, label: t('progress.step7') },
+    { id: 1, label: t('progress.step2') },
+    { id: 2, label: t('progress.step3') },
+    { id: 3, label: t('progress.step4') },
+    { id: 4, label: t('progress.step5') },
+    { id: 5, label: t('progress.step6') },
+    { id: 6, label: t('progress.step7') },
   ]
 
-  const isMapStep = currentStep === 4 && !!building
+  const isMapStep = currentStep === 3
+  const isMapDark = isMapStep && !!building
 
   return (
     <div
@@ -36,7 +36,7 @@ export default function Steps() {
         style={{
           background: 'rgba(255, 255, 255, 0.3)',
           border: '1px solid rgba(156, 169, 166, 0.3)',
-          backdropFilter: isMapStep ? 'blur(14.7px)' : 'blur(29px)',
+          backdropFilter: isMapDark ? 'blur(14.7px)' : 'blur(29px)',
           boxShadow: '0px 25px 34px 0px rgba(183, 254, 26, 0.1)',
         }}
       >
@@ -53,10 +53,10 @@ export default function Steps() {
                     currentStep === step.id
                       ? 'bg-[#B7FE1A] border-[rgba(123,181,168,0.4)]'
                       : currentStep > step.id
-                        ? isMapStep
+                        ? isMapDark
                           ? 'bg-[rgba(241,242,233,0.1)] border-[rgba(216,220,213,0.4)] cursor-pointer hover:bg-[rgba(241,242,233,0.3)]'
                           : 'bg-[#B7FE1A]/40 border-[#7BB5A8] cursor-pointer hover:bg-[#B7FE1A]/60'
-                        : isMapStep
+                        : isMapDark
                           ? 'bg-[rgba(241,242,233,0.1)] border-[rgba(216,220,213,0.4)] cursor-default'
                           : 'bg-[#F1F2E9] border-[#D8DCD5] cursor-default'
                   )}
@@ -66,8 +66,8 @@ export default function Steps() {
                 <span
                   className={cn(
                     'text-[10px] tracking-tight whitespace-nowrap hidden sm:block',
-                    isMapStep ? 'text-white' : 'text-[#062E25]',
-                    currentStep === step.id ? 'opacity-100' : isMapStep ? 'opacity-60' : 'opacity-40'
+                    isMapDark ? 'text-white' : 'text-[#062E25]',
+                    currentStep === step.id ? 'opacity-100' : isMapDark ? 'opacity-60' : 'opacity-40'
                   )}
                 >
                   {step.label}
@@ -79,7 +79,7 @@ export default function Steps() {
                   <div
                     className={cn(
                       'w-full h-px opacity-20',
-                      isMapStep ? 'bg-[#EAEDDF]' : 'bg-[#036B53]'
+                      isMapDark ? 'bg-[#EAEDDF]' : 'bg-[#036B53]'
                     )}
                   />
                 </div>

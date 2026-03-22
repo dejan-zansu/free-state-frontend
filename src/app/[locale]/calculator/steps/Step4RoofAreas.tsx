@@ -41,10 +41,17 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
   const y1 = (easting - 2600000) / 1000000
   const x1 = (northing - 1200000) / 1000000
   const lat =
-    16.9023892 + 3.238272 * x1 - 0.270978 * y1 * y1 - 0.002528 * x1 * x1 -
-    0.0447 * y1 * y1 * x1 - 0.014 * x1 * x1 * x1
+    16.9023892 +
+    3.238272 * x1 -
+    0.270978 * y1 * y1 -
+    0.002528 * x1 * x1 -
+    0.0447 * y1 * y1 * x1 -
+    0.014 * x1 * x1 * x1
   const lng =
-    2.6779094 + 4.728982 * y1 + 0.791484 * y1 * x1 + 0.1306 * y1 * x1 * x1 -
+    2.6779094 +
+    4.728982 * y1 +
+    0.791484 * y1 * x1 +
+    0.1306 * y1 * x1 * x1 -
     0.0436 * y1 * y1 * y1
   return [(lng * 100) / 36, (lat * 100) / 36]
 }
@@ -85,7 +92,7 @@ export default function Step4RoofAreas() {
   selectedSegmentsRef.current = selectedSegmentIds
   buildingRef.current = building
 
-  const hasAddress = !!(building || (focusedLat && focusedLng))
+  const hasBuilding = !!(building || (focusedLat && focusedLng))
 
   const drawSegmentOnMap = useCallback(
     (segment: RoofSegment, isSelected: boolean) => {
@@ -106,11 +113,16 @@ export default function Step4RoofAreas() {
       if (isSelected) {
         feature.setStyle(selectedStyle)
       } else {
-        const color = segment.suitability?.color || SUITABILITY_CLASSES[segment.suitability?.class || 3]?.color || '#22C55E'
-        feature.setStyle(new Style({
-          fill: new Fill({ color: `${color}80` }),
-          stroke: new Stroke({ color, width: 2 }),
-        }))
+        const color =
+          segment.suitability?.color ||
+          SUITABILITY_CLASSES[segment.suitability?.class || 3]?.color ||
+          '#22C55E'
+        feature.setStyle(
+          new Style({
+            fill: new Fill({ color: `${color}80` }),
+            stroke: new Stroke({ color, width: 2 }),
+          })
+        )
       }
       vectorSourceRef.current.addFeature(feature)
     },
@@ -137,7 +149,9 @@ export default function Step4RoofAreas() {
       setIsFetchingBuilding(true)
       try {
         const lv95 = await sonnendachService.convertToLV95(lat, lng)
-        const buildingData = await sonnendachService.getBuildingData(lv95.y, lv95.x).catch(() => null)
+        const buildingData = await sonnendachService
+          .getBuildingData(lv95.y, lv95.x)
+          .catch(() => null)
         if (buildingData && buildingData.roofSegments.length > 0) {
           setBuilding(buildingData)
           buildingData.roofSegments.forEach(segment => {
@@ -146,8 +160,13 @@ export default function Step4RoofAreas() {
             }
           })
           if (mapInstanceRef.current) {
-            const center = fromLonLat([buildingData.center.lng, buildingData.center.lat])
-            mapInstanceRef.current.getView().animate({ center, zoom: 19, duration: 500 })
+            const center = fromLonLat([
+              buildingData.center.lng,
+              buildingData.center.lat,
+            ])
+            mapInstanceRef.current
+              .getView()
+              .animate({ center, zoom: 19, duration: 500 })
           }
         }
       } catch (error) {
@@ -167,7 +186,10 @@ export default function Step4RoofAreas() {
       const clickedFeature = map.forEachFeatureAtPixel(pixel, f => f)
       if (clickedFeature) {
         const segmentId = clickedFeature.get('segmentId')
-        if (segmentId) { toggleSegment(segmentId); return }
+        if (segmentId) {
+          toggleSegment(segmentId)
+          return
+        }
       }
       const [lng, lat] = toLonLat(coordinate)
       await fetchBuildingAt(lat, lng)
@@ -179,28 +201,46 @@ export default function Step4RoofAreas() {
   handleMapClickRef.current = handleMapClick
 
   useEffect(() => {
-    if (!hasAddress || !mapRef.current || mapInitializedRef.current) return
+    if (!hasBuilding || !mapRef.current || mapInitializedRef.current) return
 
     const vectorSource = new VectorSource()
     vectorSourceRef.current = vectorSource
 
     const map = new Map({
       target: mapRef.current,
-      controls: defaultControls({ zoom: true, rotate: false, attribution: false }),
+      controls: defaultControls({
+        zoom: true,
+        rotate: false,
+        attribution: false,
+      }),
       layers: [
-        new TileLayer({ source: new XYZ({ url: SWISS_SATELLITE_URL, crossOrigin: 'anonymous' }) }),
-        new TileLayer({ source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }), opacity: 0.7 }),
+        new TileLayer({
+          source: new XYZ({
+            url: SWISS_SATELLITE_URL,
+            crossOrigin: 'anonymous',
+          }),
+        }),
+        new TileLayer({
+          source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }),
+          opacity: 0.7,
+        }),
         new VectorLayer({ source: vectorSource }),
       ],
       view: new View({
-        center: focusedLng && focusedLat ? fromLonLat([focusedLng, focusedLat]) : fromLonLat([8.2275, 46.8182]),
+        center:
+          focusedLng && focusedLat
+            ? fromLonLat([focusedLng, focusedLat])
+            : fromLonLat([8.2275, 46.8182]),
         zoom: focusedLat ? 19 : 8,
         minZoom: 7,
       }),
     })
 
     map.on('click', evt => {
-      handleMapClickRef.current(evt.coordinate, evt.pixel as unknown as number[])
+      handleMapClickRef.current(
+        evt.coordinate,
+        evt.pixel as unknown as number[]
+      )
     })
 
     mapInstanceRef.current = map
@@ -208,7 +248,10 @@ export default function Step4RoofAreas() {
     setIsLoadingMap(false)
 
     if (buildingRef.current) {
-      const center = fromLonLat([buildingRef.current.center.lng, buildingRef.current.center.lat])
+      const center = fromLonLat([
+        buildingRef.current.center.lng,
+        buildingRef.current.center.lat,
+      ])
       map.getView().animate({ center, zoom: 19, duration: 500 })
       redrawAllSegments()
     } else if (focusedLat && focusedLng) {
@@ -219,98 +262,144 @@ export default function Step4RoofAreas() {
       map.setTarget(undefined)
       mapInitializedRef.current = false
     }
-  }, [hasAddress, focusedLat, focusedLng, redrawAllSegments, fetchBuildingAt])
+  }, [hasBuilding, focusedLat, focusedLng, redrawAllSegments, fetchBuildingAt])
 
   const placesLoadedRef = useRef(false)
-  const autocompleteLibRef = useRef<typeof google.maps.places.Autocomplete | null>(null)
+  const autocompleteLibRef = useRef<
+    typeof google.maps.places.Autocomplete | null
+  >(null)
 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     if (!apiKey || placesLoadedRef.current) return
     placesLoadedRef.current = true
-    const loader = new Loader({ apiKey, version: 'weekly', libraries: ['places'] })
-    loader.importLibrary('places').then(({ Autocomplete }) => {
-      autocompleteLibRef.current = Autocomplete
-      if (inputRef.current) attachAutocomplete(inputRef.current)
-    }).catch(err => console.error('Failed to load Google Places:', err))
+    const loader = new Loader({
+      apiKey,
+      version: 'weekly',
+      libraries: ['places'],
+    })
+    loader
+      .importLibrary('places')
+      .then(({ Autocomplete }) => {
+        autocompleteLibRef.current = Autocomplete
+        if (inputRef.current) attachAutocomplete(inputRef.current)
+      })
+      .catch(err => console.error('Failed to load Google Places:', err))
   }, [])
 
-  const attachAutocomplete = useCallback((el: HTMLInputElement) => {
-    const AutocompleteClass = autocompleteLibRef.current
-    if (!AutocompleteClass) return
-    const autocomplete = new AutocompleteClass(el, {
-      componentRestrictions: { country: 'ch' },
-      fields: ['formatted_address', 'geometry'],
-      types: ['address'],
-    })
-    autocomplete.addListener('place_changed', () => {
-      const place = autocomplete.getPlace()
-      if (place?.geometry?.location && place.formatted_address) {
-        const lat = place.geometry.location.lat()
-        const lng = place.geometry.location.lng()
-        setAddress(place.formatted_address)
-        setFocusedLat(lat)
-        setFocusedLng(lng)
-        setIsMobilePanelOpen(false)
+  const attachAutocomplete = useCallback(
+    (el: HTMLInputElement) => {
+      const AutocompleteClass = autocompleteLibRef.current
+      if (!AutocompleteClass) return
+      const autocomplete = new AutocompleteClass(el, {
+        componentRestrictions: { country: 'ch' },
+        fields: ['formatted_address', 'geometry'],
+        types: ['address'],
+      })
+      autocomplete.addListener('place_changed', () => {
+        const place = autocomplete.getPlace()
+        if (place?.geometry?.location && place.formatted_address) {
+          const lat = place.geometry.location.lat()
+          const lng = place.geometry.location.lng()
+          setAddress(place.formatted_address)
+          setFocusedLat(lat)
+          setFocusedLng(lng)
+          setIsMobilePanelOpen(false)
 
-        if (mapInstanceRef.current) {
-          mapInstanceRef.current.getView().animate({
-            center: fromLonLat([lng, lat]),
-            zoom: 19,
-            duration: 500,
-          })
-          fetchBuildingAt(lat, lng)
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.getView().animate({
+              center: fromLonLat([lng, lat]),
+              zoom: 19,
+              duration: 500,
+            })
+            fetchBuildingAt(lat, lng)
+          }
         }
-      }
-    })
-  }, [setAddress, fetchBuildingAt])
+      })
+    },
+    [setAddress, fetchBuildingAt]
+  )
 
-  const initGooglePlaces = useCallback((el: HTMLInputElement | null) => {
-    if (!el) return
-    inputRef.current = el
-    if (autocompleteLibRef.current) attachAutocomplete(el)
-  }, [attachAutocomplete])
+  const initGooglePlaces = useCallback(
+    (el: HTMLInputElement | null) => {
+      if (!el) return
+      inputRef.current = el
+      if (autocompleteLibRef.current) attachAutocomplete(el)
+    },
+    [attachAutocomplete]
+  )
 
   const handleNext = () => {
     const map = mapInstanceRef.current
-    if (map && vectorSourceRef.current) {
-      const extent = vectorSourceRef.current.getExtent()
-      if (extent && isFinite(extent[0])) {
-        map.getView().fit(extent, { padding: [150, 150, 150, 150], maxZoom: 19, duration: 0 })
+    const source = vectorSourceRef.current
+    if (!map || !source) {
+      nextStep()
+      return
+    }
+
+    const selectedFeatures = source
+      .getFeatures()
+      .filter(f => selectedSegmentIds.includes(f.get('segmentId')))
+    if (selectedFeatures.length === 0) {
+      nextStep()
+      return
+    }
+
+    const selectedSource = new VectorSource({ features: selectedFeatures })
+    const extent = selectedSource.getExtent()
+    if (!extent || !isFinite(extent[0])) {
+      nextStep()
+      return
+    }
+
+    map
+      .getView()
+      .fit(extent, { padding: [150, 150, 150, 150], maxZoom: 19, duration: 0 })
+
+    const capture = () => {
+      const mapCanvas = document.createElement('canvas')
+      const size = map.getSize()
+      if (!size) {
+        nextStep()
+        return
       }
-      setTimeout(() => {
-        map.once('rendercomplete', () => {
-          const mapCanvas = document.createElement('canvas')
-          const size = map.getSize()
-          if (!size) { nextStep(); return }
-          mapCanvas.width = size[0]
-          mapCanvas.height = size[1]
-          const ctx = mapCanvas.getContext('2d')
-          if (!ctx) { nextStep(); return }
-          const target = map.getTargetElement() as HTMLElement
-          target.querySelectorAll('canvas').forEach(c => {
-            if (c.width > 0 && c.height > 0) { try { ctx.drawImage(c, 0, 0) } catch {} }
-          })
-          setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
-          nextStep()
-        })
-        map.renderSync()
-      }, 300)
-    } else {
+      mapCanvas.width = size[0]
+      mapCanvas.height = size[1]
+      const ctx = mapCanvas.getContext('2d')
+      if (!ctx) {
+        nextStep()
+        return
+      }
+      const target = map.getTargetElement() as HTMLElement
+      target.querySelectorAll('canvas').forEach(c => {
+        if (c.width > 0 && c.height > 0) {
+          try {
+            ctx.drawImage(c, 0, 0)
+          } catch {}
+        }
+      })
+      setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
       nextStep()
     }
+
+    map.once('rendercomplete', capture)
+    map.renderSync()
   }
 
   const selectedArea = getSelectedArea()
   const canProceed = selectedSegmentIds.length > 0
 
-  if (!hasAddress) {
+  if (!hasBuilding) {
     return (
-      <div>
-        <div className="flex flex-col items-center justify-center px-4 py-12">
+      <div className="h-full flex flex-col">
+        <div className="flex-1 flex flex-col items-center justify-center px-4 py-12">
           <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">{t('title')}</h1>
-            <p className="mt-5 text-lg sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">{t('helper')}</p>
+            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+              {t('title')}
+            </h1>
+            <p className="mt-5 text-lg sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+              {t('helper')}
+            </p>
           </div>
 
           <div className="w-full max-w-md relative">
@@ -323,11 +412,23 @@ export default function Step4RoofAreas() {
             />
           </div>
 
-          <p className="mt-5 text-sm text-[#062E25]/40 italic">{t('officialMap')}</p>
+          <p className="mt-5 text-sm text-[#062E25]/40 italic">
+            {t('officialMap')}
+          </p>
         </div>
 
-        <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
-          <Button variant="outline" onClick={prevStep} style={{ borderColor: '#062E25', color: '#062E25' }}>
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4"
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            style={{ borderColor: '#062E25', color: '#062E25' }}
+          >
             {tNav('back')}
           </Button>
         </div>
@@ -339,14 +440,27 @@ export default function Step4RoofAreas() {
     <div className="relative h-full w-full">
       <div
         ref={mapRef}
-        className={cn('absolute inset-0 w-full h-full bg-muted', isLoadingMap && 'flex items-center justify-center')}
+        className={cn(
+          'absolute inset-0 w-full h-full bg-muted',
+          isLoadingMap && 'flex items-center justify-center'
+        )}
       >
-        {isLoadingMap && <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />}
+        {isLoadingMap && (
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        )}
       </div>
 
       <div className="absolute top-[100px] left-4 z-10 hidden sm:flex w-[320px] flex-col gap-3">
-        <div className="rounded-2xl p-5" style={{ background: 'rgba(30, 42, 38, 0.85)', backdropFilter: 'blur(20px)' }}>
-          <p className="text-sm text-[#EAEDDF]/70 mb-1.5">{t('locationLabel')}</p>
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: 'rgba(30, 42, 38, 0.85)',
+            backdropFilter: 'blur(20px)',
+          }}
+        >
+          <p className="text-sm text-[#EAEDDF]/70 mb-1.5">
+            {t('locationLabel')}
+          </p>
           <Input
             ref={initGooglePlaces}
             defaultValue={address}
@@ -354,9 +468,24 @@ export default function Step4RoofAreas() {
             className="bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40"
           />
           <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
-            <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16" fill="none">
-              <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.2" />
-              <path d="M8 5v3M8 10h.01" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+            <svg
+              className="w-4 h-4 mt-0.5 shrink-0"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <circle
+                cx="8"
+                cy="8"
+                r="7"
+                stroke="currentColor"
+                strokeWidth="1.2"
+              />
+              <path
+                d="M8 5v3M8 10h.01"
+                stroke="currentColor"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+              />
             </svg>
             <span>{t('clickHint')}</span>
           </div>
@@ -368,35 +497,29 @@ export default function Step4RoofAreas() {
           )}
         </div>
 
-        <div className="rounded-2xl p-5" style={{ background: 'rgba(30, 42, 38, 0.85)', backdropFilter: 'blur(20px)' }}>
+        <div
+          className="rounded-2xl p-5"
+          style={{
+            background: 'rgba(30, 42, 38, 0.85)',
+            backdropFilter: 'blur(20px)',
+          }}
+        >
           <div className="flex items-center justify-between">
             <p className="text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
-            <p className="text-2xl font-medium text-[#B7FE1A]">{Math.round(selectedArea)} m²</p>
+            <p className="text-2xl font-medium text-[#B7FE1A]">
+              {Math.round(selectedArea)} m²
+            </p>
           </div>
-
-          {getSelectedSegments().length > 0 && (
-            <div className="mt-3 space-y-2">
-              {getSelectedSegments().map((seg, i) => (
-                <div key={seg.id} className="flex items-center justify-between text-xs text-[#EAEDDF]/80 border-t border-white/10 pt-2">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full" style={{ backgroundColor: seg.suitability?.color || '#22C55E' }} />
-                    <span>{Math.round(seg.area)} m²</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-[#EAEDDF]/50">
-                    <span>{seg.tilt}°</span>
-                    <span>{seg.azimuthCardinal}</span>
-                    <span>{Math.round(seg.electricityYield).toLocaleString('de-CH')} kWh</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
 
           <div className="mt-3 pt-3 border-t border-white/10">
             <p className="text-sm text-[#EAEDDF]/70">{t('suitability')}</p>
             <div className="mt-2 h-2 rounded-full overflow-hidden flex">
               {[1, 2, 3, 4, 5].map(cls => (
-                <div key={cls} className="flex-1" style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }} />
+                <div
+                  key={cls}
+                  className="flex-1"
+                  style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
+                />
               ))}
             </div>
             <div className="mt-1 flex justify-between text-xs text-[#EAEDDF]/40">
@@ -408,7 +531,13 @@ export default function Step4RoofAreas() {
       </div>
 
       <div className="absolute inset-x-0 bottom-[84px] z-20 px-3 sm:hidden">
-        <div className="overflow-hidden rounded-2xl border border-white/10" style={{ background: 'rgba(30, 42, 38, 0.88)', backdropFilter: 'blur(20px)' }}>
+        <div
+          className="overflow-hidden rounded-2xl border border-white/10"
+          style={{
+            background: 'rgba(30, 42, 38, 0.88)',
+            backdropFilter: 'blur(20px)',
+          }}
+        >
           <button
             type="button"
             onClick={() => setIsMobilePanelOpen(open => !open)}
@@ -416,18 +545,43 @@ export default function Step4RoofAreas() {
           >
             <span className="text-sm font-medium">{t('selected')}</span>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-[#B7FE1A]">{Math.round(selectedArea)} m²</span>
-              {isMobilePanelOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronUp className="h-4 w-4" />}
+              <span className="text-sm text-[#B7FE1A]">
+                {Math.round(selectedArea)} m²
+              </span>
+              {isMobilePanelOpen ? (
+                <ChevronDown className="h-4 w-4" />
+              ) : (
+                <ChevronUp className="h-4 w-4" />
+              )}
             </div>
           </button>
-          <div className={cn('transition-[max-height,opacity] duration-300', isMobilePanelOpen ? 'max-h-[70vh] opacity-100' : 'max-h-0 opacity-0')}>
-            <div className="px-4 pb-3 text-sm text-[#EAEDDF]/70">{t('clickHint')}</div>
+          <div
+            className={cn(
+              'transition-[max-height,opacity] duration-300',
+              isMobilePanelOpen
+                ? 'max-h-[70vh] opacity-100'
+                : 'max-h-0 opacity-0'
+            )}
+          >
+            <div className="px-4 pb-3 text-sm text-[#EAEDDF]/70">
+              {t('clickHint')}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4" style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
-        <Button variant="outline" onClick={prevStep} style={{ borderColor: '#062E25', color: '#062E25' }}>
+      <div
+        className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4"
+        style={{
+          background: 'rgba(234, 237, 223, 0.85)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
+        <Button
+          variant="outline"
+          onClick={prevStep}
+          style={{ borderColor: '#062E25', color: '#062E25' }}
+        >
           {tNav('back')}
         </Button>
         <Button onClick={handleNext} disabled={!canProceed}>

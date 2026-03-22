@@ -551,6 +551,11 @@ export default function AdminPackageDetailPage() {
                             </SelectTrigger>
                             <SelectContent>
                               <SelectItem value="__none__">{t('selectEquipment')}</SelectItem>
+                              {item.equipmentId && !equipmentOptions[item.equipmentType]?.some(opt => opt.id === item.equipmentId) && (
+                                <SelectItem value={item.equipmentId}>
+                                  {item.equipmentName}
+                                </SelectItem>
+                              )}
                               {(equipmentOptions[item.equipmentType] || []).map(opt => (
                                 <SelectItem key={opt.id} value={opt.id}>
                                   {opt.label}

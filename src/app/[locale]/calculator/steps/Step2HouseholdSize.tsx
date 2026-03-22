@@ -1,6 +1,5 @@
 'use client'
 
-import { Minus, Plus } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
@@ -168,90 +167,15 @@ const householdOptions: {
   },
 ]
 
-function ApartmentCountPicker() {
-  const t = useTranslations('solarAboCalculator.apartmentCount')
-  const tNav = useTranslations('solarAboCalculator.navigation')
-  const { apartmentCount, setApartmentCount, nextStep, prevStep } =
-    useSolarAboCalculatorStore()
-
-  return (
-    <div>
-      <div className="container mx-auto px-4 pt-8 pb-16 max-w-2xl">
-        <div className="flex flex-col sm:flex-row items-start gap-8 mt-12">
-          <div className="flex-1">
-            <h1 className="text-2xl sm:text-3xl font-medium text-[#062E25]">
-              {t('title')}
-            </h1>
-          </div>
-
-          <div className="w-full sm:w-auto">
-            <div className="bg-white rounded-xl shadow-sm p-8 flex flex-col items-center gap-2">
-              <span className="text-sm text-[#062E25]/60">*</span>
-              <div className="flex items-center gap-4">
-                <button
-                  type="button"
-                  onClick={() => setApartmentCount(apartmentCount - 1)}
-                  disabled={apartmentCount <= 2}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#7BB5A8] text-[#7BB5A8] transition-colors hover:bg-[#7BB5A8]/10 disabled:opacity-30 disabled:cursor-not-allowed"
-                >
-                  <Minus className="h-5 w-5" />
-                </button>
-
-                <div className="flex h-14 w-20 items-center justify-center border-2 border-[#062E25] rounded-md">
-                  <span className="text-2xl font-medium text-[#062E25]">
-                    {apartmentCount}
-                  </span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setApartmentCount(apartmentCount + 1)}
-                  className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#7BB5A8] text-[#7BB5A8] transition-colors hover:bg-[#7BB5A8]/10"
-                >
-                  <Plus className="h-5 w-5" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div
-          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
-          style={{
-            background: 'rgba(234, 237, 223, 0.85)',
-            backdropFilter: 'blur(12px)',
-          }}
-        >
-          <Button variant="outline" onClick={prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
-            {tNav('back')}
-          </Button>
-          <Button
-            className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
-            onClick={nextStep}
-          >
-            {tNav('next')}
-          </Button>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export default function Step2HouseholdSize() {
   const t = useTranslations('solarAboCalculator.step3')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const {
-    buildingType,
-    multiPlanningType,
     householdSize,
     setHouseholdSize,
+    setSolarModel,
     nextStep,
-    prevStep,
   } = useSolarAboCalculatorStore()
-
-  if (buildingType === 'apartment' && multiPlanningType === 'all-parties') {
-    return <ApartmentCountPicker />
-  }
 
   const handleSelect = (size: HouseholdSize) => {
     setHouseholdSize(size)
@@ -310,7 +234,7 @@ export default function Step2HouseholdSize() {
             backdropFilter: 'blur(12px)',
           }}
         >
-          <Button variant="outline" onClick={prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
+          <Button variant="outline" onClick={() => setSolarModel(null)} style={{ borderColor: "#062E25", color: "#062E25" }}>
             {tNav('back')}
           </Button>
         </div>

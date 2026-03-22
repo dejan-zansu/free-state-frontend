@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
+import { useQueryClient } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { Save, Trash2, Loader2, Upload, X } from 'lucide-react'
 import Image from 'next/image'
@@ -24,12 +25,8 @@ import { adminService } from '@/services/admin.service'
 import type { AdminBlogPost } from '@/types/admin'
 
 const LANGUAGES = [
-  { code: 'sr', label: 'Srpski', required: true },
-  { code: 'de', label: 'Deutsch' },
+  { code: 'de', label: 'Deutsch', required: true },
   { code: 'en', label: 'English' },
-  { code: 'fr', label: 'Français' },
-  { code: 'it', label: 'Italiano' },
-  { code: 'es', label: 'Español' },
 ]
 
 interface TranslationData {
@@ -71,6 +68,7 @@ interface BlogPostFormProps {
 
 export function BlogPostForm({ post }: BlogPostFormProps) {
   const router = useRouter()
+  const queryClient = useQueryClient()
   const locale = useLocale()
   const t = useTranslations('admin.blog')
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -110,7 +108,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
       [lang]: { ...prev[lang], [field]: value },
     }))
 
-    if (lang === 'sr' && field === 'title' && !slugManual) {
+    if (lang === 'de' && field === 'title' && !slugManual) {
       setSlug(slugify(value))
     }
   }
@@ -157,6 +155,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
         await adminService.createBlogPost(payload)
       }
 
+      await queryClient.invalidateQueries({ queryKey: ['admin', 'blog'] })
       router.push(`/${locale}/admin/blog`)
     } catch (err) {
       console.error(err)
@@ -170,6 +169,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
     setDeleting(true)
     try {
       await adminService.deleteBlogPost(post.id)
+      await queryClient.invalidateQueries({ queryKey: ['admin', 'blog'] })
       router.push(`/${locale}/admin/blog`)
     } catch (err) {
       console.error(err)
@@ -198,7 +198,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
           )}
           <Button
             onClick={handleSave}
-            disabled={saving || !slug.trim() || !translations.sr.title.trim()}
+            disabled={saving || !slug.trim() || !translations.de.title.trim()}
             className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
           >
             {saving ? <Loader2 className="h-4 w-4 animate-spin mr-2" /> : <Save className="h-4 w-4 mr-2" />}
@@ -207,9 +207,9 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-        <Card className="border-[#062E25]/10 lg:col-span-2">
-          <CardContent className="p-6 space-y-4">
+      <Card className="border-[#062E25]/10 mb-6">
+        <CardContent className="p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <Label>{t('slug')}</Label>
               <Input
@@ -222,11 +222,6 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
                 className="mt-1 font-mono text-sm"
               />
             </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-[#062E25]/10">
-          <CardContent className="p-6 space-y-4">
             <div>
               <Label>{t('status')}</Label>
               <Select value={status} onValueChange={(v) => setStatus(v as 'DRAFT' | 'PUBLISHED')}>
@@ -239,7 +234,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
                 </SelectContent>
               </Select>
             </div>
-            <div>
+            <div className="sm:col-span-2">
               <Label>{t('coverImage')}</Label>
               <div className="mt-1">
                 {coverImageUrl ? (
@@ -279,16 +274,16 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
                 />
               </div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card className="border-[#062E25]/10">
         <CardHeader>
           <CardTitle className="text-[#062E25]">{t('content')}</CardTitle>
         </CardHeader>
         <CardContent>
-          <Tabs defaultValue="sr">
+          <Tabs defaultValue="de">
             <TabsList className="mb-4">
               {LANGUAGES.map((lang) => {
                 const hasContent = translations[lang.code]?.title.trim()

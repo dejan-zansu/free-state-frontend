@@ -37,6 +37,7 @@ const Footer = () => {
   const t = useTranslations('footer')
   const pathname = usePathname()
   const [email, setEmail] = useState('')
+  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const isCommercial = pathname?.includes('/commercial')
   const isLight =
     pathname?.includes('/solar-systems') ||
@@ -110,6 +111,7 @@ const Footer = () => {
   const knowledgeMediaLinks = [
     { label: t('knowledgeMedia.faq'), href: '/faq' as const },
     { label: t('knowledgeMedia.mediaPress'), href: '/media' as const },
+    { label: t('knowledgeMedia.blog'), href: '/blog' as const },
   ]
 
   const legalLinks = [
@@ -144,6 +146,28 @@ const Footer = () => {
       label: 'LinkedIn',
     },
   ]
+
+  const handleSubscribe = async () => {
+    if (!email.trim()) return
+    setSubscribeStatus('loading')
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+      const response = await fetch(`${apiUrl}/api/newsletters`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await response.json()
+      if (data.success) {
+        setSubscribeStatus('success')
+        setEmail('')
+      } else {
+        setSubscribeStatus('error')
+      }
+    } catch {
+      setSubscribeStatus('error')
+    }
+  }
 
   const LinkColumn = ({
     title,
@@ -345,8 +369,14 @@ const Footer = () => {
                 variant={isCommercial ? 'secondary' : 'primary'}
                 size="md"
                 className="h-9 text-sm"
+                onClick={handleSubscribe}
+                disabled={subscribeStatus === 'loading' || !email.trim()}
               >
-                {t('subscribe')}
+                {subscribeStatus === 'success'
+                  ? t('subscribed')
+                  : subscribeStatus === 'loading'
+                    ? '...'
+                    : t('subscribe')}
               </ArrowButton>
             </div>
 

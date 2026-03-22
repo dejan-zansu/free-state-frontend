@@ -15,42 +15,62 @@ import { Link } from '@/i18n/navigation'
 import { Check, Facebook, InstagramIcon, LinkedinIcon } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 import { ArrowButton } from './ui/arrow-button'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
+type ContactFormData = {
+  entityType: string
+  salutation: string
+  firstName: string
+  lastName: string
+  postalCode: string
+  city: string
+  phone: string
+  email: string
+  message: string
+  privacy: boolean
+}
+
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
 
-  const [formData, setFormData] = useState({
-    entityType: '',
-    salutation: '',
-    firstName: '',
-    lastName: '',
-    postalCode: '',
-    city: '',
-    phone: '',
-    email: '',
-    message: '',
-    privacy: false,
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    defaultValues: {
+      entityType: '',
+      salutation: '',
+      firstName: '',
+      lastName: '',
+      postalCode: '',
+      city: '',
+      phone: '',
+      email: '',
+      message: '',
+      privacy: false,
+    },
   })
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const onSubmit = async (data: ContactFormData) => {
     setStatus('loading')
 
     try {
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       })
 
-      const data = await response.json()
+      const result = await response.json()
 
-      if (data.success) {
+      if (result.success) {
         setStatus('success')
       } else {
         setStatus('error')
@@ -74,52 +94,52 @@ const ContactFormSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           <div>
             {status === 'success' ? (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
-                  <Check className="h-8 w-8 text-green-600" />
-                </div>
+              <div className="flex flex-col items-start py-16">
+                <Check className="h-8 w-8 text-green-600 mb-4" strokeWidth={2.5} />
                 <h3 className="text-xl font-semibold text-[#062E25] mb-2">{t('successTitle')}</h3>
                 <p className="text-[#062E25]/60">{t('successMessage')}</p>
               </div>
             ) : (
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <Select
-                  value={formData.entityType}
-                  onValueChange={value =>
-                    setFormData({ ...formData, entityType: value })
-                  }
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder={t('entityType.placeholder')} />
-                  </SelectTrigger>
-                  <SelectContent position="popper">
-                    <SelectItem value="company">
-                      {t('entityType.company')}
-                    </SelectItem>
-                    <SelectItem value="private">
-                      {t('entityType.private')}
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+                <Controller
+                  name="entityType"
+                  control={control}
+                  render={({ field }) => (
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder={t('entityType.placeholder')} />
+                      </SelectTrigger>
+                      <SelectContent position="popper">
+                        <SelectItem value="company">
+                          {t('entityType.company')}
+                        </SelectItem>
+                        <SelectItem value="private">
+                          {t('entityType.private')}
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  )}
+                />
 
-                <Select
-                  value={formData.salutation}
-                  onValueChange={value =>
-                    setFormData({ ...formData, salutation: value })
-                  }
-                >
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder={t('salutation.placeholder')} />
-                  </SelectTrigger>
-                  <SelectContent position="popper">
-                    <SelectItem value="mr">{t('salutation.mr')}</SelectItem>
-                    <SelectItem value="mrs">{t('salutation.mrs')}</SelectItem>
-                    <SelectItem value="diverse">
-                      {t('salutation.diverse')}
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+                <Controller
+                  name="salutation"
+                  control={control}
+                  render={({ field }) => (
+                    <Select value={field.value} onValueChange={field.onChange}>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder={t('salutation.placeholder')} />
+                      </SelectTrigger>
+                      <SelectContent position="popper">
+                        <SelectItem value="mr">{t('salutation.mr')}</SelectItem>
+                        <SelectItem value="mrs">{t('salutation.mrs')}</SelectItem>
+                        <SelectItem value="diverse">
+                          {t('salutation.diverse')}
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  )}
+                />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -128,10 +148,7 @@ const ContactFormSection = () => {
                     {t('firstName.label')}
                   </Label>
                   <Input
-                    value={formData.firstName}
-                    onChange={e =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
+                    {...register('firstName')}
                     placeholder={t('firstName.placeholder')}
                     className="h-9 bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]"
                   />
@@ -141,10 +158,7 @@ const ContactFormSection = () => {
                     {t('lastName.label')}
                   </Label>
                   <Input
-                    value={formData.lastName}
-                    onChange={e =>
-                      setFormData({ ...formData, lastName: e.target.value })
-                    }
+                    {...register('lastName')}
                     placeholder={t('lastName.placeholder')}
                     className="h-9 bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]"
                   />
@@ -157,10 +171,7 @@ const ContactFormSection = () => {
                     {t('postalCode.label')}
                   </Label>
                   <Input
-                    value={formData.postalCode}
-                    onChange={e =>
-                      setFormData({ ...formData, postalCode: e.target.value })
-                    }
+                    {...register('postalCode')}
                     placeholder={t('postalCode.placeholder')}
                     className="h-9 bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]"
                   />
@@ -170,10 +181,7 @@ const ContactFormSection = () => {
                     {t('city.label')}
                   </Label>
                   <Input
-                    value={formData.city}
-                    onChange={e =>
-                      setFormData({ ...formData, city: e.target.value })
-                    }
+                    {...register('city')}
                     placeholder={t('city.placeholder')}
                     className="h-9 bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]"
                   />
@@ -183,31 +191,31 @@ const ContactFormSection = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
                   <Label className="text-foreground/60 text-sm">
-                    {t('phone.label')}
+                    {t('phone.label')} <span className="text-red-500">*</span>
                   </Label>
                   <Input
                     type="tel"
-                    value={formData.phone}
-                    onChange={e =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    {...register('phone', { required: t('errors.phone') })}
                     placeholder={t('phone.placeholder')}
                     className="h-9 bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]"
                   />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                  )}
                 </div>
                 <div className="space-y-1.5">
                   <Label className="text-foreground/60 text-sm">
-                    {t('email.label')}
+                    {t('email.label')} <span className="text-red-500">*</span>
                   </Label>
                   <Input
                     type="email"
-                    value={formData.email}
-                    onChange={e =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    {...register('email', { required: t('errors.email') })}
                     placeholder={t('email.placeholder')}
                     className="h-9 bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]"
                   />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm">{errors.email.message}</p>
+                  )}
                 </div>
               </div>
 
@@ -215,39 +223,49 @@ const ContactFormSection = () => {
 
               <div className="space-y-1.5">
                 <Label className="text-foreground/60 text-sm">
-                  {t('message.label')}
+                  {t('message.label')} <span className="text-red-500">*</span>
                 </Label>
                 <Textarea
-                  value={formData.message}
-                  onChange={e =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  {...register('message', { required: t('errors.message') })}
                   placeholder={t('message.placeholder')}
                   className="min-h-[120px] bg-[#F5F5F5] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] resize-none"
                 />
+                {errors.message && (
+                  <p className="text-red-500 text-sm">{errors.message.message}</p>
+                )}
               </div>
 
-              <div className="flex items-center gap-2.5">
-                <Checkbox
-                  id="privacy"
-                  checked={formData.privacy}
-                  onCheckedChange={checked =>
-                    setFormData({ ...formData, privacy: checked as boolean })
-                  }
-                  className="size-6 rounded border-foreground/60 "
-                />
-                <Label
-                  htmlFor="privacy"
-                  className="text-sm text-foreground/40 cursor-pointer"
-                >
-                  <Link
-                    href="/privacy-policy"
-                    onClick={e => e.stopPropagation()}
-                    className="hover:underline"
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2.5">
+                  <Controller
+                    name="privacy"
+                    control={control}
+                    rules={{ required: t('errors.privacy') }}
+                    render={({ field }) => (
+                      <Checkbox
+                        id="privacy"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className="size-6 rounded border-foreground/60 "
+                      />
+                    )}
+                  />
+                  <Label
+                    htmlFor="privacy"
+                    className="text-sm text-foreground/40 cursor-pointer"
                   >
-                    {t('privacy')}
-                  </Link>
-                </Label>
+                    <Link
+                      href="/privacy-policy"
+                      onClick={e => e.stopPropagation()}
+                      className="hover:underline"
+                    >
+                      {t('privacy')} <span className="text-red-500">*</span>
+                    </Link>
+                  </Label>
+                </div>
+                {errors.privacy && (
+                  <p className="text-red-500 text-sm">{errors.privacy.message}</p>
+                )}
               </div>
 
               {status === 'error' && (

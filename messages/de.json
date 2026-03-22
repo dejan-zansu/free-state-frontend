@@ -13,6 +13,7 @@
     "signUpForUpdates": "FÜR UPDATES ANMELDEN",
     "enterEmail": "E-Mail eingeben",
     "subscribe": "Abonnieren",
+    "subscribed": "Abonniert!",
     "callUs": "RUFEN SIE UNS AN",
     "callHours": "Mo-Fr 9-18 (kostenlos)",
     "solarAbo": {
@@ -43,7 +44,8 @@
     "knowledgeMedia": {
       "title": "Wissen & Medien",
       "faq": "Solar Know-how / FAQ",
-      "mediaPress": "Medien & Presse"
+      "mediaPress": "Medien & Presse",
+      "blog": "Blog"
     },
     "legal": {
       "title": "Rechtliches",
@@ -882,6 +884,12 @@
     "successTitle": "Nachricht gesendet",
     "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
     "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "errors": {
+      "phone": "Telefonnummer ist erforderlich",
+      "email": "E-Mail ist erforderlich",
+      "message": "Nachricht ist erforderlich",
+      "privacy": "Sie müssen die Datenschutzerklärung akzeptieren"
+    },
     "card": {
       "address": {
         "title": "Adresse",
@@ -4688,7 +4696,10 @@
       "blog": "Blog",
       "support": "Support",
       "contacts": "Kontaktanfragen",
-      "newsletter": "Newsletter"
+      "newsletter": "Newsletter",
+      "groupContent": "Inhalte",
+      "groupCrm": "CRM",
+      "groupEquipment": "Ausrüstung"
     },
     "dashboard": {
       "title": "Dashboard",

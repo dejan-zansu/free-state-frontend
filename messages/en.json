@@ -13,6 +13,7 @@
     "signUpForUpdates": "SIGN-UP FOR UPDATES",
     "enterEmail": "Enter email",
     "subscribe": "Subscribe",
+    "subscribed": "Subscribed!",
     "callUs": "CALL US",
     "callHours": "Mo-Fr 9-18 (toll free)",
     "solarAbo": {
@@ -43,7 +44,8 @@
     "knowledgeMedia": {
       "title": "Knowledge & media",
       "faq": "Solar know-how / FAQ",
-      "mediaPress": "Media & press"
+      "mediaPress": "Media & press",
+      "blog": "Blog"
     },
     "legal": {
       "title": "Legal",
@@ -879,6 +881,15 @@
     },
     "privacy": "I hereby confirm that I have read and understood the privacy policy.",
     "submit": "Submit",
+    "successTitle": "Message Sent",
+    "successMessage": "Thank you for your message. We will get back to you shortly.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "errors": {
+      "phone": "Phone number is required",
+      "email": "Email is required",
+      "message": "Message is required",
+      "privacy": "You must accept the privacy policy"
+    },
     "card": {
       "address": {
         "title": "Address",
@@ -4620,7 +4631,10 @@
       "blog": "Blog",
       "support": "Support",
       "contacts": "Contact Submissions",
-      "newsletter": "Newsletter"
+      "newsletter": "Newsletter",
+      "groupContent": "Content",
+      "groupCrm": "CRM",
+      "groupEquipment": "Equipment"
     },
     "dashboard": {
       "title": "Dashboard",
