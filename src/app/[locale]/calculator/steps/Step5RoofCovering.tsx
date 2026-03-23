@@ -15,14 +15,18 @@ interface RoofOption {
 }
 
 const pitchedOptions: RoofOption[] = [
-  { type: 'tiled', image: '/images/calculator/roof-tiled.jpg', labelKey: 'tiled' },
-  { type: 'tin', image: '/images/calculator/roof-tin.jpg', labelKey: 'tin' },
+  { type: 'tiled', image: null, labelKey: 'tiled' },
+  { type: 'tin', image: null, labelKey: 'tin' },
+  { type: 'slate', image: null, labelKey: 'slate' },
+  { type: 'fiber_cement', image: null, labelKey: 'fiberCement' },
   { type: 'other', image: null, labelKey: 'other' },
 ]
 
 const flatOptions: RoofOption[] = [
-  { type: 'gravel', image: '/images/calculator/roof-gravel.jpg', labelKey: 'gravel' },
-  { type: 'substrate', image: '/images/calculator/roof-substrate.jpg', labelKey: 'substrate' },
+  { type: 'gravel', image: null, labelKey: 'gravel' },
+  { type: 'substrate', image: null, labelKey: 'substrate' },
+  { type: 'bitumen', image: null, labelKey: 'bitumen' },
+  { type: 'membrane', image: null, labelKey: 'membrane' },
   { type: 'other', image: null, labelKey: 'other' },
 ]
 

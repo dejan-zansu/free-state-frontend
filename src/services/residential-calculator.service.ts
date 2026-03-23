@@ -109,6 +109,8 @@ export interface CalculatorPackage {
     name: string
     quantity: number
     isOptional: boolean
+    panelWattageW?: number
+    panelAreaM2?: number
   }[]
 }
 

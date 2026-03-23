@@ -2752,8 +2752,12 @@
       "options": {
         "tiled": "Tiled roof",
         "tin": "Tin roof",
+        "slate": "Slate roof",
+        "fiberCement": "Fiber cement / Eternit",
         "gravel": "Gravel",
         "substrate": "Substrate / green roof",
+        "bitumen": "Bitumen",
+        "membrane": "Membrane / foil",
         "other": "Other"
       }
     },
@@ -2764,7 +2768,9 @@
         "production": "kWh/year",
         "savings": "per year",
         "selfSufficiency": "Self-sufficiency",
-        "co2": "kg CO₂/year"
+        "co2": "kg CO₂/year",
+        "energyBalance": "Energy balance",
+        "energyBalanceDesc": "of your consumption produced by your system"
       },
       "chart": {
         "title": "Monthly Production",
@@ -2790,6 +2796,14 @@
         "panels": "Estimated panels",
         "area": "Roof area used",
         "consumption": "Annual consumption"
+      },
+      "pricing": {
+        "title": "Investment",
+        "gross": "Total before subsidy",
+        "subsidy": "Federal subsidy (KLEIV)",
+        "net": "Your investment",
+        "annualSavings": "Annual electricity savings",
+        "totalSavings": "Total savings over contract term"
       },
       "abo": {
         "title": "Solar ABO — Zero Investment",
@@ -2855,6 +2869,16 @@
       "phoneNumberPlaceholder": "Enter your phone number",
       "remarks": "Remarks",
       "remarksPlaceholder": "Any additional information or questions...",
+      "errors": {
+        "salutationRequired": "Please select a salutation",
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Email address is required",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Please enter a valid phone number",
+        "consentRequired": "You must accept the data processing terms"
+      },
       "submit": "Request offer",
       "successMessage": "Thank you! We will contact you shortly with your personalized offer.",
       "offerPreview": {

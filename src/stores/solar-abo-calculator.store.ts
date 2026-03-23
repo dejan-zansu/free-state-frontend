@@ -10,7 +10,7 @@ export type SolarModel = 'solar-abo' | 'solar-direct'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
-export type RoofCoveringType = 'tiled' | 'tin' | 'gravel' | 'substrate' | 'other'
+export type RoofCoveringType = 'tiled' | 'tin' | 'slate' | 'fiber_cement' | 'gravel' | 'substrate' | 'bitumen' | 'membrane' | 'other'
 export type RoofType = 'flat' | 'pitched'
 export type Salutation = 'mr' | 'woman' | 'family'
 
@@ -45,14 +45,13 @@ const ELECTRICITY_PRICE = 0.277
 // Source: strom.ch "CO2-Gehalt des Strommix Schweiz"
 const CO2_FACTOR = 0.128
 
-// Swiss national average specific yield (IEA-PVPS 2013-2022: 954 kWh/kWp)
-// Rounded to 1000 for Swiss Plateau with typical (not optimal) orientations
-// Source: IEA-PVPS National Survey Report Switzerland 2024
-const SPECIFIC_YIELD = 1000
+// Fallback panel specs when package panel data is not available
+const AVG_PANEL_POWER_W = 460
+const AVG_PANEL_AREA = 2.0
 
-// Standard residential panel ~425W (2025 industry average, TOPCon mainstream)
-// Source: Clean Energy Reviews, SolarTechOnline 2025 surveys
-const AVG_PANEL_POWER = 0.425
+// Fraction of roof area usable for panel placement (accounting for edges,
+// obstructions, setbacks, and mounting constraints)
+const USABLE_ROOF_FRACTION = 0.70
 
 // BFE/Nipkow study "Typischer Haushalt-Stromverbrauch" (2021), single-family house values
 // Excludes electric heating, heat pump, and electric hot water
@@ -132,6 +131,8 @@ interface SolarAboCalculatorState {
   selectedPackageId: string | null
   selectedPackageCode: string | null
   selectedPackagePricePerKwp: number | null
+  selectedPanelWattageW: number | null
+  selectedPanelAreaM2: number | null
   createdContractId: string | null
   contractNumber: string | null
   contractPdfUrl: string | null
@@ -172,7 +173,7 @@ interface SolarAboCalculatorActions {
   getCo2Savings: () => number
   getMonthlyProduction: () => number[]
   getRecommendedPackage: () => SolarAboPackage
-  setSelectedPackage: (id: string, code: string, pricePerKwp: number | null) => void
+  setSelectedPackage: (id: string, code: string, pricePerKwp: number | null, panelWattageW?: number | null, panelAreaM2?: number | null) => void
   getGrossAmount: () => number
   getSubsidyAmount: () => number
   getNetAmount: () => number
@@ -243,6 +244,8 @@ const initialState: SolarAboCalculatorState = {
   selectedPackageId: null,
   selectedPackageCode: null,
   selectedPackagePricePerKwp: null,
+  selectedPanelWattageW: null,
+  selectedPanelAreaM2: null,
   createdContractId: null,
   contractNumber: null,
   contractPdfUrl: null,
@@ -398,16 +401,18 @@ export const useSolarAboCalculatorStore = create<
         return segments.reduce((sum, s) => sum + s.electricityYield, 0)
       },
 
-      getSystemSizeKwp: () => {
-        const production = get().getAnnualProduction()
-        if (production === 0) return 0
-        return production / SPECIFIC_YIELD
+      getEstimatedPanelCount: () => {
+        const selectedArea = get().getSelectedArea()
+        if (selectedArea === 0) return 0
+        const panelArea = get().selectedPanelAreaM2 || AVG_PANEL_AREA
+        return Math.floor(selectedArea * USABLE_ROOF_FRACTION / panelArea)
       },
 
-      getEstimatedPanelCount: () => {
-        const kwp = get().getSystemSizeKwp()
-        if (kwp === 0) return 0
-        return Math.ceil(kwp / AVG_PANEL_POWER)
+      getSystemSizeKwp: () => {
+        const panelCount = get().getEstimatedPanelCount()
+        if (panelCount === 0) return 0
+        const panelKwp = (get().selectedPanelWattageW || AVG_PANEL_POWER_W) / 1000
+        return panelCount * panelKwp
       },
 
       getSelfConsumptionRate: () => {
@@ -456,8 +461,14 @@ export const useSolarAboCalculatorStore = create<
         return 'home'
       },
 
-      setSelectedPackage: (id: string, code: string, pricePerKwp: number | null) => {
-        set({ selectedPackageId: id, selectedPackageCode: code, selectedPackagePricePerKwp: pricePerKwp })
+      setSelectedPackage: (id: string, code: string, pricePerKwp: number | null, panelWattageW?: number | null, panelAreaM2?: number | null) => {
+        set({
+          selectedPackageId: id,
+          selectedPackageCode: code,
+          selectedPackagePricePerKwp: pricePerKwp,
+          selectedPanelWattageW: panelWattageW ?? null,
+          selectedPanelAreaM2: panelAreaM2 ?? null,
+        })
       },
 
       getGrossAmount: () => {
@@ -652,6 +663,8 @@ export const useSolarAboCalculatorStore = create<
         selectedPackageId: state.selectedPackageId,
         selectedPackageCode: state.selectedPackageCode,
         selectedPackagePricePerKwp: state.selectedPackagePricePerKwp,
+        selectedPanelWattageW: state.selectedPanelWattageW,
+        selectedPanelAreaM2: state.selectedPanelAreaM2,
         createdContractId: state.createdContractId,
         contractNumber: state.contractNumber,
         contractPdfUrl: state.contractPdfUrl,

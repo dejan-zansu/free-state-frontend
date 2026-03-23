@@ -4419,8 +4419,12 @@
       "options": {
         "tiled": "Ziegeldach",
         "tin": "Blechdach",
+        "slate": "Schieferdach",
+        "fiberCement": "Faserzement / Eternit",
         "gravel": "Kies",
         "substrate": "Substrat / Gründach",
+        "bitumen": "Bitumen",
+        "membrane": "Membran / Folie",
         "other": "Andere"
       }
     },
@@ -4431,7 +4435,9 @@
         "production": "kWh/Jahr",
         "savings": "pro Jahr",
         "selfSufficiency": "Eigenverbrauch",
-        "co2": "kg CO₂/Jahr"
+        "co2": "kg CO₂/Jahr",
+        "energyBalance": "Energiebilanz",
+        "energyBalanceDesc": "Ihres Verbrauchs wird von Ihrer Anlage produziert"
       },
       "chart": {
         "title": "Monatliche Produktion",
@@ -4457,6 +4463,14 @@
         "panels": "Geschätzte Panelanzahl",
         "area": "Genutzte Dachfläche",
         "consumption": "Jahresverbrauch"
+      },
+      "pricing": {
+        "title": "Investition",
+        "gross": "Gesamtpreis vor Förderung",
+        "subsidy": "Bundesförderung (KLEIV)",
+        "net": "Ihre Investition",
+        "annualSavings": "Jährliche Stromersparnis",
+        "totalSavings": "Gesamtersparnis über Vertragslaufzeit"
       },
       "abo": {
         "title": "Solar ABO — Keine Investition",
@@ -4522,6 +4536,16 @@
       "phoneNumberPlaceholder": "Geben Sie Ihre Telefonnummer ein",
       "remarks": "Bemerkungen",
       "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
+      "errors": {
+        "salutationRequired": "Bitte wählen Sie eine Anrede",
+        "firstNameRequired": "Vorname ist erforderlich",
+        "lastNameRequired": "Nachname ist erforderlich",
+        "emailRequired": "E-Mail-Adresse ist erforderlich",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        "phoneRequired": "Telefonnummer ist erforderlich",
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein",
+        "consentRequired": "Sie müssen die Datenschutzbestimmungen akzeptieren"
+      },
       "submit": "Angebot anfordern",
       "successMessage": "Vielen Dank! Wir werden Sie in Kürze mit Ihrem personalisierten Angebot kontaktieren.",
       "offerPreview": {

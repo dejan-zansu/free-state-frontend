@@ -16,6 +16,7 @@ import {
   Package,
 } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts'
+import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -23,6 +24,22 @@ import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { residentialCalculatorService, type CalculatorPackage } from '@/services/residential-calculator.service'
 
 const MONTH_KEYS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+
+function getPanelSpecs(pkg: CalculatorPackage) {
+  const panel = pkg.equipment.find(e => e.equipmentType === 'SOLAR_PANEL')
+  return {
+    panelWattageW: panel?.panelWattageW ?? null,
+    panelAreaM2: panel?.panelAreaM2 ?? null,
+  }
+}
+
+function selectPackageFromData(
+  setFn: (id: string, code: string, pricePerKwp: number | null, panelWattageW?: number | null, panelAreaM2?: number | null) => void,
+  pkg: CalculatorPackage
+) {
+  const { panelWattageW, panelAreaM2 } = getPanelSpecs(pkg)
+  setFn(pkg.id, pkg.code, pkg.pricePerKwp, panelWattageW, panelAreaM2)
+}
 
 export default function StepResults() {
   const t = useTranslations('solarAboCalculator.results')
@@ -46,6 +63,13 @@ export default function StepResults() {
   const panelCount = store.getEstimatedPanelCount()
   const selectedArea = store.getSelectedArea()
   const monthlyProduction = store.getMonthlyProduction()
+  const estimatedConsumption = store.getEstimatedConsumption()
+  const grossAmount = store.getGrossAmount()
+  const subsidyAmount = store.getSubsidyAmount()
+  const netAmount = store.getNetAmount()
+  const energyBalance = estimatedConsumption > 0
+    ? Math.round((annualProduction / estimatedConsumption) * 100)
+    : 0
 
   const chartData = MONTH_KEYS.map((key, i) => ({
     name: t(`months.${key}`),
@@ -65,7 +89,7 @@ export default function StepResults() {
           const recommended = filtered.find(
             (p) => p.code.toLowerCase() === store.getRecommendedPackage()
           ) || filtered[0]
-          store.setSelectedPackage(recommended.id, recommended.code, recommended.pricePerKwp)
+          selectPackageFromData(store.setSelectedPackage, recommended)
         }
       })
       .catch(() => {})
@@ -103,50 +127,177 @@ export default function StepResults() {
     store.nextStep()
   }
 
+  const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
+
   return (
     <div>
       <div className='container mx-auto px-4 pt-8 pb-16 max-w-4xl'>
         <h1 className='text-2xl font-bold'>{t('title')}</h1>
         <p className='mt-2 text-muted-foreground'>{t('subtitle')}</p>
 
-        <div className='mt-8 grid grid-cols-2 lg:grid-cols-4 gap-4'>
+        <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
+          <div className='rounded-2xl overflow-hidden border border-[#062E25]/10'>
+            {store.roofImage ? (
+              <Image
+                src={store.roofImage}
+                alt={t('system.title')}
+                width={600}
+                height={400}
+                className='w-full h-auto object-cover'
+              />
+            ) : (
+              <div className='aspect-[3/2] bg-[#F5F7EE] flex items-center justify-center'>
+                <PanelTop className='h-16 w-16 text-[#062E25]/15' />
+              </div>
+            )}
+            {store.address && (
+              <div className='px-4 py-2 bg-[#062E25]/5 text-xs text-[#062E25]/60'>
+                {store.address}
+              </div>
+            )}
+          </div>
+
+          <div className='grid grid-cols-2 gap-3 content-start'>
+            <Card>
+              <CardContent className='pt-5 pb-4 text-center'>
+                <Zap className='mx-auto h-6 w-6 text-yellow-500' />
+                <p className='mt-1.5 text-xl font-bold'>
+                  {Math.round(annualProduction).toLocaleString('de-CH')}
+                </p>
+                <p className='text-xs text-muted-foreground'>{t('metrics.production')}</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className='pt-5 pb-4 text-center'>
+                <TrendingUp className='mx-auto h-6 w-6 text-green-500' />
+                <p className='mt-1.5 text-xl font-bold'>
+                  CHF {Math.round(annualSavings).toLocaleString('de-CH')}
+                </p>
+                <p className='text-xs text-muted-foreground'>{t('metrics.savings')}</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className='pt-5 pb-4 text-center'>
+                <Sun className='mx-auto h-6 w-6 text-orange-500' />
+                <p className='mt-1.5 text-xl font-bold'>
+                  {Math.round(selfConsumptionRate * 100)}%
+                </p>
+                <p className='text-xs text-muted-foreground'>{t('metrics.selfSufficiency')}</p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className='pt-5 pb-4 text-center'>
+                <Leaf className='mx-auto h-6 w-6 text-emerald-500' />
+                <p className='mt-1.5 text-xl font-bold'>
+                  {Math.round(co2Savings).toLocaleString('de-CH')}
+                </p>
+                <p className='text-xs text-muted-foreground'>{t('metrics.co2')}</p>
+              </CardContent>
+            </Card>
+
+            <Card className='col-span-2 bg-[#F5F7EE] border-[#062E25]/10'>
+              <CardContent className='pt-5 pb-4 text-center'>
+                <p className='text-sm text-[#062E25]/60'>{t('metrics.energyBalance')}</p>
+                <p className='text-3xl font-bold text-[#062E25]'>{energyBalance}%</p>
+                <p className='text-xs text-[#062E25]/50'>{t('metrics.energyBalanceDesc')}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        <div className='mt-8 grid grid-cols-1 md:grid-cols-2 gap-6'>
           <Card>
-            <CardContent className='pt-6 text-center'>
-              <Zap className='mx-auto h-8 w-8 text-yellow-500' />
-              <p className='mt-2 text-2xl font-bold'>
-                {Math.round(annualProduction).toLocaleString('de-CH')}
-              </p>
-              <p className='text-sm text-muted-foreground'>{t('metrics.production')}</p>
+            <CardContent className='pt-6'>
+              <div className='flex items-center gap-2 mb-4'>
+                <PanelTop className='h-5 w-5 text-primary' />
+                <h2 className='text-lg font-semibold'>{t('system.title')}</h2>
+              </div>
+              <div className='space-y-3'>
+                <div className='flex justify-between items-center py-2 border-b border-[#062E25]/5'>
+                  <span className='text-sm text-muted-foreground'>{t('system.panels')}</span>
+                  <span className='font-semibold'>
+                    {panelCount} × {store.selectedPanelWattageW || 460}W
+                  </span>
+                </div>
+                <div className='flex justify-between items-center py-2 border-b border-[#062E25]/5'>
+                  <span className='text-sm text-muted-foreground'>{t('system.size')}</span>
+                  <span className='font-semibold'>{systemSizeKwp.toFixed(1)} kWp</span>
+                </div>
+                <div className='flex justify-between items-center py-2 border-b border-[#062E25]/5'>
+                  <span className='text-sm text-muted-foreground'>{t('system.area')}</span>
+                  <span className='font-semibold'>{Math.round(selectedArea)} m²</span>
+                </div>
+                <div className='flex justify-between items-center py-2'>
+                  <span className='text-sm text-muted-foreground'>{t('system.consumption')}</span>
+                  <span className='font-semibold'>
+                    {estimatedConsumption.toLocaleString('de-CH')} kWh
+                  </span>
+                </div>
+              </div>
+
+              {selectedPkg && selectedPkg.equipment.filter(e => e.name).length > 0 && (
+                <div className='mt-5 pt-4 border-t'>
+                  <p className='text-sm font-medium mb-2'>{t('packages.equipment')}</p>
+                  <ul className='space-y-1.5'>
+                    {selectedPkg.equipment.filter(e => e.name).map((eq, i) => (
+                      <li key={i} className='text-sm text-muted-foreground flex items-center gap-2'>
+                        <Check className='h-3.5 w-3.5 text-primary shrink-0' />
+                        {eq.quantity > 1 && <span>{eq.quantity} ×</span>}
+                        {eq.name}
+                        {eq.isOptional && (
+                          <span className='text-xs text-muted-foreground/60'>({t('packages.optional')})</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </CardContent>
           </Card>
 
           <Card>
-            <CardContent className='pt-6 text-center'>
-              <TrendingUp className='mx-auto h-8 w-8 text-green-500' />
-              <p className='mt-2 text-2xl font-bold'>
-                CHF {Math.round(annualSavings).toLocaleString('de-CH')}
-              </p>
-              <p className='text-sm text-muted-foreground'>{t('metrics.savings')}</p>
-            </CardContent>
-          </Card>
+            <CardContent className='pt-6'>
+              <h2 className='text-lg font-semibold mb-4'>{t('pricing.title')}</h2>
+              <div className='space-y-3'>
+                <div className='flex justify-between items-center py-2 border-b border-[#062E25]/5'>
+                  <span className='text-sm text-muted-foreground'>{t('pricing.gross')}</span>
+                  <span className='font-semibold'>
+                    CHF {Math.round(grossAmount).toLocaleString('de-CH')}
+                  </span>
+                </div>
+                <div className='flex justify-between items-center py-2 border-b border-[#062E25]/5'>
+                  <span className='text-sm text-muted-foreground'>{t('pricing.subsidy')}</span>
+                  <span className='font-semibold text-green-600'>
+                    - CHF {Math.round(subsidyAmount).toLocaleString('de-CH')}
+                  </span>
+                </div>
+                <div className='flex justify-between items-center py-3 bg-[#F5F7EE] rounded-lg px-3 -mx-3'>
+                  <span className='font-semibold'>{t('pricing.net')}</span>
+                  <span className='text-xl font-bold text-[#062E25]'>
+                    CHF {Math.round(netAmount).toLocaleString('de-CH')}
+                  </span>
+                </div>
+              </div>
 
-          <Card>
-            <CardContent className='pt-6 text-center'>
-              <Sun className='mx-auto h-8 w-8 text-orange-500' />
-              <p className='mt-2 text-2xl font-bold'>
-                {Math.round(selfConsumptionRate * 100)}%
-              </p>
-              <p className='text-sm text-muted-foreground'>{t('metrics.selfSufficiency')}</p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className='pt-6 text-center'>
-              <Leaf className='mx-auto h-8 w-8 text-emerald-500' />
-              <p className='mt-2 text-2xl font-bold'>
-                {Math.round(co2Savings).toLocaleString('de-CH')}
-              </p>
-              <p className='text-sm text-muted-foreground'>{t('metrics.co2')}</p>
+              <div className='mt-5 pt-4 border-t space-y-3'>
+                <div className='flex justify-between items-center'>
+                  <span className='text-sm text-muted-foreground'>{t('pricing.annualSavings')}</span>
+                  <span className='font-semibold'>
+                    CHF {Math.round(annualSavings).toLocaleString('de-CH')}
+                  </span>
+                </div>
+                {selectedPkg?.contractTermYears && (
+                  <div className='flex justify-between items-center'>
+                    <span className='text-sm text-muted-foreground'>{t('pricing.totalSavings')}</span>
+                    <span className='font-semibold text-green-600'>
+                      CHF {Math.round(annualSavings * selectedPkg.contractTermYears).toLocaleString('de-CH')}
+                    </span>
+                  </div>
+                )}
+              </div>
             </CardContent>
           </Card>
         </div>
@@ -179,45 +330,6 @@ export default function StepResults() {
           </CardContent>
         </Card>
 
-        <Card className='mt-8'>
-          <CardContent className='pt-6'>
-            <div className='flex items-center gap-2 mb-4'>
-              <PanelTop className='h-5 w-5 text-primary' />
-              <h2 className='text-lg font-semibold'>{t('system.title')}</h2>
-            </div>
-            <div className='grid grid-cols-2 gap-4'>
-              <div>
-                <p className='text-sm text-muted-foreground'>{t('system.size')}</p>
-                <p className='font-semibold'>{systemSizeKwp.toFixed(1)} kWp</p>
-              </div>
-              <div>
-                <p className='text-sm text-muted-foreground'>{t('system.panels')}</p>
-                <p className='font-semibold'>~{panelCount}</p>
-              </div>
-              <div>
-                <p className='text-sm text-muted-foreground'>{t('system.area')}</p>
-                <p className='font-semibold'>{Math.round(selectedArea)} m²</p>
-              </div>
-              <div>
-                <p className='text-sm text-muted-foreground'>{t('system.consumption')}</p>
-                <p className='font-semibold'>
-                  {store.getEstimatedConsumption().toLocaleString('de-CH')} kWh
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className='mt-8 border-primary/20 bg-primary/5'>
-          <CardContent className='pt-6'>
-            <h2 className='text-lg font-semibold'>{t('abo.title')}</h2>
-            <p className='mt-2 text-muted-foreground'>{t('abo.description')}</p>
-            <p className='mt-2 text-muted-foreground'>
-              {t('abo.savings', { amount: Math.round(annualSavings).toLocaleString('de-CH') })}
-            </p>
-          </CardContent>
-        </Card>
-
         {!packagesLoading && packages.length > 0 && (
           <div className='mt-8'>
             <div className='flex items-center gap-2 mb-4'>
@@ -235,7 +347,7 @@ export default function StepResults() {
                   <Card
                     key={pkg.id}
                     className={`cursor-pointer transition-all ${isSelected ? 'border-primary ring-2 ring-primary/20' : 'hover:border-primary/40'}`}
-                    onClick={() => store.setSelectedPackage(pkg.id, pkg.code, pkg.pricePerKwp)}
+                    onClick={() => selectPackageFromData(store.setSelectedPackage, pkg)}
                   >
                     <CardContent className='pt-6'>
                       <div className='flex items-start justify-between mb-2'>
@@ -264,22 +376,6 @@ export default function StepResults() {
                               {t('packages.totalEstimate', { total: totalEstimate.toLocaleString('de-CH') })}
                             </p>
                           )}
-                        </div>
-                      )}
-                      {pkg.equipment.length > 0 && (
-                        <div className='mt-3 border-t pt-3'>
-                          <p className='text-xs font-medium mb-1'>{t('packages.equipment')}</p>
-                          <ul className='space-y-1'>
-                            {pkg.equipment.filter(e => e.name).map((eq, i) => (
-                              <li key={i} className='text-xs text-muted-foreground flex items-center gap-1'>
-                                <Check className='h-3 w-3 text-primary shrink-0' />
-                                {eq.name}
-                                {eq.isOptional && (
-                                  <span className='text-xs text-muted-foreground/60 ml-1'>({t('packages.optional')})</span>
-                                )}
-                              </li>
-                            ))}
-                          </ul>
                         </div>
                       )}
                       {Array.isArray(pkg.features) && pkg.features.length > 0 && (
