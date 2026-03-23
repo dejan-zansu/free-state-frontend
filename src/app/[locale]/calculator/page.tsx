@@ -14,6 +14,7 @@ import Step5ContactDetails from './steps/Step6ContactDetails'
 import StepConfirmation from './steps/StepConfirmation'
 import StepContractReview from './steps/StepContractReview'
 import StepResults from './steps/StepResults'
+import StepEquipmentResults from './steps/StepEquipmentResults'
 import StepSignature from './steps/StepSignature'
 
 const PAGE_BG =
@@ -75,7 +76,7 @@ export default function SolarAboCalculatorPage() {
       case 5:
         return <Step5ContactDetails />
       case 6:
-        return <StepResults />
+        return solarModel === 'solar-direct' ? <StepEquipmentResults /> : <StepResults />
       case 7:
         return <StepContractReview />
       case 8:

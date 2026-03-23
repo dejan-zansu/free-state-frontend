@@ -352,38 +352,44 @@ export default function Step4RoofAreas() {
       return
     }
 
-    map
-      .getView()
-      .fit(extent, { padding: [150, 150, 150, 150], maxZoom: 19, duration: 0 })
-
-    const capture = () => {
-      const mapCanvas = document.createElement('canvas')
-      const size = map.getSize()
-      if (!size) {
-        nextStep()
-        return
-      }
-      mapCanvas.width = size[0]
-      mapCanvas.height = size[1]
-      const ctx = mapCanvas.getContext('2d')
-      if (!ctx) {
-        nextStep()
-        return
-      }
-      const target = map.getTargetElement() as HTMLElement
-      target.querySelectorAll('canvas').forEach(c => {
-        if (c.width > 0 && c.height > 0) {
-          try {
-            ctx.drawImage(c, 0, 0)
-          } catch {}
+    map.getView().fit(extent, {
+      padding: [60, 60, 60, 60],
+      maxZoom: 20,
+      duration: 500,
+      callback: () => {
+        const doCapture = () => {
+          map.once('rendercomplete', () => {
+            const target = map.getTargetElement() as HTMLElement
+            const canvases = target.querySelectorAll('canvas')
+            const firstCanvas = canvases[0]
+            if (!firstCanvas) {
+              nextStep()
+              return
+            }
+            const mapCanvas = document.createElement('canvas')
+            mapCanvas.width = firstCanvas.width
+            mapCanvas.height = firstCanvas.height
+            const ctx = mapCanvas.getContext('2d')
+            if (!ctx) {
+              nextStep()
+              return
+            }
+            canvases.forEach(c => {
+              if (c.width > 0 && c.height > 0) {
+                try {
+                  ctx.drawImage(c, 0, 0)
+                } catch {}
+              }
+            })
+            setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
+            nextStep()
+          })
+          map.renderSync()
         }
-      })
-      setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
-      nextStep()
-    }
 
-    map.once('rendercomplete', capture)
-    map.renderSync()
+        setTimeout(doCapture, 1000)
+      },
+    })
   }
 
   const selectedArea = getSelectedArea()

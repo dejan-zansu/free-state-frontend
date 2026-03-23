@@ -4515,6 +4515,17 @@
         "pricingBreakdown": "Preisübersicht"
       }
     },
+    "solarDirect": {
+      "title": "Ihre Solaranlage konfigurieren",
+      "subtitle": "Wählen Sie die Komponenten für Ihre Solaranlage. Die Preise werden laufend aktualisiert.",
+      "equipment": "Komponentenauswahl",
+      "panels": "Solarmodule",
+      "inverter": "Wechselrichter",
+      "battery": "Batteriespeicher",
+      "mountingSystem": "Montagesystem",
+      "ems": "Energiemanagement",
+      "heatPump": "Wärmepumpe"
+    },
     "step7": {
       "title": "Ihre Kontaktdaten für das detaillierte Angebot",
       "helper": "Wir erstellen Ihnen gerne ein persönliches Angebot. Dafür benötigen wir noch Ihre Kontaktdaten.",

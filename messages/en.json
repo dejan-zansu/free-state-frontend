@@ -2848,6 +2848,17 @@
         "pricingBreakdown": "Pricing Breakdown"
       }
     },
+    "solarDirect": {
+      "title": "Configure Your Solar System",
+      "subtitle": "Select the equipment for your solar installation. Pricing updates as you configure.",
+      "equipment": "Equipment Selection",
+      "panels": "Solar Panels",
+      "inverter": "Inverter",
+      "battery": "Battery Storage",
+      "mountingSystem": "Mounting System",
+      "ems": "Energy Management",
+      "heatPump": "Heat Pump"
+    },
     "step7": {
       "title": "Your contact details for the detailed offer",
       "helper": "We would be happy to issue the offer to you personally. We still need your contact details for this.",

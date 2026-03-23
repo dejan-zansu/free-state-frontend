@@ -80,6 +80,12 @@ interface CreateContractPayload {
   language: string
   packageId?: string
   roofImage?: string
+  solarModel?: string
+  equipmentSelections?: Array<{
+    equipmentId: string
+    equipmentType: string
+    quantity: number
+  }>
 }
 
 interface CreateContractResponse {
