@@ -94,6 +94,46 @@ const DEVICE_SELF_CONSUMPTION_BONUS: Record<keyof HighPowerDevices, number> = {
   swimmingPoolSauna: 0.02,
 }
 
+// Combined effective income tax rates (federal + cantonal + municipal) by canton
+// Source: Transforma AG "Tax Rates Switzerland 2025", married, CHF 100k, capital city
+const TAX_RATES_BY_CANTON: Record<string, number> = {
+  ZH: 0.1225, BE: 0.1915, LU: 0.1215, UR: 0.1573, SZ: 0.0999,
+  OW: 0.1461, NW: 0.1184, GL: 0.1309, ZG: 0.0718, FR: 0.1616,
+  SO: 0.1564, BS: 0.2282, BL: 0.1335, SH: 0.1127, AR: 0.1503,
+  AI: 0.1069, SG: 0.1418, GR: 0.1221, AG: 0.1178, TG: 0.1289,
+  TI: 0.1473, VD: 0.1790, VS: 0.1301, NE: 0.1772, GE: 0.1370,
+  JU: 0.1660,
+}
+const DEFAULT_TAX_RATE = 0.14
+
+const CANTON_FROM_POSTAL: [number, number, string][] = [
+  [1000, 1299, 'VD'], [1300, 1399, 'VD'], [1400, 1499, 'FR'], [1500, 1599, 'FR'],
+  [1600, 1699, 'FR'], [1700, 1799, 'FR'], [1800, 1899, 'VD'], [1900, 1999, 'VS'],
+  [2000, 2099, 'NE'], [2100, 2199, 'NE'], [2200, 2299, 'NE'], [2300, 2399, 'NE'],
+  [2400, 2499, 'BE'], [2500, 2599, 'BE'], [2600, 2699, 'BE'], [2700, 2799, 'BE'],
+  [2800, 2899, 'JU'], [2900, 2999, 'JU'], [3000, 3999, 'BE'], [4000, 4099, 'BS'],
+  [4100, 4199, 'BL'], [4200, 4299, 'BL'], [4300, 4399, 'BL'], [4400, 4499, 'SO'],
+  [4500, 4599, 'SO'], [4600, 4699, 'SO'], [4700, 4799, 'SO'], [4800, 4899, 'AG'],
+  [4900, 4999, 'AG'], [5000, 5499, 'AG'], [5500, 5699, 'AG'], [5700, 5799, 'AG'],
+  [5800, 5899, 'AG'], [5900, 5999, 'AG'], [6000, 6099, 'LU'], [6100, 6199, 'LU'],
+  [6200, 6299, 'LU'], [6300, 6399, 'ZG'], [6400, 6499, 'SZ'], [6500, 6599, 'TI'],
+  [6600, 6699, 'TI'], [6700, 6799, 'TI'], [6800, 6899, 'TI'], [6900, 6999, 'TI'],
+  [7000, 7299, 'GR'], [7300, 7599, 'GR'], [7600, 7999, 'GR'], [8000, 8099, 'ZH'],
+  [8100, 8199, 'ZH'], [8200, 8299, 'SH'], [8300, 8399, 'ZH'], [8400, 8499, 'ZH'],
+  [8500, 8599, 'TG'], [8600, 8699, 'ZH'], [8700, 8799, 'ZH'], [8800, 8899, 'ZH'],
+  [8900, 8999, 'AG'], [9000, 9099, 'SG'], [9100, 9199, 'AR'], [9200, 9299, 'SG'],
+  [9300, 9399, 'SG'], [9400, 9499, 'SG'], [9500, 9599, 'SG'], [9600, 9699, 'AI'],
+  [9700, 9799, 'SG'], [9800, 9899, 'SG'],
+]
+
+function getCantonFromAddress(address: string): string | null {
+  const match = address.match(/\b(\d{4})\b/)
+  if (!match) return null
+  const plz = parseInt(match[1], 10)
+  const entry = CANTON_FROM_POSTAL.find(([min, max]) => plz >= min && plz <= max)
+  return entry ? entry[2] : null
+}
+
 // Monthly solar production distribution for Swiss Plateau (Bern, 46.95N)
 // PVGIS ERA5 data (2005-2023 averages), 30-degree tilt, south-facing
 // Source: EU Joint Research Centre PVGIS v5.3
@@ -191,6 +231,7 @@ interface SolarAboCalculatorActions {
   getGrossAmount: () => number
   getSubsidyAmount: () => number
   getNetAmount: () => number
+  getEstimatedTaxSavings: () => number
   createAccount: () => Promise<void>
   requestOffer: () => Promise<void>
   emailReport: () => Promise<void>
@@ -571,6 +612,14 @@ export const useSolarAboCalculatorStore = create<
 
       getNetAmount: () => {
         return get().getGrossAmount() - get().getSubsidyAmount()
+      },
+
+      getEstimatedTaxSavings: () => {
+        const netAmount = get().getNetAmount()
+        if (netAmount <= 0) return 0
+        const canton = getCantonFromAddress(get().address)
+        const rate = canton ? (TAX_RATES_BY_CANTON[canton] || DEFAULT_TAX_RATE) : DEFAULT_TAX_RATE
+        return Math.round(netAmount * rate)
       },
 
       createAccount: async () => {

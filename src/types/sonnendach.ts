@@ -90,14 +90,14 @@ export interface SonnendachConvertResponse {
 
 // Suitability class mapping
 export const SUITABILITY_CLASSES: Record<number, SuitabilityInfo> = {
-  1: { class: 1, label: 'low', labelDe: 'gering', color: '#3B82F6' }, // Blue
-  2: { class: 2, label: 'medium', labelDe: 'mittel', color: '#22C55E' }, // Green
+  1: { class: 1, label: 'excellent', labelDe: 'hervorragend', color: '#3B82F6' }, // Blue - best
+  2: { class: 2, label: 'very good', labelDe: 'sehr gut', color: '#22C55E' }, // Green
   3: { class: 3, label: 'good', labelDe: 'gut', color: '#EAB308' }, // Yellow
-  4: { class: 4, label: 'very good', labelDe: 'sehr gut', color: '#F97316' }, // Orange
+  4: { class: 4, label: 'medium', labelDe: 'mittel', color: '#F97316' }, // Orange
   5: {
     class: 5,
-    label: 'excellent',
-    labelDe: 'hervorragend',
+    label: 'low',
+    labelDe: 'gering',
     color: '#EF4444',
-  }, // Red
+  }, // Red - worst
 }

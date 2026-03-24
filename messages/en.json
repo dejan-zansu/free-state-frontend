@@ -2742,6 +2742,8 @@
       "suitability": "Degree of suitability of the roof surface",
       "veryGood": "Very good",
       "moderate": "Moderate",
+      "excellent": "Excellent",
+      "low": "Low",
       "selected": "Selected",
       "loading": "Loading building data..."
     },
@@ -2803,7 +2805,10 @@
         "subsidy": "Federal subsidy (KLEIV)",
         "net": "Your investment",
         "annualSavings": "Annual electricity savings",
-        "totalSavings": "Total savings over contract term"
+        "totalSavings": "Total savings over contract term",
+        "taxSavings": "Expected tax savings",
+        "taxSavingsNote": "Investments in renewable energies are 100% tax deductible",
+        "returns": "Returns"
       },
       "abo": {
         "title": "Solar ABO — Zero Investment",

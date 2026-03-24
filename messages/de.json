@@ -4409,6 +4409,8 @@
       "suitability": "Eignungsgrad der Dachfläche",
       "veryGood": "Sehr gut",
       "moderate": "Mittel",
+      "excellent": "Hervorragend",
+      "low": "Gering",
       "selected": "Ausgewählt",
       "loading": "Gebäudedaten werden geladen..."
     },
@@ -4470,7 +4472,10 @@
         "subsidy": "Bundesförderung (KLEIV)",
         "net": "Ihre Investition",
         "annualSavings": "Jährliche Stromersparnis",
-        "totalSavings": "Gesamtersparnis über Vertragslaufzeit"
+        "totalSavings": "Gesamtersparnis über Vertragslaufzeit",
+        "taxSavings": "Erwartete Steuerersparnis",
+        "taxSavingsNote": "Investitionen in erneuerbare Energien sind zu 100% steuerlich absetzbar",
+        "returns": "Wirtschaftlichkeit"
       },
       "abo": {
         "title": "Solar ABO — Keine Investition",
