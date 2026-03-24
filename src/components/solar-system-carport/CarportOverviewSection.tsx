@@ -70,6 +70,7 @@ const CarportOverviewSection = async () => {
               }}
             />
             <Image
+              unoptimized
               src="/images/solar-system-carport.png"
               alt="Solar system for carport"
               fill

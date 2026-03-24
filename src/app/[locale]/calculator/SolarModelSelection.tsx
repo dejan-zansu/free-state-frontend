@@ -137,6 +137,7 @@ export default function SolarModelSelection() {
                 alt={t(card.titleKey)}
                 fill
                 className="object-contain object-top-right"
+                unoptimized
               />
             </div>
           </button>

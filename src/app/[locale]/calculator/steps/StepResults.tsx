@@ -3,39 +3,19 @@
 import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { Loader2, CheckCircle2, Check } from 'lucide-react'
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from 'recharts'
 import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
+import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
+import ROIChart from '../components/ROIChart'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import {
   residentialCalculatorService,
   type CalculatorPackage,
 } from '@/services/residential-calculator.service'
 
-const MONTH_KEYS = [
-  'jan',
-  'feb',
-  'mar',
-  'apr',
-  'may',
-  'jun',
-  'jul',
-  'aug',
-  'sep',
-  'oct',
-  'nov',
-  'dec',
-]
 
 function getPanelSpecs(pkg: CalculatorPackage) {
   const panel = pkg.equipment.find(e => e.equipmentType === 'SOLAR_PANEL')
@@ -91,10 +71,6 @@ export default function StepResults() {
       ? Math.round((annualProduction / estimatedConsumption) * 100)
       : 0
 
-  const chartData = MONTH_KEYS.map((key, i) => ({
-    name: t(`months.${key}`),
-    kWh: Math.round(monthlyProduction[i]),
-  }))
 
   useEffect(() => {
     residentialCalculatorService
@@ -183,13 +159,16 @@ export default function StepResults() {
                           alt={pkg.name}
                           fill
                           className="object-cover"
+                          unoptimized
                         />
                       </div>
                     ) : (
-                      <div className={cn(
-                        'h-2 w-full',
-                        isSelected ? 'bg-[#B7FE1A]' : 'bg-[#062E25]/5'
-                      )} />
+                      <div
+                        className={cn(
+                          'h-2 w-full',
+                          isSelected ? 'bg-[#B7FE1A]' : 'bg-[#062E25]/5'
+                        )}
+                      />
                     )}
 
                     <div className="p-5">
@@ -218,17 +197,22 @@ export default function StepResults() {
 
                       {equipmentWithNames.length > 0 && (
                         <div className="mt-4 pt-4 border-t border-[#062E25]/[0.06]">
-                          {equipmentWithNames.filter(e => e.imageUrl).length > 0 && (
+                          {equipmentWithNames.filter(e => e.imageUrl).length >
+                            0 && (
                             <div className="flex flex-wrap gap-2 mb-3">
                               {equipmentWithNames
                                 .filter(e => e.imageUrl)
                                 .map((eq, i) => (
-                                  <div key={i} className="relative w-11 h-11 rounded-lg bg-[#F5F7EE] overflow-hidden">
+                                  <div
+                                    key={i}
+                                    className="relative w-11 h-11 rounded-lg bg-[#F5F7EE] overflow-hidden"
+                                  >
                                     <Image
                                       src={eq.imageUrl!}
                                       alt={eq.name}
                                       fill
                                       className="object-contain p-1"
+                                      unoptimized
                                     />
                                   </div>
                                 ))}
@@ -236,12 +220,21 @@ export default function StepResults() {
                           )}
                           <div className="space-y-1">
                             {equipmentWithNames.map((eq, i) => (
-                              <div key={i} className="flex items-center gap-2 text-sm text-[#062E25]/60">
+                              <div
+                                key={i}
+                                className="flex items-center gap-2 text-sm text-[#062E25]/60"
+                              >
                                 <span className="w-1 h-1 rounded-full bg-[#062E25]/20 shrink-0" />
-                                {eq.quantity > 1 && <span className="text-[#062E25]/40">{eq.quantity}x</span>}
+                                {eq.quantity > 1 && (
+                                  <span className="text-[#062E25]/40">
+                                    {eq.quantity}x
+                                  </span>
+                                )}
                                 <span>{eq.name}</span>
                                 {eq.isOptional && (
-                                  <span className="text-[#062E25]/30">({t('packages.optional')})</span>
+                                  <span className="text-[#062E25]/30">
+                                    ({t('packages.optional')})
+                                  </span>
                                 )}
                               </div>
                             ))}
@@ -252,10 +245,15 @@ export default function StepResults() {
                       {pkg.pricePerKwp && (
                         <div className="mt-4 pt-4 border-t border-[#062E25]/[0.06] text-right">
                           <span className="text-xl font-bold text-[#062E25] tabular-nums">
-                            CHF {Math.round(pkg.pricePerKwp * systemSizeKwp).toLocaleString('de-CH')}
+                            CHF{' '}
+                            {Math.round(
+                              pkg.pricePerKwp * systemSizeKwp
+                            ).toLocaleString('de-CH')}
                           </span>
                           <p className="text-sm text-[#062E25]/40 mt-0.5">
-                            {t('packages.pricePerKwp', { price: pkg.pricePerKwp.toLocaleString('de-CH') })}
+                            {t('packages.pricePerKwp', {
+                              price: pkg.pricePerKwp.toLocaleString('de-CH'),
+                            })}
                           </p>
                         </div>
                       )}
@@ -282,6 +280,7 @@ export default function StepResults() {
               width={1200}
               height={500}
               className="w-full h-auto"
+              unoptimized
             />
             {store.address && (
               <div className="px-3 py-1.5 bg-[#062E25] text-sm text-white/60">
@@ -408,43 +407,27 @@ export default function StepResults() {
         </div>
 
         <div className="mt-8">
-          <p className="text-sm font-medium text-[#062E25]/40 uppercase tracking-wider mb-4">
-            {t('chart.title')}
-          </p>
-          <div className="h-52 rounded-xl bg-white/60 border border-[#062E25]/8 p-4">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={chartData}>
-                <XAxis
-                  dataKey="name"
-                  tick={{ fontSize: 14, fill: '#062E25' }}
-                  tickLine={false}
-                  axisLine={false}
-                />
-                <YAxis
-                  tick={{ fontSize: 14, fill: '#062E2566' }}
-                  tickLine={false}
-                  axisLine={false}
-                  width={40}
-                />
-                <Tooltip
-                  formatter={value => [`${value} kWh`, t('chart.tooltipLabel')]}
-                  contentStyle={{
-                    borderRadius: '8px',
-                    border: '1px solid #062E2515',
-                    fontSize: '14px',
-                  }}
-                />
-                <Bar dataKey="kWh" radius={[3, 3, 0, 0]}>
-                  {chartData.map((_, index) => (
-                    <Cell
-                      key={`cell-${index}`}
-                      fill={index >= 4 && index <= 8 ? '#062E25' : '#062E2530'}
-                    />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
+          <EnergyFlowDiagram
+            annualProduction={annualProduction}
+            estimatedConsumption={estimatedConsumption}
+            selfConsumptionRate={selfConsumptionRate}
+          />
+        </div>
+
+        <div className="mt-6">
+          <MonthlyAnalysisChart
+            monthlyProduction={monthlyProduction}
+            estimatedConsumption={estimatedConsumption}
+            selfConsumptionRate={selfConsumptionRate}
+          />
+        </div>
+
+        <div className="mt-6">
+          <ROIChart
+            netInvestment={netAmount}
+            annualSavings={annualSavings}
+            contractTermYears={selectedPkg?.contractTermYears || 25}
+          />
         </div>
 
         {error && (

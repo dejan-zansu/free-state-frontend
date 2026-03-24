@@ -134,6 +134,7 @@ const Header = () => {
                 width={2}
                 height={2}
                 className="size-3"
+                unoptimized
               />
             </Link>
 

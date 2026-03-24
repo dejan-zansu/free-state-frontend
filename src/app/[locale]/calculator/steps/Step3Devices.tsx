@@ -74,13 +74,23 @@ export default function Step3Devices() {
                   isSelected ? 'border-[#062E25]' : 'border-[#809792]'
                 )}
               >
-                <div className={cn(
-                  'absolute top-3 right-3 w-5 h-5 rounded-full border flex items-center justify-center transition-all',
-                  isSelected ? 'bg-[#B7FE1A] border-[#B7FE1A]' : 'bg-transparent border-[#809792]'
-                )}>
+                <div
+                  className={cn(
+                    'absolute top-3 right-3 w-5 h-5 rounded-full border flex items-center justify-center transition-all',
+                    isSelected
+                      ? 'bg-[#B7FE1A] border-[#B7FE1A]'
+                      : 'bg-transparent border-[#809792]'
+                  )}
+                >
                   {isSelected && (
                     <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                      <path d="M1 4L3.5 6.5L9 1" stroke="#062E25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M1 4L3.5 6.5L9 1"
+                        stroke="#062E25"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   )}
                 </div>
@@ -91,6 +101,7 @@ export default function Step3Devices() {
                     alt={t(`devices.${option.labelKey}`)}
                     width={142}
                     height={142}
+                    unoptimized
                   />
                 </div>
                 <div className="flex items-center gap-2.5 mt-5">
@@ -110,7 +121,11 @@ export default function Step3Devices() {
             backdropFilter: 'blur(12px)',
           }}
         >
-          <Button variant="outline" onClick={prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            style={{ borderColor: '#062E25', color: '#062E25' }}
+          >
             {tNav('back')}
           </Button>
           <Button

@@ -28,10 +28,7 @@ interface PortfolioProps {
   }
 }
 
-const Portfolio = ({
-  isCommercial = false,
-  translations,
-}: PortfolioProps) => {
+const Portfolio = ({ isCommercial = false, translations }: PortfolioProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
   const [currentSlide, setCurrentSlide] = useState(0)
 
@@ -93,6 +90,7 @@ const Portfolio = ({
                     fill
                     className="object-cover"
                     priority={index === 0}
+                    unoptimized
                   />
                 </div>
               ))}

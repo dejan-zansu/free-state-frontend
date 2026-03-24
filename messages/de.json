@@ -2565,6 +2565,84 @@
     },
     "lastUpdated": "Zuletzt aktualisiert: Februar 2026"
   },
+  "impressum": {
+    "title": "Impressum",
+    "subtitle": "Firmeninformationen und rechtliche Angaben",
+    "companyInfo": {
+      "title": "Firmeninformationen",
+      "content": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz"
+    },
+    "representation": {
+      "title": "Vertretungsberechtigte Personen",
+      "content": "Die Gesellschaft wird rechtlich durch den Verwaltungsrat vertreten."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "content": "Telefon: +41 52 525 33 05\nE-Mail: info@freestate.ch\nWebsite: www.freestate.ch"
+    },
+    "register": {
+      "title": "Handelsregistereintrag",
+      "content": "Eingetragener Firmenname: Free State AG\nSitz: Schaffhausen, Schweiz\nUID (Unternehmens-Identifikationsnummer): CHE-XXX.XXX.XXX"
+    },
+    "vat": {
+      "title": "Mehrwertsteuer-Nummer",
+      "content": "MWST-Nummer: CHE-XXX.XXX.XXX MWST"
+    },
+    "liability": {
+      "title": "Haftungsausschluss",
+      "content": "Der Inhalt dieser Website wurde mit grösster Sorgfalt erstellt. Free State AG kann jedoch keine Gewähr für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Inhalte übernehmen.\n\nAls Diensteanbieter sind wir für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.\n\nHaftungsansprüche gegen Free State AG, welche sich auf Schäden materieller oder ideeller Art beziehen, die durch die Nutzung oder Nichtnutzung der dargebotenen Informationen bzw. durch die Nutzung fehlerhafter und unvollständiger Informationen verursacht wurden, sind ausgeschlossen, sofern kein nachweislich vorsätzliches oder grob fahrlässiges Verschulden von Free State AG vorliegt."
+    },
+    "copyright": {
+      "title": "Urheberrecht",
+      "content": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.\n\nDownloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet."
+    },
+    "lastUpdated": "Zuletzt aktualisiert: März 2026"
+  },
+  "agb": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "subtitle": "Bedingungen für die Nutzung unserer Dienstleistungen",
+    "scope": {
+      "title": "1. Geltungsbereich",
+      "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Geschäftsbeziehung zwischen der Free State AG, Stettemerstrasse 40, 8207 Schaffhausen, Schweiz (nachfolgend «Free State AG») und ihren Kunden (nachfolgend «Kunde»).\n\nMit der Nutzung unserer Website oder Dienstleistungen akzeptiert der Kunde diese AGB. Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, Free State AG hat deren Geltung ausdrücklich schriftlich zugestimmt."
+    },
+    "contractConclusion": {
+      "title": "2. Vertragsschluss",
+      "content": "Die Darstellung von Produkten und Dienstleistungen auf unserer Website stellt kein verbindliches Angebot dar. Ein Vertrag kommt erst zustande, wenn Free State AG die Bestellung schriftlich bestätigt oder mit der Ausführung der Dienstleistung beginnt.\n\nFree State AG behält sich das Recht vor, Bestellungen ohne Angabe von Gründen abzulehnen."
+    },
+    "services": {
+      "title": "3. Leistungen",
+      "content": "Free State AG bietet Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Ladestationen und verwandte Energiedienstleistungen an. Der genaue Leistungsumfang ergibt sich aus dem jeweiligen Vertrag oder der Auftragsbestätigung.\n\nFree State AG behält sich das Recht vor, Änderungen an den Leistungen vorzunehmen, sofern diese für den Kunden zumutbar sind."
+    },
+    "prices": {
+      "title": "4. Preise",
+      "content": "Alle Preise verstehen sich in Schweizer Franken (CHF) und beinhalten die jeweils gültige Mehrwertsteuer (MWST), sofern nicht anders angegeben.\n\nFree State AG behält sich das Recht vor, Preise jederzeit anzupassen. Für bestehende Verträge gelten die zum Zeitpunkt des Vertragsschlusses vereinbarten Preise."
+    },
+    "payment": {
+      "title": "5. Zahlungsbedingungen",
+      "content": "Rechnungen sind innert 30 Tagen ab Rechnungsdatum zahlbar, sofern nichts anderes vereinbart wurde. Bei Zahlungsverzug ist Free State AG berechtigt, Verzugszinsen von 5% pro Jahr zu berechnen.\n\nFree State AG behält sich das Recht vor, Vorauszahlungen oder Sicherheitsleistungen zu verlangen."
+    },
+    "warranty": {
+      "title": "6. Gewährleistung",
+      "content": "Free State AG gewährleistet, dass die gelieferten Produkte und Dienstleistungen zum Zeitpunkt der Lieferung frei von Sach- und Rechtsmängeln sind.\n\nDie Gewährleistungsfrist beträgt 2 Jahre ab Lieferdatum, sofern nicht schriftlich eine längere Frist vereinbart wurde. Gewährleistungsansprüche müssen innert 10 Tagen nach Entdeckung des Mangels schriftlich gemeldet werden.\n\nHerstellergarantien für bestimmte Komponenten (z.B. Solarmodule, Wechselrichter) können zusätzlich gelten und unterliegen den jeweiligen Herstellerbedingungen."
+    },
+    "liability": {
+      "title": "7. Haftung",
+      "content": "Free State AG haftet nur bei Vorsatz oder grober Fahrlässigkeit für Schäden. Die Haftung für indirekte Schäden, Folgeschäden oder entgangenen Gewinn ist im gesetzlich zulässigen Rahmen ausgeschlossen.\n\nDie Gesamthaftung von Free State AG ist auf den Vertragswert des jeweiligen Auftrags beschränkt."
+    },
+    "dataProtection": {
+      "title": "8. Datenschutz",
+      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit den geltenden Datenschutzgesetzen (Schweizerisches Bundesgesetz über den Datenschutz und, wo anwendbar, die EU-Datenschutz-Grundverordnung).\n\nDetaillierte Informationen zur Datenverarbeitung finden Sie in unserer Datenschutzerklärung."
+    },
+    "applicableLaw": {
+      "title": "9. Anwendbares Recht und Gerichtsstand",
+      "content": "Diese AGB unterstehen schweizerischem Recht unter Ausschluss des Übereinkommens der Vereinten Nationen über Verträge über den internationalen Warenkauf (CISG).\n\nAusschliesslicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesen AGB ist Schaffhausen, Schweiz."
+    },
+    "finalProvisions": {
+      "title": "10. Schlussbestimmungen",
+      "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, wird die Wirksamkeit der übrigen Bestimmungen davon nicht berührt. Die unwirksame Bestimmung ist durch eine wirksame Bestimmung zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.\n\nFree State AG behält sich das Recht vor, diese AGB jederzeit zu ändern. Die geänderten AGB werden auf der Website veröffentlicht und gelten ab dem Zeitpunkt der Veröffentlichung."
+    },
+    "lastUpdated": "Zuletzt aktualisiert: März 2026"
+  },
   "chargingStations": {
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
@@ -4477,6 +4555,29 @@
         "taxSavingsNote": "Investitionen in erneuerbare Energien sind zu 100% steuerlich absetzbar",
         "returns": "Wirtschaftlichkeit"
       },
+      "energyFlow": {
+        "title": "Energiefluss",
+        "production": "Produktion",
+        "ownConsumption": "Eigenverbrauch",
+        "consumption": "Stromverbrauch",
+        "independence": "Unabhängigkeit",
+        "gridSupply": "Netzbezug",
+        "feedIn": "Netzeinspeisung"
+      },
+      "monthlyAnalysis": {
+        "title": "Monatsanalyse",
+        "production": "Produktion",
+        "consumption": "Verbrauch",
+        "selfConsumed": "Eigenverbrauch"
+      },
+      "roi": {
+        "title": "Wirtschaftlichkeit",
+        "payback": "Amortisation nach {years} Jahren",
+        "totalProfit": "Gesamtgewinn: CHF {amount}",
+        "years": "Jahre",
+        "year": "Jahr",
+        "cashflow": "Kumulierter Cashflow"
+      },
       "abo": {
         "title": "SolarFree — Keine Investition",
         "description": "Mit SolarFree installiert und wartet die Free State AG die Solaranlage auf Ihrem Dach — kostenlos für Sie.",
@@ -5288,6 +5389,222 @@
       "faq5a": "Die Free State AG übernimmt alle Wartungs-, Reparatur- und Überwachungsarbeiten an der PV-Anlage für die gesamte Vertragsdauer.",
       "faq6q": "Wie unterschreibe ich den Vertrag digital?",
       "faq6a": "Nach Prüfung des Vertrags in unserem Kalkulator werden Sie zu Swisscom Trust Services für eine sichere digitale Unterschrift weitergeleitet. Sie benötigen Ihr Telefon zur Identitätsverifikation."
+    }
+  },
+  "faqPage": {
+    "hero": {
+      "title": "Häufig gestellte\nFragen"
+    },
+    "sections": {
+      "gettingStarted": {
+        "eyebrow": "Erste Schritte",
+        "title": "Solar-Grundlagen",
+        "description": "Alles, was Sie vor dem Umstieg auf Solar wissen müssen",
+        "items": {
+          "whySolar": {
+            "question": "Warum sollte ich auf Solar umsteigen?",
+            "answer": "Solar ist erneuerbare, zuverlässige und saubere Energie, die die Abhängigkeit von fossilen Brennstoffen reduziert. Mit einer Solaranlage profitieren Sie von planbaren Energietarifen für 20–25 Jahre und übernehmen die Kontrolle über Ihre Energiezukunft."
+          },
+          "homeGood": {
+            "question": "Ist mein Haus für Solar geeignet?",
+            "answer": "Die Eignung hängt von Ihrem Standort, der Dachneigung, der Verschattung und dem Alter Ihres Hauses ab. Unsere Solarberater führen eine individuelle Analyse durch, um festzustellen, ob Ihr Haus geeignet ist und Ihren Energiebedarf zu bewerten."
+          },
+          "howManyPanels": {
+            "question": "Wie viele Solarpanels benötigt mein Haus?",
+            "answer": "Die Anzahl der Panels hängt von Ihrem Strombedarf (basierend auf Stromrechnungen), dem Klima und den Dacheigenschaften ab. Wir passen jedes System individuell an, um die Energieproduktion für Ihr Haus zu maximieren."
+          },
+          "historicalUsage": {
+            "question": "Warum benötigen Sie meinen bisherigen Stromverbrauch?",
+            "answer": "Ihr bisheriger Verbrauch ermöglicht es uns, ein passend dimensioniertes System zu konfigurieren. Ein ganzes Jahr an Daten zeigt saisonale Schwankungen auf, die nötig sind, um Ihren tatsächlichen Verbrauch abzubilden."
+          },
+          "stateIncentives": {
+            "question": "Gibt es Anreize für den Umstieg auf Solar?",
+            "answer": "Häufige Anreize sind Steuervergünstigungen, Einspeisevergütungen und Förderungen. Bundes- und kantonale Solarförderungen können die Kosten Ihrer Anlage erheblich senken."
+          },
+          "homeValue": {
+            "question": "Steigern Solarpanels den Wert meines Hauses?",
+            "answer": "Studien zeigen, dass Häuser mit Solar etwa 4 % mehr erzielen als Häuser ohne. Die Installation einer Solaranlage erhöht die Attraktivität und den Wert Ihres Hauses für potenzielle Käufer."
+          }
+        }
+      },
+      "installation": {
+        "eyebrow": "Installation",
+        "title": "Installationsprozess",
+        "description": "Was Sie während Ihrer Solarinstallation erwartet",
+        "items": {
+          "whatHappens": {
+            "question": "Was passiert bei einer Installation?",
+            "answer": "Eine typische Installation umfasst die Ankunft und Vorbereitung des Teams, die Überprüfung des Systemdesigns, die Panel- und Verkabelungsinstallation, die Reinigung und eine abschliessende Begehung zur Erklärung des Systembetriebs und der Aktivierung."
+          },
+          "roofImpact": {
+            "question": "Was passiert mit meinem Dach bei der Installation von Solarpanels?",
+            "answer": "Die Installation erfordert Bohrungen zur Befestigung der Montagesysteme. Alle Dachdurchdringungen werden abgedichtet und durch unsere Handwerksgarantie abgesichert. Solarpanels schützen die darunterliegenden Dachflächen sogar vor Witterungseinflüssen."
+          },
+          "components": {
+            "question": "Was wird bei einer Solaranlage installiert?",
+            "answer": "Standardkomponenten umfassen Solarpanels (Umwandlung von Sonnenlicht in Gleichstrom), einen Wechselrichter (Umwandlung von Gleich- in Wechselstrom), einen Überwachungszähler, die Hauptschalttafel und einen Netzzähler."
+          },
+          "duration": {
+            "question": "Wie lange dauert die Installation normalerweise?",
+            "answer": "Die Installation wird in der Regel an einem Tag abgeschlossen. Die Vorbereitung dauert mehrere Wochen und umfasst die Standortbesichtigung, Designfinalisierung, Genehmigungsanträge und die Einholung notwendiger Bewilligungen."
+          },
+          "afterActivation": {
+            "question": "Was passiert, nachdem ich mein System eingeschaltet habe?",
+            "answer": "Ihr Haus wird mit Solarenergie vom Dach versorgt. Sie können die Produktion über unser Online-Portal überwachen. Monatliche Rechnungen werden 30 Tage nach der Systemaktivierung für Monatszahler versandt."
+          },
+          "permissionToOperate": {
+            "question": "Was ist die Betriebsbewilligung?",
+            "answer": "Die Betriebsbewilligung (PTO) erlaubt die Verbindung Ihres Systems mit dem Stromnetz — sie ist vor der Aktivierung erforderlich. Wir reichen die Netzanschlussanträge nach Abschluss der Inspektion ein, was in der Regel 2–6 Wochen dauert."
+          }
+        }
+      },
+      "howItWorks": {
+        "eyebrow": "Technologie",
+        "title": "So funktioniert Solar",
+        "description": "Verstehen Sie Ihr Solarenergiesystem",
+        "items": {
+          "systemWork": {
+            "question": "Wie funktioniert eine Solaranlage für Zuhause?",
+            "answer": "Solarpanels wandeln Sonnenlicht in Gleichstrom um. Wechselrichter wandeln diesen in Wechselstrom um, der Ihr Haus versorgt. Überschüssige Energie fliesst ins Netz, während der Überwachungszähler die Produktion und der Netzzähler den Netzaustausch erfasst."
+          },
+          "cloudy": {
+            "question": "Funktionieren meine Panels bei bewölktem Himmel?",
+            "answer": "Solaranlagen produzieren bei allen Wetterbedingungen Strom. Die Produktion an bewölkten Tagen erreicht typischerweise 10–25 % der Kapazität. Systemdesigns berücksichtigen regionale Sonnenlichtvariationen für eine angemessene Dimensionierung."
+          },
+          "winter": {
+            "question": "Funktionieren meine Panels im Winter?",
+            "answer": "Ja, Systeme produzieren das ganze Jahr über, wobei die Leistung saisonal schwankt. Die Sommerproduktion erreicht Spitzenwerte mit längeren Tagen, während die Winterproduktion aufgrund kürzerer Tage und variablem Wetter abnimmt."
+          },
+          "night": {
+            "question": "Funktionieren Solarpanels nachts?",
+            "answer": "Panels benötigen Sonnenlicht und sind nachts inaktiv. Einspeisevergütungen ermöglichen die Nutzung von Netzstrom in der Nacht, und Batteriespeicher ermöglichen den Verbrauch von tagsüber produziertem Strom nach Sonnenuntergang."
+          },
+          "blackout": {
+            "question": "Was passiert bei einem Stromausfall?",
+            "answer": "Solaranlagen schalten sich bei Ausfällen automatisch ab, um Netzarbeiter zu schützen. Die Systeme starten automatisch neu, wenn der Netzstrom wiederhergestellt ist. Batterie-ausgestattete Systeme liefern während Ausfällen weiterhin Notstrom."
+          },
+          "longevity": {
+            "question": "Funktioniert meine Solaranlage nach 25 Jahren noch gut?",
+            "answer": "Panels produzieren weit über 25 Jahre hinaus, wobei sie jährlich etwa 0,5 % abnehmen. Nach 25 Jahren arbeiten Systeme noch bei etwa 88 % ihrer ursprünglichen Kapazität und liefern weiterhin saubere erneuerbare Energie."
+          }
+        }
+      },
+      "costsAndPayment": {
+        "eyebrow": "Finanzierung",
+        "title": "Kosten & Zahlung",
+        "description": "Ihre Solarinvestitionsoptionen verstehen",
+        "items": {
+          "leaseVsBuy": {
+            "question": "Ist es besser, Solarpanels zu mieten oder zu kaufen?",
+            "answer": "Mieten erfordert minimale Vorabkosten mit inkludierter Wartung. Der Kauf bietet direkten Zugang zu Steuervergünstigungen und Förderungen, erfordert aber Wartungsverantwortung ausserhalb der Garantie. Beide Optionen haben je nach Situation einzigartige Vorteile."
+          },
+          "leasePPA": {
+            "question": "Was ist ein Solar-Leasing oder PPA?",
+            "answer": "Solar-Leasing beinhaltet eine feste monatliche Zahlung für die Systemnutzung. Power Purchase Agreements (PPAs) berechnen pro Kilowattstunde für erzeugten Strom. Beide erfordern minimale Vorabkosten und beinhalten Wartung."
+          },
+          "averageCost": {
+            "question": "Was kosten Solarpanels durchschnittlich?",
+            "answer": "Systeme kosten typischerweise zwischen CHF 15'000 und 29'000 für 4kW–8kW-Kapazitäten, je nach Kanton und Haus. Flexible Finanzierungsoptionen ermöglichen den Umstieg auf Solar mit wenig bis keinem Eigenkapital."
+          },
+          "controlCosts": {
+            "question": "Wie hilft Solar, meine Kosten zu kontrollieren?",
+            "answer": "Solar ersetzt unvorhersehbare Strompreiserhöhungen durch festgeschriebene, planbare Tarife. Je grösser die Strompreiserhöhungen im Laufe der Zeit, desto grösser werden Ihre Solareinsparungen."
+          },
+          "utilityBill": {
+            "question": "Warum erhalte ich mit Solar immer noch eine Stromrechnung?",
+            "answer": "Sie bleiben netzverbunden und beziehen zusätzlichen Strom bei unzureichender Produktion (bewölkte Tage, Winter, Nacht). Standard-Anschlussgebühren fallen auch an, wenn Solar Ihren gesamten Strom liefert."
+          },
+          "taxCredits": {
+            "question": "Gibt es Steuervorteile für Solar?",
+            "answer": "Bundes- und kantonale Steueranreize können die Kosten Ihrer Solaranlage erheblich senken. Kontaktieren Sie unsere Solarberater für Details zu den spezifischen Förderungen in Ihrer Region."
+          }
+        }
+      },
+      "maintenance": {
+        "eyebrow": "Service",
+        "title": "Wartung & Support",
+        "description": "Ihr System auf Höchstleistung halten",
+        "items": {
+          "care": {
+            "question": "Wie pflege ich meine Solarpanels?",
+            "answer": "Schneiden Sie nahestehende Bäume für maximale Sonneneinstrahlung. Besprühen Sie staubige Panels mit Wasser — Regentage bieten in der Regel ausreichende Reinigung. Vermeiden Sie die Schneeräumung, da er von selbst abrutscht."
+          },
+          "monitoring": {
+            "question": "Wird mein System überwacht?",
+            "answer": "Ja, ein dediziertes Überwachungsteam beobachtet kontinuierlich. Zähler senden mehrmals täglich Produktionsdaten. Die tägliche Auswertung bestätigt die erwartete Leistung, und Probleme lösen Untersuchungen und Reparaturen aus."
+          },
+          "breaks": {
+            "question": "Was passiert, wenn mein System kaputt geht oder nicht wie erwartet funktioniert?",
+            "answer": "Wir übernehmen alle Reparaturen und Ersatzleistungen während Ihrer gesamten Vertragslaufzeit. Melden Sie Probleme über unser Support-Portal für sofortige Unterstützung."
+          },
+          "warranty": {
+            "question": "Hat meine Solaranlage eine Garantie?",
+            "answer": "Ja, die Ausrüstung ist durch umfassende Garantien abgesichert, einschliesslich 24/7-Überwachung und Wartung. Defekte werden während der gesamten Vertragslaufzeit kostenlos repariert."
+          },
+          "roofReplacement": {
+            "question": "Was ist, wenn ich mein Dach erneuern muss?",
+            "answer": "Kontaktieren Sie unseren Kundenservice für Demontage- und Wiederinstallationsangebote. Unsere lokalen Teams entfernen die Panels vorübergehend während der Dacherneuerung. Wir empfehlen, wenn möglich 45 Tage Vorlaufzeit einzuplanen."
+          },
+          "shade": {
+            "question": "Beeinträchtigen Bäume oder Schatten meine Solarleistung?",
+            "answer": "Schatten reduziert die Paneleffizienz. Unser Design berücksichtigt bestehende Verschattung, jedoch kann zukünftiges Baumwachstum die Produktion verringern. Das Zurückschneiden von Bäumen maximiert die Sonneneinstrahlung auf Ihre Panels."
+          }
+        }
+      },
+      "battery": {
+        "eyebrow": "Energiespeicher",
+        "title": "Batteriespeicher",
+        "description": "Hausbatterien und Energieunabhängigkeit",
+        "items": {
+          "whatBackup": {
+            "question": "Was kann meine Batterie sichern?",
+            "answer": "Batterien können Ihre Küche (einschliesslich Kühlschrank), Schlaf- und Badezimmerbeleuchtung, Garagentoröffner und WLAN für etwa 8–12 Stunden sichern. Solarpanels laden die Batterien bei Sonnenaufgang wieder auf."
+          },
+          "outage": {
+            "question": "Wie funktioniert Batteriespeicher bei einem Stromausfall?",
+            "answer": "Bei Ausfällen versorgen Batterien die gesicherten Stromkreise innerhalb von Sekunden und liefern je nach Verbrauch 8–12 Stunden Backup-Energie. Solarpanels laden die Batterien täglich, was mehrtägige Ausfallunterstützung ermöglicht."
+          },
+          "offGrid": {
+            "question": "Kann ich mit einer Batterie vom Netz gehen?",
+            "answer": "Systeme bleiben netzverbunden, wenn Netzstrom verfügbar ist. Bei Ausfällen trennt sich die Batterie vom Netz und versorgt ausgewählte Bereiche Ihres Hauses. Die Netzverbindung wird automatisch wiederhergestellt, wenn der Strom zurückkehrt."
+          },
+          "howMany": {
+            "question": "Wie viele Batterien werden benötigt, um ein Haus zu versorgen?",
+            "answer": "Die Batteriegrösse hängt von Ihrem individuellen Energiebedarf, Ihren Verbrauchsgewohnheiten und den gewünschten Backup-Geräten ab. Eine professionelle Bewertung bestimmt das passende System für Ihre spezifischen Anforderungen."
+          },
+          "placement": {
+            "question": "Wo wird meine Batterie platziert?",
+            "answer": "Batterien werden typischerweise an der Wand in Garagen oder an Aussenwänden montiert. Die Installation erfordert etwa 2 Meter Höhe und 3 Meter Breite Freiraum."
+          },
+          "batteryMaintenance": {
+            "question": "Muss ich meine Batterie warten oder einrichten?",
+            "answer": "Die Installateure übernehmen die gesamte Konfiguration mit optimierten Einstellungen. Batterien halten 10–15 Jahre mit typischen 10-Jahres-Herstellergarantien. Unser Wartungsplan umfasst 25 Jahre professionelle Überwachung."
+          }
+        }
+      },
+      "environment": {
+        "eyebrow": "Nachhaltigkeit",
+        "title": "Umweltauswirkungen",
+        "description": "Wie Solarenergie Ihnen und dem Planeten hilft",
+        "items": {
+          "impact": {
+            "question": "Welche Umweltauswirkungen hat eine Solaranlage?",
+            "answer": "Solaranlagen kompensieren ihre Herstellungsemissionen innerhalb von 10 Monaten. Über ihre Lebensdauer verhindern sie CO₂-Emissionen, die dem Fahren von fast 800'000 Kilometern entsprechen."
+          },
+          "community": {
+            "question": "Wie hilft Solar meiner Gemeinschaft?",
+            "answer": "Die Solarnutzung liefert sauberen Strom ohne Emissionen. Selbst erzeugter Strom reduziert die Netzbelastung zu Spitzenzeiten und kommt der Sicherheit und Infrastruktur Ihrer gesamten Gemeinschaft zugute."
+          },
+          "netMetering": {
+            "question": "Was ist Einspeisevergütung?",
+            "answer": "Die Einspeisevergütung erfasst überschüssigen Solarstrom, den Sie ins Netz einspeisen. Ihr Versorger verrechnet diese Einspeisung mit zukünftigen Netzbezügen, sodass Ihr Solarstrom nie verschwendet wird."
+          },
+          "energyCredits": {
+            "question": "Was sind Energiegutschriften?",
+            "answer": "Versorger gewähren Gutschriften für überschüssigen Solarstrom, der ins Netz eingespeist wird. Sofort genutzter Solarstrom wird nicht abgerechnet. Batterie-gespeicherte Energie vermeidet ebenfalls die Netzeinspeisung und Abrechnungsauswirkungen."
+          }
+        }
+      }
     }
   }
 }

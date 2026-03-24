@@ -373,11 +373,11 @@ export default function RegisterPage() {
 
             <p className="text-sm text-muted-foreground text-center mt-4">
               {t('termsText')}{' '}
-              <Link href="/terms" className="text-primary hover:underline">
+              <Link href="/agb" className="text-primary hover:underline">
                 {t('termsLink')}
               </Link>{' '}
               {t('and')}{' '}
-              <Link href="/privacy" className="text-primary hover:underline">
+              <Link href="/privacy-policy" className="text-primary hover:underline">
                 {t('privacyLink')}
               </Link>
             </p>

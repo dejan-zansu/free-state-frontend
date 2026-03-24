@@ -2611,6 +2611,84 @@
     },
     "lastUpdated": "Last updated: February 2026"
   },
+  "impressum": {
+    "title": "Legal Notice",
+    "subtitle": "Company information and legal disclosures",
+    "companyInfo": {
+      "title": "Company Information",
+      "content": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSwitzerland"
+    },
+    "representation": {
+      "title": "Authorized Representatives",
+      "content": "The company is legally represented by its Board of Directors."
+    },
+    "contact": {
+      "title": "Contact",
+      "content": "Phone: +41 52 525 33 05\nEmail: info@freestate.ch\nWebsite: www.freestate.ch"
+    },
+    "register": {
+      "title": "Commercial Register Entry",
+      "content": "Registered company name: Free State AG\nRegistered office: Schaffhausen, Switzerland\nUID (Company Identification Number): CHE-XXX.XXX.XXX"
+    },
+    "vat": {
+      "title": "VAT Identification Number",
+      "content": "VAT Number: CHE-XXX.XXX.XXX MWST"
+    },
+    "liability": {
+      "title": "Disclaimer",
+      "content": "The content of this website has been prepared with the utmost care. However, Free State AG cannot guarantee the accuracy, completeness, or timeliness of the content provided.\n\nAs a service provider, we are responsible for our own content on these pages under general law. However, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.\n\nLiability claims against Free State AG relating to material or immaterial damages caused by the use or non-use of the information provided, or by the use of incorrect or incomplete information, are excluded, unless there is evidence of willful intent or gross negligence on the part of Free State AG."
+    },
+    "copyright": {
+      "title": "Copyright",
+      "content": "The content and works on these pages created by the site operators are subject to Swiss copyright law. Duplication, processing, distribution, or any form of commercialization of such material beyond the scope of copyright law requires the prior written consent of the respective author or creator.\n\nDownloads and copies of this site are only permitted for private, non-commercial use."
+    },
+    "lastUpdated": "Last updated: March 2026"
+  },
+  "agb": {
+    "title": "General Terms and Conditions",
+    "subtitle": "Terms governing the use of our services",
+    "scope": {
+      "title": "1. Scope of Application",
+      "content": "These General Terms and Conditions (GTC) govern the business relationship between Free State AG, Stettemerstrasse 40, 8207 Schaffhausen, Switzerland (hereinafter \"Free State AG\") and its customers (hereinafter \"Customer\").\n\nBy using our website or services, the Customer accepts these GTC. Deviating conditions of the Customer are not recognized unless Free State AG has expressly agreed to their validity in writing."
+    },
+    "contractConclusion": {
+      "title": "2. Contract Conclusion",
+      "content": "The presentation of products and services on our website does not constitute a binding offer. A contract is only concluded when Free State AG confirms the order in writing or begins with the execution of the service.\n\nFree State AG reserves the right to refuse orders without giving reasons."
+    },
+    "services": {
+      "title": "3. Services",
+      "content": "Free State AG offers photovoltaic systems, battery storage, heat pumps, charging stations, and related energy services. The exact scope of services is determined by the individual contract or order confirmation.\n\nFree State AG reserves the right to make changes to the services, provided these changes are reasonable for the Customer."
+    },
+    "prices": {
+      "title": "4. Prices",
+      "content": "All prices are quoted in Swiss Francs (CHF) and include the applicable value-added tax (VAT) unless otherwise stated.\n\nFree State AG reserves the right to adjust prices at any time. For existing contracts, the prices agreed at the time of contract conclusion apply."
+    },
+    "payment": {
+      "title": "5. Payment Terms",
+      "content": "Invoices are due within 30 days of the invoice date unless otherwise agreed. In the event of late payment, Free State AG is entitled to charge default interest of 5% per annum.\n\nFree State AG reserves the right to require advance payment or security deposits."
+    },
+    "warranty": {
+      "title": "6. Warranty",
+      "content": "Free State AG warrants that the delivered products and services are free from material defects and defects of title at the time of delivery.\n\nThe warranty period is 2 years from the date of delivery unless a longer period has been agreed in writing. Warranty claims must be reported in writing within 10 days of discovery of the defect.\n\nManufacturer warranties for specific components (e.g., solar panels, inverters) may apply in addition and are governed by the respective manufacturer's terms."
+    },
+    "liability": {
+      "title": "7. Liability",
+      "content": "Free State AG is liable for damages only in cases of willful intent or gross negligence. Liability for indirect damages, consequential damages, or lost profits is excluded to the extent permitted by law.\n\nFree State AG's total liability is limited to the contract value of the respective order."
+    },
+    "dataProtection": {
+      "title": "8. Data Protection",
+      "content": "Free State AG processes personal data in accordance with the applicable data protection legislation (Swiss Federal Act on Data Protection and, where applicable, the EU General Data Protection Regulation).\n\nFor detailed information on data processing, please refer to our Privacy Policy."
+    },
+    "applicableLaw": {
+      "title": "9. Applicable Law and Jurisdiction",
+      "content": "These GTC are governed by Swiss law, excluding the United Nations Convention on Contracts for the International Sale of Goods (CISG).\n\nThe exclusive place of jurisdiction for all disputes arising from or in connection with these GTC is Schaffhausen, Switzerland."
+    },
+    "finalProvisions": {
+      "title": "10. Final Provisions",
+      "content": "Should individual provisions of these GTC be or become invalid, the validity of the remaining provisions shall not be affected. The invalid provision shall be replaced by a valid provision that comes as close as possible to the economic purpose of the invalid provision.\n\nFree State AG reserves the right to amend these GTC at any time. The amended GTC will be published on the website and apply from the date of publication."
+    },
+    "lastUpdated": "Last updated: March 2026"
+  },
   "chargingStations": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
@@ -2809,6 +2887,29 @@
         "taxSavings": "Expected tax savings",
         "taxSavingsNote": "Investments in renewable energies are 100% tax deductible",
         "returns": "Returns"
+      },
+      "energyFlow": {
+        "title": "Energy Flow",
+        "production": "Production",
+        "ownConsumption": "Own consumption",
+        "consumption": "Electricity consumption",
+        "independence": "Independence",
+        "gridSupply": "Grid supply",
+        "feedIn": "Feed-in to grid"
+      },
+      "monthlyAnalysis": {
+        "title": "Monthly Analysis",
+        "production": "Production",
+        "consumption": "Consumption",
+        "selfConsumed": "Self-consumed"
+      },
+      "roi": {
+        "title": "Return on Investment",
+        "payback": "Payback after {years} years",
+        "totalProfit": "Total profit: CHF {amount}",
+        "years": "Years",
+        "year": "Year",
+        "cashflow": "Cumulative cashflow"
       },
       "abo": {
         "title": "SolarFree — Zero Investment",
@@ -5219,6 +5320,222 @@
       "faq5a": "Free State AG handles all maintenance, repairs, and monitoring of the PV system for the duration of the contract.",
       "faq6q": "How do I sign the contract digitally?",
       "faq6a": "After reviewing the contract in our calculator, you will be redirected to Swisscom Trust Services for a secure digital signature. You will need your phone for identity verification."
+    }
+  },
+  "faqPage": {
+    "hero": {
+      "title": "Frequently Asked\nQuestions"
+    },
+    "sections": {
+      "gettingStarted": {
+        "eyebrow": "Getting Started",
+        "title": "Solar Basics",
+        "description": "Everything you need to know before going solar",
+        "items": {
+          "whySolar": {
+            "question": "Why should I switch to solar?",
+            "answer": "Solar is renewable, reliable, and clean energy that reduces reliance on fossil fuels. With a solar system, you benefit from predictable energy rates for 20–25 years and take control of your energy future."
+          },
+          "homeGood": {
+            "question": "Is my home good for solar?",
+            "answer": "Suitability depends on your location, roof angle, shade, and home age. Our solar advisors conduct a custom analysis to determine if your home qualifies and assess your energy needs."
+          },
+          "howManyPanels": {
+            "question": "How many solar panels will my home need?",
+            "answer": "The number of panels depends on your power requirements (based on utility bills), climate, and roof characteristics. We customize every system to maximize energy production for your specific home."
+          },
+          "historicalUsage": {
+            "question": "Why do you need my historical electricity usage?",
+            "answer": "Your past usage allows us to customize an appropriately-sized system. A full year of data reveals seasonal variations needed to match your home's actual consumption patterns."
+          },
+          "stateIncentives": {
+            "question": "Are there incentives to go solar?",
+            "answer": "Common incentives include tax credits, net metering, and utility rebates. Federal and cantonal solar incentives can significantly reduce the cost of your system."
+          },
+          "homeValue": {
+            "question": "Will solar panels increase the value of my home?",
+            "answer": "Studies show that homes with solar sell for approximately 4% more than homes without. Installing a solar system increases your home's appeal and value for potential buyers."
+          }
+        }
+      },
+      "installation": {
+        "eyebrow": "Installation",
+        "title": "Installation Process",
+        "description": "What to expect during your solar installation",
+        "items": {
+          "whatHappens": {
+            "question": "What happens during an installation?",
+            "answer": "A typical installation includes crew arrival and preparation, system design review, panel and wiring installation, cleanup, and a final walk-through explaining system operation and activation procedures."
+          },
+          "roofImpact": {
+            "question": "What happens to my roof when solar panels are installed?",
+            "answer": "Installation requires drilling holes to anchor racking equipment. All roof penetrations are waterproofed and guaranteed by our workmanship warranty. Solar panels actually protect underlying roof sections from weathering."
+          },
+          "components": {
+            "question": "What is installed as part of a solar system?",
+            "answer": "Standard components include solar panels (converting sunlight to DC electricity), an inverter (converting DC to AC), a monitoring meter, the main electrical panel, and a utility meter."
+          },
+          "duration": {
+            "question": "How long does the installation usually take?",
+            "answer": "Installation typically completes in one day. Pre-installation preparation takes several weeks, including site survey, design finalization, permit application, and obtaining necessary approvals."
+          },
+          "afterActivation": {
+            "question": "What happens after I turn my system on?",
+            "answer": "Your home becomes powered by roof-mounted solar. You can monitor production through our online portal. Monthly bills arrive 30 days after system activation for monthly-payment customers."
+          },
+          "permissionToOperate": {
+            "question": "What is Permission to Operate?",
+            "answer": "Permission to Operate (PTO) grants permission to connect your system to the utility grid — it's required before activation. We submit interconnection applications following inspection completion, which typically takes 2–6 weeks."
+          }
+        }
+      },
+      "howItWorks": {
+        "eyebrow": "Technology",
+        "title": "How Solar Works",
+        "description": "Understanding your solar energy system",
+        "items": {
+          "systemWork": {
+            "question": "How does a home solar system work?",
+            "answer": "Solar panels convert sunlight to DC electricity. Inverters transform it to AC electricity powering your home. Excess energy flows to the grid, while the monitoring meter tracks production and the utility meter tracks grid exchanges."
+          },
+          "cloudy": {
+            "question": "Will my panels work when it is cloudy?",
+            "answer": "Solar systems produce electricity in all weather conditions. Cloudy-day production typically reaches 10–25% of capacity. System designs account for regional sunlight variations to ensure appropriate sizing."
+          },
+          "winter": {
+            "question": "Will my panels work in winter?",
+            "answer": "Yes, systems produce year-round, though output fluctuates seasonally. Summer production peaks with longer days, while winter production declines due to shorter days and variable weather. Designs account for seasonal variation."
+          },
+          "night": {
+            "question": "Do solar panels work at night?",
+            "answer": "Panels require sunlight and remain dormant at night. Net metering credits enable using nighttime grid power, and battery storage enables consuming daytime-produced electricity after sunset."
+          },
+          "blackout": {
+            "question": "What happens during a blackout?",
+            "answer": "Solar systems automatically deactivate during outages to protect utility workers on power lines. Systems restart automatically when utility power restores. Battery-equipped systems continue providing backup power during outages."
+          },
+          "longevity": {
+            "question": "Will my solar system still work well after 25 years?",
+            "answer": "Panels continue producing well past 25 years, declining approximately 0.5% annually. After 25 years, systems operate at roughly 88% of their original capacity, providing continued clean renewable energy."
+          }
+        }
+      },
+      "costsAndPayment": {
+        "eyebrow": "Financing",
+        "title": "Costs & Payment",
+        "description": "Understanding your solar investment options",
+        "items": {
+          "leaseVsBuy": {
+            "question": "Is it better to lease or buy solar panels?",
+            "answer": "Leasing requires minimal upfront costs with included maintenance. Purchasing offers direct access to tax credits and incentives but requires maintenance responsibility outside warranty coverage. Both options have unique advantages depending on your situation."
+          },
+          "leasePPA": {
+            "question": "What's a solar lease or PPA?",
+            "answer": "Solar leases involve a fixed monthly payment for system use. Power Purchase Agreements (PPAs) charge per kilowatt-hour for generated electricity. Both require minimal upfront costs and include maintenance."
+          },
+          "averageCost": {
+            "question": "What is the average cost of solar panels?",
+            "answer": "Systems typically cost between CHF 15,000–29,000 for 4kW–8kW capacities depending on your canton and home. Flexible financing options enable going solar with little to no money down."
+          },
+          "controlCosts": {
+            "question": "How does solar help control my costs?",
+            "answer": "Solar replaces unpredictable utility rate increases with locked-in, predictable rates. The greater the utility rate increases over time, the larger your solar savings become."
+          },
+          "utilityBill": {
+            "question": "Why do I still receive a utility bill with solar?",
+            "answer": "You remain grid-connected, purchasing supplementary power during insufficient production (cloudy days, winter, nighttime). Standard connection fees apply even when solar provides all your electricity."
+          },
+          "taxCredits": {
+            "question": "Are there tax benefits for going solar?",
+            "answer": "Federal and cantonal tax incentives can significantly reduce the cost of your solar system. Contact our solar advisors for details on the specific incentives available in your area."
+          }
+        }
+      },
+      "maintenance": {
+        "eyebrow": "Support",
+        "title": "Maintenance & Support",
+        "description": "Keeping your system running at peak performance",
+        "items": {
+          "care": {
+            "question": "How do I care for my solar panels?",
+            "answer": "Trim nearby trees for maximum sun exposure. Spray dusty panels with water — rainy days typically provide sufficient cleaning. Avoid cleaning snow as it naturally slides off."
+          },
+          "monitoring": {
+            "question": "Is my system monitored?",
+            "answer": "Yes, a dedicated monitoring team watches continuously. Meters send production data multiple times daily. Daily evaluation confirms expected performance, and any problems trigger investigation and repair."
+          },
+          "breaks": {
+            "question": "What happens if my system breaks or isn't working as expected?",
+            "answer": "We handle all repairs and replacements throughout your agreement. Report issues through our support portal for immediate agent assistance."
+          },
+          "warranty": {
+            "question": "Will my home solar system have a warranty?",
+            "answer": "Yes, equipment is backed by robust warranties including 24/7 monitoring and maintenance. Any breakdowns receive free repair service for the duration of your agreement."
+          },
+          "roofReplacement": {
+            "question": "What if I need to have my roof replaced?",
+            "answer": "Contact our customer care for removal and reinstallation quotes. Our local teams temporarily remove panels during roof replacement. We recommend providing 45 days advance notice when possible."
+          },
+          "shade": {
+            "question": "Will trees or shade impact my solar performance?",
+            "answer": "Shade reduces panel efficiency. Our design accounts for existing shade, however future tree growth may decrease production. Trimming trees maximizes your panels' sun exposure."
+          }
+        }
+      },
+      "battery": {
+        "eyebrow": "Energy Storage",
+        "title": "Battery Storage",
+        "description": "Home battery backup and energy independence",
+        "items": {
+          "whatBackup": {
+            "question": "What can my battery back up?",
+            "answer": "Batteries can backup your kitchen (including refrigerator), bedroom and bathroom lights, garage door opener, and WiFi for approximately 8–12 hours. Solar panels recharge batteries at sunrise."
+          },
+          "outage": {
+            "question": "How does battery storage work during a power outage?",
+            "answer": "During outages, batteries power backed-up circuits within seconds, providing 8–12 hours of backup energy depending on usage. Solar panels recharge batteries daily, enabling multi-day outage support."
+          },
+          "offGrid": {
+            "question": "Can I go off the grid with a battery?",
+            "answer": "Systems remain grid-connected when utility power is available. During outages, the battery 'islands' from the grid, powering selected areas of your home. Grid reconnection occurs automatically when utility power restores."
+          },
+          "howMany": {
+            "question": "How many batteries are needed to power a house?",
+            "answer": "Battery sizing depends on your unique energy needs, consumption habits, and which appliances you want backed up. A professional assessment determines the appropriately-sized system for your specific requirements."
+          },
+          "placement": {
+            "question": "Where will my battery be placed?",
+            "answer": "Batteries are typically wall-mounted inside garages or on exterior home walls. Installation requires approximately 6.5 feet of height by 10 feet of width clearance."
+          },
+          "batteryMaintenance": {
+            "question": "Do I need to do any setup or maintenance on my battery?",
+            "answer": "Installers handle all configuration with optimized settings. Batteries last 10–15 years with typical 10-year manufacturer warranties. Our maintenance plan includes 25 years of professional monitoring."
+          }
+        }
+      },
+      "environment": {
+        "eyebrow": "Sustainability",
+        "title": "Environmental Impact",
+        "description": "How solar energy benefits you and the planet",
+        "items": {
+          "impact": {
+            "question": "What is the environmental impact of a solar system?",
+            "answer": "Solar systems offset their manufacturing emissions within 10 months. Over their lifetime, they prevent carbon emissions equivalent to driving nearly 500,000 miles."
+          },
+          "community": {
+            "question": "How does going solar help my community?",
+            "answer": "Solar adoption provides clean electricity with zero emissions. Home-generated power reduces grid strain during peak demand, benefiting your entire community's safety and infrastructure."
+          },
+          "netMetering": {
+            "question": "What is net metering?",
+            "answer": "Net metering tracks excess solar power you send into the grid. Your utility credits these exports against future grid purchases, ensuring your solar power never goes to waste."
+          },
+          "energyCredits": {
+            "question": "What are energy credits?",
+            "answer": "Utilities provide credits for excess solar-produced power fed into the grid. Energy used immediately from solar never enters billing. Battery-stored energy similarly avoids grid entry and billing impact."
+          }
+        }
+      }
     }
   }
 }

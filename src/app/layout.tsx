@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Figtree } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 
 const geistSans = Geist({
@@ -30,6 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='light' suppressHydrationWarning>
+      <head>
+        {process.env.NEXT_PUBLIC_COOKIEYES_SITE_ID && (
+          <Script
+            id='cookieyes'
+            src={`https://cdn-cookieyes.com/client_data/${process.env.NEXT_PUBLIC_COOKIEYES_SITE_ID}/script.js`}
+            strategy='beforeInteractive'
+          />
+        )}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} antialiased flex flex-col min-h-screen`}
       >

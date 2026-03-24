@@ -41,7 +41,7 @@ const RepoweringServicesSection = () => {
                 style={{ border: '1px solid #809792' }}
               >
                 <div className="relative z-10 flex items-center justify-center pt-[30px]">
-                  <Image src={card.icon} alt="" width={142} height={142} />
+                  <Image src={card.icon} alt="" width={142} height={142} unoptimized />
                 </div>
 
                 <div

@@ -28,7 +28,7 @@ const TopicCard = ({
       style={{ border: '1px solid #809792' }}
     >
       <div className="relative z-10 flex items-center justify-center pt-[30px]">
-        <Image src={icon} alt="" width={142} height={142} className={iconClassName} />
+        <Image src={icon} alt="" width={142} height={142} className={iconClassName} unoptimized />
       </div>
 
       <div
