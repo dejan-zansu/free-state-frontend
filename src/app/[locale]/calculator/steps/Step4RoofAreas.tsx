@@ -182,8 +182,12 @@ export default function Step4RoofAreas() {
 
           buildingData.roofSegments.forEach(segment => {
             const suitClass = segment.suitability?.class || 0
-            const yieldPerM2 = segment.area > 0 ? Math.round(segment.electricityYield / segment.area) : 0
-            const willSelect = segment.area >= MIN_SEGMENT_AREA && suitClass <= 3
+            const yieldPerM2 =
+              segment.area > 0
+                ? Math.round(segment.electricityYield / segment.area)
+                : 0
+            const willSelect =
+              segment.area >= MIN_SEGMENT_AREA && suitClass <= 3
             console.log('[RoofAreas] segment auto-select check:', {
               id: segment.id,
               suitClass,
@@ -192,7 +196,10 @@ export default function Step4RoofAreas() {
               yieldPerM2,
               willSelect,
             })
-            if (willSelect && !selectedSegmentsRef.current.includes(segment.id)) {
+            if (
+              willSelect &&
+              !selectedSegmentsRef.current.includes(segment.id)
+            ) {
               toggleSegment(segment.id)
             }
           })
@@ -235,7 +242,10 @@ export default function Step4RoofAreas() {
         }
       }
       const [lng, lat] = toLonLat(coordinate)
-      console.log('[RoofAreas] clicked empty space, fetching building at:', { lat, lng })
+      console.log('[RoofAreas] clicked empty space, fetching building at:', {
+        lat,
+        lng,
+      })
       await fetchBuildingAt(lat, lng)
     },
     [toggleSegment, fetchBuildingAt]
@@ -572,7 +582,7 @@ export default function Step4RoofAreas() {
                 />
               ))}
             </div>
-            <div className="mt-1 flex justify-between text-xs text-[#EAEDDF]/40">
+            <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/40">
               <span>{t('excellent')}</span>
               <span>{t('low')}</span>
             </div>

@@ -104,6 +104,7 @@ export interface CalculatorPackage {
   description: string
   features: string[]
   highlightedFeature: string | null
+  imageUrl: string | null
   pricePerKwp: number | null
   currency: string
   minCapacityKwp: number | null
@@ -115,6 +116,7 @@ export interface CalculatorPackage {
     name: string
     quantity: number
     isOptional: boolean
+    imageUrl?: string
     panelWattageW?: number
     panelAreaM2?: number
   }[]

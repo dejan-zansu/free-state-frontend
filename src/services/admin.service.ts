@@ -117,9 +117,7 @@ class AdminService {
   async uploadImage(file: File): Promise<string> {
     const formData = new FormData()
     formData.append('file', file)
-    const response = await api.post<{ success: boolean; data: { url: string } }>('/admin/upload', formData, {
-      headers: { 'Content-Type': 'multipart/form-data' },
-    })
+    const response = await api.post<{ success: boolean; data: { url: string } }>('/admin/upload', formData)
     return response.data.data.url
   }
 

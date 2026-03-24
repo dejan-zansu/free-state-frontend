@@ -16,6 +16,7 @@ import {
   PanelTop,
   Ticket,
   Users,
+  Wrench,
   Zap,
 } from 'lucide-react'
 import Link from 'next/link'
@@ -55,9 +56,15 @@ export function AdminSidebar() {
       items: [
         { label: t('leads'), href: `${prefix}/leads`, icon: BarChart3 },
         { label: t('contracts'), href: `${prefix}/contracts`, icon: FileText },
-        { label: t('contacts'), href: `${prefix}/contacts`, icon: MessageSquareText },
         { label: t('support'), href: `${prefix}/support`, icon: Ticket },
         { label: t('users'), href: `${prefix}/users`, icon: Users },
+      ],
+    },
+    {
+      label: t('groupSubmissions'),
+      items: [
+        { label: t('contacts'), href: `${prefix}/contacts`, icon: MessageSquareText },
+        { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`, icon: Wrench },
       ],
     },
     {
