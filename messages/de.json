@@ -4593,6 +4593,9 @@
       },
       "cta": "Kostenloses Angebot erhalten",
       "actions": {
+        "reportTitle": "Solarbericht herunterladen",
+        "reportDescription": "Laden Sie einen detaillierten PDF-Bericht mit Systemanalyse, Diagrammen und Finanzprognosen herunter.",
+        "reportButton": "PDF herunterladen",
         "downloadTitle": "Ergebnisse per E-Mail",
         "downloadDescription": "Erhalten Sie Ihre Solaranalyse per E-Mail — unverbindlich.",
         "downloadButton": "An meine E-Mail senden",

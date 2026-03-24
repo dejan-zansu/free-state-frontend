@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { Loader2, CheckCircle2, Check } from 'lucide-react'
+import { Loader2, CheckCircle2, Check, Download } from 'lucide-react'
 import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { reportService } from '@/services/report.service'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
 import ROIChart from '../components/ROIChart'
@@ -118,6 +119,61 @@ export default function StepResults() {
   const handleSignContract = () => {
     store.setResultsPath('contract')
     store.nextStep()
+  }
+
+  const [downloading, setDownloading] = useState(false)
+
+  const handleDownloadReport = async () => {
+    setDownloading(true)
+    setError(null)
+    try {
+      const segments = store.getSelectedSegments()
+      const avgTilt = segments.length > 0
+        ? segments.reduce((sum, s) => sum + s.tilt, 0) / segments.length
+        : 30
+      const avgAzimuth = segments.length > 0
+        ? segments.reduce((sum, s) => sum + s.azimuth, 0) / segments.length
+        : 180
+
+      await reportService.downloadSonnendachReport({
+        latitude: store.building?.center.lat || 0,
+        longitude: store.building?.center.lng || 0,
+        address: store.address,
+        customerName: `${store.contact.firstName} ${store.contact.lastName}`.trim() || undefined,
+        customerEmail: store.contact.email || undefined,
+        customerPhone: store.contact.phoneNumber || undefined,
+        panelCount: panelCount,
+        panelPower: store.selectedPanelWattageW || 460,
+        roofArea: Math.round(selectedArea),
+        roofImage: store.roofImage || undefined,
+        orientation: avgAzimuth,
+        tilt: avgTilt,
+        yearlyProduction: annualProduction,
+        monthlyProduction: monthlyProduction,
+        dailyAverage: Math.round(annualProduction / 365),
+        co2Reduction: co2Savings,
+        panelCost: 0,
+        inverterCost: 0,
+        installationCost: 0,
+        totalInvestment: grossAmount,
+        vatRate: 0,
+        subsidies: subsidyAmount,
+        netInvestment: netAmount,
+        annualSavings: annualSavings,
+        totalSavings: annualSavings * (selectedPkg?.contractTermYears || 25),
+        netYield: annualSavings * (selectedPkg?.contractTermYears || 25) - netAmount,
+        paybackYears: annualSavings > 0 ? Math.ceil(netAmount / annualSavings) : 0,
+        electricityTariff: 0.277,
+        feedInTariff: 0.08,
+        selfConsumptionRate: selfConsumptionRate,
+        annualConsumption: estimatedConsumption,
+        language: (locale as 'de' | 'en' | 'fr' | 'it' | 'sr' | 'es') || 'de',
+      })
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : 'Failed to download report')
+    } finally {
+      setDownloading(false)
+    }
   }
 
   const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
@@ -437,6 +493,32 @@ export default function StepResults() {
         )}
 
         <div className="mt-10 space-y-3">
+          <div className="rounded-xl border border-[#062E25]/10 bg-white/60 p-5">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-[#062E25]">
+                  {t('actions.reportTitle')}
+                </p>
+                <p className="mt-0.5 text-sm text-[#062E25]/50">
+                  {t('actions.reportDescription')}
+                </p>
+              </div>
+              <Button
+                variant="outline"
+                onClick={handleDownloadReport}
+                disabled={downloading}
+                className="shrink-0 border-[#062E25]/20 text-[#062E25] hover:bg-[#062E25]/5"
+              >
+                {downloading ? (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                ) : (
+                  <Download className="mr-2 h-4 w-4" />
+                )}
+                {t('actions.reportButton')}
+              </Button>
+            </div>
+          </div>
+
           <div className="rounded-xl border border-[#062E25]/10 bg-white/60 p-5">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>

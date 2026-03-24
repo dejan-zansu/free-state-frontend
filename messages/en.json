@@ -2926,6 +2926,9 @@
       },
       "cta": "Get Your Free Offer",
       "actions": {
+        "reportTitle": "Download solar report",
+        "reportDescription": "Download a detailed PDF report with system analysis, charts, and financial projections.",
+        "reportButton": "Download PDF",
         "downloadTitle": "Email results",
         "downloadDescription": "Receive your solar analysis by email — no commitment.",
         "downloadButton": "Send to my email",

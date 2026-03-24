@@ -70,7 +70,6 @@ const Header = () => {
     showCommercial
       ? { label: t('commercialProperties'), href: '/commercial' as const }
       : { label: t('residentialProperties'), href: '/' as const },
-    { label: t('howItWorks'), href: '/how-it-works' as const },
     { label: t('portfolio'), href: '/portfolio' as const },
     { label: t('aboutUs'), href: '/about-us' as const },
     { label: tHeader('contact'), href: '/contact' as const },
@@ -80,7 +79,7 @@ const Header = () => {
     href:
       | '/'
       | '/commercial'
-      | '/how-it-works'
+
       | '/portfolio'
       | '/about-us'
       | '/contact'
@@ -184,7 +183,6 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
-              <LanguageSwitcher isScrolled={showDarkHeader} />
               <Link
                 href="/login"
                 className={cn(
@@ -193,7 +191,8 @@ const Header = () => {
               >
                 {tHeader('myHome')}
               </Link>
-              <button
+              <LanguageSwitcher isScrolled={showDarkHeader} />
+              {/* <button
                 onClick={() => setIsSearchOpen(true)}
                 className={cn(
                   'p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
@@ -204,7 +203,7 @@ const Header = () => {
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
-              </button>
+              </button> */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className={cn(
