@@ -93,7 +93,7 @@ export function AdminSidebar() {
         {navGroups.map((group, i) => (
           <div key={i} className={cn(i > 0 && 'mt-4')}>
             {group.label && (
-              <p className="px-3 mb-1 text-xs font-semibold uppercase tracking-wider text-[#062E25]/40">
+              <p className="px-3 mb-1 text-sm font-semibold uppercase tracking-wider text-[#062E25]/40">
                 {group.label}
               </p>
             )}

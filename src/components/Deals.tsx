@@ -24,7 +24,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.1.explanation.text'),
       price: t('cards.1.price'),
       term: t('cards.1.term'),
-      learnMoreHref: '/solar-abo/solar-abo-business' as const,
+      learnMoreHref: '/solar-free/solar-free-business' as const,
     },
     {
       title: t('cards.2.title'),
@@ -40,7 +40,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.2.explanation.text'),
       price: t('cards.2.price'),
       term: t('cards.2.term'),
-      learnMoreHref: '/solar-abo/solar-abo-agro' as const,
+      learnMoreHref: '/solar-free/solar-free-agro' as const,
     },
   ]
 
@@ -59,7 +59,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.1.explanation.text'),
       price: t('cards.1.price'),
       term: t('cards.1.term'),
-      learnMoreHref: '/solar-abo/solar-abo-business' as const,
+      learnMoreHref: '/solar-free/solar-free-business' as const,
     },
     {
       title: t('cards.1.title'),
@@ -75,7 +75,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.1.explanation.text'),
       price: t('cards.1.price'),
       term: t('cards.1.term'),
-      learnMoreHref: '/solar-abo/solar-abo-business' as const,
+      learnMoreHref: '/solar-free/solar-free-business' as const,
     },
     {
       title: t('cards.2.title'),
@@ -91,7 +91,7 @@ const Deals = async ({ isCommercial = false }) => {
       explanationText: t('cards.2.explanation.text'),
       price: t('cards.2.price'),
       term: t('cards.2.term'),
-      learnMoreHref: '/solar-abo/solar-abo-agro' as const,
+      learnMoreHref: '/solar-free/solar-free-agro' as const,
     },
   ]
 

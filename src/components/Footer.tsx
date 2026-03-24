@@ -42,7 +42,7 @@ const Footer = () => {
   const isLight =
     pathname?.includes('/solar-systems') ||
     pathname?.includes('/heat-pumps') ||
-    pathname?.includes('/solar-abo') ||
+    pathname?.includes('/solar-free') ||
     pathname?.includes('/battery-storage') ||
     pathname?.includes('/how-it-works') ||
     pathname?.includes('/cost') ||
@@ -59,23 +59,23 @@ const Footer = () => {
   const solarAboLinks = [
     {
       label: t('solarAbo.singleFamily'),
-      href: '/solar-abo/single-family' as const,
+      href: '/solar-free/single-family' as const,
     },
     {
       label: t('solarAbo.multiFamily'),
-      href: '/solar-abo/multi-family' as const,
+      href: '/solar-free/multi-family' as const,
     },
     {
       label: t('solarAbo.businesses'),
-      href: '/solar-abo/businesses' as const,
+      href: '/solar-free/businesses' as const,
     },
     {
       label: t('solarAbo.agriculture'),
-      href: '/solar-abo/agriculture' as const,
+      href: '/solar-free/agriculture' as const,
     },
     {
       label: t('solarAbo.publicBuildings'),
-      href: '/solar-abo/public-buildings' as const,
+      href: '/solar-free/public-buildings' as const,
     },
   ]
 

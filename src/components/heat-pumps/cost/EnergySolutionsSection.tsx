@@ -5,7 +5,7 @@ const cards = [
   {
     key: 'photovoltaics',
     icon: '/images/repowering/repowering-icon-photovoltaics.svg',
-    href: '/solar-abo' as const,
+    href: '/solar-free' as const,
   },
   {
     key: 'heatPump',

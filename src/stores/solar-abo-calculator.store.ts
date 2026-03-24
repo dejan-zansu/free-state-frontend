@@ -8,7 +8,7 @@ import { equipmentService } from '@/services/equipment.service'
 
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
-export type SolarModel = 'solar-abo' | 'solar-direct'
+export type SolarModel = 'solar-free' | 'solar-direct'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
@@ -784,7 +784,7 @@ export const useSolarAboCalculatorStore = create<
       },
     }),
     {
-      name: 'solar-abo-calculator',
+      name: 'solar-free-calculator',
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
         solarModel: state.solarModel,

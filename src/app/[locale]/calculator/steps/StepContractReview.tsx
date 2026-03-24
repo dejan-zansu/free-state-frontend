@@ -181,8 +181,8 @@ export default function StepContractReview() {
                   </span>{' '}
                   {selectedPackageCode ||
                     (recommendedPackage === 'home'
-                      ? 'SolarAbo Home'
-                      : 'SolarAbo Multi')}
+                      ? 'SolarFree Home'
+                      : 'SolarFree Multi')}
                 </p>
                 <p className="text-sm mt-1">
                   <span className="font-medium">

@@ -17,7 +17,7 @@
     "callUs": "CALL US",
     "callHours": "Mo-Fr 9-18 (toll free)",
     "solarAbo": {
-      "title": "SolarAbo",
+      "title": "SolarFree",
       "singleFamily": "Single-family home",
       "multiFamily": "Multi-family building (ZEV)",
       "businesses": "Businesses",
@@ -92,7 +92,7 @@
     "companies": "Companies",
     "portfolio": "Portfolio",
     "investors": "For investors",
-    "solarAbo": "SolarAbo",
+    "solarAbo": "SolarFree",
     "howItWorks": "How it works",
     "aboutUs": "About us",
     "commercialProperties": "Commercial properties",
@@ -100,7 +100,7 @@
   },
   "home": {
     "hero": {
-      "badge": "Free State Solarabo",
+      "badge": "Free State SolarFree",
       "title": "Your Roof.\nYour Power.\nZero Investment.",
       "subtitle": "Your energy, our responsibility\nsustainable and worry-free.",
       "cta": {
@@ -108,14 +108,14 @@
         "secondary": "Calculator"
       },
       "nav": {
-        "solarAbo": "SolarAbo",
+        "solarAbo": "SolarFree",
         "products": "Products",
         "onlineStarter": "Online Starter",
-        "solarAboHome": "SolarAbo Home",
-        "solarAboMulti": "SolarAbo Multi",
-        "solarAboBusiness": "SolarAbo Business",
-        "solarAboAgro": "SolarAbo Agro",
-        "solarAboPublic": "SolarAbo Public Buildings",
+        "solarAboHome": "SolarFree Home",
+        "solarAboMulti": "SolarFree Multi",
+        "solarAboBusiness": "SolarFree Business",
+        "solarAboAgro": "SolarFree Agro",
+        "solarAboPublic": "SolarFree Public Buildings",
         "howItWorks": "How it works",
         "cost": "Cost",
         "amortization": "Amortization",
@@ -153,7 +153,7 @@
       "orderNow": "Order now",
       "cards": [
         {
-          "title": "SolarAbo Home Storage",
+          "title": "SolarFree Home Storage",
           "subtitle": "Single-family home with battery storage",
           "feature1": "PV system + 10 kWh battery (LFP technology)",
           "feature2": "80% self-consumption, full independence",
@@ -170,7 +170,7 @@
           }
         },
         {
-          "title": "SolarAbo Business",
+          "title": "SolarFree Business",
           "subtitle": "For commercial and industrial",
           "feature1": "Performance 100–1,000 kWp on roof or facade",
           "feature2": "Fixed price 0.18 CHF/kWh (incl. maintenance and insurance)",
@@ -187,7 +187,7 @@
           }
         },
         {
-          "title": "SolarAbo Agro",
+          "title": "SolarFree Agro",
           "subtitle": "For farms and agricultural operations",
           "feature1": "PV system up to 500 kWp for halls and stables",
           "feature2": "Electricity cost reduction up to 40%",
@@ -204,7 +204,7 @@
           }
         },
         {
-          "title": "SolarAbo Multi",
+          "title": "SolarFree Multi",
           "subtitle": "For multi-family homes (ZEV model)",
           "feature1": "One system, electricity for all residents",
           "feature2": "Centralized billing via Free State ZEV system",
@@ -308,7 +308,7 @@
   "solarAboHome": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
-      "title": "SolarAbo Home",
+      "title": "SolarFree Home",
       "subtitle": "For single-family homes without battery storage",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -325,7 +325,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarAbo Home",
+      "subtitle": "In SolarFree Home",
       "items": {
         "solarModules": {
           "title": "Solar modules",
@@ -354,7 +354,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarAbo Home works",
+      "title": "How SolarFree Home works",
       "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
       "steps": {
         "step1": "You provide the roof",
@@ -382,7 +382,7 @@
         "label": "Cost per\nm² in CHF",
         "value": "approx. CHF 780.00"
       },
-      "solarAboPrice": "With SolarAbo 00.00 CHF",
+      "solarAboPrice": "With SolarFree 00.00 CHF",
       "orderNow": "ORDER NOW",
       "orderLink": "/calculator"
     },
@@ -402,8 +402,8 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarAbo Home Storage works for your roof",
-      "heading": "See if SolarAbo Home Storage works for your roof",
+      "topButton": "See if SolarFree Home Storage works for your roof",
+      "heading": "See if SolarFree Home Storage works for your roof",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -411,7 +411,7 @@
   "solarAboMulti": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
-      "title": "SolarAbo Multi",
+      "title": "SolarFree Multi",
       "subtitle": "For apartment buildings and shared energy communities (ZEV / LEG)",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -428,7 +428,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarAbo Multi",
+      "subtitle": "In SolarFree Multi",
       "items": {
         "solarModules": {
           "title": "Shared solar system",
@@ -457,7 +457,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarAbo Multi works",
+      "title": "How SolarFree Multi works",
       "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
       "steps": {
         "step1": "You provide the roof",
@@ -485,7 +485,7 @@
         "label": "Cost per\nm² in CHF",
         "value": "approx. CHF 780.00"
       },
-      "solarAboPrice": "With SolarAbo 00.00 CHF",
+      "solarAboPrice": "With SolarFree 00.00 CHF",
       "orderNow": "ORDER NOW",
       "orderLink": "/calculator"
     },
@@ -505,8 +505,8 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarAbo Multi works for your roof",
-      "heading": "See if SolarAbo Multi works for your roof",
+      "topButton": "See if SolarFree Multi works for your roof",
+      "heading": "See if SolarFree Multi works for your roof",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -514,7 +514,7 @@
   "solarAboBusiness": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. ESG benefits.",
-      "title": "SolarAbo Business",
+      "title": "SolarFree Business",
       "subtitle": "For commercial and industrial buildings",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -531,7 +531,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarAbo Business",
+      "subtitle": "In SolarFree Business",
       "items": {
         "solarModules": {
           "title": "Commercial PV system",
@@ -560,7 +560,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarAbo Business works",
+      "title": "How SolarFree Business works",
       "subtitle": "Simple, transparent, and worry-free – energy cost reduction for your business.",
       "steps": {
         "step1": "You provide the roof",
@@ -588,7 +588,7 @@
         "label": "Price per\nkWh in CHF",
         "value": "from CHF 0.18"
       },
-      "solarAboPrice": "With SolarAbo Business",
+      "solarAboPrice": "With SolarFree Business",
       "orderNow": "ORDER NOW",
       "orderLink": "/commercial/calculator"
     },
@@ -608,8 +608,8 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarAbo Business works for your building",
-      "heading": "See if SolarAbo Business works for your building",
+      "topButton": "See if SolarFree Business works for your building",
+      "heading": "See if SolarFree Business works for your building",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -617,7 +617,7 @@
   "solarAboAgro": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. Reliable service.",
-      "title": "SolarAbo Agro",
+      "title": "SolarFree Agro",
       "subtitle": "For farms and agricultural operations",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -634,7 +634,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarAbo Agro",
+      "subtitle": "In SolarFree Agro",
       "items": {
         "solarModules": {
           "title": "Agricultural PV system",
@@ -663,7 +663,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarAbo Agro works",
+      "title": "How SolarFree Agro works",
       "subtitle": "Simple, transparent, and worry-free – tailored for agricultural operations.",
       "steps": {
         "step1": "You provide the roof",
@@ -691,7 +691,7 @@
         "label": "Price per\nm² in CHF",
         "value": "custom pricing"
       },
-      "solarAboPrice": "With SolarAbo Agro",
+      "solarAboPrice": "With SolarFree Agro",
       "orderNow": "ORDER NOW",
       "orderLink": "/commercial/calculator"
     },
@@ -711,8 +711,8 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarAbo Agro works for your farm",
-      "heading": "See if SolarAbo Agro works for your farm",
+      "topButton": "See if SolarFree Agro works for your farm",
+      "heading": "See if SolarFree Agro works for your farm",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -720,7 +720,7 @@
   "solarAboPublic": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. Sustainable example.",
-      "title": "SolarAbo Public",
+      "title": "SolarFree Public",
       "subtitle": "For schools, hospitals, and municipal buildings",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -737,7 +737,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarAbo Public",
+      "subtitle": "In SolarFree Public",
       "items": {
         "solarModules": {
           "title": "Public building PV system",
@@ -766,7 +766,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarAbo Public works",
+      "title": "How SolarFree Public works",
       "subtitle": "Simple, transparent, and worry-free – setting a sustainable example for your community.",
       "steps": {
         "step1": "You provide the roof",
@@ -794,7 +794,7 @@
         "label": "Price per\nm² in CHF",
         "value": "custom pricing"
       },
-      "solarAboPrice": "With SolarAbo Public",
+      "solarAboPrice": "With SolarFree Public",
       "orderNow": "ORDER NOW",
       "orderLink": "/commercial/calculator"
     },
@@ -814,8 +814,8 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarAbo Public works for your building",
-      "heading": "See if SolarAbo Public works for your building",
+      "topButton": "See if SolarFree Public works for your building",
+      "heading": "See if SolarFree Public works for your building",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -1821,10 +1821,10 @@
     },
     "features": {
       "title": "Built for performance.",
-      "subtitle": "Designed for SolarAbo.",
+      "subtitle": "Designed for SolarFree.",
       "items": {
         "highEfficiency": "High efficiency\nmodules",
-        "seamlessIntegration": "Seamless integration\nwith SolarAbo",
+        "seamlessIntegration": "Seamless integration\nwith SolarFree",
         "longLifespan": "Long lifespan\n& warranty",
         "suitableRoofs": "Suitable for\nprivate &\ncommercial roofs"
       }
@@ -1840,7 +1840,7 @@
         "highPerformance": "High-performance photovoltaic technology",
         "longTermUse": "Designed for long-term outdoor use",
         "certifiedQuality": "Certified quality & manufacturer warranties",
-        "expertSelected": "Selected by SolarAbo experts"
+        "expertSelected": "Selected by SolarFree experts"
       }
     }
   },
@@ -2624,7 +2624,7 @@
       "subtitle": "Select how you want to finance and operate your solar system.",
       "solarAbo": {
         "tag": "Online",
-        "title": "SolarAbo",
+        "title": "SolarFree",
         "bullet1": "No capital investment.",
         "bullet2": "Contract-based model."
       },
@@ -2636,7 +2636,7 @@
       },
       "learnMorePrefix": "Learn more about",
       "learnMoreConnector": "and",
-      "learnMoreSolarAbo": "SolarAbo",
+      "learnMoreSolarAbo": "SolarFree",
       "learnMoreSolarDirect": "SolarDirect"
     },
     "multiPlanning": {
@@ -2688,12 +2688,12 @@
       "step9": "Sign"
     },
     "step1": {
-      "title": "Choose your SolarAbo package",
+      "title": "Choose your SolarFree package",
       "helper": "Select the package that best fits your property type.",
       "options": {
-        "home": "SolarAbo Home",
+        "home": "SolarFree Home",
         "homeDesc": "For single-family homes without battery storage",
-        "multi": "SolarAbo Multi",
+        "multi": "SolarFree Multi",
         "multiDesc": "For apartment buildings and shared energy communities (ZEV / LEG)"
       },
       "learnMore": "Learn more about",
@@ -2811,15 +2811,15 @@
         "returns": "Returns"
       },
       "abo": {
-        "title": "Solar ABO — Zero Investment",
-        "description": "With Solar ABO, Free State AG installs and maintains the solar system on your roof — at no cost to you.",
+        "title": "SolarFree — Zero Investment",
+        "description": "With SolarFree, Free State AG installs and maintains the solar system on your roof — at no cost to you.",
         "savings": "You benefit from clean solar energy and save CHF {amount} per year on your electricity bill."
       },
       "package": {
         "title": "Recommended Package",
-        "home": "SolarAbo Home",
+        "home": "SolarFree Home",
         "homeDesc": "For single-family homes",
-        "multi": "SolarAbo Multi",
+        "multi": "SolarFree Multi",
         "multiDesc": "For multi-family buildings",
         "recommended": "Recommended"
       },
@@ -2911,7 +2911,7 @@
     },
     "contractReview": {
       "title": "Contract Review",
-      "subtitle": "Review your Solar ABO agreement details before signing.",
+      "subtitle": "Review your SolarFree agreement details before signing.",
       "systemSummary": {
         "title": "System Summary",
         "panels": "Panels",
@@ -2922,7 +2922,7 @@
         "selfConsumption": "Self-Consumption"
       },
       "aboBenefit": {
-        "title": "Solar ABO — Zero Investment",
+        "title": "SolarFree — Zero Investment",
         "point1": "Free State AG installs and maintains the solar system on your roof at no cost to you.",
         "point2": "You benefit from clean solar energy and save on your electricity bill.",
         "point3": "After 25 years, the system becomes your property."
@@ -2950,11 +2950,11 @@
     },
     "signature": {
       "title": "Digital Signature",
-      "subtitle": "Sign your Solar ABO agreement securely via Swisscom Sign",
+      "subtitle": "Sign your SolarFree agreement securely via Swisscom Sign",
       "summary": {
         "title": "Contract Summary",
         "document": "Document",
-        "aboAgreement": "Solar ABO Agreement",
+        "aboAgreement": "SolarFree Agreement",
         "contractNumber": "Contract Number",
         "signer": "Signer",
         "email": "Email"
@@ -2994,7 +2994,7 @@
     },
     "signatureConfirmation": {
       "title": "Thank You!",
-      "subtitle": "Your Solar ABO agreement has been successfully signed.",
+      "subtitle": "Your SolarFree agreement has been successfully signed.",
       "contractSummary": {
         "title": "Contract Summary",
         "contractNumber": "Contract Number",
@@ -3221,9 +3221,9 @@
       }
     },
     "solarAbo": {
-      "eyebrow": "SolarAbo",
+      "eyebrow": "SolarFree",
       "title": "Up to 60% lower energy costs",
-      "description": "SolarAbo connects your solar system, storage, heat pump, and EV, using AI to maximize self-consumption and sell surplus power at the best rate."
+      "description": "SolarFree connects your solar system, storage, heat pump, and EV, using AI to maximize self-consumption and sell surplus power at the best rate."
     },
     "cards": {
       "investment": {
@@ -3517,8 +3517,8 @@
       },
       "products": {
         "label": "Which products are you using? *",
-        "solarAboPrivate": "SolarAbo Private",
-        "solarAboBusiness": "SolarAbo Business",
+        "solarAboPrivate": "SolarFree Private",
+        "solarAboBusiness": "SolarFree Business",
         "huaweiInverters": "Huawei inverters",
         "sonnenBattery": "Sonnen battery storage",
         "e3dcBattery": "E3DC Battery Storage",
@@ -3566,7 +3566,7 @@
       "title": "The Customer Benefits",
       "description": "With FreeState, you get smart energy management for maximum efficiency.",
       "existingFacility": "Existing facility\nwithout control",
-      "newFacility": "New facility\nwith SolarAbo",
+      "newFacility": "New facility\nwith SolarFree",
       "rows": {
         "moduleAlignment": {
           "label": "Module alignment",
@@ -3707,8 +3707,8 @@
           "answer": "Yes, repowering investments are generally tax-deductible in Switzerland as energy-saving renovation measures."
         },
         "addSolarAbo": {
-          "question": "Is it possible to simply add a SolarAbo to the existing system?",
-          "answer": "Yes, in many cases we can integrate your existing system into a SolarAbo model, combining repowering with our all-inclusive service."
+          "question": "Is it possible to simply add a SolarFree to the existing system?",
+          "answer": "Yes, in many cases we can integrate your existing system into a SolarFree model, combining repowering with our all-inclusive service."
         }
       }
     }
@@ -4996,8 +4996,8 @@
         "investmentCheck": "Investment Check"
       },
       "productKeys": {
-        "solarAboPrivate": "Solar Abo Private",
-        "solarAboBusiness": "Solar Abo Business",
+        "solarAboPrivate": "SolarFree Private",
+        "solarAboBusiness": "SolarFree Business",
         "huaweiInverters": "Huawei Inverters",
         "sonnenBattery": "Sonnen Battery",
         "e3dcBattery": "E3/DC Battery",
@@ -5207,8 +5207,8 @@
       "noTicketsDesc": "You haven't submitted any support requests yet.",
       "statusOpen": "Open",
       "faq": "Frequently Asked Questions",
-      "faq1q": "What is SolarAbo?",
-      "faq1a": "SolarAbo is a subscription model where Free State AG installs and maintains a solar system on your roof at no upfront cost. You benefit from clean energy and pay a monthly fee based on consumption.",
+      "faq1q": "What is SolarFree?",
+      "faq1a": "SolarFree is a subscription model where Free State AG installs and maintains a solar system on your roof at no upfront cost. You benefit from clean energy and pay a monthly fee based on consumption.",
       "faq2q": "How long is the contract term?",
       "faq2a": "The standard Dachmietvertrag (roof lease contract) has a term of 35 years, starting from the next quarter after the PV system is commissioned.",
       "faq3q": "What happens after the contract ends?",

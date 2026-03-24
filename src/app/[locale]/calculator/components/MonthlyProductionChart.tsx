@@ -30,8 +30,8 @@ export default function MonthlyProductionChart({ monthlyProduction }: MonthlyPro
         <div className='h-64'>
           <ResponsiveContainer width='100%' height='100%'>
             <BarChart data={chartData}>
-              <XAxis dataKey='name' tick={{ fontSize: 12 }} />
-              <YAxis tick={{ fontSize: 12 }} />
+              <XAxis dataKey='name' tick={{ fontSize: 14 }} />
+              <YAxis tick={{ fontSize: 14 }} />
               <Tooltip
                 formatter={(value) => [`${value} kWh`, t('chart.tooltipLabel')]}
               />

@@ -507,7 +507,7 @@ export default function AdminPackageDetailPage() {
                   </p>
                 ) : (
                   <div className="space-y-3">
-                    <div className="grid grid-cols-12 gap-2 text-xs font-medium text-muted-foreground px-1">
+                    <div className="grid grid-cols-12 gap-2 text-sm font-medium text-muted-foreground px-1">
                       <div className="col-span-4">{tc('type')}</div>
                       <div className="col-span-4">{tc('name')}</div>
                       <div className="col-span-2">{t('optional')}</div>
@@ -571,7 +571,7 @@ export default function AdminPackageDetailPage() {
                               updateRow(index, 'isOptional', !!checked)
                             }
                           />
-                          <span className="text-xs">{t('optional')}</span>
+                          <span className="text-sm">{t('optional')}</span>
                         </div>
                         <div className="col-span-2">
                           <Button

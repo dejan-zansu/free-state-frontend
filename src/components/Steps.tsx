@@ -49,7 +49,7 @@ export default function Steps() {
                   disabled={step.id > currentStep}
                   onClick={() => goToStep(step.id)}
                   className={cn(
-                    'flex h-5 w-5 sm:h-7 sm:w-7 items-center justify-center rounded-full text-[11px] sm:text-[16px] font-medium tracking-tight transition-colors border text-[#062E25]',
+                    'flex h-5 w-5 sm:h-7 sm:w-7 items-center justify-center rounded-full text-sm sm:text-[16px] font-medium tracking-tight transition-colors border text-[#062E25]',
                     currentStep === step.id
                       ? 'bg-[#B7FE1A] border-[rgba(123,181,168,0.4)]'
                       : currentStep > step.id
@@ -65,7 +65,7 @@ export default function Steps() {
                 </button>
                 <span
                   className={cn(
-                    'text-[10px] tracking-tight whitespace-nowrap hidden sm:block',
+                    'text-sm tracking-tight whitespace-nowrap hidden sm:block',
                     isMapDark ? 'text-white' : 'text-[#062E25]',
                     currentStep === step.id ? 'opacity-100' : isMapDark ? 'opacity-60' : 'opacity-40'
                   )}

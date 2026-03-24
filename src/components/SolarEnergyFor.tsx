@@ -83,7 +83,7 @@ const SolarEnergyFor = async ({ isCommercial = false }) => {
           <div className="mt-6 sm:mt-8 md:mt-10 flex justify-center">
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
-              href="/solar-abo"
+              href="/solar-free"
             >
               {t('cta')}
             </LinkButton>

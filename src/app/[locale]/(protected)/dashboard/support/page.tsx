@@ -120,7 +120,7 @@ export default function SupportPage() {
             <Ticket className="h-4 w-4" />
             {t('tabTickets')}
             {inquiries.length > 0 && (
-              <span className="ml-1 text-xs bg-[#062E25] text-white rounded-full px-1.5 py-0.5">
+              <span className="ml-1 text-sm bg-[#062E25] text-white rounded-full px-1.5 py-0.5">
                 {inquiries.length}
               </span>
             )}
@@ -141,7 +141,7 @@ export default function SupportPage() {
                       +41 52 620 00 50
                     </a>
                   </div>
-                  <p className="text-xs text-[#062E25]/50">{t('callHours')}</p>
+                  <p className="text-sm text-[#062E25]/50">{t('callHours')}</p>
                 </CardContent>
               </Card>
 
@@ -156,7 +156,7 @@ export default function SupportPage() {
                       solar@freestate.ch
                     </a>
                   </div>
-                  <p className="text-xs text-[#062E25]/50">{t('emailResponse')}</p>
+                  <p className="text-sm text-[#062E25]/50">{t('emailResponse')}</p>
                 </CardContent>
               </Card>
 
@@ -364,7 +364,7 @@ export default function SupportPage() {
                             </p>
                             <div className="flex items-center gap-2 mt-1.5">
                               <span className={cn(
-                                'inline-flex items-center text-xs px-2 py-0.5 rounded-full',
+                                'inline-flex items-center text-sm px-2 py-0.5 rounded-full',
                                 inq.status === 'OPEN' && 'bg-amber-100 text-amber-800',
                                 inq.status === 'IN_PROGRESS' && 'bg-blue-100 text-blue-800',
                                 inq.status === 'RESOLVED' && 'bg-green-100 text-green-800',
@@ -372,7 +372,7 @@ export default function SupportPage() {
                               )}>
                                 {t(`status_${inq.status}`)}
                               </span>
-                              <span className="flex items-center gap-1 text-xs text-[#062E25]/40">
+                              <span className="flex items-center gap-1 text-sm text-[#062E25]/40">
                                 <Clock className="h-3 w-3" />
                                 {formatDate(inq.createdAt)}
                               </span>

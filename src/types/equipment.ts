@@ -16,6 +16,7 @@ export interface SolarPanelItem {
   price: number
   currency: string
   isStocked: boolean
+  imageUrl: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null
@@ -37,6 +38,7 @@ export interface InverterItem {
   price: number
   currency: string
   isStocked: boolean
+  imageUrl: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null
@@ -60,6 +62,7 @@ export interface BatteryItem {
   price: number
   currency: string
   isStocked: boolean
+  imageUrl: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null
@@ -79,6 +82,7 @@ export interface MountingSystemItem {
   price: number
   currency: string
   isStocked: boolean
+  imageUrl: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null
@@ -97,6 +101,7 @@ export interface EmsItem {
   price: number
   currency: string
   isStocked: boolean
+  imageUrl: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null
@@ -121,6 +126,7 @@ export interface HeatPumpItem {
   price: number
   currency: string
   isStocked: boolean
+  imageUrl: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null

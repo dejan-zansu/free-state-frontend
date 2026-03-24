@@ -24,8 +24,8 @@ const Header = () => {
   const pagesWithDarkHeader = [
     '/calculator',
     '/commercial/calculator',
-    '/solar-abo',
-    '/commercial/solar-abo',
+    '/solar-free',
+    '/commercial/solar-free',
     '/about-us',
     '/battery-storage',
     '/login',

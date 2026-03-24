@@ -32,7 +32,7 @@ const PhotovoltaicSystemSection = async () => {
           </h2>
           <LinkButton
             variant="outline-tertiary-dark"
-            href="/solar-abo"
+            href="/solar-free"
             className="bg-transparent"
           >
             {t('photovoltaic.learnMore')}

@@ -416,12 +416,12 @@ export default function StepResults() {
               <BarChart data={chartData}>
                 <XAxis
                   dataKey="name"
-                  tick={{ fontSize: 11, fill: '#062E25' }}
+                  tick={{ fontSize: 14, fill: '#062E25' }}
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis
-                  tick={{ fontSize: 11, fill: '#062E2566' }}
+                  tick={{ fontSize: 14, fill: '#062E2566' }}
                   tickLine={false}
                   axisLine={false}
                   width={40}
@@ -431,7 +431,7 @@ export default function StepResults() {
                   contentStyle={{
                     borderRadius: '8px',
                     border: '1px solid #062E2515',
-                    fontSize: '12px',
+                    fontSize: '14px',
                   }}
                 />
                 <Bar dataKey="kWh" radius={[3, 3, 0, 0]}>

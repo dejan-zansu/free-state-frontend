@@ -6,7 +6,7 @@ import { Link } from '@/i18n/navigation'
 const SolarSystemsNav = () => {
   const navItems = [
     { label: 'Commercial properties', href: '/commercial' as const, isActive: false },
-    { label: 'SolarAbo', href: '/solar-abo' as const, isActive: false },
+    { label: 'SolarFree', href: '/solar-free' as const, isActive: false },
     { label: 'How it works', href: '/how-it-works' as const, isActive: false },
     { label: 'Portfolio', href: '/portfolio' as const, isActive: false },
     { label: 'About us', href: '/about-us' as const, isActive: false },

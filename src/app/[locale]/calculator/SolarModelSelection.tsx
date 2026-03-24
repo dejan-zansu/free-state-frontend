@@ -44,7 +44,7 @@ const cards: {
   imageClassName: string
 }[] = [
   {
-    model: 'solar-abo',
+    model: 'solar-free',
     tagKey: 'solarAbo.tag',
     titleKey: 'solarAbo.title',
     bullets: ['solarAbo.bullet1', 'solarAbo.bullet2'],
@@ -102,7 +102,7 @@ export default function SolarModelSelection() {
             )}
 
             <div className="absolute top-0 left-4 z-10 -translate-y-1/2 sm:left-[18px]">
-              <span className="inline-block rounded-full bg-[#B7FE1A] px-3 py-1 text-[13px] font-light text-[#062E25] tracking-tight backdrop-blur-[65px] sm:px-4 sm:py-[6px] sm:text-[16px]">
+              <span className="inline-block rounded-full bg-[#B7FE1A] px-3 py-1 text-sm font-light text-[#062E25] tracking-tight backdrop-blur-[65px] sm:px-4 sm:py-[6px] sm:text-[16px]">
                 {t(card.tagKey)}
               </span>
             </div>
@@ -146,7 +146,7 @@ export default function SolarModelSelection() {
       <p className="mt-5 text-sm font-light text-[#062E25]/60 tracking-tight">
         {t('learnMorePrefix')}{' '}
         <Link
-          href="/solar-abo"
+          href="/solar-free"
           className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
         >
           {t('learnMoreSolarAbo')}

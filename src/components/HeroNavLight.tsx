@@ -19,25 +19,25 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
     ? [
         {
           label: t('hero.nav.solarAboBusiness'),
-          href: '/commercial/solar-abo/solar-abo-business' as const,
+          href: '/commercial/solar-free/solar-free-business' as const,
         },
         {
           label: t('hero.nav.solarAboAgro'),
-          href: '/commercial/solar-abo/solar-abo-agro' as const,
+          href: '/commercial/solar-free/solar-free-agro' as const,
         },
         {
           label: t('hero.nav.solarAboPublic'),
-          href: '/commercial/solar-abo/solar-abo-public' as const,
+          href: '/commercial/solar-free/solar-free-public' as const,
         },
       ]
     : [
         {
           label: t('hero.nav.solarAboHome'),
-          href: '/solar-abo/solar-abo-home' as const,
+          href: '/solar-free/solar-free-home' as const,
         },
         {
           label: t('hero.nav.solarAboMulti'),
-          href: '/solar-abo/solar-abo-multi' as const,
+          href: '/solar-free/solar-free-multi' as const,
         },
       ]
 
@@ -184,7 +184,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
               onMouseEnter={() => setHoveredItem('solarAbo')}
             >
               <Link
-                href="/solar-abo"
+                href="/solar-free"
                 className="text-[#062E25] font-medium text-base sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.solarAbo')}

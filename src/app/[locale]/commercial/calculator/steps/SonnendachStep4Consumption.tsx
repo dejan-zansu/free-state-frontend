@@ -1014,17 +1014,17 @@ export default function SonnendachStep4Consumption() {
                         />
                         <XAxis
                           dataKey="year"
-                          tick={{ fontSize: 12 }}
+                          tick={{ fontSize: 14 }}
                           tickFormatter={value => `${value}`}
                           label={{
                             value: t('reports.roiChart.years'),
                             position: 'insideBottom',
                             offset: -5,
-                            fontSize: 12,
+                            fontSize: 14,
                           }}
                         />
                         <YAxis
-                          tick={{ fontSize: 12 }}
+                          tick={{ fontSize: 14 }}
                           tickFormatter={value =>
                             `${(value / 1000).toFixed(0)}k`
                           }
@@ -1032,7 +1032,7 @@ export default function SonnendachStep4Consumption() {
                             value: 'CHF',
                             angle: -90,
                             position: 'insideLeft',
-                            fontSize: 12,
+                            fontSize: 14,
                           }}
                         />
                         <RechartsTooltip
@@ -1057,7 +1057,7 @@ export default function SonnendachStep4Consumption() {
                             label={{
                               value: t('reports.roiChart.payback'),
                               fill: '#22c55e',
-                              fontSize: 11,
+                              fontSize: 14,
                             }}
                           />
                         )}
@@ -1101,15 +1101,15 @@ export default function SonnendachStep4Consumption() {
                           strokeDasharray="3 3"
                           className="stroke-muted"
                         />
-                        <XAxis dataKey="month" tick={{ fontSize: 11 }} />
+                        <XAxis dataKey="month" tick={{ fontSize: 14 }} />
                         <YAxis
-                          tick={{ fontSize: 12 }}
+                          tick={{ fontSize: 14 }}
                           tickFormatter={value => `${value}`}
                           label={{
                             value: 'kWh',
                             angle: -90,
                             position: 'insideLeft',
-                            fontSize: 12,
+                            fontSize: 14,
                           }}
                         />
                         <RechartsTooltip

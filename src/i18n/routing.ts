@@ -168,58 +168,58 @@ export const routing = defineRouting({
     '/admin/equipment/heat-pumps': '/admin/equipment/heat-pumps',
     '/admin/equipment/packages': '/admin/equipment/packages',
 
-    // Solar Abo - Residential
-    '/solar-abo': {
-      en: '/solar-abo',
-      de: '/solar-abo',
+    // Solar Free - Residential
+    '/solar-free': {
+      en: '/solar-free',
+      de: '/solar-free',
       fr: '/abonnement-solaire',
       it: '/abbonamento-solare',
       es: '/suscripcion-solar',
       sr: '/solarni-abo',
     },
-    '/solar-abo/solar-abo-home': {
-      en: '/solar-abo/solar-abo-home',
-      de: '/solar-abo/solar-abo-home',
+    '/solar-free/solar-free-home': {
+      en: '/solar-free/solar-free-home',
+      de: '/solar-free/solar-free-home',
       fr: '/abonnement-solaire/abonnement-maison',
       it: '/abbonamento-solare/abbonamento-casa',
       es: '/suscripcion-solar/suscripcion-hogar',
       sr: '/solarni-abo/solarni-abo-kuca',
     },
-    '/solar-abo/solar-abo-home-battery': {
-      en: '/solar-abo/solar-abo-home-battery',
-      de: '/solar-abo/solar-abo-home-batterie',
+    '/solar-free/solar-free-home-battery': {
+      en: '/solar-free/solar-free-home-battery',
+      de: '/solar-free/solar-free-home-batterie',
       fr: '/abonnement-solaire/abonnement-maison-batterie',
       it: '/abbonamento-solare/abbonamento-casa-batteria',
       es: '/suscripcion-solar/suscripcion-hogar-bateria',
       sr: '/solarni-abo/solarni-abo-kuca-baterija',
     },
-    '/solar-abo/solar-abo-multi': {
-      en: '/solar-abo/solar-abo-multi',
-      de: '/solar-abo/solar-abo-multi',
+    '/solar-free/solar-free-multi': {
+      en: '/solar-free/solar-free-multi',
+      de: '/solar-free/solar-free-multi',
       fr: '/abonnement-solaire/abonnement-multi',
       it: '/abbonamento-solare/abbonamento-multi',
       es: '/suscripcion-solar/suscripcion-multi',
       sr: '/solarni-abo/solarni-abo-multi',
     },
-    '/solar-abo/solar-abo-agro': {
-      en: '/solar-abo/solar-abo-agro',
-      de: '/solar-abo/solar-abo-agro',
+    '/solar-free/solar-free-agro': {
+      en: '/solar-free/solar-free-agro',
+      de: '/solar-free/solar-free-agro',
       fr: '/abonnement-solaire/abonnement-agro',
       it: '/abbonamento-solare/abbonamento-agro',
       es: '/suscripcion-solar/suscripcion-agro',
       sr: '/solarni-abo/solarni-abo-agro',
     },
-    '/solar-abo/solar-abo-public': {
-      en: '/solar-abo/solar-abo-public',
-      de: '/solar-abo/solar-abo-oeffentlich',
+    '/solar-free/solar-free-public': {
+      en: '/solar-free/solar-free-public',
+      de: '/solar-free/solar-free-oeffentlich',
       fr: '/abonnement-solaire/abonnement-public',
       it: '/abbonamento-solare/abbonamento-pubblico',
       es: '/suscripcion-solar/suscripcion-publica',
       sr: '/solarni-abo/solarni-abo-javni',
     },
-    '/solar-abo/solar-abo-business': {
-      en: '/solar-abo/solar-abo-business',
-      de: '/solar-abo/solar-abo-gewerbe',
+    '/solar-free/solar-free-business': {
+      en: '/solar-free/solar-free-business',
+      de: '/solar-free/solar-free-gewerbe',
       fr: '/abonnement-solaire/abonnement-entreprise',
       it: '/abbonamento-solare/abbonamento-azienda',
       es: '/suscripcion-solar/suscripcion-empresa',
@@ -234,33 +234,33 @@ export const routing = defineRouting({
       es: '/comercial',
       sr: '/komercijalno',
     },
-    '/commercial/solar-abo': {
-      en: '/commercial/solar-abo',
-      de: '/gewerbe/solar-abo',
+    '/commercial/solar-free': {
+      en: '/commercial/solar-free',
+      de: '/gewerbe/solar-free',
       fr: '/commercial/abonnement-solaire',
       it: '/commerciale/abbonamento-solare',
       es: '/comercial/suscripcion-solar',
       sr: '/komercijalno/solarni-abo',
     },
-    '/commercial/solar-abo/solar-abo-business': {
-      en: '/commercial/solar-abo/solar-abo-business',
-      de: '/gewerbe/solar-abo/solar-abo-gewerbe',
+    '/commercial/solar-free/solar-free-business': {
+      en: '/commercial/solar-free/solar-free-business',
+      de: '/gewerbe/solar-free/solar-free-gewerbe',
       fr: '/commercial/abonnement-solaire/abonnement-entreprise',
       it: '/commerciale/abbonamento-solare/abbonamento-azienda',
       es: '/comercial/suscripcion-solar/suscripcion-empresa',
       sr: '/komercijalno/solarni-abo/solarni-abo-biznis',
     },
-    '/commercial/solar-abo/solar-abo-agro': {
-      en: '/commercial/solar-abo/solar-abo-agro',
-      de: '/gewerbe/solar-abo/solar-abo-agro',
+    '/commercial/solar-free/solar-free-agro': {
+      en: '/commercial/solar-free/solar-free-agro',
+      de: '/gewerbe/solar-free/solar-free-agro',
       fr: '/commercial/abonnement-solaire/abonnement-agro',
       it: '/commerciale/abbonamento-solare/abbonamento-agro',
       es: '/comercial/suscripcion-solar/suscripcion-agro',
       sr: '/komercijalno/solarni-abo/solarni-abo-agro',
     },
-    '/commercial/solar-abo/solar-abo-public': {
-      en: '/commercial/solar-abo/solar-abo-public',
-      de: '/gewerbe/solar-abo/solar-abo-oeffentlich',
+    '/commercial/solar-free/solar-free-public': {
+      en: '/commercial/solar-free/solar-free-public',
+      de: '/gewerbe/solar-free/solar-free-oeffentlich',
       fr: '/commercial/abonnement-solaire/abonnement-public',
       it: '/commerciale/abbonamento-solare/abbonamento-pubblico',
       es: '/comercial/suscripcion-solar/suscripcion-publica',
@@ -357,25 +357,25 @@ export const routing = defineRouting({
     },
 
     // Footer pages
-    '/solar-abo/single-family': {
-      en: '/solar-abo/single-family',
-      de: '/solar-abo/einfamilienhaus',
+    '/solar-free/single-family': {
+      en: '/solar-free/single-family',
+      de: '/solar-free/einfamilienhaus',
     },
-    '/solar-abo/multi-family': {
-      en: '/solar-abo/multi-family',
-      de: '/solar-abo/mehrfamilienhaus',
+    '/solar-free/multi-family': {
+      en: '/solar-free/multi-family',
+      de: '/solar-free/mehrfamilienhaus',
     },
-    '/solar-abo/businesses': {
-      en: '/solar-abo/businesses',
-      de: '/solar-abo/unternehmen',
+    '/solar-free/businesses': {
+      en: '/solar-free/businesses',
+      de: '/solar-free/unternehmen',
     },
-    '/solar-abo/agriculture': {
-      en: '/solar-abo/agriculture',
-      de: '/solar-abo/landwirtschaft',
+    '/solar-free/agriculture': {
+      en: '/solar-free/agriculture',
+      de: '/solar-free/landwirtschaft',
     },
-    '/solar-abo/public-buildings': {
-      en: '/solar-abo/public-buildings',
-      de: '/solar-abo/oeffentliche-gebaeude',
+    '/solar-free/public-buildings': {
+      en: '/solar-free/public-buildings',
+      de: '/solar-free/oeffentliche-gebaeude',
     },
     '/charging-stations': {
       en: '/charging-stations',

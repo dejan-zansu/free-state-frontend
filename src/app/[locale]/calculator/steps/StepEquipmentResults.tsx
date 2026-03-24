@@ -125,6 +125,7 @@ export default function StepEquipmentResults() {
     specs: `${p.pmaxStcW}W, ${p.efficiencyStcPercent}%${p.cellTechnology ? `, ${p.cellTechnology}` : ''}`,
     price: p.price,
     currency: p.currency,
+    imageUrl: p.imageUrl,
   }))
 
   const inverterOptions = inverters.map(i => ({
@@ -134,6 +135,7 @@ export default function StepEquipmentResults() {
     specs: `${i.ratedPowerKw} kW${i.hasBatterySupport ? ', battery ready' : ''}${i.mpptCount ? `, ${i.mpptCount} MPPT` : ''}`,
     price: i.price,
     currency: i.currency,
+    imageUrl: i.imageUrl,
   }))
 
   const batteryOptions = batteries.map(b => ({
@@ -143,6 +145,7 @@ export default function StepEquipmentResults() {
     specs: `${b.capacityKwh} kWh${b.usableCapacityKwh ? ` (${b.usableCapacityKwh} usable)` : ''}${b.chemistry ? `, ${b.chemistry}` : ''}`,
     price: b.price,
     currency: b.currency,
+    imageUrl: b.imageUrl,
   }))
 
   const mountingOptions = mountingSystems.map(m => ({
@@ -152,6 +155,7 @@ export default function StepEquipmentResults() {
     specs: `${m.type}${m.material ? `, ${m.material}` : ''}`,
     price: m.price,
     currency: m.currency,
+    imageUrl: m.imageUrl,
   }))
 
   const emsOptions = emsList.map(e => ({
@@ -161,6 +165,7 @@ export default function StepEquipmentResults() {
     specs: `${e.type}${e.maxInverters ? `, up to ${e.maxInverters} inverters` : ''}`,
     price: e.price,
     currency: e.currency,
+    imageUrl: e.imageUrl,
   }))
 
   const heatPumpOptions = heatPumps.map(h => ({
@@ -170,6 +175,7 @@ export default function StepEquipmentResults() {
     specs: `${h.heatingCapacityKw} kW${h.copRating ? `, COP ${h.copRating}` : ''}, ${h.type.replace('_', '/')}`,
     price: h.price,
     currency: h.currency,
+    imageUrl: h.imageUrl,
   }))
 
   return (
