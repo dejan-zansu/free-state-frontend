@@ -7,7 +7,7 @@ const HowHeatPumpWorksSection = async () => {
   const t = await getTranslations('heatPumpsWithSolarSystem')
 
   return (
-    <section className="relative bg-[#F2F4E8]">
+    <section className="relative bg-[#F2F4E8] -mt-[40px]">
       <div className="flex flex-col lg:flex-row">
         <div
           className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 lg:px-0 py-12 lg:py-0"

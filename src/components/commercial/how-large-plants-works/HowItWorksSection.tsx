@@ -26,13 +26,13 @@ const HowItWorksSection = async () => {
 
   return (
     <section
-      className="relative py-12 md:py-16 lg:py-20"
+      className="relative py-12 md:py-16 lg:py-20 -mt-[40px]"
       style={{
         background:
           'linear-gradient(180deg, rgba(242, 244, 232, 1) 78%, rgba(220, 233, 230, 1) 100%)',
       }}
     >
-      <div className="max-w-[942px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[942px] mx-auto px-4 sm:px-6 lg:px-8 pt-[40px]">
         <div className="flex flex-col items-center gap-[50px]">
           <div className="flex flex-col items-center gap-5 max-w-[368px] text-center">
             <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium">
@@ -49,11 +49,12 @@ const HowItWorksSection = async () => {
 
           <div className="w-full relative">
             <div
-              className="relative z-10 rounded-xl p-8 md:p-[60px]"
+              className="relative z-10 rounded-xl p-8 md:p-[60px] md:pb-[170px]"
               style={{
                 background:
                   'linear-gradient(180deg, rgba(253, 255, 245, 1) 0%, rgba(211, 211, 211, 0) 100%)',
                 border: '1px solid transparent',
+                borderBottom: 'none',
                 borderImage:
                   'linear-gradient(180deg, rgba(6, 46, 37, 1) 0%, rgba(19, 148, 119, 0) 72%) 1',
               }}

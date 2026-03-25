@@ -37,7 +37,9 @@ const Footer = () => {
   const t = useTranslations('footer')
   const pathname = usePathname()
   const [email, setEmail] = useState('')
-  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [subscribeStatus, setSubscribeStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle')
   const isCommercial = pathname?.includes('/commercial')
   const isLight =
     pathname?.includes('/solar-systems') ||
@@ -54,7 +56,9 @@ const Footer = () => {
     pathname?.includes('/solar-carport') ||
     pathname?.includes('/charging-stations') ||
     pathname?.includes('/company') ||
-    pathname?.includes('/repowering')
+    pathname?.includes('/repowering') ||
+    pathname?.includes('/history') ||
+    pathname?.includes('/about-us')
 
   const solarAboLinks = [
     {

@@ -3773,15 +3773,18 @@
       "cards": {
         "photovoltaics": {
           "title": "Photovoltaics",
-          "description": "Make your property solar-powered."
+          "description": "Make your property solar-powered.",
+          "link": "Solar Systems"
         },
         "heatPump": {
           "title": "Heat Pump",
-          "description": "They benefit from low heating costs."
+          "description": "They benefit from low heating costs.",
+          "link": "Heat Pump"
         },
         "chargingSolution": {
           "title": "Charging Solution",
-          "description": "Get started with electromobility."
+          "description": "Get started with electromobility.",
+          "link": "Charging Solutions"
         }
       }
     },
@@ -5603,6 +5606,123 @@
           }
         }
       }
+    }
+  },
+  "history": {
+    "hero": {
+      "title": "The evolution of FreeState in the changing energy future",
+      "description": "From the first engineering and infrastructure projects to intelligent energy systems: The history of FreeState is closely linked to the transformation of solar energy."
+    },
+    "energyTransition": {
+      "eyebrow": "Energy in Transition",
+      "title": "From global change to local energy future",
+      "subtitle": "The development of FreeState is closely linked to the global transformation of the energy system. For more than a decade, photovoltaics has been changing the way energy is generated, stored and used.",
+      "bottomText": "FreeState is part of this development and is working to build a decentralized energy infrastructure on buildings – local, sustainable and economically sensible."
+    },
+    "timeline": {
+      "eyebrow": "Our Solutions",
+      "title": "Suitable models for different requirements",
+      "subtitle": "FreeState develops photovoltaic and energy systems for households, businesses and public institutions – with flexible models for various needs.",
+      "founding": {
+        "title": "Founding of Telemiiva GmbH",
+        "description": "Ivan Miric founded Telemiiva GmbH as an engineering and planning office. The focus was on technical planning, infrastructure projects, building technology and energy efficiency."
+      },
+      "firstProjects": {
+        "title": "First photovoltaic projects",
+        "description": "With the growth of the solar industry, the company began to focus more intensively on photovoltaic projects. Solar systems became increasingly economically attractive."
+      },
+      "batteryStorage": {
+        "title": "Battery storage and self-consumption",
+        "description": "Modern lithium battery storage systems opened up new possibilities for self-consumption, energy storage and smarter use of solar power."
+      },
+      "techProgress": {
+        "title": "Technological progress",
+        "description": "Increasing module efficiency, falling costs, smart energy systems and digitalization made photovoltaics the most economical energy source for buildings."
+      },
+      "newEra": {
+        "title": "The new solar era",
+        "description": "Rising energy prices, growing sustainability awareness and the energy crisis in Europe accelerated the expansion of renewable energies. Buildings increasingly became decentralized energy producers."
+      }
+    },
+    "founding": {
+      "eyebrow": "2024",
+      "title": "The founding of FreeState AG",
+      "subtitle": "From experience, technology and a clear vision for the future, a new company was created with full focus on decentralized energy systems.",
+      "cardText": "From the long-standing experience of Telemiiva GmbH, FreeState AG was founded in 2024. The company focuses entirely on photovoltaic projects, energy systems, battery storage, digital energy solutions and innovative business models for solar energy.\nThe name FreeState stands for a clear vision: a future in which buildings increasingly produce their own energy and become more independent from the traditional energy system."
+    },
+    "futureVision": {
+      "eyebrow": "2025 and beyond",
+      "title": "The future of energy is decentralized",
+      "subtitle": "Buildings will not only consume energy, but produce, store and intelligently control it themselves.",
+      "bottomText": "FreeState is working on next-generation energy systems – with photovoltaics, battery storage, smart home integration, electromobility, AI-powered energy management and digital energy platforms.\nThese technologies enable a new form of energy supply: local, sustainable and independent."
+    },
+    "vision": {
+      "eyebrow": "Our Vision",
+      "title": "Millions of roofs as power plants of the future",
+      "subtitle": "FreeState is working to create an energy future in which millions of buildings become small power plants.",
+      "cardText": "Roofs of residential buildings, industrial buildings, schools, municipalities and public institutions offer enormous potential for clean energy production. Our goal is to harness this potential and make solar energy accessible to as many people as possible."
+    }
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "About FreeState",
+      "description": "Free State AG develops, finances and realizes photovoltaic and energy systems for residential buildings, businesses, agriculture and public institutions.",
+      "cta": "Our Solutions"
+    },
+    "aboutFreeState": {
+      "eyebrow": "About FreeState",
+      "title": "Unused roofs become energy sources",
+      "subtitle": "FreeState makes solar energy more accessible, sustainable and economically attractive for households, businesses and public institutions."
+    },
+    "visionMission": {
+      "vision": {
+        "eyebrow": "Our Vision",
+        "title": "Making energy accessible for everyone",
+        "description": "We want to make energy more accessible, affordable and sustainable – for more people, more buildings and a future-proof supply."
+      },
+      "mission": {
+        "eyebrow": "Our Mission",
+        "title": "Turning roof surfaces into energy sources",
+        "description": "We activate unused roof surfaces and create local, decentralized energy from them – for households, businesses and public institutions."
+      }
+    },
+    "founder": {
+      "eyebrow": "Founder & Background",
+      "title": "Why FreeState was founded",
+      "description": "Free State AG was founded by Ivan Miric. The idea arose from a simple observation: energy prices are rising, while many people and companies would like to use solar energy, but often cannot invest in a system themselves. This is exactly how models were created that make access to solar energy much easier."
+    },
+    "solutions": {
+      "eyebrow": "Our Solutions",
+      "title": "Suitable models for different requirements",
+      "subtitle": "FreeState develops photovoltaic and energy systems for households, businesses and public institutions – with flexible models for various needs.",
+      "solarAbo": {
+        "title": "Solar subscription for single-family homes",
+        "description": "Solar power from your own roof – without upfront investment.\n· Planning to maintenance included\n· No initial costs\n· Simple and low-risk"
+      },
+      "contracting": {
+        "title": "Solar contracting for businesses",
+        "description": "Individual energy solutions for commercial and public buildings.\n· Planning and financing from a single source\n· Operation and maintenance included\n· Long-term plannable energy costs"
+      },
+      "roofRental": {
+        "title": "Roof rental",
+        "description": "Using large roof surfaces effectively for energy.\n· For industry, logistics and agriculture\n· No own implementation required\n· Participation in energy production"
+      },
+      "purchase": {
+        "title": "System purchase",
+        "description": "Acquire your own photovoltaic system directly.\n· Full ownership of the system\n· Attractive purchasing benefits\n· Strong price-performance ratio"
+      }
+    },
+    "partners": {
+      "eyebrow": "Strong Partners",
+      "title": "Together with established partners",
+      "subtitle": "For energy trading, infrastructure and project development, FreeState works with experienced partners – for stable projects and long-term collaboration."
+    },
+    "locations": {
+      "eyebrow": "Our Locations",
+      "title": "Regionally rooted, internationally active",
+      "subtitle": "From Schaffhausen, Zurich, Bern, Aargau and Liechtenstein, FreeState develops and realizes photovoltaic projects in Switzerland as well as international energy projects.",
+      "ctaContact": "Contact us",
+      "ctaCalculator": "Start solar calculator"
     }
   }
 }

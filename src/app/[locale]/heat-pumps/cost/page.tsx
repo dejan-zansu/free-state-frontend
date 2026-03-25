@@ -18,6 +18,7 @@ const HeatPumpsCostPage = async () => {
         title={t('hero.title')}
         className="bg-[#EAEDDF]"
       />
+      
       <CostIntroSection />
       <CostComparisonSection />
       <FundingSection />

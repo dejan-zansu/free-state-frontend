@@ -5,7 +5,7 @@ const CostSection = async () => {
   const t = await getTranslations('cost')
 
   return (
-    <section className="relative min-h-[548px] overflow-hidden bg-[#EAEDDF]">
+    <section className="relative min-h-[548px] overflow-hidden bg-[#EAEDDF] -mb-[40px] pb-[40px]">
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-20 py-12 md:py-[50px]">
         <h2 className="text-[#062E25] text-3xl md:text-[45px] font-medium leading-[1em] text-center mb-12 md:mb-[50px]">
           {t('costSection.title')}

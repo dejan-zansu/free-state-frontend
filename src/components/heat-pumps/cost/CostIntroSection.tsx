@@ -5,7 +5,7 @@ const CostIntroSection = async () => {
   const t = await getTranslations('heatPumpsCost')
 
   return (
-    <section className="relative bg-[#EAEDDF]">
+    <section className="relative bg-[#EAEDDF] -mt-[40px] pt-[40px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[60px]">
           <div className="flex flex-col gap-5 max-w-[581px]">

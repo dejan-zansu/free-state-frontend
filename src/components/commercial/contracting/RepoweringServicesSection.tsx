@@ -2,10 +2,22 @@ import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
 const cards = [
-  { key: 'numberOne', icon: '/images/commercial/contracting/icon-number-one.png' },
-  { key: 'customers', icon: '/images/commercial/contracting/icon-customers.png' },
-  { key: 'yieldGuarantee', icon: '/images/commercial/contracting/icon-yield.png' },
-  { key: 'regionalist', icon: '/images/commercial/contracting/icon-regionalist.png' },
+  {
+    key: 'numberOne',
+    icon: '/images/commercial/contracting/icon-number-one.png',
+  },
+  {
+    key: 'customers',
+    icon: '/images/commercial/contracting/icon-customers.png',
+  },
+  {
+    key: 'yieldGuarantee',
+    icon: '/images/commercial/contracting/icon-yield.png',
+  },
+  {
+    key: 'regionalist',
+    icon: '/images/commercial/contracting/icon-regionalist.png',
+  },
 ] as const
 
 const RepoweringServicesSection = async () => {
@@ -19,12 +31,11 @@ const RepoweringServicesSection = async () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map((card) => (
+          {cards.map(card => (
             <div
               key={card.key}
               className="relative overflow-hidden rounded-[20px] h-[370px]"
               style={{
-                background: '#0D4841',
                 border: '1px solid #809792',
               }}
             >

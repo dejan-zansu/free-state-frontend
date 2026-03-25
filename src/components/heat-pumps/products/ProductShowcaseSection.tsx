@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 const ProductShowcaseSection = () => {
   return (
-    <section className="relative bg-[#EAEDDF]">
+    <section className="relative bg-[#EAEDDF] -mt-[40px] pt-[40px]">
       <div className="pt-[50px]">
         <div className="relative w-full aspect-[1440/359]">
           <Image

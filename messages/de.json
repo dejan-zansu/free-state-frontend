@@ -3437,15 +3437,18 @@
       "cards": {
         "photovoltaics": {
           "title": "Photovoltaik",
-          "description": "Machen Sie Ihre Immobilie solarbetrieben."
+          "description": "Machen Sie Ihre Immobilie solarbetrieben.",
+          "link": "Solaranlagen"
         },
         "heatPump": {
           "title": "Wärmepumpe",
-          "description": "Sie profitieren von niedrigen Heizkosten."
+          "description": "Sie profitieren von niedrigen Heizkosten.",
+          "link": "Wärmepumpe"
         },
         "chargingSolution": {
           "title": "Ladelösung",
-          "description": "Steigen Sie ein in die Elektromobilität."
+          "description": "Steigen Sie ein in die Elektromobilität.",
+          "link": "Ladelösungen"
         }
       }
     },
@@ -5672,6 +5675,123 @@
           }
         }
       }
+    }
+  },
+  "history": {
+    "hero": {
+      "title": "Die Entwicklung von FreeState im Wandel der Energiezukunft",
+      "description": "Von den ersten Ingenieur- und Infrastrukturprojekten bis zu intelligenten Energiesystemen: Die Geschichte von FreeState ist eng mit der Transformation der Solarenergie verbunden."
+    },
+    "energyTransition": {
+      "eyebrow": "Energie im Wandel",
+      "title": "Vom globalen Wandel zur lokalen Energiezukunft",
+      "subtitle": "Die Entwicklung von FreeState ist eng mit der globalen Transformation des Energiesystems verbunden. Seit mehr als einem Jahrzehnt verändert Photovoltaik die Art und Weise, wie Energie erzeugt, gespeichert und genutzt wird.",
+      "bottomText": "FreeState ist Teil dieser Entwicklung und arbeitet daran, eine dezentrale Energieinfrastruktur auf Gebäuden aufzubauen – lokal, nachhaltig und wirtschaftlich sinnvoll."
+    },
+    "timeline": {
+      "eyebrow": "Unsere Lösungen",
+      "title": "Passende Modelle für unterschiedliche Anforderungen",
+      "subtitle": "FreeState entwickelt Photovoltaik- und Energiesysteme für Haushalte, Unternehmen und öffentliche Institutionen – mit flexiblen Modellen für verschiedene Bedürfnisse.",
+      "founding": {
+        "title": "Gründung der Telemiiva GmbH",
+        "description": "Ivan Miric gründete die Telemiiva GmbH als Ingenieur- und Planungsbüro. Der Fokus lag auf technischer Planung, Infrastrukturprojekten, Gebäudetechnik und Energieeffizienz."
+      },
+      "firstProjects": {
+        "title": "Erste Photovoltaikprojekte",
+        "description": "Mit dem Wachstum der Solarindustrie begann das Unternehmen, sich intensiver mit Photovoltaikprojekten zu beschäftigen. Solaranlagen wurden wirtschaftlich zunehmend attraktiver."
+      },
+      "batteryStorage": {
+        "title": "Batteriespeicher und Eigenverbrauch",
+        "description": "Moderne Lithium-Batteriespeicher eröffneten neue Möglichkeiten für Eigenverbrauch, Energiespeicherung und eine intelligentere Nutzung von Solarstrom."
+      },
+      "techProgress": {
+        "title": "Technologischer Fortschritt",
+        "description": "Steigende Modulwirkungsgrade, sinkende Kosten, Smart-Energy-Systeme und Digitalisierung machten Photovoltaik zur wirtschaftlichsten Energiequelle für Gebäude."
+      },
+      "newEra": {
+        "title": "Die neue Solar-Ära",
+        "description": "Steigende Energiepreise, wachsendes Nachhaltigkeitsbewusstsein und die Energiekrise in Europa beschleunigten den Ausbau erneuerbarer Energien. Gebäude wurden zunehmend zu dezentralen Energieproduzenten."
+      }
+    },
+    "founding": {
+      "eyebrow": "2024",
+      "title": "Die Gründung von FreeState AG",
+      "subtitle": "Aus Erfahrung, Technologie und einem klaren Zukunftsbild entstand ein neues Unternehmen mit vollem Fokus auf dezentrale Energiesysteme.",
+      "cardText": "Aus der langjährigen Erfahrung der Telemiiva GmbH entstand 2024 die FreeState AG. Das Unternehmen konzentriert sich vollständig auf Photovoltaikprojekte, Energiesysteme, Batteriespeicher, digitale Energielösungen und innovative Geschäftsmodelle für Solarenergie.\nDer Name FreeState steht für eine klare Vision: eine Zukunft, in der Gebäude ihre Energie zunehmend selbst produzieren und unabhängiger vom klassischen Energiesystem werden."
+    },
+    "futureVision": {
+      "eyebrow": "2025 und darüber hinaus",
+      "title": "Die Zukunft der Energie ist dezentral",
+      "subtitle": "Gebäude werden nicht nur Energie verbrauchen, sondern selbst produzieren, speichern und intelligent steuern.",
+      "bottomText": "FreeState arbeitet an Energiesystemen der nächsten Generation – mit Photovoltaik, Batteriespeichern, Smart-Home-Integration, Elektromobilität, KI-gestütztem Energiemanagement und digitalen Energieplattformen.\nDiese Technologien ermöglichen eine neue Form der Energieversorgung: lokal, nachhaltig und unabhängig."
+    },
+    "vision": {
+      "eyebrow": "Unsere Vision",
+      "title": "Millionen Dächer als Kraftwerke der Zukunft",
+      "subtitle": "FreeState arbeitet daran, eine Energiezukunft zu schaffen, in der Millionen von Gebäuden zu kleinen Kraftwerken werden.",
+      "cardText": "Dächer von Wohnhäusern, Industriegebäuden, Schulen, Gemeinden und öffentlichen Einrichtungen bieten enormes Potenzial für saubere Energieproduktion. Unser Ziel ist es, dieses Potenzial zu nutzen und Solarenergie für möglichst viele Menschen zugänglich zu machen."
+    }
+  },
+  "aboutUs": {
+    "hero": {
+      "title": "Über FreeState",
+      "description": "Free State AG entwickelt, finanziert und realisiert Photovoltaik- und Energiesysteme für Wohnhäuser, Unternehmen, Landwirtschaft und öffentliche Institutionen.",
+      "cta": "Unsere Lösungen"
+    },
+    "aboutFreeState": {
+      "eyebrow": "Über FreeState",
+      "title": "Ungenutzte Dächer werden zu Energiequellen",
+      "subtitle": "FreeState macht Solarenergie für Haushalte, Unternehmen und öffentliche Institutionen zugänglicher, nachhaltiger und wirtschaftlich attraktiv."
+    },
+    "visionMission": {
+      "vision": {
+        "eyebrow": "Unsere Vision",
+        "title": "Energie für alle zugänglich machen",
+        "description": "Wir wollen Energie zugänglicher, bezahlbarer und nachhaltiger machen – für mehr Menschen, mehr Gebäude und eine zukunftsfähige Versorgung."
+      },
+      "mission": {
+        "eyebrow": "Unsere Mission",
+        "title": "Dachflächen in Energiequellen verwandeln",
+        "description": "Wir aktivieren ungenutzte Dachflächen und schaffen daraus lokale, dezentrale Energie – für Haushalte, Unternehmen und öffentliche Institutionen."
+      }
+    },
+    "founder": {
+      "eyebrow": "Gründer & Hintergrund",
+      "title": "Warum FreeState gegründet wurde",
+      "description": "Free State AG wurde von Ivan Miric gegründet. Die Idee entstand aus einer einfachen Beobachtung: Energiepreise steigen, während viele Menschen und Unternehmen Solarenergie nutzen möchten, aber oft nicht selbst in eine Anlage investieren können. Genau daraus entstanden Modelle, die den Zugang zu Solarenergie deutlich einfacher machen."
+    },
+    "solutions": {
+      "eyebrow": "Unsere Lösungen",
+      "title": "Passende Modelle für unterschiedliche Anforderungen",
+      "subtitle": "FreeState entwickelt Photovoltaik- und Energiesysteme für Haushalte, Unternehmen und öffentliche Institutionen – mit flexiblen Modellen für verschiedene Bedürfnisse.",
+      "solarAbo": {
+        "title": "Solar-Abo für Einfamilienhäuser",
+        "description": "Solarstrom vom eigenen Dach – ohne Anfangsinvestition.\n· Planung bis Wartung inklusive\n· Keine Anfangskosten\n· Einfach und risikoarm"
+      },
+      "contracting": {
+        "title": "Solar-Contracting für Unternehmen",
+        "description": "Individuelle Energielösungen für Gewerbe und öffentliche Gebäude.\n· Planung und Finanzierung aus einer Hand\n· Betrieb und Wartung inklusive\n· Langfristig planbare Energiekosten"
+      },
+      "roofRental": {
+        "title": "Dachvermietung",
+        "description": "Große Dachflächen sinnvoll für Energie nutzen.\n· Für Industrie, Logistik und Landwirtschaft\n· Keine eigene Umsetzung nötig\n· Beteiligung an der Energieproduktion"
+      },
+      "purchase": {
+        "title": "Anlagenkauf",
+        "description": "Die eigene Photovoltaikanlage direkt erwerben.\n· Vollständiger Besitz der Anlage\n· Attraktive Einkaufsvorteile\n· Starkes Preis-Leistungs-Verhältnis"
+      }
+    },
+    "partners": {
+      "eyebrow": "Starke Partner",
+      "title": "Gemeinsam mit etablierten Partnern",
+      "subtitle": "Für Energiehandel, Infrastruktur und Projektentwicklung arbeitet FreeState mit erfahrenen Partnern zusammen – für stabile Projekte und langfristige Zusammenarbeit."
+    },
+    "locations": {
+      "eyebrow": "Unsere Standorte",
+      "title": "Regional verankert, international aktiv",
+      "subtitle": "Von Schaffhausen, Zürich, Bern, Aargau und Liechtenstein aus entwickelt und realisiert FreeState Photovoltaikprojekte in der Schweiz sowie internationale Energieprojekte.",
+      "ctaContact": "Kontaktieren Sie uns",
+      "ctaCalculator": "Solarrechner starten"
     }
   }
 }

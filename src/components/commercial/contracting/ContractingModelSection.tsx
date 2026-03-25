@@ -7,7 +7,7 @@ const ContractingModelSection = async () => {
   const t = await getTranslations('contracting')
 
   return (
-    <section className="relative -mt-[40px]">
+    <section className="relative -mt-[40px] -mb-[40px]">
       <div className="flex flex-col lg:flex-row">
         <div
           className="w-full lg:w-1/2 flex items-center px-4 sm:px-6 lg:px-0 py-12 lg:py-0"
@@ -38,7 +38,7 @@ const ContractingModelSection = async () => {
             </p>
 
             <div className="flex flex-col gap-4 mt-2">
-              {items.map((item) => (
+              {items.map(item => (
                 <div key={item} className="flex items-start gap-[10px]">
                   <Image
                     src="/images/commercial/project-development/checkmark-green.svg"
