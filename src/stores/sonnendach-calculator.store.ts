@@ -285,7 +285,7 @@ type SonnendachCalculatorStore = SonnendachCalculatorState & SonnendachCalculato
 const initialState: SonnendachCalculatorState = {
   // Navigation
   currentStep: 1,
-  totalSteps: 8,
+  totalSteps: 6,
 
   // Step 1
   address: '',

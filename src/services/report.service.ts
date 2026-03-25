@@ -84,6 +84,11 @@ export interface SonnendachReportParams {
   selfConsumptionRate: number
   annualConsumption?: number // kWh/year - household consumption
 
+  // Equipment
+  equipment?: Array<{ type: string; name: string; quantity: number }>
+  taxSavings?: number
+  householdSize?: number
+
   // Report settings
   language?: 'de' | 'fr' | 'it' | 'en' | 'sr' | 'es'
 }

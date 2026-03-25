@@ -1451,7 +1451,71 @@
       "step8": {
         "title": "Unterschrift",
         "description": "Digital signieren"
+      },
+      "step5Company": {
+        "title": "Unternehmen & Kontakt"
       }
+    },
+    "navigation": {
+      "back": "Zurück",
+      "next": "Weiter"
+    },
+    "step5Company": {
+      "title": "Unternehmens- & Kontaktdaten",
+      "subtitle": "Erzählen Sie uns von Ihrem Unternehmen und wie wir Sie erreichen können. Dies hilft uns, ein massgeschneidertes Angebot für Ihre Gewerbeimmobilie zu erstellen.",
+      "companySection": "Unternehmensinformationen",
+      "companyName": "Firmenname",
+      "companyRole": "Ihre Funktion",
+      "companyRolePlaceholder": "z.B. Eigentümer, Facility Manager, CEO",
+      "contactSection": "Kontaktperson",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "propertySection": "Liegenschaftsdetails",
+      "street": "Strasse & Hausnummer",
+      "postalCode": "PLZ",
+      "city": "Ort",
+      "canton": "Kanton",
+      "isPropertyOwner": "Ich bin der Eigentümer der Liegenschaft",
+      "ownerName": "Name des Eigentümers",
+      "ownerEmail": "E-Mail des Eigentümers",
+      "ownerPhone": "Telefon des Eigentümers",
+      "privacyConsent": "Ich stimme der Verarbeitung meiner persönlichen Daten gemäss der Datenschutzerklärung zu.",
+      "marketingConsent": "Ich möchte Informationen über Solarenergie-Angebote erhalten (optional).",
+      "required": "Erforderlich",
+      "invalidEmail": "Ungültige E-Mail-Adresse"
+    },
+    "step4Commercial": {
+      "title": "Liegenschaft & Verbrauch",
+      "subtitle": "Erzählen Sie uns von Ihrem Gebäude und Energieverbrauch, damit wir die optimale Solaranlage berechnen können.",
+      "buildingSection": "Gebäude",
+      "buildingType": "Gebäudetyp",
+      "selectBuildingType": "Typ auswählen",
+      "types": {
+        "office": "Büro / Gewerbe",
+        "warehouse": "Lager / Industrie",
+        "retail": "Einzelhandel / Einkaufszentrum",
+        "agricultural": "Landwirtschaft"
+      },
+      "isNewBuilding": "Neubau?",
+      "yes": "Ja",
+      "no": "Nein",
+      "consumptionSection": "Stromverbrauch",
+      "annualConsumption": "Jährlicher Stromverbrauch",
+      "annualConsumptionPlaceholder": "z.B. 50000",
+      "annualConsumptionHint": "Sie finden diese Angabe auf Ihrer Stromrechnung oder bei Ihrem Anbieter.",
+      "equipmentSection": "Grossverbraucher",
+      "heatPump": "Wärmepumpe (Heizung)",
+      "hotWater": "Elektroboiler / Warmwasser",
+      "evStations": "Ladestationen für Elektrofahrzeuge",
+      "none": "Keine",
+      "tariffSection": "Stromtarife",
+      "electricityTariff": "Bezugstarif",
+      "feedInTariff": "Einspeisevergütung",
+      "useAverage": "Schweizer Durchschnitt verwenden",
+      "noSegments": "Keine Dachsegmente ausgewählt. Bitte gehen Sie zurück und wählen Sie Segmente aus.",
+      "backToSelection": "Zurück zur Dachauswahl"
     },
     "step1": {
       "title": "Dachsegmente auswählen",

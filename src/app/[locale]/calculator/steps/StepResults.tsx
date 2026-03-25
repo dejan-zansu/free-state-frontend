@@ -167,6 +167,13 @@ export default function StepResults() {
         feedInTariff: 0.08,
         selfConsumptionRate: selfConsumptionRate,
         annualConsumption: estimatedConsumption,
+        equipment: selectedPkg?.equipment.filter(e => e.name).map(e => ({
+          type: e.equipmentType,
+          name: e.name,
+          quantity: e.quantity,
+        })),
+        taxSavings: taxSavings,
+        householdSize: store.householdSize || undefined,
         language: (locale as 'de' | 'en' | 'fr' | 'it' | 'sr' | 'es') || 'de',
       })
     } catch (err: unknown) {

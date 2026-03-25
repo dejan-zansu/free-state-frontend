@@ -488,7 +488,7 @@ export default function SonnendachStep5Results() {
         <div className="flex gap-4">
           <Button
             variant="outline"
-            onClick={() => goToStep(4)}
+            onClick={() => goToStep(5)}
             className="gap-2"
           >
             <ChevronLeft className="w-4 h-4" />

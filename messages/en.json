@@ -1322,7 +1322,71 @@
       "step8": {
         "title": "Signature",
         "description": "Sign digitally"
+      },
+      "step5Company": {
+        "title": "Company & Contact"
       }
+    },
+    "navigation": {
+      "back": "Back",
+      "next": "Next"
+    },
+    "step5Company": {
+      "title": "Company & Contact Details",
+      "subtitle": "Tell us about your company and how to reach you. This helps us prepare a tailored offer for your commercial property.",
+      "companySection": "Company Information",
+      "companyName": "Company name",
+      "companyRole": "Your role",
+      "companyRolePlaceholder": "e.g. Owner, Facility Manager, CEO",
+      "contactSection": "Contact Person",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "phone": "Phone",
+      "propertySection": "Property Details",
+      "street": "Street & number",
+      "postalCode": "Postal code",
+      "city": "City",
+      "canton": "Canton",
+      "isPropertyOwner": "I am the property owner",
+      "ownerName": "Property owner name",
+      "ownerEmail": "Property owner email",
+      "ownerPhone": "Property owner phone",
+      "privacyConsent": "I agree to the processing of my personal data according to the privacy policy.",
+      "marketingConsent": "I would like to receive information about solar energy offers (optional).",
+      "required": "Required",
+      "invalidEmail": "Invalid email address"
+    },
+    "step4Commercial": {
+      "title": "Property & Consumption",
+      "subtitle": "Tell us about your building and energy usage to calculate the optimal solar system.",
+      "buildingSection": "Building",
+      "buildingType": "Building type",
+      "selectBuildingType": "Select type",
+      "types": {
+        "office": "Office / Commercial",
+        "warehouse": "Warehouse / Industrial",
+        "retail": "Retail / Shopping",
+        "agricultural": "Agricultural"
+      },
+      "isNewBuilding": "New construction?",
+      "yes": "Yes",
+      "no": "No",
+      "consumptionSection": "Electricity Consumption",
+      "annualConsumption": "Annual electricity consumption",
+      "annualConsumptionPlaceholder": "e.g. 50000",
+      "annualConsumptionHint": "You can find this on your electricity bill or ask your provider.",
+      "equipmentSection": "Large Consumers",
+      "heatPump": "Heat pump (heating)",
+      "hotWater": "Electric hot water / boiler",
+      "evStations": "EV charging stations",
+      "none": "None",
+      "tariffSection": "Electricity Tariffs",
+      "electricityTariff": "Purchase tariff",
+      "feedInTariff": "Feed-in tariff",
+      "useAverage": "Use Swiss average",
+      "noSegments": "No roof segments selected. Please go back and select segments.",
+      "backToSelection": "Back to roof selection"
     },
     "step1": {
       "title": "Find Your Building",
