@@ -5677,6 +5677,33 @@
       }
     }
   },
+  "team": {
+    "grid": {
+      "eyebrow": "Unsere Kultur",
+      "title": "Das Leitbild der Free State AG",
+      "subtitle": "Bei FreeState stehen Kompetenz, Vertrauen, Verantwortung und die Sicherheit des Menschen im Mittelpunkt.",
+      "ivan": { "name": "Ivan Miric", "role": "Geschäftsführer / Verwaltungsrat" },
+      "peter": { "name": "Peter Aragai", "role": "Executive Manager / Verkaufsleiter" },
+      "dragica": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
+      "dejan": { "name": "Dejan", "role": "Projektleiter" },
+      "member5": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
+      "member6": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" }
+    },
+    "values": {
+      "title": "Unsere Werte",
+      "subtitle": "Wir stehen für nachhaltige Energielösungen, hohe Qualitätsstandards und eine transparente Zusammenarbeit.",
+      "cta": "Mehr erfahren",
+      "trust": { "title": "Vertrauen", "description": "Transparenz, Zuverlässigkeit und Partnerschaften auf Augenhöhe." },
+      "responsibility": { "title": "Verantwortung", "description": "Nachhaltige Entscheidungen mit ökologischer, sozialer und wirtschaftlicher Verantwortung." },
+      "dedication": { "title": "Hingabe", "description": "Individuelle Lösungen mit Einsatz, Sorgfalt und Leidenschaft." },
+      "pragmatism": { "title": "Pragmatismus", "description": "Praktische und effiziente Lösungen mit klarem Kundennutzen." }
+    },
+    "partners": {
+      "eyebrow": "Unsere Partner",
+      "title": "Marken, die auf FreeState vertrauen",
+      "subtitle": "Mit starken Partnern und führenden Marken schaffen wir zuverlässige Energielösungen für Ihr Zuhause."
+    }
+  },
   "history": {
     "hero": {
       "title": "Die Entwicklung von FreeState im Wandel der Energiezukunft",

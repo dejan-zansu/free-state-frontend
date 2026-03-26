@@ -18,10 +18,15 @@ const AboutUsPage = () => {
           backgroundImage="/images/about-us-hero.png"
           title={t('hero.title')}
           description={t('hero.description')}
-          contentClassName="[&_p]:max-w-[70%]"
+          contentClassName="items-start text-left"
+          descriptionClassName="max-w-[563px]"
         >
           <div className="mt-8">
-            <LinkButton href="/portfolio" variant="primary">
+            <LinkButton
+              href="/portfolio"
+              variant="outline-secondary"
+              className="bg-transparent"
+            >
               {t('hero.cta')}
             </LinkButton>
           </div>

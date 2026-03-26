@@ -40,10 +40,10 @@ const SolutionsSection = () => {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-foreground text-[22px] font-bold capitalize">
+                <h3 className="text-foreground text-[22px] font-bold capitalize px-4">
                   {t(`${solution.key}.title`)}
                 </h3>
-                <p className="mt-5 text-foreground/80 text-base font-light whitespace-pre-line">
+                <p className="mt-5 text-foreground/80 text-base font-light whitespace-pre-line px-4">
                   {t(`${solution.key}.description`)}
                 </p>
               </div>

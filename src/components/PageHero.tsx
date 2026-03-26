@@ -10,6 +10,7 @@ interface PageHeroProps {
   className?: string
   contentClassName?: string
   isCommercial?: boolean
+  descriptionClassName?: string
 }
 
 const PageHero = ({
@@ -20,6 +21,7 @@ const PageHero = ({
   className,
   contentClassName,
   isCommercial = false,
+  descriptionClassName,
 }: PageHeroProps) => {
   return (
     <section
@@ -37,20 +39,24 @@ const PageHero = ({
         />
       )}
 
-      <div
-        className={cn(
-          'relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[220px] w-full',
-          contentClassName
-        )}
-      >
-        <div className="flex flex-col items-center text-center">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[220px] w-full">
+        <div
+          className={cn(
+            'flex flex-col items-center text-center',
+            contentClassName
+          )}
+        >
           {title && (
             <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-medium leading-[1em] capitalize whitespace-pre-line">
               {title}
             </h1>
           )}
           {description && (
-            <p className="text-xl mt-5 text-white/80">{description}</p>
+            <p
+              className={cn('text-xl mt-5 text-white/80', descriptionClassName)}
+            >
+              {description}
+            </p>
           )}
           {children}
         </div>

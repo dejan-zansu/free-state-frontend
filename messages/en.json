@@ -5608,6 +5608,33 @@
       }
     }
   },
+  "team": {
+    "grid": {
+      "eyebrow": "Our Culture",
+      "title": "The guiding principles of Free State AG",
+      "subtitle": "At FreeState, competence, trust, responsibility and human safety are at the center.",
+      "ivan": { "name": "Ivan Miric", "role": "CEO / Board Member" },
+      "peter": { "name": "Peter Aragai", "role": "Executive Manager / Sales Director" },
+      "dragica": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
+      "dejan": { "name": "Dejan", "role": "Project Manager" },
+      "member5": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
+      "member6": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" }
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "We stand for sustainable energy solutions, high quality standards and transparent cooperation.",
+      "cta": "Learn more",
+      "trust": { "title": "Trust", "description": "Transparency, reliability and partnerships on equal footing." },
+      "responsibility": { "title": "Responsibility", "description": "Sustainable decisions with ecological, social and economic responsibility." },
+      "dedication": { "title": "Dedication", "description": "Individual solutions with commitment, care and passion." },
+      "pragmatism": { "title": "Pragmatism", "description": "Practical and efficient solutions with clear customer benefit." }
+    },
+    "partners": {
+      "eyebrow": "Our Partners",
+      "title": "Brands that trust FreeState",
+      "subtitle": "With strong partners and leading brands, we create reliable energy solutions for your home."
+    }
+  },
   "history": {
     "hero": {
       "title": "The evolution of FreeState in the changing energy future",

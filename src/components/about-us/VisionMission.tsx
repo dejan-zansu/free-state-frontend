@@ -37,13 +37,7 @@ const VisionMission = () => {
       </div>
 
       <div className="relative w-full h-[200px] sm:h-[260px] lg:h-[320px]">
-        <div
-          className="absolute inset-0 z-10"
-          style={{
-            background:
-              'linear-gradient(90deg, rgba(12, 66, 53, 0) 22%, rgba(12, 66, 53, 1) 100%), linear-gradient(180deg, rgba(3, 107, 83, 0) 23%, rgba(3, 107, 83, 1) 100%)',
-          }}
-        />
+        <div className="absolute inset-0 z-10 bg-[#036B53]/40" aria-hidden />
         <Image
           src="/images/about-us-vision-bg-645500.png"
           alt=""
