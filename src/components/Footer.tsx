@@ -58,7 +58,8 @@ const Footer = () => {
     pathname?.includes('/company') ||
     pathname?.includes('/repowering') ||
     pathname?.includes('/history') ||
-    pathname?.includes('/about-us')
+    pathname?.includes('/about-us') ||
+    pathname === '/'
 
   const solarAboLinks = [
     {

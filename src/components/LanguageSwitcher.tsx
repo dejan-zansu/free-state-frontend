@@ -44,10 +44,14 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   }
 
   return (
-    <Select value={currentLocale} onValueChange={handleLocaleChange} disabled={isPending}>
+    <Select
+      value={currentLocale}
+      onValueChange={handleLocaleChange}
+      disabled={isPending}
+    >
       <SelectTrigger
         className={cn(
-          'h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none! ml-6',
+          'h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none!',
           isScrolled ? 'text-[#062E25]' : 'text-white',
           isPending && 'opacity-50'
         )}

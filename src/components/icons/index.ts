@@ -1,5 +1,6 @@
 import AllInclusiveIcon from './AllInclusiveIcon'
 import BatteryIcon from './BatteryIcon'
+import CheckBulletIcon from './CheckBulletIcon'
 import CheckIcon from './CheckIcon'
 import CloseIcon from './CloseIcon'
 import CO2ReductionIcon from './CO2ReductionIcon'
@@ -21,6 +22,7 @@ import MoreIcon from './MoreIcon'
 export {
   AllInclusiveIcon,
   BatteryIcon,
+  CheckBulletIcon,
   CheckIcon,
   CloseIcon,
   CO2ReductionIcon,

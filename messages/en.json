@@ -144,6 +144,131 @@
       "savings": "Cost Savings for Our Customers",
       "employees": "Employees"
     },
+    "solarModels": {
+      "eyebrow": "Solar Models",
+      "title": "SolarFree or SolarDirect: Which suits you?",
+      "subtitle": "Compare both models and find the right solution for your home.",
+      "onlineBadge": "Online only",
+      "cta": "Get started",
+      "learnMore": "Learn more",
+      "solarFree": {
+        "title": "SolarFree",
+        "description": "Solar system, storage, heat pump and charging station in a flexible subscription model for your home",
+        "includedTitle": "What's included?",
+        "included": [
+          "Predictable electricity costs",
+          "Up to 30% cheaper electricity rates",
+          "Protection against rising energy prices",
+          "24/7 monitoring & surveillance",
+          "Insurance for the entire system",
+          "Free buyback option at any time"
+        ],
+        "highlight": "0 CHF initial investment – only pay for electricity",
+        "advantagesTitle": "Your advantages with SolarFree",
+        "advantages": [
+          "No initial investment",
+          "Fixed, predictable electricity rate",
+          "Operation, maintenance and service included",
+          "Contract transfer possible on property sale",
+          "Buyback of the system possible at any time"
+        ]
+      },
+      "solarDirect": {
+        "title": "SolarDirect",
+        "description": "Solar system, storage, heat pump and charging station for direct purchase for your home",
+        "highlight": "One-time payment – the system is yours",
+        "includedTitle": "What's included?",
+        "included": [
+          "Complete system ownership",
+          "Protection against rising energy costs",
+          "Manufacturer warranties included",
+          "10-year workmanship guarantee",
+          "10-year roof guarantee",
+          "Transferable on house sale"
+        ],
+        "advantagesTitle": "Your advantages with SolarDirect",
+        "advantages": [
+          "Complete ownership of the system",
+          "No ongoing model costs",
+          "Care and maintenance self-manageable",
+          "Transferable on property sale",
+          "CHF 1,500 online discount possible"
+        ]
+      }
+    },
+    "battery": {
+      "title": "Battery",
+      "subtitle": "FreeState offers intelligent battery storage solutions in partnership with Huawei – with reliable hardware, seamless integration, and future-oriented energy management for your home.",
+      "step1": "Smart energy storage for your home",
+      "step2": "Battery storage made easy",
+      "step3": "Reliable storage solutions with Huawei",
+      "cta": "Explore Battery Storage",
+      "exploreHuawei": "Explore Huawei"
+    },
+    "heatPumps": {
+      "title": "Heat Pumps",
+      "subtitle": "FreeState offers high-quality heat pump solutions from Viessmann and NIBE, trusted brands known for efficiency, reliability, and long-term performance.",
+      "step1": "Heat pumps for efficient home comfort",
+      "step2": "Premium heat pump solutions",
+      "step3": "Modern heat pumps for sustainable heating",
+      "cta": "Explore Heat Pumps",
+      "exploreNibe": "Explore Nibe"
+    },
+    "heatPumpsViessmann": {
+      "title": "Heat Pumps",
+      "subtitle": "FreeState offers high-quality heat pump solutions from Viessmann and NIBE, trusted brands known for efficiency, reliability, and long-term performance.",
+      "step1": "Heat pumps for efficient home comfort",
+      "step2": "Premium heat pump solutions",
+      "step3": "Modern heat pumps for sustainable heating",
+      "cta": "Explore Heat Pumps",
+      "exploreViessmann": "Explore Viessmann"
+    },
+    "evCharging": {
+      "title": "EV Charging Solutions",
+      "subtitle": "FreeState offers smart EV charging solutions in partnership with Huawei – with reliable hardware, seamless integration, and future-oriented energy management for your home.",
+      "step1": "Smart EV charging for your home",
+      "step2": "EV charging made easy",
+      "step3": "Reliable charging solutions with Huawei",
+      "cta": "Explore EV Charging Solutions",
+      "exploreHuawei": "Explore Huawei"
+    },
+    "fusionSolarApp": {
+      "eyebrow": "FusionSolar App",
+      "title": "Your Solar System\nAnytime and\nAnywhere in View",
+      "features": [
+        "Track energy flows in real time",
+        "See generation, storage & consumption",
+        "Get smart system insights"
+      ]
+    },
+    "yourBenefits": {
+      "title": "Your Benefits",
+      "subtitle": "Sustainable energy, long-term cost savings and full transparency – all without investment risk for you.",
+      "cta": "Learn more",
+      "items": [
+        {
+          "title": "Solar panels without debt or upfront costs",
+          "description": "Solar financing with predictable, affordable rates and secured conditions"
+        },
+        {
+          "title": "25-year equipment warranty",
+          "description": "Industry-leading warranty for a premium solar panel and battery storage system"
+        },
+        {
+          "title": "Free maintenance and repairs",
+          "description": "25 years of free maintenance and repairs for complete peace of mind"
+        },
+        {
+          "title": "Unparalleled home solar and battery experience",
+          "description": "Backed by the #1 home solar panel and battery installer in the country"
+        }
+      ]
+    },
+    "ourPartners": {
+      "eyebrow": "Our Partners",
+      "title": "Brands that trust FreeState",
+      "subtitle": "With strong partners and leading brands, we create reliable energy solutions for your home."
+    },
     "deals": {
       "title": "Current deals",
       "subtitle": "With lifelong benefits",
@@ -3159,6 +3284,27 @@
         "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws (ZertES/SCSE)."
       },
       "downloadContract": "Download Contract"
+    },
+    "signingComplete": {
+      "verifying": {
+        "title": "Verifying signature...",
+        "message": "Please wait while we confirm your signature."
+      },
+      "success": {
+        "title": "Contract successfully signed!",
+        "message": "Your contract has been securely signed via Swisscom Sign. You can close this window.",
+        "backButton": "Back to calculator"
+      },
+      "cancel": {
+        "title": "Signing cancelled",
+        "message": "You cancelled the signing process. You can try again at any time.",
+        "backButton": "Back to calculator"
+      },
+      "error": {
+        "title": "Signing error",
+        "message": "An error occurred during the signing process. Please try again.",
+        "backButton": "Back to calculator"
+      }
     },
     "signatureConfirmation": {
       "title": "Thank You!",

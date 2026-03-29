@@ -36,25 +36,31 @@ export default function AdminSupportDetailPage() {
   const queryClient = useQueryClient()
   const [saving, setSaving] = useState(false)
   const [adminNotes, setAdminNotes] = useState('')
-  const [notesInitialized, setNotesInitialized] = useState(false)
+  const [status, setStatus] = useState('')
+  const [initialized, setInitialized] = useState(false)
 
   const { data: inquiry, isLoading } = useQuery<AdminInquiry>({
     queryKey: ['admin', 'inquiry', params.id],
     queryFn: async () => {
       const data = await adminService.getInquiryById(params.id as string)
-      if (!notesInitialized) {
+      if (!initialized) {
         setAdminNotes(data.adminNotes || '')
-        setNotesInitialized(true)
+        setStatus(data.status)
+        setInitialized(true)
       }
       return data
     },
   })
 
-  const handleUpdate = async (data: Record<string, string | null>) => {
+  const hasChanges =
+    !!inquiry &&
+    (status !== inquiry.status || adminNotes !== (inquiry.adminNotes || ''))
+
+  const handleSave = async () => {
     if (!inquiry) return
     setSaving(true)
     try {
-      await adminService.updateInquiry(inquiry.id, data)
+      await adminService.updateInquiry(inquiry.id, { status, adminNotes })
       queryClient.invalidateQueries({ queryKey: ['admin', 'inquiry', params.id] })
     } catch (err) {
       console.error(err)
@@ -128,12 +134,12 @@ export default function AdminSupportDetailPage() {
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">
               {t('manage')}
             </h2>
-            <div className="space-y-4">
+            <div className="flex flex-col gap-4 h-full">
               <div>
                 <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
                 <Select
-                  value={inquiry.status}
-                  onValueChange={v => handleUpdate({ status: v })}
+                  value={status}
+                  onValueChange={setStatus}
                   disabled={saving}
                 >
                   <SelectTrigger className="w-full">
@@ -148,23 +154,21 @@ export default function AdminSupportDetailPage() {
                   </SelectContent>
                 </Select>
               </div>
-              <div>
+              <div className="flex flex-col flex-1">
                 <label className="text-sm text-[#062E25]/60 mb-1 block">{t('adminNotes')}</label>
                 <Textarea
                   value={adminNotes}
                   onChange={e => setAdminNotes(e.target.value)}
-                  rows={6}
-                  className="mb-2"
+                  className="flex-1 min-h-[200px] resize-y"
                 />
-                <Button
-                  size="sm"
-                  onClick={() => handleUpdate({ adminNotes })}
-                  disabled={saving || adminNotes === (inquiry.adminNotes || '')}
-                  className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
-                >
-                  {t('saveNotes')}
-                </Button>
               </div>
+              <Button
+                onClick={handleSave}
+                disabled={saving || !hasChanges}
+                className="bg-[#062E25] hover:bg-[#062E25]/90 text-white w-full"
+              >
+                {t('saveNotes')}
+              </Button>
             </div>
           </CardContent>
         </Card>

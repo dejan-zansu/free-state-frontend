@@ -1,52 +1,23 @@
-import Benefits from '@/components/Benefits'
-import Deals from '@/components/Deals'
 import Hero from '@/components/Hero'
-import Partners from '@/components/Partners'
-import Portfolio from '@/components/Portfolio'
-import SolarEnergyFor from '@/components/SolarEnergyFor'
-import Stats from '@/components/Stats'
-import Testimonials from '@/components/Testimonials'
-import WhoWeAre from '@/components/WhoWeAre'
-import YourPartner from '@/components/YourPartner'
-import { getTranslations } from 'next-intl/server'
+import EvCharging from '@/components/EvCharging'
+import OurPartners from '@/components/OurPartners'
+import YourBenefits from '@/components/YourBenefits'
+import Battery from '@/components/Battery'
+import FusionSolarApp from '@/components/FusionSolarApp'
+import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
+import SolarModels from '@/components/SolarModels'
 
 export default async function HomePage() {
-  const t = await getTranslations('home.portfolio')
-
-  const portfolioTranslations = {
-    title: t('title'),
-    learnMore: t('learnMore'),
-    items: [
-      {
-        number: '01',
-        title: t('item1.title'),
-        description: t('item1.details'),
-      },
-      {
-        number: '02',
-        title: t('item2.title'),
-        description: t('item2.details'),
-      },
-      {
-        number: '03',
-        title: t('item3.title'),
-        description: t('item3.details'),
-      },
-    ],
-  }
-
   return (
     <div className="w-full overflow-x-hidden">
       <Hero />
-      <WhoWeAre />
-      <Deals />
-      <SolarEnergyFor />
-      <Benefits />
-      <Portfolio translations={portfolioTranslations} />
-      <YourPartner />
-      <Testimonials />
-      <Stats />
-      <Partners />
+      <SolarModels />
+      <FusionSolarApp />
+      <Battery />
+      <HeatPumpsViessmann />
+      <EvCharging />
+      <YourBenefits />
+      <OurPartners />
     </div>
   )
 }

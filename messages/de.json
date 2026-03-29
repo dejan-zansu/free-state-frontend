@@ -144,6 +144,131 @@
       "savings": "Kostenersparnisse unsere Kunden",
       "employees": "Mitarbeiter"
     },
+    "solarModels": {
+      "eyebrow": "Solarmodelle",
+      "title": "SolarFrei oder SolarDirekt: Was passt zu Ihnen?",
+      "subtitle": "Vergleichen Sie beide Modelle und finden Sie die passende Lösung für Ihr Zuhause.",
+      "onlineBadge": "Nur online",
+      "cta": "Jetzt starten",
+      "learnMore": "Mehr erfahren",
+      "solarFree": {
+        "title": "SolarFree",
+        "description": "Solarsystem, Speicher, Wärmepumpe und Ladestation im flexiblen Abo-Modell für Ihr Zuhause",
+        "includedTitle": "Was ist enthalten?",
+        "included": [
+          "Planbare Stromkosten",
+          "Bis zu 30 % günstigere Stromtarife",
+          "Schutz vor steigenden Energiepreisen",
+          "24/7 Überwachung & Monitoring",
+          "Versicherung der gesamten Anlage",
+          "Freie Rückkaufoption jederzeit"
+        ],
+        "highlight": "0 CHF Startinvestition – nur für Strom zahlen",
+        "advantagesTitle": "Ihre Vorteile mit SolarFrei",
+        "advantages": [
+          "Keine Anfangsinvestition",
+          "Fester, planbarer Stromtarif",
+          "Betrieb, Wartung und Service inklusive",
+          "Vertragsübernahme bei Immobilienverkauf möglich",
+          "Rückkauf der Anlage jederzeit möglich"
+        ]
+      },
+      "solarDirect": {
+        "title": "SolarDirect",
+        "description": "Solarsystem, Speicher, Wärmepumpe und Ladestation zum direkten Kauf für Ihr Zuhause",
+        "highlight": "Einmalzahlung – Ihr System gehört Ihnen",
+        "includedTitle": "Was ist enthalten?",
+        "included": [
+          "Vollständiger Systembesitz",
+          "Schutz vor steigenden Energiekosten",
+          "Herstellergarantien inklusive",
+          "10 Jahre Handwerksgarantie",
+          "10 Jahre Dachgarantie",
+          "Übertragbar beim Hausverkauf"
+        ],
+        "advantagesTitle": "Ihre Vorteile mit SolarDirekt",
+        "advantages": [
+          "Vollständiger Besitz der Anlage",
+          "Keine laufenden Modellkosten",
+          "Betreuung und Wartung selbst steuerbar",
+          "Übertragbar beim Immobilienverkauf",
+          "CHF 1'500.– Online-Rabatt möglich"
+        ]
+      }
+    },
+    "battery": {
+      "title": "Batterie",
+      "subtitle": "FreeState bietet intelligente Batteriespeicherlösungen in Partnerschaft mit Huawei – mit zuverlässiger Hardware, nahtloser Integration und zukunftsorientiertem Energiemanagement für Ihr Zuhause.",
+      "step1": "Intelligente Energiespeicherung für Ihr Zuhause",
+      "step2": "Batteriespeicher einfach gemacht",
+      "step3": "Zuverlässige Speicherlösungen mit Huawei",
+      "cta": "Batteriespeicher entdecken",
+      "exploreHuawei": "Huawei entdecken"
+    },
+    "heatPumps": {
+      "title": "Wärmepumpen",
+      "subtitle": "FreeState bietet hochwertige Wärmepumpenlösungen von Viessmann und NIBE – vertrauenswürdige Marken, bekannt für Effizienz, Zuverlässigkeit und langfristige Leistung.",
+      "step1": "Wärmepumpen für effizienten Wohnkomfort",
+      "step2": "Premium-Wärmepumpenlösungen",
+      "step3": "Moderne Wärmepumpen für nachhaltiges Heizen",
+      "cta": "Wärmepumpen entdecken",
+      "exploreNibe": "Nibe entdecken"
+    },
+    "heatPumpsViessmann": {
+      "title": "Wärmepumpen",
+      "subtitle": "FreeState bietet hochwertige Wärmepumpenlösungen von Viessmann und NIBE – bewährte Marken, die für Effizienz, Zuverlässigkeit und langfristige Leistung stehen.",
+      "step1": "Wärmepumpen für effizienten Wohnkomfort",
+      "step2": "Hochwertige Wärmepumpenlösungen",
+      "step3": "Moderne Wärmepumpen für nachhaltiges Heizen",
+      "cta": "Wärmepumpen entdecken",
+      "exploreViessmann": "Viessmann entdecken"
+    },
+    "evCharging": {
+      "title": "EV-Ladelösungen",
+      "subtitle": "FreeState bietet intelligente EV-Ladelösungen in Partnerschaft mit Huawei – mit zuverlässiger Hardware, nahtloser Integration und zukunftsorientiertem Energiemanagement für Ihr Zuhause.",
+      "step1": "Intelligentes EV-Laden für Ihr Zuhause",
+      "step2": "EV-Laden einfach gemacht",
+      "step3": "Zuverlässige Ladelösungen mit Huawei",
+      "cta": "EV-Ladelösungen entdecken",
+      "exploreHuawei": "Huawei entdecken"
+    },
+    "fusionSolarApp": {
+      "eyebrow": "FusionSolar App",
+      "title": "Ihr Solarsystem\njederzeit und\nüberall im Blick",
+      "features": [
+        "Energieflüsse in Echtzeit verfolgen",
+        "Erzeugung, Speicher & Verbrauch sehen",
+        "Smarte Systemeinblicke erhalten"
+      ]
+    },
+    "yourBenefits": {
+      "title": "Ihre Vorteile",
+      "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ganz ohne Investitionsrisiko für Sie.",
+      "cta": "Mehr erfahren",
+      "items": [
+        {
+          "title": "Solarmodule ohne Schulden oder Anfangskosten",
+          "description": "Solarfinanzierung mit vorhersehbaren, erschwinglichen Raten und gesicherten Konditionen"
+        },
+        {
+          "title": "25-jährige Ausrüstungsgarantie",
+          "description": "Branchenführende Garantie für ein erstklassiges Solarpanel- und Batteriespeichersystem"
+        },
+        {
+          "title": "Kostenlose Wartung und Reparaturen",
+          "description": "25 Jahre kostenlose Wartung und Reparaturen für völlige Sicherheit"
+        },
+        {
+          "title": "Unvergleichliche Solar- und Batterieerfahrung zu Hause",
+          "description": "Unterstützt vom #1 Haus-Solarpanel- und Batterieinstallateur des Landes"
+        }
+      ]
+    },
+    "ourPartners": {
+      "eyebrow": "Unsere Partner",
+      "title": "Marken, die auf FreeState vertrauen",
+      "subtitle": "Mit starken Partnern und führenden Marken schaffen wir zuverlässige Energielösungen für Ihr Zuhause."
+    },
     "deals": {
       "title": "Aktuelle Deals",
       "subtitle": "Mit lebenslangem vorteil",
@@ -4829,6 +4954,27 @@
         "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen (ZertES/SCSE)."
       },
       "downloadContract": "Vertrag herunterladen"
+    },
+    "signingComplete": {
+      "verifying": {
+        "title": "Signatur wird überprüft...",
+        "message": "Bitte warten Sie, während wir Ihre Unterschrift bestätigen."
+      },
+      "success": {
+        "title": "Vertrag erfolgreich unterschrieben!",
+        "message": "Ihr Vertrag wurde sicher über Swisscom Sign unterschrieben. Sie können dieses Fenster schliessen.",
+        "backButton": "Zurück zum Rechner"
+      },
+      "cancel": {
+        "title": "Signatur abgebrochen",
+        "message": "Sie haben den Signaturvorgang abgebrochen. Sie können es jederzeit erneut versuchen.",
+        "backButton": "Zurück zum Rechner"
+      },
+      "error": {
+        "title": "Fehler bei der Signatur",
+        "message": "Beim Signaturvorgang ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+        "backButton": "Zurück zum Rechner"
+      }
     },
     "signatureConfirmation": {
       "title": "Vielen Dank!",
