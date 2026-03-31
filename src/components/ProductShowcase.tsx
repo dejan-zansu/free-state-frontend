@@ -84,9 +84,9 @@ const ProductShowcase = ({
           </div>
         </div>
 
-        <LinkButton href={ctaHref} variant="primary" className="w-fit">
+        {/* <LinkButton href={ctaHref} variant="primary" className="w-fit">
           {cta}
-        </LinkButton>
+        </LinkButton> */}
       </div>
     </div>
   )

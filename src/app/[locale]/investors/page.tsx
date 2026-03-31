@@ -1,4 +1,4 @@
-import Partners from '@/components/Partners'
+
 import InvestorsFAQ from '@/components/InvestorsFAQ'
 import InvestorsForm from '@/components/InvestorsForm'
 import InvestorsHero from '@/components/InvestorsHero'
@@ -15,7 +15,6 @@ const InvestorsPage = async () => {
 
       <InvestorsFAQ />
 
-      <Partners />
     </main>
   )
 }

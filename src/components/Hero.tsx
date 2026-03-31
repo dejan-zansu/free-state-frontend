@@ -57,7 +57,7 @@ const Hero = async ({
             {heroDescription}
           </p>
 
-          {showCTAs && (
+          {/* {showCTAs && (
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
               <LinkButton
                 variant="primary"
@@ -75,7 +75,7 @@ const Hero = async ({
                 {t('hero.cta.secondary')}
               </LinkButton>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </section>

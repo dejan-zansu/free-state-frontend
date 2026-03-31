@@ -18,6 +18,7 @@ import ShieldIcon from './ShieldIcon'
 import SolarSystemIcon from './SolarSystemIcon'
 import LightBulbWithPointerWiteBg from './LightBulbWithPointerWiteBg'
 import MoreIcon from './MoreIcon'
+import GreenWorldIcon from './GreenWorldIcon'
 
 export {
   AllInclusiveIcon,
@@ -40,4 +41,5 @@ export {
   SolarSystemIcon,
   LightBulbWithPointerWiteBg,
   MoreIcon,
+  GreenWorldIcon,
 }

@@ -4,9 +4,9 @@ import LocationsCTA from '@/components/about-us/LocationsCTA'
 import PartnersSection from '@/components/about-us/PartnersSection'
 import SolutionsSection from '@/components/about-us/SolutionsSection'
 import VisionMission from '@/components/about-us/VisionMission'
-import CostSection from '@/components/cost/CostSection'
+import ContactMap from '@/components/ContactMap'
 import PageHero from '@/components/PageHero'
-import { LinkButton } from '@/components/ui/link-button'
+// import { LinkButton } from '@/components/ui/link-button'
 import { useTranslations } from 'next-intl'
 
 const AboutUsPage = () => {
@@ -21,7 +21,7 @@ const AboutUsPage = () => {
           contentClassName="items-start text-left"
           descriptionClassName="max-w-[563px]"
         >
-          <div className="mt-8">
+          {/* <div className="mt-8">
             <LinkButton
               href="/portfolio"
               variant="outline-secondary"
@@ -29,7 +29,7 @@ const AboutUsPage = () => {
             >
               {t('hero.cta')}
             </LinkButton>
-          </div>
+          </div> */}
         </PageHero>
       </div>
 
@@ -39,7 +39,7 @@ const AboutUsPage = () => {
       <SolutionsSection />
       <PartnersSection />
       <LocationsCTA />
-      <CostSection />
+      <ContactMap />
     </main>
   )
 }

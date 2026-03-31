@@ -180,6 +180,9 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
   const hasDropdown = hoveredItem === 'solarAbo' || hoveredItem === 'products'
   const displayItem = hoveredItem || lastActiveItem.current
 
+  // temporary disable hero nav
+  return null
+
   return (
     <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full hidden md:flex justify-center z-20 px-4">
       <div

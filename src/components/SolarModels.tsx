@@ -113,14 +113,14 @@ const SolarModels = async () => {
                 <IncludedList items={solarFreeIncluded} />
               </div>
 
-              <div className="mt-auto flex flex-col items-start gap-5 pt-6">
+              {/* <div className="mt-auto flex flex-col items-start gap-5 pt-6">
                 <LinkButton href="/solar-free" variant="tertiary">
                   {t('cta')}
                 </LinkButton>
                 <LearnMoreLink href="/solar-free">
                   {t('learnMore')}
                 </LearnMoreLink>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -129,7 +129,7 @@ const SolarModels = async () => {
               Volles Eigentum
             </Badge>
 
-            <div className="absolute -top-12 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">
+            <div className="absolute -top-16 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">
               <Image
                 src="/images/solar-direct.png"
                 alt={t('solarDirect.title')}
@@ -174,14 +174,14 @@ const SolarModels = async () => {
                 <IncludedList items={solarDirectIncluded} />
               </div>
 
-              <div className="mt-auto flex flex-col items-start gap-5 pt-6">
+              {/* <div className="mt-auto flex flex-col items-start gap-5 pt-6">
                 <LinkButton href="/solar-calculator" variant="tertiary">
                   {t('cta')}
                 </LinkButton>
                 <LearnMoreLink href="/solar-calculator">
                   {t('learnMore')}
                 </LearnMoreLink>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

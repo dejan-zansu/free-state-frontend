@@ -14,6 +14,10 @@ import {
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  COMPANY_MAIN_PHONE_DISPLAY,
+  COMPANY_MAIN_PHONE_TEL_HREF,
+} from '@/lib/company-contact'
 import { cn } from '@/lib/utils'
 
 import { Button } from '@/components/ui/button'
@@ -137,8 +141,11 @@ export default function SupportPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-[#062E25]">{t('callUs')}</p>
-                    <a href="tel:+41526200050" className="text-sm text-[#062E25]/70 hover:text-[#062E25]">
-                      +41 52 620 00 50
+                    <a
+                      href={COMPANY_MAIN_PHONE_TEL_HREF}
+                      className="text-sm text-[#062E25]/70 hover:text-[#062E25]"
+                    >
+                      {COMPANY_MAIN_PHONE_DISPLAY}
                     </a>
                   </div>
                   <p className="text-sm text-[#062E25]/50">{t('callHours')}</p>

@@ -17,6 +17,10 @@ import { useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import {
+  COMPANY_MAIN_PHONE_DISPLAY,
+  COMPANY_MAIN_PHONE_TEL_HREF,
+} from '@/lib/company-contact'
 import { contractService } from '@/services/contract.service'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 
@@ -229,17 +233,17 @@ export default function StepConfirmation() {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">{t('contact.description')}</p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="outline" className="flex-1 gap-2" asChild>
-                <a href="mailto:solar@freestate.ch">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 items-start">
+              <Button variant="outline" className="w-fit gap-2" asChild>
+                <a href="mailto:info@freestate.ch">
                   <Mail className="h-4 w-4" />
-                  solar@freestate.ch
+                  info@freestate.ch
                 </a>
               </Button>
-              <Button variant="outline" className="flex-1 gap-2" asChild>
-                <a href="tel:+41441234567">
+              <Button variant="outline" className="w-fit gap-2" asChild>
+                <a href={COMPANY_MAIN_PHONE_TEL_HREF}>
                   <Phone className="h-4 w-4" />
-                  +41 44 123 45 67
+                  {COMPANY_MAIN_PHONE_DISPLAY}
                 </a>
               </Button>
             </div>

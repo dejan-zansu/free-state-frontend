@@ -60,8 +60,50 @@
   },
   "contactHero": {
     "badge": "Get in touch",
-    "title": "Contact",
-    "subtitle": "Your energy, our responsibility sustainable and worry-free"
+    "title": "Let's talk",
+    "subtitle": "Whether you have a question, a project inquiry, or need advice—we look forward to your message and will get back to you soon.",
+    "cta": "Get in touch",
+    "phoneTel": "tel:+41525253305"
+  },
+  "contactCTA": {
+    "eyebrow": "Consultation & Quote",
+    "title": "Would you like a consultation or a quote?",
+    "description": "Would you like advice on photovoltaics, heat pumps, or electric mobility? Use our online calculator and receive a suitable solution with a concrete quote in just a few minutes.",
+    "cta": "Start online calculator"
+  },
+  "contactMap": {
+    "address": "Address",
+    "contact": "Contact",
+    "email": "Email"
+  },
+  "contactValues": {
+    "title": "Our Values",
+    "subtitle": "We stand for sustainable energy solutions, high quality standards, and transparent collaboration.",
+    "cta": "Learn more",
+    "items": [
+      {
+        "title": "Consultation",
+        "description": "Questions about our solutions, products, or quotes? Contact us by phone or email."
+      },
+      {
+        "title": "Invoice",
+        "description": "Questions about an invoice? Contact us via the form.",
+        "linkText": "Invoice questions"
+      },
+      {
+        "title": "Service",
+        "description": "Need support? Submit your request directly in the form."
+      },
+      {
+        "title": "Disruptions",
+        "description": "No power, gas smell, or burst pipe? We are available around the clock for disruptions and emergencies."
+      }
+    ],
+    "serviceLinks": {
+      "photovoltaik": "Photovoltaics",
+      "heatPump": "Heat Pump",
+      "chargingStation": "Charging Station"
+    }
   },
   "login": {
     "title": "Welcome back",
@@ -963,8 +1005,8 @@
     }
   },
   "contactForm": {
-    "eyebrow": "Support",
-    "title": "Join Us in Creating\nSomething Great",
+    "eyebrow": "General Contact",
+    "title": "General Contact Form",
     "entityType": {
       "placeholder": "Company or private individual?",
       "company": "Company",
@@ -977,60 +1019,43 @@
       "diverse": "Diverse"
     },
     "firstName": {
-      "label": "First name",
-      "placeholder": "Enter your First name"
+      "label": "First name*"
     },
     "lastName": {
-      "label": "Last name",
-      "placeholder": "Enter your Last name"
-    },
-    "postalCode": {
-      "label": "Postal Code",
-      "placeholder": "Enter your postal code"
-    },
-    "city": {
-      "label": "City",
-      "placeholder": "Enter your city"
-    },
-    "phone": {
-      "label": "Phone",
-      "placeholder": "Enter your phone"
+      "label": "Last name*"
     },
     "email": {
-      "label": "Email",
-      "placeholder": "Enter email"
+      "label": "Email*"
+    },
+    "phone": {
+      "label": "Phone number*"
+    },
+    "address": {
+      "label": "Address line*"
+    },
+    "postalCode": {
+      "label": "Postal code*"
+    },
+    "city": {
+      "label": "City*"
     },
     "message": {
-      "label": "Enter your message",
-      "placeholder": "Message"
+      "label": "Specific description of your request"
     },
-    "privacy": "I hereby confirm that I have read and understood the privacy policy.",
+    "privacy": "Product info and data protection in our privacy policy.",
     "submit": "Submit",
     "successTitle": "Message Sent",
     "successMessage": "Thank you for your message. We will get back to you shortly.",
     "errorMessage": "Something went wrong. Please try again.",
     "errors": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
       "phone": "Phone number is required",
       "email": "Email is required",
-      "message": "Message is required",
+      "address": "Address is required",
+      "postalCode": "Postal code is required",
+      "city": "City is required",
       "privacy": "You must accept the privacy policy"
-    },
-    "card": {
-      "address": {
-        "title": "Address",
-        "value": "Stettemerstrasse 40, 8207 Schaffhausen"
-      },
-      "contact": {
-        "title": "Contact",
-        "phone": "Telefon: +41 52 525 33 05"
-      },
-      "email": {
-        "title": "Email",
-        "value": "info@freestate.ch"
-      },
-      "social": {
-        "title": "Stay Connected"
-      }
     }
   },
   "portfolioPage": {

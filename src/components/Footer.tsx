@@ -1,5 +1,9 @@
 'use client'
 import { Link, usePathname } from '@/i18n/navigation'
+import {
+  COMPANY_MAIN_PHONE_DISPLAY,
+  COMPANY_MAIN_PHONE_TEL_HREF,
+} from '@/lib/company-contact'
 import { cn } from '@/lib/utils'
 import { Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -59,7 +63,9 @@ const Footer = () => {
     pathname?.includes('/repowering') ||
     pathname?.includes('/history') ||
     pathname?.includes('/about-us') ||
-    pathname === '/'
+    pathname === '/' ||
+    pathname?.includes('/contact') ||
+    pathname?.includes('/privacy-policy')
 
   const solarAboLinks = [
     {
@@ -414,7 +420,7 @@ const Footer = () => {
                 </div>
               </div>
               <LinkButton
-                href="tel:+41525253305"
+                href={COMPANY_MAIN_PHONE_TEL_HREF}
                 variant={isCommercial ? 'secondary' : 'primary'}
                 className="h-9 text-sm"
                 iconWrapperClassName={cn(
@@ -430,7 +436,7 @@ const Footer = () => {
                   />
                 }
               >
-                +41 52 525 33 05
+                {COMPANY_MAIN_PHONE_DISPLAY}
               </LinkButton>
             </div>
           </div>
@@ -458,7 +464,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-wrap gap-8 lg:gap-[60px]">
-              <div className="w-fit">
+              {/* <div className="w-fit">
                 <LinkColumn title={t('solarAbo.title')} links={solarAboLinks} />
               </div>
               <div className="w-fit">
@@ -475,7 +481,7 @@ const Footer = () => {
               </div>
               <div className="w-fit">
                 <LinkColumn title={t('legal.title')} links={legalLinks} />
-              </div>
+              </div> */}
               <div className="w-fit">
                 <LinkColumn title={t('contact.title')} links={contactLinks} />
               </div>
@@ -501,12 +507,12 @@ const Footer = () => {
                 {t('tagline')}
               </p>
             </div>
-            <LinkButton
+            {/* <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
             >
               {t('cta')}
-            </LinkButton>
+            </LinkButton> */}
           </div>
         </div>
       </div>

@@ -11,6 +11,8 @@ interface PageHeroProps {
   contentClassName?: string
   isCommercial?: boolean
   descriptionClassName?: string
+  /** Override title typography; default adds `capitalize` (use e.g. `normal-case` for sentence-case titles). */
+  titleClassName?: string
 }
 
 const PageHero = ({
@@ -22,6 +24,7 @@ const PageHero = ({
   contentClassName,
   isCommercial = false,
   descriptionClassName,
+  titleClassName,
 }: PageHeroProps) => {
   return (
     <section
@@ -47,7 +50,12 @@ const PageHero = ({
           )}
         >
           {title && (
-            <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-medium leading-[1em] capitalize whitespace-pre-line">
+            <h1
+              className={cn(
+                'text-white text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-medium leading-[1em] whitespace-pre-line',
+                titleClassName ?? 'capitalize'
+              )}
+            >
               {title}
             </h1>
           )}

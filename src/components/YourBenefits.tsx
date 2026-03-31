@@ -40,9 +40,9 @@ const YourBenefits = async () => {
               {t('subtitle')}
             </p>
           </div>
-          <LinkButton href="/solar-free" variant="outline-primary">
+          {/* <LinkButton href="/solar-free" variant="outline-primary">
             {t('cta')}
-          </LinkButton>
+          </LinkButton> */}
         </div>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">

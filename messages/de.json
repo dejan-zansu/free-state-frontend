@@ -60,8 +60,50 @@
   },
   "contactHero": {
     "badge": "Kontakt aufnehmen",
-    "title": "Kontakt",
-    "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei"
+    "title": "Lassen Sie uns sprechen",
+    "subtitle": "Ob Frage, Projektanfrage oder Beratung – wir freuen uns auf Ihre Nachricht und melden uns zeitnah bei Ihnen.",
+    "cta": "Kontakt aufnehmen\u200a\u200a",
+    "phoneTel": "tel:+41525253305"
+  },
+  "contactCTA": {
+    "eyebrow": "Beratung & Offerte",
+    "title": "Wünschen Sie eine Beratung oder eine Richtofferte?",
+    "description": "Sie möchten eine Beratung zu Photovoltaik, Wärmepumpen oder Elektromobilität? Nutzen Sie unseren Offertenrechner und erhalten Sie in wenigen Minuten eine passende Lösung mit konkreter Offerte.",
+    "cta": "Onlinerechner starten"
+  },
+  "contactMap": {
+    "address": "Adresse",
+    "contact": "Kontakt",
+    "email": "E-Mail"
+  },
+  "contactValues": {
+    "title": "Unsere Werte",
+    "subtitle": "Wir stehen für nachhaltige Energielösungen, hohe Qualitätsstandards und eine transparente Zusammenarbeit.",
+    "cta": "Mehr erfahren",
+    "items": [
+      {
+        "title": "Beratung",
+        "description": "Fragen zu unseren Lösungen, Produkten oder Offerten? Kontaktieren Sie uns telefonisch oder per E-Mail."
+      },
+      {
+        "title": "Rechnung",
+        "description": "Fragen zu einer Rechnung? Nehmen Sie über das Formular Kontakt mit uns auf.",
+        "linkText": "Fragen zur Rechnung"
+      },
+      {
+        "title": "Service",
+        "description": "Benötigen Sie Unterstützung? Erfassen Sie Ihr Anliegen direkt im Formular."
+      },
+      {
+        "title": "Störungen",
+        "description": "Kein Strom, Gasgeruch oder Wasserrohrbruch? Wir sind bei Störungen und Notfällen Tag und Nacht für Sie da."
+      }
+    ],
+    "serviceLinks": {
+      "photovoltaik": "Photovoltaik",
+      "heatPump": "Wärmepumpe",
+      "chargingStation": "Ladestation"
+    }
   },
   "login": {
     "title": "Willkommen zurück",
@@ -963,8 +1005,8 @@
     }
   },
   "contactForm": {
-    "eyebrow": "Support",
-    "title": "Gemeinsam etwas\nGrosses schaffen",
+    "eyebrow": "Allgemeiner Kontakt",
+    "title": "Allgemeines Kontaktformular",
     "entityType": {
       "placeholder": "Firma oder Privatperson?",
       "company": "Firma",
@@ -977,60 +1019,43 @@
       "diverse": "Divers"
     },
     "firstName": {
-      "label": "Vorname",
-      "placeholder": "Geben Sie Ihren Vornamen ein"
+      "label": "Vorname*"
     },
     "lastName": {
-      "label": "Nachname",
-      "placeholder": "Geben Sie Ihren Nachnamen ein"
-    },
-    "postalCode": {
-      "label": "Postleitzahl",
-      "placeholder": "Geben Sie Ihre Postleitzahl ein"
-    },
-    "city": {
-      "label": "Stadt",
-      "placeholder": "Geben Sie Ihre Stadt ein"
-    },
-    "phone": {
-      "label": "Telefon",
-      "placeholder": "Geben Sie Ihre Telefonnummer ein"
+      "label": "Nachname*"
     },
     "email": {
-      "label": "E-Mail",
-      "placeholder": "E-Mail eingeben"
+      "label": "E-Mail*"
+    },
+    "phone": {
+      "label": "Telefonnummer*"
+    },
+    "address": {
+      "label": "Adresszeile*"
+    },
+    "postalCode": {
+      "label": "Postleitzahl*"
+    },
+    "city": {
+      "label": "Ort*"
     },
     "message": {
-      "label": "Ihre Nachricht eingeben",
-      "placeholder": "Nachricht"
+      "label": "Konkrete Beschreibung der Anfrage"
     },
-    "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung gelesen und verstanden habe.",
-    "submit": "Absenden",
+    "privacy": "Infos zu Produkten und Datenschutz in unseren Datenschutzbestimmungen.",
+    "submit": "Submit",
     "successTitle": "Nachricht gesendet",
     "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
     "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "errors": {
+      "firstName": "Vorname ist erforderlich",
+      "lastName": "Nachname ist erforderlich",
       "phone": "Telefonnummer ist erforderlich",
       "email": "E-Mail ist erforderlich",
-      "message": "Nachricht ist erforderlich",
+      "address": "Adresse ist erforderlich",
+      "postalCode": "Postleitzahl ist erforderlich",
+      "city": "Ort ist erforderlich",
       "privacy": "Sie müssen die Datenschutzerklärung akzeptieren"
-    },
-    "card": {
-      "address": {
-        "title": "Adresse",
-        "value": "Stettemerstrasse 40, 8207 Schaffhausen"
-      },
-      "contact": {
-        "title": "Kontakt",
-        "phone": "Telefon: +41 52 525 33 05"
-      },
-      "email": {
-        "title": "E-Mail",
-        "value": "info@freestate.ch"
-      },
-      "social": {
-        "title": "Bleiben Sie verbunden"
-      }
     }
   },
   "portfolioPage": {

@@ -1,13 +1,12 @@
 import Benefits from '@/components/Benefits'
 import Deals from '@/components/Deals'
 import Hero from '@/components/Hero'
-import Partners from '@/components/Partners'
 import Portfolio from '@/components/Portfolio'
 import SolarEnergyFor from '@/components/SolarEnergyFor'
 import Stats from '@/components/Stats'
 import Testimonials from '@/components/Testimonials'
 import YourPartner from '@/components/YourPartner'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 
 const CommercialPage = async () => {
   const t = await getTranslations('home.portfolio')
@@ -49,7 +48,6 @@ const CommercialPage = async () => {
       <YourPartner isCommercial />
       <Testimonials />
       <Stats />
-      <Partners />
     </main>
   )
 }

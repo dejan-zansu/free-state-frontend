@@ -32,9 +32,9 @@ const LocationsCTA = () => {
           <LinkButton href="/contact" variant="primary">
             {t('ctaContact')}
           </LinkButton>
-          <LinkButton href="/solar-calculator" variant="outline-secondary">
+          {/* <LinkButton href="/solar-calculator" variant="outline-secondary">
             {t('ctaCalculator')}
-          </LinkButton>
+          </LinkButton> */}
         </div>
       </div>
     </section>
