@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
-import { LinkButton } from './ui/link-button'
+// import { LinkButton } from './ui/link-button'
 import Image from 'next/image'
 
 const ContactCTA = async () => {
@@ -8,7 +8,7 @@ const ContactCTA = async () => {
 
   return (
     <section
-      className="relative w-full min-h-[600px] lg:min-h-[838px]"
+      className="relative w-full min-h-[600px] lg:min-h-[838px] -mt-[40px]"
       style={{
         background: 'linear-gradient(180deg, #F2F4E8 78%, #DCE9E6 100%)',
       }}
