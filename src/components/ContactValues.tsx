@@ -1,4 +1,6 @@
 import {
+  COMPANY_MAIN_EMAIL,
+  COMPANY_MAIN_MAILTO_HREF,
   COMPANY_MAIN_PHONE_DISPLAY,
   COMPANY_MAIN_PHONE_TEL_HREF,
 } from '@/lib/company-contact'
@@ -21,7 +23,11 @@ const ContactValues = async () => {
           text: COMPANY_MAIN_PHONE_DISPLAY,
           href: COMPANY_MAIN_PHONE_TEL_HREF,
         },
-        { icon: 'mail', text: 'sales@helion.ch', href: 'mailto:sales@helion.ch' },
+        {
+          icon: 'mail',
+          text: COMPANY_MAIN_EMAIL,
+          href: COMPANY_MAIN_MAILTO_HREF,
+        },
       ],
     },
     {
@@ -59,7 +65,9 @@ const ContactValues = async () => {
   return (
     <section
       className="w-full py-12 md:py-16 px-4 sm:px-6"
-      style={{ background: 'linear-gradient(180deg, #F2F4E8 91%, #DCE9E6 100%)' }}
+      style={{
+        background: 'linear-gradient(180deg, #F2F4E8 91%, #DCE9E6 100%)',
+      }}
     >
       <div className="max-w-[1120px] mx-auto flex flex-col items-center gap-16">
         <div className="flex flex-col items-center gap-10 max-w-[536px] text-center">
@@ -104,18 +112,27 @@ const ContactValues = async () => {
                 </p>
                 {value.contacts.length > 0 && (
                   <div className="flex flex-col gap-1.5 mt-2">
-                    {value.contacts.map((contact) => (
+                    {value.contacts.map(contact => (
                       <a
                         key={contact.text}
                         href={contact.href}
-                        className="flex items-center gap-2.5 text-foreground/80 text-base font-light tracking-tight hover:text-foreground transition-colors"
+                        className="flex items-center gap-2.5 text-foreground/80 text-base font-light tracking-tight hover:text-foreground transition-colors w-fit"
                       >
-                        {contact.icon === 'phone' && <Phone className="w-4 h-3.5 shrink-0 text-[#295823]" />}
-                        {contact.icon === 'smartphone' && (
-                          <Smartphone className="w-3.5 h-3.5 shrink-0 text-[#295823]" aria-hidden />
+                        {contact.icon === 'phone' && (
+                          <Phone className="w-4 h-3.5 shrink-0 text-[#295823]" />
                         )}
-                        {contact.icon === 'mail' && <Mail className="w-3.5 h-4 shrink-0 text-[#295823]" />}
-                        {contact.icon === 'link' && <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#295823]" />}
+                        {contact.icon === 'smartphone' && (
+                          <Smartphone
+                            className="w-3.5 h-3.5 shrink-0 text-[#295823]"
+                            aria-hidden
+                          />
+                        )}
+                        {contact.icon === 'mail' && (
+                          <Mail className="w-3.5 h-4 shrink-0 text-[#295823]" />
+                        )}
+                        {contact.icon === 'link' && (
+                          <ExternalLink className="w-3.5 h-3.5 shrink-0 text-[#295823]" />
+                        )}
                         {contact.text}
                       </a>
                     ))}
@@ -125,7 +142,7 @@ const ContactValues = async () => {
 
               {index === 2 && (
                 <div className="flex flex-col gap-1.5 lg:col-start-3 lg:row-start-2">
-                  {serviceItems.map((label) => (
+                  {serviceItems.map(label => (
                     <div
                       key={label}
                       className="flex items-center gap-2.5 text-foreground/80 text-base font-light tracking-tight"

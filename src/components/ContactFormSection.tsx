@@ -87,7 +87,11 @@ const ContactFormSection = () => {
 
   return (
     <section className="relative py-16 md:py-24 px-4 sm:px-6">
-      <div className="max-w-[877px] mx-auto">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/contact-form-bg.png')" }}
+      />
+      <div className="relative max-w-[877px] mx-auto">
         <div className="rounded-2xl border border-[#f6f6f6]/60 bg-[#a4beab]/33 backdrop-blur-[10px] p-6 sm:p-10">
           <div className="flex flex-col items-center gap-[50px]">
             <div className="flex flex-col items-center gap-5 text-center">
