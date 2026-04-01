@@ -155,6 +155,9 @@ importers:
       use-debounce:
         specifier: ^10.1.0
         version: 10.1.0(react@19.2.3)
+      vanilla-cookieconsent:
+        specifier: ^3.1.0
+        version: 3.1.0
       zod:
         specifier: ^4.2.0
         version: 4.2.0
@@ -3401,6 +3404,9 @@ packages:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  vanilla-cookieconsent@3.1.0:
+    resolution: {integrity: sha512-/McNRtm/3IXzb9dhqMIcbquoU45SzbN2VB+To4jxEPqMmp7uVniP6BhGLjU8MC7ZCDsNQVOp27fhQTM/ruIXAA==}
 
   victory-vendor@37.3.6:
     resolution: {integrity: sha512-SbPDPdDBYp+5MJHhBCAyI7wKM3d5ivekigc2Dk2s7pgbZ9wIgIBYGVw4zGHBml/qTFbexrofXW6Gu4noGxrOwQ==}
@@ -6996,6 +7002,8 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.2.3):
     dependencies:
       react: 19.2.3
+
+  vanilla-cookieconsent@3.1.0: {}
 
   victory-vendor@37.3.6:
     dependencies:

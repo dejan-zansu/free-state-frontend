@@ -1,5 +1,6 @@
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
+import CookieConsentBanner from '@/components/CookieConsent'
 import { QueryProvider } from '@/providers/QueryProvider'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -33,6 +34,7 @@ export default async function LocaleLayout({
           <ConditionalHeader />
           <main className='flex-1'>{children}</main>
           <ConditionalFooter locale={locale} />
+          <CookieConsentBanner />
         </div>
       </QueryProvider>
     </NextIntlClientProvider>
