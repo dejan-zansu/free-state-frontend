@@ -1,4 +1,3 @@
-import Stats from '@/components/Stats'
 import { getTranslations } from 'next-intl/server'
 import HeroNav from './HeroNav'
 
@@ -25,7 +24,7 @@ const PortfolioHero = async () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10">
+      {/* <div className="absolute bottom-0 left-0 right-0 z-10">
         <div
           className="w-full h-[189px] flex items-center"
           style={{
@@ -40,7 +39,7 @@ const PortfolioHero = async () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }

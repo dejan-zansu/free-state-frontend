@@ -15,7 +15,7 @@ const FounderSection = () => {
       <div className="absolute top-[-224px] right-[0px] w-[374px] h-[374px] rounded-full bg-solar/30 blur-[490px]" />
       <div className="absolute top-[-256px] right-[0px] w-[291px] h-[291px] rounded-full bg-solar/30 blur-[170px]" />
 
-      <div className="relative max-w-[1440px] mx-auto">
+      <div className="relative w-full">
         <div className="relative w-full h-[500px] sm:h-[600px] lg:h-[820px] -mt-[69px] rounded-t-[40px] overflow-hidden border border-[#63836F]">
           <div
             className="absolute inset-0 z-10"

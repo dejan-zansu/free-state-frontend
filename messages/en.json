@@ -1121,6 +1121,23 @@
           "description": "Green energy system for industrial complex"
         }
       }
+    },
+    "investmentStrategy": {
+      "eyebrow": "Development strategy",
+      "title": "Our investment",
+      "card1Title": "Technical excellence",
+      "card1Desc": "Reliable design and engineering standards.",
+      "card2Title": "Long-term Value",
+      "card2Desc": "Stable performance over decades.",
+      "card3Title": "Stable performance over decades.",
+      "card3Desc": "Sustainable and transparent execution."
+    },
+    "cta": {
+      "eyebrow": "Next step",
+      "title": "Interested in your own solar project?",
+      "subtitle": "Explore your solar potential or get in touch to discuss a partnership.",
+      "contactBtn": "Contact us",
+      "calculatorBtn": "Start Solar Calculator"
     }
   },
   "investorsPage": {

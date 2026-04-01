@@ -219,9 +219,9 @@ const ContactMap = () => {
   const t = useTranslations('contactMap')
 
   return (
-    <div className="relative w-full h-[713px]">
-      <div ref={mapRef} className="w-full h-full pb-[40px]" />
-      <div className="absolute bottom-[60px] right-6 sm:right-10 lg:right-20 z-10 w-[425px] max-w-[calc(100vw-3rem)] rounded-2xl border border-[#295823]/60 bg-white/40 backdrop-blur-[100px] p-8">
+    <div className="relative w-full flex flex-col-reverse lg:block">
+      <div ref={mapRef} className="w-full h-[500px] lg:h-[713px]" />
+      <div className="relative lg:absolute lg:bottom-[60px] lg:right-20 z-10 w-full lg:w-[425px] lg:rounded-2xl border border-[#295823]/60 bg-white/40 backdrop-blur-[100px] p-8">
         <div className="flex flex-col gap-5">
           <div>
             <h3 className="text-[22px] font-medium text-foreground tracking-tight">{t('address')}</h3>

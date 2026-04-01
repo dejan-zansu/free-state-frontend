@@ -65,7 +65,8 @@ const Footer = () => {
     pathname?.includes('/about-us') ||
     pathname === '/' ||
     pathname?.includes('/contact') ||
-    pathname?.includes('/privacy-policy')
+    pathname?.includes('/privacy-policy') ||
+    pathname?.includes('/portfolio')
 
   const solarAboLinks = [
     {

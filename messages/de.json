@@ -1121,6 +1121,23 @@
           "description": "Grüne Energieanlage für Industriekomplex"
         }
       }
+    },
+    "investmentStrategy": {
+      "eyebrow": "Entwicklungsstrategie",
+      "title": "Unsere Investition",
+      "card1Title": "Technische Exzellenz",
+      "card1Desc": "Zuverlässige Design- und Ingenieurstandards.",
+      "card2Title": "Langfristiger Wert",
+      "card2Desc": "Stabile Leistung über Jahrzehnte.",
+      "card3Title": "Stabile Leistung über Jahrzehnte.",
+      "card3Desc": "Nachhaltige und transparente Umsetzung."
+    },
+    "cta": {
+      "eyebrow": "Nächster Schritt",
+      "title": "Interesse an Ihrem eigenen Solarprojekt?",
+      "subtitle": "Erkunden Sie Ihr Solarpotenzial oder nehmen Sie Kontakt auf, um eine Partnerschaft zu besprechen.",
+      "contactBtn": "Kontaktieren Sie uns",
+      "calculatorBtn": "Solarrechner starten"
     }
   },
   "investorsPage": {
