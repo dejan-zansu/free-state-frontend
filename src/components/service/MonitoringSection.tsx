@@ -20,7 +20,7 @@ const MonitoringSection = async () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage:
-            "url('/images/service/service-monitoring-bg-439fa7.png')",
+            "url('/images/service/service-monitoring-bg-439fa7.webp')",
         }}
       />
       <div className="absolute inset-0 bg-black/20" />

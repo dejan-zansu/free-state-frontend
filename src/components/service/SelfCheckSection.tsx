@@ -10,7 +10,7 @@ const SelfCheckSection = async () => {
     <section className="relative w-full min-h-[677px] overflow-hidden bg-[#4A9A99]">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/service/service-self-check-bg-3654ad.png')" }}
+        style={{ backgroundImage: "url('/images/service/service-self-check-bg-3654ad.webp')" }}
       />
       <div className="absolute inset-0 bg-black/20" />
       <div

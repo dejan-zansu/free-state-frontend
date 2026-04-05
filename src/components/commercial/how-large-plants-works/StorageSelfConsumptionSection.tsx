@@ -10,7 +10,7 @@ const StorageSelfConsumptionSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/how-large-plants-works/storage-self-consumption.png"
+            src="/images/commercial/how-large-plants-works/storage-self-consumption.webp"
             alt={t('storageSelfConsumption.title')}
             fill
             className="object-cover"

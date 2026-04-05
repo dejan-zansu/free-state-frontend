@@ -9,7 +9,7 @@ const VideoShowcaseSection = async () => {
       <div className="max-w-[1204px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative rounded-[20px] overflow-hidden aspect-[1204/477]">
           <Image
-            src="/images/commercial/solar-carport/video-thumbnail.png"
+            src="/images/commercial/solar-carport/video-thumbnail.webp"
             alt={t('videoShowcase.alt')}
             fill
             className="object-cover"

@@ -70,7 +70,7 @@ const AdvantagesSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/758] lg:aspect-auto lg:min-h-[700px]">
           <Image
-            src="/images/heat-pumps/how-it-works/advantages-heat-pump-3c90c9.png"
+            src="/images/heat-pumps/how-it-works/advantages-heat-pump-3c90c9.webp"
             alt={t('advantages.title')}
             fill
             className="object-cover"

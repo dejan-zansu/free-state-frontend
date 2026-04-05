@@ -32,7 +32,7 @@ const FoundingSection = () => {
           }}
         />
         <Image
-          src="/images/history-founding-bg-62becc.png"
+          src="/images/history-founding-bg-62becc.webp"
           alt=""
           fill
           className="object-cover"

@@ -70,7 +70,7 @@ const SolarModels = async () => {
 
             <div className="absolute -top-12 right-0 w-[150px] h-[120px] sm:w-[200px] sm:h-[160px] lg:w-[232px] lg:h-[190px] pointer-events-none z-10">
               <Image
-                src="/images/solar-free-card-11b71d.png"
+                src="/images/solar-free-card-11b71d.webp"
                 alt={t('solarFree.title')}
                 width={232}
                 height={190}

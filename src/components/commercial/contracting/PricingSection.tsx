@@ -4,7 +4,7 @@ const PricingSection = () => {
   return (
     <section className="relative">
       <Image
-        src="/images/commercial/contracting/pricing-section.png"
+        src="/images/commercial/contracting/pricing-section.webp"
         alt="Pricing"
         width={1440}
         height={560}

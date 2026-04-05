@@ -15,7 +15,7 @@ const Battery = async () => {
       ]}
       cta={t('cta')}
       ctaHref="/battery-storage"
-      imageSrc="/images/battery-storage-installation-63f44e.png"
+      imageSrc="/images/battery-storage-installation-63f44e.webp"
       imageAlt={t('title')}
       brandLogoSrc="/images/huawei-logo-4686a6.png"
       brandLogoAlt="Huawei"

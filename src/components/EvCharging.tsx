@@ -15,7 +15,7 @@ const EvCharging = async () => {
       ]}
       cta={t('cta')}
       ctaHref="/heat-pumps"
-      imageSrc="/images/ev-charger-huawei-479789.png"
+      imageSrc="/images/ev-charger-huawei-479789.webp"
       imageAlt={t('title')}
       brandLogoSrc="/images/huawei-logo-4686a6.png"
       brandLogoAlt="Huawei"

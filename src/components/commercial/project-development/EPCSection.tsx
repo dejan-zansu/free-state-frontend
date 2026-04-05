@@ -54,7 +54,7 @@ const EPCSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/project-development/epc-illustration.png"
+            src="/images/commercial/project-development/epc-illustration.webp"
             alt={t('epc.title')}
             fill
             className="object-cover"

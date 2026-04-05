@@ -24,7 +24,7 @@ const CostFinancingSection = async () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
             <div className="relative w-[120px] h-[120px] rounded-full overflow-hidden border border-[#062E25] shrink-0">
               <Image
-                src="/images/cost-financing-avatar.png"
+                src="/images/cost-financing-avatar.webp"
                 alt=""
                 fill
                 className="object-cover"

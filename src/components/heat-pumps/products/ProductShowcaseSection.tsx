@@ -6,7 +6,7 @@ const ProductShowcaseSection = () => {
       <div className="pt-[50px]">
         <div className="relative w-full aspect-[1440/359]">
           <Image
-            src="/images/heat-pumps/products/product-showcase.png"
+            src="/images/heat-pumps/products/product-showcase.webp"
             alt=""
             fill
             className="object-contain"

@@ -26,7 +26,7 @@ const InRoofOnRoofSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/how-large-plants-works/in-roof-on-roof-illustration.png"
+            src="/images/commercial/how-large-plants-works/in-roof-on-roof-illustration.webp"
             alt={t('inRoofOnRoof.title')}
             fill
             className="object-cover"

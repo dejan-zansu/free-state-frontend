@@ -9,7 +9,7 @@ const FreeStateOffersSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/fast-charging-stations/freestate-offers-left.png"
+            src="/images/fast-charging-stations/freestate-offers-left.webp"
             alt={t('freeStateOffers.title')}
             fill
             className="object-cover"

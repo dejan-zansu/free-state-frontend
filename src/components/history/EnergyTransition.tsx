@@ -25,7 +25,7 @@ const EnergyTransition = () => {
           }}
         />
         <Image
-          src="/images/history-section1-bg-600a42.png"
+          src="/images/history-section1-bg-600a42.webp"
           alt=""
           fill
           className="object-cover"

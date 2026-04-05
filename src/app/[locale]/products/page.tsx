@@ -9,7 +9,7 @@ const ProductsPage = async () => {
       <PageHero
         title="Products"
         description="Products"
-        backgroundImage="/images/solar-farm.png"
+        backgroundImage="/images/solar-farm.webp"
       />
     </div>
   )

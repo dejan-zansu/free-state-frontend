@@ -32,7 +32,7 @@ const AboutFreeState = () => {
 
         <div className="relative lg:absolute lg:right-0 lg:top-0 lg:w-1/2 h-[300px] sm:h-[400px] lg:h-full">
           <Image
-            src="/images/about-us-last-section-image-52b37f.png"
+            src="/images/about-us-last-section-image-52b37f.webp"
             alt=""
             fill
             className="object-cover"

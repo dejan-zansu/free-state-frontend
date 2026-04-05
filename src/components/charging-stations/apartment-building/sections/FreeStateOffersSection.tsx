@@ -42,7 +42,7 @@ const FreeStateOffersSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/apartment-building/freestate-offers-image-new-1fd214.png"
+            src="/images/apartment-building/freestate-offers-image-new-1fd214.webp"
             alt={t('freeStateOffers.title')}
             fill
             className="object-cover"

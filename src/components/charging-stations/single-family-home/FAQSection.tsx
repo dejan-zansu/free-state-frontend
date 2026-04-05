@@ -15,7 +15,7 @@ const FAQSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center rounded-t-[40px]"
         style={{
-          backgroundImage: `url('/images/charging-stations/single-family-home/faq-bg-6e7901.png')`,
+          backgroundImage: `url('/images/charging-stations/single-family-home/faq-bg-6e7901.webp')`,
         }}
       />
       <div

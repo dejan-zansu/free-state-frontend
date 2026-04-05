@@ -27,7 +27,7 @@ const ChargingPaysOffSection = async () => {
 
         <div className="w-full lg:w-1/2 relative aspect-[720/487]">
           <Image
-            src="/images/bidirectional-charging/charging-pays-off-right-5c95e0.png"
+            src="/images/bidirectional-charging/charging-pays-off-right-5c95e0.webp"
             alt={t('chargingPaysOff.title')}
             fill
             className="object-cover"

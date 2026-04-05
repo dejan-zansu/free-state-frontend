@@ -36,7 +36,7 @@ const Portfolio = ({ isCommercial = false, translations }: PortfolioProps) => {
     number: item.number,
     title: item.title,
     description: item.description,
-    image: '/images/portfolio-example.png',
+    image: '/images/portfolio-example.webp',
     link: '/portfolio',
   }))
 

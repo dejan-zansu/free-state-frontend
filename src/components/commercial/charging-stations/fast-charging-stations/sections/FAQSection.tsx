@@ -19,7 +19,7 @@ const FAQSection = () => {
           backgroundImage: `
             linear-gradient(0deg, rgba(86, 73, 112, 0) 0%, rgba(86, 73, 112, 1) 86%),
             linear-gradient(0deg, rgba(180, 168, 200, 0.4), rgba(180, 168, 200, 0.4)),
-            url(/images/fast-charging-stations/faq-bg-7cf924.png)
+            url(/images/fast-charging-stations/faq-bg-7cf924.webp)
           `,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

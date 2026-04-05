@@ -57,7 +57,7 @@ const ParkingRoofsSection = async () => {
 
           <div className="relative w-full max-w-[283px] shrink-0">
             <Image
-              src="/images/commercial/solar-carport/parking-roof-illustration.png"
+              src="/images/commercial/solar-carport/parking-roof-illustration.webp"
               alt={t('parkingRoofs.title')}
               width={822}
               height={626}

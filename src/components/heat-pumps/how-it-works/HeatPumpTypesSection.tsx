@@ -17,7 +17,7 @@ const HeatPumpTypesSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/488]">
           <Image
-            src="/images/heat-pumps/how-it-works/heat-pump-types-47ba1f.png"
+            src="/images/heat-pumps/how-it-works/heat-pump-types-47ba1f.webp"
             alt={t('heatPumpTypes.title')}
             fill
             className="object-cover"

@@ -58,7 +58,7 @@ const HowItWorksSection = async () => {
         </div>
 
         <Image
-          src="/images/bidirectional-charging/how-it-works-diagram-7118b5.png"
+          src="/images/bidirectional-charging/how-it-works-diagram-7118b5.webp"
           alt={t('howItWorks.title')}
           width={1075}
           height={404}

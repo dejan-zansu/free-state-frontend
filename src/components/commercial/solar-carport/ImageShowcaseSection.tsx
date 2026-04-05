@@ -9,7 +9,7 @@ const ImageShowcaseSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/solar-carport/carport-typology-4e85f6.png"
+            src="/images/commercial/solar-carport/carport-typology-4e85f6.webp"
             alt={t('imageShowcase.leftLabel')}
             fill
             className="object-cover"
@@ -32,7 +32,7 @@ const ImageShowcaseSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/solar-carport/carport-visualization-70063e.png"
+            src="/images/commercial/solar-carport/carport-visualization-70063e.webp"
             alt={t('imageShowcase.rightLabel')}
             fill
             className="object-cover"

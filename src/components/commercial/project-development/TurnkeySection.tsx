@@ -11,7 +11,7 @@ const TurnkeySection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/project-development/turnkey-illustration.png"
+            src="/images/commercial/project-development/turnkey-illustration.webp"
             alt={t('turnkey.title')}
             fill
             className="object-cover"

@@ -80,7 +80,7 @@ const FusionSolarApp = async () => {
 
         <div className="relative flex-1 min-h-[400px] lg:min-h-[818px]">
           <Image
-            src="/images/fusion-solar-phone-4cbe62.png"
+            src="/images/fusion-solar-phone-4cbe62.webp"
             alt={t('title')}
             fill
             className="object-cover"

@@ -37,7 +37,7 @@ const NewsletterSection = () => {
 
         <div className="hidden lg:block lg:w-1/2 relative">
           <Image
-            src="/images/bidirectional-charging/newsletter-right-419b0b.png"
+            src="/images/bidirectional-charging/newsletter-right-419b0b.webp"
             alt=""
             fill
             className="object-cover"

@@ -5,22 +5,22 @@ import Image from 'next/image'
 const products = [
   {
     key: 'e3dc',
-    image: '/images/energy-storage/product-e3dc.png',
+    image: '/images/energy-storage/product-e3dc.webp',
     hasSections: ['features', 'warranty', 'options'] as const,
   },
   {
     key: 'sonnen',
-    image: '/images/energy-storage/product-sonnen-50d6f2.png',
+    image: '/images/energy-storage/product-sonnen-50d6f2.webp',
     hasSections: ['features', 'warranty', 'options'] as const,
   },
   {
     key: 'byd',
-    image: '/images/energy-storage/product-byd-50d6f2.png',
+    image: '/images/energy-storage/product-byd-50d6f2.webp',
     hasSections: ['features', 'warranty'] as const,
   },
   {
     key: 'huawei',
-    image: '/images/energy-storage/product-huawei-50d6f2.png',
+    image: '/images/energy-storage/product-huawei-50d6f2.webp',
     hasSections: ['features', 'warranty'] as const,
   },
 ] as const

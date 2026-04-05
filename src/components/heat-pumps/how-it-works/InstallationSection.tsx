@@ -35,7 +35,7 @@ const InstallationSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/695]">
           <Image
-            src="/images/heat-pumps/how-it-works/installation-indoor-outdoor-7c5b31.png"
+            src="/images/heat-pumps/how-it-works/installation-indoor-outdoor-7c5b31.webp"
             alt={t('installation.title')}
             fill
             className="object-cover"

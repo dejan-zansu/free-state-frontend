@@ -19,7 +19,7 @@ const FAQSection = () => {
           backgroundImage: `
             linear-gradient(0deg, rgba(7, 51, 42, 0) 0%, rgba(7, 51, 42, 1) 86%),
             linear-gradient(0deg, rgba(168, 200, 193, 0.4), rgba(168, 200, 193, 0.4)),
-            url(/images/bidirectional-charging/faq-bg-f4be9d.png)
+            url(/images/bidirectional-charging/faq-bg-f4be9d.webp)
           `,
           backgroundSize: 'cover',
           backgroundPosition: 'center',

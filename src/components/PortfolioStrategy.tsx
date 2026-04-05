@@ -5,7 +5,7 @@ const cards = [
   {
     titleKey: 'card1Title',
     descKey: 'card1Desc',
-    image: '/images/portfolio-strategy-1-147c2a.png',
+    image: '/images/portfolio-strategy-1-147c2a.webp',
   },
   {
     titleKey: 'card2Title',

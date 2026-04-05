@@ -2,9 +2,9 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 const solutions = [
-  { image: '/images/about-us-solution-1-d14fce.png', key: 'solarAbo' },
-  { image: '/images/about-us-solution-2-12d056.png', key: 'contracting' },
-  { image: '/images/about-us-solution-3-626ae4.png', key: 'roofRental' },
+  { image: '/images/about-us-solution-1-d14fce.webp', key: 'solarAbo' },
+  { image: '/images/about-us-solution-2-12d056.webp', key: 'contracting' },
+  { image: '/images/about-us-solution-3-626ae4.webp', key: 'roofRental' },
   { image: '/images/about-us-solution-4-50b545.png', key: 'purchase' },
 ]
 

@@ -72,7 +72,7 @@ const PricingSection = async () => {
       <div className="relative min-h-[660px]">
         <div className="absolute inset-0">
           <Image
-            src="/images/home-with-solar-panels.png"
+            src="/images/home-with-solar-panels.webp"
             alt="Home with solar panels"
             fill
             className="object-cover object-center"

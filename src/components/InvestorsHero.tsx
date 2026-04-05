@@ -9,7 +9,7 @@ const InvestorsHero = async () => {
         <div
           className='absolute inset-0 bg-cover bg-center'
           style={{
-            backgroundImage: "url('/images/hero-solar-panels.jpg')",
+            backgroundImage: "url('/images/hero-solar-panels.webp')",
           }}
         />
       </div>

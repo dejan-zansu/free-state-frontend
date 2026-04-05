@@ -9,7 +9,7 @@ const NibeFeatureSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/744]">
           <Image
-            src="/images/heat-pumps/products/nibe-section-bg.png"
+            src="/images/heat-pumps/products/nibe-section-bg.webp"
             alt={t('title')}
             fill
             className="object-cover"

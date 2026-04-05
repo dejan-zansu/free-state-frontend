@@ -15,7 +15,7 @@ const ContactCTA = async () => {
     >
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full">
         <Image
-          src="/images/contact-cta-bg-384c05.png"
+          src="/images/contact-cta-bg-384c05.webp"
           alt=""
           fill
           className="object-cover"

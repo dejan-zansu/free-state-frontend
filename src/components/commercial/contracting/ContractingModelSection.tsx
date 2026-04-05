@@ -58,7 +58,7 @@ const ContractingModelSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/649]">
           <Image
-            src="/images/commercial/contracting/contracting-model-illustration.png"
+            src="/images/commercial/contracting/contracting-model-illustration.webp"
             alt={t('contractingModel.title')}
             fill
             className="object-cover"

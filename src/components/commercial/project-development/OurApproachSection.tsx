@@ -15,7 +15,7 @@ const OurApproachSection = () => {
     <section className="relative min-h-[872px] overflow-hidden">
       <div className="absolute inset-0 rounded-t-[40px] overflow-hidden">
         <Image
-          src="/images/commercial/project-development/our-approach-bg-5dbca8.png"
+          src="/images/commercial/project-development/our-approach-bg-5dbca8.webp"
           alt=""
           fill
           className="object-cover"

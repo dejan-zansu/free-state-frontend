@@ -26,7 +26,7 @@ const FounderSection = () => {
             }}
           />
           <Image
-            src="/images/about-us-founder-bg-30d507.png"
+            src="/images/about-us-founder-bg-30d507.webp"
             alt=""
             fill
             className="object-cover"

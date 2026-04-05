@@ -16,7 +16,7 @@ const WhyFreeStateSection = async () => {
       <div
         className="absolute inset-0 bg-cover bg-center rounded-t-[40px]"
         style={{
-          backgroundImage: `url('/images/heat-pumps/how-it-works/why-freestate-bg-5c8aae.png')`,
+          backgroundImage: `url('/images/heat-pumps/how-it-works/why-freestate-bg-5c8aae.webp')`,
         }}
       />
       <div

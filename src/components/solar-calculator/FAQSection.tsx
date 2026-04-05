@@ -21,7 +21,7 @@ const FAQSection = () => {
       <div
         className="absolute -inset-1"
         style={{
-          backgroundImage: 'url(/images/solar-calculator-faq-section.png)',
+          backgroundImage: 'url(/images/solar-calculator-faq-section.webp)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

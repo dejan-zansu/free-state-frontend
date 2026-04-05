@@ -31,7 +31,7 @@ const Hero = async ({
         <div
           className="absolute inset-0 bg-cover bg-center rounded-b-[40px]"
           style={{
-            backgroundImage: `url('/images/solar-panels-hero.jpg')`,
+            backgroundImage: `url('/images/solar-panels-hero.webp')`,
           }}
         />
       </div>

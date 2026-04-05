@@ -10,7 +10,7 @@ const CompanySolutionSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/charging-stations/company/company-solution-image-30964f.png"
+            src="/images/charging-stations/company/company-solution-image-30964f.webp"
             alt={t('companySolution.title')}
             fill
             className="object-cover"

@@ -9,7 +9,7 @@ const SolarFutureSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/commercial/contracting/solar-future-illustration.png"
+            src="/images/commercial/contracting/solar-future-illustration.webp"
             alt={t('solarFuture.title')}
             fill
             className="object-cover"

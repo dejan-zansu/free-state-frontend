@@ -9,7 +9,7 @@ const AdvantagesSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[727/488]">
           <Image
-            src="/images/heat-pumps-with-solar-system/advantages-heat-pump.png"
+            src="/images/heat-pumps-with-solar-system/advantages-heat-pump.webp"
             alt={t('advantages.title')}
             fill
             className="object-cover"

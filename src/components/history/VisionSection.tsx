@@ -39,7 +39,7 @@ const VisionSection = () => {
 
         <div className="relative z-10 lg:absolute lg:right-0 lg:top-0 lg:w-1/2 h-[300px] sm:h-[400px] lg:h-full flex items-center justify-center px-4 sm:px-6 lg:px-10 py-8">
           <Image
-            src="/images/history-vision-bg-2eaf33.png"
+            src="/images/history-vision-bg-2eaf33.webp"
             alt=""
             fill
             className="z-0 object-cover"

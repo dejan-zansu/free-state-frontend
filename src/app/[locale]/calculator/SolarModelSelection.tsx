@@ -48,7 +48,7 @@ const cards: {
     tagKey: 'solarAbo.tag',
     titleKey: 'solarAbo.title',
     bullets: ['solarAbo.bullet1', 'solarAbo.bullet2'],
-    image: '/images/calculator/solar-abo-card-11b71d.png',
+    image: '/images/calculator/solar-abo-card-11b71d.webp',
     hasGlow: true,
     bgColor: '#F5F7EE',
     imageClassName:

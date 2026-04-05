@@ -40,7 +40,7 @@ const ChargingSolutionsSection = async () => {
 
         <div className="relative w-full lg:w-1/2 aspect-[720/586]">
           <Image
-            src="/images/charging-stations/company/company-charging-image-49280f.png"
+            src="/images/charging-stations/company/company-charging-image-49280f.webp"
             alt={t('chargingSolutions.title')}
             fill
             className="object-cover"

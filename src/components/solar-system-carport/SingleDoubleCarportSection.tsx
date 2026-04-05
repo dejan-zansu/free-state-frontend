@@ -31,7 +31,7 @@ const SingleDoubleCarportSection = async () => {
     <section className="relative overflow-hidden py-12 md:py-20">
       <div className="absolute inset-0">
         <Image
-          src="/images/solar-system-single-double-carport-bg.png"
+          src="/images/solar-system-single-double-carport-bg.webp"
           alt=""
           fill
           className="object-cover"

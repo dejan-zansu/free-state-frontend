@@ -39,7 +39,7 @@ const SolarEnergyFor = async ({ isCommercial = false }) => {
           <div
             className="absolute inset-0 bg-cover bg-top"
             style={{
-              backgroundImage: "url('/images/solar-farm.png')",
+              backgroundImage: "url('/images/solar-farm.webp')",
             }}
           />
         </div>

@@ -15,7 +15,7 @@ const CalculatorExampleSection = async () => {
     <section className="relative overflow-hidden rounded-t-[30px] sm:rounded-t-[40px] md:rounded-t-[50px] -mt-[30px] sm:-mt-[40px] md:-mt-[50px] z-10">
       <div className="absolute inset-0">
         <Image
-          src="/images/amortization-calculator-example.png"
+          src="/images/amortization-calculator-example.webp"
           alt=""
           fill
           className="object-cover object-top"

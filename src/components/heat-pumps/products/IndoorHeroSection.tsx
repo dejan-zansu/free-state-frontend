@@ -8,7 +8,7 @@ const IndoorHeroSection = async () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/images/heat-pumps/products/indoor-hero-bg.png)',
+          backgroundImage: 'url(/images/heat-pumps/products/indoor-hero-bg.webp)',
         }}
       />
       <div

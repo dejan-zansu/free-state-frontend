@@ -39,7 +39,7 @@ const VisionMission = () => {
       <div className="relative w-full h-[200px] sm:h-[260px] lg:h-[320px]">
         <div className="absolute inset-0 z-10 bg-[#036B53]/40" aria-hidden />
         <Image
-          src="/images/about-us-vision-bg-645500.png"
+          src="/images/about-us-vision-bg-645500.webp"
           alt=""
           fill
           className="object-cover"

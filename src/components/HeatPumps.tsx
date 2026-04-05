@@ -15,7 +15,7 @@ const HeatPumps = async () => {
       ]}
       cta={t('cta')}
       ctaHref="/heat-pumps"
-      imageSrc="/images/heat-pump-viessmann-303bcb.png"
+      imageSrc="/images/heat-pump-viessmann-303bcb.webp"
       imageAlt={t('title')}
       brandLogoSrc="/images/nibe-logo-631fb3.png"
       brandLogoAlt="NIBE"

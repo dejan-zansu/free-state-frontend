@@ -15,7 +15,7 @@ const PhotovoltaicsCarportsSection = async () => {
     <section className="relative min-h-[609px] flex items-center justify-center overflow-hidden py-12 md:py-[50px] px-4 md:px-[164px]">
       <div className="absolute inset-0">
         <Image
-          src="/images/photovoltaics-and-carports-bg.png"
+          src="/images/photovoltaics-and-carports-bg.webp"
           alt=""
           fill
           className="object-cover"

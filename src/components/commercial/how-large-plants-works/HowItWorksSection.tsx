@@ -107,7 +107,7 @@ const HowItWorksSection = async () => {
 
             <div className="relative -mt-20 md:-mt-40 aspect-[942/463]">
               <Image
-                src="/images/commercial/how-large-plants-works/large-plant-building-6c03e6.png"
+                src="/images/commercial/how-large-plants-works/large-plant-building-6c03e6.webp"
                 alt={t('howItWorks.title')}
                 fill
                 className="object-contain"

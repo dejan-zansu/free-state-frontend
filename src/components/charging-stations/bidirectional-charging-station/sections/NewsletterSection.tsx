@@ -27,7 +27,7 @@ const NewsletterSection = () => {
               </p>
               <div className="relative w-full aspect-[380/280]">
                 <Image
-                  src="/images/bidirectional-charging/newsletter-right-419b0b.png"
+                  src="/images/bidirectional-charging/newsletter-right-419b0b.webp"
                   alt=""
                   fill
                   className="object-cover"
