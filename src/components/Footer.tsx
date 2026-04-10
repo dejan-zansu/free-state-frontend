@@ -147,11 +147,11 @@ const Footer = () => {
       href: 'https://www.instagram.com/free_state_ag',
       label: 'Instagram',
     },
-    {
-      icon: YouTubeIcon,
-      href: 'https://youtube.com/@freestateag',
-      label: 'YouTube',
-    },
+    // {
+    //   icon: YouTubeIcon,
+    //   href: 'https://youtube.com/@freestateag',
+    //   label: 'YouTube',
+    // },
     {
       icon: LinkedInIcon,
       href: 'https://www.linkedin.com/company/agribusiness-training-institute-of-free-state/',
