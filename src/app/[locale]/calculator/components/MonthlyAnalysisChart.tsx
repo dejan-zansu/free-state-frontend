@@ -30,17 +30,24 @@ export default function MonthlyAnalysisChart({
 }: MonthlyAnalysisChartProps) {
   const t = useTranslations('solarAboCalculator.results')
 
-  const data = MONTH_KEYS.map((key, i) => {
-    const production = Math.round(monthlyProduction[i])
-    const consumption = Math.round(estimatedConsumption * MONTHLY_CONSUMPTION_FACTORS[i])
-    const selfConsumed = Math.round(Math.min(production * selfConsumptionRate, consumption))
-    return {
-      name: t(`months.${key}`),
-      production,
-      consumption,
-      selfConsumed,
-    }
-  })
+  const monthly = MONTH_KEYS.map((key, i) => ({
+    key,
+    production: Math.round(monthlyProduction[i]),
+    consumption: Math.round(estimatedConsumption * MONTHLY_CONSUMPTION_FACTORS[i]),
+  }))
+
+  const unscaled = monthly.map(m => Math.min(m.production, m.consumption))
+  const totalUnscaled = unscaled.reduce((a, b) => a + b, 0)
+  const totalProduction = monthly.reduce((a, b) => a + b.production, 0)
+  const targetTotal = totalProduction * selfConsumptionRate
+  const scale = totalUnscaled > 0 ? targetTotal / totalUnscaled : 0
+
+  const data = monthly.map((m, i) => ({
+    name: t(`months.${m.key}`),
+    production: m.production,
+    consumption: m.consumption,
+    selfConsumed: Math.round(Math.min(unscaled[i] * scale, m.consumption)),
+  }))
 
   return (
     <div className="rounded-xl bg-white/60 border border-[#062E25]/8 p-6">

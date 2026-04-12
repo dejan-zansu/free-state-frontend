@@ -307,7 +307,7 @@ export default function StepSignature() {
             variant="outline"
             onClick={() => {
               resetSignature()
-              goToStep(8)
+              goToStep(7)
             }}
             className="gap-2"
             style={{ borderColor: '#062E25', color: '#062E25' }}

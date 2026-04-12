@@ -98,7 +98,6 @@ export default function Step4RoofAreas() {
     (segment: RoofSegment, isSelected: boolean) => {
       if (!vectorSourceRef.current) return
       let wgs84Coords = segment.geometry.coordinatesWGS84
-      const usedWgs84 = !!(wgs84Coords && wgs84Coords.length > 0)
       if (!wgs84Coords || wgs84Coords.length === 0) {
         const lv95Coords = segment.geometry.coordinates
         if (!lv95Coords || lv95Coords.length === 0) return
@@ -108,14 +107,6 @@ export default function Step4RoofAreas() {
       }
       const coordinates = wgs84Coords[0]
       if (!coordinates || coordinates.length < 3) return
-      console.log('[RoofAreas] drawSegment:', {
-        id: segment.id,
-        isSelected,
-        usedWgs84,
-        coordCount: coordinates.length,
-        firstCoord: coordinates[0],
-        lv95First: segment.geometry.coordinates?.[0]?.[0],
-      })
       const webMercatorCoords = coordinates.map(coord => fromLonLat(coord))
       const polygon = new Polygon([webMercatorCoords])
       const feature = new Feature({ geometry: polygon, segmentId: segment.id })
@@ -161,41 +152,14 @@ export default function Step4RoofAreas() {
         const buildingData = await sonnendachService
           .getBuildingData(lv95.y, lv95.x)
           .catch(() => null)
-        console.log('[RoofAreas] fetchBuildingAt response:', {
-          buildingId: buildingData?.buildingId,
-          segmentCount: buildingData?.roofSegments.length,
-          segments: buildingData?.roofSegments.map(s => ({
-            id: s.id,
-            area: s.area,
-            tilt: s.tilt,
-            azimuth: s.azimuth,
-            azimuthCardinal: s.azimuthCardinal,
-            suitabilityClass: s.suitability?.class,
-            electricityYield: s.electricityYield,
-          })),
-          center: buildingData?.center,
-          currentBuildingId: buildingRef.current?.buildingId,
-        })
         if (buildingData && buildingData.roofSegments.length > 0) {
           setBuilding(buildingData)
           const MIN_SEGMENT_AREA = 5
 
           buildingData.roofSegments.forEach(segment => {
             const suitClass = segment.suitability?.class || 0
-            const yieldPerM2 =
-              segment.area > 0
-                ? Math.round(segment.electricityYield / segment.area)
-                : 0
             const willSelect =
               segment.area >= MIN_SEGMENT_AREA && suitClass <= 3
-            console.log('[RoofAreas] segment auto-select check:', {
-              id: segment.id,
-              suitClass,
-              area: segment.area,
-              azimuth: `${segment.azimuthCardinal} (${segment.azimuth}°)`,
-              yieldPerM2,
-              willSelect,
-            })
             if (
               willSelect &&
               !selectedSegmentsRef.current.includes(segment.id)
@@ -231,21 +195,11 @@ export default function Step4RoofAreas() {
       if (clickedFeature) {
         const segmentId = clickedFeature.get('segmentId')
         if (segmentId) {
-          const wasSelected = selectedSegmentsRef.current.includes(segmentId)
-          console.log('[RoofAreas] clicked segment:', {
-            segmentId,
-            action: wasSelected ? 'DESELECT' : 'SELECT',
-            currentlySelected: [...selectedSegmentsRef.current],
-          })
           toggleSegment(segmentId)
           return
         }
       }
       const [lng, lat] = toLonLat(coordinate)
-      console.log('[RoofAreas] clicked empty space, fetching building at:', {
-        lat,
-        lng,
-      })
       await fetchBuildingAt(lat, lng)
     },
     [toggleSegment, fetchBuildingAt]
@@ -441,7 +395,7 @@ export default function Step4RoofAreas() {
           map.renderSync()
         }
 
-        setTimeout(doCapture, 1000)
+        requestAnimationFrame(doCapture)
       },
     })
   }

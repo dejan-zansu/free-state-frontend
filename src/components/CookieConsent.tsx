@@ -230,6 +230,23 @@ const translations: Record<string, CookieConsent.Translation> = {
   },
 }
 
+function syncConsentToGtag() {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') return
+  const analytics = CookieConsent.acceptedCategory('analytics')
+  const marketing = CookieConsent.acceptedCategory('marketing')
+  window.gtag('consent', 'update', {
+    analytics_storage: analytics ? 'granted' : 'denied',
+    ad_storage: marketing ? 'granted' : 'denied',
+    ad_user_data: marketing ? 'granted' : 'denied',
+    ad_personalization: marketing ? 'granted' : 'denied',
+  })
+}
+
+function notifyConsentChanged() {
+  if (typeof window === 'undefined') return
+  window.dispatchEvent(new CustomEvent('app:consent-changed'))
+}
+
 export default function CookieConsentBanner() {
   const locale = useLocale()
 
@@ -248,18 +265,39 @@ export default function CookieConsentBanner() {
         },
         analytics: {
           autoClear: {
-            cookies: [{ name: /^_ga/ }, { name: '_gid' }],
+            cookies: [
+              { name: /^_ga/ },
+              { name: '_gid' },
+              { name: /^_hj/ },
+              { name: /^_hjSession/ },
+              { name: /^_hjSessionUser/ },
+            ],
           },
         },
         marketing: {
           autoClear: {
-            cookies: [{ name: /^_fb/ }],
+            cookies: [
+              { name: /^_fb/ },
+              { name: /^_gcl_/ },
+            ],
           },
         },
       },
       language: {
         default: 'de',
         translations,
+      },
+      onFirstConsent: () => {
+        syncConsentToGtag()
+        notifyConsentChanged()
+      },
+      onConsent: () => {
+        syncConsentToGtag()
+        notifyConsentChanged()
+      },
+      onChange: () => {
+        syncConsentToGtag()
+        notifyConsentChanged()
       },
     })
 

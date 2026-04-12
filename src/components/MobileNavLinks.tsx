@@ -7,9 +7,6 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { LinkButton } from './ui/link-button'
 
-/** Temporary: set `true` when calculator / full mobile nav is ready again. */
-export const SHOW_EXTENDED_MOBILE_NAV = false
-
 interface MobileNavLinksProps {
   isCommercial?: boolean
   onNavigate?: () => void
@@ -24,7 +21,7 @@ const MobileNavLinks = ({
   const [expanded, setExpanded] = useState<string | null>(null)
 
   const toggle = (key: string) => {
-    setExpanded((prev) => (prev === key ? null : key))
+    setExpanded(prev => (prev === key ? null : key))
   }
 
   const solarAboLinks = isCommercial
@@ -184,11 +181,13 @@ const MobileNavLinks = ({
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-out',
-            expanded === 'solarAbo' ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+            expanded === 'solarAbo'
+              ? 'max-h-[400px] opacity-100'
+              : 'max-h-0 opacity-0'
           )}
         >
           <div className="flex flex-col gap-0.5 pt-1 pl-3">
-            {solarAboLinks.map((link) => (
+            {solarAboLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -218,11 +217,13 @@ const MobileNavLinks = ({
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-out',
-            expanded === 'products' ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+            expanded === 'products'
+              ? 'max-h-[800px] opacity-100'
+              : 'max-h-0 opacity-0'
           )}
         >
           <div className="flex flex-col gap-0.5 pt-1 pl-3">
-            {productLinks.map((product) => (
+            {productLinks.map(product => (
               <div key={product.href}>
                 <Link
                   href={product.href}
@@ -232,7 +233,7 @@ const MobileNavLinks = ({
                   {product.label}
                 </Link>
                 {'subLinks' in product &&
-                  product.subLinks?.map((sub) => (
+                  product.subLinks?.map(sub => (
                     <Link
                       key={sub.href}
                       href={sub.href}

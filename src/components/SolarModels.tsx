@@ -1,11 +1,11 @@
 import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
-import { LinkButton } from './ui/link-button'
-import { LearnMoreLink } from './ui/learn-more-link'
+// import { LinkButton } from './ui/link-button'
+// import { LearnMoreLink } from './ui/learn-more-link'
 import CheckBulletIcon from './icons/CheckBulletIcon'
 import CheckIcon from './icons/CheckIcon'
 import Image from 'next/image'
-import WalletIcon from './icons/WalletIcon'
+// import WalletIcon from './icons/WalletIcon'
 import SmallWalletIcon from './icons/SmallWalletIcon'
 
 const AdvantageList = ({ items }: { items: string[] }) => (

@@ -1,12 +1,11 @@
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
+import { locales } from '@/i18n/routing'
 import { QueryProvider } from '@/providers/QueryProvider'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-
-const locales = ['en', 'de', 'fr', 'it', 'es', 'sr']
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -21,7 +20,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as (typeof locales)[number])) {
     notFound()
   }
 

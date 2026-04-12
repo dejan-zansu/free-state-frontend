@@ -34,6 +34,10 @@ const PrivacyPolicyPage = async () => {
       content: t('newsletter.content'),
     },
     {
+      title: t('calculator.title'),
+      content: t('calculator.content'),
+    },
+    {
       title: t('userRights.title'),
       content: t('userRights.content'),
     },

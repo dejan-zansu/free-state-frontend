@@ -167,7 +167,7 @@ export default function RegisterPage() {
           </div>
 
           {error && (
-            <div className="mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
+            <div className="mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm lg:text-base">
               {error}
             </div>
           )}
@@ -183,7 +183,7 @@ export default function RegisterPage() {
                   {...register('firstName')}
                 />
                 {errors.firstName && (
-                  <p className="text-sm text-destructive">
+                  <p className="text-sm lg:text-base text-destructive">
                     {errors.firstName.message}
                   </p>
                 )}
@@ -197,7 +197,7 @@ export default function RegisterPage() {
                   {...register('lastName')}
                 />
                 {errors.lastName && (
-                  <p className="text-sm text-destructive">
+                  <p className="text-sm lg:text-base text-destructive">
                     {errors.lastName.message}
                   </p>
                 )}
@@ -215,7 +215,7 @@ export default function RegisterPage() {
                 {...register('email')}
               />
               {errors.email && (
-                <p className="text-sm text-destructive">
+                <p className="text-sm lg:text-base text-destructive">
                   {errors.email.message}
                 </p>
               )}
@@ -289,7 +289,7 @@ export default function RegisterPage() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-sm mt-2">
+              <div className="grid grid-cols-2 gap-2 text-sm lg:text-base mt-2">
                 <div
                   className={`flex items-center gap-1.5 ${hasMinLength ? 'text-energy' : 'text-muted-foreground'}`}
                 >
@@ -317,7 +317,7 @@ export default function RegisterPage() {
               </div>
 
               {errors.password && (
-                <p className="text-sm text-destructive">
+                <p className="text-sm lg:text-base text-destructive">
                   {errors.password.message}
                 </p>
               )}
@@ -347,7 +347,7 @@ export default function RegisterPage() {
                 </button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-sm text-destructive">
+                <p className="text-sm lg:text-base text-destructive">
                   {errors.confirmPassword.message}
                 </p>
               )}
@@ -371,7 +371,7 @@ export default function RegisterPage() {
               )}
             </Button>
 
-            <p className="text-sm text-muted-foreground text-center mt-4">
+            <p className="text-sm lg:text-base text-muted-foreground text-center mt-4">
               {t('termsText')}{' '}
               <Link href="/agb" className="text-primary hover:underline">
                 {t('termsLink')}

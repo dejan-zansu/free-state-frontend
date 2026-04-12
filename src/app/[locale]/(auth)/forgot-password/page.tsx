@@ -87,7 +87,7 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-md">
         <Link
           href="/login"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
+          className="mb-8 inline-flex items-center gap-2 text-sm lg:text-base font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
         >
           <ArrowLeft className="h-4 w-4" />
           {t('backToLogin')}
@@ -108,7 +108,7 @@ export default function ForgotPasswordPage() {
 
         {error && (
           <div
-            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm text-red-700 shadow-sm"
+            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm lg:text-base text-red-700 shadow-sm"
             role="alert"
           >
             <AlertCircle
@@ -133,7 +133,7 @@ export default function ForgotPasswordPage() {
               {...register('email')}
             />
             {errors.email && (
-              <p className="text-sm text-red-600">{errors.email.message}</p>
+              <p className="text-sm lg:text-base text-red-600">{errors.email.message}</p>
             )}
           </div>
 
@@ -156,7 +156,7 @@ export default function ForgotPasswordPage() {
           </Button>
         </form>
 
-        <p className="mt-10 text-center text-sm text-muted-foreground">
+        <p className="mt-10 text-center text-sm lg:text-base text-muted-foreground">
           {t('rememberPassword')}{' '}
           <Link
             href="/login"

@@ -13,7 +13,7 @@ import Step4RoofCovering from './steps/Step5RoofCovering'
 import Step5ContactDetails from './steps/Step6ContactDetails'
 import StepConfirmation from './steps/StepConfirmation'
 import StepContractReview from './steps/StepContractReview'
-import StepResults from './steps/StepResults'
+import StepSolarFreeResults from './steps/StepSolarFreeResults'
 import StepEquipmentResults from './steps/StepEquipmentResults'
 import StepSignature from './steps/StepSignature'
 
@@ -76,7 +76,7 @@ export default function SolarAboCalculatorPage() {
       case 5:
         return <Step5ContactDetails />
       case 6:
-        return solarModel === 'solar-direct' ? <StepEquipmentResults /> : <StepResults />
+        return solarModel === 'solar-direct' ? <StepEquipmentResults /> : <StepSolarFreeResults />
       case 7:
         return <StepContractReview />
       case 8:

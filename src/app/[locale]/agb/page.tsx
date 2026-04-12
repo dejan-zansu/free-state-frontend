@@ -14,8 +14,20 @@ const AGBPage = async () => {
       content: t('contractConclusion.content'),
     },
     {
+      title: t('electronicSigning.title'),
+      content: t('electronicSigning.content'),
+    },
+    {
+      title: t('withdrawal.title'),
+      content: t('withdrawal.content'),
+    },
+    {
       title: t('services.title'),
       content: t('services.content'),
+    },
+    {
+      title: t('solarFreeLease.title'),
+      content: t('solarFreeLease.content'),
     },
     {
       title: t('prices.title'),

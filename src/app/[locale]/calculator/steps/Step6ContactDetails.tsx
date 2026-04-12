@@ -85,7 +85,9 @@ export default function Step6ContactDetails() {
     })
     setConsents({ dataProcessing: data.dataProcessing })
     await createAccount()
-    nextStep()
+    if (useSolarAboCalculatorStore.getState().accountCreated) {
+      nextStep()
+    }
   }, [setContact, setConsents, createAccount, nextStep])
 
   return (
@@ -97,7 +99,7 @@ export default function Step6ContactDetails() {
 
           <form onSubmit={handleSubmit(onSubmit)} className='mt-8 space-y-6' noValidate>
             <div className='space-y-3'>
-              <Label>{t('salutation.label')} <span className='text-destructive'>*</span></Label>
+              <Label className='text-sm md:text-base'>{t('salutation.label')} <span className='text-destructive'>*</span></Label>
               <Controller
                 name='salutation'
                 control={control}
@@ -110,7 +112,7 @@ export default function Step6ContactDetails() {
                     {salutations.map((option) => (
                       <div key={option} className='flex items-center space-x-2'>
                         <RadioGroupItem value={option} id={option} />
-                        <Label htmlFor={option} className='cursor-pointer'>
+                        <Label htmlFor={option} className='cursor-pointer text-sm md:text-base'>
                           {t(`salutation.options.${option}`)}
                         </Label>
                       </div>
@@ -119,12 +121,12 @@ export default function Step6ContactDetails() {
                 )}
               />
               {errors.salutation && (
-                <p className='text-sm text-destructive'>{errors.salutation.message}</p>
+                <p className='text-sm md:text-base text-destructive'>{errors.salutation.message}</p>
               )}
             </div>
 
             <div className='space-y-2'>
-              <Label htmlFor='firstName'>
+              <Label htmlFor='firstName' className='text-sm md:text-base'>
                 {t('firstName')} <span className='text-destructive'>*</span>
               </Label>
               <Input
@@ -134,12 +136,12 @@ export default function Step6ContactDetails() {
                 className={cn(errors.firstName && 'border-destructive')}
               />
               {errors.firstName && (
-                <p className='text-sm text-destructive'>{errors.firstName.message}</p>
+                <p className='text-sm md:text-base text-destructive'>{errors.firstName.message}</p>
               )}
             </div>
 
             <div className='space-y-2'>
-              <Label htmlFor='lastName'>
+              <Label htmlFor='lastName' className='text-sm md:text-base'>
                 {t('lastName')} <span className='text-destructive'>*</span>
               </Label>
               <Input
@@ -149,12 +151,12 @@ export default function Step6ContactDetails() {
                 className={cn(errors.lastName && 'border-destructive')}
               />
               {errors.lastName && (
-                <p className='text-sm text-destructive'>{errors.lastName.message}</p>
+                <p className='text-sm md:text-base text-destructive'>{errors.lastName.message}</p>
               )}
             </div>
 
             <div className='space-y-2'>
-              <Label htmlFor='email'>
+              <Label htmlFor='email' className='text-sm md:text-base'>
                 {t('email')} <span className='text-destructive'>*</span>
               </Label>
               <Input
@@ -165,12 +167,12 @@ export default function Step6ContactDetails() {
                 className={cn(errors.email && 'border-destructive')}
               />
               {errors.email && (
-                <p className='text-sm text-destructive'>{errors.email.message}</p>
+                <p className='text-sm md:text-base text-destructive'>{errors.email.message}</p>
               )}
             </div>
 
             <div className='space-y-2'>
-              <Label htmlFor='phoneNumber'>
+              <Label htmlFor='phoneNumber' className='text-sm md:text-base'>
                 {t('phoneNumber')} <span className='text-destructive'>*</span>
               </Label>
               <Input
@@ -181,12 +183,12 @@ export default function Step6ContactDetails() {
                 className={cn(errors.phoneNumber && 'border-destructive')}
               />
               {errors.phoneNumber && (
-                <p className='text-sm text-destructive'>{errors.phoneNumber.message}</p>
+                <p className='text-sm md:text-base text-destructive'>{errors.phoneNumber.message}</p>
               )}
             </div>
 
             <div className='space-y-2'>
-              <Label htmlFor='remarks'>{t('remarks')}</Label>
+              <Label htmlFor='remarks' className='text-sm md:text-base'>{t('remarks')}</Label>
               <Textarea
                 id='remarks'
                 {...register('remarks')}
@@ -207,7 +209,7 @@ export default function Step6ContactDetails() {
                       onCheckedChange={(checked) => field.onChange(checked === true ? true : undefined)}
                       className='mt-0.5 border-[#062E25]/40 data-[state=checked]:bg-[#062E25] data-[state=checked]:border-[#062E25]'
                     />
-                    <label htmlFor='consent-data' className='text-sm cursor-pointer text-[#062E25]/80'>
+                    <label htmlFor='consent-data' className='text-sm md:text-base cursor-pointer text-[#062E25]/80'>
                       {tConsent('dataProcessingPrefix')}{' '}
                       <Link href='/privacy' className='underline underline-offset-2 text-[#062E25] hover:text-[#062E25]/70'>
                         {tConsent('dataProcessingLink')}
@@ -219,12 +221,12 @@ export default function Step6ContactDetails() {
                 )}
               />
               {errors.dataProcessing && (
-                <p className='mt-2 text-sm text-destructive'>{errors.dataProcessing.message}</p>
+                <p className='mt-2 text-sm md:text-base text-destructive'>{errors.dataProcessing.message}</p>
               )}
             </div>
 
             {submissionError && (
-              <div className='text-sm text-destructive bg-destructive/10 p-3 rounded-md'>
+              <div className='text-sm md:text-base text-destructive bg-destructive/10 p-3 rounded-md'>
                 {submissionError}
               </div>
             )}

@@ -38,8 +38,10 @@ export default function StepConfirmation() {
     contractNumber,
     createdContractId,
     contact,
+    solarModel,
     getSystemSizeKwp,
     getAnnualSavings,
+    getAnnualPpaSavings,
     getEstimatedPanelCount,
     reset,
   } = useSolarAboCalculatorStore()
@@ -140,7 +142,14 @@ export default function StepConfirmation() {
                 {t('contractSummary.savings')}
               </span>
               <span className="font-medium">
-                CHF {formatSwissNumber(getAnnualSavings(), 0)}/Jahr
+                CHF{' '}
+                {formatSwissNumber(
+                  solarModel === 'solar-free'
+                    ? getAnnualPpaSavings()
+                    : getAnnualSavings(),
+                  0,
+                )}
+                /Jahr
               </span>
             </div>
           </CardContent>

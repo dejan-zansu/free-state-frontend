@@ -129,7 +129,7 @@ export default function SetPasswordPage() {
       <div className="w-full max-w-md">
         <Link
           href="/login"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
+          className="mb-8 inline-flex items-center gap-2 text-sm lg:text-base font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
         >
           <ArrowLeft className="h-4 w-4" />
           {t('goToLogin')}
@@ -150,7 +150,7 @@ export default function SetPasswordPage() {
 
         {error && (
           <div
-            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm text-red-700 shadow-sm"
+            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm lg:text-base text-red-700 shadow-sm"
             role="alert"
           >
             <AlertCircle
@@ -188,7 +188,7 @@ export default function SetPasswordPage() {
               </button>
             </div>
             {errors.password && (
-              <p className="text-sm text-red-600">{errors.password.message}</p>
+              <p className="text-sm lg:text-base text-red-600">{errors.password.message}</p>
             )}
           </div>
 
@@ -205,7 +205,7 @@ export default function SetPasswordPage() {
               {...register('confirmPassword')}
             />
             {errors.confirmPassword && (
-              <p className="text-sm text-red-600">
+              <p className="text-sm lg:text-base text-red-600">
                 {errors.confirmPassword.message}
               </p>
             )}

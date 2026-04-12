@@ -61,18 +61,10 @@ const Hero = async ({
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
               <LinkButton
                 variant="primary"
-                href="/solar-free"
-                className="w-full sm:w-auto"
-              >
-                {t('hero.cta.primary')}
-              </LinkButton>
-
-              <LinkButton
-                variant="outline-secondary"
                 href={isCommercial ? '/commercial/calculator' : '/calculator'}
                 className="w-full sm:w-auto"
               >
-                {t('hero.cta.secondary')}
+                {t('hero.cta.primary')}
               </LinkButton>
             </div>
           )} */}

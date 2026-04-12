@@ -22,6 +22,10 @@ const ImpressumPage = async () => {
       content: t('register.content'),
     },
     {
+      title: t('purpose.title'),
+      content: t('purpose.content'),
+    },
+    {
       title: t('vat.title'),
       content: t('vat.content'),
     },

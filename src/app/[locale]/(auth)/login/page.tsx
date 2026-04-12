@@ -67,7 +67,7 @@ export default function LoginPage() {
           </div>
 
           {error && (
-            <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+            <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm lg:text-base">
               {error}
             </div>
           )}
@@ -86,7 +86,7 @@ export default function LoginPage() {
                 {...register('email')}
               />
               {errors.email && (
-                <p className="text-sm text-red-600">{errors.email.message}</p>
+                <p className="text-sm lg:text-base text-red-600">{errors.email.message}</p>
               )}
             </div>
 
@@ -124,7 +124,7 @@ export default function LoginPage() {
                 </button>
               </div>
               {errors.password && (
-                <p className="text-sm text-red-600">
+                <p className="text-sm lg:text-base text-red-600">
                   {errors.password.message}
                 </p>
               )}
@@ -153,7 +153,7 @@ export default function LoginPage() {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300" />
             </div>
-            <div className="relative flex justify-center text-sm">
+            <div className="relative flex justify-center text-sm lg:text-base">
               <span className="px-4 bg-white text-gray-500">
                 {t('orContinueWith')}
               </span>

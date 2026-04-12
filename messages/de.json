@@ -145,14 +145,10 @@
       "badge": "Free State SolarFree",
       "title": "Dein Dach.\nDein Strom.\nNull Investition.",
       "subtitle": "Ihre Energie, unsere Verantwortung\nnachhaltig und sorgenfrei",
-      "cta": {
-        "primary": "Jetzt starten",
-        "secondary": "Kalkulator"
-      },
       "nav": {
         "solarAbo": "SolarFree",
         "products": "Produkte",
-        "onlineStarter": "Online Starter",
+        "onlineStarter": "Onlinerechner Starten",
         "solarAboHome": "SolarFree Home",
         "solarAboMulti": "SolarFree Multi",
         "solarAboBusiness": "SolarFree Business",
@@ -2753,59 +2749,63 @@
   "privacyPolicy": {
     "title": "Datenschutzerklärung",
     "subtitle": "Wie wir mit Ihren persönlichen Daten umgehen",
-    "intro": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+    "intro": "Free State AG nimmt den Schutz Ihrer persönlichen Daten ernst. Wir behandeln Ihre Daten vertraulich und in Übereinstimmung mit dem revidierten Schweizer Datenschutzgesetz (revDSG, in Kraft seit 1. September 2023) sowie – soweit anwendbar – der EU-Datenschutz-Grundverordnung (DSGVO). Diese Datenschutzerklärung beschreibt, welche Daten wir erheben, zu welchem Zweck wir sie verwenden, an wen wir sie weitergeben und welche Rechte Sie als betroffene Person haben.",
     "dataCollection": {
-      "title": "Datenerfassung auf unserer Website",
-      "content": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.\n\nIhre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. in ein Kontaktformular eingegebene Daten), oder automatisch durch unsere IT-Systeme beim Besuch der Website erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Diese Daten werden automatisch beim Betreten unserer Website erfasst."
+      "title": "Verantwortliche Stelle und Datenerhebung",
+      "content": "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne des revDSG und der DSGVO ist:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen, Schweiz\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05\n\nVertretungsberechtigt: Ivan Miric, Mitglied des Verwaltungsrates und Geschäftsführer.\n\nWir erheben personenbezogene Daten auf zwei Arten: einerseits, indem Sie uns diese aktiv mitteilen (z. B. über das Kontaktformular, das Newsletter-Formular, den Solarrechner, Wartungsanfragen oder bei der Registrierung eines Kundenkontos), andererseits automatisiert durch unsere IT-Systeme beim Aufruf der Website (technische Verbindungsdaten wie Browser, Betriebssystem und Zeitpunkt des Zugriffs)."
     },
     "automaticData": {
-      "title": "Automatisch erfasste Daten",
-      "content": "Beim Besuch unserer Website speichern unsere Webserver vorübergehend jeden Zugriff in einer Protokolldatei. Folgende Daten werden erfasst und bis zur automatisierten Löschung gespeichert:\n\n• IP-Adresse des anfragenden Rechners\n• Datum und Uhrzeit des Zugriffs\n• Name und URL der abgerufenen Datei\n• Website, von der aus der Zugriff erfolgt (Referrer-URL)\n• Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners\n• Name Ihres Access-Providers"
+      "title": "Automatisch erfasste Server-Logfiles",
+      "content": "Beim Besuch unserer Website speichern unsere Webserver vorübergehend jeden Zugriff in einer Protokolldatei (Logfile). Die folgenden Daten werden automatisch erfasst und bis zur automatisierten Löschung nach maximal 30 Tagen gespeichert:\n\n• IP-Adresse des anfragenden Geräts (gekürzt bzw. anonymisiert)\n• Datum und Uhrzeit des Zugriffs\n• Name und URL der abgerufenen Datei\n• Verweisende Website (Referrer-URL)\n• Verwendeter Browser und Betriebssystem\n• Name des Internet-Zugangsproviders\n\nDie Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses (Art. 31 Abs. 2 lit. d revDSG bzw. Art. 6 Abs. 1 lit. f DSGVO) am stabilen Betrieb der Website, an der IT-Sicherheit und an der Abwehr von Missbrauch. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nicht zur Erstellung von Nutzerprofilen verwendet."
     },
     "cookies": {
-      "title": "Cookies",
-      "content": "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie richten keinen Schaden an.\n\nWir nutzen Cookies dazu, unser Angebot nutzerfreundlich zu gestalten. Einige Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.\n\nWenn Sie dies nicht wünschen, können Sie Ihren Browser so einrichten, dass er Sie über das Setzen von Cookies informiert und Sie dies nur im Einzelfall erlauben."
+      "title": "Cookies und Einwilligungsverwaltung",
+      "content": "Unsere Website verwendet Cookies und vergleichbare Technologien (z. B. localStorage). Cookies sind kleine Textdateien, die auf Ihrem Endgerät abgelegt werden. Sie unterscheiden sich nach Zweck:\n\n• Notwendige Cookies: erforderlich für den Betrieb der Website (z. B. Spracheinstellung, Anmeldesitzung, Cookie-Einwilligung selbst). Diese sind nicht abwählbar.\n• Analyse-Cookies: ermöglichen uns, das Nutzungsverhalten anonymisiert auszuwerten und die Website zu verbessern.\n• Marketing-Cookies: werden für personalisierte Inhalte und Werbung eingesetzt.\n\nBeim ersten Besuch unserer Website erscheint ein Cookie-Banner, in dem Sie pro Kategorie entscheiden können, ob Sie der Verwendung zustimmen. Analyse- und Marketing-Cookies werden ausschliesslich nach Ihrer ausdrücklichen Einwilligung gesetzt (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nSie können Ihre Einwilligung jederzeit für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen über den Link am Seitenende erneut aufrufen. Solange Sie keine Einwilligung erteilen, werden keine Analyse- oder Marketing-Cookies geladen, und unsere Analyse-Dienste werden im Modus «Consent Mode v2 – denied» betrieben, d. h. ohne Setzen identifizierender Cookies."
     },
     "analytics": {
-      "title": "Webanalyse (Matomo)",
-      "content": "Diese Website nutzt Matomo für die Webanalyse. Matomo verwendet Cookies, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden auf unserem Server in der Schweiz gespeichert.\n\nDie IP-Adresse wird unmittelbar nach der Verarbeitung und vor deren Speicherung anonymisiert. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern. Wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können."
+      "title": "Webanalyse, Tag-Verwaltung und Nutzungsmessung",
+      "content": "Vorbehältlich Ihrer Einwilligung setzen wir die folgenden Dienste ein, um die Nutzung unserer Website zu verstehen und unser Angebot zu verbessern. Ohne Ihre Einwilligung werden diese Dienste nicht aktiviert.\n\n1) Google Tag Manager\nAnbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\nDer Google Tag Manager ist ein Verwaltungswerkzeug, mit dem wir Mess- und Analyse-Tags zentral einbinden können. Der Tag Manager selbst erstellt keine Nutzerprofile und setzt keine eigenen Cookies. Er lädt jedoch andere Dienste (siehe nachfolgend), die ihrerseits Daten verarbeiten.\n\n2) Google Analytics 4 (GA4)\nAnbieter: Google Ireland Limited.\nGA4 erstellt anonymisierte Statistiken über die Nutzung unserer Website (z. B. Seitenaufrufe, Sitzungsdauer, Herkunftsland, Gerätetyp, Verweisquelle). Die IP-Adresse wird vor der Speicherung gekürzt («IP Anonymization»), eine direkte Identifizierung einzelner Personen findet nicht statt. Wir betreiben GA4 mit aktiviertem Google Consent Mode v2 sowie mit deaktivierten Werbe-Funktionen («Google Signals»). Die Aufbewahrungsdauer der Ereignisdaten in GA4 beträgt 14 Monate.\n\n3) Hotjar\nAnbieter: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar erstellt aggregierte Heatmaps und – auf bestimmten Seiten (insbesondere im Solarrechner und im Kundenbereich) – pseudonymisierte Sitzungsaufzeichnungen, um Bedienprobleme zu erkennen. Tastatureingaben in Formularfelder werden standardmässig maskiert; sensible Inhalte (Kundendaten, Verträge) werden nicht aufgezeichnet. Hotjar setzt Cookies mit einer maximalen Lebensdauer von 365 Tagen.\n\n4) Google Search Console\nAnbieter: Google Ireland Limited.\nDie Google Search Console wird ausschliesslich zur Verifizierung des Domain-Eigentums und zur Auswertung anonymer SEO-Statistiken (z. B. eingehende Suchanfragen aus Google) verwendet. Sie setzt keine Cookies auf dieser Website und verarbeitet keine personenbezogenen Daten unserer Besucher.\n\nRechtsgrundlage: Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nDatenübermittlung in die USA: GA4, Google Tag Manager, Google Search Console und Hotjar verarbeiten Daten teilweise in den USA. Google ist nach dem EU-US Data Privacy Framework zertifiziert; Hotjar verarbeitet Daten primär in der EU, kann aber auf Sub-Auftragsverarbeiter in Drittländern zurückgreifen. Soweit eine Übermittlung in ein Land ohne angemessenes Datenschutzniveau erfolgt, stützen wir diese auf Standardvertragsklauseln gemäss Art. 16 revDSG bzw. Art. 46 DSGVO."
     },
     "socialMedia": {
-      "title": "Social Media Plugins",
-      "content": "Unsere Seiten enthalten Plugins von sozialen Netzwerken (z.B. Twitter, Instagram). Diese Plugins erkennen Sie an den jeweiligen Logos. Wenn Sie diese Plugins aktivieren, wird eine direkte Verbindung zwischen Ihrem Browser und dem Server des jeweiligen sozialen Netzwerks hergestellt.\n\nWir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch die sozialen Netzwerke erhalten. Weitere Informationen hierzu finden Sie in den Datenschutzerklärungen der jeweiligen Netzwerke."
+      "title": "Verlinkungen zu sozialen Netzwerken",
+      "content": "Im Footer unserer Website finden Sie Verlinkungen zu unseren Profilen auf Facebook, Instagram und LinkedIn. Es handelt sich dabei ausdrücklich um einfache Hyperlinks, nicht um eingebettete Plugins oder Tracking-Pixel. Beim blossen Aufruf unserer Website werden keine Daten an diese sozialen Netzwerke übertragen.\n\nErst wenn Sie aktiv auf einen dieser Links klicken, werden Sie zur jeweiligen Plattform weitergeleitet, und ab diesem Zeitpunkt gelten ausschliesslich die Datenschutzbestimmungen des entsprechenden Anbieters. Wir haben keinen Einfluss darauf, welche Daten dort erhoben oder verarbeitet werden.\n\n• Facebook (Meta Platforms Ireland Ltd.): https://www.facebook.com/privacy/policy\n• Instagram (Meta Platforms Ireland Ltd.): https://privacycenter.instagram.com/policy\n• LinkedIn (LinkedIn Ireland Unlimited Company): https://www.linkedin.com/legal/privacy-policy"
     },
     "googleMaps": {
       "title": "Google Maps",
-      "content": "Diese Website nutzt den Dienst Google Maps. Anbieter ist Google Ireland Limited. Bei Nutzung von Google Maps werden Informationen über Ihre Benutzung dieser Website (einschliesslich Ihrer IP-Adresse) an einen Server von Google übertragen und dort gespeichert.\n\nWeitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: https://policies.google.com/privacy"
+      "content": "Auf einigen Seiten (insbesondere auf der Kontaktseite und im Solarrechner zur Adresseingabe und Dachflächenauswahl) binden wir interaktive Karten von Google Maps ein. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\n\nDamit die Karten korrekt angezeigt werden, übermittelt Ihr Browser bei der Nutzung dieser Funktionen technische Verbindungsdaten (insbesondere Ihre IP-Adresse) an Google. Eine Verarbeitung in den USA kann nicht ausgeschlossen werden. Diese Verarbeitung ist erforderlich, um die von Ihnen aktiv aufgerufene Funktion (z. B. Adresseingabe im Solarrechner) bereitzustellen, und stützt sich auf unser berechtigtes Interesse an einer benutzerfreundlichen Online-Anwendung sowie – soweit ein expliziter Konfigurationsschritt vorausgeht – auf Ihre Einwilligung.\n\nWeitere Informationen zur Datenverarbeitung durch Google finden Sie unter: https://policies.google.com/privacy"
     },
     "newsletter": {
       "title": "Newsletter",
-      "content": "Wenn Sie den auf der Website angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen eine E-Mail-Adresse sowie Informationen, welche uns die Überprüfung gestatten, dass Sie der Inhaber der angegebenen E-Mail-Adresse sind.\n\nDie im Rahmen der Newsletter-Anmeldung eingegebenen Daten werden ausschliesslich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) verarbeitet. Die erteilte Einwilligung können Sie jederzeit widerrufen. Die Rechtmässigkeit der bereits erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt."
+      "content": "Wenn Sie unseren Newsletter abonnieren möchten, benötigen wir von Ihnen eine gültige E-Mail-Adresse sowie Informationen, mit denen wir prüfen können, dass Sie tatsächlich Inhaber der angegebenen Adresse sind (Double-Opt-In-Verfahren).\n\nDie für den Versand erforderlichen Daten werden ausschliesslich auf Grundlage Ihrer Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO) verarbeitet. Sie können das Abonnement und die zugrundeliegende Einwilligung jederzeit für die Zukunft widerrufen, beispielsweise über den Abmeldelink in jedem Newsletter oder per E-Mail an info@freestate.ch. Die Rechtmässigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt."
+    },
+    "calculator": {
+      "title": "Solarrechner, Kontaktanfragen und elektronische Vertragsunterzeichnung",
+      "content": "Unser Solarrechner führt Sie schrittweise durch eine bedarfsorientierte Auslegung einer Photovoltaikanlage und – auf Wunsch – bis zum Abschluss eines Solar-Free-Vertrags. Dabei verarbeiten wir die folgenden Kategorien personenbezogener Daten:\n\n• Adresse und Standortdaten zur Auswertung der Dachfläche (über Kartendienste)\n• Verbrauchs- und Gebäudedaten (z. B. Stromverbrauch, Dachneigung, geplante Geräte wie Wärmepumpe oder Wallbox)\n• Kontaktdaten (Name, Adresse, Telefonnummer, E-Mail-Adresse)\n• Bei Vertragsabschluss zusätzlich: Geburtsdatum, AHV-Daten oder vergleichbare Identifikationsmerkmale, sofern für die Vertragsprüfung erforderlich\n\nDie Verarbeitung dieser Daten erfolgt zur Anbahnung und Erfüllung eines Vertrags (Art. 31 Abs. 2 lit. a revDSG / Art. 6 Abs. 1 lit. b DSGVO) sowie – sofern Sie eine Anfrage stellen ohne einen Vertrag abzuschliessen – auf Grundlage Ihrer Einwilligung.\n\nFür die rechtsverbindliche elektronische Unterzeichnung von Verträgen setzen wir Swisscom Trust Services AG (Konradstrasse 12, 8005 Zürich, Schweiz) als Vertrauensdienstanbieter ein. Swisscom Trust Services ist nach dem Schweizer Bundesgesetz über die elektronische Signatur (ZertES) als qualifizierter Vertrauensdienstanbieter zugelassen und ermöglicht die Erstellung qualifizierter elektronischer Signaturen mit gesetzlich anerkannter Beweiskraft. Im Rahmen der Signatur werden Identifikationsdaten und biometrische Merkmale (z. B. Mobile-ID-Bestätigung) an Swisscom Trust Services übermittelt. Weitere Informationen finden Sie unter https://trustservices.swisscom.com.\n\nWartungsanfragen, Support-Tickets sowie Daten aus dem Kundenbereich («Dashboard») verarbeiten wir ebenfalls zur Vertragserfüllung sowie zur Erfüllung gesetzlicher Aufbewahrungspflichten."
     },
     "userRights": {
-      "title": "Ihre Rechte",
-      "content": "Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben ausserdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.\n\nWenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Ausserdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.\n\nDes Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu."
+      "title": "Ihre Rechte als betroffene Person",
+      "content": "Nach revDSG und DSGVO stehen Ihnen die folgenden Rechte zu:\n\n• Auskunftsrecht: Sie können jederzeit unentgeltlich Auskunft über die zu Ihrer Person gespeicherten Daten verlangen, einschliesslich Herkunft, Empfänger, Zweck und Speicherdauer.\n• Recht auf Berichtigung: Sie können die Korrektur unrichtiger oder die Vervollständigung unvollständiger Daten verlangen.\n• Recht auf Löschung: Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzlichen Aufbewahrungspflichten oder anderweitige berechtigte Interessen entgegenstehen.\n• Recht auf Einschränkung der Verarbeitung: unter bestimmten Voraussetzungen.\n• Recht auf Datenübertragbarkeit (DSGVO): Sie können die von Ihnen bereitgestellten Daten in einem strukturierten, gängigen, maschinenlesbaren Format erhalten.\n• Widerrufsrecht: Erteilte Einwilligungen können Sie jederzeit für die Zukunft widerrufen.\n• Widerspruchsrecht: Sie können der Verarbeitung Ihrer Daten aus Gründen, die sich aus Ihrer besonderen Situation ergeben, widersprechen.\n\nUm Ihre Rechte auszuüben, kontaktieren Sie uns bitte unter info@freestate.ch. Zur Wahrung der Sicherheit Ihrer Daten kann es notwendig sein, dass wir Ihre Identität vor der Bearbeitung der Anfrage überprüfen.\n\nBeschwerderecht: Sie haben jederzeit das Recht, sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB, https://www.edoeb.admin.ch) bzw. – falls Sie in der EU ansässig sind – bei Ihrer zuständigen nationalen Datenschutzbehörde zu beschweren."
     },
     "dataRetention": {
-      "title": "Datenspeicherung",
-      "content": "Die von uns erhobenen Daten werden nach Beendigung des Vertragsverhältnisses und Ablauf der gesetzlichen Aufbewahrungsfristen gelöscht. Werden die Daten für die Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Massnahmen benötigt, ist eine vorzeitige Löschung der Daten nur möglich, wenn vertragliche oder gesetzliche Verpflichtungen einer Löschung nicht entgegenstehen."
+      "title": "Aufbewahrung und Löschung",
+      "content": "Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen. Im Einzelnen gelten die folgenden Richtwerte:\n\n• Server-Logfiles: maximal 30 Tage\n• Cookie-Einwilligungen: bis zu 12 Monate ab letzter Bestätigung\n• Google Analytics 4 Ereignisdaten: 14 Monate\n• Hotjar-Aufzeichnungen: maximal 365 Tage\n• Newsletter-Anmeldedaten: bis zum Widerruf der Einwilligung\n• Kontakt- und Anfragedaten: bis zu 24 Monate nach Abschluss der Anfrage\n• Vertrags- und Buchhaltungsdaten: 10 Jahre gemäss Art. 958f OR\n• Kundenkonto-Daten («Dashboard»): bis zur Löschung des Kontos durch Sie oder bis 24 Monate nach letzter Anmeldung\n\nNach Ablauf der jeweiligen Frist werden die Daten gelöscht oder anonymisiert."
     },
     "contact": {
-      "title": "Kontakt",
-      "content": "Bei Fragen zum Datenschutz wenden Sie sich bitte an:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05"
+      "title": "Kontakt zur datenschutzverantwortlichen Stelle",
+      "content": "Bei Fragen zum Datenschutz, zur Ausübung Ihrer Rechte oder bei sonstigen Anliegen wenden Sie sich bitte an:\n\nFree State AG\nz. Hd. Datenschutz\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05\n\nFree State AG hat keine Verpflichtung zur Bestellung eines externen Datenschutzbeauftragten gemäss Art. 10 revDSG bzw. Art. 37 DSGVO. Für Datenschutzanliegen steht Ihnen die oben genannte Adresse zur Verfügung."
     },
-    "lastUpdated": "Zuletzt aktualisiert: Februar 2026"
+    "lastUpdated": "Zuletzt aktualisiert: April 2026"
   },
   "impressum": {
     "title": "Impressum",
     "subtitle": "Firmeninformationen und rechtliche Angaben",
     "companyInfo": {
       "title": "Firmeninformationen",
-      "content": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz"
+      "content": "Free State AG (Free State SA / Free State Ltd)\nRechtsform: Aktiengesellschaft\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz"
     },
     "representation": {
       "title": "Vertretungsberechtigte Personen",
-      "content": "Die Gesellschaft wird rechtlich durch den Verwaltungsrat vertreten."
+      "content": "Ivan Miric, von Zürich, in Schaffhausen\nMitglied des Verwaltungsrates und Geschäftsführer, mit Einzelunterschrift"
     },
     "contact": {
       "title": "Kontakt",
@@ -2813,11 +2813,15 @@
     },
     "register": {
       "title": "Handelsregistereintrag",
-      "content": "Eingetragener Firmenname: Free State AG\nSitz: Schaffhausen, Schweiz\nUID (Unternehmens-Identifikationsnummer): CHE-XXX.XXX.XXX"
+      "content": "Eingetragener Firmenname: Free State AG\nSitz: Schaffhausen, Schweiz\nKanton: Schaffhausen\nUID: CHE-134.711.335\nCH-ID: CH-290-3022220-1\nEHRA-ID: 1665287\nStatutendatum: 30. Oktober 2024\nAktienkapital: CHF 100'000.00\nPublikationsorgan: Schweizerisches Handelsamtsblatt (SHAB)\n\nEingetragen im Handelsregister des Kantons Schaffhausen. Auf die eingeschränkte Revision wurde gemäss Art. 727a Abs. 2 OR verzichtet."
+    },
+    "purpose": {
+      "title": "Gesellschaftszweck",
+      "content": "Zweck der Gesellschaft ist die Erzeugung, Übertragung, Verteilung, Speicherung, Verwertung und der Vertrieb elektrischer und anderer Energie sowie das Erbringen von Dienstleistungen aller Art in den Bereichen Energie und Umwelt. Die Gesellschaft kann Kraftwerke sowie Kraftübertragungs-, Energiespeicher- und Verteilanlagen sowie Dienstleistungsbetriebe in den Bereichen Energie und Umwelt errichten, betreiben, erwerben, pachten und veräussern.\n\n(Auszug aus dem im Handelsregister eingetragenen Zweck gemäss SHAB-Publikation Nr. 1006179782 vom 15.11.2024.)"
     },
     "vat": {
       "title": "Mehrwertsteuer-Nummer",
-      "content": "MWST-Nummer: CHE-XXX.XXX.XXX MWST"
+      "content": "MWST-Nummer: CHE-134.711.335 MWST\nStatus: aktiv (im MWST-Register eingetragen seit 1. Januar 2025)"
     },
     "liability": {
       "title": "Haftungsausschluss",
@@ -2827,52 +2831,64 @@
       "title": "Urheberrecht",
       "content": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.\n\nDownloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet."
     },
-    "lastUpdated": "Zuletzt aktualisiert: März 2026"
+    "lastUpdated": "Zuletzt aktualisiert: April 2026"
   },
   "agb": {
     "title": "Allgemeine Geschäftsbedingungen",
     "subtitle": "Bedingungen für die Nutzung unserer Dienstleistungen",
     "scope": {
       "title": "1. Geltungsbereich",
-      "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Geschäftsbeziehung zwischen der Free State AG, Stettemerstrasse 40, 8207 Schaffhausen, Schweiz (nachfolgend «Free State AG») und ihren Kunden (nachfolgend «Kunde»).\n\nMit der Nutzung unserer Website oder Dienstleistungen akzeptiert der Kunde diese AGB. Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, Free State AG hat deren Geltung ausdrücklich schriftlich zugestimmt."
+      "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Geschäftsbeziehung zwischen der Free State AG, Stettemerstrasse 40, 8207 Schaffhausen, Schweiz, UID CHE-134.711.335 (nachfolgend «Free State AG» oder «wir») und ihren Kundinnen und Kunden (nachfolgend «Kunde»).\n\nMit der Nutzung unserer Website, der Beauftragung einer Offerte oder dem Abschluss eines Vertrags akzeptiert der Kunde diese AGB in der zum Zeitpunkt des Vertragsschlusses gültigen Fassung. Abweichende oder ergänzende Bedingungen des Kunden werden nicht anerkannt, es sei denn, Free State AG hat ihrer Geltung ausdrücklich schriftlich zugestimmt.\n\nFür einzelne Produkte und Dienstleistungen (insbesondere für das Solar-Free-Modell) gelten zusätzlich die im jeweiligen Einzelvertrag vereinbarten Bedingungen, die diesen AGB im Konfliktfall vorgehen."
     },
     "contractConclusion": {
       "title": "2. Vertragsschluss",
-      "content": "Die Darstellung von Produkten und Dienstleistungen auf unserer Website stellt kein verbindliches Angebot dar. Ein Vertrag kommt erst zustande, wenn Free State AG die Bestellung schriftlich bestätigt oder mit der Ausführung der Dienstleistung beginnt.\n\nFree State AG behält sich das Recht vor, Bestellungen ohne Angabe von Gründen abzulehnen."
+      "content": "Die Darstellung von Produkten und Dienstleistungen auf unserer Website sowie unverbindliche Berechnungen unseres Solarrechners stellen kein verbindliches Angebot dar, sondern lediglich eine Aufforderung zur Abgabe einer Offertanfrage.\n\nEin Vertrag kommt zustande, wenn (a) Free State AG eine vom Kunden bestätigte schriftliche Offerte gegenzeichnet, (b) der Kunde eine von Free State AG zugestellte Offerte rechtsgültig (auch elektronisch, siehe Ziffer 3) unterzeichnet, oder (c) Free State AG mit der Ausführung der Dienstleistung beginnt und der Kunde dies duldet.\n\nFree State AG behält sich das Recht vor, Bestellungen ohne Angabe von Gründen abzulehnen, insbesondere wenn die technische Machbarkeit, die Bonität oder die Liefersituation dies erfordern."
+    },
+    "electronicSigning": {
+      "title": "3. Elektronische Vertragsunterzeichnung",
+      "content": "Verträge mit Free State AG können in Papierform oder elektronisch geschlossen werden. Für die elektronische Unterzeichnung setzen wir den Vertrauensdienstanbieter Swisscom Trust Services AG, Konradstrasse 12, 8005 Zürich, ein. Swisscom Trust Services ist nach dem Schweizer Bundesgesetz über die Zertifizierungsdienste im Bereich der elektronischen Signatur (ZertES) als qualifizierter Vertrauensdienstanbieter zugelassen.\n\nDie über Swisscom Trust Services erstellte qualifizierte elektronische Signatur (QES) ist gemäss Art. 14 Abs. 2bis OR der eigenhändigen Unterschrift gleichgestellt und entfaltet die volle gesetzliche Beweiskraft. Der Kunde stimmt mit der Wahl der elektronischen Unterzeichnung ausdrücklich zu, dass der Vertrag in dieser Form rechtsgültig zustande kommt.\n\nIm Rahmen der Identifikation und Signaturerstellung übermittelt der Kunde Identifikations- und Authentifizierungsdaten an Swisscom Trust Services. Einzelheiten zur Datenverarbeitung finden sich in unserer Datenschutzerklärung sowie unter https://trustservices.swisscom.com."
+    },
+    "withdrawal": {
+      "title": "4. Widerrufsrecht für Konsumentinnen und Konsumenten",
+      "content": "Schliesst eine Konsumentin oder ein Konsument im Sinne von Art. 40a ff. OR einen Vertrag mit Free State AG (a) anlässlich eines Werbeanlasses oder eines Hausbesuchs am Wohnort, am Arbeitsplatz oder in der näheren Umgebung, oder (b) durch Telefonanruf oder über einen vergleichbaren Fernkommunikationsweg, in dem die Vertragsverhandlungen ohne Möglichkeit zur sofortigen Prüfung geführt werden, so steht ihr/ihm ein Widerrufsrecht von 14 Tagen ab Vertragsschluss zu.\n\nDer Widerruf bedarf keiner Begründung. Er ist schriftlich (Brief oder E-Mail an info@freestate.ch) zu erklären; die rechtzeitige Absendung genügt zur Wahrung der Frist.\n\nIm Falle eines wirksamen Widerrufs sind beide Parteien verpflichtet, bereits empfangene Leistungen zurückzuerstatten. Hat Free State AG mit Zustimmung des Kunden bereits mit der Ausführung des Vertrags begonnen (z. B. Materialbestellung, Vor-Ort-Aufmass), so kann ein angemessener Wertersatz für die bis zum Widerruf erbrachten Leistungen verlangt werden.\n\nKein Widerrufsrecht besteht insbesondere bei Verträgen, die ausschliesslich am Geschäftssitz von Free State AG verhandelt und abgeschlossen wurden, sowie bei Verträgen über Leistungen, die ausdrücklich nach Kundenspezifikation angefertigt werden, sobald deren Herstellung mit Zustimmung des Kunden begonnen hat."
     },
     "services": {
-      "title": "3. Leistungen",
-      "content": "Free State AG bietet Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Ladestationen und verwandte Energiedienstleistungen an. Der genaue Leistungsumfang ergibt sich aus dem jeweiligen Vertrag oder der Auftragsbestätigung.\n\nFree State AG behält sich das Recht vor, Änderungen an den Leistungen vorzunehmen, sofern diese für den Kunden zumutbar sind."
+      "title": "5. Leistungen",
+      "content": "Free State AG plant, liefert, installiert und wartet Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Ladestationen, Energiemanagementsysteme sowie verwandte Anlagen und Dienstleistungen im Bereich erneuerbarer Energien.\n\nDer genaue Leistungsumfang ergibt sich aus der Offerte, der Auftragsbestätigung bzw. dem Einzelvertrag. Soweit für die Ausführung erforderlich, übernimmt Free State AG auch die Koordination mit dem örtlichen Verteilnetzbetreiber, das Einreichen des Anschlussgesuchs sowie die Anmeldung von Förderungen und Vergütungen, sofern dies vertraglich vereinbart wurde.\n\nÄnderungen am Leistungsumfang sind möglich, sofern technische, behördliche oder lieferantenseitige Gründe dies erforderlich machen und die Änderungen für den Kunden zumutbar sind. Free State AG informiert den Kunden in solchen Fällen rechtzeitig."
+    },
+    "solarFreeLease": {
+      "title": "6. Solar Free – Leasing- und Abonnementsmodell",
+      "content": "Mit dem «Solar Free»-Modell stellt Free State AG dem Kunden eine Photovoltaikanlage (optional ergänzt durch Batteriespeicher, Ladestation oder Wärmepumpen-Steuerung) zur Nutzung gegen ein monatliches Entgelt zur Verfügung, ohne dass der Kunde die Anlage erwerben muss.\n\nWesentliche Bedingungen:\n\n• Eigentum: Während der gesamten Vertragslaufzeit verbleibt das Eigentum an der Anlage bei Free State AG bzw. einem von Free State AG bezeichneten Finanzierungspartner. Der Kunde stellt das Dach bzw. den Aufstellungsort kostenfrei zur Verfügung und gewährt das für Bau, Betrieb und Wartung erforderliche Zugangsrecht.\n\n• Vertragslaufzeit: Die Standardlaufzeit eines Solar-Free-Vertrags beträgt – sofern im Einzelvertrag nicht abweichend vereinbart – 20 Jahre ab Inbetriebnahme.\n\n• Monatliches Entgelt: Das monatliche Entgelt wird im Einzelvertrag verbindlich festgelegt. Es kann eine Indexierung oder ein Stufenmodell vorgesehen werden; in diesem Fall wird die Berechnungsgrundlage im Vertrag offengelegt.\n\n• Wartung und Reparatur: Free State AG übernimmt während der Vertragslaufzeit die ordentliche Wartung sowie die Behebung von Defekten an Komponenten der Anlage, sofern diese nicht durch unsachgemässe Nutzung, Vandalismus, höhere Gewalt oder Eingriffe Dritter verursacht wurden.\n\n• Stromverbrauch und Einspeisung: Der vom Kunden vor Ort verbrauchte Strom ist – sofern im Einzelvertrag nicht anders geregelt – im monatlichen Entgelt enthalten. Überschüssiger Strom wird ins Netz eingespeist; die Einspeisevergütung fliesst dem Anlageneigentümer (Free State AG) zu.\n\n• Vorzeitige Beendigung: Eine ordentliche Kündigung vor Ablauf der vereinbarten Laufzeit ist ausgeschlossen. Bei vorzeitiger Auflösung aus wichtigem Grund schuldet die kündigende Partei der Gegenseite Ersatz nach Massgabe des Einzelvertrags. Bei Eigentumswechsel an der Liegenschaft tritt der neue Eigentümer in den Vertrag ein, sofern dies im Einzelvertrag vorgesehen ist.\n\n• Kaufoption: Soweit im Einzelvertrag vorgesehen, hat der Kunde das Recht, die Anlage zu definierten Zeitpunkten zu einem im Voraus bestimmten Restwert zu erwerben.\n\n• Nach Vertragsende: Nach Ablauf der Vertragslaufzeit geht das Eigentum an der Anlage – sofern im Einzelvertrag so vorgesehen – unentgeltlich oder zu einem symbolischen Restwert auf den Kunden über. Andernfalls wird die Anlage durch Free State AG demontiert und der Aufstellungsort fachgerecht zurückgebaut.\n\nDie Einzelheiten zu Laufzeit, Entgelt, Indexierung, Eigentumsübergang, Versicherungsdeckung und Kaufoption ergeben sich abschliessend aus dem unterzeichneten Solar-Free-Vertrag, der diesen AGB im Konfliktfall vorgeht."
     },
     "prices": {
-      "title": "4. Preise",
-      "content": "Alle Preise verstehen sich in Schweizer Franken (CHF) und beinhalten die jeweils gültige Mehrwertsteuer (MWST), sofern nicht anders angegeben.\n\nFree State AG behält sich das Recht vor, Preise jederzeit anzupassen. Für bestehende Verträge gelten die zum Zeitpunkt des Vertragsschlusses vereinbarten Preise."
+      "title": "7. Preise",
+      "content": "Alle Preise verstehen sich in Schweizer Franken (CHF). Soweit nicht anders ausgewiesen, verstehen sich Preise gegenüber Konsumentinnen und Konsumenten inklusive der jeweils gültigen Mehrwertsteuer und gegenüber Geschäftskunden zuzüglich Mehrwertsteuer.\n\nIn Online-Rechnern und auf der Website angegebene Preise sind unverbindliche Richtwerte. Verbindlich sind ausschliesslich die in der individuellen Offerte bzw. im Einzelvertrag aufgeführten Preise.\n\nFree State AG behält sich das Recht vor, Preise für künftige Verträge jederzeit anzupassen. Für bereits abgeschlossene Verträge bleiben die vereinbarten Preise verbindlich, vorbehältlich vertraglich vorgesehener Anpassungsklauseln (z. B. Indexierung beim Solar-Free-Modell)."
     },
     "payment": {
-      "title": "5. Zahlungsbedingungen",
-      "content": "Rechnungen sind innert 30 Tagen ab Rechnungsdatum zahlbar, sofern nichts anderes vereinbart wurde. Bei Zahlungsverzug ist Free State AG berechtigt, Verzugszinsen von 5% pro Jahr zu berechnen.\n\nFree State AG behält sich das Recht vor, Vorauszahlungen oder Sicherheitsleistungen zu verlangen."
+      "title": "8. Zahlungsbedingungen",
+      "content": "Sofern nicht anders vereinbart, sind Rechnungen innert 30 Tagen ab Rechnungsdatum ohne Abzug zu bezahlen. Bei Zahlungsverzug ist Free State AG berechtigt, Verzugszinsen von 5 % pro Jahr (Art. 104 OR) sowie angemessene Mahn- und Inkassokosten in Rechnung zu stellen.\n\nBei grösseren Aufträgen kann Free State AG Anzahlungen oder Teilzahlungen verlangen, etwa nach folgendem Muster: 30 % bei Vertragsabschluss, 60 % bei Materiallieferung, 10 % nach Inbetriebnahme. Die genauen Zahlungsbedingungen werden im Einzelvertrag festgelegt.\n\nBeim Solar-Free-Modell ist das monatliche Entgelt im Voraus zur Zahlung fällig, im Regelfall durch LSV/Debit Direct."
     },
     "warranty": {
-      "title": "6. Gewährleistung",
-      "content": "Free State AG gewährleistet, dass die gelieferten Produkte und Dienstleistungen zum Zeitpunkt der Lieferung frei von Sach- und Rechtsmängeln sind.\n\nDie Gewährleistungsfrist beträgt 2 Jahre ab Lieferdatum, sofern nicht schriftlich eine längere Frist vereinbart wurde. Gewährleistungsansprüche müssen innert 10 Tagen nach Entdeckung des Mangels schriftlich gemeldet werden.\n\nHerstellergarantien für bestimmte Komponenten (z.B. Solarmodule, Wechselrichter) können zusätzlich gelten und unterliegen den jeweiligen Herstellerbedingungen."
+      "title": "9. Gewährleistung und Garantien",
+      "content": "Free State AG gewährleistet, dass die gelieferten Produkte und Dienstleistungen zum Zeitpunkt der Lieferung den vertraglich vereinbarten Eigenschaften entsprechen und frei von Sach- und Rechtsmängeln sind.\n\nDie gesetzliche Mängelgewährleistungsfrist beträgt zwei Jahre ab Lieferung bzw. fünf Jahre für unbewegliche Werke (Art. 371 OR). Mängel sind unverzüglich, spätestens jedoch innert 10 Arbeitstagen nach Entdeckung, schriftlich (info@freestate.ch) zu rügen.\n\nZusätzlich gelten für die einzelnen Komponenten die vom jeweiligen Hersteller gewährten Produktgarantien. Diese werden – sofern verfügbar – an den Kunden weitergegeben und ergänzen die gesetzliche Gewährleistung. Richtwerte sind:\n\n• Solarmodule (Produktgarantie): in der Regel 10–25 Jahre\n• Solarmodule (Leistungsgarantie): in der Regel 25 Jahre auf eine garantierte Mindestleistung\n• Wechselrichter: in der Regel 5–10 Jahre, oft verlängerbar\n• Batteriespeicher: in der Regel 10 Jahre Produkt- und Kapazitätsgarantie\n• Unterkonstruktion / Montagesystem: in der Regel 10–25 Jahre\n• Wärmepumpen: in der Regel 2–5 Jahre, je nach Hersteller verlängerbar\n• Ladestationen: in der Regel 2–3 Jahre\n• Installationsleistung von Free State AG: 5 Jahre auf Werkmängel\n\nDie konkreten Garantiebedingungen, Bedingungen für Garantiefälle und allfällige Selbstbehalte ergeben sich aus den Garantieurkunden der Hersteller, die dem Kunden mit der Schlussabrechnung übergeben oder elektronisch zur Verfügung gestellt werden.\n\nVon der Gewährleistung ausgenommen sind insbesondere Schäden durch unsachgemässe Nutzung, höhere Gewalt (Sturm, Hagel, Blitzschlag, soweit nicht versichert), Eingriffe Dritter, normalen Verschleiss sowie Mängel, die der Kunde trotz Aufforderung nicht rechtzeitig gerügt hat."
     },
     "liability": {
-      "title": "7. Haftung",
-      "content": "Free State AG haftet nur bei Vorsatz oder grober Fahrlässigkeit für Schäden. Die Haftung für indirekte Schäden, Folgeschäden oder entgangenen Gewinn ist im gesetzlich zulässigen Rahmen ausgeschlossen.\n\nDie Gesamthaftung von Free State AG ist auf den Vertragswert des jeweiligen Auftrags beschränkt."
+      "title": "10. Haftung",
+      "content": "Free State AG haftet für Schäden nur bei Vorsatz und grober Fahrlässigkeit. Die Haftung für leichte Fahrlässigkeit ist – soweit gesetzlich zulässig – ausgeschlossen.\n\nDie Haftung für indirekte Schäden, Folgeschäden, entgangenen Gewinn, Produktionsausfälle oder Datenverluste ist im gesetzlich zulässigen Rahmen ausgeschlossen.\n\nDie Gesamthaftung von Free State AG je Schadensfall ist auf den Vertragswert des betroffenen Auftrags bzw. – beim Solar-Free-Modell – auf das im Schadensfalljahr geschuldete jährliche Entgelt beschränkt.\n\nUnberührt bleibt die zwingende Haftung nach dem Schweizer Produktehaftpflichtgesetz sowie für Personenschäden."
     },
     "dataProtection": {
-      "title": "8. Datenschutz",
-      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit den geltenden Datenschutzgesetzen (Schweizerisches Bundesgesetz über den Datenschutz und, wo anwendbar, die EU-Datenschutz-Grundverordnung).\n\nDetaillierte Informationen zur Datenverarbeitung finden Sie in unserer Datenschutzerklärung."
+      "title": "11. Datenschutz",
+      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit dem revidierten Schweizer Datenschutzgesetz (revDSG) und – soweit anwendbar – der EU-Datenschutz-Grundverordnung (DSGVO).\n\nDetaillierte Informationen zur Datenverarbeitung, zu den Rechten der betroffenen Personen sowie zu den eingesetzten Drittanbietern (insbesondere Google Analytics, Hotjar, Google Maps und Swisscom Trust Services) finden Sie in unserer Datenschutzerklärung unter /datenschutz."
     },
     "applicableLaw": {
-      "title": "9. Anwendbares Recht und Gerichtsstand",
-      "content": "Diese AGB unterstehen schweizerischem Recht unter Ausschluss des Übereinkommens der Vereinten Nationen über Verträge über den internationalen Warenkauf (CISG).\n\nAusschliesslicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesen AGB ist Schaffhausen, Schweiz."
+      "title": "12. Anwendbares Recht und Gerichtsstand",
+      "content": "Diese AGB sowie sämtliche Verträge zwischen Free State AG und dem Kunden unterstehen ausschliesslich schweizerischem Recht unter Ausschluss des Übereinkommens der Vereinten Nationen über Verträge über den internationalen Warenkauf (CISG).\n\nAusschliesslicher Gerichtsstand für sämtliche Streitigkeiten aus oder im Zusammenhang mit diesen AGB oder den darauf gestützten Verträgen ist Schaffhausen, Schweiz. Free State AG behält sich das Recht vor, den Kunden auch an seinem Wohnsitz oder an jedem anderen zuständigen Gericht zu belangen. Zwingende Gerichtsstände gemäss Konsumentenschutzrecht bleiben vorbehalten."
     },
     "finalProvisions": {
-      "title": "10. Schlussbestimmungen",
-      "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, wird die Wirksamkeit der übrigen Bestimmungen davon nicht berührt. Die unwirksame Bestimmung ist durch eine wirksame Bestimmung zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.\n\nFree State AG behält sich das Recht vor, diese AGB jederzeit zu ändern. Die geänderten AGB werden auf der Website veröffentlicht und gelten ab dem Zeitpunkt der Veröffentlichung."
+      "title": "13. Schlussbestimmungen",
+      "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam, ungültig oder undurchsetzbar sein oder werden, so wird die Wirksamkeit der übrigen Bestimmungen davon nicht berührt. Die unwirksame Bestimmung ist durch eine wirksame Regelung zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.\n\nFree State AG behält sich das Recht vor, diese AGB jederzeit zu ändern. Die jeweils gültige Fassung wird auf der Website veröffentlicht. Für bestehende Verträge gilt die zum Zeitpunkt des Vertragsschlusses geltende Fassung, sofern der Kunde einer Änderung nicht ausdrücklich zustimmt.\n\nDie deutsche Fassung dieser AGB ist verbindlich. Übersetzungen in andere Sprachen dienen ausschliesslich der Information."
     },
-    "lastUpdated": "Zuletzt aktualisiert: März 2026"
+    "lastUpdated": "Zuletzt aktualisiert: April 2026"
   },
   "chargingStations": {
     "hero": {
@@ -4791,12 +4807,12 @@
       },
       "energyFlow": {
         "title": "Energiefluss",
-        "production": "Produktion",
-        "ownConsumption": "Eigenverbrauch",
-        "consumption": "Stromverbrauch",
+        "production": "Solarproduktion",
+        "ownConsumption": "Aus Solar",
+        "consumption": "Hausverbrauch",
         "independence": "Unabhängigkeit",
-        "gridSupply": "Netzbezug",
-        "feedIn": "Netzeinspeisung"
+        "gridSupply": "Aus dem Netz",
+        "feedIn": "Überschuss ins Netz"
       },
       "monthlyAnalysis": {
         "title": "Monatsanalyse",
@@ -4856,6 +4872,35 @@
         "subsidyAmount": "Förderung (Einmalvergütung)",
         "netAmount": "Nettobetrag",
         "pricingBreakdown": "Preisübersicht"
+      },
+      "solarFree": {
+        "yourSystem": {
+          "label": "Ihre Anlage",
+          "size": "{kwp} kWp",
+          "panels": "{count} Module",
+          "production": "~{kwh} kWh pro Jahr"
+        },
+        "yourYearlySaving": {
+          "label": "Ihre jährliche Ersparnis",
+          "amount": "CHF {amount}",
+          "suffix": "pro Jahr auf Ihrer Stromrechnung",
+          "footnote": "SolarFree-Strom ist immer 30% günstiger als Netzstrom."
+        },
+        "yourImpact": {
+          "label": "Ihr Beitrag",
+          "co2": "~{kg} kg CO₂ pro Jahr eingespart",
+          "selfSufficient": "~{pct}% Eigenversorgung"
+        },
+        "whatsIncluded": {
+          "label": "Was ist enthalten",
+          "footnote": "Für die gesamte Vertragslaufzeit abgedeckt."
+        },
+        "energyFlow": {
+          "label": "So fliesst Ihre Energie"
+        },
+        "monthly": {
+          "label": "Über das Jahr"
+        }
       }
     },
     "solarDirect": {
@@ -4951,7 +4996,16 @@
         "net": "Nettobetrag"
       },
       "creatingContract": "Vertrag wird erstellt...",
-      "proceedToSign": "Zur Unterschrift"
+      "proceedToSign": "Zur Unterschrift",
+      "solarFree": {
+        "rateCard": {
+          "title": "Ihr SolarFree-Tarif",
+          "bodyLine1": "30% günstiger als der Netztarif für jede Solar-kWh, die Sie verbrauchen.",
+          "bodyLine2": "Keine Gebühren für die Anlage selbst.",
+          "yearlySavingLabel": "Geschätzte jährliche Ersparnis",
+          "yearlySavingValue": "CHF {amount}"
+        }
+      }
     },
     "signature": {
       "title": "Digitale Unterschrift",
