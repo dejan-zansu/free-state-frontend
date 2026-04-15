@@ -14,8 +14,8 @@ const PathToEnergy = async ({ isCommercial = false }: { isCommercial?: boolean }
     ? 'rgba(61, 56, 88, 0.35)'
     : 'rgba(183, 254, 26, 0.15)'
   const image = isCommercial
-    ? '/images/path-to-energy-commercial-6a5540.png'
-    : '/images/your-path-to-energy-6a5540.png'
+    ? '/images/path-to-energy-commercial-6a5540.webp'
+    : '/images/your-path-to-energy-6a5540.webp'
   const buttonVariant = isCommercial ? 'outline-primary' : 'primary'
   const contactHref = '/contact'
 

@@ -324,7 +324,7 @@
           "capacity": "220 kWp",
           "authorName": "Marco Keller",
           "authorRole": "Betriebsleiter, Keller Logistik AG",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         },
         {
           "quote": "Für unsere öffentlichen Gebäude brauchten wir einen Partner, der Technik, Budgetrahmen und Reporting beherrscht. Free State liefert genau das – transparent und verlässlich.",
@@ -333,7 +333,7 @@
           "capacity": "165 kWp",
           "authorName": "Dr. Andrea Berger",
           "authorRole": "Leiterin Hochbau, Gemeinde Wettingen",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         },
         {
           "quote": "Unsere Scheunendächer erzeugen jetzt Strom für den gesamten Hof und speisen Überschüsse ins Netz ein. Die Zusammenarbeit war partnerschaftlich und durch und durch landwirtschaftstauglich.",
@@ -342,7 +342,7 @@
           "capacity": "140 kWp",
           "authorName": "Peter Odermatt",
           "authorRole": "Landwirt, Hof Odermatt",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         }
       ],
       "stories": [
@@ -352,7 +352,7 @@
           "installTime": "2 Monate",
           "capacity": "15,5 kWp",
           "authorName": "Franz McLaren",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         },
         {
           "quote": "Die Planung war transparent und der Service nach der Installation ausgezeichnet. Unsere Stromkosten sind deutlich gesunken.",
@@ -425,7 +425,7 @@
       "title": "In wenigen Schritten\nzur eigenen Solarlösung",
       "description": "Vereinbaren Sie ein kurzes Gespräch und erfahren Sie, wie FreeState Ihre Energiekosten senken kann – ohne Anfangsinvestition. Wir analysieren Ihre Situation, zeigen konkrete Einsparpotenziale und begleiten Sie vom ersten Gespräch bis zur fertigen Anlage – oft in nur 4 Wochen.",
       "cta": "Termin vereinbaren",
-      "image": "/images/your-path-to-energy-6a5540.png"
+      "image": "/images/your-path-to-energy-6a5540.webp"
     },
     "battery": {
       "title": "Batterie",

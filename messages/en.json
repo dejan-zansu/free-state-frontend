@@ -324,7 +324,7 @@
           "capacity": "220 kWp",
           "authorName": "Marco Keller",
           "authorRole": "Operations Manager, Keller Logistik AG",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         },
         {
           "quote": "For our public buildings we needed a partner who masters technology, budgets and reporting. Free State delivers exactly that – transparent and reliable.",
@@ -333,7 +333,7 @@
           "capacity": "165 kWp",
           "authorName": "Dr. Andrea Berger",
           "authorRole": "Head of Buildings, Wettingen Municipality",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         },
         {
           "quote": "Our barn roofs now generate electricity for the whole farm and feed the surplus into the grid. The cooperation was true partnership and thoroughly farm-ready.",
@@ -342,7 +342,7 @@
           "capacity": "140 kWp",
           "authorName": "Peter Odermatt",
           "authorRole": "Farmer, Hof Odermatt",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         }
       ],
       "stories": [
@@ -352,7 +352,7 @@
           "installTime": "2 months",
           "capacity": "15.5 kWp",
           "authorName": "Franz McLaren",
-          "image": "/images/customer-story-house-334153.png"
+          "image": "/images/customer-story-house-334153.webp"
         },
         {
           "quote": "Planning was transparent and post-installation service was excellent. Our electricity costs dropped significantly.",
@@ -425,7 +425,7 @@
       "title": "A few steps to\nyour own solar solution",
       "description": "Book a short consultation and learn how FreeState can reduce your energy costs – without upfront investment. We analyse your situation, show concrete savings potential and guide you from the first conversation to the finished system – often in just 4 weeks.",
       "cta": "Book appointment",
-      "image": "/images/your-path-to-energy-6a5540.png"
+      "image": "/images/your-path-to-energy-6a5540.webp"
     },
     "battery": {
       "title": "Battery",
