@@ -1,53 +1,29 @@
-import Benefits from '@/components/Benefits'
-import Deals from '@/components/Deals'
+import EvCharging from '@/components/EvCharging'
 import Hero from '@/components/Hero'
-import Portfolio from '@/components/Portfolio'
-import SolarEnergyFor from '@/components/SolarEnergyFor'
-import Stats from '@/components/Stats'
-import Testimonials from '@/components/Testimonials'
-import YourPartner from '@/components/YourPartner'
-import { getTranslations } from 'next-intl/server'
+import PathToEnergy from '@/components/PathToEnergy'
+import FusionSolarApp from '@/components/FusionSolarApp'
+import Battery from '@/components/Battery'
+import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
+import WhyFreeState from '@/components/WhyFreeState'
+import YourBenefits from '@/components/YourBenefits'
+import Reviews from '@/components/Reviews'
+import CustomerStories from '@/components/CustomerStories'
+import SolarModels from '@/components/SolarModels'
 
 const CommercialPage = async () => {
-  const t = await getTranslations('home.portfolio')
-
-  const portfolioTranslations = {
-    title: t('title'),
-    learnMore: t('learnMore'),
-    items: [
-      {
-        number: '01',
-        title: t('item1.title'),
-        description: t('item1.details'),
-      },
-      {
-        number: '02',
-        title: t('item2.title'),
-        description: t('item2.details'),
-      },
-      {
-        number: '03',
-        title: t('item3.title'),
-        description: t('item3.details'),
-      },
-    ],
-  }
-
   return (
     <main>
-      <Hero
-        title="Scalable solar solutions for commercial properties"
-        description="From planning to operation, we deliver long-term performance, price stability, and sustainable impact."
-        showCTAs={false}
-        isCommercial
-      />
-      <Deals isCommercial />
-      <SolarEnergyFor isCommercial />
-      <Benefits isCommercial />
-      <Portfolio isCommercial translations={portfolioTranslations} />
-      <YourPartner isCommercial />
-      <Testimonials />
-      <Stats />
+      <Hero showCTAs={false} isCommercial />
+      <SolarModels isCommercial />
+      <WhyFreeState isCommercial />
+      <PathToEnergy isCommercial />
+      <FusionSolarApp isCommercial />
+      <Battery isCommercial />
+      <HeatPumpsViessmann isCommercial />
+      <EvCharging isCommercial />
+      <CustomerStories isCommercial />
+      <Reviews isCommercial />
+      <YourBenefits isCommercial />
     </main>
   )
 }

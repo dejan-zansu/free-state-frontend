@@ -143,8 +143,54 @@
   "home": {
     "hero": {
       "badge": "Free State SolarFree",
-      "title": "Dein Dach.\nDein Strom.\nNull Investition.",
-      "subtitle": "Ihre Energie, unsere Verantwortung\nnachhaltig und sorgenfrei",
+      "title": "Intelligente Solarlösungen\nfür Privathaushalte",
+      "subtitle": "Saubere Energie, planbare Kosten und umfassender Service, ganz ohne Investitionskosten.",
+      "commercialTitle": "Intelligente Energielösungen\nfür Unternehmen",
+      "commercialSubtitle": "Senken Sie Ihre Energiekosten mit skalierbaren Solar- und Speicherlösungen, planbaren Modellen und umfassendem Service – ohne hohe Anfangsinvestition.",
+      "pill": [
+        {
+          "icon": "/images/hero-pill-investition.svg",
+          "title": "0 CHF INVESTITION",
+          "subtitle": "Sie zahlen nichts upfront"
+        },
+        {
+          "icon": "/images/hero-pill-fixpreis.svg",
+          "title": "FIXPREIS-GARANTIE",
+          "subtitle": "35 Jahre planbare Kosten"
+        },
+        {
+          "icon": "/images/hero-pill-service.svg",
+          "title": "RUNDUM-SERVICE",
+          "subtitle": "Wartung & Versicherung inklusive"
+        },
+        {
+          "icon": "/images/hero-pill-schweizer.svg",
+          "title": "SCHWEIZER QUALITÄT",
+          "subtitle": "Alles aus einer Hand"
+        }
+      ],
+      "pillCommercial": [
+        {
+          "icon": "/images/hero-pill-commercial-investition.svg",
+          "title": "0 CHF INVESTITION",
+          "subtitle": "Sie zahlen nichts upfront"
+        },
+        {
+          "icon": "/images/hero-pill-commercial-fixpreis.svg",
+          "title": "FIXPREIS-GARANTIE",
+          "subtitle": "35 Jahre planbare Kosten"
+        },
+        {
+          "icon": "/images/hero-pill-commercial-service.svg",
+          "title": "RUNDUM-SERVICE",
+          "subtitle": "Wartung & Versicherung inklusive"
+        },
+        {
+          "icon": "/images/hero-pill-commercial-schweizer.svg",
+          "title": "SCHWEIZER QUALITÄT",
+          "subtitle": "Alles aus einer Hand"
+        }
+      ],
       "cta": {
         "primary": "Jetzt starten",
         "secondary": "Kalkulator"
@@ -257,6 +303,120 @@
           "title": "Rundum-Service. Kein Aufwand.",
           "description": "Planung, Installation und Wartung – alles aus einer Hand.",
           "image": "/images/why-freestate-service-792bb9.png"
+        }
+      ]
+    },
+    "customerStories": {
+      "eyebrow": "Kundenstimmen",
+      "title": "Das sagen unsere Kunden",
+      "subtitle": "Echte Erfahrungen mit FreeState – transparent, persönlich und nachvollziehbar.",
+      "verifiedOwner": "verified owner",
+      "stats": {
+        "savings": "Jährliche Kostenersparnis",
+        "installTime": "von Anfrage bis Installation",
+        "capacity": "Installiert"
+      },
+      "commercialStories": [
+        {
+          "quote": "Free State hat unsere Lagerhallen optimal mit Solarmodulen ausgestattet. Die Planung war präzise, die Umsetzung termingerecht – und unsere Produktion läuft seither spürbar günstiger.",
+          "savings": "CHF 48'200.–",
+          "installTime": "5 Monate",
+          "capacity": "220 kWp",
+          "authorName": "Marco Keller",
+          "authorRole": "Betriebsleiter, Keller Logistik AG",
+          "image": "/images/customer-story-house-334153.png"
+        },
+        {
+          "quote": "Für unsere öffentlichen Gebäude brauchten wir einen Partner, der Technik, Budgetrahmen und Reporting beherrscht. Free State liefert genau das – transparent und verlässlich.",
+          "savings": "CHF 32'600.–",
+          "installTime": "4 Monate",
+          "capacity": "165 kWp",
+          "authorName": "Dr. Andrea Berger",
+          "authorRole": "Leiterin Hochbau, Gemeinde Wettingen",
+          "image": "/images/customer-story-house-334153.png"
+        },
+        {
+          "quote": "Unsere Scheunendächer erzeugen jetzt Strom für den gesamten Hof und speisen Überschüsse ins Netz ein. Die Zusammenarbeit war partnerschaftlich und durch und durch landwirtschaftstauglich.",
+          "savings": "CHF 27'400.–",
+          "installTime": "3 Monate",
+          "capacity": "140 kWp",
+          "authorName": "Peter Odermatt",
+          "authorRole": "Landwirt, Hof Odermatt",
+          "image": "/images/customer-story-house-334153.png"
+        }
+      ],
+      "stories": [
+        {
+          "quote": "Alles lief reibungslos, von der Beratung bis zur Installation. Sehr zuverlässig und professionell.",
+          "savings": "CHF 3'419.–",
+          "installTime": "2 Monate",
+          "capacity": "15,5 kWp",
+          "authorName": "Franz McLaren",
+          "image": "/images/customer-story-house-334153.png"
+        },
+        {
+          "quote": "Die Planung war transparent und der Service nach der Installation ausgezeichnet. Unsere Stromkosten sind deutlich gesunken.",
+          "savings": "CHF 2'850.–",
+          "installTime": "6 Wochen",
+          "capacity": "12,0 kWp",
+          "authorName": "Sabine Keller",
+          "image": "/images/single-family-home.png"
+        },
+        {
+          "quote": "Von der ersten Anfrage bis zum fertigen System fühlten wir uns bestens beraten. Die Kommunikation war immer klar.",
+          "savings": "CHF 4'100.–",
+          "installTime": "8 Wochen",
+          "capacity": "18,2 kWp",
+          "authorName": "Markus Weber",
+          "image": "/images/hero-solar-panels.webp"
+        }
+      ]
+    },
+    "reviews": {
+      "eyebrow": "Kundenbewertungen",
+      "title": "Erfahrungen mit FreeState",
+      "subtitle": "Echte Bewertungen von Kundinnen und Kunden.",
+      "commercialEyebrow": "Unternehmensstimmen",
+      "commercialTitle": "Erfahrungen von Unternehmen",
+      "commercialSubtitle": "Echte Bewertungen von Partnerfirmen und Unternehmenskunden.",
+      "commercialItems": [
+        {
+          "quote": "Free State hat unseren Produktionsstandort kompetent umgerüstet. Die Projektleitung war professionell, der Zeitplan wurde exakt eingehalten und die Anlage läuft seit dem ersten Tag störungsfrei.",
+          "authorName": "Marco Keller",
+          "authorRole": "Betriebsleiter, Keller Logistik AG"
+        },
+        {
+          "quote": "Als Immobilienunternehmen haben wir mehrere Liegenschaften mit Free State ausgerüstet. Die enge Zusammenarbeit, die technische Beratung und das Reporting überzeugen uns vollumfänglich.",
+          "authorName": "Sabrina Meier",
+          "authorRole": "Head of Asset Management, Helvetica Real Estate"
+        },
+        {
+          "quote": "Unsere Lagerhallendächer werden jetzt optimal genutzt. Das Team hat unsere Anforderungen als Industriebetrieb genau verstanden und eine skalierbare Lösung geliefert.",
+          "authorName": "Stefan Brunner",
+          "authorRole": "CTO, Brunner Industrie GmbH"
+        },
+        {
+          "quote": "Die Wirtschaftlichkeit unserer Anlage wurde transparent dargestellt und die Umsetzung war reibungslos. Free State ist für uns ein verlässlicher Partner auf dem Weg zur Netto-Null.",
+          "authorName": "Claudia Hofer",
+          "authorRole": "CFO, Hofer & Partner AG"
+        }
+      ],
+      "items": [
+        {
+          "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmäßigen Wartung. Dank dieser Maßnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
+          "authorName": "Rivero Pineda Leonardo"
+        },
+        {
+          "quote": "Die Beratung war ehrlich und kompetent. Das Team hat sich wirklich Zeit genommen, unser Haus zu verstehen, und eine Lösung gefunden, die zu uns passt. Wir würden Free State jederzeit weiterempfehlen.",
+          "authorName": "Andrea Berger"
+        },
+        {
+          "quote": "Vom Angebot bis zur Inbetriebnahme verlief alles schnell und unkompliziert. Die Handwerker waren pünktlich, sauber und sehr freundlich. Die App funktioniert einwandfrei und wir behalten jederzeit den Überblick.",
+          "authorName": "Thomas Steiner"
+        },
+        {
+          "quote": "Seit der Installation merken wir sofort, wie stark unsere Stromrechnung gesunken ist. Besonders geschätzt haben wir die klare Kommunikation und die sorgfältige Arbeit auf dem Dach.",
+          "authorName": "Nicole Jäggi"
         }
       ]
     },

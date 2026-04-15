@@ -8,9 +8,21 @@ type Feature = {
   image: string
 }
 
-const WhyFreeState = async () => {
+const commercialImages = [
+  '/images/why-freestate-commercial-planbar-42a5c6.png',
+  '/images/why-freestate-commercial-effizienz-77eb23.png',
+  '/images/why-freestate-commercial-service-19de44.png',
+]
+
+const WhyFreeState = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
   const t = await getTranslations('home.whyFreeState')
-  const features = t.raw('features') as Feature[]
+  const rawFeatures = t.raw('features') as Feature[]
+  const features = isCommercial
+    ? rawFeatures.map((feature, index) => ({
+        ...feature,
+        image: commercialImages[index] ?? feature.image,
+      }))
+    : rawFeatures
 
   return (
     <section className="w-full bg-gradient-to-b from-[#FDFFF5] from-[65%] to-[#DCE9E6] py-16 md:py-24 px-4 sm:px-6">
@@ -24,7 +36,10 @@ const WhyFreeState = async () => {
               {t('subtitle')}
             </p>
           </div>
-          <LinkButton href="/contact" variant="outline-primary">
+          <LinkButton
+            href="/contact"
+            variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
+          >
             {t('cta')}
           </LinkButton>
         </div>
