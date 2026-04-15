@@ -1,5 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import HeroNav from './HeroNav'
+import Stats from './Stats'
 
 const PortfolioHero = async () => {
   const t = await getTranslations('portfolioPage')
@@ -24,7 +25,7 @@ const PortfolioHero = async () => {
         </div>
       </div>
 
-      {/* <div className="absolute bottom-0 left-0 right-0 z-10">
+      <div className="absolute bottom-0 left-0 right-0 z-10">
         <div
           className="w-full h-[189px] flex items-center"
           style={{
@@ -39,7 +40,7 @@ const PortfolioHero = async () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
     </section>
   )
 }

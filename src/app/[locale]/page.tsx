@@ -8,6 +8,8 @@ import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
 import SolarModels from '@/components/SolarModels'
 import WhyFreeState from '@/components/WhyFreeState'
 import PathToEnergy from '@/components/PathToEnergy'
+import CustomerStories from '@/components/CustomerStories'
+import Reviews from '@/components/Reviews'
 
 export default async function HomePage() {
   return (
@@ -20,8 +22,10 @@ export default async function HomePage() {
       <Battery />
       <HeatPumpsViessmann />
       <EvCharging />
-      <YourBenefits />
       <OurPartners />
+      <CustomerStories />
+      <Reviews />
+      <YourBenefits />
     </div>
   )
 }

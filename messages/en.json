@@ -143,8 +143,58 @@
   "home": {
     "hero": {
       "badge": "Free State SolarFree",
-      "title": "Your Roof.\nYour Power.\nZero Investment.",
-      "subtitle": "Your energy, our responsibility\nsustainable and worry-free.",
+      "title": "Intelligent solar solutions\nfor private households",
+      "subtitle": "Clean energy, predictable costs and comprehensive service – with zero investment costs.",
+      "commercialTitle": "Intelligent energy solutions\nfor businesses",
+      "commercialSubtitle": "Lower your energy costs with scalable solar and storage solutions, predictable models and comprehensive service – without a high upfront investment.",
+      "pill": [
+        {
+          "icon": "/images/hero-pill-investition.svg",
+          "title": "0 CHF INVESTMENT",
+          "subtitle": "You pay nothing upfront"
+        },
+        {
+          "icon": "/images/hero-pill-fixpreis.svg",
+          "title": "FIXED-PRICE GUARANTEE",
+          "subtitle": "35 years of predictable costs"
+        },
+        {
+          "icon": "/images/hero-pill-service.svg",
+          "title": "ALL-ROUND SERVICE",
+          "subtitle": "Maintenance & insurance included"
+        },
+        {
+          "icon": "/images/hero-pill-schweizer.svg",
+          "title": "SWISS QUALITY",
+          "subtitle": "Everything from one source"
+        }
+      ],
+      "pillCommercial": [
+        {
+          "icon": "/images/hero-pill-commercial-investition.svg",
+          "title": "0 CHF INVESTMENT",
+          "subtitle": "You pay nothing upfront"
+        },
+        {
+          "icon": "/images/hero-pill-commercial-fixpreis.svg",
+          "title": "FIXED-PRICE GUARANTEE",
+          "subtitle": "35 years of predictable costs"
+        },
+        {
+          "icon": "/images/hero-pill-commercial-service.svg",
+          "title": "ALL-ROUND SERVICE",
+          "subtitle": "Maintenance & insurance included"
+        },
+        {
+          "icon": "/images/hero-pill-commercial-schweizer.svg",
+          "title": "SWISS QUALITY",
+          "subtitle": "Everything from one source"
+        }
+      ],
+      "cta": {
+        "primary": "Get started",
+        "secondary": "Calculator"
+      },
       "nav": {
         "solarAbo": "SolarFree",
         "products": "Products",
@@ -256,12 +306,126 @@
         }
       ]
     },
+    "customerStories": {
+      "eyebrow": "Customer stories",
+      "title": "What our customers say",
+      "subtitle": "Real experiences with FreeState – transparent, personal and relatable.",
+      "verifiedOwner": "verified owner",
+      "stats": {
+        "savings": "Yearly savings",
+        "installTime": "from enquiry to installation",
+        "capacity": "Installed"
+      },
+      "commercialStories": [
+        {
+          "quote": "Free State equipped our warehouses with solar modules perfectly. Planning was precise, execution on schedule – and our production has been running noticeably cheaper ever since.",
+          "savings": "CHF 48,200.–",
+          "installTime": "5 months",
+          "capacity": "220 kWp",
+          "authorName": "Marco Keller",
+          "authorRole": "Operations Manager, Keller Logistik AG",
+          "image": "/images/customer-story-house-334153.webp"
+        },
+        {
+          "quote": "For our public buildings we needed a partner who masters technology, budgets and reporting. Free State delivers exactly that – transparent and reliable.",
+          "savings": "CHF 32,600.–",
+          "installTime": "4 months",
+          "capacity": "165 kWp",
+          "authorName": "Dr. Andrea Berger",
+          "authorRole": "Head of Buildings, Wettingen Municipality",
+          "image": "/images/customer-story-house-334153.webp"
+        },
+        {
+          "quote": "Our barn roofs now generate electricity for the whole farm and feed the surplus into the grid. The cooperation was true partnership and thoroughly farm-ready.",
+          "savings": "CHF 27,400.–",
+          "installTime": "3 months",
+          "capacity": "140 kWp",
+          "authorName": "Peter Odermatt",
+          "authorRole": "Farmer, Hof Odermatt",
+          "image": "/images/customer-story-house-334153.webp"
+        }
+      ],
+      "stories": [
+        {
+          "quote": "Everything ran smoothly, from consulting to installation. Very reliable and professional.",
+          "savings": "CHF 3,419.–",
+          "installTime": "2 months",
+          "capacity": "15.5 kWp",
+          "authorName": "Franz McLaren",
+          "image": "/images/customer-story-house-334153.webp"
+        },
+        {
+          "quote": "Planning was transparent and post-installation service was excellent. Our electricity costs dropped significantly.",
+          "savings": "CHF 2,850.–",
+          "installTime": "6 weeks",
+          "capacity": "12.0 kWp",
+          "authorName": "Sabine Keller",
+          "image": "/images/single-family-home.png"
+        },
+        {
+          "quote": "From the first enquiry to the finished system we felt perfectly supported. Communication was always clear.",
+          "savings": "CHF 4,100.–",
+          "installTime": "8 weeks",
+          "capacity": "18.2 kWp",
+          "authorName": "Markus Weber",
+          "image": "/images/hero-solar-panels.webp"
+        }
+      ]
+    },
+    "reviews": {
+      "eyebrow": "Customer reviews",
+      "title": "Experiences with FreeState",
+      "subtitle": "Real reviews from our customers.",
+      "commercialEyebrow": "Business voices",
+      "commercialTitle": "Experiences from businesses",
+      "commercialSubtitle": "Real reviews from partner companies and corporate customers.",
+      "commercialItems": [
+        {
+          "quote": "Free State upgraded our production site with real expertise. Project management was professional, the schedule was kept precisely, and the system has been running flawlessly from day one.",
+          "authorName": "Marco Keller",
+          "authorRole": "Operations Manager, Keller Logistik AG"
+        },
+        {
+          "quote": "As a real estate company we've equipped several properties with Free State. The close collaboration, technical advice and reporting have convinced us completely.",
+          "authorName": "Sabrina Meier",
+          "authorRole": "Head of Asset Management, Helvetica Real Estate"
+        },
+        {
+          "quote": "Our warehouse roofs are now used optimally. The team understood our industrial requirements precisely and delivered a scalable solution.",
+          "authorName": "Stefan Brunner",
+          "authorRole": "CTO, Brunner Industrie GmbH"
+        },
+        {
+          "quote": "The economics of our system were presented transparently and the execution was seamless. Free State is a reliable partner for us on the path to net zero.",
+          "authorName": "Claudia Hofer",
+          "authorRole": "CFO, Hofer & Partner AG"
+        }
+      ],
+      "items": [
+        {
+          "quote": "Our barn roofs were used perfectly to generate solar energy. Free State supported us brilliantly – from detailed planning to regular maintenance. Thanks to this, we are not only saving on energy costs but also making an important contribution to climate protection.",
+          "authorName": "Rivero Pineda Leonardo"
+        },
+        {
+          "quote": "The advice was honest and competent. The team really took the time to understand our home and found a solution that fits us. We would recommend Free State at any time.",
+          "authorName": "Andrea Berger"
+        },
+        {
+          "quote": "From the offer to the commissioning, everything went quickly and smoothly. The installers were punctual, tidy and very friendly. The app works flawlessly and we always keep an overview.",
+          "authorName": "Thomas Steiner"
+        },
+        {
+          "quote": "Since the installation we've immediately noticed how much our electricity bill has dropped. We especially appreciated the clear communication and the careful work on the roof.",
+          "authorName": "Nicole Jäggi"
+        }
+      ]
+    },
     "pathToEnergy": {
       "eyebrow": "Your path to your own energy",
       "title": "A few steps to\nyour own solar solution",
       "description": "Book a short consultation and learn how FreeState can reduce your energy costs – without upfront investment. We analyse your situation, show concrete savings potential and guide you from the first conversation to the finished system – often in just 4 weeks.",
       "cta": "Book appointment",
-      "image": "/images/your-path-to-energy-6a5540.png"
+      "image": "/images/your-path-to-energy-6a5540.webp"
     },
     "battery": {
       "title": "Battery",

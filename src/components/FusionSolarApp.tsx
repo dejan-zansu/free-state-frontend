@@ -2,27 +2,36 @@ import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
 import Image from 'next/image'
 
-const CheckIconGreen = () => (
+const CheckIconCircle = ({ color }: { color: string }) => (
   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="6" cy="6" r="5.55" stroke="#B7FE1A" strokeWidth="0.9" />
-    <path d="M3.6 6.2L5.2 7.8L8.4 4.2" stroke="#B7FE1A" strokeWidth="0.9" strokeLinecap="round" strokeLinejoin="round" />
+    <circle cx="6" cy="6" r="5.55" stroke={color} strokeWidth="0.9" />
+    <path d="M3.6 6.2L5.2 7.8L8.4 4.2" stroke={color} strokeWidth="0.9" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 )
 
-const FusionSolarApp = async () => {
+const FusionSolarApp = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.fusionSolarApp')
 
   const features = t.raw('features') as string[]
+
+  const leftBackground = isCommercial
+    ? 'linear-gradient(131deg, #191D1C 0%, #3D3858 100%)'
+    : 'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)'
+  const glowClass = isCommercial ? 'bg-[#3D3858]/50' : 'bg-[#b7fe1a]/50'
 
   return (
     <section className="w-full" style={{ background: 'linear-gradient(180deg, #F2F4E8 78%, #DCE9E6 100%)' }}>
       <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row">
         <div
           className="relative flex-1 overflow-hidden"
-          style={{ background: 'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)' }}
+          style={{ background: leftBackground }}
         >
-          <div className="absolute top-[-224px] right-[-50px] w-[374px] h-[374px] bg-[#b7fe1a]/50 rounded-full blur-[490px]" />
-          <div className="absolute top-[-256px] right-[-10px] w-[291px] h-[291px] bg-[#b7fe1a]/50 rounded-full blur-[170px]" />
+          <div className={`absolute top-[-224px] right-[-50px] w-[374px] h-[374px] ${glowClass} rounded-full blur-[490px]`} />
+          <div className={`absolute top-[-256px] right-[-10px] w-[291px] h-[291px] ${glowClass} rounded-full blur-[170px]`} />
 
           <div className="relative z-10 flex flex-col gap-[50px] px-8 sm:px-16 lg:px-[105px] py-20 lg:py-[142px]">
             <div className="flex flex-col gap-10">
@@ -38,7 +47,7 @@ const FusionSolarApp = async () => {
               <div className="flex flex-col gap-1.5">
                 {features.map((feature) => (
                   <div key={feature} className="flex items-center gap-1">
-                    <CheckIconGreen />
+                    <CheckIconCircle color={isCommercial ? '#FFFFFF' : '#B7FE1A'} />
                     <span className="text-[#FDFFF5]/80 text-lg md:text-[22px] font-light tracking-tight">
                       {feature}
                     </span>

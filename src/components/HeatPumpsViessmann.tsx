@@ -1,11 +1,12 @@
 import { getTranslations } from 'next-intl/server'
 import ProductShowcase from './ProductShowcase'
 
-const HeatPumpsViessmann = async () => {
+const HeatPumpsViessmann = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
   const t = await getTranslations('home.heatPumpsViessmann')
 
   return (
     <ProductShowcase
+      isCommercial={isCommercial}
       title={t('title')}
       subtitle={t('subtitle')}
       steps={[
