@@ -234,6 +234,35 @@
         ]
       }
     },
+    "whyFreeState": {
+      "title": "Warum FreeState?",
+      "subtitle": "Die intelligente Art, Energie zu nutzen\n– effizient, planbar und sorgenfrei.",
+      "cta": "Kontakt",
+      "features": [
+        {
+          "title": "Planbare Energie. Keine Risiken.",
+          "description": "Solar ohne Anfangsinvestition. Feste, transparente Stromkosten.",
+          "image": "/images/why-freestate-planbar-42a5c6.png"
+        },
+        {
+          "title": "Ein System. Maximale Effizienz.",
+          "description": "Solar, Speicher und E-Mobilität – perfekt abgestimmt.",
+          "image": "/images/why-freestate-effizienz-77eb23.png"
+        },
+        {
+          "title": "Rundum-Service. Kein Aufwand.",
+          "description": "Planung, Installation und Wartung – alles aus einer Hand.",
+          "image": "/images/why-freestate-service-792bb9.png"
+        }
+      ]
+    },
+    "pathToEnergy": {
+      "eyebrow": "Ihr Weg zur eigenen Energie",
+      "title": "In wenigen Schritten\nzur eigenen Solarlösung",
+      "description": "Vereinbaren Sie ein kurzes Gespräch und erfahren Sie, wie FreeState Ihre Energiekosten senken kann – ohne Anfangsinvestition. Wir analysieren Ihre Situation, zeigen konkrete Einsparpotenziale und begleiten Sie vom ersten Gespräch bis zur fertigen Anlage – oft in nur 4 Wochen.",
+      "cta": "Termin vereinbaren",
+      "image": "/images/your-path-to-energy-6a5540.png"
+    },
     "battery": {
       "title": "Batterie",
       "subtitle": "FreeState bietet intelligente Batteriespeicherlösungen in Partnerschaft mit Huawei – mit zuverlässiger Hardware, nahtloser Integration und zukunftsorientiertem Energiemanagement für Ihr Zuhause.",
