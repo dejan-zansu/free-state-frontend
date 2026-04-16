@@ -16,8 +16,8 @@ const ServicePricingSection = () => {
       answer: t('pricing.expanded.description'),
     },
     ...itemKeys.map(key => ({
-      question: t(`pricing.items.${key}`),
-      answer: '',
+      question: t(`pricing.items.${key}.question`),
+      answer: t(`pricing.items.${key}.answer`),
     })),
   ]
 

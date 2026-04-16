@@ -184,7 +184,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
     : t('hero.nav.promoTitle')
 
   return (
-    <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full hidden md:flex justify-center z-20 px-4">
+    <div className="absolute md:top-[120px] left-1/2 -translate-x-1/2 w-full hidden md:flex justify-center z-20 px-4">
       <div
         className={cn(
           'inline-flex flex-col bg-white/20 backdrop-blur-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-w-[calc(100vw-2rem)]',

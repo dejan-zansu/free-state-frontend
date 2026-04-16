@@ -179,6 +179,17 @@ export interface AdminNewsletterSubscription {
   createdAt: string
 }
 
+export interface AdminCareerSubscription {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  consentMarketing: boolean
+  locale: string
+  createdAt: string
+  updatedAt: string
+}
+
 export interface AdminInvestorRequest {
   id: string
   entityType: string | null

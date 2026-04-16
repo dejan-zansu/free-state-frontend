@@ -185,14 +185,6 @@ export const routing = defineRouting({
       es: '/suscripcion-solar/suscripcion-hogar',
       sr: '/solarni-abo/solarni-abo-kuca',
     },
-    '/solar-free/solar-free-home-battery': {
-      en: '/solar-free/solar-free-home-battery',
-      de: '/solar-free/solar-free-home-batterie',
-      fr: '/abonnement-solaire/abonnement-maison-batterie',
-      it: '/abbonamento-solare/abbonamento-casa-batteria',
-      es: '/suscripcion-solar/suscripcion-hogar-bateria',
-      sr: '/solarni-abo/solarni-abo-kuca-baterija',
-    },
     '/solar-free/solar-free-multi': {
       en: '/solar-free/solar-free-multi',
       de: '/solar-free/solar-free-multi',

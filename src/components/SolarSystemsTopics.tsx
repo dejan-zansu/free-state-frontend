@@ -17,7 +17,7 @@ const SolarSystemsTopics = async () => {
 
   return (
     <section
-      className="w-full px-4 sm:px-6 py-16 md:py-24"
+      className="relative w-full px-4 sm:px-6 py-16 md:py-24 -mt-[40px]"
       style={{
         backgroundImage: 'linear-gradient(180deg, #F2F4E8 78%, #DCE9E6 100%)',
       }}

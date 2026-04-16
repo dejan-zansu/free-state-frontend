@@ -42,6 +42,7 @@
       "batteryStorage": "Battery storage",
       "heatPumps": "Heat pumps",
       "chargingStations": "Charging stations",
+      "energyStorage": "Energy storage",
       "energyManagement": "Energy management"
     },
     "company": {
@@ -4223,8 +4224,8 @@
       "cta": "Get a quote now",
       "ctaLink": "/contact",
       "products": {
-        "e3dc": {
-          "name": "E3DC",
+        "sigenstor": {
+          "name": "SigenStor Battery Storage",
           "featuresLabel": "Key Features",
           "features": "Whole-home emergency power|Integrated inverter (up to 15 kWp)|Expandable capacity (18–21 kWh)|Smart energy management|Remote control & home automation integration|Solar-optimized EV charging",
           "warranty": "10-year manufacturer warranty|Free service",
@@ -4282,9 +4283,18 @@
         "description": "No maintenance contract is required for the system check. This offer applies to photovoltaic systems up to 19.99 kWp."
       },
       "items": {
-        "inspection": "Visual inspection of the surface",
-        "measurements": "Measurements",
-        "repairs": "Repairs"
+        "inspection": {
+          "question": "Visual inspection of the surface",
+          "answer": "We visually check all modules for damage, soiling, and hotspots, examine the mounting system for corrosion and secure fastening, and inspect cabling, connectors, and roof penetrations for signs of wear."
+        },
+        "measurements": {
+          "question": "Measurements",
+          "answer": "Electrical performance tests including string voltage, current, insulation resistance, and inverter output. Results are documented in a written report and compared against expected values."
+        },
+        "repairs": {
+          "question": "Repairs",
+          "answer": "Minor corrections such as re-tightening connectors or clearing debris are included. Replacement parts and larger repair work are quoted separately and scheduled after your approval."
+        }
       }
     },
     "maintenance": {
@@ -5522,6 +5532,7 @@
       "contacts": "Contact Submissions",
       "investorRequests": "Investor Requests",
       "newsletter": "Newsletter",
+      "careerSubscriptions": "Career Subscriptions",
       "groupContent": "Content",
       "groupCrm": "CRM",
       "groupSubmissions": "Submissions",
@@ -5911,6 +5922,16 @@
       "email": "Email",
       "subscribed": "Subscribed",
       "noSubscribers": "No subscribers found",
+      "totalSubscribers": "{count} total subscribers"
+    },
+    "careerSubscriptions": {
+      "title": "Career Subscriptions",
+      "searchPlaceholder": "Search by name or email...",
+      "name": "Name",
+      "email": "Email",
+      "locale": "Locale",
+      "subscribed": "Subscribed",
+      "noSubscribers": "No career subscribers yet",
       "totalSubscribers": "{count} total subscribers"
     },
     "common": {
@@ -6517,6 +6538,24 @@
     "splitSection": {
       "title": "Build the energy transition with us",
       "description": "We are currently not hiring, but we are always open to connecting with professionals who want to contribute to the future of renewable energy."
+    },
+    "stayInformed": {
+      "title": "Stay informed",
+      "description": "Subscribe to receive updates about future openings and company news.",
+      "form": {
+        "firstName": "First name",
+        "firstNamePlaceholder": "Enter your first name",
+        "lastName": "Last name",
+        "lastNamePlaceholder": "Enter your last name",
+        "email": "Email",
+        "emailPlaceholder": "Enter your email",
+        "privacy": "FreeState respects your privacy and uses your data only to manage your account and provide requested services.",
+        "consent": "I agree to receive other notifications from FreeState",
+        "disclaimer": "By submitting, you agree to data processing per our Privacy Policy and can unsubscribe at any time.",
+        "submit": "Subscribe"
+      },
+      "success": "Thanks — you're subscribed. We'll be in touch when roles open.",
+      "error": "Something went wrong. Please try again."
     },
     "contactCta": {
       "eyebrow": "Next step",

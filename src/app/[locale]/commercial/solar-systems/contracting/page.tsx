@@ -3,7 +3,7 @@ import ContractingModelSection from '@/components/commercial/contracting/Contrac
 import PricingSection from '@/components/commercial/contracting/PricingSection'
 import SolarFutureSection from '@/components/commercial/contracting/SolarFutureSection'
 import OurServicesSection from '@/components/commercial/contracting/OurServicesSection'
-import RepoweringServicesSection from '@/components/commercial/contracting/RepoweringServicesSection'
+// import RepoweringServicesSection from '@/components/commercial/contracting/RepoweringServicesSection'
 import { getTranslations } from 'next-intl/server'
 
 const ContractingPage = async () => {
@@ -21,7 +21,7 @@ const ContractingPage = async () => {
       <PricingSection />
       <SolarFutureSection />
       <OurServicesSection />
-      <RepoweringServicesSection />
+      {/* <RepoweringServicesSection /> */}
     </div>
   )
 }

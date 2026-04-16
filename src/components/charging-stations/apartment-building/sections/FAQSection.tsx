@@ -5,14 +5,20 @@ import { useTranslations } from 'next-intl'
 import { Plus, Minus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-const faqKeys = ['preEquipped', 'integration', 'installation', 'acDc', 'taxBreaks'] as const
+const faqKeys = [
+  'preEquipped',
+  'integration',
+  'installation',
+  'acDc',
+  'taxBreaks',
+] as const
 
 const FAQSection = () => {
   const t = useTranslations('chargingStationsApartmentBuilding.faq')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden -mt-[40px] pb-16">
       <div
         className="absolute inset-x-0 top-[1px] bottom-0 rounded-t-[40px] overflow-hidden border border-[#63836F] border-b-0"
         style={{
@@ -57,9 +63,15 @@ const FAQSection = () => {
                       </h3>
                       <div className="flex items-center justify-center w-[25px] h-[24px] shrink-0 rounded-[6px] bg-[#B7FE1A] border border-[#B7FE1A]/50">
                         {isOpen ? (
-                          <Minus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
+                          <Minus
+                            className="w-3 h-3 text-[#036B53]"
+                            strokeWidth={2.5}
+                          />
                         ) : (
-                          <Plus className="w-3 h-3 text-[#036B53]" strokeWidth={2.5} />
+                          <Plus
+                            className="w-3 h-3 text-[#036B53]"
+                            strokeWidth={2.5}
+                          />
                         )}
                       </div>
                     </div>

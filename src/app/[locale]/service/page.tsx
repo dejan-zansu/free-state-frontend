@@ -16,7 +16,7 @@ const ServicePage = async () => {
     <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
-          backgroundImage="/images/heat-pumps/service-hero-bg"
+          backgroundImage="/images/service-page-hero-bg.webp"
           title={t('hero.title')}
         />
       </div>

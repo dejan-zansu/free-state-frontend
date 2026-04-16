@@ -1,5 +1,6 @@
 import CareersContactCTA from '@/components/careers/CareersContactCTA'
 import CareersSplitSection from '@/components/careers/CareersSplitSection'
+import CareersStayInformed from '@/components/careers/CareersStayInformed'
 import PageHero from '@/components/PageHero'
 import { getTranslations } from 'next-intl/server'
 
@@ -14,6 +15,7 @@ const CareersPage = async () => {
         description={t('subtitle')}
       />
       <CareersSplitSection />
+      <CareersStayInformed />
       <CareersContactCTA />
     </div>
   )

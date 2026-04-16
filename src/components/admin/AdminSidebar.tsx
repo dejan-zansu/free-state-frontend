@@ -16,6 +16,7 @@ import {
   Package,
   PanelTop,
   Ticket,
+  UserPlus,
   Users,
   Wrench,
   Zap,
@@ -67,6 +68,7 @@ export function AdminSidebar() {
         { label: t('contacts'), href: `${prefix}/contacts`, icon: MessageSquareText },
         { label: t('investorRequests'), href: `${prefix}/investor-requests`, icon: Briefcase },
         { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`, icon: Wrench },
+        { label: t('careerSubscriptions'), href: `${prefix}/career-subscriptions`, icon: UserPlus },
       ],
     },
     {

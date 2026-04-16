@@ -3,8 +3,10 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
+import { ArrowUpRight, Flame, Plug2, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import Image from 'next/image'
+import { useRef, useState } from 'react'
 
 interface HeroNavLightProps {
   isCommercial?: boolean
@@ -14,6 +16,11 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
   const t = useTranslations('home')
   const tFooter = useTranslations('footer')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
+  const lastActiveItem = useRef<string | null>(null)
+
+  if (hoveredItem) {
+    lastActiveItem.current = hoveredItem
+  }
 
   const solarAboLinks = isCommercial
     ? [
@@ -46,6 +53,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
         {
           label: tFooter('products.solarSystems'),
           href: '/commercial/solar-systems' as const,
+          icon: Sun,
           subLinks: [
             {
               label: t('hero.nav.howLargePlantsWorks'),
@@ -68,6 +76,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
         {
           label: tFooter('products.chargingStations'),
           href: '/commercial/charging-stations' as const,
+          icon: Plug2,
           subLinks: [
             {
               label: t('hero.nav.apartmentBuilding'),
@@ -92,6 +101,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
         {
           label: tFooter('products.solarSystems'),
           href: '/solar-systems' as const,
+          icon: Sun,
           subLinks: [
             {
               label: t('hero.nav.howItWorks'),
@@ -121,6 +131,7 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
         {
           label: tFooter('products.heatPumps'),
           href: '/heat-pumps' as const,
+          icon: Flame,
           subLinks: [
             {
               label: t('hero.nav.howItWorks'),
@@ -131,30 +142,31 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
               href: '/heat-pumps/cost' as const,
             },
             {
-              label: t('hero.nav.service'),
-              href: '/heat-pumps/service' as const,
+              label: t('hero.nav.heatPumpProducts'),
+              href: '/heat-pumps/products' as const,
             },
             {
               label: t('hero.nav.withSolarSystem'),
               href: '/heat-pumps/heat-pumps-with-solar-system' as const,
             },
             {
-              label: t('hero.nav.heatPumpProducts'),
-              href: '/heat-pumps/products' as const,
+              label: t('hero.nav.service'),
+              href: '/heat-pumps/service' as const,
             },
           ],
         },
         {
           label: tFooter('products.chargingStations'),
           href: '/charging-stations' as const,
+          icon: Plug2,
           subLinks: [
-            {
-              label: t('hero.nav.apartmentBuilding'),
-              href: '/charging-stations/apartment-building' as const,
-            },
             {
               label: t('hero.nav.singleFamilyHome'),
               href: '/charging-stations/single-family-home' as const,
+            },
+            {
+              label: t('hero.nav.apartmentBuilding'),
+              href: '/charging-stations/apartment-building' as const,
             },
             {
               label: t('hero.nav.bidirectionalCharging'),
@@ -165,48 +177,51 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
       ]
 
   const hasDropdown = hoveredItem === 'solarAbo' || hoveredItem === 'products'
+  const displayItem = hoveredItem || lastActiveItem.current
+  const promoHref = isCommercial ? '/commercial/solar-free' : '/solar-free'
+  const promoTitle = isCommercial
+    ? t('hero.nav.promoTitleCommercial')
+    : t('hero.nav.promoTitle')
 
   return (
-    <div className="absolute top-[60px] sm:top-[80px] md:top-[100px] left-1/2 -translate-x-1/2 w-full flex justify-center z-20 px-4">
+    <div className="absolute md:top-[120px] left-1/2 -translate-x-1/2 w-full hidden md:flex justify-center z-20 px-4">
       <div
         className={cn(
-          'inline-flex flex-col items-center gap-0 pl-4 sm:pl-6 md:pl-[30px] pr-2 sm:pr-4 md:pr-[9px] bg-white/30 backdrop-blur-[30px] rounded-2xl sm:rounded-[24px] md:rounded-[30px] border border-[#9CA9A6]/30 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] overflow-hidden py-2 max-w-[calc(100vw-2rem)]',
+          'inline-flex flex-col bg-white/30 backdrop-blur-[30px] border border-[#9CA9A6]/30 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-w-[calc(100vw-2rem)]',
+          displayItem === 'solarAbo' ? 'items-start' : 'items-center',
+          hasDropdown
+            ? 'rounded-[20px] sm:rounded-[24px] md:rounded-[30px]'
+            : 'rounded-full sm:rounded-[24px] md:rounded-[30px]',
           isCommercial
             ? 'shadow-[0px_25px_34px_0px_rgba(159,62,79,0.1)]'
             : 'shadow-[0px_25px_34px_0px_rgba(183,254,26,0.1)]'
         )}
         onMouseLeave={() => setHoveredItem(null)}
       >
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 md:gap-[30px]">
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 md:gap-9">
-            <div
-              className="relative"
-              onMouseEnter={() => setHoveredItem('solarAbo')}
-            >
+        <div className="flex flex-row items-center gap-3 sm:gap-4 md:gap-[30px] pl-3 sm:pl-6 md:pl-[30px] pr-1.5 sm:pr-4 md:pr-[9px] py-1.5 sm:py-2">
+          <div className="flex flex-row items-center gap-3 sm:gap-6 md:gap-9">
+            <div onMouseEnter={() => setHoveredItem('solarAbo')}>
               <Link
                 href="/solar-free"
-                className="text-[#062E25] font-medium text-base sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
+                className="text-[#062E25] font-medium text-sm sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.solarAbo')}
               </Link>
             </div>
-
-            <div
-              className="relative"
-              onMouseEnter={() => setHoveredItem('products')}
-            >
+            <div onMouseEnter={() => setHoveredItem('products')}>
               <Link
                 href="/products"
-                className="text-[#062E25] font-medium text-base sm:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
+                className="text-[#062E25] font-medium text-sm sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap tracking-tight"
               >
                 {t('hero.nav.products')}
               </Link>
             </div>
           </div>
-          <div className="shrink-0 w-full sm:w-auto">
+          <div className="shrink-0">
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
+              className="text-sm sm:text-base md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
             >
               {t('hero.nav.onlineStarter')}
             </LinkButton>
@@ -215,70 +230,126 @@ const HeroNavLight = ({ isCommercial = false }: HeroNavLightProps) => {
 
         <div
           className={cn(
-            'flex flex-col gap-1 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]',
+            'grid transition-[grid-template-rows,grid-template-columns] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
             hasDropdown
-              ? 'max-h-[800px] opacity-100 pt-4 mt-2 border-t border-[#062E25]/10'
-              : 'max-h-0 opacity-0 pt-0 mt-0 border-t-0'
+              ? 'grid-rows-[1fr] grid-cols-[1fr]'
+              : 'grid-rows-[0fr] grid-cols-[0fr]'
           )}
         >
-          {hoveredItem === 'solarAbo' &&
-            solarAboLinks.map((link, index) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'px-4 py-2.5 text-foreground text-base font-medium rounded-lg hover:bg-[#062E25]/10 transition-all duration-300 whitespace-nowrap',
-                  hasDropdown
-                    ? 'translate-y-0 opacity-100'
-                    : '-translate-y-1 opacity-0'
-                )}
-                style={{
-                  transitionDelay: hasDropdown
-                    ? `${index * 40}ms`
-                    : `${(solarAboLinks.length - index) * 20}ms`,
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          {hoveredItem === 'products' && (
-            <div className="flex flex-col md:flex-row md:gap-2 lg:gap-4">
-              {productLinks.map((link, columnIndex) => (
+          <div className="overflow-hidden min-h-0 min-w-0">
+            <div
+              className={cn(
+                'border-t border-[#062E25]/10 transition-opacity duration-300 ease-out',
+                hasDropdown ? 'opacity-100' : 'opacity-0'
+              )}
+            >
+              <div className="grid">
                 <div
-                  key={link.href}
                   className={cn(
-                    'flex flex-col transition-all duration-300',
-                    hasDropdown
-                      ? 'translate-y-0 opacity-100'
-                      : '-translate-y-1 opacity-0'
+                    'col-start-1 row-start-1 transition-all duration-300 px-3 sm:px-4 md:px-5 pt-3 pb-2',
+                    displayItem === 'solarAbo' && hasDropdown
+                      ? 'flex flex-col gap-1 opacity-100 visible'
+                      : 'opacity-0 invisible w-0 h-0 overflow-hidden'
                   )}
-                  style={{
-                    transitionDelay: hasDropdown
-                      ? `${columnIndex * 50}ms`
-                      : '0ms',
-                  }}
                 >
-                  <Link
-                    href={link.href}
-                    className="px-4 py-2 text-foreground text-base font-semibold rounded-lg hover:bg-[#062E25]/10 transition-colors whitespace-nowrap block"
-                  >
-                    {link.label}
-                  </Link>
-                  {'subLinks' in link &&
-                    link.subLinks?.map(sub => (
-                      <Link
-                        key={sub.href}
-                        href={sub.href}
-                        className="pl-8 pr-4 py-1.5 text-foreground/60 text-base rounded-lg hover:bg-[#062E25]/10 hover:text-foreground transition-colors whitespace-nowrap flex items-center gap-2"
-                      >
-                        <span className="text-foreground/30">→</span>
-                        {sub.label}
-                      </Link>
-                    ))}
+                  {solarAboLinks.map((link, index) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={cn(
+                        'px-4 py-2.5 text-[#062E25] text-base font-medium rounded-lg hover:bg-[#062E25]/10 transition-all duration-400 whitespace-nowrap',
+                        displayItem === 'solarAbo' && hasDropdown
+                          ? 'translate-y-0 opacity-100'
+                          : '-translate-y-1 opacity-0'
+                      )}
+                      style={{
+                        transitionDelay:
+                          displayItem === 'solarAbo' && hasDropdown
+                            ? `${100 + index * 40}ms`
+                            : '0ms',
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
-              ))}
+                <div
+                  className={cn(
+                    'col-start-1 row-start-1 transition-all duration-300',
+                    displayItem === 'products' && hasDropdown
+                      ? 'flex flex-row gap-4 lg:gap-5 p-4 md:p-[18px] opacity-100 visible'
+                      : 'opacity-0 invisible w-0 h-0 overflow-hidden'
+                  )}
+                >
+                  <div className="flex flex-row gap-6 lg:gap-[38px] pt-3">
+                    {productLinks.map((product, columnIndex) => {
+                      const Icon = product.icon
+                      return (
+                        <div
+                          key={product.href}
+                          className={cn(
+                            'flex flex-col w-[144px] transition-all duration-400',
+                            displayItem === 'products' && hasDropdown
+                              ? 'translate-y-0 opacity-100'
+                              : '-translate-y-1 opacity-0'
+                          )}
+                          style={{
+                            transitionDelay:
+                              displayItem === 'products' && hasDropdown
+                                ? `${100 + columnIndex * 50}ms`
+                                : '0ms',
+                          }}
+                        >
+                          <Link
+                            href={product.href}
+                            className="flex items-center gap-1.5 text-[#062E25] text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap mb-[30px]"
+                          >
+                            <Icon
+                              className="w-[15px] h-[15px]"
+                              strokeWidth={1.5}
+                            />
+                            <span>{product.label}</span>
+                          </Link>
+                          <div className="flex flex-col">
+                            {product.subLinks?.map(sub => (
+                              <Link
+                                key={sub.href}
+                                href={sub.href}
+                                className="py-[7px] text-[#062E25] text-sm font-light border-b border-[#062E25]/30 hover:border-[#062E25] transition-colors"
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                  <Link
+                    href={promoHref}
+                    className="relative hidden lg:block w-[291px] h-[301px] rounded-[10px] overflow-hidden group shrink-0"
+                  >
+                    <Image
+                      src="/images/nav/nav-promo.webp"
+                      alt={promoTitle}
+                      fill
+                      sizes="291px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,66,53,0.15)_0%,rgba(12,66,53,0.3)_100%)]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(72,144,144,0.1)_0%,rgba(72,144,144,0.7)_100%)]" />
+                    <h3 className="absolute top-4 left-4 right-4 text-white font-medium text-xl">
+                      {promoTitle}
+                    </h3>
+                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-sm font-medium">
+                      <span>{t('hero.nav.promoCta')}</span>
+                      <ArrowUpRight className="w-4 h-4" strokeWidth={2} />
+                    </div>
+                  </Link>
+                </div>
+              </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </div>

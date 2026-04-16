@@ -19,7 +19,7 @@ const OurServicesSection = async () => {
 
   return (
     <section
-      className="relative overflow-hidden min-h-[956px]"
+      className="relative overflow-hidden min-h-[956px] pb-16"
       style={{ background: '#4A9A99' }}
     >
       <div

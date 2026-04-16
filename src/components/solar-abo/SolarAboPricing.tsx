@@ -1,5 +1,6 @@
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
+import { Fragment } from 'react'
 
 export interface SolarAboPricingProps {
   translationNamespace: string
@@ -55,17 +56,13 @@ const SolarAboPricing = async ({
           >
             <div className="grid grid-cols-[auto_1fr]">
               {rows.map((row, index) => (
-                <>
-                  <div
-                    key={`label-${index}`}
-                    className="px-5 pt-6 pb-1 flex items-end"
-                  >
+                <Fragment key={`row-${index}`}>
+                  <div className="px-5 pt-6 pb-1 flex items-end">
                     <span className="text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em] whitespace-pre-line">
                       {row.label}
                     </span>
                   </div>
                   <div
-                    key={`value-${index}`}
                     className="bg-[#E4E9D3] px-5 pt-6 pb-1 flex items-end border-l border-[#062E25]"
                     style={{
                       borderTopRightRadius: index === 0 ? '16px' : '0px',
@@ -77,7 +74,7 @@ const SolarAboPricing = async ({
                       {row.value}
                     </span>
                   </div>
-                </>
+                </Fragment>
               ))}
             </div>
 

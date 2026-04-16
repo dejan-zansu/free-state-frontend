@@ -19,6 +19,7 @@ import SolarSystemIcon from './SolarSystemIcon'
 import LightBulbWithPointerWiteBg from './LightBulbWithPointerWiteBg'
 import MoreIcon from './MoreIcon'
 import GreenWorldIcon from './GreenWorldIcon'
+import LogoutSquare from './LogoutSquare'
 
 export {
   AllInclusiveIcon,
@@ -42,4 +43,5 @@ export {
   LightBulbWithPointerWiteBg,
   MoreIcon,
   GreenWorldIcon,
+  LogoutSquare,
 }

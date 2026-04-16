@@ -24,7 +24,7 @@ const ProductCTA = ({
   containerClassName = '',
 }: ProductCTAProps) => {
   return (
-    <section className="relative h-[659px] overflow-hidden">
+    <section className="relative overflow-hidden">
       <div
         className="absolute inset-0"
         style={{
@@ -47,43 +47,45 @@ const ProductCTA = ({
         }}
       />
 
-      <div className="absolute left-0 top-0 w-1/2 h-full">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          sizes="50vw"
-          className="object-cover"
-        />
-      </div>
+      <div className="relative flex flex-col lg:flex-row">
+        <div className="relative w-full aspect-4/3 sm:aspect-video lg:w-1/2 lg:aspect-auto">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
 
-      <div className="absolute right-0 top-0 w-1/2 h-full flex items-center justify-center">
-        <div
-          className={cn(
-            'flex flex-col items-center gap-10 max-w-[431px] px-4',
-            containerClassName
-          )}
-        >
+        <div className="relative z-10 w-full lg:w-1/2 flex items-center justify-center px-4 pt-16 pb-[104px] md:pt-20 md:pb-[120px] lg:pt-24 lg:pb-[136px]">
           <div
-            className="px-4 py-2.5 rounded-full border border-white bg-white/20"
-            style={{ backdropFilter: 'blur(65px)' }}
+            className={cn(
+              'flex flex-col items-center gap-8 md:gap-10 max-w-[431px]',
+              containerClassName
+            )}
           >
-            <span className="text-white text-base font-medium tracking-tight">
-              {badge}
-            </span>
+            <div
+              className="px-4 py-2.5 rounded-full border border-white bg-white/20"
+              style={{ backdropFilter: 'blur(65px)' }}
+            >
+              <span className="text-white text-base font-medium tracking-tight">
+                {badge}
+              </span>
+            </div>
+
+            <h2 className="text-white text-3xl md:text-4xl lg:text-[65px] font-medium leading-tight text-center capitalize">
+              {title}
+            </h2>
+
+            <p className="text-white/60 text-lg md:text-[22px] font-normal leading-relaxed tracking-tight text-center">
+              {subtitle}
+            </p>
+
+            <LinkButton variant="primary" href={buttonHref}>
+              {buttonText}
+            </LinkButton>
           </div>
-
-          <h2 className="text-white text-3xl md:text-4xl lg:text-[65px] font-medium leading-tight text-center capitalize">
-            {title}
-          </h2>
-
-          <p className="text-white/60 text-lg md:text-[22px] font-normal leading-relaxed tracking-tight text-center">
-            {subtitle}
-          </p>
-
-          <LinkButton variant="primary" href={buttonHref}>
-            {buttonText}
-          </LinkButton>
         </div>
       </div>
     </section>

@@ -1,3 +1,4 @@
+import CustomerStories from '@/components/CustomerStories'
 import InvestorsForm from '@/components/InvestorsForm'
 import InvestorsFormDarkPanel from '@/components/InvestorsFormDarkPanel'
 import InvestorsPartnerSection from '@/components/InvestorsPartnerSection'
@@ -31,7 +32,7 @@ const InvestorsPage = async () => {
       </div>
 
       <section
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden -mt-[40px]"
         style={{
           background:
             'linear-gradient(180deg, rgba(242, 244, 232, 1) 78%, rgba(220, 233, 230, 1) 100%)',
@@ -68,6 +69,8 @@ const InvestorsPage = async () => {
           </div>
         </div>
       </section>
+
+      <CustomerStories />
     </div>
   )
 }

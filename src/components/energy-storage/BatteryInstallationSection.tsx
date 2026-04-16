@@ -13,7 +13,8 @@ const BatteryInstallationSection = async () => {
               src="/images/battery-storage-installation-63f44e.webp"
               alt={t('installation.title')}
               fill
-              className="object-cover"
+              sizes="(min-width: 1024px) 490px, 100vw"
+              className="object-contain"
             />
           </div>
 

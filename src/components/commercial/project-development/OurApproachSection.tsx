@@ -50,7 +50,7 @@ const OurApproachSection = () => {
                 answer={t(`approach.steps.${step}.description`)}
                 isOpen={openIndex === i}
                 onToggle={() => setOpenIndex(openIndex === i ? -1 : i)}
-                iconClassName="text-white border-white"
+                variant="light"
               />
             ))}
           </div>

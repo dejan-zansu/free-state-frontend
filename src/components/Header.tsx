@@ -11,6 +11,7 @@ import LogoLight from './icons/LogoLight'
 import LanguageSwitcher from './LanguageSwitcher'
 import MobileNavLinks from './MobileNavLinks'
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
+import LogoutSquare from './icons/LogoutSquare'
 
 const Header = () => {
   const pathname = usePathname()
@@ -181,11 +182,13 @@ const Header = () => {
               <Link
                 href="/login"
                 className={cn(
-                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base hidden sm:block bg-solar text-solar-foreground'
+                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base hidden sm:flex justify-center items-center bg-solar text-solar-foreground gap-1.5'
                 )}
               >
+                <LogoutSquare />
                 {tHeader('myHome')}
               </Link>
+
               <LanguageSwitcher isScrolled={showDarkHeader} />
               {/* <button
                 onClick={() => setIsSearchOpen(true)}

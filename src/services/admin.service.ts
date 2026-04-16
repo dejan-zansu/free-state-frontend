@@ -1,6 +1,7 @@
 import api from '@/lib/api'
 import type {
   AdminBlogPost,
+  AdminCareerSubscription,
   AdminContactSubmission,
   AdminContract,
   AdminInquiry,
@@ -88,6 +89,11 @@ class AdminService {
 
   async listNewsletterSubscriptions(query: ListQuery = {}): Promise<PaginatedResponse<AdminNewsletterSubscription>> {
     const response = await api.get<PaginatedResponse<AdminNewsletterSubscription>>('/admin/newsletter-subscriptions', { params: query })
+    return response.data
+  }
+
+  async listCareerSubscriptions(query: ListQuery = {}): Promise<PaginatedResponse<AdminCareerSubscription>> {
+    const response = await api.get<PaginatedResponse<AdminCareerSubscription>>('/admin/career-subscriptions', { params: query })
     return response.data
   }
 

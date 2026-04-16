@@ -42,6 +42,7 @@
       "batteryStorage": "Batteriespeicher",
       "heatPumps": "Wärmepumpen",
       "chargingStations": "Ladestationen",
+      "energyStorage": "Energiespeicher",
       "energyManagement": "Energiemanagement"
     },
     "company": {
@@ -213,7 +214,7 @@
         "products": "Produkte",
         "onlineStarter": "Onlinerechner Starten",
         "solarAboHome": "SolarFree Home",
-        "solarAboMulti": "SolarFree Multi",
+        "solarAboMulti": "SolarFree Mehrfamilienhaus",
         "solarAboBusiness": "SolarFree Business",
         "solarAboAgro": "SolarFree Agro",
         "solarAboPublic": "SolarFree Public Facilities",
@@ -576,7 +577,7 @@
           }
         },
         {
-          "title": "SolarFree Multi",
+          "title": "SolarFree Mehrfamilienhaus",
           "subtitle": "Für Mehrfamilienhäuser (ZEV-Modell)",
           "feature1": "Eine Anlage, Strom für alle Bewohner",
           "feature2": "Zentrale Abrechnung über Free State ZEV-System",
@@ -783,7 +784,7 @@
   "solarAboMulti": {
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-      "title": "SolarFree Multi",
+      "title": "SolarFree Mehrfamilienhaus",
       "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
@@ -800,7 +801,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Multi",
+      "subtitle": "In SolarFree Mehrfamilienhaus",
       "items": {
         "solarModules": {
           "title": "Gemeinsames Solarsystem",
@@ -829,7 +830,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Multi",
+      "title": "So funktioniert SolarFree Mehrfamilienhaus",
       "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -877,8 +878,8 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
-      "heading": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
+      "topButton": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
+      "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
@@ -1718,7 +1719,7 @@
     "solarAboMulti": {
       "hero": {
         "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-        "title": "SolarFree Multi",
+        "title": "SolarFree Mehrfamilienhaus",
         "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
         "cta": "Solarrechner starten",
         "tag": "Keine Registrierung nötig · Unverbindlich",
@@ -1735,7 +1736,7 @@
       },
       "includes": {
         "title": "Was ist enthalten",
-        "subtitle": "In SolarFree Multi",
+        "subtitle": "In SolarFree Mehrfamilienhaus",
         "items": {
           "solarModules": {
             "title": "Gemeinsames Solarsystem",
@@ -1764,7 +1765,7 @@
         }
       },
       "howItWorks": {
-        "title": "So funktioniert SolarFree Multi",
+        "title": "So funktioniert SolarFree Mehrfamilienhaus",
         "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
         "steps": {
           "step1": "Sie stellen das Dach",
@@ -1806,8 +1807,8 @@
         }
       },
       "cta": {
-        "topButton": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
-        "heading": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
+        "topButton": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
+        "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
         "ctaText": "Solarrechner starten",
         "ctaLink": "/calculator"
       }
@@ -3828,8 +3829,8 @@
       "cta": "Jetzt Offerte erhalten",
       "ctaLink": "/kontakt",
       "products": {
-        "e3dc": {
-          "name": "E3DC",
+        "sigenstor": {
+          "name": "SigenStor Batteriespeicher",
           "featuresLabel": "Hauptmerkmale",
           "features": "Notstromversorgung für das ganze Haus|Integrierter Wechselrichter (bis 15 kWp)|Erweiterbare Kapazität (18–21 kWh)|Intelligentes Energiemanagement|Fernsteuerung & Smart-Home-Integration|Solaroptimiertes E-Auto-Laden",
           "warranty": "10 Jahre Herstellergarantie|Kostenloser Service",
@@ -3887,9 +3888,18 @@
         "description": "Für den Systemcheck ist kein Wartungsvertrag erforderlich. Dieses Angebot gilt für Photovoltaikanlagen bis 19,99 kWp."
       },
       "items": {
-        "inspection": "Sichtprüfung der Oberfläche",
-        "measurements": "Messungen",
-        "repairs": "Reparaturen"
+        "inspection": {
+          "question": "Sichtprüfung der Oberfläche",
+          "answer": "Wir prüfen alle Module auf Beschädigungen, Verschmutzung und Hotspots, kontrollieren das Montagesystem auf Korrosion und festen Sitz und überprüfen Verkabelung, Steckverbinder sowie Dachdurchdringungen auf Verschleiss."
+        },
+        "measurements": {
+          "question": "Messungen",
+          "answer": "Elektrische Leistungsmessungen einschliesslich Stringspannung, Strom, Isolationswiderstand und Wechselrichterleistung. Die Ergebnisse werden in einem schriftlichen Bericht dokumentiert und mit den Sollwerten verglichen."
+        },
+        "repairs": {
+          "question": "Reparaturen",
+          "answer": "Kleinere Korrekturen wie das Nachziehen von Steckverbindern oder das Entfernen von Fremdkörpern sind enthalten. Ersatzteile und grössere Reparaturen werden separat offeriert und nach Ihrer Freigabe ausgeführt."
+        }
       }
     },
     "maintenance": {
@@ -5094,16 +5104,16 @@
         "bullet2": "Mit Batteriespeicher"
       },
       "multi": {
-        "tag": "Multi",
-        "title": "{model} Multi",
+        "tag": "Mehrfamilienhaus",
+        "title": "{model} Mehrfamilienhaus",
         "bullet1": "Für Mehrfamilienhäuser",
         "bullet2": "Gemeinschaftliche Energieversorgung (ZEV / LEG)"
       },
-      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Multi",
+      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Mehrfamilienhaus",
       "learnMorePrefix": "Mehr erfahren über",
       "learnMoreConnector": "und",
       "learnMoreHome": "{model} Home",
-      "learnMoreMulti": "{model} Multi",
+      "learnMoreMulti": "{model} Mehrfamilienhaus",
       "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
@@ -5123,7 +5133,7 @@
       "options": {
         "home": "SolarFree Home",
         "homeDesc": "Für Einfamilienhäuser ohne Batteriespeicher",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Mehrfamilienhaus",
         "multiDesc": "Für Mehrfamilienhäuser und Energiegemeinschaften (ZEV / LEG)"
       },
       "learnMore": "Erfahren Sie mehr über",
@@ -5272,7 +5282,7 @@
         "title": "Empfohlenes Paket",
         "home": "SolarFree Home",
         "homeDesc": "Für Einfamilienhäuser",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Mehrfamilienhaus",
         "multiDesc": "Für Mehrfamilienhäuser",
         "recommended": "Empfohlen"
       },
@@ -5587,6 +5597,7 @@
       "contacts": "Kontaktanfragen",
       "investorRequests": "Investorenanfragen",
       "newsletter": "Newsletter",
+      "careerSubscriptions": "Karriere-Abonnenten",
       "groupContent": "Inhalte",
       "groupCrm": "CRM",
       "groupSubmissions": "Anfragen",
@@ -5976,6 +5987,16 @@
       "email": "E-Mail",
       "subscribed": "Angemeldet",
       "noSubscribers": "Keine Abonnenten gefunden",
+      "totalSubscribers": "{count} Abonnenten gesamt"
+    },
+    "careerSubscriptions": {
+      "title": "Karriere-Abonnenten",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "name": "Name",
+      "email": "E-Mail",
+      "locale": "Sprache",
+      "subscribed": "Angemeldet",
+      "noSubscribers": "Noch keine Karriere-Abonnenten",
       "totalSubscribers": "{count} Abonnenten gesamt"
     },
     "common": {
@@ -6586,6 +6607,24 @@
     "splitSection": {
       "title": "Gestalten Sie die Energiewende mit uns",
       "description": "Wir stellen derzeit nicht ein, sind aber immer offen für den Austausch mit Fachleuten, die zur Zukunft der erneuerbaren Energien beitragen möchten."
+    },
+    "stayInformed": {
+      "title": "Bleiben Sie informiert",
+      "description": "Abonnieren Sie unsere Updates zu zukünftigen Stellenangeboten und Unternehmensnachrichten.",
+      "form": {
+        "firstName": "Vorname",
+        "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+        "lastName": "Nachname",
+        "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+        "email": "E-Mail",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+        "privacy": "FreeState respektiert Ihre Privatsphäre und verwendet Ihre Daten ausschliesslich zur Verwaltung Ihres Kontos und zur Bereitstellung der angeforderten Dienste.",
+        "consent": "Ich bin einverstanden, weitere Benachrichtigungen von FreeState zu erhalten",
+        "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzerklärung zu und können sich jederzeit abmelden.",
+        "submit": "Abonnieren"
+      },
+      "success": "Vielen Dank — Sie sind angemeldet. Wir melden uns, sobald Stellen offen sind.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
     },
     "contactCta": {
       "eyebrow": "Nächster Schritt",
