@@ -336,7 +336,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
                       sizes="291px"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,66,53,0.3)_0%,rgba(12,66,53,0.5)_100%)]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(12,66,53,0.15)_0%,rgba(12,66,53,0.3)_100%)]" />
                     <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(72,144,144,0.1)_0%,rgba(72,144,144,0.7)_100%)]" />
                     <h3 className="absolute top-4 left-4 right-4 text-white font-medium text-xl">
                       {promoTitle}
