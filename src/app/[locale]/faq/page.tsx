@@ -15,7 +15,7 @@ const sectionKeys = [
 const FAQPage = async () => {
   const t = await getTranslations('faqPage')
 
-  const sections = sectionKeys.map((key) => {
+  const sections = sectionKeys.map(key => {
     const itemKeys = [
       ...Object.keys(
         (t.raw(`sections.${key}.items`) as Record<string, unknown>) ?? {}
@@ -27,7 +27,7 @@ const FAQPage = async () => {
       eyebrow: t(`sections.${key}.eyebrow`),
       title: t(`sections.${key}.title`),
       description: t(`sections.${key}.description`),
-      items: itemKeys.map((itemKey) => ({
+      items: itemKeys.map(itemKey => ({
         question: t(`sections.${key}.items.${itemKey}.question`),
         answer: t(`sections.${key}.items.${itemKey}.answer`),
       })),
@@ -35,9 +35,9 @@ const FAQPage = async () => {
   })
 
   return (
-    <main>
+    <div className="pb-[40px]">
       <PageHero title={t('hero.title')} />
-      {sections.map((section) => (
+      {sections.map(section => (
         <FAQAccordionSection
           key={section.key}
           eyebrow={section.eyebrow}
@@ -46,7 +46,7 @@ const FAQPage = async () => {
           items={section.items}
         />
       ))}
-    </main>
+    </div>
   )
 }
 

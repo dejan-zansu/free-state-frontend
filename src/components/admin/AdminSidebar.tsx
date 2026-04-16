@@ -4,6 +4,7 @@ import {
   BarChart3,
   Battery,
   Box,
+  Briefcase,
   CircuitBoard,
   Factory,
   FileText,
@@ -64,6 +65,7 @@ export function AdminSidebar() {
       label: t('groupSubmissions'),
       items: [
         { label: t('contacts'), href: `${prefix}/contacts`, icon: MessageSquareText },
+        { label: t('investorRequests'), href: `${prefix}/investor-requests`, icon: Briefcase },
         { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`, icon: Wrench },
       ],
     },

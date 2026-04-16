@@ -13,7 +13,7 @@ const ServicePage = async () => {
   const t = await getTranslations('service')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/heat-pumps/service-hero-bg"
@@ -25,10 +25,10 @@ const ServicePage = async () => {
       <ServiceHighestLevelSection />
       <SelfCheckSection />
       <ServicePricingSection />
-      <MaintenanceServicesSection />
+      <divtenanceServicesSection />
       <MonitoringSection />
-      <MaintenanceInquirySection />
-    </main>
+      <divtenanceInquirySection />
+    </div>
   )
 }
 

@@ -8,7 +8,7 @@ import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }))
+  return locales.map(locale => ({ locale }))
 }
 
 export default async function LocaleLayout({
@@ -29,9 +29,9 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
       <QueryProvider>
-        <div className='flex flex-col min-h-screen'>
+        <div className="flex flex-col min-h-screen">
           <ConditionalHeader />
-          <main className='flex-1'>{children}</main>
+          <div className="flex-1">{children}</div>
           <ConditionalFooter locale={locale} />
           <CookieConsentBanner />
         </div>

@@ -2,6 +2,9 @@
 
 import {
   COMPANY_MAIN_PHONE_DISPLAY,
+  COMPANY_MAIN_MAILTO_HREF,
+  COMPANY_MAIN_EMAIL,
+  COMPANY_MAIN_PHONE_TEL_HREF,
 } from '@/lib/company-contact'
 import { Loader } from '@googlemaps/js-api-loader'
 import { useTranslations } from 'next-intl'
@@ -224,7 +227,9 @@ const ContactMap = () => {
       <div className="relative lg:absolute lg:bottom-[60px] lg:right-20 z-10 w-full lg:w-[425px] lg:rounded-2xl border border-[#295823]/60 bg-white/40 backdrop-blur-[100px] p-8">
         <div className="flex flex-col gap-5">
           <div>
-            <h3 className="text-[22px] font-medium text-foreground tracking-tight">{t('address')}</h3>
+            <h3 className="text-[22px] font-medium text-foreground tracking-tight">
+              {t('address')}
+            </h3>
             <p className="text-base font-light text-foreground/80 tracking-tight mt-3">
               Stettemerstrasse 40, 8207 Schaffhausen
             </p>
@@ -233,19 +238,31 @@ const ContactMap = () => {
           <div className="h-px bg-foreground/20" />
 
           <div>
-            <h3 className="text-[22px] font-medium text-foreground tracking-tight">{t('contact')}</h3>
-            <p className="text-base font-light text-foreground/80 tracking-tight mt-3">
-              Telefon: {COMPANY_MAIN_PHONE_DISPLAY}
-            </p>
+            <h3 className="text-[22px] font-medium text-foreground tracking-tight">
+              {t('contact')}
+            </h3>
+            <a
+              className="text-base font-light text-foreground/80 tracking-tight mt-3 hover:text-foreground transition-colors"
+              href={COMPANY_MAIN_PHONE_TEL_HREF}
+              target="_blank"
+            >
+              {t('phone')}: {COMPANY_MAIN_PHONE_DISPLAY}
+            </a>
           </div>
 
           <div className="h-px bg-foreground/20" />
 
           <div>
-            <h3 className="text-[22px] font-medium text-foreground tracking-tight">{t('email')}</h3>
-            <p className="text-base font-light text-foreground/80 tracking-tight mt-3">
-              info@freestate.ch
-            </p>
+            <h3 className="text-[22px] font-medium text-foreground tracking-tight">
+              {t('email')}
+            </h3>
+            <a
+              className="text-base font-light text-foreground/80 tracking-tight mt-3 hover:text-foreground transition-colors"
+              href={COMPANY_MAIN_MAILTO_HREF}
+              target="_blank"
+            >
+              {COMPANY_MAIN_EMAIL}
+            </a>
           </div>
         </div>
       </div>

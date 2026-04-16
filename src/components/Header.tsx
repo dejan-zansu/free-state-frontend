@@ -33,6 +33,7 @@ const Header = () => {
     '/heat-pumps',
     '/charging-stations',
     '/dashboard',
+    '/blog',
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
@@ -89,9 +90,9 @@ const Header = () => {
     (pathname as string) === '/calculator' ||
     (pathname as string)?.startsWith('/calculator/')
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault()
-  }
+  // const handleSearch = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  // }
 
   if (isCalculatorPage) {
     return (
@@ -186,7 +187,7 @@ const Header = () => {
                 {tHeader('myHome')}
               </Link>
               <LanguageSwitcher isScrolled={showDarkHeader} />
-              <button
+              {/* <button
                 onClick={() => setIsSearchOpen(true)}
                 className={cn(
                   'p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
@@ -197,7 +198,7 @@ const Header = () => {
                 aria-label="Search"
               >
                 <Search className="w-5 h-5" />
-              </button>
+              </button> */}
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className={cn(

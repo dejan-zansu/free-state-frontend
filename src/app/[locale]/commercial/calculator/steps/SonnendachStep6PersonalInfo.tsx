@@ -148,10 +148,8 @@ export default function SonnendachStep6PersonalInfo() {
     }
     if (!personalInfo.password) {
       errors.password = t('validation.passwordRequired')
-    } else if (personalInfo.password.length < 8) {
+    } else if (personalInfo.password.length < 6) {
       errors.password = t('validation.passwordTooShort')
-    } else if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(personalInfo.password)) {
-      errors.password = t('validation.passwordWeak')
     }
     if (personalInfo.password !== confirmPassword) {
       errors.confirmPassword = t('validation.passwordMismatch')

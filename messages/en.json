@@ -1,5 +1,17 @@
 {
   "title": "Free State AG",
+  "apiErrors": {
+    "USER_EXISTS": "A user with this email already exists.",
+    "INVALID_CREDENTIALS": "Invalid email or password.",
+    "ACCOUNT_SUSPENDED": "Your account has been suspended.",
+    "ACCOUNT_INACTIVE": "Your account is inactive.",
+    "INVALID_TOKEN": "Invalid or expired token.",
+    "TOKEN_EXPIRED": "Your session has expired. Please try again.",
+    "INVALID_PASSWORD": "Current password is incorrect.",
+    "loginFailed": "Login failed. Please try again.",
+    "registerFailed": "Registration failed. Please try again.",
+    "unknown": "Something went wrong. Please try again."
+  },
   "header": {
     "logoAlt": "Free State AG logo",
     "contact": "Contact",
@@ -74,7 +86,8 @@
   "contactMap": {
     "address": "Address",
     "contact": "Contact",
-    "email": "Email"
+    "email": "Email",
+    "phone": "Phone"
   },
   "contactValues": {
     "title": "Our Values",
@@ -1330,29 +1343,54 @@
     }
   },
   "investorsPage": {
-    "title": "For Investors",
-    "subtitle": "Your energy, our responsibility – sustainable and worry-free",
+    "title": "Partnerships & Investors",
+    "subtitle": "Together with strong partners and investors, we are shaping the future of decentralized energy solutions.",
+    "heroCta": "Get in touch",
     "investing": {
       "title": "Invest sustainably",
       "description": "With an investment in renewable energies, you are betting on sustainable and future-proof value creation. Free State AG offers you the opportunity to participate in solar power plants and other environmentally friendly projects. Benefit from stable returns, a growing market and an active contribution to the energy transition. Our experience and our focus on mature technologies guarantee you security and success – for a greener future."
     },
+    "partner": {
+      "eyebrow": "FreeState App",
+      "title": "Manage Partnerships Easily, Seize Opportunities",
+      "bullets": {
+        "projects": "Keep track of projects and partner status",
+        "updates": "Identify relevant updates and opportunities early",
+        "collaboration": "Manage collaboration centrally and efficiently"
+      }
+    },
+    "formPanel": {
+      "eyebrow": "FreeState App",
+      "title": "Request Documents",
+      "subtitle": "Become an early investor at FreeState AG and benefit from the Private Equity and Green Bond offering."
+    },
     "form": {
-      "title": "Order documents free of charge",
-      "description": "Do you want to make a positive contribution to the environment and society? Request our documents free of charge now and find out how you can actively contribute to the energy transition with sustainable energy solutions and investments in renewable energies. Simply fill out the form, and we will send you the requested documents directly. Use this opportunity to inform yourself comprehensively and shape a green and successful future together with us!",
-      "type": "Company or Private?",
-      "typePrivate": "Private",
+      "eyebrow": "For Investors",
+      "title": "Request documents for free!",
+      "entityType": "Private Person",
+      "typePrivate": "Private Person",
       "typeCompany": "Company",
-      "salutation": "Salutation",
+      "salutation": "Mr",
       "salutationMr": "Mr",
       "salutationMrs": "Mrs",
       "salutationDiverse": "Diverse",
-      "language": "Order in:",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "address": "Address",
+      "postalCode": "Postal Code",
+      "city": "City",
+      "email": "E-Mail",
+      "phone": "Phone Number",
+      "comment": "Comment",
+      "languageLabel": "Request documents in:",
       "languageGerman": "German",
       "languageEnglish": "English",
       "languageFrench": "French",
-      "privacy": "I hereby confirm that I have read the privacy policy.",
-      "captcha": "Not readable? Regenerate",
-      "submit": "Submit"
+      "submit": "Send Request",
+      "required": "Required",
+      "successTitle": "Request sent!",
+      "successMessage": "Thank you for your request. We will send you the requested documents shortly.",
+      "errorMessage": "An error occurred. Please try again."
     },
     "faq": {
       "title": "Frequently asked questions",
@@ -2234,10 +2272,112 @@
     "backToBlog": "Back to blog"
   },
   "solarSystems": {
+    "commercialTopics": {
+      "title": "Everything about solar systems",
+      "items": [
+        {
+          "title": "How it works",
+          "description": "How your large-scale system produces energy and reduces costs.",
+          "linkLabel": "How it works",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/commercial/solar-systems/how-large-plants-works"
+        },
+        {
+          "title": "Cost",
+          "description": "Transparent costs and pricing structure at a glance.",
+          "linkLabel": "Cost",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/commercial/solar-systems"
+        },
+        {
+          "title": "Solar power plant",
+          "description": "Large-scale systems for businesses – from planning to operation.",
+          "linkLabel": "Solar power plant",
+          "image": "/images/commercial-solar-solarkraftwerk-20dc14.webp",
+          "href": "/commercial/solar-systems/project-development"
+        },
+        {
+          "title": "Solar carport",
+          "description": "A solar roof for your parking spaces – use solar energy twice over.",
+          "linkLabel": "Solar carport",
+          "image": "/images/solar-systems-carport-13a486.webp",
+          "href": "/commercial/solar-systems/solar-carport"
+        },
+        {
+          "title": "Contracting",
+          "description": "Solar system without your own investment – we handle financing and operation.",
+          "linkLabel": "Contracting",
+          "image": "/images/commercial-solar-contracting-3ed9d4.webp",
+          "href": "/commercial/solar-systems/contracting"
+        }
+      ]
+    },
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
       "title": "Solar Systems",
       "subtitle": "Solar modules for efficient, long-term energy production"
+    },
+    "topics": {
+      "title": "Everything about solar systems",
+      "cta": "Learn more",
+      "items": [
+        {
+          "title": "How it works",
+          "description": "How your solar system produces energy and reduces costs.",
+          "linkLabel": "How it works",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/how-it-works"
+        },
+        {
+          "title": "Cost",
+          "description": "Transparent costs and pricing structure at a glance.",
+          "linkLabel": "Cost",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/cost"
+        },
+        {
+          "title": "Amortization",
+          "description": "When your solar system starts paying off financially.",
+          "linkLabel": "Amortization",
+          "image": "/images/solar-systems-amortisation-3aa053.webp",
+          "href": "/amortization"
+        },
+        {
+          "title": "Solar carport system",
+          "description": "A solar roof for your car – charge with your own solar energy.",
+          "linkLabel": "Solar Carport",
+          "image": "/images/solar-systems-carport-13a486.webp",
+          "href": "/solar-system-carport"
+        },
+        {
+          "title": "Solar calculator",
+          "description": "Determine your personal solar potential in just a few minutes.",
+          "linkLabel": "Solar calculator",
+          "image": "/images/solar-systems-calculator-20fe78.webp",
+          "href": "/solar-calculator"
+        },
+        {
+          "title": "Service",
+          "description": "Maintenance, monitoring and support – all from one source.",
+          "linkLabel": "Service",
+          "image": "/images/solar-systems-service-1d3871.webp",
+          "href": "/service"
+        },
+        {
+          "title": "Energy storage",
+          "description": "Store your solar power and use it around the clock.",
+          "linkLabel": "Energy storage",
+          "image": "/images/solar-systems-storage-327681.webp",
+          "href": "/energy-storage"
+        },
+        {
+          "title": "Repowering",
+          "description": "Upgrade your existing system to the latest technology.",
+          "linkLabel": "Repowering",
+          "image": "/images/solar-systems-repowering-54b89c.webp",
+          "href": "/repowering"
+        }
+      ]
     },
     "features": {
       "title": "Built for performance.",
@@ -2369,6 +2509,46 @@
     }
   },
   "heatPumps": {
+    "topics": {
+      "title": "Everything about heat pumps",
+      "items": [
+        {
+          "title": "How it works",
+          "description": "How your heat pump heats efficiently and reduces costs.",
+          "linkLabel": "How it works",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/heat-pumps/how-it-works"
+        },
+        {
+          "title": "Cost",
+          "description": "Transparent costs and pricing structure at a glance.",
+          "linkLabel": "Cost",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/heat-pumps/cost"
+        },
+        {
+          "title": "Portfolio",
+          "description": "Our selection of high-quality heat pump models.",
+          "linkLabel": "Portfolio",
+          "image": "/images/heat-pumps-portfolio-27556a.webp",
+          "href": "/heat-pumps/products"
+        },
+        {
+          "title": "Solar heat pump",
+          "description": "Combine your heat pump and solar system for maximum efficiency.",
+          "linkLabel": "Solar heat pump",
+          "image": "/images/heat-pumps-solar-6e051d.webp",
+          "href": "/heat-pumps/heat-pumps-with-solar-system"
+        },
+        {
+          "title": "Service",
+          "description": "Maintenance, monitoring and support – all from one source.",
+          "linkLabel": "Service",
+          "image": "/images/solar-systems-service-1d3871.webp",
+          "href": "/heat-pumps/service"
+        }
+      ]
+    },
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
       "title": "Heat Pumps",
@@ -3134,6 +3314,65 @@
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
       "title": "Charging Stations",
       "subtitle": "For single-family homes without battery storage"
+    },
+    "commercialTopics": {
+      "title": "Everything about charging stations",
+      "items": [
+        {
+          "title": "Apartment building",
+          "description": "Scalable charging infrastructure for residential complexes.",
+          "linkLabel": "Apartment building",
+          "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
+          "href": "/commercial/charging-stations/apartment-building"
+        },
+        {
+          "title": "Monitoring",
+          "description": "Load management and monitoring for corporate fleets.",
+          "linkLabel": "Monitoring",
+          "image": "/images/commercial-charging-verfolgen-483c1d.webp",
+          "href": "/commercial/charging-stations/company"
+        },
+        {
+          "title": "Fast charging stations",
+          "description": "High-power charging stations for businesses and public venues.",
+          "linkLabel": "Fast charging",
+          "image": "/images/commercial-charging-schnell-1fa800.webp",
+          "href": "/commercial/charging-stations/fast-charging-stations"
+        },
+        {
+          "title": "Bidirectional",
+          "description": "Your vehicle as a battery – energy flows both ways.",
+          "linkLabel": "Bidirectional",
+          "image": "/images/charging-bidirektional-7ac659.webp",
+          "href": "/commercial/charging-stations/bidirectional-charging-station"
+        }
+      ]
+    },
+    "topics": {
+      "title": "Everything about charging stations",
+      "items": [
+        {
+          "title": "Single-family home",
+          "description": "Charging solutions for your home – safe and convenient.",
+          "linkLabel": "Single-family home",
+          "image": "/images/charging-einfamilienhaus-a9cdc6.webp",
+          "href": "/charging-stations/single-family-home"
+        },
+        {
+          "title": "Apartment building",
+          "description": "Scalable charging infrastructure for residential complexes.",
+          "linkLabel": "Apartment building",
+          "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
+          "href": "/charging-stations/apartment-building"
+        },
+        {
+          "title": "Bidirectional",
+          "description": "Your vehicle as a battery – energy flows both ways.",
+          "linkLabel": "Bidirectional",
+          "image": "/images/charging-bidirektional-7ac659.webp",
+          "href": "/charging-stations/bidirectional-charging-station"
+        }
+      ]
     }
   },
   "solarAboCalculator": {
@@ -5278,6 +5517,7 @@
       "support": "Support",
       "maintenanceInquiries": "Maintenance Inquiries",
       "contacts": "Contact Submissions",
+      "investorRequests": "Investor Requests",
       "newsletter": "Newsletter",
       "groupContent": "Content",
       "groupCrm": "CRM",
@@ -5558,6 +5798,36 @@
       "adminNotes": "Admin Notes",
       "saveNotes": "Save Notes"
     },
+    "investorRequests": {
+      "title": "Investor Requests",
+      "searchPlaceholder": "Search by name or email...",
+      "filterStatus": "Filter by status",
+      "allStatuses": "All Statuses",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "type": "Type",
+      "status": "Status",
+      "created": "Created",
+      "view": "View",
+      "noRequests": "No investor requests found",
+      "totalRequests": "{count} requests total",
+      "statusNew": "New",
+      "statusContacted": "Contacted",
+      "statusDocumentsSent": "Documents Sent",
+      "statusClosed": "Closed",
+      "details": "Details",
+      "salutation": "Salutation",
+      "address": "Address",
+      "language": "Language",
+      "comment": "Comment",
+      "manage": "Manage",
+      "adminNotes": "Admin Notes",
+      "save": "Save",
+      "saved": "Successfully saved",
+      "backToList": "Back to list"
+    },
     "maintenanceInquiries": {
       "title": "Maintenance Inquiries",
       "searchPlaceholder": "Search by name or email...",
@@ -5648,14 +5918,6 @@
     }
   },
   "register": {
-    "sideTitle": "Start your solar journey today",
-    "sideDescription": "Join thousands of Swiss homeowners who have switched to clean, affordable solar energy with our innovative subscription model.",
-    "benefit1": "Zero upfront investment required",
-    "benefit2": "30% lower electricity costs from day one",
-    "benefit3": "Professional installation included",
-    "benefit4": "35-year guaranteed performance",
-    "benefit5": "Real-time monitoring app",
-    "benefit6": "Dedicated support team",
     "title": "Create account",
     "subtitle": "Get started with your personalized solar experience",
     "firstName": "First name",
@@ -6044,6 +6306,11 @@
     }
   },
   "team": {
+    "hero": {
+      "title": "Company",
+      "description": "Your energy, our responsibility – sustainable and worry-free",
+      "cta": "Get in touch"
+    },
     "grid": {
       "eyebrow": "Our Culture",
       "title": "The guiding principles of Free State AG",
@@ -6051,7 +6318,7 @@
       "ivan": { "name": "Ivan Miric", "role": "CEO / Board Member" },
       "peter": { "name": "Peter Aragai", "role": "Executive Manager / Sales Director" },
       "dragica": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
-      "dejan": { "name": "Dejan", "role": "Project Manager" },
+      "dejan": { "name": "Dejan Djokic", "role": "Project Manager" },
       "member5": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
       "member6": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" }
     },
@@ -6185,6 +6452,74 @@
       "subtitle": "From Schaffhausen, Zurich, Bern, Aargau and Liechtenstein, FreeState develops and realizes photovoltaic projects in Switzerland as well as international energy projects.",
       "ctaContact": "Contact us",
       "ctaCalculator": "Start solar calculator"
+    }
+  },
+  "mediaPage": {
+    "title": "Media & Press",
+    "subtitle": "Information, materials and contact for media representatives",
+    "about": {
+      "eyebrow": "About Free State AG",
+      "title": "Renewable energy for Switzerland",
+      "description": "Free State AG is an established producer of green electricity in Switzerland. We operate modern solar power plants and offer innovative energy solutions for residential and commercial customers. With a growing portfolio of photovoltaic systems, we are actively contributing to the energy transition.",
+      "stats": {
+        "location": {
+          "value": "Schaffhausen",
+          "label": "Headquarters"
+        },
+        "focus": {
+          "value": "Solar",
+          "label": "Core business"
+        }
+      }
+    },
+    "pressContact": {
+      "title": "Press contact",
+      "description": "For media inquiries, interviews and further information, our team is happy to assist you.",
+      "email": "info@freestate.ch",
+      "phone": "+41 52 525 33 05",
+      "address": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSwitzerland",
+      "responseTime": "We typically respond to media inquiries within 24 hours."
+    },
+    "topics": {
+      "title": "Topic areas",
+      "description": "Our expertise spans the following areas — we are available for background discussions and expert contributions.",
+      "items": {
+        "solar": {
+          "title": "Photovoltaics & solar energy",
+          "description": "Technology, economics and trends in the Swiss solar industry"
+        },
+        "energy": {
+          "title": "Energy transition & sustainability",
+          "description": "Strategies for the transition to renewable energy in Switzerland"
+        },
+        "innovation": {
+          "title": "Innovation & technology",
+          "description": "New technologies in the solar and storage industry"
+        },
+        "market": {
+          "title": "Swiss energy market",
+          "description": "Market development, regulation and investments in renewable energy"
+        }
+      }
+    },
+    "brandAssets": {
+      "title": "Brand & imagery",
+      "description": "For editorial use, we are happy to provide high-resolution logos, company photos and imagery. Please contact us directly.",
+      "cta": "Request materials"
+    }
+  },
+  "careersPage": {
+    "title": "Careers at FreeState",
+    "subtitle": "We currently have no open roles, but we are always interested in exceptional talent.",
+    "splitSection": {
+      "title": "Build the energy transition with us",
+      "description": "We are currently not hiring, but we are always open to connecting with professionals who want to contribute to the future of renewable energy."
+    },
+    "contactCta": {
+      "eyebrow": "Next step",
+      "title": "Interested in joining FreeState? Get in touch.",
+      "subtitle": "If you believe your profile fits our mission, we welcome your unsolicited application.",
+      "buttonText": "Contact us"
     }
   }
 }

@@ -12,7 +12,7 @@ import SolarModels from '@/components/SolarModels'
 
 const CommercialPage = async () => {
   return (
-    <main>
+    <div>
       <Hero showCTAs={false} isCommercial />
       <SolarModels isCommercial />
       <WhyFreeState isCommercial />
@@ -24,7 +24,7 @@ const CommercialPage = async () => {
       <CustomerStories isCommercial />
       <Reviews isCommercial />
       <YourBenefits isCommercial />
-    </main>
+    </div>
   )
 }
 

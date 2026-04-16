@@ -13,7 +13,7 @@ const EnergyStoragePage = async () => {
   const t = await getTranslations('energyStorage')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/energy-storage-hero-bg.png"
@@ -29,7 +29,7 @@ const EnergyStoragePage = async () => {
       <HowItWorksSection />
       <BatteryInstallationSection />
       <StorageSolutionsSection />
-    </main>
+    </div>
   )
 }
 

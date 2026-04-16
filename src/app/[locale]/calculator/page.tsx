@@ -22,13 +22,8 @@ const PAGE_BG =
 
 export default function SolarAboCalculatorPage() {
   const t = useTranslations('solarAboCalculator')
-  const {
-    solarModel,
-    currentStep,
-    signatureStatus,
-    resultsPath,
-    goToStep,
-  } = useSolarAboCalculatorStore()
+  const { solarModel, currentStep, signatureStatus, resultsPath, goToStep } =
+    useSolarAboCalculatorStore()
 
   if (!solarModel) {
     return (
@@ -39,9 +34,9 @@ export default function SolarAboCalculatorPage() {
           background: PAGE_BG,
         }}
       >
-        <main className="flex-1">
+        <div className="flex-1">
           <SolarModelSelection />
-        </main>
+        </div>
       </div>
     )
   }
@@ -76,7 +71,11 @@ export default function SolarAboCalculatorPage() {
       case 5:
         return <Step5ContactDetails />
       case 6:
-        return solarModel === 'solar-direct' ? <StepEquipmentResults /> : <StepSolarFreeResults />
+        return solarModel === 'solar-direct' ? (
+          <StepEquipmentResults />
+        ) : (
+          <StepSolarFreeResults />
+        )
       case 7:
         return <StepContractReview />
       case 8:
@@ -102,7 +101,7 @@ export default function SolarAboCalculatorPage() {
     >
       {!isConfirmation && !isPostCalculator && <Steps />}
 
-      <main className={cn(isMapStep && 'h-full')}>{renderStep()}</main>
+      <div className={cn(isMapStep && 'h-full')}>{renderStep()}</div>
     </div>
   )
 }

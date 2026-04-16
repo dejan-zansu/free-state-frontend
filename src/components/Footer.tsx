@@ -66,7 +66,13 @@ const Footer = () => {
     pathname === '/' ||
     pathname?.includes('/contact') ||
     pathname?.includes('/privacy-policy') ||
-    pathname?.includes('/portfolio')
+    pathname?.includes('/portfolio') ||
+    pathname?.includes('/blog') ||
+    pathname?.includes('/impressum') ||
+    pathname?.includes('/privacy-policy') ||
+    pathname?.includes('/agb') ||
+    pathname?.includes('/faq') ||
+    pathname?.includes('/media')
 
   const solarAboLinks = [
     {
@@ -114,7 +120,7 @@ const Footer = () => {
   const companyLinks = [
     { label: t('company.aboutUs'), href: '/about-us' as const },
     { label: t('company.history'), href: '/history' as const },
-    { label: t('company.mission'), href: '/mission' as const },
+    // { label: t('company.mission'), href: '/mission' as const },
     { label: t('company.team'), href: '/team' as const },
     { label: t('company.investors'), href: '/investors' as const },
     { label: t('company.careers'), href: '/careers' as const },
@@ -227,14 +233,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={cn(
-        'bg-solar relative z-20',
-        isLight
-          ? 'bg-transparent -mt-[40px]'
-          : isCommercial
-            ? 'bg-transparent -mt-[40px]'
-            : 'bg-solar'
-      )}
+      className="relative z-20 -mt-[40px]"
     >
       <div
         className={cn(
@@ -465,7 +464,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-wrap gap-8 lg:gap-[60px]">
-              {/* <div className="w-fit">
+              <div className="w-fit">
                 <LinkColumn title={t('solarAbo.title')} links={solarAboLinks} />
               </div>
               <div className="w-fit">
@@ -482,7 +481,7 @@ const Footer = () => {
               </div>
               <div className="w-fit">
                 <LinkColumn title={t('legal.title')} links={legalLinks} />
-              </div> */}
+              </div>
               <div className="w-fit">
                 <LinkColumn title={t('contact.title')} links={contactLinks} />
               </div>
@@ -508,12 +507,12 @@ const Footer = () => {
                 {t('tagline')}
               </p>
             </div>
-            {/* <LinkButton
+            <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
             >
               {t('cta')}
-            </LinkButton> */}
+            </LinkButton>
           </div>
         </div>
       </div>

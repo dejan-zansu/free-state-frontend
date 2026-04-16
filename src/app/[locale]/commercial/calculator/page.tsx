@@ -111,7 +111,11 @@ export default function SonnendachCalculatorPage() {
                       className={cn(
                         'text-sm tracking-tight whitespace-nowrap hidden sm:block',
                         isMapDark ? 'text-white' : 'text-[#062E25]',
-                        currentStep === step.id ? 'opacity-100' : isMapDark ? 'opacity-60' : 'opacity-40'
+                        currentStep === step.id
+                          ? 'opacity-100'
+                          : isMapDark
+                            ? 'opacity-60'
+                            : 'opacity-40'
                       )}
                     >
                       {step.label}
@@ -143,7 +147,7 @@ export default function SonnendachCalculatorPage() {
         </div>
       )}
 
-      <main className={cn(isMapStep && 'h-full')}>{renderStep()}</main>
+      <div className={cn(isMapStep && 'h-full')}>{renderStep()}</div>
     </div>
   )
 }

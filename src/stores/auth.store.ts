@@ -5,6 +5,14 @@ import { getAccessToken, setAccessToken } from '@/lib/api'
 import { authService } from '@/services/auth.service'
 import type { LoginRequest, RegisterRequest, User } from '@/types/auth'
 
+type ApiError = {
+  response?: { data?: { error?: { code?: string; message?: string } } }
+}
+
+function getErrorCode(error: unknown): string | undefined {
+  return (error as ApiError)?.response?.data?.error?.code
+}
+
 interface AuthState {
   user: User | null
   isAuthenticated: boolean
@@ -52,15 +60,13 @@ export const useAuthStore = create<AuthStore>()(
             isInitialized: true,
           })
         } catch (error: unknown) {
-          const errorMessage = 
-            (error as { response?: { data?: { error?: { message?: string } } } })?.response?.data?.error?.message ||
-            'Login failed. Please try again.'
+          const errorCode = getErrorCode(error) || 'loginFailed'
           
           set({
             user: null,
             isAuthenticated: false,
             isLoading: false,
-            error: errorMessage,
+            error: errorCode,
           })
           
           throw error
@@ -80,15 +86,13 @@ export const useAuthStore = create<AuthStore>()(
             isInitialized: true,
           })
         } catch (error: unknown) {
-          const errorMessage = 
-            (error as { response?: { data?: { error?: { message?: string } } } })?.response?.data?.error?.message ||
-            'Registration failed. Please try again.'
+          const errorCode = getErrorCode(error) || 'registerFailed'
           
           set({
             user: null,
             isAuthenticated: false,
             isLoading: false,
-            error: errorMessage,
+            error: errorCode,
           })
           
           throw error

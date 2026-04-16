@@ -15,7 +15,7 @@ export default function AdminLayout({
 }) {
   const user = useUser()
   const router = useRouter()
-  const logout = useAuthStore((s) => s.logout)
+  const logout = useAuthStore(s => s.logout)
 
   const handleLogout = async () => {
     await logout()
@@ -38,9 +38,7 @@ export default function AdminLayout({
               </Button>
             </div>
           </header>
-          <main className="flex-1 p-6">
-            {children}
-          </main>
+          <div className="flex-1 p-6">{children}</div>
         </div>
       </div>
     </ProtectedRoute>

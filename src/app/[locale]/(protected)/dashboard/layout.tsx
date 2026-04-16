@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   FolderOpen,
   FileSignature,
+  ClipboardList,
   HelpCircle,
   Settings,
   LogOut,
@@ -21,6 +22,7 @@ const navItems = [
   { href: '/dashboard', label: 'Overview', icon: LayoutDashboard },
   { href: '/dashboard/project', label: 'My Project', icon: FolderOpen },
   { href: '/dashboard/contract', label: 'My Contract', icon: FileSignature },
+  { href: '/dashboard/requests', label: 'Requests', icon: ClipboardList },
   { href: '/dashboard/support', label: 'Support', icon: HelpCircle },
   { href: '/dashboard/settings', label: 'Settings', icon: Settings },
 ]
@@ -62,7 +64,7 @@ export default function DashboardLayout({
           </div>
 
           <nav className="flex-1 p-4 space-y-1">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <Link
                 key={item.href}
                 href={localizedHref(item.href)}
@@ -90,9 +92,9 @@ export default function DashboardLayout({
           </div>
         </aside>
 
-        <main className="flex-1 lg:ml-64 min-h-[calc(100vh-77px)]">
+        <div className="flex-1 lg:ml-64 min-h-[calc(100vh-77px)]">
           <div className="lg:hidden flex items-center gap-2 overflow-x-auto px-4 py-3 border-b border-[#062E25]/10 bg-white/60 backdrop-blur-sm">
-            {navItems.map((item) => (
+            {navItems.map(item => (
               <Link
                 key={item.href}
                 href={localizedHref(item.href)}
@@ -110,7 +112,7 @@ export default function DashboardLayout({
           </div>
 
           <div className="p-4 sm:p-6 lg:p-8">{children}</div>
-        </main>
+        </div>
       </div>
       <div className="lg:ml-64">
         <DashboardFooter />

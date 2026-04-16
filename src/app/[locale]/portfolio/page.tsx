@@ -5,12 +5,12 @@ import PortfolioStrategy from '@/components/PortfolioStrategy'
 
 const PortfolioPage = async () => {
   return (
-    <main>
+    <div>
       <PortfolioHero />
       <PortfolioProjects />
       <PortfolioStrategy />
       <PortfolioCTA />
-    </main>
+    </div>
   )
 }
 

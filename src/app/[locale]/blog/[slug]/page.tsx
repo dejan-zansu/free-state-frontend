@@ -9,7 +9,7 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
-export default async function BlogPostPage({ params }: Props) {
+const BlogPostPage = async ({ params }: Props) => {
   const { slug } = await params
   const locale = await getLocale()
   const t = await getTranslations('blog')
@@ -20,8 +20,8 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const tr =
-    post.translations.find((t) => t.language === locale) ||
-    post.translations.find((t) => t.language === 'de') ||
+    post.translations.find(t => t.language === locale) ||
+    post.translations.find(t => t.language === 'de') ||
     post.translations[0]
 
   if (!tr) {
@@ -30,7 +30,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <article className="max-w-[800px] mx-auto px-6 py-24">
+      <article className="max-w-[1440px] mx-auto px-6 py-24">
         <Link
           href={`/${locale}/blog`}
           className="inline-flex items-center gap-2 text-sm text-[#062E25]/60 hover:text-[#062E25] transition-colors mb-8"
@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: Props) {
           dangerouslySetInnerHTML={{ __html: tr.content }}
         />
       </article>
-      <div className="h-[40px] bg-[#062E25]" />
     </>
   )
 }
+export default BlogPostPage

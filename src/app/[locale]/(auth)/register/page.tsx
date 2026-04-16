@@ -2,7 +2,7 @@
 
 import { Link, useRouter } from '@/i18n/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ArrowRight, Check, Eye, EyeOff, Loader2, Sun } from 'lucide-react'
+import { ArrowRight, Eye, EyeOff, Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -19,14 +19,15 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { useAuthStore } from '@/stores/auth.store'
+import Image from 'next/image'
 
 const languages = [
   { value: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { value: 'fr', label: 'Français', flag: '🇫🇷' },
-  { value: 'it', label: 'Italiano', flag: '🇮🇹' },
+  // { value: 'fr', label: 'Français', flag: '🇫🇷' },
+  // { value: 'it', label: 'Italiano', flag: '🇮🇹' },
   { value: 'en', label: 'English', flag: '🇬🇧' },
-  { value: 'sr', label: 'Srpski', flag: '🇷🇸' },
-  { value: 'es', label: 'Español', flag: '🇪🇸' },
+  // { value: 'sr', label: 'Srpski', flag: '🇷🇸' },
+  // { value: 'es', label: 'Español', flag: '🇪🇸' },
 ]
 
 export default function RegisterPage() {
@@ -34,6 +35,7 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const t = useTranslations('register')
+  const tErrors = useTranslations('apiErrors')
   const {
     register: registerUser,
     isLoading,
@@ -44,13 +46,7 @@ export default function RegisterPage() {
   const registerSchema = z
     .object({
       email: z.string().email(t('emailError')),
-      password: z
-        .string()
-        .min(8, t('passwordMinError'))
-        .regex(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/,
-          t('passwordFormatError')
-        ),
+      password: z.string().min(6, t('passwordMinError')),
       confirmPassword: z.string(),
       firstName: z.string().min(1, t('firstNameRequired')),
       lastName: z.string().min(1, t('lastNameRequired')),
@@ -68,7 +64,6 @@ export default function RegisterPage() {
     register,
     handleSubmit,
     setValue,
-    watch,
     formState: { errors },
   } = useForm<RegisterForm>({
     resolver: zodResolver(registerSchema),
@@ -83,13 +78,6 @@ export default function RegisterPage() {
     },
   })
 
-  const password = watch('password')
-
-  const hasMinLength = password.length >= 8
-  const hasUppercase = /[A-Z]/.test(password)
-  const hasLowercase = /[a-z]/.test(password)
-  const hasNumber = /\d/.test(password)
-
   const onSubmit = async (data: RegisterForm) => {
     clearError()
     try {
@@ -97,78 +85,30 @@ export default function RegisterPage() {
       const { confirmPassword, ...registerData } = data
       await registerUser(registerData)
       router.push('/dashboard')
-    } catch {
-    }
+    } catch {}
   }
 
   return (
     <div className="flex min-h-0 flex-1">
-      <div className="hidden lg:flex lg:flex-1 items-center justify-center p-12 bg-gradient-to-br from-primary via-primary/95 to-primary/90 relative overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-solar/20 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-40 left-10 w-80 h-80 bg-energy/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: '1.5s' }}
+      <div className="hidden lg:block lg:w-1/2 relative">
+        <Image
+          src="/images/about-us-last-section-image-52b37f.webp"
+          alt="Solar panels on rooftops"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+          unoptimized
         />
 
-        <div className="relative z-10 max-w-lg text-primary-foreground">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-solar flex items-center justify-center">
-              <Sun className="w-8 h-8 text-solar-foreground" />
-            </div>
-            <span className="text-3xl font-bold tracking-tight">
-              Free State AG
-            </span>
-          </div>
-
-          <h1 className="text-4xl font-bold mb-6 leading-tight">
-            {t('sideTitle')}
-          </h1>
-
-          <p className="text-lg text-primary-foreground/80 mb-10 leading-relaxed">
-            {t('sideDescription')}
-          </p>
-
-          <div className="space-y-4">
-            {([
-              t('benefit1'),
-              t('benefit2'),
-              t('benefit3'),
-              t('benefit4'),
-              t('benefit5'),
-              t('benefit6'),
-            ]).map((benefit, index) => (
-              <div key={index} className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded-full bg-energy/20 flex items-center justify-center flex-shrink-0">
-                  <Check className="w-4 h-4 text-energy" />
-                </div>
-                <span className="text-primary-foreground/90">{benefit}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
       </div>
 
-      <div className="flex-1 flex items-center justify-center p-8 lg:p-12 overflow-y-auto">
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 bg-white overflow-y-auto">
         <div className="w-full max-w-md py-8">
-          <div className="lg:hidden flex items-center gap-3 mb-8 justify-center">
-            <div className="w-12 h-12 rounded-xl bg-solar flex items-center justify-center">
-              <Sun className="w-7 h-7 text-solar-foreground" />
-            </div>
-            <span className="text-2xl font-bold tracking-tight">
-              Free State AG
-            </span>
-          </div>
-
-          <div className="mb-6">
-            <h2 className="text-3xl font-bold mb-2">{t('title')}</h2>
-            <p className="text-muted-foreground">
-              {t('subtitle')}
-            </p>
-          </div>
-
           {error && (
-            <div className="mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm lg:text-base">
-              {error}
+            <div className="mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
+              {tErrors.has(error) ? tErrors(error) : tErrors('unknown')}
             </div>
           )}
 
@@ -183,7 +123,7 @@ export default function RegisterPage() {
                   {...register('firstName')}
                 />
                 {errors.firstName && (
-                  <p className="text-sm lg:text-base text-destructive">
+                  <p className="text-sm text-destructive">
                     {errors.firstName.message}
                   </p>
                 )}
@@ -197,7 +137,7 @@ export default function RegisterPage() {
                   {...register('lastName')}
                 />
                 {errors.lastName && (
-                  <p className="text-sm lg:text-base text-destructive">
+                  <p className="text-sm text-destructive">
                     {errors.lastName.message}
                   </p>
                 )}
@@ -215,7 +155,7 @@ export default function RegisterPage() {
                 {...register('email')}
               />
               {errors.email && (
-                <p className="text-sm lg:text-base text-destructive">
+                <p className="text-sm text-destructive">
                   {errors.email.message}
                 </p>
               )}
@@ -289,42 +229,17 @@ export default function RegisterPage() {
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-sm lg:text-base mt-2">
-                <div
-                  className={`flex items-center gap-1.5 ${hasMinLength ? 'text-energy' : 'text-muted-foreground'}`}
-                >
-                  <Check className="w-3 h-3" />
-                  <span>{t('minChars')}</span>
-                </div>
-                <div
-                  className={`flex items-center gap-1.5 ${hasUppercase ? 'text-energy' : 'text-muted-foreground'}`}
-                >
-                  <Check className="w-3 h-3" />
-                  <span>{t('uppercase')}</span>
-                </div>
-                <div
-                  className={`flex items-center gap-1.5 ${hasLowercase ? 'text-energy' : 'text-muted-foreground'}`}
-                >
-                  <Check className="w-3 h-3" />
-                  <span>{t('lowercase')}</span>
-                </div>
-                <div
-                  className={`flex items-center gap-1.5 ${hasNumber ? 'text-energy' : 'text-muted-foreground'}`}
-                >
-                  <Check className="w-3 h-3" />
-                  <span>{t('number')}</span>
-                </div>
-              </div>
-
               {errors.password && (
-                <p className="text-sm lg:text-base text-destructive">
+                <p className="text-sm text-destructive">
                   {errors.password.message}
                 </p>
               )}
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">{t('confirmPasswordLabel')}</Label>
+              <Label htmlFor="confirmPassword">
+                {t('confirmPasswordLabel')}
+              </Label>
               <div className="relative">
                 <Input
                   id="confirmPassword"
@@ -347,7 +262,7 @@ export default function RegisterPage() {
                 </button>
               </div>
               {errors.confirmPassword && (
-                <p className="text-sm lg:text-base text-destructive">
+                <p className="text-sm text-destructive">
                   {errors.confirmPassword.message}
                 </p>
               )}
@@ -377,7 +292,10 @@ export default function RegisterPage() {
                 {t('termsLink')}
               </Link>{' '}
               {t('and')}{' '}
-              <Link href="/privacy-policy" className="text-primary hover:underline">
+              <Link
+                href="/privacy-policy"
+                className="text-primary hover:underline"
+              >
                 {t('privacyLink')}
               </Link>
             </p>

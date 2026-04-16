@@ -12,7 +12,7 @@ const AmortizationPage = async () => {
   const t = await getTranslations('amortization')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/amortization-hero-bg.png"
@@ -32,7 +32,7 @@ const AmortizationPage = async () => {
       <CalculatorExampleSection />
       <CostOverviewSection />
       <CostFurtherTopicsSection />
-    </main>
+    </div>
   )
 }
 

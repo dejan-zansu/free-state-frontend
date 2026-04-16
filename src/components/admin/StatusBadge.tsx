@@ -41,6 +41,8 @@ const STATUS_COLORS: Record<string, string> = {
   AMENDMENT: 'bg-amber-100 text-amber-700',
 
   OPEN: 'bg-amber-100 text-amber-700',
+  SUBMITTED: 'bg-cyan-100 text-cyan-700',
+  CHANGES_REQUESTED: 'bg-orange-100 text-orange-700',
   IN_PROGRESS: 'bg-blue-100 text-blue-700',
   RESOLVED: 'bg-green-100 text-green-700',
   CLOSED: 'bg-gray-100 text-gray-700',

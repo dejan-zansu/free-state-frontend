@@ -179,6 +179,26 @@ export interface AdminNewsletterSubscription {
   createdAt: string
 }
 
+export interface AdminInvestorRequest {
+  id: string
+  entityType: string | null
+  salutation: string | null
+  firstName: string
+  lastName: string
+  address: string | null
+  postalCode: string | null
+  city: string | null
+  email: string
+  phonePrefix: string | null
+  phone: string | null
+  comment: string | null
+  language: string
+  status: 'NEW' | 'CONTACTED' | 'DOCUMENTS_SENT' | 'CLOSED'
+  adminNotes: string | null
+  createdAt: string
+  updatedAt: string
+}
+
 export interface AdminBlogPostTranslation {
   id: string
   blogPostId: string

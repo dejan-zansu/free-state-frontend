@@ -19,6 +19,7 @@ import {
   customerPortalService,
   type DashboardData,
 } from '@/services/customer-portal.service'
+import { DataRequestActionRequiredCard } from '@/components/dashboard/DataRequestActionRequiredCard'
 
 const STATUS_CONFIG: Record<
   string,
@@ -97,6 +98,8 @@ export default function DashboardPage() {
       <p className="text-[#062E25]/60 mb-8">
         Here is an overview of your solar project.
       </p>
+
+      <DataRequestActionRequiredCard />
 
       <Card className="mb-8 border-[#062E25]/10">
         <CardContent className="p-6">

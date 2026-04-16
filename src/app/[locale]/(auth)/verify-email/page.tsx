@@ -15,10 +15,16 @@ import {
 import { Button } from '@/components/ui/button'
 import { authService } from '@/services/auth.service'
 
+function getApiErrorCode(error: unknown): string | undefined {
+  return (error as { response?: { data?: { error?: { code?: string } } } })
+    ?.response?.data?.error?.code
+}
+
 export default function VerifyEmailPage() {
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
   const t = useTranslations('verifyEmail')
+  const tErrors = useTranslations('apiErrors')
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading')
   const [error, setError] = useState<string | null>(null)
 
@@ -34,9 +40,10 @@ export default function VerifyEmailPage() {
       .then(() => setStatus('success'))
       .catch(err => {
         setStatus('error')
-        setError(err instanceof Error ? err.message : t('expiredLink'))
+        const code = getApiErrorCode(err)
+        setError(code && tErrors.has(code) ? tErrors(code) : tErrors('unknown'))
       })
-  }, [token, t])
+  }, [token, t, tErrors])
 
   return (
     <AuthSplitLayout>

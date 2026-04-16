@@ -20,7 +20,7 @@ const HeatPumpsHowItWorksPage = async () => {
   const t = await getTranslations('heatPumpsHowItWorks')
 
   return (
-    <main>
+    <div>
       <PageHero
         backgroundImage="/images/heat-pumps-how-it-works/hero-bg.png"
         title={t('hero.title')}
@@ -41,7 +41,7 @@ const HeatPumpsHowItWorksPage = async () => {
       <AdvantagesSection />
       <WhyFreeStateSection />
       <FurtherTopicsSection />
-    </main>
+    </div>
   )
 }
 

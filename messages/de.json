@@ -1,5 +1,17 @@
 {
   "title": "Free State AG",
+  "apiErrors": {
+    "USER_EXISTS": "Ein Benutzer mit dieser E-Mail-Adresse existiert bereits.",
+    "INVALID_CREDENTIALS": "Ungültige E-Mail-Adresse oder Passwort.",
+    "ACCOUNT_SUSPENDED": "Ihr Konto wurde gesperrt.",
+    "ACCOUNT_INACTIVE": "Ihr Konto ist inaktiv.",
+    "INVALID_TOKEN": "Ungültiger oder abgelaufener Token.",
+    "TOKEN_EXPIRED": "Ihre Sitzung ist abgelaufen. Bitte versuchen Sie es erneut.",
+    "INVALID_PASSWORD": "Das aktuelle Passwort ist falsch.",
+    "loginFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "registerFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  },
   "header": {
     "logoAlt": "Free State AG Logo",
     "contact": "Kontakt",
@@ -74,7 +86,8 @@
   "contactMap": {
     "address": "Adresse",
     "contact": "Kontakt",
-    "email": "E-Mail"
+    "email": "E-Mail",
+    "phone": "Telefon"
   },
   "contactValues": {
     "title": "Unsere Werte",
@@ -1330,29 +1343,54 @@
     }
   },
   "investorsPage": {
-    "title": "Für Investoren",
-    "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+    "title": "Partnerschaften & Investoren",
+    "subtitle": "Gemeinsam mit starken Partnern und Investoren gestalten wir die Zukunft dezentraler Energielösungen.",
+    "heroCta": "Kontakt aufnehmen",
     "investing": {
       "title": "Nachhaltig investieren",
       "description": "Mit einer Investition in erneuerbare Energien setzen Sie auf eine nachhaltige und zukunftssichere Wertschöpfung. Free State AG bietet Ihnen die Möglichkeit, an Solarkraftwerken und anderen umweltfreundlichen Projekten zu partizipieren. Profitieren Sie von stabilen Renditen, einem wachsenden Markt und einem aktiven Beitrag zur Energiewende. Unsere Erfahrung und unser Fokus auf ausgereifte Technologien garantieren Ihnen Sicherheit und Erfolg – für eine grünere Zukunft."
     },
+    "partner": {
+      "eyebrow": "FreeState App",
+      "title": "Partnerschaften Einfach Verwalten, Chancen Nutzen",
+      "bullets": {
+        "projects": "Projekte und Partnerstatus im Blick behalten",
+        "updates": "Relevante Updates und Chancen früh erkennen",
+        "collaboration": "Zusammenarbeit zentral und effizient steuern"
+      }
+    },
+    "formPanel": {
+      "eyebrow": "FreeState App",
+      "title": "Unterlagen anfordern",
+      "subtitle": "Werden Sie Frühinvestor bei FreeState AG und profitieren Sie von dem Private-Equity- und Green-Bond-Angebot."
+    },
     "form": {
-      "title": "Dokumente kostenlos bestellen",
-      "description": "Sie wollen einen positiven Beitrag zur Umwelt und Gesellschaft leisten? Fordern Sie jetzt kostenlos unsere Dokumente an und erfahren Sie, wie Sie mit nachhaltigen Energielösungen und Investitionen in erneuerbare Energien aktiv zur Energiewende beitragen können. Füllen Sie einfach das Formular aus, und wir senden Ihnen die gewünschten Unterlagen direkt zu. Nutzen Sie diese Gelegenheit, um sich umfassend zu informieren und gemeinsam mit uns eine grüne und erfolgreiche Zukunft zu gestalten!",
-      "type": "Firma oder Privat?",
-      "typePrivate": "Privat",
+      "eyebrow": "Für Investoren",
+      "title": "Unterlagen kostenlos anfordern!",
+      "entityType": "Privatperson",
+      "typePrivate": "Privatperson",
       "typeCompany": "Firma",
-      "salutation": "Anrede",
+      "salutation": "Herr",
       "salutationMr": "Herr",
       "salutationMrs": "Frau",
       "salutationDiverse": "Divers",
-      "language": "Bestellen auf:",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "address": "Adresse",
+      "postalCode": "PLZ",
+      "city": "Ort",
+      "email": "E-Mail",
+      "phone": "Telefonnummer",
+      "comment": "Kommentar",
+      "languageLabel": "Unterlagen anfordern in:",
       "languageGerman": "Deutsch",
       "languageEnglish": "Englisch",
       "languageFrench": "Französisch",
-      "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung zur Kenntnis genommen habe.",
-      "captcha": "Nicht lesbar? Neu generieren",
-      "submit": "Absenden"
+      "submit": "Anfrage senden",
+      "required": "Pflichtfeld",
+      "successTitle": "Anfrage gesendet!",
+      "successMessage": "Vielen Dank für Ihre Anfrage. Wir senden Ihnen die gewünschten Unterlagen in Kürze zu.",
+      "errorMessage": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
     },
     "faq": {
       "title": "Häufig gestellte Fragen",
@@ -2356,10 +2394,112 @@
     "backToBlog": "Zurück zum Blog"
   },
   "solarSystems": {
+    "commercialTopics": {
+      "title": "Alles über Solaranlagen",
+      "items": [
+        {
+          "title": "Funktionsweise",
+          "description": "Wie Ihre Grossanlage Energie produziert und Kosten reduziert.",
+          "linkLabel": "Funktionsweise",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/commercial/solar-systems/how-large-plants-works"
+        },
+        {
+          "title": "Kosten",
+          "description": "Transparente Kosten und Preisstruktur im Überblick.",
+          "linkLabel": "Kosten",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/commercial/solar-systems"
+        },
+        {
+          "title": "Solarkraftwerk",
+          "description": "Grossanlagen für Unternehmen – von der Planung bis zum Betrieb.",
+          "linkLabel": "Solarkraftwerk",
+          "image": "/images/commercial-solar-solarkraftwerk-20dc14.webp",
+          "href": "/commercial/solar-systems/project-development"
+        },
+        {
+          "title": "Solarcarport",
+          "description": "Solardach für Ihre Parkflächen – Sonnenenergie doppelt nutzen.",
+          "linkLabel": "Solarcarport",
+          "image": "/images/solar-systems-carport-13a486.webp",
+          "href": "/commercial/solar-systems/solar-carport"
+        },
+        {
+          "title": "Contracting",
+          "description": "Solaranlage ohne Eigeninvestition – wir übernehmen Finanzierung und Betrieb.",
+          "linkLabel": "Contracting",
+          "image": "/images/commercial-solar-contracting-3ed9d4.webp",
+          "href": "/commercial/solar-systems/contracting"
+        }
+      ]
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Solaranlagen",
       "subtitle": "Solarmodule für effiziente, langfristige Energieproduktion"
+    },
+    "topics": {
+      "title": "Alles über Solaranlagen",
+      "cta": "Mehr erfahren",
+      "items": [
+        {
+          "title": "Funktionsweise",
+          "description": "Wie Ihre Solaranlage Energie produziert und Kosten reduziert.",
+          "linkLabel": "Funktionsweise",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/how-it-works"
+        },
+        {
+          "title": "Kosten",
+          "description": "Transparente Kosten und Preisstruktur im Überblick.",
+          "linkLabel": "Kosten",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/cost"
+        },
+        {
+          "title": "Amortisation",
+          "description": "Ab wann sich Ihre Solaranlage finanziell auszahlt.",
+          "linkLabel": "Amortisation",
+          "image": "/images/solar-systems-amortisation-3aa053.webp",
+          "href": "/amortization"
+        },
+        {
+          "title": "Solar-Carport-System",
+          "description": "Solardach für Ihr Auto – laden Sie mit eigener Sonnenenergie.",
+          "linkLabel": "Solar Carport",
+          "image": "/images/solar-systems-carport-13a486.webp",
+          "href": "/solar-system-carport"
+        },
+        {
+          "title": "Solarrechner",
+          "description": "Ermitteln Sie Ihr persönliches Solarpotenzial in wenigen Minuten.",
+          "linkLabel": "Solarrechner",
+          "image": "/images/solar-systems-calculator-20fe78.webp",
+          "href": "/solar-calculator"
+        },
+        {
+          "title": "Service",
+          "description": "Wartung, Monitoring und Support – alles aus einer Hand.",
+          "linkLabel": "Service",
+          "image": "/images/solar-systems-service-1d3871.webp",
+          "href": "/service"
+        },
+        {
+          "title": "Energiespeicher",
+          "description": "Speichern Sie Ihren Solarstrom und nutzen Sie ihn rund um die Uhr.",
+          "linkLabel": "Energiespeicher",
+          "image": "/images/solar-systems-storage-327681.webp",
+          "href": "/energy-storage"
+        },
+        {
+          "title": "Repowering",
+          "description": "Rüsten Sie Ihre bestehende Anlage auf modernste Technologie um.",
+          "linkLabel": "Repowering",
+          "image": "/images/solar-systems-repowering-54b89c.webp",
+          "href": "/repowering"
+        }
+      ]
     },
     "features": {
       "title": "Gebaut für Leistung.",
@@ -2491,6 +2631,46 @@
     }
   },
   "heatPumps": {
+    "topics": {
+      "title": "Alles über Wärmepumpen",
+      "items": [
+        {
+          "title": "Funktionsweise",
+          "description": "Wie Ihre Wärmepumpe effizient heizt und Kosten reduziert.",
+          "linkLabel": "Funktionsweise",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/heat-pumps/how-it-works"
+        },
+        {
+          "title": "Kosten",
+          "description": "Transparente Kosten und Preisstruktur im Überblick.",
+          "linkLabel": "Kosten",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/heat-pumps/cost"
+        },
+        {
+          "title": "Portfolio",
+          "description": "Unsere Auswahl an hochwertigen Wärmepumpen-Modellen.",
+          "linkLabel": "Portfolio",
+          "image": "/images/heat-pumps-portfolio-27556a.webp",
+          "href": "/heat-pumps/products"
+        },
+        {
+          "title": "Solar-Wärmepumpe",
+          "description": "Kombinieren Sie Wärmepumpe und Solaranlage für maximale Effizienz.",
+          "linkLabel": "Solar-Wärmepumpe",
+          "image": "/images/heat-pumps-solar-6e051d.webp",
+          "href": "/heat-pumps/heat-pumps-with-solar-system"
+        },
+        {
+          "title": "Service",
+          "description": "Wartung, Monitoring und Support – alles aus einer Hand.",
+          "linkLabel": "Service",
+          "image": "/images/solar-systems-service-1d3871.webp",
+          "href": "/heat-pumps/service"
+        }
+      ]
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Wärmepumpen",
@@ -3088,6 +3268,65 @@
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Ladestationen",
       "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher"
+    },
+    "commercialTopics": {
+      "title": "Alles über Ladestationen",
+      "items": [
+        {
+          "title": "Mehrfamilienhaus",
+          "description": "Skalierbare Ladeinfrastruktur für Wohnanlagen.",
+          "linkLabel": "Mehrfamilienhaus",
+          "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
+          "href": "/commercial/charging-stations/apartment-building"
+        },
+        {
+          "title": "Verfolgen",
+          "description": "Lastmanagement und Monitoring für Firmenflotten.",
+          "linkLabel": "Verfolgen",
+          "image": "/images/commercial-charging-verfolgen-483c1d.webp",
+          "href": "/commercial/charging-stations/company"
+        },
+        {
+          "title": "Schnellladestationen",
+          "description": "Hochleistungs-Ladestationen für Unternehmen und öffentliche Plätze.",
+          "linkLabel": "Schnellladestationen",
+          "image": "/images/commercial-charging-schnell-1fa800.webp",
+          "href": "/commercial/charging-stations/fast-charging-stations"
+        },
+        {
+          "title": "Bidirektionale",
+          "description": "Fahrzeug als Stromspeicher – Energie fliesst in beide Richtungen.",
+          "linkLabel": "Bidirektionale",
+          "image": "/images/charging-bidirektional-7ac659.webp",
+          "href": "/commercial/charging-stations/bidirectional-charging-station"
+        }
+      ]
+    },
+    "topics": {
+      "title": "Alles über Ladestationen",
+      "items": [
+        {
+          "title": "Einfamilienhaus",
+          "description": "Ladelösungen für Ihr Zuhause – sicher und bequem.",
+          "linkLabel": "Einfamilienhaus",
+          "image": "/images/charging-einfamilienhaus-a9cdc6.webp",
+          "href": "/charging-stations/single-family-home"
+        },
+        {
+          "title": "Mehrfamilienhaus",
+          "description": "Skalierbare Ladeinfrastruktur für Wohnanlagen.",
+          "linkLabel": "Mehrfamilienhaus",
+          "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
+          "href": "/charging-stations/apartment-building"
+        },
+        {
+          "title": "Bidirektionale",
+          "description": "Fahrzeug als Stromspeicher – Energie fliesst in beide Richtungen.",
+          "linkLabel": "Bidirektionale",
+          "image": "/images/charging-bidirektional-7ac659.webp",
+          "href": "/charging-stations/bidirectional-charging-station"
+        }
+      ]
     }
   },
   "cost": {
@@ -5343,6 +5582,7 @@
       "support": "Support",
       "maintenanceInquiries": "Wartungsanfragen",
       "contacts": "Kontaktanfragen",
+      "investorRequests": "Investorenanfragen",
       "newsletter": "Newsletter",
       "groupContent": "Inhalte",
       "groupCrm": "CRM",
@@ -5593,6 +5833,36 @@
       "adminNotes": "Admin-Notizen",
       "saveNotes": "Notizen speichern"
     },
+    "investorRequests": {
+      "title": "Investorenanfragen",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "filterStatus": "Status filtern",
+      "allStatuses": "Alle Status",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "location": "Ort",
+      "type": "Typ",
+      "status": "Status",
+      "created": "Erstellt",
+      "view": "Anzeigen",
+      "noRequests": "Keine Investorenanfragen gefunden",
+      "totalRequests": "{count} Anfragen gesamt",
+      "statusNew": "Neu",
+      "statusContacted": "Kontaktiert",
+      "statusDocumentsSent": "Unterlagen versendet",
+      "statusClosed": "Geschlossen",
+      "details": "Details",
+      "salutation": "Anrede",
+      "address": "Adresse",
+      "language": "Sprache",
+      "comment": "Kommentar",
+      "manage": "Verwalten",
+      "adminNotes": "Admin-Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "backToList": "Zurück zur Liste"
+    },
     "maintenanceInquiries": {
       "title": "Wartungsanfragen",
       "searchPlaceholder": "Nach Name oder E-Mail suchen...",
@@ -5713,14 +5983,6 @@
     }
   },
   "register": {
-    "sideTitle": "Starten Sie Ihre Solar-Reise noch heute",
-    "sideDescription": "Schliessen Sie sich Tausenden Schweizer Hausbesitzern an, die mit unserem innovativen Abo-Modell auf saubere, erschwingliche Solarenergie umgestiegen sind.",
-    "benefit1": "Keine Vorabinvestition erforderlich",
-    "benefit2": "30 % niedrigere Stromkosten ab dem ersten Tag",
-    "benefit3": "Professionelle Installation inklusive",
-    "benefit4": "35 Jahre garantierte Leistung",
-    "benefit5": "Echtzeit-Monitoring-App",
-    "benefit6": "Engagiertes Support-Team",
     "title": "Konto erstellen",
     "subtitle": "Starten Sie mit Ihrer personalisierten Solar-Erfahrung",
     "firstName": "Vorname",
@@ -6113,6 +6375,11 @@
     }
   },
   "team": {
+    "hero": {
+      "title": "Unternehmen",
+      "description": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+      "cta": "Kontakt aufnehmen"
+    },
     "grid": {
       "eyebrow": "Unsere Kultur",
       "title": "Das Leitbild der Free State AG",
@@ -6120,7 +6387,7 @@
       "ivan": { "name": "Ivan Miric", "role": "Geschäftsführer / Verwaltungsrat" },
       "peter": { "name": "Peter Aragai", "role": "Executive Manager / Verkaufsleiter" },
       "dragica": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
-      "dejan": { "name": "Dejan", "role": "Projektleiter" },
+      "dejan": { "name": "Dejan Djokic", "role": "Projektleiter" },
       "member5": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
       "member6": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" }
     },
@@ -6254,6 +6521,74 @@
       "subtitle": "Von Schaffhausen, Zürich, Bern, Aargau und Liechtenstein aus entwickelt und realisiert FreeState Photovoltaikprojekte in der Schweiz sowie internationale Energieprojekte.",
       "ctaContact": "Kontaktieren Sie uns",
       "ctaCalculator": "Solarrechner starten"
+    }
+  },
+  "mediaPage": {
+    "title": "Medien & Presse",
+    "subtitle": "Informationen, Materialien und Kontakt für Medienvertreter",
+    "about": {
+      "eyebrow": "Über Free State AG",
+      "title": "Erneuerbare Energie für die Schweiz",
+      "description": "Free State AG ist ein etablierter Produzent von Grünstrom in der Schweiz. Wir betreiben moderne Solarkraftwerke und bieten innovative Energielösungen für Privat- und Geschäftskunden. Mit einem wachsenden Portfolio an Photovoltaikanlagen tragen wir aktiv zur Energiewende bei.",
+      "stats": {
+        "location": {
+          "value": "Schaffhausen",
+          "label": "Hauptsitz"
+        },
+        "focus": {
+          "value": "Solar",
+          "label": "Kerngeschäft"
+        }
+      }
+    },
+    "pressContact": {
+      "title": "Pressekontakt",
+      "description": "Für Medienanfragen, Interviews und weiterführende Informationen steht Ihnen unser Team gerne zur Verfügung.",
+      "email": "info@freestate.ch",
+      "phone": "+41 52 525 33 05",
+      "address": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz",
+      "responseTime": "Wir antworten in der Regel innerhalb von 24 Stunden auf Medienanfragen."
+    },
+    "topics": {
+      "title": "Themengebiete",
+      "description": "Unsere Expertise erstreckt sich über folgende Bereiche — wir stehen für Hintergrundgespräche und Fachbeiträge zur Verfügung.",
+      "items": {
+        "solar": {
+          "title": "Photovoltaik & Solarenergie",
+          "description": "Technik, Wirtschaftlichkeit und Trends in der Solarbranche Schweiz"
+        },
+        "energy": {
+          "title": "Energiewende & Nachhaltigkeit",
+          "description": "Strategien für den Übergang zu erneuerbaren Energien in der Schweiz"
+        },
+        "innovation": {
+          "title": "Innovation & Technologie",
+          "description": "Neue Technologien in der Solar- und Speicherbranche"
+        },
+        "market": {
+          "title": "Energiemarkt Schweiz",
+          "description": "Marktentwicklung, Regulierung und Investitionen in erneuerbare Energien"
+        }
+      }
+    },
+    "brandAssets": {
+      "title": "Marke & Bildmaterial",
+      "description": "Für die redaktionelle Verwendung stellen wir Ihnen gerne hochauflösende Logos, Unternehmensfotos und Bildmaterial zur Verfügung. Bitte kontaktieren Sie uns direkt.",
+      "cta": "Material anfragen"
+    }
+  },
+  "careersPage": {
+    "title": "Karriere bei FreeState",
+    "subtitle": "Derzeit haben wir keine offenen Stellen, aber wir sind immer an aussergewöhnlichen Talenten interessiert.",
+    "splitSection": {
+      "title": "Gestalten Sie die Energiewende mit uns",
+      "description": "Wir stellen derzeit nicht ein, sind aber immer offen für den Austausch mit Fachleuten, die zur Zukunft der erneuerbaren Energien beitragen möchten."
+    },
+    "contactCta": {
+      "eyebrow": "Nächster Schritt",
+      "title": "Interesse an FreeState? Kontaktieren Sie uns.",
+      "subtitle": "Wenn Sie glauben, dass Ihr Profil zu unserer Mission passt, freuen wir uns über Ihre Initiativbewerbung.",
+      "buttonText": "Kontaktieren Sie uns"
     }
   }
 }

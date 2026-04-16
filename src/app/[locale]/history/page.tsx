@@ -9,7 +9,7 @@ import { getTranslations } from 'next-intl/server'
 const HistoryPage = async () => {
   const t = await getTranslations('history')
   return (
-    <main>
+    <div>
       <PageHero
         backgroundImage="/images/history-page-hero.png"
         title={t('hero.title')}
@@ -22,7 +22,7 @@ const HistoryPage = async () => {
       <FoundingSection />
       <FutureVision />
       <VisionSection />
-    </main>
+    </div>
   )
 }
 

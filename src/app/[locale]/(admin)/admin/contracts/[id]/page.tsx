@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { DataRequestsCard } from '@/components/admin/DataRequestsCard'
 import { Card, CardContent } from '@/components/ui/card'
 import { adminService } from '@/services/admin.service'
 import type { AdminContract } from '@/types/admin'
@@ -186,6 +187,11 @@ export default function AdminContractDetailPage() {
             </div>
           </CardContent>
         </Card>
+
+        <DataRequestsCard
+          contractId={contract.id}
+          canCreate={contract.signatureStatus === 'SIGNED'}
+        />
       </div>
     </div>
   )

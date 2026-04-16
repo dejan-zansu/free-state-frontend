@@ -28,10 +28,16 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authService } from '@/services/auth.service'
 
+function getApiErrorCode(error: unknown): string | undefined {
+  return (error as { response?: { data?: { error?: { code?: string } } } })
+    ?.response?.data?.error?.code
+}
+
 export default function SetPasswordPage() {
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
   const t = useTranslations('setPassword')
+  const tErrors = useTranslations('apiErrors')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -39,7 +45,7 @@ export default function SetPasswordPage() {
 
   const setPasswordSchema = z
     .object({
-      password: z.string().min(8, t('passwordMinError')),
+      password: z.string().min(6, t('passwordMinError')),
       confirmPassword: z.string(),
     })
     .refine(data => data.password === data.confirmPassword, {
@@ -66,7 +72,8 @@ export default function SetPasswordPage() {
       await authService.resetPassword(token, data.password)
       setIsSuccess(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : t('expiredError'))
+      const code = getApiErrorCode(err)
+      setError(code && tErrors.has(code) ? tErrors(code) : tErrors('unknown'))
     } finally {
       setIsLoading(false)
     }
@@ -150,7 +157,7 @@ export default function SetPasswordPage() {
 
         {error && (
           <div
-            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm lg:text-base text-red-700 shadow-sm"
+            className="mb-6 flex gap-3 rounded-xl border border-red-200/80 bg-red-50/90 p-4 text-sm text-red-700 shadow-sm"
             role="alert"
           >
             <AlertCircle
@@ -188,7 +195,7 @@ export default function SetPasswordPage() {
               </button>
             </div>
             {errors.password && (
-              <p className="text-sm lg:text-base text-red-600">{errors.password.message}</p>
+              <p className="text-sm text-red-600">{errors.password.message}</p>
             )}
           </div>
 
@@ -205,7 +212,7 @@ export default function SetPasswordPage() {
               {...register('confirmPassword')}
             />
             {errors.confirmPassword && (
-              <p className="text-sm lg:text-base text-red-600">
+              <p className="text-sm text-red-600">
                 {errors.confirmPassword.message}
               </p>
             )}

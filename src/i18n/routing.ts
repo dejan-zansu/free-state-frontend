@@ -321,10 +321,6 @@ export const routing = defineRouting({
       en: '/verify-email',
       de: '/email-verifizieren',
     },
-    '/terms': {
-      en: '/terms',
-      de: '/agb',
-    },
     '/privacy': {
       en: '/privacy',
       de: '/datenschutz',
@@ -454,7 +450,7 @@ export const routing = defineRouting({
       de: '/impressum',
     },
     '/agb': {
-      en: '/agb',
+      en: '/terms',
       de: '/agb',
     },
   },
