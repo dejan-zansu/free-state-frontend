@@ -5,11 +5,11 @@ const CareersSplitSection = () => {
   const t = useTranslations('careersPage.splitSection')
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full -mt-[40px]">
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/488]">
           <Image
-            src="/images/careers-split-left-4ff04a.png"
+            src="/images/careers-split-left-4ff04a.webp"
             alt=""
             fill
             className="object-cover"

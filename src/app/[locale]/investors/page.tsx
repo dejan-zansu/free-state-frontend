@@ -44,7 +44,7 @@ const InvestorsPage = async () => {
           <div
             className="w-full lg:w-1/2 lg:max-w-[720px] min-h-[400px] lg:min-h-[889px] bg-cover bg-center"
             style={{
-              backgroundImage: "url('/images/investors-partner-hero-6656e3.png')",
+              backgroundImage: "url('/images/investors-partner-hero-6656e3.webp')",
             }}
           />
         </div>

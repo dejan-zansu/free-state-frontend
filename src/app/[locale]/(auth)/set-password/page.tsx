@@ -21,7 +21,6 @@ import {
   AuthErrorMark,
   AuthSplitLayout,
   AuthSuccessMark,
-  authPanelCardClass,
 } from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -83,7 +82,7 @@ export default function SetPasswordPage() {
     return (
       <AuthSplitLayout>
         <div className="w-full max-w-md">
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthErrorMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('invalidLink')}
@@ -109,7 +108,7 @@ export default function SetPasswordPage() {
     return (
       <AuthSplitLayout>
         <div className="w-full max-w-md">
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthSuccessMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('successTitle')}

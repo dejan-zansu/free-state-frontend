@@ -25,9 +25,9 @@ const ServicePage = async () => {
       <ServiceHighestLevelSection />
       <SelfCheckSection />
       <ServicePricingSection />
-      <divtenanceServicesSection />
+      <MaintenanceServicesSection />
       <MonitoringSection />
-      <divtenanceInquirySection />
+      <MaintenanceInquirySection />
     </div>
   )
 }
