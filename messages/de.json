@@ -223,7 +223,10 @@
         "bidirectionalCharging": "Bidirektionales Laden",
         "chargingCompany": "Unternehmen",
         "heatPumpProducts": "Produktportfolio Wärmepumpen",
-        "singleFamilyHome": "Einfamilienhaus"
+        "singleFamilyHome": "Einfamilienhaus",
+        "promoTitle": "Intelligente Solarlösungen für Privathaushalte",
+        "promoTitleCommercial": "Intelligente Solarlösungen für Unternehmen",
+        "promoCta": "Jetzt entdecken"
       }
     },
     "stats": {
