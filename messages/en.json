@@ -236,7 +236,10 @@
         "bidirectionalCharging": "Bidirectional charging",
         "chargingCompany": "Company",
         "heatPumpProducts": "Product Portfolio Heat Pumps",
-        "singleFamilyHome": "Single family home"
+        "singleFamilyHome": "Single family home",
+        "promoTitle": "Smart solar solutions for private households",
+        "promoTitleCommercial": "Smart solar solutions for businesses",
+        "promoCta": "Discover now"
       }
     },
     "stats": {
