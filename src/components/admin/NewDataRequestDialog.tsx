@@ -197,7 +197,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                   {(item.type === 'PHOTO' || item.type === 'DOCUMENT') && (
                     <div className="flex gap-3">
                       <div>
-                        <Label className="text-xs">Min count</Label>
+                        <Label className="text-sm">Min count</Label>
                         <Input
                           type="number"
                           min={0}
@@ -209,7 +209,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                         />
                       </div>
                       <div>
-                        <Label className="text-xs">Max count</Label>
+                        <Label className="text-sm">Max count</Label>
                         <Input
                           type="number"
                           min={1}

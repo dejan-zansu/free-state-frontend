@@ -1,3 +1,4 @@
+import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
 import PageHero from '@/components/PageHero'
 import TopicsGrid from '@/components/TopicsGrid'
 import { getTranslations } from 'next-intl/server'
@@ -13,6 +14,7 @@ const CommercialSolarSystemsPage = async () => {
         className="bg-[#4F4970]"
       />
       <TopicsGrid namespace="solarSystems.commercialTopics" columns={5} maxWidth="1440px" />
+      <CheckSolarPotentialCTA isCommercial />
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
 import PageHero from '@/components/PageHero'
 import TopicsGrid from '@/components/TopicsGrid'
 import { getTranslations } from 'next-intl/server'
@@ -11,6 +12,7 @@ const ChargingStationsPage = async () => {
         title={t('hero.title')}
       />
       <TopicsGrid namespace="chargingStations.topics" columns={3} maxWidth="900px" />
+      <CheckSolarPotentialCTA />
     </div>
   )
 }

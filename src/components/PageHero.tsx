@@ -42,7 +42,7 @@ const PageHero = ({
         />
       )}
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[220px] w-full">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[230px] w-full">
         <div
           className={cn(
             'flex flex-col items-center text-center',

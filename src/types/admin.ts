@@ -184,6 +184,8 @@ export interface AdminCareerSubscription {
   firstName: string
   lastName: string
   email: string
+  role: string
+  comment: string | null
   consentMarketing: boolean
   locale: string
   createdAt: string

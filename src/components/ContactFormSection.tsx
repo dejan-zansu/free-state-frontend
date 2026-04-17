@@ -35,7 +35,8 @@ type ContactFormData = {
   privacy: boolean
 }
 
-const inputClassName = 'h-9 bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]'
+const inputClassName =
+  'h-9 bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]'
 
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
@@ -61,7 +62,9 @@ const ContactFormSection = () => {
     },
   })
 
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle')
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus('loading')
@@ -95,7 +98,10 @@ const ContactFormSection = () => {
         <div className="rounded-2xl border border-[#f6f6f6]/60 bg-[#a4beab]/33 backdrop-blur-[10px] p-6 sm:p-10">
           <div className="flex flex-col items-center gap-[50px]">
             <div className="flex flex-col items-center gap-5 text-center">
-              <Badge variant="outline" className="border-foreground text-foreground font-light text-base backdrop-blur-[65px]">
+              <Badge
+                variant="outline"
+                className="border-foreground text-foreground font-light text-base backdrop-blur-[65px]"
+              >
                 {t('eyebrow')}
               </Badge>
               <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
@@ -105,25 +111,42 @@ const ContactFormSection = () => {
 
             {status === 'success' ? (
               <div className="flex flex-col items-center py-16">
-                <Check className="h-8 w-8 text-green-600 mb-4" strokeWidth={2.5} />
-                <h3 className="text-xl font-semibold text-foreground mb-2">{t('successTitle')}</h3>
+                <Check
+                  className="h-8 w-8 text-green-600 mb-4"
+                  strokeWidth={2.5}
+                />
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  {t('successTitle')}
+                </h3>
                 <p className="text-foreground/60">{t('successMessage')}</p>
               </div>
             ) : (
               <div className="w-full flex flex-col items-end gap-5">
-                <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-5">
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="w-full space-y-5"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <Controller
                       name="entityType"
                       control={control}
                       render={({ field }) => (
-                        <Select value={field.value} onValueChange={field.onChange}>
+                        <Select
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        >
                           <SelectTrigger className={inputClassName}>
-                            <SelectValue placeholder={t('entityType.placeholder')} />
+                            <SelectValue
+                              placeholder={t('entityType.placeholder')}
+                            />
                           </SelectTrigger>
                           <SelectContent position="popper">
-                            <SelectItem value="company">{t('entityType.company')}</SelectItem>
-                            <SelectItem value="private">{t('entityType.private')}</SelectItem>
+                            <SelectItem value="company">
+                              {t('entityType.company')}
+                            </SelectItem>
+                            <SelectItem value="private">
+                              {t('entityType.private')}
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       )}
@@ -132,14 +155,25 @@ const ContactFormSection = () => {
                       name="salutation"
                       control={control}
                       render={({ field }) => (
-                        <Select value={field.value} onValueChange={field.onChange}>
+                        <Select
+                          value={field.value}
+                          onValueChange={field.onChange}
+                        >
                           <SelectTrigger className={inputClassName}>
-                            <SelectValue placeholder={t('salutation.placeholder')} />
+                            <SelectValue
+                              placeholder={t('salutation.placeholder')}
+                            />
                           </SelectTrigger>
                           <SelectContent position="popper">
-                            <SelectItem value="mr">{t('salutation.mr')}</SelectItem>
-                            <SelectItem value="mrs">{t('salutation.mrs')}</SelectItem>
-                            <SelectItem value="diverse">{t('salutation.diverse')}</SelectItem>
+                            <SelectItem value="mr">
+                              {t('salutation.mr')}
+                            </SelectItem>
+                            <SelectItem value="mrs">
+                              {t('salutation.mrs')}
+                            </SelectItem>
+                            <SelectItem value="diverse">
+                              {t('salutation.diverse')}
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       )}
@@ -152,11 +186,15 @@ const ContactFormSection = () => {
                         {t('firstName.label')}
                       </Label>
                       <Input
-                        {...register('firstName', { required: t('errors.firstName') })}
+                        {...register('firstName', {
+                          required: t('errors.firstName'),
+                        })}
                         className={inputClassName}
                       />
                       {errors.firstName && (
-                        <p className="text-red-500 text-sm">{errors.firstName.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.firstName.message}
+                        </p>
                       )}
                     </div>
                     <div className="space-y-1">
@@ -164,11 +202,15 @@ const ContactFormSection = () => {
                         {t('lastName.label')}
                       </Label>
                       <Input
-                        {...register('lastName', { required: t('errors.lastName') })}
+                        {...register('lastName', {
+                          required: t('errors.lastName'),
+                        })}
                         className={inputClassName}
                       />
                       {errors.lastName && (
-                        <p className="text-red-500 text-sm">{errors.lastName.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.lastName.message}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -184,7 +226,9 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-sm">{errors.email.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.email.message}
+                        </p>
                       )}
                     </div>
                     <div className="space-y-1">
@@ -197,7 +241,9 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.phone && (
-                        <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.phone.message}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -207,11 +253,15 @@ const ContactFormSection = () => {
                       {t('address.label')}
                     </Label>
                     <Input
-                      {...register('address', { required: t('errors.address') })}
+                      {...register('address', {
+                        required: t('errors.address'),
+                      })}
                       className={inputClassName}
                     />
                     {errors.address && (
-                      <p className="text-red-500 text-sm">{errors.address.message}</p>
+                      <p className="text-red-500 text-sm">
+                        {errors.address.message}
+                      </p>
                     )}
                   </div>
 
@@ -221,11 +271,15 @@ const ContactFormSection = () => {
                         {t('postalCode.label')}
                       </Label>
                       <Input
-                        {...register('postalCode', { required: t('errors.postalCode') })}
+                        {...register('postalCode', {
+                          required: t('errors.postalCode'),
+                        })}
                         className={inputClassName}
                       />
                       {errors.postalCode && (
-                        <p className="text-red-500 text-sm">{errors.postalCode.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.postalCode.message}
+                        </p>
                       )}
                     </div>
                     <div className="space-y-1">
@@ -237,7 +291,9 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.city && (
-                        <p className="text-red-500 text-sm">{errors.city.message}</p>
+                        <p className="text-red-500 text-sm">
+                          {errors.city.message}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -252,7 +308,7 @@ const ContactFormSection = () => {
                     />
                   </div>
 
-                  <div className="flex items-start gap-2.5">
+                  <div className="flex items-center gap-2.5 jus">
                     <Controller
                       name="privacy"
                       control={control}
@@ -268,7 +324,7 @@ const ContactFormSection = () => {
                     />
                     <Label
                       htmlFor="privacy"
-                      className="text-sm text-foreground/40 font-medium tracking-tight cursor-pointer"
+                      className="text-sm text-foreground/40 font-medium tracking-tight cursor-pointer mb-0"
                     >
                       <Link
                         href="/privacy-policy"
@@ -280,15 +336,23 @@ const ContactFormSection = () => {
                     </Label>
                   </div>
                   {errors.privacy && (
-                    <p className="text-red-500 text-sm">{errors.privacy.message}</p>
+                    <p className="text-red-500 text-sm">
+                      {errors.privacy.message}
+                    </p>
                   )}
 
                   {status === 'error' && (
-                    <p className="text-red-600 text-sm font-medium">{t('errorMessage')}</p>
+                    <p className="text-red-600 text-sm font-medium">
+                      {t('errorMessage')}
+                    </p>
                   )}
 
                   <div className="flex justify-end">
-                    <ArrowButton type="submit" variant="primary" disabled={status === 'loading'}>
+                    <ArrowButton
+                      type="submit"
+                      variant="primary"
+                      disabled={status === 'loading'}
+                    >
                       {t('submit')}
                     </ArrowButton>
                   </div>

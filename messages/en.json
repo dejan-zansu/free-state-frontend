@@ -5926,9 +5926,11 @@
     },
     "careerSubscriptions": {
       "title": "Career Subscriptions",
-      "searchPlaceholder": "Search by name or email...",
+      "searchPlaceholder": "Search by name, email or role...",
       "name": "Name",
       "email": "Email",
+      "role": "Role",
+      "comment": "Comment",
       "locale": "Locale",
       "subscribed": "Subscribed",
       "noSubscribers": "No career subscribers yet",
@@ -6549,10 +6551,22 @@
         "lastNamePlaceholder": "Enter your last name",
         "email": "Email",
         "emailPlaceholder": "Enter your email",
+        "role": "Your profile / role",
+        "rolePlaceholder": "e.g. Solar engineer, Project manager, Student",
+        "comment": "Comment",
+        "commentPlaceholder": "Tell us anything you'd like us to know (optional)",
         "privacy": "FreeState respects your privacy and uses your data only to manage your account and provide requested services.",
         "consent": "I agree to receive other notifications from FreeState",
         "disclaimer": "By submitting, you agree to data processing per our Privacy Policy and can unsubscribe at any time.",
-        "submit": "Subscribe"
+        "submit": "Subscribe",
+        "errors": {
+          "firstNameRequired": "Please enter your first name",
+          "lastNameRequired": "Please enter your last name",
+          "emailInvalid": "Please enter a valid email address",
+          "roleRequired": "Please tell us your profile or role",
+          "commentTooLong": "Comment must be at most 2000 characters",
+          "consentRequired": "Please accept to continue"
+        }
       },
       "success": "Thanks — you're subscribed. We'll be in touch when roles open.",
       "error": "Something went wrong. Please try again."
@@ -6563,5 +6577,10 @@
       "subtitle": "If you believe your profile fits our mission, we welcome your unsolicited application.",
       "buttonText": "Contact us"
     }
+  },
+  "checkSolarPotentialCta": {
+    "eyebrow": "SolarDirect",
+    "title": "Check the solar potential\nof your roof",
+    "cta": "Start solar calculator"
   }
 }

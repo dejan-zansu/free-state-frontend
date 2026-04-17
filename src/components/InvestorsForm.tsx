@@ -5,6 +5,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
 import { Check } from 'lucide-react'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
@@ -32,7 +33,7 @@ type InvestorFormData = {
 }
 
 const inputClassName =
-  'h-9 bg-white border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-xs font-medium tracking-[-0.02em] placeholder:text-foreground/70'
+  'h-10 bg-white border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-sm font-medium tracking-[-0.02em] placeholder:text-foreground/70'
 
 const InvestorsForm = () => {
   const t = useTranslations('investorsPage.form')
@@ -141,7 +142,7 @@ const InvestorsForm = () => {
                     placeholder={t('firstName')}
                     className={inputClassName}
                   />
-                  {errors.firstName && <p className="text-red-500 text-xs mt-1">{t('required')}</p>}
+                  {errors.firstName && <p className="text-red-500 text-sm mt-1">{t('required')}</p>}
                 </div>
                 <div className="flex-1">
                   <Input
@@ -149,7 +150,7 @@ const InvestorsForm = () => {
                     placeholder={t('lastName')}
                     className={inputClassName}
                   />
-                  {errors.lastName && <p className="text-red-500 text-xs mt-1">{t('required')}</p>}
+                  {errors.lastName && <p className="text-red-500 text-sm mt-1">{t('required')}</p>}
                 </div>
               </div>
 
@@ -182,7 +183,7 @@ const InvestorsForm = () => {
                 placeholder={t('email')}
                 className={inputClassName}
               />
-              {errors.email && <p className="text-red-500 text-xs -mt-3">{t('required')}</p>}
+              {errors.email && <p className="text-red-500 text-sm -mt-3">{t('required')}</p>}
 
               <div className="flex gap-2.5">
                 <div className="w-[97px] shrink-0">
@@ -215,14 +216,14 @@ const InvestorsForm = () => {
                 </div>
               </div>
 
-              <Input
+              <Textarea
                 {...register('comment')}
                 placeholder={t('comment')}
-                className={inputClassName}
+                className="min-h-[120px] bg-white border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-sm font-medium tracking-[-0.02em] placeholder:text-foreground/70 resize-none py-2.5"
               />
 
               <div className="flex items-center justify-between">
-                <span className="text-foreground/70 text-xs font-normal tracking-[-0.02em]">
+                <span className="text-foreground/70 text-sm font-normal tracking-[-0.02em]">
                   {t('languageLabel')}
                 </span>
                 <div className="w-[97px]">

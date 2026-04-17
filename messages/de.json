@@ -5991,9 +5991,11 @@
     },
     "careerSubscriptions": {
       "title": "Karriere-Abonnenten",
-      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "searchPlaceholder": "Nach Name, E-Mail oder Rolle suchen...",
       "name": "Name",
       "email": "E-Mail",
+      "role": "Rolle",
+      "comment": "Kommentar",
       "locale": "Sprache",
       "subscribed": "Angemeldet",
       "noSubscribers": "Noch keine Karriere-Abonnenten",
@@ -6618,10 +6620,22 @@
         "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
         "email": "E-Mail",
         "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+        "role": "Ihr Profil / Ihre Rolle",
+        "rolePlaceholder": "z. B. Solaringenieur, Projektleiter, Studentin",
+        "comment": "Kommentar",
+        "commentPlaceholder": "Teilen Sie uns mit, was wir wissen sollten (optional)",
         "privacy": "FreeState respektiert Ihre Privatsphäre und verwendet Ihre Daten ausschliesslich zur Verwaltung Ihres Kontos und zur Bereitstellung der angeforderten Dienste.",
         "consent": "Ich bin einverstanden, weitere Benachrichtigungen von FreeState zu erhalten",
         "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzerklärung zu und können sich jederzeit abmelden.",
-        "submit": "Abonnieren"
+        "submit": "Abonnieren",
+        "errors": {
+          "firstNameRequired": "Bitte geben Sie Ihren Vornamen ein",
+          "lastNameRequired": "Bitte geben Sie Ihren Nachnamen ein",
+          "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+          "roleRequired": "Bitte nennen Sie uns Ihr Profil oder Ihre Rolle",
+          "commentTooLong": "Kommentar darf höchstens 2000 Zeichen lang sein",
+          "consentRequired": "Bitte stimmen Sie zu, um fortzufahren"
+        }
       },
       "success": "Vielen Dank — Sie sind angemeldet. Wir melden uns, sobald Stellen offen sind.",
       "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
@@ -6632,5 +6646,10 @@
       "subtitle": "Wenn Sie glauben, dass Ihr Profil zu unserer Mission passt, freuen wir uns über Ihre Initiativbewerbung.",
       "buttonText": "Kontaktieren Sie uns"
     }
+  },
+  "checkSolarPotentialCta": {
+    "eyebrow": "SolarDirect",
+    "title": "Prüfen Sie das\nSolarpotenzial Ihres Dachs",
+    "cta": "Solarrechner starten"
   }
 }

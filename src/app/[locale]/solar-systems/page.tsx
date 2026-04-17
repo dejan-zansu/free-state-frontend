@@ -1,3 +1,4 @@
+import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
 import PageHero from '@/components/PageHero'
 import SolarSystemsTopics from '@/components/SolarSystemsTopics'
 import { getTranslations } from 'next-intl/server'
@@ -11,6 +12,7 @@ const SolarSystemsPage = async () => {
         title={t('hero.title')}
       />
       <SolarSystemsTopics />
+      <CheckSolarPotentialCTA />
     </div>
   )
 }

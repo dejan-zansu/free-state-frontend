@@ -83,7 +83,7 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
 
   return (
     <section
-      className="relative w-full flex flex-col items-center px-4 sm:px-6 py-16 md:py-24 overflow-hidden"
+      className="relative w-full flex flex-col items-center px-4 sm:px-6 py-16 md:py-24 overflow-hidden -mt-[40px]"
       style={{
         backgroundImage:
           'linear-gradient(180deg, #F2F4E8 0%, #DCE9E6 79%)',

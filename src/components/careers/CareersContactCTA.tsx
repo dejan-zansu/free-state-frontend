@@ -44,7 +44,7 @@ const CareersContactCTA = () => {
       />
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 py-[50px]">
-        <div className="flex flex-col items-center gap-[60px] max-w-[795px] mx-auto">
+        <div className="flex flex-col items-center gap-[60px] max-w-[795px] mx-auto pb-16">
           <div className="flex flex-col items-center gap-[30px] w-full">
             <div className="flex flex-col items-center gap-5 w-full">
               <div

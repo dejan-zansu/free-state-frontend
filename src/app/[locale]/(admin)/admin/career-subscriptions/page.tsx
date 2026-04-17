@@ -58,6 +58,8 @@ export default function AdminCareerSubscriptionsPage() {
                   <TableRow>
                     <TableHead>{t('name')}</TableHead>
                     <TableHead>{t('email')}</TableHead>
+                    <TableHead>{t('role')}</TableHead>
+                    <TableHead>{t('comment')}</TableHead>
                     <TableHead>{t('locale')}</TableHead>
                     <TableHead>{t('subscribed')}</TableHead>
                   </TableRow>
@@ -73,6 +75,14 @@ export default function AdminCareerSubscriptionsPage() {
                       <TableCell className="text-base text-[#062E25]/60">
                         {sub.email}
                       </TableCell>
+                      <TableCell className="text-base text-[#062E25]/60">
+                        {sub.role}
+                      </TableCell>
+                      <TableCell className="text-base text-[#062E25]/60 max-w-xs">
+                        <p className="truncate" title={sub.comment ?? ''}>
+                          {sub.comment ?? '—'}
+                        </p>
+                      </TableCell>
                       <TableCell className="text-base text-[#062E25]/60 uppercase">
                         {sub.locale}
                       </TableCell>
@@ -84,7 +94,7 @@ export default function AdminCareerSubscriptionsPage() {
                   {data.length === 0 && (
                     <TableRow>
                       <TableCell
-                        colSpan={4}
+                        colSpan={6}
                         className="text-center py-8 text-[#062E25]/40"
                       >
                         {t('noSubscribers')}

@@ -13,7 +13,7 @@ import SolarModels from '@/components/SolarModels'
 const CommercialPage = async () => {
   return (
     <div>
-      <Hero showCTAs={false} isCommercial />
+      <Hero isCommercial />
       <SolarModels isCommercial />
       <WhyFreeState isCommercial />
       <PathToEnergy isCommercial />
