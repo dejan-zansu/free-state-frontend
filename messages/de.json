@@ -499,12 +499,12 @@
           "description": "Solarfinanzierung mit vorhersehbaren, erschwinglichen Raten und gesicherten Konditionen"
         },
         {
-          "title": "25-jährige Ausrüstungsgarantie",
+          "title": "35-jährige Ausrüstungsgarantie",
           "description": "Branchenführende Garantie für ein erstklassiges Solarpanel- und Batteriespeichersystem"
         },
         {
           "title": "Kostenlose Wartung und Reparaturen",
-          "description": "25 Jahre kostenlose Wartung und Reparaturen für völlige Sicherheit"
+          "description": "35 Jahre kostenlose Wartung und Reparaturen für völlige Sicherheit"
         },
         {
           "title": "Unvergleichliche Solar- und Batterieerfahrung zu Hause",
@@ -549,7 +549,7 @@
           "feature2": "Fixpreis 0.18 CHF/kWh (inkl. Wartung und Versicherung)",
           "feature3": "Option: Batteriespeicher & Ladeinfrastruktur",
           "feature4": "Langfristige Energiepreis-Stabilität & ESG-Vorteile",
-          "term": "Vertragsdauer 20–25 Jahre mit Rückkaufoption",
+          "term": "Vertragsdauer 35 Jahre mit Rückkaufoption",
           "price": "Individuelle Preisgestaltung",
           "benefit1": "0 CHF Investition – statt CHF 250 000 CAPEX",
           "benefit2": "Fixpreis für langfristige Planung",
@@ -2117,7 +2117,7 @@
           "investment": "Investition",
           "investmentTooltip": "Geschätzte Gesamtkosten für die Solaranlage",
           "grossReturn": "Bruttorendite",
-          "grossReturnTooltip": "Gesamte Ersparnisse über 25 Jahre",
+          "grossReturnTooltip": "Gesamte Ersparnisse über 35 Jahre",
           "subsidies": "Subventionen",
           "subsidiesTooltip": "Bundessubventionen und Steuervorteile",
           "annualReturn": "Jährliche Rendite",
@@ -2269,7 +2269,7 @@
           "name": "Premium",
           "description": "Rundum-sorglos",
           "feature1": "Top-Tier Panels & Wechselrichter",
-          "feature2": "25 Jahre Garantie",
+          "feature2": "35 Jahre Garantie",
           "feature3": "Smart Home Integration",
           "feature4": "Prioritäts-Support"
         },
@@ -5420,7 +5420,7 @@
         "title": "SolarFree — Keine Investition",
         "point1": "Die Free State AG installiert und wartet die Solaranlage auf Ihrem Dach — kostenlos für Sie.",
         "point2": "Sie profitieren von sauberem Solarstrom und sparen bei Ihrer Stromrechnung.",
-        "point3": "Nach 25 Jahren geht die Anlage in Ihr Eigentum über."
+        "point3": "Nach 35 Jahren geht die Anlage in Ihr Eigentum über."
       },
       "importantNotice": {
         "title": "Wichtiger Hinweis",
@@ -6196,7 +6196,7 @@
         "items": {
           "whySolar": {
             "question": "Warum sollte ich auf Solar umsteigen?",
-            "answer": "Solar ist erneuerbare, zuverlässige und saubere Energie, die die Abhängigkeit von fossilen Brennstoffen reduziert. Mit einer Solaranlage profitieren Sie von planbaren Energietarifen für 20–25 Jahre und übernehmen die Kontrolle über Ihre Energiezukunft."
+            "answer": "Solar ist erneuerbare, zuverlässige und saubere Energie, die die Abhängigkeit von fossilen Brennstoffen reduziert. Mit einer Solaranlage profitieren Sie von planbaren Energietarifen für 35 Jahre und übernehmen die Kontrolle über Ihre Energiezukunft."
           },
           "homeGood": {
             "question": "Ist mein Haus für Solar geeignet?",
@@ -6277,8 +6277,8 @@
             "answer": "Solaranlagen schalten sich bei Ausfällen automatisch ab, um Netzarbeiter zu schützen. Die Systeme starten automatisch neu, wenn der Netzstrom wiederhergestellt ist. Batterie-ausgestattete Systeme liefern während Ausfällen weiterhin Notstrom."
           },
           "longevity": {
-            "question": "Funktioniert meine Solaranlage nach 25 Jahren noch gut?",
-            "answer": "Panels produzieren weit über 25 Jahre hinaus, wobei sie jährlich etwa 0,5 % abnehmen. Nach 25 Jahren arbeiten Systeme noch bei etwa 88 % ihrer ursprünglichen Kapazität und liefern weiterhin saubere erneuerbare Energie."
+            "question": "Funktioniert meine Solaranlage nach 35 Jahren noch gut?",
+            "answer": "Panels produzieren weit über 35 Jahre hinaus, wobei sie jährlich etwa 0,5 % abnehmen. Nach 35 Jahren arbeiten Systeme noch bei etwa 82 % ihrer ursprünglichen Kapazität und liefern weiterhin saubere erneuerbare Energie."
           }
         }
       },
@@ -6371,7 +6371,7 @@
           },
           "batteryMaintenance": {
             "question": "Muss ich meine Batterie warten oder einrichten?",
-            "answer": "Die Installateure übernehmen die gesamte Konfiguration mit optimierten Einstellungen. Batterien halten 10–15 Jahre mit typischen 10-Jahres-Herstellergarantien. Unser Wartungsplan umfasst 25 Jahre professionelle Überwachung."
+            "answer": "Die Installateure übernehmen die gesamte Konfiguration mit optimierten Einstellungen. Batterien halten 10–15 Jahre mit typischen 10-Jahres-Herstellergarantien. Unser Wartungsplan umfasst 35 Jahre professionelle Überwachung."
           }
         }
       },

@@ -53,7 +53,6 @@ const CostFurtherTopicsSection = async () => {
                       </p>
                     </div>
 
-                    {/* @ts-expect-error - cardHrefs is a record of strings */}
                     <LearnMoreLink href={cardHrefs[key]}>
                       {t('furtherTopics.learnMore')}
                     </LearnMoreLink>

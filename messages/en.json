@@ -499,12 +499,12 @@
           "description": "Solar financing with predictable, affordable rates and secured conditions"
         },
         {
-          "title": "25-year equipment warranty",
+          "title": "35-year equipment warranty",
           "description": "Industry-leading warranty for a premium solar panel and battery storage system"
         },
         {
           "title": "Free maintenance and repairs",
-          "description": "25 years of free maintenance and repairs for complete peace of mind"
+          "description": "35 years of free maintenance and repairs for complete peace of mind"
         },
         {
           "title": "Unparalleled home solar and battery experience",
@@ -549,7 +549,7 @@
           "feature2": "Fixed price 0.18 CHF/kWh (incl. maintenance and insurance)",
           "feature3": "Option: Battery storage & charging infrastructure",
           "feature4": "Long-term energy price stability & ESG benefits",
-          "term": "Contract duration 20–25 years with buyback option",
+          "term": "Contract duration 35 years with buyback option",
           "price": "Custom pricing",
           "benefit1": "0 CHF investment – instead of CHF 250,000 CAPEX",
           "benefit2": "Fixed energy price for long-term planning",
@@ -1999,8 +1999,8 @@
           "title": "Key Figures",
           "investment": "Investment",
           "investmentTooltip": "Total cost of the solar system installation",
-          "grossReturn": "Gross Return (25 yrs)",
-          "grossReturnTooltip": "Total savings and income over 25 years",
+          "grossReturn": "Gross Return (35 yrs)",
+          "grossReturnTooltip": "Total savings and income over 35 years",
           "subsidies": "Subsidies / Tax Benefits",
           "subsidiesTooltip": "Federal subsidies and cantonal tax deductions",
           "annualReturn": "Annual Return",
@@ -2147,7 +2147,7 @@
           "name": "Premium",
           "description": "All-inclusive",
           "feature1": "Top-tier panels & inverter",
-          "feature2": "25-year warranty",
+          "feature2": "35-year warranty",
           "feature3": "Smart home integration",
           "feature4": "Priority support"
         },
@@ -3741,7 +3741,7 @@
         "title": "SolarFree — Zero Investment",
         "point1": "Free State AG installs and maintains the solar system on your roof at no cost to you.",
         "point2": "You benefit from clean solar energy and save on your electricity bill.",
-        "point3": "After 25 years, the system becomes your property."
+        "point3": "After 35 years, the system becomes your property."
       },
       "importantNotice": {
         "title": "Important Notice",
@@ -6127,7 +6127,7 @@
         "items": {
           "whySolar": {
             "question": "Why should I switch to solar?",
-            "answer": "Solar is renewable, reliable, and clean energy that reduces reliance on fossil fuels. With a solar system, you benefit from predictable energy rates for 20–25 years and take control of your energy future."
+            "answer": "Solar is renewable, reliable, and clean energy that reduces reliance on fossil fuels. With a solar system, you benefit from predictable energy rates for 35 years and take control of your energy future."
           },
           "homeGood": {
             "question": "Is my home good for solar?",
@@ -6208,8 +6208,8 @@
             "answer": "Solar systems automatically deactivate during outages to protect utility workers on power lines. Systems restart automatically when utility power restores. Battery-equipped systems continue providing backup power during outages."
           },
           "longevity": {
-            "question": "Will my solar system still work well after 25 years?",
-            "answer": "Panels continue producing well past 25 years, declining approximately 0.5% annually. After 25 years, systems operate at roughly 88% of their original capacity, providing continued clean renewable energy."
+            "question": "Will my solar system still work well after 35 years?",
+            "answer": "Panels continue producing well past 35 years, declining approximately 0.5% annually. After 35 years, systems operate at roughly 82% of their original capacity, providing continued clean renewable energy."
           }
         }
       },
@@ -6302,7 +6302,7 @@
           },
           "batteryMaintenance": {
             "question": "Do I need to do any setup or maintenance on my battery?",
-            "answer": "Installers handle all configuration with optimized settings. Batteries last 10–15 years with typical 10-year manufacturer warranties. Our maintenance plan includes 25 years of professional monitoring."
+            "answer": "Installers handle all configuration with optimized settings. Batteries last 10–15 years with typical 10-year manufacturer warranties. Our maintenance plan includes 35 years of professional monitoring."
           }
         }
       },

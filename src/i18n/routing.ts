@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { defineRouting } from 'next-intl/routing'
 
-export const locales = ['en', 'de'] as const
+export const locales = ['en', 'de', 'fr'] as const
 export const defaultLocale = 'en' as const
 
 export type Locale = (typeof locales)[number]

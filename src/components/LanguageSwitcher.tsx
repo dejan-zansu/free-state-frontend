@@ -16,11 +16,13 @@ import {
 const localeLabels: Record<string, string> = {
   en: 'EN',
   de: 'DE',
+  fr: 'FR',
 }
 
 const localeFlags: Record<string, string> = {
   en: '🇬🇧',
   de: '🇩🇪',
+  fr: '🇫🇷',
 }
 
 interface LanguageSwitcherProps {
@@ -36,7 +38,6 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   const handleLocaleChange = (newLocale: string) => {
     startTransition(() => {
       router.replace(
-        // @ts-expect-error - pathname type is complex with pathnames config
         { pathname },
         { locale: newLocale }
       )
