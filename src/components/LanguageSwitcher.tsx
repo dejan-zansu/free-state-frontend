@@ -17,12 +17,14 @@ const localeLabels: Record<string, string> = {
   en: 'EN',
   de: 'DE',
   fr: 'FR',
+  it: 'IT',
 }
 
 const localeFlags: Record<string, string> = {
   en: '🇬🇧',
   de: '🇩🇪',
   fr: '🇫🇷',
+  it: '🇮🇹',
 }
 
 interface LanguageSwitcherProps {
@@ -38,7 +40,8 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   const handleLocaleChange = (newLocale: string) => {
     startTransition(() => {
       router.replace(
-        { pathname },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        { pathname } as any,
         { locale: newLocale }
       )
     })

@@ -29,7 +29,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { sonnendachService } from '@/services/sonnendach.service'
-import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
+import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 import type { RoofSegment } from '@/types/sonnendach'
 
 import 'ol/ol.css'
@@ -75,7 +75,7 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
 
 export default function SonnendachStep1Address() {
   const t = useTranslations('sonnendach.step1')
-  const { goToStep, error, clearError } = useSonnendachCalculatorStore()
+  const { goToStep, error, clearError } = useCommercialCalculatorStore()
 
   const [inputValue, setInputValue] = useState('')
   const [isLoadingMap, setIsLoadingMap] = useState(true)
@@ -369,7 +369,7 @@ export default function SonnendachStep1Address() {
 
   // Handle continue
   const handleContinue = () => {
-    const { setSelectedSegmentsData } = useSonnendachCalculatorStore.getState()
+    const { setSelectedSegmentsData } = useCommercialCalculatorStore.getState()
     // Pass both selected segments AND all building segments for inner segment detection
     setSelectedSegmentsData(selectedSegments, allBuildingSegments)
     goToStep(2)

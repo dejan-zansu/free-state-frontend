@@ -1,40 +1,46 @@
-/**
- * Sonnendach Calculator Store
- * State management for the Swiss solar roof calculator
- */
-
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 import { sonnendachService } from '@/services/sonnendach.service'
+import type {
+  CommercialLegalForm,
+  CommercialIndustry,
+  CommercialEmployeeBracket,
+  CommercialContactRole,
+  CommercialPreferredChannel,
+  CommercialTimeline,
+  CommercialMotivation,
+  CommercialFinancingPreference,
+  CommercialBudgetBracket,
+  CommercialExistingPv,
+  CommercialPropertyRelation,
+} from '@/types/commercial-lead'
 import type {
   SonnendachLocation,
   SonnendachBuilding,
   RoofSegment,
 } from '@/types/sonnendach'
 
-// Equipment types
 export interface SolarPanel {
   id: string
   name: string
-  power: number        // Watts
-  width: number        // meters
-  height: number       // meters
-  efficiency: number   // percent
+  power: number
+  width: number
+  height: number
+  efficiency: number
   manufacturer: string
-  price: number        // CHF
+  price: number
 }
 
 export interface Inverter {
   id: string
   name: string
-  power: number        // kW
+  power: number
   manufacturer: string
-  efficiency: number   // percent
-  price: number        // CHF
+  efficiency: number
+  price: number
 }
 
-// Roof properties types
 export type RoofType = 'flat' | 'low_slope' | 'medium' | 'steep'
 export type RoofMaterial = 'bitumen' | 'gravel' | 'green_roof' | 'granulate' | 'tiles' | 'metal' | 'unknown'
 
@@ -44,10 +50,8 @@ export interface RoofProperties {
   roofMaterial: RoofMaterial
 }
 
-// Property and consumption types
 export type PropertyType = 'residential' | 'commercial' | 'industrial' | 'agricultural'
 
-// Personal info types (Step 6)
 export interface Address {
   street: string
   streetNumber?: string
@@ -79,29 +83,7 @@ export interface Consents {
   marketing: boolean
 }
 
-// Contract types (Step 7-8)
-export type SignatureStatus = 'idle' | 'initiating' | 'otp_sent' | 'verifying' | 'signed' | 'failed'
-
-export interface ContractPreview {
-  contractId: string
-  contractNumber: string
-  grossAmount: number
-  subsidyAmount: number
-  netAmount: number
-  pdfUrl: string
-}
-
-export interface PackageOption {
-  code: string
-  name: string
-  price: number
-  warrantyYears: number
-  features: string[]
-  isRecommended?: boolean
-}
-
 export interface ConsumptionData {
-  // Property Info
   propertyType: PropertyType
   isNewBuilding: boolean
   evChargingStations: number
@@ -109,62 +91,87 @@ export interface ConsumptionData {
   heatPumpHeating: boolean
   electricityProvider: string
 
-  // Consumption
   residents: number
-  annualElectricityCost: number  // CHF
-  annualConsumptionKwh: number   // kWh/year
+  annualElectricityCost: number
+  annualConsumptionKwh: number
 
-  // Tariffs
   electricityTariffAuto: boolean
-  electricityTariff: number      // Rp/kWh
+  electricityTariff: number
   feedInTariffAuto: boolean
-  feedInTariff: number           // Rp/kWh
+  feedInTariff: number
 }
 
-// Restricted area (exclusion zone)
 export interface RestrictedArea {
   id: string
-  coordinates: number[][]  // WGS84 [lng, lat] pairs
-  area: number             // m²
-  label?: string           // e.g., "Skylight", "Chimney", "HVAC"
+  coordinates: number[][]
+  area: number
+  label?: string
 }
 
-// Calculator state
-interface SonnendachCalculatorState {
-  // Navigation
+export interface CompanyDetails {
+  companyName: string
+  legalForm: CommercialLegalForm | ''
+  uidNumber: string
+  industry: CommercialIndustry | ''
+  employeeBracket: CommercialEmployeeBracket
+  website: string
+  numberOfSites: number
+}
+
+export interface ContactDetails {
+  firstName: string
+  lastName: string
+  role: CommercialContactRole | ''
+  email: string
+  phone: string
+  isDecisionMaker: boolean
+  preferredChannel: CommercialPreferredChannel
+  preferredTime: string
+}
+
+export interface ProjectIntent {
+  timeline: CommercialTimeline | ''
+  motivations: CommercialMotivation[]
+  financingPreferences: CommercialFinancingPreference[]
+  budgetBracket: CommercialBudgetBracket
+  existingPv: CommercialExistingPv
+  comments: string
+}
+
+export interface SubmissionResult {
+  id: string
+  reference: string
+  uploadToken: string
+  uploadTokenExpiresAt: string
+}
+
+export interface CommercialCalculatorState {
   currentStep: number
   totalSteps: number
 
-  // Step 1: Address
   address: string
   selectedLocation: SonnendachLocation | null
   searchResults: SonnendachLocation[]
   isSearching: boolean
 
-  // Step 2: Building & Roof Selection
   building: SonnendachBuilding | null
-  selectedSegmentIds: string[]  // IDs of selected roof segments
+  selectedSegmentIds: string[]
   isFetchingBuilding: boolean
 
-  // Step 2: Usable Area (Nutzfläche)
   roofProperties: RoofProperties
   restrictedAreas: RestrictedArea[]
 
-  // Step 3: Solar System Configuration
   selectedPanel: SolarPanel | null
   selectedInverter: Inverter | null
   panelCount: number
   maxPanelCount: number
 
-  // Step 4: Consumption & Tariffs
   consumption: ConsumptionData
 
-  // Results (calculated from selected segments)
-  selectedArea: number           // m²
-  selectedPotentialKwh: number   // kWh/year
+  selectedArea: number
+  selectedPotentialKwh: number
   estimatedPanelCount: number
 
-  // Step 6: Personal Info
   personalInfo: PersonalInfo
   installationAddress: Address
   billingAddress: Address
@@ -172,42 +179,29 @@ interface SonnendachCalculatorState {
   propertyOwnership: PropertyOwnership
   consents: Consents
 
-  // Step 7: Contract Review
-  selectedPackageCode: string | null
-  contractPreview: ContractPreview | null
-  acknowledgments: string[]
+  companyDetails: CompanyDetails
+  contactDetails: ContactDetails
+  projectIntent: ProjectIntent
+  propertyRelation: CommercialPropertyRelation | ''
+  ownerContact: { name: string; email: string; phone: string }
+  submissionResult: SubmissionResult | null
+  isSubmitting: boolean
+  submitError: string | null
 
-  // Step 8: Signature
-  signatureStatus: SignatureStatus
-  signatureRequestId: string | null
-  maskedPhone: string | null
-  signatureExpiresAt: Date | null
-  signedPdfUrl: string | null
-
-  // Created entities (after submission)
-  createdUserId: string | null
-  createdProjectId: string | null
-  createdContractId: string | null
-
-  // UI State
   isLoading: boolean
   error: string | null
 }
 
-// Calculator actions
-interface SonnendachCalculatorActions {
-  // Navigation
+interface CommercialCalculatorActions {
   nextStep: () => void
   prevStep: () => void
   goToStep: (step: number) => void
 
-  // Step 1: Address
   setAddress: (address: string) => void
   searchAddresses: (query: string) => Promise<void>
   selectLocation: (location: SonnendachLocation) => void
   clearSearchResults: () => void
 
-  // Step 2: Building
   fetchBuildingData: () => Promise<void>
   fetchBuildingDataAtPoint: (x: number, y: number) => Promise<void>
   toggleSegmentSelection: (segmentId: string) => void
@@ -215,14 +209,11 @@ interface SonnendachCalculatorActions {
   clearSegmentSelection: () => void
   selectSegmentsByMinSuitability: (minClass: number) => void
 
-  // Utilities
   getSelectedSegments: () => RoofSegment[]
   calculateTotals: () => void
 
-  // Direct segment data (for new flow where segments are selected individually)
   setSelectedSegmentsData: (segments: RoofSegment[], allBuildingSegments?: RoofSegment[]) => void
 
-  // Step 2: Usable Area
   setRoofProperties: (properties: Partial<RoofProperties>) => void
   addRestrictedArea: (area: RestrictedArea) => void
   removeRestrictedArea: (id: string) => void
@@ -232,16 +223,13 @@ interface SonnendachCalculatorActions {
   getEffectiveRestrictedArea: () => number
   getRestrictedAreasInNonSelectedSegments: () => RestrictedArea[]
 
-  // Step 3: Solar System
   selectPanel: (panel: SolarPanel) => void
   selectInverter: (inverter: Inverter) => void
   setPanelCount: (count: number) => void
   setMaxPanelCount: (count: number) => void
 
-  // Step 4: Consumption
   setConsumption: (data: Partial<ConsumptionData>) => void
 
-  // Step 6: Personal Info
   setPersonalInfo: (data: Partial<PersonalInfo>) => void
   setInstallationAddress: (address: Address) => void
   setBillingAddress: (address: Address) => void
@@ -249,23 +237,15 @@ interface SonnendachCalculatorActions {
   setPropertyOwnership: (data: Partial<PropertyOwnership>) => void
   setConsents: (data: Partial<Consents>) => void
 
-  // Step 7: Contract Review
-  selectPackage: (packageCode: string) => void
-  setContractPreview: (preview: ContractPreview | null) => void
-  addAcknowledgment: (type: string) => void
-  removeAcknowledgment: (type: string) => void
-  clearAcknowledgments: () => void
+  setCompanyDetails: (data: Partial<CompanyDetails>) => void
+  setContactDetails: (data: Partial<ContactDetails>) => void
+  setProjectIntent: (data: Partial<ProjectIntent>) => void
+  setPropertyRelation: (v: CommercialPropertyRelation | '') => void
+  setOwnerContact: (data: Partial<{ name: string; email: string; phone: string }>) => void
+  setSubmissionResult: (r: SubmissionResult | null) => void
+  setSubmitting: (v: boolean) => void
+  setSubmitError: (e: string | null) => void
 
-  // Step 8: Signature
-  setSignatureStatus: (status: SignatureStatus) => void
-  setSignatureRequestData: (data: { requestId: string; maskedPhone: string; expiresAt: Date }) => void
-  setSignedPdfUrl: (url: string) => void
-  resetSignature: () => void
-
-  // Created entities
-  setCreatedEntities: (data: { userId?: string; projectId?: string; contractId?: string }) => void
-
-  // Calculation helpers
   getSystemSizeKwp: () => number
   getEstimatedProductionKwh: () => number
   getTotalInvestment: () => number
@@ -275,30 +255,25 @@ interface SonnendachCalculatorActions {
   getPaybackYears: () => number
   getCo2Savings: () => number
 
-  // Reset
   reset: () => void
   clearError: () => void
 }
 
-type SonnendachCalculatorStore = SonnendachCalculatorState & SonnendachCalculatorActions
+type CommercialCalculatorStore = CommercialCalculatorState & CommercialCalculatorActions
 
-const initialState: SonnendachCalculatorState = {
-  // Navigation
+const initialState: CommercialCalculatorState = {
   currentStep: 1,
-  totalSteps: 6,
+  totalSteps: 7,
 
-  // Step 1
   address: '',
   selectedLocation: null,
   searchResults: [],
   isSearching: false,
 
-  // Building & Roof Selection
   building: null,
   selectedSegmentIds: [],
   isFetchingBuilding: false,
 
-  // Step 2: Usable Area
   roofProperties: {
     roofType: 'flat',
     buildingFloors: 1,
@@ -306,13 +281,11 @@ const initialState: SonnendachCalculatorState = {
   },
   restrictedAreas: [],
 
-  // Step 3: Solar System
   selectedPanel: null,
   selectedInverter: null,
   panelCount: 0,
   maxPanelCount: 0,
 
-  // Step 4: Consumption
   consumption: {
     propertyType: 'residential',
     isNewBuilding: false,
@@ -329,12 +302,10 @@ const initialState: SonnendachCalculatorState = {
     feedInTariff: 12,
   },
 
-  // Results
   selectedArea: 0,
   selectedPotentialKwh: 0,
   estimatedPanelCount: 0,
 
-  // Step 6: Personal Info
   personalInfo: {
     firstName: '',
     lastName: '',
@@ -372,34 +343,34 @@ const initialState: SonnendachCalculatorState = {
     marketing: false,
   },
 
-  // Step 7: Contract Review
-  selectedPackageCode: null,
-  contractPreview: null,
-  acknowledgments: [],
+  companyDetails: {
+    companyName: '', legalForm: '', uidNumber: '', industry: '',
+    employeeBracket: 'UNKNOWN', website: '', numberOfSites: 1,
+  },
+  contactDetails: {
+    firstName: '', lastName: '', role: '',
+    email: '', phone: '',
+    isDecisionMaker: true, preferredChannel: 'EMAIL', preferredTime: '',
+  },
+  projectIntent: {
+    timeline: '', motivations: [], financingPreferences: [],
+    budgetBracket: 'UNSPECIFIED', existingPv: 'NONE', comments: '',
+  },
+  propertyRelation: '',
+  ownerContact: { name: '', email: '', phone: '' },
+  submissionResult: null,
+  isSubmitting: false,
+  submitError: null,
 
-  // Step 8: Signature
-  signatureStatus: 'idle',
-  signatureRequestId: null,
-  maskedPhone: null,
-  signatureExpiresAt: null,
-  signedPdfUrl: null,
-
-  // Created entities
-  createdUserId: null,
-  createdProjectId: null,
-  createdContractId: null,
-
-  // UI
   isLoading: false,
   error: null,
 }
 
-export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
+export const useCommercialCalculatorStore = create<CommercialCalculatorStore>()(
   persist(
     (set, get) => ({
       ...initialState,
 
-      // Navigation
       nextStep: () => {
         const { currentStep, totalSteps } = get()
         if (currentStep < totalSteps) {
@@ -421,7 +392,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         }
       },
 
-      // Step 1: Address
       setAddress: (address: string) => {
         set({ address })
       },
@@ -452,7 +422,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
           selectedLocation: location,
           address: location.attrs.label,
           searchResults: [],
-          // Reset building data when location changes
           building: null,
           selectedSegmentIds: [],
           selectedArea: 0,
@@ -465,7 +434,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         set({ searchResults: [] })
       },
 
-      // Step 2: Building
       fetchBuildingData: async () => {
         const { selectedLocation } = get()
         if (!selectedLocation) {
@@ -483,7 +451,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         try {
           const building = await sonnendachService.getBuildingData(x, y)
 
-          // Auto-select all segments with suitability >= 3 (good, very good, excellent)
           const goodSegmentIds = building.roofSegments
             .filter((s) => s.suitability.class >= 3)
             .map((s) => s.id)
@@ -494,7 +461,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
             isFetchingBuilding: false,
           })
 
-          // Calculate totals for selected segments
           get().calculateTotals()
         } catch (error) {
           console.error('Failed to fetch building data:', error)
@@ -554,7 +520,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         get().calculateTotals()
       },
 
-      // Utilities
       getSelectedSegments: () => {
         const { building, selectedSegmentIds } = get()
         if (!building) return []
@@ -582,20 +547,15 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         })
       },
 
-      // Direct segment data (for new flow)
-      // allBuildingSegments: optional array of ALL segments from the building (for inner segment detection)
       setSelectedSegmentsData: (segments: RoofSegment[], allBuildingSegments?: RoofSegment[]) => {
-        // Create a pseudo-building from the selected segments
         const totalArea = segments.reduce((sum, s) => sum + s.area, 0)
         const totalPotentialKwh = segments.reduce((sum, s) => sum + s.electricityYield, 0)
         const estimatedPanelCount = segments.reduce((sum, s) => sum + (s.estimatedPanels || 0), 0)
 
-        // Find best suitability class
         const bestSuitability = segments.length > 0
           ? Math.max(...segments.map((s) => s.suitability.class))
           : 1
 
-        // Use all building segments if provided, otherwise just selected segments
         const allSegments = allBuildingSegments && allBuildingSegments.length > 0
           ? allBuildingSegments
           : segments
@@ -604,7 +564,7 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
           building: {
             buildingId: 0,
             center: { lat: 0, lng: 0, x: 0, y: 0 },
-            roofSegments: allSegments,  // Store ALL segments for inner segment detection
+            roofSegments: allSegments,
             totalArea: Math.round(totalArea * 10) / 10,
             totalPotentialKwh: Math.round(totalPotentialKwh),
             suitabilityClass: bestSuitability,
@@ -617,7 +577,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         })
       },
 
-      // Step 2: Usable Area
       setRoofProperties: (properties: Partial<RoofProperties>) => {
         const { roofProperties } = get()
         set({ roofProperties: { ...roofProperties, ...properties } })
@@ -639,46 +598,36 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
 
       getUsableArea: () => {
         const { selectedArea } = get()
-        // Use getEffectiveRestrictedArea which accounts for overlaps with non-selected segments
         const effectiveRestricted = get().getEffectiveRestrictedArea()
         return Math.max(0, selectedArea - effectiveRestricted)
       },
 
-      // Calculate effective restricted area, excluding overlaps with non-selected segments
-      // This helps handle the case where inner segments exist within outer segments
       getEffectiveRestrictedArea: () => {
         const { building, selectedSegmentIds, restrictedAreas } = get()
         if (!building || restrictedAreas.length === 0) return 0
 
-        // Get non-selected segment polygons
         const nonSelectedSegments = building.roofSegments.filter(
           s => !selectedSegmentIds.includes(s.id)
         )
 
         if (nonSelectedSegments.length === 0) {
-          // No non-selected segments, use full restricted area
           return restrictedAreas.reduce((sum, a) => sum + a.area, 0)
         }
 
-        // For each restricted area, check if its center point is inside a non-selected segment
-        // This is a simplified check - a full solution would use polygon intersection (e.g., turf.js)
         let effectiveArea = 0
 
         for (const restricted of restrictedAreas) {
           const restrictedCoords = restricted.coordinates
           if (restrictedCoords.length < 3) continue
 
-          // Calculate center of restricted area
           const centerLng = restrictedCoords.reduce((sum, c) => sum + c[0], 0) / restrictedCoords.length
           const centerLat = restrictedCoords.reduce((sum, c) => sum + c[1], 0) / restrictedCoords.length
 
-          // Check if center is inside any non-selected segment
           let isInsideNonSelected = false
           for (const segment of nonSelectedSegments) {
             const segmentCoords = segment.geometry.coordinatesWGS84?.[0] || []
             if (segmentCoords.length < 3) continue
 
-            // Point-in-polygon check
             let inside = false
             for (let i = 0, j = segmentCoords.length - 1; i < segmentCoords.length; j = i++) {
               const xi = segmentCoords[i][0], yi = segmentCoords[i][1]
@@ -694,7 +643,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
             }
           }
 
-          // Only count restricted area if it's NOT inside a non-selected segment
           if (!isInsideNonSelected) {
             effectiveArea += restricted.area
           }
@@ -703,8 +651,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         return effectiveArea
       },
 
-      // Get restricted areas that overlap with non-selected segments
-      // Useful for showing warnings to the user
       getRestrictedAreasInNonSelectedSegments: () => {
         const { building, selectedSegmentIds, restrictedAreas } = get()
         if (!building || restrictedAreas.length === 0) return []
@@ -752,7 +698,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         return restrictedAreas.reduce((sum, a) => sum + a.area, 0)
       },
 
-      // Step 3: Solar System
       selectPanel: (panel: SolarPanel) => {
         set({ selectedPanel: panel })
       },
@@ -770,13 +715,11 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         set({ maxPanelCount: count })
       },
 
-      // Step 4: Consumption
       setConsumption: (data: Partial<ConsumptionData>) => {
         const { consumption } = get()
         set({ consumption: { ...consumption, ...data } })
       },
 
-      // Step 6: Personal Info
       setPersonalInfo: (data: Partial<PersonalInfo>) => {
         const { personalInfo } = get()
         set({ personalInfo: { ...personalInfo, ...data } })
@@ -804,68 +747,15 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         set({ consents: { ...consents, ...data } })
       },
 
-      // Step 7: Contract Review
-      selectPackage: (packageCode: string) => {
-        set({ selectedPackageCode: packageCode })
-      },
+      setCompanyDetails: (data: Partial<CompanyDetails>) => set((s) => ({ companyDetails: { ...s.companyDetails, ...data } })),
+      setContactDetails: (data: Partial<ContactDetails>) => set((s) => ({ contactDetails: { ...s.contactDetails, ...data } })),
+      setProjectIntent: (data: Partial<ProjectIntent>) => set((s) => ({ projectIntent: { ...s.projectIntent, ...data } })),
+      setPropertyRelation: (v: CommercialPropertyRelation | '') => set({ propertyRelation: v }),
+      setOwnerContact: (data: Partial<{ name: string; email: string; phone: string }>) => set((s) => ({ ownerContact: { ...s.ownerContact, ...data } })),
+      setSubmissionResult: (r: SubmissionResult | null) => set({ submissionResult: r }),
+      setSubmitting: (v: boolean) => set({ isSubmitting: v }),
+      setSubmitError: (e: string | null) => set({ submitError: e }),
 
-      setContractPreview: (preview: ContractPreview | null) => {
-        set({ contractPreview: preview })
-      },
-
-      addAcknowledgment: (type: string) => {
-        const { acknowledgments } = get()
-        if (!acknowledgments.includes(type)) {
-          set({ acknowledgments: [...acknowledgments, type] })
-        }
-      },
-
-      removeAcknowledgment: (type: string) => {
-        const { acknowledgments } = get()
-        set({ acknowledgments: acknowledgments.filter((a) => a !== type) })
-      },
-
-      clearAcknowledgments: () => {
-        set({ acknowledgments: [] })
-      },
-
-      // Step 8: Signature
-      setSignatureStatus: (status: SignatureStatus) => {
-        set({ signatureStatus: status })
-      },
-
-      setSignatureRequestData: (data: { requestId: string; maskedPhone: string; expiresAt: Date }) => {
-        set({
-          signatureRequestId: data.requestId,
-          maskedPhone: data.maskedPhone,
-          signatureExpiresAt: data.expiresAt,
-          signatureStatus: 'otp_sent',
-        })
-      },
-
-      setSignedPdfUrl: (url: string) => {
-        set({ signedPdfUrl: url, signatureStatus: 'signed' })
-      },
-
-      resetSignature: () => {
-        set({
-          signatureStatus: 'idle',
-          signatureRequestId: null,
-          maskedPhone: null,
-          signatureExpiresAt: null,
-        })
-      },
-
-      // Created entities
-      setCreatedEntities: (data: { userId?: string; projectId?: string; contractId?: string }) => {
-        set({
-          createdUserId: data.userId ?? get().createdUserId,
-          createdProjectId: data.projectId ?? get().createdProjectId,
-          createdContractId: data.contractId ?? get().createdContractId,
-        })
-      },
-
-      // Calculation helpers
       getSystemSizeKwp: () => {
         const { selectedPanel, panelCount } = get()
         if (!selectedPanel) return 0
@@ -875,7 +765,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
       getEstimatedProductionKwh: () => {
         const { selectedPotentialKwh, panelCount, estimatedPanelCount } = get()
         if (!estimatedPanelCount) return selectedPotentialKwh
-        // Scale production based on actual panel count vs estimated
         return Math.round(selectedPotentialKwh * (panelCount / estimatedPanelCount))
       },
 
@@ -884,7 +773,7 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         if (!selectedPanel || !selectedInverter) return 0
         const panelCost = selectedPanel.price * panelCount
         const inverterCost = selectedInverter.price
-        const installationCost = get().getSystemSizeKwp() * 800 // ~800 CHF/kWp installation
+        const installationCost = get().getSystemSizeKwp() * 800
         return Math.round(panelCost + inverterCost + installationCost)
       },
 
@@ -903,7 +792,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         const { consumption } = get()
         const production = get().getEstimatedProductionKwh()
 
-        // Self-consumption rate (30% base + 5% for each heat pump, max 50%)
         let selfConsumptionRate = 0.30
         if (consumption.heatPumpHotWater) selfConsumptionRate += 0.05
         if (consumption.heatPumpHeating) selfConsumptionRate += 0.10
@@ -913,7 +801,6 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         const selfConsumed = production * selfConsumptionRate
         const exported = production * (1 - selfConsumptionRate)
 
-        // Convert Rp/kWh to CHF/kWh
         const electricityTariffChf = consumption.electricityTariff / 100
         const feedInTariffChf = consumption.feedInTariff / 100
 
@@ -931,12 +818,10 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
       },
 
       getCo2Savings: () => {
-        // Swiss electricity mix: ~0.3 kg CO2/kWh (including imports)
         const production = get().getEstimatedProductionKwh()
         return Math.round(production * 0.3)
       },
 
-      // Reset
       reset: () => {
         set(initialState)
       },
@@ -946,10 +831,9 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
       },
     }),
     {
-      name: 'sonnendach-calculator',
+      name: 'commercial-calculator',
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
-        // Only persist these fields
         address: state.address,
         selectedLocation: state.selectedLocation,
         currentStep: state.currentStep,
@@ -961,32 +845,30 @@ export const useSonnendachCalculatorStore = create<SonnendachCalculatorStore>()(
         selectedInverter: state.selectedInverter,
         panelCount: state.panelCount,
         consumption: state.consumption,
-        // Step 6-8 fields
         personalInfo: state.personalInfo,
         installationAddress: state.installationAddress,
         billingAddress: state.billingAddress,
         sameAsInstallation: state.sameAsInstallation,
         propertyOwnership: state.propertyOwnership,
         consents: state.consents,
-        selectedPackageCode: state.selectedPackageCode,
-        acknowledgments: state.acknowledgments,
-        contractPreview: state.contractPreview,
-        createdContractId: state.createdContractId,
-        createdProjectId: state.createdProjectId,
-        createdUserId: state.createdUserId,
+        companyDetails: state.companyDetails,
+        contactDetails: state.contactDetails,
+        projectIntent: state.projectIntent,
+        propertyRelation: state.propertyRelation,
+        ownerContact: state.ownerContact,
+        submissionResult: state.submissionResult,
       }),
     }
   )
 )
 
-// Selector hooks for convenience
-export const useSonnendachStep = () =>
-  useSonnendachCalculatorStore((state) => state.currentStep)
-export const useSonnendachBuilding = () =>
-  useSonnendachCalculatorStore((state) => state.building)
-export const useSonnendachSelectedSegments = () =>
-  useSonnendachCalculatorStore((state) => state.getSelectedSegments())
-export const useSonnendachError = () =>
-  useSonnendachCalculatorStore((state) => state.error)
-export const useSonnendachLoading = () =>
-  useSonnendachCalculatorStore((state) => state.isLoading || state.isFetchingBuilding)
+export const useCommercialCalculatorStep = () =>
+  useCommercialCalculatorStore((state) => state.currentStep)
+export const useCommercialCalculatorBuilding = () =>
+  useCommercialCalculatorStore((state) => state.building)
+export const useCommercialCalculatorSelectedSegments = () =>
+  useCommercialCalculatorStore((state) => state.getSelectedSegments())
+export const useCommercialCalculatorError = () =>
+  useCommercialCalculatorStore((state) => state.error)
+export const useCommercialCalculatorLoading = () =>
+  useCommercialCalculatorStore((state) => state.isLoading || state.isFetchingBuilding)

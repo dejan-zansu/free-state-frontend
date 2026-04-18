@@ -8,6 +8,8 @@ const STATUS_COLORS: Record<string, string> = {
   CONTACTED: 'bg-cyan-100 text-cyan-700',
   QUALIFIED: 'bg-indigo-100 text-indigo-700',
   PROPOSAL_SENT: 'bg-purple-100 text-purple-700',
+  QUOTE_PREPARING: 'bg-amber-100 text-amber-700',
+  QUOTE_SENT: 'bg-violet-100 text-violet-700',
   NEGOTIATION: 'bg-amber-100 text-amber-700',
   WON: 'bg-green-100 text-green-700',
   LOST: 'bg-red-100 text-red-700',

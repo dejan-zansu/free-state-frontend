@@ -75,7 +75,7 @@
     "badge": "Kontakt aufnehmen",
     "title": "Lassen Sie uns sprechen",
     "subtitle": "Ob Frage, Projektanfrage oder Beratung – wir freuen uns auf Ihre Nachricht und melden uns zeitnah bei Ihnen.",
-    "cta": "Kontakt aufnehmen\u200a\u200a",
+    "cta": "Kontakt aufnehmen  ",
     "phoneTel": "tel:+41525253305"
   },
   "contactCTA": {
@@ -1859,8 +1859,8 @@
       "next": "Weiter"
     },
     "step5Company": {
-      "title": "Unternehmens- & Kontaktdaten",
-      "subtitle": "Erzählen Sie uns von Ihrem Unternehmen und wie wir Sie erreichen können. Dies hilft uns, ein massgeschneidertes Angebot für Ihre Gewerbeimmobilie zu erstellen.",
+      "title": "Firmen- & Anfragedaten",
+      "subtitle": "Helfen Sie uns, ein passgenaues Angebot zu erstellen.",
       "companySection": "Unternehmensinformationen",
       "companyName": "Firmenname",
       "companyRole": "Ihre Funktion",
@@ -1871,18 +1871,53 @@
       "email": "E-Mail",
       "phone": "Telefon",
       "propertySection": "Liegenschaftsdetails",
-      "street": "Strasse & Hausnummer",
+      "street": "Strasse und Hausnummer",
       "postalCode": "PLZ",
       "city": "Ort",
       "canton": "Kanton",
       "isPropertyOwner": "Ich bin der Eigentümer der Liegenschaft",
-      "ownerName": "Name des Eigentümers",
-      "ownerEmail": "E-Mail des Eigentümers",
-      "ownerPhone": "Telefon des Eigentümers",
-      "privacyConsent": "Ich stimme der Verarbeitung meiner persönlichen Daten gemäss der Datenschutzerklärung zu.",
-      "marketingConsent": "Ich möchte Informationen über Solarenergie-Angebote erhalten (optional).",
-      "required": "Erforderlich",
-      "invalidEmail": "Ungültige E-Mail-Adresse"
+      "ownerName": "Eigentümer-Name",
+      "ownerEmail": "Eigentümer-E-Mail",
+      "ownerPhone": "Eigentümer-Telefon",
+      "privacyConsent": "Ich akzeptiere die Datenschutzerklärung.",
+      "marketingConsent": "Ich möchte gelegentlich Informationen und Angebote erhalten.",
+      "required": "Pflichtfeld",
+      "invalidEmail": "Ungültige E-Mail",
+      "errorBannerTitle": "Bitte überprüfen Sie die markierten Felder.",
+      "sectionCompany": "Firma",
+      "legalForm": "Rechtsform",
+      "uidNumber": "UID-Nummer",
+      "uidHelp": "Optional — beschleunigt die Prüfung.",
+      "industry": "Branche",
+      "employees": "Mitarbeitende",
+      "website": "Website",
+      "numberOfSites": "Anzahl Standorte",
+      "sectionContact": "Kontaktperson",
+      "role": "Rolle",
+      "decisionMaker": "Sind Sie entscheidungsbefugt?",
+      "decisionYes": "Ja",
+      "decisionNo": "Nein, ich leite weiter",
+      "preferredChannel": "Bevorzugter Kontaktkanal",
+      "preferredTime": "Bevorzugte Zeit",
+      "noPreference": "Keine Präferenz",
+      "morning": "Vormittag",
+      "afternoon": "Nachmittag",
+      "evening": "Abend",
+      "sectionAddress": "Installationsadresse",
+      "propertyRelation": "Beziehung zur Liegenschaft",
+      "ownerHelp": "Falls Sie die Eigentümer-Kontaktdaten jetzt nicht zur Hand haben, können wir dies später klären.",
+      "sectionIntent": "Projekt",
+      "timeline": "Zeitrahmen",
+      "motivations": "Motivation (mehrere möglich)",
+      "financing": "Finanzierungspräferenz (mehrere möglich)",
+      "budget": "Budget-Rahmen",
+      "existingPv": "Bestehende PV-Anlage",
+      "comments": "Kommentar",
+      "select": "Auswählen",
+      "invalidPhone": "Ungültige Telefonnummer",
+      "invalidPostalCode": "PLZ muss vier Ziffern haben",
+      "invalidUid": "Format: CHE-xxx.xxx.xxx",
+      "invalidUrl": "Muss mit http:// oder https:// beginnen"
     },
     "step4Commercial": {
       "title": "Liegenschaft & Verbrauch",
@@ -2176,7 +2211,8 @@
       "startOver": "Neu starten",
       "requestQuote": "Angebot anfordern",
       "downloadReport": "Bericht herunterladen",
-      "downloadingReport": "Wird generiert..."
+      "downloadingReport": "Wird generiert...",
+      "submitting": "Wird gesendet…"
     },
     "step6PersonalInfo": {
       "title": "Persönliche Daten",
@@ -2381,6 +2417,25 @@
         "newCalculation": "Neue Berechnung",
         "backToHome": "Zur Startseite"
       }
+    },
+    "step7Confirmation": {
+      "noSubmission": "Keine Anfrage gefunden.",
+      "heading": "Vielen Dank, {firstName}!",
+      "subheading": "Ihre Anfrage wurde erfolgreich übermittelt.",
+      "reference": "Referenz",
+      "copy": "Kopieren",
+      "copied": "Kopiert",
+      "timelineTitle": "So geht es weiter",
+      "step1": "Bestätigungs-E-Mail an {email} versendet.",
+      "step2": "Unser Team prüft Ihre Anfrage (1 Arbeitstag).",
+      "step3": "Persönliche Kontaktaufnahme.",
+      "step4": "Massgeschneidertes Angebot innert 5–7 Arbeitstagen.",
+      "uploadTitle": "Unterlagen nachreichen (optional)",
+      "uploadSubtitle": "Beschleunigt die Analyse und Angebotserstellung.",
+      "done": "Erledigt",
+      "startOver": "Neue Berechnung",
+      "bookCall": "Termin vereinbaren",
+      "questions": "Fragen? Rufen Sie uns an:"
     }
   },
   "common": {
@@ -5185,7 +5240,8 @@
       "excellent": "Hervorragend",
       "low": "Gering",
       "selected": "Ausgewählt",
-      "loading": "Gebäudedaten werden geladen..."
+      "loading": "Gebäudedaten werden geladen...",
+      "addressIncomplete": "Bitte wählen Sie eine vollständige Adresse inklusive Hausnummer."
     },
     "step6": {
       "title": "Wie ist Ihr Dach gedeckt?",
@@ -5601,7 +5657,13 @@
       "groupContent": "Inhalte",
       "groupCrm": "CRM",
       "groupSubmissions": "Anfragen",
-      "groupEquipment": "Ausrüstung"
+      "groupEquipment": "Ausrüstung",
+      "groupResidential": "Residential",
+      "groupCommercial": "Commercial",
+      "groupOperations": "Operationen",
+      "residentialContracts": "Verträge",
+      "residentialLeads": "Residential Leads",
+      "commercialLeads": "Gewerbliche Anfragen"
     },
     "dashboard": {
       "title": "Dashboard",
@@ -6006,6 +6068,92 @@
       "failedToLoad": "Daten konnten nicht geladen werden.",
       "notFound": "Nicht gefunden.",
       "page": "Seite {page} von {totalPages}"
+    },
+    "commercialLeads": {
+      "title": "Gewerbliche Anfragen",
+      "searchPlaceholder": "Suchen nach Ref, Firma, Kontakt…",
+      "allStatuses": "Alle Status",
+      "allIndustries": "Alle Branchen",
+      "allTimelines": "Alle Zeitrahmen",
+      "filterUnassigned": "Nicht zugewiesen",
+      "filterOverdue": "Follow-up überfällig",
+      "exportCsv": "CSV exportieren",
+      "reference": "Referenz",
+      "company": "Firma",
+      "contact": "Kontakt",
+      "kwp": "kWp",
+      "timeline": "Zeitrahmen",
+      "status": "Status",
+      "assigned": "Zugewiesen",
+      "created": "Erstellt",
+      "nextFollowUp": "Nächstes Follow-up",
+      "unassigned": "Nicht zugewiesen",
+      "overdueFollowUp": "Follow-up überfällig",
+      "view": "Ansehen",
+      "total": "{count} Einträge",
+      "empty": "Noch keine gewerblichen Anfragen",
+      "detail": {
+        "back": "Zurück",
+        "tab_activity": "Aktivität",
+        "tab_notes": "Notizen",
+        "tab_attachments": "Dokumente",
+        "tab_snapshot": "Berechnung",
+        "companyCard": "Firma",
+        "contactCard": "Kontakt",
+        "addressCard": "Adresse",
+        "intentCard": "Projektabsicht",
+        "sites": "{count} Standort(e)",
+        "preferredChannel": "Bevorzugter Kanal",
+        "preferredTime": "Bevorzugte Zeit",
+        "isDecisionMaker": "Entscheidungsträger:in",
+        "isNotDecisionMaker": "Nicht Entscheidungsträger:in",
+        "openMaps": "In Maps öffnen",
+        "ownerContact": "Eigentümer-Kontakt",
+        "timeline": "Zeitrahmen",
+        "budget": "Budget",
+        "existingPv": "Bestehende PV",
+        "motivations": "Motivation",
+        "financing": "Finanzierung",
+        "controls": "Verwaltung",
+        "status": "Status",
+        "nextFollowUp": "Nächstes Follow-up",
+        "wonAmount": "Wert CHF",
+        "lostReason": "Grund des Verlusts",
+        "save": "Speichern",
+        "saving": "Speichere…",
+        "quickActions": "Schnellaktionen",
+        "logCall": "Anruf protokollieren",
+        "logMeeting": "Meeting geplant",
+        "sendEmail": "E-Mail senden",
+        "noActivity": "Keine Aktivitäten",
+        "noNotes": "Keine Notizen",
+        "noAttachments": "Keine Dokumente",
+        "addNote": "Notiz hinzufügen",
+        "noteInputPlaceholder": "Notiz eintippen…",
+        "upload": "Hochladen",
+        "confirmDelete": "Dokument wirklich löschen?",
+        "delete": "Löschen",
+        "uploadedByCustomer": "Kunde via Link",
+        "uploadedByAdmin": "Admin",
+        "snapshot": "Berechnung",
+        "systemKwp": "Systemgrösse",
+        "panels": "Module",
+        "annualProduction": "Jahresproduktion",
+        "roofArea": "Dachfläche",
+        "investment": "Investition",
+        "subsidy": "Subvention",
+        "netInvestment": "Netto-Investition",
+        "annualSavings": "Jährliche Einsparung",
+        "payback": "Amortisation",
+        "years": "Jahre",
+        "co2": "CO₂-Reduktion"
+      },
+      "dashboard": {
+        "title": "Gewerbe-Pipeline (90 Tage)",
+        "viewAll": "Alle anzeigen",
+        "conversion": "Conversion: {pct}%",
+        "upcoming": "Fällige Follow-ups (7 Tage)"
+      }
     }
   },
   "register": {
@@ -6410,21 +6558,51 @@
       "eyebrow": "Unsere Kultur",
       "title": "Das Leitbild der Free State AG",
       "subtitle": "Bei FreeState stehen Kompetenz, Vertrauen, Verantwortung und die Sicherheit des Menschen im Mittelpunkt.",
-      "ivan": { "name": "Ivan Miric", "role": "Geschäftsführer / Verwaltungsrat" },
-      "peter": { "name": "Peter Aragai", "role": "Executive Manager / Verkaufsleiter" },
-      "dragica": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
-      "dejan": { "name": "Dejan Djokic", "role": "Projektleiter" },
-      "member5": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
-      "member6": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" }
+      "ivan": {
+        "name": "Ivan Miric",
+        "role": "Geschäftsführer / Verwaltungsrat"
+      },
+      "peter": {
+        "name": "Peter Aragai",
+        "role": "Executive Manager / Verkaufsleiter"
+      },
+      "dragica": {
+        "name": "Dragica Miric",
+        "role": "Chief Strategy Officer (CSO)"
+      },
+      "dejan": {
+        "name": "Dejan Djokic",
+        "role": "Projektleiter"
+      },
+      "member5": {
+        "name": "Dragica Miric",
+        "role": "Chief Strategy Officer (CSO)"
+      },
+      "member6": {
+        "name": "Dragica Miric",
+        "role": "Chief Strategy Officer (CSO)"
+      }
     },
     "values": {
       "title": "Unsere Werte",
       "subtitle": "Wir stehen für nachhaltige Energielösungen, hohe Qualitätsstandards und eine transparente Zusammenarbeit.",
       "cta": "Mehr erfahren",
-      "trust": { "title": "Vertrauen", "description": "Transparenz, Zuverlässigkeit und Partnerschaften auf Augenhöhe." },
-      "responsibility": { "title": "Verantwortung", "description": "Nachhaltige Entscheidungen mit ökologischer, sozialer und wirtschaftlicher Verantwortung." },
-      "dedication": { "title": "Hingabe", "description": "Individuelle Lösungen mit Einsatz, Sorgfalt und Leidenschaft." },
-      "pragmatism": { "title": "Pragmatismus", "description": "Praktische und effiziente Lösungen mit klarem Kundennutzen." }
+      "trust": {
+        "title": "Vertrauen",
+        "description": "Transparenz, Zuverlässigkeit und Partnerschaften auf Augenhöhe."
+      },
+      "responsibility": {
+        "title": "Verantwortung",
+        "description": "Nachhaltige Entscheidungen mit ökologischer, sozialer und wirtschaftlicher Verantwortung."
+      },
+      "dedication": {
+        "title": "Hingabe",
+        "description": "Individuelle Lösungen mit Einsatz, Sorgfalt und Leidenschaft."
+      },
+      "pragmatism": {
+        "title": "Pragmatismus",
+        "description": "Praktische und effiziente Lösungen mit klarem Kundennutzen."
+      }
     },
     "partners": {
       "eyebrow": "Unsere Partner",

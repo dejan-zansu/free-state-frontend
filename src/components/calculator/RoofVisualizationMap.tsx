@@ -20,8 +20,8 @@ import {
 
 import {
   SolarPanel,
-  useSonnendachCalculatorStore,
-} from '@/stores/sonnendach-calculator.store'
+  useCommercialCalculatorStore,
+} from '@/stores/commercial-calculator.store'
 
 import 'ol/ol.css'
 
@@ -86,7 +86,7 @@ const RoofVisualizationMap = forwardRef<
   RoofVisualizationMapProps
 >(({ className = '', showLegend = true, height = '300px' }, ref) => {
   const { getSelectedSegments, restrictedAreas, selectedPanel, panelCount } =
-    useSonnendachCalculatorStore()
+    useCommercialCalculatorStore()
 
   const selectedSegments = getSelectedSegments()
 

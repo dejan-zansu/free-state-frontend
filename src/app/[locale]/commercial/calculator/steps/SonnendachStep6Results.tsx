@@ -19,11 +19,13 @@ import RoofVisualizationMap, {
 } from '@/components/calculator/RoofVisualizationMap'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { buildCommercialLeadPayload } from '@/lib/commercial-lead-payload'
+import { commercialLeadService } from '@/services/commercial-lead.service'
 import { reportService } from '@/services/report.service'
-import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
+import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
 
-export default function SonnendachStep5Results() {
+export default function SonnendachStep6Results() {
   const t = useTranslations('sonnendach.step5')
   const {
     building,
@@ -40,11 +42,34 @@ export default function SonnendachStep5Results() {
     getTotalRestrictedArea,
     goToStep,
     reset,
-  } = useSonnendachCalculatorStore()
+  } = useCommercialCalculatorStore()
+
+  const isSubmitting = useCommercialCalculatorStore((s) => s.isSubmitting)
+  const submitError = useCommercialCalculatorStore((s) => s.submitError)
+  const setSubmissionResult = useCommercialCalculatorStore((s) => s.setSubmissionResult)
+  const setSubmitting = useCommercialCalculatorStore((s) => s.setSubmitting)
+  const setSubmitError = useCommercialCalculatorStore((s) => s.setSubmitError)
 
   const mapRef = useRef<RoofVisualizationMapRef>(null)
   const [isDownloading, setIsDownloading] = useState(false)
   const [downloadError, setDownloadError] = useState<string | null>(null)
+
+  const handleRequestQuote = async () => {
+    setSubmitting(true)
+    setSubmitError(null)
+    try {
+      const payload = buildCommercialLeadPayload(useCommercialCalculatorStore.getState())
+      const result = await commercialLeadService.create(payload)
+      setSubmissionResult(result)
+      goToStep(7)
+    } catch (err: any) {
+      setSubmitError(
+        err?.response?.data?.error?.message || err?.message || 'Submission failed',
+      )
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   const usableArea = getUsableArea()
   const totalRestrictedArea = getTotalRestrictedArea()
@@ -484,6 +509,12 @@ export default function SonnendachStep5Results() {
           </div>
         )}
 
+        {submitError && (
+          <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
+            {submitError}
+          </div>
+        )}
+
         {/* Navigation */}
         <div className="flex gap-4">
           <Button
@@ -515,7 +546,13 @@ export default function SonnendachStep5Results() {
               </>
             )}
           </Button>
-          <Button className="flex-1 gap-2">{t('requestQuote')}</Button>
+          <Button
+            onClick={handleRequestQuote}
+            disabled={isSubmitting}
+            className="flex-1 gap-2 bg-[#062E25] text-white hover:bg-[#062E25]/90"
+          >
+            {isSubmitting ? t('submitting') : t('requestQuote')}
+          </Button>
         </div>
       </div>
     </div>

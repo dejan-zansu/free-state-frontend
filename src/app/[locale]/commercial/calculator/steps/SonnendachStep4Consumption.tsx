@@ -13,7 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
+import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 
 export default function SonnendachStep4Consumption() {
   const t = useTranslations('sonnendach.step4Commercial')
@@ -25,7 +25,7 @@ export default function SonnendachStep4Consumption() {
     goToStep,
     nextStep,
     getSelectedSegments,
-  } = useSonnendachCalculatorStore()
+  } = useCommercialCalculatorStore()
 
   const selectedSegments = getSelectedSegments()
 
