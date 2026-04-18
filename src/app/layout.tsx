@@ -1,6 +1,14 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, Figtree } from 'next/font/google'
 import './globals.css'
+import {
+  AnalyticsScripts,
+  AnalyticsNoscript,
+} from '@/components/analytics/AnalyticsScripts'
+import {
+  googleSiteVerification,
+  searchConsoleVerificationEnabled,
+} from '@/lib/analytics-env'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -21,6 +29,9 @@ const figtree = Figtree({
 export const metadata: Metadata = {
   title: 'Free State AG - Photovoltaikanlagen & erneuerbare Energien',
   description: 'Free State AG - Photovoltaikanlagen & erneuerbare Energien',
+  ...(searchConsoleVerificationEnabled && {
+    verification: { google: googleSiteVerification },
+  }),
 }
 
 export default function RootLayout({
@@ -30,10 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className='light' suppressHydrationWarning>
-      <head />
+      <head>
+        <AnalyticsScripts />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} antialiased flex flex-col min-h-screen`}
       >
+        <AnalyticsNoscript />
         {children}
       </body>
     </html>
