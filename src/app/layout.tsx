@@ -5,7 +5,6 @@ import {
   AnalyticsScripts,
   AnalyticsNoscript,
 } from '@/components/analytics/AnalyticsScripts'
-import { HotjarScript } from '@/components/analytics/HotjarScript'
 import {
   googleSiteVerification,
   searchConsoleVerificationEnabled,
@@ -50,7 +49,6 @@ export default function RootLayout({
       >
         <AnalyticsNoscript />
         {children}
-        <HotjarScript />
       </body>
     </html>
   )
