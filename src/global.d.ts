@@ -2,8 +2,9 @@
 
 declare global {
   interface Window {
-    // Google Maps API is loaded dynamically via @googlemaps/js-api-loader
     google?: typeof google
+    gtag?: (...args: unknown[]) => void
+    dataLayer?: unknown[]
   }
 }
 
