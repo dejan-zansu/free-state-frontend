@@ -340,7 +340,7 @@
           "installTime": "5 mesi",
           "capacity": "220 kWp",
           "authorName": "Marco Keller",
-          "authorRole": "Operations Manager, Keller Logistik AG",
+          "authorRole": "Responsabile operativo, Keller Logistik AG",
           "image": "/images/customer-story-house-334153.webp"
         },
         {
@@ -400,7 +400,7 @@
         {
           "quote": "Free State ha modernizzato il nostro sito produttivo con vera competenza. La gestione del progetto è stata professionale, i tempi sono stati rispettati con precisione e l'impianto funziona perfettamente dal primo giorno.",
           "authorName": "Marco Keller",
-          "authorRole": "Operations Manager, Keller Logistik AG"
+          "authorRole": "Responsabile operativo, Keller Logistik AG"
         },
         {
           "quote": "Come società immobiliare abbiamo equipaggiato diverse proprietà con Free State. La stretta collaborazione, la consulenza tecnica e il reporting ci hanno convinto completamente.",
@@ -3225,7 +3225,7 @@
     }
   },
   "privacyPolicy": {
-    "title": "Privacy Policy",
+    "title": "Informativa sulla privacy",
     "subtitle": "Come trattiamo i tuoi dati personali",
     "intro": "Free State AG prende sul serio la protezione dei tuoi dati personali. Trattiamo i tuoi dati in modo riservato e conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD, in vigore dal 1° settembre 2023) e — se applicabile — al Regolamento generale sulla protezione dei dati dell'UE (GDPR). La presente informativa sulla privacy descrive quali dati raccogliamo, per quale scopo li utilizziamo, con chi li condividiamo e quali diritti hai come interessato.",
     "dataCollection": {
@@ -3233,7 +3233,7 @@
       "content": "Il titolare responsabile del trattamento dei dati personali su questo sito web ai sensi della nLPD e del GDPR è:\n\nFree State AG\nStettemerstrasse 40\n8207 Sciaffusa, Svizzera\nEmail: info@freestate.ch\nTelefono: +41 52 525 33 05\n\nRappresentante legale: Ivan Miric, Membro del Consiglio di Amministrazione e Amministratore Delegato, con firma individuale.\n\nRaccogliamo dati personali in due modi: attivamente, quando ce li fornisci (ad es. tramite il modulo di contatto, il modulo della newsletter, il calcolatore solare, le richieste di manutenzione o al momento della registrazione di un account cliente), e automaticamente attraverso i nostri sistemi IT quando visiti il sito web (dati tecnici di connessione come browser, sistema operativo e ora di accesso)."
     },
     "automaticData": {
-      "title": "Automatically Collected Server Logs",
+      "title": "Log del server raccolti automaticamente",
       "content": "Quando visiti il nostro sito web, i nostri server web memorizzano temporaneamente ogni accesso in un file di log. I seguenti dati vengono registrati e memorizzati automaticamente fino alla cancellazione automatica dopo un massimo di 30 giorni:\n\n• Indirizzo IP del dispositivo richiedente (troncato o anonimizzato)\n• Data e ora dell'accesso\n• Nome e URL del file recuperato\n• Sito web di provenienza (URL referrer)\n• Browser utilizzato e sistema operativo\n• Nome del tuo fornitore di accesso a Internet\n\nIl trattamento avviene sulla base del nostro legittimo interesse (art. 31 cpv. 2 lett. d nLPD e art. 6 par. 1 lett. f GDPR) nel funzionamento stabile del sito web, nella sicurezza informatica e nella protezione contro gli abusi. Questi dati non vengono combinati con altre fonti di dati e non vengono utilizzati per creare profili utente."
     },
     "cookies": {
@@ -3272,44 +3272,44 @@
       "title": "Contatto per questioni di protezione dei dati",
       "content": "Per qualsiasi domanda riguardante la protezione dei dati, l'esercizio dei tuoi diritti o altre questioni, contatta:\n\nFree State AG\nAll'attenzione di: Protezione dei dati\nStettemerstrasse 40\n8207 Sciaffusa\nSvizzera\n\nEmail: info@freestate.ch\nTelefono: +41 52 525 33 05\n\nFree State AG non è tenuta a nominare un responsabile esterno della protezione dei dati ai sensi dell'art. 10 nLPD o dell'art. 37 GDPR. Per questioni di protezione dei dati utilizza l'indirizzo sopra riportato."
     },
-    "lastUpdated": "Last updated: April 2026"
+    "lastUpdated": "Ultimo aggiornamento: aprile 2026"
   },
   "impressum": {
-    "title": "Legal Notice",
+    "title": "Note legali",
     "subtitle": "Informazioni aziendali e indicazioni legali",
     "companyInfo": {
-      "title": "Company Information",
-      "content": "Free State AG (Free State SA / Free State Ltd)\nLegal form: Stock Corporation (Aktiengesellschaft)\nStettemerstrasse 40\n8207 Schaffhausen\nSwitzerland"
+      "title": "Informazioni aziendali",
+      "content": "Free State AG (Free State SA / Free State Ltd)\nForma giuridica: Società per azioni (Aktiengesellschaft)\nStettemerstrasse 40\n8207 Schaffhausen\nSvizzera"
     },
     "representation": {
-      "title": "Authorized Representative",
+      "title": "Rappresentante autorizzato",
       "content": "Ivan Miric, di Zurigo, residente a Sciaffusa\nMembro del Consiglio di Amministrazione e Amministratore Delegato, con firma individuale"
     },
     "contact": {
-      "title": "Contact",
-      "content": "Phone: +41 52 525 33 05\nEmail: info@freestate.ch\nWebsite: www.freestate.ch"
+      "title": "Contatto",
+      "content": "Telefono: +41 52 525 33 05\nEmail: info@freestate.ch\nSito web: www.freestate.ch"
     },
     "register": {
-      "title": "Commercial Register Entry",
+      "title": "Iscrizione al Registro delle imprese",
       "content": "Denominazione sociale registrata: Free State AG\nSede legale: Sciaffusa, Svizzera\nCantone: Sciaffusa\nUID: CHE-134.711.335\nCH-ID: CH-290-3022220-1\nEHRA-ID: 1665287\nData dello statuto: 30 ottobre 2024\nCapitale sociale: CHF 100'000.00\nOrgano ufficiale di pubblicazione: Foglio ufficiale svizzero di commercio (FUSC)\n\nIscritta nel Registro di commercio del Cantone di Sciaffusa. La società ha rinunciato alla revisione limitata legale ai sensi dell'art. 727a cpv. 2 del Codice delle obbligazioni svizzero."
     },
     "purpose": {
-      "title": "Company Purpose",
+      "title": "Scopo sociale",
       "content": "Lo scopo della società è la produzione, trasmissione, distribuzione, stoccaggio, utilizzo e vendita di energia elettrica e di altra energia, nonché la prestazione di servizi di ogni tipo nei settori dell'energia e dell'ambiente. La società può costruire, gestire, acquistare, affittare e vendere centrali elettriche, impianti di trasmissione, stoccaggio e distribuzione di energia, nonché imprese di servizi nei settori dell'energia e dell'ambiente.\n\n(Estratto dello scopo iscritto nel Registro di commercio come pubblicato nel FUSC n. 1006179782 del 15 novembre 2024.)"
     },
     "vat": {
-      "title": "VAT Identification Number",
+      "title": "Partita IVA",
       "content": "Numero IVA: CHE-134.711.335 IVA\nStato: attivo (iscritto nel registro IVA svizzero dal 1° gennaio 2025)"
     },
     "liability": {
-      "title": "Disclaimer",
+      "title": "Esclusione di responsabilità",
       "content": "I contenuti di questo sito web sono stati elaborati con la massima cura. Tuttavia, Free State AG non può garantire l'esattezza, la completezza o l'attualità dei contenuti forniti.\n\nCome fornitore di servizi, siamo responsabili dei nostri contenuti su queste pagine ai sensi del diritto generale. Tuttavia, non siamo tenuti a monitorare le informazioni di terzi trasmesse o memorizzate, né a indagare su circostanze che indichino attività illegali.\n\nLe pretese di responsabilità nei confronti di Free State AG relative a danni materiali o immateriali causati dall'uso o dal mancato uso delle informazioni fornite, o dall'uso di informazioni errate o incomplete, sono escluse, salvo prova di dolo o colpa grave da parte di Free State AG."
     },
     "copyright": {
       "title": "Copyright",
       "content": "I contenuti e le opere su queste pagine creati dai gestori del sito sono soggetti al diritto d'autore svizzero. La duplicazione, l'elaborazione, la diffusione o qualsiasi forma di commercializzazione di tale materiale oltre i limiti del diritto d'autore richiede il previo consenso scritto del rispettivo autore o creatore.\n\nI download e le copie di questo sito sono consentiti solo per uso privato e non commerciale."
     },
-    "lastUpdated": "Last updated: April 2026"
+    "lastUpdated": "Ultimo aggiornamento: aprile 2026"
   },
   "agb": {
     "title": "Condizioni generali di contratto",
@@ -3319,11 +3319,11 @@
       "content": "Le presenti Condizioni generali di contratto (CGC) regolano il rapporto d'affari tra Free State AG, Stettemerstrasse 40, 8207 Sciaffusa, Svizzera, UID CHE-134.711.335 (di seguito \"Free State AG\" o \"noi\") e i suoi clienti (di seguito \"Cliente\").\n\nUtilizzando il nostro sito web, richiedendo un'offerta o concludendo un contratto, il Cliente accetta le presenti CGC nella versione in vigore al momento della conclusione del contratto. Condizioni contrastanti o integrative del Cliente non sono riconosciute, salvo che Free State AG abbia espressamente acconsentito alla loro validità per iscritto.\n\nPer singoli prodotti e servizi (in particolare il modello Solar Free) si applicano in via aggiuntiva le condizioni concordate nel rispettivo contratto individuale, che prevalgono sulle presenti CGC in caso di conflitto."
     },
     "contractConclusion": {
-      "title": "2. Contract Conclusion",
+      "title": "2. Conclusione del contratto",
       "content": "La presentazione di prodotti e servizi sul nostro sito web e i calcoli non vincolanti del nostro calcolatore solare non costituiscono un'offerta vincolante; sono soltanto un invito a richiedere un'offerta.\n\nUn contratto è concluso quando (a) Free State AG controfirma un'offerta scritta confermata dal Cliente, (b) il Cliente firma validamente (anche in forma elettronica, si veda la clausola 3) un'offerta presentata da Free State AG, oppure (c) Free State AG inizia la prestazione del servizio e il Cliente la tollera.\n\nFree State AG si riserva il diritto di rifiutare ordini senza indicarne i motivi, in particolare qualora la fattibilità tecnica, la solvibilità o vincoli di fornitura lo richiedano."
     },
     "electronicSigning": {
-      "title": "3. Electronic Contract Signing",
+      "title": "3. Firma elettronica del contratto",
       "content": "I contratti con Free State AG possono essere conclusi in forma cartacea o elettronica. Per la firma elettronica utilizziamo il fornitore di servizi fiduciari Swisscom Trust Services AG, Konradstrasse 12, 8005 Zurigo, Svizzera. Swisscom Trust Services è autorizzato ai sensi della Legge federale svizzera sui servizi di certificazione nel campo della firma elettronica (FiEle) come fornitore di servizi fiduciari qualificato.\n\nLa firma elettronica qualificata (FEQ) creata tramite Swisscom Trust Services è, ai sensi dell'art. 14 cpv. 2bis del Codice delle obbligazioni svizzero, equiparata alla firma autografa e ha pieno valore probatorio legale. Scegliendo la firma elettronica, il Cliente accetta espressamente che il contratto sia validamente concluso in questa forma.\n\nDurante l'identificazione e la creazione della firma, il Cliente trasmette dati di identificazione e autenticazione a Swisscom Trust Services. I dettagli di questo trattamento dei dati sono riportati nella nostra informativa sulla privacy e su https://trustservices.swisscom.com."
     },
     "withdrawal": {
@@ -3331,7 +3331,7 @@
       "content": "Se un consumatore ai sensi dell'art. 40a e segg. del Codice delle obbligazioni svizzero conclude un contratto con Free State AG (a) in occasione di una manifestazione pubblicitaria o di una visita a domicilio presso l'abitazione, il luogo di lavoro o nelle immediate vicinanze, oppure (b) per telefono o con mezzi di comunicazione a distanza comparabili in cui le trattative contrattuali si svolgono senza possibilità di esame immediato, il consumatore ha un diritto di revoca di 14 giorni dalla conclusione del contratto.\n\nLa revoca non richiede alcuna motivazione. Deve essere dichiarata per iscritto (lettera o email a info@freestate.ch); per il rispetto del termine è sufficiente l'invio tempestivo.\n\nIn caso di revoca efficace, entrambe le parti sono tenute a restituire le prestazioni già ricevute. Se Free State AG ha iniziato l'esecuzione del contratto con il consenso del Cliente (ad es. ordini di materiale, misurazioni in loco), può essere richiesto un equo compenso per le prestazioni effettuate fino alla revoca.\n\nIn particolare non sussiste alcun diritto di revoca per contratti negoziati e conclusi esclusivamente presso la sede legale di Free State AG, né per contratti di servizi espressamente realizzati secondo le specifiche del Cliente, una volta che la loro produzione sia iniziata con il consenso del Cliente."
     },
     "services": {
-      "title": "5. Services",
+      "title": "5. Servizi",
       "content": "Free State AG progetta, fornisce, installa e mantiene impianti fotovoltaici, accumuli a batteria, pompe di calore, stazioni di ricarica, sistemi di gestione dell'energia e impianti e servizi correlati nel settore delle energie rinnovabili.\n\nL'esatta portata dei servizi è determinata dall'offerta, dalla conferma d'ordine o dal contratto individuale. Ove necessario per l'esecuzione, Free State AG si coordina anche con il gestore della rete di distribuzione locale, presenta la richiesta di allacciamento e registra le sovvenzioni e le tariffe di immissione, ove contrattualmente concordato.\n\nLe modifiche alla portata dei servizi sono possibili laddove ragioni tecniche, normative o legate al fornitore le rendano necessarie e le modifiche siano ragionevoli per il Cliente. In tali casi Free State AG informa il Cliente tempestivamente."
     },
     "solarFreeLease": {
@@ -3339,11 +3339,11 @@
       "content": "Nel modello \"Solar Free\", Free State AG mette a disposizione del Cliente un impianto fotovoltaico (opzionalmente integrato da accumulo a batteria, stazione di ricarica o controllo della pompa di calore) per l'uso dietro una tariffa mensile, senza che il Cliente debba acquistare l'impianto.\n\nCondizioni chiave:\n\n• Proprietà: per l'intera durata del contratto, la proprietà dell'impianto rimane a Free State AG o a un partner finanziario designato da Free State AG. Il Cliente mette a disposizione gratuitamente il tetto o il sito di installazione e concede i diritti di accesso necessari per la costruzione, il funzionamento e la manutenzione.\n\n• Durata contrattuale: la durata standard di un contratto Solar Free è — salvo diverso accordo nel contratto individuale — di 20 anni dalla messa in servizio.\n\n• Tariffa mensile: la tariffa mensile è fissata in modo vincolante nel contratto individuale. Può essere previsto un modello indicizzato o a scaglioni; in questo caso la base di calcolo è indicata nel contratto.\n\n• Manutenzione e riparazione: durante la durata del contratto, Free State AG è responsabile della manutenzione ordinaria e dell'eliminazione dei difetti dei componenti dell'impianto, a condizione che questi non siano causati da uso improprio, vandalismo, forza maggiore o interventi di terzi.\n\n• Consumo elettrico e immissione: l'energia elettrica consumata in loco dal Cliente è — salvo diversa disposizione nel contratto individuale — inclusa nella tariffa mensile. L'energia elettrica in eccedenza viene immessa nella rete; la remunerazione per l'immissione spetta al proprietario dell'impianto (Free State AG).\n\n• Risoluzione anticipata: la disdetta ordinaria prima della scadenza della durata concordata è esclusa. In caso di risoluzione anticipata per motivi gravi, la parte che recede deve all'altra parte un indennizzo in conformità al contratto individuale. In caso di cambio di proprietà dell'immobile, il nuovo proprietario subentra nel contratto, ove previsto dal contratto individuale.\n\n• Opzione di acquisto: ove previsto nel contratto individuale, il Cliente ha il diritto di acquistare l'impianto in momenti definiti a un valore residuo determinato in anticipo.\n\n• Dopo la fine del contratto: alla scadenza della durata contrattuale, la proprietà dell'impianto passa — ove previsto dal contratto individuale — gratuitamente o a un valore residuo simbolico al Cliente. In caso contrario, l'impianto viene smantellato da Free State AG e il sito di installazione viene professionalmente ripristinato.\n\nI dettagli su durata, tariffa, indicizzazione, trasferimento di proprietà, copertura assicurativa e opzione di acquisto sono stabiliti in modo conclusivo nel contratto Solar Free firmato, che prevale sulle presenti CGC in caso di conflitto."
     },
     "prices": {
-      "title": "7. Prices",
+      "title": "7. Prezzi",
       "content": "Tutti i prezzi sono indicati in franchi svizzeri (CHF). Salvo diversa indicazione, i prezzi per i consumatori includono l'imposta sul valore aggiunto applicabile e i prezzi per i clienti commerciali sono al netto dell'imposta sul valore aggiunto.\n\nI prezzi indicati nei calcolatori online e sul sito web sono valori indicativi non vincolanti. Solo i prezzi riportati nella singola offerta o nel contratto individuale sono vincolanti.\n\nFree State AG si riserva il diritto di adeguare i prezzi per i contratti futuri in qualsiasi momento. Per i contratti già conclusi, i prezzi concordati rimangono vincolanti, fatte salve le clausole di adeguamento contrattualmente previste (ad es. indicizzazione nel modello Solar Free)."
     },
     "payment": {
-      "title": "8. Payment Terms",
+      "title": "8. Condizioni di pagamento",
       "content": "Salvo diverso accordo, le fatture sono pagabili entro 30 giorni dalla data della fattura senza detrazione. In caso di ritardato pagamento, Free State AG ha il diritto di addebitare interessi di mora del 5% annuo (art. 104 del Codice delle obbligazioni svizzero) nonché spese ragionevoli di sollecito e recupero.\n\nPer ordini di maggiore entità, Free State AG può richiedere acconti o rate, ad esempio secondo il seguente schema: 30% alla conclusione del contratto, 60% alla consegna del materiale, 10% dopo la messa in servizio. Gli esatti termini di pagamento sono stabiliti nel contratto individuale.\n\nNel modello Solar Free, la tariffa mensile è pagabile in anticipo, di regola tramite addebito diretto (LSV/Debit Direct)."
     },
     "warranty": {
@@ -3351,11 +3351,11 @@
       "content": "Free State AG garantisce che i prodotti e i servizi consegnati corrispondono al momento della consegna alle caratteristiche contrattualmente concordate e sono esenti da difetti materiali e da vizi giuridici.\n\nIl termine di garanzia legale è di due anni dalla consegna, o di cinque anni per le opere immobiliari (art. 371 del Codice delle obbligazioni svizzero). I difetti devono essere segnalati per iscritto (info@freestate.ch) senza indugio, al più tardi entro 10 giorni lavorativi dalla scoperta.\n\nSi applicano inoltre le garanzie di prodotto del costruttore per i singoli componenti. Ove disponibili, queste vengono trasferite al Cliente e integrano la garanzia legale. Valori indicativi:\n\n• Pannelli solari (garanzia di prodotto): generalmente 10–25 anni\n• Pannelli solari (garanzia di prestazione): generalmente 25 anni su una resa minima garantita\n• Inverter: generalmente 5–10 anni, spesso estendibili\n• Accumulo a batteria: generalmente 10 anni di garanzia di prodotto e capacità\n• Sistema di montaggio: generalmente 10–25 anni\n• Pompe di calore: generalmente 2–5 anni, estendibili a seconda del costruttore\n• Stazioni di ricarica: generalmente 2–3 anni\n• Lavori di installazione di Free State AG: 5 anni sulla manodopera\n\nLe specifiche condizioni di garanzia, le condizioni di reclamo ed eventuali franchigie sono riportate nei certificati di garanzia dei costruttori, che vengono consegnati al Cliente con la fattura finale o messi a disposizione in forma elettronica.\n\nSono esclusi dalla garanzia in particolare i danni causati da uso improprio, forza maggiore (tempesta, grandine, fulmine, ove non assicurati), interventi di terzi, normale usura e difetti che il Cliente non ha segnalato tempestivamente nonostante sia stato sollecitato a farlo."
     },
     "liability": {
-      "title": "10. Liability",
+      "title": "10. Responsabilità",
       "content": "Free State AG risponde per i danni solo in casi di dolo e colpa grave. La responsabilità per colpa lieve è — nei limiti consentiti dalla legge — esclusa.\n\nLa responsabilità per danni indiretti, danni consequenziali, lucro cessante, perdite di produzione o perdite di dati è esclusa nei limiti consentiti dalla legge.\n\nLa responsabilità totale di Free State AG per singolo sinistro è limitata al valore contrattuale dell'ordine interessato oppure — nel modello Solar Free — alla tariffa annuale dovuta nell'anno in cui si è verificato il danno.\n\nLa responsabilità obbligatoria ai sensi della Legge svizzera sulla responsabilità per il prodotto e per lesioni personali resta impregiudicata."
     },
     "dataProtection": {
-      "title": "11. Data Protection",
+      "title": "11. Protezione dei dati",
       "content": "Free State AG tratta i dati personali conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD) e — se applicabile — al Regolamento generale sulla protezione dei dati dell'UE (GDPR).\n\nInformazioni dettagliate sul trattamento dei dati, sui diritti degli interessati e sui fornitori terzi utilizzati (in particolare Google Analytics, Hotjar, Google Maps e Swisscom Trust Services) sono riportate nella nostra informativa sulla privacy all'indirizzo /privacy-policy."
     },
     "applicableLaw": {
@@ -3363,45 +3363,45 @@
       "content": "Le presenti CGC e tutti i contratti tra Free State AG e il Cliente sono disciplinati esclusivamente dal diritto svizzero, con esclusione della Convenzione delle Nazioni Unite sui contratti di vendita internazionale di merci (CISG).\n\nIl foro competente esclusivo per tutte le controversie derivanti da o in connessione con le presenti CGC o con i contratti su di esse basati è Sciaffusa, Svizzera. Free State AG si riserva il diritto di citare il Cliente anche presso il suo domicilio o presso qualsiasi altro tribunale competente. Restano riservati i fori obbligatori ai sensi del diritto a tutela dei consumatori."
     },
     "finalProvisions": {
-      "title": "13. Final Provisions",
+      "title": "13. Disposizioni finali",
       "content": "Qualora singole disposizioni delle presenti CGC fossero o diventassero invalide, nulle o inefficaci, la validità delle restanti disposizioni non ne sarà pregiudicata. La disposizione invalida sarà sostituita da una disposizione valida che si avvicini il più possibile allo scopo economico della disposizione invalida.\n\nFree State AG si riserva il diritto di modificare le presenti CGC in qualsiasi momento. La versione attualmente valida è pubblicata sul sito web. Per i contratti esistenti si applica la versione in vigore al momento della conclusione del contratto, salvo che il Cliente acconsenta espressamente a una modifica.\n\nLa versione tedesca delle presenti CGC è vincolante. Le traduzioni in altre lingue sono fornite solo a scopo informativo."
     },
-    "lastUpdated": "Last updated: April 2026"
+    "lastUpdated": "Ultimo aggiornamento: aprile 2026"
   },
   "chargingStations": {
     "hero": {
-      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
-      "title": "Charging Stations",
+      "eyebrow": "Nessun investimento. Costi elettrici ridotti. Nessun pensiero.",
+      "title": "Stazioni di ricarica",
       "subtitle": "Per case unifamiliari senza accumulo a batteria"
     },
     "commercialTopics": {
       "title": "Tutto sulle stazioni di ricarica",
       "items": [
         {
-          "title": "Apartment building",
-          "description": "Scalable charging infrastructure for residential complexes.",
-          "linkLabel": "Apartment building",
+          "title": "Edificio condominiale",
+          "description": "Infrastruttura di ricarica scalabile per complessi residenziali.",
+          "linkLabel": "Edificio condominiale",
           "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
           "href": "/commercial/charging-stations/apartment-building"
         },
         {
-          "title": "Monitoring",
-          "description": "Load management and monitoring for corporate fleets.",
-          "linkLabel": "Monitoring",
+          "title": "Monitoraggio",
+          "description": "Gestione del carico e monitoraggio per flotte aziendali.",
+          "linkLabel": "Monitoraggio",
           "image": "/images/commercial-charging-verfolgen-483c1d.webp",
           "href": "/commercial/charging-stations/company"
         },
         {
-          "title": "Fast charging stations",
-          "description": "High-power charging stations for businesses and public venues.",
-          "linkLabel": "Fast charging",
+          "title": "Stazioni di ricarica rapida",
+          "description": "Stazioni di ricarica ad alta potenza per aziende e luoghi pubblici.",
+          "linkLabel": "Ricarica rapida",
           "image": "/images/commercial-charging-schnell-1fa800.webp",
           "href": "/commercial/charging-stations/fast-charging-stations"
         },
         {
-          "title": "Bidirectional",
-          "description": "Your vehicle as a battery – energy flows both ways.",
-          "linkLabel": "Bidirectional",
+          "title": "Bidirezionale",
+          "description": "Il tuo veicolo come batteria – l'energia scorre in entrambe le direzioni.",
+          "linkLabel": "Bidirezionale",
           "image": "/images/charging-bidirektional-7ac659.webp",
           "href": "/commercial/charging-stations/bidirectional-charging-station"
         }
@@ -3411,23 +3411,23 @@
       "title": "Tutto sulle stazioni di ricarica",
       "items": [
         {
-          "title": "Single-family home",
-          "description": "Charging solutions for your home – safe and convenient.",
-          "linkLabel": "Single-family home",
+          "title": "Casa unifamiliare",
+          "description": "Soluzioni di ricarica per la tua casa – sicure e convenienti.",
+          "linkLabel": "Casa unifamiliare",
           "image": "/images/charging-einfamilienhaus-a9cdc6.webp",
           "href": "/charging-stations/single-family-home"
         },
         {
-          "title": "Apartment building",
-          "description": "Scalable charging infrastructure for residential complexes.",
-          "linkLabel": "Apartment building",
+          "title": "Edificio condominiale",
+          "description": "Infrastruttura di ricarica scalabile per complessi residenziali.",
+          "linkLabel": "Edificio condominiale",
           "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
           "href": "/charging-stations/apartment-building"
         },
         {
-          "title": "Bidirectional",
-          "description": "Your vehicle as a battery – energy flows both ways.",
-          "linkLabel": "Bidirectional",
+          "title": "Bidirezionale",
+          "description": "Il tuo veicolo come batteria – l'energia scorre in entrambe le direzioni.",
+          "linkLabel": "Bidirezionale",
           "image": "/images/charging-bidirektional-7ac659.webp",
           "href": "/charging-stations/bidirectional-charging-station"
         }
@@ -3441,17 +3441,17 @@
       "solarAbo": {
         "tag": "Online",
         "title": "SolarFree",
-        "bullet1": "No capital investment.",
-        "bullet2": "Contract-based model."
+        "bullet1": "Nessun investimento di capitale.",
+        "bullet2": "Modello basato su contratto."
       },
       "solarDirect": {
-        "tag": "Full Ownership",
+        "tag": "Proprietà completa",
         "title": "SolarDirect",
-        "bullet1": "Upfront purchase.",
-        "bullet2": "Long-term asset ownership."
+        "bullet1": "Acquisto anticipato.",
+        "bullet2": "Proprietà del bene a lungo termine."
       },
       "learnMorePrefix": "Scopri di più su",
-      "learnMoreConnector": "and",
+      "learnMoreConnector": "e",
       "learnMoreSolarAbo": "SolarFree",
       "learnMoreSolarDirect": "SolarDirect"
     },
@@ -3483,25 +3483,25 @@
         "tag": "Multi",
         "title": "{model} Multi",
         "bullet1": "Per condomini",
-        "bullet2": "Shared energy communities (ZEV / LEG)"
+        "bullet2": "Comunità energetiche condivise (ZEV / LEG)"
       },
       "learnMore": "Scopri di più su {model} Home e {model} Multi",
       "learnMorePrefix": "Scopri di più su",
-      "learnMoreConnector": "and",
+      "learnMoreConnector": "e",
       "learnMoreHome": "{model} Home",
       "learnMoreMulti": "{model} Multi",
       "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
-      "step1": "Building",
-      "step2": "Household",
-      "step3": "Devices",
-      "step4": "Roof",
-      "step5": "Covering",
-      "step6": "Contact",
-      "step7": "Results",
-      "step8": "Review",
-      "step9": "Sign"
+      "step1": "Edificio",
+      "step2": "Nucleo familiare",
+      "step3": "Dispositivi",
+      "step4": "Tetto",
+      "step5": "Copertura",
+      "step6": "Contatto",
+      "step7": "Risultati",
+      "step8": "Revisione",
+      "step9": "Firma"
     },
     "step1": {
       "title": "Scegli il tuo pacchetto SolarFree",
@@ -3513,16 +3513,16 @@
         "multiDesc": "Per condomini e comunità energetiche condivise (RCP / CEL)"
       },
       "learnMore": "Scopri di più su",
-      "or": "or"
+      "or": "o"
     },
     "step2": {
       "title": "Qual è il tipo di edificio?",
       "helper": "Seleziona il tuo tipo di edificio:",
       "options": {
-        "singleFamily": "Single-family house",
-        "apartment": "Apartment building",
-        "trade": "Trade",
-        "office": "Office building"
+        "singleFamily": "Casa unifamiliare",
+        "apartment": "Edificio condominiale",
+        "trade": "Commercio",
+        "office": "Edificio per uffici"
       }
     },
     "step3": {
@@ -3530,38 +3530,38 @@
       "helper": "Indica il numero di persone compresi i bambini:",
       "options": {
         "1": "1 Person",
-        "2": "2 People",
-        "3": "3 People",
-        "4": "4 People",
-        "5": "5 or More"
+        "2": "2 persone",
+        "3": "3 persone",
+        "4": "4 persone",
+        "5": "5 o più"
       }
     },
     "step4": {
       "title": "Possiedi dispositivi ad alta potenza?",
       "helper": "Questo ci consente di stimare meglio il tuo fabbisogno elettrico e, di conseguenza, la dimensione ottimale del tuo impianto solare. Seleziona i consumatori esistenti. Indica anche i dispositivi che intendi installare in futuro.",
       "devices": {
-        "heatPumpHeating": "Heat pump heating",
-        "electricHeating": "Electric heating",
-        "electricBoiler": "Electric boiler",
-        "evChargingStation": "Electric vehicle charging station",
+        "heatPumpHeating": "Riscaldamento a pompa di calore",
+        "electricHeating": "Riscaldamento elettrico",
+        "electricBoiler": "Boiler elettrico",
+        "evChargingStation": "Stazione di ricarica per veicoli elettrici",
         "swimmingPoolSauna": "Piscina e/o sauna"
       }
     },
     "step5": {
       "title": "Trova il tuo edificio",
       "helper": "Inserisci il tuo indirizzo per localizzare il tuo tetto sulla mappa solare.",
-      "locationLabel": "Location",
+      "locationLabel": "Località",
       "searchPlaceholder": "Inserisci il tuo indirizzo...",
-      "officialMap": "Official Swiss topographic map",
+      "officialMap": "Mappa topografica ufficiale svizzera",
       "clickHint": "Clicca su un'area colorata per aggiungerla all'installazione solare.",
-      "results": "results",
+      "results": "risultati",
       "suitability": "Grado di idoneità della superficie del tetto",
-      "veryGood": "Very good",
-      "moderate": "Moderate",
-      "excellent": "Excellent",
-      "low": "Low",
-      "selected": "Selected",
-      "loading": "Loading building data...",
+      "veryGood": "Molto buono",
+      "moderate": "Moderato",
+      "excellent": "Eccellente",
+      "low": "Basso",
+      "selected": "Selezionato",
+      "loading": "Caricamento dati edificio...",
       "addressIncomplete": "Seleziona un indirizzo completo, incluso il numero civico."
     },
     "step6": {
@@ -3569,138 +3569,138 @@
       "helper": "Seleziona il tipo di copertura del tetto che hai. Lo utilizziamo per calcolare i costi di montaggio e fissaggio.",
       "helperFlat": "Seleziona il tipo di copertura di tetto piano che hai. Questo determina il sistema di montaggio che utilizziamo.",
       "options": {
-        "tiled": "Tiled roof",
-        "tin": "Tin roof",
-        "slate": "Slate roof",
-        "fiberCement": "Fiber cement / Eternit",
-        "gravel": "Gravel",
-        "substrate": "Substrate / green roof",
+        "tiled": "Tetto in tegole",
+        "tin": "Tetto in lamiera",
+        "slate": "Tetto in ardesia",
+        "fiberCement": "Fibrocemento / Eternit",
+        "gravel": "Ghiaia",
+        "substrate": "Substrato / tetto verde",
         "bitumen": "Bitumen",
-        "membrane": "Membrane / foil",
-        "other": "Other"
+        "membrane": "Membrana / pellicola",
+        "other": "Altro"
       }
     },
     "results": {
       "title": "Il tuo potenziale solare",
       "subtitle": "In base ai dati del tuo tetto e della tua famiglia, ecco cosa l'energia solare può fare per te.",
       "metrics": {
-        "production": "kWh/year",
-        "savings": "per year",
-        "selfSufficiency": "Self-sufficiency",
-        "co2": "kg CO₂/year",
-        "energyBalance": "Energy balance",
+        "production": "kWh/anno",
+        "savings": "all'anno",
+        "selfSufficiency": "Autosufficienza",
+        "co2": "kg CO₂/anno",
+        "energyBalance": "Bilancio energetico",
         "energyBalanceDesc": "del tuo consumo prodotto dal tuo impianto"
       },
       "chart": {
-        "title": "Monthly Production",
-        "tooltipLabel": "Production"
+        "title": "Produzione mensile",
+        "tooltipLabel": "Produzione"
       },
       "months": {
         "jan": "Jan",
         "feb": "Feb",
         "mar": "Mar",
         "apr": "Apr",
-        "may": "May",
+        "may": "Mag",
         "jun": "Jun",
         "jul": "Jul",
         "aug": "Aug",
         "sep": "Sep",
-        "oct": "Oct",
+        "oct": "Ott",
         "nov": "Nov",
-        "dec": "Dec"
+        "dec": "Dic"
       },
       "system": {
         "title": "Il tuo impianto solare",
-        "size": "System size",
-        "panels": "Estimated panels",
-        "area": "Roof area used",
-        "consumption": "Annual consumption"
+        "size": "Dimensione impianto",
+        "panels": "Pannelli stimati",
+        "area": "Area del tetto utilizzata",
+        "consumption": "Consumo annuo"
       },
       "pricing": {
-        "title": "Investment",
+        "title": "Investimento",
         "gross": "Totale prima dell'incentivo",
-        "subsidy": "Federal subsidy (KLEIV)",
+        "subsidy": "Sussidio federale (KLEIV)",
         "net": "Il tuo investimento",
-        "annualSavings": "Annual electricity savings",
-        "totalSavings": "Total savings over contract term",
-        "taxSavings": "Expected tax savings",
+        "annualSavings": "Risparmio elettrico annuo",
+        "totalSavings": "Risparmio totale sulla durata del contratto",
+        "taxSavings": "Risparmi fiscali previsti",
         "taxSavingsNote": "Gli investimenti in energie rinnovabili sono deducibili dalle tasse al 100%",
-        "returns": "Returns"
+        "returns": "Rendimenti"
       },
       "energyFlow": {
-        "title": "Energy Flow",
-        "production": "Solar production",
-        "ownConsumption": "From solar",
-        "consumption": "Home demand",
-        "independence": "Independence",
-        "gridSupply": "From grid",
+        "title": "Flusso energetico",
+        "production": "Produzione solare",
+        "ownConsumption": "Dal solare",
+        "consumption": "Fabbisogno domestico",
+        "independence": "Indipendenza",
+        "gridSupply": "Dalla rete",
         "feedIn": "Eccedenza in rete"
       },
       "monthlyAnalysis": {
-        "title": "Monthly Analysis",
-        "production": "Production",
-        "consumption": "Consumption",
-        "selfConsumed": "Self-consumed"
+        "title": "Analisi mensile",
+        "production": "Produzione",
+        "consumption": "Consumo",
+        "selfConsumed": "Autoconsumato"
       },
       "roi": {
         "title": "Ritorno sull'investimento",
         "payback": "Rientro dopo {years} anni",
-        "totalProfit": "Total profit: CHF {amount}",
-        "years": "Years",
-        "year": "Year",
-        "cashflow": "Cumulative cashflow"
+        "totalProfit": "Profitto totale: CHF {amount}",
+        "years": "Anni",
+        "year": "Anno",
+        "cashflow": "Flusso di cassa cumulativo"
       },
       "abo": {
-        "title": "SolarFree — Zero Investment",
+        "title": "SolarFree — Zero investimento",
         "description": "Con SolarFree, Free State AG installa e gestisce l'impianto solare sul tuo tetto — senza alcun costo per te.",
         "savings": "Benefici di energia solare pulita e risparmi CHF {amount} all'anno sulla bolletta elettrica."
       },
       "package": {
-        "title": "Recommended Package",
+        "title": "Pacchetto consigliato",
         "home": "SolarFree Home",
         "homeDesc": "Per case unifamiliari",
         "multi": "SolarFree Multi",
         "multiDesc": "Per edifici plurifamiliari",
-        "recommended": "Recommended"
+        "recommended": "Consigliato"
       },
       "cta": "Ottieni la tua offerta gratuita",
       "actions": {
-        "reportTitle": "Download solar report",
+        "reportTitle": "Scarica report solare",
         "reportDescription": "Scarica un rapporto PDF dettagliato con analisi dell'impianto, grafici e proiezioni finanziarie.",
-        "reportButton": "Download PDF",
-        "downloadTitle": "Email results",
+        "reportButton": "Scarica PDF",
+        "downloadTitle": "Invia risultati via email",
         "downloadDescription": "Ricevi la tua analisi solare via email — senza impegno.",
         "downloadButton": "Invia alla mia email",
-        "offerTitle": "Request offer",
+        "offerTitle": "Richiedi offerta",
         "offerDescription": "Esamineremo la tua proprietà e prepareremo un'offerta personalizzata con sopralluogo.",
-        "offerButton": "Request offer",
-        "contractTitle": "Sign contract",
+        "offerButton": "Richiedi offerta",
+        "contractTitle": "Firma il contratto",
         "contractDescription": "Procedi direttamente a verificare e firmare digitalmente il Dachmietvertrag.",
         "contractButton": "Continua al contratto",
-        "emailSent": "Sent",
-        "offerSent": "Requested"
+        "emailSent": "Inviato",
+        "offerSent": "Richiesto"
       },
       "packages": {
         "title": "Scegli il tuo pacchetto",
         "subtitle": "Seleziona il pacchetto più adatto alle tue esigenze. Il prezzo si basa sulla dimensione del tuo impianto.",
         "pricePerKwp": "CHF {price}/kWp",
-        "totalEstimate": "Estimated total: CHF {total}",
-        "equipment": "Included Equipment",
+        "totalEstimate": "Totale stimato: CHF {total}",
+        "equipment": "Attrezzatura inclusa",
         "optional": "Optional",
-        "selected": "Selected",
-        "select": "Select",
+        "selected": "Selezionato",
+        "select": "Seleziona",
         "noPackages": "Nessun pacchetto disponibile per la dimensione del tuo impianto.",
-        "grossAmount": "Gross amount",
-        "subsidyAmount": "Subsidy (Einmalvergütung)",
-        "netAmount": "Net amount",
-        "pricingBreakdown": "Pricing Breakdown"
+        "grossAmount": "Importo lordo",
+        "subsidyAmount": "Sussidio (Einmalvergütung)",
+        "netAmount": "Importo netto",
+        "pricingBreakdown": "Ripartizione dei prezzi"
       },
       "solarFree": {
         "yourSystem": {
           "label": "Il tuo impianto",
           "size": "{kwp} kWp",
-          "panels": "{count} panels",
-          "production": "~{kwh} kWh per year"
+          "panels": "{count} pannelli",
+          "production": "~{kwh} kWh all'anno"
         },
         "yourYearlySaving": {
           "label": "Il tuo risparmio annuale",
@@ -3710,8 +3710,8 @@
         },
         "yourImpact": {
           "label": "Il tuo impatto",
-          "co2": "~{kg} kg CO₂ per year avoided",
-          "selfSufficient": "~{pct}% self-sufficient"
+          "co2": "~{kg} kg CO₂ all'anno risparmiati",
+          "selfSufficient": "~{pct}% autosufficiente"
         },
         "whatsIncluded": {
           "label": "Cosa è incluso",
@@ -3728,192 +3728,192 @@
     "solarDirect": {
       "title": "Configura il tuo impianto solare",
       "subtitle": "Seleziona l'attrezzatura per la tua installazione solare. Il prezzo si aggiorna mentre configuri.",
-      "equipment": "Equipment Selection",
-      "panels": "Solar Panels",
+      "equipment": "Selezione attrezzatura",
+      "panels": "Pannelli solari",
       "inverter": "Inverter",
-      "battery": "Battery Storage",
-      "mountingSystem": "Mounting System",
-      "ems": "Energy Management",
-      "heatPump": "Heat Pump"
+      "battery": "Accumulo a batteria",
+      "mountingSystem": "Sistema di montaggio",
+      "ems": "Gestione energetica",
+      "heatPump": "Pompa di calore"
     },
     "step7": {
       "title": "I tuoi dati di contatto per l'offerta dettagliata",
       "helper": "Saremo felici di inviarti l'offerta personalmente. Abbiamo ancora bisogno dei tuoi dati di contatto per farlo.",
       "salutation": {
-        "label": "Salutation",
+        "label": "Appellativo",
         "options": {
-          "mr": "Mr",
-          "woman": "Ms",
-          "family": "Family"
+          "mr": "Sig.",
+          "woman": "Sig.ra",
+          "family": "Famiglia"
         }
       },
-      "firstName": "First name",
+      "firstName": "Nome",
       "firstNamePlaceholder": "Inserisci il tuo nome",
-      "lastName": "Last name",
+      "lastName": "Cognome",
       "lastNamePlaceholder": "Inserisci il tuo cognome",
       "email": "Email",
       "emailPlaceholder": "Inserisci il tuo indirizzo email",
-      "phoneNumber": "Phone number",
+      "phoneNumber": "Numero di telefono",
       "phoneNumberPlaceholder": "Inserisci il tuo numero di telefono",
-      "remarks": "Remarks",
+      "remarks": "Osservazioni",
       "remarksPlaceholder": "Eventuali informazioni aggiuntive o domande...",
       "errors": {
-        "salutationRequired": "Please select a salutation",
+        "salutationRequired": "Si prega di selezionare un appellativo",
         "firstNameRequired": "Il nome è obbligatorio",
         "lastNameRequired": "Il cognome è obbligatorio",
         "emailRequired": "L'indirizzo email è obbligatorio",
-        "emailInvalid": "Please enter a valid email address",
+        "emailInvalid": "Si prega di inserire un indirizzo email valido",
         "phoneRequired": "Il numero di telefono è obbligatorio",
-        "phoneInvalid": "Please enter a valid phone number",
+        "phoneInvalid": "Si prega di inserire un numero di telefono valido",
         "consentRequired": "Devi accettare i termini di trattamento dei dati"
       },
-      "submit": "Request offer",
+      "submit": "Richiedi offerta",
       "successMessage": "Grazie! Ti contatteremo a breve con la tua offerta personalizzata.",
       "offerPreview": {
-        "title": "YOUR OFFER",
-        "subtitle": "Personalized solar system recommendation"
+        "title": "LA TUA OFFERTA",
+        "subtitle": "Raccomandazione personalizzata per impianto solare"
       },
       "confirmation": {
-        "title": "Thank You!",
+        "title": "Grazie!",
         "message": "La tua richiesta è stata inviata con successo. Il nostro team esaminerà il tuo potenziale solare e preparerà un'offerta personalizzata.",
         "nextSteps": "Riceverai a breve una conferma via email. Un consulente solare ti contatterà entro 2 giorni lavorativi.",
-        "signContract": "Sign Contract Online",
-        "newCalculation": "Start new calculation"
+        "signContract": "Firma il contratto online",
+        "newCalculation": "Avvia nuovo calcolo"
       }
     },
     "contractReview": {
-      "title": "Contract Review",
+      "title": "Revisione del contratto",
       "subtitle": "Rivedi i dettagli del tuo contratto SolarFree prima di firmarlo.",
       "systemSummary": {
-        "title": "System Summary",
-        "panels": "Panels",
-        "savings": "Savings/Year",
-        "roofArea": "Roof Area",
-        "address": "Address",
-        "package": "Package",
-        "selfConsumption": "Self-Consumption"
+        "title": "Riepilogo dell'impianto",
+        "panels": "Pannelli",
+        "savings": "Risparmi/anno",
+        "roofArea": "Area del tetto",
+        "address": "Indirizzo",
+        "package": "Pacchetto",
+        "selfConsumption": "Autoconsumo"
       },
       "aboBenefit": {
-        "title": "SolarFree — Zero Investment",
+        "title": "SolarFree — Zero investimento",
         "point1": "Free State AG installa e gestisce l'impianto solare sul tuo tetto senza alcun costo per te.",
         "point2": "Benefici di energia solare pulita e risparmi sulla bolletta elettrica.",
         "point3": "Dopo 35 anni, l'impianto diventa di tua proprietà."
       },
       "importantNotice": {
-        "title": "Important Notice",
+        "title": "Avviso importante",
         "point1": "Si tratta di un accordo preliminare basato sulle informazioni fornite.",
         "point2": "Il nostro team tecnico visiterà la tua proprietà per una valutazione finale.",
         "point3": "Puoi annullare questo accordo senza alcun costo prima di accettare l'offerta finale."
       },
       "acknowledgments": {
-        "title": "Acknowledgments",
+        "title": "Conferme",
         "preliminary": "Comprendo che si tratta di un accordo preliminare che sarà finalizzato dopo il sopralluogo.",
         "siteVisit": "Acconsento a un sopralluogo del team tecnico di Free State AG.",
         "contractReview": "Ho esaminato i dettagli del contratto e desidero procedere con la firma digitale."
       },
       "pricing": {
-        "title": "Pricing Breakdown",
-        "gross": "Gross amount",
-        "subsidy": "Subsidy (Einmalvergütung)",
-        "net": "Net amount"
+        "title": "Ripartizione dei prezzi",
+        "gross": "Importo lordo",
+        "subsidy": "Sussidio (Einmalvergütung)",
+        "net": "Importo netto"
       },
-      "creatingContract": "Creating contract...",
+      "creatingContract": "Creazione del contratto...",
       "proceedToSign": "Procedi alla firma",
       "solarFree": {
         "rateCard": {
           "title": "La tua tariffa SolarFree",
           "bodyLine1": "30% in meno della rete per ogni kWh solare che utilizzi.",
           "bodyLine2": "Nessun canone per l'impianto stesso.",
-          "yearlySavingLabel": "Estimated yearly saving",
+          "yearlySavingLabel": "Risparmio annuo stimato",
           "yearlySavingValue": "CHF {amount}"
         }
       }
     },
     "signature": {
-      "title": "Digital Signature",
+      "title": "Firma digitale",
       "subtitle": "Firma il tuo contratto SolarFree in modo sicuro tramite Swisscom Sign",
       "summary": {
-        "title": "Contract Summary",
-        "document": "Document",
-        "aboAgreement": "SolarFree Agreement",
-        "contractNumber": "Contract Number",
-        "signer": "Signer",
+        "title": "Riepilogo contratto",
+        "document": "Documento",
+        "aboAgreement": "Contratto SolarFree",
+        "contractNumber": "Numero contratto",
+        "signer": "Firmatario",
         "email": "Email"
       },
       "initiating": {
-        "title": "Preparing signing process...",
+        "title": "Preparazione del processo di firma...",
         "message": "Attendi mentre configuriamo il processo di firma."
       },
       "signing": {
         "title": "Pronto per la firma",
         "description": "Clicca il pulsante qui sotto per aprire la pagina sicura di Swisscom Sign, dove verificherai la tua identità e firmerai il contratto.",
-        "openButton": "Open Signing Page",
+        "openButton": "Apri pagina di firma",
         "waiting": "In attesa della tua firma...",
         "clickAbove": "Clicca il pulsante qui sopra per aprire la pagina di firma."
       },
       "signed": {
-        "title": "Contract Signed!",
+        "title": "Contratto firmato!",
         "message": "Il tuo contratto è stato firmato con successo."
       },
       "expired": {
-        "title": "Signing Expired",
+        "title": "Firma scaduta",
         "message": "La sessione di firma è scaduta. Riprova.",
-        "retry": "Start New Signing",
-        "retrying": "Starting..."
+        "retry": "Avvia nuova firma",
+        "retrying": "Avvio in corso..."
       },
       "failed": {
-        "title": "Signing Failed",
+        "title": "Firma fallita",
         "message": "Si è verificato un errore durante la configurazione del processo di firma.",
-        "retry": "Try Again",
-        "retrying": "Retrying..."
+        "retry": "Riprova",
+        "retrying": "Nuovo tentativo..."
       },
       "security": {
-        "title": "Secure Signature",
+        "title": "Firma sicura",
         "message": "La tua firma è protetta da Swisscom Trust Services ed è conforme alle leggi svizzere sulla firma digitale (FiEle/OSCSE)."
       },
-      "downloadContract": "Download Contract"
+      "downloadContract": "Scarica contratto"
     },
     "signingComplete": {
       "verifying": {
-        "title": "Verifying signature...",
+        "title": "Verifica della firma...",
         "message": "Attendi mentre confermiamo la tua firma."
       },
       "success": {
-        "title": "Contract successfully signed!",
+        "title": "Contratto firmato con successo!",
         "message": "Il tuo contratto è stato firmato in modo sicuro tramite Swisscom Sign. Puoi chiudere questa finestra.",
         "backButton": "Torna al calcolatore"
       },
       "cancel": {
-        "title": "Signing cancelled",
+        "title": "Firma annullata",
         "message": "Hai annullato il processo di firma. Puoi riprovare in qualsiasi momento.",
         "backButton": "Torna al calcolatore"
       },
       "error": {
-        "title": "Signing error",
+        "title": "Errore di firma",
         "message": "Si è verificato un errore durante il processo di firma. Riprova.",
         "backButton": "Torna al calcolatore"
       }
     },
     "signatureConfirmation": {
-      "title": "Thank You!",
+      "title": "Grazie!",
       "subtitle": "Il tuo contratto SolarFree è stato firmato con successo.",
       "contractSummary": {
-        "title": "Contract Summary",
-        "contractNumber": "Contract Number",
-        "signedBy": "Signed By",
-        "systemSize": "System Size",
-        "panels": "Panel Count",
-        "savings": "Annual Savings"
+        "title": "Riepilogo contratto",
+        "contractNumber": "Numero contratto",
+        "signedBy": "Firmato da",
+        "systemSize": "Dimensione impianto",
+        "panels": "Numero pannelli",
+        "savings": "Risparmio annuo"
       },
       "download": {
-        "title": "Signed Contract",
+        "title": "Contratto firmato",
         "description": "Scarica il tuo contratto firmato in PDF.",
-        "button": "Download PDF"
+        "button": "Scarica PDF"
       },
       "nextSteps": {
-        "title": "Next Steps",
+        "title": "Prossimi passi",
         "step1": {
-          "title": "Email Confirmation",
+          "title": "Conferma via email",
           "description": "Riceverai a breve una conferma via email con tutti i dettagli."
         },
         "step2": {
@@ -3921,34 +3921,34 @@
           "description": "Il nostro team ti contatterà entro 2-3 giorni lavorativi per fissare un sopralluogo."
         },
         "step3": {
-          "title": "System Installation",
+          "title": "Installazione del sistema",
           "description": "Dopo la valutazione finale, pianificheremo l'installazione del tuo impianto solare."
         },
         "step4": {
-          "title": "Start Saving",
+          "title": "Inizia a risparmiare",
           "description": "Una volta installato, inizi immediatamente a beneficiare di energia solare gratuita."
         }
       },
       "contact": {
-        "title": "Questions?",
+        "title": "Domande?",
         "description": "Il nostro team è qui per aiutarti."
       },
       "emailNote": {
-        "title": "Email Confirmation",
+        "title": "Conferma via email",
         "message": "Una conferma è stata inviata a {email}."
       },
       "actions": {
-        "newCalculation": "New Calculation",
+        "newCalculation": "Nuovo calcolo",
         "backToHome": "Torna alla home"
       }
     },
     "navigation": {
-      "back": "Back",
-      "next": "Next"
+      "back": "Indietro",
+      "next": "Avanti"
     },
     "consents": {
       "dataProcessingPrefix": "Acconsento che i miei dati forniti in questo modulo siano trattati come descritto nell'",
-      "dataProcessingLink": "privacy policy",
+      "dataProcessingLink": "informativa sulla privacy",
       "dataProcessingSuffix": "e utilizzati per la preparazione di un'offerta, per la predisposizione del contratto, per il supporto clienti e per finalità di marketing."
     }
   },
@@ -3958,7 +3958,7 @@
       "description": "Sfrutta al meglio lo spazio sul tetto del tuo carport!"
     },
     "overview": {
-      "eyebrow": "Amortization",
+      "eyebrow": "Ammortamento",
       "title": "Impianto solare per carport",
       "description": "Sfrutta al meglio lo spazio sul tetto del tuo carport! Con un impianto solare Helion su un carport Uninorm, non solo benefici di energia solare ecologica, ma proteggi anche la tua auto dalle intemperie.",
       "advantagesTitle": "I tuoi vantaggi in sintesi",
@@ -3981,25 +3981,25 @@
       }
     },
     "technicalDetails": {
-      "eyebrow": "Technical details:",
+      "eyebrow": "Dettagli tecnici:",
       "title": "Impianti solari per carport\nsingoli e doppi",
-      "from": "from",
-      "footnote": "*Average energy consumption approx. 18 kWh/100km",
+      "from": "da",
+      "footnote": "*Consumo energetico medio circa 18 kWh/100km",
       "singleCarport": {
-        "title": "Single carport",
-        "panels": "6 solar panels",
-        "output": "Total output: 2.7 kWp",
-        "annualProduction": "Annual solar power production: approx. 2,539 kWh",
+        "title": "Carport singolo",
+        "panels": "6 pannelli solari",
+        "output": "Potenza totale: 2,7 kWp",
+        "annualProduction": "Produzione annuale di energia solare: circa 2.539 kWh",
         "drivingRange": "Con questa quantità di energia, puoi percorrere con la tua auto elettrica circa 14'100 chilometri*.",
-        "price": "CHF 15,000"
+        "price": "CHF 15.000"
       },
       "doubleCarport": {
-        "title": "Double carport",
-        "panels": "12 solar panels",
-        "output": "Total output: 5.5 kWp",
-        "annualProduction": "Annual solar power production: approx. 5,078 kWh",
+        "title": "Carport doppio",
+        "panels": "12 pannelli solari",
+        "output": "Potenza totale: 5,5 kWp",
+        "annualProduction": "Produzione annuale di energia solare: circa 5.078 kWh",
         "drivingRange": "Sufficienti per un'autonomia di circa 28'200 chilometri* all'anno con la tua auto elettrica.",
-        "price": "CHF 18,000"
+        "price": "CHF 18.000"
       }
     },
     "whySolarCarport": {
@@ -4008,7 +4008,7 @@
       "description": "Un impianto di pannelli solari sul tuo carport ti permette di utilizzare energia sostenibile proteggendo al contempo il tuo veicolo. Riduce la dipendenza dall'aumento dei prezzi dell'elettricità e sostiene la protezione del clima. Con i carport su misura di Uninorm, ottieni la massima efficienza energetica senza rinunciare allo stile."
     },
     "evCharging": {
-      "eyebrow": "Charging",
+      "eyebrow": "Ricarica",
       "title": "Ricarica per veicoli elettrici direttamente al tuo carport solare.",
       "description": "Helion offre anche una stazione di ricarica adatta per la tua auto elettrica, che può essere integrata direttamente nel tuo impianto solare. In questo modo, puoi utilizzare efficientemente l'elettricità prodotta dal tuo carport per i tuoi spostamenti.",
       "advantagesTitle": "Vantaggi di una stazione di ricarica integrata",
@@ -4022,9 +4022,9 @@
       "title": "Dalla consulenza all'installazione",
       "subtitle": "Semplice, trasparente e senza preoccupazioni come un abbonamento mobile.",
       "steps": {
-        "step1": "Select\nCarport",
-        "step2": "Calculate\nPrice",
-        "step3": "Phone\ncall",
+        "step1": "Seleziona\ncarport",
+        "step2": "Calcola\nprezzo",
+        "step3": "Chiamata\ntelefonica",
         "step4": "Consulenza\nin loco",
         "step5": "Installation"
       }
@@ -4058,7 +4058,7 @@
       "title": "Ecco cosa dicono\ni nostri clienti",
       "quote": "La progettazione e l'esecuzione del progetto sono state fluide e professionali. Il team è stato cordiale, competente, trasparente durante tutto il processo e ha gestito eventuali problemi in modo efficiente.",
       "authorName": "Franz McLaren",
-      "verifiedOwner": "verified owner"
+      "verifiedOwner": "proprietario verificato"
     }
   },
   "solarCalculator": {
@@ -4072,7 +4072,7 @@
       "steps": {
         "step1": {
           "number": "01",
-          "title": "Free & no obligation"
+          "title": "Gratuito e senza impegno"
         },
         "step2": {
           "number": "02",
@@ -4093,10 +4093,10 @@
       "title": "Cosa riceverai",
       "description": "La nostra offerta indicativa non vincolante include le informazioni più importanti su:",
       "items": {
-        "costs": "Costs & returns",
-        "funding": "Funding opportunities",
-        "savings": "Savings potential",
-        "tariffs": "Best tariffs"
+        "costs": "Costi e rendimenti",
+        "funding": "Opportunità di finanziamento",
+        "savings": "Potenziale di risparmio",
+        "tariffs": "Migliori tariffe"
       },
       "cta": "Scopri il tuo potenziale solare",
       "ctaLink": "/solar-abo-calculator"
@@ -4105,19 +4105,19 @@
       "title": "Perché FreeState?",
       "cards": {
         "experience": {
-          "title": "Experience",
-          "subtitle": "15,000+ installed systems"
+          "title": "Esperienza",
+          "subtitle": "Oltre 15.000 impianti installati"
         },
         "localPresence": {
-          "title": "Local presence",
-          "subtitle": "Service teams across Switzerland"
+          "title": "Presenza locale",
+          "subtitle": "Squadre di assistenza in tutta la Svizzera"
         },
         "comprehensiveService": {
-          "title": "Comprehensive service",
-          "subtitle": "Consultation, financing, installation & maintenance"
+          "title": "Servizio completo",
+          "subtitle": "Consulenza, finanziamento, installazione e manutenzione"
         },
         "exclusiveTariffs": {
-          "title": "Exclusive tariffs",
+          "title": "Tariffe esclusive",
           "subtitle": "Ricavi dall'elettricità grazie alle tariffe esclusive Helion ONE"
         }
       }
@@ -4133,16 +4133,16 @@
         "subtitle": "0 CHF – pensiamo noi a tutto"
       },
       "control": {
-        "title": "Fully automated control",
-        "subtitle": "AI-optimized energy management"
+        "title": "Controllo completamente automatizzato",
+        "subtitle": "Gestione energetica ottimizzata dall'IA"
       },
       "yield": {
-        "title": "Maximum yield",
+        "title": "Rendimento massimo",
         "subtitle": "Migliori tariffe per l'energia in eccesso"
       },
       "monitoring": {
-        "title": "Live monitoring",
-        "subtitle": "Real-time energy data via app"
+        "title": "Monitoraggio in tempo reale",
+        "subtitle": "Dati energetici in tempo reale tramite app"
       }
     },
     "faq": {
@@ -4171,7 +4171,7 @@
       }
     },
     "bottomCta": {
-      "eyebrow": "Solar Calculator",
+      "eyebrow": "Calcolatore solare",
       "title": "Inizia ora!\nUsa il calcolatore solare per ricevere un preventivo.",
       "cta": "Avvia il calcolatore solare",
       "ctaLink": "/solar-abo-calculator"
@@ -4179,10 +4179,10 @@
   },
   "energyStorage": {
     "hero": {
-      "title": "Energy storage"
+      "title": "Accumulo di energia"
     },
     "whatIs": {
-      "eyebrow": "Storage",
+      "eyebrow": "Accumulo",
       "title": "Cos'è un accumulo di energia?",
       "description": "Un sistema di accumulo a batteria è il complemento ideale di un impianto solare, perché le famiglie non hanno bisogno di tutta l'energia solare che producono. Il sistema di accumulo immagazzina l'energia in eccesso prodotta dall'impianto fotovoltaico durante il giorno. Grazie all'accumulo a batteria, l'energia solare è disponibile anche di sera, di notte e al mattino."
     },
@@ -4196,14 +4196,14 @@
       }
     },
     "comparison": {
-      "title": "FreeState storage system comparison",
+      "title": "Confronto sistemi di accumulo FreeState",
       "columns": {
         "huawei": "Huawei",
         "sun": "Sun",
         "e3dc": "E3DC"
       },
       "manufacturer": {
-        "label": "Manufacturer"
+        "label": "Produttore"
       },
       "inverter": {
         "label": "Inverter",
@@ -4212,7 +4212,7 @@
         "e3dc": "All in One"
       },
       "storageCapacity": {
-        "label": "Storage Capacity"
+        "label": "Capacità di accumulo"
       },
       "capacity": {
         "huawei": "5–90 kWh",
@@ -4220,37 +4220,37 @@
         "e3dc": "4 – 84 kWh"
       },
       "emergencyPower": {
-        "label": "Emergency power",
-        "huawei": "2 lighting groups\n(e.g., refrigerator\n& living room lighting)",
-        "sun": "Entire house without\na heat pump",
+        "label": "Alimentazione di emergenza",
+        "huawei": "2 gruppi luce\n(es. frigorifero\ne illuminazione del soggiorno)",
+        "sun": "Intera casa senza\npompa di calore",
         "e3dc": "Intera casa\ncon pompa di calore"
       },
       "islandOperation": {
-        "label": "Island operation",
-        "huawei": "Yes, limited",
-        "sun": "Under review",
-        "e3dc": "Yes"
+        "label": "Funzionamento ad isola",
+        "huawei": "Sì, limitato",
+        "sun": "In valutazione",
+        "e3dc": "Sì"
       },
       "costs": {
-        "label": "Costs/Indicative Prices:",
+        "label": "Costi/prezzi indicativi:",
         "huawei": "14 kWh:\nDa CHF 12'000.–\n21 kWh:\nDa CHF 17'000.–",
         "sun": "11 kWh:\nDa CHF 13'000.–\n22 kWh:\nDa CHF 17'000.–",
         "e3dc": "14 kWh:\nDa CHF 21'000.–\n18 kWh:\nDa CHF 24'000.–\n21 kWh:\nDa CHF 25'000.–"
       },
       "footnotes": {
-        "note1": "installed, excl. VAT",
+        "note1": "installato, IVA esclusa",
         "note2": "Prezzi esclusi inverter, alimentazione di emergenza o funzionamento off-grid (eccetto E3DC)"
       },
       "smartEnergy": {
-        "label": "SmartEnergy, Helion ONE\nInstalled, excluding VAT.",
+        "label": "SmartEnergy, Helion ONE\nInstallato, IVA esclusa.",
         "note1": "Da CHF 1'500 (solo data logger, senza misurazione dei consumi)",
         "note2": "Da CHF 3'900.–, con controllo boiler 50% e 100%"
       },
-      "cta": "Get a quote now",
+      "cta": "Richiedi un preventivo ora",
       "ctaLink": "/contact"
     },
     "howItWorks": {
-      "eyebrow": "Storage",
+      "eyebrow": "Accumulo",
       "title": "Come funziona un\nsistema di accumulo?",
       "description": "L'energia solare può essere utilizzata direttamente, immagazzinata in una batteria o immessa in rete. L'energia in eccesso carica la batteria, alimentando la casa dalla sera al mattino; l'energia di rete viene utilizzata solo quando la batteria è vuota.\n\nLe prestazioni ottimali dipendono dal giusto dimensionamento dell'impianto e della batteria, idealmente combinati con un controllo energetico intelligente."
     },
@@ -4258,7 +4258,7 @@
       "eyebrow": "Impianto fotovoltaico e accumulo di elettricità",
       "title": "La combinazione perfetta",
       "description": "Configura il tuo impianto solare in pochi minuti con il nostro calcolatore solare e ricevi immediatamente un'offerta concreta:",
-      "ctaText": "Get a free, no-obligation quote now!",
+      "ctaText": "Richiedi un preventivo gratuito e senza impegno ora!",
       "ctaLink": "/solar-calculator"
     },
     "whenMakesSense": {
@@ -4267,36 +4267,36 @@
       "infoCard": "Con una soluzione di accumulo adeguata, l'autoconsumo può essere aumentato dal 30-35% a circa il 70%"
     },
     "installation": {
-      "eyebrow": "Storage",
-      "title": "Battery Storage Installation",
+      "eyebrow": "Accumulo",
+      "title": "Installazione accumulo a batteria",
       "description": "In base alla tua situazione e alle tue esigenze specifiche, i nostri esperti ti raccomanderanno il sistema AC o DC. L'installazione viene eseguita dai nostri specialisti esperti, tutti certificati dal produttore. Helion registra automaticamente ogni batteria installata presso Inobat, garantendo il corretto smaltimento del tuo vecchio sistema di accumulo di energia"
     },
     "solutions": {
-      "eyebrow": "PV System",
+      "eyebrow": "Impianto fotovoltaico",
       "title": "Le nostre soluzioni di accumulo",
       "description": "Collaboriamo con produttori leader per offrirti sistemi di accumulo di energia affidabili e ad alte prestazioni, adatti alle tue esigenze.",
-      "warrantyLabel": "Warranty",
-      "optionsLabel": "Options",
-      "cta": "Get a quote now",
+      "warrantyLabel": "Garanzia",
+      "optionsLabel": "Opzioni",
+      "cta": "Richiedi un preventivo ora",
       "ctaLink": "/contact",
       "products": {
         "sigenstor": {
-          "name": "SigenStor Battery Storage",
-          "featuresLabel": "Key Features",
+          "name": "Accumulo a batteria SigenStor",
+          "featuresLabel": "Caratteristiche principali",
           "features": "Alimentazione di emergenza per tutta la casa|Inverter integrato (fino a 15 kWp)|Capacità espandibile (18–21 kWh)|Gestione energetica intelligente|Controllo remoto e integrazione domotica|Ricarica EV ottimizzata con energia solare",
-          "warranty": "10-year manufacturer warranty|Free service",
-          "options": "Wallbox charging station|Bidirectional charging interface|Modbus / KNX connectivity|Loxone integration"
+          "warranty": "Garanzia produttore 10 anni|Assistenza gratuita",
+          "options": "Stazione di ricarica wallbox|Interfaccia di ricarica bidirezionale|Connettività Modbus / KNX|Integrazione Loxone"
         },
         "sonnen": {
           "name": "sonnenBatterie",
-          "featuresLabel": "Key Features",
+          "featuresLabel": "Caratteristiche principali",
           "features": "Tecnologia a litio ferro fosfato|Software intelligente per un autoconsumo maggiore|Monitoraggio e analisi tramite app|Capacità: 11–55 kWh|Espandibile in qualsiasi momento",
-          "warranty": "10-year system warranty (80% capacity)",
-          "options": "Emergency power (Sonnen Protect 8000)"
+          "warranty": "Garanzia di sistema 10 anni (80% capacità)",
+          "options": "Alimentazione di emergenza (Sonnen Protect 8000)"
         },
         "byd": {
           "name": "BYD",
-          "featuresLabel": "Key Features",
+          "featuresLabel": "Caratteristiche principali",
           "features": "Design salvaspazio|Modulare ed espandibile|Compatibile con Kostal e SolarEdge|20 anni di esperienza sulle batterie",
           "warranty": "10 anni sulla batteria BYD|5–12 anni sugli inverter (a seconda del marchio)"
         },
@@ -4304,7 +4304,7 @@
           "name": "HUAWEI LUNA",
           "featuresLabel": "Highlights",
           "features": "Modulare ed espandibile|Compatibile con gli inverter Huawei (monofase e trifase)|Integrazione smart con app|100% di profondità di scarica",
-          "warranty": "10-year warranty (80% usable energy)"
+          "warranty": "Garanzia 10 anni (80% energia utilizzabile)"
         }
       }
     }
@@ -4326,7 +4326,7 @@
     "selfCheck": {
       "title": "L'auto-verifica dell'impianto solare",
       "description": "Puoi eseguire un primo controllo da solo. Per un esame approfondito, ti consigliamo di consultare uno dei nostri specialisti.",
-      "yieldMonitoring": "Yield Monitoring:",
+      "yieldMonitoring": "Monitoraggio rendimento:",
       "items": {
         "yield": "Controlla la resa del tuo impianto solare tramite l'app o l'interfaccia web e confrontala con i dati dell'anno scorso. Se noti cambiamenti insoliti, contattaci affinché possiamo indagare.",
         "panels": "Se è sicuro farlo, ispeziona i pannelli per individuare danni meteorologici o forte sporcizia. Una manutenzione regolare aiuta a individuare tempestivamente i problemi e a prevenire guasti più gravi."
@@ -4335,7 +4335,7 @@
     "pricing": {
       "title": "Controllo una tantum dell'investimento a partire da CHF 510.-",
       "expanded": {
-        "label": "Without a maintenance contract",
+        "label": "Senza contratto di manutenzione",
         "description": "Per il controllo dell'impianto non è richiesto alcun contratto di manutenzione. Questa offerta si applica agli impianti fotovoltaici fino a 19,99 kWp."
       },
       "items": {
@@ -4344,11 +4344,11 @@
           "answer": "Controlliamo visivamente tutti i moduli per danni, sporcizia e hotspot, esaminiamo il sistema di montaggio per corrosione e fissaggio sicuro, e ispezioniamo cablaggi, connettori e penetrazioni del tetto per segni di usura."
         },
         "measurements": {
-          "question": "Measurements",
+          "question": "Misurazioni",
           "answer": "Test elettrici delle prestazioni tra cui tensione di stringa, corrente, resistenza di isolamento e potenza dell'inverter. I risultati sono documentati in un rapporto scritto e confrontati con i valori attesi."
         },
         "repairs": {
-          "question": "Repairs",
+          "question": "Riparazioni",
           "answer": "Sono incluse piccole correzioni come il serraggio dei connettori o la rimozione di detriti. I pezzi di ricambio e lavori di riparazione più importanti vengono preventivati separatamente e programmati dopo la tua approvazione."
         }
       }
@@ -4359,7 +4359,7 @@
       "description": "FreeState offre contratti di manutenzione con diversi livelli di copertura: monitoraggio, ispezione e ispezione con controllo completo dell'impianto. I servizi inclusi variano a seconda del pacchetto.\n\nEseguiamo assistenza sia su impianti FreeState che di terzi. I sistemi di accumulo a batteria sono completamente supportati."
     },
     "monitoring": {
-      "title": "Maintenance contract monitoring",
+      "title": "Monitoraggio contratto di manutenzione",
       "items": {
         "notification": "Notifica immediata: ricevi avvisi di errore tempestivi con chiare raccomandazioni sui prossimi passi.",
         "visualization": "Visualizzazione: le prestazioni, l'autoconsumo e lo stato del tuo impianto sono monitorati e visualizzati 24/7.",
@@ -4372,14 +4372,14 @@
       "ctaLink": "/contact"
     },
     "inquiry": {
-      "eyebrow": "Inquiry",
-      "title": "Maintenance\nPrice Inquiry",
+      "eyebrow": "Richiesta",
+      "title": "Richiesta prezzo\nmanutenzione",
       "firstName": {
-        "label": "First name",
+        "label": "Nome",
         "placeholder": "Inserisci il tuo nome"
       },
       "lastName": {
-        "label": "Last name",
+        "label": "Cognome",
         "placeholder": "Inserisci il tuo cognome"
       },
       "email": {
@@ -4387,27 +4387,27 @@
         "placeholder": "Inserisci la tua email"
       },
       "phone": {
-        "label": "Telephone number",
+        "label": "Numero di telefono",
         "placeholder": "Inserisci il tuo numero di telefono"
       },
       "street": {
-        "label": "Street, house number",
+        "label": "Via, numero civico",
         "placeholder": "Inserisci via e numero civico"
       },
       "postalCode": {
-        "label": "Postal code",
+        "label": "Codice postale",
         "placeholder": "Inserisci il tuo codice postale"
       },
       "location": {
-        "label": "Location",
+        "label": "Località",
         "placeholder": "Inserisci la tua località"
       },
       "maintenanceServices": {
         "label": "A quali servizi di manutenzione sei interessato? *",
-        "monitoring": "Maintenance contract monitoring",
-        "inspection": "Maintenance contract, upkeep, inspection",
-        "systemCheck": "Maintenance contract, servicing, system check",
-        "investmentCheck": "One-time investment check"
+        "monitoring": "Monitoraggio contratto di manutenzione",
+        "inspection": "Contratto di manutenzione, cura, ispezione",
+        "systemCheck": "Contratto di manutenzione, assistenza, controllo dell'impianto",
+        "investmentCheck": "Controllo dell'investimento una tantum"
       },
       "freeStateSystem": {
         "label": "Hai un impianto fotovoltaico di FreeState?",
@@ -4420,41 +4420,41 @@
       },
       "internetAccess": {
         "label": "Hai accesso a internet a casa? *",
-        "placeholder": "Please select"
+        "placeholder": "Si prega di selezionare"
       },
       "internetOptions": {
-        "yes": "Yes",
+        "yes": "Sì",
         "no": "No"
       },
       "products": {
         "label": "Quali prodotti stai utilizzando? *",
         "solarAboPrivate": "SolarFree Private",
         "solarAboBusiness": "SolarFree Business",
-        "huaweiInverters": "Huawei inverters",
-        "sonnenBattery": "Sonnen battery storage",
-        "e3dcBattery": "E3DC Battery Storage",
-        "vartaBattery": "VARTA battery storage",
-        "sungrowBattery": "Sungrow battery storage",
-        "huaweiBattery": "Huawei battery storage",
-        "bydBattery": "BYD battery storage",
-        "teslaBattery": "Tesla battery storage"
+        "huaweiInverters": "Inverter Huawei",
+        "sonnenBattery": "Accumulo a batteria Sonnen",
+        "e3dcBattery": "Accumulo a batteria E3DC",
+        "vartaBattery": "Accumulo a batteria VARTA",
+        "sungrowBattery": "Accumulo a batteria Sungrow",
+        "huaweiBattery": "Accumulo a batteria Huawei",
+        "bydBattery": "Accumulo a batteria BYD",
+        "teslaBattery": "Accumulo a batteria Tesla"
       },
       "message": {
         "label": "C'è qualcos'altro che vorresti dirci?",
-        "placeholder": "Message"
+        "placeholder": "Messaggio"
       },
       "privacy": "Confermo di aver letto e compreso l'informativa sulla privacy.",
-      "submit": "Submit",
+      "submit": "Invia",
       "success": "La tua richiesta è stata inviata con successo. Ti risponderemo al più presto.",
-      "error": "Something went wrong. Please try again."
+      "error": "Qualcosa è andato storto. Si prega di riprovare."
     },
     "hotline": {
-      "eyebrow": "Calculator",
+      "eyebrow": "Calcolatore",
       "title": "Hotline di servizio -\nSiamo qui per te!",
       "description": "Hai domande sulla manutenzione o sul monitoraggio?\nIl tuo impianto non funziona correttamente? Chiamaci, siamo qui per te!",
       "phone": "+41 52 525 33 05",
       "email": "info@freestate.ch",
-      "cta": "Contact us",
+      "cta": "Contattaci",
       "ctaLink": "/contact"
     }
   },
@@ -4462,10 +4462,10 @@
     "hero": {
       "title": "Repowering",
       "description": "Aggiorna il tuo impianto solare con il repowering per una maggiore efficienza, più potenza e prestazioni a lungo termine.",
-      "cta": "Free repowering offer"
+      "cta": "Offerta di repowering gratuita"
     },
     "repoweringCta": {
-      "title": "Solar repowering. Same area. Higher yield.",
+      "title": "Repowering solare. Stessa area. Rendimento più elevato.",
       "bullets": {
         "1": "Sostituisci i componenti obsoleti per aumentare la potenza senza utilizzare più spazio.",
         "2": "Migliora l'affidabilità aggiornando parti difettose o vecchie.",
@@ -4476,13 +4476,13 @@
     "customerBenefits": {
       "title": "I vantaggi per il cliente",
       "description": "Con FreeState ottieni una gestione energetica intelligente per la massima efficienza.",
-      "existingFacility": "Existing facility\nwithout control",
+      "existingFacility": "Impianto esistente\nsenza controllo",
       "newFacility": "Nuovo impianto\ncon SolarFree",
       "rows": {
         "moduleAlignment": {
-          "label": "Module alignment",
-          "existing": "Northeast-Southwest",
-          "new": "Northeast-Southwest"
+          "label": "Allineamento moduli",
+          "existing": "Nordest-Sudovest",
+          "new": "Nordest-Sudovest"
         },
         "yearOfConstruction": {
           "label": "Anno di costruzione",
@@ -4490,7 +4490,7 @@
           "new": "2025"
         },
         "installedPower": {
-          "label": "Installed power",
+          "label": "Potenza installata",
           "existing": "18.56 kWp",
           "new": "29.14 kWp (↑ 57%)"
         },
@@ -4500,12 +4500,12 @@
           "new": "62"
         },
         "annualYield": {
-          "label": "Annual yield",
-          "existing": "19,043 kWh",
-          "new": "29,898 kWh (↑ 57%)"
+          "label": "Rendimento annuo",
+          "existing": "19.043 kWh",
+          "new": "29.898 kWh (↑ 57%)"
         },
         "totalArea": {
-          "label": "Total area",
+          "label": "Area totale",
           "existing": "105 m²",
           "new": "124 m²"
         }
@@ -4515,35 +4515,35 @@
       "title": "I nostri servizi di repowering",
       "cards": {
         "photovoltaics": {
-          "title": "Photovoltaics",
+          "title": "Fotovoltaico",
           "description": "Rendi la tua proprietà alimentata a energia solare.",
-          "link": "Solar Systems"
+          "link": "Impianti solari"
         },
         "heatPump": {
-          "title": "Heat Pump",
+          "title": "Pompa di calore",
           "description": "Benefici di bassi costi di riscaldamento.",
-          "link": "Heat Pump"
+          "link": "Pompa di calore"
         },
         "chargingSolution": {
-          "title": "Charging Solution",
+          "title": "Soluzione di ricarica",
           "description": "Inizia con la mobilità elettrica.",
-          "link": "Charging Solutions"
+          "link": "Soluzioni di ricarica"
         }
       }
     },
     "quoteForm": {
       "title": "Richiedi qui la tua offerta di repowering gratuita.",
-      "firstName": "First name",
+      "firstName": "Nome",
       "firstNamePlaceholder": "Inserisci il tuo nome",
-      "lastName": "Last name",
+      "lastName": "Cognome",
       "lastNamePlaceholder": "Inserisci il tuo cognome",
       "interestedIn": "Sono interessato al repowering",
-      "optionPhotovoltaics": "Photovoltaics / Energy storage",
-      "optionHeatPump": "Heat Pump",
-      "optionChargingStation": "Charging Station",
+      "optionPhotovoltaics": "Fotovoltaico / Accumulo energetico",
+      "optionHeatPump": "Pompa di calore",
+      "optionChargingStation": "Stazione di ricarica",
       "callbackLabel": "Richiamatemi la prossima settimana per una consulenza iniziale gratuita.",
-      "callbackYes": "Yes gladly",
-      "submit": "Get a quote now"
+      "callbackYes": "Sì, volentieri",
+      "submit": "Richiedi un preventivo ora"
     },
     "faq": {
       "title": "FAQ Repowering",
@@ -4577,7 +4577,7 @@
           "answer": "Iniziamo con una valutazione in loco, progettiamo l'aggiornamento ottimale, gestiamo tutti i permessi e l'installazione e ci assicuriamo che tutto sia messo in servizio e monitorato."
         },
         "costsPayback": {
-          "question": "Repowering costs & payback?",
+          "question": "Costi di repowering e ritorno?",
           "answer": "I costi dipendono dalla dimensione dell'impianto e dai componenti sostituiti. Grazie a rese più elevate e agli incentivi attuali, i tempi di ammortamento sono in genere di 8-12 anni."
         },
         "legalRegulations": {
@@ -4632,7 +4632,7 @@
       "title": "Costi delle pompe\ndi calore in Svizzera"
     },
     "intro": {
-      "eyebrow": "Heat Pump",
+      "eyebrow": "Pompa di calore",
       "title": "Costi per una pompa di calore",
       "description": "I costi di una pompa di calore dipendono se stai sostituendo un vecchio impianto o ne stai installando uno nuovo, nonché dalla posizione dell'installazione. I sistemi aria-acqua sono più economici e facili da installare, mentre i sistemi geotermici richiedono un investimento iniziale più elevato ma offrono maggiore efficienza e minori costi operativi a lungo termine."
     },
@@ -4646,66 +4646,66 @@
       "rows": {
         "airToWater": {
           "label": "Pompa di calore aria-acqua",
-          "purchase": "36,500 CHF",
+          "purchase": "36.500 CHF",
           "maintenance": "150 CHF",
-          "energy": "1,210 CHF"
+          "energy": "1.210 CHF"
         },
         "groundSource": {
-          "label": "Ground source heat pump",
-          "purchase": "49,500 CHF",
+          "label": "Pompa di calore geotermica",
+          "purchase": "49.500 CHF",
           "maintenance": "100 CHF",
           "energy": "940 CHF"
         },
         "oilHeating": {
-          "label": "Oil heating",
-          "purchase": "23,000 CHF",
+          "label": "Riscaldamento a gasolio",
+          "purchase": "23.000 CHF",
           "maintenance": "780 CHF",
-          "energy": "2,640 CHF"
+          "energy": "2.640 CHF"
         }
       },
       "caption": "Tabella: valori per un'installazione media con 150 m² di superficie energetica di riferimento (ad es. casa unifamiliare) e 22'000 kWh di fabbisogno energetico (= 2'600 l di gasolio da riscaldamento)",
-      "cta": "Start cost comparison"
+      "cta": "Avvia confronto costi"
     },
     "funding": {
-      "eyebrow": "Heat Pump",
+      "eyebrow": "Pompa di calore",
       "title": "Incentivi per le pompe di calore",
       "description": "Per promuovere un riscaldamento più efficiente, i cantoni e i comuni svizzeri sostengono attivamente l'adozione di sistemi di riscaldamento a pompa di calore. Sono quindi disponibili numerosi incentivi per l'installazione di pompe di calore."
     },
     "support": {
-      "eyebrow": "Support",
+      "eyebrow": "Supporto",
       "title": "Che tipo di sostegno posso aspettarmi?",
       "description": "Basilea-Città sovvenziona le pompe di calore salamoia-acqua fino a CHF 25'850, mentre Berna offre fino a CHF 6'000.",
       "checkItem": "Verifica gli incentivi energetici locali su Energy Francs utilizzando il tuo codice postale.",
-      "cta": "Energy francs"
+      "cta": "Franchi energia"
     },
     "taxDeduction": {
-      "eyebrow": "Heat Pump",
-      "title": "Tax deduction",
+      "eyebrow": "Pompa di calore",
+      "title": "Detrazione fiscale",
       "description": "Il governo svizzero sostiene l'installazione di pompe di calore con incentivi e agevolazioni fiscali. A seconda del tipo di progetto, gli investimenti possono essere deducibili dalle tasse fino al 100%."
     },
     "quoteCTA": {
-      "eyebrow": "Support",
-      "title": "Get a free, no-obligation quote now!",
+      "eyebrow": "Supporto",
+      "title": "Richiedi un preventivo gratuito e senza impegno ora!",
       "description": "Configura la pompa di calore giusta in pochi minuti con il nostro calcolatore e ricevi immediatamente un'offerta concreta:",
-      "cta": "Start solar calculator"
+      "cta": "Avvia calcolatore solare"
     },
     "energySolutions": {
       "title": "Le nostre soluzioni energetiche",
       "cards": {
         "photovoltaics": {
-          "title": "Photovoltaics",
+          "title": "Fotovoltaico",
           "description": "Rendi la tua proprietà alimentata a energia solare.",
-          "link": "Solar Systems"
+          "link": "Impianti solari"
         },
         "heatPump": {
-          "title": "Heat pump",
+          "title": "Pompa di calore",
           "description": "Benefici di bassi costi di riscaldamento.",
-          "link": "Heat Pump"
+          "link": "Pompa di calore"
         },
         "chargingSolution": {
-          "title": "Charging solution",
+          "title": "Soluzione di ricarica",
           "description": "Inizia con la mobilità elettrica.",
-          "link": "Charging Solutions"
+          "link": "Soluzioni di ricarica"
         }
       }
     }
@@ -4717,10 +4717,10 @@
     "hotline": {
       "eyebrow": "Siamo qui per te",
       "title": "Hotline di servizio - Noi e i nostri partner siamo qui per te!",
-      "cta": "Contact"
+      "cta": "Contatto"
     },
     "emergency": {
-      "title": "Heat pump emergency?",
+      "title": "Emergenza pompa di calore?",
       "items": {
         "coldInHouse": "Casa fredda, niente acqua calda",
         "problemWithPump": "Problema con la pompa di calore",
@@ -4758,38 +4758,38 @@
       "subtitle": "Problema idraulico come:",
       "items": {
         "circulationPump": "La pompa di circolazione è difettosa.",
-        "dripping": "It's dripping, there's a runoff.",
-        "noWaterPressure": "No water pressure",
+        "dripping": "Sta gocciolando, c'è una perdita.",
+        "noWaterPressure": "Nessuna pressione dell'acqua",
         "waterOnGround": "Acqua sul pavimento",
         "noUnderfloor": "Nessun riscaldamento a pavimento o radiatori."
       },
       "footer": "Contatta il nostro partner di servizio regionale."
     },
     "servicePartner": {
-      "title": "Service partner",
-      "company": "TP Heiztechnik GmbH (fee applies)",
+      "title": "Partner di assistenza",
+      "company": "TP Heiztechnik GmbH (a pagamento)",
       "contact": {
         "phone": "+41 62 530 21 82",
         "email": "info@tp-heiztechnik.ch",
         "website": "www.tp-heiztechnik.ch"
       },
-      "cta": "Contact"
+      "cta": "Contatto"
     }
   },
   "heatPumpsProducts": {
     "hero": {
-      "title": "Product Portfolio\nHeat Pumps",
+      "title": "Portfolio prodotti\npompe di calore",
       "description": "Moduli solari per una produzione di energia efficiente e duratura"
     },
     "outdoorTable": {
       "title": "Pompa di calore aria-acqua per installazione esterna",
       "columns": {
-        "manufacturer": "Manufacturer",
-        "types": "Types",
-        "maxHeatingOutput": "Max heating output",
-        "maxFlowTemp": "Max flow temp",
-        "maxSCOP": "Max SCOP",
-        "refrigerant": "Refrigerant"
+        "manufacturer": "Produttore",
+        "types": "Tipi",
+        "maxHeatingOutput": "Potenza riscaldamento massima",
+        "maxFlowTemp": "Temperatura di mandata massima",
+        "maxSCOP": "SCOP massimo",
+        "refrigerant": "Refrigerante"
       }
     },
     "indoorHero": {
@@ -4798,17 +4798,17 @@
     "groundSourceTable": {
       "title": "Pompe di calore geotermiche (pompe di calore salamoia-acqua)",
       "columns": {
-        "manufacturer": "Manufacturer",
-        "types": "Types",
-        "maxHeatingOutput": "Max heating output",
-        "maxFlowTemp": "Max flow temp",
-        "maxSCOP": "Max SCOP",
-        "refrigerant": "Refrigerant"
+        "manufacturer": "Produttore",
+        "types": "Tipi",
+        "maxHeatingOutput": "Potenza riscaldamento massima",
+        "maxFlowTemp": "Temperatura di mandata massima",
+        "maxSCOP": "SCOP massimo",
+        "refrigerant": "Refrigerante"
       }
     },
     "nibe": {
       "eyebrow": "NIBE",
-      "title": "NIBE heat pumps",
+      "title": "Pompe di calore NIBE",
       "description": "Le pompe di calore Nibe si distinguono per l'elevata efficienza energetica e i bassi costi operativi, utilizzando fonti rinnovabili come aria, terreno e acqua. Offrono un'ampia gamma di prodotti con tecnologia inverter avanzata e controlli smart per un funzionamento preciso e intuitivo.\n\nProgettati per sostenibilità, silenziosità e lunga durata, i sistemi Nibe sono affidabili, a bassa manutenzione e adatti sia per nuove costruzioni sia per ristrutturazioni, con un servizio di assistenza completo."
     }
   },
@@ -4820,7 +4820,7 @@
       "title": "Come funziona una\npompa di calore?",
       "description": "Le pompe di calore sono sistemi di riscaldamento sostenibili altamente efficienti e rapidi da installare che estraggono energia da aria, terreno o acqua—più comunemente come modelli aria-acqua—offrendo un'alternativa affidabile ai combustibili fossili.",
       "steps": {
-        "1": "Ground source heat pump (ground probe)",
+        "1": "Pompa di calore geotermica (sonda geotermica)",
         "2": "Pompa di calore acqua-acqua",
         "3": "Pompa di calore aria-acqua"
       }
@@ -4830,13 +4830,13 @@
       "description": "A differenza del riscaldamento a gasolio, le pompe di calore emettono pochissima CO₂ e funzionano in modo altamente efficiente, generando da quattro a cinque unità di calore per una unità di elettricità."
     },
     "idealCombination": {
-      "eyebrow": "Unbeatable duo",
+      "eyebrow": "Duo imbattibile",
       "title": "Pompa di calore + fotovoltaico:\nla combinazione ideale",
       "description": "Sebbene le pompe di calore richiedano un investimento iniziale più elevato, offrono bassi costi operativi e diventano ancora più economiche con un impianto fotovoltaico. L'energia solare autoprodotta è significativamente più economica dell'elettricità di rete e un maggiore autoconsumo massimizza i risparmi, poiché le tariffe di immissione sono di solito basse."
     },
     "solarBenefits": {
       "selfConsumption": {
-        "title": "Boost solar\nself-consumption",
+        "title": "Aumenta l'autoconsumo\nsolare",
         "description": "Massimizza l'elettricità che usi tu stesso aggiungendo un sistema di accumulo a batteria, così l'energia solare in eccesso rimane disponibile quando il sole non splende."
       },
       "heatWithSolar": {
@@ -4851,7 +4851,7 @@
     "costsInstallation": {
       "title": "Costi e installazione",
       "description": "Concentrarsi solo sul prezzo di acquisto è miope, poiché il riscaldamento a gasolio spesso costa di più nel tempo a causa di maggiori spese operative. Le pompe di calore e gli impianti fotovoltaici durano circa 20 anni, con incentivi e agevolazioni fiscali disponibili a seconda della tua posizione.\n\nUn'installazione professionale garantisce prestazioni ottimali, sia integrando un impianto solare nuovo o esistente. Con oltre 7.000 progetti completati, offriamo esperienza e soluzioni su misura—contattaci per un preventivo personalizzato.",
-      "cta": "Request a heat pump quote now"
+      "cta": "Richiedi un preventivo per pompa di calore ora"
     }
   },
   "apartmentBuilding": {
@@ -4859,16 +4859,16 @@
       "title": "Stazioni di ricarica per\ncondomini"
     },
     "evChargingIntro": {
-      "eyebrow": "Apartment Owners",
+      "eyebrow": "Proprietari di appartamenti",
       "title": "Installa ricarica per EV\nnei condomini",
       "description": "Aiutiamo i proprietari di immobili a pianificare soluzioni di ricarica per EV scalabili.\n\nOttieni una stima non vincolante con il nostro calcolatore online."
     },
     "calculatorCta": {
-      "eyebrow": "Calculate",
+      "eyebrow": "Calcola",
       "title": "Calcola ora il prezzo della tua stazione di ricarica.",
       "description": "Calcola il prezzo della tua stazione di ricarica in base a pochi dettagli.",
       "cta": "Avvia il calcolatore solare",
-      "subtext": "free - uncomplicated - precise - non-binding"
+      "subtext": "gratuito - semplice - preciso - senza impegno"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
@@ -4878,7 +4878,7 @@
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions",
+      "title": "Domande frequenti",
       "items": {
         "preEquipped": {
           "question": "I parcheggi possono essere predisposti per future stazioni di ricarica?",
@@ -4915,11 +4915,11 @@
       "items": {
         "solarPanels": "Pannelli solari (sul tetto)",
         "inverter": "Inverter",
-        "fuseBox": "Fuse box / panel",
-        "hotWaterBoiler": "Hot water boiler",
-        "batteryStorage": "Battery storage",
-        "evCharging": "EV charging station",
-        "heatPump": "Heat pump"
+        "fuseBox": "Quadro fusibili / pannello",
+        "hotWaterBoiler": "Boiler acqua calda",
+        "batteryStorage": "Accumulo a batteria",
+        "evCharging": "Stazione di ricarica EV",
+        "heatPump": "Pompa di calore"
       }
     },
     "solarPanelWorks": {
@@ -4934,7 +4934,7 @@
     "storageSelfConsumption": {
       "title": "Accumulo per un maggiore\nautoconsumo",
       "description": "Per massimizzare i risparmi, aumenta l'autoconsumo della tua energia solare. Una batteria immagazzina l'energia diurna in eccesso, così puoi utilizzarla successivamente invece di acquistare elettricità dalla rete.",
-      "cta": "Cost"
+      "cta": "Costo"
     },
     "selfConsumptionControl": {
       "title": "Aumenta l'autoconsumo con il controllo",
@@ -4952,34 +4952,34 @@
     },
     "quoteCTA": {
       "eyebrow": "Costo di un impianto solare",
-      "title": "Get a free, no-obligation quote now!",
+      "title": "Richiedi un preventivo gratuito e senza impegno ora!",
       "description": "Configura il tuo impianto in pochi minuti con il nostro calcolatore solare e ricevi immediatamente un'offerta concreta:",
       "checklist": {
-        "investmentCosts": "Investment costs",
-        "subsidies": "Subsidies & tax deductions",
-        "efficiency": "Economic efficiency & energy balance"
+        "investmentCosts": "Costi d'investimento",
+        "subsidies": "Sussidi e detrazioni fiscali",
+        "efficiency": "Efficienza economica e bilancio energetico"
       },
       "cta": "Avvia il calcolatore solare",
-      "ctaSubtext": "free - uncomplicated - precise - non-binding"
+      "ctaSubtext": "gratuito - semplice - preciso - senza impegno"
     }
   },
   "projectDevelopment": {
     "hero": {
-      "title": "Project development",
+      "title": "Sviluppo progetto",
       "description": "FreeState fornisce servizi EPC per centrali fotovoltaiche in tutta la Svizzera."
     },
     "epc": {
       "eyebrow": "EPC",
       "title": "Cosa significa EPC?",
       "items": {
-        "engineering": "E-Engineering: planning, permits, supervision, acceptance",
+        "engineering": "E-Engineering: pianificazione, permessi, supervisione, collaudo",
         "procurement": "P - Procurement (approvvigionamento): componenti e servizi",
-        "construction": "C – Construction: DC, AC integration, civil works, logistics"
+        "construction": "C – Costruzione: integrazione DC, AC, opere civili, logistica"
       }
     },
     "turnkey": {
-      "eyebrow": "Turnkey",
-      "title": "Turnkey solar power plants",
+      "eyebrow": "Chiavi in mano",
+      "title": "Centrali solari chiavi in mano",
       "items": {
         "approval": "Vendita del progetto dopo il rilascio dell'autorizzazione",
         "construction": "Vendita del progetto dopo l'inizio della costruzione",
@@ -4993,15 +4993,15 @@
       "title": "Il nostro approccio",
       "steps": {
         "propertySearch": {
-          "title": "Property search",
+          "title": "Ricerca immobile",
           "description": "Valutiamo i tetti svizzeri per la fattibilità solare e otteniamo accordi di utilizzo a lungo termine."
         },
         "projectDevelopment": {
-          "title": "Project development",
+          "title": "Sviluppo progetto",
           "description": "Gestiamo tutta la pianificazione, l'ingegneria, le autorizzazioni e la progettazione per preparare il progetto alla costruzione."
         },
         "building": {
-          "title": "Building",
+          "title": "Edificio",
           "description": "I nostri team esperti gestiscono l'intero processo di costruzione, dall'approvvigionamento all'installazione e al controllo qualità."
         },
         "commissioning": {
@@ -5009,7 +5009,7 @@
           "description": "Gestiamo l'allacciamento alla rete, i collaudi del sistema e il passaggio di consegne per garantire un avvio regolare delle operazioni."
         },
         "result": {
-          "title": "Result",
+          "title": "Risultato",
           "description": "Una centrale solare pienamente operativa che fornisce energia pulita e rendimenti a lungo termine sul tuo investimento."
         }
       }
@@ -5025,23 +5025,23 @@
       "rightLabel": "Visualizzazione del progetto di carport solare"
     },
     "videoShowcase": {
-      "alt": "Solar carport video",
-      "play": "Play"
+      "alt": "Video carport solare",
+      "play": "Riproduci"
     },
     "generalContractor": {
-      "title": "Complete General Contractor Service",
+      "title": "Servizio completo di general contractor",
       "subtitle": "Gestione del progetto end-to-end — dalla progettazione all'operatività.",
       "steps": {
-        "strategicPlanning": "Strategic Planning",
-        "feasibilityStudy": "Feasibility Study",
+        "strategicPlanning": "Pianificazione strategica",
+        "feasibilityStudy": "Studio di fattibilità",
         "designEngineering": "Design & Engineering",
-        "tenderPreparation": "Tender Preparation",
-        "siteConstruction": "Site Construction",
-        "operationMaintenance": "Operation & Maintenance"
+        "tenderPreparation": "Preparazione gara d'appalto",
+        "siteConstruction": "Costruzione del sito",
+        "operationMaintenance": "Esercizio e manutenzione"
       }
     },
     "parkingRoofs": {
-      "eyebrow": "Parking roofs",
+      "eyebrow": "Tetti per parcheggi",
       "title": "Energia solare\ndalle coperture dei parcheggi",
       "description": "Trasforma gli spazi di parcheggio inutilizzati in una fonte di energia solare con un carport Helion.",
       "items": {
@@ -5051,7 +5051,7 @@
       }
     },
     "customSolar": {
-      "eyebrow": "Custom solar",
+      "eyebrow": "Soluzioni solari personalizzate",
       "title": "Soluzioni solari\nsu misura per carport",
       "description": "Progettiamo carport solari personalizzati per abitazioni e aziende, gestendo ogni passaggio come tuo general contractor.",
       "items": {
@@ -5069,7 +5069,7 @@
     },
     "contractingModel": {
       "eyebrow": "Contracting",
-      "title": "Solar Contracting Model",
+      "title": "Modello di contracting solare",
       "description": "Installiamo un impianto solare su misura sulla tua proprietà\nsenza investimenti iniziali, mentre tu benefici in più modi.",
       "items": {
         "affordableSolar": "Energia solare conveniente direttamente dal tuo tetto",
@@ -5085,16 +5085,16 @@
       "title": "I nostri servizi",
       "description": "Con la nostra lunga esperienza nelle centrali solari, forniamo servizi end-to-end da un'unica fonte — dandoti un unico punto di contatto per l'intero progetto.",
       "items": {
-        "consultation": "Consultation",
-        "feasibilityStudy": "Feasibility Study",
-        "preliminaryStudy": "Preliminary Study",
-        "roofUsageAgreement": "Roof Usage Agreement",
-        "planning": "Planning",
-        "projectManagement": "Project Management",
-        "installation": "Installation",
-        "commissioning": "Commissioning",
-        "operationsMaintenance": "Operations & Maintenance",
-        "repoweringOptimization": "Repowering & Optimization"
+        "consultation": "Consulenza",
+        "feasibilityStudy": "Studio di fattibilità",
+        "preliminaryStudy": "Studio preliminare",
+        "roofUsageAgreement": "Accordo di utilizzo del tetto",
+        "planning": "Pianificazione",
+        "projectManagement": "Gestione del progetto",
+        "installation": "Installazione",
+        "commissioning": "Messa in servizio",
+        "operationsMaintenance": "Esercizio e manutenzione",
+        "repoweringOptimization": "Repowering e ottimizzazione"
       }
     },
     "repoweringServices": {
@@ -5105,36 +5105,36 @@
           "description": "500+ dipendenti. Il più grande installatore\nsolare della Svizzera e leader di mercato\nnell'accumulo."
         },
         "customers": {
-          "title": "15,000+ customers",
+          "title": "Oltre 15.000 clienti",
           "description": "Oltre 10 anni di esperienza. Oltre 6'000\nprogetti PV completati di tutte le dimensioni."
         },
         "yieldGuarantee": {
-          "title": "Yield Guarantee",
+          "title": "Garanzia di rendimento",
           "description": "Garanzia di resa energetica 10 anni\ne funzionamento a lungo termine dell'impianto."
         },
         "regionalist": {
-          "title": "Regionalist",
-          "description": "Locally rooted. Fast\nresponse. Reliable service."
+          "title": "Radicati nel territorio",
+          "description": "Radicati localmente. Risposta\nrapida. Servizio affidabile."
         }
       }
     }
   },
   "chargingStationsApartmentBuilding": {
     "hero": {
-      "title": "Apartment Building",
+      "title": "Edificio condominiale",
       "description": "Moduli solari per una produzione di energia efficiente e duratura"
     },
     "evChargingIntro": {
-      "eyebrow": "EV Charging",
+      "eyebrow": "Ricarica EV",
       "title": "Ricarica EV nei\ncondomini",
       "description": "Sosteniamo i proprietari di immobili nella pianificazione e installazione di infrastrutture di ricarica pronte per il futuro.\n\nOttieni una stima dei costi non vincolante con il nostro calcolatore online."
     },
     "calculatorCta": {
-      "eyebrow": "Calculate",
+      "eyebrow": "Calcola",
       "title": "Calcola ora il prezzo della tua stazione di ricarica.",
       "description": "Calcola il prezzo della tua stazione di ricarica in base a pochi dettagli.",
       "cta": "Avvia il calcolatore solare",
-      "subtext": "free - uncomplicated - precise - non-binding"
+      "subtext": "gratuito - semplice - preciso - senza impegno"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
@@ -5144,7 +5144,7 @@
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions",
+      "title": "Domande frequenti",
       "items": {
         "preEquipped": {
           "question": "I parcheggi possono essere predisposti per future stazioni di ricarica?",
@@ -5181,7 +5181,7 @@
     "companySolution": {
       "title": "La soluzione di ricarica\nper la tua azienda",
       "description": "Le soluzioni di ricarica aiutano gli operatori di flotte a beneficiare di incentivi, gestione del carico e controllo automatizzato delle stazioni. Contattaci per una consulenza o pianificazione.",
-      "cta": "Start solar calculator"
+      "cta": "Avvia calcolatore solare"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
@@ -5191,7 +5191,7 @@
       }
     },
     "faq": {
-      "title": "Frequently Asked Questions",
+      "title": "Domande frequenti",
       "items": {
         "preEquipped": {
           "question": "I parcheggi possono essere predisposti per future ricariche?",
@@ -5226,7 +5226,7 @@
       "description": "Moduli solari per una produzione di energia efficiente e duratura"
     },
     "intro": {
-      "eyebrow": "Family houses",
+      "eyebrow": "Case unifamiliari",
       "title": "La tua casa,\nla tua stazione di ricarica",
       "description": "Stazioni di ricarica convenienti sono disponibili per ogni esigenza. I modelli FreeState offrono gestione del carico, accesso remoto e la possibilità di ricaricare il tuo EV con la tua energia solare."
     },
@@ -5235,18 +5235,18 @@
       "description": "Pianifichiamo e installiamo soluzioni di ricarica domestica smart utilizzando prodotti di partner di alta qualità, completamente integrati con il tuo impianto solare o pompa di calore—inclusa la ricarica bidirezionale—e supportati da servizio tecnico continuo.\n\nOttieni una stima dei costi non vincolante in pochi minuti con il nostro calcolatore di preventivi online."
     },
     "calculator": {
-      "eyebrow": "Calculate",
+      "eyebrow": "Calcola",
       "title": "Calcola ora il prezzo della tua stazione di ricarica.",
       "description": "Calcola il prezzo della tua stazione di ricarica in base a pochi dettagli.",
       "ctaText": "Avvia il calcolatore solare",
-      "ctaSubtext": "free - uncomplicated - precise - non-binding"
+      "ctaSubtext": "gratuito - semplice - preciso - senza impegno"
     },
     "bidirectionalCharging": {
-      "title": "Bidirectional Solar Charging",
+      "title": "Ricarica solare bidirezionale",
       "description": "La ricarica bidirezionale consente al tuo EV di accumulare energia solare e fornirla alla tua casa, aumentando l'autoconsumo e l'indipendenza energetica. Sono richieste compatibilità di veicolo e caricatore, e i costi sono attualmente più elevati rispetto ai sistemi standard."
     },
     "faq": {
-      "title": "Frequently Asked Questions",
+      "title": "Domande frequenti",
       "items": {
         "1": {
           "question": "Posso ricaricare la mia auto elettrica usando una presa domestica?",
@@ -5273,20 +5273,20 @@
   },
   "fastChargingStations": {
     "hero": {
-      "title": "Fast Charging\nStations",
+      "title": "Stazioni di ricarica\nrapida",
       "description": ""
     },
     "offersSection": {
-      "title": "Offer fast charging\nstations too",
+      "title": "Offri anche stazioni\ndi ricarica rapida",
       "description": "Le stazioni di ricarica rapida sono installate presso stazioni di servizio, centri commerciali e sedi aziendali, offrendo un forte potenziale commerciale. Ti supportiamo con pianificazione e implementazione—contattaci per discutere il tuo progetto.",
-      "cta": "Contact"
+      "cta": "Contatto"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
       "description": "Progettiamo, pianifichiamo, installiamo e gestiamo la tua stazione di ricarica ad alta velocità. Ricevi tutti i servizi dal concetto e richiesta del permesso di costruzione fino al funzionamento come pacchetto, ma su richiesta possiamo anche fornire singoli servizi. I nostri servizi sono disponibili anche in modalità modulare."
     },
     "faq": {
-      "title": "Frequently Asked Questions",
+      "title": "Domande frequenti",
       "items": {
         "benefits": {
           "question": "Chi beneficia delle stazioni di ricarica rapida?",
@@ -5313,11 +5313,11 @@
   },
   "bidirectionalChargingStation": {
     "hero": {
-      "title": "Bidirectional Charging Station",
+      "title": "Stazione di ricarica bidirezionale",
       "description": "La ricarica bidirezionale trasforma il tuo EV in un accumulatore di energia, fornendo potenza quando serve o quando è più utile."
     },
     "howItWorks": {
-      "eyebrow": "Bidirectional Charging Station",
+      "eyebrow": "Stazione di ricarica bidirezionale",
       "title": "come funziona?"
     },
     "benefitsComparison": {
@@ -5326,101 +5326,101 @@
       "headers": {
         "yourAdvantage": "Il tuo vantaggio",
         "withSolar": "Con pannelli solari",
-        "withoutSolar": "Without solar panels"
+        "withoutSolar": "Senza pannelli solari"
       },
       "rows": {
         "returnOnFlexibility": "Ricavo dalla flessibilità",
         "returnOnFlexibilityNote": "(solo con una batteria)",
-        "lowerElectricityBill": "Lower electricity bill",
-        "multiDaySelfSufficiency": "Multi-day self-sufficiency"
+        "lowerElectricityBill": "Bolletta elettrica più bassa",
+        "multiDaySelfSufficiency": "Autosufficienza per più giorni"
       },
       "footnote": "A seconda della situazione, ne deriva un beneficio finanziario annuo fino a CHF 520 con un impianto solare o fino a CHF 300 senza impianto solare. Seguono i dettagli del beneficio finanziario:"
     },
     "marketingFlexibility": {
-      "title": "Marketing Flexibility",
+      "title": "Flessibilità di marketing",
       "description": "La batteria del tuo EV può entrare a far parte della centrale elettrica virtuale di Helion, supportando la rete e guadagnando un FLEXBONUS grazie a pagamenti di standby e tariffe di picco.",
-      "additionalIncome": "Additional income via FLEXBONUS:",
+      "additionalIncome": "Reddito aggiuntivo tramite FLEXBONUS:",
       "cards": {
         "withSolar": {
           "title": "Con impianto solare",
           "amount": "fino a CHF 170 all'anno"
         },
         "systemComparison": {
-          "title": "system comparison",
+          "title": "confronto di sistema",
           "amount": "fino a CHF 170 all'anno"
         }
       },
       "note": "Nota: il potenziale di rendimento qui indicato può essere raggiunto solo in condizioni ottimali – che includono circa il 60% di tempo di collegamento, un'ampia dimensione del pool, uno sviluppo favorevole del mercato e sufficiente capacità della batteria disponibile."
     },
     "keyFacts": {
-      "title": "Bidirectional Charging: Key Facts",
+      "title": "Ricarica bidirezionale: fatti chiave",
       "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da Helion ONE™ per un uso ottimale dell'energia—affrontando in modo trasparente le attuali limitazioni tecniche.",
       "steps": {
-        "1": "Small loads need a home battery buffer (>1.8 kW limit).",
+        "1": "I piccoli carichi necessitano di un buffer della batteria domestica (limite >1,8 kW).",
         "2": "I carichi elevati funzionano direttamente; scarica limitata al 20-80% SoC."
       }
     },
     "carBattery": {
-      "eyebrow": "Car Battery",
+      "eyebrow": "Batteria dell'auto",
       "title": "La batteria della tua auto diventa parte di\nFreeState™",
       "description": "La batteria del tuo EV sblocca risparmi e ricavi, mentre FreeState™ ottimizza automaticamente l'uso dell'energia in tempo reale.",
-      "cta": "Request a quote"
+      "cta": "Richiedi un preventivo"
     },
     "homeIndependence": {
       "title": "Maggiore indipendenza per la tua casa",
       "cards": {
-        "homeBattery": "Home battery capacity",
-        "evBattery": "EV battery capacity"
+        "homeBattery": "Capacità batteria domestica",
+        "evBattery": "Capacità batteria EV"
       },
       "capacityComparison": {
-        "title": "Capacity comparison:",
+        "title": "Confronto capacità:",
         "description": "La batteria di un'auto elettrica ha da cinque a dieci volte la capacità di una tipica batteria domestica. Ciò ti consente di utilizzare la tua energia solare più a lungo e di rimanere indipendente dalla rete fino a diversi giorni. La ricarica bidirezionale rafforza il tuo sistema energetico e aumenta significativamente la tua autosufficienza."
       }
     },
     "chargingPaysOff": {
-      "title": "Bidirectional charging pays off",
+      "title": "La ricarica bidirezionale conviene",
       "description": "Invece di CHF 3'600 per una stazione di ricarica convenzionale, investi circa CHF 5'700 e rendi così la batteria della tua auto elettrica parte del tuo sistema energetico. Il tuo vantaggio finanziario aggiuntivo: ulteriori risparmi e ricavi."
     },
     "chargeLevel": {
-      "eyebrow": "Charge Level",
+      "eyebrow": "Livello di carica",
       "title": "Sempre controllo completo\nsul livello di carica",
       "description": "Con l'app FreeState™ monitori la batteria del tuo EV, imposti un livello minimo di carica e ottimizzi l'uso dell'energia in eccesso.",
-      "cta": "Request a quote"
+      "cta": "Richiedi un preventivo"
     },
     "funding": {
       "title": "Incentivi per le stazioni di ricarica bidirezionali",
       "cantons": {
         "bern": {
           "name": "Canton di Berna",
-          "amount": "CHF 3,000 per installed bidirectional DC charging station."
+          "amount": "CHF 3.000 per ogni stazione di ricarica DC bidirezionale installata."
         },
         "graubunden": {
           "name": "Canton dei Grigioni",
-          "amount": "CHF 2,000 per installed bidirectional DC charging station"
+          "amount": "CHF 2.000 per ogni stazione di ricarica DC bidirezionale installata"
         },
         "lucerne": {
           "name": "Canton di Lucerna",
-          "amount": "CHF 2,000 per installed bidirectional DC charging station."
+          "amount": "CHF 2.000 per ogni stazione di ricarica DC bidirezionale installata."
         },
         "schaffhausen": {
           "name": "Canton di Sciaffusa",
-          "amount": "CHF 2,000 one-time investment contribution per bidirectional DC charging station."
+          "amount": "Contributo una tantum di CHF 2.000 per stazione di ricarica DC bidirezionale."
         },
         "ticino": {
           "name": "Canton Ticino",
-          "amount": "CHF 4,000 per installed bidirectional charging station."
+          "amount": "CHF 4.000 per ogni stazione di ricarica bidirezionale installata."
         },
         "thurgau": {
-          "name": "Canton Thurgau",
+          "name": "Canton Turgovia",
           "amount": "Contributo di investimento una tantum di CHF 2'000 per stazione di ricarica."
         },
         "uri": {
           "name": "Canton di Uri",
-          "amount": "CHF 2,000.- flat rate per installed bidirectional DC charging station."
+          "amount": "CHF 2.000.- forfait per ogni stazione di ricarica DC bidirezionale installata."
         },
         "zurich": {
           "name": "Canton di Zurigo",
-          "amount": "CHF 2,000 per installed bidirectional DC charging station."
+          "amount": "CHF 2.000 per ogni stazione di ricarica DC bidirezionale installata."
         }
       }
     },
@@ -5429,53 +5429,53 @@
       "description": "La ricarica bidirezionale di Helion trasforma la tua auto elettrica in una power bank per la tua casa. Questo ti fa risparmiare sui costi dell'elettricità, genera interessanti entrate aggiuntive e ti offre maggiore indipendenza.",
       "callToAction": "Richiedi ora il tuo preventivo personalizzato e scopri come puoi beneficiare della ricarica bidirezionale.",
       "form": {
-        "title": "Request a quote",
+        "title": "Richiedi un preventivo",
         "question": "Per quale situazione vorresti un preventivo personalizzato e non vincolante? *",
         "options": {
           "option1": "Impianto solare con stazione di ricarica bidirezionale",
           "option2": "Aggiungi la ricarica bidirezionale al tuo impianto solare esistente",
-          "option3": "Add bidirectional charging without solar"
+          "option3": "Aggiungi ricarica bidirezionale senza solare"
         },
-        "submit": "Next"
+        "submit": "Avanti"
       }
     },
     "vehicleList": {
       "title": "Elenco dei veicoli elettrici che\nsupportano la ricarica bidirezionale.",
       "description": "Molti costruttori automobilistici hanno già lanciato veicoli che consentono la ricarica bidirezionale. Con l'adozione della tecnologia bidirezionale da parte di sempre più case automobilistiche, è previsto che questo elenco cresca presto.",
       "headers": {
-        "makeModel": "Make / Model",
-        "bidiReady": "BiDi-ready",
+        "makeModel": "Marca / Modello",
+        "bidiReady": "Compatibile BiDi",
         "software": "Software"
       },
       "vehicles": {
         "vwId": {
           "name": "VW ID Family",
-          "battery": "Minimum battery 77 kWh",
+          "battery": "Batteria minima 77 kWh",
           "bidiReady": "true",
-          "software": "From 3.7"
+          "software": "Dalla 3.7"
         },
         "vwBuzz": {
           "name": "VW ID. Buzz",
-          "battery": "Minimum battery 77 kWh",
+          "battery": "Batteria minima 77 kWh",
           "bidiReady": "true",
-          "software": "From 3.7"
+          "software": "Dalla 3.7"
         },
         "skoda": {
           "name": "Škoda Enyaq & Elroq",
-          "battery": "Minimum battery 77 kWh",
-          "bidiReady": "From 2026",
+          "battery": "Batteria minima 77 kWh",
+          "bidiReady": "Dal 2026",
           "software": ""
         },
         "cupra": {
           "name": "Cupra Born & Tavascan",
-          "battery": "Minimum battery 77 kWh",
-          "bidiReady": "From 2026",
+          "battery": "Batteria minima 77 kWh",
+          "bidiReady": "Dal 2026",
           "software": ""
         },
         "ford": {
           "name": "Ford Explorer & Capri",
-          "battery": "Minimum battery 77 kWh",
-          "bidiReady": "From 2026",
+          "battery": "Batteria minima 77 kWh",
+          "bidiReady": "Dal 2026",
           "software": ""
         }
       }
@@ -5499,16 +5499,16 @@
       "title": "BiDi Newsletter",
       "description": "Tutti i nostri progetti solari possono essere facilmente aggiornati per includere la ricarica bidirezionale grazie a Helion ONE™. Sei interessato alle ultime informazioni sulla ricarica bidirezionale?\n\nAllora iscriviti alla nostra newsletter BiDi.",
       "form": {
-        "firstName": "First name",
+        "firstName": "Nome",
         "firstNamePlaceholder": "Inserisci il tuo nome",
-        "lastName": "Last name",
+        "lastName": "Cognome",
         "lastNamePlaceholder": "Inserisci il tuo cognome",
         "email": "Email",
         "emailPlaceholder": "Inserisci la tua email",
         "privacy": "FreeState rispetta la tua privacy e utilizza i tuoi dati solo per gestire il tuo account e fornire i servizi richiesti.",
         "consent": "Acconsento a ricevere altre comunicazioni da FreeState",
         "disclaimer": "Inviando, accetti il trattamento dei dati secondo la nostra Informativa sulla privacy e puoi disiscriverti in qualsiasi momento.",
-        "submit": "Next"
+        "submit": "Avanti"
       },
       "success": "Grazie per esserti iscritto alla nostra newsletter BiDi! Riceverai gli ultimi aggiornamenti sulla ricarica bidirezionale."
     },
@@ -5568,31 +5568,31 @@
   },
   "admin": {
     "sidebar": {
-      "title": "Admin Panel",
+      "title": "Pannello amministratore",
       "dashboard": "Dashboard",
-      "users": "Users",
+      "users": "Utenti",
       "leads": "Leads",
-      "contracts": "Contracts",
-      "equipment": "Equipment",
-      "manufacturers": "Manufacturers",
-      "solarPanels": "Solar Panels",
-      "inverters": "Inverters",
-      "batteries": "Batteries",
-      "mountingSystems": "Mounting Systems",
-      "ems": "Energy Management",
-      "heatPumps": "Heat Pumps",
-      "packages": "Packages",
+      "contracts": "Contratti",
+      "equipment": "Attrezzatura",
+      "manufacturers": "Produttori",
+      "solarPanels": "Pannelli solari",
+      "inverters": "Inverter",
+      "batteries": "Batterie",
+      "mountingSystems": "Sistemi di montaggio",
+      "ems": "Gestione energetica",
+      "heatPumps": "Pompe di calore",
+      "packages": "Pacchetti",
       "blog": "Blog",
       "support": "Support",
-      "maintenanceInquiries": "Maintenance Inquiries",
-      "contacts": "Contact Submissions",
-      "investorRequests": "Investor Requests",
+      "maintenanceInquiries": "Richieste di manutenzione",
+      "contacts": "Invii di contatto",
+      "investorRequests": "Richieste investitori",
       "newsletter": "Newsletter",
-      "careerSubscriptions": "Career Subscriptions",
-      "groupContent": "Content",
+      "careerSubscriptions": "Iscrizioni carriere",
+      "groupContent": "Contenuti",
       "groupCrm": "CRM",
-      "groupSubmissions": "Submissions",
-      "groupEquipment": "Equipment",
+      "groupSubmissions": "Invii",
+      "groupEquipment": "Attrezzatura",
       "groupResidential": "Residential",
       "groupCommercial": "Commercial",
       "groupOperations": "Operationen",
@@ -5602,406 +5602,406 @@
     },
     "dashboard": {
       "title": "Dashboard",
-      "totalUsers": "Total Users",
-      "activeLeads": "Active Leads",
-      "contracts": "Contracts",
-      "revenueSigned": "Revenue (Signed)",
-      "customers": "customers",
-      "reps": "reps",
-      "new": "new",
-      "qualified": "qualified",
-      "signed": "signed",
-      "pending": "pending",
+      "totalUsers": "Utenti totali",
+      "activeLeads": "Lead attivi",
+      "contracts": "Contratti",
+      "revenueSigned": "Fatturato (firmato)",
+      "customers": "clienti",
+      "reps": "agenti",
+      "new": "nuovi",
+      "qualified": "qualificati",
+      "signed": "firmati",
+      "pending": "in attesa",
       "totalNet": "Importo netto totale da contratti firmati",
       "leadsByStatus": "Lead per stato",
       "contractsByStatus": "Contratti per stato",
-      "supportTickets": "Support Tickets",
-      "open": "open",
-      "blogPosts": "Blog Posts",
-      "totalPublished": "Published",
-      "contactSubmissions": "Contact Submissions",
-      "totalReceived": "Received",
-      "newsletterSubscribers": "Newsletter Subscribers",
-      "totalSubscribed": "Subscribed"
+      "supportTickets": "Ticket di supporto",
+      "open": "aperti",
+      "blogPosts": "Articoli del blog",
+      "totalPublished": "Pubblicato",
+      "contactSubmissions": "Invii di contatto",
+      "totalReceived": "Ricevuto",
+      "newsletterSubscribers": "Iscritti alla newsletter",
+      "totalSubscribed": "Iscritto"
     },
     "users": {
-      "title": "Users",
+      "title": "Utenti",
       "searchPlaceholder": "Cerca per nome o email...",
-      "allRoles": "All Roles",
+      "allRoles": "Tutti i ruoli",
       "allStatuses": "Tutti gli stati",
       "name": "Name",
       "email": "Email",
-      "role": "Role",
+      "role": "Ruolo",
       "status": "Status",
       "leads": "Leads",
-      "joined": "Joined",
-      "view": "View",
-      "noUsers": "No users found",
-      "totalUsers": "{count} total users",
-      "back": "Back",
-      "accountInfo": "Account Info",
-      "phone": "Phone",
-      "emailVerified": "Email Verified",
-      "yes": "Yes",
+      "joined": "Iscritto",
+      "view": "Visualizza",
+      "noUsers": "Nessun utente trovato",
+      "totalUsers": "{count} utenti in totale",
+      "back": "Indietro",
+      "accountInfo": "Informazioni account",
+      "phone": "Telefono",
+      "emailVerified": "Email verificata",
+      "yes": "Sì",
       "no": "No",
-      "lastLogin": "Last Login",
-      "never": "Never",
-      "manage": "Manage",
-      "customerProfile": "Customer Profile",
-      "company": "Company",
-      "street": "Street",
-      "city": "City",
-      "canton": "Canton",
-      "activitySummary": "Activity Summary",
-      "assignedLeads": "Assigned Leads",
-      "createdQuotes": "Created Quotes"
+      "lastLogin": "Ultimo accesso",
+      "never": "Mai",
+      "manage": "Gestisci",
+      "customerProfile": "Profilo cliente",
+      "company": "Azienda",
+      "street": "Via",
+      "city": "Città",
+      "canton": "Cantone",
+      "activitySummary": "Riepilogo attività",
+      "assignedLeads": "Lead assegnati",
+      "createdQuotes": "Preventivi creati"
     },
     "leads": {
       "title": "Leads",
       "searchPlaceholder": "Cerca per indirizzo, nome o email...",
       "allStatuses": "Tutti gli stati",
       "allSources": "Tutte le fonti",
-      "customer": "Customer",
-      "property": "Property",
+      "customer": "Cliente",
+      "property": "Proprietà",
       "status": "Status",
-      "source": "Source",
+      "source": "Fonte",
       "assignedTo": "Assegnato a",
-      "created": "Created",
-      "view": "View",
-      "unassigned": "Unassigned",
-      "noLeads": "No leads found",
-      "totalLeads": "{count} total leads",
-      "back": "Back",
-      "leadInfo": "Lead Info",
-      "propertyAddress": "Property Address",
-      "interestedPackage": "Interested Package",
-      "estimatedBudget": "Estimated Budget",
-      "manage": "Manage",
-      "notes": "Notes",
-      "saveNotes": "Save Notes",
-      "contact": "Contact"
+      "created": "Creato",
+      "view": "Visualizza",
+      "unassigned": "Non assegnato",
+      "noLeads": "Nessun lead trovato",
+      "totalLeads": "{count} lead totali",
+      "back": "Indietro",
+      "leadInfo": "Informazioni lead",
+      "propertyAddress": "Indirizzo dell'immobile",
+      "interestedPackage": "Pacchetto di interesse",
+      "estimatedBudget": "Budget stimato",
+      "manage": "Gestisci",
+      "notes": "Note",
+      "saveNotes": "Salva note",
+      "contact": "Contatto"
     },
     "contracts": {
-      "title": "Contracts",
+      "title": "Contratti",
       "searchPlaceholder": "Cerca per numero contratto, nome...",
       "allStatuses": "Tutti gli stati",
-      "allTypes": "All Types",
-      "contractNumber": "Contract #",
-      "customer": "Customer",
-      "type": "Type",
+      "allTypes": "Tutti i tipi",
+      "contractNumber": "Contratto n.",
+      "customer": "Cliente",
+      "type": "Tipo",
       "status": "Status",
-      "signature": "Signature",
-      "netAmount": "Net Amount",
-      "created": "Created",
-      "view": "View",
-      "noContracts": "No contracts found",
-      "totalContracts": "{count} total contracts",
-      "back": "Back",
-      "contractDetails": "Contract Details",
-      "package": "Package",
-      "language": "Language",
-      "financials": "Financials",
-      "grossAmount": "Gross Amount",
-      "subsidy": "Subsidy",
-      "signatureStatus": "Signature Status",
+      "signature": "Firma",
+      "netAmount": "Importo netto",
+      "created": "Creato",
+      "view": "Visualizza",
+      "noContracts": "Nessun contratto trovato",
+      "totalContracts": "{count} contratti totali",
+      "back": "Indietro",
+      "contractDetails": "Dettagli contratto",
+      "package": "Pacchetto",
+      "language": "Lingua",
+      "financials": "Finanze",
+      "grossAmount": "Importo lordo",
+      "subsidy": "Sussidio",
+      "signatureStatus": "Stato della firma",
       "notStarted": "Non iniziato",
-      "customerSigned": "Customer Signed",
-      "project": "Project",
-      "projectStatus": "Project Status"
+      "customerSigned": "Firmato dal cliente",
+      "project": "Progetto",
+      "projectStatus": "Stato del progetto"
     },
     "equipment": {
-      "title": "Equipment Catalog",
-      "manufacturers": "Manufacturers",
-      "manufacturersDesc": "Manage equipment manufacturers",
-      "solarPanels": "Solar Panels",
+      "title": "Catalogo attrezzature",
+      "manufacturers": "Produttori",
+      "manufacturersDesc": "Gestisci produttori di attrezzature",
+      "solarPanels": "Pannelli solari",
       "solarPanelsDesc": "Modelli e serie di pannelli",
-      "inverters": "Inverters",
+      "inverters": "Inverter",
       "invertersDesc": "Inverter di stringa, micro e ibridi",
-      "batteries": "Batteries",
-      "batteriesDesc": "Energy storage systems",
-      "mountingSystems": "Mounting Systems",
+      "batteries": "Batterie",
+      "batteriesDesc": "Sistemi di accumulo energetico",
+      "mountingSystems": "Sistemi di montaggio",
       "mountingSystemsDesc": "Sistemi di montaggio per tetti e a terra",
-      "ems": "Energy Management",
-      "emsDesc": "Smart energy controllers",
-      "heatPumps": "Heat Pumps",
+      "ems": "Gestione energetica",
+      "emsDesc": "Controllori energetici intelligenti",
+      "heatPumps": "Pompe di calore",
       "heatPumpsDesc": "Pompe di calore ad aria, salamoia e acqua",
-      "packages": "Packages",
+      "packages": "Pacchetti",
       "packagesDesc": "Pacchetti in abbonamento e abo",
-      "backToEquipment": "Equipment",
-      "addNew": "Add New",
-      "search": "Search...",
-      "allStatus": "All",
-      "active": "Active",
-      "inactive": "Inactive",
-      "edit": "Edit",
-      "noItems": "No items found",
-      "items": "{count} items",
+      "backToEquipment": "Attrezzatura",
+      "addNew": "Aggiungi nuovo",
+      "search": "Cerca...",
+      "allStatus": "Tutti",
+      "active": "Attivo",
+      "inactive": "Inattivo",
+      "edit": "Modifica",
+      "noItems": "Nessun elemento trovato",
+      "items": "{count} elementi",
       "page": "Pagina {page} di {totalPages}",
       "titles": {
-        "ems": "Energy Management Systems",
-        "batteries": "Batteries",
-        "mountingSystems": "Mounting Systems",
-        "heatPumps": "Heat Pumps",
-        "solarPanels": "Solar Panels",
-        "inverters": "Inverters",
-        "packages": "Packages",
-        "manufacturers": "Manufacturers"
+        "ems": "Sistemi di gestione energetica",
+        "batteries": "Batterie",
+        "mountingSystems": "Sistemi di montaggio",
+        "heatPumps": "Pompe di calore",
+        "solarPanels": "Pannelli solari",
+        "inverters": "Inverter",
+        "packages": "Pacchetti",
+        "manufacturers": "Produttori"
       },
       "columns": {
-        "modelNumber": "Model Number",
-        "manufacturer": "Manufacturer",
-        "type": "Type",
-        "power": "Power",
+        "modelNumber": "Numero modello",
+        "manufacturer": "Produttore",
+        "type": "Tipo",
+        "power": "Potenza",
         "status": "Status",
-        "capacity": "Capacity",
-        "chemistry": "Chemistry",
-        "warranty": "Warranty",
-        "roofType": "Roof Type",
-        "heating": "Heating",
+        "capacity": "Capacità",
+        "chemistry": "Chimica",
+        "warranty": "Garanzia",
+        "roofType": "Tipo di tetto",
+        "heating": "Riscaldamento",
         "cop": "COP",
-        "series": "Series",
-        "efficiency": "Efficiency",
-        "mpptCount": "MPPT Count",
+        "series": "Serie",
+        "efficiency": "Efficienza",
+        "mpptCount": "Numero MPPT",
         "code": "Code",
         "name": "Name",
-        "pricePerKwp": "Price/kWp",
-        "items": "Items",
+        "pricePerKwp": "Prezzo/kWp",
+        "items": "Elementi",
         "minKwp": "Min kWp",
         "maxKwp": "Max kWp",
         "website": "Website",
-        "products": "Products"
+        "products": "Prodotti"
       },
       "packageDetail": {
-        "back": "Back",
+        "back": "Indietro",
         "notFound": "Pacchetto non trovato",
-        "packagePricing": "Package Pricing",
-        "pricePerKwp": "Price per kWp",
-        "currency": "Currency",
-        "savePricing": "Save Pricing",
-        "packageUpdated": "Package updated",
+        "packagePricing": "Prezzi pacchetto",
+        "pricePerKwp": "Prezzo per kWp",
+        "currency": "Valuta",
+        "savePricing": "Salva prezzi",
+        "packageUpdated": "Pacchetto aggiornato",
         "packageUpdateFailed": "Aggiornamento del pacchetto non riuscito",
-        "equipmentComposition": "Equipment Composition",
-        "addItem": "Add Item",
-        "addFeature": "Add feature",
+        "equipmentComposition": "Composizione attrezzatura",
+        "addItem": "Aggiungi elemento",
+        "addFeature": "Aggiungi caratteristica",
         "feature": "Feature",
         "noItems": "Nessun articolo di equipaggiamento ancora. Clicca \"Aggiungi articolo\" per iniziare.",
-        "qty": "Qty",
+        "qty": "Qtà",
         "optional": "Optional",
-        "actions": "Actions",
-        "selectEquipment": "Select...",
-        "equipmentId": "Equipment ID",
-        "saveEquipment": "Save Equipment",
-        "itemsSaved": "Equipment items saved",
+        "actions": "Azioni",
+        "selectEquipment": "Seleziona...",
+        "equipmentId": "ID attrezzatura",
+        "saveEquipment": "Salva attrezzatura",
+        "itemsSaved": "Elementi attrezzatura salvati",
         "itemsSaveFailed": "Salvataggio degli articoli non riuscito",
-        "pricingPreview": "Pricing Preview",
-        "systemSize": "System Size",
-        "gross": "Gross",
-        "subsidy": "Subsidy",
-        "net": "Net",
-        "solarPanel": "Solar Panel",
+        "pricingPreview": "Anteprima prezzi",
+        "systemSize": "Dimensione impianto",
+        "gross": "Lordo",
+        "subsidy": "Sussidio",
+        "net": "Netto",
+        "solarPanel": "Pannello solare",
         "inverter": "Inverter",
-        "battery": "Battery",
-        "mountingSystem": "Mounting System",
-        "energyManagementSystem": "Energy Management System",
-        "heatPump": "Heat Pump",
-        "newPackage": "New Package",
-        "create": "Create",
-        "save": "Save",
-        "packageDetails": "Package Details",
-        "minCapacity": "Min Capacity kWp",
-        "maxCapacity": "Max Capacity kWp",
-        "contractTerm": "Contract Term (years)",
-        "savingsPercent": "Savings %",
-        "displayOrder": "Display Order",
-        "highlightedFeature": "Highlighted Feature",
-        "active": "Active",
-        "translations": "Translations",
-        "description": "Description",
-        "features": "Features",
-        "packageCreated": "Package created"
+        "battery": "Batteria",
+        "mountingSystem": "Sistema di montaggio",
+        "energyManagementSystem": "Sistema di gestione energetica",
+        "heatPump": "Pompa di calore",
+        "newPackage": "Nuovo pacchetto",
+        "create": "Crea",
+        "save": "Salva",
+        "packageDetails": "Dettagli pacchetto",
+        "minCapacity": "Capacità min kWp",
+        "maxCapacity": "Capacità max kWp",
+        "contractTerm": "Durata contratto (anni)",
+        "savingsPercent": "Risparmi %",
+        "displayOrder": "Ordine di visualizzazione",
+        "highlightedFeature": "Caratteristica in evidenza",
+        "active": "Attivo",
+        "translations": "Traduzioni",
+        "description": "Descrizione",
+        "features": "Caratteristiche",
+        "packageCreated": "Pacchetto creato"
       }
     },
     "blog": {
-      "title": "Blog Posts",
-      "newPost": "New Post",
-      "editPost": "Edit Post",
+      "title": "Articoli del blog",
+      "newPost": "Nuovo articolo",
+      "editPost": "Modifica articolo",
       "searchPlaceholder": "Cerca per titolo...",
       "allStatuses": "Tutti gli stati",
-      "draft": "Draft",
-      "published": "Published",
-      "postTitle": "Title",
+      "draft": "Bozza",
+      "published": "Pubblicato",
+      "postTitle": "Titolo",
       "status": "Status",
-      "author": "Author",
-      "languages": "Languages",
-      "created": "Created",
-      "edit": "Edit",
-      "noPosts": "No blog posts found",
-      "totalPosts": "{count} total posts",
-      "slug": "URL Slug",
-      "coverImage": "Cover Image",
-      "uploadImage": "Upload image",
-      "content": "Content",
-      "excerpt": "Excerpt",
+      "author": "Autore",
+      "languages": "Lingue",
+      "created": "Creato",
+      "edit": "Modifica",
+      "noPosts": "Nessun articolo trovato",
+      "totalPosts": "{count} articoli totali",
+      "slug": "Slug URL",
+      "coverImage": "Immagine di copertina",
+      "uploadImage": "Carica immagine",
+      "content": "Contenuti",
+      "excerpt": "Estratto",
       "excerptPlaceholder": "Breve riassunto del post...",
-      "titlePlaceholder": "Post title",
+      "titlePlaceholder": "Titolo articolo",
       "contentPlaceholder": "Scrivi il tuo post...",
-      "metaTitle": "Meta Title",
-      "metaDescription": "Meta Description",
-      "save": "Save",
-      "delete": "Delete",
+      "metaTitle": "Meta titolo",
+      "metaDescription": "Meta descrizione",
+      "save": "Salva",
+      "delete": "Elimina",
       "confirmDelete": "Sei sicuro di voler eliminare questo post?"
     },
     "support": {
-      "title": "Support Tickets",
+      "title": "Ticket di supporto",
       "searchPlaceholder": "Cerca per nome o email...",
       "allStatuses": "Tutti gli stati",
-      "statusOpen": "Open",
+      "statusOpen": "Aperto",
       "statusInProgress": "In corso",
-      "statusResolved": "Resolved",
-      "statusClosed": "Closed",
+      "statusResolved": "Risolto",
+      "statusClosed": "Chiuso",
       "name": "Name",
-      "message": "Message",
+      "message": "Messaggio",
       "status": "Status",
-      "created": "Created",
-      "view": "View",
-      "noTickets": "No support tickets found",
-      "totalTickets": "{count} total tickets",
-      "ticketInfo": "Ticket Information",
-      "manage": "Manage",
+      "created": "Creato",
+      "view": "Visualizza",
+      "noTickets": "Nessun ticket di supporto trovato",
+      "totalTickets": "{count} ticket totali",
+      "ticketInfo": "Informazioni ticket",
+      "manage": "Gestisci",
       "email": "Email",
-      "phone": "Phone",
-      "address": "Address",
-      "adminNotes": "Admin Notes",
-      "saveNotes": "Save Notes"
+      "phone": "Telefono",
+      "address": "Indirizzo",
+      "adminNotes": "Note amministratore",
+      "saveNotes": "Salva note"
     },
     "investorRequests": {
-      "title": "Investor Requests",
+      "title": "Richieste investitori",
       "searchPlaceholder": "Cerca per nome o email...",
       "filterStatus": "Filtra per stato",
       "allStatuses": "Tutti gli stati",
       "name": "Name",
       "email": "Email",
-      "phone": "Phone",
-      "location": "Location",
-      "type": "Type",
+      "phone": "Telefono",
+      "location": "Località",
+      "type": "Tipo",
       "status": "Status",
-      "created": "Created",
-      "view": "View",
-      "noRequests": "No investor requests found",
-      "totalRequests": "{count} requests total",
-      "statusNew": "New",
-      "statusContacted": "Contacted",
-      "statusDocumentsSent": "Documents Sent",
-      "statusClosed": "Closed",
+      "created": "Creato",
+      "view": "Visualizza",
+      "noRequests": "Nessuna richiesta investitore trovata",
+      "totalRequests": "{count} richieste totali",
+      "statusNew": "Nuovo",
+      "statusContacted": "Contattato",
+      "statusDocumentsSent": "Documenti inviati",
+      "statusClosed": "Chiuso",
       "details": "Details",
-      "salutation": "Salutation",
-      "address": "Address",
-      "language": "Language",
-      "comment": "Comment",
-      "manage": "Manage",
-      "adminNotes": "Admin Notes",
-      "save": "Save",
-      "saved": "Successfully saved",
+      "salutation": "Appellativo",
+      "address": "Indirizzo",
+      "language": "Lingua",
+      "comment": "Commento",
+      "manage": "Gestisci",
+      "adminNotes": "Note amministratore",
+      "save": "Salva",
+      "saved": "Salvato con successo",
       "backToList": "Torna all'elenco"
     },
     "maintenanceInquiries": {
-      "title": "Maintenance Inquiries",
+      "title": "Richieste di manutenzione",
       "searchPlaceholder": "Cerca per nome o email...",
       "allStatuses": "Tutti gli stati",
-      "statusOpen": "Open",
+      "statusOpen": "Aperto",
       "statusInProgress": "In corso",
-      "statusResolved": "Resolved",
-      "statusClosed": "Closed",
+      "statusResolved": "Risolto",
+      "statusClosed": "Chiuso",
       "name": "Name",
-      "services": "Services",
-      "location": "Location",
+      "services": "Servizi",
+      "location": "Località",
       "status": "Status",
-      "created": "Created",
-      "view": "View",
-      "noInquiries": "No maintenance inquiries found",
-      "totalInquiries": "{count} total inquiries",
-      "contactInfo": "Contact Information",
+      "created": "Creato",
+      "view": "Visualizza",
+      "noInquiries": "Nessuna richiesta di manutenzione trovata",
+      "totalInquiries": "{count} richieste totali",
+      "contactInfo": "Informazioni di contatto",
       "email": "Email",
-      "phone": "Phone",
-      "address": "Address",
-      "systemDetails": "System Details",
-      "freeStateSystem": "Free State System",
-      "systemOutput": "System Output",
-      "internetAccess": "Internet Access",
-      "products": "Products",
-      "message": "Message",
-      "manage": "Manage",
-      "adminNotes": "Admin Notes",
-      "saveNotes": "Save Notes",
-      "yes": "Yes",
+      "phone": "Telefono",
+      "address": "Indirizzo",
+      "systemDetails": "Dettagli del sistema",
+      "freeStateSystem": "Sistema Free State",
+      "systemOutput": "Potenza dell'impianto",
+      "internetAccess": "Accesso a Internet",
+      "products": "Prodotti",
+      "message": "Messaggio",
+      "manage": "Gestisci",
+      "adminNotes": "Note amministratore",
+      "saveNotes": "Salva note",
+      "yes": "Sì",
       "no": "No",
       "statuses": {
-        "OPEN": "Open",
+        "OPEN": "Aperto",
         "IN_PROGRESS": "In corso",
-        "RESOLVED": "Resolved",
-        "CLOSED": "Closed"
+        "RESOLVED": "Risolto",
+        "CLOSED": "Chiuso"
       },
       "serviceKeys": {
         "monitoring": "Monitoring",
-        "inspection": "Inspection",
-        "systemCheck": "System Check",
-        "investmentCheck": "Investment Check"
+        "inspection": "Ispezione",
+        "systemCheck": "Controllo sistema",
+        "investmentCheck": "Controllo investimento"
       },
       "productKeys": {
         "solarAboPrivate": "SolarFree Private",
         "solarAboBusiness": "SolarFree Business",
-        "huaweiInverters": "Huawei Inverters",
-        "sonnenBattery": "Sonnen Battery",
-        "e3dcBattery": "E3/DC Battery",
-        "vartaBattery": "VARTA Battery",
-        "sungrowBattery": "Sungrow Battery",
-        "huaweiBattery": "Huawei Battery",
-        "bydBattery": "BYD Battery",
-        "teslaBattery": "Tesla Battery"
+        "huaweiInverters": "Inverter Huawei",
+        "sonnenBattery": "Batteria Sonnen",
+        "e3dcBattery": "Batteria E3/DC",
+        "vartaBattery": "Batteria VARTA",
+        "sungrowBattery": "Batteria Sungrow",
+        "huaweiBattery": "Batteria Huawei",
+        "bydBattery": "Batteria BYD",
+        "teslaBattery": "Batteria Tesla"
       }
     },
     "contacts": {
-      "title": "Contact Submissions",
+      "title": "Invii di contatto",
       "searchPlaceholder": "Cerca per nome o email...",
       "name": "Name",
       "email": "Email",
-      "phone": "Phone",
-      "city": "City",
-      "message": "Message",
-      "created": "Created",
-      "view": "View",
-      "noSubmissions": "No contact submissions found",
-      "totalSubmissions": "{count} total submissions",
-      "contactInfo": "Contact Info",
-      "entityType": "Type",
-      "salutation": "Salutation",
-      "address": "Address"
+      "phone": "Telefono",
+      "city": "Città",
+      "message": "Messaggio",
+      "created": "Creato",
+      "view": "Visualizza",
+      "noSubmissions": "Nessun invio di contatto trovato",
+      "totalSubmissions": "{count} invii totali",
+      "contactInfo": "Informazioni di contatto",
+      "entityType": "Tipo",
+      "salutation": "Appellativo",
+      "address": "Indirizzo"
     },
     "newsletter": {
-      "title": "Newsletter Subscribers",
+      "title": "Iscritti alla newsletter",
       "searchPlaceholder": "Cerca per nome o email...",
       "name": "Name",
       "email": "Email",
-      "subscribed": "Subscribed",
-      "noSubscribers": "No subscribers found",
-      "totalSubscribers": "{count} total subscribers"
+      "subscribed": "Iscritto",
+      "noSubscribers": "Nessun iscritto trovato",
+      "totalSubscribers": "{count} iscritti totali"
     },
     "careerSubscriptions": {
-      "title": "Career Subscriptions",
+      "title": "Iscrizioni carriere",
       "searchPlaceholder": "Cerca per nome, email o ruolo...",
       "name": "Name",
       "email": "Email",
-      "role": "Role",
-      "comment": "Comment",
-      "locale": "Locale",
-      "subscribed": "Subscribed",
-      "noSubscribers": "No career subscribers yet",
-      "totalSubscribers": "{count} total subscribers"
+      "role": "Ruolo",
+      "comment": "Commento",
+      "locale": "Lingua",
+      "subscribed": "Iscritto",
+      "noSubscribers": "Nessun iscritto carriere ancora",
+      "totalSubscribers": "{count} iscritti totali"
     },
     "common": {
-      "loading": "Loading...",
+      "loading": "Caricamento...",
       "failedToLoad": "Caricamento dei dati non riuscito.",
-      "notFound": "Not found.",
+      "notFound": "Non trovato.",
       "page": "Pagina {page} di {totalPages}"
     },
     "commercialLeads": {
@@ -6092,163 +6092,163 @@
     }
   },
   "register": {
-    "title": "Create account",
+    "title": "Crea un account",
     "subtitle": "Inizia con la tua esperienza solare personalizzata",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "emailLabel": "Email address",
-    "emailError": "Please enter a valid email address",
-    "phoneLabel": "Phone number",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "emailLabel": "Indirizzo email",
+    "emailError": "Si prega di inserire un indirizzo email valido",
+    "phoneLabel": "Numero di telefono",
     "phoneOptional": "(optional)",
-    "languageLabel": "Preferred language",
-    "languagePlaceholder": "Select language",
+    "languageLabel": "Lingua preferita",
+    "languagePlaceholder": "Seleziona lingua",
     "passwordLabel": "Password",
     "passwordMinError": "La password deve contenere almeno 8 caratteri",
     "passwordFormatError": "La password deve contenere lettere maiuscole, minuscole e un numero",
     "passwordsNoMatch": "Le password non corrispondono",
     "firstNameRequired": "Il nome è obbligatorio",
     "lastNameRequired": "Il cognome è obbligatorio",
-    "confirmPasswordLabel": "Confirm password",
-    "minChars": "8+ characters",
-    "uppercase": "Uppercase letter",
-    "lowercase": "Lowercase letter",
-    "number": "Number",
-    "creating": "Creating account...",
-    "createAccount": "Create account",
+    "confirmPasswordLabel": "Conferma password",
+    "minChars": "8+ caratteri",
+    "uppercase": "Lettera maiuscola",
+    "lowercase": "Lettera minuscola",
+    "number": "Numero",
+    "creating": "Creazione account in corso...",
+    "createAccount": "Crea un account",
     "termsText": "Creando un account, accetti i nostri",
     "termsLink": "Termini di servizio",
-    "and": "and",
-    "privacyLink": "Privacy Policy",
+    "and": "e",
+    "privacyLink": "Informativa sulla privacy",
     "hasAccount": "Hai già un account?",
-    "signIn": "Sign in"
+    "signIn": "Accedi"
   },
   "verifyEmail": {
     "verifying": "Verifica della tua email...",
     "verifyingHint": "Ci vuole solo un istante.",
-    "success": "Email Verified",
+    "success": "Email verificata",
     "successMessage": "La tua email è stata verificata con successo.",
-    "signIn": "Sign In",
-    "failed": "Verification Failed",
-    "invalidLink": "Invalid verification link.",
+    "signIn": "Accedi",
+    "failed": "Verifica fallita",
+    "invalidLink": "Link di verifica non valido.",
     "expiredLink": "Verifica non riuscita. Il link potrebbe essere scaduto.",
     "goToLogin": "Vai al login"
   },
   "forgotPassword": {
-    "title": "Forgot password?",
+    "title": "Password dimenticata?",
     "subtitle": "Inserisci la tua email e ti invieremo un link per reimpostarla.",
-    "emailLabel": "Email address",
-    "emailError": "Please enter a valid email address",
+    "emailLabel": "Indirizzo email",
+    "emailError": "Si prega di inserire un indirizzo email valido",
     "emailPlaceholder": "name@example.com",
-    "sending": "Sending...",
-    "sendResetLink": "Send Reset Link",
+    "sending": "Invio in corso...",
+    "sendResetLink": "Invia link di reset",
     "backToLogin": "Torna al login",
     "checkEmail": "Controlla la tua email",
     "checkEmailMessage": "Se esiste un account con quell'email, ti abbiamo inviato un link per reimpostare la password.",
-    "genericError": "Something went wrong. Please try again.",
+    "genericError": "Qualcosa è andato storto. Si prega di riprovare.",
     "rememberPassword": "Ricordi la password?",
-    "signInInstead": "Sign in"
+    "signInInstead": "Accedi"
   },
   "setPassword": {
-    "invalidLink": "Invalid Link",
+    "invalidLink": "Link non valido",
     "invalidLinkMessage": "Questo link per la password non è valido o è scaduto.",
     "goToLogin": "Vai al login",
-    "successTitle": "Password Set",
+    "successTitle": "Password impostata",
     "successMessage": "La tua password è stata impostata con successo. Ora puoi accedere.",
-    "signIn": "Sign In",
+    "signIn": "Accedi",
     "title": "Imposta la tua password",
     "subtitle": "Scegli una password per attivare il tuo account.",
     "passwordLabel": "Password",
-    "confirmLabel": "Confirm Password",
+    "confirmLabel": "Conferma password",
     "passwordMinError": "La password deve contenere almeno 8 caratteri",
     "passwordsNoMatch": "Le password non corrispondono",
-    "setting": "Setting password...",
-    "setPassword": "Set Password",
+    "setting": "Impostazione password in corso...",
+    "setPassword": "Imposta password",
     "expiredError": "Impostazione della password non riuscita. Il link potrebbe essere scaduto."
   },
   "dashboard": {
     "settings": {
-      "title": "Settings",
-      "profile": "Profile",
+      "title": "Impostazioni",
+      "profile": "Profilo",
       "email": "Email",
-      "firstName": "First Name",
-      "lastName": "Last Name",
-      "phone": "Phone",
-      "saved": "Saved",
-      "saving": "Saving...",
-      "saveChanges": "Save Changes",
-      "changePassword": "Change Password",
-      "currentPassword": "Current Password",
-      "newPassword": "New Password",
-      "confirmPassword": "Confirm New Password",
+      "firstName": "Nome",
+      "lastName": "Cognome",
+      "phone": "Telefono",
+      "saved": "Salvato",
+      "saving": "Salvataggio in corso...",
+      "saveChanges": "Salva modifiche",
+      "changePassword": "Cambia password",
+      "currentPassword": "Password attuale",
+      "newPassword": "Nuova password",
+      "confirmPassword": "Conferma nuova password",
       "passwordsNoMatch": "Le password non corrispondono",
       "passwordMinLength": "La password deve contenere almeno 8 caratteri",
-      "updated": "Updated",
-      "updating": "Updating...",
+      "updated": "Aggiornato",
+      "updating": "Aggiornamento in corso...",
       "failedPassword": "Modifica della password non riuscita"
     },
     "contract": {
-      "title": "My Contract",
-      "noContracts": "No contracts yet.",
+      "title": "Il mio contratto",
+      "noContracts": "Nessun contratto ancora.",
       "noContractsHelp": "Completa il calcolatore solare e scegli di firmare un contratto per iniziare.",
-      "pending": "Pending Signature",
-      "signed": "Signed",
-      "failed": "Failed",
-      "expired": "Expired",
-      "type": "Type",
-      "created": "Created",
-      "validUntil": "Valid Until",
-      "signedDate": "Signed",
-      "notYet": "Not yet",
-      "downloadContract": "Download Contract",
-      "downloadSigned": "Download Signed Contract"
+      "pending": "In attesa di firma",
+      "signed": "Firmato",
+      "failed": "Fallito",
+      "expired": "Scaduto",
+      "type": "Tipo",
+      "created": "Creato",
+      "validUntil": "Valido fino a",
+      "signedDate": "Firmato",
+      "notYet": "Non ancora",
+      "downloadContract": "Scarica contratto",
+      "downloadSigned": "Scarica contratto firmato"
     },
     "project": {
-      "title": "My Project",
+      "title": "Il mio progetto",
       "noProjects": "Nessun progetto ancora. Inizia con il nostro calcolatore solare.",
-      "package": "Package",
+      "package": "Pacchetto",
       "status": "Status",
-      "systemSize": "kWp System Size",
-      "production": "kWh/year Production",
-      "annualSavings": "Annual Savings",
-      "co2Saved": "kg CO₂/year Saved",
-      "systemDetails": "System Details",
-      "estimatedPanels": "Estimated Panels",
-      "selfConsumption": "Self-Consumption Rate",
-      "annualConsumption": "Annual Consumption",
-      "contractStatus": "Contract Status",
-      "noContract": "No contract yet"
+      "systemSize": "kWp Dimensione impianto",
+      "production": "kWh/anno Produzione",
+      "annualSavings": "Risparmio annuo",
+      "co2Saved": "kg CO₂/anno risparmiati",
+      "systemDetails": "Dettagli del sistema",
+      "estimatedPanels": "Pannelli stimati",
+      "selfConsumption": "Tasso di autoconsumo",
+      "annualConsumption": "Consumo annuo",
+      "contractStatus": "Stato contratto",
+      "noContract": "Nessun contratto ancora"
     },
     "support": {
-      "title": "Help & Support",
+      "title": "Aiuto e supporto",
       "subtitle": "Ottieni aiuto con il tuo impianto solare, il contratto o l'account.",
-      "tabHelp": "Help Center",
-      "tabTickets": "My Tickets",
-      "callUs": "Call Us",
-      "callHours": "Mon–Fri, 8:00–17:00",
-      "emailUs": "Email Us",
-      "emailResponse": "Response within 24 hours",
-      "openTicket": "Support Ticket",
-      "openTicketDesc": "Get a detailed response",
-      "newTicket": "New Ticket",
-      "newTicketTitle": "Create Support Ticket",
-      "categoryLabel": "Category",
-      "category_general": "General Question",
-      "category_contract": "Contract & Billing",
-      "category_technical": "Technical Issue",
-      "category_billing": "Payment & Invoice",
-      "subject": "Subject",
+      "tabHelp": "Centro assistenza",
+      "tabTickets": "I miei ticket",
+      "callUs": "Chiamaci",
+      "callHours": "Lun-Ven, 8:00-17:00",
+      "emailUs": "Scrivici",
+      "emailResponse": "Risposta entro 24 ore",
+      "openTicket": "Ticket di supporto",
+      "openTicketDesc": "Ricevi una risposta dettagliata",
+      "newTicket": "Nuovo ticket",
+      "newTicketTitle": "Crea ticket di supporto",
+      "categoryLabel": "Categoria",
+      "category_general": "Domanda generale",
+      "category_contract": "Contratto e fatturazione",
+      "category_technical": "Problema tecnico",
+      "category_billing": "Pagamento e fattura",
+      "subject": "Oggetto",
       "subjectPlaceholder": "Descrivi brevemente il tuo problema",
-      "messageLabel": "Message",
+      "messageLabel": "Messaggio",
       "messagePlaceholder": "Descrivi in dettaglio la tua domanda o problema...",
-      "sending": "Sending...",
-      "submitTicket": "Submit Ticket",
-      "ticketSent": "Ticket Submitted",
+      "sending": "Invio in corso...",
+      "submitTicket": "Invia ticket",
+      "ticketSent": "Ticket inviato",
       "ticketSentDesc": "Ti risponderemo entro 1-2 giorni lavorativi.",
       "ticketCount": "{count, plural, =0 {Nessun ticket ancora} one {1 ticket} other {# ticket}}",
-      "noTickets": "No support tickets",
+      "noTickets": "Nessun ticket di supporto",
       "noTicketsDesc": "Non hai ancora inviato richieste di supporto.",
-      "statusOpen": "Open",
-      "faq": "Frequently Asked Questions",
+      "statusOpen": "Aperto",
+      "faq": "Domande frequenti",
       "faq1q": "Cos'è SolarFree?",
       "faq1a": "SolarFree è un modello in abbonamento in cui Free State AG installa e gestisce un impianto solare sul tuo tetto senza costi iniziali. Benefici di energia pulita e paghi una tariffa mensile basata sul consumo.",
       "faq2q": "Qual è la durata del contratto?",
@@ -6265,12 +6265,12 @@
   },
   "faqPage": {
     "hero": {
-      "title": "Frequently Asked\nQuestions"
+      "title": "Domande\nfrequenti"
     },
     "sections": {
       "gettingStarted": {
-        "eyebrow": "Getting Started",
-        "title": "Solar Basics",
+        "eyebrow": "Per iniziare",
+        "title": "Nozioni base sul solare",
         "description": "Tutto quello che devi sapere prima di passare al solare",
         "items": {
           "whySolar": {
@@ -6301,7 +6301,7 @@
       },
       "installation": {
         "eyebrow": "Installation",
-        "title": "Installation Process",
+        "title": "Processo di installazione",
         "description": "Cosa aspettarsi durante l'installazione del tuo impianto solare",
         "items": {
           "whatHappens": {
@@ -6331,7 +6331,7 @@
         }
       },
       "howItWorks": {
-        "eyebrow": "Technology",
+        "eyebrow": "Tecnologia",
         "title": "Come funziona il solare",
         "description": "Comprendere il tuo sistema di energia solare",
         "items": {
@@ -6362,8 +6362,8 @@
         }
       },
       "costsAndPayment": {
-        "eyebrow": "Financing",
-        "title": "Costs & Payment",
+        "eyebrow": "Finanziamento",
+        "title": "Costi e pagamenti",
         "description": "Comprendere le opzioni del tuo investimento solare",
         "items": {
           "leaseVsBuy": {
@@ -6393,8 +6393,8 @@
         }
       },
       "maintenance": {
-        "eyebrow": "Support",
-        "title": "Maintenance & Support",
+        "eyebrow": "Supporto",
+        "title": "Manutenzione e supporto",
         "description": "Mantieni il tuo impianto al massimo delle prestazioni",
         "items": {
           "care": {
@@ -6424,8 +6424,8 @@
         }
       },
       "battery": {
-        "eyebrow": "Energy Storage",
-        "title": "Battery Storage",
+        "eyebrow": "Accumulo energetico",
+        "title": "Accumulo a batteria",
         "description": "Batteria domestica di backup e indipendenza energetica",
         "items": {
           "whatBackup": {
@@ -6455,8 +6455,8 @@
         }
       },
       "environment": {
-        "eyebrow": "Sustainability",
-        "title": "Environmental Impact",
+        "eyebrow": "Sostenibilità",
+        "title": "Impatto ambientale",
         "description": "Come l'energia solare avvantaggia te e il pianeta",
         "items": {
           "impact": {
@@ -6481,7 +6481,7 @@
   },
   "team": {
     "hero": {
-      "title": "Company",
+      "title": "Azienda",
       "description": "La tua energia, la nostra responsabilità – sostenibile e senza pensieri",
       "cta": "Contattaci"
     },
@@ -6491,11 +6491,11 @@
       "subtitle": "In FreeState, competenza, fiducia, responsabilità e sicurezza umana sono al centro.",
       "ivan": {
         "name": "Ivan Miric",
-        "role": "CEO / Board Member"
+        "role": "CEO / Membro del Consiglio"
       },
       "peter": {
         "name": "Peter Aragai",
-        "role": "Executive Manager / Sales Director"
+        "role": "Direttore Esecutivo / Direttore Vendite"
       },
       "dragica": {
         "name": "Dragica Miric",
@@ -6515,23 +6515,23 @@
       }
     },
     "values": {
-      "title": "Our Values",
+      "title": "I nostri valori",
       "subtitle": "Sosteniamo soluzioni energetiche sostenibili, elevati standard qualitativi e una collaborazione trasparente.",
-      "cta": "Learn more",
+      "cta": "Scopri di più",
       "trust": {
-        "title": "Trust",
+        "title": "Fiducia",
         "description": "Trasparenza, affidabilità e partnership alla pari."
       },
       "responsibility": {
-        "title": "Responsibility",
+        "title": "Responsabilità",
         "description": "Decisioni sostenibili con responsabilità ecologica, sociale ed economica."
       },
       "dedication": {
-        "title": "Dedication",
+        "title": "Dedizione",
         "description": "Soluzioni individuali con impegno, cura e passione."
       },
       "pragmatism": {
-        "title": "Pragmatism",
+        "title": "Pragmatismo",
         "description": "Soluzioni pratiche ed efficienti con chiaro vantaggio per il cliente."
       }
     },
@@ -6561,7 +6561,7 @@
         "description": "Ivan Miric ha fondato Telemiiva GmbH come studio di ingegneria e progettazione. L'attenzione era sulla progettazione tecnica, progetti di infrastruttura, tecnologia edilizia ed efficienza energetica."
       },
       "firstProjects": {
-        "title": "First photovoltaic projects",
+        "title": "Primi progetti fotovoltaici",
         "description": "Con la crescita del settore solare, l'azienda ha iniziato a concentrarsi più intensamente sui progetti fotovoltaici. Gli impianti solari sono diventati sempre più economicamente attraenti."
       },
       "batteryStorage": {
@@ -6569,7 +6569,7 @@
         "description": "I moderni sistemi di accumulo al litio hanno aperto nuove possibilità per l'autoconsumo, l'accumulo di energia e un utilizzo più intelligente dell'energia solare."
       },
       "techProgress": {
-        "title": "Technological progress",
+        "title": "Progresso tecnologico",
         "description": "L'aumento dell'efficienza dei moduli, il calo dei costi, i sistemi energetici intelligenti e la digitalizzazione hanno reso il fotovoltaico la fonte di energia più economica per gli edifici."
       },
       "newEra": {
@@ -6590,7 +6590,7 @@
       "bottomText": "FreeState sta lavorando su sistemi energetici di nuova generazione – con fotovoltaico, accumulo a batteria, integrazione smart home, elettromobilità, gestione energetica basata sull'IA e piattaforme energetiche digitali.\nQueste tecnologie consentono una nuova forma di approvvigionamento energetico: locale, sostenibile e indipendente."
     },
     "vision": {
-      "eyebrow": "Our Vision",
+      "eyebrow": "La nostra visione",
       "title": "Milioni di tetti come centrali elettriche del futuro",
       "subtitle": "FreeState sta lavorando per creare un futuro energetico in cui milioni di edifici diventeranno piccole centrali elettriche.",
       "cardText": "I tetti di edifici residenziali, industriali, scuole, comuni e istituzioni pubbliche offrono un enorme potenziale per la produzione di energia pulita. Il nostro obiettivo è sfruttare questo potenziale e rendere l'energia solare accessibile al maggior numero di persone possibile."
@@ -6604,12 +6604,12 @@
     },
     "aboutFreeState": {
       "eyebrow": "Chi è FreeState",
-      "title": "Unused roofs become energy sources",
+      "title": "Tetti inutilizzati diventano fonti di energia",
       "subtitle": "FreeState rende l'energia solare più accessibile, sostenibile ed economicamente attraente per famiglie, aziende e istituzioni pubbliche."
     },
     "visionMission": {
       "vision": {
-        "eyebrow": "Our Vision",
+        "eyebrow": "La nostra visione",
         "title": "Rendere l'energia accessibile a tutti",
         "description": "Vogliamo rendere l'energia più accessibile, conveniente e sostenibile – per più persone, più edifici e un approvvigionamento a prova di futuro."
       },
@@ -6620,7 +6620,7 @@
       }
     },
     "founder": {
-      "eyebrow": "Founder & Background",
+      "eyebrow": "Fondatore e background",
       "title": "Perché è stata fondata FreeState",
       "description": "Free State AG è stata fondata da Ivan Miric. L'idea è nata da una semplice osservazione: i prezzi dell'energia stanno aumentando, mentre molte persone e aziende vorrebbero utilizzare l'energia solare, ma spesso non possono investire in un impianto proprio. Proprio così sono stati creati modelli che rendono l'accesso all'energia solare molto più facile."
     },
@@ -6637,29 +6637,29 @@
         "description": "Soluzioni energetiche individuali per edifici commerciali e pubblici.\n· Pianificazione e finanziamento da un'unica fonte\n· Funzionamento e manutenzione inclusi\n· Costi energetici pianificabili a lungo termine"
       },
       "roofRental": {
-        "title": "Roof rental",
+        "title": "Affitto del tetto",
         "description": "Utilizzare efficacemente grandi superfici di tetto per l'energia.\n· Per industria, logistica e agricoltura\n· Nessuna implementazione propria richiesta\n· Partecipazione alla produzione di energia"
       },
       "purchase": {
-        "title": "System purchase",
+        "title": "Acquisto del sistema",
         "description": "Acquisisci direttamente il tuo impianto fotovoltaico.\n· Piena proprietà dell'impianto\n· Interessanti vantaggi all'acquisto\n· Ottimo rapporto qualità-prezzo"
       }
     },
     "partners": {
-      "eyebrow": "Strong Partners",
+      "eyebrow": "Partner forti",
       "title": "Insieme a partner consolidati",
       "subtitle": "Per il trading energetico, l'infrastruttura e lo sviluppo di progetti, FreeState collabora con partner esperti – per progetti stabili e cooperazione a lungo termine."
     },
     "locations": {
       "eyebrow": "Le nostre sedi",
-      "title": "Regionally rooted, internationally active",
+      "title": "Radicati a livello regionale, attivi a livello internazionale",
       "subtitle": "Da Sciaffusa, Zurigo, Berna, Argovia e Liechtenstein, FreeState sviluppa e realizza progetti fotovoltaici in Svizzera e progetti energetici internazionali.",
-      "ctaContact": "Contact us",
-      "ctaCalculator": "Start solar calculator"
+      "ctaContact": "Contattaci",
+      "ctaCalculator": "Avvia calcolatore solare"
     }
   },
   "mediaPage": {
-    "title": "Media & Press",
+    "title": "Media e stampa",
     "subtitle": "Informazioni, materiali e contatti per i rappresentanti dei media",
     "about": {
       "eyebrow": "Chi è Free State AG",
@@ -6668,48 +6668,48 @@
       "stats": {
         "location": {
           "value": "Schaffhausen",
-          "label": "Headquarters"
+          "label": "Sede principale"
         },
         "focus": {
           "value": "Solar",
-          "label": "Core business"
+          "label": "Attività principale"
         }
       }
     },
     "pressContact": {
-      "title": "Press contact",
+      "title": "Contatto stampa",
       "description": "Per richieste dei media, interviste e ulteriori informazioni, il nostro team è felice di assisterti.",
       "email": "info@freestate.ch",
       "phone": "+41 52 525 33 05",
-      "address": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSwitzerland",
+      "address": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSvizzera",
       "responseTime": "Rispondiamo tipicamente alle richieste dei media entro 24 ore."
     },
     "topics": {
-      "title": "Topic areas",
+      "title": "Aree tematiche",
       "description": "La nostra competenza copre le seguenti aree — siamo disponibili per colloqui di approfondimento e contributi da esperti.",
       "items": {
         "solar": {
-          "title": "Photovoltaics & solar energy",
+          "title": "Fotovoltaico ed energia solare",
           "description": "Tecnologia, economia e tendenze nell'industria solare svizzera"
         },
         "energy": {
-          "title": "Energy transition & sustainability",
+          "title": "Transizione energetica e sostenibilità",
           "description": "Strategie per la transizione alle energie rinnovabili in Svizzera"
         },
         "innovation": {
-          "title": "Innovation & technology",
+          "title": "Innovazione e tecnologia",
           "description": "Nuove tecnologie nel settore solare e dell'accumulo"
         },
         "market": {
-          "title": "Swiss energy market",
+          "title": "Mercato energetico svizzero",
           "description": "Sviluppo del mercato, regolamentazione e investimenti nelle energie rinnovabili"
         }
       }
     },
     "brandAssets": {
-      "title": "Brand & imagery",
+      "title": "Brand e immagini",
       "description": "Per uso editoriale, siamo lieti di fornire loghi ad alta risoluzione, foto aziendali e materiali visivi. Contattaci direttamente.",
-      "cta": "Request materials"
+      "cta": "Richiedi materiali"
     }
   },
   "careersPage": {
@@ -6720,45 +6720,45 @@
       "description": "Al momento non stiamo assumendo, ma siamo sempre aperti a entrare in contatto con professionisti che desiderano contribuire al futuro delle energie rinnovabili."
     },
     "stayInformed": {
-      "title": "Stay informed",
+      "title": "Resta informato",
       "description": "Iscriviti per ricevere aggiornamenti su future posizioni e notizie aziendali.",
       "form": {
-        "firstName": "First name",
+        "firstName": "Nome",
         "firstNamePlaceholder": "Inserisci il tuo nome",
-        "lastName": "Last name",
+        "lastName": "Cognome",
         "lastNamePlaceholder": "Inserisci il tuo cognome",
         "email": "Email",
         "emailPlaceholder": "Inserisci la tua email",
         "role": "Il tuo profilo / ruolo",
-        "rolePlaceholder": "e.g. Solar engineer, Project manager, Student",
-        "comment": "Comment",
+        "rolePlaceholder": "es. Ingegnere solare, Project manager, Studente",
+        "comment": "Commento",
         "commentPlaceholder": "Dicci qualsiasi cosa vorresti farci sapere (opzionale)",
         "privacy": "FreeState rispetta la tua privacy e utilizza i tuoi dati solo per gestire il tuo account e fornire i servizi richiesti.",
         "consent": "Acconsento a ricevere altre comunicazioni da FreeState",
         "disclaimer": "Inviando, accetti il trattamento dei dati secondo la nostra Informativa sulla privacy e puoi disiscriverti in qualsiasi momento.",
-        "submit": "Subscribe",
+        "submit": "Iscriviti",
         "errors": {
           "firstNameRequired": "Inserisci il tuo nome",
           "lastNameRequired": "Inserisci il tuo cognome",
-          "emailInvalid": "Please enter a valid email address",
+          "emailInvalid": "Si prega di inserire un indirizzo email valido",
           "roleRequired": "Indicaci il tuo profilo o ruolo",
           "commentTooLong": "Il commento deve contenere al massimo 2000 caratteri",
           "consentRequired": "Accetta per continuare"
         }
       },
       "success": "Grazie — sei iscritto. Ti contatteremo quando si apriranno posizioni.",
-      "error": "Something went wrong. Please try again."
+      "error": "Qualcosa è andato storto. Si prega di riprovare."
     },
     "contactCta": {
-      "eyebrow": "Next step",
+      "eyebrow": "Prossimo passo",
       "title": "Interessato a entrare in FreeState? Contattaci.",
       "subtitle": "Se pensi che il tuo profilo sia in linea con la nostra missione, accettiamo volentieri la tua candidatura spontanea.",
-      "buttonText": "Contact us"
+      "buttonText": "Contattaci"
     }
   },
   "checkSolarPotentialCta": {
     "eyebrow": "SolarDirect",
     "title": "Verifica il potenziale solare\ndel tuo tetto",
-    "cta": "Start solar calculator"
+    "cta": "Avvia calcolatore solare"
   }
 }

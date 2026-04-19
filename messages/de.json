@@ -165,7 +165,7 @@
         {
           "icon": "/images/hero-pill-investition.svg",
           "title": "0 CHF INVESTITION",
-          "subtitle": "Sie zahlen nichts upfront"
+          "subtitle": "Sie zahlen nichts im Voraus"
         },
         {
           "icon": "/images/hero-pill-fixpreis.svg",
@@ -187,7 +187,7 @@
         {
           "icon": "/images/hero-pill-commercial-investition.svg",
           "title": "0 CHF INVESTITION",
-          "subtitle": "Sie zahlen nichts upfront"
+          "subtitle": "Sie zahlen nichts im Voraus"
         },
         {
           "icon": "/images/hero-pill-commercial-fixpreis.svg",
@@ -327,7 +327,7 @@
       "eyebrow": "Kundenstimmen",
       "title": "Das sagen unsere Kunden",
       "subtitle": "Echte Erfahrungen mit FreeState – transparent, persönlich und nachvollziehbar.",
-      "verifiedOwner": "verified owner",
+      "verifiedOwner": "Verifizierter Kunde",
       "stats": {
         "savings": "Jährliche Kostenersparnis",
         "installTime": "von Anfrage bis Installation",
@@ -420,7 +420,7 @@
       ],
       "items": [
         {
-          "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmäßigen Wartung. Dank dieser Maßnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
+          "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmässigen Wartung. Dank dieser Massnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
           "authorName": "Rivero Pineda Leonardo"
         },
         {
@@ -519,7 +519,7 @@
     },
     "deals": {
       "title": "Aktuelle Deals",
-      "subtitle": "Mit lebenslangem vorteil",
+      "subtitle": "Mit lebenslangem Vorteil",
       "learnMore": "Produktdetails",
       "from": "ab",
       "month": "/ Monat",
@@ -528,11 +528,11 @@
         {
           "title": "SolarFree Home Storage",
           "subtitle": "Einfamilienhaus mit Batteriespeicher",
-          "feature1": "PV Anlage + 10 kWh Batterie (LFP-Technologie)",
+          "feature1": "PV-Anlage + 10 kWh Batterie (LFP-Technologie)",
           "feature2": "80 % Eigenverbrauch, volle Unabhängigkeit",
           "feature3": "App-basierte Steuerung und Energieanalyse",
           "feature4": "Dachnutzungs- und Rückkaufvertrag inklusive",
-          "term": "Laufzeit 35 Jahre – Anlage geht danach in dein Eigentum über",
+          "term": "Laufzeit 35 Jahre – Anlage geht danach in Ihr Eigentum über",
           "price": "Einmalig CHF 2 500",
           "benefit1": "EINMALIG CHF 2 500 – statt CHF 35 000 Investition",
           "benefit2": "Strompreis bis 40 % unter EVU-Tarif",
@@ -562,7 +562,7 @@
         {
           "title": "SolarFree Agro",
           "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
-          "feature1": "PV Anlage bis 500 kWp für Hallen und Ställe",
+          "feature1": "PV-Anlage bis 500 kWp für Hallen und Ställe",
           "feature2": "Stromkostenreduktion bis 40 %",
           "feature3": "Optional mit Speicher und Wärmepumpen-Anbindung",
           "feature4": "Dachnutzungsvertrag mit Service-Garantie",
@@ -573,7 +573,7 @@
           "benefit3": "Service-Garantie inklusive",
           "explanation": {
             "label": "Einfach erklärt:",
-            "text": "Maßgeschneiderte Solarlösung für landwirtschaftliche Betriebe: Optimieren Sie Ihre Energiekosten bei voller operativer Flexibilität."
+            "text": "Massgeschneiderte Solarlösung für landwirtschaftliche Betriebe: Optimieren Sie Ihre Energiekosten bei voller operativer Flexibilität."
           }
         },
         {
@@ -627,7 +627,7 @@
         "title": "Industriegebäude Chur",
         "details": "Eigenverbrauch: 75 % • 180 kWp"
       },
-      "learnMore": "Mehr Erfahren"
+      "learnMore": "Mehr erfahren"
     },
     "forBusinesses": {
       "badge": {
@@ -649,7 +649,7 @@
     },
     "yourPartner": {
       "title": "Ihr Partner",
-      "subtitle": "Smart solar solutions for businesses.",
+      "subtitle": "Intelligente Solarlösungen für Unternehmen.",
       "cta": "Jetzt starten",
       "learnMore": "Mehr erfahren",
       "items": {
@@ -662,7 +662,7 @@
           "description": "Bis zu 30–40 % Einsparung – langfristig und planbar."
         },
         "item3": {
-          "title": "CO₂-Fußabdruck senken",
+          "title": "CO₂-Fussabdruck senken",
           "description": "Bis zu 12 t CO₂ pro Jahr – für Ihr Unternehmen."
         }
       }
@@ -1249,7 +1249,7 @@
       "label": "Konkrete Beschreibung der Anfrage"
     },
     "privacy": "Infos zu Produkten und Datenschutz in unseren Datenschutzbestimmungen.",
-    "submit": "Submit",
+    "submit": "Senden",
     "successTitle": "Nachricht gesendet",
     "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
     "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
@@ -1274,7 +1274,7 @@
       "title": "Strategie",
       "description": "Die Free State AG ist ein etablierter Produzent von Grünstrom in der Schweiz und betreibt moderne Solarkraftwerke. Mittelfristig strebt das Unternehmen an, ein vielfältiges und ausgewogenes Portfolio an erneuerbaren Energien mit einer installierten Gesamtleistung von 59 Megawatt * aufzubauen. Ziel ist es, sich als einer der führenden Betreiber von erneuerbaren Energien in der Schweiz zu positionieren.",
       "diversification": "Ein zentrales Element der Investitionsstrategie ist die Diversifikation. Sie minimiert Risiken in den Bereichen Marktbedingungen, gesetzliche Rahmenbedingungen und Verfügbarkeit der Erzeugungsarten.",
-      "future": "In Zukunft soll die Stromproduktion aus Solarenergie etwa 20–30 Prozent des Unternehmensumsatzes ausmachen. Free State AG investiert ausschließlich in Anlagen mit ausgereifter Technologie, die entweder bereits in Betrieb sind oder bei Baubeginn über eine vollständige Genehmigung verfügen. Der Verkauf von Kraftwerken ist nicht Teil des Geschäftsmodells.",
+      "future": "In Zukunft soll die Stromproduktion aus Solarenergie etwa 20–30 Prozent des Unternehmensumsatzes ausmachen. Free State AG investiert ausschliesslich in Anlagen mit ausgereifter Technologie, die entweder bereits in Betrieb sind oder bei Baubeginn über eine vollständige Genehmigung verfügen. Der Verkauf von Kraftwerken ist nicht Teil des Geschäftsmodells.",
       "synergies": "Zusätzlich zu weiteren Akquisitionen maximiert Free State die Synergien im Anlagenbetrieb, um die betriebliche Effizienz kontinuierlich zu steigern. Der Ausbau eines diversifizierten Portfolios soll nachhaltig die Umsatz- und Gewinnentwicklung fördern."
     },
     "projects": {
@@ -1356,7 +1356,7 @@
     },
     "partner": {
       "eyebrow": "FreeState App",
-      "title": "Partnerschaften Einfach Verwalten, Chancen Nutzen",
+      "title": "Partnerschaften einfach verwalten, Chancen nutzen",
       "bullets": {
         "projects": "Projekte und Partnerstatus im Blick behalten",
         "updates": "Relevante Updates und Chancen früh erkennen",
@@ -1401,7 +1401,7 @@
       "items": {
         "invest": {
           "question": "Kann ich in die Free State Energie AG investieren?",
-          "answer": "Wenn Sie eine Person mit Wohnsitz in der Schweiz sind und sich als qualifizierter Anleger qualifizieren, indem Sie Gelder oder Kenntnisse investieren, dann ja. Jede Person mit Wohnsitz in der Schweiz, die über ein Schweizer Bankkonto verfügt und Erfahrung in der Anlagewelt hat, kann Aktien zu den offiziell festgelegten Bedingungen der Kapitalerhöhung, zeichnen."
+          "answer": "Wenn Sie eine Person mit Wohnsitz in der Schweiz sind und sich als qualifizierter Anleger qualifizieren, indem Sie Gelder oder Kenntnisse investieren, dann ja. Jede Person mit Wohnsitz in der Schweiz, die über ein Schweizer Bankkonto verfügt und Erfahrung in der Anlagewelt hat, kann Aktien zu den offiziell festgelegten Bedingungen der Kapitalerhöhung zeichnen."
         },
         "deposit": {
           "question": "Wo werden meine Aktien der Free State AG deponiert?",
@@ -1445,7 +1445,7 @@
     "step2": {
       "title": "Zeichnen Sie Ihre Dachfläche",
       "instructions": {
-        "main": "Klicken Sie auf die Karte, um den Bereich zu umreißen, in dem Sie Solarpanels installieren möchten.",
+        "main": "Klicken Sie auf die Karte, um den Bereich zu umreissen, in dem Sie Solarpanels installieren möchten.",
         "list": [
           "Zeichnen Sie die Umrisse Ihres Daches von oben gesehen",
           "Klicken Sie, um Punkte hinzuzufügen, Kantenabstände werden automatisch angezeigt",
@@ -1456,7 +1456,7 @@
       },
       "buttons": {
         "startDrawing": "Zeichnen beginnen",
-        "completePolygon": "Polygon abschließen",
+        "completePolygon": "Polygon abschliessen",
         "undoLastPoint": "Letzten Punkt rückgängig",
         "clearAll": "Alles löschen",
         "saveArea": "Bereich speichern",
@@ -1467,7 +1467,7 @@
       "keyboardShortcuts": {
         "title": "💡 Tastenkürzel:",
         "backspace": "Letzten Punkt rückgängig",
-        "enter": "Polygon abschließen",
+        "enter": "Polygon abschliessen",
         "esc": "Zeichnen abbrechen"
       },
       "autoComplete": "✓ Klicken Sie in der Nähe des ersten Punktes, um automatisch zu vervollständigen",
@@ -1571,7 +1571,7 @@
       }
     },
     "step4": {
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panels": "Panels",
       "estCost": "Geschätzte Kosten",
       "tabs": {
@@ -1591,8 +1591,8 @@
       "panelCost": "Panel-Kosten",
       "coverageLabel": "Abdeckung",
       "panelArea": "Panel-Fläche",
-      "recommendedInverter": "Empfohlene Wechselrichtergröße:",
-      "dcAcRatio": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme. Mehrere Wechselrichter sind bei größeren Systemen üblich.",
+      "recommendedInverter": "Empfohlene Wechselrichtergrösse:",
+      "dcAcRatio": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme. Mehrere Wechselrichter sind bei grösseren Systemen üblich.",
       "bestFit": "Beste Passung",
       "dcAcRatioLabel": "DC/AC-Verhältnis",
       "inverterCost": "Wechselrichter-Kosten",
@@ -1610,7 +1610,7 @@
       },
       "title": "Ihr Solarpotenzial",
       "editSystem": "System bearbeiten",
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panels": "Panels",
       "annualProduction": "Jahresproduktion",
       "kwhPerYear": "kWh/Jahr",
@@ -1661,7 +1661,7 @@
         "hide": "Erweiterte Einstellungen ausblenden",
         "annualConsumption": "Jährlicher Stromverbrauch",
         "kwhPerYear": "kWh/Jahr",
-        "includeVat": "MWST einschließen",
+        "includeVat": "MWST einschliessen",
         "addVat": "Hinzufügen",
         "vatToInvestment": "% MWST zur Investition"
       },
@@ -2029,7 +2029,7 @@
       "cancelDrawing": "Zeichnen abbrechen",
       "addRestrictedArea": "Eingeschränkten Bereich hinzufügen",
       "drawingMode": "Zeichnungsmodus aktiv",
-      "drawingInstructions": "Klicken Sie auf die Karte, um ein Polygon zu zeichnen. Doppelklicken Sie, um abzuschließen.",
+      "drawingInstructions": "Klicken Sie auf die Karte, um ein Polygon zu zeichnen. Doppelklicken Sie, um abzuschliessen.",
       "area": "Bereich",
       "clearAll": "Alle löschen",
       "noRestrictedAreas": "Keine eingeschränkten Bereiche",
@@ -2048,7 +2048,7 @@
     "step3System": {
       "noSegments": "Keine Segmente ausgewählt",
       "backToSelection": "Zurück zur Auswahl",
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panels": "Panels",
       "estCost": "Geschätzte Kosten",
       "tabPanels": "Panels",
@@ -2065,7 +2065,7 @@
       "panelCost": "Panel-Kosten",
       "panelArea": "Panel-Fläche",
       "roofSegments": "Dachsegmente",
-      "recommendedInverter": "Empfohlene Wechselrichtergröße:",
+      "recommendedInverter": "Empfohlene Wechselrichtergrösse:",
       "dcAcRatioInfo": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme.",
       "bestFit": "Beste Passung",
       "dcAcRatio": "DC/AC-Verhältnis",
@@ -2166,7 +2166,7 @@
           "title": "Amortisationszeit",
           "years": "Jahre",
           "year": "Jahr",
-          "cumulative": "Kumulative Cashflow",
+          "cumulative": "Kumulativer Cashflow",
           "payback": "Amortisation"
         },
         "monthlyChart": {
@@ -2193,7 +2193,7 @@
       "restrictedAreas": "Eingeschränkte Bereiche",
       "averageTilt": "Durchschnittliche Neigung",
       "dominantOrientation": "Dominante Ausrichtung",
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panelType": "Panel",
       "inverter": "Wechselrichter",
       "financialEstimate": "Finanzielle Schätzung",
@@ -3550,8 +3550,8 @@
       "title": "Was kostet eine Solaranlage?",
       "description": "Die Preise für Solaranlagen sind in den letzten Jahren deutlich gesunken. Derzeit sind die Bedingungen äusserst günstig, um mit Solaranlagen eine hohe Rentabilität zu erzielen.\n\nSelbst erzeugter Solarstrom ist deutlich günstiger als Strom aus dem Netz:",
       "items": {
-        "gridElectricity": "Strom aus dem Kraftwerk kostet  23 Rappen.",
-        "solarPower": "Der Solarstrom, inklusive Betriebskosten, kostet  12 Rappen."
+        "gridElectricity": "Strom aus dem Kraftwerk kostet 23 Rappen.",
+        "solarPower": "Der Solarstrom, inklusive Betriebskosten, kostet 12 Rappen."
       },
       "infoCard": "Je mehr Sie Ihren selbst produzierten Strom nutzen, desto rentabler wird Ihre Solaranlage – und desto günstiger wird Ihre Stromrechnung."
     }
@@ -3618,7 +3618,7 @@
       "advantagesTitle": "Vorteile einer integrierten Ladestation",
       "advantages": {
         "freeRefueling": "Kostenloses Tanken mit Solarstrom",
-        "co2Neutral": "CO₂-neutrales Fahren und sicher",
+        "co2Neutral": "CO₂-neutrales und sicheres Fahren",
         "convenientCharging": "Bequemes Laden zu Hause"
       }
     },
@@ -3662,7 +3662,7 @@
       "title": "Das sagen unsere\nKunden",
       "quote": "Projektplanung und Ausführung verliefen reibungslos und professionell. Das Team war freundlich, kompetent, während des gesamten Prozesses transparent und hat alle Anliegen effizient bearbeitet.",
       "authorName": "Franz McLaren",
-      "verifiedOwner": "Verifizierter Besitzer"
+      "verifiedOwner": "Verifizierter Kunde"
     }
   },
   "solarCalculator": {
@@ -3873,7 +3873,7 @@
     "installation": {
       "eyebrow": "Speicher",
       "title": "Installation des Batteriespeichers",
-      "description": "Basierend auf Ihrer spezifischen Situation und Ihren Bedürfnissen empfehlen unsere Experten entweder das AC- oder DC-System. Die Installation wird von unseren erfahrenen Spezialisten durchgeführt, die alle vom Hersteller zertifiziert sind. Helion registriert jede installierte Batterie automatisch bei Inobat und gewährleistet so die fachgerechte Entsorgung Ihres alternden Energiespeichers"
+      "description": "Basierend auf Ihrer spezifischen Situation und Ihren Bedürfnissen empfehlen unsere Experten entweder das AC- oder DC-System. Die Installation wird von unseren erfahrenen Spezialisten durchgeführt, die alle vom Hersteller zertifiziert sind. Helion registriert jede installierte Batterie automatisch bei Inobat und gewährleistet so die fachgerechte Entsorgung Ihres alternden Energiespeichers."
     },
     "solutions": {
       "eyebrow": "PV-Anlage",
@@ -4542,7 +4542,7 @@
     },
     "selfConsumptionControl": {
       "title": "Eigenverbrauch mit Steuerung erhöhen",
-      "description": "Unser Smart Energy Steuerungssystem schaltet energieintensive Geräte ein, wenn Solarstrom verfügbar ist. Dies erhöht den Eigenverbrauch und reduziert so den Bedarf an externem Kohle- und/oder Atomstrom.",
+      "description": "Unser Smart-Energy-Steuerungssystem schaltet energieintensive Geräte ein, wenn Solarstrom verfügbar ist. Dies erhöht den Eigenverbrauch und reduziert so den Bedarf an externem Kohle- und/oder Atomstrom.",
       "tip": "Speicherlösungen oder Steuerungssysteme können Ihren Eigenverbrauch auf bis zu 80% erhöhen."
     },
     "installation": {
@@ -4639,7 +4639,7 @@
         "strategicPlanning": "Strategische Planung",
         "feasibilityStudy": "Machbarkeitsstudie",
         "designEngineering": "Design & Engineering",
-        "tenderPreparation": "Ausschreibungs-vorbereitung",
+        "tenderPreparation": "Ausschreibungsvorbereitung",
         "siteConstruction": "Bau vor Ort",
         "operationMaintenance": "Betrieb & Wartung"
       }
@@ -4769,8 +4769,8 @@
   },
   "chargingStationsSingleFamilyHome": {
     "hero": {
-      "title": "Single - Family House",
-      "description": "Solar modules for efficient, long-term energy production"
+      "title": "Einfamilienhaus",
+      "description": "Solarmodule für effiziente, langfristige Energieerzeugung"
     },
     "intro": {
       "eyebrow": "Einfamilienhäuser",
@@ -4884,7 +4884,7 @@
       "footnote": "Je nach Situation ergibt sich ein jährlicher finanzieller Vorteil von bis zu CHF 520 mit Solaranlage oder bis zu CHF 300 ohne Solaranlage. Details zum finanziellen Vorteil folgen:"
     },
     "marketingFlexibility": {
-      "title": "Marketing Flexibilität",
+      "title": "Marketing-Flexibilität",
       "description": "Ihre EV-Batterie kann dem virtuellen Kraftwerk von Helion beitreten, das Netz unterstützen und einen FLEXBONUS durch Bereitschafts- und Spitzentarifzahlungen verdienen.",
       "additionalIncome": "Zusätzliches Einkommen über FLEXBONUS:",
       "cards": {
@@ -5658,11 +5658,11 @@
       "groupCrm": "CRM",
       "groupSubmissions": "Anfragen",
       "groupEquipment": "Ausrüstung",
-      "groupResidential": "Residential",
-      "groupCommercial": "Commercial",
+      "groupResidential": "Wohnen",
+      "groupCommercial": "Gewerbe",
       "groupOperations": "Operationen",
       "residentialContracts": "Verträge",
-      "residentialLeads": "Residential Leads",
+      "residentialLeads": "Wohn-Leads",
       "commercialLeads": "Gewerbliche Anfragen"
     },
     "dashboard": {
@@ -6707,7 +6707,7 @@
       },
       "roofRental": {
         "title": "Dachvermietung",
-        "description": "Große Dachflächen sinnvoll für Energie nutzen.\n· Für Industrie, Logistik und Landwirtschaft\n· Keine eigene Umsetzung nötig\n· Beteiligung an der Energieproduktion"
+        "description": "Grosse Dachflächen sinnvoll für Energie nutzen.\n· Für Industrie, Logistik und Landwirtschaft\n· Keine eigene Umsetzung nötig\n· Beteiligung an der Energieproduktion"
       },
       "purchase": {
         "title": "Anlagenkauf",
