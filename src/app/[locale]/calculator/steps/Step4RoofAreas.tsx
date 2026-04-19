@@ -20,7 +20,7 @@ import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { sonnendachService } from '@/services/sonnendach.service'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
-import type { RoofSegment, SonnendachBuilding } from '@/types/sonnendach'
+import type { RoofSegment } from '@/types/sonnendach'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
 
 import 'ol/ol.css'
@@ -145,59 +145,6 @@ export default function Step4RoofAreas() {
     if (building) redrawAllSegments()
   }, [selectedSegmentIds, building, redrawAllSegments])
 
-  const fitToBuilding = useCallback(
-    (b: SonnendachBuilding | null, map: Map | null) => {
-      if (!b || !map) return
-      let minX = Infinity
-      let minY = Infinity
-      let maxX = -Infinity
-      let maxY = -Infinity
-      let found = false
-      for (const segment of b.roofSegments) {
-        let wgs84 = segment.geometry.coordinatesWGS84
-        if (!wgs84 || wgs84.length === 0) {
-          const lv95 = segment.geometry.coordinates
-          if (!lv95 || lv95.length === 0) continue
-          wgs84 = lv95.map(ring =>
-            ring.map(point => lv95ToWgs84(point[0], point[1]))
-          )
-        }
-        for (const ring of wgs84) {
-          for (const coord of ring) {
-            const [x, y] = fromLonLat(coord)
-            if (x < minX) minX = x
-            if (y < minY) minY = y
-            if (x > maxX) maxX = x
-            if (y > maxY) maxY = y
-            found = true
-          }
-        }
-      }
-      const view = map.getView()
-      if (!found) {
-        view.animate({
-          center: fromLonLat([b.center.lng, b.center.lat]),
-          zoom: 20,
-          duration: 500,
-        })
-        return
-      }
-      // Leave room on the left for the desktop info sidebar (~320px + gutter)
-      // and room at the bottom for the mobile info panel / action bar.
-      const isDesktop =
-        typeof window !== 'undefined' && window.innerWidth >= 640
-      const padding = isDesktop
-        ? [100, 80, 120, 360]
-        : [60, 40, 160, 40]
-      view.fit([minX, minY, maxX, maxY], {
-        padding,
-        maxZoom: 21,
-        duration: 500,
-      })
-    },
-    []
-  )
-
   useEffect(() => {
     const layer = sonnendachLayerRef.current
     if (!layer) return
@@ -230,7 +177,15 @@ export default function Step4RoofAreas() {
               toggleSegment(segment.id)
             }
           })
-          fitToBuilding(buildingData, mapInstanceRef.current)
+          if (mapInstanceRef.current) {
+            const center = fromLonLat([
+              buildingData.center.lng,
+              buildingData.center.lat,
+            ])
+            mapInstanceRef.current
+              .getView()
+              .animate({ center, zoom: 19, duration: 500 })
+          }
         }
       } catch (error) {
         console.error('No building data at this location:', error)
@@ -239,7 +194,7 @@ export default function Step4RoofAreas() {
         isFetchingRef.current = false
       }
     },
-    [toggleSegment, setBuilding, setIsFetchingBuilding, fitToBuilding]
+    [toggleSegment, setBuilding, setIsFetchingBuilding]
   )
 
   const handleMapClick = useCallback(
@@ -356,8 +311,12 @@ export default function Step4RoofAreas() {
     setIsLoadingMap(false)
 
     if (buildingRef.current) {
+      const center = fromLonLat([
+        buildingRef.current.center.lng,
+        buildingRef.current.center.lat,
+      ])
+      map.getView().animate({ center, zoom: 19, duration: 500 })
       redrawAllSegments()
-      fitToBuilding(buildingRef.current, map)
     } else if (focusedLat && focusedLng) {
       fetchBuildingAt(focusedLat, focusedLng)
     }
@@ -367,14 +326,7 @@ export default function Step4RoofAreas() {
       mapInitializedRef.current = false
       sonnendachLayerRef.current = null
     }
-  }, [
-    hasBuilding,
-    focusedLat,
-    focusedLng,
-    redrawAllSegments,
-    fetchBuildingAt,
-    fitToBuilding,
-  ])
+  }, [hasBuilding, focusedLat, focusedLng, redrawAllSegments, fetchBuildingAt])
 
   const placesLoadedRef = useRef(false)
   const autocompleteLibRef = useRef<

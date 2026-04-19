@@ -3717,6 +3717,11 @@
           "label": "Ce qui est inclus",
           "footnote": "Couvert pendant toute la durée du contrat."
         },
+        "packageSelector": {
+          "label": "Choisissez votre forfait",
+          "recommended": "Recommandé",
+          "capacityRange": "{min}–{max} kWp"
+        },
         "energyFlow": {
           "label": "Comment votre énergie circule"
         },

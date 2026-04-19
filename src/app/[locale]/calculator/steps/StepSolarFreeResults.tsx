@@ -6,6 +6,7 @@ import { Loader2, CheckCircle2, Download } from 'lucide-react'
 import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { reportService } from '@/services/report.service'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
@@ -24,6 +25,27 @@ function getPanelSpecs(pkg: CalculatorPackage) {
     panelWattageW: panel?.panelWattageW ?? null,
     panelAreaM2: panel?.panelAreaM2 ?? null,
   }
+}
+
+function pickRecommendedPackage(
+  packages: CalculatorPackage[],
+  systemSizeKwp: number
+): CalculatorPackage | null {
+  if (packages.length === 0) return null
+  const inRange = packages.find(p => {
+    const min = p.minCapacityKwp ?? -Infinity
+    const max = p.maxCapacityKwp ?? Infinity
+    return systemSizeKwp >= min && systemSizeKwp <= max
+  })
+  if (inRange) return inRange
+  const withDistance = packages.map(p => {
+    const min = p.minCapacityKwp ?? 0
+    const max = p.maxCapacityKwp ?? min
+    const mid = (min + max) / 2
+    return { pkg: p, distance: Math.abs(systemSizeKwp - mid) }
+  })
+  withDistance.sort((a, b) => a.distance - b.distance)
+  return withDistance[0].pkg
 }
 
 function applyPackageToStore(
@@ -86,9 +108,8 @@ export default function StepResults() {
         const hasValidSelection =
           store.selectedPackageId && data.some(p => p.id === store.selectedPackageId)
         if (data.length > 0 && !hasValidSelection) {
-          const recommendedCode = store.getRecommendedPackage()
           const recommended =
-            data.find(p => p.code.toLowerCase() === recommendedCode) || data[0]
+            pickRecommendedPackage(data, store.getSystemSizeKwp()) || data[0]
           applyPackageToStore(store.setSelectedPackage, recommended)
         }
       })
@@ -99,6 +120,10 @@ export default function StepResults() {
 
   const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
   const equipmentWithNames = selectedPkg?.equipment.filter(e => e.name) || []
+  const recommendedPkg = pickRecommendedPackage(packages, systemSizeKwp)
+  const tPackageSelector = useTranslations(
+    'solarAboCalculator.results.solarFree.packageSelector'
+  )
 
   const handleDownloadReport = async () => {
     setDownloading(true)
@@ -266,6 +291,54 @@ export default function StepResults() {
           </div>
         </div>
       </div>
+
+      {!packagesLoading && packages.length > 1 && (
+        <div className="mt-8">
+          <p className="text-base font-medium text-[#062E25]/40 uppercase tracking-wider mb-3">
+            {tPackageSelector('label')}
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {packages.map(pkg => {
+              const isSelected = pkg.id === store.selectedPackageId
+              const isRecommended = pkg.id === recommendedPkg?.id
+              const min = pkg.minCapacityKwp
+              const max = pkg.maxCapacityKwp
+              return (
+                <button
+                  key={pkg.id}
+                  type="button"
+                  onClick={() => applyPackageToStore(store.setSelectedPackage, pkg)}
+                  className={cn(
+                    'text-left rounded-xl border p-4 transition-colors relative',
+                    isSelected
+                      ? 'border-[#062E25] bg-white'
+                      : 'border-[#062E25]/10 bg-white/60 hover:bg-white'
+                  )}
+                >
+                  {isRecommended && (
+                    <span className="absolute top-2 right-2 text-xs font-medium px-2 py-0.5 rounded-full bg-[#B7FE1A] text-[#062E25]">
+                      {tPackageSelector('recommended')}
+                    </span>
+                  )}
+                  <div className="text-xl font-semibold text-[#062E25]">
+                    {pkg.name}
+                  </div>
+                  {min != null && max != null && (
+                    <div className="mt-1 text-base text-[#062E25]/60 tabular-nums">
+                      {tPackageSelector('capacityRange', { min, max })}
+                    </div>
+                  )}
+                  {pkg.description && (
+                    <div className="mt-2 text-base text-[#062E25]/70">
+                      {pkg.description}
+                    </div>
+                  )}
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       {!packagesLoading && equipmentWithNames.length > 0 && (
         <div className="mt-8">

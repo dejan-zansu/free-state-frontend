@@ -158,8 +158,8 @@ const MobileNavLinks = ({
           href: '/battery-storage' as const,
         },
         {
-          label: tFooter('products.energyManagement'),
-          href: '/energy-management' as const,
+          label: tFooter('products.energyStorage'),
+          href: '/energy-storage' as const,
         },
       ]
 

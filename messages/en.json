@@ -3717,6 +3717,11 @@
           "label": "What's included",
           "footnote": "Covered for the entire contract term."
         },
+        "packageSelector": {
+          "label": "Choose your package",
+          "recommended": "Recommended",
+          "capacityRange": "{min}–{max} kWp"
+        },
         "energyFlow": {
           "label": "How your energy flows"
         },

@@ -608,8 +608,8 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getRecommendedPackage: (): SolarAboPackage => {
-        if (get().buildingType !== 'single_family') return 'multi'
-        if (get().getSystemSizeKwp() > 15) return 'multi'
+        const code = get().selectedPackageCode
+        if (code === 'multi') return 'multi'
         return 'home'
       },
 

@@ -493,12 +493,12 @@ export const routing = defineRouting({
       fr: '/repowering',
       it: '/repowering',
     },
-    '/energy-management': {
-      en: '/energy-management',
-      de: '/energiemanagement',
-      fr: '/gestion-energie',
-      it: '/gestione-energia',
-    },
+    // '/energy-management': {
+    //   en: '/energy-management',
+    //   de: '/energiemanagement',
+    //   fr: '/gestion-energie',
+    //   it: '/gestione-energia',
+    // },
     '/history': {
       en: '/history',
       de: '/geschichte',

@@ -5396,6 +5396,11 @@
           "label": "Was ist enthalten",
           "footnote": "Für die gesamte Vertragslaufzeit abgedeckt."
         },
+        "packageSelector": {
+          "label": "Wählen Sie Ihr Paket",
+          "recommended": "Empfohlen",
+          "capacityRange": "{min}–{max} kWp"
+        },
         "energyFlow": {
           "label": "So fliesst Ihre Energie"
         },
