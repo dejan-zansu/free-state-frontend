@@ -8,6 +8,7 @@ import type {
   AdminInvestorRequest,
   AdminLead,
   AdminNewsletterSubscription,
+  AdminQuoteRequest,
   AdminUser,
   AdminUserDetail,
   DashboardStats,
@@ -109,6 +110,21 @@ class AdminService {
 
   async updateInvestorRequest(id: string, data: Partial<{ status: string; adminNotes: string | null }>): Promise<AdminInvestorRequest> {
     const response = await api.patch<{ success: boolean; data: AdminInvestorRequest }>(`/admin/investor-requests/${id}`, data)
+    return response.data.data
+  }
+
+  async listQuoteRequests(query: ListQuery = {}): Promise<PaginatedResponse<AdminQuoteRequest>> {
+    const response = await api.get<PaginatedResponse<AdminQuoteRequest>>('/admin/quote-requests', { params: query })
+    return response.data
+  }
+
+  async getQuoteRequestById(id: string): Promise<AdminQuoteRequest> {
+    const response = await api.get<{ success: boolean; data: AdminQuoteRequest }>(`/admin/quote-requests/${id}`)
+    return response.data.data
+  }
+
+  async updateQuoteRequest(id: string, data: Partial<{ status: string; adminNotes: string | null }>): Promise<AdminQuoteRequest> {
+    const response = await api.patch<{ success: boolean; data: AdminQuoteRequest }>(`/admin/quote-requests/${id}`, data)
     return response.data.data
   }
 

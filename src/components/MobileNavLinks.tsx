@@ -28,25 +28,25 @@ const MobileNavLinks = ({
     ? [
         {
           label: t('hero.nav.solarAboBusiness'),
-          href: '/commercial/solar-free/solar-free-business' as const,
+          href: '/commercial/solar-free/industry-commercial' as const,
         },
         {
           label: t('hero.nav.solarAboAgro'),
-          href: '/commercial/solar-free/solar-free-agro' as const,
+          href: '/commercial/solar-free/farmhouses' as const,
         },
         {
           label: t('hero.nav.solarAboPublic'),
-          href: '/commercial/solar-free/solar-free-public' as const,
+          href: '/commercial/solar-free/public-buildings' as const,
         },
       ]
     : [
         {
-          label: t('hero.nav.solarAboHome'),
-          href: '/solar-free/solar-free-home' as const,
+          label: t('hero.nav.solarFree'),
+          href: '/solar-free' as const,
         },
         {
-          label: t('hero.nav.solarAboMulti'),
-          href: '/solar-free/solar-free-multi' as const,
+          label: t('hero.nav.solarDirect'),
+          href: '/solar-direct' as const,
         },
       ]
 
@@ -140,27 +140,45 @@ const MobileNavLinks = ({
               href: '/heat-pumps/cost' as const,
             },
             {
-              label: t('hero.nav.service'),
-              href: '/heat-pumps/service' as const,
+              label: t('hero.nav.heatPumpProducts'),
+              href: '/heat-pumps/products' as const,
             },
             {
               label: t('hero.nav.withSolarSystem'),
               href: '/heat-pumps/heat-pumps-with-solar-system' as const,
+            },
+            {
+              label: t('hero.nav.service'),
+              href: '/heat-pumps/service' as const,
             },
           ],
         },
         {
           label: tFooter('products.chargingStations'),
           href: '/charging-stations' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.singleFamilyHome'),
+              href: '/charging-stations/single-family-home' as const,
+            },
+            {
+              label: t('hero.nav.apartmentBuilding'),
+              href: '/charging-stations/apartment-building' as const,
+            },
+            {
+              label: t('hero.nav.bidirectionalCharging'),
+              href: '/charging-stations/bidirectional-charging-station' as const,
+            },
+          ],
         },
-        {
-          label: tFooter('products.batteryStorage'),
-          href: '/battery-storage' as const,
-        },
-        {
-          label: tFooter('products.energyStorage'),
-          href: '/energy-storage' as const,
-        },
+        // {
+        //   label: tFooter('products.batteryStorage'),
+        //   href: '/battery-storage' as const,
+        // },
+        // {
+        //   label: tFooter('products.energyStorage'),
+        //   href: '/energy-storage' as const,
+        // },
       ]
 
   return (
@@ -170,7 +188,9 @@ const MobileNavLinks = ({
           onClick={() => toggle('solarAbo')}
           className="w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)] transition-all duration-200"
         >
-          {t('hero.nav.solarAbo')}
+          {isCommercial
+            ? t('hero.nav.solarAbo')
+            : t('hero.nav.plansPrices')}
           <ChevronDown
             className={cn(
               'w-4 h-4 transition-transform duration-300',

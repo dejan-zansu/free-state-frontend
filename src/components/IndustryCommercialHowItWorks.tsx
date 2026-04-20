@@ -7,8 +7,8 @@ import HandIcon from './icons/HandIcon'
 import LightBulbIcon from './icons/LihghtBulbIcon'
 import WalletIcon from './icons/WalletIcon'
 
-const SolarAboMultiHowItWorks = () => {
-  const t = useTranslations('solarAboMulti.howItWorks')
+const IndustryCommercialHowItWorks = () => {
+  const t = useTranslations('solarAboBusiness.howItWorks')
 
   const steps: HowItWorksStep[] = [
     {
@@ -46,8 +46,13 @@ const SolarAboMultiHowItWorks = () => {
   ]
 
   return (
-    <HowItWorks title={t('title')} subtitle={t('subtitle')} steps={steps} />
+    <HowItWorks
+      title={t('title')}
+      subtitle={t('subtitle')}
+      steps={steps}
+      isCommercial
+    />
   )
 }
 
-export default SolarAboMultiHowItWorks
+export default IndustryCommercialHowItWorks

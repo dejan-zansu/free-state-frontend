@@ -1,15 +1,16 @@
-import SolarAboPublicHowItWorks from '@/components/SolarAboPublicHowItWorks'
+import PublicBuildingsHowItWorks from '@/components/PublicBuildingsHowItWorks'
+import ContactPerson from '@/components/ContactPerson'
+import HowPV from '@/components/HowPV'
+import SolarAboMultiFamilyPublicSpaces from '@/components/SolarAboMultiFamilyPublicSpaces'
 import {
   SolarAboCTA,
   SolarAboHero,
   SolarAboIncludes,
-  SolarAboPricing,
-  SolarAboRightForYou,
   VideoSection,
 } from '@/components/solar-abo'
 import { useTranslations } from 'next-intl'
 
-const SolarAboPublicPage = () => {
+const PublicBuildingsPage = () => {
   const t = useTranslations('solarAboPublic')
   const items = [
     {
@@ -48,7 +49,7 @@ const SolarAboPublicPage = () => {
       <SolarAboHero
         translationNamespace="solarAboPublic"
         imageSrc="/images/solar-abo-public.png"
-        imageAlt="SolarAbo Public"
+        imageAlt="Public Buildings"
         isCommercial
       />
       <VideoSection />
@@ -57,15 +58,17 @@ const SolarAboPublicPage = () => {
         items={items}
         isCommercial
       />
-      <SolarAboPublicHowItWorks />
-      <SolarAboPricing
+      <HowPV
         translationNamespace="solarAboPublic"
-        backgroundImage="/images/solar-abo-home-roof.png"
+        row1Image="/images/solar-free/public-buildings-how-pv-1-3ef4ca.webp"
       />
-      <SolarAboRightForYou translationNamespace="solarAboPublic" commercial />
+      <PublicBuildingsHowItWorks />
+      <SolarAboMultiFamilyPublicSpaces translationNamespace="solarAboPublic" />
+      <ContactPerson translationNamespace="solarAboPublic" />
+
       <SolarAboCTA translationNamespace="solarAboPublic" commercial />
     </div>
   )
 }
 
-export default SolarAboPublicPage
+export default PublicBuildingsPage

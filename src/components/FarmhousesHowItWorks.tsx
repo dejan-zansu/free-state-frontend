@@ -7,8 +7,12 @@ import HandIcon from './icons/HandIcon'
 import LightBulbIcon from './icons/LihghtBulbIcon'
 import WalletIcon from './icons/WalletIcon'
 
-const SolarAboBusinessHowItWorks = () => {
-  const t = useTranslations('solarAboBusiness.howItWorks')
+const FarmhousesHowItWorks = ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
+  const t = useTranslations('solarAboAgro.howItWorks')
 
   const steps: HowItWorksStep[] = [
     {
@@ -55,4 +59,4 @@ const SolarAboBusinessHowItWorks = () => {
   )
 }
 
-export default SolarAboBusinessHowItWorks
+export default FarmhousesHowItWorks

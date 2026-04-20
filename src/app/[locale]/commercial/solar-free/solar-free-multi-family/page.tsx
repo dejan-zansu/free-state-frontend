@@ -1,4 +1,7 @@
-import SolarAboBusinessHowItWorks from '@/components/SolarAboBusinessHowItWorks'
+import ContactPerson from '@/components/ContactPerson'
+import HowPV from '@/components/HowPV'
+import SolarAboMultiFamilyHowItWorks from '@/components/SolarAboMultiFamilyHowItWorks'
+import SolarAboMultiFamilyPublicSpaces from '@/components/SolarAboMultiFamilyPublicSpaces'
 import {
   SolarAboCTA,
   SolarAboHero,
@@ -9,8 +12,8 @@ import {
 } from '@/components/solar-abo'
 import { useTranslations } from 'next-intl'
 
-const SolarAboBusinessPage = () => {
-  const t = useTranslations('solarAboBusiness')
+const SolarAboMultiFamilyPage = () => {
+  const t = useTranslations('solarAboMulti')
   const items = [
     {
       image: '/images/illustrations/solar-modules-commercial.png',
@@ -23,6 +26,11 @@ const SolarAboBusinessPage = () => {
       subtitle: t('includes.items.inverter.subtitle'),
     },
     {
+      image: '/images/illustrations/billing-platform.png',
+      title: t('includes.items.zevBillingPlatform.title'),
+      subtitle: t('includes.items.zevBillingPlatform.subtitle'),
+    },
+    {
       image: '/images/illustrations/monitoring-app-commercial.png',
       title: t('includes.items.monitoringApp.title'),
       subtitle: t('includes.items.monitoringApp.subtitle'),
@@ -33,11 +41,6 @@ const SolarAboBusinessPage = () => {
       subtitle: t('includes.items.installation.subtitle'),
     },
     {
-      image: '/images/illustrations/service-insurance.png',
-      title: t('includes.items.serviceInsurance.title'),
-      subtitle: t('includes.items.serviceInsurance.subtitle'),
-    },
-    {
       image: '/images/illustrations/battery-storage-commercial.png',
       title: t('includes.items.batteryStorage.title'),
       subtitle: t('includes.items.batteryStorage.subtitle'),
@@ -46,26 +49,29 @@ const SolarAboBusinessPage = () => {
   return (
     <div className="w-full overflow-x-hidden">
       <SolarAboHero
-        translationNamespace="solarAboBusiness"
-        imageSrc="/images/solar-abo-business.png"
-        imageAlt="SolarAbo Business"
+        translationNamespace="solarAboMulti"
+        imageSrc="/images/solar-abo-multi.png"
+        imageAlt="SolarAbo Multi"
         isCommercial
       />
       <VideoSection />
       <SolarAboIncludes
-        translationNamespace="solarAboBusiness"
+        translationNamespace="solarAboMulti"
         items={items}
         isCommercial
       />
-      <SolarAboBusinessHowItWorks />
-      <SolarAboPricing
-        translationNamespace="solarAboBusiness"
-        backgroundImage="/images/solar-abo-home-roof.png"
+      <HowPV
+        translationNamespace="solarAboMulti"
+        row1Image="/images/solar-free/multi-family-how-pv-1-5c41b2.webp"
+        row2Image="/images/solar-free/multi-family-how-pv-2-71b467.webp"
       />
-      <SolarAboRightForYou translationNamespace="solarAboBusiness" commercial />
-      <SolarAboCTA translationNamespace="solarAboBusiness" commercial />
+      <SolarAboMultiFamilyHowItWorks />
+      <SolarAboMultiFamilyPublicSpaces />
+      <ContactPerson />
+
+      <SolarAboCTA translationNamespace="solarAboMulti" commercial />
     </div>
   )
 }
 
-export default SolarAboBusinessPage
+export default SolarAboMultiFamilyPage

@@ -211,7 +211,7 @@ export default function Step6ContactDetails() {
                     />
                     <label htmlFor='consent-data' className='text-sm md:text-base cursor-pointer text-[#062E25]/80'>
                       {tConsent('dataProcessingPrefix')}{' '}
-                      <Link href='/privacy' className='underline underline-offset-2 text-[#062E25] hover:text-[#062E25]/70'>
+                      <Link href='/privacy-policy' className='underline underline-offset-2 text-[#062E25] hover:text-[#062E25]/70'>
                         {tConsent('dataProcessingLink')}
                       </Link>{' '}
                       {tConsent('dataProcessingSuffix')}

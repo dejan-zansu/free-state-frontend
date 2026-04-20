@@ -11,10 +11,10 @@ export default function DashboardFooter() {
       <div className="max-w-360 mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-[#062E25]/60">
         <p>&copy; {new Date().getFullYear()} Free State AG</p>
         <div className="flex items-center gap-4">
-          <Link href={`/${locale}/privacy`} className="hover:text-[#062E25] transition-colors">
+          <Link href={`/${locale}/privacy-policy`} className="hover:text-[#062E25] transition-colors">
             Privacy
           </Link>
-          <Link href={`/${locale}/imprint`} className="hover:text-[#062E25] transition-colors">
+          <Link href={`/${locale}/impressum`} className="hover:text-[#062E25] transition-colors">
             Imprint
           </Link>
           <Link href={`/${locale}/contact`} className="hover:text-[#062E25] transition-colors">

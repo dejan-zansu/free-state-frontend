@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 
+import ComingSoon from './ComingSoon'
 import SonnendachStep1Address from './steps/SonnendachStep1Address'
 import SonnendachStep2UsableArea from './steps/SonnendachStep2UsableArea'
 import SonnendachStep3SolarSystem from './steps/SonnendachStep3SolarSystem'
@@ -18,6 +19,8 @@ const PAGE_BG =
   'linear-gradient(180deg, rgba(242, 244, 232, 1) 45%, rgba(220, 233, 230, 1) 84%)'
 
 export default function SonnendachCalculatorPage() {
+  return <ComingSoon />
+
   const t = useTranslations('sonnendach')
   const { currentStep, error, clearError, building } =
     useCommercialCalculatorStore()

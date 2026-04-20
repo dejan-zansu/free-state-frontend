@@ -1,5 +1,39 @@
-const SolarDirectPage = () => {
-  return <div>SolarDirectPage</div>
+import {
+  QuoteRequestForm,
+  SolarAboCTA,
+  SolarAboDetails,
+  SolarAboFAQ,
+  SolarAboHero,
+  SolarAboService,
+} from '@/components/solar-abo'
+import YourBenefits from '@/components/YourBenefits'
+import SolarModels from '@/components/SolarModels'
+import CustomerStories from '@/components/CustomerStories'
+
+interface SolarDirectPageProps {
+  params: Promise<{ locale: string }>
+}
+
+const SolarDirectPage = async ({ params }: SolarDirectPageProps) => {
+  const { locale } = await params
+
+  return (
+    <div className="w-full overflow-x-hidden">
+      <SolarAboHero
+        translationNamespace="solarAboHome"
+        imageSrc="/images/solar-abo-home.png"
+        imageAlt="SolarAbo Home"
+      />
+      <YourBenefits isCommercial={false} />
+      <SolarAboDetails translationNamespace="solarAboHome" />
+      <SolarAboService translationNamespace="solarAboHome" />
+      <QuoteRequestForm source="SOLAR_DIRECT" locale={locale} />
+      <SolarModels />
+      <CustomerStories />
+      <SolarAboFAQ translationNamespace="solarAboHome" />
+      <SolarAboCTA translationNamespace="solarAboHome" />
+    </div>
+  )
 }
 
 export default SolarDirectPage

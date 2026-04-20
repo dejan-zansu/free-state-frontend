@@ -3,6 +3,8 @@
 import { cn } from '@/lib/utils'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { useTranslations } from 'next-intl'
+import { parseAsInteger, useQueryState } from 'nuqs'
+import { useEffect, useRef } from 'react'
 
 import Steps from '@/components/Steps'
 import SolarModelSelection from './SolarModelSelection'
@@ -24,6 +26,53 @@ export default function SolarAboCalculatorPage() {
   const t = useTranslations('solarAboCalculator')
   const { solarModel, currentStep, signatureStatus, resultsPath, goToStep } =
     useSolarAboCalculatorStore()
+
+  const [stepParam, setStepParam] = useQueryState('step', parseAsInteger)
+  const initRef = useRef(false)
+  const fromUrlRef = useRef(false)
+  const lastPushedRef = useRef<number | null>(null)
+
+  useEffect(() => {
+    if (!solarModel || initRef.current) return
+    initRef.current = true
+
+    if (stepParam !== null && stepParam !== currentStep) {
+      fromUrlRef.current = true
+      lastPushedRef.current = stepParam
+      goToStep(stepParam)
+    } else if (stepParam === null) {
+      lastPushedRef.current = currentStep
+      setStepParam(currentStep, { history: 'replace' })
+    } else {
+      lastPushedRef.current = stepParam
+    }
+  }, [solarModel, stepParam, currentStep, goToStep, setStepParam])
+
+  useEffect(() => {
+    if (!initRef.current) return
+    if (fromUrlRef.current) {
+      fromUrlRef.current = false
+      lastPushedRef.current = currentStep
+      return
+    }
+    if (lastPushedRef.current === currentStep) return
+    lastPushedRef.current = currentStep
+    setStepParam(currentStep, { history: 'push' })
+  }, [currentStep, setStepParam])
+
+  useEffect(() => {
+    const handler = () => {
+      const raw = new URLSearchParams(window.location.search).get('step')
+      const n = raw ? parseInt(raw, 10) : null
+      const state = useSolarAboCalculatorStore.getState()
+      if (n !== null && !isNaN(n) && n !== state.currentStep) {
+        fromUrlRef.current = true
+        state.goToStep(n)
+      }
+    }
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
+  }, [])
 
   if (!solarModel) {
     return (

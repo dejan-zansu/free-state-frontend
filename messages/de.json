@@ -207,17 +207,22 @@
       ],
       "cta": {
         "primary": "Jetzt starten",
-        "secondary": "Kalkulator"
+        "secondary": "Kalkulator",
+        "schedule": "Termin vereinbaren"
       },
       "nav": {
         "solarAbo": "SolarFree",
+        "plansPrices": "Pläne & Preise",
+        "ourPackages": "Unsere Pakete",
+        "solarFree": "SolarFree",
+        "solarDirect": "SolarDirect",
         "products": "Produkte",
         "onlineStarter": "Onlinerechner Starten",
         "solarAboHome": "SolarFree Home",
         "solarAboMulti": "SolarFree Mehrfamilienhaus",
-        "solarAboBusiness": "SolarFree Business",
-        "solarAboAgro": "SolarFree Agro",
-        "solarAboPublic": "SolarFree Public Facilities",
+        "solarAboBusiness": "Industrie / Gewerbe",
+        "solarAboAgro": "Bauernhäuser",
+        "solarAboPublic": "öffentliche Gebäude",
         "howItWorks": "Funktionsweise",
         "cost": "Kosten",
         "amortization": "Amortisation",
@@ -262,7 +267,7 @@
         "includedTitle": "Was ist enthalten?",
         "included": [
           "Planbare Stromkosten",
-          "Bis zu 30 % günstigere Stromtarife",
+          "Bis zu 20–40 % günstigere Stromtarife",
           "Schutz vor steigenden Energiepreisen",
           "24/7 Überwachung & Monitoring",
           "Versicherung der gesamten Anlage",
@@ -543,7 +548,7 @@
           }
         },
         {
-          "title": "SolarFree Business",
+          "title": "Industrie / Gewerbe",
           "subtitle": "Für Gewerbe und Industrie",
           "feature1": "Leistung 100–1 000 kWp auf Dach oder Fassade",
           "feature2": "Fixpreis 0.18 CHF/kWh (inkl. Wartung und Versicherung)",
@@ -560,7 +565,7 @@
           }
         },
         {
-          "title": "SolarFree Agro",
+          "title": "Bauernhäuser",
           "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
           "feature1": "PV-Anlage bis 500 kWp für Hallen und Ställe",
           "feature2": "Stromkostenreduktion bis 40 %",
@@ -585,7 +590,7 @@
           "feature4": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
           "term": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
           "price": "Individuelle Preisgestaltung",
-          "benefit1": "0 CHF Investition, Strompreis –30 % vs. Netz",
+          "benefit1": "0 CHF Investition, Strompreis –20–40 % vs. Netz",
           "benefit2": "Zentrale Abrechnung für alle Bewohner",
           "benefit3": "Optional Speicher und Ladeinfrastruktur",
           "explanation": {
@@ -617,7 +622,7 @@
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
       "item1": {
         "title": "Bauernhof Thun",
-        "details": "30 % Kosteneinsparung •\n250 kWp Anlage"
+        "details": "20–40 % Kosteneinsparung •\n250 kWp Anlage"
       },
       "item2": {
         "title": "Industriegebäude Zürich",
@@ -678,22 +683,54 @@
       }
     }
   },
-  "solarAboHome": {
+  "solarFreeHome": {
     "hero": {
-      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-      "title": "SolarFree Home",
-      "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher",
+      "eyebrow": "Solarmodule kaufen",
+      "title": "SolarFree",
+      "subtitle": "Modernste Solar- und Batteriespeichertechnik mit dem Solarleasing von FreeState AG – ohne Anschaffungskosten.",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringerer\nStrompreis"
+          "electricity": "Bis zu 30 % tiefere\nStromkosten"
         },
         "right": {
-          "maintenance": "Wartung\ninklusive",
+          "maintenance": "Mehr Eigenverbrauch\nmit Batteriespeicher",
           "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
         }
+      }
+    }
+  },
+  "solarAboHome": {
+    "hero": {
+      "eyebrow": "Solarmodule kaufen",
+      "title": "SolarDirect",
+      "subtitle": "Sichern Sie sich eine besser planbare Energiezukunft mit einer einmaligen Zahlung.",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "Einmalige Investition\nab 10'000 CHF",
+          "electricity": "Bis zu 20–40 % tiefere\nStromkosten"
+        },
+        "right": {
+          "maintenance": "Amortisation ab\n5 Jahren möglich",
+          "reduction": "25+ Jahre garantierte\nStromproduktion"
+        }
+      }
+    },
+    "details": {
+      "eyebrow": "Details",
+      "title": "Was im SolarFree enthalten ist",
+      "subtitle": "Alle Leistungen und Komponenten für eine zuverlässige Energieversorgung – ohne Anschaffungskosten.",
+      "solarModules": {
+        "title": "Hochwertige Solarmodule",
+        "description": "Hocheffiziente Solarmodule für maximale Energiegewinnung – langlebig und widerstandsfähig."
+      },
+      "batteryStorage": {
+        "title": "Leistungsstarker Batteriespeicher",
+        "description": "Zuverlässige Energie, wenn Sie sie brauchen – als Backup oder zur Optimierung des Eigenverbrauchs."
       }
     },
     "includes": {
@@ -723,6 +760,59 @@
         "batteryStorage": {
           "title": "Batteriespeicher",
           "subtitle": "Eigenverbrauch"
+        }
+      }
+    },
+    "service": {
+      "title": "Service für Solaranlagen",
+      "subtitle": "Kompletter Service für einen sicheren und effizienten Betrieb Ihrer Solaranlage.",
+      "warranty": {
+        "title": "35 Jahre\nGarantie",
+        "description": "Vollständige Abdeckung für Reparatur & Austausch."
+      },
+      "installation": {
+        "title": "Erfahrene Installation",
+        "description": "Bewährt bei über 1 Mio. Haushalten."
+      },
+      "support": {
+        "title": "Support rund\num die Uhr",
+        "description": "24/7 Betreuung & Systemüberwachung."
+      }
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "items": {
+        "1": {
+          "question": "Wie funktioniert der Besitz einer Solaranlage?",
+          "answer": "Sie kaufen die Anlage und profitieren zu 100 % vom erzeugten Strom. Alle Ersparnisse und Einspeisevergütungen gehören Ihnen, und die Anlage ist von Tag eins Ihr Eigentum."
+        },
+        "2": {
+          "question": "Vorteile beim Kauf einer Solaranlage?",
+          "answer": "Langfristige Kostenersparnis, Energieunabhängigkeit, höherer Immobilienwert und volle Kontrolle – mit einer Amortisation meist in 5–10 Jahren."
+        },
+        "3": {
+          "question": "Kann ich Solarmodule selbst kaufen?",
+          "answer": "Ja, aber professionelle Installation, Netzanschluss und Bewilligungen sind weiterhin nötig. Unser schlüsselfertiges SolarDirect-Paket übernimmt das alles für Sie."
+        },
+        "4": {
+          "question": "Leasing oder Kauf – was ist besser?",
+          "answer": "Der Kauf bietet die niedrigsten Gesamtkosten und vollen Besitz. Beim Leasing (wie SolarFree) entfällt die Anfangsinvestition. Die richtige Wahl hängt von Ihrer Liquidität und Ihren langfristigen Zielen ab."
+        },
+        "5": {
+          "question": "Was passiert bei einem Defekt der Anlage?",
+          "answer": "Solarmodule haben eine Leistungsgarantie von 25+ Jahren, Wechselrichter sind meist 10+ Jahre abgedeckt. Reparaturen und Austausch innerhalb der Garantiezeit übernehmen wir."
+        },
+        "6": {
+          "question": "Vor- und Nachteile der Eigeninstallation?",
+          "answer": "Eigeninstallation kann Anschaffungskosten senken, erfordert jedoch Bewilligungen, Sicherheitskenntnisse und einen zertifizierten Netzanschluss. Ohne professionelle Installation riskieren Sie Garantieverlust und Sicherheitsprobleme."
+        },
+        "7": {
+          "question": "Bleiben Stromkosten mit Solaranlage?",
+          "answer": "Eine Grundgebühr für den Netzanschluss bleibt, ebenso der Strombezug bei Nacht oder Bewölkung. Die Gesamtkosten sinken jedoch deutlich."
+        },
+        "8": {
+          "question": "Was passiert bei Stromüberschuss?",
+          "answer": "Überschüssiger Strom wird ins Netz eingespeist und vergütet. Optional kann ein Batteriespeicher den Überschuss für den späteren Eigenverbrauch speichern."
         }
       }
     },
@@ -776,7 +866,7 @@
     },
     "cta": {
       "topButton": "Prüfen Sie, ob SolarFree Home Storage zu Ihrem Dach passt",
-      "heading": "Prüfen Sie, ob SolarFree Home Storage zu Ihrem Dach passt",
+      "heading": "Prüfen Sie das Solarpotenzial Ihres Dachs",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
@@ -791,7 +881,7 @@
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringerer\nStrompreis"
+          "electricity": "Bis zu 20–40 % geringerer\nStrompreis"
         },
         "right": {
           "maintenance": "Wartung\ninklusive",
@@ -840,6 +930,29 @@
         "step5": "Die Anlage wird Ihr Eigentum"
       }
     },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "Solar für Ihr Mehrfamilienhaus – ohne Investition\n\nSenken Sie die Energiekosten im Gebäude – ganz ohne eigene Investition. Wir realisieren die Photovoltaikanlage auf Ihrem Dach, vollständig finanziert, installiert und betrieben durch uns.\n\nFür Sie und alle Bewohner bedeutet das:\ngünstigere Stromkosten\nstabile Energiepreise\nnachhaltige Wertsteigerung der Immobilie"
+      },
+      "row2": {
+        "title": "Wie funktioniert",
+        "description": "So funktioniert es\nSie stellen den Kontakt her. Wir prüfen kostenlos und übernehmen Umsetzung & Betrieb. Der Strom bleibt im Gebäude.\n\nIhre Vorteile\nKeine Investition, günstiger Strom, mehr Wert.\n\nWarum lohnt es sich\nUngenutzte Dächer + steigende Preise\n→ Ihr Gebäude wird zum Produzenten."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "Mit sauberer, zuverlässiger Energie",
+      "body": "Jetzt unverbindlich prüfen lassen\n\nTransformieren Sie Ihr Mehrfamilienhaus ohne finanzielles Risiko in ein modernes Energieprojekt. Empfehlen Sie uns Ihrer Verwaltung oder Eigentümergemeinschaft – wir prüfen alles und übernehmen die komplette Umsetzung.\n\nWir analysieren Gebäude und Dachpotenzial, berechnen die Wirtschaftlichkeit und entwickeln ein konkretes Umsetzungskonzept inklusive aller technischen und rechtlichen Aspekte (ZEV). Finanzierung, Planung und Realisierung übernehmen wir vollständig.\n\nIhr Aufwand bleibt minimal: Sie stellen den Erstkontakt her, wir koordinieren alles Weitere. Sie profitieren von günstigem Solarstrom, stabilen Energiekosten und einer nachhaltigen Wertsteigerung Ihrer Immobilie. Starten Sie jetzt unverbindlich und kostenlos und erhalten Sie eine fundierte Einschätzung des Potenzials – Kostenlose Analyse anfordern"
+    },
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
     "pricing": {
       "title": "Preis & Vertrag",
       "subtitle": "Einfach, transparent und sorgenfrei, mit zusätzlicher Energieunabhängigkeit.",
@@ -885,9 +998,32 @@
     }
   },
   "solarAboBusiness": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      },
+      "row2": {
+        "title": "Wie funktioniert",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energie für Ihren Betrieb",
+      "subtitle": "Sauber, planbar, ohne Investition",
+      "body": "Lassen Sie ungenutzte Dachflächen Ihres Industrie- oder Gewerbebetriebs arbeiten – ohne Kapitaleinsatz. Wir prüfen Gebäude, Stromprofil und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Installation und Betrieb. Sie profitieren von stabilen Strompreisen, ESG-Vorteilen und messbarer CO₂-Reduktion – ohne operative Belastung für Ihr Team. Jetzt kostenlose Analyse anfordern."
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. ESG-Vorteile.",
-      "title": "SolarFree Business",
+      "title": "Industrie / Gewerbe",
       "subtitle": "Für Gewerbe- und Industriegebäude",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
@@ -904,7 +1040,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Business",
+      "subtitle": "In Industrie / Gewerbe",
       "items": {
         "solarModules": {
           "title": "Gewerbliche PV-Anlage",
@@ -933,7 +1069,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Business",
+      "title": "So funktioniert Industrie / Gewerbe",
       "subtitle": "Einfach, transparent und sorgenfrei – Energiekostenreduktion für Ihr Unternehmen.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -961,7 +1097,7 @@
         "label": "Preis pro\nkWh in CHF",
         "value": "ab CHF 0.18"
       },
-      "solarAboPrice": "Mit SolarFree Business",
+      "solarAboPrice": "Mit Industrie / Gewerbe",
       "orderNow": "JETZT BESTELLEN",
       "orderLink": "/commercial/calculator"
     },
@@ -981,16 +1117,39 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Business zu Ihrem Gebäude passt",
-      "heading": "Prüfen Sie, ob SolarFree Business zu Ihrem Gebäude passt",
+      "topButton": "Prüfen Sie, ob Industrie / Gewerbe zu Ihrem Gebäude passt",
+      "heading": "Prüfen Sie, ob Industrie / Gewerbe zu Ihrem Gebäude passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
   },
   "solarAboAgro": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      },
+      "row2": {
+        "title": "Wie funktioniert",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energie für Ihren Hof",
+      "subtitle": "Grosse Dächer, grosses Potenzial",
+      "body": "Landwirtschaftsbetriebe haben oft die grössten ungenutzten Dachflächen der Region. Wir prüfen kostenlos, wie sich Ihr Scheunen- oder Stalldach in eine PV-Anlage verwandeln lässt – ohne Investition Ihrerseits. Finanzierung, Bau und Betrieb übernehmen wir. Sie erhalten günstigen Strom für Hof und Betrieb, eine jährliche Dachpacht und ein zusätzliches Standbein. Jetzt unverbindlich Potenzial prüfen lassen."
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Zuverlässiger Service.",
-      "title": "SolarFree Agro",
+      "title": "Bauernhäuser",
       "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
@@ -1007,7 +1166,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Agro",
+      "subtitle": "In Bauernhäuser",
       "items": {
         "solarModules": {
           "title": "Landwirtschaftliche PV-Anlage",
@@ -1036,7 +1195,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Agro",
+      "title": "So funktioniert Bauernhäuser",
       "subtitle": "Einfach, transparent und sorgenfrei – massgeschneidert für landwirtschaftliche Betriebe.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -1064,7 +1223,7 @@
         "label": "Preis pro\nm² in CHF",
         "value": "individuelle Preisgestaltung"
       },
-      "solarAboPrice": "Mit SolarFree Agro",
+      "solarAboPrice": "Mit Bauernhäuser",
       "orderNow": "JETZT BESTELLEN",
       "orderLink": "/commercial/calculator"
     },
@@ -1084,23 +1243,42 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Agro zu Ihrem Hof passt",
-      "heading": "Prüfen Sie, ob SolarFree Agro zu Ihrem Hof passt",
+      "topButton": "Prüfen Sie, ob Bauernhäuser zu Ihrem Hof passt",
+      "heading": "Prüfen Sie, ob Bauernhäuser zu Ihrem Hof passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
   },
   "solarAboPublic": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "Mit sauberer, zuverlässiger Energie",
+      "body": "Schulen, Verwaltungsgebäude und öffentliche Liegenschaften tragen Verantwortung für die Energiewende – ohne dass Budgets belastet werden müssen. Wir prüfen Potenzial und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Bau und Betrieb der Anlage. Die Gemeinde profitiert von stabilen Energiekosten, einem sichtbaren Nachhaltigkeitsbeitrag und einer Vorbildfunktion – ohne einen Franken vorzustrecken. Jetzt unverbindlich Analyse anfordern."
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Nachhaltiges Vorbild.",
-      "title": "SolarFree Public",
+      "title": "öffentliche Gebäude",
       "subtitle": "Für Schulen, Spitäler und Gemeindegebäude",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringere\nStromkosten"
+          "electricity": "Bis zu 20–40 % geringere\nStromkosten"
         },
         "right": {
           "maintenance": "Wartung\ninklusive",
@@ -1110,7 +1288,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Public",
+      "subtitle": "In öffentliche Gebäude",
       "items": {
         "solarModules": {
           "title": "PV-Anlage für öffentliche Gebäude",
@@ -1139,7 +1317,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Public",
+      "title": "So funktioniert öffentliche Gebäude",
       "subtitle": "Einfach, transparent und sorgenfrei – ein nachhaltiges Vorbild für Ihre Gemeinde.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -1167,7 +1345,7 @@
         "label": "Preis pro\nm² in CHF",
         "value": "individuelle Preisgestaltung"
       },
-      "solarAboPrice": "Mit SolarFree Public",
+      "solarAboPrice": "Mit öffentliche Gebäude",
       "orderNow": "JETZT BESTELLEN",
       "orderLink": "/commercial/calculator"
     },
@@ -1187,8 +1365,8 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Public zu Ihrem Gebäude passt",
-      "heading": "Prüfen Sie, ob SolarFree Public zu Ihrem Gebäude passt",
+      "topButton": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
+      "heading": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
@@ -1208,6 +1386,42 @@
     "address": {
       "label": "Adresse",
       "value": "Free State AG\nSchweiz"
+    }
+  },
+  "quoteRequestForm": {
+    "eyebrow": "Energiekosten",
+    "title": "Energiekosten kontrollieren",
+    "subtitle": "Behalten Sie Verbrauch und Kosten im Griff – mit einem effizienten, planbaren Energiesystem.",
+    "formTitle": "Kostenloses Angebot",
+    "requiredHint": "Alle Felder sind erforderlich.",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "postalCode": "Postleitzahl",
+    "phone": "Telefon",
+    "placeholders": {
+      "firstName": "Max",
+      "lastName": "Muster",
+      "email": "max.muster@beispiel.ch",
+      "postalCode": "8001",
+      "phone": "+41 79 123 45 67"
+    },
+    "ownsHomeQuestion": "Besitzen Sie Ihr Eigenheim?",
+    "yes": "Ja",
+    "no": "Nein",
+    "consent": "Mit Klick auf die Schaltfläche unten erklären Sie sich damit einverstanden, dass Free State AG Sie unter der von Ihnen angegebenen Telefonnummer kontaktieren sowie automatisierte Anrufe und Nachrichten zu Produkten und Dienstleistungen senden darf – auch wenn Ihre Nummer in einer „Do Not Call“-Liste eingetragen ist. Es können Gebühren für Nachrichten und Daten anfallen. Maximal 10 Nachrichten pro Monat. Die Einwilligung ist freiwillig und kann jederzeit widerrufen werden. Sie stimmen außerdem unseren Nutzungsbedingungen zu.",
+    "submit": "Absenden",
+    "successTitle": "Vielen Dank!",
+    "successMessage": "Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "errors": {
+      "firstName": "Vorname ist erforderlich",
+      "lastName": "Nachname ist erforderlich",
+      "email": "E-Mail ist erforderlich",
+      "emailInvalid": "Bitte eine gültige E-Mail eingeben",
+      "postalCode": "Postleitzahl ist erforderlich",
+      "phone": "Telefon ist erforderlich",
+      "ownsHome": "Bitte eine Option auswählen"
     }
   },
   "contactForm": {
@@ -1726,7 +1940,7 @@
         "stats": {
           "left": {
             "investment": "0 CHF\nInvestment",
-            "electricity": "Bis zu 30 % geringerer\nStrompreis"
+            "electricity": "Bis zu 20–40 % geringerer\nStrompreis"
           },
           "right": {
             "maintenance": "Wartung\ninklusive",
@@ -2444,7 +2658,8 @@
     "continue": "Weiter",
     "cancel": "Abbrechen",
     "save": "Speichern",
-    "loading": "Lädt..."
+    "loading": "Lädt...",
+    "comingSoon": "Demnächst"
   },
   "blog": {
     "title": "Blog",
@@ -4033,7 +4248,7 @@
       "products": {
         "label": "Welche Produkte verwenden Sie? *",
         "solarAboPrivate": "SolarFree Privat",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industrie / Gewerbe",
         "huaweiInverters": "Huawei-Wechselrichter",
         "sonnenBattery": "Sonnen Batteriespeicher",
         "e3dcBattery": "E3DC Batteriespeicher",
@@ -5385,7 +5600,7 @@
           "label": "Ihre jährliche Ersparnis",
           "amount": "CHF {amount}",
           "suffix": "pro Jahr auf Ihrer Stromrechnung",
-          "footnote": "SolarFree-Strom ist immer 30% günstiger als Netzstrom."
+          "footnote": "SolarFree-Strom ist immer 20–40% günstiger als Netzstrom."
         },
         "yourImpact": {
           "label": "Ihr Beitrag",
@@ -5506,7 +5721,7 @@
       "solarFree": {
         "rateCard": {
           "title": "Ihr SolarFree-Tarif",
-          "bodyLine1": "30% günstiger als der Netztarif für jede Solar-kWh, die Sie verbrauchen.",
+          "bodyLine1": "20–40% günstiger als der Netztarif für jede Solar-kWh, die Sie verbrauchen.",
           "bodyLine2": "Keine Gebühren für die Anlage selbst.",
           "yearlySavingLabel": "Geschätzte jährliche Ersparnis",
           "yearlySavingValue": "CHF {amount}"
@@ -5656,6 +5871,7 @@
       "support": "Support",
       "maintenanceInquiries": "Wartungsanfragen",
       "contacts": "Kontaktanfragen",
+      "quoteRequests": "Angebotsanfragen",
       "investorRequests": "Investorenanfragen",
       "newsletter": "Newsletter",
       "careerSubscriptions": "Karriere-Abonnenten",
@@ -5914,6 +6130,41 @@
       "adminNotes": "Admin-Notizen",
       "saveNotes": "Notizen speichern"
     },
+    "quoteRequests": {
+      "title": "Angebotsanfragen",
+      "searchPlaceholder": "Suche nach Name, E-Mail, Telefon...",
+      "filterSource": "Nach Quelle filtern",
+      "filterStatus": "Nach Status filtern",
+      "allSources": "Alle Quellen",
+      "allStatuses": "Alle Status",
+      "sourceSolarFree": "SolarFree",
+      "sourceSolarDirect": "SolarDirect",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "postalCode": "Postleitzahl",
+      "source": "Quelle",
+      "ownsHome": "Eigenheim",
+      "status": "Status",
+      "created": "Erstellt",
+      "locale": "Sprache",
+      "consent": "Einwilligung",
+      "yes": "Ja",
+      "no": "Nein",
+      "view": "Anzeigen",
+      "noRequests": "Keine Angebotsanfragen gefunden",
+      "totalRequests": "{count} Anfragen insgesamt",
+      "statusNew": "Neu",
+      "statusContacted": "Kontaktiert",
+      "statusQualified": "Qualifiziert",
+      "statusClosed": "Geschlossen",
+      "details": "Details",
+      "manage": "Verwalten",
+      "adminNotes": "Admin-Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "backToList": "Zurück zur Liste"
+    },
     "investorRequests": {
       "title": "Investorenanfragen",
       "searchPlaceholder": "Nach Name oder E-Mail suchen...",
@@ -5989,7 +6240,7 @@
       },
       "productKeys": {
         "solarAboPrivate": "SolarFree Privat",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industrie / Gewerbe",
         "huaweiInverters": "Huawei Wechselrichter",
         "sonnenBattery": "Sonnen Batterie",
         "e3dcBattery": "E3/DC Batterie",

@@ -1,6 +1,6 @@
 import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
-// import { LinkButton } from './ui/link-button'
+import { LinkButton } from './ui/link-button'
 import Image from 'next/image'
 
 const ContactCTA = async () => {
@@ -29,7 +29,7 @@ const ContactCTA = async () => {
         />
       </div>
 
-      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[78px] py-20 lg:py-[225px] flex flex-col lg:flex-row gap-12 lg:gap-20">
+      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 xl:px-[78px] py-20 lg:py-[225px] flex flex-col lg:flex-row gap-12 lg:gap-20">
         <div className="flex flex-col items-center text-center gap-10 lg:max-w-[559px]">
           <div className="flex flex-col items-center gap-5">
             <Badge
@@ -38,13 +38,13 @@ const ContactCTA = async () => {
             >
               {t('eyebrow')}
             </Badge>
-            <h2 className="text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[65px] font-medium capitalize">
+            <h2 className="text-white lg:text-foreground text-3xl sm:text-4xl md:text-5xl lg:text-[65px] font-medium capitalize ">
               {t('title')}
             </h2>
           </div>
-          {/* <LinkButton href="/solar-calculator" variant="primary">
+          <LinkButton href="/solar-calculator" variant="primary">
             {t('cta')}
-          </LinkButton> */}
+          </LinkButton>
         </div>
 
         <div className="flex-1 flex items-end justify-center lg:justify-end">

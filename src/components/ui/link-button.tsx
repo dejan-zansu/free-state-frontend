@@ -15,6 +15,8 @@ const linkButtonVariants = cva(
           'bg-energy border border-energy hover:bg-energy/90 text-white',
         tertiary:
           'bg-[#062E25] text-white hover:bg-solar hover:text-solar-foreground',
+        'solar-dark':
+          'bg-[#036B53] text-white hover:bg-[#036B53]/90 shadow-[0_8px_24px_rgba(0,0,0,0.24)]',
         quaternary:
           'bg-[#3D3858] text-white hover:bg-energy/90 hover:border-energy border border-[#3D3858]',
         'outline-primary':
@@ -27,6 +29,10 @@ const linkButtonVariants = cva(
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-quaternary':
           'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+        glass:
+          'bg-white/5 border border-white backdrop-blur-[65px] text-white hover:bg-white/10',
+        'glass-secondary':
+          'bg-white/5 border border-white backdrop-blur-[65px] text-white hover:bg-white/10',
       },
     },
     defaultVariants: {
@@ -35,13 +41,12 @@ const linkButtonVariants = cva(
   }
 )
 
-type LinkButtonProps = VariantProps<typeof linkButtonVariants> & {
-  href: React.ComponentProps<typeof Link>['href'] | string
-  icon?: React.ReactNode
-  iconWrapperClassName?: string
-  children?: React.ReactNode
-  className?: string
-}
+type LinkButtonProps = VariantProps<typeof linkButtonVariants> &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'popover'> & {
+    href: React.ComponentProps<typeof Link>['href'] | string
+    icon?: React.ReactNode
+    iconWrapperClassName?: string
+  }
 
 const isExternalUrl = (href: string) => {
   return (
@@ -57,12 +62,15 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
     const isPrimary = variant === 'primary' || variant === undefined
     const isSecondary = variant === 'secondary'
     const isTertiary = variant === 'tertiary'
+    const isSolarDark = variant === 'solar-dark'
     const isQuaternary = variant === 'quaternary'
     const isOutlinePrimary = variant === 'outline-primary'
     const isOutlineSecondary = variant === 'outline-secondary'
     const isOutlineTertiary = variant === 'outline-tertiary'
     const isOutlineTertiaryDark = variant === 'outline-tertiary-dark'
     const isOutlineQuaternary = variant === 'outline-quaternary'
+    const isGlass = variant === 'glass'
+    const isGlassSecondary = variant === 'glass-secondary'
 
     const isFullWidth = className && className.includes('w-full')
 
@@ -79,12 +87,15 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
             isPrimary && 'bg-[#062E25]',
             isSecondary && 'bg-white',
             isTertiary && 'bg-solar group-hover:bg-[#062E25]',
+            isSolarDark && 'bg-white',
             isQuaternary && 'bg-white group-hover:bg-white',
             isOutlinePrimary && 'bg-[#062E25]',
             isOutlineSecondary && 'bg-solar',
             isOutlineTertiary && 'bg-[#b7fe1a]',
             isOutlineTertiaryDark && 'bg-[#062E25]',
             isOutlineQuaternary && 'bg-energy',
+            isGlass && 'bg-solar',
+            isGlassSecondary && 'bg-white',
             iconWrapperClassName
           )}
         >
@@ -98,12 +109,15 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
                   isPrimary && 'text-white',
                   isSecondary && 'text-energy',
                   isTertiary && 'text-[#062E25] group-hover:text-white',
+                  isSolarDark && 'text-[#062E25]',
                   isQuaternary && 'text-[#3D3858]',
                   isOutlinePrimary && 'text-white',
                   isOutlineSecondary && 'text-solar-foreground',
                   isOutlineTertiary && 'text-[#062E25]',
                   isOutlineTertiaryDark && 'text-white',
-                  isOutlineQuaternary && 'text-white'
+                  isOutlineQuaternary && 'text-white',
+                  isGlass && 'text-[#062E25]',
+                  isGlassSecondary && 'text-energy'
                 )}
               />
               <ArrowRight
@@ -112,12 +126,15 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
                   isPrimary && 'text-white',
                   isSecondary && 'text-energy',
                   isTertiary && 'text-[#062E25] group-hover:text-white',
+                  isSolarDark && 'text-[#062E25]',
                   isQuaternary && 'text-energy',
                   isOutlinePrimary && 'text-white',
                   isOutlineSecondary && 'text-solar-foreground',
                   isOutlineTertiary && 'text-[#062E25]',
                   isOutlineTertiaryDark && 'text-white',
-                  isOutlineQuaternary && 'text-white'
+                  isOutlineQuaternary && 'text-white',
+                  isGlass && 'text-[#062E25]',
+                  isGlassSecondary && 'text-energy'
                 )}
               />
             </>

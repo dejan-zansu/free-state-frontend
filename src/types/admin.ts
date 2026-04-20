@@ -192,6 +192,26 @@ export interface AdminCareerSubscription {
   updatedAt: string
 }
 
+export type QuoteRequestSource = 'SOLAR_FREE' | 'SOLAR_DIRECT'
+export type QuoteRequestStatus = 'NEW' | 'CONTACTED' | 'QUALIFIED' | 'CLOSED'
+
+export interface AdminQuoteRequest {
+  id: string
+  source: QuoteRequestSource
+  firstName: string
+  lastName: string
+  email: string
+  postalCode: string
+  phone: string
+  ownsHome: boolean
+  consent: boolean
+  status: QuoteRequestStatus
+  adminNotes: string | null
+  locale: string | null
+  createdAt: string
+  updatedAt: string
+}
+
 export interface AdminInvestorRequest {
   id: string
   entityType: string | null

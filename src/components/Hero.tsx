@@ -70,7 +70,7 @@ const Hero = async ({
           </h1>
           <p
             className={cn(
-              'text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-[22px] sm:leading-[28px] md:leading-[30px] mb-6 sm:mb-10 md:mb-12 whitespace-pre-line max-w-[320px] sm:max-w-[750px] px-2'
+              'text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-[22px] sm:leading-[28px] md:leading-[30px] mb-3 sm:mb-10 md:mb-12 whitespace-pre-line max-w-[320px] sm:max-w-[750px] px-2'
             )}
           >
             {heroDescription}
@@ -78,11 +78,20 @@ const Hero = async ({
 
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
             <LinkButton
-              variant="primary"
+              variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
               className="w-full sm:w-auto"
             >
               {t('hero.cta.primary')}
+            </LinkButton>
+            <LinkButton
+              variant={isCommercial ? 'glass-secondary' : 'glass'}
+              href="https://calendly.com/ivan-m-freestate/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              {t('hero.cta.schedule')}
             </LinkButton>
           </div>
         </div>

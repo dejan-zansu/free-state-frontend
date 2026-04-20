@@ -207,17 +207,22 @@
       ],
       "cta": {
         "primary": "Get started",
-        "secondary": "Calculator"
+        "secondary": "Calculator",
+        "schedule": "Schedule a meeting"
       },
       "nav": {
         "solarAbo": "SolarFree",
+        "plansPrices": "Plans & Prices",
+        "ourPackages": "Our Packages",
+        "solarFree": "SolarFree",
+        "solarDirect": "SolarDirect",
         "products": "Products",
         "onlineStarter": "Online Starter",
         "solarAboHome": "SolarFree Home",
-        "solarAboMulti": "SolarFree Multi",
-        "solarAboBusiness": "SolarFree Business",
-        "solarAboAgro": "SolarFree Agro",
-        "solarAboPublic": "SolarFree Public Buildings",
+        "solarAboMulti": "SolarFree Multi-Family",
+        "solarAboBusiness": "Industry / Commercial",
+        "solarAboAgro": "Farmhouses",
+        "solarAboPublic": "Public Buildings",
         "howItWorks": "How it works",
         "cost": "Cost",
         "amortization": "Amortization",
@@ -262,7 +267,7 @@
         "includedTitle": "What's included?",
         "included": [
           "Predictable electricity costs",
-          "Up to 30% cheaper electricity rates",
+          "Up to 20–40% cheaper electricity rates",
           "Protection against rising energy prices",
           "24/7 monitoring & surveillance",
           "Insurance for the entire system",
@@ -543,7 +548,7 @@
           }
         },
         {
-          "title": "SolarFree Business",
+          "title": "Industry / Commercial",
           "subtitle": "For commercial and industrial",
           "feature1": "Performance 100–1,000 kWp on roof or facade",
           "feature2": "Fixed price 0.18 CHF/kWh (incl. maintenance and insurance)",
@@ -560,7 +565,7 @@
           }
         },
         {
-          "title": "SolarFree Agro",
+          "title": "Farmhouses",
           "subtitle": "For farms and agricultural operations",
           "feature1": "PV system up to 500 kWp for halls and stables",
           "feature2": "Electricity cost reduction up to 40%",
@@ -577,7 +582,7 @@
           }
         },
         {
-          "title": "SolarFree Multi",
+          "title": "SolarFree Multi-Family",
           "subtitle": "For multi-family homes (ZEV model)",
           "feature1": "One system, electricity for all residents",
           "feature2": "Centralized billing via Free State ZEV system",
@@ -585,7 +590,7 @@
           "feature4": "Contract 35 years, property transfer at the end",
           "term": "35-year contract, property transfer at the end",
           "price": "Custom pricing",
-          "benefit1": "0 CHF investment, electricity price –30% vs. grid",
+          "benefit1": "0 CHF investment, electricity price –20–40% vs. grid",
           "benefit2": "Centralized billing for all residents",
           "benefit3": "Optional storage and charging infrastructure",
           "explanation": {
@@ -617,7 +622,7 @@
       "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
       "item1": {
         "title": "Bauernhof Thun",
-        "details": "• 30% cost savings \n• 250 kWp system"
+        "details": "• 20–40% cost savings \n• 250 kWp system"
       },
       "item2": {
         "title": "Industriegebäude Zürich",
@@ -678,22 +683,54 @@
       }
     }
   },
-  "solarAboHome": {
+  "solarFreeHome": {
     "hero": {
-      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
-      "title": "SolarFree Home",
-      "subtitle": "For single-family homes without battery storage",
+      "eyebrow": "Buy solar modules",
+      "title": "SolarFree",
+      "subtitle": "State-of-the-art solar and battery storage with FreeState AG's solar leasing — with no upfront cost.",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
       "stats": {
         "left": {
           "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 30% lower\nelectricity price"
+          "electricity": "Up to 30% lower\nelectricity costs"
         },
         "right": {
-          "maintenance": "Maintenance\nincluded",
+          "maintenance": "Higher self-consumption\nwith battery",
           "reduction": "CO₂ reduction\nup to 2 t/year"
         }
+      }
+    }
+  },
+  "solarAboHome": {
+    "hero": {
+      "eyebrow": "Buy solar modules",
+      "title": "SolarDirect",
+      "subtitle": "Secure a more predictable energy future with a one-time payment.",
+      "cta": "Start the Solar Calculator",
+      "tag": "No registration required · No obligation",
+      "stats": {
+        "left": {
+          "investment": "One-time investment\nfrom 10,000 CHF",
+          "electricity": "Up to 20–40% lower\nelectricity costs"
+        },
+        "right": {
+          "maintenance": "Amortization possible\nfrom 5 years",
+          "reduction": "25+ years of guaranteed\npower production"
+        }
+      }
+    },
+    "details": {
+      "eyebrow": "Details",
+      "title": "What's included in SolarFree",
+      "subtitle": "All services and components for a reliable energy supply — with no upfront costs.",
+      "solarModules": {
+        "title": "High-quality solar modules",
+        "description": "Highly efficient solar modules for maximum energy generation — durable and resilient."
+      },
+      "batteryStorage": {
+        "title": "Powerful battery storage",
+        "description": "Reliable energy when you need it — as backup or to optimize self-consumption."
       }
     },
     "includes": {
@@ -723,6 +760,59 @@
         "batteryStorage": {
           "title": "Battery storage",
           "subtitle": "Self-consumption"
+        }
+      }
+    },
+    "service": {
+      "title": "Service for solar systems",
+      "subtitle": "Complete service for the safe and efficient operation of your solar system.",
+      "warranty": {
+        "title": "35-year\nwarranty",
+        "description": "Full coverage for repair and replacement."
+      },
+      "installation": {
+        "title": "Experienced installation",
+        "description": "Proven at over 1 million households."
+      },
+      "support": {
+        "title": "Support around\nthe clock",
+        "description": "24/7 assistance and system monitoring."
+      }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": {
+        "1": {
+          "question": "How does owning a solar system work?",
+          "answer": "You purchase the system outright and benefit from 100% of the electricity it produces. All savings and feed-in revenue are yours, and the system is your property from day one."
+        },
+        "2": {
+          "question": "What are the advantages of buying a solar system?",
+          "answer": "Long-term cost savings, energy independence, higher property value, and full control — with amortization typically achieved in 5–10 years."
+        },
+        "3": {
+          "question": "Can I buy solar modules myself?",
+          "answer": "Yes, but professional installation, grid connection, and permits are still required. Our turnkey SolarDirect package handles all of that for you."
+        },
+        "4": {
+          "question": "Leasing or buying — which is better?",
+          "answer": "Buying offers the lowest total cost and full ownership. Leasing (like SolarFree) removes the upfront investment. The right choice depends on your cash flow and long-term goals."
+        },
+        "5": {
+          "question": "What happens if the system breaks down?",
+          "answer": "Solar modules come with a 25+ year performance warranty, and inverters are typically covered 10+ years. We handle repairs and replacements within the warranty period."
+        },
+        "6": {
+          "question": "Pros and cons of DIY installation?",
+          "answer": "DIY can lower upfront cost but requires permits, safety expertise, and certified grid connection. Without professional installation, you risk warranty loss and safety issues."
+        },
+        "7": {
+          "question": "Do electricity costs remain with a solar system?",
+          "answer": "You still pay a basic grid connection fee and pay for electricity drawn from the grid at night or on cloudy days — but your overall bill drops significantly."
+        },
+        "8": {
+          "question": "What happens with surplus electricity?",
+          "answer": "Excess electricity is fed into the grid, and your utility pays a feed-in tariff. Optionally, a battery can store the surplus for later self-consumption."
         }
       }
     },
@@ -776,7 +866,7 @@
     },
     "cta": {
       "topButton": "See if SolarFree Home Storage works for your roof",
-      "heading": "See if SolarFree Home Storage works for your roof",
+      "heading": "Check the solar potential of your roof",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -784,14 +874,14 @@
   "solarAboMulti": {
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
-      "title": "SolarFree Multi",
+      "title": "SolarFree Multi-Family",
       "subtitle": "For apartment buildings and shared energy communities (ZEV / LEG)",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
       "stats": {
         "left": {
           "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 30% lower\nelectricity price"
+          "electricity": "Up to 20–40% lower\nelectricity price"
         },
         "right": {
           "maintenance": "Maintenance\nincluded",
@@ -801,7 +891,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarFree Multi",
+      "subtitle": "In SolarFree Multi-Family",
       "items": {
         "solarModules": {
           "title": "Shared solar system",
@@ -830,7 +920,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarFree Multi works",
+      "title": "How SolarFree Multi-Family works",
       "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
       "steps": {
         "step1": "You provide the roof",
@@ -839,6 +929,29 @@
         "step4": "You pay\nmonthly",
         "step5": "The system becomes yours"
       }
+    },
+    "howPV": {
+      "row1": {
+        "title": "How PV works",
+        "description": "Solar for your multi-family building – without any investment\n\nReduce energy costs in the building – without any investment of your own. We build the PV system on your roof, fully financed, installed and operated by us.\n\nFor you and all residents this means:\nlower electricity costs\nstable energy prices\nsustainable increase in property value"
+      },
+      "row2": {
+        "title": "How it works",
+        "description": "How it works\nYou make the connection. We evaluate for free and take care of implementation & operation. The electricity stays in the building.\n\nYour benefits\nNo investment, cheaper electricity, more value.\n\nWhy it pays off\nUnused roofs + rising prices\n→ Your building becomes a producer."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "With clean, reliable energy",
+      "body": "Get a non-binding assessment now\n\nTransform your multi-family building into a modern energy project without any financial risk. Recommend us to your management or owners' association – we check everything and handle the full implementation.\n\nWe analyze the building and roof potential, calculate profitability and develop a concrete implementation concept including all technical and legal aspects (ZEV). Financing, planning and realization are fully handled by us.\n\nYour effort stays minimal: you make the initial contact, we coordinate everything else. You benefit from affordable solar electricity, stable energy costs and a sustainable increase in the value of your property. Start now free of charge and without obligation and receive a well-founded assessment of the potential – Request a free analysis"
+    },
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Sales Director",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contact"
     },
     "pricing": {
       "title": "Pricing & Contract",
@@ -878,16 +991,39 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarFree Multi works for your roof",
-      "heading": "See if SolarFree Multi works for your roof",
+      "topButton": "See if SolarFree Multi-Family works for your roof",
+      "heading": "See if SolarFree Multi-Family works for your roof",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
   },
   "solarAboBusiness": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Sales Director",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contact"
+    },
+    "howPV": {
+      "row1": {
+        "title": "How PV works",
+        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+      },
+      "row2": {
+        "title": "How it works",
+        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energy for your business",
+      "subtitle": "Clean, predictable, without any investment",
+      "body": "Put the unused roof space of your industrial or commercial property to work – without any capital outlay. We evaluate the building, the consumption profile and the business case for free and take care of planning, financing, installation and operation. You benefit from stable electricity prices, ESG advantages and measurable CO₂ reduction – without operational load on your team. Request a free analysis now."
+    },
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. ESG benefits.",
-      "title": "SolarFree Business",
+      "title": "Industry / Commercial",
       "subtitle": "For commercial and industrial buildings",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -904,7 +1040,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarFree Business",
+      "subtitle": "In Industry / Commercial",
       "items": {
         "solarModules": {
           "title": "Commercial PV system",
@@ -933,7 +1069,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarFree Business works",
+      "title": "How Industry / Commercial works",
       "subtitle": "Simple, transparent, and worry-free – energy cost reduction for your business.",
       "steps": {
         "step1": "You provide the roof",
@@ -961,7 +1097,7 @@
         "label": "Price per\nkWh in CHF",
         "value": "from CHF 0.18"
       },
-      "solarAboPrice": "With SolarFree Business",
+      "solarAboPrice": "With Industry / Commercial",
       "orderNow": "ORDER NOW",
       "orderLink": "/commercial/calculator"
     },
@@ -981,16 +1117,39 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarFree Business works for your building",
-      "heading": "See if SolarFree Business works for your building",
+      "topButton": "See if Industry / Commercial works for your building",
+      "heading": "See if Industry / Commercial works for your building",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
   },
   "solarAboAgro": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Sales Director",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contact"
+    },
+    "howPV": {
+      "row1": {
+        "title": "How PV works",
+        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+      },
+      "row2": {
+        "title": "How it works",
+        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energy for your farm",
+      "subtitle": "Big roofs, big potential",
+      "body": "Farms often have the largest unused roof surfaces in the region. We evaluate for free how your barn or stable roof can be turned into a PV system – without any investment on your part. We take care of financing, construction and operation. You get affordable electricity for your farm and operation, an annual roof lease and an additional source of income. Request a non-binding potential check now."
+    },
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. Reliable service.",
-      "title": "SolarFree Agro",
+      "title": "Farmhouses",
       "subtitle": "For farms and agricultural operations",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
@@ -1007,7 +1166,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarFree Agro",
+      "subtitle": "In Farmhouses",
       "items": {
         "solarModules": {
           "title": "Agricultural PV system",
@@ -1036,7 +1195,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarFree Agro works",
+      "title": "How Farmhouses works",
       "subtitle": "Simple, transparent, and worry-free – tailored for agricultural operations.",
       "steps": {
         "step1": "You provide the roof",
@@ -1064,7 +1223,7 @@
         "label": "Price per\nm² in CHF",
         "value": "custom pricing"
       },
-      "solarAboPrice": "With SolarFree Agro",
+      "solarAboPrice": "With Farmhouses",
       "orderNow": "ORDER NOW",
       "orderLink": "/commercial/calculator"
     },
@@ -1084,23 +1243,42 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarFree Agro works for your farm",
-      "heading": "See if SolarFree Agro works for your farm",
+      "topButton": "See if Farmhouses works for your farm",
+      "heading": "See if Farmhouses works for your farm",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
   },
   "solarAboPublic": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Sales Director",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contact"
+    },
+    "howPV": {
+      "row1": {
+        "title": "How PV works",
+        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "With clean, reliable energy",
+      "body": "Schools, administrative buildings and public properties carry responsibility for the energy transition – without placing a burden on budgets. We evaluate the potential and the business case for free and take care of planning, financing, construction and operation of the system. The municipality benefits from stable energy costs, a visible sustainability contribution and a role-model function – without advancing a single franc. Request a non-binding analysis now."
+    },
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. Sustainable example.",
-      "title": "SolarFree Public",
+      "title": "Public Buildings",
       "subtitle": "For schools, hospitals, and municipal buildings",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
       "stats": {
         "left": {
           "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 30% lower\nelectricity costs"
+          "electricity": "Up to 20–40% lower\nelectricity costs"
         },
         "right": {
           "maintenance": "Maintenance\nincluded",
@@ -1110,7 +1288,7 @@
     },
     "includes": {
       "title": "What's included",
-      "subtitle": "In SolarFree Public",
+      "subtitle": "In Public Buildings",
       "items": {
         "solarModules": {
           "title": "Public building PV system",
@@ -1139,7 +1317,7 @@
       }
     },
     "howItWorks": {
-      "title": "How SolarFree Public works",
+      "title": "How Public Buildings works",
       "subtitle": "Simple, transparent, and worry-free – setting a sustainable example for your community.",
       "steps": {
         "step1": "You provide the roof",
@@ -1167,7 +1345,7 @@
         "label": "Price per\nm² in CHF",
         "value": "custom pricing"
       },
-      "solarAboPrice": "With SolarFree Public",
+      "solarAboPrice": "With Public Buildings",
       "orderNow": "ORDER NOW",
       "orderLink": "/commercial/calculator"
     },
@@ -1187,8 +1365,8 @@
       }
     },
     "cta": {
-      "topButton": "See if SolarFree Public works for your building",
-      "heading": "See if SolarFree Public works for your building",
+      "topButton": "See if Public Buildings works for your building",
+      "heading": "See if Public Buildings works for your building",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator"
     }
@@ -1208,6 +1386,42 @@
     "address": {
       "label": "Address",
       "value": "Free State AG\nSwitzerland"
+    }
+  },
+  "quoteRequestForm": {
+    "eyebrow": "Energy costs",
+    "title": "Control your energy costs",
+    "subtitle": "Stay in control of consumption and costs — with an efficient, predictable energy system.",
+    "formTitle": "Free quote",
+    "requiredHint": "All fields are required.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "E-mail",
+    "postalCode": "Postal code",
+    "phone": "Phone",
+    "placeholders": {
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "email": "jane.doe@example.com",
+      "postalCode": "8001",
+      "phone": "+41 79 123 45 67"
+    },
+    "ownsHomeQuestion": "Do you own your home?",
+    "yes": "Yes",
+    "no": "No",
+    "consent": "By clicking the button below, you agree that Free State AG may contact you at the phone number provided and send automated calls and messages about products and services — even if your number is on a 'Do Not Call' list. Message and data rates may apply. Maximum 10 messages per month. Consent is voluntary and can be withdrawn at any time. You also agree to our terms of use.",
+    "submit": "Submit",
+    "successTitle": "Thank you!",
+    "successMessage": "We have received your request and will be in touch shortly.",
+    "errorMessage": "Something went wrong. Please try again.",
+    "errors": {
+      "firstName": "First name is required",
+      "lastName": "Last name is required",
+      "email": "E-mail is required",
+      "emailInvalid": "Please enter a valid e-mail",
+      "postalCode": "Postal code is required",
+      "phone": "Phone is required",
+      "ownsHome": "Please select an option"
     }
   },
   "contactForm": {
@@ -2322,7 +2536,8 @@
     "continue": "Continue",
     "cancel": "Cancel",
     "save": "Save",
-    "loading": "Loading..."
+    "loading": "Loading...",
+    "comingSoon": "Coming soon"
   },
   "blog": {
     "title": "Blog",
@@ -3480,16 +3695,16 @@
         "bullet2": "With battery storage"
       },
       "multi": {
-        "tag": "Multi",
-        "title": "{model} Multi",
+        "tag": "Multi-Family",
+        "title": "{model} Multi-Family",
         "bullet1": "For apartment buildings",
         "bullet2": "Shared energy communities (ZEV / LEG)"
       },
-      "learnMore": "Learn more about {model} Home and {model} Multi",
+      "learnMore": "Learn more about {model} Home and {model} Multi-Family",
       "learnMorePrefix": "Learn more about",
       "learnMoreConnector": "and",
       "learnMoreHome": "{model} Home",
-      "learnMoreMulti": "{model} Multi",
+      "learnMoreMulti": "{model} Multi-Family",
       "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
@@ -3509,7 +3724,7 @@
       "options": {
         "home": "SolarFree Home",
         "homeDesc": "For single-family homes without battery storage",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Multi-Family",
         "multiDesc": "For apartment buildings and shared energy communities (ZEV / LEG)"
       },
       "learnMore": "Learn more about",
@@ -3659,7 +3874,7 @@
         "title": "Recommended Package",
         "home": "SolarFree Home",
         "homeDesc": "For single-family homes",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Multi-Family",
         "multiDesc": "For multi-family buildings",
         "recommended": "Recommended"
       },
@@ -3706,7 +3921,7 @@
           "label": "Your yearly saving",
           "amount": "CHF {amount}",
           "suffix": "per year on your electricity bill",
-          "footnote": "SolarFree electricity is always 30% cheaper than grid electricity."
+          "footnote": "SolarFree electricity is always 20–40% cheaper than grid electricity."
         },
         "yourImpact": {
           "label": "Your impact",
@@ -3827,7 +4042,7 @@
       "solarFree": {
         "rateCard": {
           "title": "Your SolarFree rate",
-          "bodyLine1": "30% below grid for every solar kWh you use.",
+          "bodyLine1": "20–40% below grid for every solar kWh you use.",
           "bodyLine2": "No fee for the system itself.",
           "yearlySavingLabel": "Estimated yearly saving",
           "yearlySavingValue": "CHF {amount}"
@@ -4434,7 +4649,7 @@
       "products": {
         "label": "Which products are you using? *",
         "solarAboPrivate": "SolarFree Private",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industry / Commercial",
         "huaweiInverters": "Huawei inverters",
         "sonnenBattery": "Sonnen battery storage",
         "e3dcBattery": "E3DC Battery Storage",
@@ -5591,6 +5806,7 @@
       "support": "Support",
       "maintenanceInquiries": "Maintenance Inquiries",
       "contacts": "Contact Submissions",
+      "quoteRequests": "Quote Requests",
       "investorRequests": "Investor Requests",
       "newsletter": "Newsletter",
       "careerSubscriptions": "Career Subscriptions",
@@ -5879,6 +6095,41 @@
       "adminNotes": "Admin Notes",
       "saveNotes": "Save Notes"
     },
+    "quoteRequests": {
+      "title": "Quote Requests",
+      "searchPlaceholder": "Search by name, email, phone...",
+      "filterSource": "Filter by source",
+      "filterStatus": "Filter by status",
+      "allSources": "All Sources",
+      "allStatuses": "All Statuses",
+      "sourceSolarFree": "SolarFree",
+      "sourceSolarDirect": "SolarDirect",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "postalCode": "Postal Code",
+      "source": "Source",
+      "ownsHome": "Owns Home",
+      "status": "Status",
+      "created": "Created",
+      "locale": "Locale",
+      "consent": "Consent",
+      "yes": "Yes",
+      "no": "No",
+      "view": "View",
+      "noRequests": "No quote requests found",
+      "totalRequests": "{count} requests total",
+      "statusNew": "New",
+      "statusContacted": "Contacted",
+      "statusQualified": "Qualified",
+      "statusClosed": "Closed",
+      "details": "Details",
+      "manage": "Manage",
+      "adminNotes": "Admin Notes",
+      "save": "Save",
+      "saved": "Successfully saved",
+      "backToList": "Back to list"
+    },
     "investorRequests": {
       "title": "Investor Requests",
       "searchPlaceholder": "Search by name or email...",
@@ -5954,7 +6205,7 @@
       },
       "productKeys": {
         "solarAboPrivate": "SolarFree Private",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industry / Commercial",
         "huaweiInverters": "Huawei Inverters",
         "sonnenBattery": "Sonnen Battery",
         "e3dcBattery": "E3/DC Battery",

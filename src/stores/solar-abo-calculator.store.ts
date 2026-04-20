@@ -895,7 +895,6 @@ export const useSolarAboCalculatorStore = create<
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
         solarModel: state.solarModel,
-        currentStep: state.currentStep,
         buildingType: state.buildingType,
         householdSize: state.householdSize,
         devices: state.devices,

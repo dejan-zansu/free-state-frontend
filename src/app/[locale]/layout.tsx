@@ -6,6 +6,7 @@ import { QueryProvider } from '@/providers/QueryProvider'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 export async function generateStaticParams() {
   return locales.map(locale => ({ locale }))
@@ -28,14 +29,16 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <QueryProvider>
-        <div className="flex flex-col min-h-screen">
-          <ConditionalHeader />
-          <div className="flex-1">{children}</div>
-          <ConditionalFooter locale={locale} />
-          <CookieConsentBanner />
-        </div>
-      </QueryProvider>
+      <NuqsAdapter>
+        <QueryProvider>
+          <div className="flex flex-col min-h-screen">
+            <ConditionalHeader />
+            <div className="flex-1">{children}</div>
+            <ConditionalFooter locale={locale} />
+            <CookieConsentBanner />
+          </div>
+        </QueryProvider>
+      </NuqsAdapter>
     </NextIntlClientProvider>
   )
 }

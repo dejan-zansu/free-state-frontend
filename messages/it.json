@@ -207,17 +207,22 @@
       ],
       "cta": {
         "primary": "Inizia",
-        "secondary": "Calcolatore"
+        "secondary": "Calcolatore",
+        "schedule": "Fissa un appuntamento"
       },
       "nav": {
         "solarAbo": "SolarFree",
+        "plansPrices": "Piani e Prezzi",
+        "ourPackages": "I nostri pacchetti",
+        "solarFree": "SolarFree",
+        "solarDirect": "SolarDirect",
         "products": "Prodotti",
         "onlineStarter": "Avvio online",
         "solarAboHome": "SolarFree Home",
-        "solarAboMulti": "SolarFree Multi",
-        "solarAboBusiness": "SolarFree Business",
-        "solarAboAgro": "SolarFree Agro",
-        "solarAboPublic": "SolarFree Edifici pubblici",
+        "solarAboMulti": "SolarFree Multifamiliare",
+        "solarAboBusiness": "Industria / Commercio",
+        "solarAboAgro": "Fattorie",
+        "solarAboPublic": "Edifici pubblici",
         "howItWorks": "Come funziona",
         "cost": "Costi",
         "amortization": "Ammortamento",
@@ -262,7 +267,7 @@
         "includedTitle": "Cosa è incluso?",
         "included": [
           "Costi dell'elettricità prevedibili",
-          "Tariffe elettriche fino al 30% più convenienti",
+          "Tariffe elettriche fino al 20–40% più convenienti",
           "Protezione dall'aumento dei prezzi dell'energia",
           "Monitoraggio 24/7",
           "Assicurazione sull'intero impianto",
@@ -543,7 +548,7 @@
           }
         },
         {
-          "title": "SolarFree Business",
+          "title": "Industria / Commercio",
           "subtitle": "Per il settore commerciale e industriale",
           "feature1": "Potenza 100–1'000 kWp su tetto o facciata",
           "feature2": "Prezzo fisso 0,18 CHF/kWh (inclusi manutenzione e assicurazione)",
@@ -560,7 +565,7 @@
           }
         },
         {
-          "title": "SolarFree Agro",
+          "title": "Fattorie",
           "subtitle": "Per aziende agricole e allevamenti",
           "feature1": "Impianto FV fino a 500 kWp per capannoni e stalle",
           "feature2": "Riduzione dei costi dell'elettricità fino al 40%",
@@ -577,7 +582,7 @@
           }
         },
         {
-          "title": "SolarFree Multi",
+          "title": "SolarFree Multifamiliare",
           "subtitle": "Per case plurifamiliari (modello RCP)",
           "feature1": "Un impianto, elettricità per tutti gli inquilini",
           "feature2": "Fatturazione centralizzata tramite il sistema RCP di Free State",
@@ -585,7 +590,7 @@
           "feature4": "Contratto 35 anni, trasferimento di proprietà al termine",
           "term": "Contratto di 35 anni, trasferimento di proprietà al termine",
           "price": "Prezzi personalizzati",
-          "benefit1": "0 CHF di investimento, prezzo dell'elettricità –30% vs. rete",
+          "benefit1": "0 CHF di investimento, prezzo dell'elettricità –20–40% vs. rete",
           "benefit2": "Fatturazione centralizzata per tutti gli inquilini",
           "benefit3": "Accumulo e infrastruttura di ricarica in opzione",
           "explanation": {
@@ -617,7 +622,7 @@
       "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza – senza rischi di investimento da parte tua.",
       "item1": {
         "title": "Azienda agricola Thun",
-        "details": "• 30% di risparmio sui costi \n• Impianto da 250 kWp"
+        "details": "• 20–40% di risparmio sui costi \n• Impianto da 250 kWp"
       },
       "item2": {
         "title": "Edificio industriale Zurigo",
@@ -678,22 +683,54 @@
       }
     }
   },
-  "solarAboHome": {
+  "solarFreeHome": {
     "hero": {
-      "eyebrow": "Zero investimento. Bollette più basse. Zero preoccupazioni.",
-      "title": "SolarFree Home",
-      "subtitle": "Per case unifamiliari senza accumulo a batteria",
+      "eyebrow": "Acquista moduli solari",
+      "title": "SolarFree",
+      "subtitle": "Tecnologia solare e di accumulo all'avanguardia con il leasing solare di FreeState AG — senza costi di acquisto.",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
       "stats": {
         "left": {
           "investment": "0 CHF\ndi investimento",
-          "electricity": "Fino al 30% in meno\nsul prezzo dell'elettricità"
+          "electricity": "Fino al 30% in meno\ndi costi elettrici"
         },
         "right": {
-          "maintenance": "Manutenzione\ninclusa",
+          "maintenance": "Maggior autoconsumo\ncon accumulo",
           "reduction": "Riduzione CO₂\nfino a 2 t/anno"
         }
+      }
+    }
+  },
+  "solarAboHome": {
+    "hero": {
+      "eyebrow": "Acquista moduli solari",
+      "title": "SolarDirect",
+      "subtitle": "Assicurati un futuro energetico più prevedibile con un pagamento unico.",
+      "cta": "Avvia il calcolatore solare",
+      "tag": "Senza registrazione · Senza impegno",
+      "stats": {
+        "left": {
+          "investment": "Investimento unico\nda 10'000 CHF",
+          "electricity": "Fino al 20–40% in meno\ndi costi elettrici"
+        },
+        "right": {
+          "maintenance": "Ammortamento possibile\nda 5 anni",
+          "reduction": "25+ anni di produzione\nelettrica garantita"
+        }
+      }
+    },
+    "details": {
+      "eyebrow": "Dettagli",
+      "title": "Cosa include SolarFree",
+      "subtitle": "Tutti i servizi e i componenti per un approvvigionamento energetico affidabile — senza costi di acquisto.",
+      "solarModules": {
+        "title": "Moduli solari di alta qualità",
+        "description": "Moduli solari altamente efficienti per la massima produzione di energia — durevoli e resistenti."
+      },
+      "batteryStorage": {
+        "title": "Accumulo a batteria ad alte prestazioni",
+        "description": "Energia affidabile quando serve — come backup o per ottimizzare l'autoconsumo."
       }
     },
     "includes": {
@@ -723,6 +760,59 @@
         "batteryStorage": {
           "title": "Accumulo a batteria",
           "subtitle": "Autoconsumo"
+        }
+      }
+    },
+    "service": {
+      "title": "Servizio per impianti solari",
+      "subtitle": "Servizio completo per un funzionamento sicuro ed efficiente del tuo impianto solare.",
+      "warranty": {
+        "title": "35 anni\ndi garanzia",
+        "description": "Copertura completa per riparazione e sostituzione."
+      },
+      "installation": {
+        "title": "Installazione esperta",
+        "description": "Collaudata in oltre 1 milione di abitazioni."
+      },
+      "support": {
+        "title": "Assistenza\n24 ore su 24",
+        "description": "Assistenza e monitoraggio del sistema 24/7."
+      }
+    },
+    "faq": {
+      "title": "Domande frequenti",
+      "items": {
+        "1": {
+          "question": "Come funziona il possesso di un impianto solare?",
+          "answer": "Acquisti l'impianto e benefici al 100% dell'energia prodotta. Tutti i risparmi e i compensi per l'immissione sono tuoi, e l'impianto è di tua proprietà dal primo giorno."
+        },
+        "2": {
+          "question": "Vantaggi nell'acquisto di un impianto solare?",
+          "answer": "Risparmio a lungo termine, indipendenza energetica, maggiore valore dell'immobile e pieno controllo — con un ammortamento tipicamente raggiunto in 5–10 anni."
+        },
+        "3": {
+          "question": "Posso acquistare i moduli solari da solo?",
+          "answer": "Sì, ma installazione professionale, allacciamento alla rete e autorizzazioni restano necessari. Il nostro pacchetto chiavi in mano SolarDirect gestisce tutto per te."
+        },
+        "4": {
+          "question": "Leasing o acquisto — cosa è meglio?",
+          "answer": "L'acquisto offre il costo totale più basso e la piena proprietà. Il leasing (come SolarFree) elimina l'investimento iniziale. La scelta giusta dipende dalla tua liquidità e dai tuoi obiettivi a lungo termine."
+        },
+        "5": {
+          "question": "Cosa succede in caso di guasto dell'impianto?",
+          "answer": "I moduli solari hanno una garanzia di prestazione di oltre 25 anni, gli inverter sono tipicamente coperti per oltre 10 anni. Ci occupiamo di riparazioni e sostituzioni nel periodo di garanzia."
+        },
+        "6": {
+          "question": "Pro e contro dell'installazione fai-da-te?",
+          "answer": "Il fai-da-te può ridurre i costi iniziali, ma richiede autorizzazioni, competenze di sicurezza e un allacciamento certificato alla rete. Senza installazione professionale rischi la perdita di garanzia e problemi di sicurezza."
+        },
+        "7": {
+          "question": "Rimangono costi dell'elettricità con un impianto solare?",
+          "answer": "Restano una quota fissa per l'allacciamento alla rete e il consumo di elettricità di notte o nei giorni nuvolosi — ma la bolletta complessiva cala in modo significativo."
+        },
+        "8": {
+          "question": "Cosa succede in caso di elettricità in eccesso?",
+          "answer": "L'elettricità eccedente viene immessa in rete e remunerata. In opzione, una batteria può accumulare il surplus per un autoconsumo successivo."
         }
       }
     },
@@ -776,7 +866,7 @@
     },
     "cta": {
       "topButton": "Scopri se SolarFree Home Storage è adatto al tuo tetto",
-      "heading": "Scopri se SolarFree Home Storage è adatto al tuo tetto",
+      "heading": "Verifica il potenziale solare del tuo tetto",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/calculator"
     }
@@ -784,14 +874,14 @@
   "solarAboMulti": {
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Zero preoccupazioni.",
-      "title": "SolarFree Multi",
+      "title": "SolarFree Multifamiliare",
       "subtitle": "Per case plurifamiliari e comunità energetiche condivise (RCP / CEL)",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
       "stats": {
         "left": {
           "investment": "0 CHF\ndi investimento",
-          "electricity": "Fino al 30% in meno\nsul prezzo dell'elettricità"
+          "electricity": "Fino al 20–40% in meno\nsul prezzo dell'elettricità"
         },
         "right": {
           "maintenance": "Manutenzione\ninclusa",
@@ -801,7 +891,7 @@
     },
     "includes": {
       "title": "Cosa è incluso",
-      "subtitle": "In SolarFree Multi",
+      "subtitle": "In SolarFree Multifamiliare",
       "items": {
         "solarModules": {
           "title": "Impianto solare condiviso",
@@ -830,7 +920,7 @@
       }
     },
     "howItWorks": {
-      "title": "Come funziona SolarFree Multi",
+      "title": "Come funziona SolarFree Multifamiliare",
       "subtitle": "Semplice, trasparente e senza preoccupazioni, proprio come un abbonamento mobile.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
@@ -839,6 +929,29 @@
         "step4": "Paghi\nmensilmente",
         "step5": "L'impianto diventa tuo"
       }
+    },
+    "howPV": {
+      "row1": {
+        "title": "Come funziona il FV",
+        "description": "Solare per il tuo stabile plurifamiliare – senza investimento\n\nRiduci i costi energetici dell'edificio, senza alcun investimento da parte tua. Realizziamo l'impianto fotovoltaico sul tuo tetto, interamente finanziato, installato e gestito da noi.\n\nPer te e per tutti gli inquilini significa:\ncosti dell'elettricità più bassi\nprezzi dell'energia stabili\naumento di valore sostenibile dell'immobile"
+      },
+      "row2": {
+        "title": "Come funziona",
+        "description": "Come funziona\nTu prendi contatto. Verifichiamo gratuitamente e ci occupiamo di realizzazione e gestione. L'elettricità resta nell'edificio.\n\nI tuoi vantaggi\nNessun investimento, elettricità più conveniente, più valore.\n\nPerché conviene\nTetti inutilizzati + prezzi in aumento\n→ Il tuo edificio diventa produttore."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "Con energia pulita e affidabile",
+      "body": "Richiedi ora una valutazione senza impegno\n\nTrasforma il tuo stabile plurifamiliare in un moderno progetto energetico senza alcun rischio finanziario. Raccomandaci alla tua amministrazione o alla comunità dei proprietari – verifichiamo tutto e ci occupiamo dell'intera realizzazione.\n\nAnalizziamo l'edificio e il potenziale del tetto, calcoliamo la redditività e sviluppiamo un concetto di realizzazione concreto, inclusi tutti gli aspetti tecnici e legali (ZEV). Finanziamento, pianificazione e realizzazione sono interamente a nostro carico.\n\nIl tuo impegno resta minimo: tu prendi il primo contatto, noi coordiniamo tutto il resto. Beneficerai di energia solare conveniente, costi energetici stabili e un aumento di valore sostenibile del tuo immobile. Inizia ora, gratuitamente e senza impegno, e ricevi una valutazione solida del potenziale – Richiedi un'analisi gratuita"
+    },
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Direttore vendite",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contatto"
     },
     "pricing": {
       "title": "Prezzi e contratto",
@@ -878,16 +991,39 @@
       }
     },
     "cta": {
-      "topButton": "Scopri se SolarFree Multi è adatto al tuo tetto",
-      "heading": "Scopri se SolarFree Multi è adatto al tuo tetto",
+      "topButton": "Scopri se SolarFree Multifamiliare è adatto al tuo tetto",
+      "heading": "Scopri se SolarFree Multifamiliare è adatto al tuo tetto",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/calculator"
     }
   },
   "solarAboBusiness": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Direttore vendite",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contatto"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Come funziona il FV",
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+      },
+      "row2": {
+        "title": "Come funziona",
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energia per la tua attività",
+      "subtitle": "Pulita, prevedibile, senza investimento",
+      "body": "Fai lavorare le superfici di tetto inutilizzate della tua azienda industriale o commerciale – senza alcun esborso di capitale. Analizziamo gratuitamente l'edificio, il profilo di consumo e la redditività, e ci occupiamo di progettazione, finanziamento, installazione e gestione. Beneficerai di prezzi dell'elettricità stabili, di vantaggi ESG e di una riduzione misurabile di CO₂ – senza carichi operativi per il tuo team. Richiedi ora un'analisi gratuita."
+    },
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Vantaggi ESG.",
-      "title": "SolarFree Business",
+      "title": "Industria / Commercio",
       "subtitle": "Per edifici commerciali e industriali",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
@@ -904,7 +1040,7 @@
     },
     "includes": {
       "title": "Cosa è incluso",
-      "subtitle": "In SolarFree Business",
+      "subtitle": "In Industria / Commercio",
       "items": {
         "solarModules": {
           "title": "Impianto FV commerciale",
@@ -933,7 +1069,7 @@
       }
     },
     "howItWorks": {
-      "title": "Come funziona SolarFree Business",
+      "title": "Come funziona Industria / Commercio",
       "subtitle": "Semplice, trasparente e senza preoccupazioni – riduzione dei costi energetici per la tua azienda.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
@@ -961,7 +1097,7 @@
         "label": "Prezzo per\nkWh in CHF",
         "value": "da CHF 0,18"
       },
-      "solarAboPrice": "Con SolarFree Business",
+      "solarAboPrice": "Con Industria / Commercio",
       "orderNow": "ORDINA ORA",
       "orderLink": "/commercial/calculator"
     },
@@ -981,16 +1117,39 @@
       }
     },
     "cta": {
-      "topButton": "Scopri se SolarFree Business è adatto al tuo edificio",
-      "heading": "Scopri se SolarFree Business è adatto al tuo edificio",
+      "topButton": "Scopri se Industria / Commercio è adatto al tuo edificio",
+      "heading": "Scopri se Industria / Commercio è adatto al tuo edificio",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/calculator"
     }
   },
   "solarAboAgro": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Direttore vendite",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contatto"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Come funziona il FV",
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+      },
+      "row2": {
+        "title": "Come funziona",
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energia per la tua azienda agricola",
+      "subtitle": "Grandi tetti, grande potenziale",
+      "body": "Le aziende agricole hanno spesso le superfici di tetto inutilizzate più grandi della regione. Valutiamo gratuitamente come trasformare il tuo tetto di fienile o stalla in un impianto FV – senza alcun investimento da parte tua. Ci occupiamo di finanziamento, costruzione e gestione. Ricevi elettricità conveniente per l'azienda, un affitto annuale per il tetto e una nuova fonte di reddito. Richiedi ora una verifica del potenziale senza impegno."
+    },
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Servizio affidabile.",
-      "title": "SolarFree Agro",
+      "title": "Fattorie",
       "subtitle": "Per aziende agricole e allevamenti",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
@@ -1007,7 +1166,7 @@
     },
     "includes": {
       "title": "Cosa è incluso",
-      "subtitle": "In SolarFree Agro",
+      "subtitle": "In Fattorie",
       "items": {
         "solarModules": {
           "title": "Impianto FV agricolo",
@@ -1036,7 +1195,7 @@
       }
     },
     "howItWorks": {
-      "title": "Come funziona SolarFree Agro",
+      "title": "Come funziona Fattorie",
       "subtitle": "Semplice, trasparente e senza preoccupazioni – su misura per le aziende agricole.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
@@ -1064,7 +1223,7 @@
         "label": "Prezzo per\nm² in CHF",
         "value": "prezzi personalizzati"
       },
-      "solarAboPrice": "Con SolarFree Agro",
+      "solarAboPrice": "Con Fattorie",
       "orderNow": "ORDINA ORA",
       "orderLink": "/commercial/calculator"
     },
@@ -1084,23 +1243,42 @@
       }
     },
     "cta": {
-      "topButton": "Scopri se SolarFree Agro è adatto alla tua azienda",
-      "heading": "Scopri se SolarFree Agro è adatto alla tua azienda",
+      "topButton": "Scopri se Fattorie è adatto alla tua azienda",
+      "heading": "Scopri se Fattorie è adatto alla tua azienda",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/calculator"
     }
   },
   "solarAboPublic": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Direttore vendite",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Contatto"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Come funziona il FV",
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "Con energia pulita e affidabile",
+      "body": "Scuole, edifici amministrativi e immobili pubblici hanno una responsabilità nella transizione energetica – senza gravare sui bilanci. Analizziamo gratuitamente potenziale e redditività e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Il comune beneficia di costi energetici stabili, di un contributo visibile alla sostenibilità e di una funzione esemplare – senza anticipare un solo franco. Richiedi ora un'analisi senza impegno."
+    },
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Esempio di sostenibilità.",
-      "title": "SolarFree Public",
+      "title": "Edifici pubblici",
       "subtitle": "Per scuole, ospedali ed edifici comunali",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
       "stats": {
         "left": {
           "investment": "0 CHF\ndi investimento",
-          "electricity": "Fino al 30% in meno\nsui costi dell'elettricità"
+          "electricity": "Fino al 20–40% in meno\nsui costi dell'elettricità"
         },
         "right": {
           "maintenance": "Manutenzione\ninclusa",
@@ -1110,7 +1288,7 @@
     },
     "includes": {
       "title": "Cosa è incluso",
-      "subtitle": "In SolarFree Public",
+      "subtitle": "In Edifici pubblici",
       "items": {
         "solarModules": {
           "title": "Impianto FV per edifici pubblici",
@@ -1139,7 +1317,7 @@
       }
     },
     "howItWorks": {
-      "title": "Come funziona SolarFree Public",
+      "title": "Come funziona Edifici pubblici",
       "subtitle": "Semplice, trasparente e senza preoccupazioni – dai l'esempio di sostenibilità alla tua comunità.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
@@ -1167,7 +1345,7 @@
         "label": "Prezzo per\nm² in CHF",
         "value": "prezzi personalizzati"
       },
-      "solarAboPrice": "Con SolarFree Public",
+      "solarAboPrice": "Con Edifici pubblici",
       "orderNow": "ORDINA ORA",
       "orderLink": "/commercial/calculator"
     },
@@ -1187,8 +1365,8 @@
       }
     },
     "cta": {
-      "topButton": "Scopri se SolarFree Public è adatto al tuo edificio",
-      "heading": "Scopri se SolarFree Public è adatto al tuo edificio",
+      "topButton": "Scopri se Edifici pubblici è adatto al tuo edificio",
+      "heading": "Scopri se Edifici pubblici è adatto al tuo edificio",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/calculator"
     }
@@ -1208,6 +1386,42 @@
     "address": {
       "label": "Indirizzo",
       "value": "Free State AG\nSvizzera"
+    }
+  },
+  "quoteRequestForm": {
+    "eyebrow": "Costi energetici",
+    "title": "Controlla i costi dell'energia",
+    "subtitle": "Tieni sotto controllo consumi e costi — con un sistema energetico efficiente e prevedibile.",
+    "formTitle": "Preventivo gratuito",
+    "requiredHint": "Tutti i campi sono obbligatori.",
+    "firstName": "Nome",
+    "lastName": "Cognome",
+    "email": "E-mail",
+    "postalCode": "CAP",
+    "phone": "Telefono",
+    "placeholders": {
+      "firstName": "Mario",
+      "lastName": "Rossi",
+      "email": "mario.rossi@esempio.ch",
+      "postalCode": "6900",
+      "phone": "+41 79 123 45 67"
+    },
+    "ownsHomeQuestion": "Sei proprietario della tua abitazione?",
+    "yes": "Sì",
+    "no": "No",
+    "consent": "Cliccando sul pulsante qui sotto, accetti che Free State AG possa contattarti al numero di telefono fornito e inviare chiamate e messaggi automatizzati relativi a prodotti e servizi — anche se il tuo numero è in una lista «Do Not Call». Potrebbero essere applicati costi per messaggi e dati. Massimo 10 messaggi al mese. Il consenso è facoltativo e può essere revocato in qualsiasi momento. Accetti inoltre le nostre condizioni d'uso.",
+    "submit": "Invia",
+    "successTitle": "Grazie!",
+    "successMessage": "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve.",
+    "errorMessage": "Si è verificato un errore. Riprova.",
+    "errors": {
+      "firstName": "Il nome è obbligatorio",
+      "lastName": "Il cognome è obbligatorio",
+      "email": "L'e-mail è obbligatoria",
+      "emailInvalid": "Inserisci un'e-mail valida",
+      "postalCode": "Il CAP è obbligatorio",
+      "phone": "Il telefono è obbligatorio",
+      "ownsHome": "Seleziona un'opzione"
     }
   },
   "contactForm": {
@@ -2322,7 +2536,8 @@
     "continue": "Continua",
     "cancel": "Annulla",
     "save": "Salva",
-    "loading": "Caricamento..."
+    "loading": "Caricamento...",
+    "comingSoon": "Prossimamente"
   },
   "blog": {
     "title": "Blog",
@@ -3480,16 +3695,16 @@
         "bullet2": "Con accumulo a batteria"
       },
       "multi": {
-        "tag": "Multi",
-        "title": "{model} Multi",
+        "tag": "Multifamiliare",
+        "title": "{model} Multifamiliare",
         "bullet1": "Per condomini",
         "bullet2": "Comunità energetiche condivise (ZEV / LEG)"
       },
-      "learnMore": "Scopri di più su {model} Home e {model} Multi",
+      "learnMore": "Scopri di più su {model} Home e {model} Multifamiliare",
       "learnMorePrefix": "Scopri di più su",
       "learnMoreConnector": "e",
       "learnMoreHome": "{model} Home",
-      "learnMoreMulti": "{model} Multi",
+      "learnMoreMulti": "{model} Multifamiliare",
       "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
@@ -3509,7 +3724,7 @@
       "options": {
         "home": "SolarFree Home",
         "homeDesc": "Per case unifamiliari senza accumulo a batteria",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Multifamiliare",
         "multiDesc": "Per condomini e comunità energetiche condivise (RCP / CEL)"
       },
       "learnMore": "Scopri di più su",
@@ -3659,7 +3874,7 @@
         "title": "Pacchetto consigliato",
         "home": "SolarFree Home",
         "homeDesc": "Per case unifamiliari",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Multifamiliare",
         "multiDesc": "Per edifici plurifamiliari",
         "recommended": "Consigliato"
       },
@@ -3706,7 +3921,7 @@
           "label": "Il tuo risparmio annuale",
           "amount": "CHF {amount}",
           "suffix": "all'anno sulla bolletta elettrica",
-          "footnote": "L'elettricità SolarFree è sempre il 30% più economica dell'elettricità di rete."
+          "footnote": "L'elettricità SolarFree è sempre il 20–40% più economica dell'elettricità di rete."
         },
         "yourImpact": {
           "label": "Il tuo impatto",
@@ -3827,7 +4042,7 @@
       "solarFree": {
         "rateCard": {
           "title": "La tua tariffa SolarFree",
-          "bodyLine1": "30% in meno della rete per ogni kWh solare che utilizzi.",
+          "bodyLine1": "20–40% in meno della rete per ogni kWh solare che utilizzi.",
           "bodyLine2": "Nessun canone per l'impianto stesso.",
           "yearlySavingLabel": "Risparmio annuo stimato",
           "yearlySavingValue": "CHF {amount}"
@@ -4434,7 +4649,7 @@
       "products": {
         "label": "Quali prodotti stai utilizzando? *",
         "solarAboPrivate": "SolarFree Private",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industria / Commercio",
         "huaweiInverters": "Inverter Huawei",
         "sonnenBattery": "Accumulo a batteria Sonnen",
         "e3dcBattery": "Accumulo a batteria E3DC",
@@ -5591,6 +5806,7 @@
       "support": "Support",
       "maintenanceInquiries": "Richieste di manutenzione",
       "contacts": "Invii di contatto",
+      "quoteRequests": "Richieste di preventivo",
       "investorRequests": "Richieste investitori",
       "newsletter": "Newsletter",
       "careerSubscriptions": "Iscrizioni carriere",
@@ -5879,6 +6095,41 @@
       "adminNotes": "Note amministratore",
       "saveNotes": "Salva note"
     },
+    "quoteRequests": {
+      "title": "Richieste di preventivo",
+      "searchPlaceholder": "Cerca per nome, e-mail, telefono...",
+      "filterSource": "Filtra per origine",
+      "filterStatus": "Filtra per stato",
+      "allSources": "Tutte le origini",
+      "allStatuses": "Tutti gli stati",
+      "sourceSolarFree": "SolarFree",
+      "sourceSolarDirect": "SolarDirect",
+      "name": "Nome",
+      "email": "E-mail",
+      "phone": "Telefono",
+      "postalCode": "CAP",
+      "source": "Origine",
+      "ownsHome": "Proprietario",
+      "status": "Stato",
+      "created": "Creato",
+      "locale": "Lingua",
+      "consent": "Consenso",
+      "yes": "Sì",
+      "no": "No",
+      "view": "Vedi",
+      "noRequests": "Nessuna richiesta di preventivo trovata",
+      "totalRequests": "{count} richieste totali",
+      "statusNew": "Nuovo",
+      "statusContacted": "Contattato",
+      "statusQualified": "Qualificato",
+      "statusClosed": "Chiuso",
+      "details": "Dettagli",
+      "manage": "Gestisci",
+      "adminNotes": "Note admin",
+      "save": "Salva",
+      "saved": "Salvato con successo",
+      "backToList": "Torna alla lista"
+    },
     "investorRequests": {
       "title": "Richieste investitori",
       "searchPlaceholder": "Cerca per nome o email...",
@@ -5954,7 +6205,7 @@
       },
       "productKeys": {
         "solarAboPrivate": "SolarFree Private",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industria / Commercio",
         "huaweiInverters": "Inverter Huawei",
         "sonnenBattery": "Batteria Sonnen",
         "e3dcBattery": "Batteria E3/DC",

@@ -7,7 +7,7 @@ import HandIcon from './icons/HandIcon'
 import LightBulbIcon from './icons/LihghtBulbIcon'
 import WalletIcon from './icons/WalletIcon'
 
-const SolarAboPublicHowItWorks = () => {
+const PublicBuildingsHowItWorks = () => {
   const t = useTranslations('solarAboPublic.howItWorks')
 
   const steps: HowItWorksStep[] = [
@@ -55,4 +55,4 @@ const SolarAboPublicHowItWorks = () => {
   )
 }
 
-export default SolarAboPublicHowItWorks
+export default PublicBuildingsHowItWorks

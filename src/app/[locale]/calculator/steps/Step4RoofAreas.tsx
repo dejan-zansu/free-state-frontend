@@ -184,7 +184,7 @@ export default function Step4RoofAreas() {
             ])
             mapInstanceRef.current
               .getView()
-              .animate({ center, zoom: 19, duration: 500 })
+              .animate({ center, zoom: 20, duration: 500 })
           }
         }
       } catch (error) {
@@ -315,7 +315,7 @@ export default function Step4RoofAreas() {
         buildingRef.current.center.lng,
         buildingRef.current.center.lat,
       ])
-      map.getView().animate({ center, zoom: 19, duration: 500 })
+      map.getView().animate({ center, zoom: 20, duration: 500 })
       redrawAllSegments()
     } else if (focusedLat && focusedLng) {
       fetchBuildingAt(focusedLat, focusedLng)
@@ -386,7 +386,7 @@ export default function Step4RoofAreas() {
         if (mapInstanceRef.current) {
           mapInstanceRef.current.getView().animate({
             center: fromLonLat([lng, lat]),
-            zoom: 19,
+            zoom: 20,
             duration: 500,
           })
           fetchBuildingAt(lat, lng)
@@ -407,65 +407,38 @@ export default function Step4RoofAreas() {
 
   const handleNext = () => {
     const map = mapInstanceRef.current
-    const source = vectorSourceRef.current
-    if (!map || !source) {
+    if (!map) {
       nextStep()
       return
     }
 
-    const selectedFeatures = source
-      .getFeatures()
-      .filter(f => selectedSegmentIds.includes(f.get('segmentId')))
-    if (selectedFeatures.length === 0) {
-      nextStep()
-      return
-    }
-
-    const selectedSource = new VectorSource({ features: selectedFeatures })
-    const extent = selectedSource.getExtent()
-    if (!extent || !isFinite(extent[0])) {
-      nextStep()
-      return
-    }
-
-    map.getView().fit(extent, {
-      padding: [60, 60, 60, 60],
-      maxZoom: 20,
-      duration: 500,
-      callback: () => {
-        const doCapture = () => {
-          map.once('rendercomplete', () => {
-            const target = map.getTargetElement() as HTMLElement
-            const canvases = target.querySelectorAll('canvas')
-            const firstCanvas = canvases[0]
-            if (!firstCanvas) {
-              nextStep()
-              return
-            }
-            const mapCanvas = document.createElement('canvas')
-            mapCanvas.width = firstCanvas.width
-            mapCanvas.height = firstCanvas.height
-            const ctx = mapCanvas.getContext('2d')
-            if (!ctx) {
-              nextStep()
-              return
-            }
-            canvases.forEach(c => {
-              if (c.width > 0 && c.height > 0) {
-                try {
-                  ctx.drawImage(c, 0, 0)
-                } catch {}
-              }
-            })
-            setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
-            nextStep()
-          })
-          map.renderSync()
+    map.once('rendercomplete', () => {
+      const target = map.getTargetElement() as HTMLElement
+      const canvases = target.querySelectorAll('canvas')
+      const firstCanvas = canvases[0]
+      if (!firstCanvas) {
+        nextStep()
+        return
+      }
+      const mapCanvas = document.createElement('canvas')
+      mapCanvas.width = firstCanvas.width
+      mapCanvas.height = firstCanvas.height
+      const ctx = mapCanvas.getContext('2d')
+      if (!ctx) {
+        nextStep()
+        return
+      }
+      canvases.forEach(c => {
+        if (c.width > 0 && c.height > 0) {
+          try {
+            ctx.drawImage(c, 0, 0)
+          } catch {}
         }
-
-        requestAnimationFrame(doCapture)
-      },
+      })
+      setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
+      nextStep()
     })
+    map.renderSync()
   }
 
   const selectedArea = getSelectedArea()

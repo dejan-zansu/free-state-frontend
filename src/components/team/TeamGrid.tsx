@@ -4,7 +4,7 @@ const members = [
   { key: 'ivan', image: '/images/team-ivan-55cecd.png' },
   { key: 'peter', image: '/images/team-peter-404b05.png' },
   { key: 'dragica', image: '/images/team-dragica-64a235.png' },
-  { key: 'dejan', image: null },
+  { key: 'dejan', image: '/images/team-dejan-52ea40.webp' },
   { key: 'member5', image: null },
 ]
 

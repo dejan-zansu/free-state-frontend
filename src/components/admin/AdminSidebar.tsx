@@ -7,6 +7,7 @@ import {
   Briefcase,
   CircuitBoard,
   Factory,
+  FileCheck,
   FileText,
   Flame,
   LayoutDashboard,
@@ -65,6 +66,7 @@ export function AdminSidebar() {
       items: [
         { label: t('support'),              href: `${prefix}/support`,                icon: Ticket },
         { label: t('contacts'),             href: `${prefix}/contacts`,               icon: MessageSquareText },
+        { label: t('quoteRequests'),        href: `${prefix}/quote-requests`,         icon: FileCheck },
         { label: t('investorRequests'),     href: `${prefix}/investor-requests`,      icon: Briefcase },
         { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`,  icon: Wrench },
         { label: t('careerSubscriptions'),  href: `${prefix}/career-subscriptions`,   icon: UserPlus },

@@ -2,7 +2,11 @@ import { getTranslations } from 'next-intl/server'
 import { LinkButton } from './ui/link-button'
 import Image from 'next/image'
 
-const YourBenefits = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
+const YourBenefits = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.yourBenefits')
 
   const benefits = [
@@ -40,9 +44,12 @@ const YourBenefits = async ({ isCommercial = false }: { isCommercial?: boolean }
               {t('subtitle')}
             </p>
           </div>
-          {/* <LinkButton href="/solar-free" variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}>
+          <LinkButton
+            href="/solar-free"
+            variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
+          >
             {t('cta')}
-          </LinkButton> */}
+          </LinkButton>
         </div>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
