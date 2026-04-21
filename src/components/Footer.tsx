@@ -77,23 +77,23 @@ const Footer = () => {
   const solarAboLinks = [
     {
       label: t('solarAbo.singleFamily'),
-      href: '/solar-free/single-family' as const,
+      href: '/solar-free' as const,
     },
     {
       label: t('solarAbo.multiFamily'),
-      href: '/solar-free/multi-family' as const,
+      href: '/commercial/solar-free/solar-free-multi-family' as const,
     },
     {
       label: t('solarAbo.businesses'),
-      href: '/solar-free/businesses' as const,
+      href: '/commercial/solar-free/industry-commercial' as const,
     },
     {
       label: t('solarAbo.agriculture'),
-      href: '/solar-free/agriculture' as const,
+      href: '/commercial/solar-free/farmhouses' as const,
     },
     {
       label: t('solarAbo.publicBuildings'),
-      href: '/solar-free/public-buildings' as const,
+      href: '/commercial/solar-free/public-buildings' as const,
     },
   ]
 
