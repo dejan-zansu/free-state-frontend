@@ -25,6 +25,7 @@ interface AuthActions {
   // Actions
   login: (data: LoginRequest) => Promise<void>
   register: (data: RegisterRequest) => Promise<void>
+  googleLogin: (code: string) => Promise<void>
   logout: () => Promise<void>
   logoutAll: () => Promise<void>
   checkAuth: () => Promise<void>
@@ -69,6 +70,32 @@ export const useAuthStore = create<AuthStore>()(
             error: errorCode,
           })
           
+          throw error
+        }
+      },
+
+      googleLogin: async (code: string) => {
+        set({ isLoading: true, error: null })
+
+        try {
+          const response = await authService.googleAuth(code)
+
+          set({
+            user: response.data.user,
+            isAuthenticated: true,
+            isLoading: false,
+            isInitialized: true,
+          })
+        } catch (error: unknown) {
+          const errorCode = getErrorCode(error) || 'GOOGLE_AUTH_FAILED'
+
+          set({
+            user: null,
+            isAuthenticated: false,
+            isLoading: false,
+            error: errorCode,
+          })
+
           throw error
         }
       },

@@ -10,6 +10,10 @@
     "INVALID_PASSWORD": "Current password is incorrect.",
     "loginFailed": "Login failed. Please try again.",
     "registerFailed": "Registration failed. Please try again.",
+    "GOOGLE_AUTH_FAILED": "Could not sign in with Google. Please try again.",
+    "GOOGLE_EMAIL_NOT_VERIFIED": "Your Google account email is not verified.",
+    "GOOGLE_INVALID_TOKEN": "Invalid Google credentials. Please try again.",
+    "GOOGLE_OAUTH_NOT_CONFIGURED": "Google sign-in is not available right now.",
     "unknown": "Something went wrong. Please try again."
   },
   "header": {

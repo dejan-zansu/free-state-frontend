@@ -29,6 +29,19 @@ class AuthService {
   }
 
   /**
+   * Sign in / sign up with Google OAuth authorization code
+   */
+  async googleAuth(code: string): Promise<AuthResponse> {
+    const response = await api.post<AuthResponse>('/auth/google', { code })
+
+    if (response.data.success) {
+      setAccessToken(response.data.data.accessToken)
+    }
+
+    return response.data
+  }
+
+  /**
    * Logout current user
    */
   async logout(): Promise<void> {
