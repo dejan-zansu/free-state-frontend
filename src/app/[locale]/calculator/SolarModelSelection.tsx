@@ -42,6 +42,7 @@ const cards: {
   hasGlow: boolean
   bgColor: string
   imageClassName: string
+  disabled?: boolean
 }[] = [
   {
     model: 'solar-free',
@@ -64,11 +65,13 @@ const cards: {
     bgColor: '#EEEFE5',
     imageClassName:
       'w-[92px] h-[134px] -top-4 sm:-top-12 sm:w-[212px] sm:h-[185px] hidden md:block',
+    disabled: true,
   },
 ]
 
 export default function SolarModelSelection() {
   const t = useTranslations('solarAboCalculator.modelSelection')
+  const tCommon = useTranslations('common')
   const { setSolarModel } = useSolarAboCalculatorStore()
 
   return (
@@ -87,8 +90,19 @@ export default function SolarModelSelection() {
           <button
             key={card.model}
             type="button"
-            onClick={() => setSolarModel(card.model)}
-            className="group relative flex-1 min-h-[172px] overflow-visible rounded-[11px] border border-[#546963]/50 px-4 pb-4 pt-3 text-left transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[#062E25] hover:shadow-lg sm:h-[156px] sm:min-h-0 sm:p-0"
+            onClick={() => {
+              if (card.disabled) return
+              setSolarModel(card.model)
+            }}
+            disabled={card.disabled}
+            aria-disabled={card.disabled}
+            title={card.disabled ? tCommon('comingSoon') : undefined}
+            className={cn(
+              'group relative flex-1 min-h-[172px] overflow-visible rounded-[11px] border border-[#546963]/50 px-4 pb-4 pt-3 text-left transition-all duration-300 ease-out sm:h-[156px] sm:min-h-0 sm:p-0',
+              card.disabled
+                ? 'cursor-not-allowed opacity-60 grayscale-25'
+                : 'hover:scale-[1.03] hover:border-[#062E25] hover:shadow-lg'
+            )}
             style={{ backgroundColor: card.bgColor }}
           >
             {card.hasGlow && (
@@ -101,10 +115,15 @@ export default function SolarModelSelection() {
               />
             )}
 
-            <div className="absolute top-0 left-4 z-10 -translate-y-1/2 sm:left-[18px]">
+            <div className="absolute top-0 left-4 z-10 -translate-y-1/2 sm:left-[18px] flex items-center gap-2">
               <span className="inline-block rounded-full bg-[#B7FE1A] px-3 py-1 text-sm font-light text-[#062E25] tracking-tight backdrop-blur-[65px] sm:px-4 sm:py-[6px] sm:text-[16px]">
                 {t(card.tagKey)}
               </span>
+              {card.disabled && (
+                <span className="inline-block rounded-full bg-[#062E25] px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white sm:px-3.5 sm:py-[5px] sm:text-[11px]">
+                  {tCommon('comingSoon')}
+                </span>
+              )}
             </div>
 
             <div className="relative z-10 mt-3 mr-[84px] overflow-hidden sm:absolute sm:left-[18px] sm:right-[196px] sm:top-[60px] sm:mt-0 sm:mr-0">

@@ -7,6 +7,8 @@ import { Loader2, CheckCircle2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 
+import SignContractDialog from './SignContractDialog'
+
 interface ResultsActionsProps {
   onError?: (error: string) => void
 }
@@ -19,6 +21,7 @@ export default function ResultsActions({ onError }: ResultsActionsProps) {
   const [emailSent, setEmailSent] = useState(false)
   const [offerRequesting, setOfferRequesting] = useState(false)
   const [offerRequested, setOfferRequested] = useState(false)
+  const [signDialogOpen, setSignDialogOpen] = useState(false)
 
   const handleEmailReport = async () => {
     setEmailSending(true)
@@ -45,11 +48,11 @@ export default function ResultsActions({ onError }: ResultsActionsProps) {
   }
 
   const handleSignContract = () => {
-    store.setResultsPath('contract')
-    store.nextStep()
+    setSignDialogOpen(true)
   }
 
   return (
+    <>
     <div className='space-y-3'>
       <div className='rounded-2xl border border-[#062E25]/15 bg-white/80 p-5 backdrop-blur-sm'>
         <div className='flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between'>
@@ -106,5 +109,11 @@ export default function ResultsActions({ onError }: ResultsActionsProps) {
         </div>
       </div>
     </div>
+
+    <SignContractDialog
+      open={signDialogOpen}
+      onOpenChange={setSignDialogOpen}
+    />
+    </>
   )
 }

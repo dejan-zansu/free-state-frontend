@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl'
 import { parseAsInteger, useQueryState } from 'nuqs'
 import { useEffect, useRef } from 'react'
 
-import ComingSoon from '@/components/ComingSoon'
 import Steps from '@/components/Steps'
 
 import SolarModelSelection from './SolarModelSelection'
@@ -16,7 +15,6 @@ import Step3RoofAreas from './steps/Step4RoofAreas'
 import Step4RoofCovering from './steps/Step5RoofCovering'
 import Step5ContactDetails from './steps/Step6ContactDetails'
 import StepConfirmation from './steps/StepConfirmation'
-import StepContractReview from './steps/StepContractReview'
 import StepSolarFreeResults from './steps/StepSolarFreeResults'
 import StepEquipmentResults from './steps/StepEquipmentResults'
 import StepSignature from './steps/StepSignature'
@@ -25,7 +23,7 @@ const PAGE_BG =
   'linear-gradient(180deg, rgba(242, 244, 232, 1) 45%, rgba(220, 233, 230, 1) 84%)'
 
 export default function SolarAboCalculatorPage() {
-  return <ComingSoon exploreHref="/solar-free" />
+
 
   const t = useTranslations('solarAboCalculator')
   const { solarModel, currentStep, signatureStatus, resultsPath, goToStep } =
@@ -94,7 +92,7 @@ export default function SolarAboCalculatorPage() {
     )
   }
 
-  const isConfirmation = currentStep === 9 || signatureStatus === 'signed'
+  const isConfirmation = signatureStatus === 'signed'
 
   const isPostCalculator = currentStep > 6
 
@@ -121,8 +119,6 @@ export default function SolarAboCalculatorPage() {
           <StepSolarFreeResults />
         )
       case 7:
-        return <StepContractReview />
-      case 8:
         return <StepSignature />
       default:
         return <Step1HouseholdSize />
@@ -134,9 +130,8 @@ export default function SolarAboCalculatorPage() {
   return (
     <div
       className={cn(
-        isMapStep
-          ? 'h-screen overflow-hidden relative'
-          : 'h-screen overflow-y-auto pb-20'
+        'h-screen relative',
+        isMapStep ? 'overflow-hidden' : 'overflow-y-auto pb-20'
       )}
       style={{
         paddingTop: '77px',

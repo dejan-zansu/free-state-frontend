@@ -1,5 +1,6 @@
 'use client'
 
+import { Home, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 interface EnergyFlowDiagramProps {
@@ -7,6 +8,12 @@ interface EnergyFlowDiagramProps {
   estimatedConsumption: number
   selfConsumptionRate: number
 }
+
+const COLORS = {
+  solar: '#B7FE1A',
+  surplus: '#036B53',
+  grid: '#9CA9A6',
+} as const
 
 export default function EnergyFlowDiagram({
   annualProduction,
@@ -33,86 +40,145 @@ export default function EnergyFlowDiagram({
 
   const fmt = (n: number) => Math.round(n).toLocaleString('de-CH')
 
+  const prodSelfPct =
+    annualProduction > 0 ? (selfConsumed / annualProduction) * 100 : 0
+  const prodSurplusPct = Math.max(0, 100 - prodSelfPct)
+
+  const consSelfPct =
+    estimatedConsumption > 0 ? (selfConsumed / estimatedConsumption) * 100 : 0
+  const consGridPct = Math.max(0, 100 - consSelfPct)
+
   return (
-    <div className="rounded-xl bg-white/60 border border-[#062E25]/8 p-6">
-      <h3 className="text-base font-semibold text-[#062E25] mb-4">{t('title')}</h3>
+    <div className="rounded-xl bg-white/60 border border-[#062E25]/8 p-5 sm:p-6">
+      <h3 className="text-base font-semibold text-[#062E25] mb-5">
+        {t('title')}
+      </h3>
 
-      <svg viewBox="0 0 700 400" className="w-full h-auto" style={{ maxHeight: 400 }}>
-        <polygon
-          points="350,30 120,130 120,310 580,310 580,130"
-          fill="none"
-          stroke="#062E25"
-          strokeWidth="2"
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
+        <FlowCard
+          icon={<Sun className="w-4 h-4 text-[#062E25]" aria-hidden />}
+          iconBg="bg-[#B7FE1A]/30"
+          label={t('production')}
+          total={fmt(annualProduction)}
+          segments={[
+            { pct: prodSelfPct, color: COLORS.solar },
+            { pct: prodSurplusPct, color: COLORS.surplus },
+          ]}
+          legend={[
+            {
+              color: COLORS.solar,
+              label: t('selfConsumed'),
+              value: fmt(selfConsumed),
+            },
+            {
+              color: COLORS.surplus,
+              label: t('feedIn'),
+              value: fmt(feedIn),
+            },
+          ]}
         />
-        <polygon
-          points="350,30 120,130 580,130"
-          fill="#F97316"
-          fillOpacity="0.08"
-          stroke="#F97316"
-          strokeWidth="2.5"
+
+        <FlowCard
+          icon={<Home className="w-4 h-4 text-[#062E25]" aria-hidden />}
+          iconBg="bg-[#062E25]/10"
+          label={t('consumption')}
+          total={fmt(estimatedConsumption)}
+          segments={[
+            { pct: consSelfPct, color: COLORS.solar },
+            { pct: consGridPct, color: COLORS.grid },
+          ]}
+          legend={[
+            {
+              color: COLORS.solar,
+              label: t('ownConsumption'),
+              value: fmt(selfConsumed),
+            },
+            {
+              color: COLORS.grid,
+              label: t('gridSupply'),
+              value: fmt(gridSupply),
+            },
+          ]}
         />
+      </div>
 
-        <circle cx="630" cy="50" r="20" fill="none" stroke="#F97316" strokeWidth="2" />
-        {[0, 45, 90, 135, 180, 225, 270, 315].map(angle => {
-          const rad = (angle * Math.PI) / 180
-          return (
-            <line
-              key={angle}
-              x1={630 + Math.cos(rad) * 24}
-              y1={50 + Math.sin(rad) * 24}
-              x2={630 + Math.cos(rad) * 30}
-              y2={50 + Math.sin(rad) * 30}
-              stroke="#F97316"
-              strokeWidth="2"
-            />
-          )
-        })}
+      <div className="mt-4 sm:mt-5 flex items-center justify-between gap-4 rounded-lg bg-[#062E25] px-5 py-4">
+        <p className="text-xs sm:text-sm font-semibold text-white/75 uppercase tracking-[0.12em]">
+          {t('independence')}
+        </p>
+        <p className="text-2xl font-bold text-[#B7FE1A] tabular-nums">
+          {independence}%
+        </p>
+      </div>
+    </div>
+  )
+}
 
-        <text x="350" y="100" textAnchor="middle" fill="#062E25" opacity="0.5" fontSize="16">{t('production')}</text>
-        <text x="350" y="122" textAnchor="middle" fill="#062E25" fontWeight="700" fontSize="20">{fmt(annualProduction)} kWh</text>
+interface FlowCardProps {
+  icon: React.ReactNode
+  iconBg: string
+  label: string
+  total: string
+  segments: { pct: number; color: string }[]
+  legend: { color: string; label: string; value: string }[]
+}
 
-        <line x1="540" y1="130" x2="540" y2="370" stroke="#F97316" strokeWidth="3" />
-        <polygon points="534,370 540,382 546,370" fill="#F97316" />
-        <text x="540" y="395" textAnchor="middle" fill="#F97316" fontSize="16">{t('feedIn')}</text>
-
-        <path
-          d="M350,220 L350,180 Q350,160 370,160 L510,160 L510,135"
-          fill="none"
-          stroke="#c1272d"
-          strokeWidth="3"
-        />
-        <text x="360" y="200" textAnchor="start" fill="#c1272d" opacity="0.7" fontSize="16">{t('ownConsumption')}</text>
-        <text x="360" y="222" textAnchor="start" fill="#c1272d" fontWeight="700" fontSize="18">{fmt(selfConsumed)} kWh</text>
-
-        <text x="220" y="282" textAnchor="start" fill="#062E25" opacity="0.5" fontSize="16">{t('consumption')}</text>
-        <text x="220" y="304" textAnchor="start" fill="#062E25" fontWeight="700" fontSize="18">{fmt(estimatedConsumption)} kWh</text>
-
-        <line x1="200" y1="310" x2="200" y2="370" stroke="#63b7e8" strokeWidth="3" />
-        <polygon points="194,310 200,298 206,310" fill="#63b7e8" />
-        <text x="200" y="395" textAnchor="middle" fill="#63b7e8" fontSize="16">{t('gridSupply')}</text>
-
-        <path
-          d="M350,260 L200,260 Q180,260 180,280 L180,370"
-          fill="none"
-          stroke="#a1a0a0"
-          strokeWidth="3"
-        />
-        <polygon points="174,370 180,382 186,370" fill="#a1a0a0" />
-      </svg>
-
-      <div className="mt-2 grid grid-cols-3 gap-4 text-center border-t border-[#062E25]/[0.06] pt-4">
-        <div>
-          <p className="text-base text-[#062E25]/50">{t('independence')}</p>
-          <p className="text-xl font-bold text-[#062E25]">{independence}%</p>
+function FlowCard({
+  icon,
+  iconBg,
+  label,
+  total,
+  segments,
+  legend,
+}: FlowCardProps) {
+  return (
+    <div className="rounded-lg bg-white/70 border border-[#062E25]/6 p-4 sm:p-5">
+      <div className="flex items-center gap-2.5">
+        <div
+          className={`flex items-center justify-center w-8 h-8 rounded-full ${iconBg}`}
+        >
+          {icon}
         </div>
-        <div>
-          <p className="text-base text-[#63b7e8]">{t('gridSupply')}</p>
-          <p className="text-xl font-bold text-[#062E25]">{fmt(gridSupply)} kWh</p>
-        </div>
-        <div>
-          <p className="text-base text-[#F97316]">{t('feedIn')}</p>
-          <p className="text-xl font-bold text-[#062E25]">{fmt(feedIn)} kWh</p>
-        </div>
+        <p className="text-sm text-[#062E25]/60">{label}</p>
+      </div>
+
+      <p className="mt-3 text-2xl sm:text-[28px] font-semibold text-[#062E25] tabular-nums leading-tight">
+        {total}
+        <span className="ml-1.5 text-sm font-normal text-[#062E25]/50">
+          kWh
+        </span>
+      </p>
+
+      <div className="mt-4 flex h-2.5 overflow-hidden rounded-full bg-[#062E25]/6">
+        {segments.map((s, i) => (
+          <div
+            key={i}
+            style={{ width: `${s.pct}%`, backgroundColor: s.color }}
+            className="h-full"
+          />
+        ))}
+      </div>
+
+      <div className="mt-3.5 space-y-2">
+        {legend.map((item, i) => (
+          <div
+            key={i}
+            className="flex items-center justify-between gap-3 text-sm"
+          >
+            <div className="flex items-center gap-2 min-w-0">
+              <span
+                className="w-2.5 h-2.5 rounded-full shrink-0"
+                style={{ backgroundColor: item.color }}
+                aria-hidden
+              />
+              <span className="truncate text-[#062E25]/70">{item.label}</span>
+            </div>
+            <span className="font-medium text-[#062E25] tabular-nums">
+              {item.value}{' '}
+              <span className="text-[#062E25]/50 font-normal">kWh</span>
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   )

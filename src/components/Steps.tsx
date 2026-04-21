@@ -19,17 +19,19 @@ export default function Steps() {
   ]
 
   const isMapStep = currentStep === 3
+  const isResultsStep = currentStep === 6
+  const isOverlayStep = isMapStep || isResultsStep
   const isMapDark = isMapStep && !!building
 
   return (
     <div
       className={cn(
         'flex justify-center px-2 py-3 sm:px-4 sm:py-4',
-        isMapStep
+        isOverlayStep
           ? 'absolute left-0 right-0 z-20 pointer-events-none'
           : 'sticky top-0 z-10'
       )}
-      style={isMapStep ? { top: '77px' } : undefined}
+      style={isOverlayStep ? { top: '77px' } : undefined}
     >
       <div
         className="rounded-full px-3 py-2 sm:px-6 sm:py-4 max-w-[1009px] w-full pointer-events-auto"

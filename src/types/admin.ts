@@ -98,6 +98,82 @@ export interface AdminLead {
   } | null
 }
 
+export interface AdminLeadRoofSegment {
+  area?: number | null
+  tilt?: number | null
+  azimuth?: number | null
+}
+
+export interface AdminLeadDevices {
+  heatPumpHeating?: boolean
+  electricHeating?: boolean
+  electricBoiler?: boolean
+  evChargingStation?: boolean
+  swimmingPoolSauna?: boolean
+}
+
+export interface AdminLeadSolarCalculation {
+  id: string
+  totalSystemCapacityKw: number | null
+  panelCount: number | null
+  annualProductionKwh: number | null
+  monthlyProductionKwh: number[] | null
+  annualConsumptionKwh: number | null
+  selfConsumptionRate: number | null
+  annualSavingsChf: number | null
+  carbonOffsetKg: number | null
+  householdSize: number | null
+  buildingType: string | null
+  roofCovering: string | null
+  solarModel: string | null
+  ppaDiscountPercent: number | null
+  recommendedPackage: string | null
+  devices: AdminLeadDevices | null
+  roofSegments: AdminLeadRoofSegment[] | null
+  electricityTariff: number | null
+  feedInTariff: number | null
+  createdAt: string
+}
+
+export interface AdminLeadContract {
+  id: string
+  contractNumber: string
+  status: string
+  contractType: string
+  signatureStatus: string | null
+  customerSignedAt: string | null
+  grossAmount: string | null
+  netAmount: string | null
+  createdAt: string
+}
+
+export interface AdminLeadProject {
+  id: string
+  status: string
+  propertyAddress: string
+  propertyLat: number
+  propertyLng: number
+  selectedPackage: string | null
+  createdAt: string
+  solarCalculation: AdminLeadSolarCalculation | null
+  contracts: AdminLeadContract[]
+}
+
+export interface AdminLeadDetail extends AdminLead {
+  customer: {
+    id: string
+    user: {
+      id: string
+      email: string
+      firstName: string
+      lastName: string
+      phone: string | null
+      preferredLanguage: string | null
+    }
+  }
+  project: AdminLeadProject | null
+}
+
 export interface AdminContract {
   id: string
   contractNumber: string

@@ -716,7 +716,7 @@
       "stats": {
         "left": {
           "investment": "One-time investment\nfrom 10,000 CHF",
-          "electricity": "Up to 20–40% lower\nelectricity costs"
+          "electricity": "Up to 60–80% lower\nelectricity costs"
         },
         "right": {
           "maintenance": "Amortization possible\nfrom 5 years",
@@ -3858,6 +3858,7 @@
         "title": "Energy Flow",
         "production": "Solar production",
         "ownConsumption": "From solar",
+        "selfConsumed": "Used at home",
         "consumption": "Home demand",
         "independence": "Independence",
         "gridSupply": "From grid",
@@ -3903,6 +3904,8 @@
         "offerButton": "Request offer",
         "contractTitle": "Sign contract",
         "contractDescription": "Proceed directly to review and digitally sign the Dachmietvertrag.",
+        "contractDescriptionInReview": "We're finalising the secure digital signing flow. Request an offer to move forward with our team today.",
+        "contractInReviewLabel": "Coming soon",
         "contractButton": "Continue to contract",
         "emailSent": "Sent",
         "offerSent": "Requested"
@@ -4068,6 +4071,13 @@
       },
       "creatingContract": "Creating contract...",
       "proceedToSign": "Proceed to Sign",
+      "recap": {
+        "package": "Package",
+        "term": "Term",
+        "years": "{years} years",
+        "yearlySavings": "Annual savings",
+        "netAmount": "Net amount"
+      },
       "solarFree": {
         "rateCard": {
           "title": "Your SolarFree rate",
@@ -5981,7 +5991,64 @@
       "manage": "Manage",
       "notes": "Notes",
       "saveNotes": "Save Notes",
-      "contact": "Contact"
+      "contact": "Contact",
+      "downloadReport": "Download customer report",
+      "reportDownloadFailed": "Failed to generate report.",
+      "noCalculation": "This lead has no stored solar calculation. No report can be generated.",
+      "calculatorSnapshot": "Calculator results",
+      "solarModelFree": "Solar-Free (PPA)",
+      "solarModelDirect": "Solar-Direct (Purchase)",
+      "systemSize": "System size",
+      "panelsCount": "{count} panels",
+      "annualProduction": "Annual production",
+      "annualSavings": "Annual savings",
+      "co2Offset": "CO₂ offset",
+      "selfConsumption": "Self-consumption",
+      "annualConsumption": "Annual consumption",
+      "ppaDiscount": "PPA discount",
+      "recommendedPackage": "Recommended package",
+      "monthlyProduction": "Monthly production",
+      "phone": "Phone",
+      "preferredLanguage": "Language",
+      "customerInputs": "Customer inputs",
+      "householdSize": "Household size",
+      "buildingType": "Building type",
+      "roofCovering": "Roof covering",
+      "devices": "Devices",
+      "noDevices": "No additional devices",
+      "deviceNames": {
+        "heatPumpHeating": "Heat pump (heating)",
+        "electricHeating": "Electric heating",
+        "electricBoiler": "Electric boiler",
+        "evChargingStation": "EV charging station",
+        "swimmingPoolSauna": "Pool / sauna"
+      },
+      "roofDetails": "Roof details",
+      "totalRoofArea": "Total roof area",
+      "roofSegments": "Roof segments",
+      "averageTilt": "Avg. tilt",
+      "averageAzimuth": "Avg. azimuth",
+      "coordinates": "Coordinates",
+      "projectStatus": "Project status",
+      "contractsTitle": "Contracts",
+      "contractCreatedOn": "Created on {date}",
+      "signedOn": "Signed on {date}",
+      "name": "Name",
+      "email": "Email",
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      }
     },
     "contracts": {
       "title": "Contracts",

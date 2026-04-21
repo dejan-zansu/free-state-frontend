@@ -716,7 +716,7 @@
       "stats": {
         "left": {
           "investment": "Investimento unico\nda 10'000 CHF",
-          "electricity": "Fino al 20–40% in meno\ndi costi elettrici"
+          "electricity": "Fino al 60–80% in meno\ndi costi elettrici"
         },
         "right": {
           "maintenance": "Ammortamento possibile\nda 5 anni",
@@ -3858,6 +3858,7 @@
         "title": "Flusso energetico",
         "production": "Produzione solare",
         "ownConsumption": "Dal solare",
+        "selfConsumed": "Usato a casa",
         "consumption": "Fabbisogno domestico",
         "independence": "Indipendenza",
         "gridSupply": "Dalla rete",
@@ -3903,6 +3904,8 @@
         "offerButton": "Richiedi offerta",
         "contractTitle": "Firma il contratto",
         "contractDescription": "Procedi direttamente a verificare e firmare digitalmente il Dachmietvertrag.",
+        "contractDescriptionInReview": "Stiamo ultimando il flusso di firma digitale sicura. Richiedi un'offerta per proseguire oggi stesso con il nostro team.",
+        "contractInReviewLabel": "Prossimamente",
         "contractButton": "Continua al contratto",
         "emailSent": "Inviato",
         "offerSent": "Richiesto"
@@ -4068,6 +4071,13 @@
       },
       "creatingContract": "Creazione del contratto...",
       "proceedToSign": "Procedi alla firma",
+      "recap": {
+        "package": "Pacchetto",
+        "term": "Durata",
+        "years": "{years} anni",
+        "yearlySavings": "Risparmio annuo",
+        "netAmount": "Importo netto"
+      },
       "solarFree": {
         "rateCard": {
           "title": "La tua tariffa SolarFree",
@@ -5981,7 +5991,64 @@
       "manage": "Gestisci",
       "notes": "Note",
       "saveNotes": "Salva note",
-      "contact": "Contatto"
+      "contact": "Contatto",
+      "downloadReport": "Scarica rapporto cliente",
+      "reportDownloadFailed": "Impossibile generare il rapporto.",
+      "noCalculation": "Questo lead non ha un calcolo solare salvato. Non è possibile generare un rapporto.",
+      "calculatorSnapshot": "Risultati del calcolatore",
+      "solarModelFree": "Solar-Free (PPA)",
+      "solarModelDirect": "Solar-Direct (Acquisto)",
+      "systemSize": "Dimensione impianto",
+      "panelsCount": "{count} pannelli",
+      "annualProduction": "Produzione annuale",
+      "annualSavings": "Risparmio annuale",
+      "co2Offset": "Risparmio CO₂",
+      "selfConsumption": "Autoconsumo",
+      "annualConsumption": "Consumo annuale",
+      "ppaDiscount": "Sconto PPA",
+      "recommendedPackage": "Pacchetto consigliato",
+      "monthlyProduction": "Produzione mensile",
+      "phone": "Telefono",
+      "preferredLanguage": "Lingua",
+      "customerInputs": "Dati cliente",
+      "householdSize": "Dimensione nucleo",
+      "buildingType": "Tipo di edificio",
+      "roofCovering": "Copertura tetto",
+      "devices": "Dispositivi",
+      "noDevices": "Nessun dispositivo aggiuntivo",
+      "deviceNames": {
+        "heatPumpHeating": "Pompa di calore (riscaldamento)",
+        "electricHeating": "Riscaldamento elettrico",
+        "electricBoiler": "Scaldabagno elettrico",
+        "evChargingStation": "Colonnina EV",
+        "swimmingPoolSauna": "Piscina / sauna"
+      },
+      "roofDetails": "Dettagli tetto",
+      "totalRoofArea": "Superficie totale",
+      "roofSegments": "Segmenti tetto",
+      "averageTilt": "Inclinazione media",
+      "averageAzimuth": "Azimut medio",
+      "coordinates": "Coordinate",
+      "projectStatus": "Stato progetto",
+      "contractsTitle": "Contratti",
+      "contractCreatedOn": "Creato il {date}",
+      "signedOn": "Firmato il {date}",
+      "name": "Nome",
+      "email": "E-mail",
+      "months": {
+        "jan": "Gen",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "Mag",
+        "jun": "Giu",
+        "jul": "Lug",
+        "aug": "Ago",
+        "sep": "Set",
+        "oct": "Ott",
+        "nov": "Nov",
+        "dec": "Dic"
+      }
     },
     "contracts": {
       "title": "Contratti",

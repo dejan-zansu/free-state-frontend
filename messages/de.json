@@ -716,7 +716,7 @@
       "stats": {
         "left": {
           "investment": "Einmalige Investition\nab 10'000 CHF",
-          "electricity": "Bis zu 20–40 % tiefere\nStromkosten"
+          "electricity": "Bis zu 60–80 % tiefere\nStromkosten"
         },
         "right": {
           "maintenance": "Amortisation ab\n5 Jahren möglich",
@@ -5537,6 +5537,7 @@
         "title": "Energiefluss",
         "production": "Solarproduktion",
         "ownConsumption": "Aus Solar",
+        "selfConsumed": "Zu Hause genutzt",
         "consumption": "Hausverbrauch",
         "independence": "Unabhängigkeit",
         "gridSupply": "Aus dem Netz",
@@ -5582,6 +5583,8 @@
         "offerButton": "Angebot anfordern",
         "contractTitle": "Vertrag unterzeichnen",
         "contractDescription": "Direkt zum Dachmietvertrag weiter und digital unterzeichnen.",
+        "contractDescriptionInReview": "Wir finalisieren den sicheren digitalen Signaturprozess. Fordern Sie ein Angebot an, um jetzt mit unserem Team weiterzumachen.",
+        "contractInReviewLabel": "Demnächst",
         "contractButton": "Weiter zum Vertrag",
         "emailSent": "Gesendet",
         "offerSent": "Angefordert"
@@ -5747,6 +5750,13 @@
       },
       "creatingContract": "Vertrag wird erstellt...",
       "proceedToSign": "Zur Unterschrift",
+      "recap": {
+        "package": "Paket",
+        "term": "Laufzeit",
+        "years": "{years} Jahre",
+        "yearlySavings": "Jährliche Ersparnis",
+        "netAmount": "Nettobetrag"
+      },
       "solarFree": {
         "rateCard": {
           "title": "Ihr SolarFree-Tarif",
@@ -6046,7 +6056,64 @@
       "manage": "Verwalten",
       "notes": "Notizen",
       "saveNotes": "Notizen speichern",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "downloadReport": "Kundenreport herunterladen",
+      "reportDownloadFailed": "Report konnte nicht erstellt werden.",
+      "noCalculation": "Dieser Lead hat keine gespeicherte Solarberechnung. Es kann kein Report erstellt werden.",
+      "calculatorSnapshot": "Rechnerergebnis",
+      "solarModelFree": "Solar-Free (PPA)",
+      "solarModelDirect": "Solar-Direct (Kauf)",
+      "systemSize": "Anlagengrösse",
+      "panelsCount": "{count} Paneele",
+      "annualProduction": "Jahresproduktion",
+      "annualSavings": "Jährliche Ersparnis",
+      "co2Offset": "CO₂-Einsparung",
+      "selfConsumption": "Eigenverbrauch",
+      "annualConsumption": "Jahresverbrauch",
+      "ppaDiscount": "PPA-Rabatt",
+      "recommendedPackage": "Empfohlenes Paket",
+      "monthlyProduction": "Monatliche Produktion",
+      "phone": "Telefon",
+      "preferredLanguage": "Sprache",
+      "customerInputs": "Kundenangaben",
+      "householdSize": "Haushaltsgrösse",
+      "buildingType": "Gebäudetyp",
+      "roofCovering": "Dachbelag",
+      "devices": "Verbraucher",
+      "noDevices": "Keine zusätzlichen Verbraucher",
+      "deviceNames": {
+        "heatPumpHeating": "Wärmepumpe (Heizung)",
+        "electricHeating": "Elektroheizung",
+        "electricBoiler": "Elektroboiler",
+        "evChargingStation": "E-Auto-Ladestation",
+        "swimmingPoolSauna": "Pool / Sauna"
+      },
+      "roofDetails": "Dachdetails",
+      "totalRoofArea": "Gesamte Dachfläche",
+      "roofSegments": "Dachsegmente",
+      "averageTilt": "Ø Neigung",
+      "averageAzimuth": "Ø Ausrichtung",
+      "coordinates": "Koordinaten",
+      "projectStatus": "Projekt-Status",
+      "contractsTitle": "Verträge",
+      "contractCreatedOn": "Erstellt am {date}",
+      "signedOn": "Unterzeichnet am {date}",
+      "name": "Name",
+      "email": "E-Mail",
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mär",
+        "apr": "Apr",
+        "may": "Mai",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Okt",
+        "nov": "Nov",
+        "dec": "Dez"
+      }
     },
     "contracts": {
       "title": "Verträge",
