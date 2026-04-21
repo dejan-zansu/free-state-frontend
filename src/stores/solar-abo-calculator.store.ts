@@ -288,7 +288,7 @@ const initialConsents: Consents = {
 const initialState: SolarAboCalculatorState = {
   solarModel: null,
   currentStep: 1,
-  totalSteps: 8,
+  totalSteps: 7,
 
   buildingType: 'single_family',
   householdSize: null,

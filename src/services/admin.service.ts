@@ -7,6 +7,7 @@ import type {
   AdminInquiry,
   AdminInvestorRequest,
   AdminLead,
+  AdminLeadDetail,
   AdminNewsletterSubscription,
   AdminQuoteRequest,
   AdminUser,
@@ -43,14 +44,42 @@ class AdminService {
     return response.data
   }
 
-  async getLeadById(id: string): Promise<AdminLead> {
-    const response = await api.get<{ success: boolean; data: AdminLead }>(`/admin/leads/${id}`)
+  async getLeadById(id: string): Promise<AdminLeadDetail> {
+    const response = await api.get<{ success: boolean; data: AdminLeadDetail }>(`/admin/leads/${id}`)
     return response.data.data
   }
 
   async updateLead(id: string, data: Partial<{ status: string; assignedToId: string | null; notes: string | null; nextFollowUp: string | null }>): Promise<AdminLead> {
     const response = await api.patch<{ success: boolean; data: AdminLead }>(`/admin/leads/${id}`, data)
     return response.data.data
+  }
+
+  async downloadLeadReport(id: string, fallbackAddress?: string): Promise<void> {
+    const response = await api.get(`/admin/leads/${id}/report`, {
+      responseType: 'blob',
+      timeout: 60000,
+    })
+
+    const blob = new Blob([response.data], { type: 'application/pdf' })
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+
+    const contentDisposition = response.headers['content-disposition']
+    let filename = 'Lead_Report.pdf'
+    if (contentDisposition) {
+      const match = contentDisposition.match(/filename="(.+)"/)
+      if (match) filename = match[1]
+    } else if (fallbackAddress) {
+      const sanitized = fallbackAddress.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)
+      filename = `Lead_Report_${sanitized}.pdf`
+    }
+
+    link.download = filename
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    window.URL.revokeObjectURL(url)
   }
 
   async listContracts(query: ListQuery = {}): Promise<PaginatedResponse<AdminContract>> {

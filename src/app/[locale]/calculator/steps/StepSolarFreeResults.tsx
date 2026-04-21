@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils'
 import { reportService } from '@/services/report.service'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
+import SignContractDialog from '../components/SignContractDialog'
 import {
   DEFAULT_PPA_DISCOUNT_PCT,
   useSolarAboCalculatorStore,
@@ -87,6 +88,7 @@ export default function StepResults() {
   const [packages, setPackages] = useState<CalculatorPackage[]>([])
   const [packagesLoading, setPackagesLoading] = useState(true)
   const [downloading, setDownloading] = useState(false)
+  const [signDialogOpen, setSignDialogOpen] = useState(false)
 
   const annualProduction = store.getAnnualProduction()
   const annualSavings = store.getAnnualPpaSavings()
@@ -211,38 +213,48 @@ export default function StepResults() {
     }
   }
 
-  const handleSignContract = () => {
-    store.setResultsPath('contract')
-    store.nextStep()
-  }
 
   const fmt = (n: number) => Math.round(n).toLocaleString('de-CH')
   const selfSufficientPct = Math.round(selfConsumptionRate * 100)
 
   return (
-    <div className="container mx-auto px-4 pt-8 pb-28 max-w-4xl">
-      {store.roofImage && (
-        <div className="rounded-xl overflow-hidden">
+    <>
+      {store.roofImage ? (
+        <div className="relative w-full h-[340px] sm:h-[440px] lg:h-[520px] overflow-hidden">
           <Image
             src={store.roofImage}
             alt={store.address || 'Your roof'}
-            width={1200}
-            height={500}
-            className="w-full h-auto"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
             unoptimized
           />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-[#062E25]/40 to-transparent pointer-events-none"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-[#062E25]/85 to-transparent pointer-events-none"
+          />
           {store.address && (
-            <div className="px-3 py-2 bg-[#062E25] text-base text-white/70">
-              {store.address}
+            <div className="absolute inset-x-0 bottom-0 px-4 sm:px-8 pb-6 sm:pb-8">
+              <p className="max-w-4xl mx-auto text-lg sm:text-xl font-medium text-white">
+                {store.address}
+              </p>
             </div>
           )}
         </div>
+      ) : (
+        <div className="h-[88px] sm:h-[100px]" aria-hidden />
       )}
 
-      <div className="mt-8">
-        <p className="text-base font-medium text-[#062E25]/40 uppercase tracking-wider mb-3">
-          {t('yourSystem.label')}
-        </p>
+      <div className="container mx-auto px-4 pb-28 max-w-4xl pt-8">
+        <div>
+          <p className="text-base font-medium text-[#062E25]/40 uppercase tracking-wider mb-3">
+            {t('yourSystem.label')}
+          </p>
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
           <div>
             <div className="text-2xl font-semibold text-[#062E25] tabular-nums">
@@ -487,19 +499,30 @@ export default function StepResults() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-[#062E25]/20 bg-[#062E25] p-5">
+        <div
+          className="rounded-xl border border-[#062E25]/20 bg-[#062E25] p-5"
+          aria-disabled="true"
+        >
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-base font-semibold text-white">
-                {tActions('contractTitle')}
-              </p>
-              <p className="mt-0.5 text-base text-white/50">
-                {tActions('contractDescription')}
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-base font-semibold text-white">
+                  {tActions('contractTitle')}
+                </p>
+                <span className="inline-flex items-center rounded-full bg-[#B7FE1A] px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-widest text-[#062E25]">
+                  {tActions('contractInReviewLabel')}
+                </span>
+              </div>
+              <p className="mt-0.5 text-base text-white/55">
+                {tActions('contractDescriptionInReview')}
               </p>
             </div>
             <Button
-              onClick={handleSignContract}
-              className="shrink-0 bg-[#B7FE1A] text-[#062E25] hover:bg-[#B7FE1A]/90 font-semibold"
+              type="button"
+              disabled
+              aria-disabled="true"
+              title={tActions('contractInReviewLabel')}
+              className="shrink-0 bg-white/10 text-white/55 border border-white/15 cursor-not-allowed hover:bg-white/10 disabled:opacity-100 font-semibold"
             >
               {tActions('contractButton')}
             </Button>
@@ -522,6 +545,12 @@ export default function StepResults() {
           {tNav('back')}
         </Button>
       </div>
-    </div>
+
+      <SignContractDialog
+        open={signDialogOpen}
+        onOpenChange={setSignDialogOpen}
+      />
+      </div>
+    </>
   )
 }

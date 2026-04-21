@@ -716,7 +716,7 @@
       "stats": {
         "left": {
           "investment": "Investissement unique\ndès 10'000 CHF",
-          "electricity": "Jusqu'à 20–40 % de coûts\nd'électricité en moins"
+          "electricity": "Jusqu'à 60–80 % de coûts\nd'électricité en moins"
         },
         "right": {
           "maintenance": "Amortissement possible\ndès 5 ans",
@@ -3858,6 +3858,7 @@
         "title": "Flux d'énergie",
         "production": "Production solaire",
         "ownConsumption": "Depuis le solaire",
+        "selfConsumed": "Utilisé à la maison",
         "consumption": "Demande du foyer",
         "independence": "Indépendance",
         "gridSupply": "Depuis le réseau",
@@ -3903,6 +3904,8 @@
         "offerButton": "Demander une offre",
         "contractTitle": "Signer le contrat",
         "contractDescription": "Passez directement à la revue et à la signature numérique du contrat de location de toit.",
+        "contractDescriptionInReview": "Nous finalisons le processus de signature électronique sécurisée. Demandez une offre pour avancer avec notre équipe dès aujourd'hui.",
+        "contractInReviewLabel": "Bientôt disponible",
         "contractButton": "Continuer vers le contrat",
         "emailSent": "Envoyé",
         "offerSent": "Demandée"
@@ -4068,6 +4071,13 @@
       },
       "creatingContract": "Création du contrat...",
       "proceedToSign": "Passer à la signature",
+      "recap": {
+        "package": "Forfait",
+        "term": "Durée",
+        "years": "{years} ans",
+        "yearlySavings": "Économies annuelles",
+        "netAmount": "Montant net"
+      },
       "solarFree": {
         "rateCard": {
           "title": "Votre tarif SolarFree",
@@ -5981,7 +5991,64 @@
       "manage": "Gérer",
       "notes": "Notes",
       "saveNotes": "Enregistrer les notes",
-      "contact": "Contact"
+      "contact": "Contact",
+      "downloadReport": "Télécharger le rapport client",
+      "reportDownloadFailed": "Échec de la génération du rapport.",
+      "noCalculation": "Ce lead n'a pas de calcul solaire enregistré. Aucun rapport ne peut être généré.",
+      "calculatorSnapshot": "Résultats du calculateur",
+      "solarModelFree": "Solar-Free (PPA)",
+      "solarModelDirect": "Solar-Direct (Achat)",
+      "systemSize": "Taille du système",
+      "panelsCount": "{count} panneaux",
+      "annualProduction": "Production annuelle",
+      "annualSavings": "Économies annuelles",
+      "co2Offset": "Économie de CO₂",
+      "selfConsumption": "Autoconsommation",
+      "annualConsumption": "Consommation annuelle",
+      "ppaDiscount": "Remise PPA",
+      "recommendedPackage": "Pack recommandé",
+      "monthlyProduction": "Production mensuelle",
+      "phone": "Téléphone",
+      "preferredLanguage": "Langue",
+      "customerInputs": "Informations client",
+      "householdSize": "Taille du ménage",
+      "buildingType": "Type de bâtiment",
+      "roofCovering": "Revêtement de toit",
+      "devices": "Appareils",
+      "noDevices": "Aucun appareil supplémentaire",
+      "deviceNames": {
+        "heatPumpHeating": "Pompe à chaleur (chauffage)",
+        "electricHeating": "Chauffage électrique",
+        "electricBoiler": "Chauffe-eau électrique",
+        "evChargingStation": "Borne de recharge VE",
+        "swimmingPoolSauna": "Piscine / sauna"
+      },
+      "roofDetails": "Détails du toit",
+      "totalRoofArea": "Surface totale",
+      "roofSegments": "Segments de toit",
+      "averageTilt": "Inclinaison moy.",
+      "averageAzimuth": "Azimut moy.",
+      "coordinates": "Coordonnées",
+      "projectStatus": "Statut du projet",
+      "contractsTitle": "Contrats",
+      "contractCreatedOn": "Créé le {date}",
+      "signedOn": "Signé le {date}",
+      "name": "Nom",
+      "email": "E-mail",
+      "months": {
+        "jan": "Janv.",
+        "feb": "Févr.",
+        "mar": "Mars",
+        "apr": "Avr.",
+        "may": "Mai",
+        "jun": "Juin",
+        "jul": "Juil.",
+        "aug": "Août",
+        "sep": "Sept.",
+        "oct": "Oct.",
+        "nov": "Nov.",
+        "dec": "Déc."
+      }
     },
     "contracts": {
       "title": "Contrats",

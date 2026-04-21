@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   Clock,
+  Download,
   ExternalLink,
   FileCheck,
   Loader2,
@@ -307,7 +308,7 @@ export default function StepSignature() {
             variant="outline"
             onClick={() => {
               resetSignature()
-              goToStep(7)
+              goToStep(6)
             }}
             className="gap-2"
             style={{ borderColor: '#062E25', color: '#062E25' }}
@@ -317,12 +318,18 @@ export default function StepSignature() {
           </Button>
 
           {contractPdfUrl && createdContractId && (
-            <Button variant="ghost" asChild>
+            <Button
+              variant="outline"
+              asChild
+              className="gap-2 border-2 font-medium shadow-sm hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+              style={{ borderColor: '#062E25', color: '#062E25' }}
+            >
               <a
                 href={contractService.getDownloadUrl(createdContractId)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <Download className="h-4 w-4" />
                 {t('downloadContract')}
               </a>
             </Button>
