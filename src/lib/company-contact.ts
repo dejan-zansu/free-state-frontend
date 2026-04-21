@@ -10,3 +10,7 @@ export const COMPANY_MAIN_EMAIL = 'info@freestate.ch' as const
 
 export const COMPANY_MAIN_MAILTO_HREF =
   `mailto:${COMPANY_MAIN_EMAIL}` as const
+
+/** Public Calendly booking link for scheduling a consultation. */
+export const COMPANY_CALENDLY_URL =
+  'https://calendly.com/ivan-m-freestate/30min' as const

@@ -55,7 +55,7 @@ export default function AdminQuoteRequestsPage() {
     filters,
   } = useAdminQuery<AdminQuoteRequest>(
     'quote-requests',
-    adminService.listQuoteRequests.bind(adminService),
+    adminService.listQuoteRequests.bind(adminService)
   )
 
   return (
@@ -72,20 +72,28 @@ export default function AdminQuoteRequestsPage() {
             />
             <Select
               value={filters.source || 'all'}
-              onValueChange={v => setFilter('source', v === 'all' ? undefined : v)}
+              onValueChange={v =>
+                setFilter('source', v === 'all' ? undefined : v)
+              }
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder={t('filterSource')} />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="all">{t('allSources')}</SelectItem>
-                <SelectItem value="SOLAR_FREE">{t('sourceSolarFree')}</SelectItem>
-                <SelectItem value="SOLAR_DIRECT">{t('sourceSolarDirect')}</SelectItem>
+                <SelectItem value="SOLAR_FREE">
+                  {t('sourceSolarFree')}
+                </SelectItem>
+                <SelectItem value="SOLAR_DIRECT">
+                  {t('sourceSolarDirect')}
+                </SelectItem>
               </SelectContent>
             </Select>
             <Select
               value={filters.status || 'all'}
-              onValueChange={v => setFilter('status', v === 'all' ? undefined : v)}
+              onValueChange={v =>
+                setFilter('status', v === 'all' ? undefined : v)
+              }
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder={t('filterStatus')} />
@@ -93,8 +101,12 @@ export default function AdminQuoteRequestsPage() {
               <SelectContent>
                 <SelectItem value="all">{t('allStatuses')}</SelectItem>
                 <SelectItem value="NEW">{t('statusNew')}</SelectItem>
-                <SelectItem value="CONTACTED">{t('statusContacted')}</SelectItem>
-                <SelectItem value="QUALIFIED">{t('statusQualified')}</SelectItem>
+                <SelectItem value="CONTACTED">
+                  {t('statusContacted')}
+                </SelectItem>
+                <SelectItem value="QUALIFIED">
+                  {t('statusQualified')}
+                </SelectItem>
                 <SelectItem value="CLOSED">{t('statusClosed')}</SelectItem>
               </SelectContent>
             </Select>
@@ -137,9 +149,13 @@ export default function AdminQuoteRequestsPage() {
                       </TableCell>
                       <TableCell>
                         <span
-                          className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${sourceColors[request.source] || ''}`}
+                          className={`inline-flex px-2 py-0.5 rounded-full text-sm font-medium ${sourceColors[request.source] || ''}`}
                         >
-                          {t(request.source === 'SOLAR_FREE' ? 'sourceSolarFree' : 'sourceSolarDirect')}
+                          {t(
+                            request.source === 'SOLAR_FREE'
+                              ? 'sourceSolarFree'
+                              : 'sourceSolarDirect'
+                          )}
                         </span>
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]/60">
@@ -147,17 +163,23 @@ export default function AdminQuoteRequestsPage() {
                       </TableCell>
                       <TableCell>
                         <span
-                          className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[request.status] || ''}`}
+                          className={`inline-flex px-2 py-0.5 rounded-full text-sm font-medium ${statusColors[request.status] || ''}`}
                         >
-                          {t(`status${request.status.charAt(0)}${request.status.slice(1).toLowerCase()}`)}
+                          {t(
+                            `status${request.status.charAt(0)}${request.status.slice(1).toLowerCase()}`
+                          )}
                         </span>
                       </TableCell>
                       <TableCell className="text-[#062E25]/60 text-sm">
-                        {new Date(request.createdAt).toLocaleDateString('de-CH')}
+                        {new Date(request.createdAt).toLocaleDateString(
+                          'de-CH'
+                        )}
                       </TableCell>
                       <TableCell>
                         <Button variant="ghost" size="sm" asChild>
-                          <Link href={`/${locale}/admin/quote-requests/${request.id}`}>
+                          <Link
+                            href={`/${locale}/admin/quote-requests/${request.id}`}
+                          >
                             {t('view')}
                           </Link>
                         </Button>

@@ -6,7 +6,9 @@ import { useTranslations } from 'next-intl'
 import { parseAsInteger, useQueryState } from 'nuqs'
 import { useEffect, useRef } from 'react'
 
+import ComingSoon from '@/components/ComingSoon'
 import Steps from '@/components/Steps'
+
 import SolarModelSelection from './SolarModelSelection'
 import Step1HouseholdSize from './steps/Step2HouseholdSize'
 import Step2Devices from './steps/Step3Devices'
@@ -23,6 +25,8 @@ const PAGE_BG =
   'linear-gradient(180deg, rgba(242, 244, 232, 1) 45%, rgba(220, 233, 230, 1) 84%)'
 
 export default function SolarAboCalculatorPage() {
+  return <ComingSoon exploreHref="/solar-free" />
+
   const t = useTranslations('solarAboCalculator')
   const { solarModel, currentStep, signatureStatus, resultsPath, goToStep } =
     useSolarAboCalculatorStore()
@@ -91,15 +95,6 @@ export default function SolarAboCalculatorPage() {
   }
 
   const isConfirmation = currentStep === 9 || signatureStatus === 'signed'
-
-  const steps = [
-    { id: 1, label: t('progress.step2') },
-    { id: 2, label: t('progress.step3') },
-    { id: 3, label: t('progress.step4') },
-    { id: 4, label: t('progress.step5') },
-    { id: 5, label: t('progress.step6') },
-    { id: 6, label: t('progress.step7') },
-  ]
 
   const isPostCalculator = currentStep > 6
 

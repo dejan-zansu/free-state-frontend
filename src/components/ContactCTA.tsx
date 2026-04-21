@@ -1,7 +1,10 @@
 import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
+
+import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
+
 import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
-import Image from 'next/image'
 
 const ContactCTA = async () => {
   const t = await getTranslations('contactCTA')
@@ -42,7 +45,12 @@ const ContactCTA = async () => {
               {t('title')}
             </h2>
           </div>
-          <LinkButton href="/solar-calculator" variant="primary">
+          <LinkButton
+            href={COMPANY_CALENDLY_URL}
+            variant="primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {t('cta')}
           </LinkButton>
         </div>

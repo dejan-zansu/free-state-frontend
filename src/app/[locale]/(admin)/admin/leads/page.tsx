@@ -32,6 +32,7 @@ export default function AdminLeadsPage() {
   const locale = useLocale()
   const t = useTranslations('admin.leads')
   const tc = useTranslations('admin.common')
+  const tl = useTranslations('admin.statusLabels')
   const {
     data,
     isLoading,
@@ -65,14 +66,14 @@ export default function AdminLeadsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__all__">{t('allStatuses')}</SelectItem>
-                <SelectItem value="NEW">New</SelectItem>
-                <SelectItem value="CONTACTED">Contacted</SelectItem>
-                <SelectItem value="QUALIFIED">Qualified</SelectItem>
-                <SelectItem value="PROPOSAL_SENT">Proposal Sent</SelectItem>
-                <SelectItem value="NEGOTIATION">Negotiation</SelectItem>
-                <SelectItem value="WON">Won</SelectItem>
-                <SelectItem value="LOST">Lost</SelectItem>
-                <SelectItem value="ON_HOLD">On Hold</SelectItem>
+                <SelectItem value="NEW">{tl('NEW')}</SelectItem>
+                <SelectItem value="CONTACTED">{tl('CONTACTED')}</SelectItem>
+                <SelectItem value="QUALIFIED">{tl('QUALIFIED')}</SelectItem>
+                <SelectItem value="PROPOSAL_SENT">{tl('PROPOSAL_SENT')}</SelectItem>
+                <SelectItem value="NEGOTIATION">{tl('NEGOTIATION')}</SelectItem>
+                <SelectItem value="WON">{tl('WON')}</SelectItem>
+                <SelectItem value="LOST">{tl('LOST')}</SelectItem>
+                <SelectItem value="ON_HOLD">{tl('ON_HOLD')}</SelectItem>
               </SelectContent>
             </Select>
             <Select
@@ -84,13 +85,13 @@ export default function AdminLeadsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__all__">{t('allSources')}</SelectItem>
-                <SelectItem value="WEBSITE">Website</SelectItem>
-                <SelectItem value="REFERRAL">Referral</SelectItem>
-                <SelectItem value="ADVERTISEMENT">Advertisement</SelectItem>
-                <SelectItem value="COLD_CALL">Cold Call</SelectItem>
-                <SelectItem value="TRADE_SHOW">Trade Show</SelectItem>
-                <SelectItem value="PARTNER">Partner</SelectItem>
-                <SelectItem value="OTHER">Other</SelectItem>
+                <SelectItem value="WEBSITE">{tl('WEBSITE')}</SelectItem>
+                <SelectItem value="REFERRAL">{tl('REFERRAL')}</SelectItem>
+                <SelectItem value="ADVERTISEMENT">{tl('ADVERTISEMENT')}</SelectItem>
+                <SelectItem value="COLD_CALL">{tl('COLD_CALL')}</SelectItem>
+                <SelectItem value="TRADE_SHOW">{tl('TRADE_SHOW')}</SelectItem>
+                <SelectItem value="PARTNER">{tl('PARTNER')}</SelectItem>
+                <SelectItem value="OTHER">{tl('OTHER')}</SelectItem>
               </SelectContent>
             </Select>
           </div>

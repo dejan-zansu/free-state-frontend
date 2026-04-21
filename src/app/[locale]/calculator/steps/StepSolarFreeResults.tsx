@@ -106,7 +106,8 @@ export default function StepResults() {
       .then(data => {
         setPackages(data)
         const hasValidSelection =
-          store.selectedPackageId && data.some(p => p.id === store.selectedPackageId)
+          store.selectedPackageId &&
+          data.some(p => p.id === store.selectedPackageId)
         if (data.length > 0 && !hasValidSelection) {
           const recommended =
             pickRecommendedPackage(data, store.getSystemSizeKwp()) || data[0]
@@ -307,7 +308,9 @@ export default function StepResults() {
                 <button
                   key={pkg.id}
                   type="button"
-                  onClick={() => applyPackageToStore(store.setSelectedPackage, pkg)}
+                  onClick={() =>
+                    applyPackageToStore(store.setSelectedPackage, pkg)
+                  }
                   className={cn(
                     'text-left rounded-xl border p-4 transition-colors relative',
                     isSelected
@@ -316,7 +319,7 @@ export default function StepResults() {
                   )}
                 >
                   {isRecommended && (
-                    <span className="absolute top-2 right-2 text-xs font-medium px-2 py-0.5 rounded-full bg-[#B7FE1A] text-[#062E25]">
+                    <span className="absolute top-2 right-2 text-sm font-medium px-2 py-0.5 rounded-full bg-[#B7FE1A] text-[#062E25]">
                       {tPackageSelector('recommended')}
                     </span>
                   )}

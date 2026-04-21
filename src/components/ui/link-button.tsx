@@ -6,33 +6,33 @@ import * as React from 'react'
 import { cn } from '@/lib/utils'
 
 const linkButtonVariants = cva(
-  'group relative inline-flex items-center pl-6 pr-1 py-1 rounded-full font-medium transition-all gap-3',
+  'group relative inline-flex items-center pl-6 pr-1 py-1 rounded-full font-medium transition-all gap-3 border border-transparent',
   {
     variants: {
       variant: {
         primary: 'bg-solar text-solar-foreground hover:bg-solar/90',
         secondary:
-          'bg-energy border border-energy hover:bg-energy/90 text-white',
+          'bg-energy border-energy hover:bg-energy/90 text-white',
         tertiary:
           'bg-[#062E25] text-white hover:bg-solar hover:text-solar-foreground',
         'solar-dark':
           'bg-[#036B53] text-white hover:bg-[#036B53]/90 shadow-[0_8px_24px_rgba(0,0,0,0.24)]',
         quaternary:
-          'bg-[#3D3858] text-white hover:bg-energy/90 hover:border-energy border border-[#3D3858]',
+          'bg-[#3D3858] text-white hover:bg-energy/90 hover:border-energy border-[#3D3858]',
         'outline-primary':
-          'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+          'bg-white border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-secondary':
-          'bg-white/5 border border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
+          'bg-white/5 border-white backdrop-blur-[32.5px] hover:bg-white/10 text-white',
         'outline-tertiary':
-          'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+          'bg-white border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-tertiary-dark':
-          'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+          'bg-white border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         'outline-quaternary':
-          'bg-white border border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
+          'bg-white border-[#062E25] text-[#062E25] hover:bg-[#062E25]/5',
         glass:
-          'bg-white/5 border border-white backdrop-blur-[65px] text-white hover:bg-white/10',
+          'bg-white/5 border-white backdrop-blur-[65px] text-white hover:bg-white/10',
         'glass-secondary':
-          'bg-white/5 border border-white backdrop-blur-[65px] text-white hover:bg-white/10',
+          'bg-white/5 border-white backdrop-blur-[65px] text-white hover:bg-white/10',
       },
     },
     defaultVariants: {

@@ -50,7 +50,7 @@ export default function AdminInvestorRequestsPage() {
     filters,
   } = useAdminQuery<AdminInvestorRequest>(
     'investor-requests',
-    adminService.listInvestorRequests.bind(adminService),
+    adminService.listInvestorRequests.bind(adminService)
   )
 
   return (
@@ -67,7 +67,9 @@ export default function AdminInvestorRequestsPage() {
             />
             <Select
               value={filters.status || 'all'}
-              onValueChange={v => setFilter('status', v === 'all' ? undefined : v)}
+              onValueChange={v =>
+                setFilter('status', v === 'all' ? undefined : v)
+              }
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder={t('filterStatus')} />
@@ -75,8 +77,12 @@ export default function AdminInvestorRequestsPage() {
               <SelectContent>
                 <SelectItem value="all">{t('allStatuses')}</SelectItem>
                 <SelectItem value="NEW">{t('statusNew')}</SelectItem>
-                <SelectItem value="CONTACTED">{t('statusContacted')}</SelectItem>
-                <SelectItem value="DOCUMENTS_SENT">{t('statusDocumentsSent')}</SelectItem>
+                <SelectItem value="CONTACTED">
+                  {t('statusContacted')}
+                </SelectItem>
+                <SelectItem value="DOCUMENTS_SENT">
+                  {t('statusDocumentsSent')}
+                </SelectItem>
                 <SelectItem value="CLOSED">{t('statusClosed')}</SelectItem>
               </SelectContent>
             </Select>
@@ -117,17 +123,26 @@ export default function AdminInvestorRequestsPage() {
                       </TableCell>
                       <TableCell>
                         <span
-                          className={`inline-flex px-2 py-0.5 rounded-full text-xs font-medium ${statusColors[request.status] || ''}`}
+                          className={`inline-flex px-2 py-0.5 rounded-full text-sm font-medium ${statusColors[request.status] || ''}`}
                         >
-                          {t(`status${request.status.charAt(0)}${request.status.slice(1).toLowerCase().replace(/_./g, m => m[1].toUpperCase())}`)}
+                          {t(
+                            `status${request.status.charAt(0)}${request.status
+                              .slice(1)
+                              .toLowerCase()
+                              .replace(/_./g, m => m[1].toUpperCase())}`
+                          )}
                         </span>
                       </TableCell>
                       <TableCell className="text-[#062E25]/60 text-sm">
-                        {new Date(request.createdAt).toLocaleDateString('de-CH')}
+                        {new Date(request.createdAt).toLocaleDateString(
+                          'de-CH'
+                        )}
                       </TableCell>
                       <TableCell>
                         <Button variant="ghost" size="sm" asChild>
-                          <Link href={`/${locale}/admin/investor-requests/${request.id}`}>
+                          <Link
+                            href={`/${locale}/admin/investor-requests/${request.id}`}
+                          >
                             {t('view')}
                           </Link>
                         </Button>

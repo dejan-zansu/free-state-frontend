@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { useQuery } from '@tanstack/react-query'
 
@@ -13,7 +13,6 @@ import type { AdminContract } from '@/types/admin'
 
 export default function AdminContractDetailPage() {
   const params = useParams()
-  const locale = useLocale()
   const t = useTranslations('admin.contracts')
   const tc = useTranslations('admin.common')
 

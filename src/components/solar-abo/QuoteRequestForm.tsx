@@ -30,7 +30,7 @@ type FormValues = {
 const fieldClass =
   'h-9 bg-white/10 border-white/10 text-white rounded-[5px] backdrop-blur-[65px] placeholder:text-white/40 focus-visible:border-white/40 focus-visible:ring-0'
 
-const labelClass = 'text-white/70 text-xs font-medium tracking-[-0.02em]'
+const labelClass = 'text-white/70 text-sm font-medium tracking-[-0.02em]'
 
 const RadioPill = ({
   selected,
@@ -54,7 +54,7 @@ const RadioPill = ({
     >
       {selected && <span className="w-2 h-2 rounded-full bg-[#062E25]" />}
     </span>
-    <span className="text-[#EDEDED]/70 text-xs font-medium tracking-[-0.02em]">
+    <span className="text-[#EDEDED]/70 text-sm font-medium tracking-[-0.02em]">
       {label}
     </span>
   </button>
@@ -179,7 +179,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                     <h3 className="text-white text-[32px] font-light tracking-[-0.02em]">
                       {t('formTitle')}
                     </h3>
-                    <p className="text-[#FDFFF5]/70 text-xs font-light tracking-[-0.02em]">
+                    <p className="text-[#FDFFF5]/70 text-sm font-light tracking-[-0.02em]">
                       {t('requiredHint')}
                     </p>
                   </div>
@@ -195,7 +195,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                         className={fieldClass}
                       />
                       {errors.firstName && (
-                        <p className="text-red-300 text-xs">
+                        <p className="text-red-300 text-sm">
                           {errors.firstName.message}
                         </p>
                       )}
@@ -210,7 +210,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                         className={fieldClass}
                       />
                       {errors.lastName && (
-                        <p className="text-red-300 text-xs">
+                        <p className="text-red-300 text-sm">
                           {errors.lastName.message}
                         </p>
                       )}
@@ -232,7 +232,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                       className={fieldClass}
                     />
                     {errors.email && (
-                      <p className="text-red-300 text-xs">
+                      <p className="text-red-300 text-sm">
                         {errors.email.message}
                       </p>
                     )}
@@ -249,7 +249,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                         className={fieldClass}
                       />
                       {errors.postalCode && (
-                        <p className="text-red-300 text-xs">
+                        <p className="text-red-300 text-sm">
                           {errors.postalCode.message}
                         </p>
                       )}
@@ -265,7 +265,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                         className={fieldClass}
                       />
                       {errors.phone && (
-                        <p className="text-red-300 text-xs">
+                        <p className="text-red-300 text-sm">
                           {errors.phone.message}
                         </p>
                       )}
@@ -296,7 +296,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                           />
                         </div>
                         {errors.ownsHome && (
-                          <p className="text-red-300 text-xs">
+                          <p className="text-red-300 text-sm">
                             {errors.ownsHome.message}
                           </p>
                         )}
@@ -304,7 +304,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                     )}
                   />
 
-                  <p className="text-white/70 text-xs font-light tracking-[-0.02em] mt-3">
+                  <p className="text-white/70 text-sm font-light tracking-[-0.02em] mt-3">
                     {t('consent')}
                   </p>
 

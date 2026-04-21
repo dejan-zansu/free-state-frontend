@@ -55,7 +55,7 @@ export function DataRequestsCard({ contractId, canCreate }: Props) {
 
         {canCreate && requests.length > 0 && (
           <div className="space-y-2">
-            {requests.map((r) => (
+            {requests.map(r => (
               <Link
                 key={r.id}
                 href={`/${locale}/admin/contracts/${contractId}/data-requests/${r.id}`}
@@ -63,7 +63,7 @@ export function DataRequestsCard({ contractId, canCreate }: Props) {
               >
                 <div className="flex flex-col">
                   <span className="text-sm font-medium text-[#062E25]">{r.title}</span>
-                  <span className="text-xs text-[#062E25]/50">
+                  <span className="text-sm text-[#062E25]/50">
                     {new Date(r.createdAt).toLocaleDateString('de-CH')}
                     {r.dueDate && ` · due ${new Date(r.dueDate).toLocaleDateString('de-CH')}`}
                     {r.submittedAt &&

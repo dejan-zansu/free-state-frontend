@@ -9,37 +9,56 @@ import { z } from 'zod'
 import { useCallback, useMemo } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { useSolarAboCalculatorStore, type Salutation } from '@/stores/solar-abo-calculator.store'
+import {
+  useSolarAboCalculatorStore,
+  type Salutation,
+  type ContactCountry,
+} from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
 
 const salutations: Salutation[] = ['mr', 'woman', 'family']
+const countries: ContactCountry[] = ['CH', 'LI']
 
 function useContactSchema(t: (key: string) => string) {
-  return useMemo(() => z.object({
-    salutation: z.enum(['mr', 'woman', 'family'], {
-      message: t('salutationRequired'),
-    }),
-    firstName: z.string().min(1, t('firstNameRequired')),
-    lastName: z.string().min(1, t('lastNameRequired')),
-    email: z.string().min(1, t('emailRequired')).email(t('emailInvalid')),
-    phoneNumber: z.string().min(1, t('phoneRequired')).regex(/^[+\d][\d\s\-().]{6,}$/, t('phoneInvalid')),
-    remarks: z.string(),
-    dataProcessing: z.literal(true, {
-      message: t('consentRequired'),
-    }),
-  }), [t])
+  return useMemo(
+    () =>
+      z.object({
+        salutation: z.enum(['mr', 'woman', 'family'], {
+          message: t('salutationRequired'),
+        }),
+        firstName: z.string().min(1, t('firstNameRequired')),
+        lastName: z.string().min(1, t('lastNameRequired')),
+        email: z.string().min(1, t('emailRequired')).email(t('emailInvalid')),
+        phoneNumber: z
+          .string()
+          .min(1, t('phoneRequired'))
+          .regex(/^[+\d][\d\s\-().]{6,}$/, t('phoneInvalid')),
+        country: z.enum(['CH', 'LI']),
+        postalCode: z.string().min(1, t('postalCodeRequired')),
+        city: z.string().min(1, t('cityRequired')),
+        street: z.string().min(1, t('streetRequired')),
+        streetNumber: z.string().min(1, t('streetNumberRequired')),
+        addressAdditional: z.string(),
+        remarks: z.string(),
+        dataProcessing: z.literal(true, {
+          message: t('consentRequired'),
+        }),
+      }),
+    [t]
+  )
 }
 
 type ContactFormData = z.infer<ReturnType<typeof useContactSchema>>
 
+const inputBase =
+  'w-full h-9 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60'
+
+const labelBase = 'text-sm font-light text-[#062E25]/80 tracking-tight'
+
 export default function Step6ContactDetails() {
   const t = useTranslations('solarAboCalculator.step7')
   const tErr = useTranslations('solarAboCalculator.step7.errors')
+  const tAddr = useTranslations('solarAboCalculator.step7.address')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const tConsent = useTranslations('solarAboCalculator.consents')
   const {
@@ -69,176 +88,425 @@ export default function Step6ContactDetails() {
       lastName: contact.lastName,
       email: contact.email,
       phoneNumber: contact.phoneNumber,
+      country: contact.country || 'CH',
+      postalCode: contact.postalCode,
+      city: contact.city,
+      street: contact.street,
+      streetNumber: contact.streetNumber,
+      addressAdditional: contact.addressAdditional,
       remarks: contact.remarks,
       dataProcessing: consents.dataProcessing || undefined,
     },
   })
 
-  const onSubmit = useCallback(async (data: ContactFormData) => {
-    setContact({
-      salutation: data.salutation,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      phoneNumber: data.phoneNumber,
-      remarks: data.remarks,
-    })
-    setConsents({ dataProcessing: data.dataProcessing })
-    await createAccount()
-    if (useSolarAboCalculatorStore.getState().accountCreated) {
-      nextStep()
-    }
-  }, [setContact, setConsents, createAccount, nextStep])
+  const onSubmit = useCallback(
+    async (data: ContactFormData) => {
+      setContact({
+        salutation: data.salutation,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        country: data.country,
+        postalCode: data.postalCode,
+        city: data.city,
+        street: data.street,
+        streetNumber: data.streetNumber,
+        addressAdditional: data.addressAdditional,
+        remarks: data.remarks,
+      })
+      setConsents({ dataProcessing: data.dataProcessing })
+      await createAccount()
+      if (useSolarAboCalculatorStore.getState().accountCreated) {
+        nextStep()
+      }
+    },
+    [setContact, setConsents, createAccount, nextStep]
+  )
 
   return (
-    <div className='h-full overflow-y-auto'>
-      <div className='container mx-auto px-4 pt-8 pb-16 max-w-4xl'>
-        <div className='max-w-lg mx-auto'>
-          <h1 className='text-2xl font-bold'>{t('title')}</h1>
-          <p className='mt-2 text-muted-foreground'>{t('helper')}</p>
+    <div className="h-full overflow-y-auto">
+      <div className="container mx-auto px-4 pt-8 pb-24">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[60px]">
+          <div className="flex flex-col gap-5 w-full max-w-[436px]">
+            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+              {t('title')}
+            </h1>
+            <p className="text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+              {t('helper')}
+            </p>
+          </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className='mt-8 space-y-6' noValidate>
-            <div className='space-y-3'>
-              <Label className='text-sm md:text-base'>{t('salutation.label')} <span className='text-destructive'>*</span></Label>
-              <Controller
-                name='salutation'
-                control={control}
-                render={({ field }) => (
-                  <RadioGroup
-                    value={field.value || ''}
-                    onValueChange={field.onChange}
-                    className='flex gap-4'
-                  >
-                    {salutations.map((option) => (
-                      <div key={option} className='flex items-center space-x-2'>
-                        <RadioGroupItem value={option} id={option} />
-                        <Label htmlFor={option} className='cursor-pointer text-sm md:text-base'>
-                          {t(`salutation.options.${option}`)}
-                        </Label>
-                      </div>
-                    ))}
-                  </RadioGroup>
+          <div className="w-full max-w-[534px]">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              noValidate
+              className="rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-7 sm:p-8 space-y-5"
+            >
+              <div className="flex flex-col gap-2.5">
+                <label className={labelBase}>
+                  {t('salutation.label')}{' '}
+                  <span className="text-destructive">*</span>
+                </label>
+                <Controller
+                  name="salutation"
+                  control={control}
+                  render={({ field }) => (
+                    <div className="flex items-center gap-[17px]">
+                      {salutations.map(option => {
+                        const selected = field.value === option
+                        return (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => field.onChange(option)}
+                            className="flex items-center gap-1.5"
+                          >
+                            <span
+                              className={cn(
+                                'w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-colors',
+                                selected
+                                  ? 'border-[#062E25]'
+                                  : 'border-[#D9D9D9]'
+                              )}
+                            >
+                              {selected && (
+                                <span className="w-2 h-2 rounded-full bg-[#B7FE1A]" />
+                              )}
+                            </span>
+                            <span
+                              className={cn(
+                                'text-sm font-medium tracking-tight',
+                                selected
+                                  ? 'text-[#062E25]'
+                                  : 'text-[#062E25]/70'
+                              )}
+                            >
+                              {t(`salutation.options.${option}`)}
+                            </span>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  )}
+                />
+                {errors.salutation && (
+                  <p className="text-sm text-destructive">
+                    {errors.salutation.message}
+                  </p>
                 )}
-              />
-              {errors.salutation && (
-                <p className='text-sm md:text-base text-destructive'>{errors.salutation.message}</p>
-              )}
-            </div>
-
-            <div className='space-y-2'>
-              <Label htmlFor='firstName' className='text-sm md:text-base'>
-                {t('firstName')} <span className='text-destructive'>*</span>
-              </Label>
-              <Input
-                id='firstName'
-                {...register('firstName')}
-                placeholder={t('firstNamePlaceholder')}
-                className={cn(errors.firstName && 'border-destructive')}
-              />
-              {errors.firstName && (
-                <p className='text-sm md:text-base text-destructive'>{errors.firstName.message}</p>
-              )}
-            </div>
-
-            <div className='space-y-2'>
-              <Label htmlFor='lastName' className='text-sm md:text-base'>
-                {t('lastName')} <span className='text-destructive'>*</span>
-              </Label>
-              <Input
-                id='lastName'
-                {...register('lastName')}
-                placeholder={t('lastNamePlaceholder')}
-                className={cn(errors.lastName && 'border-destructive')}
-              />
-              {errors.lastName && (
-                <p className='text-sm md:text-base text-destructive'>{errors.lastName.message}</p>
-              )}
-            </div>
-
-            <div className='space-y-2'>
-              <Label htmlFor='email' className='text-sm md:text-base'>
-                {t('email')} <span className='text-destructive'>*</span>
-              </Label>
-              <Input
-                id='email'
-                type='email'
-                {...register('email')}
-                placeholder={t('emailPlaceholder')}
-                className={cn(errors.email && 'border-destructive')}
-              />
-              {errors.email && (
-                <p className='text-sm md:text-base text-destructive'>{errors.email.message}</p>
-              )}
-            </div>
-
-            <div className='space-y-2'>
-              <Label htmlFor='phoneNumber' className='text-sm md:text-base'>
-                {t('phoneNumber')} <span className='text-destructive'>*</span>
-              </Label>
-              <Input
-                id='phoneNumber'
-                type='tel'
-                {...register('phoneNumber')}
-                placeholder={t('phoneNumberPlaceholder')}
-                className={cn(errors.phoneNumber && 'border-destructive')}
-              />
-              {errors.phoneNumber && (
-                <p className='text-sm md:text-base text-destructive'>{errors.phoneNumber.message}</p>
-              )}
-            </div>
-
-            <div className='space-y-2'>
-              <Label htmlFor='remarks' className='text-sm md:text-base'>{t('remarks')}</Label>
-              <Textarea
-                id='remarks'
-                {...register('remarks')}
-                placeholder={t('remarksPlaceholder')}
-                rows={4}
-              />
-            </div>
-
-            <div className='pt-2'>
-              <Controller
-                name='dataProcessing'
-                control={control}
-                render={({ field }) => (
-                  <div className='flex items-start gap-3'>
-                    <Checkbox
-                      id='consent-data'
-                      checked={field.value || false}
-                      onCheckedChange={(checked) => field.onChange(checked === true ? true : undefined)}
-                      className='mt-0.5 border-[#062E25]/40 data-[state=checked]:bg-[#062E25] data-[state=checked]:border-[#062E25]'
-                    />
-                    <label htmlFor='consent-data' className='text-sm md:text-base cursor-pointer text-[#062E25]/80'>
-                      {tConsent('dataProcessingPrefix')}{' '}
-                      <Link href='/privacy-policy' className='underline underline-offset-2 text-[#062E25] hover:text-[#062E25]/70'>
-                        {tConsent('dataProcessingLink')}
-                      </Link>{' '}
-                      {tConsent('dataProcessingSuffix')}
-                      {' '}<span className='text-destructive'>*</span>
-                    </label>
-                  </div>
-                )}
-              />
-              {errors.dataProcessing && (
-                <p className='mt-2 text-sm md:text-base text-destructive'>{errors.dataProcessing.message}</p>
-              )}
-            </div>
-
-            {submissionError && (
-              <div className='text-sm md:text-base text-destructive bg-destructive/10 p-3 rounded-md'>
-                {submissionError}
               </div>
-            )}
-          </form>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
+                <div className="space-y-1">
+                  <input
+                    id="firstName"
+                    {...register('firstName')}
+                    placeholder={t('firstName')}
+                    className={cn(
+                      inputBase,
+                      errors.firstName && 'border-destructive'
+                    )}
+                  />
+                  {errors.firstName && (
+                    <p className="text-sm text-destructive">
+                      {errors.firstName.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <input
+                    id="lastName"
+                    {...register('lastName')}
+                    placeholder={t('lastName')}
+                    className={cn(
+                      inputBase,
+                      errors.lastName && 'border-destructive'
+                    )}
+                  />
+                  {errors.lastName && (
+                    <p className="text-sm text-destructive">
+                      {errors.lastName.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <input
+                    id="phoneNumber"
+                    type="tel"
+                    {...register('phoneNumber')}
+                    placeholder={t('phoneNumber')}
+                    className={cn(
+                      inputBase,
+                      errors.phoneNumber && 'border-destructive'
+                    )}
+                  />
+                  {errors.phoneNumber && (
+                    <p className="text-sm text-destructive">
+                      {errors.phoneNumber.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <input
+                    id="email"
+                    type="email"
+                    {...register('email')}
+                    placeholder={t('email')}
+                    className={cn(
+                      inputBase,
+                      errors.email && 'border-destructive'
+                    )}
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-destructive">
+                      {errors.email.message}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="space-y-3 pt-1">
+                <p className={cn(labelBase, 'font-medium')}>
+                  {tAddr('sectionTitle')}
+                </p>
+
+                <div className="flex flex-col gap-2.5">
+                  <label className={labelBase}>
+                    {tAddr('countryLabel')}{' '}
+                    <span className="text-destructive">*</span>
+                  </label>
+                  <Controller
+                    name="country"
+                    control={control}
+                    render={({ field }) => (
+                      <div className="flex items-center gap-[17px]">
+                        {countries.map(option => {
+                          const selected = field.value === option
+                          return (
+                            <button
+                              key={option}
+                              type="button"
+                              onClick={() => field.onChange(option)}
+                              className="flex items-center gap-1.5"
+                            >
+                              <span
+                                className={cn(
+                                  'w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-colors',
+                                  selected
+                                    ? 'border-[#062E25]'
+                                    : 'border-[#D9D9D9]'
+                                )}
+                              >
+                                {selected && (
+                                  <span className="w-2 h-2 rounded-full bg-[#B7FE1A]" />
+                                )}
+                              </span>
+                              <span
+                                className={cn(
+                                  'text-sm font-medium tracking-tight',
+                                  selected
+                                    ? 'text-[#062E25]'
+                                    : 'text-[#062E25]/70'
+                                )}
+                              >
+                                {tAddr(`countryOptions.${option}`)}
+                              </span>
+                            </button>
+                          )
+                        })}
+                      </div>
+                    )}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
+                  <div className="space-y-1">
+                    <input
+                      id="postalCode"
+                      {...register('postalCode')}
+                      placeholder={tAddr('postalCode')}
+                      className={cn(
+                        inputBase,
+                        errors.postalCode && 'border-destructive'
+                      )}
+                    />
+                    {errors.postalCode && (
+                      <p className="text-sm text-destructive">
+                        {errors.postalCode.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-1">
+                    <input
+                      id="city"
+                      {...register('city')}
+                      placeholder={tAddr('city')}
+                      className={cn(
+                        inputBase,
+                        errors.city && 'border-destructive'
+                      )}
+                    />
+                    {errors.city && (
+                      <p className="text-sm text-destructive">
+                        {errors.city.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-[1fr_120px] gap-x-3 gap-y-5">
+                  <div className="space-y-1">
+                    <input
+                      id="street"
+                      {...register('street')}
+                      placeholder={tAddr('street')}
+                      className={cn(
+                        inputBase,
+                        errors.street && 'border-destructive'
+                      )}
+                    />
+                    {errors.street && (
+                      <p className="text-sm text-destructive">
+                        {errors.street.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-1">
+                    <input
+                      id="streetNumber"
+                      {...register('streetNumber')}
+                      placeholder={tAddr('streetNumber')}
+                      className={cn(
+                        inputBase,
+                        errors.streetNumber && 'border-destructive'
+                      )}
+                    />
+                    {errors.streetNumber && (
+                      <p className="text-sm text-destructive">
+                        {errors.streetNumber.message}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <input
+                    id="addressAdditional"
+                    {...register('addressAdditional')}
+                    placeholder={tAddr('addressAdditional')}
+                    className={inputBase}
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <textarea
+                  id="remarks"
+                  {...register('remarks')}
+                  placeholder={t('remarksPlaceholder')}
+                  rows={2}
+                  className="w-full rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 py-2 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60 resize-none"
+                />
+              </div>
+
+              <div>
+                <Controller
+                  name="dataProcessing"
+                  control={control}
+                  render={({ field }) => {
+                    const checked = field.value === true
+                    return (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          field.onChange(checked ? undefined : true)
+                        }
+                        className="flex items-start gap-2.5 text-left"
+                      >
+                        <span
+                          className={cn(
+                            'mt-0.5 flex h-3 w-3 shrink-0 items-center justify-center rounded-[3px] border transition-colors',
+                            checked
+                              ? 'bg-[#B7FE1A] border-[#B7FE1A]'
+                              : 'border-[#062E25]/40'
+                          )}
+                        >
+                          {checked && (
+                            <svg
+                              width="8"
+                              height="6"
+                              viewBox="0 0 8 6"
+                              fill="none"
+                            >
+                              <path
+                                d="M1 3L3 5L7 1"
+                                stroke="#062E25"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          )}
+                        </span>
+                        <span className="text-sm font-light text-[#062E25]/70 tracking-tight">
+                          {tConsent('dataProcessingPrefix')}{' '}
+                          <Link
+                            href="/privacy-policy"
+                            className="underline underline-offset-2 text-[#062E25] hover:text-[#062E25]/80"
+                            onClick={e => e.stopPropagation()}
+                          >
+                            {tConsent('dataProcessingLink')}
+                          </Link>{' '}
+                          {tConsent('dataProcessingSuffix')}{' '}
+                          <span className="text-destructive">*</span>
+                        </span>
+                      </button>
+                    )
+                  }}
+                />
+                {errors.dataProcessing && (
+                  <p className="mt-2 text-sm text-destructive">
+                    {errors.dataProcessing.message}
+                  </p>
+                )}
+              </div>
+
+              {submissionError && (
+                <div className="text-sm text-destructive bg-destructive/10 p-3 rounded-md">
+                  {submissionError}
+                </div>
+              )}
+            </form>
+          </div>
         </div>
 
-        <div className='fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4' style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
-          <Button variant='outline' onClick={prevStep} disabled={isSubmitting} style={{ borderColor: "#062E25", color: "#062E25" }}>
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            disabled={isSubmitting}
+            style={{ borderColor: '#062E25', color: '#062E25' }}
+          >
             {tNav('back')}
           </Button>
-          <Button className='w-fit' onClick={handleSubmit(onSubmit)} disabled={isSubmitting}>
-            {isSubmitting && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+          <Button
+            className="w-fit bg-[#062E25] text-white hover:bg-[#062E25]/90"
+            onClick={handleSubmit(onSubmit)}
+            disabled={isSubmitting}
+          >
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {tNav('next')}
           </Button>
         </div>

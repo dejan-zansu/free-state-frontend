@@ -23,8 +23,8 @@ import Image from 'next/image'
 
 const languages = [
   { value: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  // { value: 'fr', label: 'Français', flag: '🇫🇷' },
-  // { value: 'it', label: 'Italiano', flag: '🇮🇹' },
+  { value: 'fr', label: 'Français', flag: '🇫🇷' },
+  { value: 'it', label: 'Italiano', flag: '🇮🇹' },
   { value: 'en', label: 'English', flag: '🇬🇧' },
   // { value: 'sr', label: 'Srpski', flag: '🇷🇸' },
   // { value: 'es', label: 'Español', flag: '🇪🇸' },

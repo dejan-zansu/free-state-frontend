@@ -23,6 +23,7 @@ export default function AdminUserDetailPage() {
   const locale = useLocale()
   const t = useTranslations('admin.users')
   const tc = useTranslations('admin.common')
+  const tl = useTranslations('admin.statusLabels')
   const queryClient = useQueryClient()
   const [saving, setSaving] = useState(false)
 
@@ -117,9 +118,9 @@ export default function AdminUserDetailPage() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="ADMIN">Admin</SelectItem>
-                    <SelectItem value="CUSTOMER">Customer</SelectItem>
-                    <SelectItem value="SALES_REP">Sales Rep</SelectItem>
+                    <SelectItem value="ADMIN">{tl('ADMIN')}</SelectItem>
+                    <SelectItem value="CUSTOMER">{tl('CUSTOMER')}</SelectItem>
+                    <SelectItem value="SALES_REP">{tl('SALES_REP')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -134,10 +135,10 @@ export default function AdminUserDetailPage() {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="ACTIVE">Active</SelectItem>
-                    <SelectItem value="INACTIVE">Inactive</SelectItem>
-                    <SelectItem value="PENDING_VERIFICATION">Pending Verification</SelectItem>
-                    <SelectItem value="SUSPENDED">Suspended</SelectItem>
+                    <SelectItem value="ACTIVE">{tl('ACTIVE')}</SelectItem>
+                    <SelectItem value="INACTIVE">{tl('INACTIVE')}</SelectItem>
+                    <SelectItem value="PENDING_VERIFICATION">{tl('PENDING_VERIFICATION')}</SelectItem>
+                    <SelectItem value="SUSPENDED">{tl('SUSPENDED')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -158,15 +159,29 @@ export default function AdminUserDetailPage() {
                 </div>
                 <div>
                   <label className="text-sm text-[#062E25]/60">{t('street')}</label>
-                  <p className="font-medium text-[#062E25]">{user.customer.street || '-'}</p>
+                  <p className="font-medium text-[#062E25]">
+                    {[user.customer.street, user.customer.streetNumber].filter(Boolean).join(' ') || '-'}
+                  </p>
+                </div>
+                <div>
+                  <label className="text-sm text-[#062E25]/60">{t('postalCode')}</label>
+                  <p className="font-medium text-[#062E25]">{user.customer.postalCode || '-'}</p>
                 </div>
                 <div>
                   <label className="text-sm text-[#062E25]/60">{t('city')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.city || '-'}</p>
                 </div>
                 <div>
+                  <label className="text-sm text-[#062E25]/60">{t('country')}</label>
+                  <p className="font-medium text-[#062E25]">{user.customer.country || '-'}</p>
+                </div>
+                <div>
                   <label className="text-sm text-[#062E25]/60">{t('canton')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.canton || '-'}</p>
+                </div>
+                <div className="md:col-span-2">
+                  <label className="text-sm text-[#062E25]/60">{t('addressAdditional')}</label>
+                  <p className="font-medium text-[#062E25]">{user.customer.addressAdditional || '-'}</p>
                 </div>
               </div>
             </CardContent>

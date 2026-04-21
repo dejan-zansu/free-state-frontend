@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect, useState } from 'react'
@@ -29,6 +29,7 @@ const isComplete = (item: DataRequestItem): boolean => {
 
 export default function CustomerRequestDetailPage() {
   const locale = useLocale()
+  const t = useTranslations('dashboard.requests')
   const params = useParams()
   const id = params.id as string
   const qc = useQueryClient()
@@ -52,7 +53,7 @@ export default function CustomerRequestDetailPage() {
       qc.invalidateQueries({ queryKey: ['me', 'data-requests'] })
     },
     onError: (err: unknown) => {
-      setSubmitError(err instanceof Error ? err.message : 'Submit failed')
+      setSubmitError(err instanceof Error ? err.message : t('submitFailed'))
     },
   })
 
@@ -75,11 +76,11 @@ export default function CustomerRequestDetailPage() {
         href={`/${locale}/dashboard/requests`}
         className="inline-flex items-center gap-2 text-sm text-[#062E25]/60 hover:text-[#062E25] mb-4"
       >
-        <ArrowLeft className="h-4 w-4" /> Back to requests
+        <ArrowLeft className="h-4 w-4" /> {t('back')}
       </Link>
 
-      <div className="flex items-center gap-3 mb-2">
-        <h1 className="text-2xl font-bold text-[#062E25]">{local.title}</h1>
+      <div className="flex flex-wrap items-center gap-3 mb-2">
+        <h1 className="text-2xl font-bold text-[#062E25] break-words">{local.title}</h1>
         <StatusBadge status={local.status} />
       </div>
       {local.description && (
@@ -87,7 +88,7 @@ export default function CustomerRequestDetailPage() {
       )}
       {local.dueDate && (
         <p className="text-sm text-[#062E25]/60 mb-4">
-          Due {new Date(local.dueDate).toLocaleDateString('de-CH')}
+          {t('dueOn', { date: new Date(local.dueDate).toLocaleDateString('de-CH') })}
         </p>
       )}
 
@@ -97,7 +98,7 @@ export default function CustomerRequestDetailPage() {
             <div className="flex gap-3">
               <MessageSquareWarning className="h-5 w-5 text-yellow-700 shrink-0" />
               <div>
-                <p className="text-sm font-medium text-yellow-900">The team left a note</p>
+                <p className="text-sm font-medium text-yellow-900">{t('teamNote')}</p>
                 <p className="text-sm text-yellow-900/80 mt-1">{local.reviewNote}</p>
               </div>
             </div>
@@ -108,8 +109,7 @@ export default function CustomerRequestDetailPage() {
       {local.status === 'SUBMITTED' && (
         <Card className="border-blue-200 bg-blue-50 mb-6">
           <CardContent className="p-4 text-sm text-blue-900">
-            Your submission is being reviewed. You will get an email when it is accepted or if
-            changes are needed.
+            {t('submittedInfo')}
           </CardContent>
         </Card>
       )}
@@ -127,17 +127,16 @@ export default function CustomerRequestDetailPage() {
       </div>
 
       {editable && (
-        <div className="flex items-center justify-between gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-sm text-[#062E25]/60">
-            {allComplete
-              ? 'All required items are filled. You can submit.'
-              : 'Fill all required items to enable submit.'}
+            {allComplete ? t('allFilled') : t('fillAll')}
           </p>
           <Button
             onClick={() => submit.mutate()}
             disabled={!allComplete || submit.isPending}
+            className="self-start sm:self-auto"
           >
-            {submit.isPending ? 'Submitting…' : 'Submit'}
+            {submit.isPending ? t('submitting') : t('submit')}
           </Button>
         </div>
       )}

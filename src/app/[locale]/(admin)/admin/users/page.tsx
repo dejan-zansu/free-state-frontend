@@ -19,6 +19,7 @@ export default function AdminUsersPage() {
   const locale = useLocale()
   const t = useTranslations('admin.users')
   const tc = useTranslations('admin.common')
+  const tl = useTranslations('admin.statusLabels')
   const {
     data,
     isLoading,
@@ -49,9 +50,9 @@ export default function AdminUsersPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__all__">{t('allRoles')}</SelectItem>
-                <SelectItem value="ADMIN">Admin</SelectItem>
-                <SelectItem value="CUSTOMER">Customer</SelectItem>
-                <SelectItem value="SALES_REP">Sales Rep</SelectItem>
+                <SelectItem value="ADMIN">{tl('ADMIN')}</SelectItem>
+                <SelectItem value="CUSTOMER">{tl('CUSTOMER')}</SelectItem>
+                <SelectItem value="SALES_REP">{tl('SALES_REP')}</SelectItem>
               </SelectContent>
             </Select>
             <Select value={filters.status || '__all__'} onValueChange={(v) => setFilter('status', v === '__all__' ? undefined : v)}>
@@ -60,10 +61,10 @@ export default function AdminUsersPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__all__">{t('allStatuses')}</SelectItem>
-                <SelectItem value="ACTIVE">Active</SelectItem>
-                <SelectItem value="INACTIVE">Inactive</SelectItem>
-                <SelectItem value="PENDING_VERIFICATION">Pending</SelectItem>
-                <SelectItem value="SUSPENDED">Suspended</SelectItem>
+                <SelectItem value="ACTIVE">{tl('ACTIVE')}</SelectItem>
+                <SelectItem value="INACTIVE">{tl('INACTIVE')}</SelectItem>
+                <SelectItem value="PENDING_VERIFICATION">{tl('PENDING_VERIFICATION')}</SelectItem>
+                <SelectItem value="SUSPENDED">{tl('SUSPENDED')}</SelectItem>
               </SelectContent>
             </Select>
           </div>

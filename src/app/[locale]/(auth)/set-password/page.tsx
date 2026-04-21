@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Eye,
   EyeOff,
-  KeyRound,
   Loader2,
 } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
@@ -141,10 +140,6 @@ export default function SetPasswordPage() {
           {t('goToLogin')}
         </Link>
 
-        <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#CDEA67]/25 ring-1 ring-[#062E25]/6">
-          <KeyRound className="h-6 w-6 text-[#062E25]" strokeWidth={1.75} />
-        </div>
-
         <div className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight text-[#062E25] sm:text-[2rem]">
             {t('title')}
@@ -219,7 +214,7 @@ export default function SetPasswordPage() {
 
           <Button
             type="submit"
-            className="h-12 w-full rounded-xl text-base font-semibold shadow-md shadow-[#062E25]/10 transition-all hover:shadow-lg hover:shadow-[#062E25]/15 bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
+            className="h-12 w-full rounded-xl text-base font-semibold shadow-md shadow-[#062E25]/10 transition-all hover:shadow-lg hover:shadow-[#062E25]/15 bg-solar hover:bg-solar/90 text-[#062E25]"
             disabled={isLoading}
           >
             {isLoading ? (

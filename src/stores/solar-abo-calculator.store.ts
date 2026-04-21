@@ -15,6 +15,7 @@ export type HouseholdSize = 1 | 2 | 3 | 4 | 5
 export type RoofCoveringType = 'tiled' | 'tin' | 'slate' | 'fiber_cement' | 'gravel' | 'substrate' | 'bitumen' | 'membrane' | 'other'
 export type RoofType = 'flat' | 'pitched'
 export type Salutation = 'mr' | 'woman' | 'family'
+export type ContactCountry = 'CH' | 'LI'
 
 export interface HighPowerDevices {
   heatPumpHeating: boolean
@@ -31,6 +32,12 @@ export interface ContactDetails {
   email: string
   phoneNumber: string
   remarks: string
+  country: ContactCountry
+  postalCode: string
+  city: string
+  street: string
+  streetNumber: string
+  addressAdditional: string
 }
 
 export interface Consents {
@@ -266,6 +273,12 @@ const initialContact: ContactDetails = {
   email: '',
   phoneNumber: '',
   remarks: '',
+  country: 'CH',
+  postalCode: '',
+  city: '',
+  street: '',
+  streetNumber: '',
+  addressAdditional: '',
 }
 
 const initialConsents: Consents = {
@@ -740,6 +753,12 @@ export const useSolarAboCalculatorStore = create<
               email: state.contact.email,
               phone: state.contact.phoneNumber,
               remarks: state.contact.remarks,
+              country: state.contact.country,
+              postalCode: state.contact.postalCode,
+              city: state.contact.city,
+              street: state.contact.street,
+              streetNumber: state.contact.streetNumber,
+              addressAdditional: state.contact.addressAdditional,
             },
             calculation: {
               address: state.address,

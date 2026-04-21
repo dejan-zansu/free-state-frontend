@@ -62,9 +62,12 @@ export interface AdminUserDetail extends AdminUser {
     id: string
     companyName: string | null
     street: string | null
+    streetNumber: string | null
+    postalCode: string | null
     city: string | null
     canton: string | null
     country: string
+    addressAdditional: string | null
   } | null
 }
 

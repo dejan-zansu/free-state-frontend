@@ -9,6 +9,12 @@ interface ContactPayload {
   email: string
   phone: string
   remarks: string
+  country: 'CH' | 'LI'
+  postalCode: string
+  city: string
+  street: string
+  streetNumber: string
+  addressAdditional: string
 }
 
 interface CalculationPayload {

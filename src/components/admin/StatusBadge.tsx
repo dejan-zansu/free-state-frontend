@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
@@ -56,14 +58,16 @@ interface StatusBadgeProps {
 }
 
 export function StatusBadge({ status, className }: StatusBadgeProps) {
+  const t = useTranslations('admin.statusLabels')
   const colorClass = STATUS_COLORS[status] || 'bg-gray-100 text-gray-700'
+  const label = t.has(status) ? t(status) : status.replace(/_/g, ' ')
 
   return (
     <Badge
       variant="secondary"
       className={cn('font-medium border-0', colorClass, className)}
     >
-      {status.replace(/_/g, ' ')}
+      {label}
     </Badge>
   )
 }

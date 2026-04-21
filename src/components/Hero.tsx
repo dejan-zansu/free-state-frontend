@@ -1,4 +1,5 @@
 import { LinkButton } from '@/components/ui/link-button'
+import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
@@ -86,7 +87,7 @@ const Hero = async ({
             </LinkButton>
             <LinkButton
               variant={isCommercial ? 'glass-secondary' : 'glass'}
-              href="https://calendly.com/ivan-m-freestate/30min"
+              href={COMPANY_CALENDLY_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto"

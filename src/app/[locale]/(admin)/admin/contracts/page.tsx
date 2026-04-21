@@ -32,6 +32,7 @@ export default function AdminContractsPage() {
   const locale = useLocale()
   const t = useTranslations('admin.contracts')
   const tc = useTranslations('admin.common')
+  const tl = useTranslations('admin.statusLabels')
   const {
     data,
     isLoading,
@@ -68,14 +69,12 @@ export default function AdminContractsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__all__">{t('allStatuses')}</SelectItem>
-                <SelectItem value="DRAFT">Draft</SelectItem>
-                <SelectItem value="PENDING_SIGNATURE">
-                  Pending Signature
-                </SelectItem>
-                <SelectItem value="OTP_SENT">OTP Sent</SelectItem>
-                <SelectItem value="SIGNED">Signed</SelectItem>
-                <SelectItem value="CANCELLED">Cancelled</SelectItem>
-                <SelectItem value="EXPIRED">Expired</SelectItem>
+                <SelectItem value="DRAFT">{tl('DRAFT')}</SelectItem>
+                <SelectItem value="PENDING_SIGNATURE">{tl('PENDING_SIGNATURE')}</SelectItem>
+                <SelectItem value="OTP_SENT">{tl('OTP_SENT')}</SelectItem>
+                <SelectItem value="SIGNED">{tl('SIGNED')}</SelectItem>
+                <SelectItem value="CANCELLED">{tl('CANCELLED')}</SelectItem>
+                <SelectItem value="EXPIRED">{tl('EXPIRED')}</SelectItem>
               </SelectContent>
             </Select>
             <Select
@@ -87,9 +86,9 @@ export default function AdminContractsPage() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="__all__">{t('allTypes')}</SelectItem>
-                <SelectItem value="PRELIMINARY">Preliminary</SelectItem>
-                <SelectItem value="FINAL">Final</SelectItem>
-                <SelectItem value="AMENDMENT">Amendment</SelectItem>
+                <SelectItem value="PRELIMINARY">{tl('PRELIMINARY')}</SelectItem>
+                <SelectItem value="FINAL">{tl('FINAL')}</SelectItem>
+                <SelectItem value="AMENDMENT">{tl('AMENDMENT')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
