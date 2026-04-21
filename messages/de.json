@@ -10,6 +10,10 @@
     "INVALID_PASSWORD": "Das aktuelle Passwort ist falsch.",
     "loginFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
     "registerFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "GOOGLE_AUTH_FAILED": "Anmeldung mit Google fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "GOOGLE_EMAIL_NOT_VERIFIED": "Die E-Mail-Adresse Ihres Google-Kontos ist nicht verifiziert.",
+    "GOOGLE_INVALID_TOKEN": "Ungültige Google-Anmeldedaten. Bitte versuchen Sie es erneut.",
+    "GOOGLE_OAUTH_NOT_CONFIGURED": "Anmeldung mit Google ist derzeit nicht verfügbar.",
     "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
   },
   "header": {

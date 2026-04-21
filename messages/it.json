@@ -10,6 +10,10 @@
     "INVALID_PASSWORD": "La password attuale non è corretta.",
     "loginFailed": "Accesso non riuscito. Riprova.",
     "registerFailed": "Registrazione non riuscita. Riprova.",
+    "GOOGLE_AUTH_FAILED": "Accesso con Google non riuscito. Riprova.",
+    "GOOGLE_EMAIL_NOT_VERIFIED": "L'email del tuo account Google non è verificata.",
+    "GOOGLE_INVALID_TOKEN": "Credenziali Google non valide. Riprova.",
+    "GOOGLE_OAUTH_NOT_CONFIGURED": "L'accesso con Google non è disponibile al momento.",
     "unknown": "Si è verificato un errore. Riprova."
   },
   "header": {

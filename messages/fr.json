@@ -10,6 +10,10 @@
     "INVALID_PASSWORD": "Le mot de passe actuel est incorrect.",
     "loginFailed": "Échec de la connexion. Veuillez réessayer.",
     "registerFailed": "Échec de l'inscription. Veuillez réessayer.",
+    "GOOGLE_AUTH_FAILED": "Échec de la connexion avec Google. Veuillez réessayer.",
+    "GOOGLE_EMAIL_NOT_VERIFIED": "L'e-mail de votre compte Google n'est pas vérifié.",
+    "GOOGLE_INVALID_TOKEN": "Identifiants Google invalides. Veuillez réessayer.",
+    "GOOGLE_OAUTH_NOT_CONFIGURED": "La connexion avec Google n'est pas disponible pour le moment.",
     "unknown": "Une erreur s'est produite. Veuillez réessayer."
   },
   "header": {
