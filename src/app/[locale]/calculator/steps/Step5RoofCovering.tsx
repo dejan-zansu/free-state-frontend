@@ -1,33 +1,35 @@
 'use client'
 
-import { HelpCircle } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 import { Button } from '@/components/ui/button'
-import { useSolarAboCalculatorStore, type RoofCoveringType } from '@/stores/solar-abo-calculator.store'
+import {
+  useSolarAboCalculatorStore,
+  type RoofCoveringType,
+} from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
 
 interface RoofOption {
   type: RoofCoveringType
-  image: string | null
+  image: string
   labelKey: string
 }
 
 const pitchedOptions: RoofOption[] = [
-  { type: 'tiled', image: null, labelKey: 'tiled' },
-  { type: 'tin', image: null, labelKey: 'tin' },
-  { type: 'slate', image: null, labelKey: 'slate' },
-  { type: 'fiber_cement', image: null, labelKey: 'fiberCement' },
-  { type: 'other', image: null, labelKey: 'other' },
+  { type: 'tiled', image: '/images/calculator/roof/tiled.webp', labelKey: 'tiled' },
+  { type: 'tin', image: '/images/calculator/roof/tin.webp', labelKey: 'tin' },
+  { type: 'slate', image: '/images/calculator/roof/slate.webp', labelKey: 'slate' },
+  { type: 'fiber_cement', image: '/images/calculator/roof/fiber-cement.webp', labelKey: 'fiberCement' },
+  { type: 'other', image: '/images/calculator/roof/other.webp', labelKey: 'other' },
 ]
 
 const flatOptions: RoofOption[] = [
-  { type: 'gravel', image: null, labelKey: 'gravel' },
-  { type: 'substrate', image: null, labelKey: 'substrate' },
-  { type: 'bitumen', image: null, labelKey: 'bitumen' },
-  { type: 'membrane', image: null, labelKey: 'membrane' },
-  { type: 'other', image: null, labelKey: 'other' },
+  { type: 'gravel', image: '/images/calculator/roof/other.webp', labelKey: 'gravel' },
+  { type: 'substrate', image: '/images/calculator/roof/other.webp', labelKey: 'substrate' },
+  { type: 'bitumen', image: '/images/calculator/roof/other.webp', labelKey: 'bitumen' },
+  { type: 'membrane', image: '/images/calculator/roof/other.webp', labelKey: 'membrane' },
+  { type: 'other', image: '/images/calculator/roof/other.webp', labelKey: 'other' },
 ]
 
 export default function Step5RoofCovering() {
@@ -46,61 +48,70 @@ export default function Step5RoofCovering() {
 
   return (
     <div>
-      <div className='container mx-auto px-4 pt-8 pb-16 max-w-lg'>
-        <div className='mb-8'>
-          <h1 className='text-2xl font-bold'>{t('title')}</h1>
-          <p className='mt-2 text-muted-foreground'>
+      <div className="flex flex-col items-center justify-center px-4 py-12">
+        <div className="text-center mb-8 max-w-[616px]">
+          <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            {t('title')}
+          </h1>
+          <p className="mt-5 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
             {roofType === 'flat' ? t('helperFlat') : t('helper')}
           </p>
         </div>
 
-        <div className='space-y-3'>
-          {options.map((option) => (
+        <div className="flex flex-wrap justify-center gap-2.5 max-w-[1340px]">
+          {options.map(option => (
             <button
-              key={option.type}
-              type='button'
+              key={`${option.type}-${option.labelKey}`}
+              type="button"
               onClick={() => handleSelect(option.type)}
               className={cn(
-                'flex w-full items-center gap-4 rounded-xl border-2 bg-card p-4 text-left transition-all',
-                'hover:border-primary/50 hover:bg-primary/5',
+                'group relative flex flex-col w-[260px] h-[232px] rounded-[20px] border overflow-hidden transition-all bg-[#F5F7EE]',
+                'hover:border-[#062E25] hover:shadow-md',
                 roofCovering === option.type
-                  ? 'border-primary bg-primary/5'
-                  : 'border-border'
+                  ? 'border-[#062E25] shadow-md'
+                  : 'border-[#809792]'
               )}
             >
-              <div className='h-16 w-16 shrink-0 overflow-hidden rounded-lg bg-muted'>
-                {option.image ? (
-                  <Image
-                    src={option.image}
-                    alt={t(`options.${option.labelKey}`)}
-                    width={64}
-                    height={64}
-                    className='h-full w-full object-cover'
-                  />
-                ) : (
-                  <div className='flex h-full w-full items-center justify-center'>
-                    <HelpCircle className='h-8 w-8 text-muted-foreground' />
-                  </div>
-                )}
+              <div className="relative w-full h-[162px]">
+                <Image
+                  src={option.image}
+                  alt={t(`options.${option.labelKey}`)}
+                  fill
+                  className="object-cover"
+                  sizes="260px"
+                  unoptimized
+                />
               </div>
-              <span className='flex-1 font-medium'>{t(`options.${option.labelKey}`)}</span>
-              <svg
-                className={cn(
-                  'h-5 w-5 shrink-0',
-                  roofCovering === option.type ? 'text-primary' : 'text-muted-foreground'
-                )}
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
-              >
-                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-              </svg>
+              <div className="flex flex-1 items-center justify-center gap-2">
+                <span className="text-base text-[#062E25] capitalize">
+                  {t(`options.${option.labelKey}`)}
+                </span>
+                <svg width="4" height="6" viewBox="0 0 4 6" fill="none">
+                  <path
+                    d="M1 1l2 2-2 2"
+                    stroke="#062E25"
+                    strokeWidth="1.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
             </button>
           ))}
         </div>
 
-        <div className='fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4' style={{ background: 'rgba(234, 237, 223, 0.85)', backdropFilter: 'blur(12px)' }}>
-          <Button variant='outline' onClick={prevStep} style={{ borderColor: "#062E25", color: "#062E25" }}>
+        <div
+          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            style={{ borderColor: '#062E25', color: '#062E25' }}
+          >
             {tNav('back')}
           </Button>
         </div>

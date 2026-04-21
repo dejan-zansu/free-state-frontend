@@ -1,11 +1,14 @@
 import api from '@/lib/api'
 import type {
   AdminBlogPost,
+  AdminCareerSubscription,
   AdminContactSubmission,
   AdminContract,
   AdminInquiry,
+  AdminInvestorRequest,
   AdminLead,
   AdminNewsletterSubscription,
+  AdminQuoteRequest,
   AdminUser,
   AdminUserDetail,
   DashboardStats,
@@ -88,6 +91,41 @@ class AdminService {
   async listNewsletterSubscriptions(query: ListQuery = {}): Promise<PaginatedResponse<AdminNewsletterSubscription>> {
     const response = await api.get<PaginatedResponse<AdminNewsletterSubscription>>('/admin/newsletter-subscriptions', { params: query })
     return response.data
+  }
+
+  async listCareerSubscriptions(query: ListQuery = {}): Promise<PaginatedResponse<AdminCareerSubscription>> {
+    const response = await api.get<PaginatedResponse<AdminCareerSubscription>>('/admin/career-subscriptions', { params: query })
+    return response.data
+  }
+
+  async listInvestorRequests(query: ListQuery = {}): Promise<PaginatedResponse<AdminInvestorRequest>> {
+    const response = await api.get<PaginatedResponse<AdminInvestorRequest>>('/admin/investor-requests', { params: query })
+    return response.data
+  }
+
+  async getInvestorRequestById(id: string): Promise<AdminInvestorRequest> {
+    const response = await api.get<{ success: boolean; data: AdminInvestorRequest }>(`/admin/investor-requests/${id}`)
+    return response.data.data
+  }
+
+  async updateInvestorRequest(id: string, data: Partial<{ status: string; adminNotes: string | null }>): Promise<AdminInvestorRequest> {
+    const response = await api.patch<{ success: boolean; data: AdminInvestorRequest }>(`/admin/investor-requests/${id}`, data)
+    return response.data.data
+  }
+
+  async listQuoteRequests(query: ListQuery = {}): Promise<PaginatedResponse<AdminQuoteRequest>> {
+    const response = await api.get<PaginatedResponse<AdminQuoteRequest>>('/admin/quote-requests', { params: query })
+    return response.data
+  }
+
+  async getQuoteRequestById(id: string): Promise<AdminQuoteRequest> {
+    const response = await api.get<{ success: boolean; data: AdminQuoteRequest }>(`/admin/quote-requests/${id}`)
+    return response.data.data
+  }
+
+  async updateQuoteRequest(id: string, data: Partial<{ status: string; adminNotes: string | null }>): Promise<AdminQuoteRequest> {
+    const response = await api.patch<{ success: boolean; data: AdminQuoteRequest }>(`/admin/quote-requests/${id}`, data)
+    return response.data.data
   }
 
   async listBlogPosts(query: ListQuery = {}): Promise<PaginatedResponse<AdminBlogPost>> {

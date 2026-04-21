@@ -12,7 +12,7 @@ const HowItWorksPage = async () => {
   const t = await getTranslations('howItWorks')
 
   return (
-    <main>
+    <div>
       <PageHero
         backgroundImage="/images/how-solar-power-system-works.png"
         title={t('hero.title')}
@@ -24,7 +24,7 @@ const HowItWorksPage = async () => {
       <SolarAboCTA translationNamespace="howItWorks" />
       <SelectionCriteriaSection />
       <InstallationSection />
-    </main>
+    </div>
   )
 }
 

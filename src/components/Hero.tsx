@@ -1,4 +1,5 @@
 import { LinkButton } from '@/components/ui/link-button'
+import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
@@ -13,14 +14,12 @@ type PillItem = {
 interface HeroProps {
   title?: string
   description?: string
-  showCTAs?: boolean
   isCommercial?: boolean
 }
 
 const Hero = async ({
   title,
   description,
-  showCTAs = true,
   isCommercial = false,
 }: HeroProps = {}) => {
   const t = await getTranslations('home')
@@ -44,7 +43,7 @@ const Hero = async ({
 
   return (
     <section
-      className="relative min-h-[640px] sm:min-h-[640px] md:min-h-[640px] lg:min-h-[736px] flex justify-center"
+      className="relative z-20 min-h-[640px] sm:min-h-[640px] md:min-h-[690px] lg:min-h-[736px] flex justify-center rounded-b-[40px] overflow-hidden"
       style={{
         background: '#FDFFF5',
       }}
@@ -58,13 +57,13 @@ const Hero = async ({
         />
       </div>
 
-      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[90px] sm:pt-[140px] md:pt-[180px] lg:pt-[225px] w-full">
+      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[90px] sm:pt-[140px] md:pt-[230px] lg:pt-[225px] w-full">
         <HeroNav isCommercial={isCommercial} />
 
         <div className="flex flex-col items-center text-center">
           <h1
             className={cn(
-              'text-white text-[32px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-3 sm:mb-4 whitespace-pre-line max-w-[800px] px-2',
+              'text-white text-[32px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-3 sm:mb-4 whitespace-pre-line max-w-[860px] px-2',
               isCommercial && 'text-center'
             )}
           >
@@ -72,31 +71,30 @@ const Hero = async ({
           </h1>
           <p
             className={cn(
-              'text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-[22px] sm:leading-[28px] md:leading-[30px] mb-6 sm:mb-10 md:mb-12 whitespace-pre-line max-w-[320px] sm:max-w-[750px] px-2'
+              'text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-[22px] sm:leading-[28px] md:leading-[30px] mb-3 sm:mb-10 md:mb-12 whitespace-pre-line max-w-[320px] sm:max-w-[750px] px-2'
             )}
           >
             {heroDescription}
           </p>
 
-          {/* {showCTAs && (
-            <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
-              <LinkButton
-                variant="primary"
-                href="/solar-free"
-                className="w-full sm:w-auto"
-              >
-                {t('hero.cta.primary')}
-              </LinkButton>
-
-              <LinkButton
-                variant="outline-secondary"
-                href={isCommercial ? '/commercial/calculator' : '/calculator'}
-                className="w-full sm:w-auto"
-              >
-                {t('hero.cta.secondary')}
-              </LinkButton>
-            </div>
-          )} */}
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
+            <LinkButton
+              variant={isCommercial ? 'secondary' : 'primary'}
+              href={isCommercial ? '/commercial/calculator' : '/calculator'}
+              className="w-full sm:w-auto"
+            >
+              {t('hero.cta.primary')}
+            </LinkButton>
+            <LinkButton
+              variant={isCommercial ? 'glass-secondary' : 'glass'}
+              href={COMPANY_CALENDLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto"
+            >
+              {t('hero.cta.schedule')}
+            </LinkButton>
+          </div>
         </div>
       </div>
 

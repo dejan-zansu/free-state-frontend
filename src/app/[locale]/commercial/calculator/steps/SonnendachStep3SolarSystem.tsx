@@ -27,8 +27,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   Inverter,
   SolarPanel,
-  useSonnendachCalculatorStore,
-} from '@/stores/sonnendach-calculator.store'
+  useCommercialCalculatorStore,
+} from '@/stores/commercial-calculator.store'
 
 import 'ol/ol.css'
 
@@ -93,7 +93,7 @@ export default function SonnendachStep3SolarSystem() {
     setPanelCount,
     setMaxPanelCount,
     goToStep,
-  } = useSonnendachCalculatorStore()
+  } = useCommercialCalculatorStore()
 
   const selectedSegments = getSelectedSegments()
 

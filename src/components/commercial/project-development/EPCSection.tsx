@@ -7,7 +7,7 @@ const EPCSection = async () => {
   const t = await getTranslations('projectDevelopment')
 
   return (
-    <section className="relative">
+    <section className="relative -mt-[40px]">
       <div className="flex flex-col lg:flex-row">
         <div
           className="w-full lg:w-1/2 flex items-center px-4 sm:px-6 lg:px-0 py-12 lg:py-0"

@@ -7,9 +7,6 @@ import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { LinkButton } from './ui/link-button'
 
-/** Temporary: set `true` when calculator / full mobile nav is ready again. */
-export const SHOW_EXTENDED_MOBILE_NAV = false
-
 interface MobileNavLinksProps {
   isCommercial?: boolean
   onNavigate?: () => void
@@ -24,32 +21,32 @@ const MobileNavLinks = ({
   const [expanded, setExpanded] = useState<string | null>(null)
 
   const toggle = (key: string) => {
-    setExpanded((prev) => (prev === key ? null : key))
+    setExpanded(prev => (prev === key ? null : key))
   }
 
   const solarAboLinks = isCommercial
     ? [
         {
           label: t('hero.nav.solarAboBusiness'),
-          href: '/commercial/solar-free/solar-free-business' as const,
+          href: '/commercial/solar-free/industry-commercial' as const,
         },
         {
           label: t('hero.nav.solarAboAgro'),
-          href: '/commercial/solar-free/solar-free-agro' as const,
+          href: '/commercial/solar-free/farmhouses' as const,
         },
         {
           label: t('hero.nav.solarAboPublic'),
-          href: '/commercial/solar-free/solar-free-public' as const,
+          href: '/commercial/solar-free/public-buildings' as const,
         },
       ]
     : [
         {
-          label: t('hero.nav.solarAboHome'),
-          href: '/solar-free/solar-free-home' as const,
+          label: t('hero.nav.solarFree'),
+          href: '/solar-free' as const,
         },
         {
-          label: t('hero.nav.solarAboMulti'),
-          href: '/solar-free/solar-free-multi' as const,
+          label: t('hero.nav.solarDirect'),
+          href: '/solar-direct' as const,
         },
       ]
 
@@ -143,27 +140,45 @@ const MobileNavLinks = ({
               href: '/heat-pumps/cost' as const,
             },
             {
-              label: t('hero.nav.service'),
-              href: '/heat-pumps/service' as const,
+              label: t('hero.nav.heatPumpProducts'),
+              href: '/heat-pumps/products' as const,
             },
             {
               label: t('hero.nav.withSolarSystem'),
               href: '/heat-pumps/heat-pumps-with-solar-system' as const,
+            },
+            {
+              label: t('hero.nav.service'),
+              href: '/heat-pumps/service' as const,
             },
           ],
         },
         {
           label: tFooter('products.chargingStations'),
           href: '/charging-stations' as const,
+          subLinks: [
+            {
+              label: t('hero.nav.singleFamilyHome'),
+              href: '/charging-stations/single-family-home' as const,
+            },
+            {
+              label: t('hero.nav.apartmentBuilding'),
+              href: '/charging-stations/apartment-building' as const,
+            },
+            {
+              label: t('hero.nav.bidirectionalCharging'),
+              href: '/charging-stations/bidirectional-charging-station' as const,
+            },
+          ],
         },
-        {
-          label: tFooter('products.batteryStorage'),
-          href: '/battery-storage' as const,
-        },
-        {
-          label: tFooter('products.energyManagement'),
-          href: '/energy-management' as const,
-        },
+        // {
+        //   label: tFooter('products.batteryStorage'),
+        //   href: '/battery-storage' as const,
+        // },
+        // {
+        //   label: tFooter('products.energyStorage'),
+        //   href: '/energy-storage' as const,
+        // },
       ]
 
   return (
@@ -173,7 +188,9 @@ const MobileNavLinks = ({
           onClick={() => toggle('solarAbo')}
           className="w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)] transition-all duration-200"
         >
-          {t('hero.nav.solarAbo')}
+          {isCommercial
+            ? t('hero.nav.solarAbo')
+            : t('hero.nav.plansPrices')}
           <ChevronDown
             className={cn(
               'w-4 h-4 transition-transform duration-300',
@@ -184,11 +201,13 @@ const MobileNavLinks = ({
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-out',
-            expanded === 'solarAbo' ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
+            expanded === 'solarAbo'
+              ? 'max-h-[400px] opacity-100'
+              : 'max-h-0 opacity-0'
           )}
         >
           <div className="flex flex-col gap-0.5 pt-1 pl-3">
-            {solarAboLinks.map((link) => (
+            {solarAboLinks.map(link => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -218,11 +237,13 @@ const MobileNavLinks = ({
         <div
           className={cn(
             'overflow-hidden transition-all duration-300 ease-out',
-            expanded === 'products' ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
+            expanded === 'products'
+              ? 'max-h-[800px] opacity-100'
+              : 'max-h-0 opacity-0'
           )}
         >
           <div className="flex flex-col gap-0.5 pt-1 pl-3">
-            {productLinks.map((product) => (
+            {productLinks.map(product => (
               <div key={product.href}>
                 <Link
                   href={product.href}
@@ -232,7 +253,7 @@ const MobileNavLinks = ({
                   {product.label}
                 </Link>
                 {'subLinks' in product &&
-                  product.subLinks?.map((sub) => (
+                  product.subLinks?.map(sub => (
                     <Link
                       key={sub.href}
                       href={sub.href}

@@ -62,9 +62,12 @@ export interface AdminUserDetail extends AdminUser {
     id: string
     companyName: string | null
     street: string | null
+    streetNumber: string | null
+    postalCode: string | null
     city: string | null
     canton: string | null
     country: string
+    addressAdditional: string | null
   } | null
 }
 
@@ -177,6 +180,59 @@ export interface AdminNewsletterSubscription {
   email: string
   consentMarketing: boolean
   createdAt: string
+}
+
+export interface AdminCareerSubscription {
+  id: string
+  firstName: string
+  lastName: string
+  email: string
+  role: string
+  comment: string | null
+  consentMarketing: boolean
+  locale: string
+  createdAt: string
+  updatedAt: string
+}
+
+export type QuoteRequestSource = 'SOLAR_FREE' | 'SOLAR_DIRECT'
+export type QuoteRequestStatus = 'NEW' | 'CONTACTED' | 'QUALIFIED' | 'CLOSED'
+
+export interface AdminQuoteRequest {
+  id: string
+  source: QuoteRequestSource
+  firstName: string
+  lastName: string
+  email: string
+  postalCode: string
+  phone: string
+  ownsHome: boolean
+  consent: boolean
+  status: QuoteRequestStatus
+  adminNotes: string | null
+  locale: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+export interface AdminInvestorRequest {
+  id: string
+  entityType: string | null
+  salutation: string | null
+  firstName: string
+  lastName: string
+  address: string | null
+  postalCode: string | null
+  city: string | null
+  email: string
+  phonePrefix: string | null
+  phone: string | null
+  comment: string | null
+  language: string
+  status: 'NEW' | 'CONTACTED' | 'DOCUMENTS_SENT' | 'CLOSED'
+  adminNotes: string | null
+  createdAt: string
+  updatedAt: string
 }
 
 export interface AdminBlogPostTranslation {

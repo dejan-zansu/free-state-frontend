@@ -18,27 +18,27 @@ const deviceOptions: {
   {
     key: 'heatPumpHeating',
     labelKey: 'heatPumpHeating',
-    image: '/images/calculator/devices/heat-pump.svg',
+    image: '/images/calculator/devices/heat-pump.webp',
   },
   {
     key: 'electricHeating',
     labelKey: 'electricHeating',
-    image: '/images/calculator/devices/electric-heating.svg',
+    image: '/images/calculator/devices/electric-heating.webp',
   },
   {
     key: 'electricBoiler',
     labelKey: 'electricBoiler',
-    image: '/images/calculator/devices/electric-boiler.svg',
+    image: '/images/calculator/devices/electric-boiler.webp',
   },
   {
     key: 'evChargingStation',
     labelKey: 'evChargingStation',
-    image: '/images/calculator/devices/ev-station.svg',
+    image: '/images/calculator/devices/ev-station.webp',
   },
   {
     key: 'swimmingPoolSauna',
     labelKey: 'swimmingPoolSauna',
-    image: '/images/calculator/devices/pool-sauna.svg',
+    image: '/images/calculator/devices/pool-sauna.webp',
   },
 ]
 
@@ -51,16 +51,16 @@ export default function Step3Devices() {
   return (
     <div>
       <div className="flex flex-col items-center justify-center px-4 py-12">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10 max-w-[833px]">
           <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
             {t('title')}
           </h1>
-          <p className="mt-5 text-lg sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+          <p className="mt-5 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
             {t('helper')}
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2.5">
+        <div className="flex flex-wrap justify-center gap-2.5 max-w-[1340px]">
           {deviceOptions.map(option => {
             const isSelected = devices[option.key]
             return (
@@ -69,14 +69,14 @@ export default function Step3Devices() {
                 type="button"
                 onClick={() => setDevice(option.key, !isSelected)}
                 className={cn(
-                  'group relative flex flex-col items-center w-[260px] h-[232px] rounded-[20px] border pt-5 transition-all bg-[#F5F7EE]',
+                  'group relative flex flex-col items-center justify-start w-[260px] h-[232px] rounded-[20px] border pt-4 pb-4 px-4 transition-all bg-[#F5F7EE]',
                   'hover:border-[#062E25] hover:shadow-md',
-                  isSelected ? 'border-[#062E25]' : 'border-[#809792]'
+                  isSelected ? 'border-[#062E25] shadow-md' : 'border-[#809792]'
                 )}
               >
-                <div
+                <span
                   className={cn(
-                    'absolute top-3 right-3 w-5 h-5 rounded-full border flex items-center justify-center transition-all',
+                    'absolute top-3 right-3 flex items-center justify-center w-[18px] h-[18px] rounded-full border transition-all',
                     isSelected
                       ? 'bg-[#B7FE1A] border-[#B7FE1A]'
                       : 'bg-transparent border-[#809792]'
@@ -93,22 +93,25 @@ export default function Step3Devices() {
                       />
                     </svg>
                   )}
-                </div>
-
-                <div className="w-[142px] h-[142px] shrink-0">
+                </span>
+                <div
+                  className={cn(
+                    'w-[142px] h-[142px] rounded-full overflow-hidden border',
+                    'border-[#B7FE1A]'
+                  )}
+                >
                   <Image
                     src={option.image}
                     alt={t(`devices.${option.labelKey}`)}
                     width={142}
                     height={142}
+                    className="h-full w-full object-cover"
                     unoptimized
                   />
                 </div>
-                <div className="flex items-center gap-2.5 mt-5">
-                  <span className="text-sm md:text-base text-[#062E25] capitalize">
-                    {t(`devices.${option.labelKey}`)}
-                  </span>
-                </div>
+                <p className="mt-auto text-base text-center text-[#062E25] capitalize leading-tight line-clamp-2">
+                  {t(`devices.${option.labelKey}`)}
+                </p>
               </button>
             )
           })}

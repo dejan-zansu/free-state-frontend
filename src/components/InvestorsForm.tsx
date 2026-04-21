@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import { useForm, Controller } from 'react-hook-form'
 import { useTranslations } from 'next-intl'
-import { Button } from '@/components/ui/button'
+import { Check } from 'lucide-react'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Select,
   SelectContent,
@@ -13,198 +13,257 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Checkbox } from '@/components/ui/checkbox'
+import { ArrowButton } from '@/components/ui/arrow-button'
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+
+type InvestorFormData = {
+  entityType: string
+  salutation: string
+  firstName: string
+  lastName: string
+  address: string
+  postalCode: string
+  city: string
+  email: string
+  phonePrefix: string
+  phone: string
+  comment: string
+  language: string
+}
+
+const inputClassName =
+  'h-10 bg-white border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-sm font-medium tracking-[-0.02em] placeholder:text-foreground/70'
 
 const InvestorsForm = () => {
   const t = useTranslations('investorsPage.form')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
-  const [formData, setFormData] = useState({
-    type: 'private',
-    salutation: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    company: '',
-    language: 'german',
-    privacy: false,
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<InvestorFormData>({
+    defaultValues: {
+      entityType: '',
+      salutation: '',
+      firstName: '',
+      lastName: '',
+      address: '',
+      postalCode: '',
+      city: '',
+      email: '',
+      phonePrefix: '+41',
+      phone: '',
+      comment: '',
+      language: 'german',
+    },
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+  const onSubmit = async (data: InvestorFormData) => {
+    setStatus('loading')
+    try {
+      const response = await fetch(`${API_URL}/api/investor-requests`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      const result = await response.json()
+      if (result.success) {
+        setStatus('success')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
-    <section className='relative py-24 bg-background'>
-      <div className='max-w-327.5 mx-auto px-6'>
-        <div className='text-center mb-12'>
-          <h2 className='text-foreground text-4xl font-semibold mb-6'>
-            {t('title')}
-          </h2>
-          <p className='text-foreground/80 text-lg font-light max-w-3xl mx-auto leading-relaxed'>
-            {t('description')}
-          </p>
+    <div className="flex flex-col items-center gap-5">
+      <span className="inline-flex items-center justify-center px-4 py-2.5 rounded-[20px] border border-foreground text-foreground text-base font-light tracking-[-0.02em]">
+        {t('eyebrow')}
+      </span>
+
+      <h2 className="text-foreground text-3xl lg:text-[45px] font-medium text-center">
+        {t('title')}
+      </h2>
+
+      {status === 'success' ? (
+        <div className="flex flex-col items-center py-16">
+          <Check className="h-8 w-8 text-green-600 mb-4" strokeWidth={2.5} />
+          <h3 className="text-xl font-semibold text-foreground mb-2">{t('successTitle')}</h3>
+          <p className="text-foreground/60">{t('successMessage')}</p>
         </div>
+      ) : (
+        <div className="relative w-full max-w-[536px]">
+          <div className="rounded-2xl border border-[#062E25]/40 bg-white/10 backdrop-blur-[20px] p-7 lg:p-8">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
+              <Controller
+                name="entityType"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <Select value={field.value} onValueChange={field.onChange}>
+                    <SelectTrigger className={inputClassName}>
+                      <SelectValue placeholder={t('entityType')} />
+                    </SelectTrigger>
+                    <SelectContent position="popper">
+                      <SelectItem value="private">{t('typePrivate')}</SelectItem>
+                      <SelectItem value="company">{t('typeCompany')}</SelectItem>
+                    </SelectContent>
+                  </Select>
+                )}
+              />
 
-        <div className='max-w-2xl mx-auto'>
-          <form onSubmit={handleSubmit} className='space-y-6'>
-            <div>
-              <Label className='text-foreground mb-3 block'>
-                {t('type')}
-              </Label>
-              <RadioGroup
-                value={formData.type}
-                onValueChange={(value) =>
-                  setFormData({ ...formData, type: value })
-                }
-                className='flex gap-6'
-              >
-                <div className='flex items-center space-x-2'>
-                  <RadioGroupItem value='private' id='private' />
-                  <Label htmlFor='private' className='cursor-pointer'>
-                    {t('typePrivate')}
-                  </Label>
+              <div className="flex gap-2.5">
+                <div className="w-[97px] shrink-0">
+                  <Controller
+                    name="salutation"
+                    control={control}
+                    render={({ field }) => (
+                      <Select value={field.value} onValueChange={field.onChange}>
+                        <SelectTrigger className={inputClassName}>
+                          <SelectValue placeholder={t('salutation')} />
+                        </SelectTrigger>
+                        <SelectContent position="popper">
+                          <SelectItem value="mr">{t('salutationMr')}</SelectItem>
+                          <SelectItem value="mrs">{t('salutationMrs')}</SelectItem>
+                          <SelectItem value="diverse">{t('salutationDiverse')}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
                 </div>
-                <div className='flex items-center space-x-2'>
-                  <RadioGroupItem value='company' id='company' />
-                  <Label htmlFor='company' className='cursor-pointer'>
-                    {t('typeCompany')}
-                  </Label>
+                <div className="flex-1">
+                  <Input
+                    {...register('firstName', { required: true })}
+                    placeholder={t('firstName')}
+                    className={inputClassName}
+                  />
+                  {errors.firstName && <p className="text-red-500 text-sm mt-1">{t('required')}</p>}
                 </div>
-              </RadioGroup>
-            </div>
-
-            <div>
-              <Label className='text-foreground mb-3 block'>
-                {t('salutation')}
-              </Label>
-              <Select
-                value={formData.salutation}
-                onValueChange={(value) =>
-                  setFormData({ ...formData, salutation: value })
-                }
-              >
-                <SelectTrigger>
-                  <SelectValue placeholder={t('salutation')} />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='mr'>{t('salutationMr')}</SelectItem>
-                  <SelectItem value='mrs'>{t('salutationMrs')}</SelectItem>
-                  <SelectItem value='diverse'>
-                    {t('salutationDiverse')}
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-              <div>
-                <Label htmlFor='firstName' className='text-foreground mb-2 block'>
-                  First Name
-                </Label>
-                <Input
-                  id='firstName'
-                  value={formData.firstName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, firstName: e.target.value })
-                  }
-                  required
-                />
+                <div className="flex-1">
+                  <Input
+                    {...register('lastName', { required: true })}
+                    placeholder={t('lastName')}
+                    className={inputClassName}
+                  />
+                  {errors.lastName && <p className="text-red-500 text-sm mt-1">{t('required')}</p>}
+                </div>
               </div>
-              <div>
-                <Label htmlFor='lastName' className='text-foreground mb-2 block'>
-                  Last Name
-                </Label>
-                <Input
-                  id='lastName'
-                  value={formData.lastName}
-                  onChange={(e) =>
-                    setFormData({ ...formData, lastName: e.target.value })
-                  }
-                  required
-                />
-              </div>
-            </div>
 
-            {formData.type === 'company' && (
-              <div>
-                <Label htmlFor='company' className='text-foreground mb-2 block'>
-                  Company
-                </Label>
-                <Input
-                  id='company'
-                  value={formData.company}
-                  onChange={(e) =>
-                    setFormData({ ...formData, company: e.target.value })
-                  }
-                  required
-                />
-              </div>
-            )}
-
-            <div>
-              <Label htmlFor='email' className='text-foreground mb-2 block'>
-                Email
-              </Label>
               <Input
-                id='email'
-                type='email'
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                required
+                {...register('address')}
+                placeholder={t('address')}
+                className={inputClassName}
               />
-            </div>
 
-            <div>
-              <Label className='text-foreground mb-3 block'>
-                {t('language')}
-              </Label>
-              <Select
-                value={formData.language}
-                onValueChange={(value) =>
-                  setFormData({ ...formData, language: value })
-                }
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='german'>{t('languageGerman')}</SelectItem>
-                  <SelectItem value='english'>{t('languageEnglish')}</SelectItem>
-                  <SelectItem value='french'>{t('languageFrench')}</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+              <div className="flex gap-2.5">
+                <div className="w-[109px] shrink-0">
+                  <Input
+                    {...register('postalCode')}
+                    placeholder={t('postalCode')}
+                    className={inputClassName}
+                  />
+                </div>
+                <div className="flex-1">
+                  <Input
+                    {...register('city')}
+                    placeholder={t('city')}
+                    className={inputClassName}
+                  />
+                </div>
+              </div>
 
-            <div className='flex items-center space-x-2'>
-              <Checkbox
-                id='privacy'
-                checked={formData.privacy}
-                onCheckedChange={(checked) =>
-                  setFormData({ ...formData, privacy: checked as boolean })
-                }
-                required
+              <Input
+                type="email"
+                {...register('email', { required: true })}
+                placeholder={t('email')}
+                className={inputClassName}
               />
-              <Label
-                htmlFor='privacy'
-                className='text-sm text-foreground/80 cursor-pointer'
-              >
-                {t('privacy')}
-              </Label>
-            </div>
+              {errors.email && <p className="text-red-500 text-sm -mt-3">{t('required')}</p>}
 
-            <div className='pt-4'>
-              <Button type='submit' className='w-full'>
-                {t('submit')}
-              </Button>
-            </div>
-          </form>
+              <div className="flex gap-2.5">
+                <div className="w-[97px] shrink-0">
+                  <Controller
+                    name="phonePrefix"
+                    control={control}
+                    render={({ field }) => (
+                      <Select value={field.value} onValueChange={field.onChange}>
+                        <SelectTrigger className={inputClassName}>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent position="popper">
+                          <SelectItem value="+41">+41</SelectItem>
+                          <SelectItem value="+49">+49</SelectItem>
+                          <SelectItem value="+43">+43</SelectItem>
+                          <SelectItem value="+33">+33</SelectItem>
+                          <SelectItem value="+39">+39</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                </div>
+                <div className="flex-1">
+                  <Input
+                    type="tel"
+                    {...register('phone')}
+                    placeholder={t('phone')}
+                    className={inputClassName}
+                  />
+                </div>
+              </div>
+
+              <Textarea
+                {...register('comment')}
+                placeholder={t('comment')}
+                className="min-h-[120px] bg-white border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-sm font-medium tracking-[-0.02em] placeholder:text-foreground/70 resize-none py-2.5"
+              />
+
+              <div className="flex items-center justify-between">
+                <span className="text-foreground/70 text-sm font-normal tracking-[-0.02em]">
+                  {t('languageLabel')}
+                </span>
+                <div className="w-[97px]">
+                  <Controller
+                    name="language"
+                    control={control}
+                    render={({ field }) => (
+                      <Select value={field.value} onValueChange={field.onChange}>
+                        <SelectTrigger className={inputClassName}>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent position="popper">
+                          <SelectItem value="german">{t('languageGerman')}</SelectItem>
+                          <SelectItem value="english">{t('languageEnglish')}</SelectItem>
+                          <SelectItem value="french">{t('languageFrench')}</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    )}
+                  />
+                </div>
+              </div>
+
+              {status === 'error' && (
+                <p className="text-red-600 text-sm font-medium">{t('errorMessage')}</p>
+              )}
+
+              <div className="flex justify-center">
+                <ArrowButton
+                  type="submit"
+                  variant="tertiary"
+                  disabled={status === 'loading'}
+                >
+                  {t('submit')}
+                </ArrowButton>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
-    </section>
+      )}
+    </div>
   )
 }
 

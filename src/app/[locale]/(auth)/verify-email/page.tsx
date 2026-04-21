@@ -10,16 +10,23 @@ import {
   AuthErrorMark,
   AuthSplitLayout,
   AuthSuccessMark,
-  authPanelCardClass,
 } from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
 import { authService } from '@/services/auth.service'
+
+function getApiErrorCode(error: unknown): string | undefined {
+  return (error as { response?: { data?: { error?: { code?: string } } } })
+    ?.response?.data?.error?.code
+}
 
 export default function VerifyEmailPage() {
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
   const t = useTranslations('verifyEmail')
-  const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading')
+  const tErrors = useTranslations('apiErrors')
+  const [status, setStatus] = useState<'loading' | 'success' | 'error'>(
+    'loading'
+  )
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -34,15 +41,16 @@ export default function VerifyEmailPage() {
       .then(() => setStatus('success'))
       .catch(err => {
         setStatus('error')
-        setError(err instanceof Error ? err.message : t('expiredLink'))
+        const code = getApiErrorCode(err)
+        setError(code && tErrors.has(code) ? tErrors(code) : tErrors('unknown'))
       })
-  }, [token, t])
+  }, [token, t, tErrors])
 
   return (
     <AuthSplitLayout>
       <div className="w-full max-w-md">
         {status === 'loading' && (
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#062E25]/5 ring-1 ring-[#062E25]/10">
               <Loader2
                 className="h-6 w-6 animate-spin text-[#062E25]"
@@ -59,7 +67,7 @@ export default function VerifyEmailPage() {
         )}
 
         {status === 'success' && (
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthSuccessMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('success')}
@@ -79,7 +87,7 @@ export default function VerifyEmailPage() {
         )}
 
         {status === 'error' && (
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthErrorMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('failed')}

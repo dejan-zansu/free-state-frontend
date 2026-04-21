@@ -1,11 +1,12 @@
 import { LinkButton } from '@/components/ui/link-button'
+import { cn } from '@/lib/utils'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
 const products = [
   {
-    key: 'e3dc',
-    image: '/images/energy-storage/product-e3dc.webp',
+    key: 'sigenstor',
+    image: '/images/energy-storage/sigen-stor.webp',
     hasSections: ['features', 'warranty', 'options'] as const,
   },
   {
@@ -87,7 +88,7 @@ const StorageSolutionsSection = async () => {
       </div>
 
       <div className="flex flex-col gap-8 md:gap-0">
-        {products.map(product => {
+        {products.map((product, index) => {
           const featuresRaw = t(`solutions.products.${product.key}.features`)
           const features = featuresRaw.split('|')
           const warrantyRaw = t(`solutions.products.${product.key}.warranty`)
@@ -98,14 +99,20 @@ const StorageSolutionsSection = async () => {
           const options = hasOptions
             ? t(`solutions.products.${product.key}.options`).split('|')
             : []
+          const isReversed = index % 2 === 1
 
           return (
             <div
               key={product.key}
               className="relative max-w-[1440px] mx-auto w-full border border-[#B7C2BF] rounded-t-[30px] bg-[#FDFFF5] overflow-hidden"
             >
-              <div className="max-w-[1038px] mx-auto px-4 sm:px-6 lg:px-0 py-12 md:py-[50px]">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-[100px] justify-center">
+              <div className="max-w-[1038px] mx-auto px-4 sm:px-6 lg:px-0 py-12 md:py-[50px] md:pb-[90px]">
+                <div
+                  className={cn(
+                    'flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-[100px] justify-center',
+                    isReversed && 'md:flex-row-reverse'
+                  )}
+                >
                   <div className="flex flex-col gap-5 w-full md:w-[238px] shrink-0">
                     <div className="flex flex-col gap-4">
                       <span className="text-[#062E25] text-base font-bold capitalize">

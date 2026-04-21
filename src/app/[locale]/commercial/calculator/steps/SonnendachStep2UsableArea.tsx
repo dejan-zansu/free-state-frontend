@@ -39,8 +39,8 @@ import {
   RestrictedArea,
   RoofMaterial,
   RoofType,
-  useSonnendachCalculatorStore,
-} from '@/stores/sonnendach-calculator.store'
+  useCommercialCalculatorStore,
+} from '@/stores/commercial-calculator.store'
 
 import 'ol/ol.css'
 
@@ -277,7 +277,7 @@ export default function SonnendachStep2UsableArea() {
     getTotalRestrictedArea,
     getRestrictedAreasInNonSelectedSegments,
     goToStep,
-  } = useSonnendachCalculatorStore()
+  } = useCommercialCalculatorStore()
 
   // Get non-selected segments from the same building
   const nonSelectedSegments =
@@ -414,9 +414,9 @@ export default function SonnendachStep2UsableArea() {
 
     // Get all segments from the building (including non-selected)
     const allSegments =
-      useSonnendachCalculatorStore.getState().building?.roofSegments || []
+      useCommercialCalculatorStore.getState().building?.roofSegments || []
     const selectedIds =
-      useSonnendachCalculatorStore.getState().selectedSegmentIds
+      useCommercialCalculatorStore.getState().selectedSegmentIds
 
     // Draw non-selected segments first (so selected ones appear on top)
     for (const segment of allSegments) {
@@ -566,7 +566,7 @@ export default function SonnendachStep2UsableArea() {
       console.log('[Drawing] New restricted area:', newArea)
 
       // Use the store directly to avoid stale closure
-      useSonnendachCalculatorStore.getState().addRestrictedArea(newArea)
+      useCommercialCalculatorStore.getState().addRestrictedArea(newArea)
       console.log('[Drawing] Added to store')
 
       // Stop drawing after polygon is complete

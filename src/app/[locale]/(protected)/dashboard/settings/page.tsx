@@ -16,6 +16,7 @@ export default function SettingsPage() {
   const user = useUser()
   const { updateUser } = useAuthStore()
   const t = useTranslations('dashboard.settings')
+  const tErrors = useTranslations('apiErrors')
 
   const [firstName, setFirstName] = useState(user?.firstName || '')
   const [lastName, setLastName] = useState(user?.lastName || '')
@@ -50,7 +51,7 @@ export default function SettingsPage() {
       setPasswordError(t('passwordsNoMatch'))
       return
     }
-    if (newPassword.length < 8) {
+    if (newPassword.length < 6) {
       setPasswordError(t('passwordMinLength'))
       return
     }
@@ -64,8 +65,9 @@ export default function SettingsPage() {
       setPasswordSaved(true)
       setTimeout(() => setPasswordSaved(false), 3000)
     } catch (err: unknown) {
-      const axiosError = err as { response?: { data?: { error?: { message?: string } } } }
-      setPasswordError(axiosError?.response?.data?.error?.message || t('failedPassword'))
+      const axiosError = err as { response?: { data?: { error?: { code?: string } } } }
+      const code = axiosError?.response?.data?.error?.code
+      setPasswordError(code && tErrors.has(code) ? tErrors(code) : tErrors('unknown'))
     } finally {
       setPasswordSaving(false)
     }
@@ -83,7 +85,7 @@ export default function SettingsPage() {
               <Label className="text-sm text-[#062E25]/60">{t('email')}</Label>
               <Input value={user?.email || ''} disabled className="mt-1 bg-[#062E25]/5" />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <Label className="text-sm text-[#062E25]/60">{t('firstName')}</Label>
                 <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} className="mt-1" />

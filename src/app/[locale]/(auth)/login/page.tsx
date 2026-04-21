@@ -19,6 +19,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
   const { login, isLoading, error, clearError } = useAuthStore()
   const t = useTranslations('login')
+  const tErrors = useTranslations('apiErrors')
 
   const loginSchema = z.object({
     email: z.string().email(t('emailError')),
@@ -45,8 +46,7 @@ export default function LoginPage() {
       await login(data)
       const user = useAuthStore.getState().user
       router.push(user?.role === 'ADMIN' ? '/admin/dashboard' : '/dashboard')
-    } catch {
-    }
+    } catch {}
   }
 
   const handleGoogleSignIn = () => {
@@ -55,20 +55,31 @@ export default function LoginPage() {
 
   return (
     <div className="flex min-h-0 flex-1">
+      <div className="hidden lg:block lg:w-1/2 relative">
+        <Image
+          src="/images/about-us-last-section-image-52b37f.webp"
+          alt="Solar panels on rooftops"
+          fill
+          className="object-cover"
+          priority
+          quality={100}
+          unoptimized
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
+      </div>
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-12 bg-white">
         <div className="w-full max-w-md">
           <div className="mb-8">
             <h2 className="text-3xl font-bold mb-2 text-[#062E25]">
               {t('title')}
             </h2>
-            <p className="text-gray-600">
-              {t('subtitle')}
-            </p>
+            <p className="text-gray-600">{t('subtitle')}</p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
-              {error}
+            <div className="mb-6 p-4 rounded-xl bg-destructive/10 border border-destructive/20 text-destructive text-sm">
+              {tErrors.has(error) ? tErrors(error) : tErrors('unknown')}
             </div>
           )}
 
@@ -132,7 +143,7 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="w-full h-12 text-base font-medium bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
+              className="w-full h-12 text-base font-medium bg-solar hover:bg-solar/90 text-[#062E25]"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -153,7 +164,7 @@ export default function LoginPage() {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300" />
             </div>
-            <div className="relative flex justify-center text-sm">
+            <div className="relative flex justify-center text-sm lg:text-base">
               <span className="px-4 bg-white text-gray-500">
                 {t('orContinueWith')}
               </span>
@@ -199,20 +210,6 @@ export default function LoginPage() {
             </p>
           </div>
         </div>
-      </div>
-
-      <div className="hidden lg:block lg:w-1/2 relative">
-        <Image
-          src="/images/battery-storage/roof-with-panels-sunny-day.png"
-          alt="Solar panels on rooftops"
-          fill
-          className="object-cover"
-          priority
-          quality={100}
-          unoptimized
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-transparent" />
       </div>
     </div>
   )

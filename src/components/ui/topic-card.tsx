@@ -24,11 +24,18 @@ const TopicCard = ({
 }: TopicCardProps) => {
   return (
     <div
-      className="relative w-full sm:w-[calc(50%-5px)] lg:w-[calc(33.333%-7px)] h-[370px] rounded-[20px] overflow-hidden"
+      className="relative w-full sm:w-[calc(50%-5px)] lg:w-[calc(33.333%-7px)] h-[370px] rounded-[20px] overflow-hidden max-w-[400px]"
       style={{ border: '1px solid #809792' }}
     >
       <div className="relative z-10 flex items-center justify-center pt-[30px]">
-        <Image src={icon} alt="" width={142} height={142} className={iconClassName} unoptimized />
+        <Image
+          src={icon}
+          alt=""
+          width={142}
+          height={142}
+          className={iconClassName}
+          unoptimized
+        />
       </div>
 
       <div
@@ -61,7 +68,9 @@ const TopicCard = ({
                 </span>
               </a>
             ) : (
-              <LearnMoreLink href={href as React.ComponentProps<typeof Link>['href']}>
+              <LearnMoreLink
+                href={href as React.ComponentProps<typeof Link>['href']}
+              >
                 {linkText}
               </LearnMoreLink>
             )}

@@ -269,12 +269,17 @@ export default function CookieConsentBanner() {
               { name: /^_ga/ },
               { name: '_gid' },
               { name: /^_hj/ },
+              { name: /^_hjSession/ },
+              { name: /^_hjSessionUser/ },
             ],
           },
         },
         marketing: {
           autoClear: {
-            cookies: [{ name: /^_fb/ }, { name: /^_gcl_/ }],
+            cookies: [
+              { name: /^_fb/ },
+              { name: /^_gcl_/ },
+            ],
           },
         },
       },

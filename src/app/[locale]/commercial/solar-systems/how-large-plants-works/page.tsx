@@ -12,7 +12,7 @@ import { getTranslations } from 'next-intl/server'
 const HowLargePlantsWorksPage = async () => {
   const t = await getTranslations('howLargePlantsWorks')
   return (
-    <main>
+    <div>
       <PageHero
         title={t('hero.title')}
         backgroundImage="/images/how-large-plants-works-hero.png"
@@ -27,7 +27,7 @@ const HowLargePlantsWorksPage = async () => {
       <InstallationSection />
       <MonitoringSection />
       <QuoteCTASection />
-    </main>
+    </div>
   )
 }
 

@@ -6,13 +6,13 @@ import SolutionsSection from '@/components/about-us/SolutionsSection'
 import VisionMission from '@/components/about-us/VisionMission'
 import ContactMap from '@/components/ContactMap'
 import PageHero from '@/components/PageHero'
-// import { LinkButton } from '@/components/ui/link-button'
+import { LinkButton } from '@/components/ui/link-button'
 import { useTranslations } from 'next-intl'
 
 const AboutUsPage = () => {
   const t = useTranslations('aboutUs')
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/about-us-hero.png"
@@ -21,7 +21,7 @@ const AboutUsPage = () => {
           contentClassName="items-start text-left"
           descriptionClassName="max-w-[563px]"
         >
-          {/* <div className="mt-8">
+          <div className="mt-8">
             <LinkButton
               href="/portfolio"
               variant="outline-secondary"
@@ -29,7 +29,7 @@ const AboutUsPage = () => {
             >
               {t('hero.cta')}
             </LinkButton>
-          </div> */}
+          </div>
         </PageHero>
       </div>
 
@@ -40,7 +40,7 @@ const AboutUsPage = () => {
       <PartnersSection />
       <LocationsCTA />
       <ContactMap />
-    </main>
+    </div>
   )
 }
 

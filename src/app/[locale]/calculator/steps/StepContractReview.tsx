@@ -27,6 +27,9 @@ function formatSwissNumber(num: number, decimals = 0): string {
 
 export default function StepContractReview() {
   const t = useTranslations('solarAboCalculator.contractReview')
+  const tRate = useTranslations(
+    'solarAboCalculator.contractReview.solarFree.rateCard',
+  )
   const tNav = useTranslations('solarAboCalculator.navigation')
 
   const {
@@ -37,14 +40,15 @@ export default function StepContractReview() {
     nextStep,
     goToStep,
     address,
+    solarModel,
     getSystemSizeKwp,
     getEstimatedPanelCount,
     getAnnualProduction,
     getAnnualSavings,
+    getAnnualPpaSavings,
     getCo2Savings,
     getSelectedArea,
     getSelfConsumptionRate,
-    getRecommendedPackage,
     selectedPackageCode,
     getGrossAmount,
     getSubsidyAmount,
@@ -54,14 +58,14 @@ export default function StepContractReview() {
   const [isCreating, setIsCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
 
+  const isSolarFree = solarModel === 'solar-free'
   const systemSizeKwp = getSystemSizeKwp()
   const panelCount = getEstimatedPanelCount()
   const production = getAnnualProduction()
-  const savings = getAnnualSavings()
+  const savings = isSolarFree ? getAnnualPpaSavings() : getAnnualSavings()
   const co2 = getCo2Savings()
   const roofArea = getSelectedArea()
   const selfConsumption = getSelfConsumptionRate()
-  const recommendedPackage = getRecommendedPackage()
 
   const toggleAcknowledgment = (type: string) => {
     if (acknowledgments.includes(type)) {
@@ -179,10 +183,7 @@ export default function StepContractReview() {
                   <span className="font-medium">
                     {t('systemSummary.package')}:
                   </span>{' '}
-                  {selectedPackageCode ||
-                    (recommendedPackage === 'home'
-                      ? 'SolarFree Home'
-                      : 'SolarFree Multi')}
+                  {selectedPackageCode || 'SolarFree Home'}
                 </p>
                 <p className="text-sm mt-1">
                   <span className="font-medium">
@@ -192,27 +193,53 @@ export default function StepContractReview() {
                 </p>
               </div>
 
-              <div className="mt-4 p-3 bg-muted/30 rounded-lg">
-                <p className="text-sm font-medium mb-2">{t('pricing.title')}</p>
-                <div className="space-y-1">
-                  <div className="flex justify-between text-sm">
-                    <span>{t('pricing.gross')}</span>
-                    <span className="font-medium">
-                      CHF {formatSwissNumber(getGrossAmount(), 0)}
+              {isSolarFree ? (
+                <div className="mt-4 p-4 rounded-lg bg-primary/5 border border-primary/20">
+                  <p className="text-sm font-semibold text-primary mb-2">
+                    {tRate('title')}
+                  </p>
+                  <p className="text-sm text-foreground">
+                    {tRate('bodyLine1')}
+                  </p>
+                  <p className="text-sm text-foreground">
+                    {tRate('bodyLine2')}
+                  </p>
+                  <div className="mt-3 pt-3 border-t border-primary/20 flex justify-between items-baseline text-sm">
+                    <span className="text-muted-foreground">
+                      {tRate('yearlySavingLabel')}
                     </span>
-                  </div>
-                  <div className="flex justify-between text-sm text-green-700">
-                    <span>{t('pricing.subsidy')}</span>
-                    <span className="font-medium">
-                      - CHF {formatSwissNumber(getSubsidyAmount(), 0)}
+                    <span className="font-semibold text-primary">
+                      {tRate('yearlySavingValue', {
+                        amount: formatSwissNumber(savings, 0),
+                      })}
                     </span>
-                  </div>
-                  <div className="border-t pt-1 flex justify-between text-sm font-semibold">
-                    <span>{t('pricing.net')}</span>
-                    <span>CHF {formatSwissNumber(getNetAmount(), 0)}</span>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <div className="mt-4 p-3 bg-muted/30 rounded-lg">
+                  <p className="text-sm font-medium mb-2">
+                    {t('pricing.title')}
+                  </p>
+                  <div className="space-y-1">
+                    <div className="flex justify-between text-sm">
+                      <span>{t('pricing.gross')}</span>
+                      <span className="font-medium">
+                        CHF {formatSwissNumber(getGrossAmount(), 0)}
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm text-green-700">
+                      <span>{t('pricing.subsidy')}</span>
+                      <span className="font-medium">
+                        - CHF {formatSwissNumber(getSubsidyAmount(), 0)}
+                      </span>
+                    </div>
+                    <div className="border-t pt-1 flex justify-between text-sm font-semibold">
+                      <span>{t('pricing.net')}</span>
+                      <span>CHF {formatSwissNumber(getNetAmount(), 0)}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
             </CardContent>
           </Card>
 

@@ -4,8 +4,10 @@ import {
   BarChart3,
   Battery,
   Box,
+  Briefcase,
   CircuitBoard,
   Factory,
+  FileCheck,
   FileText,
   Flame,
   LayoutDashboard,
@@ -15,6 +17,7 @@ import {
   Package,
   PanelTop,
   Ticket,
+  UserPlus,
   Users,
   Wrench,
   Zap,
@@ -45,39 +48,48 @@ export function AdminSidebar() {
       ],
     },
     {
+      label: t('groupResidential'),
+      items: [
+        { label: t('residentialContracts'), href: `${prefix}/contracts`, icon: FileText },
+        { label: t('residentialLeads'),     href: `${prefix}/leads`,     icon: BarChart3 },
+        { label: t('users'),                href: `${prefix}/users`,     icon: Users },
+      ],
+    },
+    {
+      label: t('groupCommercial'),
+      items: [
+        { label: t('commercialLeads'),      href: `${prefix}/commercial-leads`, icon: Briefcase },
+      ],
+    },
+    {
+      label: t('groupOperations'),
+      items: [
+        { label: t('support'),              href: `${prefix}/support`,                icon: Ticket },
+        { label: t('contacts'),             href: `${prefix}/contacts`,               icon: MessageSquareText },
+        { label: t('quoteRequests'),        href: `${prefix}/quote-requests`,         icon: FileCheck },
+        { label: t('investorRequests'),     href: `${prefix}/investor-requests`,      icon: Briefcase },
+        { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`,  icon: Wrench },
+        { label: t('careerSubscriptions'),  href: `${prefix}/career-subscriptions`,   icon: UserPlus },
+      ],
+    },
+    {
       label: t('groupContent'),
       items: [
-        { label: t('blog'), href: `${prefix}/blog`, icon: Newspaper },
+        { label: t('blog'),       href: `${prefix}/blog`,       icon: Newspaper },
         { label: t('newsletter'), href: `${prefix}/newsletter`, icon: Mail },
-      ],
-    },
-    {
-      label: t('groupCrm'),
-      items: [
-        { label: t('leads'), href: `${prefix}/leads`, icon: BarChart3 },
-        { label: t('contracts'), href: `${prefix}/contracts`, icon: FileText },
-        { label: t('support'), href: `${prefix}/support`, icon: Ticket },
-        { label: t('users'), href: `${prefix}/users`, icon: Users },
-      ],
-    },
-    {
-      label: t('groupSubmissions'),
-      items: [
-        { label: t('contacts'), href: `${prefix}/contacts`, icon: MessageSquareText },
-        { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`, icon: Wrench },
       ],
     },
     {
       label: t('groupEquipment'),
       items: [
-        { label: t('manufacturers'), href: `${prefix}/equipment/manufacturers`, icon: Factory },
-        { label: t('solarPanels'), href: `${prefix}/equipment/solar-panels`, icon: PanelTop },
-        { label: t('inverters'), href: `${prefix}/equipment/inverters`, icon: Zap },
-        { label: t('batteries'), href: `${prefix}/equipment/batteries`, icon: Battery },
+        { label: t('manufacturers'),   href: `${prefix}/equipment/manufacturers`,    icon: Factory },
+        { label: t('solarPanels'),     href: `${prefix}/equipment/solar-panels`,     icon: PanelTop },
+        { label: t('inverters'),       href: `${prefix}/equipment/inverters`,        icon: Zap },
+        { label: t('batteries'),       href: `${prefix}/equipment/batteries`,        icon: Battery },
         { label: t('mountingSystems'), href: `${prefix}/equipment/mounting-systems`, icon: Box },
-        { label: t('ems'), href: `${prefix}/equipment/ems`, icon: CircuitBoard },
-        { label: t('heatPumps'), href: `${prefix}/equipment/heat-pumps`, icon: Flame },
-        { label: t('packages'), href: `${prefix}/equipment/packages`, icon: Package },
+        { label: t('ems'),             href: `${prefix}/equipment/ems`,              icon: CircuitBoard },
+        { label: t('heatPumps'),       href: `${prefix}/equipment/heat-pumps`,       icon: Flame },
+        { label: t('packages'),        href: `${prefix}/equipment/packages`,         icon: Package },
       ],
     },
   ]

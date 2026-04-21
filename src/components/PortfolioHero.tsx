@@ -16,7 +16,7 @@ const PortfolioHero = async () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-360 mx-auto px-6 pt-[120px] sm:pt-[160px] md:pt-[200px] pb-16 w-full">
+      <div className="relative z-10 max-w-360 mx-auto px-6 pt-[120px] sm:pt-[160px] md:pt-[230px] pb-16 w-full">
         <HeroNav />
         <div className="flex flex-col items-center text-center">
           <h1 className="text-white text-7xl font-medium mb-4 whitespace-pre-line">

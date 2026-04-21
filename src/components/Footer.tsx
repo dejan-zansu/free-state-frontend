@@ -25,11 +25,11 @@ const InstagramIcon = ({ className }: { className?: string }) => (
   </svg>
 )
 
-const YouTubeIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-  </svg>
-)
+// const YouTubeIcon = ({ className }: { className?: string }) => (
+//   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+//   </svg>
+// )
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -66,7 +66,13 @@ const Footer = () => {
     pathname === '/' ||
     pathname?.includes('/contact') ||
     pathname?.includes('/privacy-policy') ||
-    pathname?.includes('/portfolio')
+    pathname?.includes('/portfolio') ||
+    pathname?.includes('/blog') ||
+    pathname?.includes('/impressum') ||
+    pathname?.includes('/privacy-policy') ||
+    pathname?.includes('/agb') ||
+    pathname?.includes('/faq') ||
+    pathname?.includes('/media')
 
   const solarAboLinks = [
     {
@@ -106,15 +112,15 @@ const Footer = () => {
       href: '/charging-stations' as const,
     },
     {
-      label: t('products.energyManagement'),
-      href: '/energy-management' as const,
+      label: t('products.energyStorage'),
+      href: '/energy-storage' as const,
     },
   ]
 
   const companyLinks = [
     { label: t('company.aboutUs'), href: '/about-us' as const },
     { label: t('company.history'), href: '/history' as const },
-    { label: t('company.mission'), href: '/mission' as const },
+    // { label: t('company.mission'), href: '/mission' as const },
     { label: t('company.team'), href: '/team' as const },
     { label: t('company.investors'), href: '/investors' as const },
     { label: t('company.careers'), href: '/careers' as const },
@@ -226,16 +232,7 @@ const Footer = () => {
   )
 
   return (
-    <footer
-      className={cn(
-        'bg-solar relative z-20',
-        isLight
-          ? 'bg-transparent -mt-[40px]'
-          : isCommercial
-            ? 'bg-transparent -mt-[40px]'
-            : 'bg-solar'
-      )}
-    >
+    <footer className="relative z-20 -mt-[40px]">
       <div
         className={cn(
           'relative overflow-hidden rounded-t-[40px]',
@@ -246,7 +243,8 @@ const Footer = () => {
           className="absolute pointer-events-none"
           style={{
             width: '100%',
-            height: '961px',
+            height: 'calc(100% + 46px)',
+            minHeight: '961px',
             left: '0px',
             top: '-46px',
             background: isLight
@@ -465,7 +463,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-wrap gap-8 lg:gap-[60px]">
-              {/* <div className="w-fit">
+              <div className="w-fit">
                 <LinkColumn title={t('solarAbo.title')} links={solarAboLinks} />
               </div>
               <div className="w-fit">
@@ -482,7 +480,7 @@ const Footer = () => {
               </div>
               <div className="w-fit">
                 <LinkColumn title={t('legal.title')} links={legalLinks} />
-              </div> */}
+              </div>
               <div className="w-fit">
                 <LinkColumn title={t('contact.title')} links={contactLinks} />
               </div>
@@ -508,12 +506,12 @@ const Footer = () => {
                 {t('tagline')}
               </p>
             </div>
-            {/* <LinkButton
+            <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
             >
               {t('cta')}
-            </LinkButton> */}
+            </LinkButton>
           </div>
         </div>
       </div>

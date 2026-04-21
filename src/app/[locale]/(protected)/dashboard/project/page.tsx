@@ -62,7 +62,7 @@ export default function ProjectPage() {
 
       {sys && (
         <>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
             <Card className="border-[#062E25]/10">
               <CardContent className="p-5">
                 <PanelTop className="h-5 w-5 text-[#062E25]/40 mb-2" />
@@ -102,7 +102,7 @@ export default function ProjectPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
               <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('systemDetails')}</h2>
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm">
                 <div>
                   <p className="text-[#062E25]/60">{t('estimatedPanels')}</p>
                   <p className="font-medium text-[#062E25]">~{sys.panelCount}</p>

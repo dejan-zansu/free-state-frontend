@@ -12,13 +12,13 @@ const HeatPumpsCostPage = async () => {
   const t = await getTranslations('heatPumpsCost')
 
   return (
-    <main>
+    <div>
       <PageHero
         backgroundImage="/images/heat-pumps/heat-pumps-cost-hero-bg.png"
         title={t('hero.title')}
         className="bg-[#EAEDDF]"
       />
-      
+
       <CostIntroSection />
       <CostComparisonSection />
       <FundingSection />
@@ -26,7 +26,7 @@ const HeatPumpsCostPage = async () => {
       <TaxDeductionSection />
       <QuoteCTASection />
       <EnergySolutionsSection />
-    </main>
+    </div>
   )
 }
 

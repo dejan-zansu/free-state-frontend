@@ -1,9 +1,14 @@
-import { LinkButton } from '@/components/ui/link-button'
+import { LinkButton, linkButtonVariants } from '@/components/ui/link-button'
 import HeroNavLight from '@/components/HeroNavLight'
 import { cn } from '@/lib/utils'
+import { type VariantProps } from 'class-variance-authority'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import { CO2ReductionIcon, MoneySignIcon, SaleIcon, ShieldIcon } from '../icons'
+
+type LinkButtonVariant = NonNullable<
+  VariantProps<typeof linkButtonVariants>['variant']
+>
 
 export interface SolarAboHeroProps {
   translationNamespace: string
@@ -11,6 +16,9 @@ export interface SolarAboHeroProps {
   imageAlt?: string
   isCommercial?: boolean
   elipseClassNames?: string
+  ctaVariant?: LinkButtonVariant
+  statIconBgClassName?: string
+  statIconClassName?: string
 }
 
 interface StatItemProps {
@@ -19,6 +27,7 @@ interface StatItemProps {
   text: string
   align: 'left' | 'right'
   isCommercial: boolean
+  iconBgClassName?: string
 }
 
 const StatItem = ({
@@ -27,8 +36,10 @@ const StatItem = ({
   text,
   align,
   isCommercial,
+  iconBgClassName,
 }: StatItemProps) => {
-  const iconBgClass = isCommercial ? 'bg-[#3D3858]' : 'bg-solar'
+  const iconBgClass =
+    iconBgClassName || (isCommercial ? 'bg-[#3D3858]' : 'bg-solar')
   const isRight = align === 'right'
 
   return (
@@ -85,10 +96,14 @@ const SolarAboHero = async ({
   imageAlt = 'SolarAbo',
   isCommercial = false,
   elipseClassNames,
+  ctaVariant,
+  statIconBgClassName,
+  statIconClassName,
 }: SolarAboHeroProps) => {
   const t = await getTranslations(translationNamespace)
 
-  const iconClass = isCommercial ? 'text-white' : 'text-[#062E25]'
+  const iconClass =
+    statIconClassName ?? (isCommercial ? 'text-white' : 'text-[#062E25]')
 
   const leftStats = [
     {
@@ -122,7 +137,7 @@ const SolarAboHero = async ({
 
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#FDFFF5]">
-      <HeroNavLight isCommercial={isCommercial} />
+      <HeroNavLight isCommercial={isCommercial} ctaVariant={ctaVariant} />
       <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-6 pt-[160px] sm:pt-[180px] md:pt-[200px] pb-1">
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center gap-5 mb-12 sm:mb-16 lg:mb-20 w-full">
@@ -149,7 +164,10 @@ const SolarAboHero = async ({
             <div>
               <LinkButton
                 href={isCommercial ? '/commercial/calculator' : '/calculator'}
-                variant={isCommercial ? 'outline-quaternary' : 'primary'}
+                variant={
+                  ctaVariant ??
+                  (isCommercial ? 'outline-quaternary' : 'primary')
+                }
               >
                 {t('hero.cta')}
               </LinkButton>
@@ -184,6 +202,7 @@ const SolarAboHero = async ({
               {...stat}
               align="left"
               isCommercial={isCommercial}
+              iconBgClassName={statIconBgClassName}
             />
           ))}
         </div>
@@ -195,6 +214,7 @@ const SolarAboHero = async ({
               {...stat}
               align="right"
               isCommercial={isCommercial}
+              iconBgClassName={statIconBgClassName}
             />
           ))}
         </div>

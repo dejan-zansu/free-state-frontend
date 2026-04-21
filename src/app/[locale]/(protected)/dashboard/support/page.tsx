@@ -274,7 +274,7 @@ export default function SupportPage() {
 
         <TabsContent value="tickets">
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="text-sm text-[#062E25]/60">
                 {t('ticketCount', { count: inquiries.length })}
               </p>

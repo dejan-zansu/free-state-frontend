@@ -9,6 +9,7 @@ import { Polygon } from 'ol/geom'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import { fromLonLat, toLonLat } from 'ol/proj'
+import { getRenderPixel } from 'ol/render'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
 import { Fill, Stroke, Style } from 'ol/style'
@@ -80,10 +81,12 @@ export default function Step4RoofAreas() {
   const [focusedLat, setFocusedLat] = useState<number | null>(null)
   const [focusedLng, setFocusedLng] = useState<number | null>(null)
   const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(true)
+  const [addressError, setAddressError] = useState<string | null>(null)
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
   const vectorSourceRef = useRef<VectorSource | null>(null)
+  const sonnendachLayerRef = useRef<TileLayer<XYZ> | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const mapInitializedRef = useRef(false)
   const selectedSegmentsRef = useRef<string[]>([])
@@ -98,7 +101,6 @@ export default function Step4RoofAreas() {
     (segment: RoofSegment, isSelected: boolean) => {
       if (!vectorSourceRef.current) return
       let wgs84Coords = segment.geometry.coordinatesWGS84
-      const usedWgs84 = !!(wgs84Coords && wgs84Coords.length > 0)
       if (!wgs84Coords || wgs84Coords.length === 0) {
         const lv95Coords = segment.geometry.coordinates
         if (!lv95Coords || lv95Coords.length === 0) return
@@ -108,14 +110,6 @@ export default function Step4RoofAreas() {
       }
       const coordinates = wgs84Coords[0]
       if (!coordinates || coordinates.length < 3) return
-      console.log('[RoofAreas] drawSegment:', {
-        id: segment.id,
-        isSelected,
-        usedWgs84,
-        coordCount: coordinates.length,
-        firstCoord: coordinates[0],
-        lv95First: segment.geometry.coordinates?.[0]?.[0],
-      })
       const webMercatorCoords = coordinates.map(coord => fromLonLat(coord))
       const polygon = new Polygon([webMercatorCoords])
       const feature = new Feature({ geometry: polygon, segmentId: segment.id })
@@ -151,6 +145,13 @@ export default function Step4RoofAreas() {
     if (building) redrawAllSegments()
   }, [selectedSegmentIds, building, redrawAllSegments])
 
+  useEffect(() => {
+    const layer = sonnendachLayerRef.current
+    if (!layer) return
+    layer.setVisible(!!building)
+    layer.changed()
+  }, [building])
+
   const fetchBuildingAt = useCallback(
     async (lat: number, lng: number) => {
       if (isFetchingRef.current) return
@@ -161,41 +162,14 @@ export default function Step4RoofAreas() {
         const buildingData = await sonnendachService
           .getBuildingData(lv95.y, lv95.x)
           .catch(() => null)
-        console.log('[RoofAreas] fetchBuildingAt response:', {
-          buildingId: buildingData?.buildingId,
-          segmentCount: buildingData?.roofSegments.length,
-          segments: buildingData?.roofSegments.map(s => ({
-            id: s.id,
-            area: s.area,
-            tilt: s.tilt,
-            azimuth: s.azimuth,
-            azimuthCardinal: s.azimuthCardinal,
-            suitabilityClass: s.suitability?.class,
-            electricityYield: s.electricityYield,
-          })),
-          center: buildingData?.center,
-          currentBuildingId: buildingRef.current?.buildingId,
-        })
         if (buildingData && buildingData.roofSegments.length > 0) {
           setBuilding(buildingData)
           const MIN_SEGMENT_AREA = 5
 
           buildingData.roofSegments.forEach(segment => {
             const suitClass = segment.suitability?.class || 0
-            const yieldPerM2 =
-              segment.area > 0
-                ? Math.round(segment.electricityYield / segment.area)
-                : 0
             const willSelect =
               segment.area >= MIN_SEGMENT_AREA && suitClass <= 3
-            console.log('[RoofAreas] segment auto-select check:', {
-              id: segment.id,
-              suitClass,
-              area: segment.area,
-              azimuth: `${segment.azimuthCardinal} (${segment.azimuth}°)`,
-              yieldPerM2,
-              willSelect,
-            })
             if (
               willSelect &&
               !selectedSegmentsRef.current.includes(segment.id)
@@ -210,7 +184,7 @@ export default function Step4RoofAreas() {
             ])
             mapInstanceRef.current
               .getView()
-              .animate({ center, zoom: 19, duration: 500 })
+              .animate({ center, zoom: 20, duration: 500 })
           }
         }
       } catch (error) {
@@ -231,21 +205,11 @@ export default function Step4RoofAreas() {
       if (clickedFeature) {
         const segmentId = clickedFeature.get('segmentId')
         if (segmentId) {
-          const wasSelected = selectedSegmentsRef.current.includes(segmentId)
-          console.log('[RoofAreas] clicked segment:', {
-            segmentId,
-            action: wasSelected ? 'DESELECT' : 'SELECT',
-            currentlySelected: [...selectedSegmentsRef.current],
-          })
           toggleSegment(segmentId)
           return
         }
       }
       const [lng, lat] = toLonLat(coordinate)
-      console.log('[RoofAreas] clicked empty space, fetching building at:', {
-        lat,
-        lng,
-      })
       await fetchBuildingAt(lat, lng)
     },
     [toggleSegment, fetchBuildingAt]
@@ -259,6 +223,54 @@ export default function Step4RoofAreas() {
 
     const vectorSource = new VectorSource()
     vectorSourceRef.current = vectorSource
+
+    // Sonnendach suitability overlay from swisstopo. Rendered under the vector
+    // layer and clipped at draw-time to the user's own building polygon so that
+    // neighbouring roofs stay uncoloured. Hidden until a building is loaded.
+    const sonnendachLayer = new TileLayer({
+      source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }),
+      opacity: 0.7,
+      visible: !!buildingRef.current,
+    })
+    sonnendachLayerRef.current = sonnendachLayer
+
+    sonnendachLayer.on('prerender', event => {
+      const ctx = event.context as CanvasRenderingContext2D | undefined
+      const map = mapInstanceRef.current
+      const b = buildingRef.current
+      if (!ctx || !map || !b) return
+
+      ctx.save()
+      ctx.beginPath()
+      for (const segment of b.roofSegments) {
+        let wgs84 = segment.geometry.coordinatesWGS84
+        if (!wgs84 || wgs84.length === 0) {
+          const lv95 = segment.geometry.coordinates
+          if (!lv95 || lv95.length === 0) continue
+          wgs84 = lv95.map(ring =>
+            ring.map(point => lv95ToWgs84(point[0], point[1]))
+          )
+        }
+        const ring = wgs84[0]
+        if (!ring || ring.length < 3) continue
+        ring.forEach((coord, i) => {
+          const webMerc = fromLonLat(coord)
+          const cssPixel = map.getPixelFromCoordinate(webMerc)
+          if (!cssPixel) return
+          const [x, y] = getRenderPixel(event, cssPixel)
+          if (i === 0) ctx.moveTo(x, y)
+          else ctx.lineTo(x, y)
+        })
+        ctx.closePath()
+      }
+      ctx.clip()
+    })
+
+    sonnendachLayer.on('postrender', event => {
+      const ctx = event.context as CanvasRenderingContext2D | undefined
+      if (!ctx) return
+      ctx.restore()
+    })
 
     const map = new Map({
       target: mapRef.current,
@@ -274,10 +286,7 @@ export default function Step4RoofAreas() {
             crossOrigin: 'anonymous',
           }),
         }),
-        new TileLayer({
-          source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }),
-          opacity: 0.7,
-        }),
+        sonnendachLayer,
         new VectorLayer({ source: vectorSource }),
       ],
       view: new View({
@@ -306,7 +315,7 @@ export default function Step4RoofAreas() {
         buildingRef.current.center.lng,
         buildingRef.current.center.lat,
       ])
-      map.getView().animate({ center, zoom: 19, duration: 500 })
+      map.getView().animate({ center, zoom: 20, duration: 500 })
       redrawAllSegments()
     } else if (focusedLat && focusedLng) {
       fetchBuildingAt(focusedLat, focusedLng)
@@ -315,6 +324,7 @@ export default function Step4RoofAreas() {
     return () => {
       map.setTarget(undefined)
       mapInitializedRef.current = false
+      sonnendachLayerRef.current = null
     }
   }, [hasBuilding, focusedLat, focusedLng, redrawAllSegments, fetchBuildingAt])
 
@@ -347,31 +357,43 @@ export default function Step4RoofAreas() {
       if (!AutocompleteClass) return
       const autocomplete = new AutocompleteClass(el, {
         componentRestrictions: { country: 'ch' },
-        fields: ['formatted_address', 'geometry'],
+        fields: ['formatted_address', 'geometry', 'address_components'],
         types: ['address'],
       })
       autocomplete.addListener('place_changed', () => {
         const place = autocomplete.getPlace()
-        if (place?.geometry?.location && place.formatted_address) {
-          const lat = place.geometry.location.lat()
-          const lng = place.geometry.location.lng()
-          setAddress(place.formatted_address)
-          setFocusedLat(lat)
-          setFocusedLng(lng)
-          setIsMobilePanelOpen(false)
+        const hasStreetNumber = place?.address_components?.some(c =>
+          c.types?.includes('street_number')
+        )
+        if (!place?.geometry?.location || !place.formatted_address) {
+          return
+        }
+        if (!hasStreetNumber) {
+          setAddressError(t('addressIncomplete'))
+          setFocusedLat(null)
+          setFocusedLng(null)
+          return
+        }
+        setAddressError(null)
 
-          if (mapInstanceRef.current) {
-            mapInstanceRef.current.getView().animate({
-              center: fromLonLat([lng, lat]),
-              zoom: 19,
-              duration: 500,
-            })
-            fetchBuildingAt(lat, lng)
-          }
+        const lat = place.geometry.location.lat()
+        const lng = place.geometry.location.lng()
+        setAddress(place.formatted_address)
+        setFocusedLat(lat)
+        setFocusedLng(lng)
+        setIsMobilePanelOpen(false)
+
+        if (mapInstanceRef.current) {
+          mapInstanceRef.current.getView().animate({
+            center: fromLonLat([lng, lat]),
+            zoom: 20,
+            duration: 500,
+          })
+          fetchBuildingAt(lat, lng)
         }
       })
     },
-    [setAddress, fetchBuildingAt]
+    [setAddress, fetchBuildingAt, t]
   )
 
   const initGooglePlaces = useCallback(
@@ -385,65 +407,38 @@ export default function Step4RoofAreas() {
 
   const handleNext = () => {
     const map = mapInstanceRef.current
-    const source = vectorSourceRef.current
-    if (!map || !source) {
+    if (!map) {
       nextStep()
       return
     }
 
-    const selectedFeatures = source
-      .getFeatures()
-      .filter(f => selectedSegmentIds.includes(f.get('segmentId')))
-    if (selectedFeatures.length === 0) {
-      nextStep()
-      return
-    }
-
-    const selectedSource = new VectorSource({ features: selectedFeatures })
-    const extent = selectedSource.getExtent()
-    if (!extent || !isFinite(extent[0])) {
-      nextStep()
-      return
-    }
-
-    map.getView().fit(extent, {
-      padding: [60, 60, 60, 60],
-      maxZoom: 20,
-      duration: 500,
-      callback: () => {
-        const doCapture = () => {
-          map.once('rendercomplete', () => {
-            const target = map.getTargetElement() as HTMLElement
-            const canvases = target.querySelectorAll('canvas')
-            const firstCanvas = canvases[0]
-            if (!firstCanvas) {
-              nextStep()
-              return
-            }
-            const mapCanvas = document.createElement('canvas')
-            mapCanvas.width = firstCanvas.width
-            mapCanvas.height = firstCanvas.height
-            const ctx = mapCanvas.getContext('2d')
-            if (!ctx) {
-              nextStep()
-              return
-            }
-            canvases.forEach(c => {
-              if (c.width > 0 && c.height > 0) {
-                try {
-                  ctx.drawImage(c, 0, 0)
-                } catch {}
-              }
-            })
-            setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
-            nextStep()
-          })
-          map.renderSync()
+    map.once('rendercomplete', () => {
+      const target = map.getTargetElement() as HTMLElement
+      const canvases = target.querySelectorAll('canvas')
+      const firstCanvas = canvases[0]
+      if (!firstCanvas) {
+        nextStep()
+        return
+      }
+      const mapCanvas = document.createElement('canvas')
+      mapCanvas.width = firstCanvas.width
+      mapCanvas.height = firstCanvas.height
+      const ctx = mapCanvas.getContext('2d')
+      if (!ctx) {
+        nextStep()
+        return
+      }
+      canvases.forEach(c => {
+        if (c.width > 0 && c.height > 0) {
+          try {
+            ctx.drawImage(c, 0, 0)
+          } catch {}
         }
-
-        setTimeout(doCapture, 1000)
-      },
+      })
+      setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
+      nextStep()
     })
+    map.renderSync()
   }
 
   const selectedArea = getSelectedArea()
@@ -462,14 +457,25 @@ export default function Step4RoofAreas() {
             </p>
           </div>
 
-          <div className="w-full max-w-md relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[#062E25]/30 pointer-events-none" />
-            <Input
-              ref={initGooglePlaces}
-              defaultValue={address}
-              placeholder={t('searchPlaceholder')}
-              className="h-14 text-base pl-12 pr-4 rounded-xl border-[#062E25]/20 bg-white shadow-sm focus-visible:border-[#062E25]/40"
-            />
+          <div className="w-full max-w-md">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[#062E25]/30 pointer-events-none" />
+              <Input
+                ref={initGooglePlaces}
+                defaultValue={address}
+                placeholder={t('searchPlaceholder')}
+                aria-invalid={!!addressError}
+                className={cn(
+                  'h-14 text-base pl-12 pr-4 rounded-xl border-[#062E25]/20 bg-white shadow-sm focus-visible:border-[#062E25]/40',
+                  addressError && 'border-red-500 focus-visible:border-red-500'
+                )}
+              />
+            </div>
+            {addressError && (
+              <p className="mt-2 text-sm text-red-600" role="alert">
+                {addressError}
+              </p>
+            )}
           </div>
 
           <p className="mt-5 text-sm text-[#062E25]/40 italic">
@@ -525,8 +531,17 @@ export default function Step4RoofAreas() {
             ref={initGooglePlaces}
             defaultValue={address}
             placeholder={t('searchPlaceholder')}
-            className="bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40"
+            aria-invalid={!!addressError}
+            className={cn(
+              'bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40',
+              addressError && 'border-red-400 focus-visible:border-red-400'
+            )}
           />
+          {addressError && (
+            <p className="mt-2 text-sm text-red-300" role="alert">
+              {addressError}
+            </p>
+          )}
           <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
             <svg
               className="w-4 h-4 mt-0.5 shrink-0"

@@ -6,18 +6,20 @@ interface ProductHeroLightProps {
   translationNamespace: string
   imageSrc: string
   imageAlt?: string
+  isCommercial?: boolean
 }
 
 const ProductHeroLight = async ({
   translationNamespace,
   imageSrc,
   imageAlt,
+  isCommercial = false,
 }: ProductHeroLightProps) => {
   const t = await getTranslations(translationNamespace)
 
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#EBEDDF]">
-      <HeroNavLight />
+      <HeroNavLight isCommercial={isCommercial} />
       <div className="relative z-10 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 pt-40 sm:pt-48 lg:pt-64 pb-8 lg:pb-0">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-0">
           <div className="flex flex-col gap-4 sm:gap-5 max-w-lg">

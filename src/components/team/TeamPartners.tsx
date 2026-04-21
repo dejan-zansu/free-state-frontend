@@ -6,7 +6,7 @@ const TeamPartners = () => {
 
   return (
     <section
-      className="relative w-full py-12 lg:py-[50px]"
+      className="relative w-full pt-12 lg:pt-[50px] pb-[88px] lg:pb-[90px] -mb-[40px]"
       style={{
         background:
           'linear-gradient(180deg, rgba(242, 244, 232, 1) 78%, rgba(220, 233, 230, 1) 100%)',

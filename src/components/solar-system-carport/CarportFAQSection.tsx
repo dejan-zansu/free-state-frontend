@@ -18,7 +18,7 @@ const CarportFAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="relative overflow-hidden rounded-t-[40px] border-t border-[#63836F]">
+    <section className="relative overflow-hidden rounded-t-[40px] border-t border-[#63836F] -mt-[40px]">
       <div className="absolute inset-0">
         <Image
           src="/images/carport-faq-bg.png"

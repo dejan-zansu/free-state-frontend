@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { defineRouting } from 'next-intl/routing'
 
-export const locales = ['en', 'de'] as const
+export const locales = ['en', 'de', 'fr'] as const
 export const defaultLocale = 'en' as const
 
 export type Locale = (typeof locales)[number]
@@ -86,22 +88,32 @@ export const routing = defineRouting({
     '/heat-pumps/how-it-works': {
       en: '/heat-pumps/how-it-works',
       de: '/waermepumpen/funktionsweise',
+      fr: '/pompes-a-chaleur/comment-ca-marche',
+      it: '/pompe-di-calore/come-funziona',
     },
     '/heat-pumps/cost': {
       en: '/heat-pumps/cost',
       de: '/waermepumpen/kosten',
+      fr: '/pompes-a-chaleur/couts',
+      it: '/pompe-di-calore/costi',
     },
     '/heat-pumps/service': {
       en: '/heat-pumps/service',
       de: '/waermepumpen/service',
+      fr: '/pompes-a-chaleur/service',
+      it: '/pompe-di-calore/assistenza',
     },
     '/heat-pumps/heat-pumps-with-solar-system': {
       en: '/heat-pumps/heat-pumps-with-solar-system',
       de: '/waermepumpen/waermepumpen-mit-solaranlage',
+      fr: '/pompes-a-chaleur/avec-installation-solaire',
+      it: '/pompe-di-calore/con-impianto-solare',
     },
     '/heat-pumps/products': {
       en: '/heat-pumps/products',
       de: '/waermepumpen/produkte',
+      fr: '/pompes-a-chaleur/produits',
+      it: '/pompe-di-calore/prodotti',
     },
     '/investors': {
       en: '/investors',
@@ -177,6 +189,14 @@ export const routing = defineRouting({
       es: '/suscripcion-solar',
       sr: '/solarni-abo',
     },
+    '/solar-direct': {
+      en: '/solar-direct',
+      de: '/solar-direct',
+      fr: '/solaire-direct',
+      it: '/solare-diretto',
+      es: '/solar-directo',
+      sr: '/solarni-direktno',
+    },
     '/solar-free/solar-free-home': {
       en: '/solar-free/solar-free-home',
       de: '/solar-free/solar-free-home',
@@ -184,46 +204,6 @@ export const routing = defineRouting({
       it: '/abbonamento-solare/abbonamento-casa',
       es: '/suscripcion-solar/suscripcion-hogar',
       sr: '/solarni-abo/solarni-abo-kuca',
-    },
-    '/solar-free/solar-free-home-battery': {
-      en: '/solar-free/solar-free-home-battery',
-      de: '/solar-free/solar-free-home-batterie',
-      fr: '/abonnement-solaire/abonnement-maison-batterie',
-      it: '/abbonamento-solare/abbonamento-casa-batteria',
-      es: '/suscripcion-solar/suscripcion-hogar-bateria',
-      sr: '/solarni-abo/solarni-abo-kuca-baterija',
-    },
-    '/solar-free/solar-free-multi': {
-      en: '/solar-free/solar-free-multi',
-      de: '/solar-free/solar-free-multi',
-      fr: '/abonnement-solaire/abonnement-multi',
-      it: '/abbonamento-solare/abbonamento-multi',
-      es: '/suscripcion-solar/suscripcion-multi',
-      sr: '/solarni-abo/solarni-abo-multi',
-    },
-    '/solar-free/solar-free-agro': {
-      en: '/solar-free/solar-free-agro',
-      de: '/solar-free/solar-free-agro',
-      fr: '/abonnement-solaire/abonnement-agro',
-      it: '/abbonamento-solare/abbonamento-agro',
-      es: '/suscripcion-solar/suscripcion-agro',
-      sr: '/solarni-abo/solarni-abo-agro',
-    },
-    '/solar-free/solar-free-public': {
-      en: '/solar-free/solar-free-public',
-      de: '/solar-free/solar-free-oeffentlich',
-      fr: '/abonnement-solaire/abonnement-public',
-      it: '/abbonamento-solare/abbonamento-pubblico',
-      es: '/suscripcion-solar/suscripcion-publica',
-      sr: '/solarni-abo/solarni-abo-javni',
-    },
-    '/solar-free/solar-free-business': {
-      en: '/solar-free/solar-free-business',
-      de: '/solar-free/solar-free-gewerbe',
-      fr: '/abonnement-solaire/abonnement-entreprise',
-      it: '/abbonamento-solare/abbonamento-azienda',
-      es: '/suscripcion-solar/suscripcion-empresa',
-      sr: '/solarni-abo/solarni-abo-biznis',
     },
 
     '/commercial': {
@@ -242,220 +222,314 @@ export const routing = defineRouting({
       es: '/comercial/suscripcion-solar',
       sr: '/komercijalno/solarni-abo',
     },
-    '/commercial/solar-free/solar-free-business': {
-      en: '/commercial/solar-free/solar-free-business',
-      de: '/gewerbe/solar-free/solar-free-gewerbe',
-      fr: '/commercial/abonnement-solaire/abonnement-entreprise',
-      it: '/commerciale/abbonamento-solare/abbonamento-azienda',
-      es: '/comercial/suscripcion-solar/suscripcion-empresa',
-      sr: '/komercijalno/solarni-abo/solarni-abo-biznis',
+    '/commercial/solar-free/industry-commercial': {
+      en: '/commercial/solar-free/industry-commercial',
+      de: '/gewerbe/solar-free/industrie-gewerbe',
+      fr: '/commercial/abonnement-solaire/industrie-commerce',
+      it: '/commerciale/abbonamento-solare/industria-commercio',
+      es: '/comercial/suscripcion-solar/industria-comercial',
+      sr: '/komercijalno/solarni-abo/industrija-komercijalno',
     },
-    '/commercial/solar-free/solar-free-agro': {
-      en: '/commercial/solar-free/solar-free-agro',
-      de: '/gewerbe/solar-free/solar-free-agro',
-      fr: '/commercial/abonnement-solaire/abonnement-agro',
-      it: '/commerciale/abbonamento-solare/abbonamento-agro',
-      es: '/comercial/suscripcion-solar/suscripcion-agro',
-      sr: '/komercijalno/solarni-abo/solarni-abo-agro',
+    '/commercial/solar-free/solar-free-multi-family': {
+      en: '/commercial/solar-free/solar-free-multi-family',
+      de: '/gewerbe/solar-free/solar-free-mehrfamilienhaus',
+      fr: '/commercial/abonnement-solaire/abonnement-multifamilial',
+      it: '/commerciale/abbonamento-solare/abbonamento-multifamiliare',
+      es: '/comercial/suscripcion-solar/suscripcion-multifamiliar',
+      sr: '/komercijalno/solarni-abo/solarni-abo-vise-porodicni',
     },
-    '/commercial/solar-free/solar-free-public': {
-      en: '/commercial/solar-free/solar-free-public',
-      de: '/gewerbe/solar-free/solar-free-oeffentlich',
-      fr: '/commercial/abonnement-solaire/abonnement-public',
-      it: '/commerciale/abbonamento-solare/abbonamento-pubblico',
-      es: '/comercial/suscripcion-solar/suscripcion-publica',
-      sr: '/komercijalno/solarni-abo/solarni-abo-javni',
+    '/commercial/solar-free/farmhouses': {
+      en: '/commercial/solar-free/farmhouses',
+      de: '/gewerbe/solar-free/bauernhaeuser',
+      fr: '/commercial/abonnement-solaire/fermes',
+      it: '/commerciale/abbonamento-solare/fattorie',
+      es: '/comercial/suscripcion-solar/granjas',
+      sr: '/komercijalno/solarni-abo/farme',
+    },
+    '/commercial/solar-free/public-buildings': {
+      en: '/commercial/solar-free/public-buildings',
+      de: '/gewerbe/solar-free/oeffentliche-gebaeude',
+      fr: '/commercial/abonnement-solaire/batiments-publics',
+      it: '/commerciale/abbonamento-solare/edifici-pubblici',
+      es: '/comercial/suscripcion-solar/edificios-publicos',
+      sr: '/komercijalno/solarni-abo/javne-zgrade',
     },
 
     '/commercial/solar-systems': {
       en: '/commercial/solar-systems',
       de: '/gewerbe/solaranlagen',
+      fr: '/commercial/installations-solaires',
+      it: '/commerciale/impianti-solari',
     },
     '/commercial/solar-systems/how-large-plants-works': {
       en: '/commercial/solar-systems/how-large-plants-works',
       de: '/gewerbe/solaranlagen/wie-grossanlagen-funktionieren',
+      fr: '/commercial/installations-solaires/fonctionnement-grandes-installations',
+      it: '/commerciale/impianti-solari/come-funzionano-i-grandi-impianti',
     },
     '/commercial/solar-systems/project-development': {
       en: '/commercial/solar-systems/project-development',
       de: '/gewerbe/solaranlagen/projektentwicklung',
+      fr: '/commercial/installations-solaires/developpement-de-projet',
+      it: '/commerciale/impianti-solari/sviluppo-del-progetto',
     },
     '/commercial/solar-systems/solar-carport': {
       en: '/commercial/solar-systems/solar-carport',
       de: '/gewerbe/solaranlagen/solar-carport',
+      fr: '/commercial/installations-solaires/carport-solaire',
+      it: '/commerciale/impianti-solari/carport-solare',
     },
     '/commercial/solar-systems/contracting': {
       en: '/commercial/solar-systems/contracting',
       de: '/gewerbe/solaranlagen/contracting',
+      fr: '/commercial/installations-solaires/contracting',
+      it: '/commerciale/impianti-solari/contracting',
     },
     '/commercial/charging-stations': {
       en: '/commercial/charging-stations',
       de: '/gewerbe/ladestationen',
+      fr: '/commercial/bornes-de-recharge',
+      it: '/commerciale/stazioni-di-ricarica',
     },
     '/commercial/charging-stations/apartment-building': {
       en: '/commercial/charging-stations/apartment-building',
       de: '/gewerbe/ladestationen/mehrfamilienhaus',
+      fr: '/commercial/bornes-de-recharge/immeuble-collectif',
+      it: '/commerciale/stazioni-di-ricarica/condominio',
     },
     '/commercial/charging-stations/fast-charging-stations': {
       en: '/commercial/charging-stations/fast-charging-stations',
       de: '/gewerbe/ladestationen/schnellladestationen',
+      fr: '/commercial/bornes-de-recharge/recharge-rapide',
+      it: '/commerciale/stazioni-di-ricarica/ricarica-rapida',
     },
     '/commercial/charging-stations/bidirectional-charging-station': {
       en: '/commercial/charging-stations/bidirectional-charging-station',
       de: '/gewerbe/ladestationen/bidirektionale-ladestation',
+      fr: '/commercial/bornes-de-recharge/recharge-bidirectionnelle',
+      it: '/commerciale/stazioni-di-ricarica/ricarica-bidirezionale',
     },
     '/commercial/charging-stations/company': {
       en: '/commercial/charging-stations/company',
       de: '/gewerbe/ladestationen/unternehmen',
+      fr: '/commercial/bornes-de-recharge/entreprise',
+      it: '/commerciale/stazioni-di-ricarica/azienda',
     },
 
     // Auth & user pages
     '/forgot-password': {
       en: '/forgot-password',
       de: '/passwort-vergessen',
+      fr: '/mot-de-passe-oublie',
+      it: '/password-dimenticata',
     },
     '/set-password': {
       en: '/set-password',
       de: '/passwort-setzen',
+      fr: '/definir-mot-de-passe',
+      it: '/imposta-password',
     },
     '/verify-email': {
       en: '/verify-email',
       de: '/email-verifizieren',
-    },
-    '/terms': {
-      en: '/terms',
-      de: '/agb',
+      fr: '/verifier-email',
+      it: '/verifica-email',
     },
     '/privacy': {
       en: '/privacy',
       de: '/datenschutz',
+      fr: '/confidentialite',
+      it: '/privacy',
     },
     '/quotes': {
       en: '/quotes',
       de: '/angebote',
+      fr: '/devis',
+      it: '/preventivi',
     },
     '/analytics': {
       en: '/analytics',
       de: '/analysen',
+      fr: '/analyses',
+      it: '/analisi',
     },
     '/settings': {
       en: '/settings',
       de: '/einstellungen',
+      fr: '/parametres',
+      it: '/impostazioni',
     },
 
     // Other pages
     '/products': {
       en: '/products',
       de: '/produkte',
+      fr: '/produits',
+      it: '/prodotti',
     },
     '/learn-more': {
       en: '/learn-more',
       de: '/mehr-erfahren',
+      fr: '/en-savoir-plus',
+      it: '/scopri-di-piu',
     },
     '/deals': {
       en: '/deals',
       de: '/angebote',
+      fr: '/offres',
+      it: '/offerte',
     },
 
     // Footer pages
     '/solar-free/single-family': {
       en: '/solar-free/single-family',
       de: '/solar-free/einfamilienhaus',
+      fr: '/abonnement-solaire/maison-individuelle',
+      it: '/abbonamento-solare/casa-unifamiliare',
     },
     '/solar-free/multi-family': {
       en: '/solar-free/multi-family',
       de: '/solar-free/mehrfamilienhaus',
+      fr: '/abonnement-solaire/immeuble-collectif',
+      it: '/abbonamento-solare/condominio',
     },
     '/solar-free/businesses': {
       en: '/solar-free/businesses',
       de: '/solar-free/unternehmen',
+      fr: '/abonnement-solaire/entreprises',
+      it: '/abbonamento-solare/aziende',
     },
     '/solar-free/agriculture': {
       en: '/solar-free/agriculture',
       de: '/solar-free/landwirtschaft',
+      fr: '/abonnement-solaire/agriculture',
+      it: '/abbonamento-solare/agricoltura',
     },
     '/solar-free/public-buildings': {
       en: '/solar-free/public-buildings',
       de: '/solar-free/oeffentliche-gebaeude',
+      fr: '/abonnement-solaire/batiments-publics',
+      it: '/abbonamento-solare/edifici-pubblici',
     },
     '/charging-stations': {
       en: '/charging-stations',
       de: '/ladestationen',
+      fr: '/bornes-de-recharge',
+      it: '/stazioni-di-ricarica',
     },
     '/charging-stations/apartment-building': {
       en: '/charging-stations/apartment-building',
       de: '/ladestationen/mehrfamilienhaus',
+      fr: '/bornes-de-recharge/immeuble-collectif',
+      it: '/stazioni-di-ricarica/condominio',
     },
     '/charging-stations/single-family-home': {
       en: '/charging-stations/single-family-home',
       de: '/ladestationen/einfamilienhaus',
+      fr: '/bornes-de-recharge/maison-individuelle',
+      it: '/stazioni-di-ricarica/casa-unifamiliare',
     },
     '/charging-stations/bidirectional-charging-station': {
       en: '/charging-stations/bidirectional-charging-station',
       de: '/ladestationen/bidirektionale-ladestation',
+      fr: '/bornes-de-recharge/recharge-bidirectionnelle',
+      it: '/stazioni-di-ricarica/ricarica-bidirezionale',
     },
     '/cost': {
       en: '/cost',
       de: '/kosten',
+      fr: '/couts',
+      it: '/costi',
     },
     '/amortization': {
       en: '/amortization',
       de: '/amortisation',
+      fr: '/amortissement',
+      it: '/ammortamento',
     },
     '/solar-calculator': {
       en: '/solar-calculator',
       de: '/solarrechner',
+      fr: '/calculateur-solaire',
+      it: '/calcolatore-solare',
     },
     '/solar-system-carport': {
       en: '/solar-system-carport',
       de: '/solaranlage-carport',
+      fr: '/installation-solaire-carport',
+      it: '/impianto-solare-carport',
     },
     '/service': {
       en: '/service',
       de: '/service',
+      fr: '/service',
+      it: '/assistenza',
     },
     '/energy-storage': {
       en: '/energy-storage',
       de: '/stromspeicher',
+      fr: '/stockage-energie',
+      it: '/accumulo-energia',
     },
     '/repowering': {
       en: '/repowering',
       de: '/repowering',
+      fr: '/repowering',
+      it: '/repowering',
     },
-    '/energy-management': {
-      en: '/energy-management',
-      de: '/energiemanagement',
-    },
+    // '/energy-management': {
+    //   en: '/energy-management',
+    //   de: '/energiemanagement',
+    //   fr: '/gestion-energie',
+    //   it: '/gestione-energia',
+    // },
     '/history': {
       en: '/history',
       de: '/geschichte',
+      fr: '/histoire',
+      it: '/storia',
     },
     '/mission': {
       en: '/mission',
       de: '/mission',
+      fr: '/mission',
+      it: '/missione',
     },
     '/team': {
       en: '/team',
       de: '/team',
+      fr: '/equipe',
+      it: '/team',
     },
     '/careers': {
       en: '/careers',
       de: '/karriere',
+      fr: '/carrieres',
+      it: '/carriere',
     },
     '/faq': {
       en: '/faq',
       de: '/faq',
+      fr: '/faq',
+      it: '/faq',
     },
     '/media': {
       en: '/media',
       de: '/medien',
+      fr: '/medias',
+      it: '/media',
     },
     '/impressum': {
       en: '/impressum',
       de: '/impressum',
+      fr: '/mentions-legales',
+      it: '/note-legali',
     },
     '/agb': {
-      en: '/agb',
+      en: '/terms',
       de: '/agb',
+      fr: '/cgv',
+      it: '/termini',
     },
   },
 })

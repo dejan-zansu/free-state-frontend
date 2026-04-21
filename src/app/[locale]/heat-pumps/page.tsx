@@ -1,21 +1,18 @@
-import HeatPumpsCTA from '@/components/heat-pumps/HeatPumpsCTA'
-import HeatPumpsFeatures from '@/components/heat-pumps/HeatPumpsFeatures'
-import HeatPumpsHero from '@/components/heat-pumps/HeatPumpsHero'
-import HeatPumpsIntegratedSystems from '@/components/heat-pumps/HeatPumpsIntegratedSystems'
-import HeatPumpsReliablePerformance from '@/components/heat-pumps/HeatPumpsReliablePerformance'
-import HeatPumpsSolutions from '@/components/heat-pumps/HeatPumpsSolutions'
-import HeatPumpsValueCreation from '@/components/heat-pumps/HeatPumpsValueCreation'
+import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
+import PageHero from '@/components/PageHero'
+import TopicsGrid from '@/components/TopicsGrid'
+import { getTranslations } from 'next-intl/server'
 
-const HeatPumpsPage = () => {
+const HeatPumpsPage = async () => {
+  const t = await getTranslations('heatPumps')
   return (
     <div>
-      <HeatPumpsHero />
-      <HeatPumpsValueCreation />
-      <HeatPumpsFeatures />
-      <HeatPumpsIntegratedSystems />
-      <HeatPumpsReliablePerformance />
-      <HeatPumpsSolutions />
-      <HeatPumpsCTA />
+      <PageHero
+        backgroundImage="/images/how-solar-power-system-works.png"
+        title={t('hero.title')}
+      />
+      <TopicsGrid namespace="heatPumps.topics" columns={5} maxWidth="1440px" />
+      <CheckSolarPotentialCTA />
     </div>
   )
 }

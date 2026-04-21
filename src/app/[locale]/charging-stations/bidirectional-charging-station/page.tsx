@@ -20,7 +20,7 @@ const BidirectionalChargingStationPage = async () => {
   const t = await getTranslations('bidirectionalChargingStation')
 
   return (
-    <main>
+    <div>
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}
@@ -41,7 +41,7 @@ const BidirectionalChargingStationPage = async () => {
       <StandardsSection />
       <NewsletterSection />
       <FAQSection />
-    </main>
+    </div>
   )
 }
 

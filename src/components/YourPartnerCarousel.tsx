@@ -49,7 +49,7 @@ const YourPartnerCarousel = ({
                   {item.description}
                 </p>
                 <Link
-                  href="/learn-more"
+                  href="/about-us"
                   className="inline-flex items-center gap-2 text-primary font-medium group/link transition-opacity duration-300 hover:opacity-80"
                 >
                   <span className="inline-flex items-center gap-2 border-b border-primary pb-0.5">

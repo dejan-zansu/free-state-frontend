@@ -8,7 +8,7 @@ const FastChargingStationsPage = async () => {
   const t = await getTranslations('fastChargingStations')
 
   return (
-    <main>
+    <div>
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}
@@ -19,7 +19,7 @@ const FastChargingStationsPage = async () => {
       <FastChargingOffersSection />
       <FreeStateOffersSection />
       <FAQSection />
-    </main>
+    </div>
   )
 }
 

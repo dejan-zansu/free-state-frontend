@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
@@ -8,6 +10,8 @@ const STATUS_COLORS: Record<string, string> = {
   CONTACTED: 'bg-cyan-100 text-cyan-700',
   QUALIFIED: 'bg-indigo-100 text-indigo-700',
   PROPOSAL_SENT: 'bg-purple-100 text-purple-700',
+  QUOTE_PREPARING: 'bg-amber-100 text-amber-700',
+  QUOTE_SENT: 'bg-violet-100 text-violet-700',
   NEGOTIATION: 'bg-amber-100 text-amber-700',
   WON: 'bg-green-100 text-green-700',
   LOST: 'bg-red-100 text-red-700',
@@ -41,6 +45,8 @@ const STATUS_COLORS: Record<string, string> = {
   AMENDMENT: 'bg-amber-100 text-amber-700',
 
   OPEN: 'bg-amber-100 text-amber-700',
+  SUBMITTED: 'bg-cyan-100 text-cyan-700',
+  CHANGES_REQUESTED: 'bg-orange-100 text-orange-700',
   IN_PROGRESS: 'bg-blue-100 text-blue-700',
   RESOLVED: 'bg-green-100 text-green-700',
   CLOSED: 'bg-gray-100 text-gray-700',
@@ -52,14 +58,16 @@ interface StatusBadgeProps {
 }
 
 export function StatusBadge({ status, className }: StatusBadgeProps) {
+  const t = useTranslations('admin.statusLabels')
   const colorClass = STATUS_COLORS[status] || 'bg-gray-100 text-gray-700'
+  const label = t.has(status) ? t(status) : status.replace(/_/g, ' ')
 
   return (
     <Badge
       variant="secondary"
       className={cn('font-medium border-0', colorClass, className)}
     >
-      {status.replace(/_/g, ' ')}
+      {label}
     </Badge>
   )
 }

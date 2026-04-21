@@ -9,12 +9,12 @@ const cardKeys = [
   'amortization',
 ] as const
 
-const cardHrefs: Record<(typeof cardKeys)[number], string> = {
+const cardHrefs = {
   financialSupport: '/learn-more',
   cost: '/cost',
   monitoringAndService: '/learn-more',
   amortization: '/amortization',
-}
+} as const
 
 const CostFurtherTopicsSection = async () => {
   const t = await getTranslations('cost')
@@ -53,7 +53,6 @@ const CostFurtherTopicsSection = async () => {
                       </p>
                     </div>
 
-                    {/* @ts-expect-error - cardHrefs is a record of strings */}
                     <LearnMoreLink href={cardHrefs[key]}>
                       {t('furtherTopics.learnMore')}
                     </LearnMoreLink>

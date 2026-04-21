@@ -1,15 +1,15 @@
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
+import { locales } from '@/i18n/routing'
 import { QueryProvider } from '@/providers/QueryProvider'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-
-const locales = ['en', 'de', 'fr', 'it', 'es', 'sr']
+import { NuqsAdapter } from 'nuqs/adapters/next/app'
 
 export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }))
+  return locales.map(locale => ({ locale }))
 }
 
 export default async function LocaleLayout({
@@ -21,7 +21,7 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params
 
-  if (!locales.includes(locale)) {
+  if (!locales.includes(locale as (typeof locales)[number])) {
     notFound()
   }
 
@@ -29,14 +29,16 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>
-      <QueryProvider>
-        <div className='flex flex-col min-h-screen'>
-          <ConditionalHeader />
-          <main className='flex-1'>{children}</main>
-          <ConditionalFooter locale={locale} />
-          <CookieConsentBanner />
-        </div>
-      </QueryProvider>
+      <NuqsAdapter>
+        <QueryProvider>
+          <div className="flex flex-col min-h-screen">
+            <ConditionalHeader />
+            <div className="flex-1">{children}</div>
+            <ConditionalFooter locale={locale} />
+            <CookieConsentBanner />
+          </div>
+        </QueryProvider>
+      </NuqsAdapter>
     </NextIntlClientProvider>
   )
 }

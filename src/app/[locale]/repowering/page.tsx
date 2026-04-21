@@ -11,7 +11,7 @@ const RepoweringPage = async () => {
   const t = await getTranslations('repowering')
 
   return (
-    <main>
+    <div>
       <PageHero
         backgroundImage="/images/repowering-hero-bg.png"
         title={t('hero.title')}
@@ -29,7 +29,7 @@ const RepoweringPage = async () => {
       <RepoweringServicesSection />
       <RepoweringFAQSection />
       <RepoweringQuoteFormSection />
-    </main>
+    </div>
   )
 }
 

@@ -9,7 +9,7 @@ const ApartmentBuildingPage = async () => {
   const t = await getTranslations('apartmentBuilding')
 
   return (
-    <main>
+    <div>
       <PageHero
         isCommercial
         title={t('hero.title')}
@@ -19,7 +19,7 @@ const ApartmentBuildingPage = async () => {
       <CalculatorCTASection />
       <FreeStateOffersSection />
       <FAQSection />
-    </main>
+    </div>
   )
 }
 

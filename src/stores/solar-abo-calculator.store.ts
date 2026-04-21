@@ -15,6 +15,7 @@ export type HouseholdSize = 1 | 2 | 3 | 4 | 5
 export type RoofCoveringType = 'tiled' | 'tin' | 'slate' | 'fiber_cement' | 'gravel' | 'substrate' | 'bitumen' | 'membrane' | 'other'
 export type RoofType = 'flat' | 'pitched'
 export type Salutation = 'mr' | 'woman' | 'family'
+export type ContactCountry = 'CH' | 'LI'
 
 export interface HighPowerDevices {
   heatPumpHeating: boolean
@@ -31,6 +32,12 @@ export interface ContactDetails {
   email: string
   phoneNumber: string
   remarks: string
+  country: ContactCountry
+  postalCode: string
+  city: string
+  street: string
+  streetNumber: string
+  addressAdditional: string
 }
 
 export interface Consents {
@@ -42,6 +49,7 @@ export type ResultsPath = 'download' | 'offer' | 'contract' | null
 // ElCom 2026 average residential tariff (Rp./kWh → CHF/kWh)
 // Source: ElCom tariff data, swissinfo.ch
 const ELECTRICITY_PRICE = 0.277
+const FEED_IN_TARIFF = 0.08
 
 // Swiss consumer electricity mix (production + imports), VSE 2021
 // Source: strom.ch "CO2-Gehalt des Strommix Schweiz"
@@ -49,11 +57,12 @@ const CO2_FACTOR = 0.128
 
 // Fallback panel specs when package panel data is not available
 const AVG_PANEL_POWER_W = 460
-const AVG_PANEL_AREA = 2.0
+const AVG_PANEL_AREA = 2.58
 
-// Fraction of roof area usable for panel placement (accounting for edges,
-// obstructions, setbacks, and mounting constraints)
-const USABLE_ROOF_FRACTION = 0.70
+export const DEFAULT_PPA_DISCOUNT_PCT = 30
+
+const USABLE_ROOF_FRACTION_PITCHED = 0.55
+const USABLE_ROOF_FRACTION_FLAT = 0.25
 
 // BFE/Nipkow study "Typischer Haushalt-Stromverbrauch" (2021), single-family house values
 // Excludes electric heating, heat pump, and electric hot water
@@ -107,7 +116,7 @@ const TAX_RATES_BY_CANTON: Record<string, number> = {
 const DEFAULT_TAX_RATE = 0.14
 
 const CANTON_FROM_POSTAL: [number, number, string][] = [
-  [1000, 1299, 'VD'], [1300, 1399, 'VD'], [1400, 1499, 'FR'], [1500, 1599, 'FR'],
+  [1000, 1199, 'VD'], [1200, 1299, 'GE'], [1300, 1399, 'VD'], [1400, 1499, 'FR'], [1500, 1599, 'FR'],
   [1600, 1699, 'FR'], [1700, 1799, 'FR'], [1800, 1899, 'VD'], [1900, 1999, 'VS'],
   [2000, 2099, 'NE'], [2100, 2199, 'NE'], [2200, 2299, 'NE'], [2300, 2399, 'NE'],
   [2400, 2499, 'BE'], [2500, 2599, 'BE'], [2600, 2699, 'BE'], [2700, 2799, 'BE'],
@@ -173,6 +182,8 @@ interface SolarAboCalculatorState {
   selectedPackageId: string | null
   selectedPackageCode: string | null
   selectedPackagePricePerKwp: number | null
+  selectedPackageElectricitySavingsPercent: number | null
+  selectedPackageContractTermYears: number | null
   selectedPanelWattageW: number | null
   selectedPanelAreaM2: number | null
 
@@ -222,10 +233,19 @@ interface SolarAboCalculatorActions {
   getEstimatedPanelCount: () => number
   getSelfConsumptionRate: () => number
   getAnnualSavings: () => number
+  getAnnualPpaSavings: () => number
   getCo2Savings: () => number
   getMonthlyProduction: () => number[]
   getRecommendedPackage: () => SolarAboPackage
-  setSelectedPackage: (id: string, code: string, pricePerKwp: number | null, panelWattageW?: number | null, panelAreaM2?: number | null) => void
+  setSelectedPackage: (
+    id: string,
+    code: string,
+    pricePerKwp: number | null,
+    panelWattageW?: number | null,
+    panelAreaM2?: number | null,
+    electricitySavingsPercent?: number | null,
+    contractTermYears?: number | null,
+  ) => void
   setSelectedEquipment: (type: 'solarPanel' | 'inverter' | 'battery' | 'mountingSystem' | 'ems' | 'heatPump', id: string | null, panelWattageW?: number, panelAreaM2?: number) => void
   fetchEquipmentQuote: (locale?: string) => Promise<void>
   getGrossAmount: () => number
@@ -253,6 +273,12 @@ const initialContact: ContactDetails = {
   email: '',
   phoneNumber: '',
   remarks: '',
+  country: 'CH',
+  postalCode: '',
+  city: '',
+  street: '',
+  streetNumber: '',
+  addressAdditional: '',
 }
 
 const initialConsents: Consents = {
@@ -299,6 +325,8 @@ const initialState: SolarAboCalculatorState = {
   selectedPackageId: null,
   selectedPackageCode: null,
   selectedPackagePricePerKwp: null,
+  selectedPackageElectricitySavingsPercent: null,
+  selectedPackageContractTermYears: null,
   selectedPanelWattageW: null,
   selectedPanelAreaM2: null,
 
@@ -329,25 +357,61 @@ export const useSolarAboCalculatorStore = create<
       ...initialState,
 
       setSolarModel: (model: SolarModel | null) => {
-        set({ solarModel: model })
+        set({
+          solarModel: model,
+          selectedPackageId: null,
+          selectedPackageCode: null,
+          selectedPackagePricePerKwp: null,
+          selectedPackageElectricitySavingsPercent: null,
+          selectedPackageContractTermYears: null,
+          selectedPanelWattageW: null,
+          selectedPanelAreaM2: null,
+          selectedSolarPanelId: null,
+          selectedInverterId: null,
+          selectedBatteryId: null,
+          selectedMountingSystemId: null,
+          selectedEmsId: null,
+          selectedHeatPumpId: null,
+          equipmentQuote: null,
+          equipmentQuoteLoading: false,
+          isSubmitting: false,
+          isSubmitted: false,
+          submissionError: null,
+          accountCreated: false,
+          resultsPath: null,
+          createdUserId: null,
+          createdCustomerId: null,
+          createdProjectId: null,
+          createdContractId: null,
+          contractNumber: null,
+          contractPdfUrl: null,
+          acknowledgments: [],
+          signatureStatus: 'idle',
+          signatureProcessId: null,
+          signingUrl: null,
+          signedPdfUrl: null,
+        })
       },
 
       nextStep: () => {
-        const { currentStep, totalSteps } = get()
+        const { currentStep, totalSteps, signatureStatus } = get()
+        if (signatureStatus === 'signed') return
         if (currentStep < totalSteps) {
           set({ currentStep: currentStep + 1 })
         }
       },
 
       prevStep: () => {
-        const { currentStep } = get()
+        const { currentStep, signatureStatus } = get()
+        if (signatureStatus === 'signed') return
         if (currentStep > 1) {
           set({ currentStep: currentStep - 1 })
         }
       },
 
       goToStep: (step: number) => {
-        const { totalSteps } = get()
+        const { totalSteps, signatureStatus } = get()
+        if (signatureStatus === 'signed') return
         if (step >= 1 && step <= totalSteps) {
           set({ currentStep: step })
         }
@@ -463,14 +527,26 @@ export const useSolarAboCalculatorStore = create<
 
       getAnnualProduction: () => {
         const segments = get().getSelectedSegments()
-        return segments.reduce((sum, s) => sum + s.electricityYield, 0)
+        const fullSegmentYield = segments.reduce(
+          (sum, s) => sum + s.electricityYield,
+          0,
+        )
+        const fraction =
+          get().getRoofType() === 'flat'
+            ? USABLE_ROOF_FRACTION_FLAT
+            : USABLE_ROOF_FRACTION_PITCHED
+        return fullSegmentYield * fraction
       },
 
       getEstimatedPanelCount: () => {
         const selectedArea = get().getSelectedArea()
         if (selectedArea === 0) return 0
         const panelArea = get().selectedPanelAreaM2 || AVG_PANEL_AREA
-        return Math.floor(selectedArea * USABLE_ROOF_FRACTION / panelArea)
+        const fraction =
+          get().getRoofType() === 'flat'
+            ? USABLE_ROOF_FRACTION_FLAT
+            : USABLE_ROOF_FRACTION_PITCHED
+        return Math.floor((selectedArea * fraction) / panelArea)
       },
 
       getSystemSizeKwp: () => {
@@ -507,9 +583,31 @@ export const useSolarAboCalculatorStore = create<
 
       getAnnualSavings: () => {
         const production = get().getAnnualProduction()
+        const consumption = get().getEstimatedConsumption()
         const selfConsumptionRate = get().getSelfConsumptionRate()
-        const selfConsumedKwh = production * selfConsumptionRate
-        return selfConsumedKwh * ELECTRICITY_PRICE
+        const selfConsumedKwh = Math.min(
+          production * selfConsumptionRate,
+          consumption,
+        )
+        const selfConsumptionSavings = selfConsumedKwh * ELECTRICITY_PRICE
+        const exportedKwh = Math.max(0, production - selfConsumedKwh)
+        const feedInRevenue = exportedKwh * FEED_IN_TARIFF
+        return selfConsumptionSavings + feedInRevenue
+      },
+
+      getAnnualPpaSavings: () => {
+        const production = get().getAnnualProduction()
+        const consumption = get().getEstimatedConsumption()
+        const selfConsumptionRate = get().getSelfConsumptionRate()
+        const selfConsumedKwh = Math.min(
+          production * selfConsumptionRate,
+          consumption,
+        )
+        const discountPct =
+          get().selectedPackageElectricitySavingsPercent ??
+          DEFAULT_PPA_DISCOUNT_PCT
+        const discountFraction = discountPct / 100
+        return selfConsumedKwh * ELECTRICITY_PRICE * discountFraction
       },
 
       getCo2Savings: () => {
@@ -523,16 +621,28 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getRecommendedPackage: (): SolarAboPackage => {
+        const code = get().selectedPackageCode
+        if (code === 'multi') return 'multi'
         return 'home'
       },
 
-      setSelectedPackage: (id: string, code: string, pricePerKwp: number | null, panelWattageW?: number | null, panelAreaM2?: number | null) => {
+      setSelectedPackage: (
+        id: string,
+        code: string,
+        pricePerKwp: number | null,
+        panelWattageW?: number | null,
+        panelAreaM2?: number | null,
+        electricitySavingsPercent?: number | null,
+        contractTermYears?: number | null,
+      ) => {
         set({
           selectedPackageId: id,
           selectedPackageCode: code,
           selectedPackagePricePerKwp: pricePerKwp,
           selectedPanelWattageW: panelWattageW ?? null,
           selectedPanelAreaM2: panelAreaM2 ?? null,
+          selectedPackageElectricitySavingsPercent: electricitySavingsPercent ?? null,
+          selectedPackageContractTermYears: contractTermYears ?? null,
         })
       },
 
@@ -627,6 +737,14 @@ export const useSolarAboCalculatorStore = create<
         set({ isSubmitting: true, submissionError: null })
 
         try {
+          const isSolarFree = state.solarModel === 'solar-free'
+          const annualSavingsForRecord = isSolarFree
+            ? state.getAnnualPpaSavings()
+            : state.getAnnualSavings()
+          const ppaDiscountPercent = isSolarFree
+            ? (state.selectedPackageElectricitySavingsPercent ?? DEFAULT_PPA_DISCOUNT_PCT)
+            : null
+
           const response = await residentialCalculatorService.createAccount({
             contact: {
               salutation: state.contact.salutation || 'mr',
@@ -635,6 +753,12 @@ export const useSolarAboCalculatorStore = create<
               email: state.contact.email,
               phone: state.contact.phoneNumber,
               remarks: state.contact.remarks,
+              country: state.contact.country,
+              postalCode: state.contact.postalCode,
+              city: state.contact.city,
+              street: state.contact.street,
+              streetNumber: state.contact.streetNumber,
+              addressAdditional: state.contact.addressAdditional,
             },
             calculation: {
               address: state.address,
@@ -649,10 +773,12 @@ export const useSolarAboCalculatorStore = create<
               estimatedProduction: state.getAnnualProduction(),
               estimatedConsumption: state.getEstimatedConsumption(),
               selfConsumptionRate: state.getSelfConsumptionRate(),
-              annualSavings: state.getAnnualSavings(),
+              annualSavings: annualSavingsForRecord,
               co2Savings: state.getCo2Savings(),
               systemSizeKwp: state.getSystemSizeKwp(),
               recommendedPackage: state.getRecommendedPackage(),
+              solarModel: state.solarModel ?? 'solar-direct',
+              ppaDiscountPercent,
             },
             consents: state.consents,
           })
@@ -788,7 +914,6 @@ export const useSolarAboCalculatorStore = create<
       storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
         solarModel: state.solarModel,
-        currentStep: state.currentStep,
         buildingType: state.buildingType,
         householdSize: state.householdSize,
         devices: state.devices,
@@ -807,6 +932,8 @@ export const useSolarAboCalculatorStore = create<
         selectedPackageId: state.selectedPackageId,
         selectedPackageCode: state.selectedPackageCode,
         selectedPackagePricePerKwp: state.selectedPackagePricePerKwp,
+        selectedPackageElectricitySavingsPercent: state.selectedPackageElectricitySavingsPercent,
+        selectedPackageContractTermYears: state.selectedPackageContractTermYears,
         selectedPanelWattageW: state.selectedPanelWattageW,
         selectedPanelAreaM2: state.selectedPanelAreaM2,
         selectedSolarPanelId: state.selectedSolarPanelId,

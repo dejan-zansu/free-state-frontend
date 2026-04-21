@@ -1,4 +1,5 @@
 import api from '@/lib/api'
+import type { SolarModel } from '@/stores/solar-abo-calculator.store'
 
 export interface ReportParams {
   // Location
@@ -59,24 +60,34 @@ export interface SonnendachReportParams {
   orientation: number
   tilt: number
 
-  // PVGIS results
+  // PVGIS / Sonnendach results
   yearlyProduction: number
   monthlyProduction: number[]
   dailyAverage: number
   co2Reduction: number
 
-  // Financial data
-  panelCost: number
-  inverterCost: number
-  installationCost: number
-  totalInvestment: number
-  vatRate: number
-  subsidies: number
-  netInvestment: number
+  // Solar model routing (defaults server-side to 'solar-direct' for backward compat)
+  solarModel?: SolarModel
+
+  // Ownership financial fields — required only when solarModel === 'solar-direct'
+  panelCost?: number
+  inverterCost?: number
+  installationCost?: number
+  totalInvestment?: number
+  vatRate?: number
+  subsidies?: number
+  netInvestment?: number
+  totalSavings?: number
+  netYield?: number
+  paybackYears?: number
+  taxSavings?: number
+
+  // Semantic-aware: ownership savings for solar-direct, PPA savings for solar-free
   annualSavings: number
-  totalSavings: number
-  netYield: number
-  paybackYears: number
+
+  // PPA-specific — required only when solarModel === 'solar-free'
+  ppaDiscountPercent?: number | null
+  contractTermYears?: number | null
 
   // Tariffs
   electricityTariff: number
@@ -86,7 +97,6 @@ export interface SonnendachReportParams {
 
   // Equipment
   equipment?: Array<{ type: string; name: string; quantity: number }>
-  taxSavings?: number
   householdSize?: number
 
   // Report settings

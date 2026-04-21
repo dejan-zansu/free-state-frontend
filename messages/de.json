@@ -1,5 +1,17 @@
 {
   "title": "Free State AG",
+  "apiErrors": {
+    "USER_EXISTS": "Ein Benutzer mit dieser E-Mail-Adresse existiert bereits.",
+    "INVALID_CREDENTIALS": "Ungültige E-Mail-Adresse oder Passwort.",
+    "ACCOUNT_SUSPENDED": "Ihr Konto wurde gesperrt.",
+    "ACCOUNT_INACTIVE": "Ihr Konto ist inaktiv.",
+    "INVALID_TOKEN": "Ungültiger oder abgelaufener Token.",
+    "TOKEN_EXPIRED": "Ihre Sitzung ist abgelaufen. Bitte versuchen Sie es erneut.",
+    "INVALID_PASSWORD": "Das aktuelle Passwort ist falsch.",
+    "loginFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "registerFailed": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+    "unknown": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+  },
   "header": {
     "logoAlt": "Free State AG Logo",
     "contact": "Kontakt",
@@ -30,6 +42,7 @@
       "batteryStorage": "Batteriespeicher",
       "heatPumps": "Wärmepumpen",
       "chargingStations": "Ladestationen",
+      "energyStorage": "Energiespeicher",
       "energyManagement": "Energiemanagement"
     },
     "company": {
@@ -62,19 +75,20 @@
     "badge": "Kontakt aufnehmen",
     "title": "Lassen Sie uns sprechen",
     "subtitle": "Ob Frage, Projektanfrage oder Beratung – wir freuen uns auf Ihre Nachricht und melden uns zeitnah bei Ihnen.",
-    "cta": "Kontakt aufnehmen\u200a\u200a",
+    "cta": "Kontakt aufnehmen  ",
     "phoneTel": "tel:+41525253305"
   },
   "contactCTA": {
-    "eyebrow": "Beratung & Offerte",
-    "title": "Wünschen Sie eine Beratung oder eine Richtofferte?",
-    "description": "Sie möchten eine Beratung zu Photovoltaik, Wärmepumpen oder Elektromobilität? Nutzen Sie unseren Offertenrechner und erhalten Sie in wenigen Minuten eine passende Lösung mit konkreter Offerte.",
-    "cta": "Onlinerechner starten"
+    "eyebrow": "Kostenlose Beratung",
+    "title": "Wir sprechen, wenn es Ihnen passt",
+    "description": "Reservieren Sie einen 30-minütigen Termin mit einem unserer Berater und erhalten Sie persönliche Antworten zu Photovoltaik, Wärmepumpen oder Elektromobilität – unverbindlich.",
+    "cta": "Termin buchen"
   },
   "contactMap": {
     "address": "Adresse",
     "contact": "Kontakt",
-    "email": "E-Mail"
+    "email": "E-Mail",
+    "phone": "Telefon"
   },
   "contactValues": {
     "title": "Unsere Werte",
@@ -151,7 +165,7 @@
         {
           "icon": "/images/hero-pill-investition.svg",
           "title": "0 CHF INVESTITION",
-          "subtitle": "Sie zahlen nichts upfront"
+          "subtitle": "Sie zahlen nichts im Voraus"
         },
         {
           "icon": "/images/hero-pill-fixpreis.svg",
@@ -173,7 +187,7 @@
         {
           "icon": "/images/hero-pill-commercial-investition.svg",
           "title": "0 CHF INVESTITION",
-          "subtitle": "Sie zahlen nichts upfront"
+          "subtitle": "Sie zahlen nichts im Voraus"
         },
         {
           "icon": "/images/hero-pill-commercial-fixpreis.svg",
@@ -193,17 +207,22 @@
       ],
       "cta": {
         "primary": "Jetzt starten",
-        "secondary": "Kalkulator"
+        "secondary": "Kalkulator",
+        "schedule": "Termin vereinbaren"
       },
       "nav": {
         "solarAbo": "SolarFree",
+        "plansPrices": "Pläne & Preise",
+        "ourPackages": "Unsere Pakete",
+        "solarFree": "SolarFree",
+        "solarDirect": "SolarDirect",
         "products": "Produkte",
-        "onlineStarter": "Online Starter",
+        "onlineStarter": "Onlinerechner Starten",
         "solarAboHome": "SolarFree Home",
-        "solarAboMulti": "SolarFree Multi",
-        "solarAboBusiness": "SolarFree Business",
-        "solarAboAgro": "SolarFree Agro",
-        "solarAboPublic": "SolarFree Public Facilities",
+        "solarAboMulti": "SolarFree Mehrfamilienhaus",
+        "solarAboBusiness": "Industrie / Gewerbe",
+        "solarAboAgro": "Bauernhäuser",
+        "solarAboPublic": "öffentliche Gebäude",
         "howItWorks": "Funktionsweise",
         "cost": "Kosten",
         "amortization": "Amortisation",
@@ -248,7 +267,7 @@
         "includedTitle": "Was ist enthalten?",
         "included": [
           "Planbare Stromkosten",
-          "Bis zu 30 % günstigere Stromtarife",
+          "Bis zu 20–40 % günstigere Stromtarife",
           "Schutz vor steigenden Energiepreisen",
           "24/7 Überwachung & Monitoring",
           "Versicherung der gesamten Anlage",
@@ -313,7 +332,7 @@
       "eyebrow": "Kundenstimmen",
       "title": "Das sagen unsere Kunden",
       "subtitle": "Echte Erfahrungen mit FreeState – transparent, persönlich und nachvollziehbar.",
-      "verifiedOwner": "verified owner",
+      "verifiedOwner": "Verifizierter Kunde",
       "stats": {
         "savings": "Jährliche Kostenersparnis",
         "installTime": "von Anfrage bis Installation",
@@ -406,7 +425,7 @@
       ],
       "items": [
         {
-          "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmäßigen Wartung. Dank dieser Maßnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
+          "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmässigen Wartung. Dank dieser Massnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
           "authorName": "Rivero Pineda Leonardo"
         },
         {
@@ -485,12 +504,12 @@
           "description": "Solarfinanzierung mit vorhersehbaren, erschwinglichen Raten und gesicherten Konditionen"
         },
         {
-          "title": "25-jährige Ausrüstungsgarantie",
+          "title": "35-jährige Ausrüstungsgarantie",
           "description": "Branchenführende Garantie für ein erstklassiges Solarpanel- und Batteriespeichersystem"
         },
         {
           "title": "Kostenlose Wartung und Reparaturen",
-          "description": "25 Jahre kostenlose Wartung und Reparaturen für völlige Sicherheit"
+          "description": "35 Jahre kostenlose Wartung und Reparaturen für völlige Sicherheit"
         },
         {
           "title": "Unvergleichliche Solar- und Batterieerfahrung zu Hause",
@@ -505,7 +524,7 @@
     },
     "deals": {
       "title": "Aktuelle Deals",
-      "subtitle": "Mit lebenslangem vorteil",
+      "subtitle": "Mit lebenslangem Vorteil",
       "learnMore": "Produktdetails",
       "from": "ab",
       "month": "/ Monat",
@@ -514,11 +533,11 @@
         {
           "title": "SolarFree Home Storage",
           "subtitle": "Einfamilienhaus mit Batteriespeicher",
-          "feature1": "PV Anlage + 10 kWh Batterie (LFP-Technologie)",
+          "feature1": "PV-Anlage + 10 kWh Batterie (LFP-Technologie)",
           "feature2": "80 % Eigenverbrauch, volle Unabhängigkeit",
           "feature3": "App-basierte Steuerung und Energieanalyse",
           "feature4": "Dachnutzungs- und Rückkaufvertrag inklusive",
-          "term": "Laufzeit 35 Jahre – Anlage geht danach in dein Eigentum über",
+          "term": "Laufzeit 35 Jahre – Anlage geht danach in Ihr Eigentum über",
           "price": "Einmalig CHF 2 500",
           "benefit1": "EINMALIG CHF 2 500 – statt CHF 35 000 Investition",
           "benefit2": "Strompreis bis 40 % unter EVU-Tarif",
@@ -529,13 +548,13 @@
           }
         },
         {
-          "title": "SolarFree Business",
+          "title": "Industrie / Gewerbe",
           "subtitle": "Für Gewerbe und Industrie",
           "feature1": "Leistung 100–1 000 kWp auf Dach oder Fassade",
           "feature2": "Fixpreis 0.18 CHF/kWh (inkl. Wartung und Versicherung)",
           "feature3": "Option: Batteriespeicher & Ladeinfrastruktur",
           "feature4": "Langfristige Energiepreis-Stabilität & ESG-Vorteile",
-          "term": "Vertragsdauer 20–25 Jahre mit Rückkaufoption",
+          "term": "Vertragsdauer 35 Jahre mit Rückkaufoption",
           "price": "Individuelle Preisgestaltung",
           "benefit1": "0 CHF Investition – statt CHF 250 000 CAPEX",
           "benefit2": "Fixpreis für langfristige Planung",
@@ -546,9 +565,9 @@
           }
         },
         {
-          "title": "SolarFree Agro",
+          "title": "Bauernhäuser",
           "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
-          "feature1": "PV Anlage bis 500 kWp für Hallen und Ställe",
+          "feature1": "PV-Anlage bis 500 kWp für Hallen und Ställe",
           "feature2": "Stromkostenreduktion bis 40 %",
           "feature3": "Optional mit Speicher und Wärmepumpen-Anbindung",
           "feature4": "Dachnutzungsvertrag mit Service-Garantie",
@@ -559,11 +578,11 @@
           "benefit3": "Service-Garantie inklusive",
           "explanation": {
             "label": "Einfach erklärt:",
-            "text": "Maßgeschneiderte Solarlösung für landwirtschaftliche Betriebe: Optimieren Sie Ihre Energiekosten bei voller operativer Flexibilität."
+            "text": "Massgeschneiderte Solarlösung für landwirtschaftliche Betriebe: Optimieren Sie Ihre Energiekosten bei voller operativer Flexibilität."
           }
         },
         {
-          "title": "SolarFree Multi",
+          "title": "SolarFree Mehrfamilienhaus",
           "subtitle": "Für Mehrfamilienhäuser (ZEV-Modell)",
           "feature1": "Eine Anlage, Strom für alle Bewohner",
           "feature2": "Zentrale Abrechnung über Free State ZEV-System",
@@ -571,7 +590,7 @@
           "feature4": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
           "term": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
           "price": "Individuelle Preisgestaltung",
-          "benefit1": "0 CHF Investition, Strompreis –30 % vs. Netz",
+          "benefit1": "0 CHF Investition, Strompreis –20–40 % vs. Netz",
           "benefit2": "Zentrale Abrechnung für alle Bewohner",
           "benefit3": "Optional Speicher und Ladeinfrastruktur",
           "explanation": {
@@ -603,7 +622,7 @@
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
       "item1": {
         "title": "Bauernhof Thun",
-        "details": "30 % Kosteneinsparung •\n250 kWp Anlage"
+        "details": "20–40 % Kosteneinsparung •\n250 kWp Anlage"
       },
       "item2": {
         "title": "Industriegebäude Zürich",
@@ -613,7 +632,7 @@
         "title": "Industriegebäude Chur",
         "details": "Eigenverbrauch: 75 % • 180 kWp"
       },
-      "learnMore": "Mehr Erfahren"
+      "learnMore": "Mehr erfahren"
     },
     "forBusinesses": {
       "badge": {
@@ -635,7 +654,7 @@
     },
     "yourPartner": {
       "title": "Ihr Partner",
-      "subtitle": "Smart solar solutions for businesses.",
+      "subtitle": "Intelligente Solarlösungen für Unternehmen.",
       "cta": "Jetzt starten",
       "learnMore": "Mehr erfahren",
       "items": {
@@ -648,7 +667,7 @@
           "description": "Bis zu 30–40 % Einsparung – langfristig und planbar."
         },
         "item3": {
-          "title": "CO₂-Fußabdruck senken",
+          "title": "CO₂-Fussabdruck senken",
           "description": "Bis zu 12 t CO₂ pro Jahr – für Ihr Unternehmen."
         }
       }
@@ -664,22 +683,54 @@
       }
     }
   },
-  "solarAboHome": {
+  "solarFreeHome": {
     "hero": {
-      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-      "title": "SolarFree Home",
-      "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher",
+      "eyebrow": "Solarmodule kaufen",
+      "title": "SolarFree",
+      "subtitle": "Modernste Solar- und Batteriespeichertechnik mit dem Solarleasing von FreeState AG – ohne Anschaffungskosten.",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringerer\nStrompreis"
+          "electricity": "Bis zu 30 % tiefere\nStromkosten"
         },
         "right": {
-          "maintenance": "Wartung\ninklusive",
+          "maintenance": "Mehr Eigenverbrauch\nmit Batteriespeicher",
           "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
         }
+      }
+    }
+  },
+  "solarAboHome": {
+    "hero": {
+      "eyebrow": "Solarmodule kaufen",
+      "title": "SolarDirect",
+      "subtitle": "Sichern Sie sich eine besser planbare Energiezukunft mit einer einmaligen Zahlung.",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "Einmalige Investition\nab 10'000 CHF",
+          "electricity": "Bis zu 20–40 % tiefere\nStromkosten"
+        },
+        "right": {
+          "maintenance": "Amortisation ab\n5 Jahren möglich",
+          "reduction": "25+ Jahre garantierte\nStromproduktion"
+        }
+      }
+    },
+    "details": {
+      "eyebrow": "Details",
+      "title": "Was im SolarFree enthalten ist",
+      "subtitle": "Alle Leistungen und Komponenten für eine zuverlässige Energieversorgung – ohne Anschaffungskosten.",
+      "solarModules": {
+        "title": "Hochwertige Solarmodule",
+        "description": "Hocheffiziente Solarmodule für maximale Energiegewinnung – langlebig und widerstandsfähig."
+      },
+      "batteryStorage": {
+        "title": "Leistungsstarker Batteriespeicher",
+        "description": "Zuverlässige Energie, wenn Sie sie brauchen – als Backup oder zur Optimierung des Eigenverbrauchs."
       }
     },
     "includes": {
@@ -709,6 +760,59 @@
         "batteryStorage": {
           "title": "Batteriespeicher",
           "subtitle": "Eigenverbrauch"
+        }
+      }
+    },
+    "service": {
+      "title": "Service für Solaranlagen",
+      "subtitle": "Kompletter Service für einen sicheren und effizienten Betrieb Ihrer Solaranlage.",
+      "warranty": {
+        "title": "35 Jahre\nGarantie",
+        "description": "Vollständige Abdeckung für Reparatur & Austausch."
+      },
+      "installation": {
+        "title": "Erfahrene Installation",
+        "description": "Bewährt bei über 1 Mio. Haushalten."
+      },
+      "support": {
+        "title": "Support rund\num die Uhr",
+        "description": "24/7 Betreuung & Systemüberwachung."
+      }
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "items": {
+        "1": {
+          "question": "Wie funktioniert der Besitz einer Solaranlage?",
+          "answer": "Sie kaufen die Anlage und profitieren zu 100 % vom erzeugten Strom. Alle Ersparnisse und Einspeisevergütungen gehören Ihnen, und die Anlage ist von Tag eins Ihr Eigentum."
+        },
+        "2": {
+          "question": "Vorteile beim Kauf einer Solaranlage?",
+          "answer": "Langfristige Kostenersparnis, Energieunabhängigkeit, höherer Immobilienwert und volle Kontrolle – mit einer Amortisation meist in 5–10 Jahren."
+        },
+        "3": {
+          "question": "Kann ich Solarmodule selbst kaufen?",
+          "answer": "Ja, aber professionelle Installation, Netzanschluss und Bewilligungen sind weiterhin nötig. Unser schlüsselfertiges SolarDirect-Paket übernimmt das alles für Sie."
+        },
+        "4": {
+          "question": "Leasing oder Kauf – was ist besser?",
+          "answer": "Der Kauf bietet die niedrigsten Gesamtkosten und vollen Besitz. Beim Leasing (wie SolarFree) entfällt die Anfangsinvestition. Die richtige Wahl hängt von Ihrer Liquidität und Ihren langfristigen Zielen ab."
+        },
+        "5": {
+          "question": "Was passiert bei einem Defekt der Anlage?",
+          "answer": "Solarmodule haben eine Leistungsgarantie von 25+ Jahren, Wechselrichter sind meist 10+ Jahre abgedeckt. Reparaturen und Austausch innerhalb der Garantiezeit übernehmen wir."
+        },
+        "6": {
+          "question": "Vor- und Nachteile der Eigeninstallation?",
+          "answer": "Eigeninstallation kann Anschaffungskosten senken, erfordert jedoch Bewilligungen, Sicherheitskenntnisse und einen zertifizierten Netzanschluss. Ohne professionelle Installation riskieren Sie Garantieverlust und Sicherheitsprobleme."
+        },
+        "7": {
+          "question": "Bleiben Stromkosten mit Solaranlage?",
+          "answer": "Eine Grundgebühr für den Netzanschluss bleibt, ebenso der Strombezug bei Nacht oder Bewölkung. Die Gesamtkosten sinken jedoch deutlich."
+        },
+        "8": {
+          "question": "Was passiert bei Stromüberschuss?",
+          "answer": "Überschüssiger Strom wird ins Netz eingespeist und vergütet. Optional kann ein Batteriespeicher den Überschuss für den späteren Eigenverbrauch speichern."
         }
       }
     },
@@ -762,7 +866,7 @@
     },
     "cta": {
       "topButton": "Prüfen Sie, ob SolarFree Home Storage zu Ihrem Dach passt",
-      "heading": "Prüfen Sie, ob SolarFree Home Storage zu Ihrem Dach passt",
+      "heading": "Prüfen Sie das Solarpotenzial Ihres Dachs",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
@@ -770,14 +874,14 @@
   "solarAboMulti": {
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-      "title": "SolarFree Multi",
+      "title": "SolarFree Mehrfamilienhaus",
       "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringerer\nStrompreis"
+          "electricity": "Bis zu 20–40 % geringerer\nStrompreis"
         },
         "right": {
           "maintenance": "Wartung\ninklusive",
@@ -787,7 +891,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Multi",
+      "subtitle": "In SolarFree Mehrfamilienhaus",
       "items": {
         "solarModules": {
           "title": "Gemeinsames Solarsystem",
@@ -816,7 +920,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Multi",
+      "title": "So funktioniert SolarFree Mehrfamilienhaus",
       "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -825,6 +929,29 @@
         "step4": "Sie zahlen\nmonatlich",
         "step5": "Die Anlage wird Ihr Eigentum"
       }
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "Solar für Ihr Mehrfamilienhaus – ohne Investition\n\nSenken Sie die Energiekosten im Gebäude – ganz ohne eigene Investition. Wir realisieren die Photovoltaikanlage auf Ihrem Dach, vollständig finanziert, installiert und betrieben durch uns.\n\nFür Sie und alle Bewohner bedeutet das:\ngünstigere Stromkosten\nstabile Energiepreise\nnachhaltige Wertsteigerung der Immobilie"
+      },
+      "row2": {
+        "title": "Wie funktioniert",
+        "description": "So funktioniert es\nSie stellen den Kontakt her. Wir prüfen kostenlos und übernehmen Umsetzung & Betrieb. Der Strom bleibt im Gebäude.\n\nIhre Vorteile\nKeine Investition, günstiger Strom, mehr Wert.\n\nWarum lohnt es sich\nUngenutzte Dächer + steigende Preise\n→ Ihr Gebäude wird zum Produzenten."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "Mit sauberer, zuverlässiger Energie",
+      "body": "Jetzt unverbindlich prüfen lassen\n\nTransformieren Sie Ihr Mehrfamilienhaus ohne finanzielles Risiko in ein modernes Energieprojekt. Empfehlen Sie uns Ihrer Verwaltung oder Eigentümergemeinschaft – wir prüfen alles und übernehmen die komplette Umsetzung.\n\nWir analysieren Gebäude und Dachpotenzial, berechnen die Wirtschaftlichkeit und entwickeln ein konkretes Umsetzungskonzept inklusive aller technischen und rechtlichen Aspekte (ZEV). Finanzierung, Planung und Realisierung übernehmen wir vollständig.\n\nIhr Aufwand bleibt minimal: Sie stellen den Erstkontakt her, wir koordinieren alles Weitere. Sie profitieren von günstigem Solarstrom, stabilen Energiekosten und einer nachhaltigen Wertsteigerung Ihrer Immobilie. Starten Sie jetzt unverbindlich und kostenlos und erhalten Sie eine fundierte Einschätzung des Potenzials – Kostenlose Analyse anfordern"
+    },
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
     },
     "pricing": {
       "title": "Preis & Vertrag",
@@ -864,16 +991,39 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
-      "heading": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
+      "topButton": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
+      "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
   },
   "solarAboBusiness": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      },
+      "row2": {
+        "title": "Wie funktioniert",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energie für Ihren Betrieb",
+      "subtitle": "Sauber, planbar, ohne Investition",
+      "body": "Lassen Sie ungenutzte Dachflächen Ihres Industrie- oder Gewerbebetriebs arbeiten – ohne Kapitaleinsatz. Wir prüfen Gebäude, Stromprofil und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Installation und Betrieb. Sie profitieren von stabilen Strompreisen, ESG-Vorteilen und messbarer CO₂-Reduktion – ohne operative Belastung für Ihr Team. Jetzt kostenlose Analyse anfordern."
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. ESG-Vorteile.",
-      "title": "SolarFree Business",
+      "title": "Industrie / Gewerbe",
       "subtitle": "Für Gewerbe- und Industriegebäude",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
@@ -890,7 +1040,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Business",
+      "subtitle": "In Industrie / Gewerbe",
       "items": {
         "solarModules": {
           "title": "Gewerbliche PV-Anlage",
@@ -919,7 +1069,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Business",
+      "title": "So funktioniert Industrie / Gewerbe",
       "subtitle": "Einfach, transparent und sorgenfrei – Energiekostenreduktion für Ihr Unternehmen.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -947,7 +1097,7 @@
         "label": "Preis pro\nkWh in CHF",
         "value": "ab CHF 0.18"
       },
-      "solarAboPrice": "Mit SolarFree Business",
+      "solarAboPrice": "Mit Industrie / Gewerbe",
       "orderNow": "JETZT BESTELLEN",
       "orderLink": "/commercial/calculator"
     },
@@ -967,16 +1117,39 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Business zu Ihrem Gebäude passt",
-      "heading": "Prüfen Sie, ob SolarFree Business zu Ihrem Gebäude passt",
+      "topButton": "Prüfen Sie, ob Industrie / Gewerbe zu Ihrem Gebäude passt",
+      "heading": "Prüfen Sie, ob Industrie / Gewerbe zu Ihrem Gebäude passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
   },
   "solarAboAgro": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      },
+      "row2": {
+        "title": "Wie funktioniert",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      }
+    },
+    "publicSpaces": {
+      "title": "Energie für Ihren Hof",
+      "subtitle": "Grosse Dächer, grosses Potenzial",
+      "body": "Landwirtschaftsbetriebe haben oft die grössten ungenutzten Dachflächen der Region. Wir prüfen kostenlos, wie sich Ihr Scheunen- oder Stalldach in eine PV-Anlage verwandeln lässt – ohne Investition Ihrerseits. Finanzierung, Bau und Betrieb übernehmen wir. Sie erhalten günstigen Strom für Hof und Betrieb, eine jährliche Dachpacht und ein zusätzliches Standbein. Jetzt unverbindlich Potenzial prüfen lassen."
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Zuverlässiger Service.",
-      "title": "SolarFree Agro",
+      "title": "Bauernhäuser",
       "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
@@ -993,7 +1166,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Agro",
+      "subtitle": "In Bauernhäuser",
       "items": {
         "solarModules": {
           "title": "Landwirtschaftliche PV-Anlage",
@@ -1022,7 +1195,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Agro",
+      "title": "So funktioniert Bauernhäuser",
       "subtitle": "Einfach, transparent und sorgenfrei – massgeschneidert für landwirtschaftliche Betriebe.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -1050,7 +1223,7 @@
         "label": "Preis pro\nm² in CHF",
         "value": "individuelle Preisgestaltung"
       },
-      "solarAboPrice": "Mit SolarFree Agro",
+      "solarAboPrice": "Mit Bauernhäuser",
       "orderNow": "JETZT BESTELLEN",
       "orderLink": "/commercial/calculator"
     },
@@ -1070,23 +1243,42 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Agro zu Ihrem Hof passt",
-      "heading": "Prüfen Sie, ob SolarFree Agro zu Ihrem Hof passt",
+      "topButton": "Prüfen Sie, ob Bauernhäuser zu Ihrem Hof passt",
+      "heading": "Prüfen Sie, ob Bauernhäuser zu Ihrem Hof passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
   },
   "solarAboPublic": {
+    "contactPerson": {
+      "name": "Peter Aragai",
+      "role": "Executive Manager / Verkaufsleiter",
+      "phone": "078 608 88 50",
+      "phoneHref": "+41786088850",
+      "email": "peter.aragai@freestate.ch",
+      "cta": "Kontakt"
+    },
+    "howPV": {
+      "row1": {
+        "title": "Wie funktioniert PV",
+        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanzieren und betreiben wir von enalpin die Anlage – gebaut wird sie von unserer Schwesterfirma, den Solarpionieren von tritec. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
+      }
+    },
+    "publicSpaces": {
+      "title": "Powering Public Spaces",
+      "subtitle": "Mit sauberer, zuverlässiger Energie",
+      "body": "Schulen, Verwaltungsgebäude und öffentliche Liegenschaften tragen Verantwortung für die Energiewende – ohne dass Budgets belastet werden müssen. Wir prüfen Potenzial und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Bau und Betrieb der Anlage. Die Gemeinde profitiert von stabilen Energiekosten, einem sichtbaren Nachhaltigkeitsbeitrag und einer Vorbildfunktion – ohne einen Franken vorzustrecken. Jetzt unverbindlich Analyse anfordern."
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Nachhaltiges Vorbild.",
-      "title": "SolarFree Public",
+      "title": "öffentliche Gebäude",
       "subtitle": "Für Schulen, Spitäler und Gemeindegebäude",
       "cta": "Solarrechner starten",
       "tag": "Keine Registrierung nötig · Unverbindlich",
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringere\nStromkosten"
+          "electricity": "Bis zu 20–40 % geringere\nStromkosten"
         },
         "right": {
           "maintenance": "Wartung\ninklusive",
@@ -1096,7 +1288,7 @@
     },
     "includes": {
       "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Public",
+      "subtitle": "In öffentliche Gebäude",
       "items": {
         "solarModules": {
           "title": "PV-Anlage für öffentliche Gebäude",
@@ -1125,7 +1317,7 @@
       }
     },
     "howItWorks": {
-      "title": "So funktioniert SolarFree Public",
+      "title": "So funktioniert öffentliche Gebäude",
       "subtitle": "Einfach, transparent und sorgenfrei – ein nachhaltiges Vorbild für Ihre Gemeinde.",
       "steps": {
         "step1": "Sie stellen das Dach",
@@ -1153,7 +1345,7 @@
         "label": "Preis pro\nm² in CHF",
         "value": "individuelle Preisgestaltung"
       },
-      "solarAboPrice": "Mit SolarFree Public",
+      "solarAboPrice": "Mit öffentliche Gebäude",
       "orderNow": "JETZT BESTELLEN",
       "orderLink": "/commercial/calculator"
     },
@@ -1173,8 +1365,8 @@
       }
     },
     "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Public zu Ihrem Gebäude passt",
-      "heading": "Prüfen Sie, ob SolarFree Public zu Ihrem Gebäude passt",
+      "topButton": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
+      "heading": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator"
     }
@@ -1194,6 +1386,42 @@
     "address": {
       "label": "Adresse",
       "value": "Free State AG\nSchweiz"
+    }
+  },
+  "quoteRequestForm": {
+    "eyebrow": "Energiekosten",
+    "title": "Energiekosten kontrollieren",
+    "subtitle": "Behalten Sie Verbrauch und Kosten im Griff – mit einem effizienten, planbaren Energiesystem.",
+    "formTitle": "Kostenloses Angebot",
+    "requiredHint": "Alle Felder sind erforderlich.",
+    "firstName": "Vorname",
+    "lastName": "Nachname",
+    "email": "E-Mail",
+    "postalCode": "Postleitzahl",
+    "phone": "Telefon",
+    "placeholders": {
+      "firstName": "Max",
+      "lastName": "Muster",
+      "email": "max.muster@beispiel.ch",
+      "postalCode": "8001",
+      "phone": "+41 79 123 45 67"
+    },
+    "ownsHomeQuestion": "Besitzen Sie Ihr Eigenheim?",
+    "yes": "Ja",
+    "no": "Nein",
+    "consent": "Mit Klick auf die Schaltfläche unten erklären Sie sich damit einverstanden, dass Free State AG Sie unter der von Ihnen angegebenen Telefonnummer kontaktieren sowie automatisierte Anrufe und Nachrichten zu Produkten und Dienstleistungen senden darf – auch wenn Ihre Nummer in einer „Do Not Call“-Liste eingetragen ist. Es können Gebühren für Nachrichten und Daten anfallen. Maximal 10 Nachrichten pro Monat. Die Einwilligung ist freiwillig und kann jederzeit widerrufen werden. Sie stimmen außerdem unseren Nutzungsbedingungen zu.",
+    "submit": "Absenden",
+    "successTitle": "Vielen Dank!",
+    "successMessage": "Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.",
+    "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "errors": {
+      "firstName": "Vorname ist erforderlich",
+      "lastName": "Nachname ist erforderlich",
+      "email": "E-Mail ist erforderlich",
+      "emailInvalid": "Bitte eine gültige E-Mail eingeben",
+      "postalCode": "Postleitzahl ist erforderlich",
+      "phone": "Telefon ist erforderlich",
+      "ownsHome": "Bitte eine Option auswählen"
     }
   },
   "contactForm": {
@@ -1235,7 +1463,7 @@
       "label": "Konkrete Beschreibung der Anfrage"
     },
     "privacy": "Infos zu Produkten und Datenschutz in unseren Datenschutzbestimmungen.",
-    "submit": "Submit",
+    "submit": "Senden",
     "successTitle": "Nachricht gesendet",
     "successMessage": "Vielen Dank für Ihre Nachricht. Wir werden uns in Kürze bei Ihnen melden.",
     "errorMessage": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
@@ -1260,7 +1488,7 @@
       "title": "Strategie",
       "description": "Die Free State AG ist ein etablierter Produzent von Grünstrom in der Schweiz und betreibt moderne Solarkraftwerke. Mittelfristig strebt das Unternehmen an, ein vielfältiges und ausgewogenes Portfolio an erneuerbaren Energien mit einer installierten Gesamtleistung von 59 Megawatt * aufzubauen. Ziel ist es, sich als einer der führenden Betreiber von erneuerbaren Energien in der Schweiz zu positionieren.",
       "diversification": "Ein zentrales Element der Investitionsstrategie ist die Diversifikation. Sie minimiert Risiken in den Bereichen Marktbedingungen, gesetzliche Rahmenbedingungen und Verfügbarkeit der Erzeugungsarten.",
-      "future": "In Zukunft soll die Stromproduktion aus Solarenergie etwa 20–30 Prozent des Unternehmensumsatzes ausmachen. Free State AG investiert ausschließlich in Anlagen mit ausgereifter Technologie, die entweder bereits in Betrieb sind oder bei Baubeginn über eine vollständige Genehmigung verfügen. Der Verkauf von Kraftwerken ist nicht Teil des Geschäftsmodells.",
+      "future": "In Zukunft soll die Stromproduktion aus Solarenergie etwa 20–30 Prozent des Unternehmensumsatzes ausmachen. Free State AG investiert ausschliesslich in Anlagen mit ausgereifter Technologie, die entweder bereits in Betrieb sind oder bei Baubeginn über eine vollständige Genehmigung verfügen. Der Verkauf von Kraftwerken ist nicht Teil des Geschäftsmodells.",
       "synergies": "Zusätzlich zu weiteren Akquisitionen maximiert Free State die Synergien im Anlagenbetrieb, um die betriebliche Effizienz kontinuierlich zu steigern. Der Ausbau eines diversifizierten Portfolios soll nachhaltig die Umsatz- und Gewinnentwicklung fördern."
     },
     "projects": {
@@ -1333,36 +1561,61 @@
     }
   },
   "investorsPage": {
-    "title": "Für Investoren",
-    "subtitle": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+    "title": "Partnerschaften & Investoren",
+    "subtitle": "Gemeinsam mit starken Partnern und Investoren gestalten wir die Zukunft dezentraler Energielösungen.",
+    "heroCta": "Kontakt aufnehmen",
     "investing": {
       "title": "Nachhaltig investieren",
       "description": "Mit einer Investition in erneuerbare Energien setzen Sie auf eine nachhaltige und zukunftssichere Wertschöpfung. Free State AG bietet Ihnen die Möglichkeit, an Solarkraftwerken und anderen umweltfreundlichen Projekten zu partizipieren. Profitieren Sie von stabilen Renditen, einem wachsenden Markt und einem aktiven Beitrag zur Energiewende. Unsere Erfahrung und unser Fokus auf ausgereifte Technologien garantieren Ihnen Sicherheit und Erfolg – für eine grünere Zukunft."
     },
+    "partner": {
+      "eyebrow": "FreeState App",
+      "title": "Partnerschaften einfach verwalten, Chancen nutzen",
+      "bullets": {
+        "projects": "Projekte und Partnerstatus im Blick behalten",
+        "updates": "Relevante Updates und Chancen früh erkennen",
+        "collaboration": "Zusammenarbeit zentral und effizient steuern"
+      }
+    },
+    "formPanel": {
+      "eyebrow": "FreeState App",
+      "title": "Unterlagen anfordern",
+      "subtitle": "Werden Sie Frühinvestor bei FreeState AG und profitieren Sie von dem Private-Equity- und Green-Bond-Angebot."
+    },
     "form": {
-      "title": "Dokumente kostenlos bestellen",
-      "description": "Sie wollen einen positiven Beitrag zur Umwelt und Gesellschaft leisten? Fordern Sie jetzt kostenlos unsere Dokumente an und erfahren Sie, wie Sie mit nachhaltigen Energielösungen und Investitionen in erneuerbare Energien aktiv zur Energiewende beitragen können. Füllen Sie einfach das Formular aus, und wir senden Ihnen die gewünschten Unterlagen direkt zu. Nutzen Sie diese Gelegenheit, um sich umfassend zu informieren und gemeinsam mit uns eine grüne und erfolgreiche Zukunft zu gestalten!",
-      "type": "Firma oder Privat?",
-      "typePrivate": "Privat",
+      "eyebrow": "Für Investoren",
+      "title": "Unterlagen kostenlos anfordern!",
+      "entityType": "Privatperson",
+      "typePrivate": "Privatperson",
       "typeCompany": "Firma",
-      "salutation": "Anrede",
+      "salutation": "Herr",
       "salutationMr": "Herr",
       "salutationMrs": "Frau",
       "salutationDiverse": "Divers",
-      "language": "Bestellen auf:",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "address": "Adresse",
+      "postalCode": "PLZ",
+      "city": "Ort",
+      "email": "E-Mail",
+      "phone": "Telefonnummer",
+      "comment": "Kommentar",
+      "languageLabel": "Unterlagen anfordern in:",
       "languageGerman": "Deutsch",
       "languageEnglish": "Englisch",
       "languageFrench": "Französisch",
-      "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung zur Kenntnis genommen habe.",
-      "captcha": "Nicht lesbar? Neu generieren",
-      "submit": "Absenden"
+      "submit": "Anfrage senden",
+      "required": "Pflichtfeld",
+      "successTitle": "Anfrage gesendet!",
+      "successMessage": "Vielen Dank für Ihre Anfrage. Wir senden Ihnen die gewünschten Unterlagen in Kürze zu.",
+      "errorMessage": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
     },
     "faq": {
       "title": "Häufig gestellte Fragen",
       "items": {
         "invest": {
           "question": "Kann ich in die Free State Energie AG investieren?",
-          "answer": "Wenn Sie eine Person mit Wohnsitz in der Schweiz sind und sich als qualifizierter Anleger qualifizieren, indem Sie Gelder oder Kenntnisse investieren, dann ja. Jede Person mit Wohnsitz in der Schweiz, die über ein Schweizer Bankkonto verfügt und Erfahrung in der Anlagewelt hat, kann Aktien zu den offiziell festgelegten Bedingungen der Kapitalerhöhung, zeichnen."
+          "answer": "Wenn Sie eine Person mit Wohnsitz in der Schweiz sind und sich als qualifizierter Anleger qualifizieren, indem Sie Gelder oder Kenntnisse investieren, dann ja. Jede Person mit Wohnsitz in der Schweiz, die über ein Schweizer Bankkonto verfügt und Erfahrung in der Anlagewelt hat, kann Aktien zu den offiziell festgelegten Bedingungen der Kapitalerhöhung zeichnen."
         },
         "deposit": {
           "question": "Wo werden meine Aktien der Free State AG deponiert?",
@@ -1406,7 +1659,7 @@
     "step2": {
       "title": "Zeichnen Sie Ihre Dachfläche",
       "instructions": {
-        "main": "Klicken Sie auf die Karte, um den Bereich zu umreißen, in dem Sie Solarpanels installieren möchten.",
+        "main": "Klicken Sie auf die Karte, um den Bereich zu umreissen, in dem Sie Solarpanels installieren möchten.",
         "list": [
           "Zeichnen Sie die Umrisse Ihres Daches von oben gesehen",
           "Klicken Sie, um Punkte hinzuzufügen, Kantenabstände werden automatisch angezeigt",
@@ -1417,7 +1670,7 @@
       },
       "buttons": {
         "startDrawing": "Zeichnen beginnen",
-        "completePolygon": "Polygon abschließen",
+        "completePolygon": "Polygon abschliessen",
         "undoLastPoint": "Letzten Punkt rückgängig",
         "clearAll": "Alles löschen",
         "saveArea": "Bereich speichern",
@@ -1428,7 +1681,7 @@
       "keyboardShortcuts": {
         "title": "💡 Tastenkürzel:",
         "backspace": "Letzten Punkt rückgängig",
-        "enter": "Polygon abschließen",
+        "enter": "Polygon abschliessen",
         "esc": "Zeichnen abbrechen"
       },
       "autoComplete": "✓ Klicken Sie in der Nähe des ersten Punktes, um automatisch zu vervollständigen",
@@ -1532,7 +1785,7 @@
       }
     },
     "step4": {
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panels": "Panels",
       "estCost": "Geschätzte Kosten",
       "tabs": {
@@ -1552,8 +1805,8 @@
       "panelCost": "Panel-Kosten",
       "coverageLabel": "Abdeckung",
       "panelArea": "Panel-Fläche",
-      "recommendedInverter": "Empfohlene Wechselrichtergröße:",
-      "dcAcRatio": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme. Mehrere Wechselrichter sind bei größeren Systemen üblich.",
+      "recommendedInverter": "Empfohlene Wechselrichtergrösse:",
+      "dcAcRatio": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme. Mehrere Wechselrichter sind bei grösseren Systemen üblich.",
       "bestFit": "Beste Passung",
       "dcAcRatioLabel": "DC/AC-Verhältnis",
       "inverterCost": "Wechselrichter-Kosten",
@@ -1571,7 +1824,7 @@
       },
       "title": "Ihr Solarpotenzial",
       "editSystem": "System bearbeiten",
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panels": "Panels",
       "annualProduction": "Jahresproduktion",
       "kwhPerYear": "kWh/Jahr",
@@ -1622,7 +1875,7 @@
         "hide": "Erweiterte Einstellungen ausblenden",
         "annualConsumption": "Jährlicher Stromverbrauch",
         "kwhPerYear": "kWh/Jahr",
-        "includeVat": "MWST einschließen",
+        "includeVat": "MWST einschliessen",
         "addVat": "Hinzufügen",
         "vatToInvestment": "% MWST zur Investition"
       },
@@ -1680,14 +1933,14 @@
     "solarAboMulti": {
       "hero": {
         "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-        "title": "SolarFree Multi",
+        "title": "SolarFree Mehrfamilienhaus",
         "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
         "cta": "Solarrechner starten",
         "tag": "Keine Registrierung nötig · Unverbindlich",
         "stats": {
           "left": {
             "investment": "0 CHF\nInvestment",
-            "electricity": "Bis zu 30 % geringerer\nStrompreis"
+            "electricity": "Bis zu 20–40 % geringerer\nStrompreis"
           },
           "right": {
             "maintenance": "Wartung\ninklusive",
@@ -1697,7 +1950,7 @@
       },
       "includes": {
         "title": "Was ist enthalten",
-        "subtitle": "In SolarFree Multi",
+        "subtitle": "In SolarFree Mehrfamilienhaus",
         "items": {
           "solarModules": {
             "title": "Gemeinsames Solarsystem",
@@ -1726,7 +1979,7 @@
         }
       },
       "howItWorks": {
-        "title": "So funktioniert SolarFree Multi",
+        "title": "So funktioniert SolarFree Mehrfamilienhaus",
         "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
         "steps": {
           "step1": "Sie stellen das Dach",
@@ -1768,13 +2021,21 @@
         }
       },
       "cta": {
-        "topButton": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
-        "heading": "Prüfen Sie, ob SolarFree Multi zu Ihrem Dach passt",
+        "topButton": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
+        "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
         "ctaText": "Solarrechner starten",
         "ctaLink": "/calculator"
       }
     },
     "error": "Fehler"
+  },
+  "comingSoon": {
+    "eyebrow": "In Entwicklung",
+    "title": "Solarrechner",
+    "description": "Dimensionieren und kalkulieren Sie Ihre Dach-PV-Anlage in wenigen Minuten. Wir geben gerade den letzten Schliff – sprechen Sie jetzt mit unserem Team, wir erstellen Ihnen ein individuelles Angebot.",
+    "contactCta": "Mit unserem Team sprechen",
+    "exploreCta": "Unsere Lösungen entdecken",
+    "back": "Zurück"
   },
   "sonnendach": {
     "error": "Fehler",
@@ -1820,8 +2081,8 @@
       "next": "Weiter"
     },
     "step5Company": {
-      "title": "Unternehmens- & Kontaktdaten",
-      "subtitle": "Erzählen Sie uns von Ihrem Unternehmen und wie wir Sie erreichen können. Dies hilft uns, ein massgeschneidertes Angebot für Ihre Gewerbeimmobilie zu erstellen.",
+      "title": "Firmen- & Anfragedaten",
+      "subtitle": "Helfen Sie uns, ein passgenaues Angebot zu erstellen.",
       "companySection": "Unternehmensinformationen",
       "companyName": "Firmenname",
       "companyRole": "Ihre Funktion",
@@ -1832,18 +2093,53 @@
       "email": "E-Mail",
       "phone": "Telefon",
       "propertySection": "Liegenschaftsdetails",
-      "street": "Strasse & Hausnummer",
+      "street": "Strasse und Hausnummer",
       "postalCode": "PLZ",
       "city": "Ort",
       "canton": "Kanton",
       "isPropertyOwner": "Ich bin der Eigentümer der Liegenschaft",
-      "ownerName": "Name des Eigentümers",
-      "ownerEmail": "E-Mail des Eigentümers",
-      "ownerPhone": "Telefon des Eigentümers",
-      "privacyConsent": "Ich stimme der Verarbeitung meiner persönlichen Daten gemäss der Datenschutzerklärung zu.",
-      "marketingConsent": "Ich möchte Informationen über Solarenergie-Angebote erhalten (optional).",
-      "required": "Erforderlich",
-      "invalidEmail": "Ungültige E-Mail-Adresse"
+      "ownerName": "Eigentümer-Name",
+      "ownerEmail": "Eigentümer-E-Mail",
+      "ownerPhone": "Eigentümer-Telefon",
+      "privacyConsent": "Ich akzeptiere die Datenschutzerklärung.",
+      "marketingConsent": "Ich möchte gelegentlich Informationen und Angebote erhalten.",
+      "required": "Pflichtfeld",
+      "invalidEmail": "Ungültige E-Mail",
+      "errorBannerTitle": "Bitte überprüfen Sie die markierten Felder.",
+      "sectionCompany": "Firma",
+      "legalForm": "Rechtsform",
+      "uidNumber": "UID-Nummer",
+      "uidHelp": "Optional — beschleunigt die Prüfung.",
+      "industry": "Branche",
+      "employees": "Mitarbeitende",
+      "website": "Website",
+      "numberOfSites": "Anzahl Standorte",
+      "sectionContact": "Kontaktperson",
+      "role": "Rolle",
+      "decisionMaker": "Sind Sie entscheidungsbefugt?",
+      "decisionYes": "Ja",
+      "decisionNo": "Nein, ich leite weiter",
+      "preferredChannel": "Bevorzugter Kontaktkanal",
+      "preferredTime": "Bevorzugte Zeit",
+      "noPreference": "Keine Präferenz",
+      "morning": "Vormittag",
+      "afternoon": "Nachmittag",
+      "evening": "Abend",
+      "sectionAddress": "Installationsadresse",
+      "propertyRelation": "Beziehung zur Liegenschaft",
+      "ownerHelp": "Falls Sie die Eigentümer-Kontaktdaten jetzt nicht zur Hand haben, können wir dies später klären.",
+      "sectionIntent": "Projekt",
+      "timeline": "Zeitrahmen",
+      "motivations": "Motivation (mehrere möglich)",
+      "financing": "Finanzierungspräferenz (mehrere möglich)",
+      "budget": "Budget-Rahmen",
+      "existingPv": "Bestehende PV-Anlage",
+      "comments": "Kommentar",
+      "select": "Auswählen",
+      "invalidPhone": "Ungültige Telefonnummer",
+      "invalidPostalCode": "PLZ muss vier Ziffern haben",
+      "invalidUid": "Format: CHE-xxx.xxx.xxx",
+      "invalidUrl": "Muss mit http:// oder https:// beginnen"
     },
     "step4Commercial": {
       "title": "Liegenschaft & Verbrauch",
@@ -1955,7 +2251,7 @@
       "cancelDrawing": "Zeichnen abbrechen",
       "addRestrictedArea": "Eingeschränkten Bereich hinzufügen",
       "drawingMode": "Zeichnungsmodus aktiv",
-      "drawingInstructions": "Klicken Sie auf die Karte, um ein Polygon zu zeichnen. Doppelklicken Sie, um abzuschließen.",
+      "drawingInstructions": "Klicken Sie auf die Karte, um ein Polygon zu zeichnen. Doppelklicken Sie, um abzuschliessen.",
       "area": "Bereich",
       "clearAll": "Alle löschen",
       "noRestrictedAreas": "Keine eingeschränkten Bereiche",
@@ -1974,7 +2270,7 @@
     "step3System": {
       "noSegments": "Keine Segmente ausgewählt",
       "backToSelection": "Zurück zur Auswahl",
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panels": "Panels",
       "estCost": "Geschätzte Kosten",
       "tabPanels": "Panels",
@@ -1991,7 +2287,7 @@
       "panelCost": "Panel-Kosten",
       "panelArea": "Panel-Fläche",
       "roofSegments": "Dachsegmente",
-      "recommendedInverter": "Empfohlene Wechselrichtergröße:",
+      "recommendedInverter": "Empfohlene Wechselrichtergrösse:",
       "dcAcRatioInfo": "DC/AC-Verhältnis: 1,2-1,5:1 ist optimal. Industriestandard ist 1,1-1,5:1 für Wohnsysteme.",
       "bestFit": "Beste Passung",
       "dcAcRatio": "DC/AC-Verhältnis",
@@ -2078,7 +2374,7 @@
           "investment": "Investition",
           "investmentTooltip": "Geschätzte Gesamtkosten für die Solaranlage",
           "grossReturn": "Bruttorendite",
-          "grossReturnTooltip": "Gesamte Ersparnisse über 25 Jahre",
+          "grossReturnTooltip": "Gesamte Ersparnisse über 35 Jahre",
           "subsidies": "Subventionen",
           "subsidiesTooltip": "Bundessubventionen und Steuervorteile",
           "annualReturn": "Jährliche Rendite",
@@ -2092,7 +2388,7 @@
           "title": "Amortisationszeit",
           "years": "Jahre",
           "year": "Jahr",
-          "cumulative": "Kumulative Cashflow",
+          "cumulative": "Kumulativer Cashflow",
           "payback": "Amortisation"
         },
         "monthlyChart": {
@@ -2119,7 +2415,7 @@
       "restrictedAreas": "Eingeschränkte Bereiche",
       "averageTilt": "Durchschnittliche Neigung",
       "dominantOrientation": "Dominante Ausrichtung",
-      "systemSize": "Systemgröße",
+      "systemSize": "Systemgrösse",
       "panelType": "Panel",
       "inverter": "Wechselrichter",
       "financialEstimate": "Finanzielle Schätzung",
@@ -2137,7 +2433,8 @@
       "startOver": "Neu starten",
       "requestQuote": "Angebot anfordern",
       "downloadReport": "Bericht herunterladen",
-      "downloadingReport": "Wird generiert..."
+      "downloadingReport": "Wird generiert...",
+      "submitting": "Wird gesendet…"
     },
     "step6PersonalInfo": {
       "title": "Persönliche Daten",
@@ -2230,7 +2527,7 @@
           "name": "Premium",
           "description": "Rundum-sorglos",
           "feature1": "Top-Tier Panels & Wechselrichter",
-          "feature2": "25 Jahre Garantie",
+          "feature2": "35 Jahre Garantie",
           "feature3": "Smart Home Integration",
           "feature4": "Prioritäts-Support"
         },
@@ -2342,6 +2639,25 @@
         "newCalculation": "Neue Berechnung",
         "backToHome": "Zur Startseite"
       }
+    },
+    "step7Confirmation": {
+      "noSubmission": "Keine Anfrage gefunden.",
+      "heading": "Vielen Dank, {firstName}!",
+      "subheading": "Ihre Anfrage wurde erfolgreich übermittelt.",
+      "reference": "Referenz",
+      "copy": "Kopieren",
+      "copied": "Kopiert",
+      "timelineTitle": "So geht es weiter",
+      "step1": "Bestätigungs-E-Mail an {email} versendet.",
+      "step2": "Unser Team prüft Ihre Anfrage (1 Arbeitstag).",
+      "step3": "Persönliche Kontaktaufnahme.",
+      "step4": "Massgeschneidertes Angebot innert 5–7 Arbeitstagen.",
+      "uploadTitle": "Unterlagen nachreichen (optional)",
+      "uploadSubtitle": "Beschleunigt die Analyse und Angebotserstellung.",
+      "done": "Erledigt",
+      "startOver": "Neue Berechnung",
+      "bookCall": "Termin vereinbaren",
+      "questions": "Fragen? Rufen Sie uns an:"
     }
   },
   "common": {
@@ -2350,7 +2666,8 @@
     "continue": "Weiter",
     "cancel": "Abbrechen",
     "save": "Speichern",
-    "loading": "Lädt..."
+    "loading": "Lädt...",
+    "comingSoon": "Demnächst"
   },
   "blog": {
     "title": "Blog",
@@ -2359,10 +2676,112 @@
     "backToBlog": "Zurück zum Blog"
   },
   "solarSystems": {
+    "commercialTopics": {
+      "title": "Alles über Solaranlagen",
+      "items": [
+        {
+          "title": "Funktionsweise",
+          "description": "Wie Ihre Grossanlage Energie produziert und Kosten reduziert.",
+          "linkLabel": "Funktionsweise",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/commercial/solar-systems/how-large-plants-works"
+        },
+        {
+          "title": "Kosten",
+          "description": "Transparente Kosten und Preisstruktur im Überblick.",
+          "linkLabel": "Kosten",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/commercial/solar-systems"
+        },
+        {
+          "title": "Solarkraftwerk",
+          "description": "Grossanlagen für Unternehmen – von der Planung bis zum Betrieb.",
+          "linkLabel": "Solarkraftwerk",
+          "image": "/images/commercial-solar-solarkraftwerk-20dc14.webp",
+          "href": "/commercial/solar-systems/project-development"
+        },
+        {
+          "title": "Solarcarport",
+          "description": "Solardach für Ihre Parkflächen – Sonnenenergie doppelt nutzen.",
+          "linkLabel": "Solarcarport",
+          "image": "/images/solar-systems-carport-13a486.webp",
+          "href": "/commercial/solar-systems/solar-carport"
+        },
+        {
+          "title": "Contracting",
+          "description": "Solaranlage ohne Eigeninvestition – wir übernehmen Finanzierung und Betrieb.",
+          "linkLabel": "Contracting",
+          "image": "/images/commercial-solar-contracting-3ed9d4.webp",
+          "href": "/commercial/solar-systems/contracting"
+        }
+      ]
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Solaranlagen",
       "subtitle": "Solarmodule für effiziente, langfristige Energieproduktion"
+    },
+    "topics": {
+      "title": "Alles über Solaranlagen",
+      "cta": "Mehr erfahren",
+      "items": [
+        {
+          "title": "Funktionsweise",
+          "description": "Wie Ihre Solaranlage Energie produziert und Kosten reduziert.",
+          "linkLabel": "Funktionsweise",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/how-it-works"
+        },
+        {
+          "title": "Kosten",
+          "description": "Transparente Kosten und Preisstruktur im Überblick.",
+          "linkLabel": "Kosten",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/cost"
+        },
+        {
+          "title": "Amortisation",
+          "description": "Ab wann sich Ihre Solaranlage finanziell auszahlt.",
+          "linkLabel": "Amortisation",
+          "image": "/images/solar-systems-amortisation-3aa053.webp",
+          "href": "/amortization"
+        },
+        {
+          "title": "Solar-Carport-System",
+          "description": "Solardach für Ihr Auto – laden Sie mit eigener Sonnenenergie.",
+          "linkLabel": "Solar Carport",
+          "image": "/images/solar-systems-carport-13a486.webp",
+          "href": "/solar-system-carport"
+        },
+        {
+          "title": "Solarrechner",
+          "description": "Ermitteln Sie Ihr persönliches Solarpotenzial in wenigen Minuten.",
+          "linkLabel": "Solarrechner",
+          "image": "/images/solar-systems-calculator-20fe78.webp",
+          "href": "/solar-calculator"
+        },
+        {
+          "title": "Service",
+          "description": "Wartung, Monitoring und Support – alles aus einer Hand.",
+          "linkLabel": "Service",
+          "image": "/images/solar-systems-service-1d3871.webp",
+          "href": "/service"
+        },
+        {
+          "title": "Energiespeicher",
+          "description": "Speichern Sie Ihren Solarstrom und nutzen Sie ihn rund um die Uhr.",
+          "linkLabel": "Energiespeicher",
+          "image": "/images/solar-systems-storage-327681.webp",
+          "href": "/energy-storage"
+        },
+        {
+          "title": "Repowering",
+          "description": "Rüsten Sie Ihre bestehende Anlage auf modernste Technologie um.",
+          "linkLabel": "Repowering",
+          "image": "/images/solar-systems-repowering-54b89c.webp",
+          "href": "/repowering"
+        }
+      ]
     },
     "features": {
       "title": "Gebaut für Leistung.",
@@ -2494,6 +2913,46 @@
     }
   },
   "heatPumps": {
+    "topics": {
+      "title": "Alles über Wärmepumpen",
+      "items": [
+        {
+          "title": "Funktionsweise",
+          "description": "Wie Ihre Wärmepumpe effizient heizt und Kosten reduziert.",
+          "linkLabel": "Funktionsweise",
+          "image": "/images/solar-systems-funktionsweise-354b87.webp",
+          "href": "/heat-pumps/how-it-works"
+        },
+        {
+          "title": "Kosten",
+          "description": "Transparente Kosten und Preisstruktur im Überblick.",
+          "linkLabel": "Kosten",
+          "image": "/images/solar-systems-kosten-20e754.webp",
+          "href": "/heat-pumps/cost"
+        },
+        {
+          "title": "Portfolio",
+          "description": "Unsere Auswahl an hochwertigen Wärmepumpen-Modellen.",
+          "linkLabel": "Portfolio",
+          "image": "/images/heat-pumps-portfolio-27556a.webp",
+          "href": "/heat-pumps/products"
+        },
+        {
+          "title": "Solar-Wärmepumpe",
+          "description": "Kombinieren Sie Wärmepumpe und Solaranlage für maximale Effizienz.",
+          "linkLabel": "Solar-Wärmepumpe",
+          "image": "/images/heat-pumps-solar-6e051d.webp",
+          "href": "/heat-pumps/heat-pumps-with-solar-system"
+        },
+        {
+          "title": "Service",
+          "description": "Wartung, Monitoring und Support – alles aus einer Hand.",
+          "linkLabel": "Service",
+          "image": "/images/solar-systems-service-1d3871.webp",
+          "href": "/heat-pumps/service"
+        }
+      ]
+    },
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Wärmepumpen",
@@ -2945,59 +3404,63 @@
   "privacyPolicy": {
     "title": "Datenschutzerklärung",
     "subtitle": "Wie wir mit Ihren persönlichen Daten umgehen",
-    "intro": "Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.",
+    "intro": "Free State AG nimmt den Schutz Ihrer persönlichen Daten ernst. Wir behandeln Ihre Daten vertraulich und in Übereinstimmung mit dem revidierten Schweizer Datenschutzgesetz (revDSG, in Kraft seit 1. September 2023) sowie – soweit anwendbar – der EU-Datenschutz-Grundverordnung (DSGVO). Diese Datenschutzerklärung beschreibt, welche Daten wir erheben, zu welchem Zweck wir sie verwenden, an wen wir sie weitergeben und welche Rechte Sie als betroffene Person haben.",
     "dataCollection": {
-      "title": "Datenerfassung auf unserer Website",
-      "content": "Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.\n\nIhre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen (z.B. in ein Kontaktformular eingegebene Daten), oder automatisch durch unsere IT-Systeme beim Besuch der Website erfasst. Das sind vor allem technische Daten (z.B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Diese Daten werden automatisch beim Betreten unserer Website erfasst."
+      "title": "Verantwortliche Stelle und Datenerhebung",
+      "content": "Verantwortlich für die Datenverarbeitung auf dieser Website im Sinne des revDSG und der DSGVO ist:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen, Schweiz\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05\n\nVertretungsberechtigt: Ivan Miric, Mitglied des Verwaltungsrates und Geschäftsführer.\n\nWir erheben personenbezogene Daten auf zwei Arten: einerseits, indem Sie uns diese aktiv mitteilen (z. B. über das Kontaktformular, das Newsletter-Formular, den Solarrechner, Wartungsanfragen oder bei der Registrierung eines Kundenkontos), andererseits automatisiert durch unsere IT-Systeme beim Aufruf der Website (technische Verbindungsdaten wie Browser, Betriebssystem und Zeitpunkt des Zugriffs)."
     },
     "automaticData": {
-      "title": "Automatisch erfasste Daten",
-      "content": "Beim Besuch unserer Website speichern unsere Webserver vorübergehend jeden Zugriff in einer Protokolldatei. Folgende Daten werden erfasst und bis zur automatisierten Löschung gespeichert:\n\n• IP-Adresse des anfragenden Rechners\n• Datum und Uhrzeit des Zugriffs\n• Name und URL der abgerufenen Datei\n• Website, von der aus der Zugriff erfolgt (Referrer-URL)\n• Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners\n• Name Ihres Access-Providers"
+      "title": "Automatisch erfasste Server-Logfiles",
+      "content": "Beim Besuch unserer Website speichern unsere Webserver vorübergehend jeden Zugriff in einer Protokolldatei (Logfile). Die folgenden Daten werden automatisch erfasst und bis zur automatisierten Löschung nach maximal 30 Tagen gespeichert:\n\n• IP-Adresse des anfragenden Geräts (gekürzt bzw. anonymisiert)\n• Datum und Uhrzeit des Zugriffs\n• Name und URL der abgerufenen Datei\n• Verweisende Website (Referrer-URL)\n• Verwendeter Browser und Betriebssystem\n• Name des Internet-Zugangsproviders\n\nDie Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses (Art. 31 Abs. 2 lit. d revDSG bzw. Art. 6 Abs. 1 lit. f DSGVO) am stabilen Betrieb der Website, an der IT-Sicherheit und an der Abwehr von Missbrauch. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und nicht zur Erstellung von Nutzerprofilen verwendet."
     },
     "cookies": {
-      "title": "Cookies",
-      "content": "Unsere Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie richten keinen Schaden an.\n\nWir nutzen Cookies dazu, unser Angebot nutzerfreundlich zu gestalten. Einige Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.\n\nWenn Sie dies nicht wünschen, können Sie Ihren Browser so einrichten, dass er Sie über das Setzen von Cookies informiert und Sie dies nur im Einzelfall erlauben."
+      "title": "Cookies und Einwilligungsverwaltung",
+      "content": "Unsere Website verwendet Cookies und vergleichbare Technologien (z. B. localStorage). Cookies sind kleine Textdateien, die auf Ihrem Endgerät abgelegt werden. Sie unterscheiden sich nach Zweck:\n\n• Notwendige Cookies: erforderlich für den Betrieb der Website (z. B. Spracheinstellung, Anmeldesitzung, Cookie-Einwilligung selbst). Diese sind nicht abwählbar.\n• Analyse-Cookies: ermöglichen uns, das Nutzungsverhalten anonymisiert auszuwerten und die Website zu verbessern.\n• Marketing-Cookies: werden für personalisierte Inhalte und Werbung eingesetzt.\n\nBeim ersten Besuch unserer Website erscheint ein Cookie-Banner, in dem Sie pro Kategorie entscheiden können, ob Sie der Verwendung zustimmen. Analyse- und Marketing-Cookies werden ausschliesslich nach Ihrer ausdrücklichen Einwilligung gesetzt (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nSie können Ihre Einwilligung jederzeit für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen über den Link am Seitenende erneut aufrufen. Solange Sie keine Einwilligung erteilen, werden keine Analyse- oder Marketing-Cookies geladen, und unsere Analyse-Dienste werden im Modus «Consent Mode v2 – denied» betrieben, d. h. ohne Setzen identifizierender Cookies."
     },
     "analytics": {
-      "title": "Webanalyse (Matomo)",
-      "content": "Diese Website nutzt Matomo für die Webanalyse. Matomo verwendet Cookies, die auf Ihrem Computer gespeichert werden und die eine Analyse der Benutzung der Website ermöglichen. Die durch den Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden auf unserem Server in der Schweiz gespeichert.\n\nDie IP-Adresse wird unmittelbar nach der Verarbeitung und vor deren Speicherung anonymisiert. Sie können die Speicherung der Cookies durch eine entsprechende Einstellung Ihrer Browser-Software verhindern. Wir weisen Sie jedoch darauf hin, dass Sie in diesem Fall gegebenenfalls nicht sämtliche Funktionen dieser Website vollumfänglich werden nutzen können."
+      "title": "Webanalyse, Tag-Verwaltung und Nutzungsmessung",
+      "content": "Vorbehältlich Ihrer Einwilligung setzen wir die folgenden Dienste ein, um die Nutzung unserer Website zu verstehen und unser Angebot zu verbessern. Ohne Ihre Einwilligung werden diese Dienste nicht aktiviert.\n\n1) Google Tag Manager\nAnbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\nDer Google Tag Manager ist ein Verwaltungswerkzeug, mit dem wir Mess- und Analyse-Tags zentral einbinden können. Der Tag Manager selbst erstellt keine Nutzerprofile und setzt keine eigenen Cookies. Er lädt jedoch andere Dienste (siehe nachfolgend), die ihrerseits Daten verarbeiten.\n\n2) Google Analytics 4 (GA4)\nAnbieter: Google Ireland Limited.\nGA4 erstellt anonymisierte Statistiken über die Nutzung unserer Website (z. B. Seitenaufrufe, Sitzungsdauer, Herkunftsland, Gerätetyp, Verweisquelle). Die IP-Adresse wird vor der Speicherung gekürzt («IP Anonymization»), eine direkte Identifizierung einzelner Personen findet nicht statt. Wir betreiben GA4 mit aktiviertem Google Consent Mode v2 sowie mit deaktivierten Werbe-Funktionen («Google Signals»). Die Aufbewahrungsdauer der Ereignisdaten in GA4 beträgt 14 Monate.\n\n3) Hotjar\nAnbieter: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar erstellt aggregierte Heatmaps und – auf bestimmten Seiten (insbesondere im Solarrechner und im Kundenbereich) – pseudonymisierte Sitzungsaufzeichnungen, um Bedienprobleme zu erkennen. Tastatureingaben in Formularfelder werden standardmässig maskiert; sensible Inhalte (Kundendaten, Verträge) werden nicht aufgezeichnet. Hotjar setzt Cookies mit einer maximalen Lebensdauer von 365 Tagen.\n\n4) Google Search Console\nAnbieter: Google Ireland Limited.\nDie Google Search Console wird ausschliesslich zur Verifizierung des Domain-Eigentums und zur Auswertung anonymer SEO-Statistiken (z. B. eingehende Suchanfragen aus Google) verwendet. Sie setzt keine Cookies auf dieser Website und verarbeitet keine personenbezogenen Daten unserer Besucher.\n\nRechtsgrundlage: Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nDatenübermittlung in die USA: GA4, Google Tag Manager, Google Search Console und Hotjar verarbeiten Daten teilweise in den USA. Google ist nach dem EU-US Data Privacy Framework zertifiziert; Hotjar verarbeitet Daten primär in der EU, kann aber auf Sub-Auftragsverarbeiter in Drittländern zurückgreifen. Soweit eine Übermittlung in ein Land ohne angemessenes Datenschutzniveau erfolgt, stützen wir diese auf Standardvertragsklauseln gemäss Art. 16 revDSG bzw. Art. 46 DSGVO."
     },
     "socialMedia": {
-      "title": "Social Media Plugins",
-      "content": "Unsere Seiten enthalten Plugins von sozialen Netzwerken (z.B. Twitter, Instagram). Diese Plugins erkennen Sie an den jeweiligen Logos. Wenn Sie diese Plugins aktivieren, wird eine direkte Verbindung zwischen Ihrem Browser und dem Server des jeweiligen sozialen Netzwerks hergestellt.\n\nWir weisen darauf hin, dass wir als Anbieter der Seiten keine Kenntnis vom Inhalt der übermittelten Daten sowie deren Nutzung durch die sozialen Netzwerke erhalten. Weitere Informationen hierzu finden Sie in den Datenschutzerklärungen der jeweiligen Netzwerke."
+      "title": "Verlinkungen zu sozialen Netzwerken",
+      "content": "Im Footer unserer Website finden Sie Verlinkungen zu unseren Profilen auf Facebook, Instagram und LinkedIn. Es handelt sich dabei ausdrücklich um einfache Hyperlinks, nicht um eingebettete Plugins oder Tracking-Pixel. Beim blossen Aufruf unserer Website werden keine Daten an diese sozialen Netzwerke übertragen.\n\nErst wenn Sie aktiv auf einen dieser Links klicken, werden Sie zur jeweiligen Plattform weitergeleitet, und ab diesem Zeitpunkt gelten ausschliesslich die Datenschutzbestimmungen des entsprechenden Anbieters. Wir haben keinen Einfluss darauf, welche Daten dort erhoben oder verarbeitet werden.\n\n• Facebook (Meta Platforms Ireland Ltd.): https://www.facebook.com/privacy/policy\n• Instagram (Meta Platforms Ireland Ltd.): https://privacycenter.instagram.com/policy\n• LinkedIn (LinkedIn Ireland Unlimited Company): https://www.linkedin.com/legal/privacy-policy"
     },
     "googleMaps": {
       "title": "Google Maps",
-      "content": "Diese Website nutzt den Dienst Google Maps. Anbieter ist Google Ireland Limited. Bei Nutzung von Google Maps werden Informationen über Ihre Benutzung dieser Website (einschliesslich Ihrer IP-Adresse) an einen Server von Google übertragen und dort gespeichert.\n\nWeitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google: https://policies.google.com/privacy"
+      "content": "Auf einigen Seiten (insbesondere auf der Kontaktseite und im Solarrechner zur Adresseingabe und Dachflächenauswahl) binden wir interaktive Karten von Google Maps ein. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\n\nDamit die Karten korrekt angezeigt werden, übermittelt Ihr Browser bei der Nutzung dieser Funktionen technische Verbindungsdaten (insbesondere Ihre IP-Adresse) an Google. Eine Verarbeitung in den USA kann nicht ausgeschlossen werden. Diese Verarbeitung ist erforderlich, um die von Ihnen aktiv aufgerufene Funktion (z. B. Adresseingabe im Solarrechner) bereitzustellen, und stützt sich auf unser berechtigtes Interesse an einer benutzerfreundlichen Online-Anwendung sowie – soweit ein expliziter Konfigurationsschritt vorausgeht – auf Ihre Einwilligung.\n\nWeitere Informationen zur Datenverarbeitung durch Google finden Sie unter: https://policies.google.com/privacy"
     },
     "newsletter": {
       "title": "Newsletter",
-      "content": "Wenn Sie den auf der Website angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen eine E-Mail-Adresse sowie Informationen, welche uns die Überprüfung gestatten, dass Sie der Inhaber der angegebenen E-Mail-Adresse sind.\n\nDie im Rahmen der Newsletter-Anmeldung eingegebenen Daten werden ausschliesslich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) verarbeitet. Die erteilte Einwilligung können Sie jederzeit widerrufen. Die Rechtmässigkeit der bereits erfolgten Datenverarbeitungsvorgänge bleibt vom Widerruf unberührt."
+      "content": "Wenn Sie unseren Newsletter abonnieren möchten, benötigen wir von Ihnen eine gültige E-Mail-Adresse sowie Informationen, mit denen wir prüfen können, dass Sie tatsächlich Inhaber der angegebenen Adresse sind (Double-Opt-In-Verfahren).\n\nDie für den Versand erforderlichen Daten werden ausschliesslich auf Grundlage Ihrer Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO) verarbeitet. Sie können das Abonnement und die zugrundeliegende Einwilligung jederzeit für die Zukunft widerrufen, beispielsweise über den Abmeldelink in jedem Newsletter oder per E-Mail an info@freestate.ch. Die Rechtmässigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt."
+    },
+    "calculator": {
+      "title": "Solarrechner, Kontaktanfragen und elektronische Vertragsunterzeichnung",
+      "content": "Unser Solarrechner führt Sie schrittweise durch eine bedarfsorientierte Auslegung einer Photovoltaikanlage und – auf Wunsch – bis zum Abschluss eines Solar-Free-Vertrags. Dabei verarbeiten wir die folgenden Kategorien personenbezogener Daten:\n\n• Adresse und Standortdaten zur Auswertung der Dachfläche (über Kartendienste)\n• Verbrauchs- und Gebäudedaten (z. B. Stromverbrauch, Dachneigung, geplante Geräte wie Wärmepumpe oder Wallbox)\n• Kontaktdaten (Name, Adresse, Telefonnummer, E-Mail-Adresse)\n• Bei Vertragsabschluss zusätzlich: Geburtsdatum, AHV-Daten oder vergleichbare Identifikationsmerkmale, sofern für die Vertragsprüfung erforderlich\n\nDie Verarbeitung dieser Daten erfolgt zur Anbahnung und Erfüllung eines Vertrags (Art. 31 Abs. 2 lit. a revDSG / Art. 6 Abs. 1 lit. b DSGVO) sowie – sofern Sie eine Anfrage stellen ohne einen Vertrag abzuschliessen – auf Grundlage Ihrer Einwilligung.\n\nFür die rechtsverbindliche elektronische Unterzeichnung von Verträgen setzen wir Swisscom Trust Services AG (Konradstrasse 12, 8005 Zürich, Schweiz) als Vertrauensdienstanbieter ein. Swisscom Trust Services ist nach dem Schweizer Bundesgesetz über die elektronische Signatur (ZertES) als qualifizierter Vertrauensdienstanbieter zugelassen und ermöglicht die Erstellung qualifizierter elektronischer Signaturen mit gesetzlich anerkannter Beweiskraft. Im Rahmen der Signatur werden Identifikationsdaten und biometrische Merkmale (z. B. Mobile-ID-Bestätigung) an Swisscom Trust Services übermittelt. Weitere Informationen finden Sie unter https://trustservices.swisscom.com.\n\nWartungsanfragen, Support-Tickets sowie Daten aus dem Kundenbereich («Dashboard») verarbeiten wir ebenfalls zur Vertragserfüllung sowie zur Erfüllung gesetzlicher Aufbewahrungspflichten."
     },
     "userRights": {
-      "title": "Ihre Rechte",
-      "content": "Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben ausserdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.\n\nWenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Ausserdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.\n\nDes Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu."
+      "title": "Ihre Rechte als betroffene Person",
+      "content": "Nach revDSG und DSGVO stehen Ihnen die folgenden Rechte zu:\n\n• Auskunftsrecht: Sie können jederzeit unentgeltlich Auskunft über die zu Ihrer Person gespeicherten Daten verlangen, einschliesslich Herkunft, Empfänger, Zweck und Speicherdauer.\n• Recht auf Berichtigung: Sie können die Korrektur unrichtiger oder die Vervollständigung unvollständiger Daten verlangen.\n• Recht auf Löschung: Sie können die Löschung Ihrer Daten verlangen, soweit keine gesetzlichen Aufbewahrungspflichten oder anderweitige berechtigte Interessen entgegenstehen.\n• Recht auf Einschränkung der Verarbeitung: unter bestimmten Voraussetzungen.\n• Recht auf Datenübertragbarkeit (DSGVO): Sie können die von Ihnen bereitgestellten Daten in einem strukturierten, gängigen, maschinenlesbaren Format erhalten.\n• Widerrufsrecht: Erteilte Einwilligungen können Sie jederzeit für die Zukunft widerrufen.\n• Widerspruchsrecht: Sie können der Verarbeitung Ihrer Daten aus Gründen, die sich aus Ihrer besonderen Situation ergeben, widersprechen.\n\nUm Ihre Rechte auszuüben, kontaktieren Sie uns bitte unter info@freestate.ch. Zur Wahrung der Sicherheit Ihrer Daten kann es notwendig sein, dass wir Ihre Identität vor der Bearbeitung der Anfrage überprüfen.\n\nBeschwerderecht: Sie haben jederzeit das Recht, sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB, https://www.edoeb.admin.ch) bzw. – falls Sie in der EU ansässig sind – bei Ihrer zuständigen nationalen Datenschutzbehörde zu beschweren."
     },
     "dataRetention": {
-      "title": "Datenspeicherung",
-      "content": "Die von uns erhobenen Daten werden nach Beendigung des Vertragsverhältnisses und Ablauf der gesetzlichen Aufbewahrungsfristen gelöscht. Werden die Daten für die Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Massnahmen benötigt, ist eine vorzeitige Löschung der Daten nur möglich, wenn vertragliche oder gesetzliche Verpflichtungen einer Löschung nicht entgegenstehen."
+      "title": "Aufbewahrung und Löschung",
+      "content": "Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen. Im Einzelnen gelten die folgenden Richtwerte:\n\n• Server-Logfiles: maximal 30 Tage\n• Cookie-Einwilligungen: bis zu 12 Monate ab letzter Bestätigung\n• Google Analytics 4 Ereignisdaten: 14 Monate\n• Hotjar-Aufzeichnungen: maximal 365 Tage\n• Newsletter-Anmeldedaten: bis zum Widerruf der Einwilligung\n• Kontakt- und Anfragedaten: bis zu 24 Monate nach Abschluss der Anfrage\n• Vertrags- und Buchhaltungsdaten: 10 Jahre gemäss Art. 958f OR\n• Kundenkonto-Daten («Dashboard»): bis zur Löschung des Kontos durch Sie oder bis 24 Monate nach letzter Anmeldung\n\nNach Ablauf der jeweiligen Frist werden die Daten gelöscht oder anonymisiert."
     },
     "contact": {
-      "title": "Kontakt",
-      "content": "Bei Fragen zum Datenschutz wenden Sie sich bitte an:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05"
+      "title": "Kontakt zur datenschutzverantwortlichen Stelle",
+      "content": "Bei Fragen zum Datenschutz, zur Ausübung Ihrer Rechte oder bei sonstigen Anliegen wenden Sie sich bitte an:\n\nFree State AG\nz. Hd. Datenschutz\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05\n\nFree State AG hat keine Verpflichtung zur Bestellung eines externen Datenschutzbeauftragten gemäss Art. 10 revDSG bzw. Art. 37 DSGVO. Für Datenschutzanliegen steht Ihnen die oben genannte Adresse zur Verfügung."
     },
-    "lastUpdated": "Zuletzt aktualisiert: Februar 2026"
+    "lastUpdated": "Zuletzt aktualisiert: April 2026"
   },
   "impressum": {
     "title": "Impressum",
     "subtitle": "Firmeninformationen und rechtliche Angaben",
     "companyInfo": {
       "title": "Firmeninformationen",
-      "content": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz"
+      "content": "Free State AG (Free State SA / Free State Ltd)\nRechtsform: Aktiengesellschaft\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz"
     },
     "representation": {
       "title": "Vertretungsberechtigte Personen",
-      "content": "Die Gesellschaft wird rechtlich durch den Verwaltungsrat vertreten."
+      "content": "Ivan Miric, von Zürich, in Schaffhausen\nMitglied des Verwaltungsrates und Geschäftsführer, mit Einzelunterschrift"
     },
     "contact": {
       "title": "Kontakt",
@@ -3005,11 +3468,15 @@
     },
     "register": {
       "title": "Handelsregistereintrag",
-      "content": "Eingetragener Firmenname: Free State AG\nSitz: Schaffhausen, Schweiz\nUID (Unternehmens-Identifikationsnummer): CHE-XXX.XXX.XXX"
+      "content": "Eingetragener Firmenname: Free State AG\nSitz: Schaffhausen, Schweiz\nKanton: Schaffhausen\nUID: CHE-134.711.335\nCH-ID: CH-290-3022220-1\nEHRA-ID: 1665287\nStatutendatum: 30. Oktober 2024\nAktienkapital: CHF 100'000.00\nPublikationsorgan: Schweizerisches Handelsamtsblatt (SHAB)\n\nEingetragen im Handelsregister des Kantons Schaffhausen. Auf die eingeschränkte Revision wurde gemäss Art. 727a Abs. 2 OR verzichtet."
+    },
+    "purpose": {
+      "title": "Gesellschaftszweck",
+      "content": "Zweck der Gesellschaft ist die Erzeugung, Übertragung, Verteilung, Speicherung, Verwertung und der Vertrieb elektrischer und anderer Energie sowie das Erbringen von Dienstleistungen aller Art in den Bereichen Energie und Umwelt. Die Gesellschaft kann Kraftwerke sowie Kraftübertragungs-, Energiespeicher- und Verteilanlagen sowie Dienstleistungsbetriebe in den Bereichen Energie und Umwelt errichten, betreiben, erwerben, pachten und veräussern.\n\n(Auszug aus dem im Handelsregister eingetragenen Zweck gemäss SHAB-Publikation Nr. 1006179782 vom 15.11.2024.)"
     },
     "vat": {
       "title": "Mehrwertsteuer-Nummer",
-      "content": "MWST-Nummer: CHE-XXX.XXX.XXX MWST"
+      "content": "MWST-Nummer: CHE-134.711.335 MWST\nStatus: aktiv (im MWST-Register eingetragen seit 1. Januar 2025)"
     },
     "liability": {
       "title": "Haftungsausschluss",
@@ -3019,58 +3486,129 @@
       "title": "Urheberrecht",
       "content": "Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen des Urheberrechts bedürfen der vorherigen schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.\n\nDownloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet."
     },
-    "lastUpdated": "Zuletzt aktualisiert: März 2026"
+    "lastUpdated": "Zuletzt aktualisiert: April 2026"
   },
   "agb": {
     "title": "Allgemeine Geschäftsbedingungen",
     "subtitle": "Bedingungen für die Nutzung unserer Dienstleistungen",
     "scope": {
       "title": "1. Geltungsbereich",
-      "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Geschäftsbeziehung zwischen der Free State AG, Stettemerstrasse 40, 8207 Schaffhausen, Schweiz (nachfolgend «Free State AG») und ihren Kunden (nachfolgend «Kunde»).\n\nMit der Nutzung unserer Website oder Dienstleistungen akzeptiert der Kunde diese AGB. Abweichende Bedingungen des Kunden werden nicht anerkannt, es sei denn, Free State AG hat deren Geltung ausdrücklich schriftlich zugestimmt."
+      "content": "Diese Allgemeinen Geschäftsbedingungen (AGB) regeln die Geschäftsbeziehung zwischen der Free State AG, Stettemerstrasse 40, 8207 Schaffhausen, Schweiz, UID CHE-134.711.335 (nachfolgend «Free State AG» oder «wir») und ihren Kundinnen und Kunden (nachfolgend «Kunde»).\n\nMit der Nutzung unserer Website, der Beauftragung einer Offerte oder dem Abschluss eines Vertrags akzeptiert der Kunde diese AGB in der zum Zeitpunkt des Vertragsschlusses gültigen Fassung. Abweichende oder ergänzende Bedingungen des Kunden werden nicht anerkannt, es sei denn, Free State AG hat ihrer Geltung ausdrücklich schriftlich zugestimmt.\n\nFür einzelne Produkte und Dienstleistungen (insbesondere für das Solar-Free-Modell) gelten zusätzlich die im jeweiligen Einzelvertrag vereinbarten Bedingungen, die diesen AGB im Konfliktfall vorgehen."
     },
     "contractConclusion": {
       "title": "2. Vertragsschluss",
-      "content": "Die Darstellung von Produkten und Dienstleistungen auf unserer Website stellt kein verbindliches Angebot dar. Ein Vertrag kommt erst zustande, wenn Free State AG die Bestellung schriftlich bestätigt oder mit der Ausführung der Dienstleistung beginnt.\n\nFree State AG behält sich das Recht vor, Bestellungen ohne Angabe von Gründen abzulehnen."
+      "content": "Die Darstellung von Produkten und Dienstleistungen auf unserer Website sowie unverbindliche Berechnungen unseres Solarrechners stellen kein verbindliches Angebot dar, sondern lediglich eine Aufforderung zur Abgabe einer Offertanfrage.\n\nEin Vertrag kommt zustande, wenn (a) Free State AG eine vom Kunden bestätigte schriftliche Offerte gegenzeichnet, (b) der Kunde eine von Free State AG zugestellte Offerte rechtsgültig (auch elektronisch, siehe Ziffer 3) unterzeichnet, oder (c) Free State AG mit der Ausführung der Dienstleistung beginnt und der Kunde dies duldet.\n\nFree State AG behält sich das Recht vor, Bestellungen ohne Angabe von Gründen abzulehnen, insbesondere wenn die technische Machbarkeit, die Bonität oder die Liefersituation dies erfordern."
+    },
+    "electronicSigning": {
+      "title": "3. Elektronische Vertragsunterzeichnung",
+      "content": "Verträge mit Free State AG können in Papierform oder elektronisch geschlossen werden. Für die elektronische Unterzeichnung setzen wir den Vertrauensdienstanbieter Swisscom Trust Services AG, Konradstrasse 12, 8005 Zürich, ein. Swisscom Trust Services ist nach dem Schweizer Bundesgesetz über die Zertifizierungsdienste im Bereich der elektronischen Signatur (ZertES) als qualifizierter Vertrauensdienstanbieter zugelassen.\n\nDie über Swisscom Trust Services erstellte qualifizierte elektronische Signatur (QES) ist gemäss Art. 14 Abs. 2bis OR der eigenhändigen Unterschrift gleichgestellt und entfaltet die volle gesetzliche Beweiskraft. Der Kunde stimmt mit der Wahl der elektronischen Unterzeichnung ausdrücklich zu, dass der Vertrag in dieser Form rechtsgültig zustande kommt.\n\nIm Rahmen der Identifikation und Signaturerstellung übermittelt der Kunde Identifikations- und Authentifizierungsdaten an Swisscom Trust Services. Einzelheiten zur Datenverarbeitung finden sich in unserer Datenschutzerklärung sowie unter https://trustservices.swisscom.com."
+    },
+    "withdrawal": {
+      "title": "4. Widerrufsrecht für Konsumentinnen und Konsumenten",
+      "content": "Schliesst eine Konsumentin oder ein Konsument im Sinne von Art. 40a ff. OR einen Vertrag mit Free State AG (a) anlässlich eines Werbeanlasses oder eines Hausbesuchs am Wohnort, am Arbeitsplatz oder in der näheren Umgebung, oder (b) durch Telefonanruf oder über einen vergleichbaren Fernkommunikationsweg, in dem die Vertragsverhandlungen ohne Möglichkeit zur sofortigen Prüfung geführt werden, so steht ihr/ihm ein Widerrufsrecht von 14 Tagen ab Vertragsschluss zu.\n\nDer Widerruf bedarf keiner Begründung. Er ist schriftlich (Brief oder E-Mail an info@freestate.ch) zu erklären; die rechtzeitige Absendung genügt zur Wahrung der Frist.\n\nIm Falle eines wirksamen Widerrufs sind beide Parteien verpflichtet, bereits empfangene Leistungen zurückzuerstatten. Hat Free State AG mit Zustimmung des Kunden bereits mit der Ausführung des Vertrags begonnen (z. B. Materialbestellung, Vor-Ort-Aufmass), so kann ein angemessener Wertersatz für die bis zum Widerruf erbrachten Leistungen verlangt werden.\n\nKein Widerrufsrecht besteht insbesondere bei Verträgen, die ausschliesslich am Geschäftssitz von Free State AG verhandelt und abgeschlossen wurden, sowie bei Verträgen über Leistungen, die ausdrücklich nach Kundenspezifikation angefertigt werden, sobald deren Herstellung mit Zustimmung des Kunden begonnen hat."
     },
     "services": {
-      "title": "3. Leistungen",
-      "content": "Free State AG bietet Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Ladestationen und verwandte Energiedienstleistungen an. Der genaue Leistungsumfang ergibt sich aus dem jeweiligen Vertrag oder der Auftragsbestätigung.\n\nFree State AG behält sich das Recht vor, Änderungen an den Leistungen vorzunehmen, sofern diese für den Kunden zumutbar sind."
+      "title": "5. Leistungen",
+      "content": "Free State AG plant, liefert, installiert und wartet Photovoltaikanlagen, Batteriespeicher, Wärmepumpen, Ladestationen, Energiemanagementsysteme sowie verwandte Anlagen und Dienstleistungen im Bereich erneuerbarer Energien.\n\nDer genaue Leistungsumfang ergibt sich aus der Offerte, der Auftragsbestätigung bzw. dem Einzelvertrag. Soweit für die Ausführung erforderlich, übernimmt Free State AG auch die Koordination mit dem örtlichen Verteilnetzbetreiber, das Einreichen des Anschlussgesuchs sowie die Anmeldung von Förderungen und Vergütungen, sofern dies vertraglich vereinbart wurde.\n\nÄnderungen am Leistungsumfang sind möglich, sofern technische, behördliche oder lieferantenseitige Gründe dies erforderlich machen und die Änderungen für den Kunden zumutbar sind. Free State AG informiert den Kunden in solchen Fällen rechtzeitig."
+    },
+    "solarFreeLease": {
+      "title": "6. Solar Free – Leasing- und Abonnementsmodell",
+      "content": "Mit dem «Solar Free»-Modell stellt Free State AG dem Kunden eine Photovoltaikanlage (optional ergänzt durch Batteriespeicher, Ladestation oder Wärmepumpen-Steuerung) zur Nutzung gegen ein monatliches Entgelt zur Verfügung, ohne dass der Kunde die Anlage erwerben muss.\n\nWesentliche Bedingungen:\n\n• Eigentum: Während der gesamten Vertragslaufzeit verbleibt das Eigentum an der Anlage bei Free State AG bzw. einem von Free State AG bezeichneten Finanzierungspartner. Der Kunde stellt das Dach bzw. den Aufstellungsort kostenfrei zur Verfügung und gewährt das für Bau, Betrieb und Wartung erforderliche Zugangsrecht.\n\n• Vertragslaufzeit: Die Standardlaufzeit eines Solar-Free-Vertrags beträgt – sofern im Einzelvertrag nicht abweichend vereinbart – 20 Jahre ab Inbetriebnahme.\n\n• Monatliches Entgelt: Das monatliche Entgelt wird im Einzelvertrag verbindlich festgelegt. Es kann eine Indexierung oder ein Stufenmodell vorgesehen werden; in diesem Fall wird die Berechnungsgrundlage im Vertrag offengelegt.\n\n• Wartung und Reparatur: Free State AG übernimmt während der Vertragslaufzeit die ordentliche Wartung sowie die Behebung von Defekten an Komponenten der Anlage, sofern diese nicht durch unsachgemässe Nutzung, Vandalismus, höhere Gewalt oder Eingriffe Dritter verursacht wurden.\n\n• Stromverbrauch und Einspeisung: Der vom Kunden vor Ort verbrauchte Strom ist – sofern im Einzelvertrag nicht anders geregelt – im monatlichen Entgelt enthalten. Überschüssiger Strom wird ins Netz eingespeist; die Einspeisevergütung fliesst dem Anlageneigentümer (Free State AG) zu.\n\n• Vorzeitige Beendigung: Eine ordentliche Kündigung vor Ablauf der vereinbarten Laufzeit ist ausgeschlossen. Bei vorzeitiger Auflösung aus wichtigem Grund schuldet die kündigende Partei der Gegenseite Ersatz nach Massgabe des Einzelvertrags. Bei Eigentumswechsel an der Liegenschaft tritt der neue Eigentümer in den Vertrag ein, sofern dies im Einzelvertrag vorgesehen ist.\n\n• Kaufoption: Soweit im Einzelvertrag vorgesehen, hat der Kunde das Recht, die Anlage zu definierten Zeitpunkten zu einem im Voraus bestimmten Restwert zu erwerben.\n\n• Nach Vertragsende: Nach Ablauf der Vertragslaufzeit geht das Eigentum an der Anlage – sofern im Einzelvertrag so vorgesehen – unentgeltlich oder zu einem symbolischen Restwert auf den Kunden über. Andernfalls wird die Anlage durch Free State AG demontiert und der Aufstellungsort fachgerecht zurückgebaut.\n\nDie Einzelheiten zu Laufzeit, Entgelt, Indexierung, Eigentumsübergang, Versicherungsdeckung und Kaufoption ergeben sich abschliessend aus dem unterzeichneten Solar-Free-Vertrag, der diesen AGB im Konfliktfall vorgeht."
     },
     "prices": {
-      "title": "4. Preise",
-      "content": "Alle Preise verstehen sich in Schweizer Franken (CHF) und beinhalten die jeweils gültige Mehrwertsteuer (MWST), sofern nicht anders angegeben.\n\nFree State AG behält sich das Recht vor, Preise jederzeit anzupassen. Für bestehende Verträge gelten die zum Zeitpunkt des Vertragsschlusses vereinbarten Preise."
+      "title": "7. Preise",
+      "content": "Alle Preise verstehen sich in Schweizer Franken (CHF). Soweit nicht anders ausgewiesen, verstehen sich Preise gegenüber Konsumentinnen und Konsumenten inklusive der jeweils gültigen Mehrwertsteuer und gegenüber Geschäftskunden zuzüglich Mehrwertsteuer.\n\nIn Online-Rechnern und auf der Website angegebene Preise sind unverbindliche Richtwerte. Verbindlich sind ausschliesslich die in der individuellen Offerte bzw. im Einzelvertrag aufgeführten Preise.\n\nFree State AG behält sich das Recht vor, Preise für künftige Verträge jederzeit anzupassen. Für bereits abgeschlossene Verträge bleiben die vereinbarten Preise verbindlich, vorbehältlich vertraglich vorgesehener Anpassungsklauseln (z. B. Indexierung beim Solar-Free-Modell)."
     },
     "payment": {
-      "title": "5. Zahlungsbedingungen",
-      "content": "Rechnungen sind innert 30 Tagen ab Rechnungsdatum zahlbar, sofern nichts anderes vereinbart wurde. Bei Zahlungsverzug ist Free State AG berechtigt, Verzugszinsen von 5% pro Jahr zu berechnen.\n\nFree State AG behält sich das Recht vor, Vorauszahlungen oder Sicherheitsleistungen zu verlangen."
+      "title": "8. Zahlungsbedingungen",
+      "content": "Sofern nicht anders vereinbart, sind Rechnungen innert 30 Tagen ab Rechnungsdatum ohne Abzug zu bezahlen. Bei Zahlungsverzug ist Free State AG berechtigt, Verzugszinsen von 5 % pro Jahr (Art. 104 OR) sowie angemessene Mahn- und Inkassokosten in Rechnung zu stellen.\n\nBei grösseren Aufträgen kann Free State AG Anzahlungen oder Teilzahlungen verlangen, etwa nach folgendem Muster: 30 % bei Vertragsabschluss, 60 % bei Materiallieferung, 10 % nach Inbetriebnahme. Die genauen Zahlungsbedingungen werden im Einzelvertrag festgelegt.\n\nBeim Solar-Free-Modell ist das monatliche Entgelt im Voraus zur Zahlung fällig, im Regelfall durch LSV/Debit Direct."
     },
     "warranty": {
-      "title": "6. Gewährleistung",
-      "content": "Free State AG gewährleistet, dass die gelieferten Produkte und Dienstleistungen zum Zeitpunkt der Lieferung frei von Sach- und Rechtsmängeln sind.\n\nDie Gewährleistungsfrist beträgt 2 Jahre ab Lieferdatum, sofern nicht schriftlich eine längere Frist vereinbart wurde. Gewährleistungsansprüche müssen innert 10 Tagen nach Entdeckung des Mangels schriftlich gemeldet werden.\n\nHerstellergarantien für bestimmte Komponenten (z.B. Solarmodule, Wechselrichter) können zusätzlich gelten und unterliegen den jeweiligen Herstellerbedingungen."
+      "title": "9. Gewährleistung und Garantien",
+      "content": "Free State AG gewährleistet, dass die gelieferten Produkte und Dienstleistungen zum Zeitpunkt der Lieferung den vertraglich vereinbarten Eigenschaften entsprechen und frei von Sach- und Rechtsmängeln sind.\n\nDie gesetzliche Mängelgewährleistungsfrist beträgt zwei Jahre ab Lieferung bzw. fünf Jahre für unbewegliche Werke (Art. 371 OR). Mängel sind unverzüglich, spätestens jedoch innert 10 Arbeitstagen nach Entdeckung, schriftlich (info@freestate.ch) zu rügen.\n\nZusätzlich gelten für die einzelnen Komponenten die vom jeweiligen Hersteller gewährten Produktgarantien. Diese werden – sofern verfügbar – an den Kunden weitergegeben und ergänzen die gesetzliche Gewährleistung. Richtwerte sind:\n\n• Solarmodule (Produktgarantie): in der Regel 10–25 Jahre\n• Solarmodule (Leistungsgarantie): in der Regel 25 Jahre auf eine garantierte Mindestleistung\n• Wechselrichter: in der Regel 5–10 Jahre, oft verlängerbar\n• Batteriespeicher: in der Regel 10 Jahre Produkt- und Kapazitätsgarantie\n• Unterkonstruktion / Montagesystem: in der Regel 10–25 Jahre\n• Wärmepumpen: in der Regel 2–5 Jahre, je nach Hersteller verlängerbar\n• Ladestationen: in der Regel 2–3 Jahre\n• Installationsleistung von Free State AG: 5 Jahre auf Werkmängel\n\nDie konkreten Garantiebedingungen, Bedingungen für Garantiefälle und allfällige Selbstbehalte ergeben sich aus den Garantieurkunden der Hersteller, die dem Kunden mit der Schlussabrechnung übergeben oder elektronisch zur Verfügung gestellt werden.\n\nVon der Gewährleistung ausgenommen sind insbesondere Schäden durch unsachgemässe Nutzung, höhere Gewalt (Sturm, Hagel, Blitzschlag, soweit nicht versichert), Eingriffe Dritter, normalen Verschleiss sowie Mängel, die der Kunde trotz Aufforderung nicht rechtzeitig gerügt hat."
     },
     "liability": {
-      "title": "7. Haftung",
-      "content": "Free State AG haftet nur bei Vorsatz oder grober Fahrlässigkeit für Schäden. Die Haftung für indirekte Schäden, Folgeschäden oder entgangenen Gewinn ist im gesetzlich zulässigen Rahmen ausgeschlossen.\n\nDie Gesamthaftung von Free State AG ist auf den Vertragswert des jeweiligen Auftrags beschränkt."
+      "title": "10. Haftung",
+      "content": "Free State AG haftet für Schäden nur bei Vorsatz und grober Fahrlässigkeit. Die Haftung für leichte Fahrlässigkeit ist – soweit gesetzlich zulässig – ausgeschlossen.\n\nDie Haftung für indirekte Schäden, Folgeschäden, entgangenen Gewinn, Produktionsausfälle oder Datenverluste ist im gesetzlich zulässigen Rahmen ausgeschlossen.\n\nDie Gesamthaftung von Free State AG je Schadensfall ist auf den Vertragswert des betroffenen Auftrags bzw. – beim Solar-Free-Modell – auf das im Schadensfalljahr geschuldete jährliche Entgelt beschränkt.\n\nUnberührt bleibt die zwingende Haftung nach dem Schweizer Produktehaftpflichtgesetz sowie für Personenschäden."
     },
     "dataProtection": {
-      "title": "8. Datenschutz",
-      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit den geltenden Datenschutzgesetzen (Schweizerisches Bundesgesetz über den Datenschutz und, wo anwendbar, die EU-Datenschutz-Grundverordnung).\n\nDetaillierte Informationen zur Datenverarbeitung finden Sie in unserer Datenschutzerklärung."
+      "title": "11. Datenschutz",
+      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit dem revidierten Schweizer Datenschutzgesetz (revDSG) und – soweit anwendbar – der EU-Datenschutz-Grundverordnung (DSGVO).\n\nDetaillierte Informationen zur Datenverarbeitung, zu den Rechten der betroffenen Personen sowie zu den eingesetzten Drittanbietern (insbesondere Google Analytics, Hotjar, Google Maps und Swisscom Trust Services) finden Sie in unserer Datenschutzerklärung unter /datenschutz."
     },
     "applicableLaw": {
-      "title": "9. Anwendbares Recht und Gerichtsstand",
-      "content": "Diese AGB unterstehen schweizerischem Recht unter Ausschluss des Übereinkommens der Vereinten Nationen über Verträge über den internationalen Warenkauf (CISG).\n\nAusschliesslicher Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesen AGB ist Schaffhausen, Schweiz."
+      "title": "12. Anwendbares Recht und Gerichtsstand",
+      "content": "Diese AGB sowie sämtliche Verträge zwischen Free State AG und dem Kunden unterstehen ausschliesslich schweizerischem Recht unter Ausschluss des Übereinkommens der Vereinten Nationen über Verträge über den internationalen Warenkauf (CISG).\n\nAusschliesslicher Gerichtsstand für sämtliche Streitigkeiten aus oder im Zusammenhang mit diesen AGB oder den darauf gestützten Verträgen ist Schaffhausen, Schweiz. Free State AG behält sich das Recht vor, den Kunden auch an seinem Wohnsitz oder an jedem anderen zuständigen Gericht zu belangen. Zwingende Gerichtsstände gemäss Konsumentenschutzrecht bleiben vorbehalten."
     },
     "finalProvisions": {
-      "title": "10. Schlussbestimmungen",
-      "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, wird die Wirksamkeit der übrigen Bestimmungen davon nicht berührt. Die unwirksame Bestimmung ist durch eine wirksame Bestimmung zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.\n\nFree State AG behält sich das Recht vor, diese AGB jederzeit zu ändern. Die geänderten AGB werden auf der Website veröffentlicht und gelten ab dem Zeitpunkt der Veröffentlichung."
+      "title": "13. Schlussbestimmungen",
+      "content": "Sollten einzelne Bestimmungen dieser AGB unwirksam, ungültig oder undurchsetzbar sein oder werden, so wird die Wirksamkeit der übrigen Bestimmungen davon nicht berührt. Die unwirksame Bestimmung ist durch eine wirksame Regelung zu ersetzen, die dem wirtschaftlichen Zweck der unwirksamen Bestimmung möglichst nahekommt.\n\nFree State AG behält sich das Recht vor, diese AGB jederzeit zu ändern. Die jeweils gültige Fassung wird auf der Website veröffentlicht. Für bestehende Verträge gilt die zum Zeitpunkt des Vertragsschlusses geltende Fassung, sofern der Kunde einer Änderung nicht ausdrücklich zustimmt.\n\nDie deutsche Fassung dieser AGB ist verbindlich. Übersetzungen in andere Sprachen dienen ausschliesslich der Information."
     },
-    "lastUpdated": "Zuletzt aktualisiert: März 2026"
+    "lastUpdated": "Zuletzt aktualisiert: April 2026"
   },
   "chargingStations": {
     "hero": {
       "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
       "title": "Ladestationen",
       "subtitle": "Für Einfamilienhäuser ohne Batteriespeicher"
+    },
+    "commercialTopics": {
+      "title": "Alles über Ladestationen",
+      "items": [
+        {
+          "title": "Mehrfamilienhaus",
+          "description": "Skalierbare Ladeinfrastruktur für Wohnanlagen.",
+          "linkLabel": "Mehrfamilienhaus",
+          "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
+          "href": "/commercial/charging-stations/apartment-building"
+        },
+        {
+          "title": "Verfolgen",
+          "description": "Lastmanagement und Monitoring für Firmenflotten.",
+          "linkLabel": "Verfolgen",
+          "image": "/images/commercial-charging-verfolgen-483c1d.webp",
+          "href": "/commercial/charging-stations/company"
+        },
+        {
+          "title": "Schnellladestationen",
+          "description": "Hochleistungs-Ladestationen für Unternehmen und öffentliche Plätze.",
+          "linkLabel": "Schnellladestationen",
+          "image": "/images/commercial-charging-schnell-1fa800.webp",
+          "href": "/commercial/charging-stations/fast-charging-stations"
+        },
+        {
+          "title": "Bidirektionale",
+          "description": "Fahrzeug als Stromspeicher – Energie fliesst in beide Richtungen.",
+          "linkLabel": "Bidirektionale",
+          "image": "/images/charging-bidirektional-7ac659.webp",
+          "href": "/commercial/charging-stations/bidirectional-charging-station"
+        }
+      ]
+    },
+    "topics": {
+      "title": "Alles über Ladestationen",
+      "items": [
+        {
+          "title": "Einfamilienhaus",
+          "description": "Ladelösungen für Ihr Zuhause – sicher und bequem.",
+          "linkLabel": "Einfamilienhaus",
+          "image": "/images/charging-einfamilienhaus-a9cdc6.webp",
+          "href": "/charging-stations/single-family-home"
+        },
+        {
+          "title": "Mehrfamilienhaus",
+          "description": "Skalierbare Ladeinfrastruktur für Wohnanlagen.",
+          "linkLabel": "Mehrfamilienhaus",
+          "image": "/images/charging-mehrfamilienhaus-76aaa2.webp",
+          "href": "/charging-stations/apartment-building"
+        },
+        {
+          "title": "Bidirektionale",
+          "description": "Fahrzeug als Stromspeicher – Energie fliesst in beide Richtungen.",
+          "linkLabel": "Bidirektionale",
+          "image": "/images/charging-bidirektional-7ac659.webp",
+          "href": "/charging-stations/bidirectional-charging-station"
+        }
+      ]
     }
   },
   "cost": {
@@ -3235,8 +3773,8 @@
       "title": "Was kostet eine Solaranlage?",
       "description": "Die Preise für Solaranlagen sind in den letzten Jahren deutlich gesunken. Derzeit sind die Bedingungen äusserst günstig, um mit Solaranlagen eine hohe Rentabilität zu erzielen.\n\nSelbst erzeugter Solarstrom ist deutlich günstiger als Strom aus dem Netz:",
       "items": {
-        "gridElectricity": "Strom aus dem Kraftwerk kostet  23 Rappen.",
-        "solarPower": "Der Solarstrom, inklusive Betriebskosten, kostet  12 Rappen."
+        "gridElectricity": "Strom aus dem Kraftwerk kostet 23 Rappen.",
+        "solarPower": "Der Solarstrom, inklusive Betriebskosten, kostet 12 Rappen."
       },
       "infoCard": "Je mehr Sie Ihren selbst produzierten Strom nutzen, desto rentabler wird Ihre Solaranlage – und desto günstiger wird Ihre Stromrechnung."
     }
@@ -3303,7 +3841,7 @@
       "advantagesTitle": "Vorteile einer integrierten Ladestation",
       "advantages": {
         "freeRefueling": "Kostenloses Tanken mit Solarstrom",
-        "co2Neutral": "CO₂-neutrales Fahren und sicher",
+        "co2Neutral": "CO₂-neutrales und sicheres Fahren",
         "convenientCharging": "Bequemes Laden zu Hause"
       }
     },
@@ -3347,7 +3885,7 @@
       "title": "Das sagen unsere\nKunden",
       "quote": "Projektplanung und Ausführung verliefen reibungslos und professionell. Das Team war freundlich, kompetent, während des gesamten Prozesses transparent und hat alle Anliegen effizient bearbeitet.",
       "authorName": "Franz McLaren",
-      "verifiedOwner": "Verifizierter Besitzer"
+      "verifiedOwner": "Verifizierter Kunde"
     }
   },
   "solarCalculator": {
@@ -3558,7 +4096,7 @@
     "installation": {
       "eyebrow": "Speicher",
       "title": "Installation des Batteriespeichers",
-      "description": "Basierend auf Ihrer spezifischen Situation und Ihren Bedürfnissen empfehlen unsere Experten entweder das AC- oder DC-System. Die Installation wird von unseren erfahrenen Spezialisten durchgeführt, die alle vom Hersteller zertifiziert sind. Helion registriert jede installierte Batterie automatisch bei Inobat und gewährleistet so die fachgerechte Entsorgung Ihres alternden Energiespeichers"
+      "description": "Basierend auf Ihrer spezifischen Situation und Ihren Bedürfnissen empfehlen unsere Experten entweder das AC- oder DC-System. Die Installation wird von unseren erfahrenen Spezialisten durchgeführt, die alle vom Hersteller zertifiziert sind. Helion registriert jede installierte Batterie automatisch bei Inobat und gewährleistet so die fachgerechte Entsorgung Ihres alternden Energiespeichers."
     },
     "solutions": {
       "eyebrow": "PV-Anlage",
@@ -3569,8 +4107,8 @@
       "cta": "Jetzt Offerte erhalten",
       "ctaLink": "/kontakt",
       "products": {
-        "e3dc": {
-          "name": "E3DC",
+        "sigenstor": {
+          "name": "SigenStor Batteriespeicher",
           "featuresLabel": "Hauptmerkmale",
           "features": "Notstromversorgung für das ganze Haus|Integrierter Wechselrichter (bis 15 kWp)|Erweiterbare Kapazität (18–21 kWh)|Intelligentes Energiemanagement|Fernsteuerung & Smart-Home-Integration|Solaroptimiertes E-Auto-Laden",
           "warranty": "10 Jahre Herstellergarantie|Kostenloser Service",
@@ -3628,9 +4166,18 @@
         "description": "Für den Systemcheck ist kein Wartungsvertrag erforderlich. Dieses Angebot gilt für Photovoltaikanlagen bis 19,99 kWp."
       },
       "items": {
-        "inspection": "Sichtprüfung der Oberfläche",
-        "measurements": "Messungen",
-        "repairs": "Reparaturen"
+        "inspection": {
+          "question": "Sichtprüfung der Oberfläche",
+          "answer": "Wir prüfen alle Module auf Beschädigungen, Verschmutzung und Hotspots, kontrollieren das Montagesystem auf Korrosion und festen Sitz und überprüfen Verkabelung, Steckverbinder sowie Dachdurchdringungen auf Verschleiss."
+        },
+        "measurements": {
+          "question": "Messungen",
+          "answer": "Elektrische Leistungsmessungen einschliesslich Stringspannung, Strom, Isolationswiderstand und Wechselrichterleistung. Die Ergebnisse werden in einem schriftlichen Bericht dokumentiert und mit den Sollwerten verglichen."
+        },
+        "repairs": {
+          "question": "Reparaturen",
+          "answer": "Kleinere Korrekturen wie das Nachziehen von Steckverbindern oder das Entfernen von Fremdkörpern sind enthalten. Ersatzteile und grössere Reparaturen werden separat offeriert und nach Ihrer Freigabe ausgeführt."
+        }
       }
     },
     "maintenance": {
@@ -3709,7 +4256,7 @@
       "products": {
         "label": "Welche Produkte verwenden Sie? *",
         "solarAboPrivate": "SolarFree Privat",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industrie / Gewerbe",
         "huaweiInverters": "Huawei-Wechselrichter",
         "sonnenBattery": "Sonnen Batteriespeicher",
         "e3dcBattery": "E3DC Batteriespeicher",
@@ -4218,7 +4765,7 @@
     },
     "selfConsumptionControl": {
       "title": "Eigenverbrauch mit Steuerung erhöhen",
-      "description": "Unser Smart Energy Steuerungssystem schaltet energieintensive Geräte ein, wenn Solarstrom verfügbar ist. Dies erhöht den Eigenverbrauch und reduziert so den Bedarf an externem Kohle- und/oder Atomstrom.",
+      "description": "Unser Smart-Energy-Steuerungssystem schaltet energieintensive Geräte ein, wenn Solarstrom verfügbar ist. Dies erhöht den Eigenverbrauch und reduziert so den Bedarf an externem Kohle- und/oder Atomstrom.",
       "tip": "Speicherlösungen oder Steuerungssysteme können Ihren Eigenverbrauch auf bis zu 80% erhöhen."
     },
     "installation": {
@@ -4315,7 +4862,7 @@
         "strategicPlanning": "Strategische Planung",
         "feasibilityStudy": "Machbarkeitsstudie",
         "designEngineering": "Design & Engineering",
-        "tenderPreparation": "Ausschreibungs-vorbereitung",
+        "tenderPreparation": "Ausschreibungsvorbereitung",
         "siteConstruction": "Bau vor Ort",
         "operationMaintenance": "Betrieb & Wartung"
       }
@@ -4445,8 +4992,8 @@
   },
   "chargingStationsSingleFamilyHome": {
     "hero": {
-      "title": "Single - Family House",
-      "description": "Solar modules for efficient, long-term energy production"
+      "title": "Einfamilienhaus",
+      "description": "Solarmodule für effiziente, langfristige Energieerzeugung"
     },
     "intro": {
       "eyebrow": "Einfamilienhäuser",
@@ -4560,7 +5107,7 @@
       "footnote": "Je nach Situation ergibt sich ein jährlicher finanzieller Vorteil von bis zu CHF 520 mit Solaranlage oder bis zu CHF 300 ohne Solaranlage. Details zum finanziellen Vorteil folgen:"
     },
     "marketingFlexibility": {
-      "title": "Marketing Flexibilität",
+      "title": "Marketing-Flexibilität",
       "description": "Ihre EV-Batterie kann dem virtuellen Kraftwerk von Helion beitreten, das Netz unterstützen und einen FLEXBONUS durch Bereitschafts- und Spitzentarifzahlungen verdienen.",
       "additionalIncome": "Zusätzliches Einkommen über FLEXBONUS:",
       "cards": {
@@ -4835,16 +5382,16 @@
         "bullet2": "Mit Batteriespeicher"
       },
       "multi": {
-        "tag": "Multi",
-        "title": "{model} Multi",
+        "tag": "Mehrfamilienhaus",
+        "title": "{model} Mehrfamilienhaus",
         "bullet1": "Für Mehrfamilienhäuser",
         "bullet2": "Gemeinschaftliche Energieversorgung (ZEV / LEG)"
       },
-      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Multi",
+      "learnMore": "Erfahren Sie mehr über {model} Home und {model} Mehrfamilienhaus",
       "learnMorePrefix": "Mehr erfahren über",
       "learnMoreConnector": "und",
       "learnMoreHome": "{model} Home",
-      "learnMoreMulti": "{model} Multi",
+      "learnMoreMulti": "{model} Mehrfamilienhaus",
       "learnMoreSolarDirect": "SolarDirect"
     },
     "progress": {
@@ -4864,7 +5411,7 @@
       "options": {
         "home": "SolarFree Home",
         "homeDesc": "Für Einfamilienhäuser ohne Batteriespeicher",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Mehrfamilienhaus",
         "multiDesc": "Für Mehrfamilienhäuser und Energiegemeinschaften (ZEV / LEG)"
       },
       "learnMore": "Erfahren Sie mehr über",
@@ -4916,7 +5463,8 @@
       "excellent": "Hervorragend",
       "low": "Gering",
       "selected": "Ausgewählt",
-      "loading": "Gebäudedaten werden geladen..."
+      "loading": "Gebäudedaten werden geladen...",
+      "addressIncomplete": "Bitte wählen Sie eine vollständige Adresse inklusive Hausnummer."
     },
     "step6": {
       "title": "Wie ist Ihr Dach gedeckt?",
@@ -4983,12 +5531,12 @@
       },
       "energyFlow": {
         "title": "Energiefluss",
-        "production": "Produktion",
-        "ownConsumption": "Eigenverbrauch",
-        "consumption": "Stromverbrauch",
+        "production": "Solarproduktion",
+        "ownConsumption": "Aus Solar",
+        "consumption": "Hausverbrauch",
         "independence": "Unabhängigkeit",
-        "gridSupply": "Netzbezug",
-        "feedIn": "Netzeinspeisung"
+        "gridSupply": "Aus dem Netz",
+        "feedIn": "Überschuss ins Netz"
       },
       "monthlyAnalysis": {
         "title": "Monatsanalyse",
@@ -5013,7 +5561,7 @@
         "title": "Empfohlenes Paket",
         "home": "SolarFree Home",
         "homeDesc": "Für Einfamilienhäuser",
-        "multi": "SolarFree Multi",
+        "multi": "SolarFree Mehrfamilienhaus",
         "multiDesc": "Für Mehrfamilienhäuser",
         "recommended": "Empfohlen"
       },
@@ -5048,6 +5596,40 @@
         "subsidyAmount": "Förderung (Einmalvergütung)",
         "netAmount": "Nettobetrag",
         "pricingBreakdown": "Preisübersicht"
+      },
+      "solarFree": {
+        "yourSystem": {
+          "label": "Ihre Anlage",
+          "size": "{kwp} kWp",
+          "panels": "{count} Module",
+          "production": "~{kwh} kWh pro Jahr"
+        },
+        "yourYearlySaving": {
+          "label": "Ihre jährliche Ersparnis",
+          "amount": "CHF {amount}",
+          "suffix": "pro Jahr auf Ihrer Stromrechnung",
+          "footnote": "SolarFree-Strom ist immer 20–40% günstiger als Netzstrom."
+        },
+        "yourImpact": {
+          "label": "Ihr Beitrag",
+          "co2": "~{kg} kg CO₂ pro Jahr eingespart",
+          "selfSufficient": "~{pct}% Eigenversorgung"
+        },
+        "whatsIncluded": {
+          "label": "Was ist enthalten",
+          "footnote": "Für die gesamte Vertragslaufzeit abgedeckt."
+        },
+        "packageSelector": {
+          "label": "Wählen Sie Ihr Paket",
+          "recommended": "Empfohlen",
+          "capacityRange": "{min}–{max} kWp"
+        },
+        "energyFlow": {
+          "label": "So fliesst Ihre Energie"
+        },
+        "monthly": {
+          "label": "Über das Jahr"
+        }
       }
     },
     "solarDirect": {
@@ -5082,6 +5664,19 @@
       "phoneNumberPlaceholder": "Geben Sie Ihre Telefonnummer ein",
       "remarks": "Bemerkungen",
       "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
+      "address": {
+        "sectionTitle": "Ihre Adresse",
+        "countryLabel": "Land",
+        "countryOptions": {
+          "CH": "Schweiz",
+          "LI": "Liechtenstein"
+        },
+        "postalCode": "PLZ",
+        "city": "Stadt",
+        "street": "Strasse",
+        "streetNumber": "Hausnr.",
+        "addressAdditional": "Zusatzinformation (optional)"
+      },
       "errors": {
         "salutationRequired": "Bitte wählen Sie eine Anrede",
         "firstNameRequired": "Vorname ist erforderlich",
@@ -5090,6 +5685,10 @@
         "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
         "phoneRequired": "Telefonnummer ist erforderlich",
         "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein",
+        "postalCodeRequired": "PLZ ist erforderlich",
+        "cityRequired": "Stadt ist erforderlich",
+        "streetRequired": "Strasse ist erforderlich",
+        "streetNumberRequired": "Hausnummer ist erforderlich",
         "consentRequired": "Sie müssen die Datenschutzbestimmungen akzeptieren"
       },
       "submit": "Angebot anfordern",
@@ -5122,7 +5721,7 @@
         "title": "SolarFree — Keine Investition",
         "point1": "Die Free State AG installiert und wartet die Solaranlage auf Ihrem Dach — kostenlos für Sie.",
         "point2": "Sie profitieren von sauberem Solarstrom und sparen bei Ihrer Stromrechnung.",
-        "point3": "Nach 25 Jahren geht die Anlage in Ihr Eigentum über."
+        "point3": "Nach 35 Jahren geht die Anlage in Ihr Eigentum über."
       },
       "importantNotice": {
         "title": "Wichtiger Hinweis",
@@ -5143,7 +5742,16 @@
         "net": "Nettobetrag"
       },
       "creatingContract": "Vertrag wird erstellt...",
-      "proceedToSign": "Zur Unterschrift"
+      "proceedToSign": "Zur Unterschrift",
+      "solarFree": {
+        "rateCard": {
+          "title": "Ihr SolarFree-Tarif",
+          "bodyLine1": "20–40% günstiger als der Netztarif für jede Solar-kWh, die Sie verbrauchen.",
+          "bodyLine2": "Keine Gebühren für die Anlage selbst.",
+          "yearlySavingLabel": "Geschätzte jährliche Ersparnis",
+          "yearlySavingValue": "CHF {amount}"
+        }
+      }
     },
     "signature": {
       "title": "Digitale Unterschrift",
@@ -5288,11 +5896,20 @@
       "support": "Support",
       "maintenanceInquiries": "Wartungsanfragen",
       "contacts": "Kontaktanfragen",
+      "quoteRequests": "Angebotsanfragen",
+      "investorRequests": "Investorenanfragen",
       "newsletter": "Newsletter",
+      "careerSubscriptions": "Karriere-Abonnenten",
       "groupContent": "Inhalte",
       "groupCrm": "CRM",
       "groupSubmissions": "Anfragen",
-      "groupEquipment": "Ausrüstung"
+      "groupEquipment": "Ausrüstung",
+      "groupResidential": "Wohnen",
+      "groupCommercial": "Gewerbe",
+      "groupOperations": "Operationen",
+      "residentialContracts": "Verträge",
+      "residentialLeads": "Wohn-Leads",
+      "commercialLeads": "Gewerbliche Anfragen"
     },
     "dashboard": {
       "title": "Dashboard",
@@ -5317,6 +5934,55 @@
       "totalReceived": "Eingegangen",
       "newsletterSubscribers": "Newsletter-Abonnenten",
       "totalSubscribed": "Angemeldet"
+    },
+    "statusLabels": {
+      "ADMIN": "Admin",
+      "CUSTOMER": "Kunde",
+      "SALES_REP": "Vertrieb",
+      "ACTIVE": "Aktiv",
+      "INACTIVE": "Inaktiv",
+      "PENDING_VERIFICATION": "Verifizierung ausstehend",
+      "SUSPENDED": "Gesperrt",
+      "NEW": "Neu",
+      "CONTACTED": "Kontaktiert",
+      "QUALIFIED": "Qualifiziert",
+      "PROPOSAL_SENT": "Angebot gesendet",
+      "QUOTE_PREPARING": "Angebot in Vorbereitung",
+      "QUOTE_SENT": "Angebot gesendet",
+      "NEGOTIATION": "In Verhandlung",
+      "WON": "Gewonnen",
+      "LOST": "Verloren",
+      "ON_HOLD": "Pausiert",
+      "WEBSITE": "Website",
+      "REFERRAL": "Empfehlung",
+      "ADVERTISEMENT": "Werbung",
+      "COLD_CALL": "Kaltakquise",
+      "TRADE_SHOW": "Messe",
+      "PARTNER": "Partner",
+      "OTHER": "Sonstiges",
+      "DRAFT": "Entwurf",
+      "PENDING_SIGNATURE": "Signatur ausstehend",
+      "OTP_SENT": "OTP gesendet",
+      "SIGNED": "Signiert",
+      "CANCELLED": "Storniert",
+      "EXPIRED": "Abgelaufen",
+      "SENT": "Gesendet",
+      "VIEWED": "Angesehen",
+      "ACCEPTED": "Angenommen",
+      "REJECTED": "Abgelehnt",
+      "FAILED": "Fehlgeschlagen",
+      "PENDING": "Ausstehend",
+      "PRELIMINARY": "Vorläufig",
+      "FINAL": "Final",
+      "AMENDMENT": "Nachtrag",
+      "OPEN": "Offen",
+      "IN_PROGRESS": "In Bearbeitung",
+      "RESOLVED": "Gelöst",
+      "CLOSED": "Geschlossen",
+      "SUBMITTED": "Eingereicht",
+      "CHANGES_REQUESTED": "Änderungen angefordert",
+      "PUBLISHED": "Veröffentlicht",
+      "DOCUMENTS_SENT": "Unterlagen gesendet"
     },
     "users": {
       "title": "Benutzer",
@@ -5344,8 +6010,11 @@
       "customerProfile": "Kundenprofil",
       "company": "Firma",
       "street": "Strasse",
+      "postalCode": "PLZ",
       "city": "Stadt",
       "canton": "Kanton",
+      "country": "Land",
+      "addressAdditional": "Zusatzinformation",
       "activitySummary": "Übersicht Aktivitäten",
       "assignedLeads": "Zugewiesene Leads",
       "createdQuotes": "Erstellte Angebote"
@@ -5402,6 +6071,28 @@
       "customerSigned": "Kunde unterschrieben",
       "project": "Projekt",
       "projectStatus": "Projektstatus"
+    },
+    "dataRequests": {
+      "notFound": "Nicht gefunden.",
+      "backToContract": "Zurück zum Vertrag",
+      "due": "Fällig am {date}",
+      "noFiles": "Keine Dateien hochgeladen.",
+      "document": "Dokument {index}",
+      "noAnswer": "Keine Antwort angegeben.",
+      "confirmed": "Bestätigt",
+      "notConfirmed": "Nicht bestätigt",
+      "changesRequested": "Änderungen angefordert",
+      "accept": "Akzeptieren",
+      "accepting": "Akzeptiere…",
+      "requestChanges": "Änderungen anfordern",
+      "cancelRequest": "Anfrage stornieren",
+      "cancelling": "Storniere…",
+      "requestChangesTitle": "Änderungen anfordern",
+      "requestChangesDescription": "Erklären Sie, was geändert werden muss. Der Kunde erhält eine E-Mail und kann erneut einreichen.",
+      "requestChangesPlaceholder": "Fotos des Zählers waren zu unscharf…",
+      "cancel": "Abbrechen",
+      "send": "Senden",
+      "sending": "Sende…"
     },
     "equipment": {
       "title": "Produktkatalog",
@@ -5538,6 +6229,71 @@
       "adminNotes": "Admin-Notizen",
       "saveNotes": "Notizen speichern"
     },
+    "quoteRequests": {
+      "title": "Angebotsanfragen",
+      "searchPlaceholder": "Suche nach Name, E-Mail, Telefon...",
+      "filterSource": "Nach Quelle filtern",
+      "filterStatus": "Nach Status filtern",
+      "allSources": "Alle Quellen",
+      "allStatuses": "Alle Status",
+      "sourceSolarFree": "SolarFree",
+      "sourceSolarDirect": "SolarDirect",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "postalCode": "Postleitzahl",
+      "source": "Quelle",
+      "ownsHome": "Eigenheim",
+      "status": "Status",
+      "created": "Erstellt",
+      "locale": "Sprache",
+      "consent": "Einwilligung",
+      "yes": "Ja",
+      "no": "Nein",
+      "view": "Anzeigen",
+      "noRequests": "Keine Angebotsanfragen gefunden",
+      "totalRequests": "{count} Anfragen insgesamt",
+      "statusNew": "Neu",
+      "statusContacted": "Kontaktiert",
+      "statusQualified": "Qualifiziert",
+      "statusClosed": "Geschlossen",
+      "details": "Details",
+      "manage": "Verwalten",
+      "adminNotes": "Admin-Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "backToList": "Zurück zur Liste"
+    },
+    "investorRequests": {
+      "title": "Investorenanfragen",
+      "searchPlaceholder": "Nach Name oder E-Mail suchen...",
+      "filterStatus": "Status filtern",
+      "allStatuses": "Alle Status",
+      "name": "Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "location": "Ort",
+      "type": "Typ",
+      "status": "Status",
+      "created": "Erstellt",
+      "view": "Anzeigen",
+      "noRequests": "Keine Investorenanfragen gefunden",
+      "totalRequests": "{count} Anfragen gesamt",
+      "statusNew": "Neu",
+      "statusContacted": "Kontaktiert",
+      "statusDocumentsSent": "Unterlagen versendet",
+      "statusClosed": "Geschlossen",
+      "details": "Details",
+      "salutation": "Anrede",
+      "address": "Adresse",
+      "language": "Sprache",
+      "comment": "Kommentar",
+      "manage": "Verwalten",
+      "adminNotes": "Admin-Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "backToList": "Zurück zur Liste"
+    },
     "maintenanceInquiries": {
       "title": "Wartungsanfragen",
       "searchPlaceholder": "Nach Name oder E-Mail suchen...",
@@ -5583,7 +6339,7 @@
       },
       "productKeys": {
         "solarAboPrivate": "SolarFree Privat",
-        "solarAboBusiness": "SolarFree Business",
+        "solarAboBusiness": "Industrie / Gewerbe",
         "huaweiInverters": "Huawei Wechselrichter",
         "sonnenBattery": "Sonnen Batterie",
         "e3dcBattery": "E3/DC Batterie",
@@ -5650,22 +6406,112 @@
       "noSubscribers": "Keine Abonnenten gefunden",
       "totalSubscribers": "{count} Abonnenten gesamt"
     },
+    "careerSubscriptions": {
+      "title": "Karriere-Abonnenten",
+      "searchPlaceholder": "Nach Name, E-Mail oder Rolle suchen...",
+      "name": "Name",
+      "email": "E-Mail",
+      "role": "Rolle",
+      "comment": "Kommentar",
+      "locale": "Sprache",
+      "subscribed": "Angemeldet",
+      "noSubscribers": "Noch keine Karriere-Abonnenten",
+      "totalSubscribers": "{count} Abonnenten gesamt"
+    },
     "common": {
       "loading": "Laden...",
       "failedToLoad": "Daten konnten nicht geladen werden.",
       "notFound": "Nicht gefunden.",
       "page": "Seite {page} von {totalPages}"
+    },
+    "commercialLeads": {
+      "title": "Gewerbliche Anfragen",
+      "searchPlaceholder": "Suchen nach Ref, Firma, Kontakt…",
+      "allStatuses": "Alle Status",
+      "allIndustries": "Alle Branchen",
+      "allTimelines": "Alle Zeitrahmen",
+      "filterUnassigned": "Nicht zugewiesen",
+      "filterOverdue": "Follow-up überfällig",
+      "exportCsv": "CSV exportieren",
+      "reference": "Referenz",
+      "company": "Firma",
+      "contact": "Kontakt",
+      "kwp": "kWp",
+      "timeline": "Zeitrahmen",
+      "status": "Status",
+      "assigned": "Zugewiesen",
+      "created": "Erstellt",
+      "nextFollowUp": "Nächstes Follow-up",
+      "unassigned": "Nicht zugewiesen",
+      "overdueFollowUp": "Follow-up überfällig",
+      "view": "Ansehen",
+      "total": "{count} Einträge",
+      "empty": "Noch keine gewerblichen Anfragen",
+      "detail": {
+        "back": "Zurück",
+        "tab_activity": "Aktivität",
+        "tab_notes": "Notizen",
+        "tab_attachments": "Dokumente",
+        "tab_snapshot": "Berechnung",
+        "companyCard": "Firma",
+        "contactCard": "Kontakt",
+        "addressCard": "Adresse",
+        "intentCard": "Projektabsicht",
+        "sites": "{count} Standort(e)",
+        "preferredChannel": "Bevorzugter Kanal",
+        "preferredTime": "Bevorzugte Zeit",
+        "isDecisionMaker": "Entscheidungsträger:in",
+        "isNotDecisionMaker": "Nicht Entscheidungsträger:in",
+        "openMaps": "In Maps öffnen",
+        "ownerContact": "Eigentümer-Kontakt",
+        "timeline": "Zeitrahmen",
+        "budget": "Budget",
+        "existingPv": "Bestehende PV",
+        "motivations": "Motivation",
+        "financing": "Finanzierung",
+        "controls": "Verwaltung",
+        "status": "Status",
+        "nextFollowUp": "Nächstes Follow-up",
+        "wonAmount": "Wert CHF",
+        "lostReason": "Grund des Verlusts",
+        "save": "Speichern",
+        "saving": "Speichere…",
+        "quickActions": "Schnellaktionen",
+        "logCall": "Anruf protokollieren",
+        "logMeeting": "Meeting geplant",
+        "sendEmail": "E-Mail senden",
+        "noActivity": "Keine Aktivitäten",
+        "noNotes": "Keine Notizen",
+        "noAttachments": "Keine Dokumente",
+        "addNote": "Notiz hinzufügen",
+        "noteInputPlaceholder": "Notiz eintippen…",
+        "upload": "Hochladen",
+        "confirmDelete": "Dokument wirklich löschen?",
+        "delete": "Löschen",
+        "uploadedByCustomer": "Kunde via Link",
+        "uploadedByAdmin": "Admin",
+        "snapshot": "Berechnung",
+        "systemKwp": "Systemgrösse",
+        "panels": "Module",
+        "annualProduction": "Jahresproduktion",
+        "roofArea": "Dachfläche",
+        "investment": "Investition",
+        "subsidy": "Subvention",
+        "netInvestment": "Netto-Investition",
+        "annualSavings": "Jährliche Einsparung",
+        "payback": "Amortisation",
+        "years": "Jahre",
+        "co2": "CO₂-Reduktion"
+      },
+      "dashboard": {
+        "title": "Gewerbe-Pipeline (90 Tage)",
+        "viewAll": "Alle anzeigen",
+        "conversion": "Conversion: {pct}%",
+        "upcoming": "Fällige Follow-ups (7 Tage)"
+      }
     }
   },
   "register": {
-    "sideTitle": "Starten Sie Ihre Solar-Reise noch heute",
-    "sideDescription": "Schliessen Sie sich Tausenden Schweizer Hausbesitzern an, die mit unserem innovativen Abo-Modell auf saubere, erschwingliche Solarenergie umgestiegen sind.",
-    "benefit1": "Keine Vorabinvestition erforderlich",
-    "benefit2": "30 % niedrigere Stromkosten ab dem ersten Tag",
-    "benefit3": "Professionelle Installation inklusive",
-    "benefit4": "35 Jahre garantierte Leistung",
-    "benefit5": "Echtzeit-Monitoring-App",
-    "benefit6": "Engagiertes Support-Team",
     "title": "Konto erstellen",
     "subtitle": "Starten Sie mit Ihrer personalisierten Solar-Erfahrung",
     "firstName": "Vorname",
@@ -5839,6 +6685,71 @@
       "faq5a": "Die Free State AG übernimmt alle Wartungs-, Reparatur- und Überwachungsarbeiten an der PV-Anlage für die gesamte Vertragsdauer.",
       "faq6q": "Wie unterschreibe ich den Vertrag digital?",
       "faq6a": "Nach Prüfung des Vertrags in unserem Kalkulator werden Sie zu Swisscom Trust Services für eine sichere digitale Unterschrift weitergeleitet. Sie benötigen Ihr Telefon zur Identitätsverifikation."
+    },
+    "nav": {
+      "overview": "Übersicht",
+      "myProject": "Mein Projekt",
+      "myContract": "Mein Vertrag",
+      "requests": "Anfragen",
+      "support": "Support",
+      "settings": "Einstellungen",
+      "signOut": "Abmelden",
+      "openNavigation": "Navigation öffnen",
+      "navigation": "Navigation"
+    },
+    "overview": {
+      "welcome": "Willkommen zurück, {firstName}",
+      "subtitle": "Hier ist eine Übersicht Ihres Solarprojekts.",
+      "failedToLoad": "Dashboard-Daten konnten nicht geladen werden.",
+      "startCalculator": "Kalkulator starten",
+      "viewContract": "Vertrag ansehen",
+      "viewDetails": "Details ansehen",
+      "yourProject": "Ihr Projekt",
+      "address": "Adresse",
+      "package": "Paket",
+      "activity": "Aktivität",
+      "systemSize": "Anlagengrösse",
+      "annualProduction": "Jahresproduktion",
+      "annualSavings": "Jährliche Einsparung",
+      "co2Savings": "CO₂-Einsparung",
+      "kwp": "kWp",
+      "kwh": "kWh",
+      "kgPerYear": "kg/Jahr",
+      "chf": "CHF",
+      "statusNoProjectLabel": "Jetzt starten",
+      "statusNoProjectDesc": "Nutzen Sie unseren Solarkalkulator, um Ihre Optionen zu prüfen.",
+      "statusCalcCompleteLabel": "Berechnung abgeschlossen",
+      "statusCalcCompleteDesc": "Ihre Solaranalyse ist bereit. Fordern Sie ein Angebot an oder unterzeichnen Sie einen Vertrag.",
+      "statusOfferRequestedLabel": "Angebot angefragt",
+      "statusOfferRequestedDesc": "Unser Team prüft Ihre Liegenschaft. Wir melden uns für einen Vor-Ort-Termin.",
+      "statusContractPendingLabel": "Vertrag ausstehend",
+      "statusContractPendingDesc": "Ihr Vertrag ist bereit zur Unterzeichnung.",
+      "statusContractSignedLabel": "Vertrag unterzeichnet",
+      "statusContractSignedDesc": "Ihr Vertrag ist unterzeichnet. Die Installationsplanung beginnt in Kürze.",
+      "activityAccountCreated": "Konto erstellt",
+      "activityCalculationCompleted": "Solarberechnung abgeschlossen",
+      "activityOfferRequested": "Angebot angefragt",
+      "activityContractCreated": "Vertrag erstellt",
+      "activityContractSigned": "Vertrag unterzeichnet"
+    },
+    "requests": {
+      "title": "Anfragen",
+      "subtitle": "Unterlagen, die das Free State Team von Ihnen benötigt.",
+      "groupAction": "Aktion erforderlich",
+      "groupWaiting": "Wird geprüft",
+      "groupClosed": "Abgeschlossen",
+      "due": "fällig {date}",
+      "empty": "Sie haben keine Anfragen.",
+      "emptyHelp": "Anfragen des Free State Teams erscheinen hier.",
+      "back": "Zurück zu den Anfragen",
+      "dueOn": "Fällig {date}",
+      "teamNote": "Das Team hat eine Notiz hinterlassen",
+      "submittedInfo": "Ihre Einreichung wird geprüft. Sie erhalten eine E-Mail, sobald sie akzeptiert wurde oder Änderungen nötig sind.",
+      "allFilled": "Alle erforderlichen Angaben sind vollständig. Sie können einreichen.",
+      "fillAll": "Füllen Sie alle erforderlichen Angaben aus, um einzureichen.",
+      "submit": "Einreichen",
+      "submitting": "Wird eingereicht…",
+      "submitFailed": "Einreichen fehlgeschlagen"
     }
   },
   "faqPage": {
@@ -5853,7 +6764,7 @@
         "items": {
           "whySolar": {
             "question": "Warum sollte ich auf Solar umsteigen?",
-            "answer": "Solar ist erneuerbare, zuverlässige und saubere Energie, die die Abhängigkeit von fossilen Brennstoffen reduziert. Mit einer Solaranlage profitieren Sie von planbaren Energietarifen für 20–25 Jahre und übernehmen die Kontrolle über Ihre Energiezukunft."
+            "answer": "Solar ist erneuerbare, zuverlässige und saubere Energie, die die Abhängigkeit von fossilen Brennstoffen reduziert. Mit einer Solaranlage profitieren Sie von planbaren Energietarifen für 35 Jahre und übernehmen die Kontrolle über Ihre Energiezukunft."
           },
           "homeGood": {
             "question": "Ist mein Haus für Solar geeignet?",
@@ -5934,8 +6845,8 @@
             "answer": "Solaranlagen schalten sich bei Ausfällen automatisch ab, um Netzarbeiter zu schützen. Die Systeme starten automatisch neu, wenn der Netzstrom wiederhergestellt ist. Batterie-ausgestattete Systeme liefern während Ausfällen weiterhin Notstrom."
           },
           "longevity": {
-            "question": "Funktioniert meine Solaranlage nach 25 Jahren noch gut?",
-            "answer": "Panels produzieren weit über 25 Jahre hinaus, wobei sie jährlich etwa 0,5 % abnehmen. Nach 25 Jahren arbeiten Systeme noch bei etwa 88 % ihrer ursprünglichen Kapazität und liefern weiterhin saubere erneuerbare Energie."
+            "question": "Funktioniert meine Solaranlage nach 35 Jahren noch gut?",
+            "answer": "Panels produzieren weit über 35 Jahre hinaus, wobei sie jährlich etwa 0,5 % abnehmen. Nach 35 Jahren arbeiten Systeme noch bei etwa 82 % ihrer ursprünglichen Kapazität und liefern weiterhin saubere erneuerbare Energie."
           }
         }
       },
@@ -6028,7 +6939,7 @@
           },
           "batteryMaintenance": {
             "question": "Muss ich meine Batterie warten oder einrichten?",
-            "answer": "Die Installateure übernehmen die gesamte Konfiguration mit optimierten Einstellungen. Batterien halten 10–15 Jahre mit typischen 10-Jahres-Herstellergarantien. Unser Wartungsplan umfasst 25 Jahre professionelle Überwachung."
+            "answer": "Die Installateure übernehmen die gesamte Konfiguration mit optimierten Einstellungen. Batterien halten 10–15 Jahre mit typischen 10-Jahres-Herstellergarantien. Unser Wartungsplan umfasst 35 Jahre professionelle Überwachung."
           }
         }
       },
@@ -6058,25 +6969,60 @@
     }
   },
   "team": {
+    "hero": {
+      "title": "Unternehmen",
+      "description": "Ihre Energie, unsere Verantwortung – nachhaltig und sorgenfrei",
+      "cta": "Kontakt aufnehmen"
+    },
     "grid": {
       "eyebrow": "Unsere Kultur",
       "title": "Das Leitbild der Free State AG",
       "subtitle": "Bei FreeState stehen Kompetenz, Vertrauen, Verantwortung und die Sicherheit des Menschen im Mittelpunkt.",
-      "ivan": { "name": "Ivan Miric", "role": "Geschäftsführer / Verwaltungsrat" },
-      "peter": { "name": "Peter Aragai", "role": "Executive Manager / Verkaufsleiter" },
-      "dragica": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
-      "dejan": { "name": "Dejan", "role": "Projektleiter" },
-      "member5": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" },
-      "member6": { "name": "Dragica Miric", "role": "Chief Strategy Officer (CSO)" }
+      "ivan": {
+        "name": "Ivan Miric",
+        "role": "Geschäftsführer / Verwaltungsrat"
+      },
+      "peter": {
+        "name": "Peter Aragai",
+        "role": "Executive Manager / Verkaufsleiter"
+      },
+      "dragica": {
+        "name": "Dragica Miric",
+        "role": "Chief Strategy Officer (CSO)"
+      },
+      "dejan": {
+        "name": "Dejan Djokic",
+        "role": "Projektleiter"
+      },
+      "member5": {
+        "name": "Dragica Miric",
+        "role": "Chief Strategy Officer (CSO)"
+      },
+      "member6": {
+        "name": "Dragica Miric",
+        "role": "Chief Strategy Officer (CSO)"
+      }
     },
     "values": {
       "title": "Unsere Werte",
       "subtitle": "Wir stehen für nachhaltige Energielösungen, hohe Qualitätsstandards und eine transparente Zusammenarbeit.",
       "cta": "Mehr erfahren",
-      "trust": { "title": "Vertrauen", "description": "Transparenz, Zuverlässigkeit und Partnerschaften auf Augenhöhe." },
-      "responsibility": { "title": "Verantwortung", "description": "Nachhaltige Entscheidungen mit ökologischer, sozialer und wirtschaftlicher Verantwortung." },
-      "dedication": { "title": "Hingabe", "description": "Individuelle Lösungen mit Einsatz, Sorgfalt und Leidenschaft." },
-      "pragmatism": { "title": "Pragmatismus", "description": "Praktische und effiziente Lösungen mit klarem Kundennutzen." }
+      "trust": {
+        "title": "Vertrauen",
+        "description": "Transparenz, Zuverlässigkeit und Partnerschaften auf Augenhöhe."
+      },
+      "responsibility": {
+        "title": "Verantwortung",
+        "description": "Nachhaltige Entscheidungen mit ökologischer, sozialer und wirtschaftlicher Verantwortung."
+      },
+      "dedication": {
+        "title": "Hingabe",
+        "description": "Individuelle Lösungen mit Einsatz, Sorgfalt und Leidenschaft."
+      },
+      "pragmatism": {
+        "title": "Pragmatismus",
+        "description": "Praktische und effiziente Lösungen mit klarem Kundennutzen."
+      }
     },
     "partners": {
       "eyebrow": "Unsere Partner",
@@ -6181,7 +7127,7 @@
       },
       "roofRental": {
         "title": "Dachvermietung",
-        "description": "Große Dachflächen sinnvoll für Energie nutzen.\n· Für Industrie, Logistik und Landwirtschaft\n· Keine eigene Umsetzung nötig\n· Beteiligung an der Energieproduktion"
+        "description": "Grosse Dachflächen sinnvoll für Energie nutzen.\n· Für Industrie, Logistik und Landwirtschaft\n· Keine eigene Umsetzung nötig\n· Beteiligung an der Energieproduktion"
       },
       "purchase": {
         "title": "Anlagenkauf",
@@ -6200,5 +7146,108 @@
       "ctaContact": "Kontaktieren Sie uns",
       "ctaCalculator": "Solarrechner starten"
     }
+  },
+  "mediaPage": {
+    "title": "Medien & Presse",
+    "subtitle": "Informationen, Materialien und Kontakt für Medienvertreter",
+    "about": {
+      "eyebrow": "Über Free State AG",
+      "title": "Erneuerbare Energie für die Schweiz",
+      "description": "Free State AG ist ein etablierter Produzent von Grünstrom in der Schweiz. Wir betreiben moderne Solarkraftwerke und bieten innovative Energielösungen für Privat- und Geschäftskunden. Mit einem wachsenden Portfolio an Photovoltaikanlagen tragen wir aktiv zur Energiewende bei.",
+      "stats": {
+        "location": {
+          "value": "Schaffhausen",
+          "label": "Hauptsitz"
+        },
+        "focus": {
+          "value": "Solar",
+          "label": "Kerngeschäft"
+        }
+      }
+    },
+    "pressContact": {
+      "title": "Pressekontakt",
+      "description": "Für Medienanfragen, Interviews und weiterführende Informationen steht Ihnen unser Team gerne zur Verfügung.",
+      "email": "info@freestate.ch",
+      "phone": "+41 52 525 33 05",
+      "address": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz",
+      "responseTime": "Wir antworten in der Regel innerhalb von 24 Stunden auf Medienanfragen."
+    },
+    "topics": {
+      "title": "Themengebiete",
+      "description": "Unsere Expertise erstreckt sich über folgende Bereiche — wir stehen für Hintergrundgespräche und Fachbeiträge zur Verfügung.",
+      "items": {
+        "solar": {
+          "title": "Photovoltaik & Solarenergie",
+          "description": "Technik, Wirtschaftlichkeit und Trends in der Solarbranche Schweiz"
+        },
+        "energy": {
+          "title": "Energiewende & Nachhaltigkeit",
+          "description": "Strategien für den Übergang zu erneuerbaren Energien in der Schweiz"
+        },
+        "innovation": {
+          "title": "Innovation & Technologie",
+          "description": "Neue Technologien in der Solar- und Speicherbranche"
+        },
+        "market": {
+          "title": "Energiemarkt Schweiz",
+          "description": "Marktentwicklung, Regulierung und Investitionen in erneuerbare Energien"
+        }
+      }
+    },
+    "brandAssets": {
+      "title": "Marke & Bildmaterial",
+      "description": "Für die redaktionelle Verwendung stellen wir Ihnen gerne hochauflösende Logos, Unternehmensfotos und Bildmaterial zur Verfügung. Bitte kontaktieren Sie uns direkt.",
+      "cta": "Material anfragen"
+    }
+  },
+  "careersPage": {
+    "title": "Karriere bei FreeState",
+    "subtitle": "Derzeit haben wir keine offenen Stellen, aber wir sind immer an aussergewöhnlichen Talenten interessiert.",
+    "splitSection": {
+      "title": "Gestalten Sie die Energiewende mit uns",
+      "description": "Wir stellen derzeit nicht ein, sind aber immer offen für den Austausch mit Fachleuten, die zur Zukunft der erneuerbaren Energien beitragen möchten."
+    },
+    "stayInformed": {
+      "title": "Bleiben Sie informiert",
+      "description": "Abonnieren Sie unsere Updates zu zukünftigen Stellenangeboten und Unternehmensnachrichten.",
+      "form": {
+        "firstName": "Vorname",
+        "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+        "lastName": "Nachname",
+        "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+        "email": "E-Mail",
+        "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+        "role": "Ihr Profil / Ihre Rolle",
+        "rolePlaceholder": "z. B. Solaringenieur, Projektleiter, Studentin",
+        "comment": "Kommentar",
+        "commentPlaceholder": "Teilen Sie uns mit, was wir wissen sollten (optional)",
+        "privacy": "FreeState respektiert Ihre Privatsphäre und verwendet Ihre Daten ausschliesslich zur Verwaltung Ihres Kontos und zur Bereitstellung der angeforderten Dienste.",
+        "consent": "Ich bin einverstanden, weitere Benachrichtigungen von FreeState zu erhalten",
+        "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzerklärung zu und können sich jederzeit abmelden.",
+        "submit": "Abonnieren",
+        "errors": {
+          "firstNameRequired": "Bitte geben Sie Ihren Vornamen ein",
+          "lastNameRequired": "Bitte geben Sie Ihren Nachnamen ein",
+          "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+          "roleRequired": "Bitte nennen Sie uns Ihr Profil oder Ihre Rolle",
+          "commentTooLong": "Kommentar darf höchstens 2000 Zeichen lang sein",
+          "consentRequired": "Bitte stimmen Sie zu, um fortzufahren"
+        }
+      },
+      "success": "Vielen Dank — Sie sind angemeldet. Wir melden uns, sobald Stellen offen sind.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+    },
+    "contactCta": {
+      "eyebrow": "Nächster Schritt",
+      "title": "Interesse an FreeState? Kontaktieren Sie uns.",
+      "subtitle": "Wenn Sie glauben, dass Ihr Profil zu unserer Mission passt, freuen wir uns über Ihre Initiativbewerbung.",
+      "buttonText": "Kontaktieren Sie uns"
+    }
+  },
+  "checkSolarPotentialCta": {
+    "eyebrow": "SolarDirect",
+    "title": "Prüfen Sie das\nSolarpotenzial Ihres Dachs",
+    "cta": "Solarrechner starten"
   }
 }

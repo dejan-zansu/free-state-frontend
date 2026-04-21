@@ -31,10 +31,10 @@ const AdvantagesSection = async () => {
   const t = await getTranslations('heatPumpsHowItWorks')
 
   return (
-    <section className="relative bg-[#FDFFF5]">
+    <section className="relative bg-[#FDFFF5] -mb-[40px]">
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-1/2 flex items-center px-4 sm:px-6 lg:px-0 py-12 lg:py-24">
-          <div className="max-w-[393px] mx-auto flex flex-col gap-[30px]">
+          <div className="max-w-[393px] mx-auto flex flex-col gap-[30px] pb-[40px]">
             <div className="flex flex-col gap-5">
               <div
                 className="flex items-center justify-center px-4 py-[10px] rounded-full border border-[#062E25] w-fit"
@@ -54,7 +54,7 @@ const AdvantagesSection = async () => {
             </div>
 
             <div className="flex flex-col gap-5">
-              {bullets.map((key) => (
+              {bullets.map(key => (
                 <div key={key} className="flex items-start gap-[10px]">
                   <div className="mt-[5px]">
                     <CheckmarkIcon />

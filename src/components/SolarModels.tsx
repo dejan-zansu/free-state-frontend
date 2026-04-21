@@ -1,11 +1,11 @@
 import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
-import { LinkButton } from './ui/link-button'
-import { LearnMoreLink } from './ui/learn-more-link'
+// import { LinkButton } from './ui/link-button'
+// import { LearnMoreLink } from './ui/learn-more-link'
 import CheckBulletIcon from './icons/CheckBulletIcon'
 import CheckIcon from './icons/CheckIcon'
 import Image from 'next/image'
-import WalletIcon from './icons/WalletIcon'
+// import WalletIcon from './icons/WalletIcon'
 import SmallWalletIcon from './icons/SmallWalletIcon'
 
 const AdvantageList = ({
@@ -83,7 +83,7 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
 
   return (
     <section
-      className="relative w-full flex flex-col items-center px-4 sm:px-6 py-16 md:py-24 overflow-hidden"
+      className="relative w-full flex flex-col items-center px-4 sm:px-6 py-16 md:py-24 overflow-hidden -mt-[40px]"
       style={{
         backgroundImage:
           'linear-gradient(180deg, #F2F4E8 0%, #DCE9E6 79%)',

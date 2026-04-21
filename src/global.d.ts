@@ -3,8 +3,10 @@
 declare global {
   interface Window {
     google?: typeof google
-    gtag?: (...args: unknown[]) => void
     dataLayer?: unknown[]
+    hj?: ((...args: unknown[]) => void) & { q?: unknown[] }
+    _hjSettings?: { hjid: number; hjsv: number }
+    gtag?: (...args: unknown[]) => void
   }
 }
 

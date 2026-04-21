@@ -7,7 +7,6 @@ import {
   ArrowRight,
   Eye,
   EyeOff,
-  KeyRound,
   Loader2,
 } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
@@ -21,17 +20,22 @@ import {
   AuthErrorMark,
   AuthSplitLayout,
   AuthSuccessMark,
-  authPanelCardClass,
 } from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authService } from '@/services/auth.service'
 
+function getApiErrorCode(error: unknown): string | undefined {
+  return (error as { response?: { data?: { error?: { code?: string } } } })
+    ?.response?.data?.error?.code
+}
+
 export default function SetPasswordPage() {
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
   const t = useTranslations('setPassword')
+  const tErrors = useTranslations('apiErrors')
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -39,7 +43,7 @@ export default function SetPasswordPage() {
 
   const setPasswordSchema = z
     .object({
-      password: z.string().min(8, t('passwordMinError')),
+      password: z.string().min(6, t('passwordMinError')),
       confirmPassword: z.string(),
     })
     .refine(data => data.password === data.confirmPassword, {
@@ -66,7 +70,8 @@ export default function SetPasswordPage() {
       await authService.resetPassword(token, data.password)
       setIsSuccess(true)
     } catch (err) {
-      setError(err instanceof Error ? err.message : t('expiredError'))
+      const code = getApiErrorCode(err)
+      setError(code && tErrors.has(code) ? tErrors(code) : tErrors('unknown'))
     } finally {
       setIsLoading(false)
     }
@@ -76,7 +81,7 @@ export default function SetPasswordPage() {
     return (
       <AuthSplitLayout>
         <div className="w-full max-w-md">
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthErrorMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('invalidLink')}
@@ -102,7 +107,7 @@ export default function SetPasswordPage() {
     return (
       <AuthSplitLayout>
         <div className="w-full max-w-md">
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthSuccessMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('successTitle')}
@@ -129,15 +134,11 @@ export default function SetPasswordPage() {
       <div className="w-full max-w-md">
         <Link
           href="/login"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
+          className="mb-8 inline-flex items-center gap-2 text-sm lg:text-base font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
         >
           <ArrowLeft className="h-4 w-4" />
           {t('goToLogin')}
         </Link>
-
-        <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#CDEA67]/25 ring-1 ring-[#062E25]/6">
-          <KeyRound className="h-6 w-6 text-[#062E25]" strokeWidth={1.75} />
-        </div>
 
         <div className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight text-[#062E25] sm:text-[2rem]">
@@ -213,7 +214,7 @@ export default function SetPasswordPage() {
 
           <Button
             type="submit"
-            className="h-12 w-full rounded-xl text-base font-semibold shadow-md shadow-[#062E25]/10 transition-all hover:shadow-lg hover:shadow-[#062E25]/15 bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
+            className="h-12 w-full rounded-xl text-base font-semibold shadow-md shadow-[#062E25]/10 transition-all hover:shadow-lg hover:shadow-[#062E25]/15 bg-solar hover:bg-solar/90 text-[#062E25]"
             disabled={isLoading}
           >
             {isLoading ? (

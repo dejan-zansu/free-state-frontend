@@ -1,13 +1,18 @@
-import SolarSystemsFeatures from '@/components/SolarSystemsFeatures'
-import SolarSystemsHero from '@/components/SolarSystemsHero'
-import SolarSystemsQuality from '@/components/SolarSystemsQuality'
+import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
+import PageHero from '@/components/PageHero'
+import SolarSystemsTopics from '@/components/SolarSystemsTopics'
+import { getTranslations } from 'next-intl/server'
 
-const SolarSystemsPage = () => {
+const SolarSystemsPage = async () => {
+  const t = await getTranslations('solarSystems')
   return (
     <div className="w-full overflow-x-hidden">
-      <SolarSystemsHero />
-      <SolarSystemsFeatures />
-      <SolarSystemsQuality />
+      <PageHero
+        backgroundImage="/images/how-solar-power-system-works.png"
+        title={t('hero.title')}
+      />
+      <SolarSystemsTopics />
+      <CheckSolarPotentialCTA />
     </div>
   )
 }

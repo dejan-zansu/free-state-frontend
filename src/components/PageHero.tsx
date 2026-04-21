@@ -29,7 +29,7 @@ const PageHero = ({
   return (
     <section
       className={cn(
-        'relative z-20 min-h-[550px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]',
+        'relative z-20 min-h-[590px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]',
         className
       )}
     >
@@ -42,7 +42,7 @@ const PageHero = ({
         />
       )}
 
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[220px] w-full">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[230px] w-full">
         <div
           className={cn(
             'flex flex-col items-center text-center',

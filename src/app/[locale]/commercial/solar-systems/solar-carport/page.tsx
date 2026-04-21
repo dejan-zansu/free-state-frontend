@@ -9,7 +9,7 @@ import { getTranslations } from 'next-intl/server'
 const SolarCarportPage = async () => {
   const t = await getTranslations('solarCarport')
   return (
-    <main>
+    <div>
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}
@@ -22,7 +22,7 @@ const SolarCarportPage = async () => {
       <GeneralContractorSection />
       <VideoShowcaseSection />
       <CustomSolarSection />
-    </main>
+    </div>
   )
 }
 

@@ -11,7 +11,7 @@ const HeatPumpsWithSolarSystemPage = async () => {
   const t = await getTranslations('heatPumpsWithSolarSystem')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#F2F4E8]">
         <PageHero
           backgroundImage="/images/heat-pumps/heat-pump-with-solar-system.png"
@@ -24,7 +24,7 @@ const HeatPumpsWithSolarSystemPage = async () => {
       <SolarBenefitsSection />
       <EnergyEfficiencySection />
       <CostsInstallationSection />
-    </main>
+    </div>
   )
 }
 

@@ -11,7 +11,7 @@ const CostPage = async () => {
   const t = await getTranslations('cost')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/cost-page-hero.png"
@@ -25,7 +25,7 @@ const CostPage = async () => {
       <SolarCalculatorCTA translationNamespace="cost" />
       <CostFinancingSection />
       <CostFurtherTopicsSection />
-    </main>
+    </div>
   )
 }
 

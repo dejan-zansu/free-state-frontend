@@ -10,7 +10,7 @@ const HeatPumpsProductsPage = async () => {
   const t = await getTranslations('heatPumpsProducts')
 
   return (
-    <main>
+    <div>
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}
@@ -21,7 +21,7 @@ const HeatPumpsProductsPage = async () => {
       <IndoorHeroSection />
       <GroundSourceProductsSection />
       <NibeFeatureSection />
-    </main>
+    </div>
   )
 }
 

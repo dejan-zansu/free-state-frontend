@@ -10,7 +10,7 @@ const HeatPumpsServicePage = async () => {
   const t = await getTranslations('heatPumpsService')
 
   return (
-    <main>
+    <div>
       <div className="relative z-10">
         <PageHero
           backgroundImage="/images/heat-pumps/service-hero-bg.png"
@@ -24,7 +24,7 @@ const HeatPumpsServicePage = async () => {
       <ManufacturerSupportSection />
       <HydraulicEmergencySection />
       <ServicePartnerSection />
-    </main>
+    </div>
   )
 }
 

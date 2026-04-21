@@ -1,4 +1,5 @@
 import api from '@/lib/api'
+import type { SolarModel } from '@/stores/solar-abo-calculator.store'
 import type { RoofSegment } from '@/types/sonnendach'
 
 interface ContactPayload {
@@ -8,6 +9,12 @@ interface ContactPayload {
   email: string
   phone: string
   remarks: string
+  country: 'CH' | 'LI'
+  postalCode: string
+  city: string
+  street: string
+  streetNumber: string
+  addressAdditional: string
 }
 
 interface CalculationPayload {
@@ -33,6 +40,8 @@ interface CalculationPayload {
   co2Savings: number
   systemSizeKwp: number
   recommendedPackage: string
+  solarModel: SolarModel
+  ppaDiscountPercent: number | null
 }
 
 interface CreateAccountPayload {

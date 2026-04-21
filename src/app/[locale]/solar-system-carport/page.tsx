@@ -14,7 +14,7 @@ const SolarSystemCarportPage = async () => {
   const t = await getTranslations('solarSystemCarport')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/carport-hero-bg.png"
@@ -31,7 +31,7 @@ const SolarSystemCarportPage = async () => {
       <CarportFAQSection />
       <CustomerTestimonialSection />
       <EnergySolutionsSection />
-    </main>
+    </div>
   )
 }
 

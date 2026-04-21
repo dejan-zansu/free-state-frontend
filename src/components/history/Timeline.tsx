@@ -1,11 +1,11 @@
 import { useTranslations } from 'next-intl'
 
 const milestones = [
-  { key: 'founding', year: '2008' },
-  { key: 'firstProjects', year: '2010' },
-  { key: 'batteryStorage', year: '2014' },
-  { key: 'techProgress', year: '2016–2019' },
-  { key: 'newEra', year: '2020–2022' },
+  { key: 'founding', year: '2008', image: '/images/history/timeline-founding-31078e.webp' },
+  { key: 'firstProjects', year: '2010', image: '/images/history/timeline-firstProjects-422f69.webp' },
+  { key: 'batteryStorage', year: '2014', image: '/images/history/timeline-batteryStorage-553a0b.webp' },
+  { key: 'techProgress', year: '2016–2019', image: '/images/history/timeline-techProgress-600bb6.webp' },
+  { key: 'newEra', year: '2020–2022', image: '/images/history/timeline-newEra-85d8b6.webp' },
 ]
 
 const Timeline = () => {
@@ -38,8 +38,20 @@ const Timeline = () => {
           {milestones.map((m, i) => (
             <div
               key={m.key}
-              className={`bg-[#D9D9D9] rounded-none h-[280px] sm:h-[363px] ${i % 2 !== 0 ? 'mt-6' : ''}`}
-            />
+              className={`relative overflow-hidden h-[280px] sm:h-[363px] ${i % 2 !== 0 ? 'mt-6' : ''}`}
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${m.image})` }}
+              />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(90deg, rgba(12, 66, 53, 0) 22%, rgba(12, 66, 53, 1) 100%), linear-gradient(180deg, rgba(3, 107, 83, 0) 23%, rgba(3, 107, 83, 1) 100%)',
+                }}
+              />
+            </div>
           ))}
         </div>
 

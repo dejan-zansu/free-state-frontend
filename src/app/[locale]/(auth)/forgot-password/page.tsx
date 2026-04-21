@@ -11,21 +11,26 @@ import { z } from 'zod'
 import {
   AuthSplitLayout,
   AuthSuccessMark,
-  authPanelCardClass,
 } from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { authService } from '@/services/auth.service'
 
+function getApiErrorCode(error: unknown): string | undefined {
+  return (error as { response?: { data?: { error?: { code?: string } } } })
+    ?.response?.data?.error?.code
+}
+
 export default function ForgotPasswordPage() {
   const t = useTranslations('forgotPassword')
+  const tErrors = useTranslations('apiErrors')
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const forgotPasswordSchema = z.object({
-    email: z.string().email(t('emailError')),
+    email: z.email({ error: t('emailError') }),
   })
 
   type ForgotPasswordForm = z.infer<typeof forgotPasswordSchema>
@@ -46,9 +51,8 @@ export default function ForgotPasswordPage() {
       await authService.forgotPassword(data.email)
       setIsSubmitted(true)
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : t('genericError')
-      )
+      const code = getApiErrorCode(err)
+      setError(code && tErrors.has(code) ? tErrors(code) : tErrors('unknown'))
     } finally {
       setIsLoading(false)
     }
@@ -58,12 +62,12 @@ export default function ForgotPasswordPage() {
     return (
       <AuthSplitLayout>
         <div className="w-full max-w-md">
-          <div className={authPanelCardClass}>
+          <div className="p-8 sm:p-10 text-center">
             <AuthSuccessMark />
             <h1 className="text-2xl font-bold tracking-tight text-[#062E25] sm:text-[1.75rem]">
               {t('checkEmail')}
             </h1>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+            <p className="mt-3 leading-relaxed text-muted-foreground">
               {t('checkEmailMessage')}
             </p>
             <div className="mt-8">
@@ -87,15 +91,11 @@ export default function ForgotPasswordPage() {
       <div className="w-full max-w-md">
         <Link
           href="/login"
-          className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
+          className="mb-8 inline-flex items-center gap-2 text-sm lg:text-base font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
         >
           <ArrowLeft className="h-4 w-4" />
           {t('backToLogin')}
         </Link>
-
-        <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#CDEA67]/25 ring-1 ring-[#062E25]/6">
-          <Mail className="h-6 w-6 text-[#062E25]" strokeWidth={1.75} />
-        </div>
 
         <div className="mb-8">
           <h1 className="text-3xl font-bold tracking-tight text-[#062E25] sm:text-[2rem]">
@@ -129,7 +129,7 @@ export default function ForgotPasswordPage() {
               type="email"
               placeholder={t('emailPlaceholder')}
               autoComplete="email"
-              className="h-12 rounded-xl border-[#062E25]/12 bg-white text-[15px] shadow-sm transition-shadow placeholder:text-muted-foreground/70 focus-visible:border-[#062E25]/35 focus-visible:ring-[#062E25]/20"
+              className="h-12 border-gray-300 focus:border-[#062E25] focus:ring-[#062E25]"
               {...register('email')}
             />
             {errors.email && (
@@ -139,7 +139,7 @@ export default function ForgotPasswordPage() {
 
           <Button
             type="submit"
-            className="h-12 w-full rounded-xl text-base font-semibold shadow-md shadow-[#062E25]/10 transition-all hover:shadow-lg hover:shadow-[#062E25]/15 bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
+            className="h-12 w-full text-base font-semibold bg-[#CDEA67] hover:bg-[#CDEA67]/90 text-[#062E25]"
             disabled={isLoading}
           >
             {isLoading ? (
@@ -156,7 +156,7 @@ export default function ForgotPasswordPage() {
           </Button>
         </form>
 
-        <p className="mt-10 text-center text-sm text-muted-foreground">
+        <p className="mt-10 text-center text-sm lg:text-base text-muted-foreground">
           {t('rememberPassword')}{' '}
           <Link
             href="/login"

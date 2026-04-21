@@ -22,17 +22,11 @@ import type { AdminInquiry } from '@/types/admin'
 
 const INQUIRY_STATUSES = ['OPEN', 'IN_PROGRESS', 'RESOLVED', 'CLOSED']
 
-const STATUS_LABELS: Record<string, string> = {
-  OPEN: 'Offen',
-  IN_PROGRESS: 'In Bearbeitung',
-  RESOLVED: 'Gelöst',
-  CLOSED: 'Geschlossen',
-}
-
 export default function AdminSupportDetailPage() {
   const params = useParams()
   const t = useTranslations('admin.support')
   const tc = useTranslations('admin.common')
+  const tl = useTranslations('admin.statusLabels')
   const queryClient = useQueryClient()
   const [saving, setSaving] = useState(false)
   const [adminNotes, setAdminNotes] = useState('')
@@ -148,7 +142,7 @@ export default function AdminSupportDetailPage() {
                   <SelectContent>
                     {INQUIRY_STATUSES.map(s => (
                       <SelectItem key={s} value={s}>
-                        {STATUS_LABELS[s] || s}
+                        {tl(s)}
                       </SelectItem>
                     ))}
                   </SelectContent>

@@ -11,7 +11,7 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="relative min-h-[782px] overflow-hidden">
+    <section className="relative min-h-[782px] overflow-hidden -mt-[40px]">
       <div
         className="absolute inset-0 bg-cover bg-center rounded-t-[40px]"
         style={{

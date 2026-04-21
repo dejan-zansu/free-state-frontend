@@ -13,7 +13,7 @@ const SolarCalculatorPage = async () => {
   const t = await getTranslations('solarCalculator')
 
   return (
-    <main>
+    <div>
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/calculator-hero-bg.png"
@@ -35,7 +35,7 @@ const SolarCalculatorPage = async () => {
       <SolarAboCardsSection />
       <FAQSection />
       <BottomCTASection />
-    </main>
+    </div>
   )
 }
 

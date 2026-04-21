@@ -51,11 +51,31 @@ const FAQItem = ({
         >
           {question}
         </span>
-        <div className={cn('border border-[#036B53] rounded-full p-1', iconClassName)}>
+        <div
+          className={cn(
+            'border rounded-full p-1',
+            isDark ? 'border-white' : 'border-[#062E25]',
+            iconClassName
+          )}
+        >
           {isOpen ? (
-            <Minus className={cn('w-3 h-3 text-[#036B53]', iconClassName)} strokeWidth={2.5} />
+            <Minus
+              className={cn(
+                'w-3 h-3',
+                isDark ? 'text-white' : 'text-[#062E25]',
+                iconClassName
+              )}
+              strokeWidth={2.5}
+            />
           ) : (
-            <Plus className={cn('w-3 h-3 text-[#036B53]', iconClassName)} strokeWidth={2.5} />
+            <Plus
+              className={cn(
+                'w-3 h-3',
+                isDark ? 'text-white' : 'text-[#062E25]',
+                iconClassName
+              )}
+              strokeWidth={2.5}
+            />
           )}
         </div>
       </button>

@@ -10,7 +10,7 @@ const SingleFamilyHomePage = async () => {
   const t = await getTranslations('chargingStationsSingleFamilyHome')
 
   return (
-    <main>
+    <div>
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}
@@ -21,7 +21,7 @@ const SingleFamilyHomePage = async () => {
       <CalculatorCTASection />
       <BidirectionalChargingSection />
       <FAQSection />
-    </main>
+    </div>
   )
 }
 

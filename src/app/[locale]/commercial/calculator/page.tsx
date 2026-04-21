@@ -4,22 +4,27 @@ import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 
 import { cn } from '@/lib/utils'
-import { useSonnendachCalculatorStore } from '@/stores/sonnendach-calculator.store'
+import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
+
+import ComingSoon from '@/components/ComingSoon'
 
 import SonnendachStep1Address from './steps/SonnendachStep1Address'
 import SonnendachStep2UsableArea from './steps/SonnendachStep2UsableArea'
 import SonnendachStep3SolarSystem from './steps/SonnendachStep3SolarSystem'
 import SonnendachStep4Consumption from './steps/SonnendachStep4Consumption'
 import SonnendachStep5CompanyDetails from './steps/SonnendachStep5CompanyDetails'
-import SonnendachStep6Results from './steps/SonnendachStep5Results'
+import SonnendachStep6Results from './steps/SonnendachStep6Results'
+import SonnendachStep7Confirmation from './steps/SonnendachStep7Confirmation'
 
 const PAGE_BG =
   'linear-gradient(180deg, rgba(242, 244, 232, 1) 45%, rgba(220, 233, 230, 1) 84%)'
 
 export default function SonnendachCalculatorPage() {
+  return <ComingSoon exploreHref="/commercial" />
+
   const t = useTranslations('sonnendach')
   const { currentStep, error, clearError, building } =
-    useSonnendachCalculatorStore()
+    useCommercialCalculatorStore()
 
   useEffect(() => {
     clearError()
@@ -51,6 +56,8 @@ export default function SonnendachCalculatorPage() {
         return <SonnendachStep5CompanyDetails />
       case 6:
         return <SonnendachStep6Results />
+      case 7:
+        return <SonnendachStep7Confirmation />
       default:
         return <SonnendachStep1Address />
     }
@@ -68,7 +75,7 @@ export default function SonnendachCalculatorPage() {
         background: PAGE_BG,
       }}
     >
-      {currentStep > 1 && (
+      {currentStep > 1 && currentStep < 7 && (
         <div
           className={cn(
             'flex justify-center px-2 py-3 sm:px-4 sm:py-4',
@@ -111,7 +118,11 @@ export default function SonnendachCalculatorPage() {
                       className={cn(
                         'text-sm tracking-tight whitespace-nowrap hidden sm:block',
                         isMapDark ? 'text-white' : 'text-[#062E25]',
-                        currentStep === step.id ? 'opacity-100' : isMapDark ? 'opacity-60' : 'opacity-40'
+                        currentStep === step.id
+                          ? 'opacity-100'
+                          : isMapDark
+                            ? 'opacity-60'
+                            : 'opacity-40'
                       )}
                     >
                       {step.label}
@@ -143,7 +154,7 @@ export default function SonnendachCalculatorPage() {
         </div>
       )}
 
-      <main className={cn(isMapStep && 'h-full')}>{renderStep()}</main>
+      <div className={cn(isMapStep && 'h-full')}>{renderStep()}</div>
     </div>
   )
 }
