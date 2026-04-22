@@ -1,12 +1,36 @@
 import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
-// import { LinkButton } from './ui/link-button'
-// import { LearnMoreLink } from './ui/learn-more-link'
+import { LinkButton } from './ui/link-button'
 import CheckBulletIcon from './icons/CheckBulletIcon'
-import CheckIcon from './icons/CheckIcon'
+import Link from 'next/link'
 import Image from 'next/image'
-// import WalletIcon from './icons/WalletIcon'
 import SmallWalletIcon from './icons/SmallWalletIcon'
+
+const LearnMoreCta = ({ href, label }: { href: string; label: string }) => (
+  <Link
+    href={href}
+    className="group/learn inline-flex items-center gap-1 text-[#062E25] hover:opacity-80 transition-opacity self-start"
+  >
+    <span className="text-sm font-medium underline underline-offset-[3px] decoration-[0.8px]">
+      {label}
+    </span>
+    <svg
+      width="8"
+      height="8"
+      viewBox="0 0 8 8"
+      fill="none"
+      className="transition-transform duration-300 group-hover/learn:translate-x-0.5"
+    >
+      <path
+        d="M1 4h6m0 0L4 1m3 3L4 7"
+        stroke="#062E25"
+        strokeWidth="0.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  </Link>
+)
 
 const AdvantageList = ({
   items,
@@ -66,7 +90,9 @@ const IncludedList = ({ items }: { items: string[] }) => (
   </div>
 )
 
-const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } = {}) => {
+const SolarModels = async ({
+  isCommercial = false,
+}: { isCommercial?: boolean } = {}) => {
   const t = await getTranslations('home.solarModels')
 
   const solarFreeIncluded = t.raw('solarFree.included') as string[]
@@ -85,8 +111,7 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
     <section
       className="relative w-full flex flex-col items-center px-4 sm:px-6 py-16 md:py-24 overflow-hidden -mt-[40px]"
       style={{
-        backgroundImage:
-          'linear-gradient(180deg, #F2F4E8 0%, #DCE9E6 79%)',
+        backgroundImage: 'linear-gradient(180deg, #F2F4E8 0%, #DCE9E6 79%)',
       }}
     >
       <div
@@ -115,8 +140,10 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-end gap-[30px] w-full pt-12">
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl">
-            <Badge className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}>
+          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
+            <Badge
+              className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
+            >
               {t('onlineBadge')}
             </Badge>
 
@@ -150,10 +177,22 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
               <div className="border-t border-[#1F433B]/20 my-1" />
 
               <div className="flex flex-col gap-2.5 my-4">
+                {!isCommercial && (
+                  <Image
+                    src="/images/swisscom-logo.png"
+                    alt="Swisscom"
+                    width={87}
+                    height={24}
+                    className="h-6 w-auto object-contain self-start"
+                  />
+                )}
                 <span className="text-sm font-bold text-foreground">
                   {t('solarFree.advantagesTitle')}
                 </span>
-                <AdvantageList items={solarFreeAdvantages} isCommercial={isCommercial} />
+                <AdvantageList
+                  items={solarFreeAdvantages}
+                  isCommercial={isCommercial}
+                />
               </div>
 
               <div className="border-t border-[#1F433B]/20 my-1" />
@@ -175,19 +214,23 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
                 <IncludedList items={solarFreeIncluded} />
               </div>
 
-              {/* <div className="mt-auto flex flex-col items-start gap-5 pt-6">
-                <LinkButton href="/solar-free" variant="tertiary">
+              <div className="mt-auto flex flex-col items-center gap-4 pt-6">
+                <LinkButton
+                  href="/calculator?model=solar-free"
+                  variant={isCommercial ? 'quaternary' : 'solar-gradient'}
+                  className="w-full uppercase"
+                >
                   {t('cta')}
                 </LinkButton>
-                <LearnMoreLink href="/solar-free">
-                  {t('learnMore')}
-                </LearnMoreLink>
-              </div> */}
+                <LearnMoreCta href="/solar-free" label={t('learnMore')} />
+              </div>
             </div>
           </div>
 
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl">
-            <Badge className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}>
+          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
+            <Badge
+              className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
+            >
               Volles Eigentum
             </Badge>
 
@@ -221,10 +264,22 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
               <div className="border-t border-[#1F433B]/20 my-1" />
 
               <div className="flex flex-col gap-2.5 my-4">
+                {!isCommercial && (
+                  <Image
+                    src="/images/swisscom-logo.png"
+                    alt="Swisscom"
+                    width={87}
+                    height={24}
+                    className="h-6 w-auto object-contain self-start"
+                  />
+                )}
                 <span className="text-sm font-bold text-foreground">
                   {t('solarDirect.advantagesTitle')}
                 </span>
-                <AdvantageList items={solarDirectAdvantages} isCommercial={isCommercial} />
+                <AdvantageList
+                  items={solarDirectAdvantages}
+                  isCommercial={isCommercial}
+                />
               </div>
 
               <div className="border-t border-[#1F433B]/20 my-1" />
@@ -246,14 +301,16 @@ const SolarModels = async ({ isCommercial = false }: { isCommercial?: boolean } 
                 <IncludedList items={solarDirectIncluded} />
               </div>
 
-              {/* <div className="mt-auto flex flex-col items-start gap-5 pt-6">
-                <LinkButton href="/solar-calculator" variant="tertiary">
+              <div className="mt-auto flex flex-col items-center gap-4 pt-6">
+                <LinkButton
+                  href="/calculator?model=solar-direct"
+                  variant={isCommercial ? 'quaternary' : 'solar-gradient'}
+                  className="w-full uppercase"
+                >
                   {t('cta')}
                 </LinkButton>
-                <LearnMoreLink href="/solar-calculator">
-                  {t('learnMore')}
-                </LearnMoreLink>
-              </div> */}
+                <LearnMoreCta href="/solar-direct" label={t('learnMore')} />
+              </div>
             </div>
           </div>
         </div>

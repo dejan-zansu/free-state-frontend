@@ -78,6 +78,18 @@ export default function AdminUserDetailPage() {
                 <p className="font-medium text-[#062E25]">{user.phone || '-'}</p>
               </div>
               <div>
+                <label className="text-sm text-[#062E25]/60">{t('dateOfBirth')}</label>
+                <p className="font-medium text-[#062E25]">
+                  {user.dateOfBirth
+                    ? new Date(user.dateOfBirth).toLocaleDateString('de-CH')
+                    : '-'}
+                </p>
+              </div>
+              <div>
+                <label className="text-sm text-[#062E25]/60">{t('nationality')}</label>
+                <p className="font-medium text-[#062E25]">{user.nationality || '-'}</p>
+              </div>
+              <div>
                 <label className="text-sm text-[#062E25]/60">{t('emailVerified')}</label>
                 <p className="font-medium text-[#062E25]">
                   {user.emailVerified ? t('yes') : t('no')}

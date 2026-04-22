@@ -8,6 +8,8 @@ interface ContactPayload {
   lastName: string
   email: string
   phone: string
+  dateOfBirth: string
+  nationality: string
   remarks: string
   country: 'CH' | 'LI'
   postalCode: string

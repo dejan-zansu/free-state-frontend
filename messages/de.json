@@ -271,7 +271,7 @@
         "includedTitle": "Was ist enthalten?",
         "included": [
           "Planbare Stromkosten",
-          "Bis zu 20–40 % günstigere Stromtarife",
+          "Bis zu 30 % günstigere Stromtarife",
           "Schutz vor steigenden Energiepreisen",
           "24/7 Überwachung & Monitoring",
           "Versicherung der gesamten Anlage",
@@ -342,33 +342,38 @@
         "installTime": "von Anfrage bis Installation",
         "capacity": "Installiert"
       },
+      "commercialStats": {
+        "savings": "",
+        "installTime": "",
+        "capacity": ""
+      },
       "commercialStories": [
         {
-          "quote": "Free State hat unsere Lagerhallen optimal mit Solarmodulen ausgestattet. Die Planung war präzise, die Umsetzung termingerecht – und unsere Produktion läuft seither spürbar günstiger.",
-          "savings": "CHF 48'200.–",
-          "installTime": "5 Monate",
-          "capacity": "220 kWp",
-          "authorName": "Marco Keller",
-          "authorRole": "Betriebsleiter, Keller Logistik AG",
-          "image": "/images/customer-story-house-334153.webp"
+          "quote": "Solaranlage auf dem Firmengebäude der Diggelmann Bau AG. Module, Huawei Wechselrichter und bedarfsgerechter Huawei Speicher mit Energiemanagement.",
+          "savings": "75.25 kWp",
+          "installTime": "164 Module (je 460 Wp)",
+          "capacity": "Huawei mit Speicher",
+          "authorName": "Diggelmann Bau AG",
+          "authorRole": "Laupen ZH",
+          "image": "/images/1.jpeg"
         },
         {
-          "quote": "Für unsere öffentlichen Gebäude brauchten wir einen Partner, der Technik, Budgetrahmen und Reporting beherrscht. Free State liefert genau das – transparent und verlässlich.",
-          "savings": "CHF 32'600.–",
-          "installTime": "4 Monate",
-          "capacity": "165 kWp",
-          "authorName": "Dr. Andrea Berger",
-          "authorRole": "Leiterin Hochbau, Gemeinde Wettingen",
-          "image": "/images/customer-story-house-334153.webp"
+          "quote": "Aufdachanlage an der Breitenstrasse in Frauenfeld. Module, Huawei Wechselrichter sowie Huawei Speicher und Energiemanagement, abgestimmt auf den Bedarf der Stiftung.",
+          "savings": "134.06 kWp",
+          "installTime": "292 Module (je 460 Wp)",
+          "capacity": "Huawei mit Speicher",
+          "authorName": "Stiftung Wetterbaum",
+          "authorRole": "Frauenfeld",
+          "image": "/images/2.jpeg"
         },
         {
-          "quote": "Unsere Scheunendächer erzeugen jetzt Strom für den gesamten Hof und speisen Überschüsse ins Netz ein. Die Zusammenarbeit war partnerschaftlich und durch und durch landwirtschaftstauglich.",
-          "savings": "CHF 27'400.–",
-          "installTime": "3 Monate",
-          "capacity": "140 kWp",
-          "authorName": "Peter Odermatt",
-          "authorRole": "Landwirt, Hof Odermatt",
-          "image": "/images/customer-story-house-334153.webp"
+          "quote": "C&I Anlage mit Sofar Stringwechselrichtern und 256 kWh ESS Speicher. Ausgelegt auf hohe Abend- und Nachtlasten zur Optimierung von Eigenverbrauch und Lastmanagement.",
+          "savings": "230 kWp",
+          "installTime": "500 Module (je 460 Wp)",
+          "capacity": "Sofar + 256 kWh Speicher",
+          "authorName": "Bowling Five",
+          "authorRole": "Thayngen",
+          "image": "/images/3.jpeg"
         }
       ],
       "stories": [
@@ -594,7 +599,7 @@
           "feature4": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
           "term": "Vertrag 35 Jahre, Eigentumsübertrag am Ende",
           "price": "Individuelle Preisgestaltung",
-          "benefit1": "0 CHF Investition, Strompreis –20–40 % vs. Netz",
+          "benefit1": "0 CHF Investition, Strompreis bis zu –30 % vs. Netz",
           "benefit2": "Zentrale Abrechnung für alle Bewohner",
           "benefit3": "Optional Speicher und Ladeinfrastruktur",
           "explanation": {
@@ -626,7 +631,7 @@
       "subtitle": "Nachhaltige Energie, langfristige Kosteneinsparungen und volle Transparenz – ohne eigenes Investitionsrisiko.",
       "item1": {
         "title": "Bauernhof Thun",
-        "details": "20–40 % Kosteneinsparung •\n250 kWp Anlage"
+        "details": "Bis zu 30 % Kosteneinsparung •\n250 kWp Anlage"
       },
       "item2": {
         "title": "Industriegebäude Zürich",
@@ -885,7 +890,7 @@
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 20–40 % geringerer\nStrompreis"
+          "electricity": "Bis zu 30 % geringerer\nStrompreis"
         },
         "right": {
           "maintenance": "Wartung\ninklusive",
@@ -1282,7 +1287,7 @@
       "stats": {
         "left": {
           "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 20–40 % geringere\nStromkosten"
+          "electricity": "Bis zu 30 % geringere\nStromkosten"
         },
         "right": {
           "maintenance": "Wartung\ninklusive",
@@ -1944,7 +1949,7 @@
         "stats": {
           "left": {
             "investment": "0 CHF\nInvestment",
-            "electricity": "Bis zu 20–40 % geringerer\nStrompreis"
+            "electricity": "Bis zu 30 % geringerer\nStrompreis"
           },
           "right": {
             "maintenance": "Wartung\ninklusive",
@@ -5615,7 +5620,7 @@
           "label": "Ihre jährliche Ersparnis",
           "amount": "CHF {amount}",
           "suffix": "pro Jahr auf Ihrer Stromrechnung",
-          "footnote": "SolarFree-Strom ist immer 20–40% günstiger als Netzstrom."
+          "footnote": "SolarFree-Strom ist bis zu 30 % günstiger als Netzstrom."
         },
         "yourImpact": {
           "label": "Ihr Beitrag",
@@ -5669,6 +5674,8 @@
       "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
       "phoneNumber": "Telefonnummer",
       "phoneNumberPlaceholder": "Geben Sie Ihre Telefonnummer ein",
+      "dateOfBirth": "Geburtsdatum",
+      "nationality": "Nationalität",
       "remarks": "Bemerkungen",
       "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
       "address": {
@@ -5692,6 +5699,9 @@
         "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
         "phoneRequired": "Telefonnummer ist erforderlich",
         "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein",
+        "dateOfBirthRequired": "Geburtsdatum ist erforderlich",
+        "dateOfBirthInvalid": "Bitte geben Sie ein gültiges Geburtsdatum ein (mindestens 18 Jahre)",
+        "nationalityRequired": "Nationalität ist erforderlich",
         "postalCodeRequired": "PLZ ist erforderlich",
         "cityRequired": "Stadt ist erforderlich",
         "streetRequired": "Strasse ist erforderlich",
@@ -5760,7 +5770,7 @@
       "solarFree": {
         "rateCard": {
           "title": "Ihr SolarFree-Tarif",
-          "bodyLine1": "20–40% günstiger als der Netztarif für jede Solar-kWh, die Sie verbrauchen.",
+          "bodyLine1": "Bis zu 30 % günstiger als der Netztarif für jede Solar-kWh, die Sie verbrauchen.",
           "bodyLine2": "Keine Gebühren für die Anlage selbst.",
           "yearlySavingLabel": "Geschätzte jährliche Ersparnis",
           "yearlySavingValue": "CHF {amount}"
@@ -6015,6 +6025,8 @@
       "back": "Zurück",
       "accountInfo": "Kontoinformationen",
       "phone": "Telefon",
+      "dateOfBirth": "Geburtsdatum",
+      "nationality": "Nationalität",
       "emailVerified": "E-Mail bestätigt",
       "yes": "Ja",
       "no": "Nein",
@@ -6075,6 +6087,8 @@
       "monthlyProduction": "Monatliche Produktion",
       "phone": "Telefon",
       "preferredLanguage": "Sprache",
+      "dateOfBirth": "Geburtsdatum",
+      "nationality": "Nationalität",
       "customerInputs": "Kundenangaben",
       "householdSize": "Haushaltsgrösse",
       "buildingType": "Gebäudetyp",

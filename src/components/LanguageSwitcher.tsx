@@ -61,14 +61,9 @@ const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
         )}
       >
         <SelectValue>
-          <div className="flex items-center gap-2">
-            <span className="text-base leading-none">
-              {localeFlags[currentLocale] || '🌐'}
-            </span>
-            <span className="font-bold">
-              {localeLabels[currentLocale] || currentLocale.toUpperCase()}
-            </span>
-          </div>
+          <span className="font-bold">
+            {localeLabels[currentLocale] || currentLocale.toUpperCase()}
+          </span>
         </SelectValue>
       </SelectTrigger>
       <SelectContent

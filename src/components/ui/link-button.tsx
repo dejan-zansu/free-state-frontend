@@ -15,6 +15,8 @@ const linkButtonVariants = cva(
           'bg-energy border-energy hover:bg-energy/90 text-white',
         tertiary:
           'bg-[#062E25] text-white hover:bg-solar hover:text-solar-foreground',
+        'solar-gradient':
+          'text-white bg-[linear-gradient(204deg,#139477_0%,#062E25_100%)] hover:opacity-90',
         'solar-dark':
           'bg-[#036B53] text-white hover:bg-[#036B53]/90 shadow-[0_8px_24px_rgba(0,0,0,0.24)]',
         quaternary:
@@ -62,6 +64,7 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
     const isPrimary = variant === 'primary' || variant === undefined
     const isSecondary = variant === 'secondary'
     const isTertiary = variant === 'tertiary'
+    const isSolarGradient = variant === 'solar-gradient'
     const isSolarDark = variant === 'solar-dark'
     const isQuaternary = variant === 'quaternary'
     const isOutlinePrimary = variant === 'outline-primary'
@@ -87,6 +90,7 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
             isPrimary && 'bg-[#062E25]',
             isSecondary && 'bg-white',
             isTertiary && 'bg-solar group-hover:bg-[#062E25]',
+            isSolarGradient && 'bg-white',
             isSolarDark && 'bg-white',
             isQuaternary && 'bg-white group-hover:bg-white',
             isOutlinePrimary && 'bg-[#062E25]',
@@ -109,6 +113,7 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
                   isPrimary && 'text-white',
                   isSecondary && 'text-energy',
                   isTertiary && 'text-[#062E25] group-hover:text-white',
+                  isSolarGradient && 'text-[#062E25]',
                   isSolarDark && 'text-[#062E25]',
                   isQuaternary && 'text-[#3D3858]',
                   isOutlinePrimary && 'text-white',
@@ -126,6 +131,7 @@ const LinkButton = React.forwardRef<HTMLAnchorElement, LinkButtonProps>(
                   isPrimary && 'text-white',
                   isSecondary && 'text-energy',
                   isTertiary && 'text-[#062E25] group-hover:text-white',
+                  isSolarGradient && 'text-[#062E25]',
                   isSolarDark && 'text-[#062E25]',
                   isQuaternary && 'text-energy',
                   isOutlinePrimary && 'text-white',

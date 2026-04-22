@@ -46,6 +46,8 @@ export interface AdminUser {
   firstName: string
   lastName: string
   phone: string | null
+  dateOfBirth: string | null
+  nationality: string | null
   role: 'ADMIN' | 'CUSTOMER' | 'SALES_REP'
   status: 'ACTIVE' | 'INACTIVE' | 'PENDING_VERIFICATION' | 'SUSPENDED'
   emailVerified: boolean
@@ -168,6 +170,8 @@ export interface AdminLeadDetail extends AdminLead {
       firstName: string
       lastName: string
       phone: string | null
+      dateOfBirth: string | null
+      nationality: string | null
       preferredLanguage: string | null
     }
   }

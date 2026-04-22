@@ -271,7 +271,7 @@
         "includedTitle": "Qu'est-ce qui est inclus ?",
         "included": [
           "Coûts d'électricité prévisibles",
-          "Tarifs jusqu'à 20–40 % moins chers",
+          "Tarifs jusqu'à 30 % moins chers",
           "Protection contre la hausse des prix de l'énergie",
           "Surveillance et monitoring 24h/24",
           "Assurance de l'ensemble de l'installation",
@@ -342,33 +342,38 @@
         "installTime": "de la demande à l'installation",
         "capacity": "Installée"
       },
+      "commercialStats": {
+        "savings": "",
+        "installTime": "",
+        "capacity": ""
+      },
       "commercialStories": [
         {
-          "quote": "Free State a équipé nos entrepôts de modules solaires à la perfection. Planification précise, exécution dans les délais – et notre production est sensiblement moins chère depuis.",
-          "savings": "CHF 48 200.–",
-          "installTime": "5 mois",
-          "capacity": "220 kWp",
-          "authorName": "Marco Keller",
-          "authorRole": "Responsable des opérations, Keller Logistik AG",
-          "image": "/images/customer-story-house-334153.webp"
+          "quote": "Installation photovoltaïque sur le bâtiment d'exploitation de Diggelmann Bau AG. Modules, onduleur Huawei et batterie Huawei avec gestion d'énergie, dimensionnés selon les besoins.",
+          "savings": "75.25 kWp",
+          "installTime": "164 modules (460 Wp chacun)",
+          "capacity": "Huawei avec batterie",
+          "authorName": "Diggelmann Bau AG",
+          "authorRole": "Laupen ZH",
+          "image": "/images/1.jpeg"
         },
         {
-          "quote": "Pour nos bâtiments publics, il nous fallait un partenaire maîtrisant la technique, les budgets et le reporting. Free State offre exactement cela – transparent et fiable.",
-          "savings": "CHF 32 600.–",
-          "installTime": "4 mois",
-          "capacity": "165 kWp",
-          "authorName": "Dr. Andrea Berger",
-          "authorRole": "Responsable des bâtiments, commune de Wettingen",
-          "image": "/images/customer-story-house-334153.webp"
+          "quote": "Installation en toiture à la Breitenstrasse à Frauenfeld. Modules, onduleur Huawei ainsi que stockage et gestion d'énergie Huawei, adaptés aux besoins de la fondation.",
+          "savings": "134.06 kWp",
+          "installTime": "292 modules (460 Wp chacun)",
+          "capacity": "Huawei avec batterie",
+          "authorName": "Stiftung Wetterbaum",
+          "authorRole": "Frauenfeld",
+          "image": "/images/2.jpeg"
         },
         {
-          "quote": "Nos toits de granges produisent désormais de l'électricité pour toute la ferme et injectent le surplus dans le réseau. La collaboration a été un vrai partenariat, parfaitement adapté à l'exploitation agricole.",
-          "savings": "CHF 27 400.–",
-          "installTime": "3 mois",
-          "capacity": "140 kWp",
-          "authorName": "Peter Odermatt",
-          "authorRole": "Agriculteur, Hof Odermatt",
-          "image": "/images/customer-story-house-334153.webp"
+          "quote": "Installation C&I avec onduleurs string Sofar et batterie ESS de 256 kWh. Conçue pour les fortes charges du soir et de la nuit afin d'optimiser l'autoconsommation et la gestion des charges.",
+          "savings": "230 kWp",
+          "installTime": "500 modules (460 Wp chacun)",
+          "capacity": "Sofar + batterie 256 kWh",
+          "authorName": "Bowling Five",
+          "authorRole": "Thayngen",
+          "image": "/images/3.jpeg"
         }
       ],
       "stories": [
@@ -594,7 +599,7 @@
           "feature4": "Contrat de 35 ans, transfert de propriété à la fin",
           "term": "Contrat de 35 ans, transfert de propriété à la fin",
           "price": "Tarification personnalisée",
-          "benefit1": "0 CHF d'investissement, prix de l'électricité –20–40 % vs. réseau",
+          "benefit1": "0 CHF d'investissement, prix de l'électricité jusqu'à –30 % vs. réseau",
           "benefit2": "Facturation centralisée pour tous les habitants",
           "benefit3": "Stockage et infrastructure de recharge en option",
           "explanation": {
@@ -626,7 +631,7 @@
       "subtitle": "Énergie durable, économies à long terme et transparence totale – sans risque d'investissement de votre part.",
       "item1": {
         "title": "Ferme de Thoune",
-        "details": "• 20–40 % d'économies \n• Installation de 250 kWp"
+        "details": "• Jusqu'à 30 % d'économies \n• Installation de 250 kWp"
       },
       "item2": {
         "title": "Bâtiment industriel Zurich",
@@ -885,7 +890,7 @@
       "stats": {
         "left": {
           "investment": "0 CHF\nd'investissement",
-          "electricity": "Jusqu'à 20–40 % moins\ncher l'électricité"
+          "electricity": "Jusqu'à 30 % moins\ncher l'électricité"
         },
         "right": {
           "maintenance": "Entretien\ninclus",
@@ -1282,7 +1287,7 @@
       "stats": {
         "left": {
           "investment": "0 CHF\nd'investissement",
-          "electricity": "Jusqu'à 20–40 % moins\ncher l'électricité"
+          "electricity": "Jusqu'à 30 % moins\ncher l'électricité"
         },
         "right": {
           "maintenance": "Entretien\ninclus",
@@ -3936,7 +3941,7 @@
           "label": "Vos économies annuelles",
           "amount": "{amount} CHF",
           "suffix": "par an sur votre facture d'électricité",
-          "footnote": "L'électricité SolarFree est toujours 20–40 % moins chère que l'électricité du réseau."
+          "footnote": "L'électricité SolarFree est jusqu'à 30 % moins chère que l'électricité du réseau."
         },
         "yourImpact": {
           "label": "Votre impact",
@@ -3990,6 +3995,8 @@
       "emailPlaceholder": "Saisissez votre adresse e-mail",
       "phoneNumber": "Numéro de téléphone",
       "phoneNumberPlaceholder": "Saisissez votre numéro de téléphone",
+      "dateOfBirth": "Date de naissance",
+      "nationality": "Nationalité",
       "remarks": "Remarques",
       "remarksPlaceholder": "Informations ou questions complémentaires...",
       "address": {
@@ -4013,6 +4020,9 @@
         "emailInvalid": "Veuillez saisir une adresse e-mail valide",
         "phoneRequired": "Le numéro de téléphone est requis",
         "phoneInvalid": "Veuillez saisir un numéro de téléphone valide",
+        "dateOfBirthRequired": "La date de naissance est requise",
+        "dateOfBirthInvalid": "Veuillez saisir une date de naissance valide (au moins 18 ans)",
+        "nationalityRequired": "La nationalité est requise",
         "postalCodeRequired": "Le NPA est requis",
         "cityRequired": "La ville est requise",
         "streetRequired": "La rue est requise",
@@ -4081,7 +4091,7 @@
       "solarFree": {
         "rateCard": {
           "title": "Votre tarif SolarFree",
-          "bodyLine1": "20–40 % en dessous du réseau pour chaque kWh solaire que vous utilisez.",
+          "bodyLine1": "Jusqu'à 30 % en dessous du réseau pour chaque kWh solaire que vous utilisez.",
           "bodyLine2": "Aucun frais pour l'installation elle-même.",
           "yearlySavingLabel": "Économies annuelles estimées",
           "yearlySavingValue": "{amount} CHF"
@@ -5950,6 +5960,8 @@
       "back": "Retour",
       "accountInfo": "Informations du compte",
       "phone": "Téléphone",
+      "dateOfBirth": "Date de naissance",
+      "nationality": "Nationalité",
       "emailVerified": "E-mail vérifié",
       "yes": "Oui",
       "no": "Non",
@@ -6010,6 +6022,8 @@
       "monthlyProduction": "Production mensuelle",
       "phone": "Téléphone",
       "preferredLanguage": "Langue",
+      "dateOfBirth": "Date de naissance",
+      "nationality": "Nationalité",
       "customerInputs": "Informations client",
       "householdSize": "Taille du ménage",
       "buildingType": "Type de bâtiment",
