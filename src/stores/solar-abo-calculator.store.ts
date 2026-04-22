@@ -601,17 +601,11 @@ export const useSolarAboCalculatorStore = create<
 
       getAnnualPpaSavings: () => {
         const production = get().getAnnualProduction()
-        const consumption = get().getEstimatedConsumption()
-        const selfConsumptionRate = get().getSelfConsumptionRate()
-        const selfConsumedKwh = Math.min(
-          production * selfConsumptionRate,
-          consumption,
-        )
         const discountPct =
           get().selectedPackageElectricitySavingsPercent ??
           DEFAULT_PPA_DISCOUNT_PCT
         const discountFraction = discountPct / 100
-        return selfConsumedKwh * ELECTRICITY_PRICE * discountFraction
+        return production * ELECTRICITY_PRICE * discountFraction
       },
 
       getCo2Savings: () => {
