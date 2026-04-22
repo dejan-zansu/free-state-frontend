@@ -5,6 +5,7 @@ import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/type
 import type { EquipmentQuote } from '@/types/equipment'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
 import { equipmentService } from '@/services/equipment.service'
+import { electricityPriceService } from '@/services/electricity-price.service'
 
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
@@ -206,6 +207,12 @@ interface SolarAboCalculatorState {
   signatureProcessId: string | null
   signingUrl: string | null
   signedPdfUrl: string | null
+
+  electricityPriceChfKwh: number | null
+  electricityPricePlz: string | null
+  electricityPriceMunicipality: string | null
+  electricityPriceLoading: boolean
+  electricityPriceFallback: boolean
 }
 
 interface SolarAboCalculatorActions {
@@ -266,6 +273,9 @@ interface SolarAboCalculatorActions {
   setSignedPdfUrl: (url: string) => void
   resetSignature: () => void
   reset: () => void
+
+  getElectricityPriceChfKwh: () => number
+  fetchElectricityPriceForAddress: () => Promise<void>
 }
 
 const initialContact: ContactDetails = {
@@ -351,6 +361,12 @@ const initialState: SolarAboCalculatorState = {
   signatureProcessId: null,
   signingUrl: null,
   signedPdfUrl: null,
+
+  electricityPriceChfKwh: null,
+  electricityPricePlz: null,
+  electricityPriceMunicipality: null,
+  electricityPriceLoading: false,
+  electricityPriceFallback: false,
 }
 
 export const useSolarAboCalculatorStore = create<
@@ -589,11 +605,12 @@ export const useSolarAboCalculatorStore = create<
         const production = get().getAnnualProduction()
         const consumption = get().getEstimatedConsumption()
         const selfConsumptionRate = get().getSelfConsumptionRate()
+        const price = get().getElectricityPriceChfKwh()
         const selfConsumedKwh = Math.min(
           production * selfConsumptionRate,
           consumption,
         )
-        const selfConsumptionSavings = selfConsumedKwh * ELECTRICITY_PRICE
+        const selfConsumptionSavings = selfConsumedKwh * price
         const exportedKwh = Math.max(0, production - selfConsumedKwh)
         const feedInRevenue = exportedKwh * FEED_IN_TARIFF
         return selfConsumptionSavings + feedInRevenue
@@ -601,11 +618,12 @@ export const useSolarAboCalculatorStore = create<
 
       getAnnualPpaSavings: () => {
         const production = get().getAnnualProduction()
+        const price = get().getElectricityPriceChfKwh()
         const discountPct =
           get().selectedPackageElectricitySavingsPercent ??
           DEFAULT_PPA_DISCOUNT_PCT
         const discountFraction = discountPct / 100
-        return production * ELECTRICITY_PRICE * discountFraction
+        return production * price * discountFraction
       },
 
       getCo2Savings: () => {
@@ -907,6 +925,44 @@ export const useSolarAboCalculatorStore = create<
 
       reset: () => {
         set(initialState)
+      },
+
+      getElectricityPriceChfKwh: () => {
+        const price = get().electricityPriceChfKwh
+        return typeof price === 'number' && price > 0 ? price : ELECTRICITY_PRICE
+      },
+
+      fetchElectricityPriceForAddress: async () => {
+        const address = get().address
+        const match = address.match(/\b(\d{4})\b/)
+        if (!match) return
+        const plz = match[1]
+
+        if (
+          get().electricityPricePlz === plz &&
+          get().electricityPriceChfKwh !== null
+        ) {
+          return
+        }
+
+        set({ electricityPriceLoading: true })
+        try {
+          const year = new Date().getFullYear()
+          const data = await electricityPriceService.getSwissTariff(plz, year, 'H4')
+          set({
+            electricityPriceChfKwh: data.averageChfKwh,
+            electricityPricePlz: plz,
+            electricityPriceMunicipality: data.municipalityName,
+            electricityPriceFallback: data.fallback,
+            electricityPriceLoading: false,
+          })
+        } catch (err) {
+          console.warn('Failed to fetch electricity price for PLZ', plz, err)
+          set({
+            electricityPriceLoading: false,
+            electricityPriceFallback: true,
+          })
+        }
       },
     }),
     {

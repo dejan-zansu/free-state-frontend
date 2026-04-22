@@ -16,6 +16,7 @@ import {
   Newspaper,
   Package,
   PanelTop,
+  Plug,
   Ticket,
   UserPlus,
   Users,
@@ -77,6 +78,12 @@ export function AdminSidebar() {
       items: [
         { label: t('blog'),       href: `${prefix}/blog`,       icon: Newspaper },
         { label: t('newsletter'), href: `${prefix}/newsletter`, icon: Mail },
+      ],
+    },
+    {
+      label: t('groupResources'),
+      items: [
+        { label: t('electricityPrices'), href: `${prefix}/electricity-prices`, icon: Plug },
       ],
     },
     {
