@@ -22,10 +22,10 @@ export default async function HomePage() {
       <Battery />
       <HeatPumpsViessmann />
       <EvCharging />
-      <OurPartners />
-      <CustomerStories />
-      <Reviews />
       <YourBenefits />
+      <CustomerStories isCommercial />
+      <Reviews />
+      <OurPartners />
     </div>
   )
 }

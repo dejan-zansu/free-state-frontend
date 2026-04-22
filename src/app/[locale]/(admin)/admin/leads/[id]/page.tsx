@@ -363,6 +363,24 @@ export default function AdminLeadDetailPage() {
                   {lead.customer.user.preferredLanguage || '-'}
                 </p>
               </div>
+              <div>
+                <label className="text-sm text-[#062E25]/60">
+                  {t('dateOfBirth')}
+                </label>
+                <p className="font-medium text-[#062E25]">
+                  {lead.customer.user.dateOfBirth
+                    ? new Date(lead.customer.user.dateOfBirth).toLocaleDateString('de-CH')
+                    : '-'}
+                </p>
+              </div>
+              <div>
+                <label className="text-sm text-[#062E25]/60">
+                  {t('nationality')}
+                </label>
+                <p className="font-medium text-[#062E25]">
+                  {lead.customer.user.nationality || '-'}
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>

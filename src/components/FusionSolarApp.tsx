@@ -25,7 +25,7 @@ const FusionSolarApp = async ({
 
   return (
     <section className="w-full" style={{ background: 'linear-gradient(180deg, #F2F4E8 78%, #DCE9E6 100%)' }}>
-      <div className="max-w-[1440px] mx-auto flex flex-col lg:flex-row">
+      <div className="flex w-full flex-col lg:flex-row min-[1920px]:mx-auto min-[1920px]:max-w-[1920px]">
         <div
           className="relative flex-1 overflow-hidden"
           style={{ background: leftBackground }}

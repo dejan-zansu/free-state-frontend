@@ -223,12 +223,9 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
               </Link>
             </div>
             <div onMouseEnter={() => setHoveredItem('products')}>
-              <Link
-                href="/products"
-                className="text-white font-medium text-sm sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap"
-              >
+              <p className="text-white font-medium text-sm sm:text-base md:text-base hover:opacity-80 transition-opacity block whitespace-nowrap cursor-default">
                 {t('hero.nav.products')}
-              </Link>
+              </p>
             </div>
           </div>
           <div className="shrink-0">
@@ -356,7 +353,7 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
                               <Link
                                 key={sub.href}
                                 href={sub.href}
-                                className="py-[7px] text-white text-sm font-light border-b border-white/60 hover:text-white hover:border-white transition-colors"
+                                className="py-[7px] text-white text-sm sm:text-base font-light border-b border-white/60 hover:text-white hover:border-white transition-colors"
                               >
                                 {sub.label}
                               </Link>

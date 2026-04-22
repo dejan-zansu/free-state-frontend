@@ -33,6 +33,18 @@ function useContactSchema(t: (key: string) => string) {
           .string()
           .min(1, t('phoneRequired'))
           .regex(/^[+\d][\d\s\-().]{6,}$/, t('phoneInvalid')),
+        dateOfBirth: z
+          .string()
+          .min(1, t('dateOfBirthRequired'))
+          .refine(v => {
+            const d = new Date(v)
+            if (isNaN(d.getTime())) return false
+            const today = new Date()
+            const age = today.getFullYear() - d.getFullYear() -
+              (today < new Date(today.getFullYear(), d.getMonth(), d.getDate()) ? 1 : 0)
+            return age >= 18 && age <= 120
+          }, t('dateOfBirthInvalid')),
+        nationality: z.string().min(1, t('nationalityRequired')),
         country: z.enum(['CH', 'LI']),
         postalCode: z.string().min(1, t('postalCodeRequired')),
         city: z.string().min(1, t('cityRequired')),
@@ -88,6 +100,8 @@ export default function Step6ContactDetails() {
       lastName: contact.lastName,
       email: contact.email,
       phoneNumber: contact.phoneNumber,
+      dateOfBirth: contact.dateOfBirth,
+      nationality: contact.nationality,
       country: contact.country || 'CH',
       postalCode: contact.postalCode,
       city: contact.city,
@@ -107,6 +121,8 @@ export default function Step6ContactDetails() {
         lastName: data.lastName,
         email: data.email,
         phoneNumber: data.phoneNumber,
+        dateOfBirth: data.dateOfBirth,
+        nationality: data.nationality,
         country: data.country,
         postalCode: data.postalCode,
         city: data.city,
@@ -264,6 +280,42 @@ export default function Step6ContactDetails() {
                   {errors.email && (
                     <p className="text-sm text-destructive">
                       {errors.email.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <input
+                    id="dateOfBirth"
+                    type="date"
+                    {...register('dateOfBirth')}
+                    placeholder={t('dateOfBirth')}
+                    aria-label={t('dateOfBirth')}
+                    className={cn(
+                      inputBase,
+                      errors.dateOfBirth && 'border-destructive'
+                    )}
+                  />
+                  {errors.dateOfBirth && (
+                    <p className="text-sm text-destructive">
+                      {errors.dateOfBirth.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="space-y-1">
+                  <input
+                    id="nationality"
+                    {...register('nationality')}
+                    placeholder={t('nationality')}
+                    className={cn(
+                      inputBase,
+                      errors.nationality && 'border-destructive'
+                    )}
+                  />
+                  {errors.nationality && (
+                    <p className="text-sm text-destructive">
+                      {errors.nationality.message}
                     </p>
                   )}
                 </div>

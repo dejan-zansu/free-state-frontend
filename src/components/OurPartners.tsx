@@ -28,14 +28,30 @@ const OurPartners = async () => {
           </p>
         </div>
 
-        <div className="w-full">
-          <Image
-            src="/images/partner-logos.svg"
-            alt={t('title')}
-            width={1186}
-            height={93}
-            className="w-full max-w-full h-auto"
-          />
+        <div className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
+          {[
+            { src: '/images/swisscom-logo.png', alt: 'Swisscom', width: 196, height: 53 },
+            { src: '/images/partners/partner-2.svg', alt: 'Partner', width: 95, height: 37 },
+            { src: '/images/partners/partner-3.svg', alt: 'Partner', width: 225, height: 34 },
+            { src: '/images/partners/partner-4.svg', alt: 'Partner', width: 169, height: 21 },
+            { src: '/images/partners/partner-5.svg', alt: 'Partner', width: 183, height: 45 },
+          ].map((logo, i) => (
+            <div key={logo.src} className="flex items-center">
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className="h-auto max-h-[56px] w-auto object-contain"
+              />
+              {i < 4 && (
+                <span
+                  aria-hidden
+                  className="hidden md:block ml-10 md:ml-14 w-px h-[89px] bg-[#062E25]/30"
+                />
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </section>

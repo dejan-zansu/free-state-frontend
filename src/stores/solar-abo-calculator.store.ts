@@ -31,6 +31,8 @@ export interface ContactDetails {
   lastName: string
   email: string
   phoneNumber: string
+  dateOfBirth: string
+  nationality: string
   remarks: string
   country: ContactCountry
   postalCode: string
@@ -272,6 +274,8 @@ const initialContact: ContactDetails = {
   lastName: '',
   email: '',
   phoneNumber: '',
+  dateOfBirth: '',
+  nationality: '',
   remarks: '',
   country: 'CH',
   postalCode: '',
@@ -752,6 +756,8 @@ export const useSolarAboCalculatorStore = create<
               lastName: state.contact.lastName,
               email: state.contact.email,
               phone: state.contact.phoneNumber,
+              dateOfBirth: state.contact.dateOfBirth,
+              nationality: state.contact.nationality,
               remarks: state.contact.remarks,
               country: state.contact.country,
               postalCode: state.contact.postalCode,

@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react'
 
 import Steps from '@/components/Steps'
 
+import type { SolarModel } from '@/stores/solar-abo-calculator.store'
 import SolarModelSelection from './SolarModelSelection'
 import Step1HouseholdSize from './steps/Step2HouseholdSize'
 import Step2Devices from './steps/Step3Devices'
@@ -26,10 +27,21 @@ export default function SolarAboCalculatorPage() {
 
 
   const t = useTranslations('solarAboCalculator')
-  const { solarModel, currentStep, signatureStatus, resultsPath, goToStep } =
+  const { solarModel, currentStep, signatureStatus, resultsPath, goToStep, setSolarModel } =
     useSolarAboCalculatorStore()
 
   const [stepParam, setStepParam] = useQueryState('step', parseAsInteger)
+  const [modelParam, setModelParam] = useQueryState('model')
+
+  useEffect(() => {
+    if (!modelParam) return
+    if (modelParam === 'solar-free' || modelParam === 'solar-direct') {
+      if (solarModel !== modelParam) {
+        setSolarModel(modelParam as SolarModel)
+      }
+    }
+    setModelParam(null, { history: 'replace' })
+  }, [modelParam, solarModel, setSolarModel, setModelParam])
   const initRef = useRef(false)
   const fromUrlRef = useRef(false)
   const lastPushedRef = useRef<number | null>(null)

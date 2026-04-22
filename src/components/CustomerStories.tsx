@@ -60,6 +60,7 @@ const CustomerStories = ({
   const stories = t.raw(
     isCommercial ? 'commercialStories' : 'stories'
   ) as Story[]
+  const statsKey = isCommercial ? 'commercialStats' : 'stats'
 
   const [api, setApi] = useState<CarouselApi>()
 
@@ -133,7 +134,7 @@ const CustomerStories = ({
                               alt=""
                             />
                             <span className="text-foreground/80 text-sm font-medium tracking-tight">
-                              {story.savings} {t('stats.savings')}
+                              {story.savings} {t(`${statsKey}.savings`)}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -142,7 +143,7 @@ const CustomerStories = ({
                               alt=""
                             />
                             <span className="text-foreground/80 text-sm font-medium tracking-tight">
-                              {story.installTime} {t('stats.installTime')}
+                              {story.installTime} {t(`${statsKey}.installTime`)}
                             </span>
                           </div>
                           <div className="flex items-center gap-2">
@@ -151,7 +152,7 @@ const CustomerStories = ({
                               alt=""
                             />
                             <span className="text-foreground/80 text-sm font-medium tracking-tight">
-                              {story.capacity} {t('stats.capacity')}
+                              {story.capacity} {t(`${statsKey}.capacity`)}
                             </span>
                           </div>
                         </div>
