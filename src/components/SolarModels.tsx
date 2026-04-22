@@ -219,10 +219,7 @@ const SolarModels = async ({
                   <LinkButton
                     href="/calculator?model=solar-free"
                     variant="solar-gradient"
-                    className="w-full uppercase pointer-events-none opacity-60 cursor-not-allowed"
-                    aria-disabled="true"
-                    tabIndex={-1}
-                    onClick={(event) => event.preventDefault()}
+                    className="w-full uppercase"
                   >
                     {t('cta')}
                   </LinkButton>
