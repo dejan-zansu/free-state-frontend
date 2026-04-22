@@ -99,6 +99,7 @@ export default function StepResults() {
   const selectedArea = store.getSelectedArea()
   const monthlyProduction = store.getMonthlyProduction()
   const estimatedConsumption = store.getEstimatedConsumption()
+  const electricityPriceChfKwh = store.getElectricityPriceChfKwh()
   const ppaDiscountPercent =
     store.selectedPackageElectricitySavingsPercent ?? DEFAULT_PPA_DISCOUNT_PCT
 
@@ -120,6 +121,11 @@ export default function StepResults() {
       .finally(() => setPackagesLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale])
+
+  useEffect(() => {
+    store.fetchElectricityPriceForAddress()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [store.address])
 
   const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
   const equipmentWithNames = selectedPkg?.equipment.filter(e => e.name) || []
@@ -168,7 +174,7 @@ export default function StepResults() {
           store.selectedPackageContractTermYears ??
           25,
         annualSavings,
-        electricityTariff: 0.277,
+        electricityTariff: electricityPriceChfKwh,
         feedInTariff: 0.08,
         selfConsumptionRate,
         annualConsumption: estimatedConsumption,
