@@ -215,13 +215,15 @@ const SolarModels = async ({
               </div>
 
               <div className="mt-auto flex flex-col items-center gap-4 pt-6">
-                <LinkButton
-                  href="/calculator?model=solar-free"
-                  variant={isCommercial ? 'quaternary' : 'solar-gradient'}
-                  className="w-full uppercase"
-                >
-                  {t('cta')}
-                </LinkButton>
+                {!isCommercial && (
+                  <LinkButton
+                    href="/calculator?model=solar-free"
+                    variant="solar-gradient"
+                    className="w-full uppercase"
+                  >
+                    {t('cta')}
+                  </LinkButton>
+                )}
                 <LearnMoreCta href="/solar-free" label={t('learnMore')} />
               </div>
             </div>
@@ -302,13 +304,17 @@ const SolarModels = async ({
               </div>
 
               <div className="mt-auto flex flex-col items-center gap-4 pt-6">
-                <LinkButton
-                  href="/calculator?model=solar-direct"
-                  variant={isCommercial ? 'quaternary' : 'solar-gradient'}
-                  className="w-full uppercase"
-                >
-                  {t('cta')}
-                </LinkButton>
+                {!isCommercial && (
+                  <LinkButton
+                    href="/calculator?model=solar-direct"
+                    variant="solar-gradient"
+                    className="w-full uppercase pointer-events-none opacity-60 cursor-not-allowed"
+                    aria-disabled="true"
+                    tabIndex={-1}
+                  >
+                    {t('cta')}
+                  </LinkButton>
+                )}
                 <LearnMoreCta href="/solar-direct" label={t('learnMore')} />
               </div>
             </div>

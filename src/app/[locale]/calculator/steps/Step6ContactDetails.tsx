@@ -1,6 +1,6 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { Loader2 } from 'lucide-react'
 import { useForm, Controller } from 'react-hook-form'
@@ -9,6 +9,13 @@ import { z } from 'zod'
 import { useCallback, useMemo } from 'react'
 
 import { Button } from '@/components/ui/button'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import {
   useSolarAboCalculatorStore,
   type Salutation,
@@ -73,6 +80,7 @@ export default function Step6ContactDetails() {
   const tAddr = useTranslations('solarAboCalculator.step7.address')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const tConsent = useTranslations('solarAboCalculator.consents')
+  const locale = useLocale()
   const {
     contact,
     consents,
@@ -285,16 +293,77 @@ export default function Step6ContactDetails() {
                 </div>
 
                 <div className="space-y-1">
-                  <input
-                    id="dateOfBirth"
-                    type="date"
-                    {...register('dateOfBirth')}
-                    placeholder={t('dateOfBirth')}
-                    aria-label={t('dateOfBirth')}
-                    className={cn(
-                      inputBase,
-                      errors.dateOfBirth && 'border-destructive'
-                    )}
+                  <Controller
+                    name="dateOfBirth"
+                    control={control}
+                    render={({ field }) => {
+                      const [y = '', m = '', d = ''] = (field.value || '').split('-')
+                      const update = (part: 'y' | 'm' | 'd', v: string) => {
+                        const ny = part === 'y' ? v : y
+                        const nm = part === 'm' ? v : m
+                        const nd = part === 'd' ? v : d
+                        field.onChange(ny && nm && nd ? `${ny}-${nm}-${nd}` : '')
+                      }
+                      const currentYear = new Date().getFullYear()
+                      const years = Array.from(
+                        { length: 103 },
+                        (_, i) => currentYear - 18 - i
+                      )
+                      const monthFmt = new Intl.DateTimeFormat(locale, {
+                        month: 'long',
+                      })
+                      const triggerCls = cn(
+                        inputBase,
+                        'flex items-center justify-between',
+                        errors.dateOfBirth && 'border-destructive'
+                      )
+                      return (
+                        <div className="grid grid-cols-[1fr_1.4fr_1fr] gap-2">
+                          <Select value={d} onValueChange={v => update('d', v)}>
+                            <SelectTrigger className={triggerCls}>
+                              <SelectValue placeholder={t('dateOfBirthDay')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {Array.from({ length: 31 }, (_, i) => {
+                                const v = String(i + 1).padStart(2, '0')
+                                return (
+                                  <SelectItem key={v} value={v}>
+                                    {v}
+                                  </SelectItem>
+                                )
+                              })}
+                            </SelectContent>
+                          </Select>
+                          <Select value={m} onValueChange={v => update('m', v)}>
+                            <SelectTrigger className={triggerCls}>
+                              <SelectValue placeholder={t('dateOfBirthMonth')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {Array.from({ length: 12 }, (_, i) => {
+                                const v = String(i + 1).padStart(2, '0')
+                                return (
+                                  <SelectItem key={v} value={v}>
+                                    {monthFmt.format(new Date(2000, i, 1))}
+                                  </SelectItem>
+                                )
+                              })}
+                            </SelectContent>
+                          </Select>
+                          <Select value={y} onValueChange={v => update('y', v)}>
+                            <SelectTrigger className={triggerCls}>
+                              <SelectValue placeholder={t('dateOfBirthYear')} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {years.map(yr => (
+                                <SelectItem key={yr} value={String(yr)}>
+                                  {yr}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      )
+                    }}
                   />
                   {errors.dateOfBirth && (
                     <p className="text-sm text-destructive">
