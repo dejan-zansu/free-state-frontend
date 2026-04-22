@@ -311,7 +311,6 @@ const SolarModels = async ({
                     className="w-full uppercase pointer-events-none opacity-60 cursor-not-allowed"
                     aria-disabled="true"
                     tabIndex={-1}
-                    onClick={(event) => event.preventDefault()}
                   >
                     {t('cta')}
                   </LinkButton>
