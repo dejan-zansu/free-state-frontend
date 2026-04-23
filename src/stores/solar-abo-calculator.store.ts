@@ -6,6 +6,34 @@ import type { EquipmentQuote } from '@/types/equipment'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
 import { equipmentService } from '@/services/equipment.service'
 import { electricityPriceService } from '@/services/electricity-price.service'
+import { subsidyService } from '@/services/subsidy.service'
+import { feedInTariffService } from '@/services/feed-in-tariff.service'
+
+export interface SubsidyRateSnapshot {
+  id: string
+  source: string
+  publishedAt: string
+  validFrom: string
+  validTo: string | null
+  tier1MaxKwp: number
+  tier1ChfPerKwp: number
+  tier2MaxKwp: number
+  tier2ChfPerKwp: number
+  notes: string | null
+}
+
+export interface FeedInTariffSnapshot {
+  id: string
+  source: string
+  publishedAt: string
+  validFrom: string
+  validTo: string | null
+  operatorName: string | null
+  bfsNumber: number | null
+  cantonCode: string | null
+  chfPerKwh: number
+  notes: string | null
+}
 
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
@@ -52,15 +80,10 @@ export type ResultsPath = 'download' | 'offer' | 'contract' | null
 // ElCom 2026 average residential tariff (Rp./kWh → CHF/kWh)
 // Source: ElCom tariff data, swissinfo.ch
 const ELECTRICITY_PRICE = 0.277
-const FEED_IN_TARIFF = 0.08
 
 // Swiss consumer electricity mix (production + imports), VSE 2021
 // Source: strom.ch "CO2-Gehalt des Strommix Schweiz"
 const CO2_FACTOR = 0.128
-
-// Fallback panel specs when package panel data is not available
-const AVG_PANEL_POWER_W = 460
-const AVG_PANEL_AREA = 2.58
 
 export const DEFAULT_PPA_DISCOUNT_PCT = 30
 
@@ -203,6 +226,8 @@ interface SolarAboCalculatorState {
   selectedPackageContractTermYears: number | null
   selectedPanelWattageW: number | null
   selectedPanelAreaM2: number | null
+  selectedPanelFirstYearDegradationPercent: number | null
+  selectedPanelAnnualDegradationPercent: number | null
 
   selectedSolarPanelId: string | null
   selectedInverterId: string | null
@@ -227,6 +252,12 @@ interface SolarAboCalculatorState {
   electricityPriceMunicipality: string | null
   electricityPriceLoading: boolean
   electricityPriceFallback: boolean
+
+  subsidyRate: SubsidyRateSnapshot | null
+  subsidyRateLoading: boolean
+
+  feedInTariffRate: FeedInTariffSnapshot | null
+  feedInTariffLoading: boolean
 }
 
 interface SolarAboCalculatorActions {
@@ -259,6 +290,9 @@ interface SolarAboCalculatorActions {
   getAnnualPpaSavings: () => number
   getCo2Savings: () => number
   getMonthlyProduction: () => number[]
+  getProductionFactorForYear: (year: number) => number
+  getLifetimeProductionKwh: (years: number) => number
+  getLifetimePpaSavings: (years: number) => number
   getRecommendedPackage: () => SolarAboPackage
   setSelectedPackage: (
     id: string,
@@ -268,6 +302,8 @@ interface SolarAboCalculatorActions {
     panelAreaM2?: number | null,
     electricitySavingsPercent?: number | null,
     contractTermYears?: number | null,
+    firstYearDegradationPercent?: number | null,
+    annualDegradationPercent?: number | null,
   ) => void
   setSelectedEquipment: (type: 'solarPanel' | 'inverter' | 'battery' | 'mountingSystem' | 'ems' | 'heatPump', id: string | null, panelWattageW?: number, panelAreaM2?: number) => void
   fetchEquipmentQuote: (locale?: string) => Promise<void>
@@ -290,6 +326,11 @@ interface SolarAboCalculatorActions {
 
   getElectricityPriceChfKwh: () => number
   fetchElectricityPriceForAddress: () => Promise<void>
+
+  fetchSubsidyRate: () => Promise<void>
+
+  getFeedInTariffChfKwh: () => number | null
+  fetchFeedInTariff: () => Promise<void>
 }
 
 const initialContact: ContactDetails = {
@@ -357,6 +398,8 @@ const initialState: SolarAboCalculatorState = {
   selectedPackageContractTermYears: null,
   selectedPanelWattageW: null,
   selectedPanelAreaM2: null,
+  selectedPanelFirstYearDegradationPercent: null,
+  selectedPanelAnnualDegradationPercent: null,
 
   selectedSolarPanelId: null,
   selectedInverterId: null,
@@ -381,6 +424,12 @@ const initialState: SolarAboCalculatorState = {
   electricityPriceMunicipality: null,
   electricityPriceLoading: false,
   electricityPriceFallback: false,
+
+  subsidyRate: null,
+  subsidyRateLoading: false,
+
+  feedInTariffRate: null,
+  feedInTariffLoading: false,
 }
 
 export const useSolarAboCalculatorStore = create<
@@ -400,6 +449,8 @@ export const useSolarAboCalculatorStore = create<
           selectedPackageContractTermYears: null,
           selectedPanelWattageW: null,
           selectedPanelAreaM2: null,
+          selectedPanelFirstYearDegradationPercent: null,
+          selectedPanelAnnualDegradationPercent: null,
           selectedSolarPanelId: null,
           selectedInverterId: null,
           selectedBatteryId: null,
@@ -569,8 +620,8 @@ export const useSolarAboCalculatorStore = create<
 
       getEstimatedPanelCount: () => {
         const segments = get().getSelectedSegments()
-        if (segments.length === 0) return 0
-        const panelArea = get().selectedPanelAreaM2 || AVG_PANEL_AREA
+        const panelArea = get().selectedPanelAreaM2
+        if (segments.length === 0 || !panelArea) return 0
         return segments.reduce((total, seg) => {
           const fraction = segmentCoverageFraction(seg.tilt, seg.azimuth)
           return total + Math.floor((seg.area * fraction) / panelArea)
@@ -579,9 +630,9 @@ export const useSolarAboCalculatorStore = create<
 
       getSystemSizeKwp: () => {
         const panelCount = get().getEstimatedPanelCount()
-        if (panelCount === 0) return 0
-        const panelKwp = (get().selectedPanelWattageW || AVG_PANEL_POWER_W) / 1000
-        return panelCount * panelKwp
+        const panelWattageW = get().selectedPanelWattageW
+        if (panelCount === 0 || !panelWattageW) return 0
+        return panelCount * (panelWattageW / 1000)
       },
 
       getSelfConsumptionRate: () => {
@@ -614,24 +665,32 @@ export const useSolarAboCalculatorStore = create<
         const consumption = get().getEstimatedConsumption()
         const selfConsumptionRate = get().getSelfConsumptionRate()
         const price = get().getElectricityPriceChfKwh()
+        const feedInTariff = get().feedInTariffRate?.chfPerKwh
+        if (feedInTariff == null) return 0
         const selfConsumedKwh = Math.min(
           production * selfConsumptionRate,
           consumption,
         )
         const selfConsumptionSavings = selfConsumedKwh * price
         const exportedKwh = Math.max(0, production - selfConsumedKwh)
-        const feedInRevenue = exportedKwh * FEED_IN_TARIFF
+        const feedInRevenue = exportedKwh * feedInTariff
         return selfConsumptionSavings + feedInRevenue
       },
 
       getAnnualPpaSavings: () => {
         const production = get().getAnnualProduction()
+        const consumption = get().getEstimatedConsumption()
+        const selfConsumptionRate = get().getSelfConsumptionRate()
         const price = get().getElectricityPriceChfKwh()
         const discountPct =
           get().selectedPackageElectricitySavingsPercent ??
           DEFAULT_PPA_DISCOUNT_PCT
         const discountFraction = discountPct / 100
-        return production * price * discountFraction
+        const selfConsumedKwh = Math.min(
+          production * selfConsumptionRate,
+          consumption,
+        )
+        return selfConsumedKwh * price * discountFraction
       },
 
       getCo2Savings: () => {
@@ -642,6 +701,51 @@ export const useSolarAboCalculatorStore = create<
       getMonthlyProduction: () => {
         const annual = get().getAnnualProduction()
         return MONTHLY_FACTORS.map(f => annual * f)
+      },
+
+      getProductionFactorForYear: (year: number) => {
+        if (year <= 0) return 1
+        if (year === 1) return 1
+        const firstPct = get().selectedPanelFirstYearDegradationPercent
+        const annualPct = get().selectedPanelAnnualDegradationPercent
+        if (firstPct == null || annualPct == null) return 1
+        const afterFirst = 1 - firstPct / 100
+        const annualMult = 1 - annualPct / 100
+        return afterFirst * Math.pow(annualMult, year - 2)
+      },
+
+      getLifetimeProductionKwh: (years: number) => {
+        if (years <= 0) return 0
+        const annual = get().getAnnualProduction()
+        if (annual === 0) return 0
+        let total = 0
+        for (let y = 1; y <= years; y++) {
+          total += annual * get().getProductionFactorForYear(y)
+        }
+        return total
+      },
+
+      getLifetimePpaSavings: (years: number) => {
+        if (years <= 0) return 0
+        const consumption = get().getEstimatedConsumption()
+        const selfConsumptionRate = get().getSelfConsumptionRate()
+        const price = get().getElectricityPriceChfKwh()
+        const discountPct =
+          get().selectedPackageElectricitySavingsPercent ??
+          DEFAULT_PPA_DISCOUNT_PCT
+        const discountFraction = discountPct / 100
+        const annual = get().getAnnualProduction()
+        if (annual === 0) return 0
+        let total = 0
+        for (let y = 1; y <= years; y++) {
+          const productionY = annual * get().getProductionFactorForYear(y)
+          const selfConsumedY = Math.min(
+            productionY * selfConsumptionRate,
+            consumption,
+          )
+          total += selfConsumedY * price * discountFraction
+        }
+        return total
       },
 
       getRecommendedPackage: (): SolarAboPackage => {
@@ -658,6 +762,8 @@ export const useSolarAboCalculatorStore = create<
         panelAreaM2?: number | null,
         electricitySavingsPercent?: number | null,
         contractTermYears?: number | null,
+        firstYearDegradationPercent?: number | null,
+        annualDegradationPercent?: number | null,
       ) => {
         set({
           selectedPackageId: id,
@@ -667,6 +773,8 @@ export const useSolarAboCalculatorStore = create<
           selectedPanelAreaM2: panelAreaM2 ?? null,
           selectedPackageElectricitySavingsPercent: electricitySavingsPercent ?? null,
           selectedPackageContractTermYears: contractTermYears ?? null,
+          selectedPanelFirstYearDegradationPercent: firstYearDegradationPercent ?? null,
+          selectedPanelAnnualDegradationPercent: annualDegradationPercent ?? null,
         })
       },
 
@@ -739,9 +847,17 @@ export const useSolarAboCalculatorStore = create<
 
       getSubsidyAmount: () => {
         const kWp = get().getSystemSizeKwp()
-        const tier1 = Math.min(kWp, 30) * 360
-        const tier2 = Math.max(0, Math.min(kWp - 30, 70)) * 300
-        return Math.round(tier1 + tier2)
+        const rate = get().subsidyRate
+        if (!rate || kWp <= 0) return 0
+        const tier1Kwp = Math.min(kWp, rate.tier1MaxKwp)
+        const tier1Amount = tier1Kwp * rate.tier1ChfPerKwp
+        const tier2Span = rate.tier2MaxKwp - rate.tier1MaxKwp
+        const tier2Kwp = Math.max(
+          0,
+          Math.min(kWp - rate.tier1MaxKwp, tier2Span),
+        )
+        const tier2Amount = tier2Kwp * rate.tier2ChfPerKwp
+        return Math.round(tier1Amount + tier2Amount)
       },
 
       getNetAmount: () => {
@@ -972,6 +1088,34 @@ export const useSolarAboCalculatorStore = create<
           })
         }
       },
+
+      fetchSubsidyRate: async () => {
+        if (get().subsidyRate || get().subsidyRateLoading) return
+        set({ subsidyRateLoading: true })
+        try {
+          const data = await subsidyService.getCurrentRate()
+          set({ subsidyRate: data, subsidyRateLoading: false })
+        } catch (err) {
+          console.warn('Failed to fetch subsidy rate', err)
+          set({ subsidyRateLoading: false })
+        }
+      },
+
+      getFeedInTariffChfKwh: () => {
+        return get().feedInTariffRate?.chfPerKwh ?? null
+      },
+
+      fetchFeedInTariff: async () => {
+        if (get().feedInTariffRate || get().feedInTariffLoading) return
+        set({ feedInTariffLoading: true })
+        try {
+          const data = await feedInTariffService.getCurrent()
+          set({ feedInTariffRate: data, feedInTariffLoading: false })
+        } catch (err) {
+          console.warn('Failed to fetch feed-in tariff', err)
+          set({ feedInTariffLoading: false })
+        }
+      },
     }),
     {
       name: 'solar-free-calculator',
@@ -1000,6 +1144,8 @@ export const useSolarAboCalculatorStore = create<
         selectedPackageContractTermYears: state.selectedPackageContractTermYears,
         selectedPanelWattageW: state.selectedPanelWattageW,
         selectedPanelAreaM2: state.selectedPanelAreaM2,
+        selectedPanelFirstYearDegradationPercent: state.selectedPanelFirstYearDegradationPercent,
+        selectedPanelAnnualDegradationPercent: state.selectedPanelAnnualDegradationPercent,
         selectedSolarPanelId: state.selectedSolarPanelId,
         selectedInverterId: state.selectedInverterId,
         selectedBatteryId: state.selectedBatteryId,

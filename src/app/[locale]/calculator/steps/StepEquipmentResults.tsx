@@ -58,6 +58,12 @@ export default function StepEquipmentResults() {
     : 0
 
   useEffect(() => {
+    store.fetchSubsidyRate()
+    store.fetchFeedInTariff()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
     const roofTypeFilter = roofType === 'flat' ? 'FLAT' : 'PITCHED'
     Promise.all([
       equipmentService.getSolarPanels(locale),

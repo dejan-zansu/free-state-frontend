@@ -25,6 +25,9 @@ function getPanelSpecs(pkg: CalculatorPackage) {
   return {
     panelWattageW: panel?.panelWattageW ?? null,
     panelAreaM2: panel?.panelAreaM2 ?? null,
+    firstYearDegradationPercent:
+      panel?.panelFirstYearDegradationPercent ?? null,
+    annualDegradationPercent: panel?.panelAnnualDegradationPercent ?? null,
   }
 }
 
@@ -57,11 +60,18 @@ function applyPackageToStore(
     panelWattageW?: number | null,
     panelAreaM2?: number | null,
     electricitySavingsPercent?: number | null,
-    contractTermYears?: number | null
+    contractTermYears?: number | null,
+    firstYearDegradationPercent?: number | null,
+    annualDegradationPercent?: number | null,
   ) => void,
   pkg: CalculatorPackage
 ) {
-  const { panelWattageW, panelAreaM2 } = getPanelSpecs(pkg)
+  const {
+    panelWattageW,
+    panelAreaM2,
+    firstYearDegradationPercent,
+    annualDegradationPercent,
+  } = getPanelSpecs(pkg)
   setFn(
     pkg.id,
     pkg.code,
@@ -69,7 +79,9 @@ function applyPackageToStore(
     panelWattageW,
     panelAreaM2,
     pkg.electricitySavingsPercent ?? null,
-    pkg.contractTermYears ?? null
+    pkg.contractTermYears ?? null,
+    firstYearDegradationPercent,
+    annualDegradationPercent,
   )
 }
 
@@ -102,6 +114,12 @@ export default function StepResults() {
   const electricityPriceChfKwh = store.getElectricityPriceChfKwh()
   const ppaDiscountPercent =
     store.selectedPackageElectricitySavingsPercent ?? DEFAULT_PPA_DISCOUNT_PCT
+  const feedInTariffChfKwh = store.feedInTariffRate?.chfPerKwh ?? null
+  const panelDataReady =
+    !packagesLoading &&
+    store.selectedPanelWattageW != null &&
+    store.selectedPanelAreaM2 != null &&
+    feedInTariffChfKwh != null
 
   useEffect(() => {
     residentialCalculatorService
@@ -112,9 +130,15 @@ export default function StepResults() {
           store.selectedPackageId &&
           data.some(p => p.id === store.selectedPackageId)
         if (data.length > 0 && !hasValidSelection) {
+          applyPackageToStore(store.setSelectedPackage, data[0])
+          const realKwp = useSolarAboCalculatorStore
+            .getState()
+            .getSystemSizeKwp()
           const recommended =
-            pickRecommendedPackage(data, store.getSystemSizeKwp()) || data[0]
-          applyPackageToStore(store.setSelectedPackage, recommended)
+            pickRecommendedPackage(data, realKwp) || data[0]
+          if (recommended.id !== data[0].id) {
+            applyPackageToStore(store.setSelectedPackage, recommended)
+          }
         }
       })
       .catch(() => {})
@@ -127,6 +151,11 @@ export default function StepResults() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store.address])
 
+  useEffect(() => {
+    store.fetchFeedInTariff()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
   const equipmentWithNames = selectedPkg?.equipment.filter(e => e.name) || []
   const recommendedPkg = pickRecommendedPackage(packages, systemSizeKwp)
@@ -135,6 +164,12 @@ export default function StepResults() {
   )
 
   const handleDownloadReport = async () => {
+    if (
+      !panelDataReady ||
+      store.selectedPanelWattageW == null ||
+      feedInTariffChfKwh == null
+    )
+      return
     setDownloading(true)
     setError(null)
     try {
@@ -158,7 +193,7 @@ export default function StepResults() {
         customerEmail: store.contact.email || undefined,
         customerPhone: store.contact.phoneNumber || undefined,
         panelCount,
-        panelPower: store.selectedPanelWattageW || 460,
+        panelPower: store.selectedPanelWattageW,
         roofArea: Math.round(selectedArea),
         roofImage: store.roofImage || undefined,
         orientation: avgAzimuth,
@@ -172,10 +207,14 @@ export default function StepResults() {
         contractTermYears:
           selectedPkg?.contractTermYears ??
           store.selectedPackageContractTermYears ??
-          25,
+          35,
         annualSavings,
         electricityTariff: electricityPriceChfKwh,
-        feedInTariff: 0.08,
+        feedInTariff: feedInTariffChfKwh,
+        panelFirstYearDegradationPercent:
+          store.selectedPanelFirstYearDegradationPercent,
+        panelAnnualDegradationPercent:
+          store.selectedPanelAnnualDegradationPercent,
         selfConsumptionRate,
         annualConsumption: estimatedConsumption,
         equipment: equipmentWithNames.map(e => ({
@@ -263,12 +302,21 @@ export default function StepResults() {
           </p>
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
           <div>
-            <div className="text-2xl font-semibold text-[#062E25] tabular-nums">
-              {t('yourSystem.size', { kwp: systemSizeKwp.toFixed(1) })}
-            </div>
-            <div className="text-base text-[#062E25]/50">
-              {t('yourSystem.panels', { count: panelCount })}
-            </div>
+            {panelDataReady ? (
+              <>
+                <div className="text-2xl font-semibold text-[#062E25] tabular-nums">
+                  {t('yourSystem.size', { kwp: systemSizeKwp.toFixed(1) })}
+                </div>
+                <div className="text-base text-[#062E25]/50">
+                  {t('yourSystem.panels', { count: panelCount })}
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="h-8 w-32 rounded bg-[#062E25]/10 animate-pulse" />
+                <div className="mt-2 h-5 w-24 rounded bg-[#062E25]/10 animate-pulse" />
+              </>
+            )}
           </div>
           <div>
             <div className="text-2xl font-semibold text-[#062E25] tabular-nums">
@@ -282,15 +330,25 @@ export default function StepResults() {
         <p className="text-base font-medium text-white/60 uppercase tracking-wider mb-2">
           {t('yourYearlySaving.label')}
         </p>
-        <div className="text-4xl sm:text-5xl font-bold tabular-nums">
-          {t('yourYearlySaving.amount', { amount: fmt(annualSavings) })}
-        </div>
-        <p className="mt-2 text-base text-white/80">
-          {t('yourYearlySaving.suffix')}
-        </p>
-        <p className="mt-4 text-base text-[#B7FE1A]">
-          {t('yourYearlySaving.footnote')}
-        </p>
+        {panelDataReady ? (
+          <>
+            <div className="text-4xl sm:text-5xl font-bold tabular-nums">
+              {t('yourYearlySaving.amount', { amount: fmt(annualSavings) })}
+            </div>
+            <p className="mt-2 text-base text-white/80">
+              {t('yourYearlySaving.suffix')}
+            </p>
+            <p className="mt-4 text-base text-[#B7FE1A]">
+              {t('yourYearlySaving.footnote')}
+            </p>
+          </>
+        ) : (
+          <>
+            <div className="h-14 w-56 rounded bg-white/10 animate-pulse" />
+            <div className="mt-3 h-5 w-40 rounded bg-white/10 animate-pulse" />
+            <div className="mt-5 h-5 w-48 rounded bg-white/10 animate-pulse" />
+          </>
+        )}
       </div>
 
       <div className="mt-8">
@@ -438,7 +496,7 @@ export default function StepResults() {
             <Button
               variant="outline"
               onClick={handleDownloadReport}
-              disabled={downloading}
+              disabled={downloading || !panelDataReady}
               className="shrink-0 border-[#062E25]/20 text-[#062E25] hover:bg-[#062E25]/5"
             >
               {downloading ? (

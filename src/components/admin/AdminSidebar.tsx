@@ -6,11 +6,14 @@ import {
   Box,
   Briefcase,
   CircuitBoard,
+  Coins,
   Factory,
   FileCheck,
   FileText,
   Flame,
+  HandCoins,
   LayoutDashboard,
+  LineChart,
   Mail,
   MessageSquareText,
   Newspaper,
@@ -84,6 +87,9 @@ export function AdminSidebar() {
       label: t('groupResources'),
       items: [
         { label: t('electricityPrices'), href: `${prefix}/electricity-prices`, icon: Plug },
+        { label: t('subsidyRates'), href: `${prefix}/subsidy-rates`, icon: HandCoins },
+        { label: t('feedInTariffs'), href: `${prefix}/feed-in-tariffs`, icon: Coins },
+        { label: t('referenceMarketPrices'), href: `${prefix}/reference-market-prices`, icon: LineChart },
       ],
     },
     {
@@ -104,7 +110,7 @@ export function AdminSidebar() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
-    <aside className="w-64 min-h-screen border-r border-[#062E25]/10 bg-white shrink-0">
+    <aside className="sticky top-0 w-64 h-screen overflow-y-auto border-r border-[#062E25]/10 bg-white shrink-0">
       <div className="p-6 border-b border-[#062E25]/10">
         <h2 className="text-lg font-bold text-[#062E25]">{t('title')}</h2>
       </div>
