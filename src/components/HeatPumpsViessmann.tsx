@@ -25,6 +25,7 @@ const HeatPumpsViessmann = async ({ isCommercial = false }: { isCommercial?: boo
       exploreLabel={t('exploreViessmann')}
       exploreHref="/heat-pumps"
       imagePosition="left"
+      mobileTextFirst
     />
   )
 }

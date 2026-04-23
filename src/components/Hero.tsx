@@ -57,7 +57,7 @@ const Hero = async ({
         />
       </div>
 
-      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[90px] sm:pt-[140px] md:pt-[230px] lg:pt-[225px] w-full">
+      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[90px] sm:pt-[140px] md:pt-[230px] lg:pt-[225px] pb-[250px] sm:pb-[170px] md:pb-0 w-full">
         <HeroNav isCommercial={isCommercial} />
 
         <div className="flex flex-col items-center text-center">

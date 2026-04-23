@@ -48,11 +48,11 @@ const WhyFreeState = async ({ isCommercial = false }: { isCommercial?: boolean }
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`flex flex-col gap-10 md:px-10 ${
+              className={`flex flex-col items-center text-center gap-10 md:px-10 md:items-start md:text-left ${
                 index > 0 ? 'md:border-l md:border-foreground/30' : ''
               }`}
             >
-              <div className="relative w-[131px] h-[132px]">
+              <div className="relative w-[108px] h-[109px] md:w-[131px] md:h-[132px]">
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -60,7 +60,7 @@ const WhyFreeState = async ({ isCommercial = false }: { isCommercial?: boolean }
                   className="object-contain"
                 />
               </div>
-              <div className="flex flex-col gap-5 max-w-[227px]">
+              <div className="flex flex-col items-center gap-5 max-w-[227px] md:items-start">
                 <h3 className="text-[22px] font-bold text-foreground capitalize">
                   {feature.title}
                 </h3>

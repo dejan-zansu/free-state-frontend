@@ -1,7 +1,11 @@
 import { getTranslations } from 'next-intl/server'
 import ProductShowcase from './ProductShowcase'
 
-const Battery = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
+const Battery = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.battery')
 
   return (
@@ -16,7 +20,7 @@ const Battery = async ({ isCommercial = false }: { isCommercial?: boolean }) => 
       ]}
       cta={t('cta')}
       ctaHref="/battery-storage"
-      imageSrc="/images/battery-storage-installation-63f44e.webp"
+      imageSrc="/images/huawei-battery.png"
       imageAlt={t('title')}
       brandLogoSrc="/images/huawei-logo-4686a6.png"
       brandLogoAlt="Huawei"

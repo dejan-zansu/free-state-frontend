@@ -45,6 +45,7 @@ const Footer = () => {
     'idle' | 'loading' | 'success' | 'error'
   >('idle')
   const isCommercial = pathname?.includes('/commercial')
+  const isHomePage = pathname === '/' || /^\/[a-z]{2}\/?$/.test(pathname || '')
   const isLight =
     pathname?.includes('/solar-systems') ||
     pathname?.includes('/heat-pumps') ||
@@ -63,7 +64,6 @@ const Footer = () => {
     pathname?.includes('/repowering') ||
     pathname?.includes('/history') ||
     pathname?.includes('/about-us') ||
-    pathname === '/' ||
     pathname?.includes('/contact') ||
     pathname?.includes('/privacy-policy') ||
     pathname?.includes('/portfolio') ||
@@ -73,6 +73,8 @@ const Footer = () => {
     pathname?.includes('/agb') ||
     pathname?.includes('/faq') ||
     pathname?.includes('/media')
+
+  const useLightFooter = isLight && !isHomePage
 
   const solarAboLinks = [
     {
@@ -202,7 +204,7 @@ const Footer = () => {
         className={cn(
           'font-semibold mb-4 text-sm',
           titleClassName ||
-            (isLight
+            (useLightFooter
               ? 'text-primary'
               : isCommercial
                 ? 'text-energy'
@@ -218,7 +220,7 @@ const Footer = () => {
               href={link.href}
               className={cn(
                 'text-sm font-normal transition-colors',
-                isLight
+                useLightFooter
                   ? 'text-[#062E2580] hover:text-[#062E25]'
                   : 'text-muted-text-light hover:text-white'
               )}
@@ -236,7 +238,9 @@ const Footer = () => {
       <div
         className={cn(
           'relative overflow-hidden rounded-t-[40px]',
-          isLight ? 'text-foreground bg-[#F3F4EE]' : 'text-white bg-[#011F19]'
+          useLightFooter
+            ? 'text-foreground bg-[#F3F4EE]'
+            : 'text-white bg-[#011F19]'
         )}
       >
         <div
@@ -247,17 +251,17 @@ const Footer = () => {
             minHeight: '961px',
             left: '0px',
             top: '-46px',
-            background: isLight
+            background: useLightFooter
               ? 'linear-gradient(333.03deg, #EAECDE 41.26%, #D3D8BF 85.88%)'
               : isCommercial
                 ? 'linear-gradient(106.37deg, #191D1C 52.8%, #3D3858 155.13%)'
                 : 'linear-gradient(107.86deg, #062E25 24.4%, #139477 221.35%)',
-            filter: isLight ? 'blur(0px)' : 'blur(5.5px)',
+            filter: useLightFooter ? 'blur(0px)' : 'blur(5.5px)',
             zIndex: 1,
           }}
         />
 
-        {!isLight && (
+        {!useLightFooter && (
           <>
             {isCommercial ? (
               <>
@@ -313,7 +317,7 @@ const Footer = () => {
               <span
                 className={cn(
                   'text-base font-medium tracking-tight',
-                  isLight ? 'text-[#062E25]' : 'text-white'
+                  useLightFooter ? 'text-[#062E25]' : 'text-white'
                 )}
               >
                 {t('stayConnected')}
@@ -327,9 +331,9 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className={cn(
                       'w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80',
-                      isLight && isCommercial
+                      useLightFooter && isCommercial
                         ? 'bg-[#9F3E4F] text-white'
-                        : isLight
+                        : useLightFooter
                           ? 'bg-[#062E25] text-solar'
                           : isCommercial
                             ? 'bg-[#9F3E4F] text-white'
@@ -348,7 +352,7 @@ const Footer = () => {
                 <span
                   className={cn(
                     'text-base font-medium tracking-tight',
-                    isLight ? 'text-[#062E25]' : 'text-white'
+                    useLightFooter ? 'text-[#062E25]' : 'text-white'
                   )}
                 >
                   {t('signUpForUpdates')}
@@ -356,7 +360,7 @@ const Footer = () => {
                 <div
                   className={cn(
                     'flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px]',
-                    isLight
+                    useLightFooter
                       ? 'bg-[#EAEDDF] border-[#B5C0B1]'
                       : 'bg-transparent border-white/30'
                   )}
@@ -368,7 +372,7 @@ const Footer = () => {
                     onChange={e => setEmail(e.target.value)}
                     className={cn(
                       'bg-transparent text-sm font-medium outline-none w-[200px] sm:w-[260px] placeholder:opacity-50',
-                      isLight
+                      useLightFooter
                         ? 'text-[#062E25] placeholder:text-[#062E25]'
                         : 'text-white placeholder:text-white'
                     )}
@@ -395,7 +399,7 @@ const Footer = () => {
                 <span
                   className={cn(
                     'text-base font-medium tracking-tight',
-                    isLight ? 'text-[#062E25]' : 'text-white'
+                    useLightFooter ? 'text-[#062E25]' : 'text-white'
                   )}
                 >
                   {t('callUs')}
@@ -403,7 +407,7 @@ const Footer = () => {
                 <div
                   className={cn(
                     'flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px] opacity-70',
-                    isLight
+                    useLightFooter
                       ? 'bg-transparent border-[#062E25]'
                       : 'bg-transparent border-white/30'
                   )}
@@ -411,7 +415,7 @@ const Footer = () => {
                   <span
                     className={cn(
                       'text-sm font-medium',
-                      isLight ? 'text-[#062E25]' : 'text-white'
+                      useLightFooter ? 'text-[#062E25]' : 'text-white'
                     )}
                   >
                     {t('callHours')}
@@ -445,7 +449,7 @@ const Footer = () => {
           <div
             className={cn(
               'h-px w-full',
-              isLight ? 'bg-[#062E25]/10' : 'bg-white/10'
+              useLightFooter ? 'bg-[#062E25]/10' : 'bg-white/10'
             )}
           />
         </div>
@@ -454,7 +458,7 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-8">
             <div className="w-fit">
               <Link href="/" className="inline-block">
-                {isLight ? (
+                {useLightFooter ? (
                   <LogoDark className="h-10 w-auto" />
                 ) : (
                   <LogoLight className="h-10 w-auto" />
@@ -492,7 +496,7 @@ const Footer = () => {
               <p
                 className={cn(
                   'text-sm font-normal',
-                  isLight ? 'text-primary' : 'text-white'
+                  useLightFooter ? 'text-primary' : 'text-white'
                 )}
               >
                 {t('copyright')}
@@ -500,7 +504,7 @@ const Footer = () => {
               <p
                 className={cn(
                   'text-sm font-normal italic mt-1 max-w-[250px]',
-                  isLight ? 'text-primary/40' : 'text-muted-text-light/40'
+                  useLightFooter ? 'text-primary/40' : 'text-muted-text-light/40'
                 )}
               >
                 {t('tagline')}
