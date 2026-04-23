@@ -64,8 +64,22 @@ const AVG_PANEL_AREA = 2.58
 
 export const DEFAULT_PPA_DISCOUNT_PCT = 30
 
-const USABLE_ROOF_FRACTION_PITCHED = 0.55
-const USABLE_ROOF_FRACTION_FLAT = 0.25
+const FLAT_TILT_THRESHOLD_DEG = 10
+
+const COVERAGE_FLAT = 0.45
+
+const COVERAGE_PITCHED_SOUTH = 0.80
+const COVERAGE_PITCHED_SIDE = 0.75
+const COVERAGE_PITCHED_NORTH = 0.50
+
+function segmentCoverageFraction(tiltDeg: number, azimuthDeg: number): number {
+  if (tiltDeg <= FLAT_TILT_THRESHOLD_DEG) return COVERAGE_FLAT
+  const normalized = ((azimuthDeg % 360) + 360) % 360
+  const deviationFromSouth = Math.abs(normalized - 180)
+  if (deviationFromSouth <= 45) return COVERAGE_PITCHED_SOUTH
+  if (deviationFromSouth <= 135) return COVERAGE_PITCHED_SIDE
+  return COVERAGE_PITCHED_NORTH
+}
 
 // BFE/Nipkow study "Typischer Haushalt-Stromverbrauch" (2021), single-family house values
 // Excludes electric heating, heat pump, and electric hot water
@@ -518,7 +532,7 @@ export const useSolarAboCalculatorStore = create<
         const segments = get().getSelectedSegments()
         if (segments.length === 0) return 'pitched'
         const avgTilt = segments.reduce((sum, s) => sum + s.tilt, 0) / segments.length
-        return avgTilt <= 10 ? 'flat' : 'pitched'
+        return avgTilt <= FLAT_TILT_THRESHOLD_DEG ? 'flat' : 'pitched'
       },
 
       getSelectedSegments: () => {
@@ -547,26 +561,20 @@ export const useSolarAboCalculatorStore = create<
 
       getAnnualProduction: () => {
         const segments = get().getSelectedSegments()
-        const fullSegmentYield = segments.reduce(
-          (sum, s) => sum + s.electricityYield,
-          0,
-        )
-        const fraction =
-          get().getRoofType() === 'flat'
-            ? USABLE_ROOF_FRACTION_FLAT
-            : USABLE_ROOF_FRACTION_PITCHED
-        return fullSegmentYield * fraction
+        return segments.reduce((total, seg) => {
+          const fraction = segmentCoverageFraction(seg.tilt, seg.azimuth)
+          return total + seg.electricityYield * fraction
+        }, 0)
       },
 
       getEstimatedPanelCount: () => {
-        const selectedArea = get().getSelectedArea()
-        if (selectedArea === 0) return 0
+        const segments = get().getSelectedSegments()
+        if (segments.length === 0) return 0
         const panelArea = get().selectedPanelAreaM2 || AVG_PANEL_AREA
-        const fraction =
-          get().getRoofType() === 'flat'
-            ? USABLE_ROOF_FRACTION_FLAT
-            : USABLE_ROOF_FRACTION_PITCHED
-        return Math.floor((selectedArea * fraction) / panelArea)
+        return segments.reduce((total, seg) => {
+          const fraction = segmentCoverageFraction(seg.tilt, seg.azimuth)
+          return total + Math.floor((seg.area * fraction) / panelArea)
+        }, 0)
       },
 
       getSystemSizeKwp: () => {

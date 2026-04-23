@@ -72,7 +72,8 @@ type ContactFormData = z.infer<ReturnType<typeof useContactSchema>>
 const inputBase =
   'w-full h-9 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60'
 
-const labelBase = 'text-sm font-light text-[#062E25]/80 tracking-tight'
+const labelBase =
+  'text-sm sm:text-base font-light text-[#062E25]/80 tracking-tight'
 
 function DateOfBirthPicker({
   initialValue,
@@ -276,19 +277,19 @@ export default function Step6ContactDetails() {
                           >
                             <span
                               className={cn(
-                                'w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-colors',
+                                'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
                                 selected
                                   ? 'border-[#062E25]'
                                   : 'border-[#D9D9D9]'
                               )}
                             >
                               {selected && (
-                                <span className="w-2 h-2 rounded-full bg-[#B7FE1A]" />
+                                <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
                               )}
                             </span>
                             <span
                               className={cn(
-                                'text-sm font-medium tracking-tight',
+                                'text-sm sm:text-base font-medium tracking-tight',
                                 selected
                                   ? 'text-[#062E25]'
                                   : 'text-[#062E25]/70'
@@ -303,7 +304,7 @@ export default function Step6ContactDetails() {
                   )}
                 />
                 {errors.salutation && (
-                  <p className="text-sm text-destructive">
+                  <p className="text-sm sm:text-base text-destructive">
                     {errors.salutation.message}
                   </p>
                 )}
@@ -321,7 +322,7 @@ export default function Step6ContactDetails() {
                     )}
                   />
                   {errors.firstName && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm sm:text-base text-destructive">
                       {errors.firstName.message}
                     </p>
                   )}
@@ -338,7 +339,7 @@ export default function Step6ContactDetails() {
                     )}
                   />
                   {errors.lastName && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm sm:text-base text-destructive">
                       {errors.lastName.message}
                     </p>
                   )}
@@ -356,7 +357,7 @@ export default function Step6ContactDetails() {
                     )}
                   />
                   {errors.phoneNumber && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm sm:text-base text-destructive">
                       {errors.phoneNumber.message}
                     </p>
                   )}
@@ -374,7 +375,7 @@ export default function Step6ContactDetails() {
                     )}
                   />
                   {errors.email && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm sm:text-base text-destructive">
                       {errors.email.message}
                     </p>
                   )}
@@ -397,7 +398,7 @@ export default function Step6ContactDetails() {
                     )}
                   />
                   {errors.dateOfBirth && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm sm:text-base text-destructive">
                       {errors.dateOfBirth.message}
                     </p>
                   )}
@@ -414,7 +415,7 @@ export default function Step6ContactDetails() {
                     )}
                   />
                   {errors.nationality && (
-                    <p className="text-sm text-destructive">
+                    <p className="text-sm sm:text-base text-destructive">
                       {errors.nationality.message}
                     </p>
                   )}
@@ -459,7 +460,7 @@ export default function Step6ContactDetails() {
                               </span>
                               <span
                                 className={cn(
-                                  'text-sm font-medium tracking-tight',
+                                  'text-sm sm:text-base font-medium tracking-tight',
                                   selected
                                     ? 'text-[#062E25]'
                                     : 'text-[#062E25]/70'
@@ -487,7 +488,7 @@ export default function Step6ContactDetails() {
                       )}
                     />
                     {errors.postalCode && (
-                      <p className="text-sm text-destructive">
+                      <p className="text-sm sm:text-base text-destructive">
                         {errors.postalCode.message}
                       </p>
                     )}
@@ -504,7 +505,7 @@ export default function Step6ContactDetails() {
                       )}
                     />
                     {errors.city && (
-                      <p className="text-sm text-destructive">
+                      <p className="text-sm sm:text-base text-destructive">
                         {errors.city.message}
                       </p>
                     )}
@@ -523,7 +524,7 @@ export default function Step6ContactDetails() {
                       )}
                     />
                     {errors.street && (
-                      <p className="text-sm text-destructive">
+                      <p className="text-sm sm:text-base text-destructive">
                         {errors.street.message}
                       </p>
                     )}
@@ -540,7 +541,7 @@ export default function Step6ContactDetails() {
                       )}
                     />
                     {errors.streetNumber && (
-                      <p className="text-sm text-destructive">
+                      <p className="text-sm sm:text-base text-destructive">
                         {errors.streetNumber.message}
                       </p>
                     )}
@@ -583,7 +584,7 @@ export default function Step6ContactDetails() {
                       >
                         <span
                           className={cn(
-                            'mt-0.5 flex h-3 w-3 shrink-0 items-center justify-center rounded-[3px] border transition-colors',
+                            'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px] border transition-colors',
                             checked
                               ? 'bg-[#B7FE1A] border-[#B7FE1A]'
                               : 'border-[#062E25]/40'
@@ -591,8 +592,8 @@ export default function Step6ContactDetails() {
                         >
                           {checked && (
                             <svg
-                              width="8"
-                              height="6"
+                              width="13"
+                              height="10"
                               viewBox="0 0 8 6"
                               fill="none"
                             >
@@ -606,7 +607,7 @@ export default function Step6ContactDetails() {
                             </svg>
                           )}
                         </span>
-                        <span className="text-sm font-light text-[#062E25]/70 tracking-tight">
+                        <span className="text-sm sm:text-base font-light text-[#062E25]/70 tracking-tight">
                           {tConsent('dataProcessingPrefix')}{' '}
                           <Link
                             href="/privacy-policy"
@@ -623,14 +624,14 @@ export default function Step6ContactDetails() {
                   }}
                 />
                 {errors.dataProcessing && (
-                  <p className="mt-2 text-sm text-destructive">
+                  <p className="mt-2 text-sm sm:text-base text-destructive">
                     {errors.dataProcessing.message}
                   </p>
                 )}
               </div>
 
               {submissionError && (
-                <div className="text-sm text-destructive bg-destructive/10 p-3 rounded-md">
+                <div className="text-sm sm:text-base text-destructive bg-destructive/10 p-3 rounded-md">
                   {submissionError}
                 </div>
               )}
