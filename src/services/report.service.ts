@@ -99,6 +99,10 @@ export interface SonnendachReportParams {
   equipment?: Array<{ type: string; name: string; quantity: number }>
   householdSize?: number
 
+  // Panel degradation (ownership 30-year chart)
+  panelFirstYearDegradationPercent?: number | null
+  panelAnnualDegradationPercent?: number | null
+
   // Report settings
   language?: 'de' | 'fr' | 'it' | 'en' | 'sr' | 'es'
 }

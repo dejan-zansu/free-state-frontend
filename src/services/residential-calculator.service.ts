@@ -130,6 +130,9 @@ export interface CalculatorPackage {
     imageUrl?: string
     panelWattageW?: number
     panelAreaM2?: number
+    panelFirstYearDegradationPercent?: number
+    panelAnnualDegradationPercent?: number
+    panelGuaranteedPowerAfter30YearsPercent?: number
   }[]
 }
 
