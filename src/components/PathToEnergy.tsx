@@ -40,7 +40,7 @@ const PathToEnergy = async ({ isCommercial = false }: { isCommercial?: boolean }
       />
 
       <div className="relative max-w-[1120px] mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
-        <div className="relative w-full max-w-[348px] lg:w-[348px] shrink-0 p-2.5">
+        <div className="relative w-full max-w-[300px] sm:max-w-[348px] lg:w-[348px] shrink-0 p-2.5">
           <div
             className="pointer-events-none absolute inset-0 -m-8 rounded-full"
             style={{
@@ -48,7 +48,7 @@ const PathToEnergy = async ({ isCommercial = false }: { isCommercial?: boolean }
               filter: 'blur(80px)',
             }}
           />
-          <div className="relative w-full aspect-[328/225] rounded-lg overflow-hidden">
+          <div className="relative w-[82%] sm:w-full aspect-[328/225] rounded-lg overflow-hidden mx-auto">
             <Image
               src={image}
               alt={t('title')}

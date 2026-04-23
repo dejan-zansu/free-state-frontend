@@ -17,6 +17,7 @@ type ProductShowcaseProps = {
   exploreLabel: string
   exploreHref: React.ComponentProps<typeof LearnMoreLink>['href']
   imagePosition?: 'left' | 'right'
+  mobileTextFirst?: boolean
   isCommercial?: boolean
 }
 
@@ -35,10 +36,11 @@ const ProductShowcase = ({
   exploreLabel,
   exploreHref,
   imagePosition = 'left',
+  mobileTextFirst = false,
   isCommercial = false,
 }: ProductShowcaseProps) => {
   const imageColumn = (
-    <div className="relative flex-1 flex flex-col">
+    <div className={`relative flex-1 flex flex-col ${mobileTextFirst ? 'order-2 lg:order-0' : ''}`}>
       <div className="relative flex-1 min-h-[300px] lg:min-h-0">
         <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
       </div>
@@ -60,7 +62,11 @@ const ProductShowcase = ({
   )
 
   const textColumn = (
-    <div className="flex-1 flex items-center justify-center px-8 sm:px-12 lg:px-0 py-14">
+    <div
+      className={`flex-1 flex items-center justify-center px-8 sm:px-12 lg:px-0 py-14 ${
+        mobileTextFirst ? 'order-1 lg:order-0' : ''
+      }`}
+    >
       <div className="flex flex-col gap-[30px] max-w-[340px]">
         <div className="flex flex-col gap-5">
           <h2 className="text-foreground text-3xl md:text-[45px] font-medium">

@@ -139,7 +139,7 @@ const SolarModels = async ({
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end gap-[30px] w-full pt-12">
+        <div className="flex flex-col lg:flex-row lg:items-end gap-[60px] md:gap-[30px] w-full pt-12">
           <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
             <Badge
               className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}

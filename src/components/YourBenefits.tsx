@@ -56,9 +56,9 @@ const YourBenefits = async ({
           {benefits.map(benefit => (
             <div
               key={benefit.title}
-              className="flex flex-col gap-[50px] lg:border-r lg:last:border-r-0 border-foreground/30 lg:px-8 first:lg:pl-0 last:lg:pr-0"
+              className="flex flex-col items-center text-center gap-[50px] sm:items-start sm:text-left lg:border-r lg:last:border-r-0 border-foreground/30 lg:px-8 first:lg:pl-0 last:lg:pr-0"
             >
-              <div className="w-[135px] h-[113px] relative">
+              <div className="w-[112px] h-[94px] sm:w-[135px] sm:h-[113px] relative">
                 <Image
                   src={benefit.image}
                   alt={benefit.title}
@@ -66,7 +66,7 @@ const YourBenefits = async ({
                   className="object-cover rounded-lg"
                 />
               </div>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col items-center gap-5 sm:items-start">
                 <h3 className="text-[22px] font-bold text-foreground capitalize">
                   {benefit.title}
                 </h3>

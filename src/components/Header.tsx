@@ -189,7 +189,9 @@ const Header = () => {
                 {tHeader('myHome')}
               </Link>
 
-              <LanguageSwitcher isScrolled={showDarkHeader} />
+              <div className="hidden md:block">
+                <LanguageSwitcher isScrolled={showDarkHeader} />
+              </div>
               {/* <button
                 onClick={() => setIsSearchOpen(true)}
                 className={cn(
@@ -257,6 +259,9 @@ const Header = () => {
               isCommercial={pathname?.startsWith('/commercial')}
               onNavigate={() => setIsMobileMenuOpen(false)}
             />
+          </div>
+          <div className="mt-4 pt-4 border-t border-[#E6EAE9] px-4">
+            <LanguageSwitcher isScrolled={true} />
           </div>
         </SheetContent>
       </Sheet>
