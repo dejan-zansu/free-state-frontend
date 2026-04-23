@@ -196,6 +196,7 @@ interface SolarAboCalculatorState {
   buildingType: BuildingType
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
+  consumptionOverrideKwh: number | null
 
   address: string
   selectedLocation: SonnendachLocation | null
@@ -267,6 +268,7 @@ interface SolarAboCalculatorActions {
   goToStep: (step: number) => void
   setHouseholdSize: (size: HouseholdSize) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
+  setConsumptionOverride: (kwh: number | null) => void
   setAddress: (address: string) => void
   setSelectedLocation: (location: SonnendachLocation | null) => void
   setBuilding: (building: SonnendachBuilding | null) => void
@@ -361,6 +363,7 @@ const initialState: SolarAboCalculatorState = {
 
   buildingType: 'single_family',
   householdSize: null,
+  consumptionOverrideKwh: null,
   devices: {
     heatPumpHeating: false,
     electricHeating: false,
@@ -517,6 +520,16 @@ export const useSolarAboCalculatorStore = create<
         })
       },
 
+      setConsumptionOverride: (kwh: number | null) => {
+        if (kwh == null) {
+          set({ consumptionOverrideKwh: null })
+          return
+        }
+        if (!Number.isFinite(kwh) || kwh <= 0) return
+        const clamped = Math.max(500, Math.min(50000, Math.round(kwh)))
+        set({ consumptionOverrideKwh: clamped })
+      },
+
       setAddress: (address: string) => {
         set({ address })
       },
@@ -601,6 +614,9 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getEstimatedConsumption: () => {
+        const override = get().consumptionOverrideKwh
+        if (typeof override === 'number' && override > 0) return override
+
         const { householdSize, devices } = get()
         const deviceExtra = (Object.keys(devices) as (keyof HighPowerDevices)[])
           .filter(key => devices[key])
@@ -1125,6 +1141,7 @@ export const useSolarAboCalculatorStore = create<
         buildingType: state.buildingType,
         householdSize: state.householdSize,
         devices: state.devices,
+        consumptionOverrideKwh: state.consumptionOverrideKwh,
         address: state.address,
         selectedLocation: state.selectedLocation,
         building: state.building,

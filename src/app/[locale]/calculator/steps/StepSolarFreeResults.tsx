@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
-import { Loader2, CheckCircle2, Download } from 'lucide-react'
+import { Loader2, CheckCircle2, Download, Pencil, Check, X } from 'lucide-react'
 import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
@@ -101,6 +101,8 @@ export default function StepResults() {
   const [packagesLoading, setPackagesLoading] = useState(true)
   const [downloading, setDownloading] = useState(false)
   const [signDialogOpen, setSignDialogOpen] = useState(false)
+  const [consumptionEditing, setConsumptionEditing] = useState(false)
+  const [consumptionDraft, setConsumptionDraft] = useState('')
 
   const annualProduction = store.getAnnualProduction()
   const annualSavings = store.getAnnualPpaSavings()
@@ -261,6 +263,29 @@ export default function StepResults() {
 
   const fmt = (n: number) => Math.round(n).toLocaleString('de-CH')
   const selfSufficientPct = Math.round(selfConsumptionRate * 100)
+  const consumptionIsOverride = store.consumptionOverrideKwh != null
+
+  const startConsumptionEdit = () => {
+    setConsumptionDraft(String(estimatedConsumption))
+    setConsumptionEditing(true)
+  }
+
+  const saveConsumptionEdit = () => {
+    const parsed = Number(consumptionDraft.replace(/[^\d.]/g, ''))
+    if (Number.isFinite(parsed) && parsed > 0) {
+      store.setConsumptionOverride(parsed)
+    }
+    setConsumptionEditing(false)
+  }
+
+  const cancelConsumptionEdit = () => {
+    setConsumptionEditing(false)
+  }
+
+  const resetConsumptionOverride = () => {
+    store.setConsumptionOverride(null)
+    setConsumptionEditing(false)
+  }
 
   return (
     <>
@@ -455,6 +480,82 @@ export default function StepResults() {
       )}
 
       <div className="mt-8">
+        <p className="text-base font-medium text-[#062E25]/40 uppercase tracking-wider mb-3">
+          Jährlicher Stromverbrauch
+        </p>
+        <div className="rounded-xl bg-white/60 border border-[#062E25]/10 p-5">
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div className="min-w-0 flex-1">
+              {consumptionEditing ? (
+                <div className="flex items-baseline gap-2">
+                  <input
+                    type="number"
+                    inputMode="numeric"
+                    autoFocus
+                    value={consumptionDraft}
+                    onChange={e => setConsumptionDraft(e.target.value)}
+                    onKeyDown={e => {
+                      if (e.key === 'Enter') saveConsumptionEdit()
+                      if (e.key === 'Escape') cancelConsumptionEdit()
+                    }}
+                    className="text-2xl font-semibold text-[#062E25] tabular-nums bg-transparent border-b-2 border-[#062E25]/40 focus:border-[#062E25] outline-none w-40 py-0.5"
+                    min={500}
+                    max={50000}
+                  />
+                  <span className="text-base text-[#062E25]/60">kWh</span>
+                  <button
+                    type="button"
+                    onClick={saveConsumptionEdit}
+                    className="ml-2 inline-flex items-center justify-center w-8 h-8 rounded-full bg-[#062E25] text-white hover:bg-[#062E25]/90"
+                    aria-label="Speichern"
+                  >
+                    <Check className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={cancelConsumptionEdit}
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-[#062E25]/20 text-[#062E25] hover:bg-[#062E25]/5"
+                    aria-label="Abbrechen"
+                  >
+                    <X className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl font-semibold text-[#062E25] tabular-nums">
+                    {fmt(estimatedConsumption)}
+                  </span>
+                  <span className="text-base text-[#062E25]/60">kWh</span>
+                  <button
+                    type="button"
+                    onClick={startConsumptionEdit}
+                    className="ml-2 inline-flex items-center gap-1 text-sm text-[#062E25]/60 hover:text-[#062E25] underline underline-offset-4"
+                  >
+                    <Pencil className="w-3.5 h-3.5" />
+                    anpassen
+                  </button>
+                </div>
+              )}
+              <p className="mt-2 text-sm text-[#062E25]/60">
+                {consumptionIsOverride
+                  ? 'Von Ihnen eingegeben — basierend auf Ihrer Stromrechnung.'
+                  : 'Geschätzt aus Haushaltsgrösse und Geräten. Ihr tatsächlicher Verbrauch ist auf Ihrer Jahresrechnung zu finden.'}
+              </p>
+            </div>
+            {consumptionIsOverride && !consumptionEditing && (
+              <button
+                type="button"
+                onClick={resetConsumptionOverride}
+                className="text-sm text-[#062E25]/60 hover:text-[#062E25] underline underline-offset-4 shrink-0"
+              >
+                Auf Schätzung zurücksetzen
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-6">
         <p className="text-base font-medium text-[#062E25]/40 uppercase tracking-wider mb-3">
           {t('energyFlow.label')}
         </p>
