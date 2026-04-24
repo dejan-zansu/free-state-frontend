@@ -5708,6 +5708,12 @@
       "nationality": "Nationalität",
       "remarks": "Bemerkungen",
       "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
+      "propertyOwner": {
+        "label": "Sind Sie der eingetragene Eigentümer des Gebäudes?",
+        "yes": "Ja",
+        "no": "Nein",
+        "ineligible": "Nur der eingetragene Gebäudeeigentümer kann diesen Vertrag unterzeichnen. Bitte lassen Sie den Eigentümer den Vorgang starten."
+      },
       "address": {
         "sectionTitle": "Ihre Adresse",
         "countryLabel": "Land",
@@ -5736,6 +5742,7 @@
         "cityRequired": "Stadt ist erforderlich",
         "streetRequired": "Strasse ist erforderlich",
         "streetNumberRequired": "Hausnummer ist erforderlich",
+        "propertyOwnerRequired": "Nur der eingetragene Gebäudeeigentümer kann fortfahren.",
         "consentRequired": "Sie müssen die Datenschutzbestimmungen akzeptieren"
       },
       "submit": "Angebot anfordern",
@@ -5849,6 +5856,13 @@
         "title": "Sichere Unterschrift",
         "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen (ZertES/SCSE)."
       },
+      "preflight": {
+        "title": "Vor der Unterzeichnung",
+        "mobileApp": "Laden Sie die Swisscom Sign App herunter (iOS oder Android).",
+        "passport": "Halten Sie Ihren Pass bereit — beim ersten Unterzeichnen ist ein NFC-Scan erforderlich.",
+        "nfc": "Verwenden Sie ein Smartphone mit aktiviertem NFC (die meisten modernen Geräte).",
+        "time": "Die erstmalige Identifikation dauert ca. 5 Minuten."
+      },
       "downloadContract": "Vertrag herunterladen"
     },
     "signingComplete": {
@@ -5859,6 +5873,11 @@
       "success": {
         "title": "Vertrag erfolgreich unterschrieben!",
         "message": "Ihr Vertrag wurde sicher über Swisscom Sign unterschrieben. Sie können dieses Fenster schliessen.",
+        "backButton": "Zurück zum Rechner"
+      },
+      "pending": {
+        "title": "Signatur wird verarbeitet",
+        "message": "Ihre Signatursitzung ist noch offen. Falls Sie die Unterschrift nicht abgeschlossen haben, können Sie zu Swisscom Sign zurückkehren. Wir senden Ihnen eine E-Mail, sobald die Unterschrift bestätigt ist.",
         "backButton": "Zurück zum Rechner"
       },
       "cancel": {

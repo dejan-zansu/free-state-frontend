@@ -255,7 +255,11 @@ class ContractService {
     const data = await response.json()
 
     if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to initiate signature')
+      const err = new Error(data.error?.message || 'Failed to initiate signature') as Error & {
+        code?: string
+      }
+      err.code = data.error?.code
+      throw err
     }
 
     return data.data

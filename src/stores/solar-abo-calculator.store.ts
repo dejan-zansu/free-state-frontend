@@ -69,6 +69,7 @@ export interface ContactDetails {
   street: string
   streetNumber: string
   addressAdditional: string
+  isPropertyOwner: boolean | null
 }
 
 export interface Consents {
@@ -350,6 +351,7 @@ const initialContact: ContactDetails = {
   street: '',
   streetNumber: '',
   addressAdditional: '',
+  isPropertyOwner: null,
 }
 
 const initialConsents: Consents = {

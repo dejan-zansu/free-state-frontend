@@ -4029,6 +4029,12 @@
       "nationality": "Nationality",
       "remarks": "Remarks",
       "remarksPlaceholder": "Any additional information or questions...",
+      "propertyOwner": {
+        "label": "Are you the registered owner of the building?",
+        "yes": "Yes",
+        "no": "No",
+        "ineligible": "Only the registered property owner can sign this contract. If you're not the owner, please have them start the process."
+      },
       "address": {
         "sectionTitle": "Your address",
         "countryLabel": "Country",
@@ -4057,6 +4063,7 @@
         "cityRequired": "City is required",
         "streetRequired": "Street is required",
         "streetNumberRequired": "House number is required",
+        "propertyOwnerRequired": "Only the registered property owner can continue.",
         "consentRequired": "You must accept the data processing terms"
       },
       "submit": "Request offer",
@@ -4170,6 +4177,13 @@
         "title": "Secure Signature",
         "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws (ZertES/SCSE)."
       },
+      "preflight": {
+        "title": "Before you sign",
+        "mobileApp": "Download the Swisscom Sign mobile app (iOS or Android).",
+        "passport": "Have your passport ready — first-time signing requires an NFC scan.",
+        "nfc": "Use a phone with NFC enabled (most modern smartphones).",
+        "time": "First-time identification takes about 5 minutes."
+      },
       "downloadContract": "Download Contract"
     },
     "signingComplete": {
@@ -4180,6 +4194,11 @@
       "success": {
         "title": "Contract successfully signed!",
         "message": "Your contract has been securely signed via Swisscom Sign. You can close this window.",
+        "backButton": "Back to calculator"
+      },
+      "pending": {
+        "title": "Signature processing",
+        "message": "Your signing session is still open. If you didn't finish signing, you can return to Swisscom Sign. We will email you as soon as the signature is confirmed.",
         "backButton": "Back to calculator"
       },
       "cancel": {

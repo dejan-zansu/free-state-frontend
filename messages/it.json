@@ -4029,6 +4029,12 @@
       "nationality": "Nazionalità",
       "remarks": "Osservazioni",
       "remarksPlaceholder": "Eventuali informazioni aggiuntive o domande...",
+      "propertyOwner": {
+        "label": "Sei il proprietario registrato dell'edificio?",
+        "yes": "Sì",
+        "no": "No",
+        "ineligible": "Solo il proprietario registrato può firmare questo contratto. Chiedi al proprietario di avviare la procedura."
+      },
       "address": {
         "sectionTitle": "Il tuo indirizzo",
         "countryLabel": "Paese",
@@ -4057,6 +4063,7 @@
         "cityRequired": "La città è obbligatoria",
         "streetRequired": "La via è obbligatoria",
         "streetNumberRequired": "Il numero civico è obbligatorio",
+        "propertyOwnerRequired": "Solo il proprietario registrato può continuare.",
         "consentRequired": "Devi accettare i termini di trattamento dei dati"
       },
       "submit": "Richiedi offerta",
@@ -4170,12 +4177,24 @@
         "title": "Firma sicura",
         "message": "La tua firma è protetta da Swisscom Trust Services ed è conforme alle leggi svizzere sulla firma digitale (FiEle/OSCSE)."
       },
+      "preflight": {
+        "title": "Prima di firmare",
+        "mobileApp": "Scarica l'app Swisscom Sign (iOS o Android).",
+        "passport": "Tieni pronto il passaporto — la prima firma richiede una scansione NFC.",
+        "nfc": "Usa uno smartphone con NFC attivo (la maggior parte dei dispositivi recenti).",
+        "time": "L'identificazione iniziale richiede circa 5 minuti."
+      },
       "downloadContract": "Scarica contratto"
     },
     "signingComplete": {
       "verifying": {
         "title": "Verifica della firma...",
         "message": "Attendi mentre confermiamo la tua firma."
+      },
+      "pending": {
+        "title": "Firma in elaborazione",
+        "message": "La tua sessione di firma è ancora aperta. Se non hai completato la firma, puoi tornare su Swisscom Sign. Ti invieremo un'e-mail non appena la firma sarà confermata.",
+        "backButton": "Torna al calcolatore"
       },
       "success": {
         "title": "Contratto firmato con successo!",
