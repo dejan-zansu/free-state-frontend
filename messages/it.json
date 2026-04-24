@@ -6255,7 +6255,11 @@
         "translations": "Traduzioni",
         "description": "Descrizione",
         "features": "Caratteristiche",
-        "packageCreated": "Pacchetto creato"
+        "packageCreated": "Pacchetto creato",
+        "solarModels": "Modelli solari",
+        "solarFree": "Solar Free",
+        "solarDirect": "Solar Direct",
+        "solarModelsRequired": "Seleziona almeno un modello solare"
       }
     },
     "blog": {

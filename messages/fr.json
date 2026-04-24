@@ -6255,7 +6255,11 @@
         "translations": "Traductions",
         "description": "Description",
         "features": "Caractéristiques",
-        "packageCreated": "Forfait créé"
+        "packageCreated": "Forfait créé",
+        "solarModels": "Modèles solaires",
+        "solarFree": "Solar Free",
+        "solarDirect": "Solar Direct",
+        "solarModelsRequired": "Sélectionnez au moins un modèle solaire"
       }
     },
     "blog": {

@@ -6324,7 +6324,11 @@
         "translations": "Übersetzungen",
         "description": "Beschreibung",
         "features": "Features (JSON-Array)",
-        "packageCreated": "Paket erstellt"
+        "packageCreated": "Paket erstellt",
+        "solarModels": "Solar-Modelle",
+        "solarFree": "Solar Free",
+        "solarDirect": "Solar Direct",
+        "solarModelsRequired": "Mindestens ein Solar-Modell auswählen"
       }
     },
     "support": {
