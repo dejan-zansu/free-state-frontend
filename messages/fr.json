@@ -3269,7 +3269,7 @@
       },
       "desiredAppearance": {
         "title": "Apparence souhaitée",
-        "description": "Helion propose des modules solaires en gris argenté classique, anthracite et, sur demande, dans d'autres teintes."
+        "description": "FreeState propose des modules solaires en gris argenté classique, anthracite et, sur demande, dans d'autres teintes."
       }
     },
     "installation": {
@@ -3295,7 +3295,7 @@
     "costSection": {
       "title": "Combien coûte une installation solaire ?",
       "paragraph1": "Une installation photovoltaïque sur le petit toit d'une maison individuelle peut désormais être installée à partir de 19 500 CHF (subventions et économies d'impôts comprises). Il s'agit d'une valeur indicative, car plusieurs facteurs influencent le prix.",
-      "paragraph2": "Les coûts nets de l'investissement photovoltaïque sont nettement réduits grâce aux <subsidies>subventions</subsidies> – selon le canton, ces subventions peuvent atteindre plusieurs milliers de francs. Helion s'occupe de toutes les inscriptions et demandes, garantissant les subventions maximales.",
+      "paragraph2": "Les coûts nets de l'investissement photovoltaïque sont nettement réduits grâce aux <subsidies>subventions</subsidies> – selon le canton, ces subventions peuvent atteindre plusieurs milliers de francs. FreeState s'occupe de toutes les inscriptions et demandes, garantissant les subventions maximales.",
       "infoCard": "Le coût d'une installation solaire dépend principalement des facteurs suivants : taille et puissance du toit, choix des modules, coûts des matériaux (onduleur + sous-construction) et échafaudage, y compris le tableau électrique."
     },
     "pricingSection": {
@@ -4259,7 +4259,7 @@
     "overview": {
       "eyebrow": "Amortissement",
       "title": "Installation solaire pour carport",
-      "description": "Exploitez au maximum la surface de toit de votre carport ! Avec une installation solaire Helion sur un carport Uninorm, vous bénéficiez non seulement d'une énergie solaire écologique, mais vous protégez aussi votre voiture des intempéries.",
+      "description": "Exploitez au maximum la surface de toit de votre carport ! Avec une installation solaire FreeState sur un carport Uninorm, vous bénéficiez non seulement d'une énergie solaire écologique, mais vous protégez aussi votre voiture des intempéries.",
       "advantagesTitle": "Vos avantages en un coup d'œil",
       "advantages": {
         "dualUse": "Double usage : transformez le toit de votre carport en petite centrale solaire.",
@@ -4309,7 +4309,7 @@
     "evCharging": {
       "eyebrow": "Recharge",
       "title": "Recharge VE directement à votre carport solaire.",
-      "description": "Helion propose également une borne de recharge adaptée à votre voiture électrique, directement intégrable à votre installation solaire. Vous pouvez ainsi utiliser efficacement l'électricité produite par votre carport pour vos trajets.",
+      "description": "FreeState propose également une borne de recharge adaptée à votre voiture électrique, directement intégrable à votre installation solaire. Vous pouvez ainsi utiliser efficacement l'électricité produite par votre carport pour vos trajets.",
       "advantagesTitle": "Avantages d'une borne de recharge intégrée",
       "advantages": {
         "freeRefueling": "Rechargez gratuitement avec l'électricité solaire",
@@ -4417,7 +4417,7 @@
         },
         "exclusiveTariffs": {
           "title": "Tarifs exclusifs",
-          "subtitle": "Revenus grâce aux tarifs exclusifs Helion ONE"
+          "subtitle": "Revenus grâce aux tarifs exclusifs FreeState ONE"
         }
       }
     },
@@ -4541,7 +4541,7 @@
         "note2": "Prix hors onduleur, alimentation de secours ou fonctionnement hors réseau (sauf E3DC)"
       },
       "smartEnergy": {
-        "label": "SmartEnergy, Helion ONE\nInstallé, hors TVA.",
+        "label": "SmartEnergy, FreeState ONE\nInstallé, hors TVA.",
         "note1": "À partir de 1 500 CHF (enregistreur de données uniquement, sans mesure de consommation)",
         "note2": "À partir de 3 900 CHF, avec pilotage de chauffe-eau 50 % et 100 %"
       },
@@ -4568,7 +4568,7 @@
     "installation": {
       "eyebrow": "Stockage",
       "title": "Installation du stockage par batterie",
-      "description": "En fonction de votre situation et de vos besoins, nos experts recommanderont un système AC ou DC. L'installation est réalisée par nos spécialistes expérimentés, tous certifiés par le fabricant. Helion enregistre automatiquement chaque batterie installée auprès d'Inobat pour garantir un recyclage approprié de votre ancien système de stockage."
+      "description": "En fonction de votre situation et de vos besoins, nos experts recommanderont un système AC ou DC. L'installation est réalisée par nos spécialistes expérimentés, tous certifiés par le fabricant. FreeState enregistre automatiquement chaque batterie installée auprès d'Inobat pour garantir un recyclage approprié de votre ancien système de stockage."
     },
     "solutions": {
       "eyebrow": "Installation PV",
@@ -5242,7 +5242,7 @@
     },
     "installation": {
       "title": "Installation de grandes\ncentrales solaires",
-      "description": "Helion emploie des professionnels expérimentés : électriciens, couvreurs, charpentiers, plombiers et ferblantiers. Pour que vous puissiez profiter rapidement de votre installation, nos professionnels la montent du début à la fin. Les coûts d'installation sont entièrement inclus dans le prix d'achat."
+      "description": "FreeState emploie des professionnels expérimentés : électriciens, couvreurs, charpentiers, plombiers et ferblantiers. Pour que vous puissiez profiter rapidement de votre installation, nos professionnels la montent du début à la fin. Les coûts d'installation sont entièrement inclus dans le prix d'achat."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -5342,7 +5342,7 @@
     "parkingRoofs": {
       "eyebrow": "Toits de parking",
       "title": "Énergie solaire\ndepuis les toits de parking",
-      "description": "Transformez un espace de stationnement inutilisé en source d'énergie solaire grâce à un carport Helion.",
+      "description": "Transformez un espace de stationnement inutilisé en source d'énergie solaire grâce à un carport FreeState.",
       "items": {
         "doorstep": "Produisez de l'énergie solaire à votre porte ou sur votre lieu de travail.",
         "costs": "Réduisez vos coûts d'électricité grâce à une gestion énergétique intelligente.",
@@ -5637,7 +5637,7 @@
     },
     "marketingFlexibility": {
       "title": "Commercialisation de la flexibilité",
-      "description": "La batterie de votre VE peut rejoindre la centrale virtuelle d'Helion, soutenant le réseau et gagnant un FLEXBONUS via des paiements de disponibilité et de pointe.",
+      "description": "La batterie de votre VE peut rejoindre la centrale virtuelle de FreeState, soutenant le réseau et gagnant un FLEXBONUS via des paiements de disponibilité et de pointe.",
       "additionalIncome": "Revenus supplémentaires via FLEXBONUS :",
       "cards": {
         "withSolar": {
@@ -5653,7 +5653,7 @@
     },
     "keyFacts": {
       "title": "Recharge bidirectionnelle : points clés",
-      "description": "La recharge bidirectionnelle intègre votre VE à votre système énergétique domestique, piloté automatiquement par Helion ONE™ pour un usage énergétique optimal – tout en expliquant de façon transparente les limites techniques actuelles.",
+      "description": "La recharge bidirectionnelle intègre votre VE à votre système énergétique domestique, piloté automatiquement par FreeState ONE™ pour un usage énergétique optimal – tout en expliquant de façon transparente les limites techniques actuelles.",
       "steps": {
         "1": "Les petites charges nécessitent un tampon batterie domestique (limite > 1,8 kW).",
         "2": "Les grosses charges fonctionnent directement ; décharge limitée à 20–80 % SoC."
@@ -5725,7 +5725,7 @@
     },
     "personalizedOffer": {
       "title": "Intéressé par une offre personnalisée ?",
-      "description": "La recharge bidirectionnelle d'Helion transforme votre voiture électrique en powerbank pour votre maison. Vous économisez sur l'électricité, générez des revenus additionnels attractifs et gagnez en indépendance.",
+      "description": "La recharge bidirectionnelle de FreeState transforme votre voiture électrique en powerbank pour votre maison. Vous économisez sur l'électricité, générez des revenus additionnels attractifs et gagnez en indépendance.",
       "callToAction": "Demandez maintenant votre devis personnalisé et découvrez comment profiter de la recharge bidirectionnelle.",
       "form": {
         "title": "Demander un devis",
@@ -5796,7 +5796,7 @@
     },
     "newsletter": {
       "title": "Newsletter BiDi",
-      "description": "Tous nos projets solaires peuvent facilement être étendus à la recharge bidirectionnelle grâce à Helion ONE™. Intéressé par les dernières informations sur la recharge bidirectionnelle ?\n\nAbonnez-vous à notre newsletter BiDi.",
+      "description": "Tous nos projets solaires peuvent facilement être étendus à la recharge bidirectionnelle grâce à FreeState ONE™. Intéressé par les dernières informations sur la recharge bidirectionnelle ?\n\nAbonnez-vous à notre newsletter BiDi.",
       "form": {
         "firstName": "Prénom",
         "firstNamePlaceholder": "Saisissez votre prénom",
@@ -5844,7 +5844,7 @@
         },
         "requirements": {
           "question": "Que faut-il pour la recharge bidirectionnelle ?",
-          "answer": "Un VE compatible, une borne DC bidirectionnelle et un système de gestion énergétique intelligent comme Helion ONE™. Une installation solaire est recommandée mais non indispensable."
+          "answer": "Un VE compatible, une borne DC bidirectionnelle et un système de gestion énergétique intelligent comme FreeState ONE™. Une installation solaire est recommandée mais non indispensable."
         },
         "specialChargers": {
           "question": "Les VE nécessitent-ils des chargeurs spéciaux pour l'usage bidirectionnel ?",

@@ -3269,7 +3269,7 @@
       },
       "desiredAppearance": {
         "title": "Aspetto desiderato",
-        "description": "Helion offre moduli solari nel classico grigio argento, antracite e, su richiesta, in altre tonalità di colore."
+        "description": "FreeState offre moduli solari nel classico grigio argento, antracite e, su richiesta, in altre tonalità di colore."
       }
     },
     "installation": {
@@ -3295,7 +3295,7 @@
     "costSection": {
       "title": "Quanto costa un impianto solare?",
       "paragraph1": "Un impianto fotovoltaico su un piccolo tetto di una casa unifamiliare può ora essere installato a partire da CHF 19'500 (inclusi sussidi e risparmi fiscali). Questo è un valore indicativo, poiché diversi fattori influenzano il prezzo dell'impianto fotovoltaico.",
-      "paragraph2": "I costi netti di investimento per l'impianto fotovoltaico sono significativamente ridotti dai <subsidies>sussidi</subsidies> – a seconda del cantone, questi sussidi possono ammontare a diverse migliaia di franchi svizzeri. Helion si occupa di tutte le iscrizioni e domande, garantendoti di ricevere il massimo sussidio possibile.",
+      "paragraph2": "I costi netti di investimento per l'impianto fotovoltaico sono significativamente ridotti dai <subsidies>sussidi</subsidies> – a seconda del cantone, questi sussidi possono ammontare a diverse migliaia di franchi svizzeri. FreeState si occupa di tutte le iscrizioni e domande, garantendoti di ricevere il massimo sussidio possibile.",
       "infoCard": "Il costo di un impianto solare dipende principalmente dai seguenti fattori: dimensione e potenza del tetto, scelta dei moduli solari, costi dei materiali (inverter + sottostruttura) e impalcatura inclusa la cassetta dei fusibili."
     },
     "pricingSection": {
@@ -4259,7 +4259,7 @@
     "overview": {
       "eyebrow": "Ammortamento",
       "title": "Impianto solare per carport",
-      "description": "Sfrutta al meglio lo spazio sul tetto del tuo carport! Con un impianto solare Helion su un carport Uninorm, non solo benefici di energia solare ecologica, ma proteggi anche la tua auto dalle intemperie.",
+      "description": "Sfrutta al meglio lo spazio sul tetto del tuo carport! Con un impianto solare FreeState su un carport Uninorm, non solo benefici di energia solare ecologica, ma proteggi anche la tua auto dalle intemperie.",
       "advantagesTitle": "I tuoi vantaggi in sintesi",
       "advantages": {
         "dualUse": "Doppio utilizzo: trasforma il tetto del tuo carport in una piccola centrale solare.",
@@ -4309,7 +4309,7 @@
     "evCharging": {
       "eyebrow": "Ricarica",
       "title": "Ricarica per veicoli elettrici direttamente al tuo carport solare.",
-      "description": "Helion offre anche una stazione di ricarica adatta per la tua auto elettrica, che può essere integrata direttamente nel tuo impianto solare. In questo modo, puoi utilizzare efficientemente l'elettricità prodotta dal tuo carport per i tuoi spostamenti.",
+      "description": "FreeState offre anche una stazione di ricarica adatta per la tua auto elettrica, che può essere integrata direttamente nel tuo impianto solare. In questo modo, puoi utilizzare efficientemente l'elettricità prodotta dal tuo carport per i tuoi spostamenti.",
       "advantagesTitle": "Vantaggi di una stazione di ricarica integrata",
       "advantages": {
         "freeRefueling": "Rifornimento gratuito con energia solare",
@@ -4417,7 +4417,7 @@
         },
         "exclusiveTariffs": {
           "title": "Tariffe esclusive",
-          "subtitle": "Ricavi dall'elettricità grazie alle tariffe esclusive Helion ONE"
+          "subtitle": "Ricavi dall'elettricità grazie alle tariffe esclusive FreeState ONE"
         }
       }
     },
@@ -4541,7 +4541,7 @@
         "note2": "Prezzi esclusi inverter, alimentazione di emergenza o funzionamento off-grid (eccetto E3DC)"
       },
       "smartEnergy": {
-        "label": "SmartEnergy, Helion ONE\nInstallato, IVA esclusa.",
+        "label": "SmartEnergy, FreeState ONE\nInstallato, IVA esclusa.",
         "note1": "Da CHF 1'500 (solo data logger, senza misurazione dei consumi)",
         "note2": "Da CHF 3'900.–, con controllo boiler 50% e 100%"
       },
@@ -4568,7 +4568,7 @@
     "installation": {
       "eyebrow": "Accumulo",
       "title": "Installazione accumulo a batteria",
-      "description": "In base alla tua situazione e alle tue esigenze specifiche, i nostri esperti ti raccomanderanno il sistema AC o DC. L'installazione viene eseguita dai nostri specialisti esperti, tutti certificati dal produttore. Helion registra automaticamente ogni batteria installata presso Inobat, garantendo il corretto smaltimento del tuo vecchio sistema di accumulo di energia"
+      "description": "In base alla tua situazione e alle tue esigenze specifiche, i nostri esperti ti raccomanderanno il sistema AC o DC. L'installazione viene eseguita dai nostri specialisti esperti, tutti certificati dal produttore. FreeState registra automaticamente ogni batteria installata presso Inobat, garantendo il corretto smaltimento del tuo vecchio sistema di accumulo di energia"
     },
     "solutions": {
       "eyebrow": "Impianto fotovoltaico",
@@ -5242,7 +5242,7 @@
     },
     "installation": {
       "title": "Installazione di grandi\nimpianti solari",
-      "description": "Helion impiega professionisti esperti come elettricisti, conciatetti, carpentieri, idraulici e lattonieri. Per garantirti di beneficiare del tuo impianto il prima possibile, i nostri professionisti lo installeranno dall'inizio alla fine. I costi di installazione sono interamente inclusi nel prezzo di acquisto."
+      "description": "FreeState impiega professionisti esperti come elettricisti, conciatetti, carpentieri, idraulici e lattonieri. Per garantirti di beneficiare del tuo impianto il prima possibile, i nostri professionisti lo installeranno dall'inizio alla fine. I costi di installazione sono interamente inclusi nel prezzo di acquisto."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -5342,7 +5342,7 @@
     "parkingRoofs": {
       "eyebrow": "Tetti per parcheggi",
       "title": "Energia solare\ndalle coperture dei parcheggi",
-      "description": "Trasforma gli spazi di parcheggio inutilizzati in una fonte di energia solare con un carport Helion.",
+      "description": "Trasforma gli spazi di parcheggio inutilizzati in una fonte di energia solare con un carport FreeState.",
       "items": {
         "doorstep": "Genera energia solare davanti casa o sul posto di lavoro.",
         "costs": "Riduci i costi dell'elettricità con una gestione energetica intelligente.",
@@ -5637,7 +5637,7 @@
     },
     "marketingFlexibility": {
       "title": "Flessibilità di marketing",
-      "description": "La batteria del tuo EV può entrare a far parte della centrale elettrica virtuale di Helion, supportando la rete e guadagnando un FLEXBONUS grazie a pagamenti di standby e tariffe di picco.",
+      "description": "La batteria del tuo EV può entrare a far parte della centrale elettrica virtuale di FreeState, supportando la rete e guadagnando un FLEXBONUS grazie a pagamenti di standby e tariffe di picco.",
       "additionalIncome": "Reddito aggiuntivo tramite FLEXBONUS:",
       "cards": {
         "withSolar": {
@@ -5653,7 +5653,7 @@
     },
     "keyFacts": {
       "title": "Ricarica bidirezionale: fatti chiave",
-      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da Helion ONE™ per un uso ottimale dell'energia—affrontando in modo trasparente le attuali limitazioni tecniche.",
+      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da FreeState ONE™ per un uso ottimale dell'energia—affrontando in modo trasparente le attuali limitazioni tecniche.",
       "steps": {
         "1": "I piccoli carichi necessitano di un buffer della batteria domestica (limite >1,8 kW).",
         "2": "I carichi elevati funzionano direttamente; scarica limitata al 20-80% SoC."
@@ -5725,7 +5725,7 @@
     },
     "personalizedOffer": {
       "title": "Sei interessato a un'offerta personalizzata?",
-      "description": "La ricarica bidirezionale di Helion trasforma la tua auto elettrica in una power bank per la tua casa. Questo ti fa risparmiare sui costi dell'elettricità, genera interessanti entrate aggiuntive e ti offre maggiore indipendenza.",
+      "description": "La ricarica bidirezionale di FreeState trasforma la tua auto elettrica in una power bank per la tua casa. Questo ti fa risparmiare sui costi dell'elettricità, genera interessanti entrate aggiuntive e ti offre maggiore indipendenza.",
       "callToAction": "Richiedi ora il tuo preventivo personalizzato e scopri come puoi beneficiare della ricarica bidirezionale.",
       "form": {
         "title": "Richiedi un preventivo",
@@ -5796,7 +5796,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "Tutti i nostri progetti solari possono essere facilmente aggiornati per includere la ricarica bidirezionale grazie a Helion ONE™. Sei interessato alle ultime informazioni sulla ricarica bidirezionale?\n\nAllora iscriviti alla nostra newsletter BiDi.",
+      "description": "Tutti i nostri progetti solari possono essere facilmente aggiornati per includere la ricarica bidirezionale grazie a FreeState ONE™. Sei interessato alle ultime informazioni sulla ricarica bidirezionale?\n\nAllora iscriviti alla nostra newsletter BiDi.",
       "form": {
         "firstName": "Nome",
         "firstNamePlaceholder": "Inserisci il tuo nome",
@@ -5844,7 +5844,7 @@
         },
         "requirements": {
           "question": "Cosa è necessario per la ricarica bidirezionale?",
-          "answer": "Ti servono un EV compatibile, una stazione di ricarica DC bidirezionale e un sistema intelligente di gestione dell'energia come Helion ONE™. Un impianto solare è consigliato ma non obbligatorio."
+          "answer": "Ti servono un EV compatibile, una stazione di ricarica DC bidirezionale e un sistema intelligente di gestione dell'energia come FreeState ONE™. Un impianto solare è consigliato ma non obbligatorio."
         },
         "specialChargers": {
           "question": "Gli EV necessitano di caricatori speciali per l'uso bidirezionale?",
