@@ -3269,7 +3269,7 @@
       },
       "desiredAppearance": {
         "title": "Desired appearance",
-        "description": "Helion offers solar modules in classic silver-grey, anthracite and, upon request, in other color shades."
+        "description": "FreeState offers solar modules in classic silver-grey, anthracite and, upon request, in other color shades."
       }
     },
     "installation": {
@@ -3295,7 +3295,7 @@
     "costSection": {
       "title": "How much does a solar power system cost?",
       "paragraph1": "A photovoltaic system on a small roof of a detached house can now be installed for as little as CHF 19,500 (including subsidies and tax savings). This is a guideline figure, as various factors influence the price of the photovoltaic system.",
-      "paragraph2": "The net investment costs for the photovoltaic system are significantly reduced by <subsidies>subsidies</subsidies> – depending on the canton, these subsidies can amount to several thousand Swiss francs. Helion handles all registrations and applications, ensuring you receive the maximum possible subsidies.",
+      "paragraph2": "The net investment costs for the photovoltaic system are significantly reduced by <subsidies>subsidies</subsidies> – depending on the canton, these subsidies can amount to several thousand Swiss francs. FreeState handles all registrations and applications, ensuring you receive the maximum possible subsidies.",
       "infoCard": "The cost of a solar power system depends mainly on the following factors: roof size and output, choice of solar modules, material costs (inverter + substructure) and scaffolding including fuse box."
     },
     "pricingSection": {
@@ -4278,7 +4278,7 @@
     "overview": {
       "eyebrow": "Amortization",
       "title": "Solar system for carport",
-      "description": "Make the most of your carport's roof space! With a solar system from Helion on a Uninorm carport, you not only benefit from environmentally friendly solar power, but also protect your car from the elements.",
+      "description": "Make the most of your carport's roof space! With a solar system from FreeState on a Uninorm carport, you not only benefit from environmentally friendly solar power, but also protect your car from the elements.",
       "advantagesTitle": "Your advantages at a glance",
       "advantages": {
         "dualUse": "Dual use: Transform the roof of your carport into a small solar power plant.",
@@ -4328,7 +4328,7 @@
     "evCharging": {
       "eyebrow": "Charging",
       "title": "EV charging directly at your solar carport.",
-      "description": "Helion also offers a suitable charging station for your electric car, which can be integrated directly into your solar system. This way, you can efficiently use the electricity produced by your carport for your journeys.",
+      "description": "FreeState also offers a suitable charging station for your electric car, which can be integrated directly into your solar system. This way, you can efficiently use the electricity produced by your carport for your journeys.",
       "advantagesTitle": "Advantages of an integrated charging station",
       "advantages": {
         "freeRefueling": "Free refueling with solar power",
@@ -4436,7 +4436,7 @@
         },
         "exclusiveTariffs": {
           "title": "Exclusive tariffs",
-          "subtitle": "Electricity revenue thanks to Helion ONE exclusive tariffs"
+          "subtitle": "Electricity revenue thanks to FreeState ONE exclusive tariffs"
         }
       }
     },
@@ -4560,7 +4560,7 @@
         "note2": "Prices exclude inverter, emergency power or off-grid operation (except E3DC)"
       },
       "smartEnergy": {
-        "label": "SmartEnergy, Helion ONE\nInstalled, excluding VAT.",
+        "label": "SmartEnergy, FreeState ONE\nInstalled, excluding VAT.",
         "note1": "From CHF 1,500 (Data logger only, without consumption measurement)",
         "note2": "From CHF 3,900.–, with boiler control 50% and 100%"
       },
@@ -4587,7 +4587,7 @@
     "installation": {
       "eyebrow": "Storage",
       "title": "Battery Storage Installation",
-      "description": "Based on your specific situation and needs, our experts will recommend either the AC or DC system. Installation is carried out by our experienced specialists, all of whom are certified by the manufacturer. Helion automatically registers each installed battery with Inobat, ensuring the proper disposal of your aging energy storage system"
+      "description": "Based on your specific situation and needs, our experts will recommend either the AC or DC system. Installation is carried out by our experienced specialists, all of whom are certified by the manufacturer. FreeState automatically registers each installed battery with Inobat, ensuring the proper disposal of your aging energy storage system"
     },
     "solutions": {
       "eyebrow": "PV System",
@@ -5261,7 +5261,7 @@
     },
     "installation": {
       "title": "Installation of large\nsolar power plants",
-      "description": "Helion employs experienced professionals such as electricians, roofers, carpenters, plumbers, and sheet metal workers. To ensure you can benefit from your system as quickly as possible, our professionals will install it from start to finish. Installation costs are fully included in the purchase price."
+      "description": "FreeState employs experienced professionals such as electricians, roofers, carpenters, plumbers, and sheet metal workers. To ensure you can benefit from your system as quickly as possible, our professionals will install it from start to finish. Installation costs are fully included in the purchase price."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -5361,7 +5361,7 @@
     "parkingRoofs": {
       "eyebrow": "Parking roofs",
       "title": "Solar energy\nfrom parking roofs",
-      "description": "Turn unused parking space into a solar power source with a Helion carport.",
+      "description": "Turn unused parking space into a solar power source with a FreeState carport.",
       "items": {
         "doorstep": "Generate solar power at your doorstep or workplace.",
         "costs": "Lower electricity costs with smart energy management.",
@@ -5656,7 +5656,7 @@
     },
     "marketingFlexibility": {
       "title": "Marketing Flexibility",
-      "description": "Your EV battery can join Helion's virtual power plant, supporting the grid and earning a FLEXBONUS through standby and peak-rate payments.",
+      "description": "Your EV battery can join FreeState's virtual power plant, supporting the grid and earning a FLEXBONUS through standby and peak-rate payments.",
       "additionalIncome": "Additional income via FLEXBONUS:",
       "cards": {
         "withSolar": {
@@ -5672,7 +5672,7 @@
     },
     "keyFacts": {
       "title": "Bidirectional Charging: Key Facts",
-      "description": "Bidirectional charging integrates your EV into your home energy system, managed automatically by Helion ONE™ for optimal energy use—while transparently addressing current technical limitations.",
+      "description": "Bidirectional charging integrates your EV into your home energy system, managed automatically by FreeState ONE™ for optimal energy use—while transparently addressing current technical limitations.",
       "steps": {
         "1": "Small loads need a home battery buffer (>1.8 kW limit).",
         "2": "Large loads run directly; discharge limited to 20–80% SoC."
@@ -5744,7 +5744,7 @@
     },
     "personalizedOffer": {
       "title": "Are you interested in a personalized offer?",
-      "description": "Helion's bidirectional charging turns your electric car into a power bank for your home. This saves you electricity costs, generates attractive additional income, and gives you greater independence.",
+      "description": "FreeState's bidirectional charging turns your electric car into a power bank for your home. This saves you electricity costs, generates attractive additional income, and gives you greater independence.",
       "callToAction": "Request your personalized quote now and find out how you can benefit from bidirectional charging.",
       "form": {
         "title": "Request a quote",
@@ -5815,7 +5815,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "All our solar projects can be easily upgraded to include bidirectional charging thanks to Helion ONE™. Are you interested in the latest information about bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
+      "description": "All our solar projects can be easily upgraded to include bidirectional charging thanks to FreeState ONE™. Are you interested in the latest information about bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
       "form": {
         "firstName": "First name",
         "firstNamePlaceholder": "Enter your First name",
@@ -5863,7 +5863,7 @@
         },
         "requirements": {
           "question": "What is required for bidirectional charging?",
-          "answer": "You need a compatible EV, a bidirectional DC charging station, and a smart energy management system like Helion ONE™. A solar system is recommended but not required."
+          "answer": "You need a compatible EV, a bidirectional DC charging station, and a smart energy management system like FreeState ONE™. A solar system is recommended but not required."
         },
         "specialChargers": {
           "question": "Do EVs need special chargers for bidirectional use?",
