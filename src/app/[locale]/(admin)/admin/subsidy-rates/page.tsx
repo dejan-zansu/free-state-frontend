@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Card, CardContent } from '@/components/ui/card'
@@ -37,6 +38,7 @@ function fmtChf(n: number): string {
 }
 
 export default function AdminSubsidyRatesPage() {
+  const t = useTranslations('admin.resources.subsidyRates')
   const [rows, setRows] = useState<AdminSubsidyRateRow[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -55,45 +57,42 @@ export default function AdminSubsidyRatesPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
-        Einmalvergütung (Pronovo KLEIV)
+        {t('title')}
       </h1>
       <p className="text-base text-[#062E25]/60 mb-6">
-        Aktuelle und historische Einmalvergütungs-Tarife der Pronovo AG für
-        Photovoltaik ≤100 kWp. Wird zweimal jährlich publiziert. Werden in
-        Verträgen verwendet — Änderungen erfolgen ausschliesslich über
-        Seed-Skripte (nicht über die Oberfläche).
+        {t('description')}
       </p>
 
       {active && (
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
             <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
-              Aktuell gültiger Tarif
+              {t('currentTariff')}
             </p>
             <p className="text-xl font-semibold text-[#062E25]">
               {active.source}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
               <div>
-                <p className="text-sm text-[#062E25]/50">Stufe 1 (bis kWp)</p>
+                <p className="text-sm text-[#062E25]/50">{t('tier1Max')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {active.tier1MaxKwp}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">CHF / kWp (Stufe 1)</p>
+                <p className="text-sm text-[#062E25]/50">{t('tier1Chf')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtChf(active.tier1ChfPerKwp)}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">Stufe 2 (bis kWp)</p>
+                <p className="text-sm text-[#062E25]/50">{t('tier2Max')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {active.tier2MaxKwp}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">CHF / kWp (Stufe 2)</p>
+                <p className="text-sm text-[#062E25]/50">{t('tier2Chf')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtChf(active.tier2ChfPerKwp)}
                 </p>
@@ -108,14 +107,14 @@ export default function AdminSubsidyRatesPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Quelle</TableHead>
-                <TableHead>Gültig ab</TableHead>
-                <TableHead>Gültig bis</TableHead>
-                <TableHead className="text-right">Stufe 1 Grenze</TableHead>
-                <TableHead className="text-right">Stufe 1 CHF/kWp</TableHead>
-                <TableHead className="text-right">Stufe 2 Grenze</TableHead>
-                <TableHead className="text-right">Stufe 2 CHF/kWp</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>{t('tableSource')}</TableHead>
+                <TableHead>{t('tableValidFrom')}</TableHead>
+                <TableHead>{t('tableValidTo')}</TableHead>
+                <TableHead className="text-right">{t('tableTier1Limit')}</TableHead>
+                <TableHead className="text-right">{t('tableTier1Chf')}</TableHead>
+                <TableHead className="text-right">{t('tableTier2Limit')}</TableHead>
+                <TableHead className="text-right">{t('tableTier2Chf')}</TableHead>
+                <TableHead>{t('tableStatus')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -139,10 +138,10 @@ export default function AdminSubsidyRatesPage() {
                   <TableCell>
                     {isActive(r) ? (
                       <span className="inline-flex items-center rounded-full bg-[#B7FE1A]/30 text-[#062E25] text-sm px-2 py-0.5">
-                        aktiv
+                        {t('active')}
                       </span>
                     ) : (
-                      <span className="text-[#062E25]/50 text-sm">inaktiv</span>
+                      <span className="text-[#062E25]/50 text-sm">{t('inactive')}</span>
                     )}
                   </TableCell>
                 </TableRow>
@@ -153,7 +152,7 @@ export default function AdminSubsidyRatesPage() {
                     colSpan={8}
                     className="text-center text-[#062E25]/50 py-8"
                   >
-                    Keine Daten
+                    {t('empty')}
                   </TableCell>
                 </TableRow>
               )}

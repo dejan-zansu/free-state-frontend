@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Card, CardContent } from '@/components/ui/card'
@@ -44,17 +45,18 @@ function fmtRp(n: number): string {
   })
 }
 
-function scope(row: AdminFeedInTariffRow): string {
-  if (row.operatorName) return `Operator: ${row.operatorName}`
-  if (row.bfsNumber != null) return `BFS ${row.bfsNumber}`
-  if (row.cantonCode) return `Kanton ${row.cantonCode}`
-  return 'National'
-}
-
 export default function AdminFeedInTariffsPage() {
+  const t = useTranslations('admin.resources.feedInTariffs')
   const [rows, setRows] = useState<AdminFeedInTariffRow[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
+
+  const scope = (row: AdminFeedInTariffRow): string => {
+    if (row.operatorName) return t('scopeOperator', { name: row.operatorName })
+    if (row.bfsNumber != null) return t('scopeBfs', { bfs: row.bfsNumber })
+    if (row.cantonCode) return t('scopeCanton', { canton: row.cantonCode })
+    return t('scopeNational')
+  }
 
   useEffect(() => {
     adminFeedInTariffsService
@@ -86,27 +88,24 @@ export default function AdminFeedInTariffsPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
-        Rückliefertarife (Einspeisevergütung)
+        {t('title')}
       </h1>
       <p className="text-base text-[#062E25]/60 mb-6">
-        Schweizer Rückliefertarife pro Netzbetreiber / Kanton / national.
-        Grundlage für die Berechnung der Rücklieferungsvergütung. Ab 2026 nach
-        dem quartalsweisen BFE-Referenzmarktpreis (Art. 15 EnG). Änderungen
-        erfolgen über Seed-Skripte.
+        {t('description')}
       </p>
 
       {nationalActive && (
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
             <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
-              Aktueller nationaler Standardtarif
+              {t('currentNational')}
             </p>
             <p className="text-xl font-semibold text-[#062E25]">
               {nationalActive.source}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
               <div>
-                <p className="text-sm text-[#062E25]/50">Tarif</p>
+                <p className="text-sm text-[#062E25]/50">{t('tariff')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtRp(nationalActive.chfPerKwh)} Rp/kWh
                 </p>
@@ -115,13 +114,13 @@ export default function AdminFeedInTariffsPage() {
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">Gültig ab</p>
+                <p className="text-sm text-[#062E25]/50">{t('validFrom')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {fmtDate(nationalActive.validFrom)}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">Publiziert</p>
+                <p className="text-sm text-[#062E25]/50">{t('published')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {fmtDate(nationalActive.publishedAt)}
                 </p>
@@ -140,7 +139,7 @@ export default function AdminFeedInTariffsPage() {
         <CardContent className="p-6">
           <div className="mb-4">
             <Input
-              placeholder="Suche (Quelle, Operator, Kanton, BFS)…"
+              placeholder={t('searchPlaceholder')}
               className="max-w-sm"
               value={search}
               onChange={e => setSearch(e.target.value)}
@@ -149,13 +148,13 @@ export default function AdminFeedInTariffsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Quelle</TableHead>
-                <TableHead>Geltungsbereich</TableHead>
-                <TableHead>Gültig ab</TableHead>
-                <TableHead>Gültig bis</TableHead>
-                <TableHead className="text-right">Rp/kWh</TableHead>
-                <TableHead className="text-right">CHF/kWh</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>{t('tableSource')}</TableHead>
+                <TableHead>{t('tableScope')}</TableHead>
+                <TableHead>{t('tableValidFrom')}</TableHead>
+                <TableHead>{t('tableValidTo')}</TableHead>
+                <TableHead className="text-right">{t('tableRpKwh')}</TableHead>
+                <TableHead className="text-right">{t('tableChfKwh')}</TableHead>
+                <TableHead>{t('tableStatus')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -174,10 +173,10 @@ export default function AdminFeedInTariffsPage() {
                   <TableCell>
                     {isActive(r) ? (
                       <span className="inline-flex items-center rounded-full bg-[#B7FE1A]/30 text-[#062E25] text-sm px-2 py-0.5">
-                        aktiv
+                        {t('active')}
                       </span>
                     ) : (
-                      <span className="text-[#062E25]/50 text-sm">inaktiv</span>
+                      <span className="text-[#062E25]/50 text-sm">{t('inactive')}</span>
                     )}
                   </TableCell>
                 </TableRow>
@@ -188,7 +187,7 @@ export default function AdminFeedInTariffsPage() {
                     colSpan={7}
                     className="text-center text-[#062E25]/50 py-8"
                   >
-                    Keine Daten
+                    {t('empty')}
                   </TableCell>
                 </TableRow>
               )}

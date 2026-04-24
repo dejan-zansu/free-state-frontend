@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { Loader2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
@@ -40,6 +41,7 @@ function formatChf(value: number): string {
 }
 
 export default function AdminElectricityPricesPage() {
+  const t = useTranslations('admin.resources.electricityPrices')
   const [data, setData] = useState<AdminSwissTariffListResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [searchInput, setSearchInput] = useState('')
@@ -103,11 +105,14 @@ export default function AdminElectricityPricesPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
-        Strompreise nach Gemeinde
+        {t('title')}
       </h1>
       <p className="text-base text-[#062E25]/60 mb-6">
-        Offizielle ElCom-Tarife pro Gemeinde, Betreiber und Tarifkategorie — informativ.
-        Quelle: <a href="https://www.strompreis.elcom.admin.ch/" target="_blank" rel="noreferrer" className="underline">strompreis.elcom.admin.ch</a> (LINDAS).
+        {t('descriptionPrefix')}
+        <a href="https://www.strompreis.elcom.admin.ch/" target="_blank" rel="noreferrer" className="underline">
+          strompreis.elcom.admin.ch
+        </a>
+        {t('descriptionSuffix')}
       </p>
 
       {summary && (
@@ -115,7 +120,7 @@ export default function AdminElectricityPricesPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
               <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
-                Einträge
+                {t('entries')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
                 {total.toLocaleString('de-CH')}
@@ -125,7 +130,7 @@ export default function AdminElectricityPricesPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
               <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
-                Ø Tarif
+                {t('avgTariff')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
                 {formatRp(summary.avgRpKwh)} Rp
@@ -136,7 +141,7 @@ export default function AdminElectricityPricesPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
               <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
-                Tiefster
+                {t('lowest')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
                 {formatRp(summary.minRpKwh)} Rp
@@ -146,7 +151,7 @@ export default function AdminElectricityPricesPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
               <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
-                Höchster
+                {t('highest')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
                 {formatRp(summary.maxRpKwh)} Rp
@@ -160,7 +165,7 @@ export default function AdminElectricityPricesPage() {
         <CardContent className="p-6">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <Input
-              placeholder="Suche Gemeinde, Betreiber, BFS…"
+              placeholder={t('searchPlaceholder')}
               className="max-w-sm"
               value={searchInput}
               onChange={e => setSearchInput(e.target.value)}
@@ -171,10 +176,10 @@ export default function AdminElectricityPricesPage() {
                 onValueChange={v => setYear(v === ALL ? null : Number(v))}
               >
                 <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Jahr" />
+                  <SelectValue placeholder={t('yearPlaceholder')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value={ALL}>Alle Jahre</SelectItem>
+                  <SelectItem value={ALL}>{t('allYears')}</SelectItem>
                   {summary.years.map(y => (
                     <SelectItem key={y} value={String(y)}>
                       {y}
@@ -186,7 +191,7 @@ export default function AdminElectricityPricesPage() {
             {summary?.categories && (
               <Select value={category} onValueChange={v => setCategory(v)}>
                 <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Kategorie" />
+                  <SelectValue placeholder={t('categoryPlaceholder')} />
                 </SelectTrigger>
                 <SelectContent>
                   {summary.categories.map(c => (
@@ -203,10 +208,10 @@ export default function AdminElectricityPricesPage() {
                 onValueChange={v => setCantonCode(v === ALL ? null : v)}
               >
                 <SelectTrigger className="w-32">
-                  <SelectValue placeholder="Kanton" />
+                  <SelectValue placeholder={t('cantonPlaceholder')} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value={ALL}>Alle Kantone</SelectItem>
+                  <SelectItem value={ALL}>{t('allCantons')}</SelectItem>
                   {summary.cantons.map(c => (
                     <SelectItem key={c} value={c}>
                       {c}
@@ -222,16 +227,16 @@ export default function AdminElectricityPricesPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>BFS</TableHead>
-                  <TableHead>Gemeinde</TableHead>
-                  <TableHead>Kanton</TableHead>
-                  <TableHead>Betreiber</TableHead>
-                  <TableHead className="text-right">Total Rp/kWh</TableHead>
-                  <TableHead className="text-right">CHF/kWh</TableHead>
-                  <TableHead className="text-right">Energie</TableHead>
-                  <TableHead className="text-right">Netz</TableHead>
-                  <TableHead className="text-right">Abgaben</TableHead>
-                  <TableHead className="text-right">Grundgebühr</TableHead>
+                  <TableHead>{t('tableBfs')}</TableHead>
+                  <TableHead>{t('tableMunicipality')}</TableHead>
+                  <TableHead>{t('tableCanton')}</TableHead>
+                  <TableHead>{t('tableOperator')}</TableHead>
+                  <TableHead className="text-right">{t('tableTotalRp')}</TableHead>
+                  <TableHead className="text-right">{t('tableChf')}</TableHead>
+                  <TableHead className="text-right">{t('tableEnergy')}</TableHead>
+                  <TableHead className="text-right">{t('tableGrid')}</TableHead>
+                  <TableHead className="text-right">{t('tableFees')}</TableHead>
+                  <TableHead className="text-right">{t('tableBaseFee')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -266,7 +271,7 @@ export default function AdminElectricityPricesPage() {
                 {rows.length === 0 && !loading && (
                   <TableRow>
                     <TableCell colSpan={10} className="text-center text-[#062E25]/50 py-8">
-                      Keine Tarife gefunden.
+                      {t('empty')}
                     </TableCell>
                   </TableRow>
                 )}
@@ -276,7 +281,11 @@ export default function AdminElectricityPricesPage() {
 
           <div className="flex items-center justify-between mt-6">
             <p className="text-sm text-[#062E25]/50">
-              Seite {page} von {totalPages} · {total.toLocaleString('de-CH')} Einträge
+              {t('pagination', {
+                page,
+                totalPages,
+                total: total.toLocaleString('de-CH'),
+              })}
             </p>
             <div className="flex gap-2">
               <Button
@@ -284,14 +293,14 @@ export default function AdminElectricityPricesPage() {
                 disabled={page <= 1}
                 onClick={() => setPage(p => Math.max(1, p - 1))}
               >
-                Zurück
+                {t('previous')}
               </Button>
               <Button
                 variant="outline"
                 disabled={page >= totalPages}
                 onClick={() => setPage(p => Math.min(totalPages, p + 1))}
               >
-                Weiter
+                {t('next')}
               </Button>
             </div>
           </div>
