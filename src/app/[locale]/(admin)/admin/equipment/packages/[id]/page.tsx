@@ -71,6 +71,8 @@ export default function AdminPackageDetailPage() {
   const [isActive, setIsActive] = useState(true)
   const [highlightedFeature, setHighlightedFeature] = useState('')
   const [imageUrl, setImageUrl] = useState('')
+  const [supportsSolarFree, setSupportsSolarFree] = useState(true)
+  const [supportsSolarDirect, setSupportsSolarDirect] = useState(false)
   const [translations, setTranslations] = useState<
     Record<string, Record<string, any>>
   >({})
@@ -99,6 +101,11 @@ export default function AdminPackageDetailPage() {
         setIsActive((data as any).isActive ?? true)
         setHighlightedFeature((data as any).highlightedFeature || '')
         setImageUrl((data as any).imageUrl || '')
+        const models: string[] = Array.isArray((data as any).supportedSolarModels)
+          ? (data as any).supportedSolarModels
+          : ['SOLAR_FREE']
+        setSupportsSolarFree(models.includes('SOLAR_FREE'))
+        setSupportsSolarDirect(models.includes('SOLAR_DIRECT'))
         if ((data as any).translations && Array.isArray((data as any).translations)) {
           const transMap: Record<string, Record<string, any>> = {}
           ;((data as any).translations as any[]).forEach((t: any) => {
@@ -135,11 +142,15 @@ export default function AdminPackageDetailPage() {
     const transArray = Object.values(translations).filter(
       t => t.language && (t.name || t.description)
     )
+    const solarModels: ('SOLAR_FREE' | 'SOLAR_DIRECT')[] = []
+    if (supportsSolarFree) solarModels.push('SOLAR_FREE')
+    if (supportsSolarDirect) solarModels.push('SOLAR_DIRECT')
     return {
       code,
       minCapacityKwp: minCapacityKwp ? parseFloat(minCapacityKwp) : null,
       maxCapacityKwp: maxCapacityKwp ? parseFloat(maxCapacityKwp) : null,
       contractTermYears: parseInt(contractTermYears) || 35,
+      supportedSolarModels: solarModels,
       pricePerKwp: pricePerKwp ? parseFloat(pricePerKwp) : null,
       currency,
       displayOrder: parseInt(displayOrder) || 0,
@@ -382,6 +393,30 @@ export default function AdminPackageDetailPage() {
                   onChange={e => setHighlightedFeature(e.target.value)}
                 />
               </div>
+            </div>
+            <div className="mt-4">
+              <Label>{t('solarModels')}</Label>
+              <div className="mt-2 flex flex-wrap gap-6">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <Checkbox
+                    checked={supportsSolarFree}
+                    onCheckedChange={checked => setSupportsSolarFree(!!checked)}
+                  />
+                  <span className="text-sm">{t('solarFree')}</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <Checkbox
+                    checked={supportsSolarDirect}
+                    onCheckedChange={checked => setSupportsSolarDirect(!!checked)}
+                  />
+                  <span className="text-sm">{t('solarDirect')}</span>
+                </label>
+              </div>
+              {!supportsSolarFree && !supportsSolarDirect && (
+                <p className="mt-2 text-sm text-destructive">
+                  {t('solarModelsRequired')}
+                </p>
+              )}
             </div>
           </CardContent>
         </Card>
