@@ -3909,6 +3909,8 @@
         "offerButton": "Demander une offre",
         "contractTitle": "Signer le contrat",
         "contractDescription": "Passez directement à la revue et à la signature numérique du contrat de location de toit.",
+        "contractHeroSubtitle": "Examinez et signez votre contrat de bail toiture",
+        "swisscomNote": "*La procédure suivante sera réalisée avec",
         "contractDescriptionInReview": "Nous finalisons le processus de signature électronique sécurisée. Demandez une offre pour avancer avec notre équipe dès aujourd'hui.",
         "contractInReviewLabel": "Bientôt disponible",
         "contractButton": "Continuer vers le contrat",
@@ -3935,33 +3937,58 @@
           "label": "Votre installation",
           "size": "{kwp} kWp",
           "panels": "{count} panneaux",
-          "production": "~{kwh} kWh par an"
+          "production": "~{kwh} kWh par an",
+          "valueLine": "{kwp} kWp ~{kwh} kWh",
+          "panelsPerYear": "{count} panneaux, par an"
         },
         "yourYearlySaving": {
           "label": "Vos économies annuelles",
           "amount": "{amount} CHF",
           "suffix": "par an sur votre facture d'électricité",
-          "footnote": "L'électricité SolarFree est jusqu'à 30 % moins chère que l'électricité du réseau."
+          "footnote": "L'électricité SolarFree est toujours 20 %–30 % moins chère que l'électricité du réseau.",
+          "consumptionBasedOn": "Basé sur {kwh} kWh de consommation annuelle",
+          "consumptionEdit": "Modifier",
+          "consumptionSave": "Enregistrer",
+          "consumptionCancel": "Annuler",
+          "consumptionReset": "Revenir à l'estimation",
+          "consumptionHintOverride": "Saisi par vous.",
+          "consumptionHintEstimate": "Estimé d'après la taille du foyer — la valeur réelle figure sur votre facture annuelle."
         },
         "yourImpact": {
           "label": "Votre impact",
           "co2": "~{kg} kg CO₂ évités par an",
-          "selfSufficient": "~{pct} % d'autosuffisance"
+          "selfSufficient": "~{pct} % d'autosuffisance",
+          "co2Value": "~{kg} kg CO₂",
+          "co2Subtitle": "évités par an",
+          "selfSufficientSubtitle": "d'autosuffisance"
         },
         "whatsIncluded": {
           "label": "Ce qui est inclus",
+          "subtitle": "Tout ce qu'il faut pour alimenter votre maison.",
           "footnote": "Couvert pendant toute la durée du contrat."
         },
         "packageSelector": {
           "label": "Choisissez votre forfait",
           "recommended": "Recommandé",
-          "capacityRange": "{min}–{max} kWp"
+          "capacityRange": "{min}–{max} kWp",
+          "sectionTitle": "Choisissez votre forfait",
+          "sectionSubtitle": "Choisissez comment financer et exploiter votre installation solaire.",
+          "cta": "Commencer",
+          "specPv": "Installation PV",
+          "specBattery": "Stockage",
+          "specMonitoring": "App & Monitoring",
+          "featureNoInvestment": "0 CHF d'investissement",
+          "featureCheapElectricity": "Électricité moins chère immédiatement",
+          "specEvValue": "VE",
+          "specEvLabel": "Prêt"
         },
         "energyFlow": {
-          "label": "Comment votre énergie circule"
+          "label": "Comment votre énergie circule",
+          "subtitle": "Voyez comment l'électricité circule entre le solaire, votre maison et le réseau."
         },
         "monthly": {
-          "label": "Au fil de l'année"
+          "label": "Au fil de l'année",
+          "subtitle": "Production et autoconsommation chaque mois de l'année."
         }
       }
     },

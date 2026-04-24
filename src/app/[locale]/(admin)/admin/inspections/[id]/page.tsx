@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useParams, useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { Loader2, CheckCircle2, XCircle } from 'lucide-react'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { PhotoGalleryUpload } from '@/components/admin/PhotoGalleryUpload'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
@@ -41,7 +42,6 @@ function toDateInputValue(iso: string | null): string {
 
 export default function AdminInspectionDetailPage() {
   const params = useParams<{ id: string }>()
-  const router = useRouter()
   const id = params.id
 
   const [inspection, setInspection] = useState<AdminInspectionDetail | null>(null)
@@ -60,7 +60,7 @@ export default function AdminInspectionDetailPage() {
   const [accessNotes, setAccessNotes] = useState('')
   const [roofConditionNotes, setRoofConditionNotes] = useState('')
   const [inspectionNotes, setInspectionNotes] = useState('')
-  const [photoUrlsDraft, setPhotoUrlsDraft] = useState('')
+  const [photoUrls, setPhotoUrls] = useState<string[]>([])
 
   useEffect(() => {
     if (!id) return
@@ -91,7 +91,7 @@ export default function AdminInspectionDetailPage() {
         setAccessNotes(data.accessNotes ?? '')
         setRoofConditionNotes(data.roofConditionNotes ?? '')
         setInspectionNotes(data.inspectionNotes ?? '')
-        setPhotoUrlsDraft((data.photoUrls ?? []).join('\n'))
+        setPhotoUrls(data.photoUrls ?? [])
       })
       .catch(err => {
         console.error(err)
@@ -110,11 +110,6 @@ export default function AdminInspectionDetailPage() {
   const prelimProd = calc?.annualProductionKwh
   const prelimCons = calc?.annualConsumptionKwh
 
-  const parsedPhotoUrls = photoUrlsDraft
-    .split('\n')
-    .map(l => l.trim())
-    .filter(l => l.length > 0)
-
   const buildPayload = () => ({
     scheduledAt: scheduledAt
       ? new Date(scheduledAt).toISOString()
@@ -127,7 +122,7 @@ export default function AdminInspectionDetailPage() {
     accessNotes: accessNotes || null,
     roofConditionNotes: roofConditionNotes || null,
     inspectionNotes: inspectionNotes || null,
-    photoUrls: parsedPhotoUrls,
+    photoUrls,
   })
 
   const saveDraft = async () => {
@@ -167,7 +162,7 @@ export default function AdminInspectionDetailPage() {
         accessNotes: accessNotes || null,
         roofConditionNotes: roofConditionNotes || null,
         inspectionNotes: inspectionNotes || null,
-        photoUrls: parsedPhotoUrls,
+        photoUrls,
       })
       setInspection(prev => (prev ? { ...prev, ...updated } : prev))
     } catch (e: unknown) {
@@ -408,15 +403,13 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
-                Fotos (eine URL pro Zeile)
+              <label className="text-sm text-[#062E25]/60 block mb-3">
+                Fotos
               </label>
-              <textarea
-                rows={3}
-                className="w-full rounded-md border border-[#062E25]/20 px-3 py-2 text-sm font-mono"
-                value={photoUrlsDraft}
-                onChange={e => setPhotoUrlsDraft(e.target.value)}
-                placeholder="https://…"
+              <PhotoGalleryUpload
+                value={photoUrls}
+                onChange={setPhotoUrls}
+                folder={`inspections/${id}`}
                 disabled={immutable}
               />
             </div>

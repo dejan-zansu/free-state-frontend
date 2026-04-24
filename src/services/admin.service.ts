@@ -181,10 +181,14 @@ class AdminService {
     await api.delete(`/blog/${id}`)
   }
 
-  async uploadImage(file: File): Promise<string> {
+  async uploadImage(file: File, folder?: string): Promise<string> {
     const formData = new FormData()
     formData.append('file', file)
-    const response = await api.post<{ success: boolean; data: { url: string } }>('/admin/upload', formData)
+    const qs = folder ? `?folder=${encodeURIComponent(folder)}` : ''
+    const response = await api.post<{ success: boolean; data: { url: string } }>(
+      `/admin/upload${qs}`,
+      formData,
+    )
     return response.data.data.url
   }
 
