@@ -96,27 +96,33 @@ export default function MonthlyAnalysisChart({
             />
             <Area
               type="monotone"
-              dataKey="production"
-              stroke="#F97316"
-              fill="#F97316"
-              fillOpacity={0.15}
+              dataKey="consumption"
+              stroke="#85C5DD"
+              fill="#85C5DD"
+              fillOpacity={0.2}
               strokeWidth={2}
+              dot={false}
+              activeDot={{ r: 4, strokeWidth: 0 }}
             />
             <Area
               type="monotone"
-              dataKey="consumption"
-              stroke="#63b7e8"
-              fill="#63b7e8"
-              fillOpacity={0.1}
+              dataKey="production"
+              stroke="#EB8140"
+              fill="#EB8140"
+              fillOpacity={0.22}
               strokeWidth={2}
+              dot={false}
+              activeDot={{ r: 4, strokeWidth: 0 }}
             />
             <Area
               type="monotone"
               dataKey="selfConsumed"
-              stroke="#c1272d"
-              fill="#c1272d"
-              fillOpacity={0.2}
+              stroke="#C64953"
+              fill="#C64953"
+              fillOpacity={0.28}
               strokeWidth={2}
+              dot={false}
+              activeDot={{ r: 4, strokeWidth: 0 }}
             />
           </AreaChart>
         </ResponsiveContainer>

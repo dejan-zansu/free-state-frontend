@@ -3909,6 +3909,8 @@
         "offerButton": "Request offer",
         "contractTitle": "Sign contract",
         "contractDescription": "Proceed directly to review and digitally sign the Dachmietvertrag.",
+        "contractHeroSubtitle": "Review and sign your Dachmietvertrag",
+        "swisscomNote": "*The following procedure will be",
         "contractDescriptionInReview": "We're finalising the secure digital signing flow. Request an offer to move forward with our team today.",
         "contractInReviewLabel": "Coming soon",
         "contractButton": "Continue to contract",
@@ -3935,33 +3937,58 @@
           "label": "Your system",
           "size": "{kwp} kWp",
           "panels": "{count} panels",
-          "production": "~{kwh} kWh per year"
+          "production": "~{kwh} kWh per year",
+          "valueLine": "{kwp} kWp ~{kwh} kWh",
+          "panelsPerYear": "{count} panels, per year"
         },
         "yourYearlySaving": {
           "label": "Your yearly saving",
           "amount": "CHF {amount}",
           "suffix": "per year on your electricity bill",
-          "footnote": "SolarFree electricity is up to 30% cheaper than grid electricity."
+          "footnote": "SolarFree electricity is always 20%–30% cheaper than grid electricity.",
+          "consumptionBasedOn": "Based on {kwh} kWh annual consumption",
+          "consumptionEdit": "Edit",
+          "consumptionSave": "Save",
+          "consumptionCancel": "Cancel",
+          "consumptionReset": "Reset to estimate",
+          "consumptionHintOverride": "Entered by you.",
+          "consumptionHintEstimate": "Estimated from household size — find your real value on your yearly bill."
         },
         "yourImpact": {
           "label": "Your impact",
           "co2": "~{kg} kg CO₂ per year avoided",
-          "selfSufficient": "~{pct}% self-sufficient"
+          "selfSufficient": "~{pct}% self-sufficient",
+          "co2Value": "~{kg} kg CO₂",
+          "co2Subtitle": "per year avoided",
+          "selfSufficientSubtitle": "self-sufficient"
         },
         "whatsIncluded": {
           "label": "What's included",
+          "subtitle": "Everything needed to power your home.",
           "footnote": "Covered for the entire contract term."
         },
         "packageSelector": {
           "label": "Choose your package",
           "recommended": "Recommended",
-          "capacityRange": "{min}–{max} kWp"
+          "capacityRange": "{min}–{max} kWp",
+          "sectionTitle": "Choose your package",
+          "sectionSubtitle": "Select how you want to finance and operate your solar system.",
+          "cta": "Get started",
+          "specPv": "PV system",
+          "specBattery": "Storage",
+          "specMonitoring": "App & Monitoring",
+          "featureNoInvestment": "0 CHF investment",
+          "featureCheapElectricity": "Instantly cheaper electricity",
+          "specEvValue": "EV",
+          "specEvLabel": "Ready"
         },
         "energyFlow": {
-          "label": "How your energy flows"
+          "label": "How your energy flows",
+          "subtitle": "See how electricity moves between solar, your home, and the grid."
         },
         "monthly": {
-          "label": "Across the year"
+          "label": "Across the year",
+          "subtitle": "Production and self-use throughout every month."
         }
       }
     },

@@ -5588,6 +5588,8 @@
         "offerButton": "Angebot anfordern",
         "contractTitle": "Vertrag unterzeichnen",
         "contractDescription": "Direkt zum Dachmietvertrag weiter und digital unterzeichnen.",
+        "contractHeroSubtitle": "Prüfen und unterzeichnen Sie Ihren Dachmietvertrag",
+        "swisscomNote": "*Das folgende Verfahren wird durchgeführt mit",
         "contractDescriptionInReview": "Wir finalisieren den sicheren digitalen Signaturprozess. Fordern Sie ein Angebot an, um jetzt mit unserem Team weiterzumachen.",
         "contractInReviewLabel": "Demnächst",
         "contractButton": "Weiter zum Vertrag",
@@ -5614,33 +5616,58 @@
           "label": "Ihre Anlage",
           "size": "{kwp} kWp",
           "panels": "{count} Module",
-          "production": "~{kwh} kWh pro Jahr"
+          "production": "~{kwh} kWh pro Jahr",
+          "valueLine": "{kwp} kWp ~{kwh} kWh",
+          "panelsPerYear": "{count} Module, pro Jahr"
         },
         "yourYearlySaving": {
           "label": "Ihre jährliche Ersparnis",
           "amount": "CHF {amount}",
           "suffix": "pro Jahr auf Ihrer Stromrechnung",
-          "footnote": "SolarFree-Strom ist bis zu 30 % günstiger als Netzstrom."
+          "footnote": "SolarFree-Strom ist immer 20 %–30 % günstiger als Netzstrom.",
+          "consumptionBasedOn": "Basiert auf {kwh} kWh Jahresverbrauch",
+          "consumptionEdit": "Anpassen",
+          "consumptionSave": "Speichern",
+          "consumptionCancel": "Abbrechen",
+          "consumptionReset": "Auf Schätzung zurücksetzen",
+          "consumptionHintOverride": "Von Ihnen eingegeben.",
+          "consumptionHintEstimate": "Geschätzt aus Haushaltsgrösse — den tatsächlichen Wert finden Sie auf Ihrer Jahresrechnung."
         },
         "yourImpact": {
           "label": "Ihr Beitrag",
           "co2": "~{kg} kg CO₂ pro Jahr eingespart",
-          "selfSufficient": "~{pct}% Eigenversorgung"
+          "selfSufficient": "~{pct}% Eigenversorgung",
+          "co2Value": "~{kg} kg CO₂",
+          "co2Subtitle": "pro Jahr vermieden",
+          "selfSufficientSubtitle": "Eigenversorgung"
         },
         "whatsIncluded": {
           "label": "Was ist enthalten",
+          "subtitle": "Alles, was Ihr Zuhause versorgt.",
           "footnote": "Für die gesamte Vertragslaufzeit abgedeckt."
         },
         "packageSelector": {
           "label": "Wählen Sie Ihr Paket",
           "recommended": "Empfohlen",
-          "capacityRange": "{min}–{max} kWp"
+          "capacityRange": "{min}–{max} kWp",
+          "sectionTitle": "Wählen Sie Ihr Paket",
+          "sectionSubtitle": "Wählen Sie, wie Sie Ihre Solaranlage finanzieren und betreiben möchten.",
+          "cta": "Jetzt starten",
+          "specPv": "PV-Anlage",
+          "specBattery": "Speicher",
+          "specMonitoring": "App & Monitoring",
+          "featureNoInvestment": "0 CHF Investition",
+          "featureCheapElectricity": "Sofort günstiger Strom",
+          "specEvValue": "E-Auto",
+          "specEvLabel": "Ready"
         },
         "energyFlow": {
-          "label": "So fliesst Ihre Energie"
+          "label": "So fliesst Ihre Energie",
+          "subtitle": "Sehen Sie, wie der Strom zwischen Solar, Ihrem Zuhause und dem Netz fliesst."
         },
         "monthly": {
-          "label": "Über das Jahr"
+          "label": "Über das Jahr",
+          "subtitle": "Produktion und Eigenverbrauch in jedem Monat."
         }
       }
     },
