@@ -10,6 +10,7 @@ import {
   FileCheck,
   Loader2,
   Shield,
+  Smartphone,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useState } from 'react'
@@ -42,6 +43,7 @@ export default function StepSignature() {
 
   const [isInitiating, setIsInitiating] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [signingDisabledMessage, setSigningDisabledMessage] = useState<string | null>(null)
   const [isPolling, setIsPolling] = useState(false)
 
   const handleInitiateSignature = useCallback(async () => {
@@ -67,10 +69,18 @@ export default function StepSignature() {
       setSignatureStatus('pending')
     } catch (err) {
       console.error('Failed to initiate signature:', err)
-      setError(
-        err instanceof Error ? err.message : 'Failed to start signing process'
-      )
-      setSignatureStatus('failed')
+      const code = (err as { code?: string } | null)?.code
+      if (code === 'SIGNING_DISABLED') {
+        setSigningDisabledMessage(
+          err instanceof Error ? err.message : 'Signing is temporarily unavailable.'
+        )
+        setSignatureStatus('idle')
+      } else {
+        setError(
+          err instanceof Error ? err.message : 'Failed to start signing process'
+        )
+        setSignatureStatus('failed')
+      }
     } finally {
       setIsInitiating(false)
     }
@@ -81,10 +91,15 @@ export default function StepSignature() {
     setSignatureStatus,
   ])
 
-  const handleOpenSigningPage = () => {
-    if (signingUrl) {
-      window.open(signingUrl, '_blank')
+  const handleOpenSigningPage = async () => {
+    if (!createdContractId) return
+    try {
+      const freshUrl = await contractService.getSigningUrl(createdContractId)
+      window.open(freshUrl, '_blank')
       setIsPolling(true)
+    } catch (err) {
+      console.error('Failed to fetch fresh signing URL:', err)
+      setError(err instanceof Error ? err.message : 'Failed to open signing page')
     }
   }
 
@@ -139,6 +154,32 @@ export default function StepSignature() {
             <AlertDescription>{error}</AlertDescription>
           </Alert>
         )}
+
+        {signingDisabledMessage && (
+          <Alert className="mb-6 border-amber-500 bg-amber-50">
+            <Clock className="h-4 w-4 text-amber-600" />
+            <AlertDescription className="text-amber-900">
+              {signingDisabledMessage}
+            </AlertDescription>
+          </Alert>
+        )}
+
+        <Card className="mb-6 border-primary/30 bg-primary/5">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-base">
+              <Smartphone className="h-5 w-5 text-primary" />
+              {t('preflight.title')}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+              <li>{t('preflight.mobileApp')}</li>
+              <li>{t('preflight.passport')}</li>
+              <li>{t('preflight.nfc')}</li>
+              <li>{t('preflight.time')}</li>
+            </ul>
+          </CardContent>
+        </Card>
 
         <Card className="mb-6">
           <CardHeader>

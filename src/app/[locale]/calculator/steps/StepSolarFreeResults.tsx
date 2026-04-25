@@ -21,6 +21,7 @@ import Image from 'next/image'
 
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { contractService } from '@/services/contract.service'
 import { reportService } from '@/services/report.service'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
@@ -276,8 +277,22 @@ export default function StepResults() {
   const [packagesLoading, setPackagesLoading] = useState(true)
   const [downloading, setDownloading] = useState(false)
   const [signDialogOpen, setSignDialogOpen] = useState(false)
+  const [signingEnabled, setSigningEnabled] = useState(true)
   const [consumptionEditing, setConsumptionEditing] = useState(false)
   const [consumptionDraft, setConsumptionDraft] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+    contractService
+      .getSigningConfig()
+      .then((cfg) => {
+        if (!cancelled) setSigningEnabled(cfg.enabled)
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [])
 
   const annualProduction = store.getAnnualProduction()
   const annualSavings = store.getAnnualPpaSavings()
@@ -818,7 +833,7 @@ export default function StepResults() {
         <section className="mt-16">
           <div
             className="flex flex-col items-center text-center gap-5"
-            aria-disabled="true"
+            aria-disabled={!signingEnabled}
           >
             <EyebrowPill>{tActions('contractTitle')}</EyebrowPill>
             <h2 className="text-5xl lg:text-[65px] font-medium text-[#062E25] tracking-tight">
@@ -829,19 +844,31 @@ export default function StepResults() {
             </p>
             <button
               type="button"
-              disabled
-              aria-disabled="true"
-              title={tActions('contractInReviewLabel')}
-              className="mt-2 inline-flex items-center gap-3 rounded-full bg-[#B7FE1A] pl-6 pr-1.5 py-1.5 text-base font-medium text-[#062E25] tracking-tight opacity-60 cursor-not-allowed"
+              onClick={() => setSignDialogOpen(true)}
+              disabled={!signingEnabled}
+              aria-disabled={!signingEnabled}
+              title={
+                signingEnabled
+                  ? tActions('contractButton')
+                  : tActions('contractInReviewLabel')
+              }
+              className={cn(
+                'mt-2 inline-flex items-center gap-3 rounded-full bg-[#B7FE1A] pl-6 pr-1.5 py-1.5 text-base font-medium text-[#062E25] tracking-tight transition-opacity',
+                signingEnabled
+                  ? 'hover:opacity-90 cursor-pointer'
+                  : 'opacity-60 cursor-not-allowed'
+              )}
             >
               {tActions('contractButton')}
               <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#062E25] text-[#B7FE1A]">
                 <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
               </span>
             </button>
-            <span className="text-sm font-medium uppercase tracking-widest text-[#062E25]/60">
-              {tActions('contractInReviewLabel')}
-            </span>
+            {!signingEnabled && (
+              <span className="text-sm font-medium uppercase tracking-widest text-[#062E25]/60">
+                {tActions('contractInReviewLabel')}
+              </span>
+            )}
             <div className="mt-2 flex items-center gap-3">
               <p className="text-base font-light italic text-[#062E25]/80 tracking-tight">
                 {tActions('swisscomNote')}

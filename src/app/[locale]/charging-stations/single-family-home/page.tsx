@@ -5,6 +5,24 @@ import CalculatorCTASection from '@/components/charging-stations/single-family-h
 import BidirectionalChargingSection from '@/components/charging-stations/single-family-home/BidirectionalChargingSection'
 import FAQSection from '@/components/charging-stations/single-family-home/FAQSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/charging-stations/single-family-home',
+    title: t('chargingStationsSingleFamily.title') || '',
+    description: t('chargingStationsSingleFamily.description') || '',
+  })
+}
 
 const SingleFamilyHomePage = async () => {
   const t = await getTranslations('chargingStationsSingleFamilyHome')

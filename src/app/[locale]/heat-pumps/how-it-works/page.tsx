@@ -15,6 +15,24 @@ import WhyFreeStateSection from '@/components/heat-pumps/how-it-works/WhyFreeSta
 import FurtherTopicsSection from '@/components/heat-pumps/how-it-works/FurtherTopicsSection'
 import SolarAboCTA from '@/components/solar-abo/SolarAboCTA'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/heat-pumps/how-it-works',
+    title: t('heatPumpsHowItWorks.title') || '',
+    description: t('heatPumpsHowItWorks.description') || '',
+  })
+}
 
 const HeatPumpsHowItWorksPage = async () => {
   const t = await getTranslations('heatPumpsHowItWorks')

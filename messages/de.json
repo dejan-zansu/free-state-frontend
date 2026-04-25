@@ -1,5 +1,81 @@
 {
   "title": "Free State AG",
+  "seo": {
+    "defaultTitle": "Free State AG",
+    "titleTemplate": "%s | Free State AG",
+    "home": {
+      "title": "Solaranlagen Schweiz — kaufen oder als Solar-Abo ab CHF 0.–",
+      "description": "Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen von Free State AG. Kauf oder Solar-Abo ohne Eigeninvestition. 19 Kantone in der Deutschschweiz."
+    },
+    "solarSystems": {
+      "title": "Solaranlagen Schweiz — Photovoltaik für dein Zuhause",
+      "description": "Solaranlage für Einfamilienhaus in der Schweiz: Planung, Installation, Inbetriebnahme aus einer Hand. Ab CHF 18'000 oder als Solar-Abo ohne Eigeninvestition."
+    },
+    "solarFree": {
+      "title": "Solar-Abo — Solaranlage ohne Eigeninvestition | Free State AG",
+      "description": "Mit dem Solar-Abo von Free State AG bekommst du deine eigene Solaranlage für CHF 0.– Eigeninvestition. Monatliche Rate statt Kauf. Jederzeit mit Option zum Erwerb."
+    },
+    "solarDirect": { "title": "", "description": "" },
+    "batteryStorage": {
+      "title": "Batteriespeicher Schweiz — Stromspeicher für deine Solaranlage",
+      "description": "Speichere deinen Solarstrom für die Nacht. Batteriespeicher ab 5 kWh. Kompatibel mit BYD, Huawei, Viessmann. Planung und Installation in der Deutschschweiz."
+    },
+    "heatPumps": {
+      "title": "Wärmepumpen Schweiz — Luft/Wasser und Sole/Wasser | Free State AG",
+      "description": "Wärmepumpe für dein Haus in der Schweiz. Kombiniere mit Solaranlage für maximale Unabhängigkeit. Beratung, Förderabklärung und Installation aus einer Hand."
+    },
+    "chargingStations": {
+      "title": "Ladestationen für Elektroautos — Wallbox Schweiz | Free State AG",
+      "description": "Wallbox für zuhause oder Mehrfamilienhaus. Kombiniert mit Solaranlage für Überschuss-Laden. Bidirektionale Ladestationen verfügbar. Installation in der Deutschschweiz."
+    },
+    "commercial": { "title": "", "description": "" },
+    "cost": { "title": "", "description": "" },
+    "amortization": { "title": "", "description": "" },
+    "solarCalculator": { "title": "", "description": "" },
+    "calculator": { "title": "", "description": "" },
+    "aboutUs": { "title": "", "description": "" },
+    "team": { "title": "", "description": "" },
+    "history": { "title": "", "description": "" },
+    "careers": { "title": "", "description": "" },
+    "faq": { "title": "", "description": "" },
+    "portfolio": { "title": "", "description": "" },
+    "service": { "title": "", "description": "" },
+    "blog": { "title": "", "description": "" },
+    "contact": { "title": "", "description": "" },
+    "energyStorage": { "title": "", "description": "" },
+    "repowering": { "title": "", "description": "" },
+    "solarSystemCarport": { "title": "", "description": "" },
+    "media": { "title": "", "description": "" },
+    "investors": { "title": "", "description": "" },
+    "impressum": { "title": "", "description": "" },
+    "agb": { "title": "", "description": "" },
+    "privacyPolicy": { "title": "", "description": "" },
+    "howItWorks": { "title": "", "description": "" },
+    "heatPumpsProducts": { "title": "", "description": "" },
+    "heatPumpsCost": { "title": "", "description": "" },
+    "heatPumpsHowItWorks": { "title": "", "description": "" },
+    "heatPumpsWithSolarSystem": { "title": "", "description": "" },
+    "heatPumpsService": { "title": "", "description": "" },
+    "chargingStationsApartment": { "title": "", "description": "" },
+    "chargingStationsSingleFamily": { "title": "", "description": "" },
+    "chargingStationsBidirectional": { "title": "", "description": "" },
+    "commercialCalculator": { "title": "", "description": "" },
+    "commercialSolarSystems": { "title": "", "description": "" },
+    "commercialChargingStations": { "title": "", "description": "" },
+    "commercialSolarFree": { "title": "", "description": "" },
+    "commercialSolarFreeIndustry": { "title": "", "description": "" },
+    "commercialSolarFreeMultiFamily": { "title": "", "description": "" },
+    "commercialSolarFreeFarmhouses": { "title": "", "description": "" },
+    "commercialSolarFreePublicBuildings": { "title": "", "description": "" },
+    "commercialSolarSystemsHow": { "title": "", "description": "" },
+    "commercialSolarSystemsProjectDev": { "title": "", "description": "" },
+    "commercialSolarSystemsCarport": { "title": "", "description": "" },
+    "commercialSolarSystemsContracting": { "title": "", "description": "" },
+    "commercialChargingApartment": { "title": "", "description": "" },
+    "commercialChargingFast": { "title": "", "description": "" },
+    "commercialChargingBidirectional": { "title": "", "description": "" },
+    "commercialChargingCompany": { "title": "", "description": "" }
+  },
   "apiErrors": {
     "USER_EXISTS": "Ein Benutzer mit dieser E-Mail-Adresse existiert bereits.",
     "INVALID_CREDENTIALS": "Ungültige E-Mail-Adresse oder Passwort.",
@@ -5708,6 +5784,12 @@
       "nationality": "Nationalität",
       "remarks": "Bemerkungen",
       "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
+      "propertyOwner": {
+        "label": "Sind Sie der eingetragene Eigentümer des Gebäudes?",
+        "yes": "Ja",
+        "no": "Nein",
+        "ineligible": "Nur der eingetragene Gebäudeeigentümer kann diesen Vertrag unterzeichnen. Bitte lassen Sie den Eigentümer den Vorgang starten."
+      },
       "address": {
         "sectionTitle": "Ihre Adresse",
         "countryLabel": "Land",
@@ -5736,6 +5818,7 @@
         "cityRequired": "Stadt ist erforderlich",
         "streetRequired": "Strasse ist erforderlich",
         "streetNumberRequired": "Hausnummer ist erforderlich",
+        "propertyOwnerRequired": "Nur der eingetragene Gebäudeeigentümer kann fortfahren.",
         "consentRequired": "Sie müssen die Datenschutzbestimmungen akzeptieren"
       },
       "submit": "Angebot anfordern",
@@ -5849,6 +5932,13 @@
         "title": "Sichere Unterschrift",
         "message": "Ihre Unterschrift wird durch Swisscom Trust Services gesichert und entspricht den Schweizer Gesetzen für digitale Signaturen (ZertES/SCSE)."
       },
+      "preflight": {
+        "title": "Vor der Unterzeichnung",
+        "mobileApp": "Laden Sie die Swisscom Sign App herunter (iOS oder Android).",
+        "passport": "Halten Sie Ihren Pass bereit — beim ersten Unterzeichnen ist ein NFC-Scan erforderlich.",
+        "nfc": "Verwenden Sie ein Smartphone mit aktiviertem NFC (die meisten modernen Geräte).",
+        "time": "Die erstmalige Identifikation dauert ca. 5 Minuten."
+      },
       "downloadContract": "Vertrag herunterladen"
     },
     "signingComplete": {
@@ -5859,6 +5949,11 @@
       "success": {
         "title": "Vertrag erfolgreich unterschrieben!",
         "message": "Ihr Vertrag wurde sicher über Swisscom Sign unterschrieben. Sie können dieses Fenster schliessen.",
+        "backButton": "Zurück zum Rechner"
+      },
+      "pending": {
+        "title": "Signatur wird verarbeitet",
+        "message": "Ihre Signatursitzung ist noch offen. Falls Sie die Unterschrift nicht abgeschlossen haben, können Sie zu Swisscom Sign zurückkehren. Wir senden Ihnen eine E-Mail, sobald die Unterschrift bestätigt ist.",
         "backButton": "Zurück zum Rechner"
       },
       "cancel": {
@@ -5994,6 +6089,108 @@
       "totalReceived": "Eingegangen",
       "newsletterSubscribers": "Newsletter-Abonnenten",
       "totalSubscribed": "Angemeldet"
+    },
+    "resources": {
+      "electricityPrices": {
+        "title": "Strompreise nach Gemeinde",
+        "descriptionPrefix": "Offizielle ElCom-Tarife pro Gemeinde, Betreiber und Tarifkategorie — informativ. Quelle: ",
+        "descriptionSuffix": " (LINDAS).",
+        "entries": "Einträge",
+        "avgTariff": "Ø Tarif",
+        "lowest": "Tiefster",
+        "highest": "Höchster",
+        "searchPlaceholder": "Suche Gemeinde, Betreiber, BFS…",
+        "yearPlaceholder": "Jahr",
+        "allYears": "Alle Jahre",
+        "categoryPlaceholder": "Kategorie",
+        "cantonPlaceholder": "Kanton",
+        "allCantons": "Alle Kantone",
+        "tableBfs": "BFS",
+        "tableMunicipality": "Gemeinde",
+        "tableCanton": "Kanton",
+        "tableOperator": "Betreiber",
+        "tableTotalRp": "Total Rp/kWh",
+        "tableChf": "CHF/kWh",
+        "tableEnergy": "Energie",
+        "tableGrid": "Netz",
+        "tableFees": "Abgaben",
+        "tableBaseFee": "Grundgebühr",
+        "empty": "Keine Tarife gefunden.",
+        "pagination": "Seite {page} von {totalPages} · {total} Einträge",
+        "previous": "Zurück",
+        "next": "Weiter"
+      },
+      "subsidyRates": {
+        "title": "Einmalvergütung (Pronovo KLEIV)",
+        "description": "Aktuelle und historische Einmalvergütungs-Tarife der Pronovo AG für Photovoltaik ≤100 kWp. Wird zweimal jährlich publiziert. Werden in Verträgen verwendet — Änderungen erfolgen ausschliesslich über Seed-Skripte (nicht über die Oberfläche).",
+        "currentTariff": "Aktuell gültiger Tarif",
+        "tier1Max": "Stufe 1 (bis kWp)",
+        "tier1Chf": "CHF / kWp (Stufe 1)",
+        "tier2Max": "Stufe 2 (bis kWp)",
+        "tier2Chf": "CHF / kWp (Stufe 2)",
+        "tableSource": "Quelle",
+        "tableValidFrom": "Gültig ab",
+        "tableValidTo": "Gültig bis",
+        "tableTier1Limit": "Stufe 1 Grenze",
+        "tableTier1Chf": "Stufe 1 CHF/kWp",
+        "tableTier2Limit": "Stufe 2 Grenze",
+        "tableTier2Chf": "Stufe 2 CHF/kWp",
+        "tableStatus": "Status",
+        "active": "aktiv",
+        "inactive": "inaktiv",
+        "empty": "Keine Daten"
+      },
+      "feedInTariffs": {
+        "title": "Rückliefertarife (Einspeisevergütung)",
+        "description": "Schweizer Rückliefertarife pro Netzbetreiber / Kanton / national. Grundlage für die Berechnung der Rücklieferungsvergütung. Ab 2026 nach dem quartalsweisen BFE-Referenzmarktpreis (Art. 15 EnG). Änderungen erfolgen über Seed-Skripte.",
+        "scopeOperator": "Operator: {name}",
+        "scopeBfs": "BFS {bfs}",
+        "scopeCanton": "Kanton {canton}",
+        "scopeNational": "National",
+        "currentNational": "Aktueller nationaler Standardtarif",
+        "tariff": "Tarif",
+        "validFrom": "Gültig ab",
+        "published": "Publiziert",
+        "searchPlaceholder": "Suche (Quelle, Operator, Kanton, BFS)…",
+        "tableSource": "Quelle",
+        "tableScope": "Geltungsbereich",
+        "tableValidFrom": "Gültig ab",
+        "tableValidTo": "Gültig bis",
+        "tableRpKwh": "Rp/kWh",
+        "tableChfKwh": "CHF/kWh",
+        "tableStatus": "Status",
+        "active": "aktiv",
+        "inactive": "inaktiv",
+        "empty": "Keine Daten"
+      },
+      "referenceMarketPrices": {
+        "title": "Referenz-Marktpreise (BFE, Art. 15 EnFV)",
+        "descriptionPrefix": "Quartalsweise publizierte Referenz-Marktpreise des BFE — ab 2026 Grundlage für die Rückliefervergütung nach Art. 15 EnG. Quelle: ",
+        "descriptionMiddle": ". Import via ",
+        "descriptionSuffix": ".",
+        "techPhotovoltaik": "Photovoltaik",
+        "techWasserkraft": "Wasserkraft",
+        "techWindenergie": "Windenergie",
+        "techBiomasse": "Biomasse",
+        "latestValue": "Jüngster Wert ({tech})",
+        "quarter": "Quartal",
+        "price": "Preis",
+        "volume": "Volumen",
+        "imported": "Importiert",
+        "techPlaceholder": "Technologie",
+        "allTechnologies": "Alle Technologien",
+        "yearPlaceholder": "Jahr",
+        "allYears": "Alle Jahre",
+        "tableYear": "Jahr",
+        "tableQuarter": "Quartal",
+        "tableTechnology": "Technologie",
+        "tableRpKwh": "Rp/kWh",
+        "tableChfMwh": "CHF/MWh",
+        "tableVolume": "Volumen (MWh)",
+        "tableDays": "Tage",
+        "tableImported": "Importiert",
+        "empty": "Keine Daten"
+      }
     },
     "statusLabels": {
       "ADMIN": "Admin",

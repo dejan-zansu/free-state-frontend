@@ -6,6 +6,24 @@ import SolarBenefitsSection from '@/components/heat-pumps/with-solar-system/Sola
 import EnergyEfficiencySection from '@/components/heat-pumps/with-solar-system/EnergyEfficiencySection'
 import CostsInstallationSection from '@/components/heat-pumps/with-solar-system/CostsInstallationSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/heat-pumps/heat-pumps-with-solar-system',
+    title: t('heatPumpsWithSolarSystem.title') || '',
+    description: t('heatPumpsWithSolarSystem.description') || '',
+  })
+}
 
 const HeatPumpsWithSolarSystemPage = async () => {
   const t = await getTranslations('heatPumpsWithSolarSystem')

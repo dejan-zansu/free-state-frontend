@@ -2,12 +2,36 @@
 
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Plus, Trash2, X } from 'lucide-react'
+import { format } from 'date-fns'
+import { CalendarIcon, ChevronDown, Plus, Trash2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
+import { Calendar } from '@/components/ui/calendar'
+import { Card, CardContent } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '@/components/ui/collapsible'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
+import { cn } from '@/lib/utils'
 import { dataRequestService } from '@/services/data-request.service'
 import type {
   DataRequestItemType,
@@ -41,33 +65,47 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
   const qc = useQueryClient()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
-  const [dueDate, setDueDate] = useState('')
+  const [dueDate, setDueDate] = useState<Date | undefined>(undefined)
+  const [dueDateOpen, setDueDateOpen] = useState(false)
   const [items, setItems] = useState<NewDataRequestItemInput[]>([emptyItem(0)])
   const [error, setError] = useState<string | null>(null)
 
+  const reset = () => {
+    setTitle('')
+    setDescription('')
+    setDueDate(undefined)
+    setDueDateOpen(false)
+    setItems([emptyItem(0)])
+    setError(null)
+  }
+
   const mutation = useMutation({
-    mutationFn: (input: NewDataRequestInput) => dataRequestService.adminCreate(contractId, input),
+    mutationFn: (input: NewDataRequestInput) =>
+      dataRequestService.adminCreate(contractId, input),
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ['admin', 'data-requests', 'contract', contractId] })
+      qc.invalidateQueries({
+        queryKey: ['admin', 'data-requests', 'contract', contractId],
+      })
       onClose()
-      setTitle('')
-      setDescription('')
-      setDueDate('')
-      setItems([emptyItem(0)])
-      setError(null)
+      reset()
     },
     onError: (err: unknown) => {
       setError(err instanceof Error ? err.message : 'Request failed')
     },
   })
 
-  if (!open) return null
-
-  const updateItem = (idx: number, patch: Partial<NewDataRequestItemInput>) => {
-    setItems((prev) => prev.map((it, i) => (i === idx ? { ...it, ...patch } : it)))
+  const updateItem = (
+    idx: number,
+    patch: Partial<NewDataRequestItemInput>,
+  ) => {
+    setItems((prev) =>
+      prev.map((it, i) => (i === idx ? { ...it, ...patch } : it)),
+    )
   }
   const removeItem = (idx: number) => {
-    setItems((prev) => prev.filter((_, i) => i !== idx).map((it, i) => ({ ...it, position: i })))
+    setItems((prev) =>
+      prev.filter((_, i) => i !== idx).map((it, i) => ({ ...it, position: i })),
+    )
   }
   const addItem = () => {
     setItems((prev) => [...prev, emptyItem(prev.length)])
@@ -86,7 +124,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
     const input: NewDataRequestInput = {
       title: title.trim(),
       description: description.trim() || undefined,
-      dueDate: dueDate ? new Date(dueDate).toISOString() : undefined,
+      dueDate: dueDate ? dueDate.toISOString() : undefined,
       items: items.map((it, i) => ({
         ...it,
         position: i,
@@ -98,17 +136,16 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
-      <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between p-6 border-b border-[#062E25]/10">
-          <h2 className="text-lg font-semibold text-[#062E25]">New data request</h2>
-          <button onClick={onClose} className="text-[#062E25]/60 hover:text-[#062E25]">
-            <X className="h-5 w-5" />
-          </button>
-        </div>
+    <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
+      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-lg font-semibold text-[#062E25]">
+            New data request
+          </DialogTitle>
+        </DialogHeader>
 
-        <div className="p-6 space-y-5">
-          <div>
+        <div className="space-y-5 py-2">
+          <div className="space-y-1.5">
             <Label htmlFor="dr-title">Title</Label>
             <Input
               id="dr-title"
@@ -118,7 +155,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
             />
           </div>
 
-          <div>
+          <div className="space-y-1.5">
             <Label htmlFor="dr-desc">Description (optional)</Label>
             <Textarea
               id="dr-desc"
@@ -128,117 +165,194 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
             />
           </div>
 
-          <div>
-            <Label htmlFor="dr-due">Due date (optional)</Label>
-            <Input
-              id="dr-due"
-              type="date"
-              value={dueDate}
-              onChange={(e) => setDueDate(e.target.value)}
-            />
+          <div className="space-y-1.5">
+            <Label>Due date (optional)</Label>
+            <Collapsible open={dueDateOpen} onOpenChange={setDueDateOpen}>
+              <CollapsibleTrigger asChild>
+                <Button
+                  type="button"
+                  variant="outline"
+                  className={cn(
+                    'w-full justify-start font-normal',
+                    !dueDate && 'text-muted-foreground',
+                  )}
+                >
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {dueDate ? format(dueDate, 'PPP') : 'Pick a date'}
+                  <ChevronDown
+                    className={cn(
+                      'ml-auto h-4 w-4 transition-transform',
+                      dueDateOpen && 'rotate-180',
+                    )}
+                  />
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="mt-2">
+                <div className="rounded-md border bg-popover p-2">
+                  <Calendar
+                    mode="single"
+                    selected={dueDate}
+                    onSelect={(d) => {
+                      setDueDate(d)
+                      setDueDateOpen(false)
+                    }}
+                    disabled={(d) => d < new Date(new Date().setHours(0, 0, 0, 0))}
+                  />
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+            {dueDate && (
+              <button
+                type="button"
+                onClick={() => setDueDate(undefined)}
+                className="text-xs text-[#062E25]/60 hover:text-[#062E25] underline"
+              >
+                Clear date
+              </button>
+            )}
           </div>
 
-          <div>
-            <div className="flex items-center justify-between mb-3">
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
               <Label>Checklist items</Label>
-              <Button type="button" variant="outline" size="sm" onClick={addItem}>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={addItem}
+              >
                 <Plus className="h-4 w-4 mr-1" /> Add item
               </Button>
             </div>
 
-            <div className="space-y-4">
-              {items.map((item, idx) => (
-                <div key={idx} className="border border-[#062E25]/10 rounded-lg p-4 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-[#062E25]/60 w-6">{idx + 1}.</span>
-                    <select
-                      className="border border-[#062E25]/20 rounded px-2 py-1 text-sm"
-                      value={item.type}
-                      onChange={(e) =>
-                        updateItem(idx, { type: e.target.value as DataRequestItemType })
-                      }
-                    >
-                      {typeOptions.map((o) => (
-                        <option key={o.value} value={o.value}>
-                          {o.label}
-                        </option>
-                      ))}
-                    </select>
-                    <label className="flex items-center gap-1 text-sm text-[#062E25]/70 ml-auto">
-                      <input
-                        type="checkbox"
-                        checked={item.required !== false}
-                        onChange={(e) => updateItem(idx, { required: e.target.checked })}
+            <div className="space-y-3">
+              {items.map((item, idx) => {
+                const needsCount =
+                  item.type === 'PHOTO' || item.type === 'DOCUMENT'
+                return (
+                  <Card key={idx} className="border-[#062E25]/10 shadow-none">
+                    <CardContent className="p-4 space-y-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm font-medium text-[#062E25]/60 w-6 shrink-0">
+                          {idx + 1}.
+                        </span>
+
+                        <Select
+                          value={item.type}
+                          onValueChange={(v) =>
+                            updateItem(idx, { type: v as DataRequestItemType })
+                          }
+                        >
+                          <SelectTrigger size="sm" className="w-[180px]">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            {typeOptions.map((o) => (
+                              <SelectItem key={o.value} value={o.value}>
+                                {o.label}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+
+                        <div className="flex items-center gap-2 ml-auto">
+                          <Checkbox
+                            id={`req-${idx}`}
+                            checked={item.required !== false}
+                            onCheckedChange={(v) =>
+                              updateItem(idx, { required: v === true })
+                            }
+                          />
+                          <Label
+                            htmlFor={`req-${idx}`}
+                            className="text-sm font-normal text-[#062E25]/70 cursor-pointer"
+                          >
+                            Required
+                          </Label>
+                        </div>
+
+                        {items.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => removeItem(idx)}
+                            className="h-8 w-8 text-destructive hover:text-destructive hover:bg-destructive/10"
+                          >
+                            <Trash2 className="h-4 w-4" />
+                          </Button>
+                        )}
+                      </div>
+
+                      <Input
+                        placeholder="Label (e.g. Photo of roof from street)"
+                        value={item.label}
+                        onChange={(e) =>
+                          updateItem(idx, { label: e.target.value })
+                        }
                       />
-                      Required
-                    </label>
-                    {items.length > 1 && (
-                      <button
-                        onClick={() => removeItem(idx)}
-                        className="text-red-500 hover:text-red-600"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    )}
-                  </div>
+                      <Textarea
+                        placeholder="Description (optional)"
+                        value={item.description ?? ''}
+                        onChange={(e) =>
+                          updateItem(idx, { description: e.target.value })
+                        }
+                        rows={2}
+                      />
 
-                  <Input
-                    placeholder="Label (e.g. Photo of roof from street)"
-                    value={item.label}
-                    onChange={(e) => updateItem(idx, { label: e.target.value })}
-                  />
-                  <Textarea
-                    placeholder="Description (optional)"
-                    value={item.description ?? ''}
-                    onChange={(e) => updateItem(idx, { description: e.target.value })}
-                    rows={2}
-                  />
-
-                  {(item.type === 'PHOTO' || item.type === 'DOCUMENT') && (
-                    <div className="flex gap-3">
-                      <div>
-                        <Label className="text-sm">Min count</Label>
-                        <Input
-                          type="number"
-                          min={0}
-                          value={item.minCount ?? 1}
-                          onChange={(e) =>
-                            updateItem(idx, { minCount: Number(e.target.value) || 0 })
-                          }
-                          className="w-24"
-                        />
-                      </div>
-                      <div>
-                        <Label className="text-sm">Max count</Label>
-                        <Input
-                          type="number"
-                          min={1}
-                          value={item.maxCount ?? 5}
-                          onChange={(e) =>
-                            updateItem(idx, { maxCount: Number(e.target.value) || 1 })
-                          }
-                          className="w-24"
-                        />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+                      {needsCount && (
+                        <div className="flex gap-3">
+                          <div className="space-y-1.5">
+                            <Label className="text-xs">Min count</Label>
+                            <Input
+                              type="number"
+                              min={0}
+                              value={item.minCount ?? 1}
+                              onChange={(e) =>
+                                updateItem(idx, {
+                                  minCount: Number(e.target.value) || 0,
+                                })
+                              }
+                              className="w-24"
+                            />
+                          </div>
+                          <div className="space-y-1.5">
+                            <Label className="text-xs">Max count</Label>
+                            <Input
+                              type="number"
+                              min={1}
+                              value={item.maxCount ?? 5}
+                              onChange={(e) =>
+                                updateItem(idx, {
+                                  maxCount: Number(e.target.value) || 1,
+                                })
+                              }
+                              className="w-24"
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                )
+              })}
             </div>
           </div>
 
-          {error && <p className="text-sm text-red-600">{error}</p>}
+          {error && (
+            <p className="text-sm text-destructive">{error}</p>
+          )}
         </div>
 
-        <div className="flex items-center justify-end gap-3 p-6 border-t border-[#062E25]/10">
+        <DialogFooter>
           <Button variant="outline" onClick={onClose}>
             Cancel
           </Button>
           <Button onClick={onSubmit} disabled={mutation.isPending}>
             {mutation.isPending ? 'Sending…' : 'Send request'}
           </Button>
-        </div>
-      </div>
-    </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }

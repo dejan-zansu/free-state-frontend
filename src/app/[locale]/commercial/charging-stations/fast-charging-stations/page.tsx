@@ -3,6 +3,24 @@ import FastChargingOffersSection from '@/components/commercial/charging-stations
 import FreeStateOffersSection from '@/components/commercial/charging-stations/fast-charging-stations/sections/FreeStateOffersSection'
 import FAQSection from '@/components/commercial/charging-stations/fast-charging-stations/sections/FAQSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/commercial/charging-stations/fast-charging-stations',
+    title: t('commercialChargingFast.title') || '',
+    description: t('commercialChargingFast.description') || '',
+  })
+}
 
 const FastChargingStationsPage = async () => {
   const t = await getTranslations('fastChargingStations')

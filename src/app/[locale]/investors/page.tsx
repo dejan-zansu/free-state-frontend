@@ -5,6 +5,24 @@ import InvestorsPartnerSection from '@/components/InvestorsPartnerSection'
 import PageHero from '@/components/PageHero'
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/investors',
+    title: t('investors.title') || '',
+    description: t('investors.description') || '',
+  })
+}
 
 const InvestorsPage = async () => {
   const t = await getTranslations('investorsPage')

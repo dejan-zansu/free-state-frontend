@@ -178,9 +178,15 @@ export interface ContractDetails {
 }
 
 class ContractService {
-  /**
-   * Create a contract from calculator data
-   */
+  async getSigningConfig(): Promise<{ enabled: boolean }> {
+    const response = await fetch(`${API_URL}/api/contracts/sign/config`)
+    const data = await response.json()
+    if (!data.success) {
+      return { enabled: true }
+    }
+    return data.data
+  }
+
   async createFromCalculator(input: CreateContractInput): Promise<ContractResponse> {
     const response = await fetch(`${API_URL}/api/contracts/from-calculator`, {
       method: 'POST',
@@ -255,7 +261,11 @@ class ContractService {
     const data = await response.json()
 
     if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to initiate signature')
+      const err = new Error(data.error?.message || 'Failed to initiate signature') as Error & {
+        code?: string
+      }
+      err.code = data.error?.code
+      throw err
     }
 
     return data.data

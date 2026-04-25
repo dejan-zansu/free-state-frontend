@@ -8,6 +8,24 @@ import SolarAboCardsSection from '@/components/solar-calculator/SolarAboCardsSec
 import FAQSection from '@/components/solar-calculator/FAQSection'
 import BottomCTASection from '@/components/solar-calculator/BottomCTASection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/solar-calculator',
+    title: t('solarCalculator.title') || '',
+    description: t('solarCalculator.description') || '',
+  })
+}
 
 const SolarCalculatorPage = async () => {
   const t = await getTranslations('solarCalculator')

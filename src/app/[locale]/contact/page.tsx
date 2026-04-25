@@ -6,6 +6,24 @@ import PageHero from '@/components/PageHero'
 import { LinkButton } from '@/components/ui/link-button'
 import { COMPANY_MAIN_PHONE_TEL_HREF } from '@/lib/company-contact'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/contact',
+    title: t('contact.title') || '',
+    description: t('contact.description') || '',
+  })
+}
 
 const ContactPage = async () => {
   const t = await getTranslations('contactHero')

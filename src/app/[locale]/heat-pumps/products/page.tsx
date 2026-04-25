@@ -5,6 +5,24 @@ import IndoorHeroSection from '@/components/heat-pumps/products/IndoorHeroSectio
 import GroundSourceProductsSection from '@/components/heat-pumps/products/GroundSourceProductsSection'
 import NibeFeatureSection from '@/components/heat-pumps/products/NibeFeatureSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/heat-pumps/products',
+    title: t('heatPumpsProducts.title') || '',
+    description: t('heatPumpsProducts.description') || '',
+  })
+}
 
 const HeatPumpsProductsPage = async () => {
   const t = await getTranslations('heatPumpsProducts')

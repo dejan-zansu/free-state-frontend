@@ -6,6 +6,24 @@ import RepoweringQuoteFormSection from '@/components/repowering/RepoweringQuoteF
 import RepoweringServicesSection from '@/components/repowering/RepoweringServicesSection'
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/repowering',
+    title: t('repowering.title') || '',
+    description: t('repowering.description') || '',
+  })
+}
 
 const RepoweringPage = async () => {
   const t = await getTranslations('repowering')

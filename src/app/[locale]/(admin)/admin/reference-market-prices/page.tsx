@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
+import { useTranslations } from 'next-intl'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Card, CardContent } from '@/components/ui/card'
@@ -26,11 +27,11 @@ import {
 
 const ALL = '__all__'
 
-const TECH_LABELS: Record<string, string> = {
-  photovoltaik: 'Photovoltaik',
-  wasserkraft: 'Wasserkraft',
-  windenergie: 'Windenergie',
-  biomasse: 'Biomasse',
+const TECH_KEYS: Record<string, 'techPhotovoltaik' | 'techWasserkraft' | 'techWindenergie' | 'techBiomasse'> = {
+  photovoltaik: 'techPhotovoltaik',
+  wasserkraft: 'techWasserkraft',
+  windenergie: 'techWindenergie',
+  biomasse: 'techBiomasse',
 }
 
 function fmtRp(chfPerMwh: number): string {
@@ -53,12 +54,18 @@ function fmtVolume(n: number | null): string {
 }
 
 export default function AdminReferenceMarketPricesPage() {
+  const t = useTranslations('admin.resources.referenceMarketPrices')
   const [rows, setRows] = useState<AdminReferenceMarketPriceRow[]>([])
   const [technologies, setTechnologies] = useState<string[]>([])
   const [years, setYears] = useState<number[]>([])
   const [technology, setTechnology] = useState<string>('photovoltaik')
   const [year, setYear] = useState<number | null>(null)
   const [loading, setLoading] = useState(true)
+
+  const techLabel = (tech: string): string => {
+    const key = TECH_KEYS[tech]
+    return key ? t(key) : tech
+  }
 
   useEffect(() => {
     setLoading(true)
@@ -89,11 +96,10 @@ export default function AdminReferenceMarketPricesPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
-        Referenz-Marktpreise (BFE, Art. 15 EnFV)
+        {t('title')}
       </h1>
       <p className="text-base text-[#062E25]/60 mb-6">
-        Quartalsweise publizierte Referenz-Marktpreise des BFE — ab 2026
-        Grundlage für die Rückliefervergütung nach Art. 15 EnG. Quelle:{' '}
+        {t('descriptionPrefix')}
         <a
           href="https://opendata.swiss/de/dataset/referenz-marktpreise-gemass-art-15-enfv"
           target="_blank"
@@ -102,28 +108,28 @@ export default function AdminReferenceMarketPricesPage() {
         >
           opendata.swiss (BFE-DS-0020)
         </a>
-        . Import via{' '}
+        {t('descriptionMiddle')}
         <code className="text-sm bg-[#062E25]/5 px-1 rounded">
           scripts/import-bfe-reference-market-prices.ts
         </code>
-        .
+        {t('descriptionSuffix')}
       </p>
 
       {latestPv && (
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
             <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
-              Jüngster Wert ({TECH_LABELS[latestPv.technology] ?? latestPv.technology})
+              {t('latestValue', { tech: techLabel(latestPv.technology) })}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <p className="text-sm text-[#062E25]/50">Quartal</p>
+                <p className="text-sm text-[#062E25]/50">{t('quarter')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {latestPv.year} {latestPv.period}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">Preis</p>
+                <p className="text-sm text-[#062E25]/50">{t('price')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtRp(latestPv.priceChfPerMwh)} Rp/kWh
                 </p>
@@ -132,13 +138,13 @@ export default function AdminReferenceMarketPricesPage() {
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">Volumen</p>
+                <p className="text-sm text-[#062E25]/50">{t('volume')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtVolume(latestPv.volumeMwh)} MWh
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">Importiert</p>
+                <p className="text-sm text-[#062E25]/50">{t('imported')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {new Date(latestPv.importedAt).toLocaleDateString('de-CH')}
                 </p>
@@ -156,13 +162,13 @@ export default function AdminReferenceMarketPricesPage() {
               onValueChange={v => setTechnology(v === ALL ? '' : v)}
             >
               <SelectTrigger className="w-48">
-                <SelectValue placeholder="Technologie" />
+                <SelectValue placeholder={t('techPlaceholder')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value={ALL}>Alle Technologien</SelectItem>
-                {technologies.map(t => (
-                  <SelectItem key={t} value={t}>
-                    {TECH_LABELS[t] ?? t}
+                <SelectItem value={ALL}>{t('allTechnologies')}</SelectItem>
+                {technologies.map(tech => (
+                  <SelectItem key={tech} value={tech}>
+                    {techLabel(tech)}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -172,10 +178,10 @@ export default function AdminReferenceMarketPricesPage() {
               onValueChange={v => setYear(v === ALL ? null : Number(v))}
             >
               <SelectTrigger className="w-32">
-                <SelectValue placeholder="Jahr" />
+                <SelectValue placeholder={t('yearPlaceholder')} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value={ALL}>Alle Jahre</SelectItem>
+                <SelectItem value={ALL}>{t('allYears')}</SelectItem>
                 {years.map(y => (
                   <SelectItem key={y} value={String(y)}>
                     {y}
@@ -188,14 +194,14 @@ export default function AdminReferenceMarketPricesPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Jahr</TableHead>
-                <TableHead>Quartal</TableHead>
-                <TableHead>Technologie</TableHead>
-                <TableHead className="text-right">Rp/kWh</TableHead>
-                <TableHead className="text-right">CHF/MWh</TableHead>
-                <TableHead className="text-right">Volumen (MWh)</TableHead>
-                <TableHead className="text-right">Tage</TableHead>
-                <TableHead>Importiert</TableHead>
+                <TableHead>{t('tableYear')}</TableHead>
+                <TableHead>{t('tableQuarter')}</TableHead>
+                <TableHead>{t('tableTechnology')}</TableHead>
+                <TableHead className="text-right">{t('tableRpKwh')}</TableHead>
+                <TableHead className="text-right">{t('tableChfMwh')}</TableHead>
+                <TableHead className="text-right">{t('tableVolume')}</TableHead>
+                <TableHead className="text-right">{t('tableDays')}</TableHead>
+                <TableHead>{t('tableImported')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -203,9 +209,7 @@ export default function AdminReferenceMarketPricesPage() {
                 <TableRow key={r.id}>
                   <TableCell className="tabular-nums">{r.year}</TableCell>
                   <TableCell>{r.period}</TableCell>
-                  <TableCell>
-                    {TECH_LABELS[r.technology] ?? r.technology}
-                  </TableCell>
+                  <TableCell>{techLabel(r.technology)}</TableCell>
                   <TableCell className="text-right tabular-nums">
                     {fmtRp(r.priceChfPerMwh)}
                   </TableCell>
@@ -229,7 +233,7 @@ export default function AdminReferenceMarketPricesPage() {
                     colSpan={8}
                     className="text-center text-[#062E25]/50 py-8"
                   >
-                    Keine Daten
+                    {t('empty')}
                   </TableCell>
                 </TableRow>
               )}
