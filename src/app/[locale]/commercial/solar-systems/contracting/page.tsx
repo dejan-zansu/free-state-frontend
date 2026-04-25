@@ -5,6 +5,24 @@ import SolarFutureSection from '@/components/commercial/contracting/SolarFutureS
 import OurServicesSection from '@/components/commercial/contracting/OurServicesSection'
 // import RepoweringServicesSection from '@/components/commercial/contracting/RepoweringServicesSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/commercial/solar-systems/contracting',
+    title: t('commercialSolarSystemsContracting.title') || '',
+    description: t('commercialSolarSystemsContracting.description') || '',
+  })
+}
 
 const ContractingPage = async () => {
   const t = await getTranslations('contracting')

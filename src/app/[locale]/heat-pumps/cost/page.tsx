@@ -7,6 +7,24 @@ import TaxDeductionSection from '@/components/heat-pumps/cost/TaxDeductionSectio
 import QuoteCTASection from '@/components/heat-pumps/cost/QuoteCTASection'
 import EnergySolutionsSection from '@/components/heat-pumps/cost/EnergySolutionsSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/heat-pumps/cost',
+    title: t('heatPumpsCost.title') || '',
+    description: t('heatPumpsCost.description') || '',
+  })
+}
 
 const HeatPumpsCostPage = async () => {
   const t = await getTranslations('heatPumpsCost')

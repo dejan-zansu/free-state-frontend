@@ -9,6 +9,28 @@ import {
 import YourBenefits from '@/components/YourBenefits'
 import SolarModels from '@/components/SolarModels'
 import CustomerStories from '@/components/CustomerStories'
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+import { JsonLd } from '@/components/seo/JsonLd'
+import { buildServiceJsonLd } from '@/lib/seo/structured-data'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/solar-direct',
+    title: t('solarDirect.title') || '',
+    description: t('solarDirect.description') || '',
+  })
+}
 
 interface SolarDirectPageProps {
   params: Promise<{ locale: string }>
@@ -18,7 +40,16 @@ const SolarDirectPage = async ({ params }: SolarDirectPageProps) => {
   const { locale } = await params
 
   return (
-    <div className="w-full overflow-x-hidden">
+    <>
+      <JsonLd
+        data={buildServiceJsonLd({
+          name: 'Solar-Direct',
+          description: 'Direkter Kauf einer Solaranlage mit transparentem Festpreis.',
+          url: 'https://freestate.ch/solar-direct',
+          serviceType: 'Solar Direct Purchase',
+        })}
+      />
+      <div className="w-full overflow-x-hidden">
       <SolarAboHero
         translationNamespace="solarAboHome"
         imageSrc="/images/solar-abo-home.png"
@@ -33,6 +64,7 @@ const SolarDirectPage = async ({ params }: SolarDirectPageProps) => {
       <SolarAboFAQ translationNamespace="solarAboHome" />
       <SolarAboCTA translationNamespace="solarAboHome" />
     </div>
+    </>
   )
 }
 

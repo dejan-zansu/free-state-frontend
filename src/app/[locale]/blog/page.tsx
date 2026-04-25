@@ -4,6 +4,24 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { blogService } from '@/services/blog.service'
 import type { AdminBlogPost, AdminBlogPostTranslation } from '@/types/admin'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/blog',
+    title: t('blog.title') || '',
+    description: t('blog.description') || '',
+  })
+}
 
 function getTranslation(
   post: AdminBlogPost,
@@ -59,7 +77,6 @@ const BlogPage = async () => {
                         alt={featuredTr.title}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        unoptimized
                         priority
                       />
                     ) : (
@@ -125,8 +142,7 @@ const BlogPage = async () => {
                               alt={tr.title}
                               fill
                               className="object-cover transition-transform duration-700 group-hover:scale-105"
-                              unoptimized
-                            />
+                                  />
                           ) : (
                             <div
                               className="absolute inset-0"

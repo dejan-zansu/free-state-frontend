@@ -2,14 +2,15 @@
 // @ts-nocheck
 import { defineRouting } from 'next-intl/routing'
 
-export const locales = ['en', 'de', 'fr'] as const
-export const defaultLocale = 'en' as const
+export const locales = ['de', 'en', 'fr', 'it'] as const
+export const defaultLocale = 'de' as const
 
 export type Locale = (typeof locales)[number]
 
 export const routing = defineRouting({
   locales,
   defaultLocale,
+  localePrefix: 'as-needed',
   pathnames: {
     '/': '/',
 
@@ -18,72 +19,54 @@ export const routing = defineRouting({
       de: '/ueber-uns',
       fr: '/a-propos',
       it: '/chi-siamo',
-      es: '/sobre-nosotros',
-      sr: '/o-nama',
     },
     '/contact': {
       en: '/contact',
       de: '/kontakt',
       fr: '/contact',
       it: '/contatto',
-      es: '/contacto',
-      sr: '/kontakt',
     },
     '/commercial/calculator': {
       en: '/commercial/calculator',
       de: '/gewerbe/rechner',
       fr: '/commercial/calculateur',
       it: '/commerciale/calcolatore',
-      es: '/comercial/calculadora',
-      sr: '/komercijalno/kalkulator',
     },
     '/how-it-works': {
       en: '/how-it-works',
       de: '/so-funktionierts',
       fr: '/comment-ca-marche',
       it: '/come-funziona',
-      es: '/como-funciona',
-      sr: '/kako-funkcionise',
     },
     '/portfolio': {
       en: '/portfolio',
       de: '/portfolio',
       fr: '/portfolio',
       it: '/portfolio',
-      es: '/portfolio',
-      sr: '/portfolio',
     },
     '/blog': {
       en: '/blog',
       de: '/blog',
       fr: '/blog',
       it: '/blog',
-      es: '/blog',
-      sr: '/blog',
     },
     '/blog/[slug]': {
       en: '/blog/[slug]',
       de: '/blog/[slug]',
       fr: '/blog/[slug]',
       it: '/blog/[slug]',
-      es: '/blog/[slug]',
-      sr: '/blog/[slug]',
     },
     '/battery-storage': {
       en: '/battery-storage',
       de: '/batteriespeicher',
       fr: '/stockage-batterie',
       it: '/accumulo-batteria',
-      es: '/almacenamiento-bateria',
-      sr: '/baterijska-skladista',
     },
     '/heat-pumps': {
       en: '/heat-pumps',
       de: '/waermepumpen',
       fr: '/pompes-a-chaleur',
       it: '/pompe-di-calore',
-      es: '/bombas-de-calor',
-      sr: '/toplotne-pumpe',
     },
     '/heat-pumps/how-it-works': {
       en: '/heat-pumps/how-it-works',
@@ -120,24 +103,18 @@ export const routing = defineRouting({
       de: '/investoren',
       fr: '/investisseurs',
       it: '/investitori',
-      es: '/inversores',
-      sr: '/investitori',
     },
     '/privacy-policy': {
       en: '/privacy-policy',
       de: '/datenschutz',
       fr: '/politique-de-confidentialite',
       it: '/politica-sulla-privacy',
-      es: '/politica-de-privacidad',
-      sr: '/politika-privatnosti',
     },
     '/solar-systems': {
       en: '/solar-systems',
       de: '/solaranlagen',
       fr: '/systemes-solaires',
       it: '/sistemi-solari',
-      es: '/sistemas-solares',
-      sr: '/solarni-sistemi',
     },
 
     // Auth pages
@@ -146,24 +123,18 @@ export const routing = defineRouting({
       de: '/anmelden',
       fr: '/connexion',
       it: '/accedi',
-      es: '/iniciar-sesion',
-      sr: '/prijava',
     },
     '/register': {
       en: '/register',
       de: '/registrieren',
       fr: '/inscription',
       it: '/registrati',
-      es: '/registrarse',
-      sr: '/registracija',
     },
     '/dashboard': {
       en: '/dashboard',
       de: '/dashboard',
       fr: '/tableau-de-bord',
       it: '/pannello',
-      es: '/panel',
-      sr: '/kontrolna-tabla',
     },
 
     '/admin/dashboard': '/admin/dashboard',
@@ -186,24 +157,18 @@ export const routing = defineRouting({
       de: '/solar-free',
       fr: '/abonnement-solaire',
       it: '/abbonamento-solare',
-      es: '/suscripcion-solar',
-      sr: '/solarni-abo',
     },
     '/solar-direct': {
       en: '/solar-direct',
       de: '/solar-direct',
       fr: '/solaire-direct',
       it: '/solare-diretto',
-      es: '/solar-directo',
-      sr: '/solarni-direktno',
     },
     '/solar-free/solar-free-home': {
       en: '/solar-free/solar-free-home',
       de: '/solar-free/solar-free-home',
       fr: '/abonnement-solaire/abonnement-maison',
       it: '/abbonamento-solare/abbonamento-casa',
-      es: '/suscripcion-solar/suscripcion-hogar',
-      sr: '/solarni-abo/solarni-abo-kuca',
     },
 
     '/commercial': {
@@ -211,48 +176,36 @@ export const routing = defineRouting({
       de: '/gewerbe',
       fr: '/commercial',
       it: '/commerciale',
-      es: '/comercial',
-      sr: '/komercijalno',
     },
     '/commercial/solar-free': {
       en: '/commercial/solar-free',
       de: '/gewerbe/solar-free',
       fr: '/commercial/abonnement-solaire',
       it: '/commerciale/abbonamento-solare',
-      es: '/comercial/suscripcion-solar',
-      sr: '/komercijalno/solarni-abo',
     },
     '/commercial/solar-free/industry-commercial': {
       en: '/commercial/solar-free/industry-commercial',
       de: '/gewerbe/solar-free/industrie-gewerbe',
       fr: '/commercial/abonnement-solaire/industrie-commerce',
       it: '/commerciale/abbonamento-solare/industria-commercio',
-      es: '/comercial/suscripcion-solar/industria-comercial',
-      sr: '/komercijalno/solarni-abo/industrija-komercijalno',
     },
     '/commercial/solar-free/solar-free-multi-family': {
       en: '/commercial/solar-free/solar-free-multi-family',
       de: '/gewerbe/solar-free/solar-free-mehrfamilienhaus',
       fr: '/commercial/abonnement-solaire/abonnement-multifamilial',
       it: '/commerciale/abbonamento-solare/abbonamento-multifamiliare',
-      es: '/comercial/suscripcion-solar/suscripcion-multifamiliar',
-      sr: '/komercijalno/solarni-abo/solarni-abo-vise-porodicni',
     },
     '/commercial/solar-free/farmhouses': {
       en: '/commercial/solar-free/farmhouses',
       de: '/gewerbe/solar-free/bauernhaeuser',
       fr: '/commercial/abonnement-solaire/fermes',
       it: '/commerciale/abbonamento-solare/fattorie',
-      es: '/comercial/suscripcion-solar/granjas',
-      sr: '/komercijalno/solarni-abo/farme',
     },
     '/commercial/solar-free/public-buildings': {
       en: '/commercial/solar-free/public-buildings',
       de: '/gewerbe/solar-free/oeffentliche-gebaeude',
       fr: '/commercial/abonnement-solaire/batiments-publics',
       it: '/commerciale/abbonamento-solare/edifici-pubblici',
-      es: '/comercial/suscripcion-solar/edificios-publicos',
-      sr: '/komercijalno/solarni-abo/javne-zgrade',
     },
 
     '/commercial/solar-systems': {

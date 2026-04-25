@@ -6,6 +6,24 @@ import CostFurtherTopicsSection from '@/components/cost/CostFurtherTopicsSection
 import CostPricingSection from '@/components/cost/CostPricingSection'
 import CostSection from '@/components/cost/CostSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/cost',
+    title: t('cost.title') || '',
+    description: t('cost.description') || '',
+  })
+}
 
 const CostPage = async () => {
   const t = await getTranslations('cost')

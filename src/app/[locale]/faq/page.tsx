@@ -1,6 +1,26 @@
 import PageHero from '@/components/PageHero'
 import FAQAccordionSection from '@/components/faq/FAQAccordionSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { buildFAQPageJsonLd } from '@/lib/seo/structured-data'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/faq',
+    title: t('faq.title') || '',
+    description: t('faq.description') || '',
+  })
+}
 
 const sectionKeys = [
   'gettingStarted',
@@ -34,19 +54,24 @@ const FAQPage = async () => {
     }
   })
 
+  const allFaqItems = sections.flatMap(s => s.items)
+
   return (
-    <div className="pb-[40px]">
-      <PageHero title={t('hero.title')} />
-      {sections.map(section => (
-        <FAQAccordionSection
-          key={section.key}
-          eyebrow={section.eyebrow}
-          title={section.title}
-          description={section.description}
-          items={section.items}
-        />
-      ))}
-    </div>
+    <>
+      <JsonLd data={buildFAQPageJsonLd(allFaqItems)} />
+      <div className="pb-[40px]">
+        <PageHero title={t('hero.title')} />
+        {sections.map(section => (
+          <FAQAccordionSection
+            key={section.key}
+            eyebrow={section.eyebrow}
+            title={section.title}
+            description={section.description}
+            items={section.items}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 

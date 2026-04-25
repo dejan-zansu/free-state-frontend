@@ -15,6 +15,24 @@ import StandardsSection from '@/components/charging-stations/bidirectional-charg
 import NewsletterSection from '@/components/charging-stations/bidirectional-charging-station/sections/NewsletterSection'
 import FAQSection from '@/components/charging-stations/bidirectional-charging-station/sections/FAQSection'
 import { getTranslations } from 'next-intl/server'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/charging-stations/bidirectional-charging-station',
+    title: t('chargingStationsBidirectional.title') || '',
+    description: t('chargingStationsBidirectional.description') || '',
+  })
+}
 
 const BidirectionalChargingStationPage = async () => {
   const t = await getTranslations('bidirectionalChargingStation')

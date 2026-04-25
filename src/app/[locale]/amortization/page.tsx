@@ -7,6 +7,24 @@ import PaybackSection from '@/components/amortization/PaybackSection'
 import SolarCalculatorCTA from '@/components/SolarCalculatorCTA'
 import { getTranslations } from 'next-intl/server'
 import CostFurtherTopicsSection from '@/components/cost/CostFurtherTopicsSection'
+import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/amortization',
+    title: t('amortization.title') || '',
+    description: t('amortization.description') || '',
+  })
+}
 
 const AmortizationPage = async () => {
   const t = await getTranslations('amortization')
