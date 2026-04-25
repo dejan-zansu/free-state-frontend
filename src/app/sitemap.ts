@@ -95,10 +95,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 }
 
 async function fetchAllBlogPosts() {
+  const PAGE_SIZE = 100
+  const posts: NonNullable<Awaited<ReturnType<typeof blogService.listPublished>>['data']> = []
   try {
-    const result = await blogService.listPublished(1, 1000)
-    return result.data ?? []
+    let page = 1
+    while (true) {
+      const result = await blogService.listPublished(page, PAGE_SIZE)
+      const items = result.data ?? []
+      posts.push(...items)
+      const totalPages = result.meta?.totalPages ?? 1
+      if (page >= totalPages || items.length === 0) break
+      page += 1
+    }
+    return posts
   } catch {
-    return []
+    return posts
   }
 }
