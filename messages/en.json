@@ -470,42 +470,26 @@
       "commercialSubtitle": "Real reviews from partner companies and corporate customers.",
       "commercialItems": [
         {
-          "quote": "Free State upgraded our production site with real expertise. Project management was professional, the schedule was kept precisely, and the system has been running flawlessly from day one.",
-          "authorName": "Marco Keller",
-          "authorRole": "Operations Manager, Keller Logistik AG"
+          "quote": "Our barn roofs were used perfectly to generate solar energy. Free State supported us brilliantly – from detailed planning to regular maintenance. Thanks to this, we are not only saving on energy costs but also making an important contribution to climate protection.",
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "As a real estate company we've equipped several properties with Free State. The close collaboration, technical advice and reporting have convinced us completely.",
-          "authorName": "Sabrina Meier",
-          "authorRole": "Head of Asset Management, Helvetica Real Estate"
-        },
-        {
-          "quote": "Our warehouse roofs are now used optimally. The team understood our industrial requirements precisely and delivered a scalable solution.",
-          "authorName": "Stefan Brunner",
-          "authorRole": "CTO, Brunner Industrie GmbH"
-        },
-        {
-          "quote": "The economics of our system were presented transparently and the execution was seamless. Free State is a reliable partner for us on the path to net zero.",
-          "authorName": "Claudia Hofer",
-          "authorRole": "CFO, Hofer & Partner AG"
+          "quote": "Extremely satisfied. Highly competent, reliable and always friendly. Communication was excellent, everything went smoothly and professionally. I can only recommend them.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ],
       "items": [
         {
           "quote": "Our barn roofs were used perfectly to generate solar energy. Free State supported us brilliantly – from detailed planning to regular maintenance. Thanks to this, we are not only saving on energy costs but also making an important contribution to climate protection.",
-          "authorName": "Rivero Pineda Leonardo"
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "The advice was honest and competent. The team really took the time to understand our home and found a solution that fits us. We would recommend Free State at any time.",
-          "authorName": "Andrea Berger"
-        },
-        {
-          "quote": "From the offer to the commissioning, everything went quickly and smoothly. The installers were punctual, tidy and very friendly. The app works flawlessly and we always keep an overview.",
-          "authorName": "Thomas Steiner"
-        },
-        {
-          "quote": "Since the installation we've immediately noticed how much our electricity bill has dropped. We especially appreciated the clear communication and the careful work on the roof.",
-          "authorName": "Nicole Jäggi"
+          "quote": "Extremely satisfied. Highly competent, reliable and always friendly. Communication was excellent, everything went smoothly and professionally. I can only recommend them.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ]
     },

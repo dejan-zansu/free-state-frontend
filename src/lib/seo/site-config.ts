@@ -1,5 +1,5 @@
 export const siteConfig = {
-  url: 'https://freestate.ch',
+  url: 'https://www.freestate.ch',
   name: 'Free State AG',
   legalName: 'Free State AG',
   description:

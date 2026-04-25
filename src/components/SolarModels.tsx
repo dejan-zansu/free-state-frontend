@@ -19,6 +19,8 @@ const LearnMoreCta = ({ href, label }: { href: string; label: string }) => (
       height="8"
       viewBox="0 0 8 8"
       fill="none"
+      aria-hidden="true"
+      focusable="false"
       className="transition-transform duration-300 group-hover/learn:translate-x-0.5"
     >
       <path

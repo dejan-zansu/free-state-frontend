@@ -26,13 +26,13 @@ const TeamPartners = () => {
             {t('subtitle')}
           </p>
 
-          <div className="mt-14">
+          <div className="mt-14 w-full flex justify-center">
             <Image
               src="/images/team-partner-logos.png"
               alt={t('title')}
               width={1186}
               height={93}
-              className="h-[50px] sm:h-[70px] lg:h-[93px] w-auto"
+              className="w-full max-w-[1186px] h-auto"
             />
           </div>
         </div>

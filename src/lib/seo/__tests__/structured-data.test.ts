@@ -15,7 +15,7 @@ describe('buildOrganizationJsonLd', () => {
     const j = buildOrganizationJsonLd()
     expect(j['@type']).toBe('Organization')
     expect(j['@context']).toBe('https://schema.org')
-    expect(j.url).toBe('https://freestate.ch')
+    expect(j.url).toBe('https://www.freestate.ch')
     expect(j.name).toBe('Free State AG')
   })
   it('includes logo', () => {
@@ -60,14 +60,14 @@ describe('buildWebSiteJsonLd', () => {
 describe('buildBreadcrumbListJsonLd', () => {
   it('maps items to ListItem with positions', () => {
     const j = buildBreadcrumbListJsonLd([
-      { name: 'Home', url: 'https://freestate.ch/' },
-      { name: 'Solaranlagen', url: 'https://freestate.ch/solaranlagen' },
+      { name: 'Home', url: 'https://www.freestate.ch/' },
+      { name: 'Solaranlagen', url: 'https://www.freestate.ch/solaranlagen' },
     ])
     expect(j['@type']).toBe('BreadcrumbList')
     expect(j.itemListElement).toHaveLength(2)
     expect(j.itemListElement[0].position).toBe(1)
     expect(j.itemListElement[1].position).toBe(2)
-    expect(j.itemListElement[0].item).toBe('https://freestate.ch/')
+    expect(j.itemListElement[0].item).toBe('https://www.freestate.ch/')
   })
 })
 
@@ -98,8 +98,8 @@ describe('buildArticleJsonLd', () => {
   it('includes headline, author, datePublished, image', () => {
     const j = buildArticleJsonLd({
       headline: 'Solaranlage Kosten 2026',
-      url: 'https://freestate.ch/blog/solaranlage-kosten-2026',
-      image: 'https://freestate.ch/images/cover.jpg',
+      url: 'https://www.freestate.ch/blog/solaranlage-kosten-2026',
+      image: 'https://www.freestate.ch/images/cover.jpg',
       authorName: 'Max Muster',
       datePublished: '2026-04-20T10:00:00+02:00',
       dateModified: '2026-04-22T14:00:00+02:00',
@@ -110,7 +110,7 @@ describe('buildArticleJsonLd', () => {
     expect(j.author['@type']).toBe('Person')
     expect(j.author.name).toBe('Max Muster')
     expect(j.publisher['@type']).toBe('Organization')
-    expect(j.mainEntityOfPage).toBe('https://freestate.ch/blog/solaranlage-kosten-2026')
+    expect(j.mainEntityOfPage).toBe('https://www.freestate.ch/blog/solaranlage-kosten-2026')
   })
 })
 
@@ -119,7 +119,7 @@ describe('buildServiceJsonLd', () => {
     const j = buildServiceJsonLd({
       name: 'Solaranlagen Installation',
       description: 'Photovoltaik für Einfamilienhaus in der Deutschschweiz.',
-      url: 'https://freestate.ch/solaranlagen',
+      url: 'https://www.freestate.ch/solaranlagen',
       serviceType: 'Solar Energy Installation',
     })
     expect(j['@type']).toBe('Service')

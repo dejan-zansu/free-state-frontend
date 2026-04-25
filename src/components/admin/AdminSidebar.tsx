@@ -16,6 +16,7 @@ import {
   LayoutDashboard,
   LineChart,
   Mail,
+  Menu,
   MessageSquareText,
   Newspaper,
   Package,
@@ -30,7 +31,15 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
+import { useEffect, useState } from 'react'
 
+import { Button } from '@/components/ui/button'
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 
 interface NavItem {
@@ -39,8 +48,7 @@ interface NavItem {
   icon: React.ElementType
 }
 
-export function AdminSidebar() {
-  const pathname = usePathname()
+function useNavGroups() {
   const locale = useLocale()
   const t = useTranslations('admin.sidebar')
 
@@ -109,41 +117,92 @@ export function AdminSidebar() {
     },
   ]
 
+  return navGroups
+}
+
+function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
+  const pathname = usePathname()
+  const navGroups = useNavGroups()
+
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 
   return (
-    <aside className="sticky top-0 w-64 h-screen overflow-y-auto border-r border-[#062E25]/10 bg-white shrink-0">
+    <nav className="p-3">
+      {navGroups.map((group, i) => (
+        <div key={i} className={cn(i > 0 && 'mt-4')}>
+          {group.label && (
+            <p className="px-3 mb-1 text-sm font-semibold uppercase tracking-wider text-[#062E25]/40">
+              {group.label}
+            </p>
+          )}
+          <div className="space-y-1">
+            {group.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onNavigate}
+                className={cn(
+                  'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors',
+                  isActive(item.href)
+                    ? 'bg-[#062E25]/10 text-[#062E25]'
+                    : 'text-[#062E25]/60 hover:bg-[#062E25]/5 hover:text-[#062E25]'
+                )}
+              >
+                <item.icon className="h-4 w-4" />
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      ))}
+    </nav>
+  )
+}
+
+export function AdminSidebar() {
+  const t = useTranslations('admin.sidebar')
+
+  return (
+    <aside className="hidden lg:block sticky top-0 w-64 h-screen overflow-y-auto border-r border-[#062E25]/10 bg-white shrink-0">
       <div className="p-6 border-b border-[#062E25]/10">
         <h2 className="text-lg font-bold text-[#062E25]">{t('title')}</h2>
       </div>
-      <nav className="p-3">
-        {navGroups.map((group, i) => (
-          <div key={i} className={cn(i > 0 && 'mt-4')}>
-            {group.label && (
-              <p className="px-3 mb-1 text-sm font-semibold uppercase tracking-wider text-[#062E25]/40">
-                {group.label}
-              </p>
-            )}
-            <div className="space-y-1">
-              {group.items.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors',
-                    isActive(item.href)
-                      ? 'bg-[#062E25]/10 text-[#062E25]'
-                      : 'text-[#062E25]/60 hover:bg-[#062E25]/5 hover:text-[#062E25]'
-                  )}
-                >
-                  <item.icon className="h-4 w-4" />
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        ))}
-      </nav>
+      <SidebarNav />
     </aside>
+  )
+}
+
+export function AdminSidebarMobileTrigger() {
+  const t = useTranslations('admin.sidebar')
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="lg:hidden"
+          aria-label={t('title')}
+        >
+          <Menu className="h-5 w-5" />
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" className="w-72 p-0 sm:max-w-xs">
+        <div className="p-6 border-b border-[#062E25]/10">
+          <SheetTitle className="text-lg font-bold text-[#062E25]">
+            {t('title')}
+          </SheetTitle>
+        </div>
+        <div className="overflow-y-auto flex-1">
+          <SidebarNav onNavigate={() => setOpen(false)} />
+        </div>
+      </SheetContent>
+    </Sheet>
   )
 }

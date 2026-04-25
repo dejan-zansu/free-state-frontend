@@ -8,25 +8,25 @@ import {
 describe('buildCanonicalUrl', () => {
   it('returns root for home DE (no prefix)', () => {
     expect(buildCanonicalUrl({ pathname: '/', locale: 'de' })).toBe(
-      'https://freestate.ch/'
+      'https://www.freestate.ch/'
     )
   })
 
   it('returns /en prefix for English home', () => {
     expect(buildCanonicalUrl({ pathname: '/', locale: 'en' })).toBe(
-      'https://freestate.ch/en'
+      'https://www.freestate.ch/en'
     )
   })
 
   it('returns localized slug for DE', () => {
     expect(buildCanonicalUrl({ pathname: '/about-us', locale: 'de' })).toBe(
-      'https://freestate.ch/ueber-uns'
+      'https://www.freestate.ch/ueber-uns'
     )
   })
 
   it('returns localized slug under prefix for FR', () => {
     expect(buildCanonicalUrl({ pathname: '/about-us', locale: 'fr' })).toBe(
-      'https://freestate.ch/fr/a-propos'
+      'https://www.freestate.ch/fr/a-propos'
     )
   })
 })
@@ -45,7 +45,7 @@ describe('buildHreflangAlternates', () => {
   it('each entry is an absolute URL', () => {
     const alts = buildHreflangAlternates('/')
     for (const url of Object.values(alts)) {
-      expect(url).toMatch(/^https:\/\/freestate\.ch/)
+      expect(url).toMatch(/^https:\/\/www\.freestate\.ch/)
     }
   })
 })
@@ -61,7 +61,7 @@ describe('generateSEOMetadata', () => {
 
     expect(meta.title).toBe('Solaranlagen Schweiz | Free State AG')
     expect(meta.description).toBe('Solaranlagen für dein Zuhause in der Schweiz.')
-    expect(meta.alternates?.canonical).toBe('https://freestate.ch/')
+    expect(meta.alternates?.canonical).toBe('https://www.freestate.ch/')
   })
 
   it('sets hreflang alternates for all locales', async () => {
@@ -89,7 +89,7 @@ describe('generateSEOMetadata', () => {
     })
     expect(meta.openGraph?.locale).toBe('de')
     expect(meta.openGraph?.siteName).toBe('Free State AG')
-    expect(meta.openGraph?.url).toBe('https://freestate.ch/')
+    expect(meta.openGraph?.url).toBe('https://www.freestate.ch/')
   })
 
   it('falls back to site name when title is empty', async () => {

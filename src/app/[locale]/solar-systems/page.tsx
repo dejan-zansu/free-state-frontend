@@ -32,7 +32,7 @@ const SolarSystemsPage = async () => {
         data={buildServiceJsonLd({
           name: 'Solaranlagen Installation',
           description: 'Photovoltaikanlagen für Einfamilienhäuser in der Deutschschweiz. Planung, Installation und Inbetriebnahme.',
-          url: 'https://freestate.ch/solaranlagen',
+          url: 'https://www.freestate.ch/solaranlagen',
           serviceType: 'Solar Energy Installation',
         })}
       />

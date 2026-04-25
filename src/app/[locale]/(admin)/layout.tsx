@@ -1,6 +1,6 @@
 'use client'
 
-import { AdminSidebar } from '@/components/admin/AdminSidebar'
+import { AdminSidebar, AdminSidebarMobileTrigger } from '@/components/admin/AdminSidebar'
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute'
 import { useUser } from '@/stores/auth.store'
 import { LogOut } from 'lucide-react'
@@ -27,8 +27,10 @@ export default function AdminLayout({
       <div className="flex min-h-screen bg-gray-50/50">
         <AdminSidebar />
         <div className="flex-1 flex flex-col">
-          <header className="h-14 border-b border-[#062E25]/10 bg-white flex items-center justify-between px-6">
-            <div />
+          <header className="h-14 border-b border-[#062E25]/10 bg-white flex items-center justify-between px-4 lg:px-6">
+            <div>
+              <AdminSidebarMobileTrigger />
+            </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-[#062E25]/60">
                 {user?.firstName} {user?.lastName}

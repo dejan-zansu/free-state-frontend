@@ -488,42 +488,26 @@
       "commercialSubtitle": "Echte Bewertungen von Partnerfirmen und Unternehmenskunden.",
       "commercialItems": [
         {
-          "quote": "Free State hat unseren Produktionsstandort kompetent umgerüstet. Die Projektleitung war professionell, der Zeitplan wurde exakt eingehalten und die Anlage läuft seit dem ersten Tag störungsfrei.",
-          "authorName": "Marco Keller",
-          "authorRole": "Betriebsleiter, Keller Logistik AG"
+          "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmässigen Wartung. Dank dieser Massnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "Als Immobilienunternehmen haben wir mehrere Liegenschaften mit Free State ausgerüstet. Die enge Zusammenarbeit, die technische Beratung und das Reporting überzeugen uns vollumfänglich.",
-          "authorName": "Sabrina Meier",
-          "authorRole": "Head of Asset Management, Helvetica Real Estate"
-        },
-        {
-          "quote": "Unsere Lagerhallendächer werden jetzt optimal genutzt. Das Team hat unsere Anforderungen als Industriebetrieb genau verstanden und eine skalierbare Lösung geliefert.",
-          "authorName": "Stefan Brunner",
-          "authorRole": "CTO, Brunner Industrie GmbH"
-        },
-        {
-          "quote": "Die Wirtschaftlichkeit unserer Anlage wurde transparent dargestellt und die Umsetzung war reibungslos. Free State ist für uns ein verlässlicher Partner auf dem Weg zur Netto-Null.",
-          "authorName": "Claudia Hofer",
-          "authorRole": "CFO, Hofer & Partner AG"
+          "quote": "Sehr zufrieden. Äusserst kompetent, zuverlässig und immer freundlich. Die Kommunikation war hervorragend, alles lief reibungslos und professionell ab. Ich kann sie nur empfehlen.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ],
       "items": [
         {
           "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei hervorragend unterstützt – von der detaillierten Planung bis hin zur regelmässigen Wartung. Dank dieser Massnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
-          "authorName": "Rivero Pineda Leonardo"
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "Die Beratung war ehrlich und kompetent. Das Team hat sich wirklich Zeit genommen, unser Haus zu verstehen, und eine Lösung gefunden, die zu uns passt. Wir würden Free State jederzeit weiterempfehlen.",
-          "authorName": "Andrea Berger"
-        },
-        {
-          "quote": "Vom Angebot bis zur Inbetriebnahme verlief alles schnell und unkompliziert. Die Handwerker waren pünktlich, sauber und sehr freundlich. Die App funktioniert einwandfrei und wir behalten jederzeit den Überblick.",
-          "authorName": "Thomas Steiner"
-        },
-        {
-          "quote": "Seit der Installation merken wir sofort, wie stark unsere Stromrechnung gesunken ist. Besonders geschätzt haben wir die klare Kommunikation und die sorgfältige Arbeit auf dem Dach.",
-          "authorName": "Nicole Jäggi"
+          "quote": "Sehr zufrieden. Äusserst kompetent, zuverlässig und immer freundlich. Die Kommunikation war hervorragend, alles lief reibungslos und professionell ab. Ich kann sie nur empfehlen.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ]
     },

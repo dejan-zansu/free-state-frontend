@@ -32,7 +32,7 @@ const HeatPumpsPage = async () => {
         data={buildServiceJsonLd({
           name: 'Wärmepumpen Installation',
           description: 'Luft/Wasser und Sole/Wasser Wärmepumpen.',
-          url: 'https://freestate.ch/waermepumpen',
+          url: 'https://www.freestate.ch/waermepumpen',
           serviceType: 'Heat Pump Installation',
         })}
       />

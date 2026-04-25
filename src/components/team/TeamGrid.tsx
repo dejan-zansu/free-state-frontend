@@ -55,7 +55,14 @@ const EmailIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
   >
-    <rect x="0.5" y="0.9" width="13" height="10.2" rx="1.2" stroke="currentColor" />
+    <rect
+      x="0.5"
+      y="0.9"
+      width="13"
+      height="10.2"
+      rx="1.2"
+      stroke="currentColor"
+    />
     <path d="M1 1.5L7 6.5L13 1.5" stroke="currentColor" strokeLinecap="round" />
   </svg>
 )
@@ -104,7 +111,7 @@ const TeamGrid = () => {
         {members.map(member => (
           <div
             key={member.key}
-            className="group relative h-[400px] sm:h-[550px] lg:h-[631px] border-[0.5px] border-[#F2F4E8]/50 overflow-hidden"
+            className="group relative h-[600px] sm:h-[550px] lg:h-[631px] border-[0.5px] border-[#F2F4E8]/50 overflow-hidden"
           >
             <div
               className="absolute inset-0"
@@ -123,8 +130,8 @@ const TeamGrid = () => {
               </>
             )}
             <div className="relative h-full">
-              <div className="absolute top-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5 w-full px-4">
-                <span className="inline-flex items-center justify-center px-4 py-2.5 rounded-[20px] border border-foreground bg-white/20 backdrop-blur-[65px] text-foreground text-base font-semibold tracking-tight whitespace-nowrap">
+              <div className="absolute md:top-5 top-4 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 md:gap-2.5 w-full px-4">
+                <span className="inline-flex items-center justify-center px-4 py-2 md:py-2.5 rounded-[20px] border border-foreground bg-white/20 backdrop-blur-[65px] text-foreground text-base font-semibold tracking-tight whitespace-nowrap">
                   {t(`${member.key}.name`)}
                 </span>
                 <span className="text-foreground text-base font-light tracking-[-0.02em] text-center">
@@ -135,14 +142,14 @@ const TeamGrid = () => {
                 <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2.5">
                   <a
                     href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-[20px] border border-white/30 bg-white/30 backdrop-blur-[65px] text-white text-xs font-light tracking-[-0.02em] whitespace-nowrap hover:bg-white/50 transition-colors"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 md:py-2.5 rounded-[20px] border border-white/30 bg-white/30 backdrop-blur-[65px] text-white text-xs font-light tracking-[-0.02em] whitespace-nowrap hover:bg-white/50 transition-colors"
                   >
                     <EmailIcon />
                     {member.email}
                   </a>
                   <a
                     href={`tel:${member.phone.replace(/\s/g, '')}`}
-                    className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-[20px] border border-white/30 bg-white/30 backdrop-blur-[65px] text-white text-xs font-light tracking-[-0.02em] whitespace-nowrap hover:bg-white/50 transition-colors"
+                    className="inline-flex items-center gap-2 px-3.5 py-2 md:py-2.5 rounded-[20px] border border-white/30 bg-white/30 backdrop-blur-[65px] text-white text-xs font-light tracking-[-0.02em] whitespace-nowrap hover:bg-white/50 transition-colors"
                   >
                     <PhoneIcon />
                     {member.phone}

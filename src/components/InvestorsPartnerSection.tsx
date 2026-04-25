@@ -8,7 +8,7 @@ const InvestorsPartnerSection = () => {
 
   return (
     <div
-      className="relative w-full h-full min-h-[889px] overflow-hidden rounded-tl-[20px] rounded-bl-[20px] lg:rounded-none"
+      className="relative w-full h-full min-h-[400px] md:min-h-[889px] overflow-hidden"
       style={{
         background:
           'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',

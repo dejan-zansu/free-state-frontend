@@ -75,7 +75,7 @@ const BlogPostPage = async ({ params }: Props) => {
       <JsonLd
         data={buildArticleJsonLd({
           headline: tr.title,
-          url: `https://freestate.ch/blog/${post.slug}`,
+          url: `https://www.freestate.ch/blog/${post.slug}`,
           image: post.coverImageUrl ?? undefined,
           authorName: `${post.author.firstName} ${post.author.lastName}`,
           datePublished: post.publishedAt ?? new Date().toISOString(),
@@ -84,9 +84,9 @@ const BlogPostPage = async ({ params }: Props) => {
       />
       <JsonLd
         data={buildBreadcrumbListJsonLd([
-          { name: 'Home', url: 'https://freestate.ch/' },
-          { name: 'Blog', url: 'https://freestate.ch/blog' },
-          { name: tr.title, url: `https://freestate.ch/blog/${post.slug}` },
+          { name: 'Home', url: 'https://www.freestate.ch/' },
+          { name: 'Blog', url: 'https://www.freestate.ch/blog' },
+          { name: tr.title, url: `https://www.freestate.ch/blog/${post.slug}` },
         ])}
       />
       <article className="max-w-[1440px] mx-auto px-6 py-24">

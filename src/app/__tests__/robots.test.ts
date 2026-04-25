@@ -4,7 +4,7 @@ import robots from '../robots'
 describe('robots', () => {
   it('points at the sitemap', () => {
     const r = robots()
-    expect(r.sitemap).toBe('https://freestate.ch/sitemap.xml')
+    expect(r.sitemap).toBe('https://www.freestate.ch/sitemap.xml')
   })
 
   it('disallows admin, dashboard, auth, api paths', () => {

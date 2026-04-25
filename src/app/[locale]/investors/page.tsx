@@ -34,7 +34,7 @@ const InvestorsPage = async () => {
           backgroundImage="/images/investors-page-hero.png"
           title={t('title')}
           description={t('subtitle')}
-          contentClassName="items-start text-left"
+          contentClassName="lg:items-start lg:text-left"
           descriptionClassName="max-w-[600px]"
         >
           <div className="mt-8">

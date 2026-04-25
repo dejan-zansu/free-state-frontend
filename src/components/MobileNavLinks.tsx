@@ -1,6 +1,6 @@
 'use client'
 
-import { Link } from '@/i18n/navigation'
+import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { ChevronDown } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -18,11 +18,7 @@ const MobileNavLinks = ({
 }: MobileNavLinksProps) => {
   const t = useTranslations('home')
   const tFooter = useTranslations('footer')
-  const [expanded, setExpanded] = useState<string | null>(null)
-
-  const toggle = (key: string) => {
-    setExpanded(prev => (prev === key ? null : key))
-  }
+  const pathname = usePathname()
 
   const solarAboLinks = isCommercial
     ? [
@@ -181,12 +177,34 @@ const MobileNavLinks = ({
         // },
       ]
 
+  const isPathActive = (href: string) => pathname === href
+  const isProductActive = (product: (typeof productLinks)[number]) =>
+    isPathActive(product.href) ||
+    ('subLinks' in product &&
+      product.subLinks?.some(s => isPathActive(s.href))) ||
+    false
+  const isSolarAboActive = solarAboLinks.some(l => isPathActive(l.href))
+  const isProductsActive = productLinks.some(p => isProductActive(p))
+
+  const [expanded, setExpanded] = useState<string | null>(
+    isSolarAboActive ? 'solarAbo' : isProductsActive ? 'products' : null
+  )
+
+  const toggle = (key: string) => {
+    setExpanded(prev => (prev === key ? null : key))
+  }
+
   return (
     <div className="flex flex-col gap-1">
       <div>
         <button
           onClick={() => toggle('solarAbo')}
-          className="w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)] transition-all duration-200"
+          className={cn(
+            'w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-all duration-200',
+            isSolarAboActive
+              ? 'bg-[#E6EAE9] text-[#062E25]'
+              : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
+          )}
         >
           {isCommercial
             ? t('hero.nav.solarAbo')
@@ -212,7 +230,12 @@ const MobileNavLinks = ({
                 key={link.href}
                 href={link.href}
                 onClick={onNavigate}
-                className="px-4 py-2.5 rounded-lg text-sm text-[#062E25]/80 hover:bg-[rgba(6,46,37,0.08)] transition-colors"
+                className={cn(
+                  'px-4 py-2.5 rounded-lg text-sm transition-colors',
+                  isPathActive(link.href)
+                    ? 'bg-[#E6EAE9] text-[#062E25] font-medium'
+                    : 'text-[#062E25]/80 hover:bg-[rgba(6,46,37,0.08)]'
+                )}
               >
                 {link.label}
               </Link>
@@ -224,7 +247,12 @@ const MobileNavLinks = ({
       <div>
         <button
           onClick={() => toggle('products')}
-          className="w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)] transition-all duration-200"
+          className={cn(
+            'w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-all duration-200',
+            isProductsActive
+              ? 'bg-[#E6EAE9] text-[#062E25]'
+              : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
+          )}
         >
           {t('hero.nav.products')}
           <ChevronDown
@@ -248,7 +276,12 @@ const MobileNavLinks = ({
                 <Link
                   href={product.href}
                   onClick={onNavigate}
-                  className="px-4 py-2.5 rounded-lg text-sm font-semibold text-[#062E25] hover:bg-[rgba(6,46,37,0.08)] transition-colors block"
+                  className={cn(
+                    'px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors block',
+                    isPathActive(product.href)
+                      ? 'bg-[#E6EAE9] text-[#062E25]'
+                      : 'text-[#062E25] hover:bg-[rgba(6,46,37,0.08)]'
+                  )}
                 >
                   {product.label}
                 </Link>
@@ -258,9 +291,22 @@ const MobileNavLinks = ({
                       key={sub.href}
                       href={sub.href}
                       onClick={onNavigate}
-                      className="pl-8 pr-4 py-2 rounded-lg text-sm text-[#062E25]/60 hover:bg-[rgba(6,46,37,0.08)] hover:text-[#062E25] transition-colors flex items-center gap-1.5"
+                      className={cn(
+                        'pl-8 pr-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-1.5',
+                        isPathActive(sub.href)
+                          ? 'bg-[#E6EAE9] text-[#062E25] font-medium'
+                          : 'text-[#062E25]/60 hover:bg-[rgba(6,46,37,0.08)] hover:text-[#062E25]'
+                      )}
                     >
-                      <span className="text-[#062E25]/30">→</span>
+                      <span
+                        className={cn(
+                          isPathActive(sub.href)
+                            ? 'text-[#062E25]/60'
+                            : 'text-[#062E25]/30'
+                        )}
+                      >
+                        →
+                      </span>
                       {sub.label}
                     </Link>
                   ))}

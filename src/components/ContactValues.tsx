@@ -88,7 +88,7 @@ const ContactValues = async () => {
           {values.map((value, index) => (
             <div
               key={value.title}
-              className="flex flex-col gap-[30px] lg:border-r lg:last:border-r-0 border-foreground/30 lg:px-8 first:lg:pl-0 last:lg:pr-0"
+              className="flex flex-col items-center text-center gap-[30px] sm:items-start sm:text-left lg:border-r lg:last:border-r-0 border-foreground/30 lg:px-8 first:lg:pl-0 last:lg:pr-0"
             >
               <div
                 role="img"
@@ -103,7 +103,7 @@ const ContactValues = async () => {
                   backgroundBlendMode: 'multiply',
                 }}
               />
-              <div className="flex flex-col gap-2.5">
+              <div className="flex flex-col items-center gap-2.5 sm:items-start">
                 <h3 className="text-[22px] font-bold text-foreground capitalize">
                   {value.title}
                 </h3>
@@ -111,7 +111,7 @@ const ContactValues = async () => {
                   {value.description}
                 </p>
                 {value.contacts.length > 0 && (
-                  <div className="flex flex-col gap-1.5 mt-2">
+                  <div className="flex flex-col items-center gap-1.5 mt-2 sm:items-start">
                     {value.contacts.map(contact => (
                       <a
                         key={contact.text}
@@ -141,7 +141,7 @@ const ContactValues = async () => {
               </div>
 
               {index === 2 && (
-                <div className="flex flex-col gap-1.5 lg:col-start-3 lg:row-start-2">
+                <div className="flex flex-col items-center gap-1.5 sm:items-start lg:col-start-3 lg:row-start-2">
                   {serviceItems.map(label => (
                     <div
                       key={label}

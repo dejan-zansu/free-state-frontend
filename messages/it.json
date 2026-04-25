@@ -470,42 +470,26 @@
       "commercialSubtitle": "Recensioni autentiche di aziende partner e clienti corporate.",
       "commercialItems": [
         {
-          "quote": "Free State ha modernizzato il nostro sito produttivo con vera competenza. La gestione del progetto è stata professionale, i tempi sono stati rispettati con precisione e l'impianto funziona perfettamente dal primo giorno.",
-          "authorName": "Marco Keller",
-          "authorRole": "Responsabile operativo, Keller Logistik AG"
+          "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente – dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "Come società immobiliare abbiamo equipaggiato diverse proprietà con Free State. La stretta collaborazione, la consulenza tecnica e il reporting ci hanno convinto completamente.",
-          "authorName": "Sabrina Meier",
-          "authorRole": "Responsabile Asset Management, Helvetica Real Estate"
-        },
-        {
-          "quote": "I tetti dei nostri magazzini sono ora sfruttati in modo ottimale. Il team ha compreso con precisione le nostre esigenze industriali e ha fornito una soluzione scalabile.",
-          "authorName": "Stefan Brunner",
-          "authorRole": "CTO, Brunner Industrie GmbH"
-        },
-        {
-          "quote": "La redditività del nostro impianto è stata presentata in modo trasparente e l'esecuzione è stata impeccabile. Free State è per noi un partner affidabile sulla strada verso il net zero.",
-          "authorName": "Claudia Hofer",
-          "authorRole": "CFO, Hofer & Partner AG"
+          "quote": "Estremamente soddisfatto. Molto competente, affidabile e sempre cordiale. La comunicazione è stata eccellente, tutto è andato liscio e in modo professionale. Posso solo raccomandarli.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ],
       "items": [
         {
           "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente – dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
-          "authorName": "Rivero Pineda Leonardo"
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "La consulenza è stata onesta e competente. Il team si è preso davvero il tempo di capire la nostra casa e ha trovato una soluzione adatta a noi. Consiglieremmo Free State in qualsiasi momento.",
-          "authorName": "Andrea Berger"
-        },
-        {
-          "quote": "Dall'offerta alla messa in servizio tutto è stato rapido e fluido. Gli installatori sono stati puntuali, ordinati e molto gentili. L'app funziona perfettamente e abbiamo sempre una visione d'insieme.",
-          "authorName": "Thomas Steiner"
-        },
-        {
-          "quote": "Dopo l'installazione abbiamo notato subito quanto sia scesa la nostra bolletta. Abbiamo particolarmente apprezzato la comunicazione chiara e il lavoro accurato sul tetto.",
-          "authorName": "Nicole Jäggi"
+          "quote": "Estremamente soddisfatto. Molto competente, affidabile e sempre cordiale. La comunicazione è stata eccellente, tutto è andato liscio e in modo professionale. Posso solo raccomandarli.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ]
     },

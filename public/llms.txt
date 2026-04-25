@@ -4,28 +4,28 @@
 
 ## Produkte und Leistungen
 
-- [Solaranlagen](https://freestate.ch/solaranlagen): Photovoltaikanlagen für Einfamilienhäuser und Mehrfamilienhäuser
-- [Solar-Abo](https://freestate.ch/solar-free): Solaranlage ohne Eigeninvestition, monatliche Rate statt Kauf
-- [Solar-Direct](https://freestate.ch/solar-direct): Direkter Kauf einer Solaranlage mit transparentem Festpreis
-- [Batteriespeicher](https://freestate.ch/batteriespeicher): Stromspeicher ab 5 kWh
-- [Wärmepumpen](https://freestate.ch/waermepumpen): Luft/Wasser und Sole/Wasser
-- [Ladestationen](https://freestate.ch/ladestationen): Wallbox für Zuhause und bidirektionales Laden
-- [Gewerbe](https://freestate.ch/gewerbe): Lösungen für Unternehmen, Landwirtschaft und öffentliche Gebäude
+- [Solaranlagen](https://www.freestate.ch/solaranlagen): Photovoltaikanlagen für Einfamilienhäuser und Mehrfamilienhäuser
+- [Solar-Abo](https://www.freestate.ch/solar-free): Solaranlage ohne Eigeninvestition, monatliche Rate statt Kauf
+- [Solar-Direct](https://www.freestate.ch/solar-direct): Direkter Kauf einer Solaranlage mit transparentem Festpreis
+- [Batteriespeicher](https://www.freestate.ch/batteriespeicher): Stromspeicher ab 5 kWh
+- [Wärmepumpen](https://www.freestate.ch/waermepumpen): Luft/Wasser und Sole/Wasser
+- [Ladestationen](https://www.freestate.ch/ladestationen): Wallbox für Zuhause und bidirektionales Laden
+- [Gewerbe](https://www.freestate.ch/gewerbe): Lösungen für Unternehmen, Landwirtschaft und öffentliche Gebäude
 
 ## Firmeninformationen
 
-- [Über uns](https://freestate.ch/ueber-uns)
-- [Team](https://freestate.ch/team)
-- [Geschichte](https://freestate.ch/geschichte)
-- [Karriere](https://freestate.ch/karriere)
-- [Kontakt](https://freestate.ch/kontakt)
-- [Impressum](https://freestate.ch/impressum)
+- [Über uns](https://www.freestate.ch/ueber-uns)
+- [Team](https://www.freestate.ch/team)
+- [Geschichte](https://www.freestate.ch/geschichte)
+- [Karriere](https://www.freestate.ch/karriere)
+- [Kontakt](https://www.freestate.ch/kontakt)
+- [Impressum](https://www.freestate.ch/impressum)
 
 ## Ressourcen
 
-- [Solarrechner](https://freestate.ch/solarrechner)
-- [Kosten](https://freestate.ch/kosten)
-- [Amortisation](https://freestate.ch/amortisation)
-- [FAQ](https://freestate.ch/faq)
-- [Blog](https://freestate.ch/blog)
-- [Referenzen](https://freestate.ch/portfolio)
+- [Solarrechner](https://www.freestate.ch/solarrechner)
+- [Kosten](https://www.freestate.ch/kosten)
+- [Amortisation](https://www.freestate.ch/amortisation)
+- [FAQ](https://www.freestate.ch/faq)
+- [Blog](https://www.freestate.ch/blog)
+- [Referenzen](https://www.freestate.ch/portfolio)

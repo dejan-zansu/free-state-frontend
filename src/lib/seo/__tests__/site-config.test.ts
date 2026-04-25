@@ -3,7 +3,7 @@ import { siteConfig, getSiteUrl } from '../site-config'
 
 describe('site-config', () => {
   it('exposes the production origin', () => {
-    expect(siteConfig.url).toBe('https://freestate.ch')
+    expect(siteConfig.url).toBe('https://www.freestate.ch')
   })
 
   it('exposes brand name', () => {
@@ -19,7 +19,7 @@ describe('site-config', () => {
   })
 
   it('getSiteUrl returns the origin without trailing slash', () => {
-    expect(getSiteUrl()).toBe('https://freestate.ch')
+    expect(getSiteUrl()).toBe('https://www.freestate.ch')
   })
 
   it('lists 19 cantons in areaServed', () => {

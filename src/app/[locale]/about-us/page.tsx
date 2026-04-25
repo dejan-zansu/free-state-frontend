@@ -37,7 +37,7 @@ const AboutUsPage = () => {
           backgroundImage="/images/about-us-hero.png"
           title={t('hero.title')}
           description={t('hero.description')}
-          contentClassName="items-start text-left"
+          contentClassName="lg:items-start lg:text-left"
           descriptionClassName="max-w-[563px]"
         >
           <div className="mt-8">

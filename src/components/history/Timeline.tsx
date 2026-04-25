@@ -34,52 +34,83 @@ const Timeline = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-          {milestones.map((m, i) => (
-            <div
-              key={m.key}
-              className={`relative overflow-hidden h-[280px] sm:h-[363px] ${i % 2 !== 0 ? 'mt-6' : ''}`}
-            >
-              <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${m.image})` }}
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    'linear-gradient(90deg, rgba(12, 66, 53, 0) 22%, rgba(12, 66, 53, 1) 100%), linear-gradient(180deg, rgba(3, 107, 83, 0) 23%, rgba(3, 107, 83, 1) 100%)',
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="relative mt-8 mb-8">
-          <div className="absolute top-[7px] left-0 right-0 h-px bg-[#ABB9AD]" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-            {milestones.map((m) => (
-              <div key={m.key} className="flex flex-col items-center relative">
-                <div className="w-3.5 h-3.5 rounded-full bg-foreground relative z-10" />
-                <span className="mt-3 text-foreground text-[22px] font-bold text-center">
+        <div className="flex flex-col gap-8 sm:grid sm:grid-cols-2 sm:gap-6 lg:hidden">
+          {milestones.map((m) => (
+            <div key={m.key} className="flex flex-col">
+              <div className="relative h-[240px] sm:h-[260px] overflow-hidden rounded-[16px]">
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${m.image})` }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(0deg, rgba(12, 66, 53, 0.85) 0%, rgba(12, 66, 53, 0) 60%)',
+                  }}
+                />
+                <span className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white text-2xl font-bold">
                   {m.year}
                 </span>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
-          {milestones.map((m) => (
-            <div key={m.key} className="flex flex-col">
-              <h3 className="text-foreground text-[22px] font-bold capitalize">
+              <h3 className="mt-5 text-foreground text-xl sm:text-[22px] font-bold capitalize">
                 {t(`${m.key}.title`)}
               </h3>
-              <p className="mt-5 text-foreground/80 text-base font-light">
+              <p className="mt-3 text-foreground/80 text-base font-light">
                 {t(`${m.key}.description`)}
               </p>
             </div>
           ))}
+        </div>
+
+        <div className="hidden lg:block">
+          <div className="grid grid-cols-5 gap-4">
+            {milestones.map((m, i) => (
+              <div
+                key={m.key}
+                className={`relative overflow-hidden h-[363px] ${i % 2 !== 0 ? 'mt-6' : ''}`}
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${m.image})` }}
+                />
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, rgba(12, 66, 53, 0) 22%, rgba(12, 66, 53, 1) 100%), linear-gradient(180deg, rgba(3, 107, 83, 0) 23%, rgba(3, 107, 83, 1) 100%)',
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="relative mt-8 mb-8">
+            <div className="absolute top-[7px] left-0 right-0 h-px bg-[#ABB9AD]" />
+            <div className="grid grid-cols-5">
+              {milestones.map((m) => (
+                <div key={m.key} className="flex flex-col items-center relative">
+                  <div className="w-3.5 h-3.5 rounded-full bg-foreground relative z-10" />
+                  <span className="mt-3 text-foreground text-[22px] font-bold text-center">
+                    {m.year}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-5 gap-4">
+            {milestones.map((m) => (
+              <div key={m.key} className="flex flex-col">
+                <h3 className="text-foreground text-[22px] font-bold capitalize">
+                  {t(`${m.key}.title`)}
+                </h3>
+                <p className="mt-5 text-foreground/80 text-base font-light">
+                  {t(`${m.key}.description`)}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

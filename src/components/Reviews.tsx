@@ -15,13 +15,42 @@ type Review = {
   quote: string
   authorName: string
   authorRole?: string
+  source?: 'google'
 }
 
 const ReviewStarIcon = ({ color }: { color: string }) => (
-  <svg width="18" height="17" viewBox="0 0 18 17" fill="none">
+  <svg width="18" height="17" viewBox="0 0 18 17" fill="none" aria-hidden="true" focusable="false">
     <path
       d="M9 1l2.14 4.34L16 6.03l-3.5 3.41.82 4.83L9 12l-4.32 2.27.82-4.83L2 6.03l4.86-.69L9 1Z"
       fill={color}
+    />
+  </svg>
+)
+
+const GoogleGIcon = () => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 18 18"
+    aria-label="Google"
+    role="img"
+    className="shrink-0"
+  >
+    <path
+      fill="#4285F4"
+      d="M17.64 9.20455c0-.63818-.05727-1.25182-.16364-1.84091H9v3.48136h4.84364c-.20864 1.125-.84272 2.07818-1.79591 2.71636v2.25818h2.90864c1.70182-1.56682 2.68182-3.87455 2.68182-6.61545v.00045z"
+    />
+    <path
+      fill="#34A853"
+      d="M9 18c2.43 0 4.46727-.80591 5.95636-2.18045l-2.90864-2.25818c-.80591.54-1.83727.85909-3.04772.85909-2.34409 0-4.32818-1.58318-5.03591-3.71045H.92591v2.33182C2.40682 15.9831 5.48182 18 9 18z"
+    />
+    <path
+      fill="#FBBC05"
+      d="M3.96409 10.71c-.18-.54-.28227-1.11682-.28227-1.71s.10227-1.17.28227-1.71V4.95818H.92591C.33682 6.13318 0 7.45909 0 8.99955c0 1.54045.33682 2.86636.92591 4.04136l3.03818-2.33182z"
+    />
+    <path
+      fill="#EA4335"
+      d="M9 3.57955c1.32136 0 2.50773.45409 3.44045 1.34591l2.58136-2.58136C13.46318.89182 11.43 0 9 0 5.48182 0 2.40682 2.01682.92591 4.95818l3.03818 2.33182C4.67182 5.16273 6.65591 3.57955 9 3.57955z"
     />
   </svg>
 )
@@ -111,9 +140,12 @@ const Reviews = ({ isCommercial = false }: { isCommercial?: boolean }) => {
                     {`“ ${review.quote} ”`}
                   </p>
                   <div className="flex flex-col items-center gap-1">
-                    <p className="text-white text-sm font-semibold">
-                      {review.authorName}
-                    </p>
+                    <div className="flex items-center gap-2">
+                      {review.source === 'google' ? <GoogleGIcon /> : null}
+                      <p className="text-white text-sm font-semibold">
+                        {review.authorName}
+                      </p>
+                    </div>
                     {review.authorRole ? (
                       <p className="text-white/70 text-sm font-light tracking-tight">
                         {review.authorRole}

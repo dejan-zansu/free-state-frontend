@@ -2,7 +2,7 @@
 
 import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
-import { ArrowRight, ArrowUpRight, Building2, Menu } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Building2, ChevronDown, Menu } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -21,6 +21,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isCompanyOpen, setIsCompanyOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileCompanyOpen, setIsMobileCompanyOpen] = useState(false)
 
   const pagesWithDarkHeader = [
     '/calculator',
@@ -36,7 +37,6 @@ const Header = () => {
     '/dashboard',
     '/blog',
     '/history',
-    '/mission',
     '/team',
     '/investors',
     '/careers',
@@ -73,15 +73,12 @@ const Header = () => {
   const companyLinks = [
     { label: tFooter('company.aboutUs'), href: '/about-us' as const },
     { label: tFooter('company.history'), href: '/history' as const },
-    { label: tFooter('company.mission'), href: '/mission' as const },
     { label: tFooter('company.team'), href: '/team' as const },
     { label: tFooter('company.investors'), href: '/investors' as const },
     { label: tFooter('company.careers'), href: '/careers' as const },
   ]
 
-  const isActive = (
-    href: '/' | '/commercial' | '/portfolio' | '/contact'
-  ) => {
+  const isActive = (href: '/' | '/commercial' | '/portfolio' | '/contact') => {
     if (href === '/') {
       return pathname === '/'
     }
@@ -139,7 +136,11 @@ const Header = () => {
       >
         <div className="max-w-360 mx-auto">
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
-            <Link href="/" className="flex items-start gap-2 shrink-0">
+            <Link
+              href="/"
+              aria-label="Free State AG — Startseite"
+              className="flex items-start gap-2 shrink-0"
+            >
               {showDarkHeader ? (
                 <LogoDark className="h-6 sm:h-7.25 w-auto" />
               ) : (
@@ -167,9 +168,7 @@ const Header = () => {
                     <ArrowRight
                       className={cn(
                         'w-4 h-4 -rotate-45 absolute right-1 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 opacity-100 group-hover:-translate-y-6 group-hover:opacity-0',
-                        showCommercial
-                          ? 'text-white'
-                          : 'text-solar-foreground'
+                        showCommercial ? 'text-white' : 'text-solar-foreground'
                       )}
                     />
                   )}
@@ -309,7 +308,13 @@ const Header = () => {
         </div>
       </header>
 
-      <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+      <Sheet
+        open={isMobileMenuOpen}
+        onOpenChange={open => {
+          setIsMobileMenuOpen(open)
+          if (!open) setIsMobileCompanyOpen(false)
+        }}
+      >
         <SheetContent
           side="right"
           className="w-[300px] sm:w-[400px] overflow-y-auto"
@@ -333,27 +338,49 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-2">
-              <div className="flex items-center gap-1.5 px-4 pb-2 pt-1 text-sm font-medium text-[#062E25]/70">
-                <Building2 className="w-[15px] h-[15px]" strokeWidth={1.5} />
-                <span>{tFooter('company.title')}</span>
-              </div>
-              <div className="flex flex-col gap-1">
-                {companyLinks.map(link => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={cn(
-                      'px-4 py-2.5 rounded-lg text-sm font-light transition-all duration-200',
-                      pathname?.startsWith(link.href)
-                        ? 'bg-[#E6EAE9] text-[#062E25]'
-                        : 'text-[#062E25] hover:bg-[rgba(6,46,37,0.08)]'
-                    )}
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+            <div>
+              <button
+                onClick={() => setIsMobileCompanyOpen(prev => !prev)}
+                className={cn(
+                  'w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-all duration-200',
+                  isCompanyActive
+                    ? 'bg-[#E6EAE9] text-[#062E25]'
+                    : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
+                )}
+              >
+                {tFooter('company.title')}
+                <ChevronDown
+                  className={cn(
+                    'w-4 h-4 transition-transform duration-300',
+                    isMobileCompanyOpen && 'rotate-180'
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  'overflow-hidden transition-all duration-300 ease-out',
+                  isMobileCompanyOpen
+                    ? 'max-h-[400px] opacity-100'
+                    : 'max-h-0 opacity-0'
+                )}
+              >
+                <div className="flex flex-col gap-0.5 pt-1 pl-3">
+                  {companyLinks.map(link => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={cn(
+                        'px-4 py-2.5 rounded-lg text-sm font-light transition-all duration-200',
+                        pathname?.startsWith(link.href)
+                          ? 'bg-[#E6EAE9] text-[#062E25]'
+                          : 'text-[#062E25] hover:bg-[rgba(6,46,37,0.08)]'
+                      )}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
             {trailingNavItems.map(item => (

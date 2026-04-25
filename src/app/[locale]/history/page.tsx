@@ -32,7 +32,7 @@ const HistoryPage = async () => {
         backgroundImage="/images/history-page-hero.png"
         title={t('hero.title')}
         description={t('hero.description')}
-        contentClassName="[&_p]:max-w-[70%]"
+        descriptionClassName="max-w-[680px]"
       />
 
       <EnergyTransition />

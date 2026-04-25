@@ -4,22 +4,22 @@ const InvestorsHero = async () => {
   const t = await getTranslations('investorsPage')
 
   return (
-    <section className='relative min-h-[879px] flex justify-center overflow-hidden'>
-      <div className='absolute inset-0 z-0'>
+    <section className="relative md:min-h-[879px] flex justify-center overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <div
-          className='absolute inset-0 bg-cover bg-center'
+          className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/images/hero-solar-panels.webp')",
           }}
         />
       </div>
 
-      <div className='relative z-10 max-w-360 mx-auto px-6 pt-40 pb-16'>
-        <div className='flex flex-col items-center text-center'>
-          <h1 className='text-foreground text-7xl font-medium mb-4 whitespace-pre-line'>
+      <div className="relative z-10 max-w-360 mx-auto px-6 pt-40 pb-16">
+        <div className="flex flex-col items-center text-center">
+          <h1 className="text-foreground text-7xl font-medium mb-4 whitespace-pre-line">
             {t('title')}
           </h1>
-          <p className='text-white/80 text-xl font-medium leading-[30px] mb-12 whitespace-pre-line'>
+          <p className="text-white/80 text-xl font-medium leading-[30px] mb-12 whitespace-pre-line">
             {t('subtitle')}
           </p>
         </div>

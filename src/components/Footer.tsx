@@ -122,7 +122,6 @@ const Footer = () => {
   const companyLinks = [
     { label: t('company.aboutUs'), href: '/about-us' as const },
     { label: t('company.history'), href: '/history' as const },
-    // { label: t('company.mission'), href: '/mission' as const },
     { label: t('company.team'), href: '/team' as const },
     { label: t('company.investors'), href: '/investors' as const },
     { label: t('company.careers'), href: '/careers' as const },
@@ -457,7 +456,11 @@ const Footer = () => {
         <div className="relative max-w-[1380px] mx-auto px-6 pt-8 pb-8 z-20">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-8">
             <div className="w-fit">
-              <Link href="/" className="inline-block">
+              <Link
+                href="/"
+                aria-label="Free State AG — Startseite"
+                className="inline-block"
+              >
                 {useLightFooter ? (
                   <LogoDark className="h-10 w-auto" />
                 ) : (

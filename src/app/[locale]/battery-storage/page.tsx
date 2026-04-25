@@ -35,7 +35,7 @@ const BatteryStoragePage = () => {
         data={buildServiceJsonLd({
           name: 'Batteriespeicher Installation',
           description: 'Stromspeicher für Photovoltaikanlagen.',
-          url: 'https://freestate.ch/batteriespeicher',
+          url: 'https://www.freestate.ch/batteriespeicher',
           serviceType: 'Battery Storage Installation',
         })}
       />

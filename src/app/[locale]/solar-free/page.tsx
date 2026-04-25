@@ -44,7 +44,7 @@ const SolarFreePage = async ({ params }: SolarFreePageProps) => {
         data={buildServiceJsonLd({
           name: 'Solar-Abo (PPA)',
           description: 'Solar-Abo Modell ohne Eigeninvestition. Monatliche Rate statt Kauf.',
-          url: 'https://freestate.ch/solar-free',
+          url: 'https://www.freestate.ch/solar-free',
           serviceType: 'Solar Power Purchase Agreement',
         })}
       />

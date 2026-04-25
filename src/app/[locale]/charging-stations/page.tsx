@@ -32,7 +32,7 @@ const ChargingStationsPage = async () => {
         data={buildServiceJsonLd({
           name: 'Ladestationen für Elektroautos',
           description: 'Wallbox für zuhause, bidirektionales Laden verfügbar.',
-          url: 'https://freestate.ch/ladestationen',
+          url: 'https://www.freestate.ch/ladestationen',
           serviceType: 'EV Charging Station Installation',
         })}
       />

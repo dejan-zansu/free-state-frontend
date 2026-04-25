@@ -45,7 +45,7 @@ const SolarDirectPage = async ({ params }: SolarDirectPageProps) => {
         data={buildServiceJsonLd({
           name: 'Solar-Direct',
           description: 'Direkter Kauf einer Solaranlage mit transparentem Festpreis.',
-          url: 'https://freestate.ch/solar-direct',
+          url: 'https://www.freestate.ch/solar-direct',
           serviceType: 'Solar Direct Purchase',
         })}
       />

@@ -470,42 +470,26 @@
       "commercialSubtitle": "Avis authentiques d'entreprises partenaires et de clients professionnels.",
       "commercialItems": [
         {
-          "quote": "Free State a modernisé notre site de production avec une vraie expertise. La gestion de projet était professionnelle, le calendrier respecté avec précision, et l'installation fonctionne parfaitement depuis le premier jour.",
-          "authorName": "Marco Keller",
-          "authorRole": "Responsable des opérations, Keller Logistik AG"
+          "quote": "Nos toits de granges ont été parfaitement utilisés pour produire de l'énergie solaire. Free State nous a brillamment accompagnés – de la planification détaillée à l'entretien régulier. Nous économisons sur nos coûts d'énergie tout en contribuant à la protection du climat.",
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "En tant que société immobilière, nous avons équipé plusieurs biens avec Free State. La collaboration étroite, le conseil technique et le reporting nous ont entièrement convaincus.",
-          "authorName": "Sabrina Meier",
-          "authorRole": "Responsable Asset Management, Helvetica Real Estate"
-        },
-        {
-          "quote": "Les toits de nos entrepôts sont désormais exploités de manière optimale. L'équipe a compris nos exigences industrielles avec précision et a livré une solution évolutive.",
-          "authorName": "Stefan Brunner",
-          "authorRole": "CTO, Brunner Industrie GmbH"
-        },
-        {
-          "quote": "La rentabilité de notre installation a été présentée de façon transparente et l'exécution a été parfaite. Free State est pour nous un partenaire fiable sur le chemin du net zéro.",
-          "authorName": "Claudia Hofer",
-          "authorRole": "CFO, Hofer & Partner AG"
+          "quote": "Extrêmement satisfait. Très compétent, fiable et toujours aimable. La communication a été excellente, tout s'est déroulé en douceur et de manière professionnelle. Je ne peux que les recommander.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ],
       "items": [
         {
           "quote": "Nos toits de granges ont été parfaitement utilisés pour produire de l'énergie solaire. Free State nous a brillamment accompagnés – de la planification détaillée à l'entretien régulier. Nous économisons sur nos coûts d'énergie tout en contribuant à la protection du climat.",
-          "authorName": "Rivero Pineda Leonardo"
+          "authorName": "Rivero Pineda Leonardo",
+          "source": "google"
         },
         {
-          "quote": "Le conseil a été honnête et compétent. L'équipe a pris le temps de comprendre notre maison et a trouvé une solution qui nous convient. Nous recommanderions Free State à tout moment.",
-          "authorName": "Andrea Berger"
-        },
-        {
-          "quote": "De l'offre à la mise en service, tout a été rapide et fluide. Les installateurs étaient ponctuels, soigneux et très aimables. L'application fonctionne parfaitement et nous avons toujours une vue d'ensemble.",
-          "authorName": "Thomas Steiner"
-        },
-        {
-          "quote": "Depuis l'installation, nous remarquons immédiatement combien notre facture d'électricité a baissé. Nous avons particulièrement apprécié la communication claire et le travail soigné sur le toit.",
-          "authorName": "Nicole Jäggi"
+          "quote": "Extrêmement satisfait. Très compétent, fiable et toujours aimable. La communication a été excellente, tout s'est déroulé en douceur et de manière professionnelle. Je ne peux que les recommander.",
+          "authorName": "Jason Ackles",
+          "source": "google"
         }
       ]
     },

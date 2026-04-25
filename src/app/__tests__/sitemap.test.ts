@@ -15,7 +15,7 @@ import sitemap from '../sitemap'
 describe('sitemap', () => {
   it('includes the home page with all locale alternates', async () => {
     const entries = await sitemap()
-    const home = entries.find(e => e.url === 'https://freestate.ch/')
+    const home = entries.find(e => e.url === 'https://www.freestate.ch/')
     expect(home).toBeDefined()
     expect(home?.alternates?.languages).toBeDefined()
     expect(Object.keys(home!.alternates!.languages!).sort()).toEqual([
@@ -30,7 +30,7 @@ describe('sitemap', () => {
   it('includes the localized pathname for about-us', async () => {
     const entries = await sitemap()
     const urls = entries.map(e => e.url)
-    expect(urls).toContain('https://freestate.ch/ueber-uns')
+    expect(urls).toContain('https://www.freestate.ch/ueber-uns')
   })
 
   it('does not include admin, dashboard, or auth paths', async () => {

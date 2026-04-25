@@ -442,12 +442,6 @@ export const routing = defineRouting({
       fr: '/histoire',
       it: '/storia',
     },
-    '/mission': {
-      en: '/mission',
-      de: '/mission',
-      fr: '/mission',
-      it: '/missione',
-    },
     '/team': {
       en: '/team',
       de: '/team',

@@ -38,7 +38,7 @@ const ValuesSection = () => {
           {values.map((value, index) => (
             <div
               key={value.key}
-              className="relative flex flex-col lg:flex-1 lg:min-w-0"
+              className="relative flex flex-col items-center text-center sm:items-start sm:text-left lg:flex-1 lg:min-w-0"
             >
               {index > 0 && (
                 <div className="hidden lg:block absolute -left-[70px] top-7 bottom-0 w-px bg-foreground/30" />
