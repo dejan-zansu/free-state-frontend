@@ -51,7 +51,7 @@ const VisionSection = () => {
             aria-hidden
           />
 
-          <div className="relative z-10 w-full max-w-[577px] p-6 sm:p-10 rounded-[16px] border border-[#f6f6f6]/60 backdrop-blur-[10px] bg-[rgba(28,40,31,0.06)]">
+          <div className="relative z-10 w-full max-w-[577px] p-6 sm:p-10 rounded-[16px] border border-[#f6f6f6]/60 backdrop-blur-[10px] bg-[rgba(28,40,31,0.06)] mb-[40px] md:mb-0">
             <p className="text-[#FDFFF5]/80 text-base font-light text-center">
               {t('cardText')}
             </p>
