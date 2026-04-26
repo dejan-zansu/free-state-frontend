@@ -3,60 +3,222 @@
   "seo": {
     "defaultTitle": "Free State AG",
     "titleTemplate": "%s | Free State AG",
-    "home": { "title": "", "description": "" },
-    "solarSystems": { "title": "", "description": "" },
-    "solarFree": { "title": "", "description": "" },
-    "solarDirect": { "title": "", "description": "" },
-    "batteryStorage": { "title": "", "description": "" },
-    "heatPumps": { "title": "", "description": "" },
-    "chargingStations": { "title": "", "description": "" },
-    "commercial": { "title": "", "description": "" },
-    "cost": { "title": "", "description": "" },
-    "amortization": { "title": "", "description": "" },
-    "solarCalculator": { "title": "", "description": "" },
-    "calculator": { "title": "", "description": "" },
-    "aboutUs": { "title": "", "description": "" },
-    "team": { "title": "", "description": "" },
-    "history": { "title": "", "description": "" },
-    "careers": { "title": "", "description": "" },
-    "faq": { "title": "", "description": "" },
-    "portfolio": { "title": "", "description": "" },
-    "service": { "title": "", "description": "" },
-    "blog": { "title": "", "description": "" },
-    "contact": { "title": "", "description": "" },
-    "energyStorage": { "title": "", "description": "" },
-    "repowering": { "title": "", "description": "" },
-    "solarSystemCarport": { "title": "", "description": "" },
-    "media": { "title": "", "description": "" },
-    "investors": { "title": "", "description": "" },
-    "impressum": { "title": "", "description": "" },
-    "agb": { "title": "", "description": "" },
-    "privacyPolicy": { "title": "", "description": "" },
-    "howItWorks": { "title": "", "description": "" },
-    "heatPumpsProducts": { "title": "", "description": "" },
-    "heatPumpsCost": { "title": "", "description": "" },
-    "heatPumpsHowItWorks": { "title": "", "description": "" },
-    "heatPumpsWithSolarSystem": { "title": "", "description": "" },
-    "heatPumpsService": { "title": "", "description": "" },
-    "chargingStationsApartment": { "title": "", "description": "" },
-    "chargingStationsSingleFamily": { "title": "", "description": "" },
-    "chargingStationsBidirectional": { "title": "", "description": "" },
-    "commercialCalculator": { "title": "", "description": "" },
-    "commercialSolarSystems": { "title": "", "description": "" },
-    "commercialChargingStations": { "title": "", "description": "" },
-    "commercialSolarFree": { "title": "", "description": "" },
-    "commercialSolarFreeIndustry": { "title": "", "description": "" },
-    "commercialSolarFreeMultiFamily": { "title": "", "description": "" },
-    "commercialSolarFreeFarmhouses": { "title": "", "description": "" },
-    "commercialSolarFreePublicBuildings": { "title": "", "description": "" },
-    "commercialSolarSystemsHow": { "title": "", "description": "" },
-    "commercialSolarSystemsProjectDev": { "title": "", "description": "" },
-    "commercialSolarSystemsCarport": { "title": "", "description": "" },
-    "commercialSolarSystemsContracting": { "title": "", "description": "" },
-    "commercialChargingApartment": { "title": "", "description": "" },
-    "commercialChargingFast": { "title": "", "description": "" },
-    "commercialChargingBidirectional": { "title": "", "description": "" },
-    "commercialChargingCompany": { "title": "", "description": "" }
+    "home": {
+      "title": "",
+      "description": ""
+    },
+    "solarSystems": {
+      "title": "",
+      "description": ""
+    },
+    "solarFree": {
+      "title": "",
+      "description": ""
+    },
+    "solarDirect": {
+      "title": "",
+      "description": ""
+    },
+    "batteryStorage": {
+      "title": "",
+      "description": ""
+    },
+    "heatPumps": {
+      "title": "",
+      "description": ""
+    },
+    "chargingStations": {
+      "title": "",
+      "description": ""
+    },
+    "commercial": {
+      "title": "",
+      "description": ""
+    },
+    "cost": {
+      "title": "",
+      "description": ""
+    },
+    "amortization": {
+      "title": "",
+      "description": ""
+    },
+    "solarCalculator": {
+      "title": "",
+      "description": ""
+    },
+    "calculator": {
+      "title": "",
+      "description": ""
+    },
+    "aboutUs": {
+      "title": "",
+      "description": ""
+    },
+    "team": {
+      "title": "",
+      "description": ""
+    },
+    "history": {
+      "title": "",
+      "description": ""
+    },
+    "careers": {
+      "title": "",
+      "description": ""
+    },
+    "faq": {
+      "title": "",
+      "description": ""
+    },
+    "portfolio": {
+      "title": "",
+      "description": ""
+    },
+    "service": {
+      "title": "",
+      "description": ""
+    },
+    "blog": {
+      "title": "",
+      "description": ""
+    },
+    "contact": {
+      "title": "",
+      "description": ""
+    },
+    "energyStorage": {
+      "title": "",
+      "description": ""
+    },
+    "repowering": {
+      "title": "",
+      "description": ""
+    },
+    "solarSystemCarport": {
+      "title": "",
+      "description": ""
+    },
+    "media": {
+      "title": "",
+      "description": ""
+    },
+    "investors": {
+      "title": "",
+      "description": ""
+    },
+    "impressum": {
+      "title": "",
+      "description": ""
+    },
+    "agb": {
+      "title": "",
+      "description": ""
+    },
+    "privacyPolicy": {
+      "title": "",
+      "description": ""
+    },
+    "howItWorks": {
+      "title": "",
+      "description": ""
+    },
+    "heatPumpsProducts": {
+      "title": "",
+      "description": ""
+    },
+    "heatPumpsCost": {
+      "title": "",
+      "description": ""
+    },
+    "heatPumpsHowItWorks": {
+      "title": "",
+      "description": ""
+    },
+    "heatPumpsWithSolarSystem": {
+      "title": "",
+      "description": ""
+    },
+    "heatPumpsService": {
+      "title": "",
+      "description": ""
+    },
+    "chargingStationsApartment": {
+      "title": "",
+      "description": ""
+    },
+    "chargingStationsSingleFamily": {
+      "title": "",
+      "description": ""
+    },
+    "chargingStationsBidirectional": {
+      "title": "",
+      "description": ""
+    },
+    "commercialCalculator": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarSystems": {
+      "title": "",
+      "description": ""
+    },
+    "commercialChargingStations": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarFree": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarFreeIndustry": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarFreeMultiFamily": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarFreeFarmhouses": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarFreePublicBuildings": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarSystemsHow": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarSystemsProjectDev": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarSystemsCarport": {
+      "title": "",
+      "description": ""
+    },
+    "commercialSolarSystemsContracting": {
+      "title": "",
+      "description": ""
+    },
+    "commercialChargingApartment": {
+      "title": "",
+      "description": ""
+    },
+    "commercialChargingFast": {
+      "title": "",
+      "description": ""
+    },
+    "commercialChargingBidirectional": {
+      "title": "",
+      "description": ""
+    },
+    "commercialChargingCompany": {
+      "title": "",
+      "description": ""
+    }
   },
   "apiErrors": {
     "USER_EXISTS": "A user with this email already exists.",
@@ -4032,6 +4194,65 @@
           "label": "Across the year",
           "subtitle": "Production and self-use throughout every month."
         }
+      },
+      "purchaseFinancial": {
+        "title": "Your investment",
+        "grossPrice": "Gross price",
+        "estimatedSubsidy": "Estimated subsidy",
+        "subsidyUnavailable": "Subsidy estimate unavailable; we'll calculate during onboarding.",
+        "netInvestment": "Net investment",
+        "annualSavings": "Annual savings",
+        "paybackPeriod": "Payback period",
+        "lifetime25y": "25-year savings",
+        "year": "year",
+        "yearsShort": "years"
+      },
+      "solarDirect": {
+        "title": "Your Solar-Direct Configuration",
+        "subtitle": "Review your equipment and choose a package to purchase your solar system outright.",
+        "chooseYourPackage": "Choose your package",
+        "whatsIncluded": "What's included",
+        "signContract": "Sign contract"
+      },
+      "packageCard": {
+        "capacityRange": "{min}–{max} kWp",
+        "estimatedNet": "Net after subsidy: {value}",
+        "subscriptionTagline": "Monthly subscription"
+      },
+      "equipmentCard": {
+        "category": {
+          "PANEL": "Solar panels",
+          "INVERTER": "Inverter",
+          "BATTERY": "Battery storage",
+          "MOUNTING": "Mounting system",
+          "EMS": "Energy management",
+          "HEAT_PUMP": "Heat pump"
+        },
+        "spec": {
+          "peakPowerW": "Peak power (W)",
+          "efficiencyPercent": "Efficiency (%)",
+          "color": "Colour",
+          "acPowerKw": "AC power (kW)",
+          "mpptCount": "MPPT inputs",
+          "capacityKwh": "Capacity (kWh)",
+          "dodPercent": "Depth of discharge (%)",
+          "cycles": "Cycle life",
+          "mountingType": "Mounting type"
+        },
+        "quantity": "{count}×",
+        "warranty": "{years}-year warranty",
+        "warrantyWithPerformance": "{years}-year warranty ({perf}% performance)",
+        "datasheet": "Datasheet"
+      },
+      "subsidyAssistance": {
+        "title": "Subsidy assistance included",
+        "body": "Free State AG handles the subsidy application on your behalf after installation is complete."
+      },
+      "warranty": {
+        "title": "Warranty overview",
+        "installer": "{years}-year workmanship warranty (Free State AG)",
+        "product": "Manufacturer guarantees: {summary}",
+        "maintenance": "Maintenance support available throughout the system lifetime"
       }
     },
     "solarDirect": {
@@ -4165,7 +4386,10 @@
         "term": "Term",
         "years": "{years} years",
         "yearlySavings": "Annual savings",
-        "netAmount": "Net amount"
+        "netAmount": "Net amount",
+        "grossPrice": "Gross price",
+        "estimatedSubsidy": "Estimated subsidy",
+        "installerWarranty": "Installer warranty"
       },
       "solarFree": {
         "rateCard": {
@@ -4300,6 +4524,25 @@
       "actions": {
         "newCalculation": "New Calculation",
         "backToHome": "Back to Home"
+      },
+      "nextStepsSolarDirect": {
+        "title": "What happens next",
+        "step1": {
+          "title": "We'll be in touch",
+          "description": "Free State AG will contact you to gather pre-installation documents and schedule a site assessment."
+        },
+        "step2": {
+          "title": "Subsidy application",
+          "description": "Once installation is complete, we'll prepare and submit your subsidy application on your behalf."
+        },
+        "step3": {
+          "title": "Installation",
+          "description": "Installation is typically scheduled within 8–16 weeks of your second payment milestone."
+        },
+        "step4": {
+          "title": "Warranty registration",
+          "description": "Free State AG handles all warranty paperwork so you don't have to."
+        }
       }
     },
     "navigation": {
@@ -6289,7 +6532,29 @@
       "notStarted": "Not started",
       "customerSigned": "Customer Signed",
       "project": "Project",
-      "projectStatus": "Project Status"
+      "projectStatus": "Project Status",
+      "subsidyCard": {
+        "title": "Subsidy Tracking",
+        "estimated": "Estimated",
+        "status": "Status",
+        "appliedAt": "Applied At",
+        "approvedAt": "Approved At",
+        "paidAmount": "Paid Amount (CHF)",
+        "referenceNumber": "Reference Number",
+        "notes": "Notes",
+        "save": "Save",
+        "saving": "Saving…",
+        "savedAt": "Saved at {time}",
+        "statusOptions": {
+          "NOT_STARTED": "Not started",
+          "DOCUMENTS_PENDING": "Documents pending",
+          "SUBMITTED_TO_CANTON": "Submitted to canton",
+          "UNDER_REVIEW": "Under review",
+          "APPROVED": "Approved",
+          "REJECTED": "Rejected",
+          "PAID_OUT": "Paid out"
+        }
+      }
     },
     "dataRequests": {
       "notFound": "Not found.",

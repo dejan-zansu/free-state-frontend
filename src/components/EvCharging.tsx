@@ -1,7 +1,11 @@
 import { getTranslations } from 'next-intl/server'
 import ProductShowcase from './ProductShowcase'
 
-const EvCharging = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
+const EvCharging = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.evCharging')
 
   return (
@@ -16,7 +20,7 @@ const EvCharging = async ({ isCommercial = false }: { isCommercial?: boolean }) 
       ]}
       cta={t('cta')}
       ctaHref="/heat-pumps"
-      imageSrc="/images/ev-charger-huawei-479789.webp"
+      imageSrc="/images/ev-charger-huawei-479789.png"
       imageAlt={t('title')}
       brandLogoSrc="/images/huawei-logo-4686a6.png"
       brandLogoAlt="Huawei"

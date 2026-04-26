@@ -205,6 +205,16 @@ export interface AdminContract {
     propertyAddress: string
     status: string
     selectedPackage: string | null
+    subsidyStatus: string | null
+    subsidyAppliedAt: string | null
+    subsidyApprovedAt: string | null
+    subsidyPaidAmount: number | null
+    subsidyReferenceNumber: string | null
+    subsidyNotes: string | null
+    solarCalculation: {
+      solarModel: string | null
+      subsidiesChf: number | null
+    } | null
   }
 }
 

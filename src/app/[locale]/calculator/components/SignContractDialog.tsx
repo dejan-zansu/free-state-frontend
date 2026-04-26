@@ -51,8 +51,11 @@ export default function SignContractDialog({
     solarModel,
     selectedPackageCode,
     selectedPackageContractTermYears,
+    selectedPackageInstallerWarrantyYears,
     getAnnualPpaSavings,
     getAnnualSavings,
+    getGrossAmount,
+    getSubsidyAmount,
     getNetAmount,
     acknowledgments,
     addAcknowledgment,
@@ -67,8 +70,11 @@ export default function SignContractDialog({
 
   const isSolarFree = solarModel === 'solar-free'
   const yearlySavings = isSolarFree ? getAnnualPpaSavings() : getAnnualSavings()
+  const grossAmount = getGrossAmount()
+  const subsidyAmount = getSubsidyAmount()
   const netAmount = getNetAmount()
   const termYears = selectedPackageContractTermYears ?? 25
+  const installerWarrantyYears = selectedPackageInstallerWarrantyYears ?? 2
 
   const toggleAcknowledgment = (type: string) => {
     if (acknowledgments.includes(type)) {
@@ -128,12 +134,30 @@ export default function SignContractDialog({
                 </div>
               )}
               {!isSolarFree && (
-                <div className="flex items-baseline justify-between gap-4">
-                  <dt className="text-[#062E25]/60">{tRecap('netAmount')}</dt>
-                  <dd className="font-semibold text-[#062E25] text-right tabular-nums">
-                    CHF {formatCHF(netAmount)}
-                  </dd>
-                </div>
+                <>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="text-[#062E25]/60">{tRecap('grossPrice')}</dt>
+                    <dd className="font-semibold text-[#062E25] text-right tabular-nums">
+                      CHF {formatCHF(grossAmount)}
+                    </dd>
+                  </div>
+                  {subsidyAmount > 0 && (
+                    <div className="flex items-baseline justify-between gap-4">
+                      <dt className="text-[#062E25]/60">
+                        {tRecap('estimatedSubsidy')}
+                      </dt>
+                      <dd className="font-semibold text-[#062E25] text-right tabular-nums">
+                        − CHF {formatCHF(subsidyAmount)}
+                      </dd>
+                    </div>
+                  )}
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="text-[#062E25]/60">{tRecap('netAmount')}</dt>
+                    <dd className="font-semibold text-[#062E25] text-right tabular-nums">
+                      CHF {formatCHF(netAmount)}
+                    </dd>
+                  </div>
+                </>
               )}
               <div className="flex items-baseline justify-between gap-4">
                 <dt className="text-[#062E25]/60">{tRecap('yearlySavings')}</dt>
@@ -141,6 +165,16 @@ export default function SignContractDialog({
                   CHF {formatCHF(yearlySavings)}
                 </dd>
               </div>
+              {!isSolarFree && (
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="text-[#062E25]/60">
+                    {tRecap('installerWarranty')}
+                  </dt>
+                  <dd className="font-semibold text-[#062E25] text-right">
+                    {tRecap('years', { years: installerWarrantyYears })}
+                  </dd>
+                </div>
+              )}
             </dl>
           </div>
 

@@ -60,7 +60,7 @@ const StatItem = ({
         </div>
         <p
           className={cn(
-            'text-[#062E25]/80 text-[22px] font-medium leading-[1.09em] whitespace-pre-line',
+            'text-[#062E25]/80 text-[22px] font-medium whitespace-pre-line',
             isRight ? 'text-right' : 'text-left'
           )}
         >
@@ -68,21 +68,16 @@ const StatItem = ({
         </p>
       </div>
 
-      <div
-        className={cn(
-          'lg:hidden flex items-center gap-4',
-          isRight && 'flex-row-reverse sm:flex-row'
-        )}
-      >
-        <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center shrink-0">
-          {mobileIcon}
-        </div>
-        <p
+      <div className="lg:hidden flex items-center gap-4">
+        <div
           className={cn(
-            'text-[#062E25]/80 text-base sm:text-lg font-medium leading-[1.09em] whitespace-pre-line',
-            isRight ? 'text-right sm:text-left' : ''
+            'w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full shrink-0',
+            iconBgClass
           )}
         >
+          {mobileIcon}
+        </div>
+        <p className="min-w-0 flex-1 text-[#062E25]/80 text-base sm:text-lg font-medium text-left text-balance">
           {text}
         </p>
       </div>
@@ -104,18 +99,22 @@ const SolarAboHero = async ({
 
   const iconClass =
     statIconClassName ?? (isCommercial ? 'text-white' : 'text-[#062E25]')
+  const mobileIconClass = cn(
+    'w-5 h-5 sm:w-7 sm:h-7 overflow-visible',
+    iconClass
+  )
 
   const leftStats = [
     {
       icon: <MoneySignIcon className={iconClass} />,
       mobileIcon: (
-        <MoneySignIcon className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
+        <MoneySignIcon className={mobileIconClass} strokeWidth={1.5} />
       ),
       text: t('hero.stats.left.investment'),
     },
     {
       icon: <SaleIcon className={iconClass} />,
-      mobileIcon: <SaleIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
+      mobileIcon: <SaleIcon className={mobileIconClass} />,
       text: t('hero.stats.left.electricity'),
     },
   ]
@@ -123,14 +122,12 @@ const SolarAboHero = async ({
   const rightStats = [
     {
       icon: <ShieldIcon className={iconClass} />,
-      mobileIcon: (
-        <ShieldIcon className="w-6 h-6 sm:w-8 sm:h-8" strokeWidth={1.5} />
-      ),
+      mobileIcon: <ShieldIcon className={mobileIconClass} strokeWidth={1.5} />,
       text: t('hero.stats.right.maintenance'),
     },
     {
       icon: <CO2ReductionIcon className={iconClass} />,
-      mobileIcon: <CO2ReductionIcon className="w-6 h-6 sm:w-8 sm:h-8" />,
+      mobileIcon: <CO2ReductionIcon className={mobileIconClass} />,
       text: t('hero.stats.right.reduction'),
     },
   ]
@@ -219,29 +216,16 @@ const SolarAboHero = async ({
           ))}
         </div>
 
-        <div className="lg:hidden w-full mt-8 space-y-6">
-          <div className="flex flex-col sm:flex-row gap-6">
-            <div className="flex-1 space-y-6">
-              {leftStats.map((stat, index) => (
-                <StatItem
-                  key={index}
-                  {...stat}
-                  align="left"
-                  isCommercial={isCommercial}
-                />
-              ))}
-            </div>
-            <div className="flex-1 space-y-6">
-              {rightStats.map((stat, index) => (
-                <StatItem
-                  key={index}
-                  {...stat}
-                  align="right"
-                  isCommercial={isCommercial}
-                />
-              ))}
-            </div>
-          </div>
+        <div className="lg:hidden w-full mt-4 md:mt-8 max-w-md mx-auto space-y-4 pb-8 md:pb-0">
+          {[...leftStats, ...rightStats].map((stat, index) => (
+            <StatItem
+              key={index}
+              {...stat}
+              align="left"
+              isCommercial={isCommercial}
+              iconBgClassName={statIconBgClassName}
+            />
+          ))}
         </div>
       </div>
 

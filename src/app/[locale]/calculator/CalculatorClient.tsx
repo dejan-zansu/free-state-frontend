@@ -17,7 +17,7 @@ import Step4RoofCovering from './steps/Step5RoofCovering'
 import Step5ContactDetails from './steps/Step6ContactDetails'
 import StepConfirmation from './steps/StepConfirmation'
 import StepSolarFreeResults from './steps/StepSolarFreeResults'
-import StepEquipmentResults from './steps/StepEquipmentResults'
+import StepSolarDirectResults from './steps/StepSolarDirectResults'
 import StepSignature from './steps/StepSignature'
 
 const PAGE_BG =
@@ -124,7 +124,7 @@ export default function CalculatorClient() {
         return <Step5ContactDetails />
       case 6:
         return solarModel === 'solar-direct' ? (
-          <StepEquipmentResults />
+          <StepSolarDirectResults />
         ) : (
           <StepSolarFreeResults />
         )

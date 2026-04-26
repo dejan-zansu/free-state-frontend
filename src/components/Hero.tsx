@@ -63,7 +63,7 @@ const Hero = async ({
         <div className="flex flex-col items-center text-center">
           <h1
             className={cn(
-              'text-white text-[32px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-3 sm:mb-4 whitespace-pre-line max-w-[900px] px-2',
+              'text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-3 sm:mb-4 whitespace-pre-line max-w-[900px] px-2',
               isCommercial && 'text-center'
             )}
           >

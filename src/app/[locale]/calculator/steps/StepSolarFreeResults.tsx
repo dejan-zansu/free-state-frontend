@@ -33,6 +33,7 @@ import {
 import {
   residentialCalculatorService,
   type CalculatorPackage,
+  type SolarModelFilter,
 } from '@/services/residential-calculator.service'
 import { LinkButton } from '@/components/ui/link-button'
 
@@ -78,7 +79,9 @@ function applyPackageToStore(
     electricitySavingsPercent?: number | null,
     contractTermYears?: number | null,
     firstYearDegradationPercent?: number | null,
-    annualDegradationPercent?: number | null
+    annualDegradationPercent?: number | null,
+    purchasePriceChf?: number | null,
+    installerWarrantyYears?: number | null,
   ) => void,
   pkg: CalculatorPackage
 ) {
@@ -97,7 +100,9 @@ function applyPackageToStore(
     pkg.electricitySavingsPercent ?? null,
     pkg.contractTermYears ?? null,
     firstYearDegradationPercent,
-    annualDegradationPercent
+    annualDegradationPercent,
+    pkg.purchasePriceChf ?? null,
+    pkg.installerWarrantyYears ?? null,
   )
 }
 
@@ -314,8 +319,10 @@ export default function StepResults() {
     feedInTariffChfKwh != null
 
   useEffect(() => {
+    const solarModel = useSolarAboCalculatorStore.getState().solarModel
+    const apiSolarModel: SolarModelFilter = solarModel === 'solar-direct' ? 'SOLAR_DIRECT' : 'SOLAR_FREE'
     residentialCalculatorService
-      .getPackages(locale)
+      .getPackages(locale, apiSolarModel)
       .then(data => {
         setPackages(data)
         const hasValidSelection =

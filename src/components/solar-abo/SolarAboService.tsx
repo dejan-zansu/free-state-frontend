@@ -18,15 +18,15 @@ const ServiceCard = ({
   title,
   description,
 }: ServiceCardProps) => (
-  <div className="flex flex-col gap-10 w-full sm:w-[207px] items-start">
-    <div className="relative w-[131px] h-[132px] shrink-0">
+  <div className="flex flex-col items-center text-center gap-10 sm:items-start sm:text-left sm:border-r sm:last:border-r-0 border-[#062E25]/30 sm:px-6 lg:px-[35px] first:sm:pl-0 last:sm:pr-0">
+    <div className="relative w-[112px] h-[112px] sm:w-[131px] sm:h-[132px] shrink-0">
       <Image src={imageSrc} alt={imageAlt} fill className="object-contain" />
     </div>
-    <div className="flex flex-col gap-5 w-full sm:w-[207px]">
-      <h3 className="text-[#062E25] text-xl sm:text-[22px] font-bold tracking-tight whitespace-pre-line">
+    <div className="flex flex-col items-center gap-5 sm:items-start">
+      <h3 className="text-[#062E25] text-xl sm:text-[22px] font-bold tracking-tight">
         {title}
       </h3>
-      <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] whitespace-pre-line">
+      <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em]">
         {description}
       </p>
     </div>
@@ -76,25 +76,15 @@ const SolarAboService = async ({
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 lg:mt-[60px] flex flex-col sm:flex-row items-center sm:items-start justify-center gap-10 sm:gap-[50px] lg:gap-[70px] max-w-[928px] mx-auto">
-          {cards.map((card, index) => (
-            <div
+        <div className="mt-12 sm:mt-16 lg:mt-[60px] w-full grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-0 max-w-[928px] mx-auto">
+          {cards.map(card => (
+            <ServiceCard
               key={card.titleKey}
-              className="flex flex-col sm:flex-row items-center sm:items-start gap-10 sm:gap-[50px] lg:gap-[70px]"
-            >
-              {index > 0 && (
-                <div
-                  className="hidden sm:block shrink-0 self-stretch w-px"
-                  style={{ background: 'rgba(6, 46, 37, 0.3)' }}
-                />
-              )}
-              <ServiceCard
-                imageSrc={card.imageSrc}
-                imageAlt={t(card.titleKey)}
-                title={t(card.titleKey)}
-                description={t(card.descriptionKey)}
-              />
-            </div>
+              imageSrc={card.imageSrc}
+              imageAlt={t(card.titleKey)}
+              title={t(card.titleKey)}
+              description={t(card.descriptionKey)}
+            />
           ))}
         </div>
       </div>

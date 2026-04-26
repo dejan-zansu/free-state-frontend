@@ -38,10 +38,7 @@ const HowPV = ({
   return (
     <section className="w-full">
       {rows.map((row, idx) => (
-        <div
-          key={idx}
-          className="grid grid-cols-1 md:grid-cols-2 w-full"
-        >
+        <div key={idx} className="grid grid-cols-1 md:grid-cols-2 w-full">
           <div
             className={`relative min-h-[320px] md:min-h-[488px] ${
               row.imageFirst ? 'md:order-1' : 'md:order-2'
@@ -60,7 +57,7 @@ const HowPV = ({
             }`}
           >
             <div className="flex flex-col gap-5 max-w-[535px]">
-              <h3 className="font-figtree font-medium text-[32px] md:text-[45px] text-[#062E25]">
+              <h3 className="font-figtree font-medium text-3xl md:text-[45px] text-[#062E25]">
                 {row.title}
               </h3>
               <p className="font-figtree font-light text-[18px] md:text-[22px] tracking-[-0.02em] text-[#062E25]/80 whitespace-pre-line">
