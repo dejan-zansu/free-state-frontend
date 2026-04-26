@@ -2,9 +2,7 @@ import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
-import type { EquipmentQuote } from '@/types/equipment'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
-import { equipmentService } from '@/services/equipment.service'
 import { electricityPriceService } from '@/services/electricity-price.service'
 import { subsidyService } from '@/services/subsidy.service'
 import { feedInTariffService } from '@/services/feed-in-tariff.service'
@@ -224,21 +222,14 @@ interface SolarAboCalculatorState {
   selectedPackageId: string | null
   selectedPackageCode: string | null
   selectedPackagePricePerKwp: number | null
+  selectedPackagePurchasePriceChf: number | null
+  selectedPackageInstallerWarrantyYears: number | null
   selectedPackageElectricitySavingsPercent: number | null
   selectedPackageContractTermYears: number | null
   selectedPanelWattageW: number | null
   selectedPanelAreaM2: number | null
   selectedPanelFirstYearDegradationPercent: number | null
   selectedPanelAnnualDegradationPercent: number | null
-
-  selectedSolarPanelId: string | null
-  selectedInverterId: string | null
-  selectedBatteryId: string | null
-  selectedMountingSystemId: string | null
-  selectedEmsId: string | null
-  selectedHeatPumpId: string | null
-  equipmentQuote: EquipmentQuote | null
-  equipmentQuoteLoading: boolean
 
   createdContractId: string | null
   contractNumber: string | null
@@ -291,6 +282,9 @@ interface SolarAboCalculatorActions {
   getSelfConsumptionRate: () => number
   getAnnualSavings: () => number
   getAnnualPpaSavings: () => number
+  getEstimatedNetPrice: (pkg: { purchasePriceChf: number | null }, estimatedSubsidyChf: number) => number
+  getPaybackYears: (estimatedNetPriceChf: number, annualSavings: number) => number
+  getLifetimeSavings25y: (annualSavings: number, estimatedNetPriceChf: number) => number
   getCo2Savings: () => number
   getMonthlyProduction: () => number[]
   getProductionFactorForYear: (year: number) => number
@@ -307,9 +301,9 @@ interface SolarAboCalculatorActions {
     contractTermYears?: number | null,
     firstYearDegradationPercent?: number | null,
     annualDegradationPercent?: number | null,
+    purchasePriceChf?: number | null,
+    installerWarrantyYears?: number | null,
   ) => void
-  setSelectedEquipment: (type: 'solarPanel' | 'inverter' | 'battery' | 'mountingSystem' | 'ems' | 'heatPump', id: string | null, panelWattageW?: number, panelAreaM2?: number) => void
-  fetchEquipmentQuote: (locale?: string) => Promise<void>
   getGrossAmount: () => number
   getSubsidyAmount: () => number
   getNetAmount: () => number
@@ -399,21 +393,14 @@ const initialState: SolarAboCalculatorState = {
   selectedPackageId: null,
   selectedPackageCode: null,
   selectedPackagePricePerKwp: null,
+  selectedPackagePurchasePriceChf: null,
+  selectedPackageInstallerWarrantyYears: null,
   selectedPackageElectricitySavingsPercent: null,
   selectedPackageContractTermYears: null,
   selectedPanelWattageW: null,
   selectedPanelAreaM2: null,
   selectedPanelFirstYearDegradationPercent: null,
   selectedPanelAnnualDegradationPercent: null,
-
-  selectedSolarPanelId: null,
-  selectedInverterId: null,
-  selectedBatteryId: null,
-  selectedMountingSystemId: null,
-  selectedEmsId: null,
-  selectedHeatPumpId: null,
-  equipmentQuote: null,
-  equipmentQuoteLoading: false,
 
   createdContractId: null,
   contractNumber: null,
@@ -450,20 +437,14 @@ export const useSolarAboCalculatorStore = create<
           selectedPackageId: null,
           selectedPackageCode: null,
           selectedPackagePricePerKwp: null,
+          selectedPackagePurchasePriceChf: null,
+          selectedPackageInstallerWarrantyYears: null,
           selectedPackageElectricitySavingsPercent: null,
           selectedPackageContractTermYears: null,
           selectedPanelWattageW: null,
           selectedPanelAreaM2: null,
           selectedPanelFirstYearDegradationPercent: null,
           selectedPanelAnnualDegradationPercent: null,
-          selectedSolarPanelId: null,
-          selectedInverterId: null,
-          selectedBatteryId: null,
-          selectedMountingSystemId: null,
-          selectedEmsId: null,
-          selectedHeatPumpId: null,
-          equipmentQuote: null,
-          equipmentQuoteLoading: false,
           isSubmitting: false,
           isSubmitted: false,
           submissionError: null,
@@ -673,9 +654,7 @@ export const useSolarAboCalculatorStore = create<
 
         rate += deviceBonuses
 
-        const hasBattery = !!get().selectedBatteryId
-        const maxRate = hasBattery ? 0.75 : 0.55
-        return Math.min(rate, maxRate)
+        return Math.min(rate, 0.55)
       },
 
       getAnnualSavings: () => {
@@ -709,6 +688,20 @@ export const useSolarAboCalculatorStore = create<
           consumption,
         )
         return selfConsumedKwh * price * discountFraction
+      },
+
+      getEstimatedNetPrice: (pkg: { purchasePriceChf: number | null }, estimatedSubsidyChf: number) => {
+        const gross = Number(pkg.purchasePriceChf ?? 0)
+        return Math.max(0, gross - estimatedSubsidyChf)
+      },
+
+      getPaybackYears: (estimatedNetPriceChf: number, annualSavings: number) => {
+        if (annualSavings <= 0) return Infinity
+        return estimatedNetPriceChf / annualSavings
+      },
+
+      getLifetimeSavings25y: (annualSavings: number, estimatedNetPriceChf: number) => {
+        return annualSavings * 25 - estimatedNetPriceChf
       },
 
       getCo2Savings: () => {
@@ -782,11 +775,15 @@ export const useSolarAboCalculatorStore = create<
         contractTermYears?: number | null,
         firstYearDegradationPercent?: number | null,
         annualDegradationPercent?: number | null,
+        purchasePriceChf?: number | null,
+        installerWarrantyYears?: number | null,
       ) => {
         set({
           selectedPackageId: id,
           selectedPackageCode: code,
           selectedPackagePricePerKwp: pricePerKwp,
+          selectedPackagePurchasePriceChf: purchasePriceChf ?? null,
+          selectedPackageInstallerWarrantyYears: installerWarrantyYears ?? null,
           selectedPanelWattageW: panelWattageW ?? null,
           selectedPanelAreaM2: panelAreaM2 ?? null,
           selectedPackageElectricitySavingsPercent: electricitySavingsPercent ?? null,
@@ -796,69 +793,14 @@ export const useSolarAboCalculatorStore = create<
         })
       },
 
-      setSelectedEquipment: (type, id, panelWattageW?, panelAreaM2?) => {
-        const fieldMap = {
-          solarPanel: 'selectedSolarPanelId',
-          inverter: 'selectedInverterId',
-          battery: 'selectedBatteryId',
-          mountingSystem: 'selectedMountingSystemId',
-          ems: 'selectedEmsId',
-          heatPump: 'selectedHeatPumpId',
-        } as const
-        const update: Record<string, unknown> = { [fieldMap[type]]: id }
-        if (type === 'solarPanel') {
-          update.selectedPanelWattageW = panelWattageW ?? null
-          update.selectedPanelAreaM2 = panelAreaM2 ?? null
-        }
-        set(update as Partial<SolarAboCalculatorState>)
-      },
-
-      fetchEquipmentQuote: async (locale = 'en') => {
-        const state = get()
-        const items: Array<{ equipmentId: string; equipmentType: string; quantity: number }> = []
-        const panelCount = state.getEstimatedPanelCount()
-
-        if (state.selectedSolarPanelId && panelCount > 0) {
-          items.push({ equipmentId: state.selectedSolarPanelId, equipmentType: 'SOLAR_PANEL', quantity: panelCount })
-        }
-        if (state.selectedInverterId) {
-          items.push({ equipmentId: state.selectedInverterId, equipmentType: 'INVERTER', quantity: 1 })
-        }
-        if (state.selectedBatteryId) {
-          items.push({ equipmentId: state.selectedBatteryId, equipmentType: 'BATTERY', quantity: 1 })
-        }
-        if (state.selectedMountingSystemId) {
-          items.push({ equipmentId: state.selectedMountingSystemId, equipmentType: 'MOUNTING_SYSTEM', quantity: 1 })
-        }
-        if (state.selectedEmsId) {
-          items.push({ equipmentId: state.selectedEmsId, equipmentType: 'ENERGY_MANAGEMENT_SYSTEM', quantity: 1 })
-        }
-        if (state.selectedHeatPumpId) {
-          items.push({ equipmentId: state.selectedHeatPumpId, equipmentType: 'HEAT_PUMP', quantity: 1 })
-        }
-
-        if (items.length === 0) {
-          set({ equipmentQuote: null, equipmentQuoteLoading: false })
-          return
-        }
-
-        set({ equipmentQuoteLoading: true })
-        try {
-          const quote = await equipmentService.getQuote(items, locale)
-          set({ equipmentQuote: quote, equipmentQuoteLoading: false })
-        } catch {
-          set({ equipmentQuoteLoading: false })
-        }
-      },
-
       getGrossAmount: () => {
-        const { solarModel, equipmentQuote, selectedPackagePricePerKwp } = get()
-        if (solarModel === 'solar-direct') {
-          return equipmentQuote?.subtotal ?? 0
+        const state = get()
+        if (state.selectedPackagePurchasePriceChf != null) {
+          return state.selectedPackagePurchasePriceChf
         }
-        const systemSizeKwp = get().getSystemSizeKwp()
-        if (selectedPackagePricePerKwp) {
-          return selectedPackagePricePerKwp * systemSizeKwp
+        const systemSizeKwp = state.getSystemSizeKwp()
+        if (state.selectedPackagePricePerKwp) {
+          return state.selectedPackagePricePerKwp * systemSizeKwp
         }
         return systemSizeKwp * 1500
       },
@@ -1010,17 +952,6 @@ export const useSolarAboCalculatorStore = create<
         if (!state.createdProjectId) return
 
         try {
-          const equipmentSelections = state.solarModel === 'solar-direct'
-            ? [
-                ...(state.selectedSolarPanelId ? [{ equipmentId: state.selectedSolarPanelId, equipmentType: 'SOLAR_PANEL', quantity: state.getEstimatedPanelCount() }] : []),
-                ...(state.selectedInverterId ? [{ equipmentId: state.selectedInverterId, equipmentType: 'INVERTER', quantity: 1 }] : []),
-                ...(state.selectedBatteryId ? [{ equipmentId: state.selectedBatteryId, equipmentType: 'BATTERY', quantity: 1 }] : []),
-                ...(state.selectedMountingSystemId ? [{ equipmentId: state.selectedMountingSystemId, equipmentType: 'MOUNTING_SYSTEM', quantity: 1 }] : []),
-                ...(state.selectedEmsId ? [{ equipmentId: state.selectedEmsId, equipmentType: 'ENERGY_MANAGEMENT_SYSTEM', quantity: 1 }] : []),
-                ...(state.selectedHeatPumpId ? [{ equipmentId: state.selectedHeatPumpId, equipmentType: 'HEAT_PUMP', quantity: 1 }] : []),
-              ]
-            : undefined
-
           const response = await residentialCalculatorService.createContract({
             projectId: state.createdProjectId,
             acknowledgments: state.acknowledgments,
@@ -1028,7 +959,6 @@ export const useSolarAboCalculatorStore = create<
             ...(state.selectedPackageId ? { packageId: state.selectedPackageId } : {}),
             ...(state.roofImage ? { roofImage: state.roofImage } : {}),
             ...(state.solarModel ? { solarModel: state.solarModel } : {}),
-            ...(equipmentSelections ? { equipmentSelections } : {}),
           })
           set({
             createdContractId: response.data.contractId,
@@ -1159,18 +1089,14 @@ export const useSolarAboCalculatorStore = create<
         selectedPackageId: state.selectedPackageId,
         selectedPackageCode: state.selectedPackageCode,
         selectedPackagePricePerKwp: state.selectedPackagePricePerKwp,
+        selectedPackagePurchasePriceChf: state.selectedPackagePurchasePriceChf,
+        selectedPackageInstallerWarrantyYears: state.selectedPackageInstallerWarrantyYears,
         selectedPackageElectricitySavingsPercent: state.selectedPackageElectricitySavingsPercent,
         selectedPackageContractTermYears: state.selectedPackageContractTermYears,
         selectedPanelWattageW: state.selectedPanelWattageW,
         selectedPanelAreaM2: state.selectedPanelAreaM2,
         selectedPanelFirstYearDegradationPercent: state.selectedPanelFirstYearDegradationPercent,
         selectedPanelAnnualDegradationPercent: state.selectedPanelAnnualDegradationPercent,
-        selectedSolarPanelId: state.selectedSolarPanelId,
-        selectedInverterId: state.selectedInverterId,
-        selectedBatteryId: state.selectedBatteryId,
-        selectedMountingSystemId: state.selectedMountingSystemId,
-        selectedEmsId: state.selectedEmsId,
-        selectedHeatPumpId: state.selectedHeatPumpId,
         createdContractId: state.createdContractId,
         contractNumber: state.contractNumber,
         contractPdfUrl: state.contractPdfUrl,

@@ -176,7 +176,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                   className="flex flex-col gap-5"
                 >
                   <div className="flex flex-col gap-5">
-                    <h3 className="text-white text-[32px] font-light tracking-[-0.02em]">
+                    <h3 className="text-white text-3xl font-light tracking-[-0.02em]">
                       {t('formTitle')}
                     </h3>
                     <p className="text-[#FDFFF5]/70 text-sm font-light tracking-[-0.02em]">

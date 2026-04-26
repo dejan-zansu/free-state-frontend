@@ -27,7 +27,7 @@ const SolarAboMultiFamilyPublicSpaces = ({
 
       <div className="relative px-6 pt-20 pb-20 md:pt-[100px] md:pb-[100px] max-w-[1440px] mx-auto">
         <div className="flex flex-col items-center text-center gap-5 max-w-[483px] mx-auto">
-          <h3 className="font-figtree font-medium text-[32px] md:text-[45px] text-[#062E25]">
+          <h3 className="font-figtree font-medium text-3xl md:text-[45px] text-[#062E25]">
             {t('title')}
           </h3>
           <p className="font-figtree font-light text-[18px] md:text-[22px] tracking-[-0.02em] text-[#062E25]/80">

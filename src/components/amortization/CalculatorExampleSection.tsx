@@ -63,7 +63,7 @@ const CalculatorExampleSection = async () => {
                 <span className="text-[#062E25]/80 text-lg tracking-[-0.02em]">
                   {t('calculator.costCard.investmentLabel')}
                 </span>
-                <span className="text-[#062E25] text-[32px] font-semibold tracking-[-0.02em]">
+                <span className="text-[#062E25] text-3xl font-semibold tracking-[-0.02em]">
                   {t('calculator.costCard.investmentAmount')}
                 </span>
               </div>
@@ -108,7 +108,7 @@ const CalculatorExampleSection = async () => {
               <span className="text-[#062E25]/80 text-lg tracking-[-0.02em] text-center">
                 {t('calculator.yieldCard.paybackLabel')}
               </span>
-              <span className="text-[#062E25] text-[32px] font-semibold tracking-[-0.02em]">
+              <span className="text-[#062E25] text-3xl font-semibold tracking-[-0.02em]">
                 {t('calculator.yieldCard.paybackYears')}
               </span>
             </div>

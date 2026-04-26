@@ -79,7 +79,7 @@ const MediaPage = async () => {
             <div className="flex flex-row lg:flex-col gap-6 lg:gap-8">
               {(['location', 'focus'] as const).map(key => (
                 <div key={key} className="flex flex-col gap-1">
-                  <span className="text-foreground text-2xl md:text-[32px] font-medium leading-none">
+                  <span className="text-foreground text-2xl md:text-3xl font-medium leading-none">
                     {t(`about.stats.${key}.value`)}
                   </span>
                   <span className="text-foreground/50 text-base font-light">
@@ -131,7 +131,7 @@ const MediaPage = async () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="rounded-[20px] border border-[#062E25]/10 bg-[#062E25] p-8 md:p-12 flex flex-col gap-8">
               <div className="flex flex-col gap-3">
-                <h2 className="text-white text-2xl md:text-[32px] font-medium leading-[1.1em]">
+                <h2 className="text-white text-2xl md:text-3xl font-medium leading-[1.1em]">
                   {t('pressContact.title')}
                 </h2>
                 <p className="text-white/60 text-base md:text-lg font-light leading-[1.55]">
@@ -184,7 +184,7 @@ const MediaPage = async () => {
                   'linear-gradient(135deg, #F2F4E8 0%, #E5E6DE 100%)',
               }}
             >
-              <h2 className="text-foreground text-2xl md:text-[32px] font-medium leading-[1.1em]">
+              <h2 className="text-foreground text-2xl md:text-3xl font-medium leading-[1.1em]">
                 {t('brandAssets.title')}
               </h2>
               <p className="text-foreground/70 text-base md:text-lg font-light leading-[1.55] max-w-[480px]">

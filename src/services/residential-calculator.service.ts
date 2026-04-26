@@ -122,6 +122,8 @@ export interface CalculatorPackage {
   maxCapacityKwp: number | null
   contractTermYears: number
   electricitySavingsPercent: number
+  purchasePriceChf: number | null
+  installerWarrantyYears: number | null
   equipment: {
     equipmentType: string
     name: string
@@ -141,10 +143,14 @@ interface GetPackagesResponse {
   data: CalculatorPackage[]
 }
 
+export type SolarModelFilter = 'SOLAR_FREE' | 'SOLAR_DIRECT'
+
 class ResidentialCalculatorService {
-  async getPackages(language: string = 'en'): Promise<CalculatorPackage[]> {
+  async getPackages(language: string = 'en', solarModel?: SolarModelFilter): Promise<CalculatorPackage[]> {
+    const params = new URLSearchParams({ lang: language })
+    if (solarModel) params.set('solarModel', solarModel)
     const response = await api.get<GetPackagesResponse>(
-      `/equipment/packages?lang=${language}`
+      `/equipment/packages?${params}`
     )
     return response.data.data
   }

@@ -22,7 +22,7 @@ const FoundingSection = () => {
         </div>
       </div>
 
-      <div className="relative w-full h-[250px] sm:h-[280px] lg:h-[320px]">
+      <div className="relative w-full min-h-[420px] sm:min-h-[360px] lg:min-h-[400px] py-12 sm:py-14 lg:py-16">
         <div
           className="absolute inset-0 z-[1]"
           style={{
@@ -38,7 +38,7 @@ const FoundingSection = () => {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 z-[2] flex items-center justify-center px-4">
+        <div className="relative z-[2] flex items-center justify-center px-4">
           <div className="max-w-[606px] w-full p-6 sm:p-10 rounded-[16px] border border-[#f6f6f6]/60 backdrop-blur-[10px] bg-[rgba(185,205,191,0.03)]">
             <p className="text-[#FDFFF5]/80 text-base font-light text-center">
               {t('cardText')}

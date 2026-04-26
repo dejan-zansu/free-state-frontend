@@ -1,7 +1,11 @@
 import { getTranslations } from 'next-intl/server'
 import ProductShowcase from './ProductShowcase'
 
-const HeatPumpsViessmann = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
+const HeatPumpsViessmann = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.heatPumpsViessmann')
 
   return (
@@ -16,7 +20,7 @@ const HeatPumpsViessmann = async ({ isCommercial = false }: { isCommercial?: boo
       ]}
       cta={t('cta')}
       ctaHref="/heat-pumps"
-      imageSrc="/images/heat-pump-viessmann-main.webp"
+      imageSrc="/images/heat-pump-viessmann-main.png"
       imageAlt={t('title')}
       brandLogoSrc="/images/viessmann-logo.png"
       brandLogoAlt="Viessmann"

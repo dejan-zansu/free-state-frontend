@@ -5,6 +5,7 @@ const CO2ReductionIcon = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     width={29}
     height={36}
+    viewBox="0 0 29 36"
     fill="none"
     {...props}
   >

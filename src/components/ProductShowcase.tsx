@@ -40,11 +40,15 @@ const ProductShowcase = ({
   isCommercial = false,
 }: ProductShowcaseProps) => {
   const imageColumn = (
-    <div className={`relative flex-1 flex flex-col ${mobileTextFirst ? 'order-2 lg:order-0' : ''}`}>
+    <div
+      className={`relative flex-1 flex flex-col ${mobileTextFirst ? 'order-2 lg:order-0' : ''}`}
+    >
       <div className="relative flex-1 min-h-[300px] lg:min-h-0">
         <Image src={imageSrc} alt={imageAlt} fill className="object-cover" />
       </div>
-      <div className={`relative flex items-center justify-between overflow-hidden ${isCommercial ? 'bg-[#3D3858]' : 'bg-solar'}`}>
+      <div
+        className={`relative flex items-center justify-between overflow-hidden ${isCommercial ? 'bg-[#3D3858]' : 'bg-solar'}`}
+      >
         <div className="px-8 py-5 opacity-0 pointer-events-none">
           <LearnMoreLink href={exploreHref}>{exploreLabel}</LearnMoreLink>
         </div>
@@ -55,6 +59,7 @@ const ProductShowcase = ({
             width={brandLogoWidth}
             height={brandLogoHeight}
             className="object-contain"
+            unoptimized
           />
         </div>
       </div>
@@ -79,7 +84,9 @@ const ProductShowcase = ({
           <div className="flex flex-col gap-2.5">
             {steps.map(step => (
               <div key={step.number} className="flex items-center gap-2">
-                <div className={`w-[18px] h-[18px] rounded-[9px] border-[1.5px] flex items-center justify-center shrink-0 ${isCommercial ? 'border-[#3D3858]' : 'border-[#036B53]'}`}>
+                <div
+                  className={`w-[18px] h-[18px] rounded-[9px] border-[1.5px] flex items-center justify-center shrink-0 ${isCommercial ? 'border-[#3D3858]' : 'border-[#036B53]'}`}
+                >
                   <span className="text-[9px] font-bold text-foreground">
                     {step.number}
                   </span>
@@ -92,9 +99,13 @@ const ProductShowcase = ({
           </div>
         </div>
 
-        {/* <LinkButton href={ctaHref} variant={isCommercial ? 'quaternary' : 'primary'} className="w-fit">
+        <LinkButton
+          href={ctaHref}
+          variant={isCommercial ? 'quaternary' : 'primary'}
+          className="w-fit"
+        >
           {cta}
-        </LinkButton> */}
+        </LinkButton>
       </div>
     </div>
   )

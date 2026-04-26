@@ -17,6 +17,7 @@ import { useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { SubsidyAssistanceCallout } from '../components/SubsidyAssistanceCallout'
 import {
   COMPANY_MAIN_PHONE_DISPLAY,
   COMPANY_MAIN_PHONE_TEL_HREF,
@@ -45,6 +46,9 @@ export default function StepConfirmation() {
     getEstimatedPanelCount,
     reset,
   } = useSolarAboCalculatorStore()
+
+  const isSolarDirect = solarModel === 'solar-direct'
+  const stepsKey = isSolarDirect ? 'nextStepsSolarDirect' : 'nextSteps'
 
   useEffect(() => {
     const duration = 3000
@@ -180,7 +184,7 @@ export default function StepConfirmation() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-lg">
               <Calendar className="h-5 w-5 text-primary" />
-              {t('nextSteps.title')}
+              {t(`${stepsKey}.title`)}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -190,9 +194,9 @@ export default function StepConfirmation() {
                   <span className="text-primary font-semibold">1</span>
                 </div>
                 <div>
-                  <p className="font-medium">{t('nextSteps.step1.title')}</p>
+                  <p className="font-medium">{t(`${stepsKey}.step1.title`)}</p>
                   <p className="text-sm text-muted-foreground">
-                    {t('nextSteps.step1.description')}
+                    {t(`${stepsKey}.step1.description`)}
                   </p>
                 </div>
               </li>
@@ -201,9 +205,9 @@ export default function StepConfirmation() {
                   <span className="text-primary font-semibold">2</span>
                 </div>
                 <div>
-                  <p className="font-medium">{t('nextSteps.step2.title')}</p>
+                  <p className="font-medium">{t(`${stepsKey}.step2.title`)}</p>
                   <p className="text-sm text-muted-foreground">
-                    {t('nextSteps.step2.description')}
+                    {t(`${stepsKey}.step2.description`)}
                   </p>
                 </div>
               </li>
@@ -212,9 +216,9 @@ export default function StepConfirmation() {
                   <span className="text-primary font-semibold">3</span>
                 </div>
                 <div>
-                  <p className="font-medium">{t('nextSteps.step3.title')}</p>
+                  <p className="font-medium">{t(`${stepsKey}.step3.title`)}</p>
                   <p className="text-sm text-muted-foreground">
-                    {t('nextSteps.step3.description')}
+                    {t(`${stepsKey}.step3.description`)}
                   </p>
                 </div>
               </li>
@@ -223,15 +227,21 @@ export default function StepConfirmation() {
                   <span className="text-primary font-semibold">4</span>
                 </div>
                 <div>
-                  <p className="font-medium">{t('nextSteps.step4.title')}</p>
+                  <p className="font-medium">{t(`${stepsKey}.step4.title`)}</p>
                   <p className="text-sm text-muted-foreground">
-                    {t('nextSteps.step4.description')}
+                    {t(`${stepsKey}.step4.description`)}
                   </p>
                 </div>
               </li>
             </ol>
           </CardContent>
         </Card>
+
+        {isSolarDirect ? (
+          <div className="mb-6">
+            <SubsidyAssistanceCallout />
+          </div>
+        ) : null}
 
         <Card className="mb-6">
           <CardHeader>

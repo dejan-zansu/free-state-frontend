@@ -182,7 +182,7 @@ const ContactFormSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                         {t('firstName.label')}
                       </Label>
                       <Input
@@ -192,13 +192,13 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.firstName && (
-                        <p className="text-red-500 text-sm">
+                        <p className="text-red-500 text-sm md:text-base">
                           {errors.firstName.message}
                         </p>
                       )}
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                         {t('lastName.label')}
                       </Label>
                       <Input
@@ -208,7 +208,7 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.lastName && (
-                        <p className="text-red-500 text-sm">
+                        <p className="text-red-500 text-sm md:text-base">
                           {errors.lastName.message}
                         </p>
                       )}
@@ -217,7 +217,7 @@ const ContactFormSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                         {t('email.label')}
                       </Label>
                       <Input
@@ -226,13 +226,13 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-sm">
+                        <p className="text-red-500 text-sm md:text-base">
                           {errors.email.message}
                         </p>
                       )}
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                         {t('phone.label')}
                       </Label>
                       <Input
@@ -241,7 +241,7 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.phone && (
-                        <p className="text-red-500 text-sm">
+                        <p className="text-red-500 text-sm md:text-base">
                           {errors.phone.message}
                         </p>
                       )}
@@ -249,7 +249,7 @@ const ContactFormSection = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                    <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                       {t('address.label')}
                     </Label>
                     <Input
@@ -259,7 +259,7 @@ const ContactFormSection = () => {
                       className={inputClassName}
                     />
                     {errors.address && (
-                      <p className="text-red-500 text-sm">
+                      <p className="text-red-500 text-sm md:text-base">
                         {errors.address.message}
                       </p>
                     )}
@@ -267,7 +267,7 @@ const ContactFormSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                         {t('postalCode.label')}
                       </Label>
                       <Input
@@ -277,13 +277,13 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.postalCode && (
-                        <p className="text-red-500 text-sm">
+                        <p className="text-red-500 text-sm md:text-base">
                           {errors.postalCode.message}
                         </p>
                       )}
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                         {t('city.label')}
                       </Label>
                       <Input
@@ -291,7 +291,7 @@ const ContactFormSection = () => {
                         className={inputClassName}
                       />
                       {errors.city && (
-                        <p className="text-red-500 text-sm">
+                        <p className="text-red-500 text-sm md:text-base">
                           {errors.city.message}
                         </p>
                       )}
@@ -299,7 +299,7 @@ const ContactFormSection = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <Label className="text-foreground/60 text-sm font-medium tracking-tight">
+                    <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
                       {t('message.label')}
                     </Label>
                     <Textarea
@@ -324,7 +324,7 @@ const ContactFormSection = () => {
                     />
                     <Label
                       htmlFor="privacy"
-                      className="text-sm text-foreground/40 font-medium tracking-tight cursor-pointer mb-0"
+                      className="text-sm md:text-base text-foreground/40 font-medium tracking-tight cursor-pointer mb-0"
                     >
                       <Link
                         href="/privacy-policy"
@@ -336,13 +336,13 @@ const ContactFormSection = () => {
                     </Label>
                   </div>
                   {errors.privacy && (
-                    <p className="text-red-500 text-sm">
+                    <p className="text-red-500 text-sm md:text-base">
                       {errors.privacy.message}
                     </p>
                   )}
 
                   {status === 'error' && (
-                    <p className="text-red-600 text-sm font-medium">
+                    <p className="text-red-600 text-sm md:text-base font-medium">
                       {t('errorMessage')}
                     </p>
                   )}

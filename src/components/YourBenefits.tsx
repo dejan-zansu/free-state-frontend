@@ -64,6 +64,7 @@ const YourBenefits = async ({
                   alt={benefit.title}
                   fill
                   className="object-cover rounded-lg"
+                  unoptimized
                 />
               </div>
               <div className="flex flex-col items-center gap-5 sm:items-start">

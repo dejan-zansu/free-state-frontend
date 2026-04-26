@@ -20,10 +20,10 @@ const Battery = async ({
       ]}
       cta={t('cta')}
       ctaHref="/battery-storage"
-      imageSrc="/images/huawei-battery.png"
+      imageSrc="/images/sofar-battery.png"
       imageAlt={t('title')}
-      brandLogoSrc="/images/huawei-logo-4686a6.png"
-      brandLogoAlt="Huawei"
+      brandLogoSrc="/images/sofar-logo.png"
+      brandLogoAlt="Sofar"
       brandLogoWidth={74}
       brandLogoHeight={14}
       exploreLabel={t('exploreHuawei')}

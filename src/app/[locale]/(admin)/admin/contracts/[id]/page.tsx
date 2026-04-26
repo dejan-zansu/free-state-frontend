@@ -7,9 +7,11 @@ import { useQuery } from '@tanstack/react-query'
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { DataRequestsCard } from '@/components/admin/DataRequestsCard'
+import { SubsidyCard } from '@/components/admin/SubsidyCard'
 import { Card, CardContent } from '@/components/ui/card'
 import { adminService } from '@/services/admin.service'
 import type { AdminContract } from '@/types/admin'
+import type { SubsidyStatusValue } from '@/services/admin-project.service'
 
 export default function AdminContractDetailPage() {
   const params = useParams()
@@ -191,6 +193,28 @@ export default function AdminContractDetailPage() {
           contractId={contract.id}
           canCreate={contract.signatureStatus === 'SIGNED'}
         />
+
+        {(() => {
+          const model = contract.project.solarCalculation?.solarModel
+          const isDirect = model === 'solar-direct' || model === 'SOLAR_DIRECT'
+          if (!isDirect) return null
+          return (
+            <div className="lg:col-span-2">
+              <SubsidyCard
+                projectId={contract.project.id}
+                initial={{
+                  subsidyStatus: (contract.project.subsidyStatus ?? 'NOT_STARTED') as SubsidyStatusValue,
+                  subsidyAppliedAt: contract.project.subsidyAppliedAt ?? null,
+                  subsidyApprovedAt: contract.project.subsidyApprovedAt ?? null,
+                  subsidyPaidAmount: contract.project.subsidyPaidAmount ?? null,
+                  subsidyReferenceNumber: contract.project.subsidyReferenceNumber ?? null,
+                  subsidyNotes: contract.project.subsidyNotes ?? null,
+                  estimatedSubsidyChf: contract.project.solarCalculation?.subsidiesChf ?? null,
+                }}
+              />
+            </div>
+          )
+        })()}
       </div>
     </div>
   )
