@@ -5957,7 +5957,7 @@
     },
     "keyFacts": {
       "title": "Bidirectional Charging: Key Facts",
-      "description": "Bidirectional charging integrates your EV into your home energy system, managed automatically by FreeState ONE™ for optimal energy use—while transparently addressing current technical limitations.",
+      "description": "Bidirectional charging integrates your EV into your home energy system, managed automatically by Free State AG ONE for optimal energy use—while transparently addressing current technical limitations.",
       "steps": {
         "1": "Small loads need a home battery buffer (>1.8 kW limit).",
         "2": "Large loads run directly; discharge limited to 20–80% SoC."
@@ -5965,8 +5965,8 @@
     },
     "carBattery": {
       "eyebrow": "Car Battery",
-      "title": "Your car battery becomes part of\nFreeState™",
-      "description": "Your EV battery unlocks savings and revenue, while FreeState™ automatically optimizes energy use in real time.",
+      "title": "Your car battery becomes part of\nFree State AG",
+      "description": "Your EV battery unlocks savings and revenue, while Free State AG automatically optimizes energy use in real time.",
       "cta": "Request a quote"
     },
     "homeIndependence": {
@@ -5987,7 +5987,7 @@
     "chargeLevel": {
       "eyebrow": "Charge Level",
       "title": "Always full\ncontrol over the charge level",
-      "description": "With the FreeState™ app, you monitor your EV battery, set a minimum charge level, and optimize surplus energy use.",
+      "description": "With the Free State AG app, you monitor your EV battery, set a minimum charge level, and optimize surplus energy use.",
       "cta": "Request a quote"
     },
     "funding": {
@@ -6100,7 +6100,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "All our solar projects can be easily upgraded to include bidirectional charging thanks to FreeState ONE™. Are you interested in the latest information about bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
+      "description": "All our solar projects can be easily upgraded to include bidirectional charging thanks to Free State AG ONE. Are you interested in the latest information about bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
       "form": {
         "firstName": "First name",
         "firstNamePlaceholder": "Enter your First name",
@@ -6148,7 +6148,7 @@
         },
         "requirements": {
           "question": "What is required for bidirectional charging?",
-          "answer": "You need a compatible EV, a bidirectional DC charging station, and a smart energy management system like FreeState ONE™. A solar system is recommended but not required."
+          "answer": "You need a compatible EV, a bidirectional DC charging station, and a smart energy management system like Free State AG ONE. A solar system is recommended but not required."
         },
         "specialChargers": {
           "question": "Do EVs need special chargers for bidirectional use?",

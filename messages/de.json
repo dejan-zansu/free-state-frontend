@@ -5337,7 +5337,7 @@
     },
     "keyFacts": {
       "title": "Bidirektionales Laden: Wichtige Fakten",
-      "description": "Bidirektionales Laden integriert Ihr Elektrofahrzeug in Ihr Heimenergiesystem, das automatisch von FreeState ONE™ für optimale Energienutzung verwaltet wird – bei transparenter Berücksichtigung aktueller technischer Einschränkungen.",
+      "description": "Bidirektionales Laden integriert Ihr Elektrofahrzeug in Ihr Heimenergiesystem, das automatisch von Free State AG ONE für optimale Energienutzung verwaltet wird – bei transparenter Berücksichtigung aktueller technischer Einschränkungen.",
       "steps": {
         "1": "Kleine Lasten benötigen einen Hausbatteriepuffer (>1,8 kW Grenze).",
         "2": "Grosse Lasten laufen direkt; Entladung begrenzt auf 20–80% SoC."
@@ -5345,8 +5345,8 @@
     },
     "carBattery": {
       "eyebrow": "Autobatterie",
-      "title": "Ihre Autobatterie wird Teil von\nFreeState™",
-      "description": "Ihre EV-Batterie erschliesst Einsparungen und Einnahmen, während FreeState™ den Energieverbrauch automatisch in Echtzeit optimiert.",
+      "title": "Ihre Autobatterie wird Teil von\nFree State AG",
+      "description": "Ihre EV-Batterie erschliesst Einsparungen und Einnahmen, während Free State AG den Energieverbrauch automatisch in Echtzeit optimiert.",
       "cta": "Angebot anfordern"
     },
     "homeIndependence": {
@@ -5367,7 +5367,7 @@
     "chargeLevel": {
       "eyebrow": "Ladestand",
       "title": "Immer volle\nKontrolle über den Ladestand",
-      "description": "Mit der FreeState™ App überwachen Sie Ihre EV-Batterie, legen einen Mindestladestand fest und optimieren die Nutzung von Überschussenergie.",
+      "description": "Mit der Free State AG App überwachen Sie Ihre EV-Batterie, legen einen Mindestladestand fest und optimieren die Nutzung von Überschussenergie.",
       "cta": "Offerte anfragen"
     },
     "funding": {
@@ -5480,7 +5480,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "Alle unsere Solarprojekte können dank FreeState ONE™ einfach um bidirektionales Laden erweitert werden. Interessieren Sie sich für die neuesten Informationen zum bidirektionalen Laden?\n\nDann melden Sie sich für unseren BiDi Newsletter an.",
+      "description": "Alle unsere Solarprojekte können dank Free State AG ONE einfach um bidirektionales Laden erweitert werden. Interessieren Sie sich für die neuesten Informationen zum bidirektionalen Laden?\n\nDann melden Sie sich für unseren BiDi Newsletter an.",
       "form": {
         "firstName": "Vorname",
         "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
@@ -5528,7 +5528,7 @@
         },
         "requirements": {
           "question": "Was wird für bidirektionales Laden benötigt?",
-          "answer": "Sie benötigen ein kompatibles Elektrofahrzeug, eine bidirektionale DC-Ladestation und ein intelligentes Energiemanagementsystem wie FreeState ONE™. Eine Solaranlage wird empfohlen, ist aber nicht erforderlich."
+          "answer": "Sie benötigen ein kompatibles Elektrofahrzeug, eine bidirektionale DC-Ladestation und ein intelligentes Energiemanagementsystem wie Free State AG ONE. Eine Solaranlage wird empfohlen, ist aber nicht erforderlich."
         },
         "specialChargers": {
           "question": "Brauchen Elektrofahrzeuge spezielle Ladegeräte für bidirektionale Nutzung?",

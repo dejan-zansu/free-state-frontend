@@ -5957,7 +5957,7 @@
     },
     "keyFacts": {
       "title": "Ricarica bidirezionale: fatti chiave",
-      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da FreeState ONE™ per un uso ottimale dell'energia—affrontando in modo trasparente le attuali limitazioni tecniche.",
+      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da Free State AG ONE per un uso ottimale dell'energia—affrontando in modo trasparente le attuali limitazioni tecniche.",
       "steps": {
         "1": "I piccoli carichi necessitano di un buffer della batteria domestica (limite >1,8 kW).",
         "2": "I carichi elevati funzionano direttamente; scarica limitata al 20-80% SoC."
@@ -5965,8 +5965,8 @@
     },
     "carBattery": {
       "eyebrow": "Batteria dell'auto",
-      "title": "La batteria della tua auto diventa parte di\nFreeState™",
-      "description": "La batteria del tuo EV sblocca risparmi e ricavi, mentre FreeState™ ottimizza automaticamente l'uso dell'energia in tempo reale.",
+      "title": "La batteria della tua auto diventa parte di\nFree State AG",
+      "description": "La batteria del tuo EV sblocca risparmi e ricavi, mentre Free State AG ottimizza automaticamente l'uso dell'energia in tempo reale.",
       "cta": "Richiedi un preventivo"
     },
     "homeIndependence": {
@@ -5987,7 +5987,7 @@
     "chargeLevel": {
       "eyebrow": "Livello di carica",
       "title": "Sempre controllo completo\nsul livello di carica",
-      "description": "Con l'app FreeState™ monitori la batteria del tuo EV, imposti un livello minimo di carica e ottimizzi l'uso dell'energia in eccesso.",
+      "description": "Con l'app Free State AG monitori la batteria del tuo EV, imposti un livello minimo di carica e ottimizzi l'uso dell'energia in eccesso.",
       "cta": "Richiedi un preventivo"
     },
     "funding": {
@@ -6100,7 +6100,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "Tutti i nostri progetti solari possono essere facilmente aggiornati per includere la ricarica bidirezionale grazie a FreeState ONE™. Sei interessato alle ultime informazioni sulla ricarica bidirezionale?\n\nAllora iscriviti alla nostra newsletter BiDi.",
+      "description": "Tutti i nostri progetti solari possono essere facilmente aggiornati per includere la ricarica bidirezionale grazie a Free State AG ONE. Sei interessato alle ultime informazioni sulla ricarica bidirezionale?\n\nAllora iscriviti alla nostra newsletter BiDi.",
       "form": {
         "firstName": "Nome",
         "firstNamePlaceholder": "Inserisci il tuo nome",
@@ -6148,7 +6148,7 @@
         },
         "requirements": {
           "question": "Cosa è necessario per la ricarica bidirezionale?",
-          "answer": "Ti servono un EV compatibile, una stazione di ricarica DC bidirezionale e un sistema intelligente di gestione dell'energia come FreeState ONE™. Un impianto solare è consigliato ma non obbligatorio."
+          "answer": "Ti servono un EV compatibile, una stazione di ricarica DC bidirezionale e un sistema intelligente di gestione dell'energia come Free State AG ONE. Un impianto solare è consigliato ma non obbligatorio."
         },
         "specialChargers": {
           "question": "Gli EV necessitano di caricatori speciali per l'uso bidirezionale?",

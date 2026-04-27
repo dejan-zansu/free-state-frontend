@@ -5957,7 +5957,7 @@
     },
     "keyFacts": {
       "title": "Recharge bidirectionnelle : points clés",
-      "description": "La recharge bidirectionnelle intègre votre VE à votre système énergétique domestique, piloté automatiquement par FreeState ONE™ pour un usage énergétique optimal – tout en expliquant de façon transparente les limites techniques actuelles.",
+      "description": "La recharge bidirectionnelle intègre votre VE à votre système énergétique domestique, piloté automatiquement par Free State AG ONE pour un usage énergétique optimal – tout en expliquant de façon transparente les limites techniques actuelles.",
       "steps": {
         "1": "Les petites charges nécessitent un tampon batterie domestique (limite > 1,8 kW).",
         "2": "Les grosses charges fonctionnent directement ; décharge limitée à 20–80 % SoC."
@@ -5965,8 +5965,8 @@
     },
     "carBattery": {
       "eyebrow": "Batterie du véhicule",
-      "title": "Votre batterie auto devient partie de\nFreeState™",
-      "description": "La batterie de votre VE débloque économies et revenus, pendant que FreeState™ optimise automatiquement l'usage énergétique en temps réel.",
+      "title": "Votre batterie auto devient partie de\nFree State AG",
+      "description": "La batterie de votre VE débloque économies et revenus, pendant que Free State AG optimise automatiquement l'usage énergétique en temps réel.",
       "cta": "Demander un devis"
     },
     "homeIndependence": {
@@ -5987,7 +5987,7 @@
     "chargeLevel": {
       "eyebrow": "Niveau de charge",
       "title": "Toujours un contrôle total\nsur le niveau de charge",
-      "description": "Avec l'application FreeState™, vous surveillez la batterie de votre VE, définissez un niveau de charge minimum et optimisez l'utilisation du surplus d'énergie.",
+      "description": "Avec l'application Free State AG, vous surveillez la batterie de votre VE, définissez un niveau de charge minimum et optimisez l'utilisation du surplus d'énergie.",
       "cta": "Demander un devis"
     },
     "funding": {
@@ -6100,7 +6100,7 @@
     },
     "newsletter": {
       "title": "Newsletter BiDi",
-      "description": "Tous nos projets solaires peuvent facilement être étendus à la recharge bidirectionnelle grâce à FreeState ONE™. Intéressé par les dernières informations sur la recharge bidirectionnelle ?\n\nAbonnez-vous à notre newsletter BiDi.",
+      "description": "Tous nos projets solaires peuvent facilement être étendus à la recharge bidirectionnelle grâce à Free State AG ONE. Intéressé par les dernières informations sur la recharge bidirectionnelle ?\n\nAbonnez-vous à notre newsletter BiDi.",
       "form": {
         "firstName": "Prénom",
         "firstNamePlaceholder": "Saisissez votre prénom",
@@ -6148,7 +6148,7 @@
         },
         "requirements": {
           "question": "Que faut-il pour la recharge bidirectionnelle ?",
-          "answer": "Un VE compatible, une borne DC bidirectionnelle et un système de gestion énergétique intelligent comme FreeState ONE™. Une installation solaire est recommandée mais non indispensable."
+          "answer": "Un VE compatible, une borne DC bidirectionnelle et un système de gestion énergétique intelligent comme Free State AG ONE. Une installation solaire est recommandée mais non indispensable."
         },
         "specialChargers": {
           "question": "Les VE nécessitent-ils des chargeurs spéciaux pour l'usage bidirectionnel ?",
