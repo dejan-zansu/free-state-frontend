@@ -66,8 +66,10 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale })
 
   return (
-    <html lang={locale} className="light" suppressHydrationWarning>
+    <html lang={locale} className="light notranslate" translate="no" suppressHydrationWarning>
       <head>
+        <meta name="google" content="notranslate" />
+        <meta name="yandex" content="notranslate" />
         <link
           rel="preconnect"
           href="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev"
