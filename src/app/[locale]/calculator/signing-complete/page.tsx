@@ -9,7 +9,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { contractService } from '@/services/contract.service'
 
-type ResolvedStatus = 'verifying' | 'success' | 'pending' | 'error'
+type ResolvedStatus = 'verifying' | 'success' | 'awaitingCompany' | 'pending' | 'error'
 
 const MAX_POLLS = 12
 const POLL_INTERVAL_MS = 5000
@@ -47,6 +47,11 @@ export default function SigningCompletePage() {
         }
         if (result.status === 'EXPIRED') {
           setResolved('error')
+          return
+        }
+
+        if (result.customerSignedAt) {
+          setResolved('awaitingCompany')
           return
         }
 
@@ -91,6 +96,23 @@ export default function SigningCompletePage() {
             <p className="text-muted-foreground mt-1">{t('success.message')}</p>
             <Button className="mt-6" onClick={() => router.push('/calculator')}>
               {t('success.backButton')}
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  if (resolved === 'awaitingCompany') {
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4" style={{ paddingTop: '77px' }}>
+        <Card className="max-w-md w-full border-primary">
+          <CardContent className="py-12 text-center">
+            <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
+            <p className="text-lg font-medium text-primary">{t('awaitingCompany.title')}</p>
+            <p className="text-muted-foreground mt-1">{t('awaitingCompany.message')}</p>
+            <Button className="mt-6" onClick={() => router.push('/calculator')}>
+              {t('awaitingCompany.backButton')}
             </Button>
           </CardContent>
         </Card>

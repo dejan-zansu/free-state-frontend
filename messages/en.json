@@ -4459,7 +4459,12 @@
       },
       "success": {
         "title": "Contract successfully signed!",
-        "message": "Your contract has been securely signed via Swisscom Sign. You can close this window.",
+        "message": "Your contract has been securely signed by both parties via Swisscom Sign. You can close this window.",
+        "backButton": "Back to calculator"
+      },
+      "awaitingCompany": {
+        "title": "Awaiting Free State AG counter-signature",
+        "message": "You've signed successfully. Free State AG will counter-sign shortly — we'll email you the fully executed contract as soon as it's complete.",
         "backButton": "Back to calculator"
       },
       "pending": {

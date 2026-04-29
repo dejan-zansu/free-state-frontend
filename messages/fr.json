@@ -4457,6 +4457,11 @@
         "title": "Vérification de la signature...",
         "message": "Veuillez patienter pendant que nous confirmons votre signature."
       },
+      "awaitingCompany": {
+        "title": "En attente de la contre-signature de Free State AG",
+        "message": "Vous avez signé avec succès. Free State AG va contresigner sous peu — nous vous enverrons le contrat entièrement signé par e-mail dès qu'il sera complet.",
+        "backButton": "Retour au calculateur"
+      },
       "pending": {
         "title": "Signature en cours",
         "message": "Votre session de signature est toujours ouverte. Si vous n'avez pas terminé de signer, vous pouvez retourner sur Swisscom Sign. Nous vous enverrons un e-mail dès que la signature sera confirmée.",

@@ -135,6 +135,8 @@ export interface SignatureStatusResponse {
   status: 'CREATED' | 'PENDING' | 'COMPLETED' | 'EXPIRED'
   signedAt?: string
   signedPdfUrl?: string
+  customerSignedAt?: string | null
+  companySignedAt?: string | null
 }
 
 export interface ContractDetails {
