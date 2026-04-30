@@ -65,6 +65,7 @@ const cards: {
     bgColor: '#EEEFE5',
     imageClassName:
       'w-[92px] h-[134px] -top-4 sm:-top-12 sm:w-[212px] sm:h-[185px] hidden md:block',
+    disabled: true,
   },
 ]
 
