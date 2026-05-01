@@ -22,7 +22,9 @@ const Battery = async ({
       ctaHref="/battery-storage"
       imageSrc="/images/sofar-battery.png"
       imageAlt={t('title')}
-      brandLogoSrc="/images/sofar-logo.png"
+      brandLogoSrc={
+        isCommercial ? '/images/sofar-logo-light.png' : '/images/sofar-logo.png'
+      }
       brandLogoAlt="Sofar"
       brandLogoWidth={74}
       brandLogoHeight={14}

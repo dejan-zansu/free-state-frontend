@@ -6138,7 +6138,12 @@
       },
       "success": {
         "title": "Vertrag erfolgreich unterschrieben!",
-        "message": "Ihr Vertrag wurde sicher über Swisscom Sign unterschrieben. Sie können dieses Fenster schliessen.",
+        "message": "Ihr Vertrag wurde von beiden Parteien sicher über Swisscom Sign unterschrieben. Sie können dieses Fenster schliessen.",
+        "backButton": "Zurück zum Rechner"
+      },
+      "awaitingCompany": {
+        "title": "Wartet auf Gegenzeichnung durch Free State AG",
+        "message": "Sie haben erfolgreich unterschrieben. Free State AG zeichnet in Kürze gegen — sobald der Vertrag vollständig unterschrieben ist, senden wir ihn Ihnen per E-Mail zu.",
         "backButton": "Zurück zum Rechner"
       },
       "pending": {

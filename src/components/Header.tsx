@@ -131,7 +131,9 @@ const Header = () => {
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-6 transition-all duration-300',
-          showDarkHeader ? 'bg-white shadow-sm' : 'bg-transparent'
+          showDarkHeader
+            ? 'bg-white/20 backdrop-blur-[32.5px]'
+            : 'bg-transparent'
         )}
       >
         <div className="max-w-360 mx-auto">

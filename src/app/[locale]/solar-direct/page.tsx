@@ -5,6 +5,7 @@ import {
   SolarAboFAQ,
   SolarAboHero,
   SolarAboService,
+  FullWidthVideo,
 } from '@/components/solar-abo'
 import YourBenefits from '@/components/YourBenefits'
 import SolarModels from '@/components/SolarModels'
@@ -55,6 +56,7 @@ const SolarDirectPage = async ({ params }: SolarDirectPageProps) => {
         imageSrc="/images/solar-abo-home.png"
         imageAlt="SolarAbo Home"
       />
+      <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Solar%20Direct.mp4" />
       <YourBenefits isCommercial={false} />
       <SolarAboDetails translationNamespace="solarAboHome" />
       <SolarAboService translationNamespace="solarAboHome" />

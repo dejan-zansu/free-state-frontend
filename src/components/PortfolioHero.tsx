@@ -11,7 +11,7 @@ const PortfolioHero = async () => {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/images/solar-farm-roofs.png')",
+            backgroundImage: "url('/images/portfolio-page-hero.webp')",
           }}
         />
       </div>

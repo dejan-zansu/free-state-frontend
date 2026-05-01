@@ -22,7 +22,9 @@ const EvCharging = async ({
       ctaHref="/heat-pumps"
       imageSrc="/images/ev-charger-huawei-479789.png"
       imageAlt={t('title')}
-      brandLogoSrc="/images/huawei-logo-4686a6.png"
+      brandLogoSrc={
+        isCommercial ? '/images/huawei-logo-light.png' : '/images/huawei-logo-4686a6.png'
+      }
       brandLogoAlt="Huawei"
       brandLogoWidth={74}
       brandLogoHeight={14}

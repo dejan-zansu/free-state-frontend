@@ -14,7 +14,11 @@ const commercialImages = [
   '/images/why-freestate-commercial-service-19de44.png',
 ]
 
-const WhyFreeState = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
+const WhyFreeState = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.whyFreeState')
   const rawFeatures = t.raw('features') as Feature[]
   const features = isCommercial
@@ -38,7 +42,7 @@ const WhyFreeState = async ({ isCommercial = false }: { isCommercial?: boolean }
           </div>
           <LinkButton
             href="/contact"
-            variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
+            variant={isCommercial ? 'outline-purple' : 'outline-primary'}
           >
             {t('cta')}
           </LinkButton>

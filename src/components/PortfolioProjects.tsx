@@ -81,11 +81,11 @@ const PortfolioProjects = async () => {
   return (
     <section className="relative py-12 bg-background">
       <div className="max-w-[1380px] mx-auto px-6">
-        <div className="text-left mb-8">
-          <h2 className="text-foreground text-4xl font-semibold mb-2">
+        <div className="text-center mb-8 flex flex-col items-center">
+          <h2 className="text-foreground text-4xl font-semibold mb-2 text-center">
             {t('title')}
           </h2>
-          <p className="text-foreground/80 text-xl leading-relaxed max-w-xl">
+          <p className="text-foreground/80 text-xl leading-relaxed max-w-xl text-center">
             {t('description')}
           </p>
         </div>
