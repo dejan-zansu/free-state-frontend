@@ -3,10 +3,10 @@ import ContactPerson from '@/components/ContactPerson'
 import HowPV from '@/components/HowPV'
 import SolarAboMultiFamilyPublicSpaces from '@/components/SolarAboMultiFamilyPublicSpaces'
 import {
+  FullWidthVideo,
   SolarAboCTA,
   SolarAboHero,
   SolarAboIncludes,
-  VideoSection,
 } from '@/components/solar-abo'
 import { useTranslations } from 'next-intl'
 import type { Metadata } from 'next'
@@ -71,7 +71,7 @@ const IndustryCommercialPage = () => {
         imageAlt="Industry / Commercial"
         isCommercial
       />
-      <VideoSection />
+      <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Industrial.mp4" />
       <SolarAboIncludes
         translationNamespace="solarAboBusiness"
         items={items}

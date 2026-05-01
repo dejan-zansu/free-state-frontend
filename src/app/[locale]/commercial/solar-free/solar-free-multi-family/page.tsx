@@ -3,12 +3,12 @@ import HowPV from '@/components/HowPV'
 import SolarAboMultiFamilyHowItWorks from '@/components/SolarAboMultiFamilyHowItWorks'
 import SolarAboMultiFamilyPublicSpaces from '@/components/SolarAboMultiFamilyPublicSpaces'
 import {
+  FullWidthVideo,
   SolarAboCTA,
   SolarAboHero,
   SolarAboIncludes,
   SolarAboPricing,
   SolarAboRightForYou,
-  VideoSection,
 } from '@/components/solar-abo'
 import { useTranslations } from 'next-intl'
 import type { Metadata } from 'next'
@@ -73,7 +73,7 @@ const SolarAboMultiFamilyPage = () => {
         imageAlt="SolarAbo Multi"
         isCommercial
       />
-      <VideoSection />
+      <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Multi.mp4" />
       <SolarAboIncludes
         translationNamespace="solarAboMulti"
         items={items}

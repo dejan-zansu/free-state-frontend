@@ -1,3 +1,4 @@
+import FusionSolarApp2 from '@/components/FusionSolarApp2'
 import PortfolioCTA from '@/components/PortfolioCTA'
 import PortfolioHero from '@/components/PortfolioHero'
 import PortfolioProjects from '@/components/PortfolioProjects'
@@ -26,6 +27,7 @@ const PortfolioPage = async () => {
   return (
     <div>
       <PortfolioHero />
+      <FusionSolarApp2 />
       <PortfolioProjects />
       <PortfolioStrategy />
       <PortfolioCTA />

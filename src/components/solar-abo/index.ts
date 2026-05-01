@@ -12,3 +12,4 @@ export {
   type QuoteRequestSource,
 } from './QuoteRequestForm'
 export { default as VideoSection } from './VideoSection'
+export { default as FullWidthVideo } from './FullWidthVideo'

@@ -22,7 +22,9 @@ const HeatPumpsViessmann = async ({
       ctaHref="/heat-pumps"
       imageSrc="/images/heat-pump-viessmann-main.png"
       imageAlt={t('title')}
-      brandLogoSrc="/images/viessmann-logo.png"
+      brandLogoSrc={
+        isCommercial ? '/images/viessmann-logo-light.png' : '/images/viessmann-logo.png'
+      }
       brandLogoAlt="Viessmann"
       brandLogoWidth={82}
       brandLogoHeight={49}

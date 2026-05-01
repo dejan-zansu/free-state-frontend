@@ -3,20 +3,26 @@ import Image from 'next/image'
 import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
 
-const PathToEnergy = async ({ isCommercial = false }: { isCommercial?: boolean }) => {
+const PathToEnergy = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.pathToEnergy')
 
   const backgroundImage = isCommercial
     ? 'linear-gradient(131deg, #191D1C 0%, #3D3858 100%)'
     : 'linear-gradient(7deg, #07332A 0%, #093F35 21%, #158B7E 100%)'
-  const glowColor = isCommercial ? 'rgba(61, 56, 88, 0.5)' : 'rgba(183, 254, 26, 0.5)'
+  const glowColor = isCommercial
+    ? 'rgba(61, 56, 88, 0.5)'
+    : 'rgba(183, 254, 26, 0.5)'
   const imageGlowColor = isCommercial
     ? 'rgba(61, 56, 88, 0.35)'
     : 'rgba(183, 254, 26, 0.15)'
   const image = isCommercial
     ? '/images/path-to-energy-commercial-6a5540.webp'
     : '/images/your-path-to-energy-6a5540.webp'
-  const buttonVariant = isCommercial ? 'outline-primary' : 'primary'
+  const buttonVariant = isCommercial ? 'white-shadow' : 'primary'
   const contactHref = '/contact'
 
   return (
@@ -49,12 +55,7 @@ const PathToEnergy = async ({ isCommercial = false }: { isCommercial?: boolean }
             }}
           />
           <div className="relative w-[82%] sm:w-full aspect-[328/225] rounded-lg overflow-hidden mx-auto">
-            <Image
-              src={image}
-              alt={t('title')}
-              fill
-              className="object-cover"
-            />
+            <Image src={image} alt={t('title')} fill className="object-cover" />
           </div>
         </div>
 
