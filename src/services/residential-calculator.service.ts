@@ -44,6 +44,7 @@ interface CalculationPayload {
   recommendedPackage: string
   solarModel: SolarModel
   ppaDiscountPercent: number | null
+  heatPumpInterest: boolean
 }
 
 interface CreateAccountPayload {
@@ -65,6 +66,7 @@ interface CreateAccountResponse {
 
 interface RequestOfferPayload {
   projectId: string
+  heatPumpInterest?: boolean
 }
 
 interface RequestOfferResponse {
@@ -97,6 +99,7 @@ interface CreateContractPayload {
     equipmentType: string
     quantity: number
   }>
+  heatPumpInterest?: boolean
 }
 
 interface CreateContractResponse {

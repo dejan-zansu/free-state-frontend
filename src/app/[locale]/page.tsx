@@ -6,6 +6,7 @@ import Battery from '@/components/Battery'
 import FusionSolarApp from '@/components/FusionSolarApp'
 import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
 import SolarModels from '@/components/SolarModels'
+import PackageCatalogSection from '@/components/home/PackageCatalogSection'
 import WhyFreeState from '@/components/WhyFreeState'
 import PathToEnergy from '@/components/PathToEnergy'
 import CustomerStories from '@/components/CustomerStories'
@@ -16,6 +17,7 @@ export default async function HomePage() {
     <div className="w-full overflow-x-hidden">
       <Hero />
       <SolarModels />
+      <PackageCatalogSection />
       <WhyFreeState />
       <PathToEnergy />
       <FusionSolarApp />

@@ -196,6 +196,7 @@ interface SolarAboCalculatorState {
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
   consumptionOverrideKwh: number | null
+  heatPumpInterest: boolean
 
   address: string
   selectedLocation: SonnendachLocation | null
@@ -261,6 +262,7 @@ interface SolarAboCalculatorActions {
   setHouseholdSize: (size: HouseholdSize) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
   setConsumptionOverride: (kwh: number | null) => void
+  setHeatPumpInterest: (value: boolean) => void
   setAddress: (address: string) => void
   setSelectedLocation: (location: SonnendachLocation | null) => void
   setBuilding: (building: SonnendachBuilding | null) => void
@@ -360,6 +362,7 @@ const initialState: SolarAboCalculatorState = {
   buildingType: 'single_family',
   householdSize: null,
   consumptionOverrideKwh: null,
+  heatPumpInterest: false,
   devices: {
     heatPumpHeating: false,
     electricHeating: false,
@@ -434,6 +437,7 @@ export const useSolarAboCalculatorStore = create<
       setSolarModel: (model: SolarModel | null) => {
         set({
           solarModel: model,
+          heatPumpInterest: false,
           selectedPackageId: null,
           selectedPackageCode: null,
           selectedPackagePricePerKwp: null,
@@ -511,6 +515,10 @@ export const useSolarAboCalculatorStore = create<
         if (!Number.isFinite(kwh) || kwh <= 0) return
         const clamped = Math.max(500, Math.min(50000, Math.round(kwh)))
         set({ consumptionOverrideKwh: clamped })
+      },
+
+      setHeatPumpInterest: (value: boolean) => {
+        set({ heatPumpInterest: value })
       },
 
       setAddress: (address: string) => {
@@ -881,6 +889,7 @@ export const useSolarAboCalculatorStore = create<
               recommendedPackage: state.getRecommendedPackage(),
               solarModel: state.solarModel ?? 'solar-direct',
               ppaDiscountPercent,
+              heatPumpInterest: state.heatPumpInterest,
             },
             consents: state.consents,
           })
@@ -908,6 +917,7 @@ export const useSolarAboCalculatorStore = create<
         try {
           await residentialCalculatorService.requestOffer({
             projectId: state.createdProjectId,
+            heatPumpInterest: state.heatPumpInterest,
           })
           set({ resultsPath: 'offer' })
         } catch (error: unknown) {
@@ -956,6 +966,7 @@ export const useSolarAboCalculatorStore = create<
             projectId: state.createdProjectId,
             acknowledgments: state.acknowledgments,
             language: 'de',
+            heatPumpInterest: state.heatPumpInterest,
             ...(state.selectedPackageId ? { packageId: state.selectedPackageId } : {}),
             ...(state.roofImage ? { roofImage: state.roofImage } : {}),
             ...(state.solarModel ? { solarModel: state.solarModel } : {}),
@@ -1074,6 +1085,7 @@ export const useSolarAboCalculatorStore = create<
         householdSize: state.householdSize,
         devices: state.devices,
         consumptionOverrideKwh: state.consumptionOverrideKwh,
+        heatPumpInterest: state.heatPumpInterest,
         address: state.address,
         selectedLocation: state.selectedLocation,
         building: state.building,

@@ -7,7 +7,8 @@ import {
   residentialCalculatorService,
   type CalculatorPackage,
 } from '@/services/residential-calculator.service'
-import { PackageCard } from '../components/PackageCard'
+import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
+import PackageCard from '@/components/order/PackageCard'
 import { EquipmentList } from '../components/EquipmentList'
 import { type EquipmentDetail } from '../components/EquipmentDetailCard'
 import { PurchaseFinancialSummary } from '../components/PurchaseFinancialSummary'
@@ -80,6 +81,27 @@ function getPanelSpecs(pkg: CalculatorPackage) {
   }
 }
 
+function pickRecommendedPackage(
+  packages: CalculatorPackage[],
+  systemSizeKwp: number,
+): CalculatorPackage | null {
+  if (packages.length === 0) return null
+  const inRange = packages.find(p => {
+    const min = p.minCapacityKwp ?? -Infinity
+    const max = p.maxCapacityKwp ?? Infinity
+    return systemSizeKwp >= min && systemSizeKwp <= max
+  })
+  if (inRange) return inRange
+  const withDistance = packages.map(p => {
+    const min = p.minCapacityKwp ?? 0
+    const max = p.maxCapacityKwp ?? min
+    const mid = (min + max) / 2
+    return { pkg: p, distance: Math.abs(systemSizeKwp - mid) }
+  })
+  withDistance.sort((a, b) => a.distance - b.distance)
+  return withDistance[0].pkg
+}
+
 function applyPackageToStore(
   setFn: (
     id: string,
@@ -129,7 +151,9 @@ export default function StepSolarDirectResults() {
         const hasValidSelection =
           store.selectedPackageId && data.some(p => p.id === store.selectedPackageId)
         if (data.length > 0 && !hasValidSelection) {
-          applyPackageToStore(store.setSelectedPackage, data[0])
+          const realKwp = useSolarAboCalculatorStore.getState().getSystemSizeKwp()
+          const recommended = pickRecommendedPackage(data, realKwp) ?? data[0]
+          applyPackageToStore(store.setSelectedPackage, recommended)
         }
       })
       .catch(() => {})
@@ -143,6 +167,19 @@ export default function StepSolarDirectResults() {
   const selectedPkg = useMemo(
     () => packages.find(p => p.id === store.selectedPackageId) ?? undefined,
     [packages, store.selectedPackageId],
+  )
+
+  const systemSizeKwp = store.getSystemSizeKwp()
+  const recommendedPkg = useMemo(
+    () => pickRecommendedPackage(packages, systemSizeKwp),
+    [packages, systemSizeKwp],
+  )
+  const orderedPackages = useMemo(
+    () =>
+      recommendedPkg
+        ? [recommendedPkg, ...packages.filter(p => p.id !== recommendedPkg.id)]
+        : packages,
+    [packages, recommendedPkg],
   )
 
   const annualSavings = store.getAnnualSavings()
@@ -175,24 +212,22 @@ export default function StepSolarDirectResults() {
       {packages.length > 0 ? (
         <section className="flex flex-col gap-3">
           <h2 className="text-base font-medium text-[#062E25]">{t('chooseYourPackage')}</h2>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {packages.map(pkg => (
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {orderedPackages.map(pkg => (
               <PackageCard
                 key={pkg.id}
-                package={pkg}
+                pkg={pkg}
+                model="solar-direct"
+                locale={locale}
                 isSelected={pkg.id === store.selectedPackageId}
-                variant="purchase"
-                estimatedNetPriceChf={
-                  pkg.purchasePriceChf !== null
-                    ? Math.max(0, pkg.purchasePriceChf - estimatedSubsidy)
-                    : undefined
-                }
                 onSelect={() => applyPackageToStore(store.setSelectedPackage, pkg)}
               />
             ))}
           </div>
         </section>
       ) : null}
+
+      <HeatPumpInterestStrip />
 
       {selectedPkg ? (
         <PurchaseFinancialSummary

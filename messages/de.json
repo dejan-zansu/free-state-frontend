@@ -1,5 +1,90 @@
 {
   "title": "Free State AG",
+  "packageCatalog": {
+    "title": "Wählen Sie Ihr Solarpaket",
+    "subtitle": "Vorkonfigurierte Anlagen — auswählen und in Minuten bestellen.",
+    "errorLoading": "Pakete konnten nicht geladen werden.",
+    "retry": "Erneut versuchen",
+    "empty": "Aktuell keine Pakete verfügbar.",
+    "toggle": {
+      "solar-free": "SolarFree",
+      "solar-direct": "Solar Direct"
+    },
+    "card": {
+      "capacity": "Leistung",
+      "annualProduction": "Jahresertrag",
+      "kwpUnit": "kWp",
+      "kwhPerYearUnit": "kWh/Jahr",
+      "recommended": "Empfohlen",
+      "tag": {
+        "specialOffer": "Spezialangebot"
+      },
+      "hero": {
+        "swissBadgeLine1": "Entwickelt für",
+        "swissBadgeLine2": "die Schweiz",
+        "heading": "Komplettpaket für Ihr Zuhause: Solar, Speicher und E-Mobilität",
+        "tagline": "Intelligent. Effizient. Zukunftssicher. Alles aus einer Hand."
+      },
+      "priceLabels": {
+        "from": "ab",
+        "alternative": "oder ab",
+        "solarFreePill": "SolarFree",
+        "electricityFrom": "Strompreis ab {rate} CHF/kWh",
+        "exclVat": "zzgl. MwSt."
+      },
+      "details": {
+        "label": "Standard Paket",
+        "tagline": {
+          "HUAWEI": "Der Schweizer Marktstandard. Sicher. Bewährt. Effizient.",
+          "SIGENERGY": "Europäische Premium-Technologie. Innovativ. Zuverlässig."
+        }
+      },
+      "equipment": {
+        "quality": {
+          "name": "Hochwertige Komponenten",
+          "desc": "Markenmodule, Wechselrichter und Speicher mit langer Garantie"
+        },
+        "app": {
+          "name": "App & Monitoring",
+          "desc": "Alles im Blick – jederzeit & überall"
+        },
+        "service": {
+          "name": "Montage & Service",
+          "desc": "Professionell, schnell & zuverlässig"
+        }
+      },
+      "selling": {
+        "bullets": [
+          "Keine Investition (SolarFree möglich)",
+          "Fixer Strompreis statt steigender Kosten",
+          "Alles aus einer Hand",
+          "Installation in ~3 Monaten"
+        ]
+      },
+      "trust": {
+        "warranty": {
+          "title": "25 Jahre Produktgarantie",
+          "desc": "Entwickelt für die Schweiz und höchste Ansprüche"
+        },
+        "reliable": {
+          "title": "Zuverlässig",
+          "desc": "Bewährte Technologie für maximale Sicherheit"
+        },
+        "efficient": {
+          "title": "Effizient",
+          "desc": "Mehr Ertrag durch intelligentes Energiemanagement"
+        },
+        "sustainable": {
+          "title": "Nachhaltig",
+          "desc": "Für eine grüne Zukunft und tiefere Kosten"
+        }
+      },
+      "cta": {
+        "orderFinal": "Jetzt Bestellen",
+        "solarDirectSoon": "Solar-Direct-Rechner demnächst verfügbar"
+      }
+    }
+  },
   "seo": {
     "defaultTitle": "Free State AG",
     "titleTemplate": "%s | Free State AG",
@@ -3876,7 +3961,7 @@
         "efficiency": "Wirtschaftlichkeit & Energiebilanz"
       },
       "ctaText": "Solarrechner starten",
-      "ctaLink": "/solar-abo-calculator",
+      "ctaLink": "/calculator",
       "note": "kostenlos - unkompliziert - präzise - unverbindlich"
     },
     "financing": {
@@ -3956,7 +4041,7 @@
         "efficiency": "Wirtschaftlichkeit & Energiebilanz"
       },
       "ctaText": "Solarrechner starten",
-      "ctaLink": "/solar-abo-calculator",
+      "ctaLink": "/calculator",
       "note": "kostenlos - unkompliziert - präzise - unverbindlich"
     },
     "calculator": {
@@ -4139,7 +4224,7 @@
         "tariffs": "Beste Tarife"
       },
       "cta": "Entdecken Sie Ihr Solarpotenzial",
-      "ctaLink": "/solar-abo-calculator"
+      "ctaLink": "/calculator"
     },
     "whyFreeState": {
       "title": "Warum FreeState?",
@@ -4214,7 +4299,7 @@
       "eyebrow": "Solarrechner",
       "title": "Jetzt starten!\nNutzen Sie den Solarrechner für ein Angebot.",
       "cta": "Solarrechner starten",
-      "ctaLink": "/solar-abo-calculator"
+      "ctaLink": "/calculator"
     }
   },
   "energyStorage": {
@@ -5698,6 +5783,18 @@
     "results": {
       "title": "Ihr Solarpotenzial",
       "subtitle": "Basierend auf Ihren Dach- und Haushaltsdaten zeigen wir Ihnen, was Solarenergie für Sie leisten kann.",
+      "heatPumpInterest": {
+        "title": "Auch über eine Wärmepumpe nachdenken?",
+        "subtitle": "Wärmepumpen sind nicht Teil dieses Angebots — bei Interesse melden wir uns separat.",
+        "stat1Value": "bis zu 54%",
+        "stat1Label": "tiefere Energiekosten als Ölheizung",
+        "stat2Value": "100%",
+        "stat2Label": "mit Ihrem Solarstrom betrieben",
+        "stat3Value": "bis zu CHF 25'850",
+        "stat3Label": "kantonale Förderbeiträge",
+        "toggleLabel": "Ja, mich interessiert das",
+        "toggleAriaLabel": "Wärmepumpen-Interesse umschalten"
+      },
       "metrics": {
         "production": "kWh/Jahr",
         "savings": "pro Jahr",
