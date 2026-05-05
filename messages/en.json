@@ -1,5 +1,90 @@
 {
   "title": "Free State AG",
+  "packageCatalog": {
+    "title": "Choose your solar package",
+    "subtitle": "Pre-configured systems — pick one and order in minutes.",
+    "errorLoading": "Could not load packages.",
+    "retry": "Retry",
+    "empty": "No packages available right now.",
+    "toggle": {
+      "solar-free": "SolarFree",
+      "solar-direct": "Solar Direct"
+    },
+    "card": {
+      "capacity": "Capacity",
+      "annualProduction": "Annual production",
+      "kwpUnit": "kWp",
+      "kwhPerYearUnit": "kWh/year",
+      "recommended": "Recommended",
+      "tag": {
+        "specialOffer": "Special offer"
+      },
+      "hero": {
+        "swissBadgeLine1": "Designed for",
+        "swissBadgeLine2": "Switzerland",
+        "heading": "Complete package for your home: solar, storage and e-mobility",
+        "tagline": "Smart. Efficient. Future-proof. All from one source."
+      },
+      "priceLabels": {
+        "from": "from",
+        "alternative": "or from",
+        "solarFreePill": "SolarFree",
+        "electricityFrom": "Electricity from {rate} CHF/kWh",
+        "exclVat": "excl. VAT"
+      },
+      "details": {
+        "label": "Standard package",
+        "tagline": {
+          "HUAWEI": "The Swiss market standard. Safe. Proven. Efficient.",
+          "SIGENERGY": "European premium technology. Innovative. Reliable."
+        }
+      },
+      "equipment": {
+        "quality": {
+          "name": "High-quality components",
+          "desc": "Brand-name panels, inverters and storage with long warranties"
+        },
+        "app": {
+          "name": "App & monitoring",
+          "desc": "Always in view — anytime, anywhere"
+        },
+        "service": {
+          "name": "Installation & service",
+          "desc": "Professional, fast and reliable"
+        }
+      },
+      "selling": {
+        "bullets": [
+          "No investment (SolarFree available)",
+          "Fixed electricity price instead of rising costs",
+          "Everything from one source",
+          "Installation in ~3 months"
+        ]
+      },
+      "trust": {
+        "warranty": {
+          "title": "25-year product warranty",
+          "desc": "Designed for Switzerland and the highest standards"
+        },
+        "reliable": {
+          "title": "Reliable",
+          "desc": "Proven technology for maximum safety"
+        },
+        "efficient": {
+          "title": "Efficient",
+          "desc": "More yield through smart energy management"
+        },
+        "sustainable": {
+          "title": "Sustainable",
+          "desc": "For a greener future and lower costs"
+        }
+      },
+      "cta": {
+        "orderFinal": "Order now",
+        "solarDirectSoon": "Solar Direct calculator coming soon"
+      }
+    }
+  },
   "seo": {
     "defaultTitle": "Free State AG",
     "titleTemplate": "%s | Free State AG",
@@ -3544,7 +3629,7 @@
         "efficiency": "Economic efficiency & energy balance"
       },
       "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/solar-abo-calculator",
+      "ctaLink": "/calculator",
       "note": "free - uncomplicated - precise - non-binding"
     },
     "financing": {
@@ -3624,7 +3709,7 @@
         "efficiency": "Economic efficiency & energy balance"
       },
       "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/solar-abo-calculator",
+      "ctaLink": "/calculator",
       "note": "free - uncomplicated - precise - non-binding"
     },
     "calculator": {
@@ -4019,6 +4104,18 @@
     "results": {
       "title": "Your Solar Potential",
       "subtitle": "Based on your roof and household data, here is what solar energy can do for you.",
+      "heatPumpInterest": {
+        "title": "Thinking about a heat pump too?",
+        "subtitle": "Heat pumps aren't part of this offer — if you're interested, we'll follow up separately.",
+        "stat1Value": "up to 54%",
+        "stat1Label": "lower energy costs vs. oil heating",
+        "stat2Value": "100%",
+        "stat2Label": "powered by your surplus solar",
+        "stat3Value": "up to CHF 25,850",
+        "stat3Label": "cantonal subsidies available",
+        "toggleLabel": "Yes, I'm interested",
+        "toggleAriaLabel": "Toggle heat pump interest"
+      },
       "metrics": {
         "production": "kWh/year",
         "savings": "per year",
@@ -4707,7 +4804,7 @@
         "tariffs": "Best tariffs"
       },
       "cta": "Discover your solar potential",
-      "ctaLink": "/solar-abo-calculator"
+      "ctaLink": "/calculator"
     },
     "whyFreeState": {
       "title": "Why FreeState?",
@@ -4782,7 +4879,7 @@
       "eyebrow": "Solar Calculator",
       "title": "Get started now!\nUse the solar calculator to get a quote.",
       "cta": "Start the Solar Calculator",
-      "ctaLink": "/solar-abo-calculator"
+      "ctaLink": "/calculator"
     }
   },
   "energyStorage": {

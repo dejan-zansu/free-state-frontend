@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { useTranslations } from 'next-intl'
 import { parseAsInteger, useQueryState } from 'nuqs'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Steps from '@/components/Steps'
 
@@ -20,6 +20,8 @@ import StepSolarFreeResults from './steps/StepSolarFreeResults'
 import StepSolarDirectResults from './steps/StepSolarDirectResults'
 import StepSignature from './steps/StepSignature'
 
+const SESSION_ACTIVE_KEY = 'solar-calculator-session-active'
+
 const PAGE_BG =
   'linear-gradient(180deg, rgba(242, 244, 232, 1) 45%, rgba(220, 233, 230, 1) 84%)'
 
@@ -30,8 +32,24 @@ export default function CalculatorClient() {
 
   const [stepParam, setStepParam] = useQueryState('step', parseAsInteger)
   const [modelParam, setModelParam] = useQueryState('model')
+  const [resetReady, setResetReady] = useState(false)
 
   useEffect(() => {
+    const wasActive = sessionStorage.getItem(SESSION_ACTIVE_KEY)
+    if (!wasActive) {
+      useSolarAboCalculatorStore.getState().reset()
+      setStepParam(null, { history: 'replace' })
+    }
+    sessionStorage.setItem(SESSION_ACTIVE_KEY, '1')
+    setResetReady(true)
+    return () => {
+      sessionStorage.removeItem(SESSION_ACTIVE_KEY)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    if (!resetReady) return
     if (!modelParam) return
     if (modelParam === 'solar-free' || modelParam === 'solar-direct') {
       if (solarModel !== modelParam) {
@@ -39,12 +57,13 @@ export default function CalculatorClient() {
       }
     }
     setModelParam(null, { history: 'replace' })
-  }, [modelParam, solarModel, setSolarModel, setModelParam])
+  }, [resetReady, modelParam, solarModel, setSolarModel, setModelParam])
   const initRef = useRef(false)
   const fromUrlRef = useRef(false)
   const lastPushedRef = useRef<number | null>(null)
 
   useEffect(() => {
+    if (!resetReady) return
     if (!solarModel || initRef.current) return
     initRef.current = true
 
@@ -58,7 +77,7 @@ export default function CalculatorClient() {
     } else {
       lastPushedRef.current = stepParam
     }
-  }, [solarModel, stepParam, currentStep, goToStep, setStepParam])
+  }, [resetReady, solarModel, stepParam, currentStep, goToStep, setStepParam])
 
   useEffect(() => {
     if (!initRef.current) return

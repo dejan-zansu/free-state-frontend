@@ -1,5 +1,90 @@
 {
   "title": "Free State AG",
+  "packageCatalog": {
+    "title": "Choisissez votre forfait solaire",
+    "subtitle": "Installations préconfigurées — choisissez et commandez en quelques minutes.",
+    "errorLoading": "Impossible de charger les forfaits.",
+    "retry": "Réessayer",
+    "empty": "Aucun forfait disponible pour le moment.",
+    "toggle": {
+      "solar-free": "SolarFree",
+      "solar-direct": "Solar Direct"
+    },
+    "card": {
+      "capacity": "Puissance",
+      "annualProduction": "Production annuelle",
+      "kwpUnit": "kWc",
+      "kwhPerYearUnit": "kWh/an",
+      "recommended": "Recommandé",
+      "tag": {
+        "specialOffer": "Offre spéciale"
+      },
+      "hero": {
+        "swissBadgeLine1": "Conçu pour",
+        "swissBadgeLine2": "la Suisse",
+        "heading": "Forfait complet pour votre maison : solaire, stockage et e-mobilité",
+        "tagline": "Intelligent. Efficace. Pérenne. Tout d'une seule main."
+      },
+      "priceLabels": {
+        "from": "dès",
+        "alternative": "ou dès",
+        "solarFreePill": "SolarFree",
+        "electricityFrom": "Électricité dès {rate} CHF/kWh",
+        "exclVat": "hors TVA"
+      },
+      "details": {
+        "label": "Forfait standard",
+        "tagline": {
+          "HUAWEI": "La référence du marché suisse. Sûr. Éprouvé. Efficace.",
+          "SIGENERGY": "Technologie premium européenne. Innovante. Fiable."
+        }
+      },
+      "equipment": {
+        "quality": {
+          "name": "Composants haut de gamme",
+          "desc": "Modules, onduleurs et stockage de marque avec longues garanties"
+        },
+        "app": {
+          "name": "App & monitoring",
+          "desc": "Tout sous contrôle — à tout moment"
+        },
+        "service": {
+          "name": "Installation & service",
+          "desc": "Professionnel, rapide et fiable"
+        }
+      },
+      "selling": {
+        "bullets": [
+          "Aucun investissement (SolarFree possible)",
+          "Prix de l'électricité fixe au lieu de coûts croissants",
+          "Tout d'une seule main",
+          "Installation en ~3 mois"
+        ]
+      },
+      "trust": {
+        "warranty": {
+          "title": "Garantie produit 25 ans",
+          "desc": "Conçu pour la Suisse et les plus hautes exigences"
+        },
+        "reliable": {
+          "title": "Fiable",
+          "desc": "Technologie éprouvée pour une sécurité maximale"
+        },
+        "efficient": {
+          "title": "Efficace",
+          "desc": "Plus de rendement grâce à la gestion intelligente"
+        },
+        "sustainable": {
+          "title": "Durable",
+          "desc": "Pour un avenir plus vert et des coûts réduits"
+        }
+      },
+      "cta": {
+        "orderFinal": "Commander",
+        "solarDirectSoon": "Calculateur Solar Direct bientôt disponible"
+      }
+    }
+  },
   "seo": {
     "defaultTitle": "Free State AG",
     "titleTemplate": "%s | Free State AG",
@@ -3544,7 +3629,7 @@
         "efficiency": "Rentabilité & bilan énergétique"
       },
       "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/solar-abo-calculator",
+      "ctaLink": "/calculator",
       "note": "gratuit - simple - précis - sans engagement"
     },
     "financing": {
@@ -3624,7 +3709,7 @@
         "efficiency": "Rentabilité & bilan énergétique"
       },
       "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/solar-abo-calculator",
+      "ctaLink": "/calculator",
       "note": "gratuit - simple - précis - sans engagement"
     },
     "calculator": {
@@ -4019,6 +4104,18 @@
     "results": {
       "title": "Votre potentiel solaire",
       "subtitle": "Sur la base de votre toit et de votre ménage, voici ce que l'énergie solaire peut faire pour vous.",
+      "heatPumpInterest": {
+        "title": "Vous pensez aussi à une pompe à chaleur ?",
+        "subtitle": "Les pompes à chaleur ne font pas partie de cette offre — si cela vous intéresse, nous vous contacterons séparément.",
+        "stat1Value": "jusqu'à 54%",
+        "stat1Label": "de coûts énergétiques en moins vs chauffage au mazout",
+        "stat2Value": "100%",
+        "stat2Label": "alimentée par votre surplus solaire",
+        "stat3Value": "jusqu'à 25 850 CHF",
+        "stat3Label": "subventions cantonales disponibles",
+        "toggleLabel": "Oui, ça m'intéresse",
+        "toggleAriaLabel": "Basculer l'intérêt pompe à chaleur"
+      },
       "metrics": {
         "production": "kWh/an",
         "savings": "par an",
@@ -4707,7 +4804,7 @@
         "tariffs": "Meilleurs tarifs"
       },
       "cta": "Découvrez votre potentiel solaire",
-      "ctaLink": "/solar-abo-calculator"
+      "ctaLink": "/calculator"
     },
     "whyFreeState": {
       "title": "Pourquoi FreeState ?",
@@ -4782,7 +4879,7 @@
       "eyebrow": "Calculateur solaire",
       "title": "Commencez maintenant !\nUtilisez le calculateur solaire pour obtenir un devis.",
       "cta": "Démarrer le calculateur solaire",
-      "ctaLink": "/solar-abo-calculator"
+      "ctaLink": "/calculator"
     }
   },
   "energyStorage": {

@@ -47,8 +47,12 @@ function useContactSchema(t: (key: string) => string) {
             const d = new Date(v)
             if (isNaN(d.getTime())) return false
             const today = new Date()
-            const age = today.getFullYear() - d.getFullYear() -
-              (today < new Date(today.getFullYear(), d.getMonth(), d.getDate()) ? 1 : 0)
+            const age =
+              today.getFullYear() -
+              d.getFullYear() -
+              (today < new Date(today.getFullYear(), d.getMonth(), d.getDate())
+                ? 1
+                : 0)
             return age >= 18 && age <= 120
           }, t('dateOfBirthInvalid')),
         nationality: z.string().min(1, t('nationalityRequired')),
@@ -61,7 +65,7 @@ function useContactSchema(t: (key: string) => string) {
         remarks: z.string(),
         isPropertyOwner: z
           .boolean({ message: t('propertyOwnerRequired') })
-          .refine((v) => v === true, { message: t('propertyOwnerRequired') }),
+          .refine(v => v === true, { message: t('propertyOwnerRequired') }),
         dataProcessing: z.literal(true, {
           message: t('consentRequired'),
         }),
@@ -114,7 +118,7 @@ function DateOfBirthPicker({
   const monthFmt = new Intl.DateTimeFormat(locale, { month: 'long' })
   const triggerCls = cn(
     inputBase,
-    'flex items-center justify-between min-w-0',
+    'flex items-center justify-between min-w-0 shadow-none data-[placeholder]:text-[#062E25]/30',
     hasError && 'border-destructive'
   )
 
@@ -245,7 +249,7 @@ export default function Step6ContactDetails() {
   return (
     <div className="h-full overflow-y-auto">
       <div className="container mx-auto px-4 pt-8 pb-24">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-[60px]">
+        <div className="flex flex-col lg:flex-row justify-center gap-10 lg:gap-[60px]">
           <div className="flex flex-col gap-5 w-full max-w-[436px]">
             <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {t('title')}
@@ -386,7 +390,11 @@ export default function Step6ContactDetails() {
                   )}
                 </div>
 
-                <div className="space-y-1 sm:col-span-2">
+                <div className="sm:col-span-2 flex flex-col gap-2.5">
+                  <label className={labelBase}>
+                    {t('dateOfBirth')}{' '}
+                    <span className="text-destructive">*</span>
+                  </label>
                   <Controller
                     name="dateOfBirth"
                     control={control}
@@ -453,14 +461,14 @@ export default function Step6ContactDetails() {
                             >
                               <span
                                 className={cn(
-                                  'w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-colors',
+                                  'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
                                   selected
                                     ? 'border-[#062E25]'
                                     : 'border-[#D9D9D9]'
                                 )}
                               >
                                 {selected && (
-                                  <span className="w-2 h-2 rounded-full bg-[#B7FE1A]" />
+                                  <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
                                 )}
                               </span>
                               <span

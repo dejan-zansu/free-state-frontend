@@ -12,10 +12,6 @@ import {
   ArrowRight,
   Mail,
   FileText,
-  Sun,
-  BatteryCharging,
-  Car,
-  Smartphone,
 } from 'lucide-react'
 import Image from 'next/image'
 
@@ -23,7 +19,9 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { contractService } from '@/services/contract.service'
 import { reportService } from '@/services/report.service'
+import PackageCard from '@/components/order/PackageCard'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
+import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
 import SignContractDialog from '../components/SignContractDialog'
 import {
@@ -35,7 +33,7 @@ import {
   type CalculatorPackage,
   type SolarModelFilter,
 } from '@/services/residential-calculator.service'
-import { LinkButton } from '@/components/ui/link-button'
+import { linkButtonVariants } from '@/components/ui/link-button'
 
 function getPanelSpecs(pkg: CalculatorPackage) {
   const panel = pkg.equipment.find(e => e.equipmentType === 'SOLAR_PANEL')
@@ -167,56 +165,6 @@ function ActionRow({
         {done && <CheckCircle2 className="w-4 h-4 text-[#036B53]" />}
         <span>{buttonLabel}</span>
       </button>
-    </div>
-  )
-}
-
-function BulletIcon() {
-  return (
-    <svg
-      width="14"
-      height="14"
-      viewBox="0 0 14 14"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="shrink-0"
-      aria-hidden="true"
-    >
-      <path
-        d="M5.01317 0.792524C5.41719 0.448221 5.6192 0.27607 5.83041 0.175118C6.31892 -0.0583728 6.88683 -0.0583728 7.37534 0.175118C7.58655 0.27607 7.78856 0.448221 8.19258 0.792524C8.35338 0.929558 8.43378 0.998074 8.51964 1.05563C8.71648 1.18755 8.93753 1.27912 9.17 1.32501C9.27142 1.34504 9.37672 1.35344 9.58732 1.37024C10.1165 1.41247 10.381 1.43358 10.6018 1.51155C11.1123 1.69187 11.5139 2.09345 11.6942 2.60398C11.7722 2.82471 11.7933 3.08928 11.8355 3.61843C11.8523 3.82903 11.8607 3.93433 11.8807 4.03574C11.9266 4.26821 12.0182 4.48926 12.1501 4.6861C12.2077 4.77197 12.2762 4.85237 12.4132 5.01317C12.7575 5.41719 12.9297 5.6192 13.0306 5.83041C13.2641 6.31892 13.2641 6.88683 13.0306 7.37534C12.9297 7.58655 12.7575 7.78856 12.4132 8.19258C12.2762 8.35338 12.2077 8.43378 12.1501 8.51965C12.0182 8.71648 11.9266 8.93753 11.8807 9.17C11.8607 9.27142 11.8523 9.37672 11.8355 9.58732C11.7933 10.1165 11.7722 10.381 11.6942 10.6018C11.5139 11.1123 11.1123 11.5139 10.6018 11.6942C10.381 11.7722 10.1165 11.7933 9.58732 11.8355C9.37672 11.8523 9.27142 11.8607 9.17 11.8807C8.93753 11.9266 8.71648 12.0182 8.51965 12.1501C8.43378 12.2077 8.35338 12.2762 8.19258 12.4132C7.78856 12.7575 7.58655 12.9297 7.37534 13.0306C6.88683 13.2641 6.31892 13.2641 5.83041 13.0306C5.6192 12.9297 5.41719 12.7575 5.01317 12.4132C4.85237 12.2762 4.77197 12.2077 4.6861 12.1501C4.48926 12.0182 4.26821 11.9266 4.03574 11.8807C3.93433 11.8607 3.82903 11.8523 3.61843 11.8355C3.08928 11.7933 2.82471 11.7722 2.60398 11.6942C2.09345 11.5139 1.69187 11.1123 1.51155 10.6018C1.43358 10.381 1.41247 10.1165 1.37024 9.58732C1.35344 9.37672 1.34504 9.27142 1.32501 9.17C1.27912 8.93753 1.18755 8.71648 1.05563 8.51964C0.998074 8.43378 0.929558 8.35338 0.792524 8.19258C0.448221 7.78856 0.27607 7.58655 0.175118 7.37534C-0.0583728 6.88683 -0.0583728 6.31892 0.175118 5.83041C0.27607 5.6192 0.448221 5.41719 0.792524 5.01317C0.929558 4.85237 0.998074 4.77197 1.05563 4.6861C1.18755 4.48926 1.27912 4.26821 1.32501 4.03574C1.34504 3.93433 1.35344 3.82903 1.37024 3.61843C1.41247 3.08928 1.43358 2.82471 1.51155 2.60398C1.69187 2.09345 2.09345 1.69187 2.60398 1.51155C2.82471 1.43358 3.08928 1.41247 3.61843 1.37024C3.82903 1.35344 3.93433 1.34504 4.03574 1.32501C4.26821 1.27912 4.48926 1.18755 4.6861 1.05563C4.77197 0.998074 4.85237 0.929558 5.01317 0.792524Z"
-        fill="#036B53"
-      />
-      <path
-        d="M4.0957 6.95421L5.52872 8.38723L9.11126 4.80469"
-        stroke="white"
-        strokeWidth="0.943267"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  )
-}
-
-function SpecItem({
-  icon,
-  value,
-  label,
-}: {
-  icon: React.ReactNode
-  value: string
-  label: string
-}) {
-  return (
-    <div className="flex min-w-0 items-center gap-2">
-      <span className="shrink-0 text-[#036B53]">{icon}</span>
-      <div className="min-w-0 flex flex-col">
-        <span className="text-base font-bold text-[#062E25] tracking-tight truncate">
-          {value}
-        </span>
-        <span className="text-base font-light text-[#062E25]/80 tracking-tight truncate">
-          {label}
-        </span>
-      </div>
     </div>
   )
 }
@@ -357,6 +305,9 @@ export default function StepResults() {
   const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
   const equipmentWithNames = selectedPkg?.equipment.filter(e => e.name) || []
   const recommendedPkg = pickRecommendedPackage(packages, systemSizeKwp)
+  const orderedPackages = recommendedPkg
+    ? [recommendedPkg, ...packages.filter(p => p.id !== recommendedPkg.id)]
+    : packages
   const tPackageSelector = useTranslations(
     'solarAboCalculator.results.solarFree.packageSelector'
   )
@@ -628,184 +579,26 @@ export default function StepResults() {
               title={tPackageSelector('sectionTitle')}
               subtitle={tPackageSelector('sectionSubtitle')}
             />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4">
-              {packages.map(pkg => {
-                const isSelected = pkg.id === store.selectedPackageId
-                const isRecommended = pkg.id === recommendedPkg?.id
-                const batteryEquip = pkg.equipment.find(
-                  e =>
-                    e.equipmentType === 'BATTERY' ||
-                    e.equipmentType === 'BATTERY_STORAGE'
-                )
-                const hasBattery = batteryEquip != null
-                const batteryKwhMatch =
-                  batteryEquip?.name.match(/(\d+(?:[.,]\d+)?)\s*kWh/i)
-                const batteryKwh = batteryKwhMatch
-                  ? batteryKwhMatch[1].replace(',', '.')
-                  : null
-
-                return (
-                  <button
-                    key={pkg.id}
-                    type="button"
-                    onClick={() =>
-                      applyPackageToStore(store.setSelectedPackage, pkg)
-                    }
-                    aria-pressed={isSelected}
-                    className={cn(
-                      'relative rounded-[10px] bg-[#FDFEFA] p-6 flex flex-col text-left transition-shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-[#062E25]',
-                      isRecommended
-                        ? 'border border-[#062E25]'
-                        : 'border border-[rgba(84,105,99,0.5)]',
-                      isSelected && !isRecommended && 'ring-2 ring-[#062E25]',
-                      'hover:shadow-[0_8px_24px_rgba(6,46,37,0.08)]'
-                    )}
-                  >
-                    {isRecommended && (
-                      <span className="absolute -top-4 left-1/2 -translate-x-1/2 z-20 inline-flex items-center gap-1.5 rounded-full bg-[#036B53] px-4 py-2 text-base font-light text-white whitespace-nowrap shadow-[0_4px_12px_rgba(3,107,83,0.25)]">
-                        <Check className="w-4 h-4" strokeWidth={2.5} />
-                        {tPackageSelector('recommended')}
-                      </span>
-                    )}
-
-                    <div className="relative -mt-6 -mx-6 mb-5 aspect-video rounded-t-[10px] overflow-hidden bg-gradient-to-br from-[#F5F7EE] to-[#DCE9E6] flex items-center justify-center">
-                      {pkg.imageUrl ? (
-                        <Image
-                          src={pkg.imageUrl}
-                          alt={pkg.name}
-                          fill
-                          className="object-cover"
-                          unoptimized
-                        />
-                      ) : (
-                        <Sun
-                          className="w-12 h-12 text-[#036B53]/50"
-                          strokeWidth={1.25}
-                        />
-                      )}
-                    </div>
-
-                    <div className="flex-1">
-                      {pkg.description && (
-                        <p className="text-base font-light text-[#062E25]/80 tracking-tight">
-                          {pkg.description}
-                        </p>
-                      )}
-
-                      <div className="mt-5 flex items-start gap-2 text-base text-[#062E25]">
-                        <span className="mt-1.5">
-                          <BulletIcon />
-                        </span>
-                        <span className="font-light tracking-tight">
-                          {t('whatsIncluded.footnote')}
-                        </span>
-                      </div>
-
-                      <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-4">
-                        {pkg.minCapacityKwp != null &&
-                          pkg.maxCapacityKwp != null && (
-                            <SpecItem
-                              icon={
-                                <Sun className="w-6 h-6" strokeWidth={1.75} />
-                              }
-                              value={tPackageSelector('capacityRange', {
-                                min: pkg.minCapacityKwp,
-                                max: pkg.maxCapacityKwp,
-                              })}
-                              label={tPackageSelector('specPv')}
-                            />
-                          )}
-                        {hasBattery && batteryKwh != null && (
-                          <SpecItem
-                            icon={
-                              <BatteryCharging
-                                className="w-6 h-6"
-                                strokeWidth={1.75}
-                              />
-                            }
-                            value={`${batteryKwh} kWh`}
-                            label={tPackageSelector('specBattery')}
-                          />
-                        )}
-                        <SpecItem
-                          icon={
-                            <Car className="w-6 h-6" strokeWidth={1.75} />
-                          }
-                          value={tPackageSelector('specEvValue')}
-                          label={tPackageSelector('specEvLabel')}
-                        />
-                        <SpecItem
-                          icon={
-                            <Smartphone
-                              className="w-6 h-6"
-                              strokeWidth={1.75}
-                            />
-                          }
-                          value="App &"
-                          label={tPackageSelector('specMonitoring').replace(
-                            /^App\s*&\s*/,
-                            ''
-                          )}
-                        />
-                      </div>
-
-                      <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-base text-[#062E25]">
-                        <span className="flex items-center gap-1.5">
-                          <BulletIcon />
-                          <span className="font-light tracking-tight">
-                            {tPackageSelector('featureNoInvestment')}
-                          </span>
-                        </span>
-                        <span className="flex items-center gap-1.5">
-                          <BulletIcon />
-                          <span className="font-light tracking-tight">
-                            {tPackageSelector('featureCheapElectricity')}
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </button>
-                )
-              })}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
+              {orderedPackages.map(pkg => (
+                <PackageCard
+                  key={pkg.id}
+                  pkg={pkg}
+                  model="solar-free"
+                  locale={locale}
+                  isSelected={pkg.id === store.selectedPackageId}
+                  isRecommended={pkg.id === recommendedPkg?.id}
+                  recommendedLabel={tPackageSelector('recommended')}
+                  onSelect={() => applyPackageToStore(store.setSelectedPackage, pkg)}
+                />
+              ))}
             </div>
           </section>
         )}
 
-        {!packagesLoading && equipmentWithNames.length > 0 && (
-          <div className="mt-16">
-            <SectionHeader
-              title={t('whatsIncluded.label')}
-              subtitle={t('whatsIncluded.subtitle')}
-            />
-            <div className="rounded-xl bg-white/60 border border-[#062E25]/10 p-6">
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-5">
-                {equipmentWithNames.map((eq, i) => (
-                  <div
-                    key={i}
-                    className="flex flex-col items-center text-center"
-                  >
-                    {eq.imageUrl ? (
-                      <div className="relative w-full aspect-square rounded-xl overflow-hidden">
-                        <Image
-                          src={eq.imageUrl}
-                          alt={eq.name}
-                          fill
-                          className="object-contain p-4"
-                          unoptimized
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full aspect-square rounded-xl flex items-center justify-center">
-                        <span className="w-3 h-3 rounded-full bg-[#062E25]/40" />
-                      </div>
-                    )}
-                    <p className="mt-3 text-base text-[#062E25]">{eq.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+        <div className="mt-8">
+          <HeatPumpInterestStrip />
+        </div>
 
         <div className="mt-16">
           <SectionHeader
@@ -853,23 +646,28 @@ export default function StepResults() {
               type="button"
               onClick={() => setSignDialogOpen(true)}
               disabled={!signingEnabled}
-              aria-disabled={!signingEnabled}
               title={
                 signingEnabled
                   ? tActions('contractButton')
                   : tActions('contractInReviewLabel')
               }
               className={cn(
-                'mt-2 inline-flex items-center gap-3 rounded-full bg-[#B7FE1A] pl-6 pr-1.5 py-1.5 text-base font-medium text-[#062E25] tracking-tight transition-opacity',
-                signingEnabled
-                  ? 'hover:opacity-90 cursor-pointer'
-                  : 'opacity-60 cursor-not-allowed'
+                linkButtonVariants({ variant: 'primary' }),
+                'mt-2 text-base tracking-tight',
+                'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60'
               )}
             >
               {tActions('contractButton')}
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#062E25] text-[#B7FE1A]">
-                <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
-              </span>
+              <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#062E25]">
+                <ArrowRight
+                  className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 -rotate-45 text-white opacity-100 transition-all duration-300 group-hover:-translate-y-6 group-hover:opacity-0"
+                  aria-hidden
+                />
+                <ArrowRight
+                  className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 translate-y-6 -rotate-45 text-white opacity-0 transition-all duration-300 group-hover:-translate-y-1/2 group-hover:opacity-100"
+                  aria-hidden
+                />
+              </div>
             </button>
             {!signingEnabled && (
               <span className="text-sm font-medium uppercase tracking-widest text-[#062E25]/60">
