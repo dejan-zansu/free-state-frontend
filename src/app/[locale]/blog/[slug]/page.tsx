@@ -99,7 +99,7 @@ const BlogPostPage = async ({ params }: Props) => {
         </Link>
 
         {post.coverImageUrl && (
-          <div className="relative h-64 md:h-96 rounded-2xl overflow-hidden mb-8">
+          <div className="relative h-72 md:h-[560px] rounded-2xl overflow-hidden mb-8">
             <Image
               src={post.coverImageUrl}
               alt={tr.title}

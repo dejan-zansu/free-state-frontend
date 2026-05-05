@@ -118,7 +118,6 @@ export default function PackageCard(props: {
   const localePrefix = locale === 'de' ? '' : `/${locale}`
   const href = `${localePrefix}/calculator?model=${model}`
   const goOrder = () => router.push(href)
-  const calculatorCtaDisabled = model === 'solar-direct'
 
   const brand = brandFromCode(pkg.code)
   const isFree = model === 'solar-free'
@@ -462,10 +461,6 @@ export default function PackageCard(props: {
           <Button
             variant="solar-gradient"
             onClick={goOrder}
-            disabled={calculatorCtaDisabled}
-            title={
-              calculatorCtaDisabled ? t('cta.solarDirectSoon') : undefined
-            }
             className="w-full uppercase"
           >
             {t('cta.orderFinal')}

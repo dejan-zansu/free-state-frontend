@@ -80,8 +80,7 @@
         }
       },
       "cta": {
-        "orderFinal": "Ordina ora",
-        "solarDirectSoon": "Calcolatore Solar Direct disponibile a breve"
+        "orderFinal": "Ordina ora"
       }
     }
   },
@@ -4297,7 +4296,13 @@
         "subtitle": "Esamini l'attrezzatura e scelga un pacchetto per acquistare il suo impianto fotovoltaico.",
         "chooseYourPackage": "Scegli il pacchetto",
         "whatsIncluded": "Cosa è incluso",
-        "signContract": "Firma il contratto"
+        "requestOfferTitle": "Offerta d'acquisto personalizzata",
+        "requestOfferDescription": "Le invieremo l'offerta dettagliata via e-mail. Un consulente la contatterà entro 24 ore.",
+        "requestOfferButton": "Richiedi offerta d'acquisto",
+        "requestOfferSending": "Invio…",
+        "requestOfferSent": "Offerta inviata",
+        "requestOfferSentMessage": "Controlli la sua casella e-mail. Un consulente la contatterà presto.",
+        "requestOfferError": "Impossibile inviare la richiesta. Riprova."
       },
       "packageCard": {
         "capacityRange": "{min}–{max} kWp",

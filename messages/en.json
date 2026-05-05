@@ -80,8 +80,7 @@
         }
       },
       "cta": {
-        "orderFinal": "Order now",
-        "solarDirectSoon": "Solar Direct calculator coming soon"
+        "orderFinal": "Order now"
       }
     }
   },
@@ -4309,7 +4308,13 @@
         "subtitle": "Review your equipment and choose a package to purchase your solar system outright.",
         "chooseYourPackage": "Choose your package",
         "whatsIncluded": "What's included",
-        "signContract": "Sign contract"
+        "requestOfferTitle": "Personalized purchase offer",
+        "requestOfferDescription": "We'll email your detailed offer. An advisor will follow up within 24 hours.",
+        "requestOfferButton": "Request purchase offer",
+        "requestOfferSending": "Sending…",
+        "requestOfferSent": "Offer sent",
+        "requestOfferSentMessage": "Check your inbox. An advisor will reach out soon.",
+        "requestOfferError": "Could not send your request. Please try again."
       },
       "packageCard": {
         "capacityRange": "{min}–{max} kWp",
