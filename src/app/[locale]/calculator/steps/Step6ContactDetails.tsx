@@ -25,6 +25,22 @@ import { cn } from '@/lib/utils'
 
 const salutations: Salutation[] = ['mr', 'woman', 'family']
 const countries: ContactCountry[] = ['CH', 'LI']
+const DEV_DEFAULT_CONTACT = {
+  salutation: 'mr' as const,
+  firstName: 'Test',
+  lastName: 'Test',
+  email: 'arsicdejan996@gmail.com',
+  phoneNumber: '123123123',
+  dateOfBirth: '1996-04-04',
+  nationality: 'Test',
+  country: 'CH' as const,
+  postalCode: '11000',
+  city: 'Belgrade',
+  street: 'Mirijevski bulevar',
+  streetNumber: '92',
+  addressAdditional: '',
+  remarks: '',
+}
 
 function useContactSchema(t: (key: string) => string) {
   return useMemo(
@@ -190,6 +206,7 @@ export default function Step6ContactDetails() {
   } = useSolarAboCalculatorStore()
 
   const schema = useContactSchema(tErr)
+  const isLocalDev = process.env.NODE_ENV === 'development'
 
   const {
     register,
@@ -199,22 +216,35 @@ export default function Step6ContactDetails() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      salutation: contact.salutation || undefined,
-      firstName: contact.firstName,
-      lastName: contact.lastName,
-      email: contact.email,
-      phoneNumber: contact.phoneNumber,
-      dateOfBirth: contact.dateOfBirth,
-      nationality: contact.nationality,
-      country: contact.country || 'CH',
-      postalCode: contact.postalCode,
-      city: contact.city,
-      street: contact.street,
-      streetNumber: contact.streetNumber,
-      addressAdditional: contact.addressAdditional,
-      remarks: contact.remarks,
-      isPropertyOwner: contact.isPropertyOwner === true ? true : undefined,
-      dataProcessing: consents.dataProcessing || undefined,
+      salutation:
+        contact.salutation ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.salutation : undefined),
+      firstName:
+        contact.firstName || (isLocalDev ? DEV_DEFAULT_CONTACT.firstName : ''),
+      lastName:
+        contact.lastName || (isLocalDev ? DEV_DEFAULT_CONTACT.lastName : ''),
+      email: contact.email || (isLocalDev ? DEV_DEFAULT_CONTACT.email : ''),
+      phoneNumber:
+        contact.phoneNumber || (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
+      dateOfBirth:
+        contact.dateOfBirth || (isLocalDev ? DEV_DEFAULT_CONTACT.dateOfBirth : ''),
+      nationality:
+        contact.nationality || (isLocalDev ? DEV_DEFAULT_CONTACT.nationality : ''),
+      country:
+        contact.country || (isLocalDev ? DEV_DEFAULT_CONTACT.country : 'CH'),
+      postalCode:
+        contact.postalCode || (isLocalDev ? DEV_DEFAULT_CONTACT.postalCode : ''),
+      city: contact.city || (isLocalDev ? DEV_DEFAULT_CONTACT.city : ''),
+      street: contact.street || (isLocalDev ? DEV_DEFAULT_CONTACT.street : ''),
+      streetNumber:
+        contact.streetNumber || (isLocalDev ? DEV_DEFAULT_CONTACT.streetNumber : ''),
+      addressAdditional:
+        contact.addressAdditional ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.addressAdditional : ''),
+      remarks: contact.remarks || (isLocalDev ? DEV_DEFAULT_CONTACT.remarks : ''),
+      isPropertyOwner:
+        contact.isPropertyOwner === true ? true : isLocalDev ? true : undefined,
+      dataProcessing: consents.dataProcessing || (isLocalDev ? true : undefined),
     },
   })
 
