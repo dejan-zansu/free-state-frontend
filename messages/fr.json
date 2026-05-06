@@ -80,8 +80,7 @@
         }
       },
       "cta": {
-        "orderFinal": "Commander",
-        "solarDirectSoon": "Calculateur Solar Direct bientôt disponible"
+        "orderFinal": "Commander"
       }
     }
   },
@@ -4297,7 +4296,13 @@
         "subtitle": "Consultez votre équipement et choisissez un forfait pour acheter votre installation solaire.",
         "chooseYourPackage": "Choisir votre forfait",
         "whatsIncluded": "Ce qui est inclus",
-        "signContract": "Signer le contrat"
+        "requestOfferTitle": "Offre d'achat personnalisée",
+        "requestOfferDescription": "Nous vous enverrons l'offre détaillée par e-mail. Un conseiller vous contactera sous 24 heures.",
+        "requestOfferButton": "Demander une offre d'achat",
+        "requestOfferSending": "Envoi…",
+        "requestOfferSent": "Offre envoyée",
+        "requestOfferSentMessage": "Vérifiez votre boîte de réception. Un conseiller vous contactera bientôt.",
+        "requestOfferError": "Impossible d'envoyer votre demande. Veuillez réessayer."
       },
       "packageCard": {
         "capacityRange": "{min}–{max} kWc",

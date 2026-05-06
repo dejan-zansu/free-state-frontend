@@ -80,8 +80,7 @@
         }
       },
       "cta": {
-        "orderFinal": "Jetzt Bestellen",
-        "solarDirectSoon": "Solar-Direct-Rechner demnächst verfügbar"
+        "orderFinal": "Jetzt Bestellen"
       }
     }
   },
@@ -5976,7 +5975,13 @@
         "subtitle": "Überprüfen Sie Ihre Ausrüstung und wählen Sie ein Paket, um Ihre Solaranlage zu kaufen.",
         "chooseYourPackage": "Paket wählen",
         "whatsIncluded": "Im Lieferumfang enthalten",
-        "signContract": "Vertrag unterzeichnen"
+        "requestOfferTitle": "Persönliches Kaufangebot",
+        "requestOfferDescription": "Wir senden Ihnen das detaillierte Angebot per E-Mail. Ein Berater meldet sich innerhalb von 24 Stunden.",
+        "requestOfferButton": "Kaufangebot anfordern",
+        "requestOfferSending": "Wird gesendet…",
+        "requestOfferSent": "Angebot gesendet",
+        "requestOfferSentMessage": "Prüfen Sie Ihre E-Mails. Ein Berater meldet sich bald bei Ihnen.",
+        "requestOfferError": "Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
       },
       "packageCard": {
         "capacityRange": "{min}–{max} kWp",

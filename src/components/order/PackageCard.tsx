@@ -118,7 +118,6 @@ export default function PackageCard(props: {
   const localePrefix = locale === 'de' ? '' : `/${locale}`
   const href = `${localePrefix}/calculator?model=${model}`
   const goOrder = () => router.push(href)
-  const calculatorCtaDisabled = model === 'solar-direct'
 
   const brand = brandFromCode(pkg.code)
   const isFree = model === 'solar-free'
@@ -426,8 +425,8 @@ export default function PackageCard(props: {
           className="rounded-[20px] p-4"
           style={{ backgroundColor: '#F2F4E8' }}
         >
-          <div className="grid grid-cols-[1.6fr_1fr_1fr_1fr] divide-x divide-[#062E25]/15">
-            <div className="flex items-center gap-3 pr-3">
+          <div className="grid grid-cols-1 divide-y divide-[#062E25]/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-[1.6fr_1fr_1fr_1fr] lg:divide-x">
+            <div className="flex items-center gap-3 pb-3 sm:pb-0 sm:pr-3">
               <WarrrentyIcon className="w-8 h-8" />
               <div>
                 <div className="text-[12px] font-extrabold leading-tight text-[#062E25]">
@@ -462,10 +461,6 @@ export default function PackageCard(props: {
           <Button
             variant="solar-gradient"
             onClick={goOrder}
-            disabled={calculatorCtaDisabled}
-            title={
-              calculatorCtaDisabled ? t('cta.solarDirectSoon') : undefined
-            }
             className="w-full uppercase"
           >
             {t('cta.orderFinal')}

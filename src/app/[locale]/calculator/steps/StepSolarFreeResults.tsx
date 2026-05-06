@@ -79,7 +79,7 @@ function applyPackageToStore(
     firstYearDegradationPercent?: number | null,
     annualDegradationPercent?: number | null,
     purchasePriceChf?: number | null,
-    installerWarrantyYears?: number | null,
+    installerWarrantyYears?: number | null
   ) => void,
   pkg: CalculatorPackage
 ) {
@@ -100,7 +100,7 @@ function applyPackageToStore(
     firstYearDegradationPercent,
     annualDegradationPercent,
     pkg.purchasePriceChf ?? null,
-    pkg.installerWarrantyYears ?? null,
+    pkg.installerWarrantyYears ?? null
   )
 }
 
@@ -238,7 +238,7 @@ export default function StepResults() {
     let cancelled = false
     contractService
       .getSigningConfig()
-      .then((cfg) => {
+      .then(cfg => {
         if (!cancelled) setSigningEnabled(cfg.enabled)
       })
       .catch(() => {})
@@ -268,7 +268,8 @@ export default function StepResults() {
 
   useEffect(() => {
     const solarModel = useSolarAboCalculatorStore.getState().solarModel
-    const apiSolarModel: SolarModelFilter = solarModel === 'solar-direct' ? 'SOLAR_DIRECT' : 'SOLAR_FREE'
+    const apiSolarModel: SolarModelFilter =
+      solarModel === 'solar-direct' ? 'SOLAR_DIRECT' : 'SOLAR_FREE'
     residentialCalculatorService
       .getPackages(locale, apiSolarModel)
       .then(data => {
@@ -467,7 +468,7 @@ export default function StepResults() {
         <div className="h-[88px] sm:h-[100px]" aria-hidden />
       )}
 
-      <div className="container mx-auto px-4 pb-28 max-w-4xl pt-8">
+      <div className="container mx-auto px-4 pb-28 max-w-5xl pt-8">
         <section>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-5 pt-4">
             <GlassStatCard
@@ -579,7 +580,7 @@ export default function StepResults() {
               title={tPackageSelector('sectionTitle')}
               subtitle={tPackageSelector('sectionSubtitle')}
             />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4">
               {orderedPackages.map(pkg => (
                 <PackageCard
                   key={pkg.id}
@@ -589,7 +590,9 @@ export default function StepResults() {
                   isSelected={pkg.id === store.selectedPackageId}
                   isRecommended={pkg.id === recommendedPkg?.id}
                   recommendedLabel={tPackageSelector('recommended')}
-                  onSelect={() => applyPackageToStore(store.setSelectedPackage, pkg)}
+                  onSelect={() =>
+                    applyPackageToStore(store.setSelectedPackage, pkg)
+                  }
                 />
               ))}
             </div>

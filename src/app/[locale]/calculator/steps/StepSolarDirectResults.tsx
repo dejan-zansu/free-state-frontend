@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
+import { CheckCircle2, Loader2 } from 'lucide-react'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import {
   residentialCalculatorService,
@@ -14,7 +15,6 @@ import { type EquipmentDetail } from '../components/EquipmentDetailCard'
 import { PurchaseFinancialSummary } from '../components/PurchaseFinancialSummary'
 import { SubsidyAssistanceCallout } from '../components/SubsidyAssistanceCallout'
 import { WarrantyCallout } from '../components/WarrantyCallout'
-import SignContractDialog from '../components/SignContractDialog'
 
 function getEquipmentCategory(
   equipmentType: string,
@@ -139,9 +139,24 @@ export default function StepSolarDirectResults() {
   const t = useTranslations('solarAboCalculator.results.solarDirect')
   const locale = useLocale()
   const store = useSolarAboCalculatorStore()
-  const [signOpen, setSignOpen] = useState(false)
   const [packages, setPackages] = useState<CalculatorPackage[]>([])
   const [packagesLoading, setPackagesLoading] = useState(true)
+  const [offerSending, setOfferSending] = useState(false)
+  const [offerSent, setOfferSent] = useState(false)
+  const [offerError, setOfferError] = useState<string | null>(null)
+
+  const handleRequestOffer = async () => {
+    setOfferSending(true)
+    setOfferError(null)
+    try {
+      await store.requestOffer()
+      setOfferSent(true)
+    } catch {
+      setOfferError(t('requestOfferError'))
+    } finally {
+      setOfferSending(false)
+    }
+  }
 
   useEffect(() => {
     residentialCalculatorService
@@ -256,18 +271,50 @@ export default function StepSolarDirectResults() {
         />
       ) : null}
 
-      <footer className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-        <button
-          type="button"
-          onClick={() => setSignOpen(true)}
-          disabled={!selectedPkg}
-          className="rounded-full bg-[#062E25] px-6 py-2 text-sm font-medium text-white disabled:opacity-50"
-        >
-          {t('signContract')}
-        </button>
-      </footer>
-
-      <SignContractDialog open={signOpen} onOpenChange={setSignOpen} />
+      <section className="rounded-2xl border border-[#062E25]/15 bg-white/80 p-5 backdrop-blur-sm sm:p-6">
+        {offerSent ? (
+          <div className="flex items-start gap-3">
+            <CheckCircle2 className="mt-0.5 h-6 w-6 shrink-0 text-green-600" />
+            <div>
+              <h3 className="text-base font-semibold text-[#062E25] sm:text-lg">
+                {t('requestOfferSent')}
+              </h3>
+              <p className="mt-1 text-sm text-[#062E25]/70 sm:text-base">
+                {t('requestOfferSentMessage')}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div className="min-w-0">
+              <h3 className="text-base font-semibold text-[#062E25] sm:text-lg">
+                {t('requestOfferTitle')}
+              </h3>
+              <p className="mt-1 text-sm text-[#062E25]/70 sm:text-base">
+                {t('requestOfferDescription')}
+              </p>
+              {offerError ? (
+                <p className="mt-2 text-sm text-destructive">{offerError}</p>
+              ) : null}
+            </div>
+            <button
+              type="button"
+              onClick={handleRequestOffer}
+              disabled={!selectedPkg || offerSending}
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#062E25] px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#062E25]/90 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+            >
+              {offerSending ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  {t('requestOfferSending')}
+                </>
+              ) : (
+                t('requestOfferButton')
+              )}
+            </button>
+          </div>
+        )}
+      </section>
     </div>
   )
 }
