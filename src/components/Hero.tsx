@@ -49,11 +49,15 @@ const Hero = async ({
       }}
     >
       <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center rounded-b-[40px]"
-          style={{
-            backgroundImage: `url('/images/solar-panels-hero.webp')`,
-          }}
+        <video
+          className="absolute inset-0 w-full h-full object-cover rounded-b-[40px]"
+          src="/videos/free-state-landing.mp4"
+          poster="/images/solar-panels-hero.webp"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
         />
       </div>
 

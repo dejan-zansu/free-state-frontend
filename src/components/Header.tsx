@@ -2,7 +2,13 @@
 
 import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
-import { ArrowRight, ArrowUpRight, Building2, ChevronDown, Menu } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Building2,
+  ChevronDown,
+  Menu,
+} from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
@@ -40,6 +46,7 @@ const Header = () => {
     '/team',
     '/investors',
     '/careers',
+    '/solar-direct',
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
