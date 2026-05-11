@@ -63,7 +63,11 @@ export default function SignContractDialog({
     createContract,
     setResultsPath,
     goToStep,
+    selectedEvChargerId,
+    getEvChargerTotalChf,
   } = useSolarAboCalculatorStore()
+
+  const evChargerTotal = getEvChargerTotalChf()
 
   const [isCreating, setIsCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
@@ -158,6 +162,17 @@ export default function SignContractDialog({
                     </dd>
                   </div>
                 </>
+              )}
+              {selectedEvChargerId && evChargerTotal > 0 && (
+                <div className="flex items-baseline justify-between gap-4">
+                  <dt className="text-[#062E25]/60">{tRecap('evCharger')}</dt>
+                  <dd className="font-semibold text-[#062E25] text-right tabular-nums">
+                    CHF {evChargerTotal.toLocaleString('de-CH', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                  </dd>
+                </div>
+              )}
+              {isSolarFree && selectedEvChargerId && evChargerTotal > 0 && (
+                <p className="text-xs italic text-[#062E25]/55">{tRecap('evChargerOneTimeNote')}</p>
               )}
               <div className="flex items-baseline justify-between gap-4">
                 <dt className="text-[#062E25]/60">{tRecap('yearlySavings')}</dt>

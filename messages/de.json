@@ -6034,6 +6034,13 @@
         "lifetime25y": "Einsparungen über 25 Jahre",
         "year": "Jahr",
         "yearsShort": "Jahre"
+      },
+      "evChargerPicker": {
+        "title": "Möchten Sie eine EV-Ladestation hinzufügen?",
+        "subtitle": "Optional. Wählen Sie eine Ladestation, die separat zum Solarpaket berechnet wird.",
+        "priceLabel": "Preis",
+        "exclVat": "exkl. MwSt.",
+        "removeSelection": "Auswahl entfernen"
       }
     },
     "solarDirect": {
@@ -6170,7 +6177,9 @@
         "netAmount": "Nettobetrag",
         "grossPrice": "Bruttopreis",
         "estimatedSubsidy": "Geschätzte Förderung",
-        "installerWarranty": "Installationsgarantie"
+        "installerWarranty": "Installationsgarantie",
+        "evCharger": "EV-Ladestation (einmalig)",
+        "evChargerOneTimeNote": "Einmalige Hardwarezahlung zusätzlich zu Ihrem 0 CHF PPA."
       },
       "solarFree": {
         "rateCard": {
@@ -6356,6 +6365,7 @@
       "mountingSystems": "Montagesysteme",
       "ems": "Energiemanagement",
       "heatPumps": "Wärmepumpen",
+      "evChargers": "EV-Ladestationen",
       "packages": "Pakete",
       "blog": "Blog",
       "support": "Support",
@@ -6783,6 +6793,7 @@
         "batteries": "Batterien",
         "mountingSystems": "Montagesysteme",
         "heatPumps": "Wärmepumpen",
+        "evChargers": "EV-Ladestationen",
         "solarPanels": "Solarpanels",
         "inverters": "Wechselrichter",
         "packages": "Pakete",
@@ -6793,6 +6804,8 @@
         "manufacturer": "Hersteller",
         "type": "Typ",
         "power": "Leistung",
+        "priceChf": "Preis (CHF)",
+        "public": "Öffentlich",
         "status": "Status",
         "capacity": "Kapazität",
         "chemistry": "Chemie",

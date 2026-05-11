@@ -74,6 +74,17 @@ class AdminEquipmentService {
   updateHeatPump(id: string, data: Record<string, unknown>) { return this.update('heat-pumps', id, data) }
   deleteHeatPump(id: string) { return this.remove('heat-pumps', id) }
 
+  listEvChargers(query?: ListQuery & { manufacturerId?: string; isPublic?: boolean }) {
+    const { isPublic, ...rest } = query ?? {}
+    const q: ListQuery = { ...rest }
+    if (typeof isPublic === 'boolean') q['isPublic'] = String(isPublic)
+    return this.list('ev-chargers', q)
+  }
+  getEvCharger(id: string) { return this.getById('ev-chargers', id) }
+  createEvCharger(data: Record<string, unknown>) { return this.create('ev-chargers', data) }
+  updateEvCharger(id: string, data: Record<string, unknown>) { return this.update('ev-chargers', id, data) }
+  deleteEvCharger(id: string) { return this.remove('ev-chargers', id) }
+
   listPackages(query?: ListQuery) { return this.list('packages', query) }
   getPackage(id: string) { return this.getById('packages', id) }
   createPackage(data: Record<string, unknown>) { return this.create('packages', data) }

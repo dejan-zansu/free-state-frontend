@@ -112,6 +112,7 @@ function useNavGroups() {
         { label: t('mountingSystems'), href: `${prefix}/equipment/mounting-systems`, icon: Box },
         { label: t('ems'),             href: `${prefix}/equipment/ems`,              icon: CircuitBoard },
         { label: t('heatPumps'),       href: `${prefix}/equipment/heat-pumps`,       icon: Flame },
+        { label: t('evChargers'),      href: `${prefix}/equipment/ev-chargers`,      icon: Plug },
         { label: t('packages'),        href: `${prefix}/equipment/packages`,         icon: Package },
       ],
     },

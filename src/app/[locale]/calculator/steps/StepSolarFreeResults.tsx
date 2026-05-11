@@ -24,6 +24,7 @@ import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
 import SignContractDialog from '../components/SignContractDialog'
+import EvChargerPicker from '../components/EvChargerPicker'
 import {
   DEFAULT_PPA_DISCOUNT_PCT,
   useSolarAboCalculatorStore,
@@ -598,6 +599,10 @@ export default function StepResults() {
             </div>
           </section>
         )}
+
+        <section className="mt-8">
+          <EvChargerPicker />
+        </section>
 
         <div className="mt-8">
           <HeatPumpInterestStrip />

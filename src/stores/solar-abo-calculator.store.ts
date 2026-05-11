@@ -232,6 +232,10 @@ interface SolarAboCalculatorState {
   selectedPanelFirstYearDegradationPercent: number | null
   selectedPanelAnnualDegradationPercent: number | null
 
+  selectedEvChargerId: string | null
+  selectedEvChargerPriceChf: number | null
+  selectedEvChargerQuantity: number
+
   createdContractId: string | null
   contractNumber: string | null
   contractPdfUrl: string | null
@@ -306,6 +310,9 @@ interface SolarAboCalculatorActions {
     purchasePriceChf?: number | null,
     installerWarrantyYears?: number | null,
   ) => void
+  setSelectedEvCharger: (id: string, priceChf: number) => void
+  clearEvCharger: () => void
+  getEvChargerTotalChf: () => number
   getGrossAmount: () => number
   getSubsidyAmount: () => number
   getNetAmount: () => number
@@ -404,6 +411,10 @@ const initialState: SolarAboCalculatorState = {
   selectedPanelAreaM2: null,
   selectedPanelFirstYearDegradationPercent: null,
   selectedPanelAnnualDegradationPercent: null,
+
+  selectedEvChargerId: null,
+  selectedEvChargerPriceChf: null,
+  selectedEvChargerQuantity: 1,
 
   createdContractId: null,
   contractNumber: null,
@@ -801,16 +812,39 @@ export const useSolarAboCalculatorStore = create<
         })
       },
 
+      setSelectedEvCharger: (id: string, priceChf: number) => {
+        set({
+          selectedEvChargerId: id,
+          selectedEvChargerPriceChf: priceChf,
+          selectedEvChargerQuantity: 1,
+        })
+      },
+
+      clearEvCharger: () => {
+        set({
+          selectedEvChargerId: null,
+          selectedEvChargerPriceChf: null,
+          selectedEvChargerQuantity: 1,
+        })
+      },
+
+      getEvChargerTotalChf: () => {
+        const s = get()
+        if (s.selectedEvChargerPriceChf == null) return 0
+        return s.selectedEvChargerPriceChf * s.selectedEvChargerQuantity
+      },
+
       getGrossAmount: () => {
         const state = get()
+        const chargerTotal = state.getEvChargerTotalChf()
         if (state.selectedPackagePurchasePriceChf != null) {
-          return state.selectedPackagePurchasePriceChf
+          return state.selectedPackagePurchasePriceChf + chargerTotal
         }
         const systemSizeKwp = state.getSystemSizeKwp()
         if (state.selectedPackagePricePerKwp) {
-          return state.selectedPackagePricePerKwp * systemSizeKwp
+          return state.selectedPackagePricePerKwp * systemSizeKwp + chargerTotal
         }
-        return systemSizeKwp * 1500
+        return systemSizeKwp * 1500 + chargerTotal
       },
 
       getSubsidyAmount: () => {
@@ -970,6 +1004,14 @@ export const useSolarAboCalculatorStore = create<
             ...(state.selectedPackageId ? { packageId: state.selectedPackageId } : {}),
             ...(state.roofImage ? { roofImage: state.roofImage } : {}),
             ...(state.solarModel ? { solarModel: state.solarModel } : {}),
+            ...(state.selectedEvChargerId
+              ? {
+                  evCharger: {
+                    evChargerId: state.selectedEvChargerId,
+                    quantity: state.selectedEvChargerQuantity,
+                  },
+                }
+              : {}),
           })
           set({
             createdContractId: response.data.contractId,
@@ -1109,6 +1151,9 @@ export const useSolarAboCalculatorStore = create<
         selectedPanelAreaM2: state.selectedPanelAreaM2,
         selectedPanelFirstYearDegradationPercent: state.selectedPanelFirstYearDegradationPercent,
         selectedPanelAnnualDegradationPercent: state.selectedPanelAnnualDegradationPercent,
+        selectedEvChargerId: state.selectedEvChargerId,
+        selectedEvChargerPriceChf: state.selectedEvChargerPriceChf,
+        selectedEvChargerQuantity: state.selectedEvChargerQuantity,
         createdContractId: state.createdContractId,
         contractNumber: state.contractNumber,
         contractPdfUrl: state.contractPdfUrl,

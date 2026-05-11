@@ -4355,6 +4355,13 @@
         "installer": "{years}-year workmanship warranty (Free State AG)",
         "product": "Manufacturer guarantees: {summary}",
         "maintenance": "Maintenance support available throughout the system lifetime"
+      },
+      "evChargerPicker": {
+        "title": "Add an EV charger?",
+        "subtitle": "Optional. Pick a charger billed separately on top of your solar package.",
+        "priceLabel": "Price",
+        "exclVat": "excl. VAT",
+        "removeSelection": "Clear selection"
       }
     },
     "solarDirect": {
@@ -4491,7 +4498,9 @@
         "netAmount": "Net amount",
         "grossPrice": "Gross price",
         "estimatedSubsidy": "Estimated subsidy",
-        "installerWarranty": "Installer warranty"
+        "installerWarranty": "Installer warranty",
+        "evCharger": "EV charger (one-time)",
+        "evChargerOneTimeNote": "Paid as a one-time hardware fee on top of your 0 CHF PPA."
       },
       "solarFree": {
         "rateCard": {
@@ -6291,6 +6300,7 @@
       "mountingSystems": "Mounting Systems",
       "ems": "Energy Management",
       "heatPumps": "Heat Pumps",
+      "evChargers": "EV Chargers",
       "packages": "Packages",
       "blog": "Blog",
       "support": "Support",
@@ -6718,6 +6728,7 @@
         "batteries": "Batteries",
         "mountingSystems": "Mounting Systems",
         "heatPumps": "Heat Pumps",
+        "evChargers": "EV Chargers",
         "solarPanels": "Solar Panels",
         "inverters": "Inverters",
         "packages": "Packages",
@@ -6728,6 +6739,8 @@
         "manufacturer": "Manufacturer",
         "type": "Type",
         "power": "Power",
+        "priceChf": "Price (CHF)",
+        "public": "Public",
         "status": "Status",
         "capacity": "Capacity",
         "chemistry": "Chemistry",

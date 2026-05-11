@@ -94,11 +94,10 @@ interface CreateContractPayload {
   packageId?: string
   roofImage?: string
   solarModel?: string
-  equipmentSelections?: Array<{
-    equipmentId: string
-    equipmentType: string
+  evCharger?: {
+    evChargerId: string
     quantity: number
-  }>
+  }
   heatPumpInterest?: boolean
 }
 

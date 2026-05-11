@@ -10,6 +10,8 @@ interface Props {
   annualSavingsChf: number
   paybackYears: number
   lifetimeSavings25y: number
+  addOnLabel?: string
+  addOnChf?: number
   className?: string
 }
 
@@ -24,6 +26,9 @@ export function PurchaseFinancialSummary(props: Props) {
   return (
     <section className={cn('flex flex-col gap-3 rounded-xl bg-[#0F2A24] p-5 text-white', props.className)}>
       <h3 className="text-base font-medium">{t('title')}</h3>
+      {props.addOnChf != null && props.addOnChf > 0 && (
+        <Row label={props.addOnLabel ?? ''} value={fmt(props.addOnChf)} />
+      )}
       <Row label={t('grossPrice')} value={fmt(props.grossPriceChf)} />
       {props.estimatedSubsidyChf !== null ? (
         <Row label={t('estimatedSubsidy')} value={`− ${fmt(props.estimatedSubsidyChf)}`} />
