@@ -24,6 +24,7 @@ import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
 import SignContractDialog from '../components/SignContractDialog'
+import EvChargerPicker from '../components/EvChargerPicker'
 import {
   DEFAULT_PPA_DISCOUNT_PCT,
   useSolarAboCalculatorStore,
@@ -590,14 +591,19 @@ export default function StepResults() {
                   isSelected={pkg.id === store.selectedPackageId}
                   isRecommended={pkg.id === recommendedPkg?.id}
                   recommendedLabel={tPackageSelector('recommended')}
-                  onSelect={() =>
+                  onSelect={() => {
+                    store.clearEvCharger()
                     applyPackageToStore(store.setSelectedPackage, pkg)
-                  }
+                  }}
                 />
               ))}
             </div>
           </section>
         )}
+
+        <section className="mt-8">
+          <EvChargerPicker charger={selectedPkg?.availableEvCharger ?? null} />
+        </section>
 
         <div className="mt-8">
           <HeatPumpInterestStrip />

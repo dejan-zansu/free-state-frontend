@@ -25,6 +25,7 @@ const EQUIPMENT_TYPES = [
   { value: 'MOUNTING_SYSTEM', label: 'Mounting System' },
   { value: 'ENERGY_MANAGEMENT_SYSTEM', label: 'Energy Management System' },
   { value: 'HEAT_PUMP', label: 'Heat Pump' },
+  { value: 'EV_CHARGER', label: 'EV Charger' },
 ]
 
 const LANGUAGES = [
@@ -198,6 +199,7 @@ export default function AdminPackageDetailPage() {
         ENERGY_MANAGEMENT_SYSTEM: () =>
           adminEquipmentService.listEms({ limit: 100 }),
         HEAT_PUMP: () => adminEquipmentService.listHeatPumps({ limit: 100 }),
+        EV_CHARGER: () => adminEquipmentService.listEvChargers({ limit: 100 }),
       }
       const fetcher = fetchers[type]
       if (!fetcher) return

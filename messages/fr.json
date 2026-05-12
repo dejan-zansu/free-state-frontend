@@ -4355,6 +4355,14 @@
         "lifetime25y": "Économies sur 25 ans",
         "year": "an",
         "yearsShort": "ans"
+      },
+      "evChargerPicker": {
+        "title": "Ajouter une borne {brand} ?",
+        "subtitle": "Optionnel. Prix installation incluse.",
+        "priceLabel": "Prix",
+        "inclInstallation": "installation incluse",
+        "addLabel": "Ajouter",
+        "addedLabel": "Ajoutée"
       }
     },
     "solarDirect": {
@@ -4491,7 +4499,9 @@
         "netAmount": "Montant net",
         "grossPrice": "Prix brut",
         "estimatedSubsidy": "Subvention estimée",
-        "installerWarranty": "Garantie installateur"
+        "installerWarranty": "Garantie installateur",
+        "evCharger": "Borne de recharge VE (installation comprise)",
+        "evChargerOneTimeNote": "Paiement unique pour le matériel et l'installation en sus de votre PPA à 0 CHF."
       },
       "solarFree": {
         "rateCard": {
@@ -6291,6 +6301,7 @@
       "mountingSystems": "Systèmes de montage",
       "ems": "Gestion de l'énergie",
       "heatPumps": "Pompes à chaleur",
+      "evChargers": "Bornes VE",
       "packages": "Forfaits",
       "blog": "Blog",
       "support": "Support",
@@ -6718,6 +6729,7 @@
         "batteries": "Batteries",
         "mountingSystems": "Systèmes de montage",
         "heatPumps": "Pompes à chaleur",
+        "evChargers": "Bornes VE",
         "solarPanels": "Panneaux solaires",
         "inverters": "Onduleurs",
         "packages": "Forfaits",
@@ -6728,6 +6740,8 @@
         "manufacturer": "Fabricant",
         "type": "Type",
         "power": "Puissance",
+        "priceChf": "Prix (CHF)",
+        "public": "Publique",
         "status": "Statut",
         "capacity": "Capacité",
         "chemistry": "Chimie",

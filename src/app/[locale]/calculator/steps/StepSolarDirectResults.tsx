@@ -8,6 +8,7 @@ import {
   residentialCalculatorService,
   type CalculatorPackage,
 } from '@/services/residential-calculator.service'
+import EvChargerPicker from '../components/EvChargerPicker'
 import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import PackageCard from '@/components/order/PackageCard'
 import { EquipmentList } from '../components/EquipmentList'
@@ -137,6 +138,7 @@ function applyPackageToStore(
 
 export default function StepSolarDirectResults() {
   const t = useTranslations('solarAboCalculator.results.solarDirect')
+  const tPicker = useTranslations('solarAboCalculator.results.evChargerPicker')
   const locale = useLocale()
   const store = useSolarAboCalculatorStore()
   const [packages, setPackages] = useState<CalculatorPackage[]>([])
@@ -200,6 +202,7 @@ export default function StepSolarDirectResults() {
   const annualSavings = store.getAnnualSavings()
   const estimatedSubsidy = store.getSubsidyAmount()
   const grossPrice = selectedPkg?.purchasePriceChf ?? 0
+  const evChargerTotal = store.getEvChargerTotalChf()
   const netPrice = store.getEstimatedNetPrice(
     { purchasePriceChf: selectedPkg?.purchasePriceChf ?? null },
     estimatedSubsidy,
@@ -235,23 +238,30 @@ export default function StepSolarDirectResults() {
                 model="solar-direct"
                 locale={locale}
                 isSelected={pkg.id === store.selectedPackageId}
-                onSelect={() => applyPackageToStore(store.setSelectedPackage, pkg)}
+                onSelect={() => {
+                  store.clearEvCharger()
+                  applyPackageToStore(store.setSelectedPackage, pkg)
+                }}
               />
             ))}
           </div>
         </section>
       ) : null}
 
+      <EvChargerPicker charger={selectedPkg?.availableEvCharger ?? null} />
+
       <HeatPumpInterestStrip />
 
       {selectedPkg ? (
         <PurchaseFinancialSummary
-          grossPriceChf={grossPrice}
+          grossPriceChf={grossPrice + evChargerTotal}
           estimatedSubsidyChf={estimatedSubsidy > 0 ? estimatedSubsidy : null}
-          estimatedNetPriceChf={netPrice}
+          estimatedNetPriceChf={netPrice + evChargerTotal}
           annualSavingsChf={annualSavings}
           paybackYears={paybackYears}
           lifetimeSavings25y={lifetime}
+          addOnLabel={evChargerTotal > 0 ? tPicker('title') : undefined}
+          addOnChf={evChargerTotal > 0 ? evChargerTotal : undefined}
         />
       ) : null}
 
