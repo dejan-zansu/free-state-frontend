@@ -4357,11 +4357,12 @@
         "yearsShort": "anni"
       },
       "evChargerPicker": {
-        "title": "Aggiungere una stazione di ricarica EV?",
-        "subtitle": "Opzionale. Scegli una stazione fatturata separatamente dal pacchetto solare.",
+        "title": "Aggiungere una stazione di ricarica {brand}?",
+        "subtitle": "Opzionale. Prezzo installazione inclusa.",
         "priceLabel": "Prezzo",
-        "exclVat": "IVA esclusa",
-        "removeSelection": "Rimuovi selezione"
+        "inclInstallation": "installazione inclusa",
+        "addLabel": "Aggiungi",
+        "addedLabel": "Aggiunta"
       }
     },
     "solarDirect": {
@@ -4499,8 +4500,8 @@
         "grossPrice": "Prezzo lordo",
         "estimatedSubsidy": "Sussidio stimato",
         "installerWarranty": "Garanzia dell'installatore",
-        "evCharger": "Stazione di ricarica EV (una tantum)",
-        "evChargerOneTimeNote": "Costo hardware una tantum aggiunto al tuo PPA di 0 CHF."
+        "evCharger": "Stazione di ricarica EV (installazione inclusa)",
+        "evChargerOneTimeNote": "Pagamento una tantum per hardware e installazione, aggiunto al tuo PPA di 0 CHF."
       },
       "solarFree": {
         "rateCard": {

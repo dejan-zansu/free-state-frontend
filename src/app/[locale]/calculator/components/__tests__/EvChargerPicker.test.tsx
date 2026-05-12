@@ -1,103 +1,82 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { render, screen, waitFor } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import EvChargerPicker from '../EvChargerPicker'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
-import { evChargerService } from '@/services/ev-charger.service'
+import type { PublicEvCharger } from '@/services/residential-calculator.service'
 
 vi.mock('next-intl', () => ({
-  useTranslations: () => (key: string) => key,
+  useTranslations: () => (key: string, vars?: Record<string, string | number>) => {
+    if (!vars) return key
+    return Object.entries(vars).reduce(
+      (acc, [k, v]) => acc.replace(`{${k}}`, String(v)),
+      key,
+    )
+  },
   useLocale: () => 'de',
 }))
 
-vi.mock('@/services/ev-charger.service', () => ({
-  evChargerService: {
-    listPublic: vi.fn(),
-  },
-}))
-
-const FAKE_CHARGERS = [
-  {
-    id: 'c1',
-    manufacturerCode: 'HUAWEI',
-    manufacturerName: 'Huawei',
-    modelNumber: 'FCP7-AC',
-    series: null,
-    imageUrl: null,
-    type: 'AC',
-    ratedPowerKw: 7.4,
-    maxPowerKw: null,
-    connectorTypes: 'Type 2',
-    numberOfOutlets: 1,
-    hasRfid: false,
-    hasAppControl: true,
-    hasLoadBalancing: false,
-    warrantyYears: 3,
-    priceChf: 1290,
-    displayName: 'Huawei FCP 7kW',
-    description: null,
-    keyFeatures: ['App control'],
-  },
-  {
-    id: 'c2',
-    manufacturerCode: 'GOODWE',
-    manufacturerName: 'GoodWe',
-    modelNumber: 'HCA-22',
-    series: null,
-    imageUrl: null,
-    type: 'AC',
-    ratedPowerKw: 22,
-    maxPowerKw: null,
-    connectorTypes: 'Type 2',
-    numberOfOutlets: 1,
-    hasRfid: true,
-    hasAppControl: true,
-    hasLoadBalancing: true,
-    warrantyYears: 5,
-    priceChf: 1850,
-    displayName: 'GoodWe HCA 22kW',
-    description: null,
-    keyFeatures: null,
-  },
-]
+const FAKE_CHARGER: PublicEvCharger = {
+  id: 'c1',
+  manufacturerCode: 'HUAWEI',
+  manufacturerName: 'Huawei',
+  modelNumber: 'FCP7-AC',
+  series: null,
+  imageUrl: null,
+  type: 'AC',
+  ratedPowerKw: 7.4,
+  maxPowerKw: null,
+  connectorTypes: 'Type 2',
+  numberOfOutlets: 1,
+  hasRfid: false,
+  hasAppControl: true,
+  hasLoadBalancing: false,
+  warrantyYears: 3,
+  priceChf: 1290,
+  displayName: 'Huawei FCP 7kW',
+  description: null,
+  keyFeatures: null,
+}
 
 describe('EvChargerPicker', () => {
   beforeEach(() => {
     useSolarAboCalculatorStore.getState().reset()
-    vi.clearAllMocks()
   })
 
-  it('renders charger cards from API', async () => {
-    vi.mocked(evChargerService.listPublic).mockResolvedValue(FAKE_CHARGERS)
-    render(<EvChargerPicker />)
-    expect(await screen.findByText('Huawei FCP 7kW')).toBeInTheDocument()
-    expect(screen.getByText('GoodWe HCA 22kW')).toBeInTheDocument()
+  it('renders the offered charger when prop is non-null', () => {
+    render(<EvChargerPicker charger={FAKE_CHARGER} />)
+    expect(screen.getByText('Huawei FCP 7kW')).toBeInTheDocument()
+    expect(screen.getByText(/CHF/)).toBeInTheDocument()
   })
 
-  it('hides component when catalog is empty', async () => {
-    vi.mocked(evChargerService.listPublic).mockResolvedValue([])
-    const { container } = render(<EvChargerPicker />)
-    await waitFor(() => {
-      expect(container.firstChild).toBeNull()
-    })
+  it('renders nothing when no charger is offered', () => {
+    const { container } = render(<EvChargerPicker charger={null} />)
+    expect(container.firstChild).toBeNull()
   })
 
-  it('selecting a card writes to store', async () => {
-    vi.mocked(evChargerService.listPublic).mockResolvedValue(FAKE_CHARGERS)
-    render(<EvChargerPicker />)
-    const card = await screen.findByRole('button', { name: /Huawei FCP 7kW/i })
-    await userEvent.click(card)
+  it('clicking the card adds the charger to store', async () => {
+    render(<EvChargerPicker charger={FAKE_CHARGER} />)
+    const button = screen.getByRole('button', { name: /Huawei FCP 7kW/i })
+    await userEvent.click(button)
     const s = useSolarAboCalculatorStore.getState()
     expect(s.selectedEvChargerId).toBe('c1')
     expect(s.selectedEvChargerPriceChf).toBe(1290)
   })
 
-  it('clicking the selected card again clears selection', async () => {
-    vi.mocked(evChargerService.listPublic).mockResolvedValue(FAKE_CHARGERS)
+  it('clicking again clears the selection', async () => {
     useSolarAboCalculatorStore.getState().setSelectedEvCharger('c1', 1290)
-    render(<EvChargerPicker />)
-    const card = await screen.findByRole('button', { name: /Huawei FCP 7kW/i })
-    await userEvent.click(card)
+    render(<EvChargerPicker charger={FAKE_CHARGER} />)
+    const button = screen.getByRole('button', { name: /Huawei FCP 7kW/i })
+    await userEvent.click(button)
     expect(useSolarAboCalculatorStore.getState().selectedEvChargerId).toBeNull()
+  })
+
+  it('aria-pressed reflects store selection state', () => {
+    useSolarAboCalculatorStore.getState().setSelectedEvCharger('c1', 1290)
+    render(<EvChargerPicker charger={FAKE_CHARGER} />)
+    expect(screen.getByRole('button', { name: /Huawei FCP 7kW/i })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
   })
 })

@@ -591,9 +591,10 @@ export default function StepResults() {
                   isSelected={pkg.id === store.selectedPackageId}
                   isRecommended={pkg.id === recommendedPkg?.id}
                   recommendedLabel={tPackageSelector('recommended')}
-                  onSelect={() =>
+                  onSelect={() => {
+                    store.clearEvCharger()
                     applyPackageToStore(store.setSelectedPackage, pkg)
-                  }
+                  }}
                 />
               ))}
             </div>
@@ -601,7 +602,7 @@ export default function StepResults() {
         )}
 
         <section className="mt-8">
-          <EvChargerPicker />
+          <EvChargerPicker charger={selectedPkg?.availableEvCharger ?? null} />
         </section>
 
         <div className="mt-8">

@@ -110,6 +110,28 @@ interface CreateContractResponse {
   }
 }
 
+export interface PublicEvCharger {
+  id: string
+  manufacturerCode: string
+  manufacturerName: string
+  modelNumber: string
+  series: string | null
+  imageUrl: string | null
+  type: string
+  ratedPowerKw: number
+  maxPowerKw: number | null
+  connectorTypes: string | null
+  numberOfOutlets: number
+  hasRfid: boolean
+  hasAppControl: boolean
+  hasLoadBalancing: boolean
+  warrantyYears: number | null
+  priceChf: number
+  displayName: string
+  description: string | null
+  keyFeatures: string[] | null
+}
+
 export interface CalculatorPackage {
   id: string
   code: string
@@ -138,6 +160,7 @@ export interface CalculatorPackage {
     panelAnnualDegradationPercent?: number
     panelGuaranteedPowerAfter30YearsPercent?: number
   }[]
+  availableEvCharger: PublicEvCharger | null
 }
 
 interface GetPackagesResponse {

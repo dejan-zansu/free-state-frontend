@@ -4357,11 +4357,12 @@
         "maintenance": "Maintenance support available throughout the system lifetime"
       },
       "evChargerPicker": {
-        "title": "Add an EV charger?",
-        "subtitle": "Optional. Pick a charger billed separately on top of your solar package.",
+        "title": "Add a {brand} EV charger?",
+        "subtitle": "Optional. Price includes installation.",
         "priceLabel": "Price",
-        "exclVat": "excl. VAT",
-        "removeSelection": "Clear selection"
+        "inclInstallation": "incl. installation",
+        "addLabel": "Add",
+        "addedLabel": "Added"
       }
     },
     "solarDirect": {
@@ -4499,8 +4500,8 @@
         "grossPrice": "Gross price",
         "estimatedSubsidy": "Estimated subsidy",
         "installerWarranty": "Installer warranty",
-        "evCharger": "EV charger (one-time)",
-        "evChargerOneTimeNote": "Paid as a one-time hardware fee on top of your 0 CHF PPA."
+        "evCharger": "EV charger (incl. installation)",
+        "evChargerOneTimeNote": "One-time payment for hardware and installation on top of your 0 CHF PPA."
       },
       "solarFree": {
         "rateCard": {

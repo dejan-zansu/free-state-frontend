@@ -6036,11 +6036,12 @@
         "yearsShort": "Jahre"
       },
       "evChargerPicker": {
-        "title": "Möchten Sie eine EV-Ladestation hinzufügen?",
-        "subtitle": "Optional. Wählen Sie eine Ladestation, die separat zum Solarpaket berechnet wird.",
+        "title": "Möchten Sie eine {brand}-Ladestation hinzufügen?",
+        "subtitle": "Optional. Preis inkl. Installation.",
         "priceLabel": "Preis",
-        "exclVat": "exkl. MwSt.",
-        "removeSelection": "Auswahl entfernen"
+        "inclInstallation": "inkl. Installation",
+        "addLabel": "Hinzufügen",
+        "addedLabel": "Hinzugefügt"
       }
     },
     "solarDirect": {
@@ -6178,8 +6179,8 @@
         "grossPrice": "Bruttopreis",
         "estimatedSubsidy": "Geschätzte Förderung",
         "installerWarranty": "Installationsgarantie",
-        "evCharger": "EV-Ladestation (einmalig)",
-        "evChargerOneTimeNote": "Einmalige Hardwarezahlung zusätzlich zu Ihrem 0 CHF PPA."
+        "evCharger": "EV-Ladestation (inkl. Installation)",
+        "evChargerOneTimeNote": "Einmalige Zahlung für Hardware und Installation zusätzlich zu Ihrem 0 CHF PPA."
       },
       "solarFree": {
         "rateCard": {

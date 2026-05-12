@@ -238,14 +238,17 @@ export default function StepSolarDirectResults() {
                 model="solar-direct"
                 locale={locale}
                 isSelected={pkg.id === store.selectedPackageId}
-                onSelect={() => applyPackageToStore(store.setSelectedPackage, pkg)}
+                onSelect={() => {
+                  store.clearEvCharger()
+                  applyPackageToStore(store.setSelectedPackage, pkg)
+                }}
               />
             ))}
           </div>
         </section>
       ) : null}
 
-      <EvChargerPicker />
+      <EvChargerPicker charger={selectedPkg?.availableEvCharger ?? null} />
 
       <HeatPumpInterestStrip />
 
