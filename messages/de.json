@@ -5917,8 +5917,7 @@
           "size": "{kwp} kWp",
           "panels": "{count} Module",
           "production": "~{kwh} kWh pro Jahr",
-          "valueLine": "{kwp} kWp ~{kwh} kWh",
-          "panelsPerYear": "{count} Module, pro Jahr"
+          "valueLine": "{kwp} kWp · ~{kwh} kWh/Jahr"
         },
         "yourYearlySaving": {
           "label": "Ihre jährliche Ersparnis",
