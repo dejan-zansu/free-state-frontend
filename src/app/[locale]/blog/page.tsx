@@ -15,12 +15,26 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'seo' })
-  return generateSEOMetadata({
+  const base = await generateSEOMetadata({
     locale: locale as SiteLocale,
     pathname: '/blog',
     title: t('blog.title') || '',
     description: t('blog.description') || '',
   })
+  return {
+    ...base,
+    alternates: {
+      ...base.alternates,
+      types: {
+        'application/rss+xml': [
+          {
+            url: `/${locale}/blog/rss.xml`,
+            title: `Free State AG Blog (${locale.toUpperCase()})`,
+          },
+        ],
+      },
+    },
+  }
 }
 
 function getTranslation(
