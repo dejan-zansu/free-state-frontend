@@ -2344,15 +2344,9 @@
       "title": "Trouvez votre bâtiment",
       "subtitle": "Cliquez sur une zone colorée pour l'ajouter à l'installation solaire",
       "placeholder": "Rechercher une adresse",
-      "coordinates": "Coordonnées",
-      "mapInfo": "Cliquez sur n'importe quel toit coloré pour le sélectionner. Les couleurs indiquent le potentiel solaire – rouge/orange est excellent, jaune/vert bon, bleu plus faible.",
       "clickRoofInfo": "Cliquez sur les pans de toit colorés pour les sélectionner. Chaque clic ajoute un pan à votre sélection. Cliquez à nouveau pour le retirer.",
       "continue": "Définir la surface utilisable",
       "loading": "Chargement des données du bâtiment...",
-      "buildingFound": "Bâtiment trouvé",
-      "roofSegments": "Pans de toit",
-      "totalArea": "Surface totale de toit",
-      "totalPotential": "Potentiel total",
       "legend": "Potentiel solaire",
       "legendExcellent": "Excellent",
       "legendVeryGood": "Très bon",
@@ -2365,12 +2359,7 @@
       "selectedArea": "Surface sélectionnée",
       "selectedPotential": "Potentiel sélectionné",
       "estimatedPanels": "Panneaux estimés",
-      "quickSelection": "Sélection rapide",
-      "selectAll": "Tout sélectionner",
-      "selectGoodAndAbove": "Sélectionner Bon & supérieur",
-      "selectVeryGoodAndAbove": "Sélectionner Très bon & supérieur",
       "clearSelection": "Effacer la sélection",
-      "roofSegmentsList": "Pans de toit",
       "clickToSelect": "Cliquez sur les pans pour les sélectionner ou les désélectionner",
       "selectedRoofParts": "Pans de toit sélectionnés",
       "roofPart": "Pan de toit"
@@ -2443,8 +2432,7 @@
       "loadingBuilding": "Chargement des données du bâtiment...",
       "mapHelp": {
         "title": "Contrôles de la carte",
-        "click": "Cliquez sur un pan pour le sélectionner/désélectionner",
-        "clickMap": "Cliquez ailleurs pour charger un autre bâtiment"
+        "click": "Cliquez sur un pan pour le sélectionner/désélectionner"
       }
     },
     "step3System": {
@@ -2569,8 +2557,7 @@
           "years": "Années",
           "year": "Année",
           "cumulative": "Flux de trésorerie cumulé",
-          "payback": "Retour",
-          "paybackInfo": "Investissement récupéré après {years} ans"
+          "payback": "Retour"
         },
         "monthlyChart": {
           "title": "Analyse mensuelle",

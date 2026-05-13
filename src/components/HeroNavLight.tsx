@@ -245,9 +245,7 @@ const HeroNavLight = ({
           </div>
           <div className="shrink-0">
             <LinkButton
-              variant={
-                ctaVariant ?? (isCommercial ? 'secondary' : 'primary')
-              }
+              variant={ctaVariant ?? (isCommercial ? 'secondary' : 'primary')}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
               className="text-sm sm:text-base md:text-base pl-3 sm:pl-6 gap-1.5 sm:gap-3 [&>div]:w-7 [&>div]:h-7 sm:[&>div]:w-10 sm:[&>div]:h-10"
             >
@@ -281,7 +279,7 @@ const HeroNavLight = ({
                   )}
                 >
                   <div className="flex flex-col min-w-[200px] pt-3">
-                    <div className="flex items-center gap-1.5 text-[#062E25] text-sm font-medium whitespace-nowrap mb-[30px]">
+                    <div className="flex items-center gap-1.5 text-[#062E25] text-sm sm:text-base font-medium whitespace-nowrap mb-[30px]">
                       <Plug2 className="w-[15px] h-[15px]" strokeWidth={1.5} />
                       <span>{t('hero.nav.ourPackages')}</span>
                     </div>
@@ -290,7 +288,7 @@ const HeroNavLight = ({
                         key={link.href}
                         href={link.href}
                         className={cn(
-                          'py-[7px] text-[#062E25] text-sm font-light border-b border-[#062E25]/30 hover:border-[#062E25] transition-all duration-400 whitespace-nowrap',
+                          'py-[7px] text-[#062E25] text-sm sm:text-base font-light border-b border-[#062E25]/30 hover:border-[#062E25] transition-all duration-400 whitespace-nowrap',
                           displayItem === 'solarAbo' && hasDropdown
                             ? 'translate-y-0 opacity-100'
                             : '-translate-y-1 opacity-0'
@@ -322,7 +320,7 @@ const HeroNavLight = ({
                     <h3 className="absolute top-4 left-4 right-4 text-white font-medium text-xl">
                       {promoTitle}
                     </h3>
-                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-sm font-medium">
+                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-sm sm:text-base font-medium">
                       <span>{t('hero.nav.promoCta')}</span>
                       <ArrowUpRight className="w-4 h-4" strokeWidth={2} />
                     </div>
@@ -357,7 +355,7 @@ const HeroNavLight = ({
                         >
                           <Link
                             href={product.href}
-                            className="flex items-center gap-1.5 text-[#062E25] text-sm font-medium hover:opacity-80 transition-opacity whitespace-nowrap mb-[30px]"
+                            className="flex items-center gap-1.5 text-[#062E25] text-sm sm:text-base font-medium hover:opacity-80 transition-opacity whitespace-nowrap mb-[30px]"
                           >
                             <Icon
                               className="w-[15px] h-[15px]"
@@ -370,7 +368,7 @@ const HeroNavLight = ({
                               <Link
                                 key={sub.href}
                                 href={sub.href}
-                                className="py-[7px] text-[#062E25] text-sm font-light border-b border-[#062E25]/30 hover:border-[#062E25] transition-colors"
+                                className="py-[7px] text-[#062E25] text-sm sm:text-base font-light border-b border-[#062E25]/30 hover:border-[#062E25] transition-colors"
                               >
                                 {sub.label}
                               </Link>
@@ -396,7 +394,7 @@ const HeroNavLight = ({
                     <h3 className="absolute top-4 left-4 right-4 text-white font-medium text-xl">
                       {promoTitle}
                     </h3>
-                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-sm font-medium">
+                    <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-sm sm:text-base font-medium">
                       <span>{t('hero.nav.promoCta')}</span>
                       <ArrowUpRight className="w-4 h-4" strokeWidth={2} />
                     </div>

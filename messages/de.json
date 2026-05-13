@@ -427,6 +427,63 @@
       "chargingStation": "Ladestation"
     }
   },
+  "contracting": {
+    "hero": {
+      "title": "Contracting",
+      "description": "Solarmodule für eine effiziente und langfristige Energieproduktion"
+    },
+    "contractingModel": {
+      "eyebrow": "Contracting",
+      "title": "Solar-Contracting-Modell",
+      "description": "Wir installieren eine massgeschneiderte Solaranlage auf Ihrer Liegenschaft\nohne Anfangsinvestition, während Sie mehrfach davon profitieren.",
+      "items": {
+        "affordableSolar": "Günstiger Solarstrom direkt vom eigenen Dach",
+        "rentalIncome": "Attraktive jährliche Mieteinnahmen\nje nach Grösse der Liegenschaft.",
+        "noResponsibility": "Keine Verantwortung für Betrieb, Wartung oder Reparatur"
+      }
+    },
+    "solarFuture": {
+      "title": "Solarenergie für die Zukunft",
+      "description": "Wir prüfen Ihr Dach, entwickeln das technische Konzept und übernehmen den gesamten Projektzyklus — Finanzierung, Bau, Betrieb und Wartung inklusive.\n\nAlle Risiken und Investitionskosten trägt der Contractor, während klare vertragliche Vereinbarungen Rechte und Pflichten regeln. Geeignet sind in der Regel Dächer ab 200 m², und Übernahmemöglichkeiten werden vorab definiert."
+    },
+    "ourServices": {
+      "title": "Unsere Dienstleistungen",
+      "description": "Mit unserer langjährigen Erfahrung im Bereich Solarkraftwerke bieten wir Ihnen Komplettleistungen aus einer Hand — mit einem einzigen Ansprechpartner für das gesamte Projekt.",
+      "items": {
+        "consultation": "Beratung",
+        "feasibilityStudy": "Machbarkeitsstudie",
+        "preliminaryStudy": "Vorstudie",
+        "roofUsageAgreement": "Dachnutzungsvertrag",
+        "planning": "Planung",
+        "projectManagement": "Projektmanagement",
+        "installation": "Installation",
+        "commissioning": "Inbetriebnahme",
+        "operationsMaintenance": "Betrieb & Wartung",
+        "repoweringOptimization": "Repowering & Optimierung"
+      }
+    },
+    "repoweringServices": {
+      "title": "Unsere Repowering-Dienstleistungen",
+      "cards": {
+        "numberOne": {
+          "title": "Nr. 1 in der Schweiz",
+          "description": "500+ Mitarbeitende. Grösster Solarinstallateur\nder Schweiz und Marktführer für\nStromspeicher."
+        },
+        "customers": {
+          "title": "15'000+ Kundinnen und Kunden",
+          "description": "10+ Jahre Erfahrung. 6'000+\nabgeschlossene PV-Projekte aller Grössen."
+        },
+        "yieldGuarantee": {
+          "title": "Ertragsgarantie",
+          "description": "10 Jahre Energieertragsgarantie\nund langfristiger Anlagenbetrieb."
+        },
+        "regionalist": {
+          "title": "Regional verankert",
+          "description": "Lokal verankert. Schnelle\nReaktion. Zuverlässiger Service."
+        }
+      }
+    }
+  },
   "login": {
     "title": "Willkommen zurück",
     "subtitle": "Melden Sie sich an, um auf Ihr Solar-Dashboard zuzugreifen",
@@ -2195,135 +2252,6 @@
         "generating": "Wird generiert..."
       }
     },
-    "solarAboHome": {
-      "includes": {
-        "title": "Was ist enthalten",
-        "subtitle": "In SolarFree Home",
-        "items": {
-          "solarModules": {
-            "title": "Solarmodule",
-            "subtitle": "450 Wp"
-          },
-          "inverter": {
-            "title": "Wechselrichter",
-            "subtitle": "Umwandlung"
-          },
-          "monitoringApp": {
-            "title": "Monitoring-App",
-            "subtitle": "Live-Daten"
-          },
-          "installation": {
-            "title": "Installation",
-            "subtitle": "Schlüsselfertig"
-          },
-          "serviceInsurance": {
-            "title": "Service & Versicherung",
-            "subtitle": "Abgedeckt"
-          },
-          "batteryStorage": {
-            "title": "Batteriespeicher",
-            "subtitle": "Eigenverbrauch"
-          }
-        }
-      }
-    },
-    "solarAboMulti": {
-      "hero": {
-        "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-        "title": "SolarFree Mehrfamilienhaus",
-        "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
-        "cta": "Solarrechner starten",
-        "tag": "Keine Registrierung nötig · Unverbindlich",
-        "stats": {
-          "left": {
-            "investment": "0 CHF\nInvestment",
-            "electricity": "Bis zu 30 % geringerer\nStrompreis"
-          },
-          "right": {
-            "maintenance": "Wartung\ninklusive",
-            "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
-          }
-        }
-      },
-      "includes": {
-        "title": "Was ist enthalten",
-        "subtitle": "In SolarFree Mehrfamilienhaus",
-        "items": {
-          "solarModules": {
-            "title": "Gemeinsames Solarsystem",
-            "subtitle": "Gemeinsames Solarsystem"
-          },
-          "inverter": {
-            "title": "Zentrales Wechselrichtersystem",
-            "subtitle": "Optimierte Umwandlung"
-          },
-          "zevBillingPlatform": {
-            "title": "ZEV-Abrechnungsplattform",
-            "subtitle": "Eigenverbrauch"
-          },
-          "monitoringApp": {
-            "title": "Monitoring",
-            "subtitle": "Pro Wohnung"
-          },
-          "installation": {
-            "title": "Installation",
-            "subtitle": "Schlüsselfertig"
-          },
-          "batteryStorage": {
-            "title": "Batteriespeicher",
-            "subtitle": "Eigenverbrauch"
-          }
-        }
-      },
-      "howItWorks": {
-        "title": "So funktioniert SolarFree Mehrfamilienhaus",
-        "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
-        "steps": {
-          "step1": "Sie stellen das Dach",
-          "step2": "Wir investieren",
-          "step3": "Sie nutzen den Solarstrom",
-          "step4": "Sie zahlen\nmonatlich",
-          "step5": "Die Anlage wird Ihr Eigentum"
-        }
-      },
-      "pricing": {
-        "title": "Preis & Vertrag",
-        "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
-        "pricing": {
-          "from": "ab",
-          "amount": "CHF 39.95",
-          "perMonth": "/Monat"
-        },
-        "features": {
-          "contractTerm": "Vertragslaufzeit: 35 Jahre",
-          "buybackOption": "Rückkaufoption",
-          "noUpfrontCosts": "Keine Anschaffungskosten",
-          "batteryStorage": "Batteriespeicher inklusive"
-        },
-        "disclaimer": "Fester Monatspreis für Ihre Solaranlage mit Batterie, vollständig von uns betreut."
-      },
-      "rightForYou": {
-        "title": "Passt dieses Paket zu Ihnen?",
-        "idealForTitle": "Ideal für Sie",
-        "notIdealForTitle": "Nicht ideal für Sie",
-        "idealFor": {
-          "singleFamily": "Mehrfamilienhaus",
-          "predictableCosts": "Kalkulierbare Kosten",
-          "noUpfront": "Kein Anschaffungsinvestment",
-          "noMaintenance": "Keine Wartung"
-        },
-        "notIdealFor": {
-          "batteryStorage": "Batteriespeicher benötigt",
-          "commercial": "Gewerbegebäude"
-        }
-      },
-      "cta": {
-        "topButton": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
-        "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
-        "ctaText": "Solarrechner starten",
-        "ctaLink": "/calculator"
-      }
-    },
     "error": "Fehler"
   },
   "comingSoon": {
@@ -2699,8 +2627,6 @@
       "continue": "Weiter"
     },
     "step5": {
-      "title": "Ihr Solarpotenzial",
-      "subtitle": "Basierend auf offiziellen Schweizer Bundesdachdaten",
       "noData": "Keine Daten verfügbar",
       "roofVisualization": "Ihre Solaranlage",
       "roofArea": "Dachfläche",
@@ -2722,10 +2648,6 @@
       "yearlySavings": "Jährliche Einsparungen",
       "paybackPeriod": "Amortisationszeit",
       "disclaimer": "Dies sind Schätzungen basierend auf durchschnittlichen Schweizer Werten. Tatsächliche Kosten und Einsparungen können je nach Ihrer spezifischen Situation, Geräteauswahl und Stromtarifen variieren.",
-      "dataSource": {
-        "title": "Datenquelle: Sonnendach.ch",
-        "description": "Diese Analyse verwendet offizielle Daten des Bundesamts für Energie (BFE), kombiniert mit Gebäudedaten von swisstopo und Sonneneinstrahlungsdaten von MeteoSwiss."
-      },
       "back": "Zurück",
       "startOver": "Neu starten",
       "requestQuote": "Angebot anfordern",
