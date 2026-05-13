@@ -8,7 +8,7 @@
     "empty": "Aucun forfait disponible pour le moment.",
     "toggle": {
       "solar-free": "SolarFree",
-      "solar-direct": "Solar Direct"
+      "solar-direct": "SolarDirect"
     },
     "card": {
       "capacity": "Puissance",
@@ -6719,6 +6719,9 @@
       "allStatus": "Tous",
       "active": "Actif",
       "inactive": "Inactif",
+      "allSolarModels": "Tous les modèles",
+      "direct": "Direct",
+      "abo": "Abo",
       "edit": "Modifier",
       "noItems": "Aucun élément trouvé",
       "items": "{count} éléments",
@@ -6810,7 +6813,7 @@
         "packageCreated": "Forfait créé",
         "solarModels": "Modèles solaires",
         "solarFree": "Solar Free",
-        "solarDirect": "Solar Direct",
+        "solarDirect": "SolarDirect",
         "solarModelsRequired": "Sélectionnez au moins un modèle solaire"
       }
     },

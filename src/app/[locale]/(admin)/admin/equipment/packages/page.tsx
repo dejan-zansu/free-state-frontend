@@ -4,6 +4,13 @@ import { useTranslations } from 'next-intl'
 
 import { EquipmentListPage } from '@/components/admin/EquipmentListPage'
 import { StatusBadge } from '@/components/admin/StatusBadge'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { adminEquipmentService } from '@/services/admin-equipment.service'
 
 export default function AdminPackagesPage() {
@@ -17,6 +24,23 @@ export default function AdminPackagesPage() {
       basePath="/admin/equipment/packages"
       createPath="/admin/equipment/packages/new"
       getKey={(item: any) => item.id}
+      extraFilters={(filters, setFilter) => (
+        <Select
+          value={filters.solarModel ?? '__all__'}
+          onValueChange={v =>
+            setFilter('solarModel', v === '__all__' ? undefined : v)
+          }
+        >
+          <SelectTrigger className="w-36">
+            <SelectValue placeholder={t('allSolarModels')} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="__all__">{t('allSolarModels')}</SelectItem>
+            <SelectItem value="SOLAR_DIRECT">{t('direct')}</SelectItem>
+            <SelectItem value="SOLAR_FREE">{t('abo')}</SelectItem>
+          </SelectContent>
+        </Select>
+      )}
       columns={[
         { header: t('columns.code'), accessor: (item: any) => <span className="font-mono">{item.code}</span> },
         { header: t('columns.name'), accessor: (item: any) => item.translations?.[0]?.name || item.code },
