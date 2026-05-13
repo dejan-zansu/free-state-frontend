@@ -8,7 +8,7 @@
     "empty": "Aktuell keine Pakete verfügbar.",
     "toggle": {
       "solar-free": "SolarFree",
-      "solar-direct": "Solar Direct"
+      "solar-direct": "SolarDirect"
     },
     "card": {
       "capacity": "Leistung",
@@ -564,7 +564,7 @@
     },
     "solarModels": {
       "eyebrow": "Solarmodelle",
-      "title": "SolarFrei oder SolarDirekt: Was passt zu Ihnen?",
+      "title": "SolarFree oder SolarDirekt: Was passt zu Ihnen?",
       "subtitle": "Vergleichen Sie beide Modelle und finden Sie die passende Lösung für Ihr Zuhause.",
       "onlineBadge": "Nur online",
       "cta": "Jetzt starten",
@@ -582,7 +582,7 @@
           "Freie Rückkaufoption jederzeit"
         ],
         "highlight": "0 CHF Startinvestition – nur für Strom zahlen",
-        "advantagesTitle": "Ihre Vorteile mit SolarFrei",
+        "advantagesTitle": "Ihre Vorteile mit SolarFree",
         "advantages": [
           "Keine Anfangsinvestition",
           "Fester, planbarer Stromtarif",
@@ -6784,6 +6784,9 @@
       "allStatus": "Alle",
       "active": "Aktiv",
       "inactive": "Inaktiv",
+      "allSolarModels": "Alle Modelle",
+      "direct": "Direct",
+      "abo": "Abo",
       "edit": "Bearbeiten",
       "noItems": "Keine Einträge gefunden",
       "items": "{count} Einträge",
@@ -6875,7 +6878,7 @@
         "packageCreated": "Paket erstellt",
         "solarModels": "Solar-Modelle",
         "solarFree": "Solar Free",
-        "solarDirect": "Solar Direct",
+        "solarDirect": "SolarDirect",
         "solarModelsRequired": "Mindestens ein Solar-Modell auswählen"
       }
     },

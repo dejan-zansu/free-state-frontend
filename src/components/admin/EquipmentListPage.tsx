@@ -40,6 +40,10 @@ interface EquipmentListPageProps<T> {
   getKey: (item: T) => string
   basePath: string
   createPath?: string
+  extraFilters?: (
+    filters: Record<string, string | undefined>,
+    setFilter: (key: string, value: string | undefined) => void,
+  ) => React.ReactNode
 }
 
 export function EquipmentListPage<T>({
@@ -50,6 +54,7 @@ export function EquipmentListPage<T>({
   getKey,
   basePath,
   createPath,
+  extraFilters,
 }: EquipmentListPageProps<T>) {
   const locale = useLocale()
   const t = useTranslations('admin.equipment')
@@ -106,6 +111,7 @@ export function EquipmentListPage<T>({
                 <SelectItem value="false">{t('inactive')}</SelectItem>
               </SelectContent>
             </Select>
+            {extraFilters?.(filters, setFilter)}
           </div>
 
           {isLoading ? (

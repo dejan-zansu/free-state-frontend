@@ -311,7 +311,6 @@ const SolarModels = async ({
                     href="/calculator?model=solar-direct"
                     variant="solar-gradient"
                     className="w-full uppercase pointer-events-none opacity-60 cursor-not-allowed"
-                    aria-disabled="true"
                     tabIndex={-1}
                   >
                     {t('cta')}

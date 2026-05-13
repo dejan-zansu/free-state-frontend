@@ -8,7 +8,7 @@
     "empty": "No packages available right now.",
     "toggle": {
       "solar-free": "SolarFree",
-      "solar-direct": "Solar Direct"
+      "solar-direct": "SolarDirect"
     },
     "card": {
       "capacity": "Capacity",
@@ -6719,6 +6719,9 @@
       "allStatus": "All",
       "active": "Active",
       "inactive": "Inactive",
+      "allSolarModels": "All models",
+      "direct": "Direct",
+      "abo": "Abo",
       "edit": "Edit",
       "noItems": "No items found",
       "items": "{count} items",
@@ -6810,7 +6813,7 @@
         "packageCreated": "Package created",
         "solarModels": "Solar Models",
         "solarFree": "Solar Free",
-        "solarDirect": "Solar Direct",
+        "solarDirect": "SolarDirect",
         "solarModelsRequired": "Select at least one solar model"
       }
     },
