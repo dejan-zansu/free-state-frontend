@@ -2344,15 +2344,9 @@
       "title": "Trova il tuo edificio",
       "subtitle": "Clicca su un'area colorata per aggiungerla all'impianto solare",
       "placeholder": "Cerca un indirizzo",
-      "coordinates": "Coordinate",
-      "mapInfo": "Clicca su qualsiasi tetto colorato sulla mappa per selezionarlo per l'analisi. I colori indicano il potenziale solare – rosso/arancione è eccellente, giallo/verde è buono, blu è inferiore.",
       "clickRoofInfo": "Clicca sulle falde colorate della mappa per selezionarle. Ogni clic aggiunge una falda alla selezione. Clicca di nuovo su una falda selezionata per rimuoverla.",
       "continue": "Definisci l'area utilizzabile",
       "loading": "Caricamento dati dell'edificio...",
-      "buildingFound": "Edificio trovato",
-      "roofSegments": "Falde del tetto",
-      "totalArea": "Superficie totale del tetto",
-      "totalPotential": "Potenziale totale",
       "legend": "Potenziale solare",
       "legendExcellent": "Eccellente",
       "legendVeryGood": "Molto buono",
@@ -2365,12 +2359,7 @@
       "selectedArea": "Area selezionata",
       "selectedPotential": "Potenziale selezionato",
       "estimatedPanels": "Pannelli stimati",
-      "quickSelection": "Selezione rapida",
-      "selectAll": "Seleziona tutte le falde",
-      "selectGoodAndAbove": "Seleziona buono e superiore",
-      "selectVeryGoodAndAbove": "Seleziona molto buono e superiore",
       "clearSelection": "Cancella selezione",
-      "roofSegmentsList": "Falde del tetto",
       "clickToSelect": "Clicca sulle falde per selezionarle o deselezionarle",
       "selectedRoofParts": "Parti di tetto selezionate",
       "roofPart": "Parte di tetto"
@@ -2443,8 +2432,7 @@
       "loadingBuilding": "Caricamento dati dell'edificio...",
       "mapHelp": {
         "title": "Comandi della mappa",
-        "click": "Clicca su una falda per selezionare/deselezionare",
-        "clickMap": "Clicca altrove per caricare un altro edificio"
+        "click": "Clicca su una falda per selezionare/deselezionare"
       }
     },
     "step3System": {
@@ -2569,8 +2557,7 @@
           "years": "Anni",
           "year": "Anno",
           "cumulative": "Flusso di cassa cumulato",
-          "payback": "Ammortamento",
-          "paybackInfo": "Investimento recuperato dopo {years} anni"
+          "payback": "Ammortamento"
         },
         "monthlyChart": {
           "title": "Analisi mensile",
