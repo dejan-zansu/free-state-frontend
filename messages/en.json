@@ -4105,7 +4105,7 @@
       "subtitle": "Based on your roof and household data, here is what solar energy can do for you.",
       "heatPumpInterest": {
         "title": "Thinking about a heat pump too?",
-        "subtitle": "Heat pumps aren't part of this offer — if you're interested, we'll follow up separately.",
+        "subtitle": "Heat pumps aren't part of this offer. If you're interested, we'll follow up separately.",
         "stat1Value": "up to 54%",
         "stat1Label": "lower energy costs vs. oil heating",
         "stat2Value": "100%",
@@ -4238,8 +4238,7 @@
           "size": "{kwp} kWp",
           "panels": "{count} panels",
           "production": "~{kwh} kWh per year",
-          "valueLine": "{kwp} kWp ~{kwh} kWh",
-          "panelsPerYear": "{count} panels, per year"
+          "valueLine": "{kwp} kWp · ~{kwh} kWh/year"
         },
         "yourYearlySaving": {
           "label": "Your yearly saving",

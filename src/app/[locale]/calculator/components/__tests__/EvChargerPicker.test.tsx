@@ -54,10 +54,10 @@ describe('EvChargerPicker', () => {
     expect(container.firstChild).toBeNull()
   })
 
-  it('clicking the card adds the charger to store', async () => {
+  it('clicking the toggle adds the charger to store', async () => {
     render(<EvChargerPicker charger={FAKE_CHARGER} />)
-    const button = screen.getByRole('button', { name: /Huawei FCP 7kW/i })
-    await userEvent.click(button)
+    const toggle = screen.getByRole('switch', { name: /Huawei FCP 7kW/i })
+    await userEvent.click(toggle)
     const s = useSolarAboCalculatorStore.getState()
     expect(s.selectedEvChargerId).toBe('c1')
     expect(s.selectedEvChargerPriceChf).toBe(1290)
@@ -66,16 +66,16 @@ describe('EvChargerPicker', () => {
   it('clicking again clears the selection', async () => {
     useSolarAboCalculatorStore.getState().setSelectedEvCharger('c1', 1290)
     render(<EvChargerPicker charger={FAKE_CHARGER} />)
-    const button = screen.getByRole('button', { name: /Huawei FCP 7kW/i })
-    await userEvent.click(button)
+    const toggle = screen.getByRole('switch', { name: /Huawei FCP 7kW/i })
+    await userEvent.click(toggle)
     expect(useSolarAboCalculatorStore.getState().selectedEvChargerId).toBeNull()
   })
 
-  it('aria-pressed reflects store selection state', () => {
+  it('aria-checked reflects store selection state', () => {
     useSolarAboCalculatorStore.getState().setSelectedEvCharger('c1', 1290)
     render(<EvChargerPicker charger={FAKE_CHARGER} />)
-    expect(screen.getByRole('button', { name: /Huawei FCP 7kW/i })).toHaveAttribute(
-      'aria-pressed',
+    expect(screen.getByRole('switch', { name: /Huawei FCP 7kW/i })).toHaveAttribute(
+      'aria-checked',
       'true',
     )
   })

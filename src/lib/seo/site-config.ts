@@ -50,10 +50,10 @@ export const siteConfig = {
     'Thurgau',
   ],
   ogImage: {
-    url: '/og/default.png',
-    width: 1200,
-    height: 630,
-    alt: 'Free State AG — Solaranlagen und erneuerbare Energien in der Schweiz',
+    url: '/images/hero-solar-panels.webp',
+    width: 1440,
+    height: 736,
+    alt: 'Free State AG, Solaranlagen und erneuerbare Energien in der Schweiz',
   },
   twitter: {
     handle: '@freestate_ag',

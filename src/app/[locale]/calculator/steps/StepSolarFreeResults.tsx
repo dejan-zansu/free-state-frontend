@@ -478,7 +478,7 @@ export default function StepResults() {
                 kwp: systemSizeKwp.toFixed(1),
                 kwh: fmt(annualProduction),
               })}
-              subtitle={t('yourSystem.panelsPerYear', { count: panelCount })}
+              subtitle={t('yourSystem.panels', { count: panelCount })}
               ready={panelDataReady}
             />
             <GlassStatCard

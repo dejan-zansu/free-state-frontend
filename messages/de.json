@@ -5784,7 +5784,7 @@
       "subtitle": "Basierend auf Ihren Dach- und Haushaltsdaten zeigen wir Ihnen, was Solarenergie für Sie leisten kann.",
       "heatPumpInterest": {
         "title": "Auch über eine Wärmepumpe nachdenken?",
-        "subtitle": "Wärmepumpen sind nicht Teil dieses Angebots — bei Interesse melden wir uns separat.",
+        "subtitle": "Wärmepumpen sind nicht Teil dieses Angebots. Bei Interesse melden wir uns separat.",
         "stat1Value": "bis zu 54%",
         "stat1Label": "tiefere Energiekosten als Ölheizung",
         "stat2Value": "100%",
@@ -5917,8 +5917,7 @@
           "size": "{kwp} kWp",
           "panels": "{count} Module",
           "production": "~{kwh} kWh pro Jahr",
-          "valueLine": "{kwp} kWp ~{kwh} kWh",
-          "panelsPerYear": "{count} Module, pro Jahr"
+          "valueLine": "{kwp} kWp · ~{kwh} kWh/Jahr"
         },
         "yourYearlySaving": {
           "label": "Ihre jährliche Ersparnis",
