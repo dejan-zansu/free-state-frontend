@@ -51,7 +51,7 @@ const Hero = async ({
       <div className="absolute inset-0 z-0">
         <video
           className="absolute inset-0 w-full h-full object-cover rounded-b-[40px]"
-          src="/videos/free-state-landing.mp4"
+          src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/Landing-Safhauzen-Final.mp4"
           poster="/images/solar-panels-hero.webp"
           autoPlay
           loop
