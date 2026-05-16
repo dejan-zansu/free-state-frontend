@@ -6,6 +6,7 @@ import Battery from '@/components/Battery'
 import FusionSolarApp from '@/components/FusionSolarApp'
 import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
 import SolarModels from '@/components/SolarModels'
+import { TelemiivaTimeline } from '@/components/TelemiivaTimeline'
 import PackageCatalogSection from '@/components/home/PackageCatalogSection'
 import WhyFreeState from '@/components/WhyFreeState'
 import PathToEnergy from '@/components/PathToEnergy'
@@ -16,6 +17,7 @@ export default async function HomePage() {
   return (
     <div className="w-full overflow-x-hidden">
       <Hero />
+      <TelemiivaTimeline />
       <SolarModels />
       <PackageCatalogSection />
       <WhyFreeState />

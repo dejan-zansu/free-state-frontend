@@ -462,6 +462,18 @@
     "commercialProperties": "Commercial properties",
     "residentialProperties": "Residential properties"
   },
+  "telemiivaTimeline": {
+    "sectionHeading": "16 years of experience. New name.",
+    "subheading": "Free State AG is new. Our team has been building solar systems in Switzerland since 2008.",
+    "node2008Title": "2008",
+    "node2008Body": "Telemiiva GmbH founded. First solar installation completed.",
+    "node2008_2024Title": "2008 to 2024",
+    "node2008_2024Body": "Over 16 years of experience in solar and energy across Switzerland.",
+    "node2024Title": "November 2024",
+    "node2024Body": "Free State AG founded in Schaffhausen. New brand, same team, same craft.",
+    "nodeTodayTitle": "Today",
+    "nodeTodayBody": "Active in 19 German-speaking Swiss cantons, with SolarFree and SolarDirect models."
+  },
   "home": {
     "hero": {
       "badge": "Free State SolarFree",
