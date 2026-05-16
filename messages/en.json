@@ -7859,5 +7859,22 @@
     "eyebrow": "SolarDirect",
     "title": "Check the solar potential\nof your roof",
     "cta": "Start solar calculator"
+  },
+  "foerderung": {
+    "hubTitle": "Photovoltaic Subsidies in Switzerland 2026",
+    "hubSubheading": "Current PV subsidy programs, feed-in tariffs and solar mandate status for all 26 cantons.",
+    "inPreparation": "in preparation",
+    "ctaCalculate": "Calculate solar system",
+    "lastUpdated": "Last updated",
+    "sections": {
+      "pronovo": "Pronovo One-Time Subsidy",
+      "cantonal": "Cantonal programs",
+      "solarpflicht": "Solar mandate",
+      "tariffs": "Utility feed-in tariffs",
+      "gemeinden": "Top municipalities with extra subsidies",
+      "steuer": "Tax aspects",
+      "sources": "Sources",
+      "faq": "Frequently asked questions"
+    }
   }
 }

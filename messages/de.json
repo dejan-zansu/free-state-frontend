@@ -7859,5 +7859,22 @@
     "eyebrow": "SolarDirect",
     "title": "Prüfen Sie das\nSolarpotenzial Ihres Dachs",
     "cta": "Solarrechner starten"
+  },
+  "foerderung": {
+    "hubTitle": "Photovoltaik Förderung in der Schweiz 2026",
+    "hubSubheading": "Aktuelle PV-Förderprogramme, Einspeisetarife und Solarpflicht-Status für alle 26 Kantone.",
+    "inPreparation": "in Vorbereitung",
+    "ctaCalculate": "Solaranlage berechnen",
+    "lastUpdated": "Aktualisiert am",
+    "sections": {
+      "pronovo": "Pronovo Einmalvergütung",
+      "cantonal": "Kantonale Programme",
+      "solarpflicht": "Solarpflicht",
+      "tariffs": "Einspeisetarife der EVU",
+      "gemeinden": "Top-Gemeinden mit Zusatzförderung",
+      "steuer": "Steuerliche Aspekte",
+      "sources": "Quellen",
+      "faq": "Häufige Fragen"
+    }
   }
 }
