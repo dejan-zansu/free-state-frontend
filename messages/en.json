@@ -761,9 +761,9 @@
     "battery": {
       "title": "Battery",
       "subtitle": "FreeState offers intelligent battery storage solutions in partnership with Huawei – with reliable hardware, seamless integration, and future-oriented energy management for your home.",
-      "step1": "Smart energy storage for your home",
-      "step2": "Battery storage made easy",
-      "step3": "Reliable storage solutions with Huawei",
+      "step1": "Up to 80% self-consumption instead of 30%",
+      "step2": "Backup power during grid outages, optional",
+      "step3": "5 to 30 kWh storage, expandable any time",
       "cta": "Explore Battery Storage",
       "exploreHuawei": "Explore Huawei"
     },
