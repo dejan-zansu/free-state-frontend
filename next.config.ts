@@ -21,17 +21,17 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/unternehmen',
-        destination: '/de/geschichte',
+        destination: '/geschichte',
         permanent: true,
       },
       {
         source: '/about',
-        destination: '/de/geschichte',
+        destination: '/geschichte',
         permanent: true,
       },
       {
         source: '/de/unternehmen',
-        destination: '/de/geschichte',
+        destination: '/geschichte',
         permanent: true,
       },
       {
