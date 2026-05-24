@@ -519,6 +519,18 @@
     "commercialProperties": "Gewerbeimmobilien",
     "residentialProperties": "Wohnimmobilien"
   },
+  "telemiivaTimeline": {
+    "sectionHeading": "16 Jahre Erfahrung. Neuer Name.",
+    "subheading": "Free State AG ist neu. Unser Team baut seit 2008 Solaranlagen in der Schweiz.",
+    "node2008Title": "2008",
+    "node2008Body": "Telemiiva GmbH gegründet. Erste Solaranlage installiert.",
+    "node2008_2024Title": "2008 bis 2024",
+    "node2008_2024Body": "Über 16 Jahre Erfahrung in Solar und Energie in der Schweiz.",
+    "node2024Title": "November 2024",
+    "node2024Body": "Free State AG gegründet in Schaffhausen. Neuer Brand, gleiches Team, gleiches Handwerk.",
+    "nodeTodayTitle": "Heute",
+    "nodeTodayBody": "Tätig in 19 Deutschschweizer Kantonen, mit SolarFree- und SolarDirect-Modellen."
+  },
   "home": {
     "hero": {
       "badge": "Free State SolarFree",
@@ -806,9 +818,9 @@
     "battery": {
       "title": "Batterie",
       "subtitle": "FreeState bietet intelligente Batteriespeicherlösungen in Partnerschaft mit Huawei – mit zuverlässiger Hardware, nahtloser Integration und zukunftsorientiertem Energiemanagement für Ihr Zuhause.",
-      "step1": "Intelligente Energiespeicherung für Ihr Zuhause",
-      "step2": "Batteriespeicher einfach gemacht",
-      "step3": "Zuverlässige Speicherlösungen mit Huawei",
+      "step1": "Bis zu 80% Eigenverbrauch statt 30%",
+      "step2": "Notstrom bei Netzausfall, optional buchbar",
+      "step3": "5 bis 30 kWh Speicher, jederzeit erweiterbar",
       "cta": "Batteriespeicher entdecken",
       "exploreHuawei": "Huawei entdecken"
     },
@@ -7847,5 +7859,22 @@
     "eyebrow": "SolarDirect",
     "title": "Prüfen Sie das\nSolarpotenzial Ihres Dachs",
     "cta": "Solarrechner starten"
+  },
+  "foerderung": {
+    "hubTitle": "Photovoltaik Förderung in der Schweiz 2026",
+    "hubSubheading": "Aktuelle PV-Förderprogramme, Einspeisetarife und Solarpflicht-Status für alle 26 Kantone.",
+    "inPreparation": "in Vorbereitung",
+    "ctaCalculate": "Solaranlage berechnen",
+    "lastUpdated": "Aktualisiert am",
+    "sections": {
+      "pronovo": "Pronovo Einmalvergütung",
+      "cantonal": "Kantonale Programme",
+      "solarpflicht": "Solarpflicht",
+      "tariffs": "Einspeisetarife der EVU",
+      "gemeinden": "Top-Gemeinden mit Zusatzförderung",
+      "steuer": "Steuerliche Aspekte",
+      "sources": "Quellen",
+      "faq": "Häufige Fragen"
+    }
   }
 }

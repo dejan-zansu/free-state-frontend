@@ -17,11 +17,9 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
 import { JsonLd } from '@/components/seo/JsonLd'
-import {
-  buildOrganizationJsonLd,
-  buildLocalBusinessJsonLd,
-  buildWebSiteJsonLd,
-} from '@/lib/seo/structured-data'
+import { JsonLdOrganization } from '@/components/seo/JsonLdOrganization'
+import { JsonLdLocalBusiness } from '@/components/seo/JsonLdLocalBusiness'
+import { buildWebSiteJsonLd } from '@/lib/seo/structured-data'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -79,8 +77,8 @@ export default async function LocaleLayout({
           rel="dns-prefetch"
           href="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev"
         />
-        <JsonLd data={buildOrganizationJsonLd()} />
-        <JsonLd data={buildLocalBusinessJsonLd()} />
+        <JsonLdOrganization />
+        <JsonLdLocalBusiness />
         <JsonLd data={buildWebSiteJsonLd()} />
         <AnalyticsScripts />
       </head>

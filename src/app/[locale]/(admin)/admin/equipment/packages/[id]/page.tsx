@@ -262,8 +262,8 @@ export default function AdminPackageDetailPage() {
     field: keyof PackageItemRow,
     value: any
   ) => {
-    setItems(
-      items.map((item, i) => (i === index ? { ...item, [field]: value } : item))
+    setItems(prev =>
+      prev.map((item, i) => (i === index ? { ...item, [field]: value } : item))
     )
   }
 

@@ -57,6 +57,18 @@ export const routing = defineRouting({
       fr: '/blog/[slug]',
       it: '/blog/[slug]',
     },
+    '/foerderung': {
+      en: '/foerderung',
+      de: '/foerderung',
+      fr: '/foerderung',
+      it: '/foerderung',
+    },
+    '/foerderung/[kanton]': {
+      en: '/foerderung/[kanton]',
+      de: '/foerderung/[kanton]',
+      fr: '/foerderung/[kanton]',
+      it: '/foerderung/[kanton]',
+    },
     '/battery-storage': {
       en: '/battery-storage',
       de: '/batteriespeicher',
