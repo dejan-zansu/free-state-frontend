@@ -17,6 +17,30 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/unternehmen',
+        destination: '/geschichte',
+        permanent: true,
+      },
+      {
+        source: '/about',
+        destination: '/geschichte',
+        permanent: true,
+      },
+      {
+        source: '/de/unternehmen',
+        destination: '/geschichte',
+        permanent: true,
+      },
+      {
+        source: '/en/about',
+        destination: '/en/history',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 const withNextIntl = createNextIntlPlugin()
