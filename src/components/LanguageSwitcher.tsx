@@ -1,9 +1,10 @@
 'use client'
 
 import { cn } from '@/lib/utils'
-import { usePathname, useRouter } from '@/i18n/navigation'
+import { usePathname, getPathname } from '@/i18n/navigation'
+import { useParams } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { useTransition } from 'react'
+import { useState } from 'react'
 import { locales } from '@/i18n/routing'
 import {
   Select,
@@ -33,31 +34,32 @@ interface LanguageSwitcherProps {
 
 const LanguageSwitcher = ({ isScrolled = false }: LanguageSwitcherProps) => {
   const pathname = usePathname()
-  const router = useRouter()
+  const params = useParams()
   const currentLocale = useLocale()
-  const [isPending, startTransition] = useTransition()
+  const [isNavigating, setIsNavigating] = useState(false)
 
   const handleLocaleChange = (newLocale: string) => {
-    startTransition(() => {
-      router.replace(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        { pathname } as any,
-        { locale: newLocale }
-      )
+    if (newLocale === currentLocale) return
+    setIsNavigating(true)
+    const target = getPathname({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      href: { pathname, params } as any,
+      locale: newLocale,
     })
+    window.location.href = `${target}${window.location.search}${window.location.hash}`
   }
 
   return (
     <Select
       value={currentLocale}
       onValueChange={handleLocaleChange}
-      disabled={isPending}
+      disabled={isNavigating}
     >
       <SelectTrigger
         className={cn(
           'h-auto w-auto border-none bg-transparent p-0 shadow-none hover:bg-transparent dark:bg-transparent dark:hover:bg-transparent focus:ring-0! focus-visible:ring-0! focus-visible:border-transparent! outline-none! focus:outline-none! focus-visible:outline-none!',
           isScrolled ? 'text-[#062E25]' : 'text-white',
-          isPending && 'opacity-50'
+          isNavigating && 'opacity-50'
         )}
       >
         <SelectValue>
