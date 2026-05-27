@@ -300,7 +300,9 @@ export default function CookieConsentBanner() {
         notifyConsentChanged()
       },
     })
+  }, [])
 
+  useEffect(() => {
     CookieConsent.setLanguage(locale)
   }, [locale])
 

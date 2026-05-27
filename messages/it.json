@@ -462,6 +462,18 @@
     "commercialProperties": "Proprietà commerciali",
     "residentialProperties": "Proprietà residenziali"
   },
+  "telemiivaTimeline": {
+    "sectionHeading": "16 anni di esperienza.",
+    "subheading": "Free State AG è una realtà nuova. Il nostro team costruisce impianti solari in Svizzera dal 2008.",
+    "node2008Title": "2008",
+    "node2008Body": "Fondazione di Telemiiva GmbH. Primo impianto solare installato.",
+    "node2008_2024Title": "Dal 2008 al 2024",
+    "node2008_2024Body": "Oltre 16 anni di esperienza nel solare e nell'energia in tutta la Svizzera.",
+    "node2024Title": "Novembre 2024",
+    "node2024Body": "Free State AG fondata a Sciaffusa. Nuovo marchio, stesso team, stessa maestria.",
+    "nodeTodayTitle": "Oggi",
+    "nodeTodayBody": "Attivi in 19 cantoni della Svizzera tedesca, con i modelli SolarFree e SolarDirect."
+  },
   "home": {
     "hero": {
       "badge": "Free State SolarFree",
