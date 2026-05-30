@@ -10,7 +10,7 @@ const BatteryInstallationSection = async () => {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-[80px]">
           <div className="relative w-full max-w-[490px] aspect-[490/344] rounded-[20px] overflow-hidden shrink-0">
             <Image
-              src="/images/battery-storage-installation-63f44e.webp"
+              src="/images/battery-storage-installation.webp"
               alt={t('installation.title')}
               fill
               sizes="(min-width: 1024px) 490px, 100vw"

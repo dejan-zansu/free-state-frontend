@@ -6,8 +6,8 @@ const WhatIsEnergyStorageSection = async () => {
 
   return (
     <section className="relative overflow-hidden bg-[#EAEDDF]">
-      <div className="relative z-10 max-w-[1150px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-[60px]">
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[160px]">
+      <div className="flex flex-col lg:flex-row lg:items-stretch min-[1920px]:mx-auto min-[1920px]:max-w-[1920px]">
+        <div className="flex flex-1 items-center px-4 py-12 sm:px-6 lg:py-20 lg:pl-[89px] lg:pr-16">
           <div className="flex flex-col gap-5 max-w-[561px]">
             <div
               className="flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-[#062E25] w-fit"
@@ -30,15 +30,15 @@ const WhatIsEnergyStorageSection = async () => {
               {t('whatIs.description')}
             </p>
           </div>
+        </div>
 
-          <div className="relative w-full max-w-[410px] aspect-[410/388] rounded-[20px] overflow-hidden shrink-0">
-            <Image
-              src="/images/energy-storage-what-is-5da9ac.png"
-              alt={t('whatIs.title')}
-              fill
-              className="object-cover"
-            />
-          </div>
+        <div className="relative w-full aspect-[720/473] lg:aspect-auto lg:w-1/2 lg:self-stretch">
+          <Image
+            src="/images/energy-storage-what-is-658e12.webp"
+            alt={t('whatIs.title')}
+            fill
+            className="object-cover"
+          />
         </div>
       </div>
     </section>

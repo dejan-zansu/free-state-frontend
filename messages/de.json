@@ -388,7 +388,7 @@
   },
   "contactCTA": {
     "eyebrow": "Kostenlose Beratung",
-    "title": "Wir sprechen, wenn es Ihnen passt",
+    "title": "Wünschen Sie eine Beratung oder eine Richtofferte?",
     "description": "Reservieren Sie einen 30-minütigen Termin mit einem unserer Berater und erhalten Sie persönliche Antworten zu Photovoltaik, Wärmepumpen oder Elektromobilität – unverbindlich.",
     "cta": "Termin buchen"
   },
@@ -459,11 +459,11 @@
         "installation": "Installation",
         "commissioning": "Inbetriebnahme",
         "operationsMaintenance": "Betrieb & Wartung",
-        "repoweringOptimization": "Repowering & Optimierung"
+        "repoweringOptimization": "Erneuerung & Optimierung"
       }
     },
     "repoweringServices": {
-      "title": "Unsere Repowering-Dienstleistungen",
+      "title": "Unsere Erneuerungs-Dienstleistungen",
       "cards": {
         "numberOne": {
           "title": "Nr. 1 in der Schweiz",
@@ -511,7 +511,7 @@
     "calculator": "Solarkalkulator",
     "solutions": "Solarlösungen",
     "companies": "Unternehmen",
-    "portfolio": "Portfolio",
+    "portfolio": "Referenzen",
     "investors": "Für Investoren",
     "solarAbo": "SolarFree",
     "howItWorks": "So funktioniert's",
@@ -607,7 +607,7 @@
         "solarCalculator": "Solarrechner",
         "service": "Service",
         "energyStorage": "Stromspeicher",
-        "repowering": "Repowering",
+        "repowering": "Erneuerung",
         "withSolarSystem": "Wärmepumpe mit Solaranlage",
         "howLargePlantsWorks": "Wie Grossanlagen funktionieren",
         "howSolarPowerSystemWorks": "Wie eine Solaranlage funktioniert",
@@ -3006,9 +3006,9 @@
           "href": "/energy-storage"
         },
         {
-          "title": "Repowering",
+          "title": "Erneuerung",
           "description": "Rüsten Sie Ihre bestehende Anlage auf modernste Technologie um.",
-          "linkLabel": "Repowering",
+          "linkLabel": "Erneuerung",
           "image": "/images/solar-systems-repowering-54b89c.webp",
           "href": "/repowering"
         }
@@ -4518,12 +4518,12 @@
   },
   "repowering": {
     "hero": {
-      "title": "Repowering",
-      "description": "Rüsten Sie Ihre Solaranlage mit Repowering auf – für höhere Effizienz, mehr Ertrag und langfristige Leistung.",
-      "cta": "Kostenloses Repowering-Angebot"
+      "title": "Erneuerung",
+      "description": "Rüsten Sie Ihre Solaranlage durch Erneuerung auf – für höhere Effizienz, mehr Ertrag und langfristige Leistung.",
+      "cta": "Kostenloses Erneuerungs-Angebot"
     },
     "repoweringCta": {
-      "title": "Solar-Repowering. Gleiche Fläche. Höherer Ertrag.",
+      "title": "Solar-Erneuerung. Gleiche Fläche. Höherer Ertrag.",
       "bullets": {
         "1": "Veraltete Komponenten ersetzen, um den Ertrag zu steigern – ohne mehr Fläche zu benötigen.",
         "2": "Zuverlässigkeit verbessern durch den Austausch defekter oder alternder Teile.",
@@ -4570,7 +4570,7 @@
       }
     },
     "services": {
-      "title": "Unsere Repowering-Dienstleistungen",
+      "title": "Unsere Erneuerungs-Dienstleistungen",
       "cards": {
         "photovoltaics": {
           "title": "Photovoltaik",
@@ -4590,12 +4590,12 @@
       }
     },
     "quoteForm": {
-      "title": "Holen Sie sich hier Ihr kostenloses Repowering-Angebot.",
+      "title": "Holen Sie sich hier Ihr kostenloses Erneuerungs-Angebot.",
       "firstName": "Vorname",
       "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
       "lastName": "Nachname",
       "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
-      "interestedIn": "Ich interessiere mich für Repowering",
+      "interestedIn": "Ich interessiere mich für Erneuerung",
       "optionPhotovoltaics": "Photovoltaik / Energiespeicher",
       "optionHeatPump": "Wärmepumpe",
       "optionChargingStation": "Ladestation",
@@ -4604,22 +4604,22 @@
       "submit": "Jetzt Angebot einholen"
     },
     "faq": {
-      "title": "FAQ Repowering",
+      "title": "FAQ Erneuerung",
       "items": {
         "whatIsRepowering": {
-          "question": "Was bedeutet Photovoltaik-Repowering?",
-          "answer": "Repowering modernisiert Ihre bestehende PV-Anlage mit modernen Komponenten, um Leistung, Effizienz und Lebensdauer zu steigern."
+          "question": "Was bedeutet Photovoltaik-Erneuerung?",
+          "answer": "Die Erneuerung modernisiert Ihre bestehende PV-Anlage mit modernen Komponenten, um Leistung, Effizienz und Lebensdauer zu steigern."
         },
         "whenWorthwhile": {
-          "question": "Wann lohnt sich Repowering und welche Vorteile bietet es?",
-          "answer": "Repowering lohnt sich, wenn Ihre Anlage über 10–15 Jahre alt ist, einen reduzierten Ertrag zeigt oder moderne Technologie die Leistung auf gleicher Fläche deutlich steigern kann."
+          "question": "Wann lohnt sich eine Erneuerung und welche Vorteile bietet sie?",
+          "answer": "Eine Erneuerung lohnt sich, wenn Ihre Anlage über 10–15 Jahre alt ist, einen reduzierten Ertrag zeigt oder moderne Technologie die Leistung auf gleicher Fläche deutlich steigern kann."
         },
         "whichComponents": {
-          "question": "Welche Komponenten müssen beim Repowering ersetzt werden?",
+          "question": "Welche Komponenten müssen bei der Erneuerung ersetzt werden?",
           "answer": "Typischerweise werden Solarmodule, Wechselrichter und Verkabelung ersetzt. Die Unterkonstruktion kann oft erhalten bleiben, wenn sie noch in gutem Zustand ist."
         },
         "newInverter": {
-          "question": "Brauche ich einen neuen Wechselrichter für ein Repowering-Projekt?",
+          "question": "Brauche ich einen neuen Wechselrichter für ein Erneuerungsprojekt?",
           "answer": "In den meisten Fällen ja. Ältere Wechselrichter sind oft nicht mit modernen, leistungsstärkeren Modulen kompatibel und entsprechen nicht den aktuellen Effizienzstandards."
         },
         "substructure": {
@@ -4627,60 +4627,60 @@
           "answer": "Oft ja, sofern sie strukturell einwandfrei und mit den neuen Modulen kompatibel ist. Unsere Experten prüfen dies bei der Vor-Ort-Besichtigung."
         },
         "heatPumpsEv": {
-          "question": "Repowering für Wärmepumpen und E-Auto-Ladestationen?",
-          "answer": "Repowering kann mit Wärmepumpen-Integration und E-Ladelösungen kombiniert werden, um Ihren Eigenverbrauch und die Gesamtenergieeffizienz zu maximieren."
+          "question": "Erneuerung für Wärmepumpen und E-Auto-Ladestationen?",
+          "answer": "Die Erneuerung kann mit Wärmepumpen-Integration und E-Ladelösungen kombiniert werden, um Ihren Eigenverbrauch und die Gesamtenergieeffizienz zu maximieren."
         },
         "howItWorks": {
-          "question": "Wie läuft ein Solar-Repowering-Projekt ab?",
+          "question": "Wie läuft ein Solar-Erneuerungsprojekt ab?",
           "answer": "Wir beginnen mit einer Vor-Ort-Bewertung, entwerfen das optimale Upgrade, kümmern uns um alle Genehmigungen und die Installation und stellen die Inbetriebnahme und Überwachung sicher."
         },
         "costsPayback": {
-          "question": "Repowering-Kosten & Amortisation?",
+          "question": "Erneuerungskosten & Amortisation?",
           "answer": "Die Kosten hängen von der Anlagengrösse und den ersetzten Komponenten ab. Dank höherer Erträge und aktueller Fördermittel liegen die Amortisationszeiten typischerweise bei 8–12 Jahren."
         },
         "legalRegulations": {
-          "question": "Gibt es rechtliche Vorschriften für Repowering?",
+          "question": "Gibt es rechtliche Vorschriften für die Erneuerung?",
           "answer": "Ja, Baubewilligungen und Netzanschlussvorschriften können gelten. Wir kümmern uns um alle regulatorischen Anforderungen als Teil unseres Services."
         },
         "subsidies": {
-          "question": "Gibt es Fördermittel für Repowering?",
-          "answer": "Ja, Repowering-Projekte können für Bundes- und Kantonsförderungen qualifizieren. Wir helfen Ihnen, alle verfügbaren Fördermittel zu identifizieren und zu beantragen."
+          "question": "Gibt es Fördermittel für die Erneuerung?",
+          "answer": "Ja, Erneuerungsprojekte können für Bundes- und Kantonsförderungen qualifizieren. Wir helfen Ihnen, alle verfügbaren Fördermittel zu identifizieren und zu beantragen."
         },
         "existingKev": {
           "question": "Was passiert mit bestehenden KEV-Anlagen?",
-          "answer": "Bestehende KEV-Verträge bleiben gültig. Repowering kann jedoch die Bedingungen beeinflussen, daher ist eine sorgfältige Planung wichtig, um Ihren Einspeisetarif zu erhalten."
+          "answer": "Bestehende KEV-Verträge bleiben gültig. Eine Erneuerung kann jedoch die Bedingungen beeinflussen, daher ist eine sorgfältige Planung wichtig, um Ihren Einspeisetarif zu erhalten."
         },
         "kevExpiry": {
           "question": "Was passiert, wenn die bestehende KEV ausläuft?",
           "answer": "Nach Ablauf der KEV können Sie auf Eigenverbrauchsoptimierung umstellen oder einen neuen Einspeisetarif mit Ihrem Energieversorger aushandeln."
         },
         "feedInTariff": {
-          "question": "Wie wirkt sich Repowering auf den Einspeisetarif aus (ohne KEV)?",
-          "answer": "Repowering kann Ihre Einspeisetarif-Bedingungen ändern. Wir beraten Sie zur besten Strategie, um Ihre Erträge zu maximieren."
+          "question": "Wie wirkt sich eine Erneuerung auf den Einspeisetarif aus (ohne KEV)?",
+          "answer": "Eine Erneuerung kann Ihre Einspeisetarif-Bedingungen ändern. Wir beraten Sie zur besten Strategie, um Ihre Erträge zu maximieren."
         },
         "optimalTime": {
-          "question": "Wann ist der optimale Zeitpunkt für Repowering?",
+          "question": "Wann ist der optimale Zeitpunkt für die Erneuerung?",
           "answer": "Der beste Zeitpunkt ist, wenn der Ertrag Ihrer Anlage merklich gesunken ist, Komponenten das Ende ihrer Lebensdauer erreichen oder Fördermittel die Investition attraktiv machen."
         },
         "selfConsumption": {
-          "question": "Kann ich meinen Eigenverbrauch durch Repowering optimieren?",
+          "question": "Kann ich meinen Eigenverbrauch durch eine Erneuerung optimieren?",
           "answer": "Absolut. Moderne Module produzieren mehr Strom, und in Kombination mit Batteriespeicher können Sie Ihren Eigenverbrauchsanteil deutlich steigern."
         },
         "notBuiltByFreeState": {
-          "question": "Kann ich Repowering bestellen, auch wenn meine Anlage nicht von FreeState gebaut wurde?",
-          "answer": "Ja, wir bieten Repowering für alle bestehenden Solaranlagen an, unabhängig vom ursprünglichen Installateur."
+          "question": "Kann ich eine Erneuerung bestellen, auch wenn meine Anlage nicht von FreeState gebaut wurde?",
+          "answer": "Ja, wir bieten die Erneuerung für alle bestehenden Solaranlagen an, unabhängig vom ursprünglichen Installateur."
         },
         "oldPanels": {
           "question": "Was passiert mit meinen alten Solarmodulen?",
           "answer": "Alte Module werden gemäss Schweizer Vorschriften fachgerecht recycelt. Wir übernehmen den gesamten Entsorgungsprozess."
         },
         "taxBenefits": {
-          "question": "Kann ich Steuervorteile für ein Repowering-Projekt geltend machen?",
-          "answer": "Ja, Repowering-Investitionen sind in der Schweiz in der Regel als energiesparende Sanierungsmassnahmen steuerlich absetzbar."
+          "question": "Kann ich Steuervorteile für ein Erneuerungsprojekt geltend machen?",
+          "answer": "Ja, Erneuerungsinvestitionen sind in der Schweiz in der Regel als energiesparende Sanierungsmassnahmen steuerlich absetzbar."
         },
         "addSolarAbo": {
           "question": "Ist es möglich, einfach ein SolarFree zur bestehenden Anlage hinzuzufügen?",
-          "answer": "Ja, in vielen Fällen können wir Ihre bestehende Anlage in ein SolarFree-Modell integrieren und Repowering mit unserem Rundum-Service kombinieren."
+          "answer": "Ja, in vielen Fällen können wir Ihre bestehende Anlage in ein SolarFree-Modell integrieren und die Erneuerung mit unserem Rundum-Service kombinieren."
         }
       }
     }

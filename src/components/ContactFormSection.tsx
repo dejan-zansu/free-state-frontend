@@ -36,7 +36,7 @@ type ContactFormData = {
 }
 
 const inputClassName =
-  'h-9 bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]'
+  'h-9 bg-[#FFFFFE] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]'
 
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
@@ -95,7 +95,7 @@ const ContactFormSection = () => {
         style={{ backgroundImage: "url('/images/contact-form-bg.webp')" }}
       />
       <div className="relative max-w-[877px] mx-auto">
-        <div className="rounded-2xl border border-[#f6f6f6]/60 bg-[#a4beab]/33 backdrop-blur-[10px] p-6 sm:p-10">
+        <div className="rounded-2xl border border-[#f6f6f6]/60 bg-[#D6D6D6]/33 backdrop-blur-[10px] p-6 sm:p-10">
           <div className="flex flex-col items-center gap-[50px]">
             <div className="flex flex-col items-center gap-5 text-center">
               <Badge
@@ -304,7 +304,7 @@ const ContactFormSection = () => {
                     </Label>
                     <Textarea
                       {...register('message')}
-                      className="min-h-[164px] bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] resize-none"
+                      className="min-h-[164px] bg-[#FFFFFE] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] resize-none"
                     />
                   </div>
 

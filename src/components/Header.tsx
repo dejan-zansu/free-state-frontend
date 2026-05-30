@@ -24,6 +24,7 @@ const Header = () => {
   const t = useTranslations('nav')
   const tHeader = useTranslations('header')
   const tFooter = useTranslations('footer')
+  const tHome = useTranslations('home')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isCompanyOpen, setIsCompanyOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -288,6 +289,12 @@ const Header = () => {
 
             <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
               <Link
+                href={showCommercial ? '/calculator' : '/commercial/calculator'}
+                className={navItemClass(false)}
+              >
+                {tHome('hero.cta.primary')}
+              </Link>
+              <Link
                 href="/login"
                 className={cn(
                   'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base hidden sm:flex justify-center items-center bg-solar text-solar-foreground gap-1.5'
@@ -326,7 +333,7 @@ const Header = () => {
       >
         <SheetContent
           side="right"
-          className="w-[300px] sm:w-[400px] overflow-y-auto"
+          className="w-full max-w-none sm:max-w-none border-l-0 overflow-y-auto"
         >
           <SheetHeader>
             <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
