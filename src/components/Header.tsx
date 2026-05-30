@@ -11,7 +11,7 @@ import {
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ComponentProps } from 'react'
 import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import LogoutSquare from './icons/LogoutSquare'
@@ -289,7 +289,13 @@ const Header = () => {
 
             <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
               <Link
-                href={showCommercial ? '/calculator' : '/commercial/calculator'}
+                href={
+                  (showCommercial
+                    ? '/calculator'
+                    : '/commercial/calculator') as ComponentProps<
+                    typeof Link
+                  >['href']
+                }
                 className={navItemClass(false)}
               >
                 {tHome('hero.cta.primary')}
