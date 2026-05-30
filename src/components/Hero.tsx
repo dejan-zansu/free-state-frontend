@@ -81,7 +81,7 @@ const Hero = async ({
             {heroDescription}
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
+          <div className="hidden sm:flex sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
             <LinkButton
               variant={isCommercial ? 'secondary' : 'primary'}
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
