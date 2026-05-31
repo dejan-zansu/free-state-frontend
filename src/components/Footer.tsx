@@ -74,7 +74,7 @@ const Footer = () => {
     pathname?.includes('/faq') ||
     pathname?.includes('/media')
 
-  const useLightFooter = isLight && !isHomePage
+  const useLightFooter = isLight && !isHomePage && !isCommercial
 
   const solarAboLinks = [
     {
@@ -330,13 +330,11 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className={cn(
                       'w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80',
-                      useLightFooter && isCommercial
-                        ? 'bg-[#9F3E4F] text-white'
-                        : useLightFooter
-                          ? 'bg-[#062E25] text-solar'
-                          : isCommercial
-                            ? 'bg-[#9F3E4F] text-white'
-                            : 'bg-solar text-[#062E25]'
+                      useLightFooter
+                        ? 'bg-[#062E25] text-solar'
+                        : isCommercial
+                          ? 'bg-[#9F3E4F] text-white'
+                          : 'bg-solar text-[#062E25]'
                     )}
                     aria-label={social.label}
                   >
