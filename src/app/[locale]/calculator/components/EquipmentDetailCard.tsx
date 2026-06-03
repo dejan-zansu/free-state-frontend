@@ -21,7 +21,13 @@ export function EquipmentDetailCard({ item }: { item: EquipmentDetail }) {
     <article className="flex flex-col gap-3 rounded-xl border border-[#546963]/40 bg-white p-4 sm:flex-row">
       {item.imageUrl ? (
         <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md sm:h-32 sm:w-32">
-          <Image src={item.imageUrl} alt={`${item.brand} ${item.model}`} fill className="object-contain" unoptimized />
+          <Image
+            src={item.imageUrl}
+            alt={`${item.brand} ${item.model}`}
+            fill
+            className="object-contain"
+            unoptimized
+          />
         </div>
       ) : null}
 
@@ -39,7 +45,7 @@ export function EquipmentDetailCard({ item }: { item: EquipmentDetail }) {
         </header>
 
         {Object.keys(item.specs).length > 0 ? (
-          <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+          <dl className="flex gap-x-4 gap-y-1 text-sm">
             {Object.entries(item.specs).map(([k, v]) => (
               <div key={k} className="contents">
                 <dt className="text-[#062E25]/60">{t(`spec.${k}`)}</dt>

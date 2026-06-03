@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslations, useLocale } from 'next-intl'
 import { CheckCircle2, Loader2 } from 'lucide-react'
+import Image from 'next/image'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import {
   residentialCalculatorService,
@@ -222,6 +223,26 @@ export default function StepSolarDirectResults() {
 
   return (
     <div className="flex min-h-full flex-col gap-6 bg-[#F5F7EE] px-4 py-6 sm:px-8">
+      {store.roofImage ? (
+        <div className="relative h-[220px] w-full overflow-hidden rounded-2xl sm:h-[300px]">
+          <Image
+            src={store.roofImage}
+            alt={store.address || 'Roof'}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          {store.address ? (
+            <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#062E25]/80 to-transparent px-4 pb-3 pt-10">
+              <p className="text-sm font-medium text-white sm:text-base">
+                {store.address}
+              </p>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-medium text-[#062E25] sm:text-3xl">{t('title')}</h1>
         <p className="text-sm text-[#062E25]/70 sm:text-base">{t('subtitle')}</p>
