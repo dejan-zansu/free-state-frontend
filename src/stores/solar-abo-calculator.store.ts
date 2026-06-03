@@ -852,11 +852,9 @@ export const useSolarAboCalculatorStore = create<
       },
 
       getAboTotalChf: () => {
-        const state = get()
-        const base = state.selectedPackagePurchasePriceChf
-        if (base == null) return 0
-        const chargerTotal = state.getEvChargerTotalChf()
-        return Math.round((base + chargerTotal) * ABO_UPLIFT_FACTOR)
+        const gross = get().getGrossAmount()
+        if (gross <= 0) return 0
+        return Math.round(gross * ABO_UPLIFT_FACTOR)
       },
 
       getAboMonthlyChf: () => {

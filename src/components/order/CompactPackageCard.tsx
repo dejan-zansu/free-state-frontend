@@ -7,16 +7,17 @@ import type { CalculatorPackage } from '@/services/residential-calculator.servic
 import { cn } from '@/lib/utils'
 import { getFromPriceChf, type SolarModelKey } from './PackageCard'
 
+const YIELD_KWH_PER_KWP = 950
+
 function fmtChf(n: number | null | undefined): string {
   return n != null ? n.toLocaleString('de-CH') : '—'
 }
 
-function kwpRange(pkg: CalculatorPackage): string | null {
-  if (pkg.minCapacityKwp == null || pkg.maxCapacityKwp == null) return null
-  const opts = { minimumFractionDigits: 1, maximumFractionDigits: 1 }
-  return pkg.minCapacityKwp === pkg.maxCapacityKwp
-    ? pkg.minCapacityKwp.toLocaleString('de-CH', opts)
-    : `${pkg.minCapacityKwp.toLocaleString('de-CH', opts)}–${pkg.maxCapacityKwp.toLocaleString('de-CH', opts)}`
+function fmtRange(min: number, max: number, digits = 1): string {
+  const opts = { minimumFractionDigits: digits, maximumFractionDigits: digits }
+  return min === max
+    ? min.toLocaleString('de-CH', opts)
+    : `${min.toLocaleString('de-CH', opts)}–${max.toLocaleString('de-CH', opts)}`
 }
 
 export default function CompactPackageCard({
@@ -45,7 +46,8 @@ export default function CompactPackageCard({
       : fromPrice != null
         ? `${fmtChf(fromPrice)} CHF`
         : '—'
-  const range = kwpRange(pkg)
+  const hasRange = pkg.minCapacityKwp != null && pkg.maxCapacityKwp != null
+  const equipment = pkg.equipment.filter(e => e.name).slice(0, 4)
 
   return (
     <button
@@ -53,41 +55,66 @@ export default function CompactPackageCard({
       onClick={onSelect}
       aria-pressed={!!isSelected}
       className={cn(
-        'relative flex h-full flex-col items-start gap-1.5 rounded-xl border bg-white p-3 pt-4 text-left transition-shadow hover:shadow-md',
+        'relative flex h-full flex-col items-start gap-2 rounded-xl border bg-white p-4 pt-5 text-left transition-shadow hover:shadow-md',
         isSelected
           ? 'border-[#062E25] ring-2 ring-[#062E25]'
           : 'border-[#062E25]/15'
       )}
     >
       {isRecommended && (
-        <span className="absolute -top-2.5 left-3 rounded-full bg-[#036B53] px-2.5 py-0.5 text-[10px] font-semibold text-white">
+        <span className="absolute -top-2.5 left-3 rounded-full bg-[#036B53] px-2.5 py-0.5 text-sm font-semibold text-white">
           {t('recommended')}
         </span>
       )}
       {pkg.imageUrl && (
-        <div className="relative mx-auto h-16 w-full">
+        <div className="relative mx-auto h-24 w-full">
           <Image
             src={pkg.imageUrl}
             alt={pkg.name}
             fill
-            sizes="180px"
+            sizes="240px"
             className="object-contain"
           />
         </div>
       )}
-      <span className="text-sm font-bold text-[#062E25]">{pkg.name}</span>
-      {range && (
-        <span className="text-xs text-[#062E25]/60">
-          {range} {t('kwpUnit')}
+      <span className="text-base font-bold text-[#062E25]">{pkg.name}</span>
+      {hasRange && (
+        <span className="text-sm font-medium text-[#062E25]/70">
+          {fmtRange(pkg.minCapacityKwp!, pkg.maxCapacityKwp!)} {t('kwpUnit')}
+          {' · '}~
+          {fmtRange(
+            Math.round(pkg.minCapacityKwp! * YIELD_KWH_PER_KWP),
+            Math.round(pkg.maxCapacityKwp! * YIELD_KWH_PER_KWP),
+            0
+          )}{' '}
+          {t('kwhPerYearUnit')}
         </span>
       )}
-      <span className="mt-auto text-base font-bold text-[#062E25]">
+      {equipment.length > 0 && (
+        <ul className="flex flex-col gap-1">
+          {equipment.map(item => (
+            <li
+              key={`${item.equipmentType}:${item.name}`}
+              className="text-sm text-[#062E25]/80"
+            >
+              {item.quantity > 1 ? `${item.quantity}× ` : ''}
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      )}
+      <span className="mt-auto flex w-full items-baseline gap-1.5 border-t border-[#062E25]/10 pt-2">
         {!isFree && (
-          <span className="mr-1 text-[10px] font-semibold uppercase tracking-wider text-[#062E25]/60">
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#062E25]/60">
             {t('priceLabels.from')}
           </span>
         )}
-        {price}
+        <span className="text-lg font-bold text-[#062E25]">{price}</span>
+        {!isFree && (
+          <span className="text-sm uppercase tracking-wider text-[#062E25]/50">
+            {t('priceLabels.exclVat')}
+          </span>
+        )}
       </span>
     </button>
   )

@@ -222,9 +222,9 @@ export default function StepSolarDirectResults() {
   }
 
   return (
-    <div className="flex min-h-full flex-col gap-6 bg-[#F5F7EE] px-4 py-6 sm:px-8">
+    <>
       {store.roofImage ? (
-        <div className="relative h-[220px] w-full overflow-hidden rounded-2xl sm:h-[300px]">
+        <div className="relative h-[280px] w-full overflow-hidden sm:h-[440px] lg:h-[680px]">
           <Image
             src={store.roofImage}
             alt={store.address || 'Roof'}
@@ -234,15 +234,24 @@ export default function StepSolarDirectResults() {
             priority
             unoptimized
           />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-[#062E25]/40 to-transparent pointer-events-none"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-x-0 bottom-0 h-48 bg-linear-to-t from-[#062E25]/85 to-transparent pointer-events-none"
+          />
           {store.address ? (
-            <div className="absolute inset-x-0 bottom-0 bg-linear-to-t from-[#062E25]/80 to-transparent px-4 pb-3 pt-10">
-              <p className="text-sm font-medium text-white sm:text-base">
+            <div className="absolute inset-x-0 bottom-0 px-4 pb-6 sm:px-8 sm:pb-8">
+              <p className="text-lg font-medium text-white sm:text-xl">
                 {store.address}
               </p>
             </div>
           ) : null}
         </div>
       ) : null}
+    <div className="flex min-h-full flex-col gap-6 bg-[#F5F7EE] px-4 py-6 sm:px-8">
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-medium text-[#062E25] sm:text-3xl">{t('title')}</h1>
         <p className="text-sm text-[#062E25]/70 sm:text-base">{t('subtitle')}</p>
@@ -347,5 +356,6 @@ export default function StepSolarDirectResults() {
         )}
       </section>
     </div>
+    </>
   )
 }
