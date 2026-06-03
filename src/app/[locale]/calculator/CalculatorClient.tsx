@@ -18,6 +18,7 @@ import Step5ContactDetails from './steps/Step6ContactDetails'
 import StepConfirmation from './steps/StepConfirmation'
 import StepSolarFreeResults from './steps/StepSolarFreeResults'
 import StepSolarDirectResults from './steps/StepSolarDirectResults'
+import StepSolarAboResults from './steps/StepSolarAboResults'
 import StepSignature from './steps/StepSignature'
 
 const SESSION_ACTIVE_KEY = 'solar-calculator-session-active'
@@ -51,7 +52,11 @@ export default function CalculatorClient() {
   useEffect(() => {
     if (!resetReady) return
     if (!modelParam) return
-    if (modelParam === 'solar-free' || modelParam === 'solar-direct') {
+    if (
+      modelParam === 'solar-free' ||
+      modelParam === 'solar-direct' ||
+      modelParam === 'solar-abo'
+    ) {
       if (solarModel !== modelParam) {
         setSolarModel(modelParam as SolarModel)
       }
@@ -142,11 +147,9 @@ export default function CalculatorClient() {
       case 5:
         return <Step5ContactDetails />
       case 6:
-        return solarModel === 'solar-direct' ? (
-          <StepSolarDirectResults />
-        ) : (
-          <StepSolarFreeResults />
-        )
+        if (solarModel === 'solar-direct') return <StepSolarDirectResults />
+        if (solarModel === 'solar-abo') return <StepSolarAboResults />
+        return <StepSolarFreeResults />
       case 7:
         return <StepSignature />
       default:

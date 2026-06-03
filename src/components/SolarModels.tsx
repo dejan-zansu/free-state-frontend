@@ -101,11 +101,16 @@ const SolarModels = async ({
   const solarFreeAdvantages = t.raw('solarFree.advantages') as string[]
   const solarDirectIncluded = t.raw('solarDirect.included') as string[]
   const solarDirectAdvantages = t.raw('solarDirect.advantages') as string[]
+  const solarAboIncluded = t.raw('solarAbo.included') as string[]
+  const solarAboAdvantages = t.raw('solarAbo.advantages') as string[]
 
   const solarFreeImage = isCommercial
     ? '/images/commercial-solar-free.png'
     : '/images/solar-free-card-11b71d.webp'
   const solarDirectImage = isCommercial
+    ? '/images/commercial-solar-direct.png'
+    : '/images/solar-direct.png'
+  const solarAboImage = isCommercial
     ? '/images/commercial-solar-direct.png'
     : '/images/solar-direct.png'
 
@@ -123,7 +128,7 @@ const SolarModels = async ({
           filter: 'blur(180px)',
         }}
       />
-      <div className="relative max-w-[952px] w-full flex flex-col items-center gap-10">
+      <div className="relative max-w-[1320px] w-full flex flex-col items-center gap-10">
         <div className="flex flex-col items-center gap-5 w-full">
           <Badge
             variant="outline"
@@ -227,6 +232,89 @@ const SolarModels = async ({
                   </LinkButton>
                 )}
                 <LearnMoreCta href="/solar-free" label={t('learnMore')} />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
+            <Badge
+              className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
+            >
+              {t('solarAbo.badge')}
+            </Badge>
+
+            <div className="absolute -top-16 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">
+              <div
+                className="pointer-events-none absolute -bottom-6 -right-6 w-[60%] h-[60%] rounded-full"
+                style={{ background: 'rgba(183, 254, 26, 0.18)', filter: 'blur(50px)' }}
+              />
+              <Image
+                src={solarAboImage}
+                alt={t('solarAbo.title')}
+                width={251}
+                height={220}
+                className="relative object-contain w-full h-full"
+              />
+            </div>
+
+            <div className="relative flex flex-col h-full p-5 pt-8">
+              <div className="flex flex-col gap-2 mb-6 max-w-[165px]">
+                <h4 className="text-[22px] font-medium text-foreground">
+                  {t('solarAbo.title')}
+                </h4>
+                <p className="text-sm font-light text-foreground/80 tracking-tight">
+                  {t('solarAbo.description')}
+                </p>
+              </div>
+
+              <div className="border-t border-[#1F433B]/20 my-1" />
+
+              <div className="flex flex-col gap-2.5 my-4">
+                {!isCommercial && (
+                  <Image
+                    src="/images/swisscom-logo.png"
+                    alt="Swisscom"
+                    width={87}
+                    height={24}
+                    className="h-6 w-auto object-contain self-start"
+                  />
+                )}
+                <span className="text-sm font-bold text-foreground">
+                  {t('solarAbo.advantagesTitle')}
+                </span>
+                <AdvantageList items={solarAboAdvantages} isCommercial={isCommercial} />
+              </div>
+
+              <div className="border-t border-[#1F433B]/20 my-1" />
+
+              <div className="flex items-center gap-2 my-4">
+                <SmallWalletIcon
+                  bgColor={isCommercial ? '#9F3E4F' : '#b7fe1a'}
+                  fgColor={isCommercial ? '#FFFFFF' : '#062e25'}
+                />
+                <span className="text-sm font-medium text-foreground/80 tracking-tight">
+                  {t('solarAbo.highlight')}
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-2.5 my-4">
+                <p className="font-bold text-foreground">
+                  {t('solarAbo.includedTitle')}
+                </p>
+                <IncludedList items={solarAboIncluded} />
+              </div>
+
+              <div className="mt-auto flex flex-col items-center gap-4 pt-6">
+                {!isCommercial && (
+                  <LinkButton
+                    href="/calculator?model=solar-abo"
+                    variant="solar-gradient"
+                    className="w-full uppercase"
+                  >
+                    {t('cta')}
+                  </LinkButton>
+                )}
+                <LearnMoreCta href="/solar-abo" label={t('learnMore')} />
               </div>
             </div>
           </div>

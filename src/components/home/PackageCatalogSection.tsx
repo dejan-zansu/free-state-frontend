@@ -17,6 +17,7 @@ import PackageCard, {
 const MODEL_TO_FILTER: Record<SolarModelKey, 'SOLAR_FREE' | 'SOLAR_DIRECT'> = {
   'solar-free': 'SOLAR_FREE',
   'solar-direct': 'SOLAR_DIRECT',
+  'solar-abo': 'SOLAR_DIRECT',
 }
 
 export default function PackageCatalogSection() {

@@ -35,7 +35,7 @@ export interface FeedInTariffSnapshot {
 
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
-export type SolarModel = 'solar-free' | 'solar-direct'
+export type SolarModel = 'solar-free' | 'solar-direct' | 'solar-abo'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
@@ -85,6 +85,8 @@ const ELECTRICITY_PRICE = 0.277
 const CO2_FACTOR = 0.128
 
 export const DEFAULT_PPA_DISCOUNT_PCT = 30
+export const ABO_UPLIFT_FACTOR = 1.35
+export const ABO_TERM_MONTHS = 300
 
 const FLAT_TILT_THRESHOLD_DEG = 10
 
@@ -314,6 +316,8 @@ interface SolarAboCalculatorActions {
   clearEvCharger: () => void
   getEvChargerTotalChf: () => number
   getGrossAmount: () => number
+  getAboTotalChf: () => number
+  getAboMonthlyChf: () => number
   getSubsidyAmount: () => number
   getNetAmount: () => number
   getEstimatedTaxSavings: () => number
@@ -845,6 +849,20 @@ export const useSolarAboCalculatorStore = create<
           return state.selectedPackagePricePerKwp * systemSizeKwp + chargerTotal
         }
         return systemSizeKwp * 1500 + chargerTotal
+      },
+
+      getAboTotalChf: () => {
+        const state = get()
+        const base = state.selectedPackagePurchasePriceChf
+        if (base == null) return 0
+        const chargerTotal = state.getEvChargerTotalChf()
+        return Math.round((base + chargerTotal) * ABO_UPLIFT_FACTOR)
+      },
+
+      getAboMonthlyChf: () => {
+        const total = get().getAboTotalChf()
+        if (total <= 0) return 0
+        return Math.round(total / ABO_TERM_MONTHS)
       },
 
       getSubsidyAmount: () => {

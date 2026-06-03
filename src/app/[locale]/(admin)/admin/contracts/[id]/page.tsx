@@ -196,7 +196,11 @@ export default function AdminContractDetailPage() {
 
         {(() => {
           const model = contract.project.solarCalculation?.solarModel
-          const isDirect = model === 'solar-direct' || model === 'SOLAR_DIRECT'
+          const isDirect =
+            model === 'solar-direct' ||
+            model === 'SOLAR_DIRECT' ||
+            model === 'solar-abo' ||
+            model === 'SOLAR_ABO'
           if (!isDirect) return null
           return (
             <div className="lg:col-span-2">

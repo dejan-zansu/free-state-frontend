@@ -56,6 +56,17 @@ const cards: {
       'w-[86px] h-[124px] -top-2 sm:-top-9 sm:w-[198px] sm:h-[170px] hidden md:block',
   },
   {
+    model: 'solar-abo',
+    tagKey: 'solarAboPlan.tag',
+    titleKey: 'solarAboPlan.title',
+    bullets: ['solarAboPlan.bullet1', 'solarAboPlan.bullet2'],
+    image: '/images/solar-direct.png',
+    hasGlow: false,
+    bgColor: '#EEF2E9',
+    imageClassName:
+      'w-[92px] h-[134px] -top-4 sm:-top-12 sm:w-[212px] sm:h-[185px] hidden md:block',
+  },
+  {
     model: 'solar-direct',
     tagKey: 'solarDirect.tag',
     titleKey: 'solarDirect.title',
@@ -84,7 +95,7 @@ export default function SolarModelSelection() {
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-8 sm:gap-5 w-full max-w-[830px] pt-5">
+      <div className="flex flex-col sm:flex-row gap-8 sm:gap-5 w-full max-w-[1100px] pt-5">
         {cards.map(card => (
           <button
             key={card.model}
@@ -169,6 +180,13 @@ export default function SolarModelSelection() {
           className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
         >
           {t('learnMoreSolarAbo')}
+        </Link>
+        {`, `}
+        <Link
+          href="/solar-abo"
+          className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
+        >
+          {t('learnMoreSolarAboPlan')}
         </Link>
         {` ${t('learnMoreConnector')} `}
         <Link
