@@ -4327,12 +4327,12 @@
         "subtitle": "Consultez votre équipement et choisissez un forfait pour acheter votre installation solaire.",
         "chooseYourPackage": "Choisir votre forfait",
         "whatsIncluded": "Ce qui est inclus",
-        "requestOfferTitle": "Commander SolarDirect",
-        "requestOfferDescription": "Nous confirmons votre commande par e-mail et un conseiller vous accompagne dans les prochaines étapes.",
-        "requestOfferButton": "Commander",
+        "requestOfferTitle": "Offre d'achat personnalisée",
+        "requestOfferDescription": "Nous vous envoyons l'offre détaillée par e-mail. Un conseiller vous contactera sous 24 heures.",
+        "requestOfferButton": "Demander une offre",
         "requestOfferSending": "Envoi…",
-        "requestOfferSent": "Commande reçue",
-        "requestOfferSentMessage": "Nous avons bien reçu votre commande. Vérifiez vos e-mails, un conseiller vous contactera sous peu.",
+        "requestOfferSent": "Offre envoyée",
+        "requestOfferSentMessage": "Vérifiez vos e-mails. Un conseiller vous contactera bientôt.",
         "requestOfferError": "Impossible d'envoyer votre demande. Veuillez réessayer."
       },
       "solarAboPlan": {
@@ -4355,12 +4355,12 @@
         "excluded": [
           "Nettoyage des modules"
         ],
-        "requestOfferTitle": "Commander SolarAbo",
-        "requestOfferDescription": "Nous confirmons votre commande par e-mail et un conseiller vous accompagne dans les prochaines étapes.",
-        "requestOfferButton": "Commander",
+        "requestOfferTitle": "Offre SolarAbo personnalisée",
+        "requestOfferDescription": "Nous vous envoyons l'offre détaillée par e-mail. Un conseiller vous contactera sous 24 heures.",
+        "requestOfferButton": "Demander une offre",
         "requestOfferSending": "Envoi…",
-        "requestOfferSent": "Commande reçue",
-        "requestOfferSentMessage": "Nous avons bien reçu votre commande. Vérifiez vos e-mails, un conseiller vous contactera sous peu.",
+        "requestOfferSent": "Offre envoyée",
+        "requestOfferSentMessage": "Vérifiez vos e-mails. Un conseiller vous contactera bientôt.",
         "requestOfferError": "La demande n'a pas pu être envoyée. Veuillez réessayer."
       },
       "packageCard": {

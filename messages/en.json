@@ -4339,12 +4339,12 @@
         "subtitle": "Review your equipment and choose a package to purchase your solar system outright.",
         "chooseYourPackage": "Choose your package",
         "whatsIncluded": "What's included",
-        "requestOfferTitle": "Order SolarDirect",
-        "requestOfferDescription": "We'll confirm your order by email and an advisor will guide you through the next steps.",
-        "requestOfferButton": "Order now",
+        "requestOfferTitle": "Personal purchase offer",
+        "requestOfferDescription": "We will send you the detailed offer by email. An advisor will get in touch within 24 hours.",
+        "requestOfferButton": "Request an offer",
         "requestOfferSending": "Sending…",
-        "requestOfferSent": "Order received",
-        "requestOfferSentMessage": "We've received your order. Check your email, an advisor will be in touch shortly.",
+        "requestOfferSent": "Offer sent",
+        "requestOfferSentMessage": "Check your email. An advisor will be in touch soon.",
         "requestOfferError": "Could not send your request. Please try again."
       },
       "solarAboPlan": {
@@ -4367,12 +4367,12 @@
         "excluded": [
           "Module cleaning"
         ],
-        "requestOfferTitle": "Order SolarAbo",
-        "requestOfferDescription": "We'll confirm your order by email and an advisor will guide you through the next steps.",
-        "requestOfferButton": "Order now",
+        "requestOfferTitle": "Personal SolarAbo offer",
+        "requestOfferDescription": "We will send you the detailed offer by email. An advisor will get in touch within 24 hours.",
+        "requestOfferButton": "Request an offer",
         "requestOfferSending": "Sending…",
-        "requestOfferSent": "Order received",
-        "requestOfferSentMessage": "We've received your order. Check your email, an advisor will be in touch shortly.",
+        "requestOfferSent": "Offer sent",
+        "requestOfferSentMessage": "Check your email. An advisor will be in touch soon.",
         "requestOfferError": "The request could not be sent. Please try again."
       },
       "packageCard": {

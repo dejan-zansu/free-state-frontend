@@ -4327,12 +4327,12 @@
         "subtitle": "Esamini l'attrezzatura e scelga un pacchetto per acquistare il suo impianto fotovoltaico.",
         "chooseYourPackage": "Scegli il pacchetto",
         "whatsIncluded": "Cosa è incluso",
-        "requestOfferTitle": "Ordina SolarDirect",
-        "requestOfferDescription": "Confermeremo il vostro ordine via e-mail e un consulente vi accompagnerà nei prossimi passi.",
-        "requestOfferButton": "Ordina ora",
+        "requestOfferTitle": "Offerta d'acquisto personalizzata",
+        "requestOfferDescription": "Vi invieremo la offerta dettagliata via e-mail. Un consulente vi contatterà entro 24 ore.",
+        "requestOfferButton": "Richiedi offerta",
         "requestOfferSending": "Invio…",
-        "requestOfferSent": "Ordine ricevuto",
-        "requestOfferSentMessage": "Abbiamo ricevuto il vostro ordine. Controllate la vostra e-mail, un consulente vi contatterà a breve.",
+        "requestOfferSent": "Offerta inviata",
+        "requestOfferSentMessage": "Controllate la vostra e-mail. Un consulente vi contatterà a breve.",
         "requestOfferError": "Impossibile inviare la richiesta. Riprova."
       },
       "solarAboPlan": {
@@ -4355,12 +4355,12 @@
         "excluded": [
           "Pulizia dei moduli"
         ],
-        "requestOfferTitle": "Ordina SolarAbo",
-        "requestOfferDescription": "Confermeremo il vostro ordine via e-mail e un consulente vi accompagnerà nei prossimi passi.",
-        "requestOfferButton": "Ordina ora",
+        "requestOfferTitle": "Offerta SolarAbo personalizzata",
+        "requestOfferDescription": "Vi invieremo la offerta dettagliata via e-mail. Un consulente vi contatterà entro 24 ore.",
+        "requestOfferButton": "Richiedi offerta",
         "requestOfferSending": "Invio…",
-        "requestOfferSent": "Ordine ricevuto",
-        "requestOfferSentMessage": "Abbiamo ricevuto il vostro ordine. Controllate la vostra e-mail, un consulente vi contatterà a breve.",
+        "requestOfferSent": "Offerta inviata",
+        "requestOfferSentMessage": "Controllate la vostra e-mail. Un consulente vi contatterà a breve.",
         "requestOfferError": "Impossibile inviare la richiesta. Riprovate."
       },
       "packageCard": {
