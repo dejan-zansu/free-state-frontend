@@ -53,7 +53,7 @@ export default function PackageCatalogSection() {
 
         <div className="flex justify-center mb-8">
           <div className="inline-flex rounded-full bg-white border border-[#D8DCD5] p-1">
-            {(['solar-free', 'solar-direct'] as SolarModelKey[]).map(m => (
+            {(['solar-free', 'solar-direct', 'solar-abo'] as SolarModelKey[]).map(m => (
               <button
                 key={m}
                 type="button"

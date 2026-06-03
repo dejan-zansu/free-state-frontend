@@ -8,7 +8,8 @@
     "empty": "No packages available right now.",
     "toggle": {
       "solar-free": "SolarFree",
-      "solar-direct": "SolarDirect"
+      "solar-direct": "SolarDirect",
+      "solar-abo": "SolarAbo"
     },
     "card": {
       "capacity": "Capacity",
@@ -631,7 +632,7 @@
       },
       "solarAbo": {
         "title": "SolarAbo",
-        "description": "Solar system, storage, heat pump and charging station as a monthly subscription for your home",
+        "description": "Solar system, storage, heat pump and charging station to buy, conveniently in fixed monthly instalments for your home",
         "badge": "Monthly",
         "highlight": "Fixed monthly rate instead of a one-time payment",
         "includedTitle": "What's included?",
@@ -639,15 +640,14 @@
           "Monitoring & system supervision",
           "Warranty & warranty handling",
           "Replacement of defective components during the warranty period",
-          "Insurance for the entire system",
-          "Full ownership at the end of the term"
+          "Insurance for the entire system"
         ],
         "advantagesTitle": "Your advantages with SolarAbo",
         "advantages": [
+          "The system is yours",
           "No one-time payment",
-          "Fixed, predictable monthly rate",
+          "Fixed, predictable monthly rate over 25 years",
           "All-round service included",
-          "25-year term",
           "Transferable when selling the property"
         ]
       }
@@ -4339,17 +4339,17 @@
         "subtitle": "Review your equipment and choose a package to purchase your solar system outright.",
         "chooseYourPackage": "Choose your package",
         "whatsIncluded": "What's included",
-        "requestOfferTitle": "Personalized purchase offer",
-        "requestOfferDescription": "We'll email your detailed offer. An advisor will follow up within 24 hours.",
-        "requestOfferButton": "Request purchase offer",
+        "requestOfferTitle": "Order SolarDirect",
+        "requestOfferDescription": "We'll confirm your order by email and an advisor will guide you through the next steps.",
+        "requestOfferButton": "Order now",
         "requestOfferSending": "Sending…",
-        "requestOfferSent": "Offer sent",
-        "requestOfferSentMessage": "Check your inbox. An advisor will reach out soon.",
+        "requestOfferSent": "Order received",
+        "requestOfferSentMessage": "We've received your order. Check your email, an advisor will be in touch shortly.",
         "requestOfferError": "Could not send your request. Please try again."
       },
       "solarAboPlan": {
         "title": "Your SolarAbo configuration",
-        "subtitle": "Review your equipment and choose a package for your monthly SolarAbo.",
+        "subtitle": "Review your equipment and choose a package to buy in fixed monthly instalments.",
         "chooseYourPackage": "Choose a package",
         "whatsIncluded": "What's included",
         "monthlyTitle": "Your monthly rate",
@@ -4367,12 +4367,12 @@
         "excluded": [
           "Module cleaning"
         ],
-        "requestOfferTitle": "Personal SolarAbo offer",
-        "requestOfferDescription": "We'll send you the detailed offer by email. An advisor will get in touch within 24 hours.",
-        "requestOfferButton": "Request offer",
+        "requestOfferTitle": "Order SolarAbo",
+        "requestOfferDescription": "We'll confirm your order by email and an advisor will guide you through the next steps.",
+        "requestOfferButton": "Order now",
         "requestOfferSending": "Sending…",
-        "requestOfferSent": "Offer sent",
-        "requestOfferSentMessage": "Check your email. An advisor will be in touch soon.",
+        "requestOfferSent": "Order received",
+        "requestOfferSentMessage": "We've received your order. Check your email, an advisor will be in touch shortly.",
         "requestOfferError": "The request could not be sent. Please try again."
       },
       "packageCard": {
@@ -7941,8 +7941,8 @@
   "solarAboPlanHome": {
     "hero": {
       "eyebrow": "SolarAbo",
-      "title": "SolarAbo: your solar system as a monthly subscription",
-      "subtitle": "Fixed monthly rate, all-round service included, full ownership at the end of the term.",
+      "title": "SolarAbo: your own solar system in fixed monthly instalments",
+      "subtitle": "Fixed monthly rate, all-round service included, the system is yours.",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
       "stats": {

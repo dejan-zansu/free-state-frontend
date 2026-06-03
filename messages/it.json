@@ -8,7 +8,8 @@
     "empty": "Nessun pacchetto disponibile al momento.",
     "toggle": {
       "solar-free": "SolarFree",
-      "solar-direct": "SolarDirect"
+      "solar-direct": "SolarDirect",
+      "solar-abo": "SolarAbo"
     },
     "card": {
       "capacity": "Potenza",
@@ -631,7 +632,7 @@
       },
       "solarAbo": {
         "title": "SolarAbo",
-        "description": "Impianto solare, accumulo, pompa di calore e stazione di ricarica in abbonamento mensile per la vostra casa",
+        "description": "Impianto solare, accumulo, pompa di calore e stazione di ricarica in acquisto, in comode rate mensili fisse per la vostra casa",
         "badge": "Mensile",
         "highlight": "Rata mensile fissa invece di un pagamento unico",
         "includedTitle": "Cosa è incluso?",
@@ -639,15 +640,14 @@
           "Monitoraggio e supervisione del sistema",
           "Garanzia e gestione dei casi di garanzia",
           "Sostituzione dei componenti difettosi durante la garanzia",
-          "Assicurazione dell'intero impianto",
-          "Piena proprietà al termine del contratto"
+          "Assicurazione dell'intero impianto"
         ],
         "advantagesTitle": "I vostri vantaggi con SolarAbo",
         "advantages": [
+          "L'impianto è vostro",
           "Nessun pagamento unico",
-          "Rata mensile fissa e prevedibile",
+          "Rata mensile fissa e prevedibile per 25 anni",
           "Servizio completo incluso",
-          "Durata di 25 anni",
           "Trasferibile in caso di vendita dell'immobile"
         ]
       }
@@ -4327,17 +4327,17 @@
         "subtitle": "Esamini l'attrezzatura e scelga un pacchetto per acquistare il suo impianto fotovoltaico.",
         "chooseYourPackage": "Scegli il pacchetto",
         "whatsIncluded": "Cosa è incluso",
-        "requestOfferTitle": "Offerta d'acquisto personalizzata",
-        "requestOfferDescription": "Le invieremo l'offerta dettagliata via e-mail. Un consulente la contatterà entro 24 ore.",
-        "requestOfferButton": "Richiedi offerta d'acquisto",
+        "requestOfferTitle": "Ordina SolarDirect",
+        "requestOfferDescription": "Confermeremo il vostro ordine via e-mail e un consulente vi accompagnerà nei prossimi passi.",
+        "requestOfferButton": "Ordina ora",
         "requestOfferSending": "Invio…",
-        "requestOfferSent": "Offerta inviata",
-        "requestOfferSentMessage": "Controlli la sua casella e-mail. Un consulente la contatterà presto.",
+        "requestOfferSent": "Ordine ricevuto",
+        "requestOfferSentMessage": "Abbiamo ricevuto il vostro ordine. Controllate la vostra e-mail, un consulente vi contatterà a breve.",
         "requestOfferError": "Impossibile inviare la richiesta. Riprova."
       },
       "solarAboPlan": {
         "title": "La vostra configurazione SolarAbo",
-        "subtitle": "Verificate il vostro impianto e scegliete un pacchetto per il vostro SolarAbo mensile.",
+        "subtitle": "Verificate il vostro impianto e scegliete un pacchetto per il vostro acquisto in rate mensili fisse.",
         "chooseYourPackage": "Scegliere un pacchetto",
         "whatsIncluded": "Incluso nella fornitura",
         "monthlyTitle": "La vostra rata mensile",
@@ -4355,12 +4355,12 @@
         "excluded": [
           "Pulizia dei moduli"
         ],
-        "requestOfferTitle": "Offerta SolarAbo personalizzata",
-        "requestOfferDescription": "Vi invieremo l'offerta dettagliata via e-mail. Un consulente vi contatterà entro 24 ore.",
-        "requestOfferButton": "Richiedi offerta",
+        "requestOfferTitle": "Ordina SolarAbo",
+        "requestOfferDescription": "Confermeremo il vostro ordine via e-mail e un consulente vi accompagnerà nei prossimi passi.",
+        "requestOfferButton": "Ordina ora",
         "requestOfferSending": "Invio…",
-        "requestOfferSent": "Offerta inviata",
-        "requestOfferSentMessage": "Controllate la vostra e-mail. Un consulente vi contatterà a breve.",
+        "requestOfferSent": "Ordine ricevuto",
+        "requestOfferSentMessage": "Abbiamo ricevuto il vostro ordine. Controllate la vostra e-mail, un consulente vi contatterà a breve.",
         "requestOfferError": "Impossibile inviare la richiesta. Riprovate."
       },
       "packageCard": {
@@ -7924,8 +7924,8 @@
   "solarAboPlanHome": {
     "hero": {
       "eyebrow": "SolarAbo",
-      "title": "SolarAbo: il vostro impianto solare in abbonamento mensile",
-      "subtitle": "Rata mensile fissa, servizio completo incluso, piena proprietà al termine del contratto.",
+      "title": "SolarAbo: il vostro impianto solare in rate mensili fisse",
+      "subtitle": "Rata mensile fissa, servizio completo incluso, l'impianto è vostro.",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
       "stats": {
