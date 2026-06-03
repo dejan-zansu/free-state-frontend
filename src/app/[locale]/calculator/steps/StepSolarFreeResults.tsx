@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { contractService } from '@/services/contract.service'
 import { reportService } from '@/services/report.service'
-import PackageCard from '@/components/order/PackageCard'
+import CompactPackageCard from '@/components/order/CompactPackageCard'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
@@ -581,16 +581,14 @@ export default function StepResults() {
               title={tPackageSelector('sectionTitle')}
               subtitle={tPackageSelector('sectionSubtitle')}
             />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3 pt-4">
               {orderedPackages.map(pkg => (
-                <PackageCard
+                <CompactPackageCard
                   key={pkg.id}
                   pkg={pkg}
                   model="solar-free"
-                  locale={locale}
                   isSelected={pkg.id === store.selectedPackageId}
                   isRecommended={pkg.id === recommendedPkg?.id}
-                  recommendedLabel={tPackageSelector('recommended')}
                   onSelect={() => {
                     store.clearEvCharger()
                     applyPackageToStore(store.setSelectedPackage, pkg)

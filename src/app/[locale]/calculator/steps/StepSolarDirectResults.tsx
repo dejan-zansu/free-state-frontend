@@ -10,7 +10,7 @@ import {
 } from '@/services/residential-calculator.service'
 import EvChargerPicker from '../components/EvChargerPicker'
 import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
-import PackageCard from '@/components/order/PackageCard'
+import CompactPackageCard from '@/components/order/CompactPackageCard'
 import { EquipmentList } from '../components/EquipmentList'
 import { type EquipmentDetail } from '../components/EquipmentDetailCard'
 import { PurchaseFinancialSummary } from '../components/PurchaseFinancialSummary'
@@ -230,14 +230,14 @@ export default function StepSolarDirectResults() {
       {packages.length > 0 ? (
         <section className="flex flex-col gap-3">
           <h2 className="text-base font-medium text-[#062E25]">{t('chooseYourPackage')}</h2>
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
             {orderedPackages.map(pkg => (
-              <PackageCard
+              <CompactPackageCard
                 key={pkg.id}
                 pkg={pkg}
                 model="solar-direct"
-                locale={locale}
                 isSelected={pkg.id === store.selectedPackageId}
+                isRecommended={pkg.id === recommendedPkg?.id}
                 onSelect={() => {
                   store.clearEvCharger()
                   applyPackageToStore(store.setSelectedPackage, pkg)

@@ -64,7 +64,7 @@ function fmtKwhRange(min: number, max: number): string {
     : `~${min.toLocaleString('de-CH')}–${max.toLocaleString('de-CH')}`
 }
 
-function getFromPriceChf(pkg: CalculatorPackage): number | null {
+export function getFromPriceChf(pkg: CalculatorPackage): number | null {
   if (pkg.pricePerKwp != null && pkg.minCapacityKwp != null) {
     return Math.round(pkg.pricePerKwp * pkg.minCapacityKwp)
   }
