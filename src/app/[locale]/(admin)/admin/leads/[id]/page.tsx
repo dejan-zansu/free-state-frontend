@@ -382,6 +382,30 @@ export default function AdminLeadDetailPage() {
                 </p>
               </div>
             </div>
+            {(lead.customer.notes || lead.customer.addressAdditional) && (
+              <div className="mt-4 pt-4 border-t border-[#062E25]/10 space-y-3">
+                {lead.customer.notes && (
+                  <div>
+                    <label className="text-sm text-[#062E25]/60">
+                      {t('customerRemarks')}
+                    </label>
+                    <p className="font-medium text-[#062E25] whitespace-pre-wrap">
+                      {lead.customer.notes}
+                    </p>
+                  </div>
+                )}
+                {lead.customer.addressAdditional && (
+                  <div>
+                    <label className="text-sm text-[#062E25]/60">
+                      {t('addressAdditional')}
+                    </label>
+                    <p className="font-medium text-[#062E25] whitespace-pre-wrap">
+                      {lead.customer.addressAdditional}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
           </CardContent>
         </Card>
 

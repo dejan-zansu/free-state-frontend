@@ -6092,7 +6092,7 @@
         "city": "Stadt",
         "street": "Strasse",
         "streetNumber": "Hausnr.",
-        "addressAdditional": "Zusatzinformation (optional)"
+        "addressAdditional": "Adresszusatz, z. B. Wohnung oder Stockwerk (optional)"
       },
       "errors": {
         "salutationRequired": "Bitte wählen Sie eine Anrede",
@@ -6594,7 +6594,7 @@
       "city": "Stadt",
       "canton": "Kanton",
       "country": "Land",
-      "addressAdditional": "Zusatzinformation",
+      "addressAdditional": "Adresszusatz",
       "activitySummary": "Übersicht Aktivitäten",
       "assignedLeads": "Zugewiesene Leads",
       "createdQuotes": "Erstellte Angebote"
@@ -6681,7 +6681,9 @@
         "oct": "Okt",
         "nov": "Nov",
         "dec": "Dez"
-      }
+      },
+      "customerRemarks": "Bemerkungen des Kunden",
+      "addressAdditional": "Adresszusatz"
     },
     "contracts": {
       "title": "Verträge",

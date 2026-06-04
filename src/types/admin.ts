@@ -164,6 +164,8 @@ export interface AdminLeadProject {
 export interface AdminLeadDetail extends AdminLead {
   customer: {
     id: string
+    notes: string | null
+    addressAdditional: string | null
     user: {
       id: string
       email: string

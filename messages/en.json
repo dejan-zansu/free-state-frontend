@@ -4478,7 +4478,7 @@
         "city": "City",
         "street": "Street",
         "streetNumber": "No.",
-        "addressAdditional": "Additional information (optional)"
+        "addressAdditional": "Address addition, e.g. apartment or floor (optional)"
       },
       "errors": {
         "salutationRequired": "Please select a salutation",
@@ -6594,7 +6594,7 @@
       "city": "City",
       "canton": "Canton",
       "country": "Country",
-      "addressAdditional": "Additional info",
+      "addressAdditional": "Address additional",
       "activitySummary": "Activity Summary",
       "assignedLeads": "Assigned Leads",
       "createdQuotes": "Created Quotes"
@@ -6681,7 +6681,9 @@
         "oct": "Oct",
         "nov": "Nov",
         "dec": "Dec"
-      }
+      },
+      "customerRemarks": "Customer remarks",
+      "addressAdditional": "Address additional"
     },
     "contracts": {
       "title": "Contracts",

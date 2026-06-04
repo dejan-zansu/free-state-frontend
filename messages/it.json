@@ -4478,7 +4478,7 @@
         "city": "Città",
         "street": "Via",
         "streetNumber": "N°",
-        "addressAdditional": "Informazioni aggiuntive (opzionale)"
+        "addressAdditional": "Complemento d'indirizzo, ad es. appartamento o piano (facoltativo)"
       },
       "errors": {
         "salutationRequired": "Si prega di selezionare un appellativo",
@@ -6594,7 +6594,7 @@
       "city": "Città",
       "canton": "Cantone",
       "country": "Paese",
-      "addressAdditional": "Informazioni aggiuntive",
+      "addressAdditional": "Complemento d'indirizzo",
       "activitySummary": "Riepilogo attività",
       "assignedLeads": "Lead assegnati",
       "createdQuotes": "Preventivi creati"
@@ -6681,7 +6681,9 @@
         "oct": "Ott",
         "nov": "Nov",
         "dec": "Dic"
-      }
+      },
+      "customerRemarks": "Osservazioni del cliente",
+      "addressAdditional": "Complemento d'indirizzo"
     },
     "contracts": {
       "title": "Contratti",
