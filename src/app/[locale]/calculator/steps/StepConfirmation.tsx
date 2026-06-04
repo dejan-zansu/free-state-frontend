@@ -48,7 +48,10 @@ export default function StepConfirmation() {
   } = useSolarAboCalculatorStore()
 
   const isSolarDirect = solarModel === 'solar-direct'
-  const stepsKey = isSolarDirect ? 'nextStepsSolarDirect' : 'nextSteps'
+  const stepsKey =
+    solarModel === 'solar-direct' || solarModel === 'solar-abo'
+      ? 'nextStepsSolarDirect'
+      : 'nextSteps'
 
   useEffect(() => {
     const duration = 3000

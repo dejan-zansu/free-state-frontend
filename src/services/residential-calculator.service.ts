@@ -184,7 +184,7 @@ interface GetPackagesResponse {
   data: CalculatorPackage[]
 }
 
-export type SolarModelFilter = 'SOLAR_FREE' | 'SOLAR_DIRECT'
+export type SolarModelFilter = 'SOLAR_FREE' | 'SOLAR_DIRECT' | 'SOLAR_ABO'
 
 class ResidentialCalculatorService {
   async getPackages(language: string = 'en', solarModel?: SolarModelFilter): Promise<CalculatorPackage[]> {

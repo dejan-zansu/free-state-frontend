@@ -1,6 +1,6 @@
 'use client'
 
-import { Zap, TrendingUp, Sun, Leaf, PanelTop } from 'lucide-react'
+import { Zap, TrendingUp, Sun, Leaf } from 'lucide-react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
@@ -77,8 +77,8 @@ export default function ResultsMetricsGrid({
         </Card>
       </div>
 
-      <div className="mt-6 rounded-2xl overflow-hidden border border-[#062E25]/10">
-        {roofImage ? (
+      {roofImage ? (
+        <div className="mt-6 rounded-2xl overflow-hidden border border-[#062E25]/10">
           <Image
             src={roofImage}
             alt={t('system.title')}
@@ -87,20 +87,16 @@ export default function ResultsMetricsGrid({
             className="w-full h-auto object-cover"
             unoptimized
           />
-        ) : (
-          <div className="aspect-[5/2] bg-[#F5F7EE] flex items-center justify-center">
-            <PanelTop className="h-16 w-16 text-[#062E25]/15" />
+          <div className="flex items-center justify-between px-4 py-2 bg-[#062E25]/5">
+            {address && (
+              <span className="text-sm text-[#062E25]/60">{address}</span>
+            )}
+            <span className="text-sm font-semibold text-[#062E25]">
+              {energyBalance}% {t('metrics.energyBalanceDesc')}
+            </span>
           </div>
-        )}
-        <div className="flex items-center justify-between px-4 py-2 bg-[#062E25]/5">
-          {address && (
-            <span className="text-sm text-[#062E25]/60">{address}</span>
-          )}
-          <span className="text-sm font-semibold text-[#062E25]">
-            {energyBalance}% {t('metrics.energyBalanceDesc')}
-          </span>
         </div>
-      </div>
+      ) : null}
     </>
   )
 }

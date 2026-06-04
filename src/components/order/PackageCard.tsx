@@ -17,6 +17,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
+import { ABO_TERM_MONTHS, ABO_UPLIFT_FACTOR } from '@/stores/solar-abo-calculator.store'
 import WarrrentyIcon from '../icons/WarrrentyIcon'
 import ChceckIcon from '../icons/ChceckIcon'
 import { Button } from '../ui/button'
@@ -135,7 +136,7 @@ export default function PackageCard(props: {
   const fromPrice = getFromPriceChf(pkg)
   const isAbo = model === 'solar-abo'
   const aboMonthlyChf =
-    fromPrice != null ? Math.round((fromPrice * 1.35) / 300) : null
+    fromPrice != null ? Math.round((fromPrice * ABO_UPLIFT_FACTOR) / ABO_TERM_MONTHS) : null
 
   return (
     <div

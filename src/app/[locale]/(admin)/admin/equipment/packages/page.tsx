@@ -36,8 +36,9 @@ export default function AdminPackagesPage() {
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="__all__">{t('allSolarModels')}</SelectItem>
-            <SelectItem value="SOLAR_DIRECT">{t('direct')}</SelectItem>
-            <SelectItem value="SOLAR_FREE">{t('abo')}</SelectItem>
+            <SelectItem value="SOLAR_DIRECT">{t('solarDirect')}</SelectItem>
+            <SelectItem value="SOLAR_ABO">{t('solarAbo')}</SelectItem>
+            <SelectItem value="SOLAR_FREE">{t('solarFree')}</SelectItem>
           </SelectContent>
         </Select>
       )}

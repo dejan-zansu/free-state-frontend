@@ -4343,7 +4343,7 @@
         "monthlyTitle": "La vostra rata mensile",
         "from": "da",
         "perMonth": "/ mese",
-        "overTerm": "su 25 anni",
+        "overTerm": "su {years} anni",
         "includedTitle": "Incluso",
         "excludedTitle": "Non incluso",
         "included": [
@@ -6683,7 +6683,8 @@
         "dec": "Dic"
       },
       "customerRemarks": "Osservazioni del cliente",
-      "addressAdditional": "Complemento d'indirizzo"
+      "addressAdditional": "Complemento d'indirizzo",
+      "solarModelAbo": "Solar-Abo (rata mensile)"
     },
     "contracts": {
       "title": "Contratti",
@@ -6877,7 +6878,10 @@
         "solarFree": "Solar Free",
         "solarDirect": "SolarDirect",
         "solarModelsRequired": "Seleziona almeno un modello solare"
-      }
+      },
+      "solarDirect": "SolarDirect",
+      "solarAbo": "SolarAbo",
+      "solarFree": "SolarFree"
     },
     "blog": {
       "title": "Articoli del blog",

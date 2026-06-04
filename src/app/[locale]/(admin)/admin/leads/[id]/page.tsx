@@ -215,7 +215,9 @@ export default function AdminLeadDetailPage() {
                 <span className="text-base font-medium px-3 py-1 rounded-full bg-[#062E25]/5 text-[#062E25]">
                   {calc.solarModel === 'solar-free'
                     ? t('solarModelFree')
-                    : t('solarModelDirect')}
+                    : calc.solarModel === 'solar-abo'
+                      ? t('solarModelAbo')
+                      : t('solarModelDirect')}
                 </span>
               )}
             </div>

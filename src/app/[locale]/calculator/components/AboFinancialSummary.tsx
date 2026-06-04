@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { Check, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { ABO_TERM_MONTHS } from '@/stores/solar-abo-calculator.store'
 
 interface Props {
   monthlyChf: number
@@ -34,7 +35,7 @@ export function AboFinancialSummary(props: Props) {
         <span className="text-base text-white/80">{t('perMonth')}</span>
       </div>
       <p className="text-sm text-white/70">
-        {fmt(props.totalChf)} {t('overTerm')}
+        {fmt(props.totalChf)} {t('overTerm', { years: Math.round(ABO_TERM_MONTHS / 12) })}
       </p>
 
       {props.addOnChf != null && props.addOnChf > 0 ? (
