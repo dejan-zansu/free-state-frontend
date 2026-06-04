@@ -15,6 +15,7 @@ import CompactPackageCard from '@/components/order/CompactPackageCard'
 import { EquipmentList } from '../components/EquipmentList'
 import { type EquipmentDetail } from '../components/EquipmentDetailCard'
 import { AboFinancialSummary } from '../components/AboFinancialSummary'
+import ResultsMetricsGrid from '../components/ResultsMetricsGrid'
 import { WarrantyCallout } from '../components/WarrantyCallout'
 
 function getEquipmentCategory(
@@ -168,7 +169,13 @@ export default function StepSolarAboResults() {
 
   useEffect(() => {
     residentialCalculatorService
-      .getPackages(locale, 'SOLAR_DIRECT')
+      .getPackages(locale, 'SOLAR_ABO')
+      .then(data =>
+        data.length > 0
+          ? data
+          : residentialCalculatorService.getPackages(locale, 'SOLAR_DIRECT'),
+      )
+      .catch(() => residentialCalculatorService.getPackages(locale, 'SOLAR_DIRECT'))
       .then(data => {
         setPackages(data)
         const hasValidSelection =
@@ -182,6 +189,11 @@ export default function StepSolarAboResults() {
       .catch(() => {})
       .finally(() => setPackagesLoading(false))
   }, [locale])
+
+  useEffect(() => {
+    store.fetchSubsidyRate()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     store.fetchElectricityPriceForAddress()
@@ -294,6 +306,16 @@ export default function StepSolarAboResults() {
         </section>
       ) : null}
 
+      <ResultsMetricsGrid
+        annualProduction={store.getAnnualProduction()}
+        annualSavings={store.getAnnualSavings()}
+        selfConsumptionRate={store.getSelfConsumptionRate()}
+        co2Savings={store.getCo2Savings()}
+        energyBalance={0}
+        roofImage={null}
+        address={store.address}
+      />
+
       <EvChargerPicker charger={selectedPkg?.availableEvCharger ?? null} />
 
       <HeatPumpInterestStrip />
@@ -302,10 +324,10 @@ export default function StepSolarAboResults() {
         <AboFinancialSummary
           monthlyChf={aboMonthly}
           totalChf={aboTotal}
-          included={includedItems}
+          included={
+            evChargerTotal > 0 ? [...includedItems, tPicker('title')] : includedItems
+          }
           excluded={excludedItems}
-          addOnLabel={evChargerTotal > 0 ? tPicker('title') : undefined}
-          addOnChf={evChargerTotal > 0 ? Math.round(evChargerTotal * 1.35) : undefined}
         />
       ) : null}
 

@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 import { cn } from '@/lib/utils'
 import { getFromPriceChf, type SolarModelKey } from './PackageCard'
+import { ABO_TERM_MONTHS, ABO_UPLIFT_FACTOR } from '@/stores/solar-abo-calculator.store'
 
 const YIELD_KWH_PER_KWP = 950
 
@@ -41,7 +42,7 @@ export default function CompactPackageCard({
     ? '0 CHF'
     : isAbo
       ? fromPrice != null
-        ? `${fmtChf(Math.round((fromPrice * 1.35) / 300))} CHF / Mt.`
+        ? `${fmtChf(Math.round((fromPrice * ABO_UPLIFT_FACTOR) / ABO_TERM_MONTHS))} CHF / Mt.`
         : '—'
       : fromPrice != null
         ? `${fmtChf(fromPrice)} CHF`

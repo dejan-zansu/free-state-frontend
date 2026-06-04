@@ -5957,7 +5957,7 @@
         "monthlyTitle": "Ihre Monatsrate",
         "from": "ab",
         "perMonth": "/ Monat",
-        "overTerm": "über 25 Jahre",
+        "overTerm": "über {years} Jahre",
         "includedTitle": "Inklusive",
         "excludedTitle": "Nicht inklusive",
         "included": [
@@ -6683,7 +6683,8 @@
         "dec": "Dez"
       },
       "customerRemarks": "Bemerkungen des Kunden",
-      "addressAdditional": "Adresszusatz"
+      "addressAdditional": "Adresszusatz",
+      "solarModelAbo": "Solar-Abo (Monatsrate)"
     },
     "contracts": {
       "title": "Verträge",
@@ -6877,7 +6878,10 @@
         "solarFree": "Solar Free",
         "solarDirect": "SolarDirect",
         "solarModelsRequired": "Mindestens ein Solar-Modell auswählen"
-      }
+      },
+      "solarDirect": "SolarDirect",
+      "solarAbo": "SolarAbo",
+      "solarFree": "SolarFree"
     },
     "support": {
       "title": "Support-Tickets",
