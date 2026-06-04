@@ -96,6 +96,8 @@ const COVERAGE_PITCHED_SOUTH = 0.80
 const COVERAGE_PITCHED_SIDE = 0.75
 const COVERAGE_PITCHED_NORTH = 0.50
 
+let lastCalculationSyncKey: string | null = null
+
 function segmentCoverageFraction(tiltDeg: number, azimuthDeg: number): number {
   if (tiltDeg <= FLAT_TILT_THRESHOLD_DEG) return COVERAGE_FLAT
   const normalized = ((azimuthDeg % 360) + 360) % 360
@@ -283,6 +285,7 @@ interface SolarAboCalculatorActions {
   getRoofType: () => RoofType
   getSelectedSegments: () => RoofSegment[]
   getSelectedArea: () => number
+  getUsableRoofAreaM2: () => number
   getEstimatedConsumption: () => number
   getAnnualProduction: () => number
   getSystemSizeKwp: () => number
@@ -323,6 +326,7 @@ interface SolarAboCalculatorActions {
   getEstimatedTaxSavings: () => number
   createAccount: () => Promise<void>
   requestOffer: () => Promise<void>
+  syncCalculation: () => Promise<void>
   emailReport: () => Promise<void>
   setResultsPath: (path: ResultsPath) => void
   addAcknowledgment: (type: string) => void
@@ -617,6 +621,14 @@ export const useSolarAboCalculatorStore = create<
         return building.roofSegments
           .filter(s => selectedSegmentIds.includes(s.id))
           .reduce((sum, s) => sum + s.area, 0)
+      },
+
+      getUsableRoofAreaM2: () => {
+        const segments = get().getSelectedSegments()
+        return segments.reduce(
+          (sum, s) => sum + s.area * segmentCoverageFraction(s.tilt, s.azimuth),
+          0,
+        )
       },
 
       getEstimatedConsumption: () => {
@@ -960,9 +972,61 @@ export const useSolarAboCalculatorStore = create<
         }
       },
 
+      syncCalculation: async () => {
+        const state = get()
+        const projectId = state.createdProjectId
+        if (!projectId) return
+
+        const systemSizeKwp = state.getSystemSizeKwp()
+        if (systemSizeKwp <= 0) return
+
+        const isSolarFree = state.solarModel === 'solar-free'
+        const production = state.getAnnualProduction()
+        const selfConsumptionRate = state.getSelfConsumptionRate()
+        const selfConsumedKwh = Math.min(
+          production * selfConsumptionRate,
+          state.getEstimatedConsumption(),
+        )
+        const electricityPrice = state.electricityPriceChfKwh
+        const feedIn = state.feedInTariffRate?.chfPerKwh
+
+        const payload = {
+          projectId,
+          calculation: {
+            systemSizeKwp,
+            panelCount: state.getEstimatedPanelCount(),
+            panelWattageW: state.selectedPanelWattageW,
+            annualSavings: isSolarFree
+              ? state.getAnnualPpaSavings()
+              : state.getAnnualSavings(),
+            selfConsumptionRate,
+            estimatedProduction: production,
+            gridFeedInKwh: Math.max(0, production - selfConsumedKwh),
+            electricityTariffRpKwh:
+              typeof electricityPrice === 'number' && electricityPrice > 0
+                ? electricityPrice * 100
+                : null,
+            feedInTariffRpKwh: feedIn != null ? feedIn * 100 : null,
+            selectedPackageCode: state.selectedPackageCode ?? undefined,
+          },
+        }
+
+        const syncKey = JSON.stringify(payload)
+        if (syncKey === lastCalculationSyncKey) return
+        lastCalculationSyncKey = syncKey
+
+        try {
+          await residentialCalculatorService.updateCalculation(payload)
+        } catch {
+          lastCalculationSyncKey = null
+        }
+      },
+
       requestOffer: async () => {
         const state = get()
         if (!state.createdProjectId) return
+
+        await state.syncCalculation()
 
         try {
           await residentialCalculatorService.requestOffer({

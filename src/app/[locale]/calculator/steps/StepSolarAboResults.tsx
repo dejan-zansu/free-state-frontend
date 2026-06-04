@@ -84,20 +84,26 @@ function getPanelSpecs(pkg: CalculatorPackage) {
 
 function pickRecommendedPackage(
   packages: CalculatorPackage[],
-  systemSizeKwp: number,
+  usableRoofAreaM2: number,
 ): CalculatorPackage | null {
   if (packages.length === 0) return null
+  const estimatedKwp = (p: CalculatorPackage) => {
+    const { panelWattageW, panelAreaM2 } = getPanelSpecs(p)
+    if (!panelWattageW || !panelAreaM2) return 0
+    return Math.floor(usableRoofAreaM2 / panelAreaM2) * (panelWattageW / 1000)
+  }
   const inRange = packages.find(p => {
+    const kwp = estimatedKwp(p)
     const min = p.minCapacityKwp ?? -Infinity
     const max = p.maxCapacityKwp ?? Infinity
-    return systemSizeKwp >= min && systemSizeKwp <= max
+    return kwp >= min && kwp <= max
   })
   if (inRange) return inRange
   const withDistance = packages.map(p => {
     const min = p.minCapacityKwp ?? 0
     const max = p.maxCapacityKwp ?? min
     const mid = (min + max) / 2
-    return { pkg: p, distance: Math.abs(systemSizeKwp - mid) }
+    return { pkg: p, distance: Math.abs(estimatedKwp(p) - mid) }
   })
   withDistance.sort((a, b) => a.distance - b.distance)
   return withDistance[0].pkg
@@ -168,8 +174,8 @@ export default function StepSolarAboResults() {
         const hasValidSelection =
           store.selectedPackageId && data.some(p => p.id === store.selectedPackageId)
         if (data.length > 0 && !hasValidSelection) {
-          const realKwp = useSolarAboCalculatorStore.getState().getSystemSizeKwp()
-          const recommended = pickRecommendedPackage(data, realKwp) ?? data[0]
+          const usableArea = useSolarAboCalculatorStore.getState().getUsableRoofAreaM2()
+          const recommended = pickRecommendedPackage(data, usableArea) ?? data[0]
           applyPackageToStore(store.setSelectedPackage, recommended)
         }
       })
@@ -177,15 +183,35 @@ export default function StepSolarAboResults() {
       .finally(() => setPackagesLoading(false))
   }, [locale])
 
+  useEffect(() => {
+    store.fetchElectricityPriceForAddress()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [store.address])
+
+  useEffect(() => {
+    store.fetchFeedInTariff()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    void store.syncCalculation()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    store.createdProjectId,
+    store.selectedPackageId,
+    store.feedInTariffRate,
+    store.electricityPriceChfKwh,
+  ])
+
   const selectedPkg = useMemo(
     () => packages.find(p => p.id === store.selectedPackageId) ?? undefined,
     [packages, store.selectedPackageId],
   )
 
-  const systemSizeKwp = store.getSystemSizeKwp()
+  const usableRoofAreaM2 = store.getUsableRoofAreaM2()
   const recommendedPkg = useMemo(
-    () => pickRecommendedPackage(packages, systemSizeKwp),
-    [packages, systemSizeKwp],
+    () => pickRecommendedPackage(packages, usableRoofAreaM2),
+    [packages, usableRoofAreaM2],
   )
   const orderedPackages = useMemo(
     () =>
