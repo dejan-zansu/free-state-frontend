@@ -12,7 +12,7 @@ test('renders four lineage milestones with DE content', () => {
     </NextIntlClientProvider>
   )
   expect(screen.getAllByRole('listitem')).toHaveLength(4)
-  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('16 Jahre Erfahrung. Neuer Name.')
+  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('16 Jahre Erfahrung.')
   expect(screen.getByText(/Telemiiva GmbH gegründet/)).toBeInTheDocument()
   expect(screen.getByText(/Über 16 Jahre/)).toBeInTheDocument()
   expect(screen.getByText(/gegründet in Schaffhausen/)).toBeInTheDocument()

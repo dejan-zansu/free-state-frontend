@@ -21,6 +21,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
   { pathname: '/solar-systems', lastModified: REFRESH_2026_04_12, priority: 0.9 },
   { pathname: '/solar-free', lastModified: REFRESH_2026_04_12, priority: 0.9 },
   { pathname: '/solar-direct', lastModified: REFRESH_2026_04_12, priority: 0.8 },
+  { pathname: '/solar-abo', lastModified: REFRESH_2026_05_16, priority: 0.8 },
   { pathname: '/battery-storage', lastModified: REFRESH_2026_02_01, priority: 0.8 },
   { pathname: '/heat-pumps', lastModified: REFRESH_2026_02_01, priority: 0.8 },
   { pathname: '/heat-pumps/products', lastModified: REFRESH_2026_02_01 },

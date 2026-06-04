@@ -14,8 +14,7 @@ import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import CompactPackageCard from '@/components/order/CompactPackageCard'
 import { EquipmentList } from '../components/EquipmentList'
 import { type EquipmentDetail } from '../components/EquipmentDetailCard'
-import { PurchaseFinancialSummary } from '../components/PurchaseFinancialSummary'
-import { SubsidyAssistanceCallout } from '../components/SubsidyAssistanceCallout'
+import { AboFinancialSummary } from '../components/AboFinancialSummary'
 import { WarrantyCallout } from '../components/WarrantyCallout'
 
 function getEquipmentCategory(
@@ -143,8 +142,8 @@ function applyPackageToStore(
   )
 }
 
-export default function StepSolarDirectResults() {
-  const t = useTranslations('solarAboCalculator.results.solarDirect')
+export default function StepSolarAboResults() {
+  const t = useTranslations('solarAboCalculator.results.solarAboPlan')
   const tPicker = useTranslations('solarAboCalculator.results.evChargerPicker')
   const locale = useLocale()
   const store = useSolarAboCalculatorStore()
@@ -185,10 +184,6 @@ export default function StepSolarDirectResults() {
   }, [locale])
 
   useEffect(() => {
-    store.fetchSubsidyRate()
-  }, [])
-
-  useEffect(() => {
     store.fetchElectricityPriceForAddress()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [store.address])
@@ -226,16 +221,11 @@ export default function StepSolarDirectResults() {
     [packages, recommendedPkg],
   )
 
-  const annualSavings = store.getAnnualSavings()
-  const estimatedSubsidy = store.getSubsidyAmount()
-  const grossPrice = selectedPkg?.purchasePriceChf ?? 0
   const evChargerTotal = store.getEvChargerTotalChf()
-  const netPrice = store.getEstimatedNetPrice(
-    { purchasePriceChf: selectedPkg?.purchasePriceChf ?? null },
-    estimatedSubsidy,
-  )
-  const paybackYears = store.getPaybackYears(netPrice, annualSavings)
-  const lifetime = store.getLifetimeSavings25y(annualSavings, netPrice)
+  const aboTotal = store.getAboTotalChf()
+  const aboMonthly = store.getAboMonthlyChf()
+  const includedItems = t.raw('included') as string[]
+  const excludedItems = t.raw('excluded') as string[]
 
   const equipmentItems = useMemo(() => mapPackageEquipment(selectedPkg), [selectedPkg])
 
@@ -291,7 +281,7 @@ export default function StepSolarDirectResults() {
               <CompactPackageCard
                 key={pkg.id}
                 pkg={pkg}
-                model="solar-direct"
+                model="solar-abo"
                 isSelected={pkg.id === store.selectedPackageId}
                 isRecommended={pkg.id === recommendedPkg?.id}
                 onSelect={() => {
@@ -309,19 +299,15 @@ export default function StepSolarDirectResults() {
       <HeatPumpInterestStrip />
 
       {selectedPkg ? (
-        <PurchaseFinancialSummary
-          grossPriceChf={grossPrice + evChargerTotal}
-          estimatedSubsidyChf={estimatedSubsidy > 0 ? estimatedSubsidy : null}
-          estimatedNetPriceChf={netPrice + evChargerTotal}
-          annualSavingsChf={annualSavings}
-          paybackYears={paybackYears}
-          lifetimeSavings25y={lifetime}
+        <AboFinancialSummary
+          monthlyChf={aboMonthly}
+          totalChf={aboTotal}
+          included={includedItems}
+          excluded={excludedItems}
           addOnLabel={evChargerTotal > 0 ? tPicker('title') : undefined}
-          addOnChf={evChargerTotal > 0 ? evChargerTotal : undefined}
+          addOnChf={evChargerTotal > 0 ? Math.round(evChargerTotal * 1.35) : undefined}
         />
       ) : null}
-
-      <SubsidyAssistanceCallout />
 
       {selectedPkg && equipmentItems.length > 0 ? (
         <section className="flex flex-col gap-3">

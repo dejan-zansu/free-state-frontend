@@ -21,7 +21,7 @@ import WarrrentyIcon from '../icons/WarrrentyIcon'
 import ChceckIcon from '../icons/ChceckIcon'
 import { Button } from '../ui/button'
 
-export type SolarModelKey = 'solar-free' | 'solar-direct'
+export type SolarModelKey = 'solar-free' | 'solar-direct' | 'solar-abo'
 
 const STROMPREIS_CHF_PER_KWH = 0.18
 const SWISS_AVG_YIELD_KWH_PER_KWP = 950
@@ -64,7 +64,7 @@ function fmtKwhRange(min: number, max: number): string {
     : `~${min.toLocaleString('de-CH')}–${max.toLocaleString('de-CH')}`
 }
 
-function getFromPriceChf(pkg: CalculatorPackage): number | null {
+export function getFromPriceChf(pkg: CalculatorPackage): number | null {
   if (pkg.pricePerKwp != null && pkg.minCapacityKwp != null) {
     return Math.round(pkg.pricePerKwp * pkg.minCapacityKwp)
   }
@@ -133,6 +133,9 @@ export default function PackageCard(props: {
 
   const { minKwp, maxKwp, minKwh, maxKwh } = getSystemSpecs(pkg)
   const fromPrice = getFromPriceChf(pkg)
+  const isAbo = model === 'solar-abo'
+  const aboMonthlyChf =
+    fromPrice != null ? Math.round((fromPrice * 1.35) / 300) : null
 
   return (
     <div
@@ -367,6 +370,29 @@ export default function PackageCard(props: {
                       </div>
                     </div>
                   </>
+                ) : isAbo ? (
+                  <div className="col-span-2">
+                    <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                      {t('priceLabels.from')}
+                    </div>
+                    <div className="flex items-baseline gap-1">
+                      <span
+                        className="text-[28px] font-extrabold leading-none text-[#062E25]"
+                        style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                      >
+                        {fmtChf(aboMonthlyChf)}
+                      </span>
+                      <span
+                        className="text-[12px] font-bold text-[#062E25]"
+                        style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                      >
+                        CHF / Mt.
+                      </span>
+                    </div>
+                    <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
+                      {t('priceLabels.exclVat')}
+                    </div>
+                  </div>
                 ) : (
                   <div className="col-span-2">
                     <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">

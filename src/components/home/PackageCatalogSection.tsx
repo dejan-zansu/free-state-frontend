@@ -17,6 +17,7 @@ import PackageCard, {
 const MODEL_TO_FILTER: Record<SolarModelKey, 'SOLAR_FREE' | 'SOLAR_DIRECT'> = {
   'solar-free': 'SOLAR_FREE',
   'solar-direct': 'SOLAR_DIRECT',
+  'solar-abo': 'SOLAR_DIRECT',
 }
 
 export default function PackageCatalogSection() {
@@ -52,7 +53,7 @@ export default function PackageCatalogSection() {
 
         <div className="flex justify-center mb-8">
           <div className="inline-flex rounded-full bg-white border border-[#D8DCD5] p-1">
-            {(['solar-free', 'solar-direct'] as SolarModelKey[]).map(m => (
+            {(['solar-free', 'solar-direct', 'solar-abo'] as SolarModelKey[]).map(m => (
               <button
                 key={m}
                 type="button"

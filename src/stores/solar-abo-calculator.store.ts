@@ -35,7 +35,7 @@ export interface FeedInTariffSnapshot {
 
 export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
 
-export type SolarModel = 'solar-free' | 'solar-direct'
+export type SolarModel = 'solar-free' | 'solar-direct' | 'solar-abo'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
 export type HouseholdSize = 1 | 2 | 3 | 4 | 5
@@ -85,6 +85,8 @@ const ELECTRICITY_PRICE = 0.277
 const CO2_FACTOR = 0.128
 
 export const DEFAULT_PPA_DISCOUNT_PCT = 30
+export const ABO_UPLIFT_FACTOR = 1.35
+export const ABO_TERM_MONTHS = 300
 
 const FLAT_TILT_THRESHOLD_DEG = 10
 
@@ -93,6 +95,8 @@ const COVERAGE_FLAT = 0.45
 const COVERAGE_PITCHED_SOUTH = 0.80
 const COVERAGE_PITCHED_SIDE = 0.75
 const COVERAGE_PITCHED_NORTH = 0.50
+
+let lastCalculationSyncKey: string | null = null
 
 function segmentCoverageFraction(tiltDeg: number, azimuthDeg: number): number {
   if (tiltDeg <= FLAT_TILT_THRESHOLD_DEG) return COVERAGE_FLAT
@@ -281,6 +285,7 @@ interface SolarAboCalculatorActions {
   getRoofType: () => RoofType
   getSelectedSegments: () => RoofSegment[]
   getSelectedArea: () => number
+  getUsableRoofAreaM2: () => number
   getEstimatedConsumption: () => number
   getAnnualProduction: () => number
   getSystemSizeKwp: () => number
@@ -314,11 +319,14 @@ interface SolarAboCalculatorActions {
   clearEvCharger: () => void
   getEvChargerTotalChf: () => number
   getGrossAmount: () => number
+  getAboTotalChf: () => number
+  getAboMonthlyChf: () => number
   getSubsidyAmount: () => number
   getNetAmount: () => number
   getEstimatedTaxSavings: () => number
   createAccount: () => Promise<void>
   requestOffer: () => Promise<void>
+  syncCalculation: () => Promise<void>
   emailReport: () => Promise<void>
   setResultsPath: (path: ResultsPath) => void
   addAcknowledgment: (type: string) => void
@@ -615,6 +623,14 @@ export const useSolarAboCalculatorStore = create<
           .reduce((sum, s) => sum + s.area, 0)
       },
 
+      getUsableRoofAreaM2: () => {
+        const segments = get().getSelectedSegments()
+        return segments.reduce(
+          (sum, s) => sum + s.area * segmentCoverageFraction(s.tilt, s.azimuth),
+          0,
+        )
+      },
+
       getEstimatedConsumption: () => {
         const override = get().consumptionOverrideKwh
         if (typeof override === 'number' && override > 0) return override
@@ -847,6 +863,18 @@ export const useSolarAboCalculatorStore = create<
         return systemSizeKwp * 1500 + chargerTotal
       },
 
+      getAboTotalChf: () => {
+        const gross = get().getGrossAmount()
+        if (gross <= 0) return 0
+        return Math.round(gross * ABO_UPLIFT_FACTOR)
+      },
+
+      getAboMonthlyChf: () => {
+        const total = get().getAboTotalChf()
+        if (total <= 0) return 0
+        return Math.round(total / ABO_TERM_MONTHS)
+      },
+
       getSubsidyAmount: () => {
         const kWp = get().getSystemSizeKwp()
         const rate = get().subsidyRate
@@ -944,9 +972,61 @@ export const useSolarAboCalculatorStore = create<
         }
       },
 
+      syncCalculation: async () => {
+        const state = get()
+        const projectId = state.createdProjectId
+        if (!projectId) return
+
+        const systemSizeKwp = state.getSystemSizeKwp()
+        if (systemSizeKwp <= 0) return
+
+        const isSolarFree = state.solarModel === 'solar-free'
+        const production = state.getAnnualProduction()
+        const selfConsumptionRate = state.getSelfConsumptionRate()
+        const selfConsumedKwh = Math.min(
+          production * selfConsumptionRate,
+          state.getEstimatedConsumption(),
+        )
+        const electricityPrice = state.electricityPriceChfKwh
+        const feedIn = state.feedInTariffRate?.chfPerKwh
+
+        const payload = {
+          projectId,
+          calculation: {
+            systemSizeKwp,
+            panelCount: state.getEstimatedPanelCount(),
+            panelWattageW: state.selectedPanelWattageW,
+            annualSavings: isSolarFree
+              ? state.getAnnualPpaSavings()
+              : state.getAnnualSavings(),
+            selfConsumptionRate,
+            estimatedProduction: production,
+            gridFeedInKwh: Math.max(0, production - selfConsumedKwh),
+            electricityTariffRpKwh:
+              typeof electricityPrice === 'number' && electricityPrice > 0
+                ? electricityPrice * 100
+                : null,
+            feedInTariffRpKwh: feedIn != null ? feedIn * 100 : null,
+            selectedPackageCode: state.selectedPackageCode ?? undefined,
+          },
+        }
+
+        const syncKey = JSON.stringify(payload)
+        if (syncKey === lastCalculationSyncKey) return
+        lastCalculationSyncKey = syncKey
+
+        try {
+          await residentialCalculatorService.updateCalculation(payload)
+        } catch {
+          lastCalculationSyncKey = null
+        }
+      },
+
       requestOffer: async () => {
         const state = get()
         if (!state.createdProjectId) return
+
+        await state.syncCalculation()
 
         try {
           await residentialCalculatorService.requestOffer({

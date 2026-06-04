@@ -18,30 +18,32 @@ export function EquipmentDetailCard({ item }: { item: EquipmentDetail }) {
   const t = useTranslations('solarAboCalculator.results.equipmentCard')
 
   return (
-    <article className="flex flex-col gap-3 rounded-xl border border-[#546963]/40 bg-white p-4 sm:flex-row">
+    <article className="flex items-center gap-3 rounded-xl border border-[#546963]/40 bg-white p-3">
       {item.imageUrl ? (
-        <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-md sm:h-32 sm:w-32">
-          <Image src={item.imageUrl} alt={`${item.brand} ${item.model}`} fill className="object-contain" unoptimized />
+        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-md">
+          <Image
+            src={item.imageUrl}
+            alt={`${item.brand} ${item.model}`}
+            fill
+            className="object-contain"
+            unoptimized
+          />
         </div>
       ) : null}
 
-      <div className="flex flex-1 flex-col gap-2">
-        <header className="flex flex-col gap-1">
-          <p className="text-xs uppercase tracking-wide text-[#062E25]/60">
-            {t(`category.${item.category}`)}
-          </p>
-          <h4 className="text-base font-medium text-[#062E25]">
-            {item.brand} {item.model}
-          </h4>
-          <p className="text-sm text-[#062E25]/70">
-            {t('quantity', { count: item.quantity })}
-          </p>
-        </header>
+      <div className="flex min-w-0 flex-col gap-0.5">
+        <p className="text-sm uppercase tracking-wide text-[#062E25]/60">
+          {t(`category.${item.category}`)}
+        </p>
+        <h4 className="text-base font-medium text-[#062E25]">
+          {item.quantity > 1 ? `${item.quantity}× ` : ''}
+          {item.brand} {item.model}
+        </h4>
 
         {Object.keys(item.specs).length > 0 ? (
-          <dl className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
+          <dl className="flex flex-wrap gap-x-2 text-sm">
             {Object.entries(item.specs).map(([k, v]) => (
-              <div key={k} className="contents">
+              <div key={k} className="flex gap-1">
                 <dt className="text-[#062E25]/60">{t(`spec.${k}`)}</dt>
                 <dd className="text-[#062E25]">{String(v)}</dd>
               </div>

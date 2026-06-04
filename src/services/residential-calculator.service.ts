@@ -76,6 +76,22 @@ interface RequestOfferResponse {
   }
 }
 
+interface UpdateCalculationPayload {
+  projectId: string
+  calculation: {
+    systemSizeKwp: number
+    panelCount?: number
+    panelWattageW?: number | null
+    annualSavings: number
+    selfConsumptionRate?: number
+    estimatedProduction?: number
+    gridFeedInKwh?: number
+    electricityTariffRpKwh?: number | null
+    feedInTariffRpKwh?: number | null
+    selectedPackageCode?: string
+  }
+}
+
 interface EmailReportPayload {
   projectId: string
 }
@@ -194,6 +210,10 @@ class ResidentialCalculatorService {
       payload
     )
     return response.data
+  }
+
+  async updateCalculation(payload: UpdateCalculationPayload): Promise<void> {
+    await api.post('/residential-calculator/update-calculation', payload)
   }
 
   async emailReport(payload: EmailReportPayload): Promise<EmailReportResponse> {

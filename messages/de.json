@@ -8,7 +8,8 @@
     "empty": "Aktuell keine Pakete verfügbar.",
     "toggle": {
       "solar-free": "SolarFree",
-      "solar-direct": "SolarDirect"
+      "solar-direct": "SolarDirect",
+      "solar-abo": "SolarAbo"
     },
     "card": {
       "capacity": "Leistung",
@@ -102,6 +103,10 @@
     "solarDirect": {
       "title": "",
       "description": ""
+    },
+    "solarAbo": {
+      "title": "SolarAbo: Solaranlage im monatlichen Abo | Free State",
+      "description": "SolarAbo von Free State: Ihre Solaranlage mit fester Monatsrate, Monitoring, Garantie und Versicherung inklusive. Jetzt Monatsrate berechnen."
     },
     "batteryStorage": {
       "title": "Batteriespeicher Schweiz — Stromspeicher für deine Solaranlage",
@@ -633,8 +638,8 @@
     },
     "solarModels": {
       "eyebrow": "Solarmodelle",
-      "title": "SolarFree oder SolarDirekt: Was passt zu Ihnen?",
-      "subtitle": "Vergleichen Sie beide Modelle und finden Sie die passende Lösung für Ihr Zuhause.",
+      "title": "SolarFree, SolarAbo oder SolarDirect: Was passt zu Ihnen?",
+      "subtitle": "Vergleichen Sie alle drei Modelle und finden Sie die passende Lösung für Ihr Zuhause.",
       "onlineBadge": "Nur online",
       "cta": "Jetzt starten",
       "learnMore": "Mehr erfahren",
@@ -680,6 +685,27 @@
           "Betreuung und Wartung selbst steuerbar",
           "Übertragbar beim Immobilienverkauf",
           "CHF 1'500.– Online-Rabatt möglich"
+        ]
+      },
+      "solarAbo": {
+        "title": "SolarAbo",
+        "description": "Solarsystem, Speicher, Wärmepumpe und Ladestation zum Kauf, bequem in festen Monatsraten für Ihr Zuhause",
+        "badge": "Monatlich",
+        "highlight": "Feste Monatsrate statt Einmalzahlung",
+        "includedTitle": "Was ist enthalten?",
+        "included": [
+          "Monitoring & Systemüberwachung",
+          "Garantie & Garantieabwicklung",
+          "Ersatz defekter Komponenten im Garantiezeitraum",
+          "Versicherung der gesamten Anlage"
+        ],
+        "advantagesTitle": "Ihre Vorteile mit SolarAbo",
+        "advantages": [
+          "Die Anlage gehört Ihnen",
+          "Keine Einmalzahlung",
+          "Feste, planbare Monatsrate über 25 Jahre",
+          "Rundum-Service inklusive",
+          "Übertragbar beim Immobilienverkauf"
         ]
       }
     },
@@ -5586,7 +5612,14 @@
       "learnMorePrefix": "Mehr erfahren über",
       "learnMoreConnector": "und",
       "learnMoreSolarAbo": "SolarFree",
-      "learnMoreSolarDirect": "SolarDirect"
+      "learnMoreSolarDirect": "SolarDirect",
+      "solarAboPlan": {
+        "tag": "Monatlich",
+        "title": "SolarAbo",
+        "bullet1": "Feste Monatsrate.",
+        "bullet2": "Rundum-Service inklusive."
+      },
+      "learnMoreSolarAboPlan": "SolarAbo"
     },
     "multiPlanning": {
       "title": "Für wen planen Sie die Anlage?",
@@ -5916,6 +5949,34 @@
         "requestOfferSentMessage": "Prüfen Sie Ihre E-Mails. Ein Berater meldet sich bald bei Ihnen.",
         "requestOfferError": "Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
       },
+      "solarAboPlan": {
+        "title": "Ihre SolarAbo-Konfiguration",
+        "subtitle": "Überprüfen Sie Ihre Ausrüstung und wählen Sie ein Paket für Ihren Kauf in festen Monatsraten.",
+        "chooseYourPackage": "Paket wählen",
+        "whatsIncluded": "Im Lieferumfang enthalten",
+        "monthlyTitle": "Ihre Monatsrate",
+        "from": "ab",
+        "perMonth": "/ Monat",
+        "overTerm": "über 25 Jahre",
+        "includedTitle": "Inklusive",
+        "excludedTitle": "Nicht inklusive",
+        "included": [
+          "Monitoring & Systemüberwachung",
+          "Garantie & Garantieabwicklung",
+          "Ersatz defekter Komponenten im Garantiezeitraum",
+          "Versicherung der gesamten Anlage"
+        ],
+        "excluded": [
+          "Modulreinigung"
+        ],
+        "requestOfferTitle": "Persönliches SolarAbo-Angebot",
+        "requestOfferDescription": "Wir senden Ihnen das detaillierte Angebot per E-Mail. Ein Berater meldet sich innerhalb von 24 Stunden.",
+        "requestOfferButton": "Angebot anfordern",
+        "requestOfferSending": "Wird gesendet…",
+        "requestOfferSent": "Angebot gesendet",
+        "requestOfferSentMessage": "Prüfen Sie Ihre E-Mails. Ein Berater meldet sich bald bei Ihnen.",
+        "requestOfferError": "Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+      },
       "packageCard": {
         "capacityRange": "{min}–{max} kWp",
         "estimatedNet": "Netto nach Förderung: {value}",
@@ -6031,7 +6092,7 @@
         "city": "Stadt",
         "street": "Strasse",
         "streetNumber": "Hausnr.",
-        "addressAdditional": "Zusatzinformation (optional)"
+        "addressAdditional": "Adresszusatz, z. B. Wohnung oder Stockwerk (optional)"
       },
       "errors": {
         "salutationRequired": "Bitte wählen Sie eine Anrede",
@@ -6533,7 +6594,7 @@
       "city": "Stadt",
       "canton": "Kanton",
       "country": "Land",
-      "addressAdditional": "Zusatzinformation",
+      "addressAdditional": "Adresszusatz",
       "activitySummary": "Übersicht Aktivitäten",
       "assignedLeads": "Zugewiesene Leads",
       "createdQuotes": "Erstellte Angebote"
@@ -6620,7 +6681,9 @@
         "oct": "Okt",
         "nov": "Nov",
         "dec": "Dez"
-      }
+      },
+      "customerRemarks": "Bemerkungen des Kunden",
+      "addressAdditional": "Adresszusatz"
     },
     "contracts": {
       "title": "Verträge",
@@ -7875,6 +7938,175 @@
       "steuer": "Steuerliche Aspekte",
       "sources": "Quellen",
       "faq": "Häufige Fragen"
+    }
+  },
+  "solarAboPlanHome": {
+    "hero": {
+      "eyebrow": "SolarAbo",
+      "title": "SolarAbo: Ihre eigene Solaranlage in festen Monatsraten",
+      "subtitle": "Feste Monatsrate, Rundum-Service inklusive, die Anlage gehört Ihnen.",
+      "cta": "Solarrechner starten",
+      "tag": "Keine Registrierung nötig · Unverbindlich",
+      "stats": {
+        "left": {
+          "investment": "Einmalige Investition\nab 10'000 CHF",
+          "electricity": "Bis zu 60–80 % tiefere\nStromkosten"
+        },
+        "right": {
+          "maintenance": "Amortisation ab\n5 Jahren möglich",
+          "reduction": "25+ Jahre garantierte\nStromproduktion"
+        }
+      }
+    },
+    "details": {
+      "eyebrow": "Details",
+      "title": "Was im SolarFree enthalten ist",
+      "subtitle": "Alle Leistungen und Komponenten für eine zuverlässige Energieversorgung – ohne Anschaffungskosten.",
+      "solarModules": {
+        "title": "Hochwertige Solarmodule",
+        "description": "Hocheffiziente Solarmodule für maximale Energiegewinnung – langlebig und widerstandsfähig."
+      },
+      "batteryStorage": {
+        "title": "Leistungsstarker Batteriespeicher",
+        "description": "Zuverlässige Energie, wenn Sie sie brauchen – als Backup oder zur Optimierung des Eigenverbrauchs."
+      }
+    },
+    "includes": {
+      "title": "Was ist enthalten",
+      "subtitle": "In SolarFree Home",
+      "items": {
+        "solarModules": {
+          "title": "Solarmodule",
+          "subtitle": "450 Wp"
+        },
+        "inverter": {
+          "title": "Wechselrichter",
+          "subtitle": "Umwandlung"
+        },
+        "monitoringApp": {
+          "title": "Monitoring-App",
+          "subtitle": "Live-Daten"
+        },
+        "installation": {
+          "title": "Installation",
+          "subtitle": "Schlüsselfertig"
+        },
+        "serviceInsurance": {
+          "title": "Service & Versicherung",
+          "subtitle": "Abgedeckt"
+        },
+        "batteryStorage": {
+          "title": "Batteriespeicher",
+          "subtitle": "Eigenverbrauch"
+        }
+      }
+    },
+    "service": {
+      "title": "Service für Solaranlagen",
+      "subtitle": "Kompletter Service für einen sicheren und effizienten Betrieb Ihrer Solaranlage.",
+      "warranty": {
+        "title": "35 Jahre\nGarantie",
+        "description": "Vollständige Abdeckung für Reparatur & Austausch."
+      },
+      "installation": {
+        "title": "Erfahrene Installation",
+        "description": "Bewährt bei über 1 Mio. Haushalten."
+      },
+      "support": {
+        "title": "Support rund\num die Uhr",
+        "description": "24/7 Betreuung & Systemüberwachung."
+      }
+    },
+    "faq": {
+      "title": "Häufige Fragen",
+      "items": {
+        "1": {
+          "question": "Wie funktioniert der Besitz einer Solaranlage?",
+          "answer": "Sie kaufen die Anlage und profitieren zu 100 % vom erzeugten Strom. Alle Ersparnisse und Einspeisevergütungen gehören Ihnen, und die Anlage ist von Tag eins Ihr Eigentum."
+        },
+        "2": {
+          "question": "Vorteile beim Kauf einer Solaranlage?",
+          "answer": "Langfristige Kostenersparnis, Energieunabhängigkeit, höherer Immobilienwert und volle Kontrolle – mit einer Amortisation meist in 5–10 Jahren."
+        },
+        "3": {
+          "question": "Kann ich Solarmodule selbst kaufen?",
+          "answer": "Ja, aber professionelle Installation, Netzanschluss und Bewilligungen sind weiterhin nötig. Unser schlüsselfertiges SolarDirect-Paket übernimmt das alles für Sie."
+        },
+        "4": {
+          "question": "Leasing oder Kauf – was ist besser?",
+          "answer": "Der Kauf bietet die niedrigsten Gesamtkosten und vollen Besitz. Beim Leasing (wie SolarFree) entfällt die Anfangsinvestition. Die richtige Wahl hängt von Ihrer Liquidität und Ihren langfristigen Zielen ab."
+        },
+        "5": {
+          "question": "Was passiert bei einem Defekt der Anlage?",
+          "answer": "Solarmodule haben eine Leistungsgarantie von 25+ Jahren, Wechselrichter sind meist 10+ Jahre abgedeckt. Reparaturen und Austausch innerhalb der Garantiezeit übernehmen wir."
+        },
+        "6": {
+          "question": "Vor- und Nachteile der Eigeninstallation?",
+          "answer": "Eigeninstallation kann Anschaffungskosten senken, erfordert jedoch Bewilligungen, Sicherheitskenntnisse und einen zertifizierten Netzanschluss. Ohne professionelle Installation riskieren Sie Garantieverlust und Sicherheitsprobleme."
+        },
+        "7": {
+          "question": "Bleiben Stromkosten mit Solaranlage?",
+          "answer": "Eine Grundgebühr für den Netzanschluss bleibt, ebenso der Strombezug bei Nacht oder Bewölkung. Die Gesamtkosten sinken jedoch deutlich."
+        },
+        "8": {
+          "question": "Was passiert bei Stromüberschuss?",
+          "answer": "Überschüssiger Strom wird ins Netz eingespeist und vergütet. Optional kann ein Batteriespeicher den Überschuss für den späteren Eigenverbrauch speichern."
+        }
+      }
+    },
+    "howItWorks": {
+      "title": "So funktioniert SolarFree Home",
+      "subtitle": "Einfach, transparent und sorgenfrei – wie ein Handy-Abo.",
+      "steps": {
+        "step1": "Sie stellen das Dach",
+        "step2": "Wir investieren",
+        "step3": "Sie nutzen den Solarstrom",
+        "step4": "Sie zahlen\nmonatlich",
+        "step5": "Die Anlage wird Ihr Eigentum"
+      }
+    },
+    "pricing": {
+      "title": "Preis & Vertrag",
+      "subtitle": "Einfach, transparent und sorgenfrei, mit zusätzlicher Energieunabhängigkeit.",
+      "costLabel": "Kosten für Solaranlage in CHF",
+      "amount": "25.000",
+      "currency": "chf",
+      "roofSize": {
+        "label": "Dachfläche",
+        "value": "ca. 25 m²"
+      },
+      "residents": {
+        "label": "Bewohner",
+        "value": "Zwei-Personen-Haushalt"
+      },
+      "costPerM2": {
+        "label": "Kosten pro\nm² in CHF",
+        "value": "ca. CHF 780.00"
+      },
+      "solarAboPrice": "Mit SolarFree 00.00 CHF",
+      "orderNow": "JETZT BESTELLEN",
+      "orderLink": "/calculator"
+    },
+    "rightForYou": {
+      "title": "Passt dieses Paket zu Ihnen?",
+      "idealForTitle": "Ideal für Sie",
+      "notIdealForTitle": "Nicht ideal für Sie",
+      "idealFor": {
+        "singleFamily": "Einfamilienhaus",
+        "predictableCosts": "Kalkulierbare Kosten",
+        "noUpfront": "Kein Anschaffungsinvestment",
+        "noMaintenance": "Keine Wartung"
+      },
+      "notIdealFor": {
+        "batteryStorage": "Batteriespeicher benötigt",
+        "commercial": "Gewerbegebäude"
+      }
+    },
+    "cta": {
+      "topButton": "Prüfen Sie, ob SolarFree Home Storage zu Ihrem Dach passt",
+      "heading": "Bereit für SolarAbo?",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/calculator?model=solar-abo"
     }
   }
 }

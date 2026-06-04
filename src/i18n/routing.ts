@@ -177,6 +177,12 @@ export const routing = defineRouting({
       fr: '/solaire-direct',
       it: '/solare-diretto',
     },
+    '/solar-abo': {
+      en: '/solar-abo',
+      de: '/solar-abo',
+      fr: '/abonnement-solaire-direct',
+      it: '/abbonamento-solare-diretto',
+    },
     '/solar-free/solar-free-home': {
       en: '/solar-free/solar-free-home',
       de: '/solar-free/solar-free-home',

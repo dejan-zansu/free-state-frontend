@@ -19,7 +19,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { contractService } from '@/services/contract.service'
 import { reportService } from '@/services/report.service'
-import PackageCard from '@/components/order/PackageCard'
+import CompactPackageCard from '@/components/order/CompactPackageCard'
 import EnergyFlowDiagram from '../components/EnergyFlowDiagram'
 import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
@@ -49,20 +49,26 @@ function getPanelSpecs(pkg: CalculatorPackage) {
 
 function pickRecommendedPackage(
   packages: CalculatorPackage[],
-  systemSizeKwp: number
+  usableRoofAreaM2: number
 ): CalculatorPackage | null {
   if (packages.length === 0) return null
+  const estimatedKwp = (p: CalculatorPackage) => {
+    const { panelWattageW, panelAreaM2 } = getPanelSpecs(p)
+    if (!panelWattageW || !panelAreaM2) return 0
+    return Math.floor(usableRoofAreaM2 / panelAreaM2) * (panelWattageW / 1000)
+  }
   const inRange = packages.find(p => {
+    const kwp = estimatedKwp(p)
     const min = p.minCapacityKwp ?? -Infinity
     const max = p.maxCapacityKwp ?? Infinity
-    return systemSizeKwp >= min && systemSizeKwp <= max
+    return kwp >= min && kwp <= max
   })
   if (inRange) return inRange
   const withDistance = packages.map(p => {
     const min = p.minCapacityKwp ?? 0
     const max = p.maxCapacityKwp ?? min
     const mid = (min + max) / 2
-    return { pkg: p, distance: Math.abs(systemSizeKwp - mid) }
+    return { pkg: p, distance: Math.abs(estimatedKwp(p) - mid) }
   })
   withDistance.sort((a, b) => a.distance - b.distance)
   return withDistance[0].pkg
@@ -279,14 +285,11 @@ export default function StepResults() {
           store.selectedPackageId &&
           data.some(p => p.id === store.selectedPackageId)
         if (data.length > 0 && !hasValidSelection) {
-          applyPackageToStore(store.setSelectedPackage, data[0])
-          const realKwp = useSolarAboCalculatorStore
+          const usableArea = useSolarAboCalculatorStore
             .getState()
-            .getSystemSizeKwp()
-          const recommended = pickRecommendedPackage(data, realKwp) || data[0]
-          if (recommended.id !== data[0].id) {
-            applyPackageToStore(store.setSelectedPackage, recommended)
-          }
+            .getUsableRoofAreaM2()
+          const recommended = pickRecommendedPackage(data, usableArea) || data[0]
+          applyPackageToStore(store.setSelectedPackage, recommended)
         }
       })
       .catch(() => {})
@@ -304,9 +307,20 @@ export default function StepResults() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    void store.syncCalculation()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    store.createdProjectId,
+    store.selectedPackageId,
+    store.feedInTariffRate,
+    store.electricityPriceChfKwh,
+  ])
+
   const selectedPkg = packages.find(p => p.id === store.selectedPackageId)
   const equipmentWithNames = selectedPkg?.equipment.filter(e => e.name) || []
-  const recommendedPkg = pickRecommendedPackage(packages, systemSizeKwp)
+  const usableRoofAreaM2 = store.getUsableRoofAreaM2()
+  const recommendedPkg = pickRecommendedPackage(packages, usableRoofAreaM2)
   const orderedPackages = recommendedPkg
     ? [recommendedPkg, ...packages.filter(p => p.id !== recommendedPkg.id)]
     : packages
@@ -581,16 +595,14 @@ export default function StepResults() {
               title={tPackageSelector('sectionTitle')}
               subtitle={tPackageSelector('sectionSubtitle')}
             />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3 pt-4">
               {orderedPackages.map(pkg => (
-                <PackageCard
+                <CompactPackageCard
                   key={pkg.id}
                   pkg={pkg}
                   model="solar-free"
-                  locale={locale}
                   isSelected={pkg.id === store.selectedPackageId}
                   isRecommended={pkg.id === recommendedPkg?.id}
-                  recommendedLabel={tPackageSelector('recommended')}
                   onSelect={() => {
                     store.clearEvCharger()
                     applyPackageToStore(store.setSelectedPackage, pkg)

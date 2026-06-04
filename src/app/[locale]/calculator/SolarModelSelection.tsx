@@ -56,6 +56,17 @@ const cards: {
       'w-[86px] h-[124px] -top-2 sm:-top-9 sm:w-[198px] sm:h-[170px] hidden md:block',
   },
   {
+    model: 'solar-abo',
+    tagKey: 'solarAboPlan.tag',
+    titleKey: 'solarAboPlan.title',
+    bullets: ['solarAboPlan.bullet1', 'solarAboPlan.bullet2'],
+    image: '/images/solar-direct.png',
+    hasGlow: false,
+    bgColor: '#EEF2E9',
+    imageClassName:
+      'w-[92px] h-[134px] -top-4 sm:-top-12 sm:w-[212px] sm:h-[185px] hidden md:block',
+  },
+  {
     model: 'solar-direct',
     tagKey: 'solarDirect.tag',
     titleKey: 'solarDirect.title',
@@ -84,7 +95,8 @@ export default function SolarModelSelection() {
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-8 sm:gap-5 w-full max-w-[830px] pt-5">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-5 w-full max-w-[1100px] pt-5">
+
         {cards.map(card => (
           <button
             key={card.model}
@@ -97,7 +109,7 @@ export default function SolarModelSelection() {
             aria-disabled={card.disabled}
             title={card.disabled ? tCommon('comingSoon') : undefined}
             className={cn(
-              'group relative flex-1 min-h-[172px] overflow-visible rounded-[11px] border border-[#546963]/50 px-4 pb-4 pt-3 text-left transition-all duration-300 ease-out sm:h-[156px] sm:min-h-0 sm:p-0',
+              'group relative flex-1 overflow-visible rounded-[11px] border border-[#546963]/50 p-4 sm:p-[18px] text-left transition-all duration-300 ease-out',
               card.disabled
                 ? 'cursor-not-allowed opacity-60 grayscale-25'
                 : 'hover:scale-[1.03] hover:border-[#062E25] hover:shadow-lg'
@@ -114,7 +126,7 @@ export default function SolarModelSelection() {
               />
             )}
 
-            <div className="absolute top-0 left-4 z-10 -translate-y-1/2 sm:left-[18px] flex items-center gap-2">
+            <div className="absolute top-0 left-4 sm:left-[18px] z-10 -translate-y-1/2 flex items-center gap-2">
               <span className="inline-block rounded-full bg-[#B7FE1A] px-3 py-1 text-sm font-light text-[#062E25] tracking-tight backdrop-blur-[65px] sm:px-4 sm:py-[6px] sm:text-[16px]">
                 {t(card.tagKey)}
               </span>
@@ -125,38 +137,34 @@ export default function SolarModelSelection() {
               )}
             </div>
 
-            <div className="relative z-10 mt-3 mr-[84px] overflow-hidden sm:absolute sm:left-[18px] sm:right-[196px] sm:top-[60px] sm:mt-0 sm:mr-0">
-              <h2 className="text-[17px] sm:text-[22px] font-medium text-[#062E25] leading-tight">
-                {t(card.titleKey)}
-              </h2>
-            </div>
-
-            <div className="relative z-10 mt-[10px] mr-[84px] flex flex-col gap-[4px] sm:absolute sm:left-[18px] sm:right-[196px] sm:top-[93px] sm:mt-0 sm:mr-0 sm:gap-[6px]">
-              {card.bullets.map(bulletKey => (
-                <div key={bulletKey} className="flex items-center gap-1">
-                  <span className="shrink-0">
-                    <CheckIcon />
-                  </span>
-                  <span className="text-sm font-light text-[#062E25]/80 tracking-tight">
-                    {t(bulletKey)}
-                  </span>
+            <div className="relative z-10 flex items-start gap-3 pt-2">
+              <div className="flex min-w-0 flex-1 flex-col gap-2.5">
+                <h2 className="text-[17px] sm:text-[22px] font-medium text-[#062E25]">
+                  {t(card.titleKey)}
+                </h2>
+                <div className="flex flex-col gap-1.5">
+                  {card.bullets.map(bulletKey => (
+                    <div key={bulletKey} className="flex items-center gap-1.5">
+                      <span className="shrink-0">
+                        <CheckIcon />
+                      </span>
+                      <span className="whitespace-nowrap text-sm font-light text-[#062E25]/80 tracking-tight">
+                        {t(bulletKey)}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
 
-            <div
-              className={cn(
-                'absolute right-0 z-0 pointer-events-none',
-                card.imageClassName
-              )}
-            >
-              <Image
-                src={card.image}
-                alt={t(card.titleKey)}
-                fill
-                className="object-contain object-top-right"
-                unoptimized
-              />
+              <div className="relative hidden md:block shrink-0 w-[68px] h-[60px] lg:w-[84px] lg:h-[74px]">
+                <Image
+                  src={card.image}
+                  alt={t(card.titleKey)}
+                  fill
+                  className="object-contain object-top"
+                  unoptimized
+                />
+              </div>
             </div>
           </button>
         ))}
@@ -169,6 +177,13 @@ export default function SolarModelSelection() {
           className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
         >
           {t('learnMoreSolarAbo')}
+        </Link>
+        {`, `}
+        <Link
+          href="/solar-abo"
+          className="underline underline-offset-2 hover:text-[#062E25] transition-colors"
+        >
+          {t('learnMoreSolarAboPlan')}
         </Link>
         {` ${t('learnMoreConnector')} `}
         <Link
