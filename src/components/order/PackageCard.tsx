@@ -17,7 +17,10 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
-import { ABO_TERM_MONTHS, ABO_UPLIFT_FACTOR } from '@/stores/solar-abo-calculator.store'
+import {
+  ABO_TERM_MONTHS,
+  ABO_UPLIFT_FACTOR,
+} from '@/stores/solar-abo-calculator.store'
 import WarrrentyIcon from '../icons/WarrrentyIcon'
 import ChceckIcon from '../icons/ChceckIcon'
 import { Button } from '../ui/button'
@@ -49,7 +52,12 @@ function getSystemSpecs(pkg: CalculatorPackage) {
   const panel = pkg.equipment.find(e => e.equipmentType === 'SOLAR_PANEL')
   const peakKwp = ((panel?.quantity ?? 0) * (panel?.panelWattageW ?? 0)) / 1000
   const annualKwh = Math.round(peakKwp * SWISS_AVG_YIELD_KWH_PER_KWP)
-  return { minKwp: peakKwp, maxKwp: peakKwp, minKwh: annualKwh, maxKwh: annualKwh }
+  return {
+    minKwp: peakKwp,
+    maxKwp: peakKwp,
+    minKwh: annualKwh,
+    maxKwh: annualKwh,
+  }
 }
 
 function fmtKwpRange(min: number, max: number): string {
@@ -136,7 +144,9 @@ export default function PackageCard(props: {
   const fromPrice = getFromPriceChf(pkg)
   const isAbo = model === 'solar-abo'
   const aboMonthlyChf =
-    fromPrice != null ? Math.round((fromPrice * ABO_UPLIFT_FACTOR) / ABO_TERM_MONTHS) : null
+    fromPrice != null
+      ? Math.round((fromPrice * ABO_UPLIFT_FACTOR) / ABO_TERM_MONTHS)
+      : null
 
   return (
     <div
@@ -172,155 +182,215 @@ export default function PackageCard(props: {
         } ${isSelected ? 'ring-2 ring-[#062E25]' : ''}`}
         style={{ borderColor: 'rgba(6, 46, 37, 0.18)' }}
       >
-      <section className="px-6 pt-6 pb-6 bg-white">
-        <div
-          className={`mb-5 flex items-center gap-3 ${
-            brandLogo ? 'justify-between' : 'justify-end'
-          }`}
-        >
-          {brandLogo && (
-            <Image
-              src={brandLogo}
-              alt={brand ?? ''}
-              width={120}
-              height={28}
-              className="h-7 w-auto object-contain"
-            />
-          )}
-          <SwissBadge
-            line1={t('hero.swissBadgeLine1')}
-            line2={t('hero.swissBadgeLine2')}
-          />
-        </div>
-
-        <div className="flex items-center gap-2">
-          <span
-            className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold text-[#062E25]"
-            style={{
-              background:
-                'linear-gradient(135deg, rgba(183, 254, 26, 1) 0%, rgba(127, 177, 16, 1) 100%)',
-            }}
-          >
-            {tag}
-          </span>
-          <span className="text-[10px] font-semibold uppercase tracking-wider text-[#036B53]">
-            {t('details.label')}
-          </span>
-        </div>
-        <h3 className="mt-3 text-2xl font-bold leading-none text-[#062E25]">
-          {brand ?? pkg.name}
-        </h3>
-        <p className="mt-2 text-[13px] italic font-light text-[#062E25]/80">
-          {brandTagline}
-        </p>
-
-        {minKwp > 0 && (
+        <section className="px-6 pt-6 pb-6 bg-white">
           <div
-            className="mt-4 grid grid-cols-2 gap-3 rounded-[12px] border px-4 py-3"
-            style={{
-              borderColor: 'rgba(3, 107, 83, 0.2)',
-              backgroundColor: 'rgba(242, 244, 232, 0.6)',
-            }}
+            className={`mb-5 flex items-center gap-3 ${
+              brandLogo ? 'justify-between' : 'justify-end'
+            }`}
           >
-            <div>
-              <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
-                {t('capacity')}
-              </div>
-              <div className="text-[18px] font-extrabold text-[#062E25]">
-                {fmtKwpRange(minKwp, maxKwp)}{' '}
-                <span className="text-[12px] font-bold">{t('kwpUnit')}</span>
-              </div>
-            </div>
-            <div>
-              <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
-                {t('annualProduction')}
-              </div>
-              <div className="text-[18px] font-extrabold text-[#062E25]">
-                {fmtKwhRange(minKwh, maxKwh)}{' '}
-                <span className="text-[12px] font-bold">
-                  {t('kwhPerYearUnit')}
-                </span>
-              </div>
-            </div>
-          </div>
-        )}
-
-        <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_minmax(180px,210px)]">
-          <ul className="space-y-3">
-            {!isFree &&
-              pkg.equipment
-                .filter(item => item.name)
-                .map(item => {
-                  const Icon = EQUIPMENT_TYPE_ICONS[item.equipmentType] ?? Cpu
-                  return (
-                    <li
-                      key={`${item.equipmentType}:${item.name}`}
-                      className="flex items-start gap-3"
-                    >
-                      <span
-                        className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
-                        style={{ backgroundColor: 'rgba(3, 107, 83, 0.1)' }}
-                      >
-                        <Icon className="h-4 w-4 text-[#036B53]" />
-                      </span>
-                      <div>
-                        <div className="text-[13px] font-bold text-[#062E25]">
-                          {item.quantity > 1 ? `${item.quantity}× ` : ''}
-                          {item.name}
-                        </div>
-                      </div>
-                    </li>
-                  )
-                })}
-            {STATIC_EXTRAS.map(({ key, icon: Icon }) => (
-              <li key={key} className="flex items-start gap-3">
-                <span
-                  className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
-                  style={{ backgroundColor: 'rgba(3, 107, 83, 0.1)' }}
-                >
-                  <Icon className="h-4 w-4 text-[#036B53]" />
-                </span>
-                <div>
-                  <div className="text-[13px] font-bold text-[#062E25]">
-                    {t(
-                      `equipment.${key}.name` as `equipment.${'quality' | 'app' | 'service'}.name`
-                    )}
-                  </div>
-                  <div className="text-[11px] text-[#062E25]/70">
-                    {t(
-                      `equipment.${key}.desc` as `equipment.${'quality' | 'app' | 'service'}.desc`
-                    )}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex flex-col gap-1">
-            {heroImage && (
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px]">
-                <Image
-                  src={heroImage}
-                  alt={pkg.name}
-                  fill
-                  sizes="200px"
-                  className="object-contain"
-                />
-              </div>
+            {brandLogo && (
+              <Image
+                src={brandLogo}
+                alt={brand ?? ''}
+                width={120}
+                height={28}
+                className="w-[120px] h-auto object-contain"
+              />
             )}
+            <SwissBadge
+              line1={t('hero.swissBadgeLine1')}
+              line2={t('hero.swissBadgeLine2')}
+            />
+          </div>
 
-            <div
-              className="rounded-[14px] border p-4"
+          <div className="flex items-center gap-2">
+            <span
+              className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold text-[#062E25]"
               style={{
-                borderColor: 'rgba(3, 107, 83, 0.4)',
                 background:
-                  'linear-gradient(180deg, rgba(242, 244, 232, 1) 66%, rgba(220, 233, 230, 1) 100%)',
+                  'linear-gradient(135deg, rgba(183, 254, 26, 1) 0%, rgba(127, 177, 16, 1) 100%)',
               }}
             >
-              <div className="flex">
-                {isFree ? (
-                  <>
-                    <div className="w-fit min-w-[70px]">
+              {tag}
+            </span>
+            <span className="text-[10px] font-semibold uppercase tracking-wider text-[#036B53]">
+              {t('details.label')}
+            </span>
+          </div>
+          <h3 className="mt-3 text-2xl font-bold leading-none text-[#062E25]">
+            {brand ?? pkg.name}
+          </h3>
+          <p className="mt-2 text-[13px] italic font-light text-[#062E25]/80">
+            {brandTagline}
+          </p>
+
+          {minKwp > 0 && (
+            <div
+              className="mt-4 grid grid-cols-2 gap-3 rounded-[12px] border px-4 py-3"
+              style={{
+                borderColor: 'rgba(3, 107, 83, 0.2)',
+                backgroundColor: 'rgba(242, 244, 232, 0.6)',
+              }}
+            >
+              <div>
+                <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                  {t('capacity')}
+                </div>
+                <div className="text-[18px] font-extrabold text-[#062E25]">
+                  {fmtKwpRange(minKwp, maxKwp)}{' '}
+                  <span className="text-[12px] font-bold">{t('kwpUnit')}</span>
+                </div>
+              </div>
+              <div>
+                <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                  {t('annualProduction')}
+                </div>
+                <div className="text-[18px] font-extrabold text-[#062E25]">
+                  {fmtKwhRange(minKwh, maxKwh)}{' '}
+                  <span className="text-[12px] font-bold">
+                    {t('kwhPerYearUnit')}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-5 grid gap-5 lg:grid-cols-[1fr_minmax(180px,210px)]">
+            <ul className="space-y-3">
+              {!isFree &&
+                pkg.equipment
+                  .filter(item => item.name)
+                  .map(item => {
+                    const Icon = EQUIPMENT_TYPE_ICONS[item.equipmentType] ?? Cpu
+                    return (
+                      <li
+                        key={`${item.equipmentType}:${item.name}`}
+                        className="flex items-start gap-3"
+                      >
+                        <span
+                          className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
+                          style={{ backgroundColor: 'rgba(3, 107, 83, 0.1)' }}
+                        >
+                          <Icon className="h-4 w-4 text-[#036B53]" />
+                        </span>
+                        <div>
+                          <div className="text-[13px] font-bold text-[#062E25]">
+                            {item.quantity > 1 ? `${item.quantity}× ` : ''}
+                            {item.name}
+                          </div>
+                        </div>
+                      </li>
+                    )
+                  })}
+              {STATIC_EXTRAS.map(({ key, icon: Icon }) => (
+                <li key={key} className="flex items-start gap-3">
+                  <span
+                    className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
+                    style={{ backgroundColor: 'rgba(3, 107, 83, 0.1)' }}
+                  >
+                    <Icon className="h-4 w-4 text-[#036B53]" />
+                  </span>
+                  <div>
+                    <div className="text-[13px] font-bold text-[#062E25]">
+                      {t(
+                        `equipment.${key}.name` as `equipment.${'quality' | 'app' | 'service'}.name`
+                      )}
+                    </div>
+                    <div className="text-[11px] text-[#062E25]/70">
+                      {t(
+                        `equipment.${key}.desc` as `equipment.${'quality' | 'app' | 'service'}.desc`
+                      )}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col gap-1">
+              {heroImage && (
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px]">
+                  <Image
+                    src={heroImage}
+                    alt={pkg.name}
+                    fill
+                    sizes="200px"
+                    className="object-contain"
+                  />
+                </div>
+              )}
+
+              <div
+                className="rounded-[14px] border p-4"
+                style={{
+                  borderColor: 'rgba(3, 107, 83, 0.4)',
+                  background:
+                    'linear-gradient(180deg, rgba(242, 244, 232, 1) 66%, rgba(220, 233, 230, 1) 100%)',
+                }}
+              >
+                <div className="flex">
+                  {isFree ? (
+                    <>
+                      <div className="w-fit min-w-[70px]">
+                        <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                          {t('priceLabels.from')}
+                        </div>
+                        <div className="flex items-baseline gap-1">
+                          <span
+                            className="text-[28px] font-extrabold leading-none text-[#062E25]"
+                            style={{
+                              fontFamily: 'Helvetica, Arial, sans-serif',
+                            }}
+                          >
+                            0
+                          </span>
+                          <span
+                            className="text-[12px] font-bold text-[#062E25]"
+                            style={{
+                              fontFamily: 'Helvetica, Arial, sans-serif',
+                            }}
+                          >
+                            CHF
+                          </span>
+                        </div>
+                        <span
+                          className="mt-1 inline-block rounded-full px-2 py-0.5 text-[9px] font-bold text-[#062E25]"
+                          style={{
+                            background:
+                              'linear-gradient(135deg, rgba(183, 254, 26, 1) 0%, rgba(127, 177, 16, 1) 100%)',
+                          }}
+                        >
+                          {t('priceLabels.solarFreePill')}
+                        </span>
+                      </div>
+                      <div className="border-l border-[#062E25]/10 pl-2 flex-1">
+                        <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                          {t('priceLabels.alternative')}
+                        </div>
+                        <div className="flex items-baseline gap-1">
+                          <span
+                            className="text-[20px] font-bold leading-none text-[#062E25]"
+                            style={{
+                              fontFamily: 'Helvetica, Arial, sans-serif',
+                            }}
+                          >
+                            {fmtChf(fromPrice)}
+                          </span>
+                          <span
+                            className="text-[10px] font-bold text-[#062E25]"
+                            style={{
+                              fontFamily: 'Helvetica, Arial, sans-serif',
+                            }}
+                          >
+                            CHF
+                          </span>
+                        </div>
+                        <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
+                          {t('priceLabels.exclVat')}
+                        </div>
+                      </div>
+                    </>
+                  ) : isAbo ? (
+                    <div className="col-span-2">
                       <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
                         {t('priceLabels.from')}
                       </div>
@@ -329,38 +399,33 @@ export default function PackageCard(props: {
                           className="text-[28px] font-extrabold leading-none text-[#062E25]"
                           style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                         >
-                          0
+                          {fmtChf(aboMonthlyChf)}
                         </span>
                         <span
                           className="text-[12px] font-bold text-[#062E25]"
                           style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                         >
-                          CHF
+                          CHF / Mt.
                         </span>
                       </div>
-                      <span
-                        className="mt-1 inline-block rounded-full px-2 py-0.5 text-[9px] font-bold text-[#062E25]"
-                        style={{
-                          background:
-                            'linear-gradient(135deg, rgba(183, 254, 26, 1) 0%, rgba(127, 177, 16, 1) 100%)',
-                        }}
-                      >
-                        {t('priceLabels.solarFreePill')}
-                      </span>
+                      <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
+                        {t('priceLabels.exclVat')}
+                      </div>
                     </div>
-                    <div className="border-l border-[#062E25]/10 pl-2 flex-1">
+                  ) : (
+                    <div className="col-span-2">
                       <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
-                        {t('priceLabels.alternative')}
+                        {t('priceLabels.from')}
                       </div>
                       <div className="flex items-baseline gap-1">
                         <span
-                          className="text-[20px] font-bold leading-none text-[#062E25]"
+                          className="text-[28px] font-extrabold leading-none text-[#062E25]"
                           style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                         >
                           {fmtChf(fromPrice)}
                         </span>
                         <span
-                          className="text-[10px] font-bold text-[#062E25]"
+                          className="text-[12px] font-bold text-[#062E25]"
                           style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                         >
                           CHF
@@ -370,84 +435,37 @@ export default function PackageCard(props: {
                         {t('priceLabels.exclVat')}
                       </div>
                     </div>
-                  </>
-                ) : isAbo ? (
-                  <div className="col-span-2">
-                    <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
-                      {t('priceLabels.from')}
-                    </div>
-                    <div className="flex items-baseline gap-1">
-                      <span
-                        className="text-[28px] font-extrabold leading-none text-[#062E25]"
-                        style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                      >
-                        {fmtChf(aboMonthlyChf)}
-                      </span>
-                      <span
-                        className="text-[12px] font-bold text-[#062E25]"
-                        style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                      >
-                        CHF / Mt.
-                      </span>
-                    </div>
-                    <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
-                      {t('priceLabels.exclVat')}
-                    </div>
-                  </div>
-                ) : (
-                  <div className="col-span-2">
-                    <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
-                      {t('priceLabels.from')}
-                    </div>
-                    <div className="flex items-baseline gap-1">
-                      <span
-                        className="text-[28px] font-extrabold leading-none text-[#062E25]"
-                        style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                      >
-                        {fmtChf(fromPrice)}
-                      </span>
-                      <span
-                        className="text-[12px] font-bold text-[#062E25]"
-                        style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                      >
-                        CHF
-                      </span>
-                    </div>
-                    <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
-                      {t('priceLabels.exclVat')}
-                    </div>
+                  )}
+                </div>
+
+                {isFree && (
+                  <div
+                    className="mt-3 flex items-center gap-1.5 rounded-md px-2 py-1.5 text-[11px] font-medium text-[#062E25]"
+                    style={{ backgroundColor: 'rgba(183, 254, 26, 0.4)' }}
+                  >
+                    <Zap className="h-3.5 w-3.5 text-[#036B53]" />
+                    <span>
+                      {t('priceLabels.electricityFrom', {
+                        rate: STROMPREIS_CHF_PER_KWH.toFixed(2),
+                      })}
+                    </span>
                   </div>
                 )}
+
+                <ul className="mt-3 space-y-1.5 text-[11px] text-[#062E25]/85">
+                  {([0, 1, 2, 3] as const).map(i => (
+                    <li key={i} className="flex items-start gap-2">
+                      <ChceckIcon />
+                      <span>{t(`selling.bullets.${i}` as const)}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {isFree && (
-                <div
-                  className="mt-3 flex items-center gap-1.5 rounded-md px-2 py-1.5 text-[11px] font-medium text-[#062E25]"
-                  style={{ backgroundColor: 'rgba(183, 254, 26, 0.4)' }}
-                >
-                  <Zap className="h-3.5 w-3.5 text-[#036B53]" />
-                  <span>
-                    {t('priceLabels.electricityFrom', {
-                      rate: STROMPREIS_CHF_PER_KWH.toFixed(2),
-                    })}
-                  </span>
-                </div>
-              )}
-
-              <ul className="mt-3 space-y-1.5 text-[11px] text-[#062E25]/85">
-                {([0, 1, 2, 3] as const).map(i => (
-                  <li key={i} className="flex items-start gap-2">
-                    <ChceckIcon />
-                    <span>{t(`selling.bullets.${i}` as const)}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="px-6 pb-6">
+        {/* <section className="px-6 pb-6">
         <div
           className="rounded-[20px] p-4"
           style={{ backgroundColor: '#F2F4E8' }}
@@ -481,20 +499,20 @@ export default function PackageCard(props: {
             />
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {!selectorMode && (
-        <div className="mt-auto px-6 pb-6">
-          <Button
-            variant="solar-gradient"
-            onClick={goOrder}
-            className="w-full uppercase"
-          >
-            {t('cta.orderFinal')}
-          </Button>
-        </div>
-      )}
-    </article>
+        {!selectorMode && (
+          <div className="mt-auto px-6 pb-6">
+            <Button
+              variant="solar-gradient"
+              onClick={goOrder}
+              className="w-full uppercase"
+            >
+              {t('cta.orderFinal')}
+            </Button>
+          </div>
+        )}
+      </article>
     </div>
   )
 }

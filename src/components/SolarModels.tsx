@@ -270,15 +270,6 @@ const SolarModels = async ({
               <div className="border-t border-[#1F433B]/20 my-1" />
 
               <div className="flex flex-col gap-2.5 my-4">
-                {!isCommercial && (
-                  <Image
-                    src="/images/swisscom-logo.png"
-                    alt="Swisscom"
-                    width={87}
-                    height={24}
-                    className="h-6 w-auto object-contain self-start"
-                  />
-                )}
                 <span className="text-sm font-bold text-foreground">
                   {t('solarAbo.advantagesTitle')}
                 </span>
@@ -356,15 +347,6 @@ const SolarModels = async ({
               <div className="border-t border-[#1F433B]/20 my-1" />
 
               <div className="flex flex-col gap-2.5 my-4">
-                {!isCommercial && (
-                  <Image
-                    src="/images/swisscom-logo.png"
-                    alt="Swisscom"
-                    width={87}
-                    height={24}
-                    className="h-6 w-auto object-contain self-start"
-                  />
-                )}
                 <span className="text-sm font-bold text-foreground">
                   {t('solarDirect.advantagesTitle')}
                 </span>
