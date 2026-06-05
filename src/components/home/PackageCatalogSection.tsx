@@ -1,6 +1,6 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
+import { useQueries } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
@@ -14,11 +14,14 @@ import PackageCard, {
   type SolarModelKey,
 } from '@/components/order/PackageCard'
 
-const MODEL_TO_FILTER: Record<SolarModelKey, 'SOLAR_FREE' | 'SOLAR_DIRECT'> = {
-  'solar-free': 'SOLAR_FREE',
-  'solar-direct': 'SOLAR_DIRECT',
-  'solar-abo': 'SOLAR_DIRECT',
-}
+const PACKAGE_FILTERS = ['SOLAR_FREE', 'SOLAR_DIRECT'] as const
+
+const MODEL_TO_FILTER: Record<SolarModelKey, (typeof PACKAGE_FILTERS)[number]> =
+  {
+    'solar-free': 'SOLAR_FREE',
+    'solar-direct': 'SOLAR_DIRECT',
+    'solar-abo': 'SOLAR_DIRECT',
+  }
 
 export default function PackageCatalogSection() {
   const t = useTranslations('packageCatalog')
@@ -29,21 +32,25 @@ export default function PackageCatalogSection() {
 
   const [model, setModel] = useState<SolarModelKey>('solar-free')
 
+  const results = useQueries({
+    queries: PACKAGE_FILTERS.map(filter => ({
+      queryKey: ['catalog-packages', filter, language],
+      queryFn: (): Promise<CalculatorPackage[]> =>
+        residentialCalculatorService.getPackages(language, filter),
+      staleTime: 60_000,
+    })),
+  })
+
   const {
     data: packages = [],
     isLoading,
     isError,
     refetch,
-  } = useQuery<CalculatorPackage[]>({
-    queryKey: ['catalog-packages', model, language],
-    queryFn: () =>
-      residentialCalculatorService.getPackages(language, MODEL_TO_FILTER[model]),
-    staleTime: 60_000,
-  })
+  } = results[PACKAGE_FILTERS.indexOf(MODEL_TO_FILTER[model])]
 
   return (
     <section className="py-12 sm:py-20 px-4">
-      <div className="container mx-auto max-w-[1080px]">
+      <div className="container mx-auto max-w-[1290px]">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-[36px] font-medium text-[#062E25]">
             {t('title')}
@@ -83,9 +90,14 @@ export default function PackageCatalogSection() {
           </p>
         )}
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="flex flex-wrap justify-center gap-6">
           {packages.map(p => (
-            <PackageCard key={p.id} pkg={p} model={model} locale={locale} />
+            <div
+              key={p.id}
+              className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+            >
+              <PackageCard pkg={p} model={model} locale={locale} />
+            </div>
           ))}
         </div>
       </div>
