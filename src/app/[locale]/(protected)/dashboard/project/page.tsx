@@ -41,6 +41,14 @@ export default function ProjectPage() {
 
   const project = projects[0]
   const sys = project.system
+  const statusLabel = t.has(`statuses.${project.status}`)
+    ? t(`statuses.${project.status}`)
+    : project.status
+  const signatureLabel = project.contract
+    ? t.has(`signatureStatuses.${project.contract.signatureStatus}`)
+      ? t(`signatureStatuses.${project.contract.signatureStatus}`)
+      : project.contract.signatureStatus
+    : t('noContract')
 
   return (
     <div className="max-w-5xl">
@@ -53,7 +61,7 @@ export default function ProjectPage() {
             <div>
               <p className="font-semibold text-[#062E25]">{project.address}</p>
               <p className="text-sm text-[#062E25]/60">
-                {t('package')}: {project.package} &middot; {t('status')}: {project.status}
+                {t('package')}: {project.package} &middot; {t('status')}: {statusLabel}
               </p>
             </div>
           </div>
@@ -119,9 +127,7 @@ export default function ProjectPage() {
                 </div>
                 <div>
                   <p className="text-[#062E25]/60">{t('contractStatus')}</p>
-                  <p className="font-medium text-[#062E25]">
-                    {project.contract ? project.contract.signatureStatus : t('noContract')}
-                  </p>
+                  <p className="font-medium text-[#062E25]">{signatureLabel}</p>
                 </div>
               </div>
             </CardContent>

@@ -102,7 +102,7 @@ export default function AdminDataRequestDetailPage() {
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-medium text-[#062E25]">{item.label}</h3>
                 <span className="text-sm text-[#062E25]/50 uppercase tracking-wide">
-                  {item.type.toLowerCase()}
+                  {t(`itemTypes.${item.type}`)}
                 </span>
               </div>
               {item.description && (

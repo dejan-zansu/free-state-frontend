@@ -133,7 +133,7 @@ export default function AdminLeadsPage() {
                         <StatusBadge status={lead.status} />
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]/60">
-                        {lead.source}
+                        {tl.has(lead.source) ? tl(lead.source) : lead.source}
                       </TableCell>
                       <TableCell className="text-sm">
                         {lead.assignedTo ? (

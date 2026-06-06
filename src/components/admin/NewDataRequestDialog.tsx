@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { format } from 'date-fns'
+import { useTranslations } from 'next-intl'
 import { CalendarIcon, ChevronDown, Plus, Trash2 } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
@@ -54,15 +54,16 @@ const emptyItem = (position: number): NewDataRequestItemInput => ({
   maxCount: 5,
 })
 
-const typeOptions: { value: DataRequestItemType; label: string }[] = [
-  { value: 'PHOTO', label: 'Photo' },
-  { value: 'DOCUMENT', label: 'Document' },
-  { value: 'TEXT', label: 'Text answer' },
-  { value: 'CONFIRMATION', label: 'Yes / No confirmation' },
+const typeValues: DataRequestItemType[] = [
+  'PHOTO',
+  'DOCUMENT',
+  'TEXT',
+  'CONFIRMATION',
 ]
 
 export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
   const qc = useQueryClient()
+  const t = useTranslations('admin.dataRequests')
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [dueDate, setDueDate] = useState<Date | undefined>(undefined)
@@ -90,7 +91,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
       reset()
     },
     onError: (err: unknown) => {
-      setError(err instanceof Error ? err.message : 'Request failed')
+      setError(err instanceof Error ? err.message : t('errorRequestFailed'))
     },
   })
 
@@ -114,11 +115,11 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
   const onSubmit = () => {
     setError(null)
     if (!title.trim()) {
-      setError('Title is required')
+      setError(t('errorTitleRequired'))
       return
     }
     if (items.some((it) => !it.label.trim())) {
-      setError('Every item needs a label')
+      setError(t('errorItemLabelRequired'))
       return
     }
     const input: NewDataRequestInput = {
@@ -140,23 +141,23 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold text-[#062E25]">
-            New data request
+            {t('dialogTitle')}
           </DialogTitle>
         </DialogHeader>
 
         <div className="space-y-5 py-2">
           <div className="space-y-1.5">
-            <Label htmlFor="dr-title">Title</Label>
+            <Label htmlFor="dr-title">{t('titleLabel')}</Label>
             <Input
               id="dr-title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="Site visit preparation"
+              placeholder={t('titlePlaceholder')}
             />
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="dr-desc">Description (optional)</Label>
+            <Label htmlFor="dr-desc">{t('descriptionOptional')}</Label>
             <Textarea
               id="dr-desc"
               value={description}
@@ -166,7 +167,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
           </div>
 
           <div className="space-y-1.5">
-            <Label>Due date (optional)</Label>
+            <Label>{t('dueDateOptional')}</Label>
             <Collapsible open={dueDateOpen} onOpenChange={setDueDateOpen}>
               <CollapsibleTrigger asChild>
                 <Button
@@ -178,7 +179,9 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {dueDate ? format(dueDate, 'PPP') : 'Pick a date'}
+                  {dueDate
+                    ? dueDate.toLocaleDateString('de-CH')
+                    : t('pickDate')}
                   <ChevronDown
                     className={cn(
                       'ml-auto h-4 w-4 transition-transform',
@@ -207,21 +210,21 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                 onClick={() => setDueDate(undefined)}
                 className="text-xs text-[#062E25]/60 hover:text-[#062E25] underline"
               >
-                Clear date
+                {t('clearDate')}
               </button>
             )}
           </div>
 
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <Label>Checklist items</Label>
+              <Label>{t('checklistItems')}</Label>
               <Button
                 type="button"
                 variant="outline"
                 size="sm"
                 onClick={addItem}
               >
-                <Plus className="h-4 w-4 mr-1" /> Add item
+                <Plus className="h-4 w-4 mr-1" /> {t('addItem')}
               </Button>
             </div>
 
@@ -247,9 +250,9 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            {typeOptions.map((o) => (
-                              <SelectItem key={o.value} value={o.value}>
-                                {o.label}
+                            {typeValues.map((v) => (
+                              <SelectItem key={v} value={v}>
+                                {t(`itemTypes.${v}`)}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -267,7 +270,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                             htmlFor={`req-${idx}`}
                             className="text-sm font-normal text-[#062E25]/70 cursor-pointer"
                           >
-                            Required
+                            {t('required')}
                           </Label>
                         </div>
 
@@ -285,14 +288,14 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                       </div>
 
                       <Input
-                        placeholder="Label (e.g. Photo of roof from street)"
+                        placeholder={t('itemLabelPlaceholder')}
                         value={item.label}
                         onChange={(e) =>
                           updateItem(idx, { label: e.target.value })
                         }
                       />
                       <Textarea
-                        placeholder="Description (optional)"
+                        placeholder={t('descriptionOptional')}
                         value={item.description ?? ''}
                         onChange={(e) =>
                           updateItem(idx, { description: e.target.value })
@@ -303,7 +306,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                       {needsCount && (
                         <div className="flex gap-3">
                           <div className="space-y-1.5">
-                            <Label className="text-xs">Min count</Label>
+                            <Label className="text-xs">{t('minCount')}</Label>
                             <Input
                               type="number"
                               min={0}
@@ -317,7 +320,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                             />
                           </div>
                           <div className="space-y-1.5">
-                            <Label className="text-xs">Max count</Label>
+                            <Label className="text-xs">{t('maxCount')}</Label>
                             <Input
                               type="number"
                               min={1}
@@ -346,10 +349,10 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
 
         <DialogFooter>
           <Button variant="outline" onClick={onClose}>
-            Cancel
+            {t('cancel')}
           </Button>
           <Button onClick={onSubmit} disabled={mutation.isPending}>
-            {mutation.isPending ? 'Sending…' : 'Send request'}
+            {mutation.isPending ? t('sending') : t('sendRequest')}
           </Button>
         </DialogFooter>
       </DialogContent>

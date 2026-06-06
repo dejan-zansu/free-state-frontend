@@ -13,6 +13,7 @@ import type { DashboardStats } from '@/types/admin'
 export default function AdminDashboardPage() {
   const t = useTranslations('admin.dashboard')
   const tc = useTranslations('admin.common')
+  const tl = useTranslations('admin.statusLabels')
 
   const { data: stats, isLoading } = useQuery<DashboardStats>({
     queryKey: ['admin', 'dashboard-stats'],
@@ -113,7 +114,7 @@ export default function AdminDashboardPage() {
               {Object.entries(stats.leads.byStatus).map(([status, count]) => (
                 <div key={status} className="flex items-center justify-between">
                   <span className="text-sm text-[#062E25]/60">
-                    {status.replace(/_/g, ' ')}
+                    {tl.has(status) ? tl(status) : status.replace(/_/g, ' ')}
                   </span>
                   <span className="text-sm font-medium text-[#062E25]">
                     {count}
@@ -137,7 +138,7 @@ export default function AdminDashboardPage() {
                     className="flex items-center justify-between"
                   >
                     <span className="text-sm text-[#062E25]/60">
-                      {status.replace(/_/g, ' ')}
+                      {tl.has(status) ? tl(status) : status.replace(/_/g, ' ')}
                     </span>
                     <span className="text-sm font-medium text-[#062E25]">
                       {count}

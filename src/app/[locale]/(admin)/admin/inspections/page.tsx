@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Card, CardContent } from '@/components/ui/card'
@@ -30,12 +31,12 @@ import {
 const ALL = '__all__'
 const PAGE_SIZE = 50
 
-const STATUS_LABEL: Record<InspectionStatus, string> = {
-  SCHEDULED: 'Geplant',
-  IN_PROGRESS: 'In Bearbeitung',
-  COMPLETED: 'Abgeschlossen',
-  CANCELLED: 'Storniert',
-}
+const STATUSES: InspectionStatus[] = [
+  'SCHEDULED',
+  'IN_PROGRESS',
+  'COMPLETED',
+  'CANCELLED',
+]
 
 const STATUS_COLOR: Record<InspectionStatus, string> = {
   SCHEDULED: 'bg-[#062E25]/10 text-[#062E25]',
@@ -54,6 +55,9 @@ function fmtDate(iso: string | null): string {
 }
 
 export default function AdminInspectionsPage() {
+  const t = useTranslations('admin.inspections')
+  const tl = useTranslations('admin.statusLabels')
+  const locale = useLocale()
   const [rows, setRows] = useState<AdminInspectionRow[]>([])
   const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
@@ -63,8 +67,8 @@ export default function AdminInspectionsPage() {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    const t = setTimeout(() => setSearch(searchInput), 300)
-    return () => clearTimeout(t)
+    const timer = setTimeout(() => setSearch(searchInput), 300)
+    return () => clearTimeout(timer)
   }, [searchInput])
 
   useEffect(() => {
@@ -102,18 +106,15 @@ export default function AdminInspectionsPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
-        Technische Besichtigungen
+        {t('title')}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">
-        Vor-Ort-Überprüfung der Dachsituation vor Vertragsabschluss. Die
-        verifizierten Werte bilden die Grundlage für das verbindliche Angebot.
-      </p>
+      <p className="text-base text-[#062E25]/60 mb-6">{t('subtitle')}</p>
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <Input
-              placeholder="Suche (Kunde, Adresse, E-Mail)…"
+              placeholder={t('searchPlaceholder')}
               className="max-w-sm"
               value={searchInput}
               onChange={e => setSearchInput(e.target.value)}
@@ -130,11 +131,12 @@ export default function AdminInspectionsPage() {
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value={ALL}>Alle Status</SelectItem>
-                <SelectItem value="SCHEDULED">Geplant</SelectItem>
-                <SelectItem value="IN_PROGRESS">In Bearbeitung</SelectItem>
-                <SelectItem value="COMPLETED">Abgeschlossen</SelectItem>
-                <SelectItem value="CANCELLED">Storniert</SelectItem>
+                <SelectItem value={ALL}>{t('allStatuses')}</SelectItem>
+                {STATUSES.map(s => (
+                  <SelectItem key={s} value={s}>
+                    {tl(s)}
+                  </SelectItem>
+                ))}
               </SelectContent>
             </Select>
           </div>
@@ -142,12 +144,14 @@ export default function AdminInspectionsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Termin</TableHead>
-                <TableHead>Kunde</TableHead>
-                <TableHead>Adresse</TableHead>
-                <TableHead className="text-right">Vorläufige kWp</TableHead>
-                <TableHead>Inspektor</TableHead>
-                <TableHead>Status</TableHead>
+                <TableHead>{t('tableDate')}</TableHead>
+                <TableHead>{t('tableCustomer')}</TableHead>
+                <TableHead>{t('tableAddress')}</TableHead>
+                <TableHead className="text-right">
+                  {t('tablePreliminaryKwp')}
+                </TableHead>
+                <TableHead>{t('tableInspector')}</TableHead>
+                <TableHead>{t('tableStatus')}</TableHead>
                 <TableHead></TableHead>
               </TableRow>
             </TableHeader>
@@ -175,15 +179,15 @@ export default function AdminInspectionsPage() {
                       <span
                         className={`inline-flex items-center rounded-full text-sm px-2 py-0.5 ${STATUS_COLOR[r.status]}`}
                       >
-                        {STATUS_LABEL[r.status]}
+                        {tl(r.status)}
                       </span>
                     </TableCell>
                     <TableCell>
                       <Link
-                        href={`/de/admin/inspections/${r.id}`}
+                        href={`/${locale}/admin/inspections/${r.id}`}
                         className="text-sm text-[#062E25] underline underline-offset-4"
                       >
-                        Öffnen
+                        {t('open')}
                       </Link>
                     </TableCell>
                   </TableRow>
@@ -195,7 +199,7 @@ export default function AdminInspectionsPage() {
                     colSpan={7}
                     className="text-center text-[#062E25]/50 py-8"
                   >
-                    Keine Besichtigungen
+                    {t('empty')}
                   </TableCell>
                 </TableRow>
               )}
@@ -204,9 +208,7 @@ export default function AdminInspectionsPage() {
 
           {totalPages > 1 && (
             <div className="mt-4 flex items-center justify-between text-sm text-[#062E25]/60">
-              <span>
-                Seite {page} von {totalPages} ({total} Einträge)
-              </span>
+              <span>{t('pagination', { page, totalPages, total })}</span>
               <div className="flex gap-2">
                 <button
                   type="button"
@@ -214,7 +216,7 @@ export default function AdminInspectionsPage() {
                   disabled={page <= 1}
                   className="px-3 py-1 rounded border border-[#062E25]/20 disabled:opacity-30"
                 >
-                  Zurück
+                  {t('prev')}
                 </button>
                 <button
                   type="button"
@@ -222,7 +224,7 @@ export default function AdminInspectionsPage() {
                   disabled={page >= totalPages}
                   className="px-3 py-1 rounded border border-[#062E25]/20 disabled:opacity-30"
                 >
-                  Weiter
+                  {t('next')}
                 </button>
               </div>
             </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 import { Plus } from 'lucide-react'
 import { useState } from 'react'
@@ -20,6 +20,7 @@ interface Props {
 
 export function DataRequestsCard({ contractId, canCreate }: Props) {
   const locale = useLocale()
+  const t = useTranslations('admin.dataRequests')
   const [dialogOpen, setDialogOpen] = useState(false)
 
   const { data: requests = [], isLoading } = useQuery<DataRequest[]>({
@@ -31,26 +32,26 @@ export function DataRequestsCard({ contractId, canCreate }: Props) {
     <Card className="border-[#062E25]/10 lg:col-span-2">
       <CardContent className="p-6">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-[#062E25]">Data requests</h2>
+          <h2 className="text-lg font-semibold text-[#062E25]">{t('cardTitle')}</h2>
           {canCreate && (
             <Button size="sm" onClick={() => setDialogOpen(true)}>
-              <Plus className="h-4 w-4 mr-1" /> New request
+              <Plus className="h-4 w-4 mr-1" /> {t('newRequest')}
             </Button>
           )}
         </div>
 
         {!canCreate && (
           <p className="text-sm text-[#062E25]/60">
-            Data requests become available after the contract is signed.
+            {t('availableAfterSigned')}
           </p>
         )}
 
         {canCreate && isLoading && (
-          <p className="text-sm text-[#062E25]/60">Loading…</p>
+          <p className="text-sm text-[#062E25]/60">{t('loading')}</p>
         )}
 
         {canCreate && !isLoading && requests.length === 0 && (
-          <p className="text-sm text-[#062E25]/60">No requests yet.</p>
+          <p className="text-sm text-[#062E25]/60">{t('noRequests')}</p>
         )}
 
         {canCreate && requests.length > 0 && (
@@ -65,9 +66,10 @@ export function DataRequestsCard({ contractId, canCreate }: Props) {
                   <span className="text-sm font-medium text-[#062E25]">{r.title}</span>
                   <span className="text-sm text-[#062E25]/50">
                     {new Date(r.createdAt).toLocaleDateString('de-CH')}
-                    {r.dueDate && ` · due ${new Date(r.dueDate).toLocaleDateString('de-CH')}`}
+                    {r.dueDate &&
+                      ` · ${t('dueShort', { date: new Date(r.dueDate).toLocaleDateString('de-CH') })}`}
                     {r.submittedAt &&
-                      ` · submitted ${new Date(r.submittedAt).toLocaleDateString('de-CH')}`}
+                      ` · ${t('submittedShort', { date: new Date(r.submittedAt).toLocaleDateString('de-CH') })}`}
                   </span>
                 </div>
                 <StatusBadge status={r.status} />

@@ -423,7 +423,9 @@ export default function AdminLeadDetailPage() {
               </div>
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('source')}</label>
-                <p className="font-medium text-[#062E25]">{lead.source}</p>
+                <p className="font-medium text-[#062E25]">
+                  {tl.has(lead.source) ? tl(lead.source) : lead.source}
+                </p>
               </div>
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('interestedPackage')}</label>
@@ -557,7 +559,9 @@ export default function AdminLeadDetailPage() {
                         {t('projectStatus')}
                       </label>
                       <p className="font-medium text-[#062E25]">
-                        {project.status}
+                        {tl.has(project.status)
+                          ? tl(project.status)
+                          : project.status.replace(/_/g, ' ')}
                       </p>
                     </div>
                   </>

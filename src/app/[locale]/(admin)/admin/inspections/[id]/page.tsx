@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { Loader2, CheckCircle2, XCircle } from 'lucide-react'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
@@ -13,15 +14,7 @@ import { Input } from '@/components/ui/input'
 import {
   adminInspectionsService,
   type AdminInspectionDetail,
-  type InspectionStatus,
 } from '@/services/admin-technical-inspections.service'
-
-const STATUS_LABEL: Record<InspectionStatus, string> = {
-  SCHEDULED: 'Geplant',
-  IN_PROGRESS: 'In Bearbeitung',
-  COMPLETED: 'Abgeschlossen',
-  CANCELLED: 'Storniert',
-}
 
 function num(v: string): number | null {
   const n = Number(v.replace(',', '.'))
@@ -41,6 +34,9 @@ function toDateInputValue(iso: string | null): string {
 }
 
 export default function AdminInspectionDetailPage() {
+  const t = useTranslations('admin.inspections')
+  const tl = useTranslations('admin.statusLabels')
+  const locale = useLocale()
   const params = useParams<{ id: string }>()
   const id = params.id
 
@@ -95,10 +91,10 @@ export default function AdminInspectionDetailPage() {
       })
       .catch(err => {
         console.error(err)
-        setError('Besichtigung konnte nicht geladen werden.')
+        setError(t('loadFailed'))
       })
       .finally(() => setLoading(false))
-  }, [id])
+  }, [id, t])
 
   if (loading || !inspection) return <AdminPageLoader />
 
@@ -132,7 +128,7 @@ export default function AdminInspectionDetailPage() {
       const updated = await adminInspectionsService.update(id, buildPayload())
       setInspection(prev => (prev ? { ...prev, ...updated } : prev))
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Speichern fehlgeschlagen')
+      setError(e instanceof Error ? e.message : t('saveFailed'))
     } finally {
       setSaving(false)
     }
@@ -143,11 +139,11 @@ export default function AdminInspectionDetailPage() {
     const kwpNum = num(kwp)
     const prodNum = num(production)
     if (!kwpNum || kwpNum <= 0) {
-      setError('Verifizierte Systemgrösse (kWp) ist erforderlich.')
+      setError(t('kwpRequired'))
       return
     }
     if (!prodNum || prodNum <= 0) {
-      setError('Verifizierter Jahresertrag (kWh) ist erforderlich.')
+      setError(t('productionRequired'))
       return
     }
 
@@ -166,14 +162,14 @@ export default function AdminInspectionDetailPage() {
       })
       setInspection(prev => (prev ? { ...prev, ...updated } : prev))
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Abschluss fehlgeschlagen')
+      setError(e instanceof Error ? e.message : t('completeFailed'))
     } finally {
       setCompleting(false)
     }
   }
 
   const cancelInspection = async () => {
-    const reason = window.prompt('Grund für die Stornierung:')
+    const reason = window.prompt(t('cancelReasonPrompt'))
     if (!reason || !reason.trim()) return
     setCancelling(true)
     setError(null)
@@ -181,7 +177,7 @@ export default function AdminInspectionDetailPage() {
       const updated = await adminInspectionsService.cancel(id, reason.trim())
       setInspection(prev => (prev ? { ...prev, ...updated } : prev))
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Stornierung fehlgeschlagen')
+      setError(e instanceof Error ? e.message : t('cancelFailed'))
     } finally {
       setCancelling(false)
     }
@@ -191,19 +187,19 @@ export default function AdminInspectionDetailPage() {
     <div>
       <div className="mb-4">
         <Link
-          href="/de/admin/inspections"
+          href={`/${locale}/admin/inspections`}
           className="text-sm text-[#062E25]/60 hover:text-[#062E25] underline underline-offset-4"
         >
-          ← Zurück zur Liste
+          ← {t('backToList')}
         </Link>
       </div>
 
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
-        Besichtigung · {user.firstName} {user.lastName}
+        {t('inspection')} · {user.firstName} {user.lastName}
       </h1>
       <p className="text-base text-[#062E25]/60 mb-6">
-        {inspection.lead.propertyAddress} · Status:{' '}
-        <strong>{STATUS_LABEL[inspection.status]}</strong>
+        {inspection.lead.propertyAddress} · {t('status')}:{' '}
+        <strong>{tl(inspection.status)}</strong>
       </p>
 
       {error && (
@@ -216,25 +212,25 @@ export default function AdminInspectionDetailPage() {
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
             <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-3">
-              Vorläufige Werte (aus Rechner)
+              {t('preliminaryValues')}
             </p>
             <dl className="grid grid-cols-2 gap-y-2 text-sm">
-              <dt className="text-[#062E25]/60">System (kWp)</dt>
+              <dt className="text-[#062E25]/60">{t('systemKwp')}</dt>
               <dd className="tabular-nums text-right">
                 {prelimKwp != null ? Number(prelimKwp).toFixed(2) : '—'}
               </dd>
-              <dt className="text-[#062E25]/60">Jahresertrag (kWh)</dt>
+              <dt className="text-[#062E25]/60">{t('annualProduction')}</dt>
               <dd className="tabular-nums text-right">
                 {prelimProd != null ? Number(prelimProd).toFixed(0) : '—'}
               </dd>
-              <dt className="text-[#062E25]/60">Jahresverbrauch (kWh)</dt>
+              <dt className="text-[#062E25]/60">{t('annualConsumption')}</dt>
               <dd className="tabular-nums text-right">
                 {prelimCons != null ? Number(prelimCons).toFixed(0) : '—'}
               </dd>
             </dl>
             <div className="mt-4 pt-4 border-t border-[#062E25]/10">
               <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
-                Kontakt
+                {t('contact')}
               </p>
               <p className="text-sm text-[#062E25]">
                 <strong>{user.firstName} {user.lastName}</strong>
@@ -250,12 +246,12 @@ export default function AdminInspectionDetailPage() {
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
             <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-3">
-              Termin & Inspektor
+              {t('appointmentInspector')}
             </p>
             <div className="space-y-3">
               <div>
                 <label className="text-sm text-[#062E25]/60 block mb-1">
-                  Geplantes Datum / Uhrzeit
+                  {t('scheduledDateTime')}
                 </label>
                 <Input
                   type="datetime-local"
@@ -266,7 +262,7 @@ export default function AdminInspectionDetailPage() {
               </div>
               {inspection.inspector && (
                 <div>
-                  <p className="text-sm text-[#062E25]/60">Inspektor</p>
+                  <p className="text-sm text-[#062E25]/60">{t('inspector')}</p>
                   <p className="text-sm text-[#062E25]">
                     {inspection.inspector.firstName}{' '}
                     {inspection.inspector.lastName}
@@ -275,15 +271,15 @@ export default function AdminInspectionDetailPage() {
               )}
               {inspection.completedAt && (
                 <p className="text-sm text-[#062E25]/60">
-                  Abgeschlossen am {fmtDate(inspection.completedAt)}
+                  {t('completedOn', { date: fmtDate(inspection.completedAt) })}
                 </p>
               )}
               {inspection.cancelledAt && (
                 <div className="rounded bg-red-50 text-red-800 text-sm px-3 py-2">
-                  Storniert am {fmtDate(inspection.cancelledAt)}
+                  {t('cancelledOn', { date: fmtDate(inspection.cancelledAt) })}
                   {inspection.cancellationReason && (
                     <p className="mt-1">
-                      Grund: {inspection.cancellationReason}
+                      {t('reason', { reason: inspection.cancellationReason })}
                     </p>
                   )}
                 </div>
@@ -296,12 +292,12 @@ export default function AdminInspectionDetailPage() {
       <Card className="border-[#062E25]/10 mt-4">
         <CardContent className="p-6">
           <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-4">
-            Verifizierte Werte
+            {t('verifiedValues')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                System (kWp) *
+                {t('systemKwp')} *
               </label>
               <Input
                 type="number"
@@ -313,7 +309,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Jahresertrag (kWh) *
+                {t('annualProduction')} *
               </label>
               <Input
                 type="number"
@@ -324,7 +320,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Jahresverbrauch (kWh) — aus Stromrechnung
+                {t('annualConsumptionFromBill')}
               </label>
               <Input
                 type="number"
@@ -335,7 +331,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Anzahl Module
+                {t('panelCount')}
               </label>
               <Input
                 type="number"
@@ -351,12 +347,12 @@ export default function AdminInspectionDetailPage() {
       <Card className="border-[#062E25]/10 mt-4">
         <CardContent className="p-6">
           <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-4">
-            Beobachtungen
+            {t('observations')}
           </p>
           <div className="space-y-4">
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Verschattung
+                {t('shading')}
               </label>
               <textarea
                 rows={2}
@@ -368,7 +364,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Zugang / Montagezugänglichkeit
+                {t('access')}
               </label>
               <textarea
                 rows={2}
@@ -380,7 +376,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Dachzustand
+                {t('roofCondition')}
               </label>
               <textarea
                 rows={2}
@@ -392,7 +388,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-1">
-                Allgemeine Bemerkungen
+                {t('generalNotes')}
               </label>
               <textarea
                 rows={3}
@@ -404,7 +400,7 @@ export default function AdminInspectionDetailPage() {
             </div>
             <div>
               <label className="text-sm text-[#062E25]/60 block mb-3">
-                Fotos
+                {t('photos')}
               </label>
               <PhotoGalleryUpload
                 value={photoUrls}
@@ -421,7 +417,7 @@ export default function AdminInspectionDetailPage() {
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <Button onClick={saveDraft} disabled={saving} variant="outline">
             {saving && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Entwurf speichern
+            {t('saveDraft')}
           </Button>
           <Button onClick={complete} disabled={completing}>
             {completing ? (
@@ -429,7 +425,7 @@ export default function AdminInspectionDetailPage() {
             ) : (
               <CheckCircle2 className="mr-2 h-4 w-4" />
             )}
-            Besichtigung abschliessen
+            {t('completeInspection')}
           </Button>
           <Button
             onClick={cancelInspection}
@@ -442,7 +438,7 @@ export default function AdminInspectionDetailPage() {
             ) : (
               <XCircle className="mr-2 h-4 w-4" />
             )}
-            Stornieren
+            {t('cancelInspection')}
           </Button>
         </div>
       )}
