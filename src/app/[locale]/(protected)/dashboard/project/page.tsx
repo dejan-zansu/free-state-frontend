@@ -2,15 +2,21 @@
 
 import { useEffect, useState } from 'react'
 import { Zap, TrendingUp, Leaf, PanelTop, Sun, MapPin } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { Card, CardContent } from '@/components/ui/card'
 import { PageLoader } from '@/components/ui/page-loader'
 import { customerPortalService, type ProjectSummary } from '@/services/customer-portal.service'
+import {
+  residentialCalculatorService,
+  type CalculatorPackage,
+} from '@/services/residential-calculator.service'
 
 export default function ProjectPage() {
   const t = useTranslations('dashboard.project')
+  const locale = useLocale()
   const [projects, setProjects] = useState<ProjectSummary[]>([])
+  const [packages, setPackages] = useState<CalculatorPackage[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -20,6 +26,13 @@ export default function ProjectPage() {
       .catch(console.error)
       .finally(() => setLoading(false))
   }, [])
+
+  useEffect(() => {
+    residentialCalculatorService
+      .getPackages(locale)
+      .then(setPackages)
+      .catch(console.error)
+  }, [locale])
 
   if (loading) {
     return <PageLoader />
@@ -44,6 +57,9 @@ export default function ProjectPage() {
   const statusLabel = t.has(`statuses.${project.status}`)
     ? t(`statuses.${project.status}`)
     : project.status
+  const packageLabel = t.has(`packages.${project.package}`)
+    ? t(`packages.${project.package}`)
+    : packages.find(p => p.code === project.package)?.name ?? project.package
   const signatureLabel = project.contract
     ? t.has(`signatureStatuses.${project.contract.signatureStatus}`)
       ? t(`signatureStatuses.${project.contract.signatureStatus}`)
@@ -61,7 +77,7 @@ export default function ProjectPage() {
             <div>
               <p className="font-semibold text-[#062E25]">{project.address}</p>
               <p className="text-sm text-[#062E25]/60">
-                {t('package')}: {project.package} &middot; {t('status')}: {statusLabel}
+                {t('package')}: {packageLabel} &middot; {t('status')}: {statusLabel}
               </p>
             </div>
           </div>

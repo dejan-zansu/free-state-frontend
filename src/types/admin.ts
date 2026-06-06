@@ -123,6 +123,7 @@ export interface AdminLeadSolarCalculation {
   annualConsumptionKwh: number | null
   selfConsumptionRate: number | null
   annualSavingsChf: number | null
+  systemCostChf: number | null
   carbonOffsetKg: number | null
   householdSize: number | null
   buildingType: string | null
@@ -135,6 +136,24 @@ export interface AdminLeadSolarCalculation {
   electricityTariff: number | null
   feedInTariff: number | null
   createdAt: string
+}
+
+export interface AdminLeadFinancials {
+  solarModel: 'solar-direct' | 'solar-free' | 'solar-abo'
+  totalInvestmentChf?: number
+  subsidiesChf?: number
+  netInvestmentChf?: number
+  paybackYears?: number
+  totalSavings25yChf?: number
+  aboTotalChf?: number
+  aboMonthlyChf?: number
+  aboTermMonths?: number
+  ppaDiscountPercent?: number
+  contractTermYears?: number
+  electricityTariffRpKwh?: number
+  feedInTariffRpKwh?: number
+  electricitySupplier?: string
+  costSource?: 'snapshot' | 'estimated'
 }
 
 export interface AdminLeadContract {
@@ -178,6 +197,7 @@ export interface AdminLeadDetail extends AdminLead {
     }
   }
   project: AdminLeadProject | null
+  financials: AdminLeadFinancials | null
 }
 
 export interface AdminContract {

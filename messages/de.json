@@ -6655,6 +6655,27 @@
       "householdSize": "Haushaltsgrösse",
       "buildingType": "Gebäudetyp",
       "roofCovering": "Dachbelag",
+      "buildingTypes": {
+        "single_family": "Einfamilienhaus",
+        "apartment": "Mehrfamilienhaus",
+        "trade": "Gewerbe",
+        "office": "Bürogebäude"
+      },
+      "roofCoverings": {
+        "tiled": "Ziegeldach",
+        "tin": "Blechdach",
+        "slate": "Schieferdach",
+        "fiber_cement": "Faserzement / Eternit",
+        "gravel": "Kies",
+        "substrate": "Substrat / Gründach",
+        "bitumen": "Bitumen",
+        "membrane": "Membran / Folie",
+        "other": "Andere"
+      },
+      "packages": {
+        "home": "SolarFree Home",
+        "multi": "SolarFree Mehrfamilienhaus"
+      },
       "devices": "Verbraucher",
       "noDevices": "Keine zusätzlichen Verbraucher",
       "deviceNames": {
@@ -6692,7 +6713,21 @@
       },
       "customerRemarks": "Bemerkungen des Kunden",
       "addressAdditional": "Adresszusatz",
-      "solarModelAbo": "Solar-Abo (Monatsrate)"
+      "solarModelAbo": "Solar-Abo (Monatsrate)",
+      "financials": "Finanzen",
+      "systemCost": "Systemkosten (brutto)",
+      "subsidies": "Förderbeiträge",
+      "netCost": "Nettokosten",
+      "paybackPeriod": "Amortisationszeit",
+      "savings25y": "Einsparungen über 25 Jahre",
+      "aboMonthly": "Abo-Monatsrate",
+      "aboTotal": "Abo-Gesamtbetrag",
+      "contractTerm": "Vertragslaufzeit",
+      "electricityTariffLabel": "Stromtarif",
+      "feedInTariffLabel": "Einspeisevergütung",
+      "electricitySupplier": "Stromversorger",
+      "yearsValue": "{years} Jahre",
+      "financialsEstimated": "Geschätzt anhand der Paketpreise (nicht vom Rechner gespeichert)"
     },
     "contracts": {
       "title": "Verträge",
@@ -7422,6 +7457,10 @@
         "FAILED": "Fehlgeschlagen",
         "EXPIRED": "Abgelaufen",
         "CANCELLED": "Storniert"
+      },
+      "packages": {
+        "home": "SolarFree Home",
+        "multi": "SolarFree Mehrfamilienhaus"
       }
     },
     "support": {

@@ -3,7 +3,7 @@
 import { Loader2, Plus, Save, Trash2 } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useParams, useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { Button } from '@/components/ui/button'
@@ -84,53 +84,58 @@ export default function AdminPackageDetailPage() {
     Record<string, EquipmentOption[]>
   >({})
 
-  const { isLoading: loading } = useQuery({
+  const { data: detail, isLoading: loading } = useQuery({
     queryKey: ['admin', 'packages', 'detail', paramId],
     queryFn: async () => {
       const [data, itemsData] = await Promise.all([
         adminEquipmentService.getPackage(paramId),
         adminEquipmentService.getPackageItems(paramId),
       ])
-      if (!formPopulated) {
-        setCode((data as any).code || '')
-        setMinCapacityKwp((data as any).minCapacityKwp?.toString() || '')
-        setMaxCapacityKwp((data as any).maxCapacityKwp?.toString() || '')
-        setContractTermYears((data as any).contractTermYears?.toString() || '35')
-        setPricePerKwp((data as any).pricePerKwp?.toString() || '')
-        setCurrency((data as any).currency || 'CHF')
-        setDisplayOrder((data as any).displayOrder?.toString() || '0')
-        setIsActive((data as any).isActive ?? true)
-        setHighlightedFeature((data as any).highlightedFeature || '')
-        setImageUrl((data as any).imageUrl || '')
-        const models: string[] = Array.isArray((data as any).supportedSolarModels)
-          ? (data as any).supportedSolarModels
-          : ['SOLAR_FREE']
-        setSupportsSolarFree(models.includes('SOLAR_FREE'))
-        setSupportsSolarDirect(models.includes('SOLAR_DIRECT'))
-        if ((data as any).translations && Array.isArray((data as any).translations)) {
-          const transMap: Record<string, Record<string, any>> = {}
-          ;((data as any).translations as any[]).forEach((t: any) => {
-            transMap[t.language] = t
-          })
-          setTranslations(transMap)
-        }
-        setFormPopulated(true)
-      }
-      setItems(
-        (itemsData as any[]).map((item: any) => ({
-          equipmentType: item.equipmentType,
-          equipmentId: item.equipmentId,
-          equipmentName: item.equipmentName || item.equipmentId,
-          quantity: item.quantity,
-          isOptional: item.isOptional,
-          displayOrder: item.displayOrder,
-          notes: item.notes || '',
-        }))
-      )
       return { data, itemsData }
     },
     enabled: !isNew,
   })
+
+  useEffect(() => {
+    if (!detail) return
+    const data = detail.data as any
+    if (!formPopulated) {
+      setCode(data.code || '')
+      setMinCapacityKwp(data.minCapacityKwp?.toString() || '')
+      setMaxCapacityKwp(data.maxCapacityKwp?.toString() || '')
+      setContractTermYears(data.contractTermYears?.toString() || '35')
+      setPricePerKwp(data.pricePerKwp?.toString() || '')
+      setCurrency(data.currency || 'CHF')
+      setDisplayOrder(data.displayOrder?.toString() || '0')
+      setIsActive(data.isActive ?? true)
+      setHighlightedFeature(data.highlightedFeature || '')
+      setImageUrl(data.imageUrl || '')
+      const models: string[] = Array.isArray(data.supportedSolarModels)
+        ? data.supportedSolarModels
+        : ['SOLAR_FREE']
+      setSupportsSolarFree(models.includes('SOLAR_FREE'))
+      setSupportsSolarDirect(models.includes('SOLAR_DIRECT'))
+      if (data.translations && Array.isArray(data.translations)) {
+        const transMap: Record<string, Record<string, any>> = {}
+        ;(data.translations as any[]).forEach((t: any) => {
+          transMap[t.language] = t
+        })
+        setTranslations(transMap)
+      }
+      setFormPopulated(true)
+    }
+    setItems(
+      (detail.itemsData as any[]).map((item: any) => ({
+        equipmentType: item.equipmentType,
+        equipmentId: item.equipmentId,
+        equipmentName: item.equipmentName || item.equipmentId,
+        quantity: item.quantity,
+        isOptional: item.isOptional,
+        displayOrder: item.displayOrder,
+        notes: item.notes || '',
+      }))
+    )
+  }, [detail, formPopulated])
 
   const setTranslationField = (lang: string, field: string, value: any) => {
     setTranslations(prev => ({

@@ -10,6 +10,7 @@ import { DataRequestsCard } from '@/components/admin/DataRequestsCard'
 import { SubsidyCard } from '@/components/admin/SubsidyCard'
 import { Card, CardContent } from '@/components/ui/card'
 import { adminService } from '@/services/admin.service'
+import { adminEquipmentService } from '@/services/admin-equipment.service'
 import type { AdminContract } from '@/types/admin'
 import type { SubsidyStatusValue } from '@/services/admin-project.service'
 
@@ -17,11 +18,33 @@ export default function AdminContractDetailPage() {
   const params = useParams()
   const t = useTranslations('admin.contracts')
   const tc = useTranslations('admin.common')
+  const tp = useTranslations('admin.leads.packages')
 
   const { data: contract, isLoading } = useQuery<AdminContract>({
     queryKey: ['admin', 'contract', params.id],
     queryFn: () => adminService.getContractById(params.id as string),
   })
+
+  const { data: packagesResponse } = useQuery({
+    queryKey: ['admin', 'equipment', 'packages', 'all'],
+    queryFn: () =>
+      adminEquipmentService.listPackages({ limit: 100 }) as Promise<{
+        data: { code: string; translations?: { name: string }[] }[]
+      }>,
+  })
+
+  const packageNames = new Map(
+    (packagesResponse?.data ?? []).map(p => [
+      p.code,
+      p.translations?.[0]?.name || p.code,
+    ]),
+  )
+
+  const packageLabel = (code: string | null | undefined) => {
+    if (!code) return '-'
+    if (tp.has(code)) return tp(code)
+    return packageNames.get(code) ?? code
+  }
 
   if (isLoading) {
     return <AdminPageLoader className="h-64" />
@@ -182,7 +205,7 @@ export default function AdminContractDetailPage() {
               <div>
                 <span className="text-sm text-[#062E25]/60">{t('package')}</span>
                 <p className="font-medium text-[#062E25]">
-                  {contract.project.selectedPackage || '-'}
+                  {packageLabel(contract.project.selectedPackage)}
                 </p>
               </div>
             </div>

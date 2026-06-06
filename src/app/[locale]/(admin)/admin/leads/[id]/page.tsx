@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { adminService } from '@/services/admin.service'
+import { adminEquipmentService } from '@/services/admin-equipment.service'
 import type { AdminLeadDetail, SalesRep } from '@/types/admin'
 
 const LEAD_STATUSES = [
@@ -94,6 +95,27 @@ export default function AdminLeadDetailPage() {
     queryFn: () => adminService.listSalesReps(),
   })
 
+  const { data: packagesResponse } = useQuery({
+    queryKey: ['admin', 'equipment', 'packages', 'all'],
+    queryFn: () =>
+      adminEquipmentService.listPackages({ limit: 100 }) as Promise<{
+        data: { code: string; translations?: { name: string }[] }[]
+      }>,
+  })
+
+  const packageNames = new Map(
+    (packagesResponse?.data ?? []).map(p => [
+      p.code,
+      p.translations?.[0]?.name || p.code,
+    ]),
+  )
+
+  const packageLabel = (code: string | null | undefined) => {
+    if (!code) return '-'
+    if (t.has(`packages.${code}`)) return t(`packages.${code}`)
+    return packageNames.get(code) ?? code
+  }
+
   const handleUpdate = async (data: Record<string, string | null>) => {
     if (!lead) return
     setSaving(true)
@@ -134,6 +156,9 @@ export default function AdminLeadDetailPage() {
   const calc = project?.solarCalculation
   const contracts = project?.contracts ?? []
   const hasCalculation = !!calc
+  const financials = lead.financials
+  const finIsDirectLike =
+    financials != null && financials.solarModel !== 'solar-free'
   const monthly = calc?.monthlyProductionKwh ?? []
   const maxMonthly = monthly.length > 0 ? Math.max(...monthly) : 0
   const roofSegments = calc?.roofSegments ?? []
@@ -284,10 +309,148 @@ export default function AdminLeadDetailPage() {
               <div>
                 <p className="text-base text-[#062E25]/60">{t('recommendedPackage')}</p>
                 <p className="text-xl font-semibold text-[#062E25]">
-                  {calc.recommendedPackage || project?.selectedPackage || '-'}
+                  {packageLabel(calc.recommendedPackage || project?.selectedPackage)}
                 </p>
               </div>
             </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {financials && (
+        <Card className="border-[#062E25]/10 mb-6">
+          <CardContent className="p-6">
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('financials')}
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {finIsDirectLike && (
+                <>
+                  <div className="rounded-xl bg-[#F5F7EE] p-4">
+                    <p className="text-base text-[#062E25]/60">{t('systemCost')}</p>
+                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
+                      {fmtChf(financials.totalInvestmentChf)}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-[#F5F7EE] p-4">
+                    <p className="text-base text-[#062E25]/60">{t('subsidies')}</p>
+                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
+                      {fmtChf(financials.subsidiesChf)}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-[#062E25] text-white p-4">
+                    <p className="text-base text-white/70">{t('netCost')}</p>
+                    <p className="text-2xl font-bold tabular-nums">
+                      {fmtChf(financials.netInvestmentChf)}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-[#F5F7EE] p-4">
+                    <p className="text-base text-[#062E25]/60">{t('paybackPeriod')}</p>
+                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
+                      {financials.paybackYears != null
+                        ? t('yearsValue', {
+                            years: fmtNumber(financials.paybackYears, 1),
+                          })
+                        : '-'}
+                    </p>
+                  </div>
+                </>
+              )}
+              {financials.solarModel === 'solar-abo' && (
+                <>
+                  <div className="rounded-xl bg-[#062E25] text-white p-4">
+                    <p className="text-base text-white/70">{t('aboMonthly')}</p>
+                    <p className="text-2xl font-bold tabular-nums">
+                      {fmtChf(financials.aboMonthlyChf)}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-[#F5F7EE] p-4">
+                    <p className="text-base text-[#062E25]/60">{t('aboTotal')}</p>
+                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
+                      {fmtChf(financials.aboTotalChf)}
+                    </p>
+                    {financials.aboTermMonths != null && (
+                      <p className="text-base text-[#062E25]/50 tabular-nums">
+                        {t('yearsValue', {
+                          years: Math.round(financials.aboTermMonths / 12),
+                        })}
+                      </p>
+                    )}
+                  </div>
+                </>
+              )}
+              {financials.solarModel === 'solar-free' && (
+                <>
+                  <div className="rounded-xl bg-[#062E25] text-white p-4">
+                    <p className="text-base text-white/70">{t('ppaDiscount')}</p>
+                    <p className="text-2xl font-bold tabular-nums">
+                      {financials.ppaDiscountPercent != null
+                        ? `${financials.ppaDiscountPercent}%`
+                        : '-'}
+                    </p>
+                  </div>
+                  <div className="rounded-xl bg-[#F5F7EE] p-4">
+                    <p className="text-base text-[#062E25]/60">{t('contractTerm')}</p>
+                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
+                      {financials.contractTermYears != null
+                        ? t('yearsValue', { years: financials.contractTermYears })
+                        : '-'}
+                    </p>
+                  </div>
+                  {calc?.systemCostChf != null && (
+                    <div className="rounded-xl bg-[#F5F7EE] p-4">
+                      <p className="text-base text-[#062E25]/60">{t('systemCost')}</p>
+                      <p className="text-2xl font-bold text-[#062E25] tabular-nums">
+                        {fmtChf(calc.systemCostChf)}
+                      </p>
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+              {finIsDirectLike && (
+                <div>
+                  <p className="text-base text-[#062E25]/60">{t('savings25y')}</p>
+                  <p className="text-xl font-semibold text-[#062E25] tabular-nums">
+                    {fmtChf(financials.totalSavings25yChf)}
+                  </p>
+                </div>
+              )}
+              <div>
+                <p className="text-base text-[#062E25]/60">
+                  {t('electricityTariffLabel')}
+                </p>
+                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
+                  {financials.electricityTariffRpKwh != null
+                    ? `${fmtNumber(financials.electricityTariffRpKwh, 1)} Rp/kWh`
+                    : '-'}
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-[#062E25]/60">
+                  {t('feedInTariffLabel')}
+                </p>
+                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
+                  {financials.feedInTariffRpKwh != null
+                    ? `${fmtNumber(financials.feedInTariffRpKwh, 1)} Rp/kWh`
+                    : '-'}
+                </p>
+              </div>
+              <div>
+                <p className="text-base text-[#062E25]/60">
+                  {t('electricitySupplier')}
+                </p>
+                <p className="text-xl font-semibold text-[#062E25]">
+                  {financials.electricitySupplier ?? '-'}
+                </p>
+              </div>
+            </div>
+            {financials.costSource === 'estimated' && (
+              <p className="text-sm text-[#062E25]/50 mt-4">
+                {t('financialsEstimated')}
+              </p>
+            )}
           </CardContent>
         </Card>
       )}
@@ -429,7 +592,9 @@ export default function AdminLeadDetailPage() {
               </div>
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('interestedPackage')}</label>
-                <p className="font-medium text-[#062E25]">{lead.interestedPackage || '-'}</p>
+                <p className="font-medium text-[#062E25]">
+                  {packageLabel(lead.interestedPackage)}
+                </p>
               </div>
               <div>
                 <label className="text-sm text-[#062E25]/60">{t('estimatedBudget')}</label>
@@ -471,7 +636,11 @@ export default function AdminLeadDetailPage() {
                     {t('buildingType')}
                   </label>
                   <p className="font-medium text-[#062E25]">
-                    {calc.buildingType || '-'}
+                    {calc.buildingType
+                      ? t.has(`buildingTypes.${calc.buildingType}`)
+                        ? t(`buildingTypes.${calc.buildingType}`)
+                        : calc.buildingType
+                      : '-'}
                   </p>
                 </div>
                 <div>
@@ -479,7 +648,11 @@ export default function AdminLeadDetailPage() {
                     {t('roofCovering')}
                   </label>
                   <p className="font-medium text-[#062E25]">
-                    {calc.roofCovering || '-'}
+                    {calc.roofCovering
+                      ? t.has(`roofCoverings.${calc.roofCovering}`)
+                        ? t(`roofCoverings.${calc.roofCovering}`)
+                        : calc.roofCovering
+                      : '-'}
                   </p>
                 </div>
                 <div>

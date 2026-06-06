@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
@@ -73,25 +73,28 @@ export function EquipmentFormPage({
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
 
-  const { isLoading: loading } = useQuery({
+  const { data: equipment, isLoading: loading } = useQuery({
     queryKey: ['admin', queryKey, 'detail', id],
     queryFn: async () => {
       if (!fetcher || !id) return null
-      const data = await fetcher(id)
-      const { translations: trans, ...rest } = data
-      setFormData(rest)
-      if (trans && Array.isArray(trans)) {
-        const transMap: Record<string, Record<string, any>> = {}
-        trans.forEach((t: any) => {
-          transMap[t.language] = t
-        })
-        setTranslations(transMap)
-      }
-      setDataLoaded(true)
-      return data
+      return fetcher(id)
     },
     enabled: !isNew && !!id && !!fetcher,
   })
+
+  useEffect(() => {
+    if (!equipment) return
+    const { translations: trans, ...rest } = equipment
+    setFormData(rest)
+    if (trans && Array.isArray(trans)) {
+      const transMap: Record<string, Record<string, any>> = {}
+      trans.forEach((t: any) => {
+        transMap[t.language] = t
+      })
+      setTranslations(transMap)
+    }
+    setDataLoaded(true)
+  }, [equipment])
 
   const setField = (name: string, value: any) => {
     setFormData((prev) => ({ ...prev, [name]: value }))

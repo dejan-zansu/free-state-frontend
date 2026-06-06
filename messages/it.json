@@ -6655,6 +6655,27 @@
       "householdSize": "Dimensione nucleo",
       "buildingType": "Tipo di edificio",
       "roofCovering": "Copertura tetto",
+      "buildingTypes": {
+        "single_family": "Casa unifamiliare",
+        "apartment": "Edificio condominiale",
+        "trade": "Commercio",
+        "office": "Edificio per uffici"
+      },
+      "roofCoverings": {
+        "tiled": "Tetto in tegole",
+        "tin": "Tetto in lamiera",
+        "slate": "Tetto in ardesia",
+        "fiber_cement": "Fibrocemento / Eternit",
+        "gravel": "Ghiaia",
+        "substrate": "Substrato / tetto verde",
+        "bitumen": "Bitumen",
+        "membrane": "Membrana / pellicola",
+        "other": "Altro"
+      },
+      "packages": {
+        "home": "SolarFree Home",
+        "multi": "SolarFree Multifamiliare"
+      },
       "devices": "Dispositivi",
       "noDevices": "Nessun dispositivo aggiuntivo",
       "deviceNames": {
@@ -6692,7 +6713,21 @@
       },
       "customerRemarks": "Osservazioni del cliente",
       "addressAdditional": "Complemento d'indirizzo",
-      "solarModelAbo": "Solar-Abo (rata mensile)"
+      "solarModelAbo": "Solar-Abo (rata mensile)",
+      "financials": "Finanze",
+      "systemCost": "Costo del sistema (lordo)",
+      "subsidies": "Sovvenzioni",
+      "netCost": "Costo netto",
+      "paybackPeriod": "Tempo di ammortamento",
+      "savings25y": "Risparmi in 25 anni",
+      "aboMonthly": "Rata mensile Abo",
+      "aboTotal": "Totale Abo",
+      "contractTerm": "Durata del contratto",
+      "electricityTariffLabel": "Tariffa elettrica",
+      "feedInTariffLabel": "Tariffa di immissione",
+      "electricitySupplier": "Fornitore di elettricità",
+      "yearsValue": "{years} anni",
+      "financialsEstimated": "Stima basata sui prezzi dei pacchetti (non salvata dal calcolatore)"
     },
     "contracts": {
       "title": "Contratti",
@@ -7422,6 +7457,10 @@
         "FAILED": "Non riuscito",
         "EXPIRED": "Scaduto",
         "CANCELLED": "Annullato"
+      },
+      "packages": {
+        "home": "SolarFree Home",
+        "multi": "SolarFree Multifamiliare"
       }
     },
     "support": {

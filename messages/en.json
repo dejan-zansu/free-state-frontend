@@ -6655,6 +6655,27 @@
       "householdSize": "Household size",
       "buildingType": "Building type",
       "roofCovering": "Roof covering",
+      "buildingTypes": {
+        "single_family": "Single-family house",
+        "apartment": "Apartment building",
+        "trade": "Trade",
+        "office": "Office building"
+      },
+      "roofCoverings": {
+        "tiled": "Tiled roof",
+        "tin": "Tin roof",
+        "slate": "Slate roof",
+        "fiber_cement": "Fiber cement / Eternit",
+        "gravel": "Gravel",
+        "substrate": "Substrate / green roof",
+        "bitumen": "Bitumen",
+        "membrane": "Membrane / foil",
+        "other": "Other"
+      },
+      "packages": {
+        "home": "SolarFree Home",
+        "multi": "SolarFree Multi-Family"
+      },
       "devices": "Devices",
       "noDevices": "No additional devices",
       "deviceNames": {
@@ -6692,7 +6713,21 @@
       },
       "customerRemarks": "Customer remarks",
       "addressAdditional": "Address additional",
-      "solarModelAbo": "Solar-Abo (monthly instalment)"
+      "solarModelAbo": "Solar-Abo (monthly instalment)",
+      "financials": "Financials",
+      "systemCost": "System cost (gross)",
+      "subsidies": "Subsidies",
+      "netCost": "Net cost",
+      "paybackPeriod": "Payback period",
+      "savings25y": "Savings over 25 years",
+      "aboMonthly": "Abo monthly payment",
+      "aboTotal": "Abo total",
+      "contractTerm": "Contract term",
+      "electricityTariffLabel": "Electricity tariff",
+      "feedInTariffLabel": "Feed-in tariff",
+      "electricitySupplier": "Electricity supplier",
+      "yearsValue": "{years} years",
+      "financialsEstimated": "Estimated from package pricing (not stored by the calculator)"
     },
     "contracts": {
       "title": "Contracts",
@@ -7422,6 +7457,10 @@
         "FAILED": "Failed",
         "EXPIRED": "Expired",
         "CANCELLED": "Cancelled"
+      },
+      "packages": {
+        "home": "SolarFree Home",
+        "multi": "SolarFree Multi-Family"
       }
     },
     "support": {
