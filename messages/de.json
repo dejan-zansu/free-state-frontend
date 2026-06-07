@@ -537,6 +537,56 @@
     "nodeTodayBody": "Tätig in 19 Deutschschweizer Kantonen, mit SolarFree- und SolarDirect-Modellen."
   },
   "home": {
+    "promo": {
+      "carouselLabel": "Aktuelle Angebote",
+      "prevSlide": "Vorheriger Slide",
+      "nextSlide": "Nächster Slide",
+      "referral": {
+        "title": "Free State empfehlen\nund bis zu <accent>CHF 1'000.–</accent>\nBonus erhalten",
+        "subtitle": "Empfehlen Sie unsere Solarlösungen weiter\nund profitieren Sie von attraktiven Prämien.",
+        "badge": "Bis zu\nCHF 1'000.–\nBonus",
+        "cta": {
+          "primary": "Ihr System planen",
+          "secondary": "Mehr Erfahren"
+        }
+      },
+      "family": {
+        "title": "Familienangebot\n<accent>5% Rabatt beim Kauf</accent>",
+        "subtitle": "Nachhaltige Energie für Ihre Familie –\njetzt profitieren und sparen.",
+        "badge": "Bis zu\nCHF 1'000.–\nBonus",
+        "cta": "Mehr Erfahren"
+      },
+      "complete": {
+        "eyebrow": "Komplettpaket",
+        "title": "Ihr Komplettpaket für\n<accent>Solar, Speicher</accent> & <accent>E-Mobilität</accent>",
+        "subtitle": "Alles aus einer Hand. Perfekt aufeinander abgestimmt.\nFür mehr Unabhängigkeit und maximale Ersparnis.",
+        "badge": "Bis zu\nCHF 1'000.–\nBonus",
+        "cta": "Jetzt entdecken",
+        "features": [
+          {
+            "icon": "/images/promo/feature-solarfree.svg",
+            "title": "0 CHF möglich",
+            "subtitle": "SolarFree Modell"
+          },
+          {
+            "icon": "/images/promo/feature-fixed-price.svg",
+            "title": "Fixer Strompreis",
+            "subtitle": "statt steigender Kosten"
+          },
+          {
+            "icon": "/images/promo/feature-signature.svg",
+            "title": "Digitale Unterschrift",
+            "subtitle": "Swisscom Sign"
+          },
+          {
+            "icon": "/images/promo/feature-installation.svg",
+            "title": "Installation in",
+            "subtitle": "~3 Monaten"
+          }
+        ],
+        "partnersLabel": "Inklusive Premium-Anbieter"
+      }
+    },
     "hero": {
       "badge": "Free State SolarFree",
       "title": "Intelligente Solarlösungen\nfür Privathaushalte",

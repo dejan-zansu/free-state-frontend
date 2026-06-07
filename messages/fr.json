@@ -480,6 +480,56 @@
     "nodeTodayBody": "Actifs dans 19 cantons de Suisse alémanique, avec les modèles SolarFree et SolarDirect."
   },
   "home": {
+    "promo": {
+      "carouselLabel": "Offres actuelles",
+      "prevSlide": "Slide précédente",
+      "nextSlide": "Slide suivante",
+      "referral": {
+        "title": "Recommandez Free State\net recevez jusqu'à <accent>CHF 1'000.–</accent>\nde bonus",
+        "subtitle": "Recommandez nos solutions solaires\net profitez de primes attractives.",
+        "badge": "Jusqu'à\nCHF 1'000.–\nde bonus",
+        "cta": {
+          "primary": "Planifier votre système",
+          "secondary": "En savoir plus"
+        }
+      },
+      "family": {
+        "title": "Offre famille\n<accent>5% de rabais à l'achat</accent>",
+        "subtitle": "De l'énergie durable pour votre famille –\nprofitez-en et économisez dès maintenant.",
+        "badge": "Jusqu'à\nCHF 1'000.–\nde bonus",
+        "cta": "En savoir plus"
+      },
+      "complete": {
+        "eyebrow": "Pack complet",
+        "title": "Votre pack complet pour\n<accent>solaire, stockage</accent> & <accent>e-mobilité</accent>",
+        "subtitle": "Tout d'une seule main. Parfaitement coordonné.\nPour plus d'indépendance et des économies maximales.",
+        "badge": "Jusqu'à\nCHF 1'000.–\nde bonus",
+        "cta": "Découvrir maintenant",
+        "features": [
+          {
+            "icon": "/images/promo/feature-solarfree.svg",
+            "title": "0 CHF possible",
+            "subtitle": "Modèle SolarFree"
+          },
+          {
+            "icon": "/images/promo/feature-fixed-price.svg",
+            "title": "Prix de l'électricité fixe",
+            "subtitle": "au lieu de coûts croissants"
+          },
+          {
+            "icon": "/images/promo/feature-signature.svg",
+            "title": "Signature numérique",
+            "subtitle": "Swisscom Sign"
+          },
+          {
+            "icon": "/images/promo/feature-installation.svg",
+            "title": "Installation en",
+            "subtitle": "~3 mois"
+          }
+        ],
+        "partnersLabel": "Fournisseurs premium inclus"
+      }
+    },
     "hero": {
       "badge": "Free State SolarFree",
       "title": "Solutions solaires intelligentes\npour les particuliers",

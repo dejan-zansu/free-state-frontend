@@ -8,6 +8,7 @@ import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
 import SolarModels from '@/components/SolarModels'
 import TelemiivaTimeline from '@/components/TelemiivaTimeline'
 import PackageCatalogSection from '@/components/home/PackageCatalogSection'
+import PromoSection from '@/components/home/PromoSection'
 import WhyFreeState from '@/components/WhyFreeState'
 import PathToEnergy from '@/components/PathToEnergy'
 import CustomerStories from '@/components/CustomerStories'
@@ -18,6 +19,7 @@ export default async function HomePage() {
     <div className="w-full overflow-x-hidden">
       <Hero />
       <TelemiivaTimeline />
+      <PromoSection />
       <SolarModels />
       <PackageCatalogSection />
       <WhyFreeState />

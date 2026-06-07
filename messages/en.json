@@ -480,6 +480,56 @@
     "nodeTodayBody": "Active in 19 German-speaking Swiss cantons, with SolarFree and SolarDirect models."
   },
   "home": {
+    "promo": {
+      "carouselLabel": "Current offers",
+      "prevSlide": "Previous slide",
+      "nextSlide": "Next slide",
+      "referral": {
+        "title": "Recommend Free State\nand receive up to <accent>CHF 1'000.–</accent>\nas a bonus",
+        "subtitle": "Recommend our solar solutions\nand benefit from attractive rewards.",
+        "badge": "Up to\nCHF 1'000.–\nBonus",
+        "cta": {
+          "primary": "Plan your system",
+          "secondary": "Learn more"
+        }
+      },
+      "family": {
+        "title": "Family offer\n<accent>5% discount on purchase</accent>",
+        "subtitle": "Sustainable energy for your family –\nbenefit and save now.",
+        "badge": "Up to\nCHF 1'000.–\nBonus",
+        "cta": "Learn more"
+      },
+      "complete": {
+        "eyebrow": "Complete package",
+        "title": "Your complete package for\n<accent>solar, storage</accent> & <accent>e-mobility</accent>",
+        "subtitle": "Everything from a single source. Perfectly coordinated.\nFor more independence and maximum savings.",
+        "badge": "Up to\nCHF 1'000.–\nBonus",
+        "cta": "Discover now",
+        "features": [
+          {
+            "icon": "/images/promo/feature-solarfree.svg",
+            "title": "0 CHF possible",
+            "subtitle": "SolarFree model"
+          },
+          {
+            "icon": "/images/promo/feature-fixed-price.svg",
+            "title": "Fixed electricity price",
+            "subtitle": "instead of rising costs"
+          },
+          {
+            "icon": "/images/promo/feature-signature.svg",
+            "title": "Digital signature",
+            "subtitle": "Swisscom Sign"
+          },
+          {
+            "icon": "/images/promo/feature-installation.svg",
+            "title": "Installation in",
+            "subtitle": "~3 months"
+          }
+        ],
+        "partnersLabel": "Including premium brands"
+      }
+    },
     "hero": {
       "badge": "Free State SolarFree",
       "title": "Intelligent solar solutions\nfor private households",
