@@ -583,12 +583,12 @@
       "eyebrow": "Modelli solari",
       "title": "SolarFree, SolarAbo o SolarDirect: quale fa per voi?",
       "subtitle": "Confronta tutti e tre i modelli e trova la soluzione giusta per la tua casa.",
-      "onlineBadge": "Solo online",
+      "onlineBadge": "0 investimento",
       "cta": "Inizia",
       "learnMore": "Scopri di più",
       "solarFree": {
         "title": "SolarFree",
-        "description": "Impianto solare, accumulo, pompa di calore e stazione di ricarica in un modello di abbonamento flessibile per la tua casa",
+        "description": "Impianto solare, accumulo e stazione di ricarica in un modello di abbonamento flessibile per la tua casa",
         "includedTitle": "Cosa è incluso?",
         "included": [
           "Costi dell'elettricità prevedibili",
@@ -610,7 +610,8 @@
       },
       "solarDirect": {
         "title": "SolarDirect",
-        "description": "Impianto solare, accumulo, pompa di calore e stazione di ricarica da acquistare direttamente per la tua casa",
+        "description": "Impianto solare, accumulo e stazione di ricarica da acquistare direttamente per la tua casa",
+        "badge": "Proprietà completa",
         "highlight": "Pagamento unico – l'impianto è tuo",
         "includedTitle": "Cosa è incluso?",
         "included": [
@@ -632,7 +633,7 @@
       },
       "solarAbo": {
         "title": "SolarAbo",
-        "description": "Impianto solare, accumulo, pompa di calore e stazione di ricarica in acquisto, in comode rate mensili fisse per la vostra casa",
+        "description": "Impianto solare, accumulo e stazione di ricarica in acquisto, in comode rate mensili fisse per la vostra casa",
         "badge": "Mensile",
         "highlight": "Rata mensile fissa invece di un pagamento unico",
         "includedTitle": "Cosa è incluso?",
@@ -3984,7 +3985,7 @@
       "title": "Scegli il tuo modello solare",
       "subtitle": "Seleziona come vuoi finanziare e gestire il tuo impianto solare.",
       "solarAbo": {
-        "tag": "Online",
+        "tag": "0 investimento",
         "title": "SolarFree",
         "bullet1": "Nessun investimento di capitale.",
         "bullet2": "Modello basato su contratto."

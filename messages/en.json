@@ -583,12 +583,12 @@
       "eyebrow": "Solar Models",
       "title": "SolarFree, SolarAbo or SolarDirect: which fits you?",
       "subtitle": "Compare all three models and find the right solution for your home.",
-      "onlineBadge": "Online only",
+      "onlineBadge": "0 investment",
       "cta": "Get started",
       "learnMore": "Learn more",
       "solarFree": {
         "title": "SolarFree",
-        "description": "Solar system, storage, heat pump and charging station in a flexible subscription model for your home",
+        "description": "Solar system, storage and charging station in a flexible subscription model for your home",
         "includedTitle": "What's included?",
         "included": [
           "Predictable electricity costs",
@@ -610,7 +610,8 @@
       },
       "solarDirect": {
         "title": "SolarDirect",
-        "description": "Solar system, storage, heat pump and charging station for direct purchase for your home",
+        "description": "Solar system, storage and charging station for direct purchase for your home",
+        "badge": "Full ownership",
         "highlight": "One-time payment – the system is yours",
         "includedTitle": "What's included?",
         "included": [
@@ -632,7 +633,7 @@
       },
       "solarAbo": {
         "title": "SolarAbo",
-        "description": "Solar system, storage, heat pump and charging station to buy, conveniently in fixed monthly instalments for your home",
+        "description": "Solar system, storage and charging station to buy, conveniently in fixed monthly instalments for your home",
         "badge": "Monthly",
         "highlight": "Fixed monthly rate instead of a one-time payment",
         "includedTitle": "What's included?",
@@ -3984,7 +3985,7 @@
       "title": "Choose your solar model",
       "subtitle": "Select how you want to finance and operate your solar system.",
       "solarAbo": {
-        "tag": "Online",
+        "tag": "0 investment",
         "title": "SolarFree",
         "bullet1": "No capital investment.",
         "bullet2": "Contract-based model."
@@ -4904,7 +4905,7 @@
     "solarAbo": {
       "eyebrow": "SolarFree",
       "title": "Up to 60% lower energy costs",
-      "description": "SolarFree connects your solar system, storage, heat pump, and EV, using AI to maximize self-consumption and sell surplus power at the best rate."
+      "description": "SolarFree connects your solar system, storage and EV, using AI to maximize self-consumption and sell surplus power at the best rate."
     },
     "cards": {
       "investment": {

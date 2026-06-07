@@ -184,15 +184,6 @@ const SolarModels = async ({
               <div className="border-t border-[#1F433B]/20 my-1" />
 
               <div className="flex flex-col gap-2.5 my-4">
-                {!isCommercial && (
-                  <Image
-                    src="/images/swisscom-logo.png"
-                    alt="Swisscom"
-                    width={87}
-                    height={24}
-                    className="h-6 w-auto object-contain self-start"
-                  />
-                )}
                 <span className="text-sm font-bold text-foreground">
                   {t('solarFree.advantagesTitle')}
                 </span>
@@ -220,6 +211,16 @@ const SolarModels = async ({
                 </p>
                 <IncludedList items={solarFreeIncluded} />
               </div>
+              <div className="border-t border-[#1F433B]/20 my-5" />
+              {!isCommercial && (
+                <Image
+                  src="/images/swisscom-logo.png"
+                  alt="Swisscom"
+                  width={87}
+                  height={24}
+                  className="h-6 w-auto object-contain self-start"
+                />
+              )}
 
               <div className="mt-auto flex flex-col items-center gap-4 pt-6">
                 {!isCommercial && (
@@ -246,7 +247,10 @@ const SolarModels = async ({
             <div className="absolute -top-16 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">
               <div
                 className="pointer-events-none absolute -bottom-6 -right-6 w-[60%] h-[60%] rounded-full"
-                style={{ background: 'rgba(183, 254, 26, 0.18)', filter: 'blur(50px)' }}
+                style={{
+                  background: 'rgba(183, 254, 26, 0.18)',
+                  filter: 'blur(50px)',
+                }}
               />
               <Image
                 src={solarAboImage}
@@ -273,7 +277,10 @@ const SolarModels = async ({
                 <span className="text-sm font-bold text-foreground">
                   {t('solarAbo.advantagesTitle')}
                 </span>
-                <AdvantageList items={solarAboAdvantages} isCommercial={isCommercial} />
+                <AdvantageList
+                  items={solarAboAdvantages}
+                  isCommercial={isCommercial}
+                />
               </div>
 
               <div className="border-t border-[#1F433B]/20 my-1" />
@@ -314,7 +321,7 @@ const SolarModels = async ({
             <Badge
               className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
             >
-              Volles Eigentum
+              {t('solarDirect.badge')}
             </Badge>
 
             <div className="absolute -top-16 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">

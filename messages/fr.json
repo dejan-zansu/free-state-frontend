@@ -583,12 +583,12 @@
       "eyebrow": "Modèles solaires",
       "title": "SolarFree, SolarAbo ou SolarDirect : que vous convient ?",
       "subtitle": "Comparez les trois modèles et trouvez la solution adaptée à votre maison.",
-      "onlineBadge": "En ligne uniquement",
+      "onlineBadge": "0 investissement",
       "cta": "Commencer",
       "learnMore": "En savoir plus",
       "solarFree": {
         "title": "SolarFree",
-        "description": "Installation solaire, stockage, pompe à chaleur et borne de recharge dans un modèle d'abonnement flexible pour votre maison",
+        "description": "Installation solaire, stockage et borne de recharge dans un modèle d'abonnement flexible pour votre maison",
         "includedTitle": "Qu'est-ce qui est inclus ?",
         "included": [
           "Coûts d'électricité prévisibles",
@@ -610,7 +610,8 @@
       },
       "solarDirect": {
         "title": "SolarDirect",
-        "description": "Installation solaire, stockage, pompe à chaleur et borne de recharge à l'achat direct pour votre maison",
+        "description": "Installation solaire, stockage et borne de recharge à l'achat direct pour votre maison",
+        "badge": "Pleine propriété",
         "highlight": "Paiement unique – l'installation vous appartient",
         "includedTitle": "Qu'est-ce qui est inclus ?",
         "included": [
@@ -3984,7 +3985,7 @@
       "title": "Choisissez votre modèle solaire",
       "subtitle": "Indiquez comment vous souhaitez financer et exploiter votre installation solaire.",
       "solarAbo": {
-        "tag": "En ligne",
+        "tag": "0 investissement",
         "title": "SolarFree",
         "bullet1": "Aucun investissement initial.",
         "bullet2": "Modèle contractuel."
@@ -4904,7 +4905,7 @@
     "solarAbo": {
       "eyebrow": "SolarFree",
       "title": "Jusqu'à 60 % de coûts énergétiques en moins",
-      "description": "SolarFree relie votre installation solaire, stockage, pompe à chaleur et VE, en utilisant l'IA pour maximiser l'autoconsommation et vendre le surplus au meilleur tarif."
+      "description": "SolarFree relie votre installation solaire, stockage et VE, en utilisant l'IA pour maximiser l'autoconsommation et vendre le surplus au meilleur tarif."
     },
     "cards": {
       "investment": {
