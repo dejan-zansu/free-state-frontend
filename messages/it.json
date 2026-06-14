@@ -3812,7 +3812,8 @@
     },
     "costOverview": {
       "title": "Quanto costa un impianto solare?",
-      "description": "I prezzi degli impianti solari sono diminuiti significativamente negli ultimi anni. Attualmente le condizioni sono estremamente favorevoli per raggiungere un'elevata redditività con gli impianti solari.\n\nL'energia solare autoprodotta è significativamente più economica dell'elettricità dalla rete:",
+      "description": "I prezzi degli impianti solari sono diminuiti significativamente negli ultimi anni. Attualmente le condizioni sono estremamente favorevoli per raggiungere un'elevata redditività con gli impianti solari.",
+      "description2": "L'energia solare autoprodotta è significativamente più economica dell'elettricità dalla rete:",
       "items": {
         "gridElectricity": "L'elettricità della centrale costa 23 centesimi.",
         "solarPower": "L'energia solare, compresi i costi operativi, costa 12 centesimi."

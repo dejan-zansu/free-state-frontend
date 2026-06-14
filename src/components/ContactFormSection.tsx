@@ -36,7 +36,7 @@ type ContactFormData = {
 }
 
 const inputClassName =
-  'h-9 bg-[#FFFFFE] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]'
+  'h-9 bg-[#FFFFFE] dark:bg-[#FFFFFE] dark:hover:bg-[#FFFFFE] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px]'
 
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
@@ -304,7 +304,7 @@ const ContactFormSection = () => {
                     </Label>
                     <Textarea
                       {...register('message')}
-                      className="min-h-[164px] bg-[#FFFFFE] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] resize-none"
+                      className="min-h-[164px] bg-[#FFFFFE] dark:bg-[#FFFFFE] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] resize-none"
                     />
                   </div>
 

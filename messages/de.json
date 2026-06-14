@@ -662,7 +662,7 @@
         "solarCalculator": "Solarrechner",
         "service": "Service",
         "energyStorage": "Stromspeicher",
-        "repowering": "Erneuerung",
+        "repowering": "Anlagenerneuerung",
         "withSolarSystem": "Wärmepumpe mit Solaranlage",
         "howLargePlantsWorks": "Wie Grossanlagen funktionieren",
         "howSolarPowerSystemWorks": "Wie eine Solaranlage funktioniert",
@@ -4079,7 +4079,8 @@
     },
     "costOverview": {
       "title": "Was kostet eine Solaranlage?",
-      "description": "Die Preise für Solaranlagen sind in den letzten Jahren deutlich gesunken. Derzeit sind die Bedingungen äusserst günstig, um mit Solaranlagen eine hohe Rentabilität zu erzielen.\n\nSelbst erzeugter Solarstrom ist deutlich günstiger als Strom aus dem Netz:",
+      "description": "Die Preise für Solaranlagen sind in den letzten Jahren deutlich gesunken. Derzeit sind die Bedingungen äusserst günstig, um mit Solaranlagen eine hohe Rentabilität zu erzielen.",
+      "description2": "Selbst erzeugter Solarstrom ist deutlich günstiger als Strom aus dem Netz:",
       "items": {
         "gridElectricity": "Strom aus dem Kraftwerk kostet 23 Rappen.",
         "solarPower": "Der Solarstrom, inklusive Betriebskosten, kostet 12 Rappen."
@@ -4314,7 +4315,8 @@
   },
   "energyStorage": {
     "hero": {
-      "title": "Energiespeicher"
+      "title": "Stromspeicher für Solaranlagen",
+      "description": "Nutzen Sie Ihren Solarstrom genau dann, wenn Sie ihn brauchen. Mit einem Batteriespeicher speichern Sie überschüssige Energie vom Tag und versorgen Ihr Zuhause auch am Abend und in der Nacht mit eigenem Solarstrom."
     },
     "whatIs": {
       "eyebrow": "Speicher",

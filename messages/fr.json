@@ -3812,7 +3812,8 @@
     },
     "costOverview": {
       "title": "Combien coûte une installation solaire ?",
-      "description": "Les prix des installations solaires ont nettement baissé ces dernières années. Les conditions actuelles sont extrêmement favorables pour obtenir une grande rentabilité avec une installation solaire.\n\nL'électricité solaire autoproduite est nettement moins chère que celle du réseau :",
+      "description": "Les prix des installations solaires ont nettement baissé ces dernières années. Les conditions actuelles sont extrêmement favorables pour obtenir une grande rentabilité avec une installation solaire.",
+      "description2": "L'électricité solaire autoproduite est nettement moins chère que celle du réseau:",
       "items": {
         "gridElectricity": "L'électricité du réseau coûte 23 centimes.",
         "solarPower": "L'électricité solaire, coûts d'exploitation compris, coûte 12 centimes."

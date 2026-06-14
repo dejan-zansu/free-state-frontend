@@ -9,7 +9,7 @@ const BidirectionalChargingSection = async () => {
       <div className="flex flex-col lg:flex-row">
         <div className="relative w-full lg:w-1/2 aspect-[720/535] bg-[#B7FE1A]">
           <Image
-            src="/images/charging-stations/single-family-home/bidirectional-charging.svg"
+            src="/images/bidirectional-solar-charging.webp"
             alt={t('bidirectionalCharging.title')}
             fill
             className="object-contain"

@@ -36,6 +36,7 @@ const EnergyStoragePage = async () => {
         <PageHero
           backgroundImage="/images/energy-storage-hero-bg.png"
           title={t('hero.title')}
+          description={t.has('hero.description') ? t('hero.description') : undefined}
         />
       </div>
 

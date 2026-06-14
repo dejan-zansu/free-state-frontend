@@ -6,18 +6,18 @@ const BatteryInstallationSection = async () => {
 
   return (
     <section className="relative overflow-hidden bg-[#EAEDDF]">
-      <div className="relative z-10 max-w-[1150px] mx-auto px-4 sm:px-6 lg:px-10 py-12 md:py-[60px]">
-        <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-[80px]">
-          <div className="relative w-full max-w-[490px] aspect-[490/344] rounded-[20px] overflow-hidden shrink-0">
-            <Image
-              src="/images/battery-storage-installation.webp"
-              alt={t('installation.title')}
-              fill
-              sizes="(min-width: 1024px) 490px, 100vw"
-              className="object-contain"
-            />
-          </div>
+      <div className="flex flex-col lg:flex-row">
+        <div className="relative w-full lg:w-1/2 aspect-[490/344]">
+          <Image
+            src="/images/battery-storage-installation.webp"
+            alt={t('installation.title')}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
+          />
+        </div>
 
+        <div className="w-full lg:w-1/2 flex items-center justify-center px-4 sm:px-6 lg:px-10 py-12 lg:py-0">
           <div className="flex flex-col gap-5 max-w-[561px]">
             <div
               className="flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-[#062E25] w-fit"

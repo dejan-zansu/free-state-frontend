@@ -134,7 +134,7 @@ function DateOfBirthPicker({
   const monthFmt = new Intl.DateTimeFormat(locale, { month: 'long' })
   const triggerCls = cn(
     inputBase,
-    'flex items-center justify-between min-w-0 shadow-none data-[placeholder]:text-[#062E25]/30',
+    'flex items-center justify-between min-w-0 shadow-none dark:bg-white/20 dark:hover:bg-white/20 data-[placeholder]:text-[#062E25]/30',
     hasError && 'border-destructive'
   )
 

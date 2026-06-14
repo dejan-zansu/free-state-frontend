@@ -30,12 +30,10 @@ const HeatPumpsWithSolarSystemPage = async () => {
 
   return (
     <div>
-      <div className="bg-[#F2F4E8]">
-        <PageHero
-          backgroundImage="/images/heat-pumps/heat-pump-with-solar-system.png"
-          title={t('hero.title')}
-        />
-      </div>
+      <PageHero
+        backgroundImage="/images/heat-pumps/heat-pump-with-solar-system.png"
+        title={t('hero.title')}
+      />
       <HowHeatPumpWorksSection />
       <AdvantagesSection />
       <IdealCombinationSection />

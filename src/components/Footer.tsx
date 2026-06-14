@@ -8,7 +8,6 @@ import { cn } from '@/lib/utils'
 import { Phone } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
-import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import { ArrowButton } from './ui/arrow-button'
 import { LinkButton } from './ui/link-button'
@@ -45,36 +44,6 @@ const Footer = () => {
     'idle' | 'loading' | 'success' | 'error'
   >('idle')
   const isCommercial = pathname?.includes('/commercial')
-  const isHomePage = pathname === '/' || /^\/[a-z]{2}\/?$/.test(pathname || '')
-  const isLight =
-    pathname?.includes('/solar-systems') ||
-    pathname?.includes('/heat-pumps') ||
-    pathname?.includes('/solar-free') ||
-    pathname?.includes('/battery-storage') ||
-    pathname?.includes('/how-it-works') ||
-    pathname?.includes('/cost') ||
-    pathname?.includes('/amortization') ||
-    pathname?.includes('/solar-system-carport') ||
-    pathname?.includes('/solar-calculator') ||
-    pathname?.includes('/service') ||
-    pathname?.includes('/project-development') ||
-    pathname?.includes('/solar-carport') ||
-    pathname?.includes('/charging-stations') ||
-    pathname?.includes('/company') ||
-    pathname?.includes('/repowering') ||
-    pathname?.includes('/history') ||
-    pathname?.includes('/about-us') ||
-    pathname?.includes('/contact') ||
-    pathname?.includes('/privacy-policy') ||
-    pathname?.includes('/portfolio') ||
-    pathname?.includes('/blog') ||
-    pathname?.includes('/impressum') ||
-    pathname?.includes('/privacy-policy') ||
-    pathname?.includes('/agb') ||
-    pathname?.includes('/faq') ||
-    pathname?.includes('/media')
-
-  const useLightFooter = isLight && !isHomePage && !isCommercial
 
   const solarAboLinks = [
     {
@@ -199,17 +168,7 @@ const Footer = () => {
     titleClassName?: string
   }) => (
     <div>
-      <h3
-        className={cn(
-          'font-semibold mb-4 text-sm',
-          titleClassName ||
-            (useLightFooter
-              ? 'text-primary'
-              : isCommercial
-                ? 'text-energy'
-                : 'text-solar')
-        )}
-      >
+      <h3 className={cn('font-semibold mb-4 text-sm', titleClassName || 'text-solar')}>
         {title}
       </h3>
       <ul className="space-y-3">
@@ -217,12 +176,7 @@ const Footer = () => {
           <li key={link.href}>
             <Link
               href={link.href}
-              className={cn(
-                'text-sm font-normal transition-colors',
-                useLightFooter
-                  ? 'text-[#062E2580] hover:text-[#062E25]'
-                  : 'text-muted-text-light hover:text-white'
-              )}
+              className="text-sm font-normal transition-colors text-muted-text-light hover:text-white"
             >
               {link.label}
             </Link>
@@ -234,14 +188,7 @@ const Footer = () => {
 
   return (
     <footer className="relative z-20 -mt-[40px]">
-      <div
-        className={cn(
-          'relative overflow-hidden rounded-t-[40px]',
-          useLightFooter
-            ? 'text-foreground bg-[#F3F4EE]'
-            : 'text-white bg-[#011F19]'
-        )}
-      >
+      <div className="relative overflow-hidden rounded-t-[40px] text-white bg-[#011F19]">
         <div
           className="absolute pointer-events-none"
           style={{
@@ -250,75 +197,31 @@ const Footer = () => {
             minHeight: '961px',
             left: '0px',
             top: '-46px',
-            background: useLightFooter
-              ? 'linear-gradient(333.03deg, #EAECDE 41.26%, #D3D8BF 85.88%)'
-              : isCommercial
-                ? 'linear-gradient(106.37deg, #191D1C 52.8%, #3D3858 155.13%)'
-                : 'linear-gradient(107.86deg, #062E25 24.4%, #139477 221.35%)',
-            filter: useLightFooter ? 'blur(0px)' : 'blur(5.5px)',
+            background:
+              'linear-gradient(107.86deg, #062E25 24.4%, #139477 221.35%)',
+            filter: 'blur(5.5px)',
             zIndex: 1,
           }}
         />
 
-        {!useLightFooter && (
-          <>
-            {isCommercial ? (
-              <>
-                <div
-                  className="absolute pointer-events-none"
-                  style={{
-                    width: '374px',
-                    height: '374px',
-                    right: '30px',
-                    top: '-260px',
-                    background: 'rgba(159, 62, 79, 0.4)',
-                    filter: 'blur(245px)',
-                    borderRadius: '50%',
-                    zIndex: 2,
-                  }}
-                />
-
-                <div
-                  className="absolute pointer-events-none"
-                  style={{
-                    width: '291px',
-                    height: '291px',
-                    right: '0px',
-                    top: '-292px',
-                    background: 'rgba(159, 62, 79, 0.4)',
-                    filter: 'blur(85px)',
-                    borderRadius: '50%',
-                    zIndex: 2,
-                  }}
-                />
-              </>
-            ) : (
-              <div
-                className="absolute pointer-events-none"
-                style={{
-                  width: '374px',
-                  height: '374px',
-                  right: '0px',
-                  top: '-260px',
-                  background: 'rgba(183, 254, 26, 0.7)',
-                  filter: 'blur(245px)',
-                  borderRadius: '50%',
-                  zIndex: 2,
-                }}
-              />
-            )}
-          </>
-        )}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            width: '374px',
+            height: '374px',
+            right: '0px',
+            top: '-260px',
+            background: 'rgba(183, 254, 26, 0.7)',
+            filter: 'blur(245px)',
+            borderRadius: '50%',
+            zIndex: 2,
+          }}
+        />
 
         <div className="relative z-20 max-w-[1380px] mx-auto px-6 pt-12 pb-6">
           <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
             <div className="flex flex-col gap-2.5">
-              <span
-                className={cn(
-                  'text-base font-medium tracking-tight',
-                  useLightFooter ? 'text-[#062E25]' : 'text-white'
-                )}
-              >
+              <span className="text-base font-medium tracking-tight text-white">
                 {t('stayConnected')}
               </span>
               <div className="flex gap-4">
@@ -328,14 +231,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn(
-                      'w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80',
-                      useLightFooter
-                        ? 'bg-[#062E25] text-solar'
-                        : isCommercial
-                          ? 'bg-[#9F3E4F] text-white'
-                          : 'bg-solar text-[#062E25]'
-                    )}
+                    className="w-9 h-9 rounded-full flex items-center justify-center transition-colors hover:opacity-80 bg-solar text-[#062E25]"
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4" />
@@ -346,38 +242,21 @@ const Footer = () => {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-end gap-5">
               <div className="flex flex-col gap-2.5">
-                <span
-                  className={cn(
-                    'text-base font-medium tracking-tight',
-                    useLightFooter ? 'text-[#062E25]' : 'text-white'
-                  )}
-                >
+                <span className="text-base font-medium tracking-tight text-white">
                   {t('signUpForUpdates')}
                 </span>
-                <div
-                  className={cn(
-                    'flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px]',
-                    useLightFooter
-                      ? 'bg-[#EAEDDF] border-[#B5C0B1]'
-                      : 'bg-transparent border-white/30'
-                  )}
-                >
+                <div className="flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px] bg-transparent border-white/30">
                   <input
                     type="email"
                     placeholder={t('enterEmail')}
                     value={email}
                     onChange={e => setEmail(e.target.value)}
-                    className={cn(
-                      'bg-transparent text-sm font-medium outline-none w-[200px] sm:w-[260px] placeholder:opacity-50',
-                      useLightFooter
-                        ? 'text-[#062E25] placeholder:text-[#062E25]'
-                        : 'text-white placeholder:text-white'
-                    )}
+                    className="bg-transparent text-sm font-medium outline-none w-[200px] sm:w-[260px] placeholder:opacity-50 text-white placeholder:text-white"
                   />
                 </div>
               </div>
               <ArrowButton
-                variant={isCommercial ? 'secondary' : 'primary'}
+                variant="primary"
                 size="md"
                 className="h-9 text-sm"
                 onClick={handleSubscribe}
@@ -393,47 +272,22 @@ const Footer = () => {
 
             <div className="flex flex-col sm:flex-row items-start sm:items-end gap-5">
               <div className="flex flex-col gap-2.5">
-                <span
-                  className={cn(
-                    'text-base font-medium tracking-tight',
-                    useLightFooter ? 'text-[#062E25]' : 'text-white'
-                  )}
-                >
+                <span className="text-base font-medium tracking-tight text-white">
                   {t('callUs')}
                 </span>
-                <div
-                  className={cn(
-                    'flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px] opacity-70',
-                    useLightFooter
-                      ? 'bg-transparent border-[#062E25]'
-                      : 'bg-transparent border-white/30'
-                  )}
-                >
-                  <span
-                    className={cn(
-                      'text-sm font-medium',
-                      useLightFooter ? 'text-[#062E25]' : 'text-white'
-                    )}
-                  >
+                <div className="flex items-center px-3 h-9 rounded-[5px] border backdrop-blur-[65px] opacity-70 bg-transparent border-white/30">
+                  <span className="text-sm font-medium text-white">
                     {t('callHours')}
                   </span>
                 </div>
               </div>
               <LinkButton
                 href={COMPANY_MAIN_PHONE_TEL_HREF}
-                variant={isCommercial ? 'secondary' : 'primary'}
+                variant="primary"
                 className="h-9 text-sm"
-                iconWrapperClassName={cn(
-                  'w-[30px] h-[30px]',
-                  isCommercial ? 'bg-white/20' : 'bg-[#062E25]/10'
-                )}
+                iconWrapperClassName="w-[30px] h-[30px] bg-[#062E25]/10"
                 icon={
-                  <Phone
-                    className={cn(
-                      'w-3.5 h-3.5 group-hover:animate-phone-ring',
-                      isCommercial ? 'text-white' : 'text-[#062E25]'
-                    )}
-                  />
+                  <Phone className="w-3.5 h-3.5 group-hover:animate-phone-ring text-[#062E25]" />
                 }
               >
                 {COMPANY_MAIN_PHONE_DISPLAY}
@@ -443,12 +297,7 @@ const Footer = () => {
         </div>
 
         <div className="relative z-20 max-w-[1380px] mx-auto px-6">
-          <div
-            className={cn(
-              'h-px w-full',
-              useLightFooter ? 'bg-[#062E25]/10' : 'bg-white/10'
-            )}
-          />
+          <div className="h-px w-full bg-white/10" />
         </div>
 
         <div className="relative max-w-[1380px] mx-auto px-6 pt-8 pb-8 z-20">
@@ -459,11 +308,7 @@ const Footer = () => {
                 aria-label="Free State AG — Startseite"
                 className="inline-block"
               >
-                {useLightFooter ? (
-                  <LogoDark className="h-10 w-auto" />
-                ) : (
-                  <LogoLight className="h-10 w-auto" />
-                )}
+                <LogoLight className="h-10 w-auto" />
               </Link>
             </div>
 
@@ -494,25 +339,13 @@ const Footer = () => {
 
           <div className="mt-8 flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
             <div>
-              <p
-                className={cn(
-                  'text-sm font-normal',
-                  useLightFooter ? 'text-primary' : 'text-white'
-                )}
-              >
-                {t('copyright')}
-              </p>
-              <p
-                className={cn(
-                  'text-sm font-normal italic mt-1 max-w-[250px]',
-                  useLightFooter ? 'text-primary/40' : 'text-muted-text-light/40'
-                )}
-              >
+              <p className="text-sm font-normal text-white">{t('copyright')}</p>
+              <p className="text-sm font-normal italic mt-1 max-w-[250px] text-muted-text-light/40">
                 {t('tagline')}
               </p>
             </div>
             <LinkButton
-              variant={isCommercial ? 'secondary' : 'primary'}
+              variant="primary"
               href={isCommercial ? '/commercial/calculator' : '/calculator'}
             >
               {t('cta')}

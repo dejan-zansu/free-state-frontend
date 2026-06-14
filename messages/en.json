@@ -3812,7 +3812,8 @@
     },
     "costOverview": {
       "title": "How much does a solar power system cost?",
-      "description": "Prices for solar power systems have fallen significantly in recent years. Currently, conditions are extremely favorable for achieving high profitability with solar power systems.\n\nSelf-generated solar power is significantly cheaper than electricity from the grid:",
+      "description": "Prices for solar power systems have fallen significantly in recent years. Currently, conditions are extremely favorable for achieving high profitability with solar power systems.",
+      "description2": "Self-generated solar power is significantly cheaper than electricity from the grid:",
       "items": {
         "gridElectricity": "Electricity from the power plant costs  23 cents.",
         "solarPower": "The solar power, including operating costs, costs  12 cents."

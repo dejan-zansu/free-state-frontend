@@ -16,7 +16,7 @@ const HowHeatPumpWorksSection = async () => {
               'linear-gradient(180deg, rgba(242, 244, 232, 1) 78%, rgba(220, 233, 230, 1) 100%)',
           }}
         >
-          <div className="max-w-[436px] flex flex-col gap-5">
+          <div className="max-w-[436px] flex flex-col gap-5 pt-[80px] pb-[40px]">
             <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium">
               {t('howHeatPumpWorks.title')}
             </h2>

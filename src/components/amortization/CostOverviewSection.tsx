@@ -19,7 +19,9 @@ const CostOverviewSection = async () => {
               <p className="text-[#062E25]/80 text-base md:text-[22px] font-light tracking-[-0.02em] text-justify">
                 {t('costOverview.description')}
               </p>
-
+              <p className="text-[#062E25]/80 text-base md:text-[22px] font-semibold tracking-[-0.02em] text-justify">
+                {t('costOverview.description2')}
+              </p>
               <div className="flex flex-col gap-5 max-w-[473px]">
                 {bulletItems.map(item => (
                   <div key={item} className="flex items-center gap-2">
