@@ -2,7 +2,7 @@
   "title": "Free State AG",
   "packageCatalog": {
     "title": "Scegli il tuo pacchetto solare",
-    "subtitle": "Impianti preconfigurati — scegli e ordina in pochi minuti.",
+    "subtitle": "Scegli un impianto preconfigurato e ordina in pochi minuti.",
     "errorLoading": "Impossibile caricare i pacchetti.",
     "retry": "Riprova",
     "empty": "Nessun pacchetto disponibile al momento.",
@@ -47,7 +47,7 @@
         },
         "app": {
           "name": "App e monitoraggio",
-          "desc": "Tutto sotto controllo — sempre e ovunque"
+          "desc": "Tieni tutto sotto controllo, sempre e ovunque"
         },
         "service": {
           "name": "Installazione e assistenza",
@@ -394,7 +394,7 @@
   "contactCTA": {
     "eyebrow": "Consulenza gratuita",
     "title": "Parliamo quando ti fa comodo",
-    "description": "Prenota uno slot di 30 minuti con uno dei nostri consulenti e ricevi risposte personalizzate su fotovoltaico, pompe di calore o mobilità elettrica — senza impegno.",
+    "description": "Prenota senza impegno uno slot di 30 minuti con uno dei nostri consulenti e ricevi risposte personalizzate su fotovoltaico, pompe di calore o mobilità elettrica.",
     "cta": "Prenota un incontro"
   },
   "contactMap": {
@@ -495,7 +495,7 @@
       },
       "family": {
         "title": "Offerta famiglia\n<accent>5% di sconto sull'acquisto</accent>",
-        "subtitle": "Energia sostenibile per la vostra famiglia –\napprofittatene e risparmiate ora.",
+        "subtitle": "Approfittate di un'energia sostenibile per la vostra famiglia\ne risparmiate ora.",
         "badge": "Fino a\nCHF 1'000.–\ndi bonus",
         "cta": "Scopri di più"
       },
@@ -533,9 +533,9 @@
     "hero": {
       "badge": "Free State SolarFree",
       "title": "Soluzioni solari intelligenti\nper le abitazioni private",
-      "subtitle": "Energia pulita, costi prevedibili e servizio completo – senza costi di investimento.",
+      "subtitle": "Senza costi di investimento, ottieni energia pulita, costi prevedibili e servizio completo.",
       "commercialTitle": "Soluzioni energetiche intelligenti\nper le aziende",
-      "commercialSubtitle": "Riduci i tuoi costi energetici con soluzioni solari e di accumulo scalabili, modelli prevedibili e servizio completo – senza alti investimenti iniziali.",
+      "commercialSubtitle": "Riduci i tuoi costi energetici senza alti investimenti iniziali grazie a soluzioni solari e di accumulo scalabili, modelli prevedibili e servizio completo.",
       "pill": [
         {
           "icon": "/images/hero-pill-investition.svg",
@@ -648,7 +648,7 @@
           "Assicurazione sull'intero impianto",
           "Opzione di riacquisto gratuita in qualsiasi momento"
         ],
-        "highlight": "0 CHF di investimento iniziale – paghi solo l'elettricità",
+        "highlight": "Con 0 CHF di investimento iniziale paghi solo l'elettricità",
         "advantagesTitle": "I tuoi vantaggi con SolarFree",
         "advantages": [
           "Nessun investimento iniziale",
@@ -662,7 +662,7 @@
         "title": "SolarDirect",
         "description": "Impianto solare, accumulo e stazione di ricarica da acquistare direttamente per la tua casa",
         "badge": "Proprietà completa",
-        "highlight": "Pagamento unico – l'impianto è tuo",
+        "highlight": "Con un pagamento unico l'impianto è tuo",
         "includedTitle": "Cosa è incluso?",
         "included": [
           "Proprietà completa dell'impianto",
@@ -705,7 +705,7 @@
     },
     "whyFreeState": {
       "title": "Perché FreeState?",
-      "subtitle": "Il modo intelligente di usare l'energia\n– efficiente, prevedibile e senza pensieri.",
+      "subtitle": "Il modo intelligente di usare l'energia\nin maniera efficiente, prevedibile e senza pensieri.",
       "cta": "Contatto",
       "features": [
         {
@@ -715,12 +715,12 @@
         },
         {
           "title": "Un sistema. Massima efficienza.",
-          "description": "Solare, accumulo ed e-mobility – perfettamente coordinati.",
+          "description": "Solare, accumulo ed e-mobility perfettamente coordinati tra loro.",
           "image": "/images/why-freestate-effizienz-77eb23.png"
         },
         {
           "title": "Servizio completo. Senza pensieri.",
-          "description": "Pianificazione, installazione e manutenzione – tutto da un'unica fonte.",
+          "description": "Pianificazione, installazione e manutenzione da un'unica fonte.",
           "image": "/images/why-freestate-service-792bb9.png"
         }
       ]
@@ -728,7 +728,7 @@
     "customerStories": {
       "eyebrow": "Testimonianze clienti",
       "title": "Cosa dicono i nostri clienti",
-      "subtitle": "Esperienze reali con FreeState – trasparenti, personali e autentiche.",
+      "subtitle": "Esperienze reali, trasparenti, personali e autentiche con FreeState.",
       "verifiedOwner": "proprietario verificato",
       "stats": {
         "savings": "Risparmi annui",
@@ -805,7 +805,7 @@
       "commercialSubtitle": "Recensioni autentiche di aziende partner e clienti corporate.",
       "commercialItems": [
         {
-          "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente – dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
+          "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
           "authorName": "Rivero Pineda Leonardo",
           "source": "google"
         },
@@ -817,7 +817,7 @@
       ],
       "items": [
         {
-          "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente – dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
+          "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
           "authorName": "Rivero Pineda Leonardo",
           "source": "google"
         },
@@ -831,13 +831,13 @@
     "pathToEnergy": {
       "eyebrow": "Il tuo percorso verso la tua energia",
       "title": "Pochi passi verso\nla tua soluzione solare",
-      "description": "Prenota una breve consulenza e scopri come FreeState può ridurre i tuoi costi energetici – senza investimento iniziale. Analizziamo la tua situazione, ti mostriamo il potenziale di risparmio concreto e ti accompagniamo dal primo colloquio all'impianto finito – spesso in sole 4 settimane.",
+      "description": "Prenota una breve consulenza e scopri come FreeState può ridurre i tuoi costi energetici senza alcun investimento iniziale. Analizziamo la tua situazione, ti mostriamo il potenziale di risparmio concreto e ti accompagniamo dal primo colloquio all'impianto finito, spesso in sole 4 settimane.",
       "cta": "Prenota un appuntamento",
       "image": "/images/your-path-to-energy-6a5540.webp"
     },
     "battery": {
       "title": "Batteria",
-      "subtitle": "FreeState offre soluzioni intelligenti di accumulo a batteria in collaborazione con Huawei – con hardware affidabile, integrazione perfetta e gestione energetica orientata al futuro per la tua casa.",
+      "subtitle": "In collaborazione con Huawei, FreeState offre soluzioni intelligenti di accumulo a batteria con hardware affidabile, integrazione perfetta e gestione energetica orientata al futuro per la tua casa.",
       "step1": "Accumulo di energia intelligente per la tua casa",
       "step2": "Accumulo a batteria semplificato",
       "step3": "Soluzioni di accumulo affidabili con Huawei",
@@ -864,7 +864,7 @@
     },
     "evCharging": {
       "title": "Soluzioni di ricarica VE",
-      "subtitle": "FreeState offre soluzioni di ricarica VE intelligenti in collaborazione con Huawei – con hardware affidabile, integrazione perfetta e gestione energetica orientata al futuro per la tua casa.",
+      "subtitle": "In collaborazione con Huawei, FreeState offre soluzioni di ricarica VE intelligenti con hardware affidabile, integrazione perfetta e gestione energetica orientata al futuro per la tua casa.",
       "step1": "Ricarica VE intelligente per la tua casa",
       "step2": "Ricarica VE semplificata",
       "step3": "Soluzioni di ricarica affidabili con Huawei",
@@ -882,7 +882,7 @@
     },
     "yourBenefits": {
       "title": "I tuoi vantaggi",
-      "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza – il tutto senza rischi di investimento per te.",
+      "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza, senza alcun rischio di investimento per te.",
       "cta": "Scopri di più",
       "items": [
         {
@@ -923,9 +923,9 @@
           "feature2": "80% di autoconsumo, indipendenza totale",
           "feature3": "Controllo e analisi energetica tramite app",
           "feature4": "Contratto di locazione del tetto e di riacquisto inclusi",
-          "term": "Durata 35 anni – l'impianto diventa poi di tua proprietà",
+          "term": "Durata di 35 anni, al termine dei quali l'impianto diventa di tua proprietà",
           "price": "Una tantum CHF 2'500",
-          "benefit1": "Una tantum CHF 2'500 – invece di CHF 35'000 di investimento",
+          "benefit1": "Una tantum di CHF 2'500 anziché CHF 35'000 di investimento",
           "benefit2": "Prezzo dell'elettricità fino al 40% inferiore alla tariffa di rete",
           "benefit3": "Piena indipendenza energetica",
           "explanation": {
@@ -942,7 +942,7 @@
           "feature4": "Stabilità dei prezzi dell'energia a lungo termine e vantaggi ESG",
           "term": "Durata del contratto 35 anni con opzione di riacquisto",
           "price": "Prezzi personalizzati",
-          "benefit1": "0 CHF di investimento – invece di CHF 250'000 di CAPEX",
+          "benefit1": "0 CHF di investimento anziché CHF 250'000 di CAPEX",
           "benefit2": "Prezzo dell'energia fisso per una pianificazione a lungo termine",
           "benefit3": "Vantaggi ESG e sostenibilità",
           "explanation": {
@@ -959,7 +959,7 @@
           "feature4": "Contratto di locazione del tetto con garanzia di servizio",
           "term": "Durate contrattuali flessibili",
           "price": "Prezzi personalizzati",
-          "benefit1": "Zero investimento – invece di CHF 120'000 di investimento",
+          "benefit1": "Zero investimento anziché CHF 120'000 di investimento",
           "benefit2": "Fino al 40% di riduzione dei costi dell'elettricità",
           "benefit3": "Garanzia di servizio inclusa",
           "explanation": {
@@ -988,24 +988,24 @@
     },
     "benefits": {
       "title": "I tuoi vantaggi",
-      "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza – senza rischi di investimento da parte tua.",
+      "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza, senza alcun rischio di investimento da parte tua.",
       "learnMore": "Scopri di più",
       "noInvestment": {
         "title": "Nessun costo di investimento",
-        "description": "Non ti assumi alcun rischio finanziario – ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
+        "description": "Non ti assumi alcun rischio finanziario, perché ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
       },
       "fullService": {
         "title": "Servizio tutto incluso",
-        "description": "Non ti assumi alcun rischio finanziario – ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
+        "description": "Non ti assumi alcun rischio finanziario, perché ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
       },
       "longTerm": {
         "title": "Più conveniente a lungo termine",
-        "description": "Non ti assumi alcun rischio finanziario – ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
+        "description": "Non ti assumi alcun rischio finanziario, perché ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
       }
     },
     "portfolio": {
       "title": "Portfolio",
-      "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza – senza rischi di investimento da parte tua.",
+      "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza, senza alcun rischio di investimento da parte tua.",
       "item1": {
         "title": "Azienda agricola Thun",
         "details": "• Fino al 30% di risparmio sui costi \n• Impianto da 250 kWp"
@@ -1027,7 +1027,7 @@
       },
       "title": "Energia solare per le aziende",
       "contentTitle": "Energia solare",
-      "description": "Ti aiutiamo a sfruttare al meglio la superficie del tuo tetto, a ridurre i costi energetici e a costruire un approvvigionamento energetico sostenibile. Dalla pianificazione all'implementazione chiavi in mano, accompagniamo il tuo progetto – efficiente, affidabile e su misura per la tua azienda.",
+      "description": "Ti aiutiamo a sfruttare al meglio la superficie del tuo tetto, a ridurre i costi energetici e a costruire un approvvigionamento energetico sostenibile. Dalla pianificazione all'implementazione chiavi in mano, accompagniamo il tuo progetto in modo efficiente, affidabile e su misura per la tua azienda.",
       "item1": {
         "title": "Risparmio",
         "description": "Massimo risparmio energetico per la tua azienda"
@@ -1050,11 +1050,11 @@
         },
         "item2": {
           "title": "Riduci i costi energetici",
-          "description": "Fino al 30–40% di risparmio – a lungo termine e prevedibile."
+          "description": "Risparmia fino al 30–40% sul lungo termine, in modo prevedibile."
         },
         "item3": {
           "title": "Abbassa l'impronta di carbonio",
-          "description": "Fino a 12 t di CO₂ all'anno – per la tua azienda."
+          "description": "Fino a 12 t di CO₂ risparmiate ogni anno dalla tua azienda."
         }
       }
     },
@@ -1073,7 +1073,7 @@
     "hero": {
       "eyebrow": "Acquista moduli solari",
       "title": "SolarFree",
-      "subtitle": "Tecnologia solare e di accumulo all'avanguardia con il leasing solare di FreeState AG — senza costi di acquisto.",
+      "subtitle": "Con il leasing solare di FreeState AG ottieni tecnologia solare e di accumulo all'avanguardia senza costi di acquisto.",
       "cta": "Avvia il calcolatore solare",
       "tag": "Senza registrazione · Senza impegno",
       "stats": {
@@ -1109,14 +1109,14 @@
     "details": {
       "eyebrow": "Dettagli",
       "title": "Cosa include SolarFree",
-      "subtitle": "Tutti i servizi e i componenti per un approvvigionamento energetico affidabile — senza costi di acquisto.",
+      "subtitle": "Tutti i servizi e i componenti per un approvvigionamento energetico affidabile, senza costi di acquisto per te.",
       "solarModules": {
         "title": "Moduli solari di alta qualità",
-        "description": "Moduli solari altamente efficienti per la massima produzione di energia — durevoli e resistenti."
+        "description": "Moduli solari altamente efficienti, durevoli e resistenti, per la massima produzione di energia."
       },
       "batteryStorage": {
         "title": "Accumulo a batteria ad alte prestazioni",
-        "description": "Energia affidabile quando serve — come backup o per ottimizzare l'autoconsumo."
+        "description": "Quando serve, fornisce energia affidabile come backup o per ottimizzare l'autoconsumo."
       }
     },
     "includes": {
@@ -1174,14 +1174,14 @@
         },
         "2": {
           "question": "Vantaggi nell'acquisto di un impianto solare?",
-          "answer": "Risparmio a lungo termine, indipendenza energetica, maggiore valore dell'immobile e pieno controllo — con un ammortamento tipicamente raggiunto in 5–10 anni."
+          "answer": "Con un ammortamento tipicamente raggiunto in 5–10 anni ottieni risparmio a lungo termine, indipendenza energetica, maggiore valore dell'immobile e pieno controllo."
         },
         "3": {
           "question": "Posso acquistare i moduli solari da solo?",
           "answer": "Sì, ma installazione professionale, allacciamento alla rete e autorizzazioni restano necessari. Il nostro pacchetto chiavi in mano SolarDirect gestisce tutto per te."
         },
         "4": {
-          "question": "Leasing o acquisto — cosa è meglio?",
+          "question": "Leasing o acquisto: cosa conviene di più?",
           "answer": "L'acquisto offre il costo totale più basso e la piena proprietà. Il leasing (come SolarFree) elimina l'investimento iniziale. La scelta giusta dipende dalla tua liquidità e dai tuoi obiettivi a lungo termine."
         },
         "5": {
@@ -1194,7 +1194,7 @@
         },
         "7": {
           "question": "Rimangono costi dell'elettricità con un impianto solare?",
-          "answer": "Restano una quota fissa per l'allacciamento alla rete e il consumo di elettricità di notte o nei giorni nuvolosi — ma la bolletta complessiva cala in modo significativo."
+          "answer": "Una quota fissa per l'allacciamento alla rete e il consumo di elettricità di notte o nei giorni nuvolosi resta a tuo carico, ma la bolletta complessiva cala in modo significativo."
         },
         "8": {
           "question": "Cosa succede in caso di elettricità in eccesso?",
@@ -1319,7 +1319,7 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Solare per il tuo stabile plurifamiliare – senza investimento\n\nRiduci i costi energetici dell'edificio, senza alcun investimento da parte tua. Realizziamo l'impianto fotovoltaico sul tuo tetto, interamente finanziato, installato e gestito da noi.\n\nPer te e per tutti gli inquilini significa:\ncosti dell'elettricità più bassi\nprezzi dell'energia stabili\naumento di valore sostenibile dell'immobile"
+        "description": "Solare senza investimento per il tuo stabile plurifamiliare\n\nRiduci i costi energetici dell'edificio, senza alcun investimento da parte tua. Realizziamo l'impianto fotovoltaico sul tuo tetto, interamente finanziato, installato e gestito da noi.\n\nPer te e per tutti gli inquilini significa:\ncosti dell'elettricità più bassi\nprezzi dell'energia stabili\naumento di valore sostenibile dell'immobile"
       },
       "row2": {
         "title": "Come funziona",
@@ -1329,7 +1329,7 @@
     "publicSpaces": {
       "title": "Powering Public Spaces",
       "subtitle": "Con energia pulita e affidabile",
-      "body": "Richiedi ora una valutazione senza impegno\n\nTrasforma il tuo stabile plurifamiliare in un moderno progetto energetico senza alcun rischio finanziario. Raccomandaci alla tua amministrazione o alla comunità dei proprietari – verifichiamo tutto e ci occupiamo dell'intera realizzazione.\n\nAnalizziamo l'edificio e il potenziale del tetto, calcoliamo la redditività e sviluppiamo un concetto di realizzazione concreto, inclusi tutti gli aspetti tecnici e legali (ZEV). Finanziamento, pianificazione e realizzazione sono interamente a nostro carico.\n\nIl tuo impegno resta minimo: tu prendi il primo contatto, noi coordiniamo tutto il resto. Beneficerai di energia solare conveniente, costi energetici stabili e un aumento di valore sostenibile del tuo immobile. Inizia ora, gratuitamente e senza impegno, e ricevi una valutazione solida del potenziale – Richiedi un'analisi gratuita"
+      "body": "Richiedi ora una valutazione senza impegno\n\nTrasforma il tuo stabile plurifamiliare in un moderno progetto energetico senza alcun rischio finanziario. Ti basta raccomandarci alla tua amministrazione o alla comunità dei proprietari: verifichiamo tutto e ci occupiamo dell'intera realizzazione.\n\nAnalizziamo l'edificio e il potenziale del tetto, calcoliamo la redditività e sviluppiamo un concetto di realizzazione concreto, inclusi tutti gli aspetti tecnici e legali (ZEV). Finanziamento, pianificazione e realizzazione sono interamente a nostro carico.\n\nIl tuo impegno resta minimo: tu prendi il primo contatto, noi coordiniamo tutto il resto. Beneficerai di energia solare conveniente, costi energetici stabili e un aumento di valore sostenibile del tuo immobile. Inizia ora, gratuitamente e senza impegno. Richiedi la tua analisi gratuita e ricevi una valutazione solida del potenziale."
     },
     "contactPerson": {
       "name": "Peter Aragai",
@@ -1395,17 +1395,17 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       },
       "row2": {
         "title": "Come funziona",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       }
     },
     "publicSpaces": {
       "title": "Energia per la tua attività",
       "subtitle": "Pulita, prevedibile, senza investimento",
-      "body": "Fai lavorare le superfici di tetto inutilizzate della tua azienda industriale o commerciale – senza alcun esborso di capitale. Analizziamo gratuitamente l'edificio, il profilo di consumo e la redditività, e ci occupiamo di progettazione, finanziamento, installazione e gestione. Beneficerai di prezzi dell'elettricità stabili, di vantaggi ESG e di una riduzione misurabile di CO₂ – senza carichi operativi per il tuo team. Richiedi ora un'analisi gratuita."
+      "body": "Fai lavorare le superfici di tetto inutilizzate della tua azienda industriale o commerciale senza alcun esborso di capitale. Analizziamo gratuitamente l'edificio, il profilo di consumo e la redditività, e ci occupiamo di progettazione, finanziamento, installazione e gestione. Beneficerai di prezzi dell'elettricità stabili, di vantaggi ESG e di una riduzione misurabile di CO₂, il tutto senza carichi operativi per il tuo team. Richiedi ora un'analisi gratuita."
     },
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Vantaggi ESG.",
@@ -1456,7 +1456,7 @@
     },
     "howItWorks": {
       "title": "Come funziona Industria / Commercio",
-      "subtitle": "Semplice, trasparente e senza preoccupazioni – riduzione dei costi energetici per la tua azienda.",
+      "subtitle": "Riduci i costi energetici della tua azienda in modo semplice, trasparente e senza preoccupazioni.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
         "step2": "Noi investiamo",
@@ -1521,17 +1521,17 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       },
       "row2": {
         "title": "Come funziona",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       }
     },
     "publicSpaces": {
       "title": "Energia per la tua azienda agricola",
       "subtitle": "Grandi tetti, grande potenziale",
-      "body": "Le aziende agricole hanno spesso le superfici di tetto inutilizzate più grandi della regione. Valutiamo gratuitamente come trasformare il tuo tetto di fienile o stalla in un impianto FV – senza alcun investimento da parte tua. Ci occupiamo di finanziamento, costruzione e gestione. Ricevi elettricità conveniente per l'azienda, un affitto annuale per il tetto e una nuova fonte di reddito. Richiedi ora una verifica del potenziale senza impegno."
+      "body": "Le aziende agricole hanno spesso le superfici di tetto inutilizzate più grandi della regione. Valutiamo gratuitamente e senza alcun investimento da parte tua come trasformare il tuo tetto di fienile o stalla in un impianto FV. Ci occupiamo di finanziamento, costruzione e gestione. Ricevi elettricità conveniente per l'azienda, un affitto annuale per il tetto e una nuova fonte di reddito. Richiedi ora una verifica del potenziale senza impegno."
     },
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Servizio affidabile.",
@@ -1582,7 +1582,7 @@
     },
     "howItWorks": {
       "title": "Come funziona Fattorie",
-      "subtitle": "Semplice, trasparente e senza preoccupazioni – su misura per le aziende agricole.",
+      "subtitle": "Una soluzione semplice, trasparente e senza preoccupazioni, su misura per le aziende agricole.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
         "step2": "Noi investiamo",
@@ -1647,13 +1647,13 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto – viene costruito dalla nostra consociata, i pionieri del solare di tritec. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       }
     },
     "publicSpaces": {
       "title": "Powering Public Spaces",
       "subtitle": "Con energia pulita e affidabile",
-      "body": "Scuole, edifici amministrativi e immobili pubblici hanno una responsabilità nella transizione energetica – senza gravare sui bilanci. Analizziamo gratuitamente potenziale e redditività e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Il comune beneficia di costi energetici stabili, di un contributo visibile alla sostenibilità e di una funzione esemplare – senza anticipare un solo franco. Richiedi ora un'analisi senza impegno."
+      "body": "Scuole, edifici amministrativi e immobili pubblici hanno una responsabilità nella transizione energetica, senza per questo gravare sui bilanci. Analizziamo gratuitamente potenziale e redditività e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Senza anticipare un solo franco, il comune beneficia di costi energetici stabili, di un contributo visibile alla sostenibilità e di una funzione esemplare. Richiedi ora un'analisi senza impegno."
     },
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Esempio di sostenibilità.",
@@ -1704,7 +1704,7 @@
     },
     "howItWorks": {
       "title": "Come funziona Edifici pubblici",
-      "subtitle": "Semplice, trasparente e senza preoccupazioni – dai l'esempio di sostenibilità alla tua comunità.",
+      "subtitle": "In modo semplice, trasparente e senza preoccupazioni dai l'esempio di sostenibilità alla tua comunità.",
       "steps": {
         "step1": "Tu metti a disposizione il tetto",
         "step2": "Noi investiamo",
@@ -1777,7 +1777,7 @@
   "quoteRequestForm": {
     "eyebrow": "Costi energetici",
     "title": "Controlla i costi dell'energia",
-    "subtitle": "Tieni sotto controllo consumi e costi — con un sistema energetico efficiente e prevedibile.",
+    "subtitle": "Tieni sotto controllo consumi e costi con un sistema energetico efficiente e prevedibile.",
     "formTitle": "Preventivo gratuito",
     "requiredHint": "Tutti i campi sono obbligatori.",
     "firstName": "Nome",
@@ -1795,7 +1795,7 @@
     "ownsHomeQuestion": "Sei proprietario della tua abitazione?",
     "yes": "Sì",
     "no": "No",
-    "consent": "Cliccando sul pulsante qui sotto, accetti che Free State AG possa contattarti al numero di telefono fornito e inviare chiamate e messaggi automatizzati relativi a prodotti e servizi — anche se il tuo numero è in una lista «Do Not Call». Potrebbero essere applicati costi per messaggi e dati. Massimo 10 messaggi al mese. Il consenso è facoltativo e può essere revocato in qualsiasi momento. Accetti inoltre le nostre condizioni d'uso.",
+    "consent": "Cliccando sul pulsante qui sotto, accetti che Free State AG possa contattarti al numero di telefono fornito e inviare chiamate e messaggi automatizzati relativi a prodotti e servizi, anche se il tuo numero figura in una lista «Do Not Call». Potrebbero essere applicati costi per messaggi e dati. Massimo 10 messaggi al mese. Il consenso è facoltativo e può essere revocato in qualsiasi momento. Accetti inoltre le nostre condizioni d'uso.",
     "submit": "Invia",
     "successTitle": "Grazie!",
     "successMessage": "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve.",
@@ -1866,7 +1866,7 @@
   },
   "portfolioPage": {
     "title": "Portfolio",
-    "subtitle": "La tua energia, la nostra responsabilità – sostenibile e senza preoccupazioni",
+    "subtitle": "La tua energia, la nostra responsabilità: sostenibile e senza preoccupazioni",
     "hero": {
       "title": "I nostri progetti solari\nin tutta la Svizzera"
     },
@@ -2154,7 +2154,7 @@
       },
       "flatRoofAlert": {
         "title": "Installazione su tetto piano:",
-        "description": "I pannelli saranno montati su strutture inclinate (tipicamente 10-20°) per ottimizzare la produzione e consentire il deflusso dell'acqua. Hai piena libertà di scegliere la direzione dei pannelli – Sud (180°) è ottimale per la massima produzione annua in Svizzera."
+        "description": "I pannelli saranno montati su strutture inclinate (tipicamente 10-20°) per ottimizzare la produzione e consentire il deflusso dell'acqua. Hai piena libertà di scegliere la direzione dei pannelli, anche se l'orientamento a Sud (180°) è ottimale per la massima produzione annua in Svizzera."
       },
       "optimizationTips": {
         "title": "Consigli di ottimizzazione",
@@ -2289,7 +2289,7 @@
   "comingSoon": {
     "eyebrow": "In sviluppo",
     "title": "Calcolatore solare",
-    "description": "Dimensiona e preventiva il tuo impianto fotovoltaico in pochi minuti. Stiamo apportando gli ultimi ritocchi — contatta il nostro team ora e ti proporremo un'offerta su misura.",
+    "description": "Dimensiona e preventiva il tuo impianto fotovoltaico in pochi minuti. Stiamo apportando gli ultimi ritocchi, quindi contatta subito il nostro team e ti proporremo un'offerta su misura.",
     "contactCta": "Parla con il nostro team",
     "exploreCta": "Scopri le nostre soluzioni",
     "back": "Indietro"
@@ -2366,7 +2366,7 @@
       "sectionCompany": "Firma",
       "legalForm": "Rechtsform",
       "uidNumber": "UID-Nummer",
-      "uidHelp": "Optional — beschleunigt die Prüfung.",
+      "uidHelp": "Optional, beschleunigt aber die Prüfung.",
       "industry": "Branche",
       "employees": "Mitarbeitende",
       "website": "Website",
@@ -2484,7 +2484,7 @@
       "cancelDrawing": "Annulla",
       "drawingMode": "Modalità disegno attiva",
       "drawingInstructions": "Clicca sulla mappa per disegnare gli angoli del poligono. Doppio clic per terminare.",
-      "drawingModeActive": "Modalità disegno – clicca per aggiungere punti",
+      "drawingModeActive": "In modalità disegno, clicca per aggiungere punti",
       "area": "Area",
       "clearAll": "Cancella tutto",
       "noRestrictedAreas": "Nessuna area riservata definita",
@@ -2946,21 +2946,21 @@
         },
         {
           "title": "Centrale solare",
-          "description": "Impianti di grandi dimensioni per le aziende – dalla pianificazione all'esercizio.",
+          "description": "Per le aziende realizziamo grandi impianti, dalla pianificazione all'esercizio.",
           "linkLabel": "Centrale solare",
           "image": "/images/commercial-solar-solarkraftwerk-20dc14.webp",
           "href": "/commercial/solar-systems/project-development"
         },
         {
           "title": "Carport solare",
-          "description": "Un tetto solare per i tuoi posti auto – usa l'energia solare due volte.",
+          "description": "Sfrutta due volte l'energia solare con un tetto solare sui tuoi posti auto.",
           "linkLabel": "Carport solare",
           "image": "/images/solar-systems-carport-13a486.webp",
           "href": "/commercial/solar-systems/solar-carport"
         },
         {
           "title": "Contracting",
-          "description": "Impianto solare senza investimento – ci occupiamo noi di finanziamento ed esercizio.",
+          "description": "Un impianto solare senza investimento, dove finanziamento ed esercizio sono a carico nostro.",
           "linkLabel": "Contracting",
           "image": "/images/commercial-solar-contracting-3ed9d4.webp",
           "href": "/commercial/solar-systems/contracting"
@@ -2999,7 +2999,7 @@
         },
         {
           "title": "Sistema carport solare",
-          "description": "Un tetto solare per la tua auto – ricarica con la tua energia solare.",
+          "description": "Con un tetto solare per la tua auto ricarichi con la tua energia solare.",
           "linkLabel": "Carport solare",
           "image": "/images/solar-systems-carport-13a486.webp",
           "href": "/solar-system-carport"
@@ -3141,7 +3141,7 @@
       }
     },
     "landLease": {
-      "title": "Guadagna dal tuo terreno – senza investimento",
+      "title": "Guadagna dal tuo terreno senza investimento",
       "description": "Se possiedi terreni o infrastrutture idonee, FreeState AG può installare e gestire sistemi di accumulo energetico sul tuo sito. Ricevi pagamenti di locazione fissi senza investimento né impegno operativo.",
       "financialBenefits": {
         "title": "Vantaggi finanziari",
@@ -3407,7 +3407,7 @@
     },
     "products": {
       "eyebrow": "Prodotti",
-      "title": "Pompe di calore – prodotti e produttori",
+      "title": "Pompe di calore: prodotti e produttori",
       "cta": "Maggiori informazioni",
       "items": {
         "1": {
@@ -3478,7 +3478,7 @@
       "features": {
         "1": {
           "title": "Tutto da un unico fornitore",
-          "description": "Dalla consulenza e pianificazione fino all'installazione e manutenzione — ci occupiamo di ogni fase al posto tuo."
+          "description": "Ci occupiamo di ogni fase al posto tuo, dalla consulenza e pianificazione fino all'installazione e manutenzione."
         },
         "2": {
           "title": "Un servizio 24 ore su 24, 7 giorni su 7",
@@ -3543,22 +3543,22 @@
     "solarPanel": {
       "title": "Come funziona un pannello solare",
       "description": "I pannelli solari sono in grado di convertire la luce solare in elettricità. Ciò è reso possibile dai semiconduttori (silicio), che conducono l'elettricità. Non appena la luce solare colpisce il pannello solare, gli elettroni vengono eccitati. Gli elettroni si muovono poi attraverso gli strati del pannello solare fino all'inverter. Gli elettroni trasportano l'elettricità dove serve. A seconda della richiesta, l'energia va direttamente agli utilizzatori finali (lampadina, PC, batteria, ecc.), dove l'elettricità è disponibile per l'uso successivo.",
-      "infoCard": "I moduli solari – chiamati anche pannelli solari – sono composti da molte piccole celle solari. Quando molti moduli solari sono collegati tra loro, si parla di impianto solare."
+      "infoCard": "I moduli solari, chiamati anche pannelli solari, sono composti da molte piccole celle solari. Quando molti moduli solari sono collegati tra loro, si parla di impianto solare."
     },
     "photovoltaic": {
       "title": "Costruzione dell'impianto fotovoltaico",
       "learnMore": "Scopri di più",
       "solarPanels": {
         "title": "Pannelli solari",
-        "description": "Non ti assumi alcun rischio finanziario – ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
+        "description": "Non ti assumi alcun rischio finanziario, perché ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
       },
       "inverter": {
         "title": "Inverter",
-        "description": "Non ti assumi alcun rischio finanziario – ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
+        "description": "Non ti assumi alcun rischio finanziario, perché ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
       },
       "electricityMeter": {
         "title": "Contatore elettrico",
-        "description": "Non ti assumi alcun rischio finanziario – ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
+        "description": "Non ti assumi alcun rischio finanziario, perché ci facciamo carico di tutti i costi di pianificazione, installazione e manutenzione del tuo impianto solare."
       }
     },
     "cta": {
@@ -3659,7 +3659,7 @@
     "costSection": {
       "title": "Quanto costa un impianto solare?",
       "paragraph1": "Un impianto fotovoltaico su un piccolo tetto di una casa unifamiliare può ora essere installato a partire da CHF 19'500 (inclusi sussidi e risparmi fiscali). Questo è un valore indicativo, poiché diversi fattori influenzano il prezzo dell'impianto fotovoltaico.",
-      "paragraph2": "I costi netti di investimento per l'impianto fotovoltaico sono significativamente ridotti dai <subsidies>sussidi</subsidies> – a seconda del cantone, questi sussidi possono ammontare a diverse migliaia di franchi svizzeri. FreeState si occupa di tutte le iscrizioni e domande, garantendoti di ricevere il massimo sussidio possibile.",
+      "paragraph2": "I <subsidies>sussidi</subsidies> riducono notevolmente i costi netti di investimento per l'impianto fotovoltaico e, a seconda del cantone, possono ammontare a diverse migliaia di franchi svizzeri. FreeState si occupa di tutte le iscrizioni e domande, garantendoti di ricevere il massimo sussidio possibile.",
       "infoCard": "Il costo di un impianto solare dipende principalmente dai seguenti fattori: dimensione e potenza del tetto, scelta dei moduli solari, costi dei materiali (inverter + sottostruttura) e impalcatura inclusa la cassetta dei fusibili."
     },
     "pricingSection": {
@@ -3818,13 +3818,13 @@
         "gridElectricity": "L'elettricità della centrale costa 23 centesimi.",
         "solarPower": "L'energia solare, compresi i costi operativi, costa 12 centesimi."
       },
-      "infoCard": "Più utilizzi la tua elettricità autoprodotta, più redditizio diventa il tuo impianto solare – e più economica sarà la tua bolletta dell'elettricità."
+      "infoCard": "Più utilizzi la tua elettricità autoprodotta, più il tuo impianto solare diventa redditizio e più la tua bolletta dell'elettricità si fa economica."
     }
   },
   "privacyPolicy": {
     "title": "Informativa sulla privacy",
     "subtitle": "Come trattiamo i tuoi dati personali",
-    "intro": "Free State AG prende sul serio la protezione dei tuoi dati personali. Trattiamo i tuoi dati in modo riservato e conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD, in vigore dal 1° settembre 2023) e — se applicabile — al Regolamento generale sulla protezione dei dati dell'UE (GDPR). La presente informativa sulla privacy descrive quali dati raccogliamo, per quale scopo li utilizziamo, con chi li condividiamo e quali diritti hai come interessato.",
+    "intro": "Free State AG prende sul serio la protezione dei tuoi dati personali. Trattiamo i tuoi dati in modo riservato e conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD, in vigore dal 1° settembre 2023) e, se applicabile, al Regolamento generale sulla protezione dei dati dell'UE (GDPR). La presente informativa sulla privacy descrive quali dati raccogliamo, per quale scopo li utilizziamo, con chi li condividiamo e quali diritti hai come interessato.",
     "dataCollection": {
       "title": "Titolare del trattamento e raccolta dei dati",
       "content": "Il titolare responsabile del trattamento dei dati personali su questo sito web ai sensi della nLPD e del GDPR è:\n\nFree State AG\nStettemerstrasse 40\n8207 Sciaffusa, Svizzera\nEmail: info@freestate.ch\nTelefono: +41 52 525 33 05\n\nRappresentante legale: Ivan Miric, Membro del Consiglio di Amministrazione e Amministratore Delegato, con firma individuale.\n\nRaccogliamo dati personali in due modi: attivamente, quando ce li fornisci (ad es. tramite il modulo di contatto, il modulo della newsletter, il calcolatore solare, le richieste di manutenzione o al momento della registrazione di un account cliente), e automaticamente attraverso i nostri sistemi IT quando visiti il sito web (dati tecnici di connessione come browser, sistema operativo e ora di accesso)."
@@ -3835,11 +3835,11 @@
     },
     "cookies": {
       "title": "Cookie e gestione del consenso",
-      "content": "Il nostro sito web utilizza cookie e tecnologie comparabili (ad es. localStorage). I cookie sono piccoli file di testo memorizzati sul tuo dispositivo. Differiscono per finalità:\n\n• Cookie strettamente necessari: richiesti per il funzionamento del sito web (ad es. preferenza della lingua, sessione di accesso, il consenso ai cookie stesso). Non possono essere deselezionati.\n• Cookie analitici: ci consentono di valutare in forma anonima il comportamento d'uso e di migliorare il sito web.\n• Cookie di marketing: utilizzati per offrire contenuti e pubblicità personalizzati.\n\nAlla prima visita del nostro sito web appare un banner dei cookie in cui puoi decidere per ogni categoria se acconsentire al loro utilizzo. I cookie analitici e di marketing vengono impostati solo dopo il tuo esplicito consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nPuoi revocare il tuo consenso in qualsiasi momento per il futuro riaprendo le impostazioni dei cookie tramite il link in fondo alla pagina. Finché non hai prestato il consenso, non vengono caricati cookie analitici o di marketing e i nostri servizi di analisi funzionano in modalità \"Consent Mode v2 — denied\", cioè senza impostare cookie identificativi."
+      "content": "Il nostro sito web utilizza cookie e tecnologie comparabili (ad es. localStorage). I cookie sono piccoli file di testo memorizzati sul tuo dispositivo. Differiscono per finalità:\n\n• Cookie strettamente necessari: richiesti per il funzionamento del sito web (ad es. preferenza della lingua, sessione di accesso, il consenso ai cookie stesso). Non possono essere deselezionati.\n• Cookie analitici: ci consentono di valutare in forma anonima il comportamento d'uso e di migliorare il sito web.\n• Cookie di marketing: utilizzati per offrire contenuti e pubblicità personalizzati.\n\nAlla prima visita del nostro sito web appare un banner dei cookie in cui puoi decidere per ogni categoria se acconsentire al loro utilizzo. I cookie analitici e di marketing vengono impostati solo dopo il tuo esplicito consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nPuoi revocare il tuo consenso in qualsiasi momento per il futuro riaprendo le impostazioni dei cookie tramite il link in fondo alla pagina. Finché non hai prestato il consenso, non vengono caricati cookie analitici o di marketing e i nostri servizi di analisi funzionano in modalità \"Consent Mode v2\" con stato \"denied\", cioè senza impostare cookie identificativi."
     },
     "analytics": {
       "title": "Web analytics, gestione dei tag e misurazione dell'utilizzo",
-      "content": "Previa il tuo consenso, utilizziamo i seguenti servizi per capire come viene utilizzato il nostro sito web e per migliorare la nostra offerta. Senza il tuo consenso, questi servizi non vengono attivati.\n\n1) Google Tag Manager\nFornitore: Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\nGoogle Tag Manager è uno strumento di gestione che ci consente di integrare in modo centralizzato i tag di misurazione e analisi. Il Tag Manager stesso non crea profili utente e non imposta cookie propri. Tuttavia, carica altri servizi (vedi sotto) che trattano essi stessi dati.\n\n2) Google Analytics 4 (GA4)\nFornitore: Google Ireland Limited.\nGA4 produce statistiche anonimizzate sull'uso del nostro sito web (ad es. visualizzazioni di pagina, durata della sessione, paese di origine, tipo di dispositivo, fonte di traffico). L'indirizzo IP viene troncato prima della memorizzazione (\"anonimizzazione IP\") e i singoli utenti non vengono identificati direttamente. Gestiamo GA4 con la Google Consent Mode v2 abilitata e con le funzioni pubblicitarie (\"Google Signals\") disabilitate. Il periodo di conservazione dei dati di evento in GA4 è di 14 mesi.\n\n3) Hotjar\nFornitore: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar produce heatmap aggregate e — su determinate pagine (in particolare il calcolatore solare e l'area clienti) — registrazioni di sessione pseudonimizzate per identificare problemi di usabilità. Le battute sui campi dei moduli sono mascherate per impostazione predefinita; i contenuti sensibili (dati dei clienti, contratti) non vengono registrati. Hotjar imposta cookie con una durata massima di 365 giorni.\n\n4) Google Search Console\nFornitore: Google Ireland Limited.\nGoogle Search Console viene utilizzato esclusivamente per la verifica della proprietà del dominio e per l'analisi di statistiche SEO anonime (ad es. query di ricerca in ingresso da Google). Non imposta cookie su questo sito web e non tratta dati personali dei nostri visitatori.\n\nBase giuridica: consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nTrasferimento di dati negli USA: GA4, Google Tag Manager, Google Search Console e Hotjar trattano in parte dati negli USA. Google è certificato ai sensi dell'EU-US Data Privacy Framework; Hotjar tratta i dati prevalentemente nell'UE ma può utilizzare subincaricati in Paesi terzi. Laddove i dati vengano trasferiti in un Paese senza un livello adeguato di protezione dei dati, ci basiamo sulle Clausole Contrattuali Tipo ai sensi dell'art. 16 nLPD / art. 46 GDPR."
+      "content": "Previa il tuo consenso, utilizziamo i seguenti servizi per capire come viene utilizzato il nostro sito web e per migliorare la nostra offerta. Senza il tuo consenso, questi servizi non vengono attivati.\n\n1) Google Tag Manager\nFornitore: Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\nGoogle Tag Manager è uno strumento di gestione che ci consente di integrare in modo centralizzato i tag di misurazione e analisi. Il Tag Manager stesso non crea profili utente e non imposta cookie propri. Tuttavia, carica altri servizi (vedi sotto) che trattano essi stessi dati.\n\n2) Google Analytics 4 (GA4)\nFornitore: Google Ireland Limited.\nGA4 produce statistiche anonimizzate sull'uso del nostro sito web (ad es. visualizzazioni di pagina, durata della sessione, paese di origine, tipo di dispositivo, fonte di traffico). L'indirizzo IP viene troncato prima della memorizzazione (\"anonimizzazione IP\") e i singoli utenti non vengono identificati direttamente. Gestiamo GA4 con la Google Consent Mode v2 abilitata e con le funzioni pubblicitarie (\"Google Signals\") disabilitate. Il periodo di conservazione dei dati di evento in GA4 è di 14 mesi.\n\n3) Hotjar\nFornitore: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar produce heatmap aggregate; su determinate pagine (in particolare il calcolatore solare e l'area clienti) registra inoltre sessioni pseudonimizzate per identificare problemi di usabilità. Le battute sui campi dei moduli sono mascherate per impostazione predefinita; i contenuti sensibili (dati dei clienti, contratti) non vengono registrati. Hotjar imposta cookie con una durata massima di 365 giorni.\n\n4) Google Search Console\nFornitore: Google Ireland Limited.\nGoogle Search Console viene utilizzato esclusivamente per la verifica della proprietà del dominio e per l'analisi di statistiche SEO anonime (ad es. query di ricerca in ingresso da Google). Non imposta cookie su questo sito web e non tratta dati personali dei nostri visitatori.\n\nBase giuridica: consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nTrasferimento di dati negli USA: GA4, Google Tag Manager, Google Search Console e Hotjar trattano in parte dati negli USA. Google è certificato ai sensi dell'EU-US Data Privacy Framework; Hotjar tratta i dati prevalentemente nell'UE ma può utilizzare subincaricati in Paesi terzi. Laddove i dati vengano trasferiti in un Paese senza un livello adeguato di protezione dei dati, ci basiamo sulle Clausole Contrattuali Tipo ai sensi dell'art. 16 nLPD / art. 46 GDPR."
     },
     "socialMedia": {
       "title": "Link ai social network",
@@ -3847,7 +3847,7 @@
     },
     "googleMaps": {
       "title": "Google Maps",
-      "content": "Su determinate pagine (in particolare la pagina dei contatti e il calcolatore solare per l'inserimento dell'indirizzo e la selezione della superficie del tetto) incorporiamo mappe interattive di Google Maps. Il fornitore è Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\n\nAffinché le mappe vengano visualizzate correttamente, il tuo browser trasmette dati tecnici di connessione (in particolare il tuo indirizzo IP) a Google quando utilizzi queste funzioni. Non si può escludere un trattamento negli USA. Questo trattamento è necessario per fornire la funzione richiesta attivamente (ad es. inserimento dell'indirizzo nel calcolatore solare) e si basa sul nostro legittimo interesse in un'applicazione online user-friendly nonché — laddove sia richiesto un passaggio di configurazione esplicito — sul tuo consenso.\n\nPer maggiori informazioni sulla gestione dei dati utente da parte di Google, consulta: https://policies.google.com/privacy"
+      "content": "Su determinate pagine (in particolare la pagina dei contatti e il calcolatore solare per l'inserimento dell'indirizzo e la selezione della superficie del tetto) incorporiamo mappe interattive di Google Maps. Il fornitore è Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\n\nAffinché le mappe vengano visualizzate correttamente, il tuo browser trasmette dati tecnici di connessione (in particolare il tuo indirizzo IP) a Google quando utilizzi queste funzioni. Non si può escludere un trattamento negli USA. Questo trattamento è necessario per fornire la funzione richiesta attivamente (ad es. inserimento dell'indirizzo nel calcolatore solare) e si basa sul nostro legittimo interesse in un'applicazione online user-friendly e, qualora sia richiesto un passaggio di configurazione esplicito, sul tuo consenso.\n\nPer maggiori informazioni sulla gestione dei dati utente da parte di Google, consulta: https://policies.google.com/privacy"
     },
     "newsletter": {
       "title": "Newsletter",
@@ -3855,11 +3855,11 @@
     },
     "calculator": {
       "title": "Calcolatore solare, richieste di contatto e firma elettronica dei contratti",
-      "content": "Il nostro calcolatore solare ti guida passo dopo passo attraverso una progettazione di un impianto fotovoltaico basata sulle esigenze e — se desiderato — fino alla conclusione di un contratto Solar Free. Nel farlo, trattiamo le seguenti categorie di dati personali:\n\n• Dati relativi a indirizzo e ubicazione per valutare la superficie del tetto (tramite servizi di mappe)\n• Dati di consumo ed edilizi (ad es. consumo elettrico, inclinazione del tetto, dispositivi pianificati come pompa di calore o wallbox)\n• Dati di contatto (nome, indirizzo, numero di telefono, indirizzo email)\n• Inoltre, al momento della conclusione del contratto: data di nascita, dati AVS o caratteristiche identificative comparabili, ove necessario per la verifica del contratto\n\nIl trattamento di questi dati avviene per l'avvio e l'esecuzione di un contratto (art. 31 cpv. 2 lett. a nLPD / art. 6 par. 1 lett. b GDPR) oppure — se invii una richiesta senza concludere un contratto — sulla base del tuo consenso.\n\nPer la firma elettronica dei contratti giuridicamente vincolante utilizziamo Swisscom Trust Services AG (Konradstrasse 12, 8005 Zurigo, Svizzera) come fornitore di servizi fiduciari. Swisscom Trust Services è autorizzato come fornitore di servizi fiduciari qualificato ai sensi della Legge federale svizzera sulla firma elettronica (FiEle) e consente la creazione di firme elettroniche qualificate con valore probatorio legalmente riconosciuto. Nell'ambito del processo di firma, i dati di identificazione e le caratteristiche biometriche (ad es. conferma Mobile ID) vengono trasmessi a Swisscom Trust Services. Per maggiori informazioni consulta https://trustservices.swisscom.com.\n\nTrattiamo inoltre le richieste di manutenzione, i ticket di assistenza e i dati dell'area clienti (\"Dashboard\") per l'esecuzione del contratto e per adempiere agli obblighi di conservazione di legge."
+      "content": "Il nostro calcolatore solare ti guida passo dopo passo nella progettazione di un impianto fotovoltaico su misura per le tue esigenze e, se lo desideri, ti accompagna fino alla stipula di un contratto Solar Free. Nel farlo, trattiamo le seguenti categorie di dati personali:\n\n• Dati relativi a indirizzo e ubicazione per valutare la superficie del tetto (tramite servizi di mappe)\n• Dati di consumo ed edilizi (ad es. consumo elettrico, inclinazione del tetto, dispositivi pianificati come pompa di calore o wallbox)\n• Dati di contatto (nome, indirizzo, numero di telefono, indirizzo email)\n• Inoltre, al momento della conclusione del contratto: data di nascita, dati AVS o caratteristiche identificative comparabili, ove necessario per la verifica del contratto\n\nIl trattamento di questi dati avviene per l'avvio e l'esecuzione di un contratto (art. 31 cpv. 2 lett. a nLPD / art. 6 par. 1 lett. b GDPR). Se invece ci invii una richiesta senza concludere un contratto, il trattamento si basa sul tuo consenso.\n\nPer la firma elettronica dei contratti giuridicamente vincolante utilizziamo Swisscom Trust Services AG (Konradstrasse 12, 8005 Zurigo, Svizzera) come fornitore di servizi fiduciari. Swisscom Trust Services è autorizzato come fornitore di servizi fiduciari qualificato ai sensi della Legge federale svizzera sulla firma elettronica (FiEle) e consente la creazione di firme elettroniche qualificate con valore probatorio legalmente riconosciuto. Nell'ambito del processo di firma, i dati di identificazione e le caratteristiche biometriche (ad es. conferma Mobile ID) vengono trasmessi a Swisscom Trust Services. Per maggiori informazioni consulta https://trustservices.swisscom.com.\n\nTrattiamo inoltre le richieste di manutenzione, i ticket di assistenza e i dati dell'area clienti (\"Dashboard\") per l'esecuzione del contratto e per adempiere agli obblighi di conservazione di legge."
     },
     "userRights": {
       "title": "I tuoi diritti come interessato",
-      "content": "Ai sensi della nLPD e del GDPR hai i seguenti diritti:\n\n• Diritto di accesso: puoi richiedere gratuitamente in qualsiasi momento informazioni sui dati memorizzati su di te, compresa la loro origine, i destinatari, lo scopo e il periodo di conservazione.\n• Diritto di rettifica: puoi richiedere la correzione di dati inesatti o il completamento di dati incompleti.\n• Diritto alla cancellazione: puoi richiedere la cancellazione dei tuoi dati, a meno che non vi ostino obblighi di conservazione di legge o altri interessi legittimi.\n• Diritto alla limitazione del trattamento: a determinate condizioni.\n• Diritto alla portabilità dei dati (GDPR): puoi ricevere i dati che hai fornito in un formato strutturato, di uso comune e leggibile da dispositivo automatico.\n• Diritto di revoca del consenso: ogni consenso prestato può essere revocato in qualsiasi momento per il futuro.\n• Diritto di opposizione: puoi opporti al trattamento dei tuoi dati per motivi connessi alla tua situazione particolare.\n\nPer esercitare i tuoi diritti, contattaci a info@freestate.ch. Per garantire la sicurezza dei tuoi dati, potrebbe essere necessario verificare la tua identità prima di elaborare la richiesta.\n\nDiritto di presentare reclamo: hai il diritto in qualsiasi momento di presentare reclamo all'Incaricato federale svizzero della protezione dei dati e della trasparenza (IFPDT, https://www.edoeb.admin.ch) oppure — se risiedi nell'UE — all'autorità nazionale competente per la protezione dei dati."
+      "content": "Ai sensi della nLPD e del GDPR hai i seguenti diritti:\n\n• Diritto di accesso: puoi richiedere gratuitamente in qualsiasi momento informazioni sui dati memorizzati su di te, compresa la loro origine, i destinatari, lo scopo e il periodo di conservazione.\n• Diritto di rettifica: puoi richiedere la correzione di dati inesatti o il completamento di dati incompleti.\n• Diritto alla cancellazione: puoi richiedere la cancellazione dei tuoi dati, a meno che non vi ostino obblighi di conservazione di legge o altri interessi legittimi.\n• Diritto alla limitazione del trattamento: a determinate condizioni.\n• Diritto alla portabilità dei dati (GDPR): puoi ricevere i dati che hai fornito in un formato strutturato, di uso comune e leggibile da dispositivo automatico.\n• Diritto di revoca del consenso: ogni consenso prestato può essere revocato in qualsiasi momento per il futuro.\n• Diritto di opposizione: puoi opporti al trattamento dei tuoi dati per motivi connessi alla tua situazione particolare.\n\nPer esercitare i tuoi diritti, contattaci a info@freestate.ch. Per garantire la sicurezza dei tuoi dati, potrebbe essere necessario verificare la tua identità prima di elaborare la richiesta.\n\nDiritto di presentare reclamo: hai il diritto in qualsiasi momento di presentare reclamo all'Incaricato federale svizzero della protezione dei dati e della trasparenza (IFPDT, https://www.edoeb.admin.ch). Se risiedi nell'UE, puoi rivolgerti in alternativa all'autorità nazionale competente per la protezione dei dati."
     },
     "dataRetention": {
       "title": "Conservazione e cancellazione",
@@ -3932,8 +3932,8 @@
       "content": "Free State AG progetta, fornisce, installa e mantiene impianti fotovoltaici, accumuli a batteria, pompe di calore, stazioni di ricarica, sistemi di gestione dell'energia e impianti e servizi correlati nel settore delle energie rinnovabili.\n\nL'esatta portata dei servizi è determinata dall'offerta, dalla conferma d'ordine o dal contratto individuale. Ove necessario per l'esecuzione, Free State AG si coordina anche con il gestore della rete di distribuzione locale, presenta la richiesta di allacciamento e registra le sovvenzioni e le tariffe di immissione, ove contrattualmente concordato.\n\nLe modifiche alla portata dei servizi sono possibili laddove ragioni tecniche, normative o legate al fornitore le rendano necessarie e le modifiche siano ragionevoli per il Cliente. In tali casi Free State AG informa il Cliente tempestivamente."
     },
     "solarFreeLease": {
-      "title": "6. Solar Free — Modello di leasing e abbonamento",
-      "content": "Nel modello \"Solar Free\", Free State AG mette a disposizione del Cliente un impianto fotovoltaico (opzionalmente integrato da accumulo a batteria, stazione di ricarica o controllo della pompa di calore) per l'uso dietro una tariffa mensile, senza che il Cliente debba acquistare l'impianto.\n\nCondizioni chiave:\n\n• Proprietà: per l'intera durata del contratto, la proprietà dell'impianto rimane a Free State AG o a un partner finanziario designato da Free State AG. Il Cliente mette a disposizione gratuitamente il tetto o il sito di installazione e concede i diritti di accesso necessari per la costruzione, il funzionamento e la manutenzione.\n\n• Durata contrattuale: la durata standard di un contratto Solar Free è — salvo diverso accordo nel contratto individuale — di 20 anni dalla messa in servizio.\n\n• Tariffa mensile: la tariffa mensile è fissata in modo vincolante nel contratto individuale. Può essere previsto un modello indicizzato o a scaglioni; in questo caso la base di calcolo è indicata nel contratto.\n\n• Manutenzione e riparazione: durante la durata del contratto, Free State AG è responsabile della manutenzione ordinaria e dell'eliminazione dei difetti dei componenti dell'impianto, a condizione che questi non siano causati da uso improprio, vandalismo, forza maggiore o interventi di terzi.\n\n• Consumo elettrico e immissione: l'energia elettrica consumata in loco dal Cliente è — salvo diversa disposizione nel contratto individuale — inclusa nella tariffa mensile. L'energia elettrica in eccedenza viene immessa nella rete; la remunerazione per l'immissione spetta al proprietario dell'impianto (Free State AG).\n\n• Risoluzione anticipata: la disdetta ordinaria prima della scadenza della durata concordata è esclusa. In caso di risoluzione anticipata per motivi gravi, la parte che recede deve all'altra parte un indennizzo in conformità al contratto individuale. In caso di cambio di proprietà dell'immobile, il nuovo proprietario subentra nel contratto, ove previsto dal contratto individuale.\n\n• Opzione di acquisto: ove previsto nel contratto individuale, il Cliente ha il diritto di acquistare l'impianto in momenti definiti a un valore residuo determinato in anticipo.\n\n• Dopo la fine del contratto: alla scadenza della durata contrattuale, la proprietà dell'impianto passa — ove previsto dal contratto individuale — gratuitamente o a un valore residuo simbolico al Cliente. In caso contrario, l'impianto viene smantellato da Free State AG e il sito di installazione viene professionalmente ripristinato.\n\nI dettagli su durata, tariffa, indicizzazione, trasferimento di proprietà, copertura assicurativa e opzione di acquisto sono stabiliti in modo conclusivo nel contratto Solar Free firmato, che prevale sulle presenti CGC in caso di conflitto."
+      "title": "6. Solar Free: modello di leasing e abbonamento",
+      "content": "Nel modello \"Solar Free\", Free State AG mette a disposizione del Cliente un impianto fotovoltaico (opzionalmente integrato da accumulo a batteria, stazione di ricarica o controllo della pompa di calore) per l'uso dietro una tariffa mensile, senza che il Cliente debba acquistare l'impianto.\n\nCondizioni chiave:\n\n• Proprietà: per l'intera durata del contratto, la proprietà dell'impianto rimane a Free State AG o a un partner finanziario designato da Free State AG. Il Cliente mette a disposizione gratuitamente il tetto o il sito di installazione e concede i diritti di accesso necessari per la costruzione, il funzionamento e la manutenzione.\n\n• Durata contrattuale: salvo diverso accordo nel contratto individuale, la durata standard di un contratto Solar Free è di 20 anni dalla messa in servizio.\n\n• Tariffa mensile: la tariffa mensile è fissata in modo vincolante nel contratto individuale. Può essere previsto un modello indicizzato o a scaglioni; in questo caso la base di calcolo è indicata nel contratto.\n\n• Manutenzione e riparazione: durante la durata del contratto, Free State AG è responsabile della manutenzione ordinaria e dell'eliminazione dei difetti dei componenti dell'impianto, a condizione che questi non siano causati da uso improprio, vandalismo, forza maggiore o interventi di terzi.\n\n• Consumo elettrico e immissione: salvo diversa disposizione nel contratto individuale, l'energia elettrica consumata in loco dal Cliente è inclusa nella tariffa mensile. L'energia elettrica in eccedenza viene immessa nella rete; la remunerazione per l'immissione spetta al proprietario dell'impianto (Free State AG).\n\n• Risoluzione anticipata: la disdetta ordinaria prima della scadenza della durata concordata è esclusa. In caso di risoluzione anticipata per motivi gravi, la parte che recede deve all'altra parte un indennizzo in conformità al contratto individuale. In caso di cambio di proprietà dell'immobile, il nuovo proprietario subentra nel contratto, ove previsto dal contratto individuale.\n\n• Opzione di acquisto: ove previsto nel contratto individuale, il Cliente ha il diritto di acquistare l'impianto in momenti definiti a un valore residuo determinato in anticipo.\n\n• Dopo la fine del contratto: alla scadenza della durata contrattuale, ove previsto dal contratto individuale, la proprietà dell'impianto passa al Cliente gratuitamente o a un valore residuo simbolico. In caso contrario, l'impianto viene smantellato da Free State AG e il sito di installazione viene professionalmente ripristinato.\n\nI dettagli su durata, tariffa, indicizzazione, trasferimento di proprietà, copertura assicurativa e opzione di acquisto sono stabiliti in modo conclusivo nel contratto Solar Free firmato, che prevale sulle presenti CGC in caso di conflitto."
     },
     "prices": {
       "title": "7. Prezzi",
@@ -3949,11 +3949,11 @@
     },
     "liability": {
       "title": "10. Responsabilità",
-      "content": "Free State AG risponde per i danni solo in casi di dolo e colpa grave. La responsabilità per colpa lieve è — nei limiti consentiti dalla legge — esclusa.\n\nLa responsabilità per danni indiretti, danni consequenziali, lucro cessante, perdite di produzione o perdite di dati è esclusa nei limiti consentiti dalla legge.\n\nLa responsabilità totale di Free State AG per singolo sinistro è limitata al valore contrattuale dell'ordine interessato oppure — nel modello Solar Free — alla tariffa annuale dovuta nell'anno in cui si è verificato il danno.\n\nLa responsabilità obbligatoria ai sensi della Legge svizzera sulla responsabilità per il prodotto e per lesioni personali resta impregiudicata."
+      "content": "Free State AG risponde per i danni solo in casi di dolo e colpa grave. Nei limiti consentiti dalla legge è esclusa la responsabilità per colpa lieve.\n\nLa responsabilità per danni indiretti, danni consequenziali, lucro cessante, perdite di produzione o perdite di dati è esclusa nei limiti consentiti dalla legge.\n\nLa responsabilità totale di Free State AG per singolo sinistro è limitata al valore contrattuale dell'ordine interessato. Nel modello Solar Free essa è limitata alla tariffa annuale dovuta nell'anno in cui si è verificato il danno.\n\nLa responsabilità obbligatoria ai sensi della Legge svizzera sulla responsabilità per il prodotto e per lesioni personali resta impregiudicata."
     },
     "dataProtection": {
       "title": "11. Protezione dei dati",
-      "content": "Free State AG tratta i dati personali conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD) e — se applicabile — al Regolamento generale sulla protezione dei dati dell'UE (GDPR).\n\nInformazioni dettagliate sul trattamento dei dati, sui diritti degli interessati e sui fornitori terzi utilizzati (in particolare Google Analytics, Hotjar, Google Maps e Swisscom Trust Services) sono riportate nella nostra informativa sulla privacy all'indirizzo /privacy-policy."
+      "content": "Free State AG tratta i dati personali conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD). Ove applicabile, si applica inoltre il Regolamento generale sulla protezione dei dati dell'UE (GDPR).\n\nInformazioni dettagliate sul trattamento dei dati, sui diritti degli interessati e sui fornitori terzi utilizzati (in particolare Google Analytics, Hotjar, Google Maps e Swisscom Trust Services) sono riportate nella nostra informativa sulla privacy all'indirizzo /privacy-policy."
     },
     "applicableLaw": {
       "title": "12. Diritto applicabile e foro competente",
@@ -3997,7 +3997,7 @@
         },
         {
           "title": "Bidirezionale",
-          "description": "Il tuo veicolo come batteria – l'energia scorre in entrambe le direzioni.",
+          "description": "Con il tuo veicolo usato come batteria, l'energia scorre in entrambe le direzioni.",
           "linkLabel": "Bidirezionale",
           "image": "/images/charging-bidirektional-7ac659.webp",
           "href": "/commercial/charging-stations/bidirectional-charging-station"
@@ -4009,7 +4009,7 @@
       "items": [
         {
           "title": "Casa unifamiliare",
-          "description": "Soluzioni di ricarica per la tua casa – sicure e convenienti.",
+          "description": "Soluzioni di ricarica sicure e convenienti per la tua casa.",
           "linkLabel": "Casa unifamiliare",
           "image": "/images/charging-einfamilienhaus-a9cdc6.webp",
           "href": "/charging-stations/single-family-home"
@@ -4023,7 +4023,7 @@
         },
         {
           "title": "Bidirezionale",
-          "description": "Il tuo veicolo come batteria – l'energia scorre in entrambe le direzioni.",
+          "description": "Con il tuo veicolo usato come batteria, l'energia scorre in entrambe le direzioni.",
           "linkLabel": "Bidirezionale",
           "image": "/images/charging-bidirektional-7ac659.webp",
           "href": "/charging-stations/bidirectional-charging-station"
@@ -4268,8 +4268,8 @@
         "cashflow": "Flusso di cassa cumulativo"
       },
       "abo": {
-        "title": "SolarFree — Zero investimento",
-        "description": "Con SolarFree, Free State AG installa e gestisce l'impianto solare sul tuo tetto — senza alcun costo per te.",
+        "title": "SolarFree: zero investimento",
+        "description": "Con SolarFree, Free State AG installa e gestisce l'impianto solare sul tuo tetto senza alcun costo per te.",
         "savings": "Benefici di energia solare pulita e risparmi CHF {amount} all'anno sulla bolletta elettrica."
       },
       "package": {
@@ -4286,7 +4286,7 @@
         "reportDescription": "Scarica un rapporto PDF dettagliato con analisi dell'impianto, grafici e proiezioni finanziarie.",
         "reportButton": "Scarica PDF",
         "downloadTitle": "Invia risultati via email",
-        "downloadDescription": "Ricevi la tua analisi solare via email — senza impegno.",
+        "downloadDescription": "Ricevi via email la tua analisi solare senza alcun impegno.",
         "downloadButton": "Invia alla mia email",
         "offerTitle": "Richiedi offerta",
         "offerDescription": "Esamineremo la tua proprietà e prepareremo un'offerta personalizzata con sopralluogo.",
@@ -4335,7 +4335,7 @@
           "consumptionCancel": "Annulla",
           "consumptionReset": "Ripristina stima",
           "consumptionHintOverride": "Inserito da te.",
-          "consumptionHintEstimate": "Stimato dalla dimensione del nucleo — il valore reale è sulla bolletta annuale."
+          "consumptionHintEstimate": "Valore stimato in base alla dimensione del nucleo; quello reale è indicato sulla bolletta annuale."
         },
         "yourImpact": {
           "label": "Il tuo impatto",
@@ -4577,7 +4577,7 @@
         "selfConsumption": "Autoconsumo"
       },
       "aboBenefit": {
-        "title": "SolarFree — Zero investimento",
+        "title": "SolarFree: zero investimento",
         "point1": "Free State AG installa e gestisce l'impianto solare sul tuo tetto senza alcun costo per te.",
         "point2": "Benefici di energia solare pulita e risparmi sulla bolletta elettrica.",
         "point3": "Dopo 35 anni, l'impianto diventa di tua proprietà."
@@ -4669,7 +4669,7 @@
       "preflight": {
         "title": "Prima di firmare",
         "mobileApp": "Scarica l'app Swisscom Sign (iOS o Android).",
-        "passport": "Tieni pronto il passaporto — la prima firma richiede una scansione NFC.",
+        "passport": "Tieni pronto il passaporto, perché la prima firma richiede una scansione NFC.",
         "nfc": "Usa uno smartphone con NFC attivo (la maggior parte dei dispositivi recenti).",
         "time": "L'identificazione iniziale richiede circa 5 minuti."
       },
@@ -4682,7 +4682,7 @@
       },
       "awaitingCompany": {
         "title": "In attesa della controfirma di Free State AG",
-        "message": "Hai firmato con successo. Free State AG controfirmerà a breve — ti invieremo via e-mail il contratto pienamente firmato non appena sarà completo.",
+        "message": "Hai firmato con successo. Free State AG controfirmerà a breve e, non appena il contratto sarà completo, te lo invieremo via e-mail pienamente firmato.",
         "backButton": "Torna al calcolatore"
       },
       "pending": {
@@ -4802,7 +4802,7 @@
       }
     },
     "photovoltaicsCarports": {
-      "title": "Fotovoltaico e carport – la combinazione perfetta",
+      "title": "Fotovoltaico e carport: la combinazione perfetta",
       "description": "I carport Uninorm utilizzano moduli fotovoltaici di alta qualità per generare energia solare in loco, offrendo una soluzione ecologica ed economicamente efficiente.",
       "card": {
         "title": "Fotovoltaico sul carport",
@@ -4961,7 +4961,7 @@
     "cards": {
       "investment": {
         "title": "Il tuo investimento",
-        "subtitle": "0 CHF – pensiamo noi a tutto"
+        "subtitle": "0 CHF: pensiamo noi a tutto"
       },
       "control": {
         "title": "Controllo completamente automatizzato",
@@ -5048,7 +5048,7 @@
       "capacity": {
         "huawei": "5–90 kWh",
         "sun": "11–55 kWh",
-        "e3dc": "4 – 84 kWh"
+        "e3dc": "4–84 kWh"
       },
       "emergencyPower": {
         "label": "Alimentazione di emergenza",
@@ -5649,7 +5649,7 @@
     },
     "howHeatPumpWorks": {
       "title": "Come funziona una\npompa di calore?",
-      "description": "Le pompe di calore sono sistemi di riscaldamento sostenibili altamente efficienti e rapidi da installare che estraggono energia da aria, terreno o acqua—più comunemente come modelli aria-acqua—offrendo un'alternativa affidabile ai combustibili fossili.",
+      "description": "Le pompe di calore sono sistemi di riscaldamento sostenibili, altamente efficienti e rapidi da installare, che estraggono energia da aria, terreno o acqua, in genere nella versione aria-acqua, offrendo un'alternativa affidabile ai combustibili fossili.",
       "steps": {
         "1": "Pompa di calore geotermica (sonda geotermica)",
         "2": "Pompa di calore acqua-acqua",
@@ -5681,7 +5681,7 @@
     },
     "costsInstallation": {
       "title": "Costi e installazione",
-      "description": "Concentrarsi solo sul prezzo di acquisto è miope, poiché il riscaldamento a gasolio spesso costa di più nel tempo a causa di maggiori spese operative. Le pompe di calore e gli impianti fotovoltaici durano circa 20 anni, con incentivi e agevolazioni fiscali disponibili a seconda della tua posizione.\n\nUn'installazione professionale garantisce prestazioni ottimali, sia integrando un impianto solare nuovo o esistente. Con oltre 7.000 progetti completati, offriamo esperienza e soluzioni su misura—contattaci per un preventivo personalizzato.",
+      "description": "Concentrarsi solo sul prezzo di acquisto è miope, poiché il riscaldamento a gasolio spesso costa di più nel tempo a causa di maggiori spese operative. Le pompe di calore e gli impianti fotovoltaici durano circa 20 anni, con incentivi e agevolazioni fiscali disponibili a seconda della tua posizione.\n\nUn'installazione professionale garantisce prestazioni ottimali, sia integrando un impianto solare nuovo o esistente. Con oltre 7.000 progetti completati, offriamo esperienza e soluzioni su misura. Contattaci per un preventivo personalizzato.",
       "cta": "Richiedi un preventivo per pompa di calore ora"
     }
   },
@@ -5805,7 +5805,7 @@
       "items": {
         "engineering": "E-Engineering: pianificazione, permessi, supervisione, collaudo",
         "procurement": "P - Procurement (approvvigionamento): componenti e servizi",
-        "construction": "C – Costruzione: integrazione DC, AC, opere civili, logistica"
+        "construction": "C-Costruzione: integrazione DC, AC, opere civili, logistica"
       }
     },
     "turnkey": {
@@ -5861,7 +5861,7 @@
     },
     "generalContractor": {
       "title": "Servizio completo di general contractor",
-      "subtitle": "Gestione del progetto end-to-end — dalla progettazione all'operatività.",
+      "subtitle": "Gestione del progetto end-to-end, dalla progettazione all'operatività.",
       "steps": {
         "strategicPlanning": "Pianificazione strategica",
         "feasibilityStudy": "Studio di fattibilità",
@@ -5878,7 +5878,7 @@
       "items": {
         "doorstep": "Genera energia solare davanti casa o sul posto di lavoro.",
         "costs": "Riduci i costi dell'elettricità con una gestione energetica intelligente.",
-        "protection": "Proteggi i veicoli da sole, pioggia e neve — in modo sostenibile."
+        "protection": "Proteggi in modo sostenibile i veicoli da sole, pioggia e neve."
       }
     },
     "customSolar": {
@@ -5910,11 +5910,11 @@
     },
     "solarFuture": {
       "title": "Energia solare per il futuro",
-      "description": "Valutiamo il tuo tetto, sviluppiamo il concetto tecnico e gestiamo l'intero ciclo di vita del progetto — finanziamento, costruzione, funzionamento e manutenzione inclusi.\n\nTutti i rischi e i costi di investimento sono a carico del contractor, mentre chiari accordi contrattuali tutelano diritti e responsabilità. I tetti da 200 m² sono generalmente adatti e le opzioni di acquisizione sono definite in anticipo."
+      "description": "Valutiamo il tuo tetto, sviluppiamo il concetto tecnico e gestiamo l'intero ciclo di vita del progetto, compresi finanziamento, costruzione, funzionamento e manutenzione.\n\nTutti i rischi e i costi di investimento sono a carico del contractor, mentre chiari accordi contrattuali tutelano diritti e responsabilità. I tetti da 200 m² sono generalmente adatti e le opzioni di acquisizione sono definite in anticipo."
     },
     "ourServices": {
       "title": "I nostri servizi",
-      "description": "Con la nostra lunga esperienza nelle centrali solari, forniamo servizi end-to-end da un'unica fonte — dandoti un unico punto di contatto per l'intero progetto.",
+      "description": "Con la nostra lunga esperienza nelle centrali solari, forniamo servizi end-to-end da un'unica fonte, offrendoti un unico punto di contatto per l'intero progetto.",
       "items": {
         "consultation": "Consulenza",
         "feasibilityStudy": "Studio di fattibilità",
@@ -6063,7 +6063,7 @@
     },
     "weOffer": {
       "title": "Noi ti offriamo questo",
-      "description": "Pianifichiamo e installiamo soluzioni di ricarica domestica smart utilizzando prodotti di partner di alta qualità, completamente integrati con il tuo impianto solare o pompa di calore—inclusa la ricarica bidirezionale—e supportati da servizio tecnico continuo.\n\nOttieni una stima dei costi non vincolante in pochi minuti con il nostro calcolatore di preventivi online."
+      "description": "Pianifichiamo e installiamo soluzioni di ricarica domestica smart utilizzando prodotti di partner di alta qualità, completamente integrate con il tuo impianto solare o pompa di calore, con ricarica bidirezionale inclusa e supporto tecnico continuo.\n\nOttieni una stima dei costi non vincolante in pochi minuti con il nostro calcolatore di preventivi online."
     },
     "calculator": {
       "eyebrow": "Calcola",
@@ -6109,7 +6109,7 @@
     },
     "offersSection": {
       "title": "Offri anche stazioni\ndi ricarica rapida",
-      "description": "Le stazioni di ricarica rapida sono installate presso stazioni di servizio, centri commerciali e sedi aziendali, offrendo un forte potenziale commerciale. Ti supportiamo con pianificazione e implementazione—contattaci per discutere il tuo progetto.",
+      "description": "Ti supportiamo nella pianificazione e nell'implementazione. Contattaci per discutere il tuo progetto.",
       "cta": "Contatto"
     },
     "freeStateOffers": {
@@ -6153,7 +6153,7 @@
     },
     "benefitsComparison": {
       "title": "La ricarica bidirezionale è vantaggiosa per tutti.",
-      "description": "Con o senza pannelli solari, la ricarica bidirezionale riduce i costi e crea nuove opportunità di guadagno—aggiungendo valore extra ai sistemi esistenti.",
+      "description": "Con o senza pannelli solari, la ricarica bidirezionale riduce i costi e crea nuove opportunità di guadagno, aggiungendo valore extra ai sistemi esistenti.",
       "headers": {
         "yourAdvantage": "Il tuo vantaggio",
         "withSolar": "Con pannelli solari",
@@ -6181,11 +6181,11 @@
           "amount": "fino a CHF 170 all'anno"
         }
       },
-      "note": "Nota: il potenziale di rendimento qui indicato può essere raggiunto solo in condizioni ottimali – che includono circa il 60% di tempo di collegamento, un'ampia dimensione del pool, uno sviluppo favorevole del mercato e sufficiente capacità della batteria disponibile."
+      "note": "Nota: il potenziale di rendimento qui indicato può essere raggiunto solo in condizioni ottimali, che includono circa il 60% di tempo di collegamento, un'ampia dimensione del pool, uno sviluppo favorevole del mercato e una sufficiente capacità della batteria disponibile."
     },
     "keyFacts": {
       "title": "Ricarica bidirezionale: fatti chiave",
-      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da Free State AG ONE per un uso ottimale dell'energia—affrontando in modo trasparente le attuali limitazioni tecniche.",
+      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da Free State AG ONE per un uso ottimale dell'energia. Affrontiamo in modo trasparente le attuali limitazioni tecniche.",
       "steps": {
         "1": "I piccoli carichi necessitano di un buffer della batteria domestica (limite >1,8 kW).",
         "2": "I carichi elevati funzionano direttamente; scarica limitata al 20-80% SoC."
@@ -6466,7 +6466,7 @@
     "resources": {
       "electricityPrices": {
         "title": "Prezzi dell'elettricità per comune",
-        "descriptionPrefix": "Tariffe ElCom ufficiali per comune, gestore e categoria tariffaria — informativo. Fonte: ",
+        "descriptionPrefix": "Tariffe ElCom ufficiali per comune, gestore e categoria tariffaria, a titolo informativo. Fonte: ",
         "descriptionSuffix": " (LINDAS).",
         "entries": "Voci",
         "avgTariff": "Tariffa media",
@@ -6495,7 +6495,7 @@
       },
       "subsidyRates": {
         "title": "Rimunerazione unica (Pronovo KLEIV)",
-        "description": "Tariffe attuali e storiche di rimunerazione unica di Pronovo AG per il fotovoltaico ≤100 kWp. Pubblicate due volte all'anno. Utilizzate nei contratti — le modifiche avvengono esclusivamente tramite script di seed (non dall'interfaccia).",
+        "description": "Tariffe attuali e storiche di rimunerazione unica di Pronovo AG per il fotovoltaico ≤100 kWp. Pubblicate due volte all'anno. Utilizzate nei contratti, dove le modifiche avvengono esclusivamente tramite script di seed (non dall'interfaccia).",
         "currentTariff": "Tariffa attualmente in vigore",
         "tier1Max": "Livello 1 (fino a kWp)",
         "tier1Chf": "CHF / kWp (Livello 1)",
@@ -6538,7 +6538,7 @@
       },
       "referenceMarketPrices": {
         "title": "Prezzi di mercato di riferimento (UFE, Art. 15 OPEn)",
-        "descriptionPrefix": "Prezzi di mercato di riferimento pubblicati trimestralmente dall'UFE — dal 2026 base per la rimunerazione per l'immissione secondo l'Art. 15 LEne. Fonte: ",
+        "descriptionPrefix": "Prezzi di mercato di riferimento pubblicati trimestralmente dall'UFE, che dal 2026 fanno da base per la rimunerazione per l'immissione secondo l'Art. 15 LEne. Fonte: ",
         "descriptionMiddle": ". Importazione via ",
         "descriptionSuffix": ".",
         "techPhotovoltaik": "Fotovoltaico",
@@ -6913,7 +6913,7 @@
       "systemKwp": "Impianto (kWp)",
       "annualProduction": "Produzione annua (kWh)",
       "annualConsumption": "Consumo annuo (kWh)",
-      "annualConsumptionFromBill": "Consumo annuo (kWh) — dalla bolletta elettrica",
+      "annualConsumptionFromBill": "Consumo annuo (kWh) dalla bolletta elettrica",
       "contact": "Contatto",
       "appointmentInspector": "Appuntamento e ispettore",
       "scheduledDateTime": "Data / ora previste",
@@ -7692,7 +7692,7 @@
           },
           "permissionToOperate": {
             "question": "Cos'è il permesso di operare?",
-            "answer": "Il permesso di operare (PTO) concede l'autorizzazione a collegare il tuo impianto alla rete elettrica — è richiesto prima dell'attivazione. Presentiamo le richieste di interconnessione al termine dell'ispezione, che richiede in genere 2-6 settimane."
+            "answer": "Il permesso di operare (PTO) concede l'autorizzazione a collegare il tuo impianto alla rete elettrica ed è richiesto prima dell'attivazione. Presentiamo le richieste di interconnessione al termine dell'ispezione, che richiede in genere 2-6 settimane."
           }
         }
       },
@@ -7848,7 +7848,7 @@
   "team": {
     "hero": {
       "title": "Azienda",
-      "description": "La tua energia, la nostra responsabilità – sostenibile e senza pensieri",
+      "description": "La tua energia, la nostra responsabilità: sostenibile e senza pensieri",
       "cta": "Contattaci"
     },
     "grid": {
@@ -7916,12 +7916,12 @@
       "eyebrow": "Energia in transizione",
       "title": "Dal cambiamento globale al futuro energetico locale",
       "subtitle": "Lo sviluppo di FreeState è strettamente legato alla trasformazione globale del sistema energetico. Da oltre un decennio, il fotovoltaico sta cambiando il modo in cui l'energia viene generata, accumulata e utilizzata.",
-      "bottomText": "FreeState fa parte di questo sviluppo e lavora per costruire un'infrastruttura energetica decentralizzata sugli edifici – locale, sostenibile ed economicamente sensata."
+      "bottomText": "FreeState fa parte di questo sviluppo e lavora per costruire sugli edifici un'infrastruttura energetica decentralizzata, locale, sostenibile ed economicamente sensata."
     },
     "timeline": {
       "eyebrow": "Le nostre soluzioni",
       "title": "Modelli adatti a esigenze diverse",
-      "subtitle": "FreeState sviluppa sistemi fotovoltaici ed energetici per famiglie, aziende e istituzioni pubbliche – con modelli flessibili per varie esigenze.",
+      "subtitle": "Con modelli flessibili adatti a diverse esigenze, FreeState sviluppa sistemi fotovoltaici ed energetici per famiglie, aziende e istituzioni pubbliche.",
       "founding": {
         "title": "Fondazione di Telemiiva GmbH",
         "description": "Ivan Miric ha fondato Telemiiva GmbH come studio di ingegneria e progettazione. L'attenzione era sulla progettazione tecnica, progetti di infrastruttura, tecnologia edilizia ed efficienza energetica."
@@ -7953,7 +7953,7 @@
       "eyebrow": "2025 e oltre",
       "title": "Il futuro dell'energia è decentralizzato",
       "subtitle": "Gli edifici non solo consumeranno energia, ma la produrranno, la accumuleranno e la controlleranno in modo intelligente.",
-      "bottomText": "FreeState sta lavorando su sistemi energetici di nuova generazione – con fotovoltaico, accumulo a batteria, integrazione smart home, elettromobilità, gestione energetica basata sull'IA e piattaforme energetiche digitali.\nQueste tecnologie consentono una nuova forma di approvvigionamento energetico: locale, sostenibile e indipendente."
+      "bottomText": "FreeState sta lavorando su sistemi energetici di nuova generazione che integrano fotovoltaico, accumulo a batteria, smart home, elettromobilità, gestione energetica basata sull'IA e piattaforme energetiche digitali.\nQueste tecnologie consentono una nuova forma di approvvigionamento energetico: locale, sostenibile e indipendente."
     },
     "vision": {
       "eyebrow": "La nostra visione",
@@ -7977,12 +7977,12 @@
       "vision": {
         "eyebrow": "La nostra visione",
         "title": "Rendere l'energia accessibile a tutti",
-        "description": "Vogliamo rendere l'energia più accessibile, conveniente e sostenibile – per più persone, più edifici e un approvvigionamento a prova di futuro."
+        "description": "Vogliamo rendere l'energia più accessibile, conveniente e sostenibile per più persone, più edifici e un approvvigionamento a prova di futuro."
       },
       "mission": {
         "eyebrow": "La nostra missione",
         "title": "Trasformare i tetti in fonti di energia",
-        "description": "Attiviamo superfici di tetto inutilizzate e ne ricaviamo energia locale e decentralizzata – per famiglie, aziende e istituzioni pubbliche."
+        "description": "Attiviamo superfici di tetto inutilizzate per ricavarne energia locale e decentralizzata destinata a famiglie, aziende e istituzioni pubbliche."
       }
     },
     "founder": {
@@ -7993,10 +7993,10 @@
     "solutions": {
       "eyebrow": "Le nostre soluzioni",
       "title": "Modelli adatti a esigenze diverse",
-      "subtitle": "FreeState sviluppa sistemi fotovoltaici ed energetici per famiglie, aziende e istituzioni pubbliche – con modelli flessibili per varie esigenze.",
+      "subtitle": "Con modelli flessibili adatti a diverse esigenze, FreeState sviluppa sistemi fotovoltaici ed energetici per famiglie, aziende e istituzioni pubbliche.",
       "solarAbo": {
         "title": "Abbonamento solare per case unifamiliari",
-        "description": "Energia solare dal tuo tetto – senza investimenti iniziali.\n· Dalla progettazione alla manutenzione incluso\n· Nessun costo iniziale\n· Semplice e a basso rischio"
+        "description": "Energia solare dal tuo tetto senza investimenti iniziali.\n· Dalla progettazione alla manutenzione incluso\n· Nessun costo iniziale\n· Semplice e a basso rischio"
       },
       "contracting": {
         "title": "Contracting solare per aziende",
@@ -8014,7 +8014,7 @@
     "partners": {
       "eyebrow": "Partner forti",
       "title": "Insieme a partner consolidati",
-      "subtitle": "Per il trading energetico, l'infrastruttura e lo sviluppo di progetti, FreeState collabora con partner esperti – per progetti stabili e cooperazione a lungo termine."
+      "subtitle": "Per il trading energetico, l'infrastruttura e lo sviluppo di progetti, FreeState collabora con partner esperti, garantendo progetti stabili e una cooperazione a lungo termine."
     },
     "locations": {
       "eyebrow": "Le nostre sedi",
@@ -8052,7 +8052,7 @@
     },
     "topics": {
       "title": "Aree tematiche",
-      "description": "La nostra competenza copre le seguenti aree — siamo disponibili per colloqui di approfondimento e contributi da esperti.",
+      "description": "La nostra competenza copre le seguenti aree, per le quali siamo disponibili a colloqui di approfondimento e contributi da esperti.",
       "items": {
         "solar": {
           "title": "Fotovoltaico ed energia solare",
@@ -8112,7 +8112,7 @@
           "consentRequired": "Accetta per continuare"
         }
       },
-      "success": "Grazie — sei iscritto. Ti contatteremo quando si apriranno posizioni.",
+      "success": "Grazie, la tua iscrizione è confermata. Ti contatteremo quando si apriranno posizioni.",
       "error": "Qualcosa è andato storto. Si prega di riprovare."
     },
     "contactCta": {
@@ -8148,14 +8148,14 @@
     "details": {
       "eyebrow": "Dettagli",
       "title": "Cosa include SolarFree",
-      "subtitle": "Tutti i servizi e i componenti per un approvvigionamento energetico affidabile — senza costi di acquisto.",
+      "subtitle": "Tutti i servizi e i componenti per un approvvigionamento energetico affidabile, senza costi di acquisto per te.",
       "solarModules": {
         "title": "Moduli solari di alta qualità",
-        "description": "Moduli solari altamente efficienti per la massima produzione di energia — durevoli e resistenti."
+        "description": "Moduli solari altamente efficienti, durevoli e resistenti, per la massima produzione di energia."
       },
       "batteryStorage": {
         "title": "Accumulo a batteria ad alte prestazioni",
-        "description": "Energia affidabile quando serve — come backup o per ottimizzare l'autoconsumo."
+        "description": "Quando serve, fornisce energia affidabile come backup o per ottimizzare l'autoconsumo."
       }
     },
     "includes": {
@@ -8213,14 +8213,14 @@
         },
         "2": {
           "question": "Vantaggi nell'acquisto di un impianto solare?",
-          "answer": "Risparmio a lungo termine, indipendenza energetica, maggiore valore dell'immobile e pieno controllo — con un ammortamento tipicamente raggiunto in 5–10 anni."
+          "answer": "Con un ammortamento tipicamente raggiunto in 5–10 anni ottieni risparmio a lungo termine, indipendenza energetica, maggiore valore dell'immobile e pieno controllo."
         },
         "3": {
           "question": "Posso acquistare i moduli solari da solo?",
           "answer": "Sì, ma installazione professionale, allacciamento alla rete e autorizzazioni restano necessari. Il nostro pacchetto chiavi in mano SolarDirect gestisce tutto per te."
         },
         "4": {
-          "question": "Leasing o acquisto — cosa è meglio?",
+          "question": "Leasing o acquisto: cosa conviene di più?",
           "answer": "L'acquisto offre il costo totale più basso e la piena proprietà. Il leasing (come SolarFree) elimina l'investimento iniziale. La scelta giusta dipende dalla tua liquidità e dai tuoi obiettivi a lungo termine."
         },
         "5": {
@@ -8233,7 +8233,7 @@
         },
         "7": {
           "question": "Rimangono costi dell'elettricità con un impianto solare?",
-          "answer": "Restano una quota fissa per l'allacciamento alla rete e il consumo di elettricità di notte o nei giorni nuvolosi — ma la bolletta complessiva cala in modo significativo."
+          "answer": "Una quota fissa per l'allacciamento alla rete e il consumo di elettricità di notte o nei giorni nuvolosi resta a tuo carico, ma la bolletta complessiva cala in modo significativo."
         },
         "8": {
           "question": "Cosa succede in caso di elettricità in eccesso?",
