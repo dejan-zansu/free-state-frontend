@@ -12,13 +12,13 @@ export const siteConfig = {
   },
   contact: {
     email: 'info@freestate.ch',
-    phone: '+41 XX XXX XX XX',
+    phone: '+41 52 525 33 05',
   },
   address: {
-    streetAddress: 'TO BE FILLED BY STAKEHOLDER',
-    addressLocality: 'TO BE FILLED',
-    postalCode: 'TO BE FILLED',
-    addressRegion: 'TO BE FILLED',
+    streetAddress: 'Stettemerstrasse 40',
+    addressLocality: 'Schaffhausen',
+    postalCode: '8207',
+    addressRegion: 'SH',
     addressCountry: 'CH',
   },
   openingHours: [

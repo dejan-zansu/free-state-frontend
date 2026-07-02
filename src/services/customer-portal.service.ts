@@ -1,4 +1,6 @@
 import api from '@/lib/api'
+import type { Milestone } from '@/types/milestone'
+export type { Milestone, MilestoneStage, MilestoneStatus } from '@/types/milestone'
 
 export interface DashboardData {
   user: {
@@ -33,6 +35,7 @@ export interface DashboardData {
     type: string
     date: string
   }[]
+  milestones: Milestone[]
 }
 
 export interface ProjectSummary {

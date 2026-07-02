@@ -14,10 +14,11 @@ import { Textarea } from '@/components/ui/textarea'
 import { Link } from '@/i18n/navigation'
 import { Badge } from './ui/badge'
 import { Check } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { ArrowButton } from './ui/arrow-button'
+import { trackLead } from '@/lib/analytics/track-lead'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
@@ -40,6 +41,7 @@ const inputClassName =
 
 const ContactFormSection = () => {
   const t = useTranslations('contactForm')
+  const locale = useLocale()
 
   const {
     register,
@@ -79,6 +81,7 @@ const ContactFormSection = () => {
       const result = await response.json()
 
       if (result.success) {
+        trackLead({ form: 'contact', locale })
         setStatus('success')
       } else {
         setStatus('error')

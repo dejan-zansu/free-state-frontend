@@ -52,6 +52,21 @@ export interface RefreshResponse {
   }
 }
 
+export interface MagicLinkRequestResponse {
+  success: boolean
+}
+
+export interface MagicLinkVerifyData {
+  accessToken: string
+  expiresIn: number
+  user: User
+}
+
+export interface MagicLinkVerifyResponse {
+  success: boolean
+  data: MagicLinkVerifyData
+}
+
 export interface ApiError {
   success: false
   error: {

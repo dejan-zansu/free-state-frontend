@@ -8,6 +8,7 @@ import { ArrowButton } from '@/components/ui/arrow-button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
+import { trackLead } from '@/lib/analytics/track-lead'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
@@ -104,6 +105,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
 
       const result = await response.json()
       if (response.ok && result.success) {
+        trackLead({ form: 'quote_request', source, locale })
         setStatus('success')
       } else {
         setStatus('error')

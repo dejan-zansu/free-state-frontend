@@ -7,7 +7,7 @@ interface ConditionalFooterProps {
   locale: string
 }
 
-const HIDDEN_PATTERNS = ['/admin/', '/dashboard', '/calculator', '/login', '/anmelden', '/register', '/registrieren', '/set-password', '/passwort-setzen', '/forgot-password', '/passwort-vergessen', '/verify-email', '/email-verifizieren']
+const HIDDEN_PATTERNS = ['/admin/', '/dashboard', '/calculator', '/login', '/anmelden', '/register', '/registrieren', '/set-password', '/passwort-setzen', '/forgot-password', '/passwort-vergessen', '/verify-email', '/email-verifizieren', '/magic-link-verify']
 
 export default function ConditionalFooter({}: ConditionalFooterProps) {
   const pathname = usePathname()

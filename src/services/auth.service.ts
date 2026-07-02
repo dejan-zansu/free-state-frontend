@@ -1,5 +1,5 @@
 import api, { setAccessToken } from '@/lib/api'
-import type { AuthResponse, LoginRequest, RefreshResponse, RegisterRequest, User } from '@/types/auth'
+import type { AuthResponse, LoginRequest, MagicLinkRequestResponse, MagicLinkVerifyResponse, RefreshResponse, RegisterRequest, User } from '@/types/auth'
 
 class AuthService {
   /**
@@ -25,19 +25,6 @@ class AuthService {
       setAccessToken(response.data.data.accessToken)
     }
     
-    return response.data
-  }
-
-  /**
-   * Sign in / sign up with Google OAuth authorization code
-   */
-  async googleAuth(code: string): Promise<AuthResponse> {
-    const response = await api.post<AuthResponse>('/auth/google', { code })
-
-    if (response.data.success) {
-      setAccessToken(response.data.data.accessToken)
-    }
-
     return response.data
   }
 
@@ -89,6 +76,21 @@ class AuthService {
    */
   async verifyEmail(token: string): Promise<void> {
     await api.post('/auth/verify-email', { token })
+  }
+
+  async requestMagicLink(email: string): Promise<{ success: boolean }> {
+    const response = await api.post<MagicLinkRequestResponse>('/auth/magic-link-request', { email })
+    return { success: response.data.success }
+  }
+
+  async verifyMagicLink(token: string): Promise<{ accessToken: string; expiresIn: number; user: User }> {
+    const response = await api.post<MagicLinkVerifyResponse>('/auth/magic-link-verify', { token })
+
+    if (response.data.success) {
+      setAccessToken(response.data.data.accessToken)
+    }
+
+    return response.data.data
   }
 
   /**

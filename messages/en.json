@@ -446,7 +446,18 @@
     "orContinueWith": "Or continue with",
     "continueWithGoogle": "Continue with Google",
     "noAccount": "Don't have an account?",
-    "createAccount": "Create account"
+    "createAccount": "Create account",
+    "magicSubtitle": "Enter your email address and we will send you a link to sign in.",
+    "sendLink": "Send sign-in link",
+    "sending": "Sending...",
+    "checkEmailTitle": "Check your email",
+    "checkEmailBody": "If an account exists for this address, we have sent a sign-in link to {email}. Open the email and click the link to sign in.",
+    "useAnotherEmail": "Use a different email address",
+    "magicError": "We could not send the sign-in link. Please try again."
+  },
+  "adminLogin": {
+    "title": "Staff sign in",
+    "subtitle": "Sign in with your staff account"
   },
   "contactStats": {
     "experience": "Years of Experience",
@@ -4474,6 +4485,15 @@
         "inclInstallation": "incl. installation",
         "addLabel": "Add",
         "addedLabel": "Added"
+      },
+      "dashboard": {
+        "eyebrow": "Your dashboard",
+        "greeting": "Welcome, {firstName}",
+        "greetingNoName": "Welcome",
+        "subtitle": "Your account is ready. Here are your results and what happens next.",
+        "whatsNext": "What happens next",
+        "openDashboard": "Open your dashboard",
+        "loadingTimeline": "Loading your timeline"
       }
     },
     "solarDirect": {
@@ -6781,6 +6801,23 @@
       "yearsValue": "{years} years",
       "financialsEstimated": "Estimated from package pricing (not stored by the calculator)"
     },
+    "milestones": {
+      "title": "Project milestones",
+      "subtitle": "Set the current stage, schedule dates and leave notes.",
+      "statusLabel": "Status",
+      "statusPending": "Pending",
+      "statusActive": "Active",
+      "statusDone": "Done",
+      "scheduledLabel": "Scheduled date",
+      "noteLabel": "Note",
+      "notePlaceholder": "Note visible to the customer",
+      "save": "Save",
+      "saving": "Saving...",
+      "saved": "Saved",
+      "saveFailed": "Save failed",
+      "loadFailed": "Could not load milestones.",
+      "empty": "No milestones exist for this project yet."
+    },
     "contracts": {
       "title": "Contracts",
       "searchPlaceholder": "Search by contract number, name...",
@@ -7405,6 +7442,16 @@
     "expiredLink": "Verification failed. The link may have expired.",
     "goToLogin": "Go to Login"
   },
+  "magicLinkVerify": {
+    "verifying": "Signing you in...",
+    "verifyingHint": "This only takes a moment.",
+    "success": "Signed in",
+    "successMessage": "You are being redirected to your dashboard.",
+    "openDashboard": "Go to dashboard",
+    "failed": "Sign-in failed",
+    "invalidLink": "This sign-in link is invalid or has expired.",
+    "goToLogin": "Go to sign in"
+  },
   "forgotPassword": {
     "title": "Forgot password?",
     "subtitle": "Enter your email and we'll send you a reset link.",
@@ -7577,6 +7624,8 @@
     "overview": {
       "welcome": "Welcome back, {firstName}",
       "subtitle": "Here is an overview of your solar project.",
+      "whatsNext": "What happens next",
+      "whatsNextSubtitle": "Your project progress at a glance.",
       "failedToLoad": "Failed to load dashboard data.",
       "startCalculator": "Start Calculator",
       "viewContract": "View Contract",
@@ -7608,6 +7657,23 @@
       "activityOfferRequested": "Offer requested",
       "activityContractCreated": "Contract generated",
       "activityContractSigned": "Contract signed"
+    },
+    "stages": {
+      "title": "What happens next",
+      "subtitle": "Your project in four steps.",
+      "stageConsultation": "Consultation",
+      "stageOnSiteVisit": "On-site visit",
+      "stageFinalOffer": "Final offer",
+      "stageInstallation": "Installation",
+      "consultationDesc": "We review your solar analysis and your goals.",
+      "onSiteVisitDesc": "A technician inspects your roof on site.",
+      "finalOfferDesc": "You receive your binding offer to sign.",
+      "installationDesc": "We plan and install your system.",
+      "statusActive": "In progress",
+      "statusDone": "Done",
+      "statusPending": "Upcoming",
+      "scheduledLabel": "Scheduled",
+      "completedLabel": "Completed"
     },
     "requests": {
       "title": "Requests",

@@ -22,6 +22,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { adminService } from '@/services/admin.service'
 import { adminEquipmentService } from '@/services/admin-equipment.service'
 import type { AdminLeadDetail, SalesRep } from '@/types/admin'
+import { MilestoneControls } from './MilestoneControls'
 
 const LEAD_STATUSES = [
   'NEW',
@@ -614,6 +615,12 @@ export default function AdminLeadDetailPage() {
           </CardContent>
         </Card>
       </div>
+
+      {project && (
+        <div className="mb-6">
+          <MilestoneControls projectId={project.id} />
+        </div>
+      )}
 
       {hasCalculation && calc && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">

@@ -17,6 +17,8 @@ import { type EquipmentDetail } from '../components/EquipmentDetailCard'
 import { PurchaseFinancialSummary } from '../components/PurchaseFinancialSummary'
 import { SubsidyAssistanceCallout } from '../components/SubsidyAssistanceCallout'
 import { WarrantyCallout } from '../components/WarrantyCallout'
+import ResultsDashboard from '@/components/dashboard/ResultsDashboard'
+import { useAuthStore } from '@/stores/auth.store'
 
 function getEquipmentCategory(
   equipmentType: string,
@@ -148,6 +150,7 @@ export default function StepSolarDirectResults() {
   const tPicker = useTranslations('solarAboCalculator.results.evChargerPicker')
   const locale = useLocale()
   const store = useSolarAboCalculatorStore()
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
   const [packages, setPackages] = useState<CalculatorPackage[]>([])
   const [packagesLoading, setPackagesLoading] = useState(true)
   const [offerSending, setOfferSending] = useState(false)
@@ -278,6 +281,7 @@ export default function StepSolarDirectResults() {
         </div>
       ) : null}
     <div className="flex min-h-full flex-col gap-6 bg-[#F5F7EE] px-4 py-6 sm:px-8">
+      {isAuthenticated && <ResultsDashboard />}
       <header className="flex flex-col gap-2">
         <h1 className="text-2xl font-medium text-[#062E25] sm:text-3xl">{t('title')}</h1>
         <p className="text-sm text-[#062E25]/70 sm:text-base">{t('subtitle')}</p>

@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  ArrowRight,
-  Clock,
-  Leaf,
-  PanelTop,
-  TrendingUp,
-  Zap,
-} from 'lucide-react'
+import { ArrowRight, Clock } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -20,6 +13,8 @@ import {
   type DashboardData,
 } from '@/services/customer-portal.service'
 import { DataRequestActionRequiredCard } from '@/components/dashboard/DataRequestActionRequiredCard'
+import SolarStatGrid from '@/components/dashboard/SolarStatGrid'
+import { StageTimeline } from '@/components/dashboard/StageTimeline'
 
 const STATUS_META: Record<string, { labelKey: string; descKey: string; color: string }> = {
   no_project: {
@@ -130,66 +125,33 @@ export default function DashboardPage() {
       </Card>
 
       {data.stats && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3 mb-2">
-                <PanelTop className="h-5 w-5 text-[#062E25]/40" />
-                <span className="text-sm text-[#062E25]/60">{t('systemSize')}</span>
-              </div>
-              <p className="text-2xl font-bold text-[#062E25]">
-                {data.stats.systemSizeKwp.toFixed(1)}{' '}
-                <span className="text-sm font-normal">{t('kwp')}</span>
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3 mb-2">
-                <Zap className="h-5 w-5 text-yellow-500" />
-                <span className="text-sm text-[#062E25]/60">
-                  {t('annualProduction')}
-                </span>
-              </div>
-              <p className="text-2xl font-bold text-[#062E25]">
-                {Math.round(data.stats.annualProductionKwh).toLocaleString(
-                  'de-CH'
-                )}{' '}
-                <span className="text-sm font-normal">{t('kwh')}</span>
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3 mb-2">
-                <TrendingUp className="h-5 w-5 text-green-500" />
-                <span className="text-sm text-[#062E25]/60">
-                  {t('annualSavings')}
-                </span>
-              </div>
-              <p className="text-2xl font-bold text-[#062E25]">
-                {t('chf')}{' '}
-                {Math.round(data.stats.annualSavings).toLocaleString('de-CH')}
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-5">
-              <div className="flex items-center gap-3 mb-2">
-                <Leaf className="h-5 w-5 text-emerald-500" />
-                <span className="text-sm text-[#062E25]/60">{t('co2Savings')}</span>
-              </div>
-              <p className="text-2xl font-bold text-[#062E25]">
-                {Math.round(data.stats.co2Savings).toLocaleString('de-CH')}{' '}
-                <span className="text-sm font-normal">{t('kgPerYear')}</span>
-              </p>
-            </CardContent>
-          </Card>
+        <div className="mb-8">
+          <SolarStatGrid
+            systemSizeKwp={data.stats.systemSizeKwp}
+            annualProductionKwh={data.stats.annualProductionKwh}
+            annualSavings={data.stats.annualSavings}
+            co2Savings={data.stats.co2Savings}
+            labels={{
+              systemSize: t('systemSize'),
+              kwp: t('kwp'),
+              annualProduction: t('annualProduction'),
+              kwh: t('kwh'),
+              annualSavings: t('annualSavings'),
+              chf: t('chf'),
+              co2Savings: t('co2Savings'),
+              kgPerYear: t('kgPerYear'),
+            }}
+          />
         </div>
       )}
+
+      <div className="mb-8">
+        <h2 className="mb-1 text-lg font-semibold text-[#062E25]">
+          {t('whatsNext')}
+        </h2>
+        <p className="mb-4 text-base text-[#062E25]/60">{t('whatsNextSubtitle')}</p>
+        <StageTimeline milestones={data.milestones ?? []} />
+      </div>
 
       {data.project && (
         <Card className="mb-8 border-[#062E25]/10">
