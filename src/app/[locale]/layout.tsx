@@ -20,6 +20,10 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { JsonLdOrganization } from '@/components/seo/JsonLdOrganization'
 import { JsonLdLocalBusiness } from '@/components/seo/JsonLdLocalBusiness'
 import { buildWebSiteJsonLd } from '@/lib/seo/structured-data'
+import {
+  googleSiteVerification,
+  searchConsoleVerificationEnabled,
+} from '@/lib/analytics-env'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
@@ -40,12 +44,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: 'seo' })
-  return generateSEOMetadata({
+  const metadata = await generateSEOMetadata({
     locale: locale as SiteLocale,
     pathname: '/',
     title: t('home.title') || '',
     description: t('home.description') || '',
   })
+  if (searchConsoleVerificationEnabled) {
+    metadata.verification = { google: googleSiteVerification }
+  }
+  return metadata
 }
 
 export default async function LocaleLayout({

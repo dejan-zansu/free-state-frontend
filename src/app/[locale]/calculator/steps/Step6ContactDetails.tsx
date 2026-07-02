@@ -22,6 +22,7 @@ import {
   type ContactCountry,
 } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
+import { trackLead } from '@/lib/analytics/track-lead'
 
 const salutations: Salutation[] = ['mr', 'woman', 'family']
 const countries: ContactCountry[] = ['CH', 'LI']
@@ -270,10 +271,11 @@ export default function Step6ContactDetails() {
       setConsents({ dataProcessing: data.dataProcessing })
       await createAccount()
       if (useSolarAboCalculatorStore.getState().accountCreated) {
+        trackLead({ form: 'calculator', locale })
         nextStep()
       }
     },
-    [setContact, setConsents, createAccount, nextStep]
+    [setContact, setConsents, createAccount, nextStep, locale]
   )
 
   return (

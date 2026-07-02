@@ -3,18 +3,19 @@ import { getTranslations } from 'next-intl/server'
 const columns = ['manufacturer', 'types', 'maxHeatingOutput', 'maxFlowTemp', 'maxSCOP', 'refrigerant'] as const
 
 const products = [
-  { manufacturer: 'NIBE', types: 'S2125-8', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'NIBE', types: 'S2125-12', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'NIBE', types: 'S2125-16', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'NIBE', types: 'S2125-20', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'NIBE', types: 'F2120-16', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'NIBE', types: 'F2120-20', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'Viessmann', types: 'Vitocal 250-A AWO-E-AC(-AF) 251.A13', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'Viessmann', types: 'Vitocal 250-A AWO-E-AC(-AF) 251.A16', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'Viessmann', types: 'Vitocal 250-A AWO-E-AC(-AF) 251.A19', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'Viessmann', types: 'Vitocal 150-A/151-A AWO-ME-AC(-AF) 151.A06', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'Viessmann', types: 'Vitocal 150-A/151-A AWO-ME-AC(-AF) 151.A04', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
-  { manufacturer: 'Viessmann', types: 'Vitocal 150-A/151-A AWO-ME-AC(-AF) 151.A08', maxHeatingOutput: '5.15 kW', maxFlowTemp: '75 °C', maxSCOP: '5.0', refrigerant: 'R290' },
+  { manufacturer: 'NIBE', types: 'S1256-8 (mit Speicher)', maxHeatingOutput: '8.0 kW', maxFlowTemp: '65 °C', maxSCOP: '5.7', refrigerant: 'R454B' },
+  { manufacturer: 'NIBE', types: 'S1256-13 (mit Speicher)', maxHeatingOutput: '13.0 kW', maxFlowTemp: '65 °C', maxSCOP: '5.9', refrigerant: 'R454B' },
+  { manufacturer: 'NIBE', types: 'S1256-18 (mit Speicher)', maxHeatingOutput: '18.0 kW', maxFlowTemp: '65 °C', maxSCOP: '5.9', refrigerant: 'R454B' },
+  { manufacturer: 'NIBE', types: 'S1156-8', maxHeatingOutput: '8.0 kW', maxFlowTemp: '65 °C', maxSCOP: '5.7', refrigerant: 'R454B' },
+  { manufacturer: 'NIBE', types: 'S1156-13', maxHeatingOutput: '13.0 kW', maxFlowTemp: '65 °C', maxSCOP: '5.9', refrigerant: 'R454B' },
+  { manufacturer: 'NIBE', types: 'S1156-18', maxHeatingOutput: '18.0 kW', maxFlowTemp: '65 °C', maxSCOP: '5.9', refrigerant: 'R454B' },
+  { manufacturer: 'NIBE', types: 'S1157 (R290, ab 2026)', maxHeatingOutput: '5–18 kW', maxFlowTemp: '70 °C', maxSCOP: '—', refrigerant: 'R290' },
+  { manufacturer: 'NIBE', types: 'S1257 (R290, ab 2026, mit Speicher)', maxHeatingOutput: '5–18 kW', maxFlowTemp: '70 °C', maxSCOP: '—', refrigerant: 'R290' },
+  { manufacturer: 'Viessmann', types: 'Vitocal 300-G BW 301.B06', maxHeatingOutput: '5.7 kW', maxFlowTemp: '60 °C', maxSCOP: '5.3', refrigerant: 'R410A' },
+  { manufacturer: 'Viessmann', types: 'Vitocal 300-G BW 301.B08', maxHeatingOutput: '7.6 kW', maxFlowTemp: '60 °C', maxSCOP: '5.6', refrigerant: 'R410A' },
+  { manufacturer: 'Viessmann', types: 'Vitocal 300-G BW 301.B10', maxHeatingOutput: '10.4 kW', maxFlowTemp: '60 °C', maxSCOP: '5.3', refrigerant: 'R410A' },
+  { manufacturer: 'Viessmann', types: 'Vitocal 300-G BW 301.B13', maxHeatingOutput: '13.0 kW', maxFlowTemp: '60 °C', maxSCOP: '5.3', refrigerant: 'R410A' },
+  { manufacturer: 'Viessmann', types: 'Vitocal 300-G BW 301.B17', maxHeatingOutput: '17.2 kW', maxFlowTemp: '60 °C', maxSCOP: '5.1', refrigerant: 'R410A' },
 ]
 
 const gridCols = 'grid grid-cols-[1fr_2fr_1fr_1fr_1fr_1fr]'
