@@ -446,7 +446,18 @@
     "orContinueWith": "Oppure continua con",
     "continueWithGoogle": "Continua con Google",
     "noAccount": "Non hai un account?",
-    "createAccount": "Crea un account"
+    "createAccount": "Crea un account",
+    "magicSubtitle": "Inserisci il tuo indirizzo email e ti invieremo un link per accedere.",
+    "sendLink": "Invia il link di accesso",
+    "sending": "Invio in corso...",
+    "checkEmailTitle": "Controlla la tua email",
+    "checkEmailBody": "Se esiste un account per questo indirizzo, abbiamo inviato un link di accesso a {email}. Apri l'email e clicca sul link per accedere.",
+    "useAnotherEmail": "Usa un altro indirizzo email",
+    "magicError": "Non siamo riusciti a inviare il link di accesso. Riprova."
+  },
+  "adminLogin": {
+    "title": "Accesso per il personale",
+    "subtitle": "Accedi con il tuo account dipendente"
   },
   "contactStats": {
     "experience": "Anni di esperienza",
@@ -4474,6 +4485,15 @@
         "inclInstallation": "installazione inclusa",
         "addLabel": "Aggiungi",
         "addedLabel": "Aggiunta"
+      },
+      "dashboard": {
+        "eyebrow": "La tua dashboard",
+        "greeting": "Benvenuto, {firstName}",
+        "greetingNoName": "Benvenuto",
+        "subtitle": "Il tuo account è pronto. Ecco i tuoi risultati e i prossimi passi.",
+        "whatsNext": "I prossimi passi",
+        "openDashboard": "Apri la dashboard",
+        "loadingTimeline": "Caricamento del percorso"
       }
     },
     "solarDirect": {
@@ -6781,6 +6801,23 @@
       "yearsValue": "{years} anni",
       "financialsEstimated": "Stima basata sui prezzi dei pacchetti (non salvata dal calcolatore)"
     },
+    "milestones": {
+      "title": "Fasi del progetto",
+      "subtitle": "Imposta la fase attuale, pianifica le date e lascia note.",
+      "statusLabel": "Stato",
+      "statusPending": "In attesa",
+      "statusActive": "In corso",
+      "statusDone": "Completato",
+      "scheduledLabel": "Data prevista",
+      "noteLabel": "Nota",
+      "notePlaceholder": "Nota visibile al cliente",
+      "save": "Salva",
+      "saving": "Salvataggio...",
+      "saved": "Salvato",
+      "saveFailed": "Salvataggio non riuscito",
+      "loadFailed": "Impossibile caricare le tappe.",
+      "empty": "Non esistono ancora fasi per questo progetto."
+    },
     "contracts": {
       "title": "Contratti",
       "searchPlaceholder": "Cerca per numero contratto, nome...",
@@ -7405,6 +7442,16 @@
     "expiredLink": "Verifica non riuscita. Il link potrebbe essere scaduto.",
     "goToLogin": "Vai al login"
   },
+  "magicLinkVerify": {
+    "verifying": "Accesso in corso...",
+    "verifyingHint": "Ci vuole solo un istante.",
+    "success": "Accesso effettuato",
+    "successMessage": "Verrai reindirizzato alla tua dashboard.",
+    "openDashboard": "Vai alla dashboard",
+    "failed": "Accesso non riuscito",
+    "invalidLink": "Questo link di accesso non è valido o è scaduto.",
+    "goToLogin": "Vai all'accesso"
+  },
   "forgotPassword": {
     "title": "Password dimenticata?",
     "subtitle": "Inserisci la tua email e ti invieremo un link per reimpostarla.",
@@ -7577,6 +7624,8 @@
     "overview": {
       "welcome": "Bentornato, {firstName}",
       "subtitle": "Ecco una panoramica del tuo progetto solare.",
+      "whatsNext": "I prossimi passi",
+      "whatsNextSubtitle": "L'avanzamento del tuo progetto a colpo d'occhio.",
       "failedToLoad": "Impossibile caricare i dati della dashboard.",
       "startCalculator": "Avvia calcolatore",
       "viewContract": "Vedi contratto",
@@ -7608,6 +7657,23 @@
       "activityOfferRequested": "Offerta richiesta",
       "activityContractCreated": "Contratto generato",
       "activityContractSigned": "Contratto firmato"
+    },
+    "stages": {
+      "title": "Come si prosegue",
+      "subtitle": "Il tuo progetto in quattro fasi.",
+      "stageConsultation": "Consulenza",
+      "stageOnSiteVisit": "Sopralluogo",
+      "stageFinalOffer": "Offerta definitiva",
+      "stageInstallation": "Installazione",
+      "consultationDesc": "Esaminiamo la tua analisi solare e i tuoi obiettivi.",
+      "onSiteVisitDesc": "Un tecnico esamina il tuo tetto sul posto.",
+      "finalOfferDesc": "Ricevi la tua offerta vincolante da firmare.",
+      "installationDesc": "Pianifichiamo e installiamo il tuo impianto.",
+      "statusActive": "In corso",
+      "statusDone": "Completato",
+      "statusPending": "In arrivo",
+      "scheduledLabel": "Appuntamento",
+      "completedLabel": "Completato il"
     },
     "requests": {
       "title": "Richieste",

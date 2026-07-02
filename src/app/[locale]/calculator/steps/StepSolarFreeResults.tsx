@@ -25,10 +25,12 @@ import HeatPumpInterestStrip from '../components/HeatPumpInterestStrip'
 import MonthlyAnalysisChart from '../components/MonthlyAnalysisChart'
 import SignContractDialog from '../components/SignContractDialog'
 import EvChargerPicker from '../components/EvChargerPicker'
+import ResultsDashboard from '@/components/dashboard/ResultsDashboard'
 import {
   DEFAULT_PPA_DISCOUNT_PCT,
   useSolarAboCalculatorStore,
 } from '@/stores/solar-abo-calculator.store'
+import { useAuthStore } from '@/stores/auth.store'
 import {
   residentialCalculatorService,
   type CalculatorPackage,
@@ -227,6 +229,7 @@ export default function StepResults() {
   const tNav = useTranslations('solarAboCalculator.navigation')
   const locale = useLocale()
   const store = useSolarAboCalculatorStore()
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
 
   const [emailSending, setEmailSending] = useState(false)
   const [emailSent, setEmailSent] = useState(false)
@@ -484,6 +487,11 @@ export default function StepResults() {
       )}
 
       <div className="container mx-auto px-4 pb-28 max-w-5xl pt-8">
+        {isAuthenticated && (
+          <div className="mb-10">
+            <ResultsDashboard />
+          </div>
+        )}
         <section>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-5 pt-4">
             <GlassStatCard

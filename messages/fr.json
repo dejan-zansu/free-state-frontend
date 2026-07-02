@@ -446,7 +446,18 @@
     "orContinueWith": "Ou continuer avec",
     "continueWithGoogle": "Continuer avec Google",
     "noAccount": "Pas encore de compte ?",
-    "createAccount": "Créer un compte"
+    "createAccount": "Créer un compte",
+    "magicSubtitle": "Saisissez votre adresse e-mail et nous vous enverrons un lien de connexion.",
+    "sendLink": "Envoyer le lien de connexion",
+    "sending": "Envoi en cours...",
+    "checkEmailTitle": "Vérifiez vos e-mails",
+    "checkEmailBody": "Si un compte existe pour cette adresse, nous avons envoyé un lien de connexion à {email}. Ouvrez l'e-mail et cliquez sur le lien pour vous connecter.",
+    "useAnotherEmail": "Utiliser une autre adresse e-mail",
+    "magicError": "Nous n'avons pas pu envoyer le lien de connexion. Veuillez réessayer."
+  },
+  "adminLogin": {
+    "title": "Connexion du personnel",
+    "subtitle": "Connectez-vous avec votre compte collaborateur"
   },
   "contactStats": {
     "experience": "Années d'expérience",
@@ -4474,6 +4485,15 @@
         "inclInstallation": "installation incluse",
         "addLabel": "Ajouter",
         "addedLabel": "Ajoutée"
+      },
+      "dashboard": {
+        "eyebrow": "Votre tableau de bord",
+        "greeting": "Bienvenue, {firstName}",
+        "greetingNoName": "Bienvenue",
+        "subtitle": "Votre compte est prêt. Voici vos résultats et les prochaines étapes.",
+        "whatsNext": "Les prochaines étapes",
+        "openDashboard": "Ouvrir le tableau de bord",
+        "loadingTimeline": "Chargement de votre parcours"
       }
     },
     "solarDirect": {
@@ -6781,6 +6801,23 @@
       "yearsValue": "{years} ans",
       "financialsEstimated": "Estimation basée sur les prix des packs (non enregistrée par le calculateur)"
     },
+    "milestones": {
+      "title": "Jalons du projet",
+      "subtitle": "Définissez l'étape en cours, planifiez les dates et laissez des notes.",
+      "statusLabel": "Statut",
+      "statusPending": "En attente",
+      "statusActive": "En cours",
+      "statusDone": "Terminé",
+      "scheduledLabel": "Date prévue",
+      "noteLabel": "Note",
+      "notePlaceholder": "Note visible par le client",
+      "save": "Enregistrer",
+      "saving": "Enregistrement...",
+      "saved": "Enregistré",
+      "saveFailed": "Échec de l'enregistrement",
+      "loadFailed": "Impossible de charger les jalons.",
+      "empty": "Aucun jalon n'existe encore pour ce projet."
+    },
     "contracts": {
       "title": "Contrats",
       "searchPlaceholder": "Rechercher par numéro de contrat, nom...",
@@ -7405,6 +7442,16 @@
     "expiredLink": "Échec de la vérification. Le lien a peut-être expiré.",
     "goToLogin": "Aller à la connexion"
   },
+  "magicLinkVerify": {
+    "verifying": "Connexion en cours...",
+    "verifyingHint": "Cela ne prend qu'un instant.",
+    "success": "Connecté",
+    "successMessage": "Vous êtes redirigé vers votre tableau de bord.",
+    "openDashboard": "Aller au tableau de bord",
+    "failed": "Échec de la connexion",
+    "invalidLink": "Ce lien de connexion est invalide ou a expiré.",
+    "goToLogin": "Aller à la connexion"
+  },
   "forgotPassword": {
     "title": "Mot de passe oublié ?",
     "subtitle": "Saisissez votre e-mail et nous vous enverrons un lien de réinitialisation.",
@@ -7577,6 +7624,8 @@
     "overview": {
       "welcome": "Bon retour, {firstName}",
       "subtitle": "Voici un aperçu de votre projet solaire.",
+      "whatsNext": "Les prochaines étapes",
+      "whatsNextSubtitle": "L'avancement de votre projet en un coup d'oeil.",
       "failedToLoad": "Échec du chargement des données du tableau de bord.",
       "startCalculator": "Démarrer le calculateur",
       "viewContract": "Voir le contrat",
@@ -7608,6 +7657,23 @@
       "activityOfferRequested": "Offre demandée",
       "activityContractCreated": "Contrat généré",
       "activityContractSigned": "Contrat signé"
+    },
+    "stages": {
+      "title": "Les prochaines étapes",
+      "subtitle": "Votre projet en quatre étapes.",
+      "stageConsultation": "Consultation",
+      "stageOnSiteVisit": "Visite sur place",
+      "stageFinalOffer": "Offre définitive",
+      "stageInstallation": "Installation",
+      "consultationDesc": "Nous passons en revue votre analyse solaire et vos objectifs.",
+      "onSiteVisitDesc": "Un technicien inspecte votre toit sur place.",
+      "finalOfferDesc": "Vous recevez votre offre contraignante à signer.",
+      "installationDesc": "Nous planifions et installons votre installation.",
+      "statusActive": "En cours",
+      "statusDone": "Terminé",
+      "statusPending": "À venir",
+      "scheduledLabel": "Rendez-vous",
+      "completedLabel": "Terminé le"
     },
     "requests": {
       "title": "Demandes",

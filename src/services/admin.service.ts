@@ -17,6 +17,7 @@ import type {
   PaginatedResponse,
   SalesRep,
 } from '@/types/admin'
+import type { Milestone, MilestoneStage, MilestoneStatus } from '@/types/milestone'
 
 class AdminService {
   async getDashboardStats(): Promise<DashboardStats> {
@@ -195,6 +196,25 @@ class AdminService {
   async listSalesReps(): Promise<SalesRep[]> {
     const response = await api.get<{ success: boolean; data: SalesRep[] }>('/admin/sales-reps')
     return response.data.data
+  }
+
+  async getProjectMilestones(projectId: string): Promise<Milestone[]> {
+    const response = await api.get<{ success: boolean; data: Milestone[] }>(
+      `/admin/projects/${projectId}/milestones`
+    )
+    return response.data.data
+  }
+
+  async updateProjectMilestone(
+    projectId: string,
+    stage: MilestoneStage,
+    data: { status?: MilestoneStatus; scheduledAt?: string | null; note?: string | null }
+  ): Promise<Milestone> {
+    const response = await api.patch<{ success: boolean; data: { milestone: Milestone } }>(
+      `/admin/projects/${projectId}/milestones/${stage}`,
+      data
+    )
+    return response.data.data.milestone
   }
 }
 

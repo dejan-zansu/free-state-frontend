@@ -58,6 +58,8 @@ interface CreateAccountPayload {
 interface CreateAccountResponse {
   success: boolean
   data: {
+    accessToken: string
+    expiresIn: number
     userId: string
     customerId: string
     projectId: string

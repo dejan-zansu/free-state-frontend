@@ -25,7 +25,7 @@ interface AuthActions {
   // Actions
   login: (data: LoginRequest) => Promise<void>
   register: (data: RegisterRequest) => Promise<void>
-  googleLogin: (code: string) => Promise<void>
+  magicLinkLogin: (token: string) => Promise<void>
   logout: () => Promise<void>
   logoutAll: () => Promise<void>
   checkAuth: () => Promise<void>
@@ -74,20 +74,20 @@ export const useAuthStore = create<AuthStore>()(
         }
       },
 
-      googleLogin: async (code: string) => {
+      magicLinkLogin: async (token: string) => {
         set({ isLoading: true, error: null })
 
         try {
-          const response = await authService.googleAuth(code)
+          const { user } = await authService.verifyMagicLink(token)
 
           set({
-            user: response.data.user,
+            user,
             isAuthenticated: true,
             isLoading: false,
             isInitialized: true,
           })
         } catch (error: unknown) {
-          const errorCode = getErrorCode(error) || 'GOOGLE_AUTH_FAILED'
+          const errorCode = getErrorCode(error) || 'loginFailed'
 
           set({
             user: null,

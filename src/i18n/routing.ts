@@ -151,6 +151,7 @@ export const routing = defineRouting({
     },
 
     '/admin/dashboard': '/admin/dashboard',
+    '/admin/login': '/admin/login',
     '/admin/users': '/admin/users',
     '/admin/leads': '/admin/leads',
     '/admin/contracts': '/admin/contracts',
@@ -307,6 +308,7 @@ export const routing = defineRouting({
       fr: '/verifier-email',
       it: '/verifica-email',
     },
+    '/magic-link-verify': '/magic-link-verify',
     '/privacy': {
       en: '/privacy',
       de: '/datenschutz',

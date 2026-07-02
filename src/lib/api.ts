@@ -74,9 +74,11 @@ api.interceptors.response.use(
     // If error is 401 and we haven't tried refreshing yet
     if (error.response?.status === 401 && !originalRequest._retry) {
       // Don't try to refresh for auth endpoints
-      if (originalRequest.url?.includes('/auth/refresh') || 
+      if (originalRequest.url?.includes('/auth/refresh') ||
           originalRequest.url?.includes('/auth/login') ||
-          originalRequest.url?.includes('/auth/register')) {
+          originalRequest.url?.includes('/auth/register') ||
+          originalRequest.url?.includes('/auth/magic-link-request') ||
+          originalRequest.url?.includes('/auth/magic-link-verify')) {
         return Promise.reject(error)
       }
 

@@ -3,6 +3,8 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import { setAccessToken } from '@/lib/api'
+import { useAuthStore } from '@/stores/auth.store'
 import { electricityPriceService } from '@/services/electricity-price.service'
 import { subsidyService } from '@/services/subsidy.service'
 import { feedInTariffService } from '@/services/feed-in-tariff.service'
@@ -955,6 +957,8 @@ export const useSolarAboCalculatorStore = create<
             },
             consents: state.consents,
           })
+          setAccessToken(response.data.accessToken)
+          await useAuthStore.getState().checkAuth()
           set({
             isSubmitting: false,
             isSubmitted: true,
