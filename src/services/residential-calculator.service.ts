@@ -1,4 +1,4 @@
-import api from '@/lib/api'
+import api, { setAccessToken } from '@/lib/api'
 import type { SolarModel } from '@/stores/solar-abo-calculator.store'
 import type { RoofSegment } from '@/types/sonnendach'
 
@@ -66,11 +66,12 @@ interface CreateAccountPayload {
 interface CreateAccountResponse {
   success: boolean
   data: {
-    accessToken: string
-    expiresIn: number
-    userId: string
-    customerId: string
-    projectId: string
+    status: 'created' | 'pending_verification'
+    accessToken?: string
+    expiresIn?: number
+    userId?: string
+    customerId?: string
+    projectId?: string
   }
 }
 
@@ -83,6 +84,8 @@ interface RequestOfferResponse {
   success: boolean
   data: {
     leadId: string
+    status: 'sent' | 'updated' | 'unchanged' | 'cooldown'
+    retryAfter?: string
   }
 }
 
@@ -227,6 +230,29 @@ class ResidentialCalculatorService {
       payload
     )
     return response.data
+  }
+
+  async claimCalculation(token: string): Promise<{
+    accessToken: string
+    expiresIn: number
+    userId: string
+    customerId: string
+    projectId: string
+  }> {
+    const response = await api.post<{
+      success: boolean
+      data: {
+        accessToken: string
+        expiresIn: number
+        userId: string
+        customerId: string
+        projectId: string
+      }
+    }>('/residential-calculator/claim-calculation', { token })
+    if (response.data.success) {
+      setAccessToken(response.data.data.accessToken)
+    }
+    return response.data.data
   }
 
   async updateCalculation(payload: UpdateCalculationPayload): Promise<void> {

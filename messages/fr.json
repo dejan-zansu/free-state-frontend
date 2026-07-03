@@ -2295,7 +2295,12 @@
         "generating": "Génération..."
       }
     },
-    "error": "Erreur"
+    "error": "Erreur",
+    "pendingVerification": {
+      "title": "Consultez votre boîte de réception",
+      "body": "Un compte existe déjà pour cette adresse e-mail. Nous vous avons envoyé un lien pour ouvrir votre nouveau calcul en toute sécurité dans votre compte.",
+      "hint": "Pas d'e-mail ? Vérifiez votre dossier spam."
+    }
   },
   "comingSoon": {
     "eyebrow": "En développement",
@@ -7372,6 +7377,12 @@
         "offerSubtitle": "Notre équipe vous contactera pour une visite sur place.",
         "offerButton": "Demander",
         "offerRequestedOn": "Demandé le {date}",
+        "offerUpdateSubtitle": "Votre configuration a changé. Demandez une offre mise à jour.",
+        "offerUpdateButton": "Mettre à jour l'offre",
+        "offerCooldown": "Mise à jour possible dès le {date}",
+        "offerResult_updated": "Votre offre mise à jour est en route.",
+        "offerResult_unchanged": "Votre configuration est inchangée. Aucune nouvelle offre nécessaire.",
+        "offerResult_cooldown": "Veuillez patienter avant de demander une nouvelle offre.",
         "validUntil": "Valable jusqu'au {date}",
         "contractTitle": "Votre contrat",
         "actionError": "L'action a échoué. Veuillez réessayer."
@@ -7696,6 +7707,16 @@
     "requestsAlert": {
       "title": "{count, plural, one {1 demande requiert votre attention} other {# demandes requièrent votre attention}}",
       "open": "Ouvrir"
+    },
+    "consultation": {
+      "eyebrow": "Consultation gratuite",
+      "title": "Réserver une consultation",
+      "subtitle": "Réservez un entretien de 30 minutes sans engagement avec votre conseiller personnel.",
+      "cta": "Prendre rendez-vous",
+      "open": "Consultation",
+      "close": "Fermer",
+      "call": "Appeler",
+      "email": "E-mail"
     }
   },
   "faqPage": {
@@ -8364,5 +8385,15 @@
       "ctaText": "Démarrer le calculateur solaire",
       "ctaLink": "/calculator?model=solar-abo"
     }
+  },
+  "claimCalculation": {
+    "verifying": "Ouverture de votre calcul",
+    "verifyingHint": "Un instant, nous associons votre calcul à votre compte.",
+    "success": "Terminé !",
+    "successMessage": "Votre calcul est maintenant disponible dans votre compte.",
+    "openDashboard": "Aller au tableau de bord",
+    "failed": "Lien invalide",
+    "invalidLink": "Ce lien est invalide ou a expiré. Veuillez relancer le calcul.",
+    "goToLogin": "Se connecter"
   }
 }

@@ -215,6 +215,7 @@ interface SolarAboCalculatorState {
   isSubmitted: boolean
   submissionError: string | null
   accountCreated: boolean
+  pendingVerification: boolean
 
   createdUserId: string | null
   createdCustomerId: string | null
@@ -378,6 +379,7 @@ const initialState: SolarAboCalculatorState = {
   isSubmitted: false,
   submissionError: null,
   accountCreated: false,
+  pendingVerification: false,
 
   createdUserId: null,
   createdCustomerId: null,
@@ -437,6 +439,7 @@ export const useSolarAboCalculatorStore = create<
           isSubmitted: false,
           submissionError: null,
           accountCreated: false,
+          pendingVerification: false,
           createdUserId: null,
           createdCustomerId: null,
           createdProjectId: null,
@@ -500,6 +503,7 @@ export const useSolarAboCalculatorStore = create<
             address,
             createdProjectId: null,
             accountCreated: false,
+            pendingVerification: false,
             isSubmitted: false,
           })
           return
@@ -928,15 +932,24 @@ export const useSolarAboCalculatorStore = create<
             },
             consents: state.consents,
           })
-          setAccessToken(response.data.accessToken)
+          if (response.data.status === 'pending_verification') {
+            set({
+              isSubmitting: false,
+              isSubmitted: true,
+              pendingVerification: true,
+            })
+            return
+          }
+
+          setAccessToken(response.data.accessToken as string)
           await useAuthStore.getState().checkAuth()
           set({
             isSubmitting: false,
             isSubmitted: true,
             accountCreated: true,
-            createdUserId: response.data.userId,
-            createdCustomerId: response.data.customerId,
-            createdProjectId: response.data.projectId,
+            createdUserId: response.data.userId ?? null,
+            createdCustomerId: response.data.customerId ?? null,
+            createdProjectId: response.data.projectId ?? null,
           })
         } catch (error: unknown) {
           const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
@@ -1036,6 +1049,7 @@ export const useSolarAboCalculatorStore = create<
         contact: state.contact,
         consents: state.consents,
         accountCreated: state.accountCreated,
+        pendingVerification: state.pendingVerification,
         createdUserId: state.createdUserId,
         createdCustomerId: state.createdCustomerId,
         createdProjectId: state.createdProjectId,

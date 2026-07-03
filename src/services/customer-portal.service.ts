@@ -207,6 +207,13 @@ export interface WorkspacePayload {
     | 'contract_pending'
     | 'contract_signed'
   offerRequestedAt: string | null
+  offer: {
+    requested: boolean
+    sentAt: string | null
+    configChanged: boolean
+    canReoffer: boolean
+    cooldownUntil: string | null
+  }
   milestones: Milestone[]
 }
 

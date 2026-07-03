@@ -31,6 +31,7 @@ export function WorkspaceActions({
   const [emailDone, setEmailDone] = useState(false)
   const [requesting, setRequesting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [offerResult, setOfferResult] = useState<'sent' | 'updated' | 'unchanged' | 'cooldown' | null>(null)
 
   const handleDownload = async () => {
     setDownloading(true)
@@ -62,7 +63,9 @@ export function WorkspaceActions({
     setRequesting(true)
     setError(null)
     try {
-      await residentialCalculatorService.requestOffer({ projectId: data.project.id })
+      const res = await residentialCalculatorService.requestOffer({ projectId: data.project.id })
+      setOfferResult(res.data.status)
+      setTimeout(() => setOfferResult(null), 4000)
       await onRefresh()
     } catch {
       setError(t('actions.actionError'))
@@ -71,12 +74,16 @@ export function WorkspaceActions({
     }
   }
 
-  const offerActionable = data.conversionStatus === 'calculation_complete'
-  const offerRequestedSubtitle = data.offerRequestedAt
-    ? t('actions.offerRequestedOn', {
-        date: new Date(data.offerRequestedAt).toLocaleDateString('de-CH'),
-      })
+  const offer = data.offer
+  const offerNotRequested = !offer.requested
+  const offerUpdatable = offer.requested && offer.configChanged && offer.canReoffer
+  const offerCooldown = offer.requested && offer.configChanged && !offer.canReoffer
+  const offerRequestedSubtitle = offer.sentAt
+    ? t('actions.offerRequestedOn', { date: new Date(offer.sentAt).toLocaleDateString('de-CH') })
     : t('actions.offerSubtitle')
+  const offerCooldownSubtitle = offer.cooldownUntil
+    ? t('actions.offerCooldown', { date: new Date(offer.cooldownUntil).toLocaleDateString('de-CH') })
+    : offerRequestedSubtitle
   const contractSigned = data.contract?.signatureStatus === 'SIGNED'
   const contractCancelled = data.contract?.status === 'CANCELLED'
   const contractStatusLabel = data.contract
@@ -138,7 +145,7 @@ export function WorkspaceActions({
           done={emailDone}
           disabled={emailing || emailDone}
         />
-        {offerActionable ? (
+        {offerNotRequested ? (
           <ActionRow
             icon={<Send className="h-5 w-5" />}
             title={t('actions.offerTitle')}
@@ -147,6 +154,25 @@ export function WorkspaceActions({
             onClick={() => void handleRequestOffer()}
             loading={requesting}
             disabled={requesting}
+          />
+        ) : offerUpdatable ? (
+          <ActionRow
+            icon={<Send className="h-5 w-5" />}
+            title={t('actions.offerTitle')}
+            subtitle={t('actions.offerUpdateSubtitle')}
+            buttonLabel={t('actions.offerUpdateButton')}
+            onClick={() => void handleRequestOffer()}
+            loading={requesting}
+            disabled={requesting}
+          />
+        ) : offerCooldown ? (
+          <ActionRow
+            icon={<Send className="h-5 w-5" />}
+            title={t('actions.offerTitle')}
+            subtitle={offerCooldownSubtitle}
+            buttonLabel={t('actions.offerButton')}
+            onClick={() => {}}
+            disabled
           />
         ) : (
           <ActionRow
@@ -158,6 +184,9 @@ export function WorkspaceActions({
             done
             disabled
           />
+        )}
+        {offerResult && offerResult !== 'sent' && (
+          <p className="text-sm text-pine/60">{t(`actions.offerResult_${offerResult}`)}</p>
         )}
       </div>
 
