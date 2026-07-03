@@ -543,6 +543,19 @@ export const useSolarAboCalculatorStore = create<
       },
 
       setAddress: (address: string) => {
+        const { address: currentAddress, createdProjectId } = get()
+        if (createdProjectId && address !== currentAddress) {
+          set({
+            address,
+            createdProjectId: null,
+            createdContractId: null,
+            contractNumber: null,
+            contractPdfUrl: null,
+            accountCreated: false,
+            isSubmitted: false,
+          })
+          return
+        }
         set({ address })
       },
 
@@ -954,6 +967,15 @@ export const useSolarAboCalculatorStore = create<
               solarModel: state.solarModel ?? 'solar-direct',
               ppaDiscountPercent,
               heatPumpInterest: state.heatPumpInterest,
+              selectedPackageId: state.selectedPackageId ?? undefined,
+              consumptionOverrideKwh: state.consumptionOverrideKwh ?? undefined,
+              roofImage: state.roofImage ?? undefined,
+              evCharger: state.selectedEvChargerId
+                ? {
+                    evChargerId: state.selectedEvChargerId,
+                    quantity: state.selectedEvChargerQuantity ?? 1,
+                  }
+                : undefined,
             },
             consents: state.consents,
           })
@@ -1012,6 +1034,15 @@ export const useSolarAboCalculatorStore = create<
                 : null,
             feedInTariffRpKwh: feedIn != null ? feedIn * 100 : null,
             selectedPackageCode: state.selectedPackageCode ?? undefined,
+            selectedPackageId: state.selectedPackageId ?? undefined,
+            consumptionOverrideKwh: state.consumptionOverrideKwh ?? undefined,
+            roofImage: state.roofImage ?? undefined,
+            evCharger: state.selectedEvChargerId
+              ? {
+                  evChargerId: state.selectedEvChargerId,
+                  quantity: state.selectedEvChargerQuantity ?? 1,
+                }
+              : undefined,
           },
         }
 
@@ -1021,7 +1052,11 @@ export const useSolarAboCalculatorStore = create<
 
         try {
           await residentialCalculatorService.updateCalculation(payload)
-        } catch {
+        } catch (error: unknown) {
+          const axiosError = error as { response?: { status?: number } }
+          if (axiosError.response?.status === 404) {
+            set({ createdProjectId: null, accountCreated: false })
+          }
           lastCalculationSyncKey = null
         }
       },
@@ -1217,6 +1252,7 @@ export const useSolarAboCalculatorStore = create<
         building: state.building,
         selectedSegmentIds: state.selectedSegmentIds,
         roofCovering: state.roofCovering,
+        roofImage: state.roofImage,
         contact: state.contact,
         consents: state.consents,
         accountCreated: state.accountCreated,

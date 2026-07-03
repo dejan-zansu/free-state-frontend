@@ -478,17 +478,17 @@
     "commercialProperties": "Proprietà commerciali",
     "residentialProperties": "Proprietà residenziali"
   },
-  "telemiivaTimeline": {
+  "experienceTimeline": {
     "sectionHeading": "16 anni di esperienza.",
     "subheading": "Free State AG è una realtà nuova. Il nostro team costruisce impianti solari in Svizzera dal 2008.",
     "node2008Title": "2008",
-    "node2008Body": "Fondazione di Telemiiva GmbH. Primo impianto solare installato.",
+    "node2008Body": "Il nostro team installa il suo primo impianto solare. L'inizio del nostro mestiere.",
     "node2008_2024Title": "Dal 2008 al 2024",
-    "node2008_2024Body": "Oltre 16 anni di esperienza nel solare e nell'energia in tutta la Svizzera.",
+    "node2008_2024Body": "Il team costruisce impianto dopo impianto. Oltre 16 anni di esperienza nel solare e nell'energia in Svizzera.",
     "node2024Title": "Novembre 2024",
-    "node2024Body": "Free State AG fondata a Sciaffusa. Nuovo marchio, stesso team, stessa maestria.",
+    "node2024Body": "Il team fonda Free State AG a Sciaffusa e punta tutto sul solare.",
     "nodeTodayTitle": "Oggi",
-    "nodeTodayBody": "Attivi in 19 cantoni della Svizzera tedesca, con i modelli SolarFree e SolarDirect."
+    "nodeTodayBody": "Costruiamo in 19 cantoni della Svizzera tedesca, con i modelli SolarFree e SolarDirect."
   },
   "home": {
     "promo": {
@@ -4703,27 +4703,27 @@
       "awaitingCompany": {
         "title": "In attesa della controfirma di Free State AG",
         "message": "Hai firmato con successo. Free State AG controfirmerà a breve e, non appena il contratto sarà completo, te lo invieremo via e-mail pienamente firmato.",
-        "backButton": "Torna al calcolatore"
+        "backButton": "Vai al pannello"
       },
       "pending": {
         "title": "Firma in elaborazione",
         "message": "La tua sessione di firma è ancora aperta. Se non hai completato la firma, puoi tornare su Swisscom Sign. Ti invieremo un'e-mail non appena la firma sarà confermata.",
-        "backButton": "Torna al calcolatore"
+        "backButton": "Vai al pannello"
       },
       "success": {
         "title": "Contratto firmato con successo!",
         "message": "Il tuo contratto è stato firmato in modo sicuro tramite Swisscom Sign. Puoi chiudere questa finestra.",
-        "backButton": "Torna al calcolatore"
+        "backButton": "Vai al pannello"
       },
       "cancel": {
         "title": "Firma annullata",
         "message": "Hai annullato il processo di firma. Puoi riprovare in qualsiasi momento.",
-        "backButton": "Torna al calcolatore"
+        "backButton": "Vai al pannello"
       },
       "error": {
         "title": "Errore di firma",
         "message": "Si è verificato un errore durante il processo di firma. Riprova.",
-        "backButton": "Torna al calcolatore"
+        "backButton": "Vai al pannello"
       }
     },
     "signatureConfirmation": {
@@ -7519,7 +7519,25 @@
       "signedDate": "Firmato",
       "notYet": "Non ancora",
       "downloadContract": "Scarica contratto",
-      "downloadSigned": "Scarica contratto firmato"
+      "downloadSigned": "Scarica contratto firmato",
+      "projectHeading": "Immobile: {address}"
+    },
+    "signing": {
+      "title": "Firma il contratto",
+      "subtitle": "Conferma i seguenti punti per procedere con la firma digitale.",
+      "noticeTitle": "Note importanti",
+      "ackPreliminary": "Comprendo che si tratta di un accordo preliminare che sarà finalizzato dopo il sopralluogo.",
+      "ackSiteVisit": "Acconsento a un sopralluogo del team tecnico di Free State AG.",
+      "ackContractReview": "Ho esaminato i dettagli del contratto e desidero procedere con la firma digitale.",
+      "signNow": "Firma ora",
+      "signingUnavailable": "Firma attualmente non disponibile",
+      "proceed": "Vai alla firma",
+      "starting": "Preparazione della firma...",
+      "awaitingSignature": "In attesa della tua firma...",
+      "reopenSigning": "Riapri la pagina di firma",
+      "signingDisabled": "La firma digitale è temporaneamente disattivata. Riprova più tardi.",
+      "signingError": "Non è stato possibile avviare la firma. Riprova.",
+      "signatureExpired": "La richiesta di firma è scaduta. Ricomincia."
     },
     "project": {
       "title": "Il mio progetto",
@@ -7536,6 +7554,21 @@
       "annualConsumption": "Consumo annuo",
       "contractStatus": "Stato contratto",
       "noContract": "Nessun contratto ancora",
+      "viewDetails": "Vedi dettagli",
+      "viewContract": "Vedi contratto",
+      "back": "Torna alla panoramica",
+      "conversion": {
+        "calculation_complete": "Calcolo completato",
+        "offer_requested": "Offerta richiesta",
+        "contract_pending": "Contratto in sospeso",
+        "contract_signed": "Contratto firmato"
+      },
+      "models": {
+        "solarFree": "SolarFree",
+        "solarDirect": "SolarDirect",
+        "solarAbo": "SolarAbo",
+        "unknown": "Progetto solare"
+      },
       "statuses": {
         "DRAFT": "Bozza",
         "CALCULATING": "Calcolo in corso",
@@ -7629,6 +7662,9 @@
       "failedToLoad": "Impossibile caricare i dati della dashboard.",
       "startCalculator": "Avvia calcolatore",
       "viewContract": "Vedi contratto",
+      "requestOfferCta": "Richiedi un'offerta",
+      "requestingOffer": "Richiesta in corso...",
+      "offerError": "La richiesta non è riuscita. Riprova.",
       "viewDetails": "Vedi dettagli",
       "yourProject": "Il tuo progetto",
       "address": "Indirizzo",
@@ -7656,7 +7692,13 @@
       "activityCalculationCompleted": "Calcolo solare completato",
       "activityOfferRequested": "Offerta richiesta",
       "activityContractCreated": "Contratto generato",
-      "activityContractSigned": "Contratto firmato"
+      "activityContractSigned": "Contratto firmato",
+      "downloadReport": "Scarica rapporto",
+      "downloadingReport": "Generazione in corso...",
+      "emailReport": "Invia rapporto via e-mail",
+      "sendingReport": "Invio in corso...",
+      "reportEmailSent": "Inviato",
+      "reportError": "Impossibile generare il rapporto. Riprova."
     },
     "stages": {
       "title": "Come si prosegue",
@@ -7692,7 +7734,12 @@
       "fillAll": "Compila tutti gli elementi obbligatori per abilitare l'invio.",
       "submit": "Invia",
       "submitting": "Invio in corso…",
-      "submitFailed": "Invio non riuscito"
+      "submitFailed": "Invio non riuscito",
+      "forProject": "Immobile: {address}"
+    },
+    "requestsAlert": {
+      "title": "{count, plural, one {1 richiesta richiede la tua attenzione} other {# richieste richiedono la tua attenzione}}",
+      "open": "Apri"
     }
   },
   "faqPage": {
@@ -7989,12 +8036,12 @@
       "title": "Modelli adatti a esigenze diverse",
       "subtitle": "Con modelli flessibili adatti a diverse esigenze, FreeState sviluppa sistemi fotovoltaici ed energetici per famiglie, aziende e istituzioni pubbliche.",
       "founding": {
-        "title": "Fondazione di Telemiiva GmbH",
-        "description": "Ivan Miric ha fondato Telemiiva GmbH come studio di ingegneria e progettazione. L'attenzione era sulla progettazione tecnica, progetti di infrastruttura, tecnologia edilizia ed efficienza energetica."
+        "title": "Gli inizi come studio di ingegneria e progettazione",
+        "description": "Ivan Miric ha iniziato con un proprio studio di ingegneria e progettazione. L'attenzione era rivolta a progettazione tecnica, progetti infrastrutturali, tecnologia edilizia ed efficienza energetica."
       },
       "firstProjects": {
         "title": "Primi progetti fotovoltaici",
-        "description": "Con la crescita del settore solare, l'azienda ha iniziato a concentrarsi più intensamente sui progetti fotovoltaici. Gli impianti solari sono diventati sempre più economicamente attraenti."
+        "description": "Con la crescita del settore solare, lo studio ha iniziato a concentrarsi più intensamente sui progetti fotovoltaici. Gli impianti solari sono diventati sempre più economicamente attraenti."
       },
       "batteryStorage": {
         "title": "Accumulo a batteria e autoconsumo",
@@ -8013,7 +8060,7 @@
       "eyebrow": "2024",
       "title": "La fondazione di FreeState AG",
       "subtitle": "Dall'esperienza, dalla tecnologia e da una chiara visione per il futuro è nata una nuova azienda con piena attenzione ai sistemi energetici decentralizzati.",
-      "cardText": "Dall'esperienza pluriennale di Telemiiva GmbH è stata fondata FreeState AG nel 2024. L'azienda si concentra interamente su progetti fotovoltaici, sistemi energetici, accumulo a batteria, soluzioni energetiche digitali e modelli di business innovativi per l'energia solare.\nIl nome FreeState rappresenta una chiara visione: un futuro in cui gli edifici producono sempre più la propria energia e diventano più indipendenti dal sistema energetico tradizionale."
+      "cardText": "FreeState AG è nata nel 2024 da oltre 16 anni di esperienza in energia e tecnologia edilizia. L'azienda si concentra interamente su progetti fotovoltaici, sistemi energetici, accumulo a batteria, soluzioni energetiche digitali e modelli di business innovativi per l'energia solare.\nIl nome FreeState rappresenta una chiara visione: un futuro in cui gli edifici producono sempre più la propria energia e diventano più indipendenti dal sistema energetico tradizionale."
     },
     "futureVision": {
       "eyebrow": "2025 e oltre",

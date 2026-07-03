@@ -1,22 +1,42 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Zap, TrendingUp, Leaf, PanelTop, Sun, MapPin } from 'lucide-react'
+import { Sun } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { PageLoader } from '@/components/ui/page-loader'
 import { customerPortalService, type ProjectSummary } from '@/services/customer-portal.service'
-import {
-  residentialCalculatorService,
-  type CalculatorPackage,
-} from '@/services/residential-calculator.service'
+
+const PILL_BASE = 'rounded-full text-sm font-medium px-3 py-1.5'
+
+function statusPillClass(status: string): string {
+  const color =
+    status === 'contract_signed'
+      ? 'bg-green-100 text-green-700'
+      : status === 'offer_requested' || status === 'contract_pending'
+        ? 'bg-amber-100 text-amber-700'
+        : 'bg-blue-100 text-blue-700'
+  return `${PILL_BASE} ${color}`
+}
+
+function formatKwp(value: number | null | undefined): string {
+  return (value ?? 0).toLocaleString('de-CH', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  })
+}
+
+function formatNumber(value: number | null | undefined): string {
+  return Math.round(value ?? 0).toLocaleString('de-CH')
+}
 
 export default function ProjectPage() {
   const t = useTranslations('dashboard.project')
   const locale = useLocale()
   const [projects, setProjects] = useState<ProjectSummary[]>([])
-  const [packages, setPackages] = useState<CalculatorPackage[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -27,12 +47,12 @@ export default function ProjectPage() {
       .finally(() => setLoading(false))
   }, [])
 
-  useEffect(() => {
-    residentialCalculatorService
-      .getPackages(locale)
-      .then(setPackages)
-      .catch(console.error)
-  }, [locale])
+  const modelLabel = (model: string | null): string => {
+    if (model === 'solar-free') return t('models.solarFree')
+    if (model === 'solar-direct') return t('models.solarDirect')
+    if (model === 'solar-abo') return t('models.solarAbo')
+    return t('models.unknown')
+  }
 
   if (loading) {
     return <PageLoader />
@@ -52,104 +72,49 @@ export default function ProjectPage() {
     )
   }
 
-  const project = projects[0]
-  const sys = project.system
-  const statusLabel = t.has(`statuses.${project.status}`)
-    ? t(`statuses.${project.status}`)
-    : project.status
-  const packageLabel = t.has(`packages.${project.package}`)
-    ? t(`packages.${project.package}`)
-    : packages.find(p => p.code === project.package)?.name ?? project.package
-  const signatureLabel = project.contract
-    ? t.has(`signatureStatuses.${project.contract.signatureStatus}`)
-      ? t(`signatureStatuses.${project.contract.signatureStatus}`)
-      : project.contract.signatureStatus
-    : t('noContract')
-
   return (
     <div className="max-w-5xl">
       <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
 
-      <Card className="mb-6 border-[#062E25]/10">
-        <CardContent className="p-6">
-          <div className="flex items-start gap-3 mb-4">
-            <MapPin className="h-5 w-5 text-[#062E25]/40 mt-0.5" />
-            <div>
-              <p className="font-semibold text-[#062E25]">{project.address}</p>
-              <p className="text-sm text-[#062E25]/60">
-                {t('package')}: {packageLabel} &middot; {t('status')}: {statusLabel}
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {sys && (
-        <>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <Card className="border-[#062E25]/10">
-              <CardContent className="p-5">
-                <PanelTop className="h-5 w-5 text-[#062E25]/40 mb-2" />
-                <p className="text-2xl font-bold text-[#062E25]">{sys.systemSizeKwp.toFixed(1)}</p>
-                <p className="text-sm text-[#062E25]/60">{t('systemSize')}</p>
-              </CardContent>
-            </Card>
-            <Card className="border-[#062E25]/10">
-              <CardContent className="p-5">
-                <Zap className="h-5 w-5 text-yellow-500 mb-2" />
-                <p className="text-2xl font-bold text-[#062E25]">
-                  {Math.round(sys.annualProductionKwh).toLocaleString('de-CH')}
-                </p>
-                <p className="text-sm text-[#062E25]/60">{t('production')}</p>
-              </CardContent>
-            </Card>
-            <Card className="border-[#062E25]/10">
-              <CardContent className="p-5">
-                <TrendingUp className="h-5 w-5 text-green-500 mb-2" />
-                <p className="text-2xl font-bold text-[#062E25]">
-                  CHF {Math.round(sys.annualSavings).toLocaleString('de-CH')}
-                </p>
-                <p className="text-sm text-[#062E25]/60">{t('annualSavings')}</p>
-              </CardContent>
-            </Card>
-            <Card className="border-[#062E25]/10">
-              <CardContent className="p-5">
-                <Leaf className="h-5 w-5 text-emerald-500 mb-2" />
-                <p className="text-2xl font-bold text-[#062E25]">
-                  {Math.round(sys.co2Savings).toLocaleString('de-CH')}
-                </p>
-                <p className="text-sm text-[#062E25]/60">{t('co2Saved')}</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('systemDetails')}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm">
+      <div className="grid gap-4 md:grid-cols-2">
+        {projects.map((project) => (
+          <Card key={project.id} className="border-[#062E25]/10">
+            <CardContent className="p-6 space-y-4">
+              <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-[#062E25]/60">{t('estimatedPanels')}</p>
-                  <p className="font-medium text-[#062E25]">~{sys.panelCount}</p>
-                </div>
-                <div>
-                  <p className="text-[#062E25]/60">{t('selfConsumption')}</p>
-                  <p className="font-medium text-[#062E25]">{Math.round(sys.selfConsumptionRate * 100)}%</p>
-                </div>
-                <div>
-                  <p className="text-[#062E25]/60">{t('annualConsumption')}</p>
-                  <p className="font-medium text-[#062E25]">
-                    {Math.round(sys.estimatedConsumption).toLocaleString('de-CH')} kWh
+                  <p className="font-semibold text-[#062E25]">{project.address}</p>
+                  <p className="text-sm text-[#062E25]/60">
+                    {modelLabel(project.solarModel)} {'·'}{' '}
+                    {new Date(project.createdAt).toLocaleDateString('de-CH')}
                   </p>
                 </div>
-                <div>
-                  <p className="text-[#062E25]/60">{t('contractStatus')}</p>
-                  <p className="font-medium text-[#062E25]">{signatureLabel}</p>
-                </div>
+                <span className={statusPillClass(project.conversionStatus)}>
+                  {t(`conversion.${project.conversionStatus}`)}
+                </span>
+              </div>
+              <div className="flex gap-6 text-sm text-[#062E25]/80">
+                <span>{formatKwp(project.system?.systemSizeKwp)} kWp</span>
+                <span>CHF {formatNumber(project.system?.annualSavings)}</span>
+              </div>
+              <div className="flex gap-2">
+                <Button asChild size="sm" className="bg-[#062E25] hover:bg-[#062E25]/90 text-white">
+                  <Link href={`/${locale}/dashboard/project/${project.id}`}>{t('viewDetails')}</Link>
+                </Button>
+                {project.contract && (
+                  <Button
+                    asChild
+                    size="sm"
+                    variant="outline"
+                    style={{ borderColor: '#062E25', color: '#062E25' }}
+                  >
+                    <Link href={`/${locale}/dashboard/contract`}>{t('viewContract')}</Link>
+                  </Button>
+                )}
               </div>
             </CardContent>
           </Card>
-        </>
-      )}
+        ))}
+      </div>
     </div>
   )
 }

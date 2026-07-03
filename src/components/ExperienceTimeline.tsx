@@ -7,8 +7,8 @@ const NODES = [
   { titleKey: 'nodeTodayTitle', bodyKey: 'nodeTodayBody' },
 ] as const
 
-export default function TelemiivaTimeline() {
-  const t = useTranslations('telemiivaTimeline')
+export default function ExperienceTimeline() {
+  const t = useTranslations('experienceTimeline')
   return (
     <section className="py-16 md:py-24 px-4 sm:px-6">
       <div className="max-w-[1120px] mx-auto">

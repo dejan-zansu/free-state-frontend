@@ -478,17 +478,17 @@
     "commercialProperties": "Commercial properties",
     "residentialProperties": "Residential properties"
   },
-  "telemiivaTimeline": {
+  "experienceTimeline": {
     "sectionHeading": "16 years of experience.",
     "subheading": "Free State AG is new. Our team has been building solar systems in Switzerland since 2008.",
     "node2008Title": "2008",
-    "node2008Body": "Telemiiva GmbH founded. First solar installation completed.",
+    "node2008Body": "Our team installs its first solar system. The beginning of our craft.",
     "node2008_2024Title": "2008 to 2024",
-    "node2008_2024Body": "Over 16 years of experience in solar and energy across Switzerland.",
+    "node2008_2024Body": "The team builds system after system. Over 16 years of experience in solar and energy in Switzerland.",
     "node2024Title": "November 2024",
-    "node2024Body": "Free State AG founded in Schaffhausen. New brand, same team, same craft.",
+    "node2024Body": "The team founds Free State AG in Schaffhausen and commits fully to solar.",
     "nodeTodayTitle": "Today",
-    "nodeTodayBody": "Active in 19 German-speaking Swiss cantons, with SolarFree and SolarDirect models."
+    "nodeTodayBody": "We build in 19 German-speaking Swiss cantons, with SolarFree and SolarDirect models."
   },
   "home": {
     "promo": {
@@ -4703,27 +4703,27 @@
       "success": {
         "title": "Contract successfully signed!",
         "message": "Your contract has been securely signed by both parties via Swisscom Sign. You can close this window.",
-        "backButton": "Back to calculator"
+        "backButton": "Go to dashboard"
       },
       "awaitingCompany": {
         "title": "Awaiting Free State AG counter-signature",
         "message": "You've signed successfully. Free State AG will counter-sign shortly — we'll email you the fully executed contract as soon as it's complete.",
-        "backButton": "Back to calculator"
+        "backButton": "Go to dashboard"
       },
       "pending": {
         "title": "Signature processing",
         "message": "Your signing session is still open. If you didn't finish signing, you can return to Swisscom Sign. We will email you as soon as the signature is confirmed.",
-        "backButton": "Back to calculator"
+        "backButton": "Go to dashboard"
       },
       "cancel": {
         "title": "Signing cancelled",
         "message": "You cancelled the signing process. You can try again at any time.",
-        "backButton": "Back to calculator"
+        "backButton": "Go to dashboard"
       },
       "error": {
         "title": "Signing error",
         "message": "An error occurred during the signing process. Please try again.",
-        "backButton": "Back to calculator"
+        "backButton": "Go to dashboard"
       }
     },
     "signatureConfirmation": {
@@ -7519,7 +7519,25 @@
       "signedDate": "Signed",
       "notYet": "Not yet",
       "downloadContract": "Download Contract",
-      "downloadSigned": "Download Signed Contract"
+      "downloadSigned": "Download Signed Contract",
+      "projectHeading": "Property: {address}"
+    },
+    "signing": {
+      "title": "Sign contract",
+      "subtitle": "Please confirm the following points to continue with the digital signature.",
+      "noticeTitle": "Important notices",
+      "ackPreliminary": "I understand this is a preliminary agreement that will be finalized after the on-site inspection.",
+      "ackSiteVisit": "I consent to a site visit by the Free State AG technical team.",
+      "ackContractReview": "I have reviewed the contract details and wish to proceed with the digital signature.",
+      "signNow": "Sign now",
+      "signingUnavailable": "Signing currently unavailable",
+      "proceed": "Continue to signature",
+      "starting": "Preparing signature...",
+      "awaitingSignature": "Waiting for your signature...",
+      "reopenSigning": "Reopen signing page",
+      "signingDisabled": "Digital signing is temporarily disabled. Please try again later.",
+      "signingError": "The signature could not be started. Please try again.",
+      "signatureExpired": "The signature request has expired. Please start again."
     },
     "project": {
       "title": "My Project",
@@ -7536,6 +7554,21 @@
       "annualConsumption": "Annual Consumption",
       "contractStatus": "Contract Status",
       "noContract": "No contract yet",
+      "viewDetails": "View details",
+      "viewContract": "View contract",
+      "back": "Back to overview",
+      "conversion": {
+        "calculation_complete": "Calculation complete",
+        "offer_requested": "Offer requested",
+        "contract_pending": "Contract pending",
+        "contract_signed": "Contract signed"
+      },
+      "models": {
+        "solarFree": "SolarFree",
+        "solarDirect": "SolarDirect",
+        "solarAbo": "SolarAbo",
+        "unknown": "Solar project"
+      },
       "statuses": {
         "DRAFT": "Draft",
         "CALCULATING": "Calculating",
@@ -7629,6 +7662,9 @@
       "failedToLoad": "Failed to load dashboard data.",
       "startCalculator": "Start Calculator",
       "viewContract": "View Contract",
+      "requestOfferCta": "Request offer",
+      "requestingOffer": "Requesting offer...",
+      "offerError": "The request failed. Please try again.",
       "viewDetails": "View Details",
       "yourProject": "Your Project",
       "address": "Address",
@@ -7656,7 +7692,13 @@
       "activityCalculationCompleted": "Solar calculation completed",
       "activityOfferRequested": "Offer requested",
       "activityContractCreated": "Contract generated",
-      "activityContractSigned": "Contract signed"
+      "activityContractSigned": "Contract signed",
+      "downloadReport": "Download report",
+      "downloadingReport": "Generating...",
+      "emailReport": "Email report",
+      "sendingReport": "Sending...",
+      "reportEmailSent": "Sent",
+      "reportError": "The report could not be generated. Please try again."
     },
     "stages": {
       "title": "What happens next",
@@ -7692,7 +7734,12 @@
       "fillAll": "Fill all required items to enable submit.",
       "submit": "Submit",
       "submitting": "Submitting…",
-      "submitFailed": "Submit failed"
+      "submitFailed": "Submit failed",
+      "forProject": "Property: {address}"
+    },
+    "requestsAlert": {
+      "title": "{count, plural, one {1 request needs your attention} other {# requests need your attention}}",
+      "open": "Open"
     }
   },
   "faqPage": {
@@ -7989,12 +8036,12 @@
       "title": "Suitable models for different requirements",
       "subtitle": "FreeState develops photovoltaic and energy systems for households, businesses and public institutions – with flexible models for various needs.",
       "founding": {
-        "title": "Founding of Telemiiva GmbH",
-        "description": "Ivan Miric founded Telemiiva GmbH as an engineering and planning office. The focus was on technical planning, infrastructure projects, building technology and energy efficiency."
+        "title": "Start as an engineering and planning office",
+        "description": "Ivan Miric started with his own engineering and planning office. The focus was on technical planning, infrastructure projects, building technology and energy efficiency."
       },
       "firstProjects": {
         "title": "First photovoltaic projects",
-        "description": "With the growth of the solar industry, the company began to focus more intensively on photovoltaic projects. Solar systems became increasingly economically attractive."
+        "description": "With the growth of the solar industry, the office began to focus more intensively on photovoltaic projects. Solar systems became increasingly economically attractive."
       },
       "batteryStorage": {
         "title": "Battery storage and self-consumption",
@@ -8013,7 +8060,7 @@
       "eyebrow": "2024",
       "title": "The founding of FreeState AG",
       "subtitle": "From experience, technology and a clear vision for the future, a new company was created with full focus on decentralized energy systems.",
-      "cardText": "From the long-standing experience of Telemiiva GmbH, FreeState AG was founded in 2024. The company focuses entirely on photovoltaic projects, energy systems, battery storage, digital energy solutions and innovative business models for solar energy.\nThe name FreeState stands for a clear vision: a future in which buildings increasingly produce their own energy and become more independent from the traditional energy system."
+      "cardText": "FreeState AG emerged in 2024 from over 16 years of experience in energy and building technology. The company focuses entirely on photovoltaic projects, energy systems, battery storage, digital energy solutions and innovative business models for solar energy.\nThe name FreeState stands for a clear vision: a future in which buildings increasingly produce their own energy and become more independent from the traditional energy system."
     },
     "futureVision": {
       "eyebrow": "2025 and beyond",

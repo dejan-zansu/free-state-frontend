@@ -44,6 +44,10 @@ export interface ProjectSummary {
   status: string
   package: string
   createdAt: string
+  solarModel: string | null
+  offerRequested: boolean
+  offerRequestedAt: string | null
+  conversionStatus: 'calculation_complete' | 'offer_requested' | 'contract_pending' | 'contract_signed'
   system: {
     systemSizeKwp: number
     annualProductionKwh: number
@@ -58,15 +62,18 @@ export interface ProjectSummary {
     contractNumber: string
     status: string
     signatureStatus: string
+    solarModel: string | null
   } | null
 }
 
 export interface ContractSummary {
   id: string
+  projectId: string
   contractNumber: string
   status: string
   signatureStatus: string
   contractType: string
+  solarModel: string | null
   language: string
   createdAt: string
   validUntil: string
@@ -129,6 +136,24 @@ class CustomerPortalService {
   }): Promise<any> {
     const res = await api.patch<{ success: boolean; data: any }>('/me/profile', data)
     return res.data.data
+  }
+
+  async downloadProjectReport(projectId: string): Promise<void> {
+    const response = await api.get(`/me/projects/${projectId}/report`, {
+      responseType: 'blob',
+      timeout: 60000,
+    })
+    const blob = new Blob([response.data], { type: 'application/pdf' })
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    const disposition = response.headers['content-disposition'] as string | undefined
+    const match = disposition?.match(/filename="(.+)"/)
+    link.download = match?.[1] ?? `Solar_Report_${projectId}.pdf`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    window.URL.revokeObjectURL(url)
   }
 }
 

@@ -8,7 +8,14 @@ import { ArrowRight, Inbox } from 'lucide-react'
 import { PageLoader } from '@/components/ui/page-loader'
 import { Card, CardContent } from '@/components/ui/card'
 import { StatusBadge } from '@/components/admin/StatusBadge'
-import { dataRequestService } from '@/services/data-request.service'
+import {
+  dataRequestService,
+  type CustomerDataRequestListItem,
+} from '@/services/data-request.service'
+import {
+  customerPortalService,
+  type ProjectSummary,
+} from '@/services/customer-portal.service'
 import type { DataRequestListItem } from '@/types/data-request'
 
 const groupTitleKey: Record<'action' | 'waiting' | 'closed', string> = {
@@ -26,19 +33,28 @@ const bucket = (s: DataRequestListItem): 'action' | 'waiting' | 'closed' => {
 export default function CustomerRequestsPage() {
   const locale = useLocale()
   const t = useTranslations('dashboard.requests')
-  const { data: items = [], isLoading } = useQuery<DataRequestListItem[]>({
+  const { data: items = [], isLoading } = useQuery<
+    CustomerDataRequestListItem[]
+  >({
     queryKey: ['me', 'data-requests'],
     queryFn: () => dataRequestService.customerList(),
   })
+  const { data: projects = [] } = useQuery<ProjectSummary[]>({
+    queryKey: ['me', 'projects'],
+    queryFn: () => customerPortalService.getProjects(),
+  })
+  const projectAddress = new Map(projects.map(p => [p.id, p.address]))
 
   if (isLoading) return <PageLoader />
 
-  const groups: Record<'action' | 'waiting' | 'closed', DataRequestListItem[]> =
-    {
-      action: [],
-      waiting: [],
-      closed: [],
-    }
+  const groups: Record<
+    'action' | 'waiting' | 'closed',
+    CustomerDataRequestListItem[]
+  > = {
+    action: [],
+    waiting: [],
+    closed: [],
+  }
   for (const it of items) groups[bucket(it)].push(it)
 
   if (items.length === 0) {
@@ -85,6 +101,13 @@ export default function CustomerRequestsPage() {
                           {r.dueDate &&
                             ` · ${t('due', { date: new Date(r.dueDate).toLocaleDateString('de-CH') })}`}
                         </p>
+                        {projectAddress.has(r.projectId) && (
+                          <p className="text-sm text-[#062E25]/60">
+                            {t('forProject', {
+                              address: projectAddress.get(r.projectId),
+                            })}
+                          </p>
+                        )}
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
                         <StatusBadge status={r.status} />
