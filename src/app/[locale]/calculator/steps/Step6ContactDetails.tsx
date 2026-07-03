@@ -81,9 +81,7 @@ function useContactSchema(t: (key: string) => string) {
         streetNumber: z.string().min(1, t('streetNumberRequired')),
         addressAdditional: z.string(),
         remarks: z.string(),
-        isPropertyOwner: z
-          .boolean({ message: t('propertyOwnerRequired') })
-          .refine(v => v === true, { message: t('propertyOwnerRequired') }),
+        isPropertyOwner: z.boolean({ message: t('propertyOwnerRequired') }),
         dataProcessing: z.literal(true, {
           message: t('consentRequired'),
         }),
@@ -245,7 +243,13 @@ export default function Step6ContactDetails() {
         (isLocalDev ? DEV_DEFAULT_CONTACT.addressAdditional : ''),
       remarks: contact.remarks || (isLocalDev ? DEV_DEFAULT_CONTACT.remarks : ''),
       isPropertyOwner:
-        contact.isPropertyOwner === true ? true : isLocalDev ? true : undefined,
+        contact.isPropertyOwner === true
+          ? true
+          : contact.isPropertyOwner === false
+            ? false
+            : isLocalDev
+              ? true
+              : undefined,
       dataProcessing: consents.dataProcessing || (isLocalDev ? true : undefined),
     },
   })

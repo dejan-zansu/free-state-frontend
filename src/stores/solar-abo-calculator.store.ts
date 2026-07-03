@@ -894,6 +894,7 @@ export const useSolarAboCalculatorStore = create<
               street: state.contact.street,
               streetNumber: state.contact.streetNumber,
               addressAdditional: state.contact.addressAdditional,
+              isPropertyOwner: state.contact.isPropertyOwner ?? undefined,
             },
             calculation: {
               address: state.address,

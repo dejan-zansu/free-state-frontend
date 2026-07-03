@@ -548,6 +548,67 @@ export default function AdminLeadDetailPage() {
                 </p>
               </div>
             </div>
+            <div className="mt-4 pt-4 border-t border-[#062E25]/10">
+              <label className="text-sm text-[#062E25]/60">
+                {t('propertyOwner')}
+              </label>
+              <div className="mt-1">
+                {lead.project == null ? (
+                  <span className="font-medium text-[#062E25]">-</span>
+                ) : lead.project.isPropertyOwner ? (
+                  <span className="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-sm font-medium text-emerald-700">
+                    {t('owner')}
+                  </span>
+                ) : (
+                  <span className="inline-flex items-center rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-800">
+                    {t('notOwner')}
+                  </span>
+                )}
+              </div>
+              {lead.project != null &&
+                !lead.project.isPropertyOwner &&
+                (lead.customer.propertyOwnerName ||
+                  lead.customer.propertyOwnerEmail ||
+                  lead.customer.propertyOwnerPhone) && (
+                  <div className="mt-3">
+                    <label className="text-sm text-[#062E25]/60">
+                      {t('ownerContact')}
+                    </label>
+                    <div className="mt-1 grid grid-cols-2 gap-4">
+                      {lead.customer.propertyOwnerName && (
+                        <div>
+                          <label className="text-sm text-[#062E25]/60">
+                            {t('ownerName')}
+                          </label>
+                          <p className="font-medium text-[#062E25]">
+                            {lead.customer.propertyOwnerName}
+                          </p>
+                        </div>
+                      )}
+                      {lead.customer.propertyOwnerEmail && (
+                        <div>
+                          <label className="text-sm text-[#062E25]/60">
+                            {t('ownerEmail')}
+                          </label>
+                          <p className="font-medium text-[#062E25] break-all">
+                            {lead.customer.propertyOwnerEmail}
+                          </p>
+                        </div>
+                      )}
+                      {lead.customer.propertyOwnerPhone && (
+                        <div>
+                          <label className="text-sm text-[#062E25]/60">
+                            {t('ownerPhone')}
+                          </label>
+                          <p className="font-medium text-[#062E25]">
+                            {lead.customer.propertyOwnerPhone}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+            </div>
             {(lead.customer.notes || lead.customer.addressAdditional) && (
               <div className="mt-4 pt-4 border-t border-[#062E25]/10 space-y-3">
                 {lead.customer.notes && (

@@ -85,6 +85,7 @@ export interface AdminLead {
   createdAt: string
   customer: {
     id: string
+    isPropertyOwner: boolean
     user: {
       id: string
       email: string
@@ -97,6 +98,9 @@ export interface AdminLead {
     firstName: string
     lastName: string
     email: string
+  } | null
+  project: {
+    isPropertyOwner: boolean
   } | null
 }
 
@@ -175,6 +179,7 @@ export interface AdminLeadProject {
   propertyLat: number
   propertyLng: number
   selectedPackage: string | null
+  isPropertyOwner: boolean
   createdAt: string
   solarCalculation: AdminLeadSolarCalculation | null
   contracts: AdminLeadContract[]
@@ -183,6 +188,10 @@ export interface AdminLeadProject {
 export interface AdminLeadDetail extends AdminLead {
   customer: {
     id: string
+    isPropertyOwner: boolean
+    propertyOwnerName: string | null
+    propertyOwnerEmail: string | null
+    propertyOwnerPhone: string | null
     notes: string | null
     addressAdditional: string | null
     user: {

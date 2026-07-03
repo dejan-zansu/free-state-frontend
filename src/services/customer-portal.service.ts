@@ -100,6 +100,7 @@ export interface WorkspaceProject {
   status: string
   selectedPackage: string | null
   createdAt: string
+  isPropertyOwner: boolean
 }
 
 export interface WorkspaceDevices {
