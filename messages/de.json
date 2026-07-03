@@ -2352,7 +2352,12 @@
         "generating": "Wird generiert..."
       }
     },
-    "error": "Fehler"
+    "error": "Fehler",
+    "pendingVerification": {
+      "title": "Prüfen Sie Ihr E-Mail-Postfach",
+      "body": "Für diese E-Mail-Adresse besteht bereits ein Konto. Wir haben Ihnen einen Link geschickt, um Ihre neue Berechnung sicher in Ihrem Konto zu öffnen.",
+      "hint": "Kein E-Mail erhalten? Prüfen Sie den Spam-Ordner."
+    }
   },
   "comingSoon": {
     "eyebrow": "In Entwicklung",
@@ -7373,6 +7378,12 @@
         "offerSubtitle": "Unser Team meldet sich für einen Vor-Ort-Termin.",
         "offerButton": "Anfordern",
         "offerRequestedOn": "Angefordert am {date}",
+        "offerUpdateSubtitle": "Ihre Konfiguration hat sich geändert. Fordern Sie ein aktualisiertes Angebot an.",
+        "offerUpdateButton": "Angebot aktualisieren",
+        "offerCooldown": "Aktualisierung ab {date} möglich",
+        "offerResult_updated": "Ihr aktualisiertes Angebot ist unterwegs.",
+        "offerResult_unchanged": "Ihre Konfiguration ist unverändert. Kein neues Angebot nötig.",
+        "offerResult_cooldown": "Bitte warten Sie, bevor Sie erneut ein Angebot anfordern.",
         "validUntil": "Gültig bis {date}",
         "contractTitle": "Ihr Vertrag",
         "actionError": "Aktion fehlgeschlagen. Bitte versuchen Sie es erneut."
@@ -7697,6 +7708,16 @@
     "requestsAlert": {
       "title": "{count, plural, one {1 Anfrage benötigt Ihre Aufmerksamkeit} other {# Anfragen benötigen Ihre Aufmerksamkeit}}",
       "open": "Öffnen"
+    },
+    "consultation": {
+      "eyebrow": "Kostenlose Beratung",
+      "title": "Beratung buchen",
+      "subtitle": "Reservieren Sie ein unverbindliches 30-minütiges Gespräch mit Ihrem persönlichen Berater.",
+      "cta": "Termin buchen",
+      "open": "Beratung",
+      "close": "Schliessen",
+      "call": "Anrufen",
+      "email": "E-Mail"
     }
   },
   "faqPage": {
@@ -8382,5 +8403,15 @@
       "ctaText": "Solarrechner starten",
       "ctaLink": "/calculator?model=solar-abo"
     }
+  },
+  "claimCalculation": {
+    "verifying": "Berechnung wird geöffnet",
+    "verifyingHint": "Einen Moment bitte, wir verknüpfen Ihre Berechnung mit Ihrem Konto.",
+    "success": "Fertig!",
+    "successMessage": "Ihre Berechnung ist jetzt in Ihrem Konto verfügbar.",
+    "openDashboard": "Zum Dashboard",
+    "failed": "Link ungültig",
+    "invalidLink": "Dieser Link ist ungültig oder abgelaufen. Bitte starten Sie die Berechnung erneut.",
+    "goToLogin": "Zur Anmeldung"
   }
 }

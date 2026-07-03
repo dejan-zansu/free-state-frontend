@@ -192,6 +192,7 @@ export default function Step6ContactDetails() {
   const tAddr = useTranslations('solarAboCalculator.step7.address')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const tConsent = useTranslations('solarAboCalculator.consents')
+  const tPending = useTranslations('calculator.pendingVerification')
   const locale = useLocale()
   const router = useRouter()
   const {
@@ -202,6 +203,7 @@ export default function Step6ContactDetails() {
     prevStep,
     isSubmitting,
     submissionError,
+    pendingVerification,
     createAccount,
   } = useSolarAboCalculatorStore()
 
@@ -275,9 +277,13 @@ export default function Step6ContactDetails() {
       })
       setConsents({ dataProcessing: data.dataProcessing })
       await createAccount()
-      if (useSolarAboCalculatorStore.getState().accountCreated) {
+      const s = useSolarAboCalculatorStore.getState()
+      if (s.pendingVerification) {
+        return
+      }
+      if (s.accountCreated) {
         trackLead({ form: 'calculator', locale })
-        const projectId = useSolarAboCalculatorStore.getState().createdProjectId
+        const projectId = s.createdProjectId
         if (projectId) {
           router.push(`/${locale}/dashboard/project/${projectId}`)
         } else {
@@ -287,6 +293,26 @@ export default function Step6ContactDetails() {
     },
     [setContact, setConsents, createAccount, router, locale]
   )
+
+  if (pendingVerification) {
+    return (
+      <div className="h-full overflow-y-auto">
+        <div className="container mx-auto px-4 pt-8 pb-24">
+          <div className="mx-auto max-w-md text-center py-12">
+            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+              {tPending('title')}
+            </h1>
+            <p className="mt-3 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+              {tPending('body')}
+            </p>
+            <p className="mt-2 text-base text-[#062E25]/60">
+              {tPending('hint')}
+            </p>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="h-full overflow-y-auto">

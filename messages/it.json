@@ -2295,7 +2295,12 @@
         "generating": "Generazione in corso..."
       }
     },
-    "error": "Errore"
+    "error": "Errore",
+    "pendingVerification": {
+      "title": "Controlla la tua casella di posta",
+      "body": "Esiste già un account per questo indirizzo email. Ti abbiamo inviato un link per aprire il tuo nuovo calcolo in modo sicuro nel tuo account.",
+      "hint": "Nessuna email? Controlla la cartella spam."
+    }
   },
   "comingSoon": {
     "eyebrow": "In sviluppo",
@@ -7372,6 +7377,12 @@
         "offerSubtitle": "Il nostro team ti contatterà per un sopralluogo.",
         "offerButton": "Richiedi",
         "offerRequestedOn": "Richiesto il {date}",
+        "offerUpdateSubtitle": "La tua configurazione è cambiata. Richiedi un'offerta aggiornata.",
+        "offerUpdateButton": "Aggiorna offerta",
+        "offerCooldown": "Aggiornamento disponibile dal {date}",
+        "offerResult_updated": "La tua offerta aggiornata è in arrivo.",
+        "offerResult_unchanged": "La tua configurazione è invariata. Nessuna nuova offerta necessaria.",
+        "offerResult_cooldown": "Attendi prima di richiedere un'altra offerta.",
         "validUntil": "Valido fino al {date}",
         "contractTitle": "Il tuo contratto",
         "actionError": "Azione non riuscita. Riprova."
@@ -7696,6 +7707,16 @@
     "requestsAlert": {
       "title": "{count, plural, one {1 richiesta richiede la tua attenzione} other {# richieste richiedono la tua attenzione}}",
       "open": "Apri"
+    },
+    "consultation": {
+      "eyebrow": "Consulenza gratuita",
+      "title": "Prenota una consulenza",
+      "subtitle": "Prenota una chiamata di 30 minuti senza impegno con il tuo consulente personale.",
+      "cta": "Prenota appuntamento",
+      "open": "Consulenza",
+      "close": "Chiudi",
+      "call": "Chiama",
+      "email": "E-mail"
     }
   },
   "faqPage": {
@@ -8364,5 +8385,15 @@
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/calculator?model=solar-abo"
     }
+  },
+  "claimCalculation": {
+    "verifying": "Apertura del tuo calcolo",
+    "verifyingHint": "Un momento, stiamo collegando il tuo calcolo al tuo account.",
+    "success": "Fatto!",
+    "successMessage": "Il tuo calcolo è ora disponibile nel tuo account.",
+    "openDashboard": "Vai alla dashboard",
+    "failed": "Link non valido",
+    "invalidLink": "Questo link non è valido o è scaduto. Riavvia il calcolo.",
+    "goToLogin": "Accedi"
   }
 }

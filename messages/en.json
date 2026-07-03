@@ -2295,7 +2295,12 @@
         "generating": "Generating..."
       }
     },
-    "error": "Error"
+    "error": "Error",
+    "pendingVerification": {
+      "title": "Check your inbox",
+      "body": "An account already exists for this email address. We have sent you a link to open your new calculation securely in your account.",
+      "hint": "No email? Check your spam folder."
+    }
   },
   "comingSoon": {
     "eyebrow": "In development",
@@ -7372,6 +7377,12 @@
         "offerSubtitle": "Our team will contact you for an on-site visit.",
         "offerButton": "Request",
         "offerRequestedOn": "Requested on {date}",
+        "offerUpdateSubtitle": "Your configuration changed. Request an updated offer.",
+        "offerUpdateButton": "Update offer",
+        "offerCooldown": "Update available from {date}",
+        "offerResult_updated": "Your updated offer is on its way.",
+        "offerResult_unchanged": "Your configuration is unchanged. No new offer needed.",
+        "offerResult_cooldown": "Please wait before requesting another offer.",
         "validUntil": "Valid until {date}",
         "contractTitle": "Your contract",
         "actionError": "The action failed. Please try again."
@@ -7696,6 +7707,16 @@
     "requestsAlert": {
       "title": "{count, plural, one {1 request needs your attention} other {# requests need your attention}}",
       "open": "Open"
+    },
+    "consultation": {
+      "eyebrow": "Free consultation",
+      "title": "Book a consultation",
+      "subtitle": "Reserve a no-obligation 30-minute call with your personal advisor.",
+      "cta": "Book appointment",
+      "open": "Consultation",
+      "close": "Close",
+      "call": "Call",
+      "email": "Email"
     }
   },
   "faqPage": {
@@ -8381,5 +8402,15 @@
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/calculator?model=solar-abo"
     }
+  },
+  "claimCalculation": {
+    "verifying": "Opening your calculation",
+    "verifyingHint": "One moment please, we are linking your calculation to your account.",
+    "success": "Done!",
+    "successMessage": "Your calculation is now available in your account.",
+    "openDashboard": "Go to dashboard",
+    "failed": "Invalid link",
+    "invalidLink": "This link is invalid or has expired. Please start the calculation again.",
+    "goToLogin": "Go to sign in"
   }
 }

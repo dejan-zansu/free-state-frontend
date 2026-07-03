@@ -14,3 +14,22 @@ export const COMPANY_MAIN_MAILTO_HREF =
 /** Public Calendly booking link for scheduling a consultation. */
 export const COMPANY_CALENDLY_URL =
   'https://calendly.com/ivan-m-freestate/30min' as const
+
+export const CONSULTATION_ADVISORS = [
+  {
+    key: 'ivan',
+    image: '/images/team-ivan-55cecd.png',
+    email: 'ivan.m@freestate.ch',
+    phone: '+41 (0)76 364 7775',
+    calendlyUrl: COMPANY_CALENDLY_URL,
+  },
+  {
+    key: 'peter',
+    image: '/images/team-peter-404b05.png',
+    email: 'peter.aragai@freestate.ch',
+    phone: '+41 (0)78 6088 850',
+    calendlyUrl: COMPANY_CALENDLY_URL,
+  },
+] as const
+
+export type ConsultationAdvisor = (typeof CONSULTATION_ADVISORS)[number]

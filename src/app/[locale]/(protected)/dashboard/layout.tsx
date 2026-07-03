@@ -19,6 +19,7 @@ import { cn } from '@/lib/utils'
 import { useAuthStore, useUser } from '@/stores/auth.store'
 import DashboardHeader from '@/components/DashboardHeader'
 import DashboardFooter from '@/components/DashboardFooter'
+import ConsultationDock from '@/components/consultation/ConsultationDock'
 import {
   Sheet,
   SheetContent,
@@ -146,6 +147,7 @@ export default function DashboardLayout({
       <div className="lg:ml-64">
         <DashboardFooter />
       </div>
+      <ConsultationDock />
     </div>
   )
 }
