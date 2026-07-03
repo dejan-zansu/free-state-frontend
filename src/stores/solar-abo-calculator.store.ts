@@ -35,8 +35,6 @@ export interface FeedInTariffSnapshot {
   notes: string | null
 }
 
-export type SignatureStatus = 'idle' | 'initiating' | 'pending' | 'signed' | 'expired' | 'failed'
-
 export type SolarModel = 'solar-free' | 'solar-direct' | 'solar-abo'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
@@ -76,8 +74,6 @@ export interface Consents {
   dataProcessing: boolean
 }
 
-export type ResultsPath = 'download' | 'offer' | 'contract' | null
-
 // ElCom 2026 average residential tariff (Rp./kWh → CHF/kWh)
 // Source: ElCom tariff data, swissinfo.ch
 const ELECTRICITY_PRICE = 0.277
@@ -97,8 +93,6 @@ const COVERAGE_FLAT = 0.45
 const COVERAGE_PITCHED_SOUTH = 0.80
 const COVERAGE_PITCHED_SIDE = 0.75
 const COVERAGE_PITCHED_NORTH = 0.50
-
-let lastCalculationSyncKey: string | null = null
 
 function segmentCoverageFraction(tiltDeg: number, azimuthDeg: number): number {
   if (tiltDeg <= FLAT_TILT_THRESHOLD_DEG) return COVERAGE_FLAT
@@ -221,7 +215,6 @@ interface SolarAboCalculatorState {
   isSubmitted: boolean
   submissionError: string | null
   accountCreated: boolean
-  resultsPath: ResultsPath
 
   createdUserId: string | null
   createdCustomerId: string | null
@@ -241,15 +234,6 @@ interface SolarAboCalculatorState {
   selectedEvChargerId: string | null
   selectedEvChargerPriceChf: number | null
   selectedEvChargerQuantity: number
-
-  createdContractId: string | null
-  contractNumber: string | null
-  contractPdfUrl: string | null
-  acknowledgments: string[]
-  signatureStatus: SignatureStatus
-  signatureProcessId: string | null
-  signingUrl: string | null
-  signedPdfUrl: string | null
 
   electricityPriceChfKwh: number | null
   electricityPricePlz: string | null
@@ -327,17 +311,6 @@ interface SolarAboCalculatorActions {
   getNetAmount: () => number
   getEstimatedTaxSavings: () => number
   createAccount: () => Promise<void>
-  requestOffer: () => Promise<void>
-  syncCalculation: () => Promise<void>
-  emailReport: () => Promise<void>
-  setResultsPath: (path: ResultsPath) => void
-  addAcknowledgment: (type: string) => void
-  removeAcknowledgment: (type: string) => void
-  createContract: () => Promise<void>
-  setSignatureRequestData: (data: { processId: string; signingUrl: string }) => void
-  setSignatureStatus: (status: SignatureStatus) => void
-  setSignedPdfUrl: (url: string) => void
-  resetSignature: () => void
   reset: () => void
 
   getElectricityPriceChfKwh: () => number
@@ -374,7 +347,7 @@ const initialConsents: Consents = {
 const initialState: SolarAboCalculatorState = {
   solarModel: null,
   currentStep: 1,
-  totalSteps: 7,
+  totalSteps: 5,
 
   buildingType: 'single_family',
   householdSize: null,
@@ -405,7 +378,6 @@ const initialState: SolarAboCalculatorState = {
   isSubmitted: false,
   submissionError: null,
   accountCreated: false,
-  resultsPath: null,
 
   createdUserId: null,
   createdCustomerId: null,
@@ -425,15 +397,6 @@ const initialState: SolarAboCalculatorState = {
   selectedEvChargerId: null,
   selectedEvChargerPriceChf: null,
   selectedEvChargerQuantity: 1,
-
-  createdContractId: null,
-  contractNumber: null,
-  contractPdfUrl: null,
-  acknowledgments: [],
-  signatureStatus: 'idle',
-  signatureProcessId: null,
-  signingUrl: null,
-  signedPdfUrl: null,
 
   electricityPriceChfKwh: null,
   electricityPricePlz: null,
@@ -474,40 +437,28 @@ export const useSolarAboCalculatorStore = create<
           isSubmitted: false,
           submissionError: null,
           accountCreated: false,
-          resultsPath: null,
           createdUserId: null,
           createdCustomerId: null,
           createdProjectId: null,
-          createdContractId: null,
-          contractNumber: null,
-          contractPdfUrl: null,
-          acknowledgments: [],
-          signatureStatus: 'idle',
-          signatureProcessId: null,
-          signingUrl: null,
-          signedPdfUrl: null,
         })
       },
 
       nextStep: () => {
-        const { currentStep, totalSteps, signatureStatus } = get()
-        if (signatureStatus === 'signed') return
+        const { currentStep, totalSteps } = get()
         if (currentStep < totalSteps) {
           set({ currentStep: currentStep + 1 })
         }
       },
 
       prevStep: () => {
-        const { currentStep, signatureStatus } = get()
-        if (signatureStatus === 'signed') return
+        const { currentStep } = get()
         if (currentStep > 1) {
           set({ currentStep: currentStep - 1 })
         }
       },
 
       goToStep: (step: number) => {
-        const { totalSteps, signatureStatus } = get()
-        if (signatureStatus === 'signed') return
+        const { totalSteps } = get()
         if (step >= 1 && step <= totalSteps) {
           set({ currentStep: step })
         }
@@ -548,9 +499,6 @@ export const useSolarAboCalculatorStore = create<
           set({
             address,
             createdProjectId: null,
-            createdContractId: null,
-            contractNumber: null,
-            contractPdfUrl: null,
             accountCreated: false,
             isSubmitted: false,
           })
@@ -998,175 +946,6 @@ export const useSolarAboCalculatorStore = create<
         }
       },
 
-      syncCalculation: async () => {
-        const state = get()
-        const projectId = state.createdProjectId
-        if (!projectId) return
-
-        const systemSizeKwp = state.getSystemSizeKwp()
-        if (systemSizeKwp <= 0) return
-
-        const isSolarFree = state.solarModel === 'solar-free'
-        const production = state.getAnnualProduction()
-        const selfConsumptionRate = state.getSelfConsumptionRate()
-        const selfConsumedKwh = Math.min(
-          production * selfConsumptionRate,
-          state.getEstimatedConsumption(),
-        )
-        const electricityPrice = state.electricityPriceChfKwh
-        const feedIn = state.feedInTariffRate?.chfPerKwh
-
-        const payload = {
-          projectId,
-          calculation: {
-            systemSizeKwp,
-            panelCount: state.getEstimatedPanelCount(),
-            panelWattageW: state.selectedPanelWattageW,
-            annualSavings: isSolarFree
-              ? state.getAnnualPpaSavings()
-              : state.getAnnualSavings(),
-            selfConsumptionRate,
-            estimatedProduction: production,
-            gridFeedInKwh: Math.max(0, production - selfConsumedKwh),
-            electricityTariffRpKwh:
-              typeof electricityPrice === 'number' && electricityPrice > 0
-                ? electricityPrice * 100
-                : null,
-            feedInTariffRpKwh: feedIn != null ? feedIn * 100 : null,
-            selectedPackageCode: state.selectedPackageCode ?? undefined,
-            selectedPackageId: state.selectedPackageId ?? undefined,
-            consumptionOverrideKwh: state.consumptionOverrideKwh ?? undefined,
-            roofImage: state.roofImage ?? undefined,
-            evCharger: state.selectedEvChargerId
-              ? {
-                  evChargerId: state.selectedEvChargerId,
-                  quantity: state.selectedEvChargerQuantity ?? 1,
-                }
-              : undefined,
-          },
-        }
-
-        const syncKey = JSON.stringify(payload)
-        if (syncKey === lastCalculationSyncKey) return
-        lastCalculationSyncKey = syncKey
-
-        try {
-          await residentialCalculatorService.updateCalculation(payload)
-        } catch (error: unknown) {
-          const axiosError = error as { response?: { status?: number } }
-          if (axiosError.response?.status === 404) {
-            set({ createdProjectId: null, accountCreated: false })
-          }
-          lastCalculationSyncKey = null
-        }
-      },
-
-      requestOffer: async () => {
-        const state = get()
-        if (!state.createdProjectId) return
-
-        await state.syncCalculation()
-
-        try {
-          await residentialCalculatorService.requestOffer({
-            projectId: state.createdProjectId,
-            heatPumpInterest: state.heatPumpInterest,
-          })
-          set({ resultsPath: 'offer' })
-        } catch (error: unknown) {
-          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
-          throw new Error(axiosError?.response?.data?.error?.message || 'Failed to request offer')
-        }
-      },
-
-      emailReport: async () => {
-        const state = get()
-        if (!state.createdProjectId) return
-
-        try {
-          await residentialCalculatorService.emailReport({
-            projectId: state.createdProjectId,
-          })
-          set({ resultsPath: 'download' })
-        } catch (error: unknown) {
-          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
-          throw new Error(axiosError?.response?.data?.error?.message || 'Failed to email report')
-        }
-      },
-
-      setResultsPath: (path: ResultsPath) => {
-        set({ resultsPath: path })
-      },
-
-      addAcknowledgment: (type: string) => {
-        const { acknowledgments } = get()
-        if (!acknowledgments.includes(type)) {
-          set({ acknowledgments: [...acknowledgments, type] })
-        }
-      },
-
-      removeAcknowledgment: (type: string) => {
-        const { acknowledgments } = get()
-        set({ acknowledgments: acknowledgments.filter((a) => a !== type) })
-      },
-
-      createContract: async () => {
-        const state = get()
-        if (!state.createdProjectId) return
-
-        try {
-          const response = await residentialCalculatorService.createContract({
-            projectId: state.createdProjectId,
-            acknowledgments: state.acknowledgments,
-            language: 'de',
-            heatPumpInterest: state.heatPumpInterest,
-            ...(state.selectedPackageId ? { packageId: state.selectedPackageId } : {}),
-            ...(state.roofImage ? { roofImage: state.roofImage } : {}),
-            ...(state.solarModel ? { solarModel: state.solarModel } : {}),
-            ...(state.selectedEvChargerId
-              ? {
-                  evCharger: {
-                    evChargerId: state.selectedEvChargerId,
-                    quantity: state.selectedEvChargerQuantity,
-                  },
-                }
-              : {}),
-          })
-          set({
-            createdContractId: response.data.contractId,
-            contractNumber: response.data.contractNumber,
-            contractPdfUrl: response.data.pdfUrl,
-          })
-        } catch (error: unknown) {
-          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
-          throw new Error(axiosError?.response?.data?.error?.message || 'Failed to create contract')
-        }
-      },
-
-      setSignatureRequestData: (data) => {
-        set({
-          signatureProcessId: data.processId,
-          signingUrl: data.signingUrl,
-          signatureStatus: 'pending',
-        })
-      },
-
-      setSignatureStatus: (status: SignatureStatus) => {
-        set({ signatureStatus: status })
-      },
-
-      setSignedPdfUrl: (url: string) => {
-        set({ signedPdfUrl: url, signatureStatus: 'signed' })
-      },
-
-      resetSignature: () => {
-        set({
-          signatureStatus: 'idle',
-          signatureProcessId: null,
-          signingUrl: null,
-        })
-      },
-
       reset: () => {
         set(initialState)
       },
@@ -1256,7 +1035,6 @@ export const useSolarAboCalculatorStore = create<
         contact: state.contact,
         consents: state.consents,
         accountCreated: state.accountCreated,
-        resultsPath: state.resultsPath,
         createdUserId: state.createdUserId,
         createdCustomerId: state.createdCustomerId,
         createdProjectId: state.createdProjectId,
@@ -1274,10 +1052,6 @@ export const useSolarAboCalculatorStore = create<
         selectedEvChargerId: state.selectedEvChargerId,
         selectedEvChargerPriceChf: state.selectedEvChargerPriceChf,
         selectedEvChargerQuantity: state.selectedEvChargerQuantity,
-        createdContractId: state.createdContractId,
-        contractNumber: state.contractNumber,
-        contractPdfUrl: state.contractPdfUrl,
-        acknowledgments: state.acknowledgments,
       }),
     }
   )

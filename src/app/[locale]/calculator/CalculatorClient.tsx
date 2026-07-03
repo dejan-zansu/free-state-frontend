@@ -15,11 +15,6 @@ import Step2Devices from './steps/Step3Devices'
 import Step3RoofAreas from './steps/Step4RoofAreas'
 import Step4RoofCovering from './steps/Step5RoofCovering'
 import Step5ContactDetails from './steps/Step6ContactDetails'
-import StepConfirmation from './steps/StepConfirmation'
-import StepSolarFreeResults from './steps/StepSolarFreeResults'
-import StepSolarDirectResults from './steps/StepSolarDirectResults'
-import StepSolarAboResults from './steps/StepSolarAboResults'
-import StepSignature from './steps/StepSignature'
 
 const SESSION_ACTIVE_KEY = 'solar-calculator-session-active'
 
@@ -28,7 +23,7 @@ const PAGE_BG =
 
 export default function CalculatorClient() {
   const t = useTranslations('solarAboCalculator')
-  const { solarModel, currentStep, signatureStatus, resultsPath, goToStep, setSolarModel } =
+  const { solarModel, currentStep, goToStep, setSolarModel } =
     useSolarAboCalculatorStore()
 
   const [stepParam, setStepParam] = useQueryState('step', parseAsInteger)
@@ -120,15 +115,7 @@ export default function CalculatorClient() {
     )
   }
 
-  const isConfirmation = signatureStatus === 'signed'
-
-  const isPostCalculator = currentStep > 6
-
   const renderStep = () => {
-    if (isConfirmation) {
-      return <StepConfirmation />
-    }
-
     switch (currentStep) {
       case 1:
         return <Step1HouseholdSize />
@@ -140,12 +127,6 @@ export default function CalculatorClient() {
         return <Step4RoofCovering />
       case 5:
         return <Step5ContactDetails />
-      case 6:
-        if (solarModel === 'solar-direct') return <StepSolarDirectResults />
-        if (solarModel === 'solar-abo') return <StepSolarAboResults />
-        return <StepSolarFreeResults />
-      case 7:
-        return <StepSignature />
       default:
         return <Step1HouseholdSize />
     }
@@ -164,7 +145,7 @@ export default function CalculatorClient() {
         background: PAGE_BG,
       }}
     >
-      {!isConfirmation && !isPostCalculator && <Steps />}
+      <Steps />
 
       <div className={cn(isMapStep && 'h-full')}>{renderStep()}</div>
     </div>

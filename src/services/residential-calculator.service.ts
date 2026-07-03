@@ -88,10 +88,10 @@ interface RequestOfferResponse {
 interface UpdateCalculationPayload {
   projectId: string
   calculation: {
-    systemSizeKwp: number
+    systemSizeKwp?: number
     panelCount?: number
     panelWattageW?: number | null
-    annualSavings: number
+    annualSavings?: number
     selfConsumptionRate?: number
     estimatedProduction?: number
     gridFeedInKwh?: number
@@ -104,7 +104,7 @@ interface UpdateCalculationPayload {
     evCharger?: {
       evChargerId: string
       quantity: number
-    }
+    } | null
   }
 }
 

@@ -23,6 +23,7 @@ import {
 } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
 import { trackLead } from '@/lib/analytics/track-lead'
+import { useRouter } from 'next/navigation'
 
 const salutations: Salutation[] = ['mr', 'woman', 'family']
 const countries: ContactCountry[] = ['CH', 'LI']
@@ -194,13 +195,13 @@ export default function Step6ContactDetails() {
   const tNav = useTranslations('solarAboCalculator.navigation')
   const tConsent = useTranslations('solarAboCalculator.consents')
   const locale = useLocale()
+  const router = useRouter()
   const {
     contact,
     consents,
     setContact,
     setConsents,
     prevStep,
-    nextStep,
     isSubmitting,
     submissionError,
     createAccount,
@@ -272,10 +273,15 @@ export default function Step6ContactDetails() {
       await createAccount()
       if (useSolarAboCalculatorStore.getState().accountCreated) {
         trackLead({ form: 'calculator', locale })
-        nextStep()
+        const projectId = useSolarAboCalculatorStore.getState().createdProjectId
+        if (projectId) {
+          router.push(`/${locale}/dashboard/project/${projectId}`)
+        } else {
+          router.push(`/${locale}/dashboard`)
+        }
       }
     },
-    [setContact, setConsents, createAccount, nextStep, locale]
+    [setContact, setConsents, createAccount, router, locale]
   )
 
   return (

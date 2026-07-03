@@ -2,7 +2,7 @@
 
 import { AlertTriangle, Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
@@ -43,6 +43,13 @@ export default function PortalSignDialog({
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  useEffect(() => {
+    if (open) {
+      setAcks([])
+      setError(null)
+    }
+  }, [open])
+
   const toggleAck = (type: string) => {
     setAcks((prev) =>
       prev.includes(type) ? prev.filter((a) => a !== type) : [...prev, type],
@@ -63,7 +70,13 @@ export default function PortalSignDialog({
     } catch (err) {
       const code = (err as { code?: string }).code
       setError(
-        code === 'SIGNING_DISABLED' ? t('signingDisabled') : t('signingError'),
+        code === 'SIGNING_DISABLED'
+          ? t('signingDisabled')
+          : code === 'CONTRACT_CANCELLED'
+            ? t('contractCancelled')
+            : code === 'ALREADY_SIGNED'
+              ? t('alreadySigned')
+              : t('signingError'),
       )
     } finally {
       setSubmitting(false)

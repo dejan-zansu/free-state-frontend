@@ -15,12 +15,10 @@ export default function Steps() {
     { id: 3, label: t('progress.step4') },
     { id: 4, label: t('progress.step5') },
     { id: 5, label: t('progress.step6') },
-    { id: 6, label: t('progress.step7') },
   ]
 
   const isMapStep = currentStep === 3
-  const isResultsStep = currentStep === 6
-  const isOverlayStep = isMapStep || isResultsStep
+  const isOverlayStep = isMapStep
   const isMapDark = isMapStep && !!building
 
   return (

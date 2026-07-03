@@ -1,4 +1,5 @@
 import api from '@/lib/api'
+import type { CalculatorPackage } from '@/services/residential-calculator.service'
 import type { Milestone } from '@/types/milestone'
 export type { Milestone, MilestoneStage, MilestoneStatus } from '@/types/milestone'
 
@@ -92,6 +93,122 @@ export interface InquirySummary {
   createdAt: string
 }
 
+export interface WorkspaceProject {
+  id: string
+  address: string
+  postalCode: string | null
+  status: string
+  selectedPackage: string | null
+  createdAt: string
+}
+
+export interface WorkspaceDevices {
+  heatPumpHeating?: boolean
+  electricHeating?: boolean
+  electricBoiler?: boolean
+  evChargingStation?: boolean
+  swimmingPoolSauna?: boolean
+}
+
+export interface WorkspaceCalculation {
+  solarModel: string | null
+  ppaDiscountPercent: number | null
+  systemSizeKwp: number
+  panelCount: number | null
+  annualProductionKwh: number
+  monthlyProductionKwh: number[]
+  selfConsumptionRate: number
+  annualConsumptionKwh: number
+  consumptionOverrideKwh: number | null
+  roofImageUrl: string | null
+  householdSize: number | null
+  devices: WorkspaceDevices | null
+  hasHeatingHeatPump: string | null
+  carbonOffsetKg: number
+  electricityTariffRpKwh: number | null
+  feedInTariffRpKwh: number | null
+}
+
+export interface WorkspaceEvCharger {
+  id: string
+  displayName: string
+  manufacturerName: string
+  priceChf: number
+  quantity: number
+  totalChf: number
+  imageUrl: string | null
+}
+
+export interface WorkspaceSubsidyRate {
+  estimatedAmountChf: number
+  tier1MaxKwp: number
+  tier1ChfPerKwp: number
+  tier2ChfPerKwp: number
+  validFrom: string
+}
+
+export interface WorkspaceRates {
+  subsidy: WorkspaceSubsidyRate | null
+  feedIn: { chfPerKwh: number; validFrom: string } | null
+  electricityChfPerKwh: number
+}
+
+export interface WorkspaceFinancials {
+  solarModel: 'solar-direct' | 'solar-free' | 'solar-abo'
+  totalInvestmentChf?: number
+  subsidiesChf?: number
+  netInvestmentChf?: number
+  totalSavings25yChf?: number
+  ppaDiscountPercent?: number
+  contractTermYears?: number
+  electricityTariffRpKwh?: number
+  feedInTariffRpKwh?: number
+  electricitySupplier?: string
+  costSource?: 'snapshot' | 'estimated'
+  evChargerTotalChf: number
+  grossPriceChf: number
+  netPriceChf: number
+  annualSavingsChf: number
+  paybackYears: number | null
+  lifetimeSavings25yChf: number
+  aboTotalChf?: number | null
+  aboMonthlyChf?: number | null
+  aboTermMonths: number
+  aboUpliftFactor: number
+}
+
+export interface WorkspaceContract {
+  id: string
+  contractNumber: string
+  status: string
+  signatureStatus: string | null
+  contractType: string
+  solarModel: string | null
+  validUntil: string | null
+  customerSignedAt: string | null
+  monthlyRateChf: number | null
+  termMonths: number | null
+  createdAt: string
+}
+
+export interface WorkspacePayload {
+  project: WorkspaceProject
+  calculation: WorkspaceCalculation
+  package: (CalculatorPackage & { retired?: boolean }) | null
+  packageRetired: boolean
+  evCharger: WorkspaceEvCharger | null
+  rates: WorkspaceRates
+  financials: WorkspaceFinancials
+  contract: WorkspaceContract | null
+  conversionStatus:
+    | 'calculation_complete'
+    | 'offer_requested'
+    | 'contract_pending'
+    | 'contract_signed'
+  offerRequestedAt: string | null
+  milestones: Milestone[]
+}
+
 class CustomerPortalService {
   async getDashboard(): Promise<DashboardData> {
     const res = await api.get<{ success: boolean; data: DashboardData }>('/me/dashboard')
@@ -106,6 +223,11 @@ class CustomerPortalService {
   async getProjectById(id: string): Promise<any> {
     const res = await api.get<{ success: boolean; data: any }>(`/me/projects/${id}`)
     return res.data.data
+  }
+
+  async getProjectWorkspace(projectId: string): Promise<WorkspacePayload> {
+    const response = await api.get(`/me/projects/${projectId}/workspace`)
+    return response.data.data
   }
 
   async getContracts(): Promise<ContractSummary[]> {

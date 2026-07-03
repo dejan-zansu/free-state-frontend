@@ -60,12 +60,12 @@ export default function CustomerRequestsPage() {
   if (items.length === 0) {
     return (
       <div className="max-w-5xl">
-        <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
-        <Card className="border-[#062E25]/10">
+        <h1 className="text-2xl font-bold text-pine mb-8">{t('title')}</h1>
+        <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
-            <Inbox className="h-12 w-12 text-[#062E25]/20 mx-auto mb-4" />
-            <p className="text-[#062E25]/60 mb-2">{t('empty')}</p>
-            <p className="text-sm text-[#062E25]/40">{t('emptyHelp')}</p>
+            <Inbox className="h-12 w-12 text-pine/20 mx-auto mb-4" />
+            <p className="text-pine/60 mb-2">{t('empty')}</p>
+            <p className="text-sm text-pine/40">{t('emptyHelp')}</p>
           </CardContent>
         </Card>
       </div>
@@ -74,13 +74,13 @@ export default function CustomerRequestsPage() {
 
   return (
     <div className="max-w-5xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-1">{t('title')}</h1>
-      <p className="text-[#062E25]/60 mb-8">{t('subtitle')}</p>
+      <h1 className="text-2xl font-bold text-pine mb-1">{t('title')}</h1>
+      <p className="text-pine/60 mb-8">{t('subtitle')}</p>
 
       {(['action', 'waiting', 'closed'] as const).map(k =>
         groups[k].length === 0 ? null : (
           <div key={k} className="mb-6">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-[#062E25]/50 mb-2">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-pine/50 mb-2">
               {t(groupTitleKey[k])}
             </h2>
             <div className="space-y-2">
@@ -90,19 +90,19 @@ export default function CustomerRequestsPage() {
                   href={`/${locale}/dashboard/requests/${r.id}`}
                   className="block"
                 >
-                  <Card className="border-[#062E25]/10 hover:border-[#062E25]/30 transition-colors">
+                  <Card className="border-pine/10 hover:border-pine/30 transition-colors">
                     <CardContent className="p-4 flex items-center justify-between gap-3">
                       <div className="min-w-0 flex-1">
-                        <p className="font-medium text-[#062E25] truncate">
+                        <p className="font-medium text-pine truncate">
                           {r.title}
                         </p>
-                        <p className="text-sm text-[#062E25]/50">
+                        <p className="text-sm text-pine/50">
                           {new Date(r.createdAt).toLocaleDateString('de-CH')}
                           {r.dueDate &&
                             ` · ${t('due', { date: new Date(r.dueDate).toLocaleDateString('de-CH') })}`}
                         </p>
                         {projectAddress.has(r.projectId) && (
-                          <p className="text-sm text-[#062E25]/60">
+                          <p className="text-sm text-pine/60">
                             {t('forProject', {
                               address: projectAddress.get(r.projectId),
                             })}
@@ -111,7 +111,7 @@ export default function CustomerRequestsPage() {
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
                         <StatusBadge status={r.status} />
-                        <ArrowRight className="h-4 w-4 text-[#062E25]/40" />
+                        <ArrowRight className="h-4 w-4 text-pine/40" />
                       </div>
                     </CardContent>
                   </Card>
