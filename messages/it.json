@@ -4114,7 +4114,6 @@
       "step4": "Tetto",
       "step5": "Copertura",
       "step6": "Contatto",
-      "step7": "Risultati",
       "step8": "Revisione",
       "step9": "Firma"
     },
@@ -4584,117 +4583,6 @@
         "newCalculation": "Avvia nuovo calcolo"
       }
     },
-    "contractReview": {
-      "title": "Revisione del contratto",
-      "subtitle": "Rivedi i dettagli del tuo contratto SolarFree prima di firmarlo.",
-      "systemSummary": {
-        "title": "Riepilogo dell'impianto",
-        "panels": "Pannelli",
-        "savings": "Risparmi/anno",
-        "roofArea": "Area del tetto",
-        "address": "Indirizzo",
-        "package": "Pacchetto",
-        "selfConsumption": "Autoconsumo"
-      },
-      "aboBenefit": {
-        "title": "SolarFree: zero investimento",
-        "point1": "Free State AG installa e gestisce l'impianto solare sul tuo tetto senza alcun costo per te.",
-        "point2": "Benefici di energia solare pulita e risparmi sulla bolletta elettrica.",
-        "point3": "Dopo 35 anni, l'impianto diventa di tua proprietà."
-      },
-      "importantNotice": {
-        "title": "Avviso importante",
-        "point1": "Si tratta di un accordo preliminare basato sulle informazioni fornite.",
-        "point2": "Il nostro team tecnico visiterà la tua proprietà per una valutazione finale.",
-        "point3": "Puoi annullare questo accordo senza alcun costo prima di accettare l'offerta finale."
-      },
-      "acknowledgments": {
-        "title": "Conferme",
-        "preliminary": "Comprendo che si tratta di un accordo preliminare che sarà finalizzato dopo il sopralluogo.",
-        "siteVisit": "Acconsento a un sopralluogo del team tecnico di Free State AG.",
-        "contractReview": "Ho esaminato i dettagli del contratto e desidero procedere con la firma digitale."
-      },
-      "pricing": {
-        "title": "Ripartizione dei prezzi",
-        "gross": "Importo lordo",
-        "subsidy": "Sussidio (Einmalvergütung)",
-        "net": "Importo netto"
-      },
-      "creatingContract": "Creazione del contratto...",
-      "proceedToSign": "Procedi alla firma",
-      "recap": {
-        "package": "Pacchetto",
-        "term": "Durata",
-        "years": "{years} anni",
-        "yearlySavings": "Risparmio annuo",
-        "netAmount": "Importo netto",
-        "grossPrice": "Prezzo lordo",
-        "estimatedSubsidy": "Sussidio stimato",
-        "installerWarranty": "Garanzia dell'installatore",
-        "evCharger": "Stazione di ricarica EV (installazione inclusa)",
-        "evChargerOneTimeNote": "Pagamento una tantum per hardware e installazione, aggiunto al tuo PPA di 0 CHF."
-      },
-      "solarFree": {
-        "rateCard": {
-          "title": "La tua tariffa SolarFree",
-          "bodyLine1": "Fino al 30% in meno della rete per ogni kWh solare che utilizzi.",
-          "bodyLine2": "Nessun canone per l'impianto stesso.",
-          "yearlySavingLabel": "Risparmio annuo stimato",
-          "yearlySavingValue": "CHF {amount}"
-        }
-      }
-    },
-    "signature": {
-      "title": "Firma digitale",
-      "subtitle": "Firma il tuo contratto SolarFree in modo sicuro tramite Swisscom Sign",
-      "summary": {
-        "title": "Riepilogo contratto",
-        "document": "Documento",
-        "aboAgreement": "Contratto SolarFree",
-        "contractNumber": "Numero contratto",
-        "signer": "Firmatario",
-        "email": "Email"
-      },
-      "initiating": {
-        "title": "Preparazione del processo di firma...",
-        "message": "Attendi mentre configuriamo il processo di firma."
-      },
-      "signing": {
-        "title": "Pronto per la firma",
-        "description": "Clicca il pulsante qui sotto per aprire la pagina sicura di Swisscom Sign, dove verificherai la tua identità e firmerai il contratto.",
-        "openButton": "Apri pagina di firma",
-        "waiting": "In attesa della tua firma...",
-        "clickAbove": "Clicca il pulsante qui sopra per aprire la pagina di firma."
-      },
-      "signed": {
-        "title": "Contratto firmato!",
-        "message": "Il tuo contratto è stato firmato con successo."
-      },
-      "expired": {
-        "title": "Firma scaduta",
-        "message": "La sessione di firma è scaduta. Riprova.",
-        "retry": "Avvia nuova firma",
-        "retrying": "Avvio in corso..."
-      },
-      "failed": {
-        "title": "Firma fallita",
-        "message": "Si è verificato un errore durante la configurazione del processo di firma.",
-        "retry": "Riprova",
-        "retrying": "Nuovo tentativo..."
-      },
-      "security": {
-        "title": "Firma sicura",
-        "message": "La tua firma è protetta da Swisscom Trust Services ed è conforme alle leggi svizzere sulla firma digitale (FiEle/OSCSE)."
-      },
-      "preflight": {
-        "title": "Prima di firmare",
-        "mobileApp": "Scarica l'app Swisscom Sign (iOS o Android).",
-        "passport": "Tieni pronto il passaporto, perché la prima firma richiede una scansione NFC.",
-        "nfc": "Usa uno smartphone con NFC attivo (la maggior parte dei dispositivi recenti).",
-        "time": "L'identificazione iniziale richiede circa 5 minuti."
-      },
-      "downloadContract": "Scarica contratto"
-    },
     "signingComplete": {
       "verifying": {
         "title": "Verifica della firma...",
@@ -4724,73 +4612,6 @@
         "title": "Errore di firma",
         "message": "Si è verificato un errore durante il processo di firma. Riprova.",
         "backButton": "Vai al pannello"
-      }
-    },
-    "signatureConfirmation": {
-      "title": "Grazie!",
-      "subtitle": "Il tuo contratto SolarFree è stato firmato con successo.",
-      "contractSummary": {
-        "title": "Riepilogo contratto",
-        "contractNumber": "Numero contratto",
-        "signedBy": "Firmato da",
-        "systemSize": "Dimensione impianto",
-        "panels": "Numero pannelli",
-        "savings": "Risparmio annuo"
-      },
-      "download": {
-        "title": "Contratto firmato",
-        "description": "Scarica il tuo contratto firmato in PDF.",
-        "button": "Scarica PDF"
-      },
-      "nextSteps": {
-        "title": "Prossimi passi",
-        "step1": {
-          "title": "Conferma via email",
-          "description": "Riceverai a breve una conferma via email con tutti i dettagli."
-        },
-        "step2": {
-          "title": "Sopralluogo in loco",
-          "description": "Il nostro team ti contatterà entro 2-3 giorni lavorativi per fissare un sopralluogo."
-        },
-        "step3": {
-          "title": "Installazione del sistema",
-          "description": "Dopo la valutazione finale, pianificheremo l'installazione del tuo impianto solare."
-        },
-        "step4": {
-          "title": "Inizia a risparmiare",
-          "description": "Una volta installato, inizi immediatamente a beneficiare di energia solare gratuita."
-        }
-      },
-      "contact": {
-        "title": "Domande?",
-        "description": "Il nostro team è qui per aiutarti."
-      },
-      "emailNote": {
-        "title": "Conferma via email",
-        "message": "Una conferma è stata inviata a {email}."
-      },
-      "actions": {
-        "newCalculation": "Nuovo calcolo",
-        "backToHome": "Torna alla home"
-      },
-      "nextStepsSolarDirect": {
-        "title": "Cosa succederà",
-        "step1": {
-          "title": "La ricontatteremo",
-          "description": "Free State AG la contatterà per raccogliere i documenti pre-installazione e pianificare un sopralluogo."
-        },
-        "step2": {
-          "title": "Domanda di sussidio",
-          "description": "Al termine dell'installazione, prepareremo e presenteremo la domanda di sussidio a suo nome."
-        },
-        "step3": {
-          "title": "Installazione",
-          "description": "L'installazione viene solitamente pianificata entro 8–16 settimane dalla sua seconda rata di pagamento."
-        },
-        "step4": {
-          "title": "Registrazione della garanzia",
-          "description": "Free State AG gestisce tutte le pratiche di garanzia in modo che lei non debba preoccuparsene."
-        }
       }
     },
     "navigation": {
@@ -7485,6 +7306,123 @@
     "expiredError": "Impostazione della password non riuscita. Il link potrebbe essere scaduto."
   },
   "dashboard": {
+    "workspace": {
+      "metaTitle": "Il tuo progetto solare",
+      "notFound": "Questo progetto non è stato trovato.",
+      "backToProjects": "Torna alla panoramica dei progetti",
+      "conversion": {
+        "calculation_complete": "Calcolo completato",
+        "offer_requested": "Offerta richiesta",
+        "contract_pending": "Contratto in sospeso",
+        "contract_signed": "Contratto firmato"
+      },
+      "stats": {
+        "systemBadge": "Il tuo impianto",
+        "systemSubtitle": "{production} kWh/anno con {panels} moduli",
+        "savingsBadge": "Risparmio annuo",
+        "savingsSubtitle": "risparmio stimato all'anno",
+        "monthlyBadge": "Rata mensile",
+        "monthlySubtitle": "rata mensile",
+        "co2Subtitle": "Riduzione di CO2 all'anno",
+        "selfConsumptionSubtitle": "Quota di autoconsumo"
+      },
+      "contractStatus": {
+        "DRAFT": "Bozza",
+        "PENDING_SIGNATURE": "In attesa di firma",
+        "OTP_SENT": "Codice inviato",
+        "SIGNED": "Firmato",
+        "CANCELLED": "Annullato",
+        "EXPIRED": "Scaduto"
+      },
+      "config": {
+        "packagesTitle": "Il tuo pacchetto",
+        "packagesSubtitle": "Scegli il pacchetto adatto al tuo tetto.",
+        "evTitle": "Aggiungi una stazione di ricarica",
+        "evAdd": "Aggiungi",
+        "evRemove": "Rimuovi",
+        "evSelected": "Selezionato",
+        "consumptionTitle": "Il tuo consumo annuo",
+        "consumptionUnit": "kWh/anno",
+        "consumptionReset": "Reimposta",
+        "consumptionSave": "Salva",
+        "consumptionCancel": "Annulla",
+        "saveError": "Impossibile salvare la modifica. Riprova."
+      },
+      "chartsTitle": "Il tuo bilancio energetico",
+      "chartsSubtitle": "Produzione e consumo durante l'anno.",
+      "financialTitle": "Il tuo finanziamento",
+      "equipmentTitle": "La tua attrezzatura",
+      "actionsTitle": "Prossimi passi",
+      "actions": {
+        "downloadTitle": "Scarica il rapporto",
+        "downloadSubtitle": "La tua analisi solare completa in PDF.",
+        "downloadButton": "Scarica",
+        "emailTitle": "Rapporto via e-mail",
+        "emailSubtitle": "Inviamo il rapporto al tuo indirizzo e-mail.",
+        "emailButton": "Invia",
+        "emailSent": "Inviato",
+        "offerTitle": "Richiedi un'offerta",
+        "offerSubtitle": "Il nostro team ti contatterà per un sopralluogo.",
+        "offerButton": "Richiedi",
+        "offerRequestedOn": "Richiesto il {date}",
+        "validUntil": "Valido fino al {date}",
+        "contractTitle": "Il tuo contratto",
+        "actionError": "Azione non riuscita. Riprova."
+      },
+      "financial": {
+        "freeTitle": "Il tuo piano SolarFree",
+        "freeDiscount": "Sconto sull'elettricità",
+        "freeTerm": "Durata del contratto",
+        "freeTermYears": "{years} anni",
+        "freeInvestment": "Investimento",
+        "freeSavings": "Risparmio annuo"
+      },
+      "sign": {
+        "title": "Concludere il contratto",
+        "subtitle": "Firma il tuo contratto in modo sicuro e digitale.",
+        "cta": "Firma ora il contratto",
+        "resumeCta": "Riprendi la firma",
+        "unavailable": "Firma attualmente non disponibile",
+        "aboFallback": "Per SolarAbo prepariamo prima un'offerta personalizzata per te. Richiedila qui sopra.",
+        "signedTitle": "Il tuo contratto è firmato",
+        "downloadContract": "Scarica il contratto",
+        "awaiting": "In attesa della tua firma...",
+        "reopen": "Riapri la pagina di firma",
+        "checkBackLater": "La firma è ancora in corso. Ti preghiamo di ricontrollare più tardi.",
+        "noticeTitle": "Note importanti",
+        "proceed": "Procedi alla firma",
+        "starting": "Preparazione della firma...",
+        "acks": {
+          "preliminary": "Comprendo che si tratta di un accordo preliminare che sarà finalizzato dopo il sopralluogo.",
+          "siteVisit": "Acconsento a un sopralluogo del team tecnico di Free State AG.",
+          "contractReview": "Ho esaminato i dettagli del contratto e desidero procedere con la firma digitale."
+        },
+        "recap": {
+          "package": "Pacchetto",
+          "term": "Durata del contratto",
+          "termYears": "{years} anni",
+          "termMonths": "{months} mesi",
+          "yearlySavings": "Risparmio annuo",
+          "investment": "Investimento",
+          "gross": "Importo lordo",
+          "subsidy": "Sovvenzione (pagamento unico)",
+          "net": "Importo netto",
+          "oneTime": "Pagamento unico dopo l'installazione.",
+          "evCharger": "Stazione di ricarica",
+          "monthlyRate": "Rata mensile",
+          "uplift": "Supplemento di finanziamento +{percent}%",
+          "total": "Importo totale"
+        },
+        "errors": {
+          "disabled": "La firma digitale è temporaneamente disattivata. Riprova più tardi.",
+          "cancelled": "Questo contratto è stato annullato. Ricarica la pagina.",
+          "alreadySigned": "Questo contratto è già stato firmato.",
+          "aboUnavailable": "I contratti SolarAbo non sono ancora disponibili. Richiedi un'offerta.",
+          "expired": "La richiesta di firma è scaduta. Ricomincia.",
+          "generic": "Non è stato possibile avviare la firma. Riprova."
+        }
+      }
+    },
     "settings": {
       "title": "Impostazioni",
       "profile": "Profilo",
@@ -7520,7 +7458,11 @@
       "notYet": "Non ancora",
       "downloadContract": "Scarica contratto",
       "downloadSigned": "Scarica contratto firmato",
-      "projectHeading": "Immobile: {address}"
+      "projectHeading": "Immobile: {address}",
+      "showAll": "Mostra tutti i contratti",
+      "status": {
+        "cancelled": "Annullato"
+      }
     },
     "signing": {
       "title": "Firma il contratto",
@@ -7537,7 +7479,10 @@
       "reopenSigning": "Riapri la pagina di firma",
       "signingDisabled": "La firma digitale è temporaneamente disattivata. Riprova più tardi.",
       "signingError": "Non è stato possibile avviare la firma. Riprova.",
-      "signatureExpired": "La richiesta di firma è scaduta. Ricomincia."
+      "signatureExpired": "La richiesta di firma è scaduta. Ricomincia.",
+      "checkBackLater": "La firma è ancora in corso. Ti preghiamo di ricontrollare più tardi.",
+      "contractCancelled": "Questo contratto è stato annullato. Ricarica la pagina.",
+      "alreadySigned": "Questo contratto è già stato firmato."
     },
     "project": {
       "title": "Il mio progetto",
@@ -7698,7 +7643,8 @@
       "emailReport": "Invia rapporto via e-mail",
       "sendingReport": "Invio in corso...",
       "reportEmailSent": "Inviato",
-      "reportError": "Impossibile generare il rapporto. Riprova."
+      "reportError": "Impossibile generare il rapporto. Riprova.",
+      "offerRequestedOn": "Offerta richiesta il {date}"
     },
     "stages": {
       "title": "Come si prosegue",

@@ -4114,7 +4114,6 @@
       "step4": "Roof",
       "step5": "Covering",
       "step6": "Contact",
-      "step7": "Results",
       "step8": "Review",
       "step9": "Sign"
     },
@@ -4584,117 +4583,6 @@
         "newCalculation": "Start new calculation"
       }
     },
-    "contractReview": {
-      "title": "Contract Review",
-      "subtitle": "Review your SolarFree agreement details before signing.",
-      "systemSummary": {
-        "title": "System Summary",
-        "panels": "Panels",
-        "savings": "Savings/Year",
-        "roofArea": "Roof Area",
-        "address": "Address",
-        "package": "Package",
-        "selfConsumption": "Self-Consumption"
-      },
-      "aboBenefit": {
-        "title": "SolarFree — Zero Investment",
-        "point1": "Free State AG installs and maintains the solar system on your roof at no cost to you.",
-        "point2": "You benefit from clean solar energy and save on your electricity bill.",
-        "point3": "After 35 years, the system becomes your property."
-      },
-      "importantNotice": {
-        "title": "Important Notice",
-        "point1": "This is a preliminary agreement based on the information you provided.",
-        "point2": "Our technical team will visit your property for a final assessment.",
-        "point3": "You may cancel this agreement at no cost before accepting the final offer."
-      },
-      "acknowledgments": {
-        "title": "Acknowledgments",
-        "preliminary": "I understand this is a preliminary agreement that will be finalized after the on-site inspection.",
-        "siteVisit": "I consent to a site visit by the Free State AG technical team.",
-        "contractReview": "I have reviewed the contract details and wish to proceed with the digital signature."
-      },
-      "pricing": {
-        "title": "Pricing Breakdown",
-        "gross": "Gross amount",
-        "subsidy": "Subsidy (Einmalvergütung)",
-        "net": "Net amount"
-      },
-      "creatingContract": "Creating contract...",
-      "proceedToSign": "Proceed to Sign",
-      "recap": {
-        "package": "Package",
-        "term": "Term",
-        "years": "{years} years",
-        "yearlySavings": "Annual savings",
-        "netAmount": "Net amount",
-        "grossPrice": "Gross price",
-        "estimatedSubsidy": "Estimated subsidy",
-        "installerWarranty": "Installer warranty",
-        "evCharger": "EV charger (incl. installation)",
-        "evChargerOneTimeNote": "One-time payment for hardware and installation on top of your 0 CHF PPA."
-      },
-      "solarFree": {
-        "rateCard": {
-          "title": "Your SolarFree rate",
-          "bodyLine1": "Up to 30% below grid for every solar kWh you use.",
-          "bodyLine2": "No fee for the system itself.",
-          "yearlySavingLabel": "Estimated yearly saving",
-          "yearlySavingValue": "CHF {amount}"
-        }
-      }
-    },
-    "signature": {
-      "title": "Digital Signature",
-      "subtitle": "Sign your SolarFree agreement securely via Swisscom Sign",
-      "summary": {
-        "title": "Contract Summary",
-        "document": "Document",
-        "aboAgreement": "SolarFree Agreement",
-        "contractNumber": "Contract Number",
-        "signer": "Signer",
-        "email": "Email"
-      },
-      "initiating": {
-        "title": "Preparing signing process...",
-        "message": "Please wait while we set up the signing process."
-      },
-      "signing": {
-        "title": "Ready to Sign",
-        "description": "Click the button below to open the secure Swisscom Sign page, where you will verify your identity and sign the contract.",
-        "openButton": "Open Signing Page",
-        "waiting": "Waiting for your signature...",
-        "clickAbove": "Click the button above to open the signing page."
-      },
-      "signed": {
-        "title": "Contract Signed!",
-        "message": "Your contract has been signed successfully."
-      },
-      "expired": {
-        "title": "Signing Expired",
-        "message": "The signing session has expired. Please start again.",
-        "retry": "Start New Signing",
-        "retrying": "Starting..."
-      },
-      "failed": {
-        "title": "Signing Failed",
-        "message": "An error occurred while setting up the signing process.",
-        "retry": "Try Again",
-        "retrying": "Retrying..."
-      },
-      "security": {
-        "title": "Secure Signature",
-        "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws (ZertES/SCSE)."
-      },
-      "preflight": {
-        "title": "Before you sign",
-        "mobileApp": "Download the Swisscom Sign mobile app (iOS or Android).",
-        "passport": "Have your passport ready — first-time signing requires an NFC scan.",
-        "nfc": "Use a phone with NFC enabled (most modern smartphones).",
-        "time": "First-time identification takes about 5 minutes."
-      },
-      "downloadContract": "Download Contract"
-    },
     "signingComplete": {
       "verifying": {
         "title": "Verifying signature...",
@@ -4724,73 +4612,6 @@
         "title": "Signing error",
         "message": "An error occurred during the signing process. Please try again.",
         "backButton": "Go to dashboard"
-      }
-    },
-    "signatureConfirmation": {
-      "title": "Thank You!",
-      "subtitle": "Your SolarFree agreement has been successfully signed.",
-      "contractSummary": {
-        "title": "Contract Summary",
-        "contractNumber": "Contract Number",
-        "signedBy": "Signed By",
-        "systemSize": "System Size",
-        "panels": "Panel Count",
-        "savings": "Annual Savings"
-      },
-      "download": {
-        "title": "Signed Contract",
-        "description": "Download your signed contract as PDF.",
-        "button": "Download PDF"
-      },
-      "nextSteps": {
-        "title": "Next Steps",
-        "step1": {
-          "title": "Email Confirmation",
-          "description": "You will receive an email confirmation with all details shortly."
-        },
-        "step2": {
-          "title": "On-Site Inspection",
-          "description": "Our team will contact you within 2-3 business days to schedule a site visit."
-        },
-        "step3": {
-          "title": "System Installation",
-          "description": "After the final assessment, we will schedule the installation of your solar system."
-        },
-        "step4": {
-          "title": "Start Saving",
-          "description": "Once installed, you immediately start benefiting from free solar electricity."
-        }
-      },
-      "contact": {
-        "title": "Questions?",
-        "description": "Our team is here to help."
-      },
-      "emailNote": {
-        "title": "Email Confirmation",
-        "message": "A confirmation has been sent to {email}."
-      },
-      "actions": {
-        "newCalculation": "New Calculation",
-        "backToHome": "Back to Home"
-      },
-      "nextStepsSolarDirect": {
-        "title": "What happens next",
-        "step1": {
-          "title": "We'll be in touch",
-          "description": "Free State AG will contact you to gather pre-installation documents and schedule a site assessment."
-        },
-        "step2": {
-          "title": "Subsidy application",
-          "description": "Once installation is complete, we'll prepare and submit your subsidy application on your behalf."
-        },
-        "step3": {
-          "title": "Installation",
-          "description": "Installation is typically scheduled within 8–16 weeks of your second payment milestone."
-        },
-        "step4": {
-          "title": "Warranty registration",
-          "description": "Free State AG handles all warranty paperwork so you don't have to."
-        }
       }
     },
     "navigation": {
@@ -7485,6 +7306,123 @@
     "expiredError": "Failed to set password. The link may have expired."
   },
   "dashboard": {
+    "workspace": {
+      "metaTitle": "Your solar project",
+      "notFound": "This project could not be found.",
+      "backToProjects": "Back to project overview",
+      "conversion": {
+        "calculation_complete": "Calculation complete",
+        "offer_requested": "Offer requested",
+        "contract_pending": "Contract pending",
+        "contract_signed": "Contract signed"
+      },
+      "stats": {
+        "systemBadge": "Your system",
+        "systemSubtitle": "{production} kWh/year with {panels} panels",
+        "savingsBadge": "Annual savings",
+        "savingsSubtitle": "estimated savings per year",
+        "monthlyBadge": "Monthly rate",
+        "monthlySubtitle": "monthly rate",
+        "co2Subtitle": "CO2 reduction per year",
+        "selfConsumptionSubtitle": "Self-consumption share"
+      },
+      "contractStatus": {
+        "DRAFT": "Draft",
+        "PENDING_SIGNATURE": "Awaiting signature",
+        "OTP_SENT": "Code sent",
+        "SIGNED": "Signed",
+        "CANCELLED": "Cancelled",
+        "EXPIRED": "Expired"
+      },
+      "config": {
+        "packagesTitle": "Your package",
+        "packagesSubtitle": "Choose the package that fits your roof.",
+        "evTitle": "Add a charging station",
+        "evAdd": "Add",
+        "evRemove": "Remove",
+        "evSelected": "Selected",
+        "consumptionTitle": "Your annual consumption",
+        "consumptionUnit": "kWh/year",
+        "consumptionReset": "Reset",
+        "consumptionSave": "Save",
+        "consumptionCancel": "Cancel",
+        "saveError": "The change could not be saved. Please try again."
+      },
+      "chartsTitle": "Your energy balance",
+      "chartsSubtitle": "Production and consumption across the year.",
+      "financialTitle": "Your financing",
+      "equipmentTitle": "Your equipment",
+      "actionsTitle": "Next steps",
+      "actions": {
+        "downloadTitle": "Download report",
+        "downloadSubtitle": "Your complete solar analysis as a PDF.",
+        "downloadButton": "Download",
+        "emailTitle": "Email report",
+        "emailSubtitle": "We will send the report to your email address.",
+        "emailButton": "Send",
+        "emailSent": "Sent",
+        "offerTitle": "Request offer",
+        "offerSubtitle": "Our team will contact you for an on-site visit.",
+        "offerButton": "Request",
+        "offerRequestedOn": "Requested on {date}",
+        "validUntil": "Valid until {date}",
+        "contractTitle": "Your contract",
+        "actionError": "The action failed. Please try again."
+      },
+      "financial": {
+        "freeTitle": "Your SolarFree plan",
+        "freeDiscount": "Electricity discount",
+        "freeTerm": "Contract term",
+        "freeTermYears": "{years} years",
+        "freeInvestment": "Investment",
+        "freeSavings": "Annual savings"
+      },
+      "sign": {
+        "title": "Complete your contract",
+        "subtitle": "Sign your contract securely and digitally.",
+        "cta": "Sign your contract now",
+        "resumeCta": "Resume signature",
+        "unavailable": "Signature currently unavailable",
+        "aboFallback": "For SolarAbo we first prepare a personalized offer for you. Request it above.",
+        "signedTitle": "Your contract is signed",
+        "downloadContract": "Download contract",
+        "awaiting": "Waiting for your signature...",
+        "reopen": "Reopen signing page",
+        "checkBackLater": "The signature is still in progress. Please check back later.",
+        "noticeTitle": "Important notes",
+        "proceed": "Proceed to signature",
+        "starting": "Preparing signature...",
+        "acks": {
+          "preliminary": "I understand this is a preliminary agreement that will be finalized after the on-site inspection.",
+          "siteVisit": "I consent to a site visit by the Free State AG technical team.",
+          "contractReview": "I have reviewed the contract details and wish to proceed with the digital signature."
+        },
+        "recap": {
+          "package": "Package",
+          "term": "Contract term",
+          "termYears": "{years} years",
+          "termMonths": "{months} months",
+          "yearlySavings": "Annual savings",
+          "investment": "Investment",
+          "gross": "Gross amount",
+          "subsidy": "Subsidy (one-time payment)",
+          "net": "Net amount",
+          "oneTime": "One-time payment after installation.",
+          "evCharger": "Charging station",
+          "monthlyRate": "Monthly rate",
+          "uplift": "Financing surcharge +{percent}%",
+          "total": "Total amount"
+        },
+        "errors": {
+          "disabled": "The digital signature is temporarily disabled. Please try again later.",
+          "cancelled": "This contract was cancelled. Please reload the page.",
+          "alreadySigned": "This contract has already been signed.",
+          "aboUnavailable": "SolarAbo contracts are not yet available. Please request an offer.",
+          "expired": "The signature request has expired. Please start again.",
+          "generic": "The signature could not be started. Please try again."
+        }
+      }
+    },
     "settings": {
       "title": "Settings",
       "profile": "Profile",
@@ -7520,7 +7458,11 @@
       "notYet": "Not yet",
       "downloadContract": "Download Contract",
       "downloadSigned": "Download Signed Contract",
-      "projectHeading": "Property: {address}"
+      "projectHeading": "Property: {address}",
+      "showAll": "Show all contracts",
+      "status": {
+        "cancelled": "Cancelled"
+      }
     },
     "signing": {
       "title": "Sign contract",
@@ -7537,7 +7479,10 @@
       "reopenSigning": "Reopen signing page",
       "signingDisabled": "Digital signing is temporarily disabled. Please try again later.",
       "signingError": "The signature could not be started. Please try again.",
-      "signatureExpired": "The signature request has expired. Please start again."
+      "signatureExpired": "The signature request has expired. Please start again.",
+      "checkBackLater": "The signature is still in progress. Please check back later.",
+      "contractCancelled": "This contract was cancelled. Please reload the page.",
+      "alreadySigned": "This contract has already been signed."
     },
     "project": {
       "title": "My Project",
@@ -7698,7 +7643,8 @@
       "emailReport": "Email report",
       "sendingReport": "Sending...",
       "reportEmailSent": "Sent",
-      "reportError": "The report could not be generated. Please try again."
+      "reportError": "The report could not be generated. Please try again.",
+      "offerRequestedOn": "Offer requested on {date}"
     },
     "stages": {
       "title": "What happens next",

@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { PageLoader } from '@/components/ui/page-loader'
+import { modelLabelKey } from '@/lib/model-label'
 import { customerPortalService, type ProjectSummary } from '@/services/customer-portal.service'
 
 const PILL_BASE = 'rounded-full text-sm font-medium px-3 py-1.5'
@@ -47,12 +48,8 @@ export default function ProjectPage() {
       .finally(() => setLoading(false))
   }, [])
 
-  const modelLabel = (model: string | null): string => {
-    if (model === 'solar-free') return t('models.solarFree')
-    if (model === 'solar-direct') return t('models.solarDirect')
-    if (model === 'solar-abo') return t('models.solarAbo')
-    return t('models.unknown')
-  }
+  const modelLabel = (model: string | null): string =>
+    t(`models.${modelLabelKey(model)}`)
 
   if (loading) {
     return <PageLoader />
@@ -61,11 +58,11 @@ export default function ProjectPage() {
   if (projects.length === 0) {
     return (
       <div className="max-w-5xl">
-        <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
-        <Card className="border-[#062E25]/10">
+        <h1 className="text-2xl font-bold text-pine mb-8">{t('title')}</h1>
+        <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
-            <Sun className="h-12 w-12 text-[#062E25]/20 mx-auto mb-4" />
-            <p className="text-[#062E25]/60">{t('noProjects')}</p>
+            <Sun className="h-12 w-12 text-pine/20 mx-auto mb-4" />
+            <p className="text-pine/60">{t('noProjects')}</p>
           </CardContent>
         </Card>
       </div>
@@ -74,16 +71,16 @@ export default function ProjectPage() {
 
   return (
     <div className="max-w-5xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
+      <h1 className="text-2xl font-bold text-pine mb-8">{t('title')}</h1>
 
       <div className="grid gap-4 md:grid-cols-2">
         {projects.map((project) => (
-          <Card key={project.id} className="border-[#062E25]/10">
+          <Card key={project.id} className="border-pine/10">
             <CardContent className="p-6 space-y-4">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="font-semibold text-[#062E25]">{project.address}</p>
-                  <p className="text-sm text-[#062E25]/60">
+                  <p className="font-semibold text-pine">{project.address}</p>
+                  <p className="text-sm text-pine/60">
                     {modelLabel(project.solarModel)} {'·'}{' '}
                     {new Date(project.createdAt).toLocaleDateString('de-CH')}
                   </p>
@@ -92,12 +89,12 @@ export default function ProjectPage() {
                   {t(`conversion.${project.conversionStatus}`)}
                 </span>
               </div>
-              <div className="flex gap-6 text-sm text-[#062E25]/80">
+              <div className="flex gap-6 text-sm text-pine/80">
                 <span>{formatKwp(project.system?.systemSizeKwp)} kWp</span>
                 <span>CHF {formatNumber(project.system?.annualSavings)}</span>
               </div>
               <div className="flex gap-2">
-                <Button asChild size="sm" className="bg-[#062E25] hover:bg-[#062E25]/90 text-white">
+                <Button asChild size="sm" className="bg-pine hover:bg-pine/90 text-white">
                   <Link href={`/${locale}/dashboard/project/${project.id}`}>{t('viewDetails')}</Link>
                 </Button>
                 {project.contract && (
@@ -105,9 +102,9 @@ export default function ProjectPage() {
                     asChild
                     size="sm"
                     variant="outline"
-                    style={{ borderColor: '#062E25', color: '#062E25' }}
+                    className="border-pine text-pine hover:bg-pine/5"
                   >
-                    <Link href={`/${locale}/dashboard/contract`}>{t('viewContract')}</Link>
+                    <Link href={`/${locale}/dashboard/contract?projectId=${project.id}`}>{t('viewContract')}</Link>
                   </Button>
                 )}
               </div>

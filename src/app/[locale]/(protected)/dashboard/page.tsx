@@ -123,23 +123,27 @@ export default function DashboardPage() {
   if (!data) {
     return (
       <div className="text-center py-16">
-        <p className="text-[#062E25]/60">{t('failedToLoad')}</p>
+        <p className="text-pine/60">{t('failedToLoad')}</p>
       </div>
     )
   }
 
   const meta = STATUS_META[data.status] || STATUS_META.no_project
+  const offerRequestedActivity =
+    data.status === 'offer_requested'
+      ? data.activity.find(item => item.type === 'offer_requested')
+      : undefined
 
   return (
     <div className="max-w-5xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-1">
+      <h1 className="text-2xl font-bold text-pine mb-1">
         {t('welcome', { firstName: data.user.firstName })}
       </h1>
-      <p className="text-[#062E25]/60 mb-8">{t('subtitle')}</p>
+      <p className="text-pine/60 mb-8">{t('subtitle')}</p>
 
       <DataRequestActionRequiredCard />
 
-      <Card className="mb-8 border-[#062E25]/10">
+      <Card className="mb-8 border-pine/10">
         <CardContent className="p-6">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -148,12 +152,12 @@ export default function DashboardPage() {
               >
                 {t(meta.labelKey)}
               </span>
-              <p className="text-sm text-[#062E25]/60">{t(meta.descKey)}</p>
+              <p className="text-sm text-pine/60">{t(meta.descKey)}</p>
             </div>
             {data.status === 'no_project' && (
               <Button
                 asChild
-                className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
+                className="bg-pine hover:bg-pine/90 text-white"
               >
                 <Link href={`/${locale}/calculator`}>
                   {t('startCalculator')} <ArrowRight className="ml-2 h-4 w-4" />
@@ -165,7 +169,7 @@ export default function DashboardPage() {
                 <Button
                   onClick={handleRequestOffer}
                   disabled={offerSubmitting}
-                  className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
+                  className="bg-pine hover:bg-pine/90 text-white"
                 >
                   {offerSubmitting ? (
                     <>
@@ -185,7 +189,7 @@ export default function DashboardPage() {
             {data.status === 'contract_pending' && data.contract && (
               <Button
                 asChild
-                className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
+                className="bg-pine hover:bg-pine/90 text-white"
               >
                 <Link href={`/${locale}/dashboard/contract`}>
                   {t('viewContract')} <ArrowRight className="ml-2 h-4 w-4" />
@@ -195,6 +199,16 @@ export default function DashboardPage() {
           </div>
         </CardContent>
       </Card>
+
+      {offerRequestedActivity && (
+        <p className="-mt-4 mb-8 text-sm text-pine/60">
+          {t('offerRequestedOn', {
+            date: new Date(offerRequestedActivity.date).toLocaleDateString(
+              'de-CH',
+            ),
+          })}
+        </p>
+      )}
 
       {data.stats && (
         <div className="mb-8">
@@ -218,18 +232,18 @@ export default function DashboardPage() {
       )}
 
       <div className="mb-8">
-        <h2 className="mb-1 text-lg font-semibold text-[#062E25]">
+        <h2 className="mb-1 text-lg font-semibold text-pine">
           {t('whatsNext')}
         </h2>
-        <p className="mb-4 text-base text-[#062E25]/60">{t('whatsNextSubtitle')}</p>
+        <p className="mb-4 text-base text-pine/60">{t('whatsNextSubtitle')}</p>
         <StageTimeline milestones={data.milestones ?? []} />
       </div>
 
       {data.project && (
-        <Card className="mb-8 border-[#062E25]/10">
+        <Card className="mb-8 border-pine/10">
           <CardContent className="p-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-              <h2 className="text-lg font-semibold text-[#062E25]">
+              <h2 className="text-lg font-semibold text-pine">
                 {t('yourProject')}
               </h2>
               <div className="flex flex-wrap gap-2 self-start sm:self-auto">
@@ -238,7 +252,7 @@ export default function DashboardPage() {
                   size="sm"
                   onClick={handleDownloadReport}
                   disabled={reportDownloading}
-                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                  className="border-pine text-pine hover:bg-pine/5"
                 >
                   <Download className="h-4 w-4 mr-2" />
                   {reportDownloading ? t('downloadingReport') : t('downloadReport')}
@@ -248,7 +262,7 @@ export default function DashboardPage() {
                   size="sm"
                   onClick={handleEmailReport}
                   disabled={emailSending}
-                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                  className="border-pine text-pine hover:bg-pine/5"
                 >
                   {emailSent ? (
                     <>
@@ -266,7 +280,7 @@ export default function DashboardPage() {
                   variant="outline"
                   size="sm"
                   asChild
-                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                  className="border-pine text-pine hover:bg-pine/5"
                 >
                   <Link href={`/${locale}/dashboard/project`}>{t('viewDetails')}</Link>
                 </Button>
@@ -275,14 +289,14 @@ export default function DashboardPage() {
             {reportError && <p className="text-sm text-red-600 mb-4">{reportError}</p>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-[#062E25]/60">{t('address')}</p>
-                <p className="font-medium text-[#062E25]">
+                <p className="text-pine/60">{t('address')}</p>
+                <p className="font-medium text-pine">
                   {data.project.address}
                 </p>
               </div>
               <div>
-                <p className="text-[#062E25]/60">{t('package')}</p>
-                <p className="font-medium text-[#062E25]">
+                <p className="text-pine/60">{t('package')}</p>
+                <p className="font-medium text-pine">
                   {data.project.package}
                 </p>
               </div>
@@ -292,20 +306,20 @@ export default function DashboardPage() {
       )}
 
       {data.activity.length > 0 && (
-        <Card className="border-[#062E25]/10">
+        <Card className="border-pine/10">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+            <h2 className="text-lg font-semibold text-pine mb-4">
               {t('activity')}
             </h2>
             <div className="space-y-4">
               {data.activity.map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <Clock className="h-4 w-4 text-[#062E25]/30 shrink-0" />
+                  <Clock className="h-4 w-4 text-pine/30 shrink-0" />
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-[#062E25]">
+                    <p className="text-sm font-medium text-pine">
                       {ACTIVITY_KEYS[item.type] ? t(ACTIVITY_KEYS[item.type]) : item.type}
                     </p>
-                    <p className="text-sm text-[#062E25]/40">
+                    <p className="text-sm text-pine/40">
                       {new Date(item.date).toLocaleDateString('de-CH', {
                         year: 'numeric',
                         month: 'long',

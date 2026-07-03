@@ -3,6 +3,8 @@
  * Frontend API client for contract management
  */
 
+import api from '@/lib/api'
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
 // Types
@@ -180,13 +182,13 @@ export interface ContractDetails {
 }
 
 class ContractService {
-  async getSigningConfig(): Promise<{ enabled: boolean }> {
-    const response = await fetch(`${API_URL}/api/contracts/sign/config`)
-    const data = await response.json()
-    if (!data.success) {
-      return { enabled: true }
+  async getSigningConfig(): Promise<{ enabled: boolean; aboContractsEnabled: boolean }> {
+    try {
+      const response = await api.get('/contracts/sign/config')
+      return response.data.data
+    } catch {
+      return { enabled: true, aboContractsEnabled: false }
     }
-    return data.data
   }
 
   async createFromCalculator(input: CreateContractInput): Promise<ContractResponse> {
@@ -210,23 +212,16 @@ class ContractService {
   /**
    * Get contract by ID
    */
-  async getById(contractId: string, accessToken?: string): Promise<ContractDetails> {
-    const headers: Record<string, string> = {}
-    if (accessToken) {
-      headers.Authorization = `Bearer ${accessToken}`
+  async getById(contractId: string): Promise<ContractDetails> {
+    try {
+      const response = await api.get(`/contracts/${contractId}`)
+      return response.data.data
+    } catch (error) {
+      const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+      throw new Error(
+        axiosError.response?.data?.error?.message ?? 'Failed to get contract',
+      )
     }
-
-    const response = await fetch(`${API_URL}/api/contracts/${contractId}`, {
-      headers,
-    })
-
-    const data = await response.json()
-
-    if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to get contract')
-    }
-
-    return data.data
   }
 
   /**
@@ -252,52 +247,43 @@ class ContractService {
     contractId: string,
     acknowledgments: string[]
   ): Promise<SignatureInitiationResponse> {
-    const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/initiate`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ acknowledgments }),
-    })
-
-    const data = await response.json()
-
-    if (!data.success) {
-      const err = new Error(data.error?.message || 'Failed to initiate signature') as Error & {
-        code?: string
-      }
-      err.code = data.error?.code
+    try {
+      const response = await api.post(`/contracts/${contractId}/sign/initiate`, {
+        acknowledgments,
+      })
+      return response.data.data
+    } catch (error) {
+      const axiosError = error as { response?: { data?: { error?: { code?: string; message?: string } } } }
+      const err = new Error(
+        axiosError.response?.data?.error?.message ?? 'Failed to initiate signature',
+      ) as Error & { code?: string }
+      err.code = axiosError.response?.data?.error?.code
       throw err
     }
-
-    return data.data
   }
 
   async getSigningUrl(contractId: string): Promise<string> {
-    const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/url`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    })
-
-    const data = await response.json()
-
-    if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to get signing URL')
+    try {
+      const response = await api.post(`/contracts/${contractId}/sign/url`)
+      return response.data.data.signingUrl
+    } catch (error) {
+      const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+      throw new Error(
+        axiosError.response?.data?.error?.message ?? 'Failed to get signing URL',
+      )
     }
-
-    return data.data.signingUrl
   }
 
   async checkSignatureStatus(contractId: string): Promise<SignatureStatusResponse> {
-    const response = await fetch(`${API_URL}/api/contracts/${contractId}/sign/status`)
-
-    const data = await response.json()
-
-    if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to check signature status')
+    try {
+      const response = await api.get(`/contracts/${contractId}/sign/status`)
+      return response.data.data
+    } catch (error) {
+      const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+      throw new Error(
+        axiosError.response?.data?.error?.message ?? 'Failed to check signature status',
+      )
     }
-
-    return data.data
   }
 }
 

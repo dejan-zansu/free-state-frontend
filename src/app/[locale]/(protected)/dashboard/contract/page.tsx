@@ -7,14 +7,17 @@ import {
   Download,
   FileSignature,
   Loader2,
+  XCircle,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useCallback, useEffect, useState } from 'react'
 
 import PortalSignDialog from '@/components/dashboard/PortalSignDialog'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { PageLoader } from '@/components/ui/page-loader'
+import { modelLabelKey } from '@/lib/model-label'
 import { contractService } from '@/services/contract.service'
 import {
   customerPortalService,
@@ -22,18 +25,16 @@ import {
   type ProjectSummary,
 } from '@/services/customer-portal.service'
 
-const MODEL_LABEL: Record<string, string> = {
-  'solar-free': 'SolarFree',
-  'solar-direct': 'SolarDirect',
-  'solar-abo': 'SolarAbo',
-}
-
-const modelLabel = (model: string | null): string =>
-  (model && MODEL_LABEL[model]) || 'Solar'
+const POLL_MAX_ATTEMPTS = 120
 
 export default function ContractPage() {
   const t = useTranslations('dashboard.contract')
   const tSigning = useTranslations('dashboard.signing')
+  const tModel = useTranslations('dashboard.project')
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const projectIdFilter = searchParams.get('projectId')
   const [contracts, setContracts] = useState<ContractSummary[]>([])
   const [projects, setProjects] = useState<ProjectSummary[]>([])
   const [loading, setLoading] = useState(true)
@@ -43,6 +44,7 @@ export default function ContractPage() {
   const [signError, setSignError] = useState<{ id: string; message: string } | null>(
     null,
   )
+  const [pollTimedOut, setPollTimedOut] = useState<string | null>(null)
 
   const STATUS_BADGE: Record<
     string,
@@ -95,8 +97,15 @@ export default function ContractPage() {
   useEffect(() => {
     if (!pollingContractId) return
     let cancelled = false
+    let attempts = 0
 
     const interval = setInterval(async () => {
+      attempts += 1
+      if (attempts >= POLL_MAX_ATTEMPTS) {
+        clearInterval(interval)
+        setPollTimedOut(pollingContractId)
+        return
+      }
       try {
         const result = await contractService.checkSignatureStatus(
           pollingContractId,
@@ -105,6 +114,7 @@ export default function ContractPage() {
 
         if (result.status === 'COMPLETED') {
           setPollingContractId(null)
+          setPollTimedOut(null)
           await loadData()
         } else if (result.status === 'EXPIRED') {
           setSignError({
@@ -131,12 +141,12 @@ export default function ContractPage() {
   if (contracts.length === 0) {
     return (
       <div className="max-w-5xl">
-        <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
-        <Card className="border-[#062E25]/10">
+        <h1 className="text-2xl font-bold text-pine mb-8">{t('title')}</h1>
+        <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
-            <FileSignature className="h-12 w-12 text-[#062E25]/20 mx-auto mb-4" />
-            <p className="text-[#062E25]/60 mb-2">{t('noContracts')}</p>
-            <p className="text-sm text-[#062E25]/40">
+            <FileSignature className="h-12 w-12 text-pine/20 mx-auto mb-4" />
+            <p className="text-pine/60 mb-2">{t('noContracts')}</p>
+            <p className="text-sm text-pine/40">
               {t('noContractsHelp')}
             </p>
           </CardContent>
@@ -159,27 +169,52 @@ export default function ContractPage() {
     }
   }
 
+  const filteredGroups = projectIdFilter
+    ? groups.filter(group => group.projectId === projectIdFilter)
+    : groups
+  const showingFiltered = projectIdFilter !== null && filteredGroups.length > 0
+  const visibleGroups = showingFiltered ? filteredGroups : groups
+
   return (
     <div className="max-w-5xl">
-      <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
+      <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+        <h1 className="text-2xl font-bold text-pine">{t('title')}</h1>
+        {showingFiltered && (
+          <button
+            type="button"
+            onClick={() => router.replace(pathname)}
+            className="text-sm font-medium text-pine underline underline-offset-4 hover:text-pine/70"
+          >
+            {t('showAll')}
+          </button>
+        )}
+      </div>
 
       <div className="space-y-10">
-        {groups.map(group => {
+        {visibleGroups.map(group => {
           const address =
             projectAddress.get(group.projectId) ?? group.contracts[0].address
-          const label = modelLabel(group.contracts[0].solarModel)
+          const label = tModel(
+            `models.${modelLabelKey(group.contracts[0].solarModel)}`,
+          )
 
           return (
             <div key={group.projectId}>
-              <h2 className="text-base font-semibold text-[#062E25] mb-4">
+              <h2 className="text-base font-semibold text-pine mb-4">
                 {t('projectHeading', { address: `${address} · ${label}` })}
               </h2>
 
               <div className="space-y-6">
                 {group.contracts.map(contract => {
                   const badge =
-                    STATUS_BADGE[contract.signatureStatus] ||
-                    STATUS_BADGE.PENDING
+                    contract.status === 'CANCELLED'
+                      ? {
+                          label: t('status.cancelled'),
+                          color: 'bg-gray-100 text-gray-600',
+                          icon: XCircle,
+                        }
+                      : STATUS_BADGE[contract.signatureStatus] ||
+                        STATUS_BADGE.PENDING
                   const BadgeIcon = badge.icon
 
                   const signEligible =
@@ -189,12 +224,12 @@ export default function ContractPage() {
                   const isPolling = pollingContractId === contract.id
 
                   return (
-                    <Card key={contract.id} className="border-[#062E25]/10">
+                    <Card key={contract.id} className="border-pine/10">
                       <CardContent className="p-6">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                           <div className="min-w-0">
                             <div className="flex flex-wrap items-center gap-3 mb-1">
-                              <h2 className="text-lg font-semibold text-[#062E25] break-all">
+                              <h2 className="text-lg font-semibold text-pine break-all">
                                 {contract.contractNumber}
                               </h2>
                               <span
@@ -204,7 +239,7 @@ export default function ContractPage() {
                                 {badge.label}
                               </span>
                             </div>
-                            <p className="text-sm text-[#062E25]/60">
+                            <p className="text-sm text-pine/60">
                               {contract.address}
                             </p>
                           </div>
@@ -212,24 +247,24 @@ export default function ContractPage() {
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm mb-6">
                           <div>
-                            <p className="text-[#062E25]/60">{t('type')}</p>
-                            <p className="font-medium text-[#062E25]">
+                            <p className="text-pine/60">{t('type')}</p>
+                            <p className="font-medium text-pine">
                               {contract.contractType}
                             </p>
                           </div>
                           <div>
-                            <p className="text-[#062E25]/60">{t('created')}</p>
-                            <p className="font-medium text-[#062E25]">
+                            <p className="text-pine/60">{t('created')}</p>
+                            <p className="font-medium text-pine">
                               {new Date(contract.createdAt).toLocaleDateString(
                                 'de-CH'
                               )}
                             </p>
                           </div>
                           <div>
-                            <p className="text-[#062E25]/60">
+                            <p className="text-pine/60">
                               {t('validUntil')}
                             </p>
-                            <p className="font-medium text-[#062E25]">
+                            <p className="font-medium text-pine">
                               {contract.validUntil
                                 ? new Date(
                                     contract.validUntil
@@ -238,10 +273,10 @@ export default function ContractPage() {
                             </p>
                           </div>
                           <div>
-                            <p className="text-[#062E25]/60">
+                            <p className="text-pine/60">
                               {t('signedDate')}
                             </p>
-                            <p className="font-medium text-[#062E25]">
+                            <p className="font-medium text-pine">
                               {contract.customerSignedAt
                                 ? new Date(
                                     contract.customerSignedAt
@@ -256,7 +291,7 @@ export default function ContractPage() {
                             <Button
                               variant="outline"
                               size="sm"
-                              style={{ borderColor: '#062E25', color: '#062E25' }}
+                              className="border-pine text-pine hover:bg-pine/5"
                               onClick={() =>
                                 window.open(
                                   `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf`,
@@ -271,7 +306,7 @@ export default function ContractPage() {
                           {contract.signedPdfUrl && (
                             <Button
                               size="sm"
-                              className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
+                              className="bg-pine text-white hover:bg-pine/90"
                               onClick={() =>
                                 window.open(
                                   `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf?signed=true`,
@@ -287,9 +322,10 @@ export default function ContractPage() {
                           {signEligible && !isPolling && signingEnabled && (
                             <Button
                               size="sm"
-                              className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
+                              className="bg-pine text-white hover:bg-pine/90"
                               onClick={() => {
                                 setSignError(null)
+                                setPollTimedOut(null)
                                 setDialogContractId(contract.id)
                               }}
                             >
@@ -302,7 +338,7 @@ export default function ContractPage() {
                             <Button
                               size="sm"
                               disabled
-                              className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
+                              className="bg-pine text-white hover:bg-pine/90"
                             >
                               <FileSignature className="h-4 w-4 mr-2" />
                               {tSigning('signingUnavailable')}
@@ -311,14 +347,20 @@ export default function ContractPage() {
 
                           {signEligible && isPolling && (
                             <div className="flex flex-wrap items-center gap-3">
-                              <span className="inline-flex items-center gap-2 text-sm text-[#062E25]/70">
-                                <Loader2 className="h-4 w-4 animate-spin" />
-                                {tSigning('awaitingSignature')}
-                              </span>
+                              {pollTimedOut === contract.id ? (
+                                <span className="text-sm text-pine/70">
+                                  {tSigning('checkBackLater')}
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-2 text-sm text-pine/70">
+                                  <Loader2 className="h-4 w-4 animate-spin" />
+                                  {tSigning('awaitingSignature')}
+                                </span>
+                              )}
                               <Button
                                 variant="outline"
                                 size="sm"
-                                style={{ borderColor: '#062E25', color: '#062E25' }}
+                                className="border-pine text-pine hover:bg-pine/5"
                                 onClick={async () => {
                                   const url =
                                     await contractService.getSigningUrl(
@@ -348,6 +390,7 @@ export default function ContractPage() {
                             }
                             onSigningStarted={() => {
                               setSignError(null)
+                              setPollTimedOut(null)
                               setPollingContractId(contract.id)
                             }}
                           />

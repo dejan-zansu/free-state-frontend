@@ -74,8 +74,8 @@ export default function DashboardLayout({
           className={cn(
             'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
             isActive(item.href)
-              ? 'bg-[#062E25] text-white'
-              : 'text-[#062E25]/70 hover:bg-[#062E25]/5 hover:text-[#062E25]'
+              ? 'bg-pine text-white'
+              : 'text-pine/70 hover:bg-pine/5 hover:text-pine'
           )}
         >
           <item.icon className="h-4 w-4" />
@@ -86,30 +86,30 @@ export default function DashboardLayout({
   )
 
   return (
-    <div className="min-h-screen bg-[#F2F4E8] flex flex-col">
+    <div className="min-h-screen bg-sage flex flex-col">
       <DashboardHeader />
       <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
         <SheetTrigger asChild>
           <button
             aria-label={t('openNavigation')}
-            className="lg:hidden fixed top-2 right-3 sm:top-3 sm:right-4 z-[60] inline-flex items-center justify-center h-10 w-10 rounded-lg text-[#062E25] hover:bg-[#062E25]/5"
+            className="lg:hidden fixed top-2 right-3 sm:top-3 sm:right-4 z-[60] inline-flex items-center justify-center h-10 w-10 rounded-lg text-pine hover:bg-pine/5"
           >
             <Menu className="h-6 w-6" />
           </button>
         </SheetTrigger>
         <SheetContent side="right" className="w-72 p-0 bg-white flex flex-col">
           <SheetTitle className="sr-only">{t('navigation')}</SheetTitle>
-          <div className="p-6 border-b border-[#062E25]/10 mt-2">
-            <p className="font-semibold text-[#062E25]">
+          <div className="p-6 border-b border-pine/10 mt-2">
+            <p className="font-semibold text-pine">
               {user?.firstName} {user?.lastName}
             </p>
-            <p className="text-sm text-[#062E25]/60 truncate">{user?.email}</p>
+            <p className="text-sm text-pine/60 truncate">{user?.email}</p>
           </div>
           {NavList}
-          <div className="p-4 border-t border-[#062E25]/10">
+          <div className="p-4 border-t border-pine/10">
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[#062E25]/70 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-pine/70 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
             >
               <LogOut className="h-4 w-4" />
               {t('signOut')}
@@ -118,20 +118,20 @@ export default function DashboardLayout({
         </SheetContent>
       </Sheet>
       <div className="flex flex-1 pt-[57px] sm:pt-[69px]">
-        <aside className="hidden lg:flex w-64 flex-col fixed top-[69px] bottom-0 border-r border-[#062E25]/10 bg-white/60 backdrop-blur-sm">
-          <div className="p-6 border-b border-[#062E25]/10">
-            <p className="font-semibold text-[#062E25]">
+        <aside className="hidden lg:flex w-64 flex-col fixed top-[69px] bottom-0 border-r border-pine/10 bg-white/60 backdrop-blur-sm">
+          <div className="p-6 border-b border-pine/10">
+            <p className="font-semibold text-pine">
               {user?.firstName} {user?.lastName}
             </p>
-            <p className="text-sm text-[#062E25]/60 truncate">{user?.email}</p>
+            <p className="text-sm text-pine/60 truncate">{user?.email}</p>
           </div>
 
           {NavList}
 
-          <div className="p-4 border-t border-[#062E25]/10">
+          <div className="p-4 border-t border-pine/10">
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-[#062E25]/70 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-pine/70 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
             >
               <LogOut className="h-4 w-4" />
               {t('signOut')}
