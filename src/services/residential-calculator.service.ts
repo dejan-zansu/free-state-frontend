@@ -17,6 +17,7 @@ interface ContactPayload {
   street: string
   streetNumber: string
   addressAdditional: string
+  isPropertyOwner?: boolean
 }
 
 interface CalculationPayload {

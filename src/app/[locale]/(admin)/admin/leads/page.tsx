@@ -124,6 +124,11 @@ export default function AdminLeadsPage() {
                           <p className="text-sm text-[#062E25]/50">
                             {lead.customer.user.email}
                           </p>
+                          {lead.project != null && !lead.project.isPropertyOwner && (
+                            <span className="mt-1 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
+                              {t('notOwner')}
+                            </span>
+                          )}
                         </div>
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]/60 max-w-48 truncate">

@@ -143,6 +143,7 @@ export function WorkspaceSignDialog({
       else if (code === 'CONTRACT_CANCELLED') setError(t('sign.errors.cancelled'))
       else if (code === 'ALREADY_SIGNED') setError(t('sign.errors.alreadySigned'))
       else if (code === 'ABO_CONTRACT_NOT_AVAILABLE') setError(t('sign.errors.aboUnavailable'))
+      else if (code === 'NOT_PROPERTY_OWNER') setError(t('sign.errors.notOwner'))
       else setError(t('sign.errors.generic'))
     } finally {
       setSubmitting(false)

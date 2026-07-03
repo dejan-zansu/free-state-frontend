@@ -545,7 +545,7 @@
     "node2024Title": "November 2024",
     "node2024Body": "Das Team gründet die Free State AG in Schaffhausen und setzt ganz auf Solar.",
     "nodeTodayTitle": "Heute",
-    "nodeTodayBody": "Wir bauen in 19 Deutschschweizer Kantonen, mit SolarFree- und SolarDirect-Modellen."
+    "nodeTodayBody": "Wir bauen in 19 Deutschschweizer Kantonen, mit SolarFree-, SolarDirect- und SolarAbo-Modellen."
   },
   "home": {
     "promo": {
@@ -6181,7 +6181,7 @@
         "cityRequired": "Stadt ist erforderlich",
         "streetRequired": "Strasse ist erforderlich",
         "streetNumberRequired": "Hausnummer ist erforderlich",
-        "propertyOwnerRequired": "Nur der eingetragene Gebäudeeigentümer kann fortfahren.",
+        "propertyOwnerRequired": "Bitte geben Sie an, ob Sie der Eigentümer sind.",
         "consentRequired": "Sie müssen die Datenschutzbestimmungen akzeptieren"
       },
       "submit": "Angebot anfordern",
@@ -6607,6 +6607,13 @@
       },
       "customerRemarks": "Bemerkungen des Kunden",
       "addressAdditional": "Adresszusatz",
+      "propertyOwner": "Eigentümer:in",
+      "owner": "Eigentümer:in",
+      "notOwner": "Nicht Eigentümer:in",
+      "ownerContact": "Eigentümer-Kontakt",
+      "ownerName": "Name Eigentümer:in",
+      "ownerEmail": "E-Mail Eigentümer:in",
+      "ownerPhone": "Telefon Eigentümer:in",
       "solarModelAbo": "Solar-Abo (Monatsrate)",
       "financials": "Finanzen",
       "systemCost": "Systemkosten (brutto)",
@@ -7385,6 +7392,8 @@
         "resumeCta": "Signatur fortsetzen",
         "unavailable": "Signatur derzeit nicht verfügbar",
         "aboFallback": "Für SolarAbo erstellen wir Ihnen zuerst ein persönliches Angebot. Fordern Sie es oben an.",
+        "notOwnerTitle": "Nur der Eigentümer kann unterzeichnen",
+        "notOwnerBody": "Für die Vertragsunterzeichnung muss die im Grundbuch eingetragene Eigentümerin oder der Eigentümer unterschreiben. Teilen Sie Ihr Projekt mit der Eigentümerschaft, um fortzufahren.",
         "signedTitle": "Ihr Vertrag ist unterzeichnet",
         "downloadContract": "Vertrag herunterladen",
         "awaiting": "Warten auf Ihre Unterschrift...",
@@ -7419,6 +7428,7 @@
           "cancelled": "Dieser Vertrag wurde storniert. Bitte laden Sie die Seite neu.",
           "alreadySigned": "Dieser Vertrag ist bereits unterzeichnet.",
           "aboUnavailable": "SolarAbo-Verträge sind noch nicht verfügbar. Bitte fordern Sie ein Angebot an.",
+          "notOwner": "Nur die eingetragene Eigentümerschaft kann den Vertrag unterzeichnen.",
           "expired": "Die Signaturanfrage ist abgelaufen. Bitte starten Sie erneut.",
           "generic": "Die Signatur konnte nicht gestartet werden. Bitte versuchen Sie es erneut."
         }

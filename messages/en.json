@@ -488,7 +488,7 @@
     "node2024Title": "November 2024",
     "node2024Body": "The team founds Free State AG in Schaffhausen and commits fully to solar.",
     "nodeTodayTitle": "Today",
-    "nodeTodayBody": "We build in 19 German-speaking Swiss cantons, with SolarFree and SolarDirect models."
+    "nodeTodayBody": "We build in 19 German-speaking Swiss cantons, with SolarFree, SolarDirect and SolarAbo models."
   },
   "home": {
     "promo": {
@@ -4566,7 +4566,7 @@
         "cityRequired": "City is required",
         "streetRequired": "Street is required",
         "streetNumberRequired": "House number is required",
-        "propertyOwnerRequired": "Only the registered property owner can continue.",
+        "propertyOwnerRequired": "Please indicate whether you are the property owner.",
         "consentRequired": "You must accept the data processing terms"
       },
       "submit": "Request offer",
@@ -6606,6 +6606,13 @@
       },
       "customerRemarks": "Customer remarks",
       "addressAdditional": "Address additional",
+      "propertyOwner": "Property owner",
+      "owner": "Owner",
+      "notOwner": "Not the owner",
+      "ownerContact": "Owner contact",
+      "ownerName": "Owner name",
+      "ownerEmail": "Owner email",
+      "ownerPhone": "Owner phone",
       "solarModelAbo": "Solar-Abo (monthly instalment)",
       "financials": "Financials",
       "systemCost": "System cost (gross)",
@@ -7384,6 +7391,8 @@
         "resumeCta": "Resume signature",
         "unavailable": "Signature currently unavailable",
         "aboFallback": "For SolarAbo we first prepare a personalized offer for you. Request it above.",
+        "notOwnerTitle": "Only the owner can sign",
+        "notOwnerBody": "The contract must be signed by the owner registered in the land register. Share your project with the property owner to continue.",
         "signedTitle": "Your contract is signed",
         "downloadContract": "Download contract",
         "awaiting": "Waiting for your signature...",
@@ -7418,6 +7427,7 @@
           "cancelled": "This contract was cancelled. Please reload the page.",
           "alreadySigned": "This contract has already been signed.",
           "aboUnavailable": "SolarAbo contracts are not yet available. Please request an offer.",
+          "notOwner": "Only the registered property owner can sign the contract.",
           "expired": "The signature request has expired. Please start again.",
           "generic": "The signature could not be started. Please try again."
         }

@@ -488,7 +488,7 @@
     "node2024Title": "Novembre 2024",
     "node2024Body": "L'équipe fonde Free State AG à Schaffhouse et mise entièrement sur le solaire.",
     "nodeTodayTitle": "Aujourd'hui",
-    "nodeTodayBody": "Nous construisons dans 19 cantons de Suisse alémanique, avec les modèles SolarFree et SolarDirect."
+    "nodeTodayBody": "Nous construisons dans 19 cantons de Suisse alémanique, avec les modèles SolarFree, SolarDirect et SolarAbo."
   },
   "home": {
     "promo": {
@@ -4566,7 +4566,7 @@
         "cityRequired": "La ville est requise",
         "streetRequired": "La rue est requise",
         "streetNumberRequired": "Le numéro est requis",
-        "propertyOwnerRequired": "Seul le propriétaire enregistré peut continuer.",
+        "propertyOwnerRequired": "Veuillez indiquer si vous êtes le propriétaire.",
         "consentRequired": "Vous devez accepter les conditions de traitement des données"
       },
       "submit": "Demander l'offre",
@@ -6606,6 +6606,13 @@
       },
       "customerRemarks": "Remarques du client",
       "addressAdditional": "Complément d'adresse",
+      "propertyOwner": "Propriétaire",
+      "owner": "Propriétaire",
+      "notOwner": "Pas propriétaire",
+      "ownerContact": "Contact du propriétaire",
+      "ownerName": "Nom du propriétaire",
+      "ownerEmail": "E-mail du propriétaire",
+      "ownerPhone": "Téléphone du propriétaire",
       "solarModelAbo": "Solar-Abo (mensualité)",
       "financials": "Finances",
       "systemCost": "Coût du système (brut)",
@@ -7384,6 +7391,8 @@
         "resumeCta": "Reprendre la signature",
         "unavailable": "Signature actuellement indisponible",
         "aboFallback": "Pour SolarAbo, nous préparons d'abord une offre personnalisée pour vous. Demandez-la ci-dessus.",
+        "notOwnerTitle": "Seul le propriétaire peut signer",
+        "notOwnerBody": "Le contrat doit être signé par la propriétaire ou le propriétaire inscrit au registre foncier. Partagez votre projet avec la propriété pour continuer.",
         "signedTitle": "Votre contrat est signé",
         "downloadContract": "Télécharger le contrat",
         "awaiting": "En attente de votre signature...",
@@ -7418,6 +7427,7 @@
           "cancelled": "Ce contrat a été annulé. Veuillez recharger la page.",
           "alreadySigned": "Ce contrat a déjà été signé.",
           "aboUnavailable": "Les contrats SolarAbo ne sont pas encore disponibles. Veuillez demander une offre.",
+          "notOwner": "Seule la propriété inscrite peut signer le contrat.",
           "expired": "La demande de signature a expiré. Veuillez recommencer.",
           "generic": "La signature n'a pas pu être lancée. Veuillez réessayer."
         }

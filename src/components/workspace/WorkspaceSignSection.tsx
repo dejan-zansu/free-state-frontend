@@ -43,6 +43,7 @@ export function WorkspaceSignSection({
   const contract = data.contract
   const signedAlready = data.conversionStatus === 'contract_signed'
   const aboBlocked = model === 'solar-abo' && !config.aboContractsEnabled
+  const notOwner = !data.project.isPropertyOwner
   const resumable =
     contract != null && contract.signatureStatus === 'PENDING' && !contract.customerSignedAt
 
@@ -130,6 +131,21 @@ export function WorkspaceSignSection({
       <section className="space-y-6">
         <div className="rounded-2xl border border-pine/10 bg-white/70 p-8 text-center sm:p-12">
           <p className="mx-auto max-w-md text-base text-pine/80">{t('sign.aboFallback')}</p>
+        </div>
+      </section>
+    )
+  }
+
+  if (notOwner) {
+    return (
+      <section className="space-y-6">
+        <div className="rounded-2xl border border-pine/10 bg-white/70 p-8 text-center sm:p-12">
+          <h2 className="text-2xl font-medium text-pine tracking-tight">
+            {t('sign.notOwnerTitle')}
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-base text-pine/80">
+            {t('sign.notOwnerBody')}
+          </p>
         </div>
       </section>
     )
