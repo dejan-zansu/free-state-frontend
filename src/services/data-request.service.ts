@@ -8,6 +8,11 @@ import type {
 
 type Envelope<T> = { success: boolean; data: T }
 
+export interface CustomerDataRequestListItem extends DataRequestListItem {
+  contractId: string
+  projectId: string
+}
+
 class DataRequestService {
   async adminCreate(contractId: string, input: NewDataRequestInput): Promise<DataRequest> {
     const res = await api.post<Envelope<DataRequest>>(
@@ -47,8 +52,8 @@ class DataRequestService {
     return res.data.data
   }
 
-  async customerList(): Promise<DataRequestListItem[]> {
-    const res = await api.get<Envelope<DataRequestListItem[]>>('/me/data-requests')
+  async customerList(): Promise<CustomerDataRequestListItem[]> {
+    const res = await api.get<Envelope<CustomerDataRequestListItem[]>>('/me/data-requests')
     return res.data.data
   }
 

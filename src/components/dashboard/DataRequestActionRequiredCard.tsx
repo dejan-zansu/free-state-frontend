@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 import { AlertCircle, ArrowRight } from 'lucide-react'
 
@@ -12,6 +12,7 @@ import type { DataRequestListItem } from '@/types/data-request'
 
 export function DataRequestActionRequiredCard() {
   const locale = useLocale()
+  const t = useTranslations('dashboard.requestsAlert')
   const { data: items = [] } = useQuery<DataRequestListItem[]>({
     queryKey: ['me', 'data-requests'],
     queryFn: () => dataRequestService.customerList(),
@@ -29,9 +30,7 @@ export function DataRequestActionRequiredCard() {
           <AlertCircle className="h-6 w-6 text-amber-600 shrink-0 mt-0.5" />
           <div className="flex-1">
             <p className="font-semibold text-amber-900">
-              {pending.length === 1
-                ? '1 request needs your attention'
-                : `${pending.length} requests need your attention`}
+              {t('title', { count: pending.length })}
             </p>
             <ul className="text-sm text-amber-900/80 mt-1 space-y-0.5">
               {pending.slice(0, 3).map((r) => (
@@ -46,7 +45,7 @@ export function DataRequestActionRequiredCard() {
             className="bg-amber-600 hover:bg-amber-700 text-white shrink-0"
           >
             <Link href={`/${locale}/dashboard/requests`}>
-              Open <ArrowRight className="ml-1 h-3.5 w-3.5" />
+              {t('open')} <ArrowRight className="ml-1 h-3.5 w-3.5" />
             </Link>
           </Button>
         </div>

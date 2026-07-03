@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Clock } from 'lucide-react'
+import { ArrowRight, Check, Clock, Download, Loader2, Mail } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -12,6 +12,7 @@ import {
   customerPortalService,
   type DashboardData,
 } from '@/services/customer-portal.service'
+import { residentialCalculatorService } from '@/services/residential-calculator.service'
 import { DataRequestActionRequiredCard } from '@/components/dashboard/DataRequestActionRequiredCard'
 import SolarStatGrid from '@/components/dashboard/SolarStatGrid'
 import { StageTimeline } from '@/components/dashboard/StageTimeline'
@@ -57,6 +58,12 @@ export default function DashboardPage() {
   const [data, setData] = useState<DashboardData | null>(null)
   const locale = useLocale()
   const [loading, setLoading] = useState(true)
+  const [offerSubmitting, setOfferSubmitting] = useState(false)
+  const [offerError, setOfferError] = useState<string | null>(null)
+  const [reportDownloading, setReportDownloading] = useState(false)
+  const [reportError, setReportError] = useState<string | null>(null)
+  const [emailSending, setEmailSending] = useState(false)
+  const [emailSent, setEmailSent] = useState(false)
 
   useEffect(() => {
     customerPortalService
@@ -65,6 +72,49 @@ export default function DashboardPage() {
       .catch(console.error)
       .finally(() => setLoading(false))
   }, [])
+
+  const handleRequestOffer = async () => {
+    if (!data?.project) return
+    setOfferSubmitting(true)
+    setOfferError(null)
+    try {
+      await residentialCalculatorService.requestOffer({ projectId: data.project.id })
+      const refreshed = await customerPortalService.getDashboard()
+      setData(refreshed)
+    } catch {
+      setOfferError(t('offerError'))
+    } finally {
+      setOfferSubmitting(false)
+    }
+  }
+
+  const handleDownloadReport = async () => {
+    if (!data?.project) return
+    setReportDownloading(true)
+    setReportError(null)
+    try {
+      await customerPortalService.downloadProjectReport(data.project.id)
+    } catch {
+      setReportError(t('reportError'))
+    } finally {
+      setReportDownloading(false)
+    }
+  }
+
+  const handleEmailReport = async () => {
+    if (!data?.project) return
+    setEmailSending(true)
+    setReportError(null)
+    try {
+      await residentialCalculatorService.emailReport({ projectId: data.project.id })
+      setEmailSent(true)
+      setTimeout(() => setEmailSent(false), 3000)
+    } catch {
+      setReportError(t('reportError'))
+    } finally {
+      setEmailSending(false)
+    }
+  }
 
   if (loading) {
     return <PageLoader />
@@ -109,6 +159,28 @@ export default function DashboardPage() {
                   {t('startCalculator')} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+            )}
+            {data.status === 'calculation_complete' && data.project && (
+              <div className="space-y-2">
+                <Button
+                  onClick={handleRequestOffer}
+                  disabled={offerSubmitting}
+                  className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
+                >
+                  {offerSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      {t('requestingOffer')}
+                    </>
+                  ) : (
+                    <>
+                      {t('requestOfferCta')}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </>
+                  )}
+                </Button>
+                {offerError && <p className="text-sm text-red-600">{offerError}</p>}
+              </div>
             )}
             {data.status === 'contract_pending' && data.contract && (
               <Button
@@ -160,16 +232,47 @@ export default function DashboardPage() {
               <h2 className="text-lg font-semibold text-[#062E25]">
                 {t('yourProject')}
               </h2>
-              <Button
-                variant="outline"
-                size="sm"
-                asChild
-                className="self-start sm:self-auto"
-                style={{ borderColor: '#062E25', color: '#062E25' }}
-              >
-                <Link href={`/${locale}/dashboard/project`}>{t('viewDetails')}</Link>
-              </Button>
+              <div className="flex flex-wrap gap-2 self-start sm:self-auto">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleDownloadReport}
+                  disabled={reportDownloading}
+                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                >
+                  <Download className="h-4 w-4 mr-2" />
+                  {reportDownloading ? t('downloadingReport') : t('downloadReport')}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleEmailReport}
+                  disabled={emailSending}
+                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                >
+                  {emailSent ? (
+                    <>
+                      <Check className="h-4 w-4 mr-2" />
+                      {t('reportEmailSent')}
+                    </>
+                  ) : (
+                    <>
+                      <Mail className="h-4 w-4 mr-2" />
+                      {emailSending ? t('sendingReport') : t('emailReport')}
+                    </>
+                  )}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  asChild
+                  style={{ borderColor: '#062E25', color: '#062E25' }}
+                >
+                  <Link href={`/${locale}/dashboard/project`}>{t('viewDetails')}</Link>
+                </Button>
+              </div>
             </div>
+            {reportError && <p className="text-sm text-red-600 mb-4">{reportError}</p>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
                 <p className="text-[#062E25]/60">{t('address')}</p>

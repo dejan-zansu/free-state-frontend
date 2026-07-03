@@ -36,17 +36,11 @@ export default function CalculatorClient() {
   const [resetReady, setResetReady] = useState(false)
 
   useEffect(() => {
-    const wasActive = sessionStorage.getItem(SESSION_ACTIVE_KEY)
-    if (!wasActive) {
-      useSolarAboCalculatorStore.getState().reset()
-      setStepParam(null, { history: 'replace' })
-    }
     sessionStorage.setItem(SESSION_ACTIVE_KEY, '1')
     setResetReady(true)
     return () => {
       sessionStorage.removeItem(SESSION_ACTIVE_KEY)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {

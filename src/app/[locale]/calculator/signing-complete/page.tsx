@@ -94,7 +94,7 @@ export default function SigningCompletePage() {
             <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-4" />
             <p className="text-lg font-medium text-green-700">{t('success.title')}</p>
             <p className="text-muted-foreground mt-1">{t('success.message')}</p>
-            <Button className="mt-6" onClick={() => router.push('/calculator')}>
+            <Button className="mt-6" onClick={() => router.push('/dashboard')}>
               {t('success.backButton')}
             </Button>
           </CardContent>
@@ -111,7 +111,7 @@ export default function SigningCompletePage() {
             <CheckCircle2 className="h-12 w-12 text-primary mx-auto mb-4" />
             <p className="text-lg font-medium text-primary">{t('awaitingCompany.title')}</p>
             <p className="text-muted-foreground mt-1">{t('awaitingCompany.message')}</p>
-            <Button className="mt-6" onClick={() => router.push('/calculator')}>
+            <Button className="mt-6" onClick={() => router.push('/dashboard')}>
               {t('awaitingCompany.backButton')}
             </Button>
           </CardContent>
@@ -128,7 +128,7 @@ export default function SigningCompletePage() {
             <Loader2 className="h-12 w-12 text-amber-600 mx-auto mb-4" />
             <p className="text-lg font-medium">{t('pending.title')}</p>
             <p className="text-muted-foreground mt-1">{t('pending.message')}</p>
-            <Button className="mt-6" onClick={() => router.push('/calculator')}>
+            <Button className="mt-6" onClick={() => router.push('/dashboard')}>
               {t('pending.backButton')}
             </Button>
           </CardContent>
@@ -144,7 +144,7 @@ export default function SigningCompletePage() {
           <AlertCircle className="h-12 w-12 text-destructive mx-auto mb-4" />
           <p className="text-lg font-medium text-destructive">{t('error.title')}</p>
           <p className="text-muted-foreground mt-1">{t('error.message')}</p>
-          <Button className="mt-6" onClick={() => router.push('/calculator')}>
+          <Button className="mt-6" onClick={() => router.push('/dashboard')}>
             {t('error.backButton')}
           </Button>
         </CardContent>

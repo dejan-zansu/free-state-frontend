@@ -45,6 +45,13 @@ interface CalculationPayload {
   solarModel: SolarModel
   ppaDiscountPercent: number | null
   heatPumpInterest: boolean
+  selectedPackageId?: string
+  consumptionOverrideKwh?: number | null
+  roofImage?: string
+  evCharger?: {
+    evChargerId: string
+    quantity: number
+  }
 }
 
 interface CreateAccountPayload {
@@ -91,6 +98,13 @@ interface UpdateCalculationPayload {
     electricityTariffRpKwh?: number | null
     feedInTariffRpKwh?: number | null
     selectedPackageCode?: string
+    selectedPackageId?: string
+    consumptionOverrideKwh?: number | null
+    roofImage?: string
+    evCharger?: {
+      evChargerId: string
+      quantity: number
+    }
   }
 }
 
