@@ -10,6 +10,7 @@ import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
 import { locales } from '@/i18n/routing'
 import { QueryProvider } from '@/providers/QueryProvider'
+import ConsultationDock from '@/components/consultation/ConsultationDock'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -102,6 +103,7 @@ export default async function LocaleLayout({
                 <div className="flex-1">{children}</div>
                 <ConditionalFooter locale={locale} />
                 <CookieConsentBanner />
+                <ConsultationDock />
               </div>
             </QueryProvider>
           </NuqsAdapter>

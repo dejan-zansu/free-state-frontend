@@ -7713,8 +7713,9 @@
       "title": "Book a consultation",
       "subtitle": "Reserve a no-obligation 30-minute call with your personal advisor.",
       "cta": "Book appointment",
-      "open": "Consultation",
+      "open": "Consultation with {name}",
       "close": "Close",
+      "dismiss": "Hide",
       "call": "Call",
       "email": "Email"
     }

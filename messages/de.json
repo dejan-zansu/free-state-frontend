@@ -7714,8 +7714,9 @@
       "title": "Beratung buchen",
       "subtitle": "Reservieren Sie ein unverbindliches 30-minütiges Gespräch mit Ihrem persönlichen Berater.",
       "cta": "Termin buchen",
-      "open": "Beratung",
+      "open": "Beratung mit {name}",
       "close": "Schliessen",
+      "dismiss": "Ausblenden",
       "call": "Anrufen",
       "email": "E-Mail"
     }
