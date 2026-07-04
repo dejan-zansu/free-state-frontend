@@ -4,19 +4,22 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { X, Phone, Mail } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useUser } from '@/stores/auth.store'
-import { getAdvisor } from '@/lib/advisor'
+import { getStickyAdvisor } from '@/lib/advisor'
+import { type ConsultationAdvisor } from '@/lib/company-contact'
 import { LinkButton } from '@/components/ui/link-button'
 import { cn } from '@/lib/utils'
 
 export default function ConsultationDock() {
-  const user = useUser()
-  const advisor = getAdvisor(user?.id)
   const t = useTranslations('dashboard.consultation')
   const tTeam = useTranslations('team.grid')
   const [open, setOpen] = useState(false)
   const [hidden, setHidden] = useState(false)
+  const [advisor, setAdvisor] = useState<ConsultationAdvisor | null>(null)
   const rootRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setAdvisor(getStickyAdvisor())
+  }, [])
 
   useEffect(() => {
     if (!open) return
@@ -35,11 +38,11 @@ export default function ConsultationDock() {
     }
   }, [open])
 
+  if (hidden || !advisor) return null
+
   const name = tTeam(`${advisor.key}.name`)
   const role = tTeam(`${advisor.key}.role`)
   const firstName = name.split(' ')[0]
-
-  if (hidden) return null
 
   return (
     <div
