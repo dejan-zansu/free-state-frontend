@@ -7713,8 +7713,9 @@
       "title": "Réserver une consultation",
       "subtitle": "Réservez un entretien de 30 minutes sans engagement avec votre conseiller personnel.",
       "cta": "Prendre rendez-vous",
-      "open": "Consultation",
+      "open": "Consultation avec {name}",
       "close": "Fermer",
+      "dismiss": "Masquer",
       "call": "Appeler",
       "email": "E-mail"
     }

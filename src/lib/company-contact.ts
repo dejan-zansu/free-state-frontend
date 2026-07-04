@@ -18,14 +18,14 @@ export const COMPANY_CALENDLY_URL =
 export const CONSULTATION_ADVISORS = [
   {
     key: 'ivan',
-    image: '/images/team-ivan-55cecd.png',
+    image: '/images/ivan.webp',
     email: 'ivan.m@freestate.ch',
     phone: '+41 (0)76 364 7775',
     calendlyUrl: COMPANY_CALENDLY_URL,
   },
   {
     key: 'peter',
-    image: '/images/team-peter-404b05.png',
+    image: '/images/peter.webp',
     email: 'peter.aragai@freestate.ch',
     phone: '+41 (0)78 6088 850',
     calendlyUrl: COMPANY_CALENDLY_URL,

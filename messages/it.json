@@ -7713,8 +7713,9 @@
       "title": "Prenota una consulenza",
       "subtitle": "Prenota una chiamata di 30 minuti senza impegno con il tuo consulente personale.",
       "cta": "Prenota appuntamento",
-      "open": "Consulenza",
+      "open": "Consulenza con {name}",
       "close": "Chiudi",
+      "dismiss": "Nascondi",
       "call": "Chiama",
       "email": "E-mail"
     }
