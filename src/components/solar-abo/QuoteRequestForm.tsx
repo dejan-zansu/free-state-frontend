@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 import { trackLead } from '@/lib/analytics/track-lead'
+import { Link } from '@/i18n/navigation'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
@@ -26,6 +27,7 @@ type FormValues = {
   postalCode: string
   phone: string
   ownsHome: boolean | null
+  consent: boolean
 }
 
 const fieldClass =
@@ -77,6 +79,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
       postalCode: '',
       phone: '',
       ownsHome: null,
+      consent: false,
     },
   })
 
@@ -98,7 +101,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
           postalCode: data.postalCode,
           phone: data.phone,
           ownsHome: data.ownsHome === true,
-          consent: true,
+          consent: data.consent,
           locale,
         }),
       })
@@ -306,9 +309,58 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                     )}
                   />
 
-                  <p className="text-white/70 text-sm font-light tracking-[-0.02em] mt-3">
-                    {t('consent')}
-                  </p>
+                  <Controller
+                    name="consent"
+                    control={control}
+                    rules={{ validate: v => v === true || t('errors.consent') }}
+                    render={({ field }) => (
+                      <div className="flex flex-col gap-1.5 mt-3">
+                        <div className="flex items-start gap-2">
+                          <button
+                            type="button"
+                            role="checkbox"
+                            aria-checked={field.value}
+                            onClick={() => field.onChange(!field.value)}
+                            className={cn(
+                              'w-3.5 h-3.5 mt-0.5 rounded-[3px] border shrink-0 flex items-center justify-center transition-colors cursor-pointer',
+                              field.value
+                                ? 'border-solar bg-solar'
+                                : 'border-[#D9D9D9] bg-transparent'
+                            )}
+                          >
+                            {field.value && (
+                              <svg width="9" height="7" viewBox="0 0 10 8" fill="none">
+                                <path
+                                  d="M1 4L3.5 6.5L9 1"
+                                  stroke="#062E25"
+                                  strokeWidth="1.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                />
+                              </svg>
+                            )}
+                          </button>
+                          <span className="text-white/70 text-sm font-light tracking-[-0.02em]">
+                            {t.rich('consent', {
+                              link: chunks => (
+                                <Link
+                                  href="/privacy-policy"
+                                  className="underline hover:text-white"
+                                >
+                                  {chunks}
+                                </Link>
+                              ),
+                            })}
+                          </span>
+                        </div>
+                        {errors.consent && (
+                          <p className="text-red-300 text-sm">
+                            {errors.consent.message}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  />
 
                   {status === 'error' && (
                     <p className="text-red-300 text-sm font-medium">

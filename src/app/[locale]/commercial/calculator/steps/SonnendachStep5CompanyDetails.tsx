@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -485,7 +486,15 @@ export default function SonnendachStep5CompanyDetails() {
           <Checkbox id="privacy"
                     checked={consents.privacy}
                     onCheckedChange={(v) => setConsents({ privacy: v === true })} />
-          <Label htmlFor="privacy" className="text-sm text-[#062E25]/70">{t('privacyConsent')}</Label>
+          <Label htmlFor="privacy" className="text-sm text-[#062E25]/70">
+            {t.rich('privacyConsent', {
+              link: chunks => (
+                <Link href="/privacy-policy" className="underline hover:text-[#062E25]">
+                  {chunks}
+                </Link>
+              ),
+            })}
+          </Label>
         </div>
         {errors.privacy && <p className="text-sm text-red-600">{errors.privacy}</p>}
 

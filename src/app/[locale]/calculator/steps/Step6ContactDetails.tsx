@@ -85,6 +85,7 @@ function useContactSchema(t: (key: string) => string) {
         dataProcessing: z.literal(true, {
           message: t('consentRequired'),
         }),
+        marketing: z.boolean().optional(),
       }),
     [t]
   )
@@ -253,6 +254,7 @@ export default function Step6ContactDetails() {
               ? true
               : undefined,
       dataProcessing: consents.dataProcessing || (isLocalDev ? true : undefined),
+      marketing: consents.marketing ?? false,
     },
   })
 
@@ -275,7 +277,10 @@ export default function Step6ContactDetails() {
         remarks: data.remarks,
         isPropertyOwner: data.isPropertyOwner,
       })
-      setConsents({ dataProcessing: data.dataProcessing })
+      setConsents({
+        dataProcessing: data.dataProcessing,
+        marketing: data.marketing ?? false,
+      })
       await createAccount()
       const s = useSolarAboCalculatorStore.getState()
       if (s.pendingVerification) {
@@ -789,6 +794,52 @@ export default function Step6ContactDetails() {
                     {errors.dataProcessing.message}
                   </p>
                 )}
+              </div>
+
+              <div>
+                <Controller
+                  name="marketing"
+                  control={control}
+                  render={({ field }) => {
+                    const checked = field.value === true
+                    return (
+                      <button
+                        type="button"
+                        onClick={() => field.onChange(!checked)}
+                        className="flex items-start gap-2.5 text-left"
+                      >
+                        <span
+                          className={cn(
+                            'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px] border transition-colors',
+                            checked
+                              ? 'bg-[#B7FE1A] border-[#B7FE1A]'
+                              : 'border-[#062E25]/40'
+                          )}
+                        >
+                          {checked && (
+                            <svg
+                              width="13"
+                              height="10"
+                              viewBox="0 0 8 6"
+                              fill="none"
+                            >
+                              <path
+                                d="M1 3L3 5L7 1"
+                                stroke="#062E25"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          )}
+                        </span>
+                        <span className="text-sm sm:text-base font-light text-[#062E25]/70 tracking-tight">
+                          {tConsent('marketing')}
+                        </span>
+                      </button>
+                    )
+                  }}
+                />
               </div>
 
               {submissionError && (

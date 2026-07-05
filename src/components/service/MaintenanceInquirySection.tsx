@@ -422,7 +422,7 @@ const MaintenanceInquirySection = () => {
             <ArrowButton
               type="submit"
               variant="primary"
-              disabled={status === 'loading'}
+              disabled={status === 'loading' || !formData.consentPrivacy}
               className="w-fit"
             >
               {t('submit')}

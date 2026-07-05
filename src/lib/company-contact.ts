@@ -11,6 +11,43 @@ export const COMPANY_MAIN_EMAIL = 'info@freestate.ch' as const
 export const COMPANY_MAIN_MAILTO_HREF =
   `mailto:${COMPANY_MAIN_EMAIL}` as const
 
+export type CompanyLocation = {
+  key: string
+  city: string
+  address: string
+  lat: number
+  lng: number
+}
+
+/**
+ * Free State AG office locations plotted on the contact map, matching the
+ * Google Business Profile listings. Only sites with a confirmed street
+ * address are listed; add new entries with `address`/`lat`/`lng` values.
+ */
+export const COMPANY_LOCATIONS: readonly CompanyLocation[] = [
+  {
+    key: 'schaffhausen',
+    city: 'Schaffhausen',
+    address: 'Stettemerstrasse 40, 8207 Schaffhausen',
+    lat: 47.72236775065768,
+    lng: 8.655320035601854,
+  },
+  {
+    key: 'zuerich',
+    city: 'Zürich',
+    address: 'Bordacherstrasse 2, 8108 Zürich',
+    lat: 47.4382426,
+    lng: 8.4459542,
+  },
+  {
+    key: 'stgallen',
+    city: 'St. Gallen',
+    address: 'Schmiedgasse 5, 9000 St. Gallen',
+    lat: 47.4242841,
+    lng: 9.3763953,
+  },
+] as const
+
 /** Public Calendly booking link for scheduling a consultation. */
 export const COMPANY_CALENDLY_URL =
   'https://calendly.com/ivan-m-freestate/30min' as const

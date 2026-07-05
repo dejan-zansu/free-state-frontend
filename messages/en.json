@@ -330,6 +330,24 @@
     "contact": "Contact",
     "myHome": "My Home"
   },
+  "newsletterConfirm": {
+    "loadingTitle": "Confirming your subscription …",
+    "loadingBody": "One moment please, we are confirming your newsletter subscription.",
+    "successTitle": "Subscription confirmed",
+    "successBody": "Thank you! Your subscription to the Free State AG newsletter is now confirmed.",
+    "errorTitle": "Confirmation failed",
+    "errorBody": "This confirmation link is invalid or has expired. Please sign up again.",
+    "backHome": "Back to home"
+  },
+  "newsletterUnsubscribe": {
+    "loadingTitle": "Processing your unsubscribe …",
+    "loadingBody": "One moment please, we are processing your request.",
+    "successTitle": "Unsubscribed",
+    "successBody": "You have been unsubscribed and will no longer receive marketing emails from us.",
+    "errorTitle": "Unsubscribe failed",
+    "errorBody": "This unsubscribe link is invalid. Please contact us at info@freestate.ch.",
+    "backHome": "Back to home"
+  },
   "footer": {
     "copyright": "© Free State AG. All rights reserved.",
     "tagline": "Solar energy as infrastructure. Built for the long term. Designed for economic performance.",
@@ -337,8 +355,9 @@
     "stayConnected": "STAY CONNECTED",
     "signUpForUpdates": "SIGN-UP FOR UPDATES",
     "enterEmail": "Enter email",
+    "newsletterConsent": "I'd like to receive updates and accept the <link>privacy policy</link>.",
     "subscribe": "Subscribe",
-    "subscribed": "Subscribed!",
+    "subscribed": "Check your inbox",
     "callUs": "CALL US",
     "callHours": "Mo-Fr 9-18 (toll free)",
     "solarAbo": {
@@ -377,7 +396,8 @@
       "title": "Legal",
       "legalNotice": "Legal notice",
       "privacyPolicy": "Privacy policy",
-      "agb": "AGB"
+      "agb": "AGB",
+      "cookieSettings": "Cookie settings"
     },
     "contact": {
       "title": "Kontakt",
@@ -399,6 +419,7 @@
   },
   "contactMap": {
     "address": "Address",
+    "locations": "Locations",
     "contact": "Contact",
     "email": "Email",
     "phone": "Phone"
@@ -1806,7 +1827,7 @@
     "ownsHomeQuestion": "Do you own your home?",
     "yes": "Yes",
     "no": "No",
-    "consent": "By clicking the button below, you agree that Free State AG may contact you at the phone number provided and send automated calls and messages about products and services — even if your number is on a 'Do Not Call' list. Message and data rates may apply. Maximum 10 messages per month. Consent is voluntary and can be withdrawn at any time. You also agree to our terms of use.",
+    "consent": "I agree that Free State AG may contact me about my enquiry by phone, email or SMS, and I have read the <link>privacy policy</link>. I can withdraw this consent at any time.",
     "submit": "Submit",
     "successTitle": "Thank you!",
     "successMessage": "We have received your request and will be in touch shortly.",
@@ -1818,7 +1839,8 @@
       "emailInvalid": "Please enter a valid e-mail",
       "postalCode": "Postal code is required",
       "phone": "Phone is required",
-      "ownsHome": "Please select an option"
+      "ownsHome": "Please select an option",
+      "consent": "Please provide your consent to continue"
     }
   },
   "contactForm": {
@@ -2005,7 +2027,9 @@
       "required": "Required",
       "successTitle": "Request sent!",
       "successMessage": "Thank you for your request. We will send you the requested documents shortly.",
-      "errorMessage": "An error occurred. Please try again."
+      "errorMessage": "An error occurred. Please try again.",
+      "consent": "I have read the <link>privacy policy</link> and agree to the processing of my data.",
+      "consentError": "Please provide your consent to continue"
     },
     "faq": {
       "title": "Frequently asked questions",
@@ -2374,7 +2398,7 @@
       "ownerName": "Eigentümer-Name",
       "ownerEmail": "Eigentümer-E-Mail",
       "ownerPhone": "Eigentümer-Telefon",
-      "privacyConsent": "Ich akzeptiere die Datenschutzerklärung.",
+      "privacyConsent": "I accept the <link>privacy policy</link>.",
       "marketingConsent": "Ich möchte gelegentlich Informationen und Angebote erhalten.",
       "required": "Pflichtfeld",
       "invalidEmail": "Ungültige E-Mail",
@@ -3857,6 +3881,10 @@
       "title": "Web Analytics, Tag Management and Usage Measurement",
       "content": "Subject to your consent, we use the following services to understand how our website is used and to improve our offering. Without your consent, these services are not activated.\n\n1) Google Tag Manager\nProvider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.\nGoogle Tag Manager is a management tool that allows us to embed measurement and analytics tags centrally. The Tag Manager itself does not create user profiles and does not set its own cookies. However, it loads other services (see below) that process data themselves.\n\n2) Google Analytics 4 (GA4)\nProvider: Google Ireland Limited.\nGA4 produces anonymized statistics about the use of our website (e.g., page views, session duration, country of origin, device type, traffic source). The IP address is truncated before storage (\"IP Anonymization\") and individual users are not directly identified. We operate GA4 with Google Consent Mode v2 enabled and with advertising features (\"Google Signals\") disabled. The retention period for event data in GA4 is 14 months.\n\n3) Hotjar\nProvider: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar produces aggregated heatmaps and — on certain pages (in particular the solar calculator and the customer area) — pseudonymized session recordings to identify usability issues. Keystrokes in form fields are masked by default; sensitive content (customer data, contracts) is not recorded. Hotjar sets cookies with a maximum lifetime of 365 days.\n\n4) Google Search Console\nProvider: Google Ireland Limited.\nGoogle Search Console is used exclusively for verifying domain ownership and analyzing anonymous SEO statistics (e.g., incoming search queries from Google). It does not set any cookies on this website and does not process any personal data of our visitors.\n\nLegal basis: consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR).\n\nData transfer to the USA: GA4, Google Tag Manager, Google Search Console and Hotjar partly process data in the USA. Google is certified under the EU-US Data Privacy Framework; Hotjar primarily processes data in the EU but may use sub-processors in third countries. Where data is transferred to a country without an adequate level of data protection, we rely on Standard Contractual Clauses pursuant to Art. 16 revFADP / Art. 46 GDPR."
     },
+    "hosting": {
+      "title": "Hosting and data processors",
+      "content": "To operate our website and application, we use carefully selected data processors who process personal data on our behalf:\n\n• Railway Corporation (USA): hosting of our servers and the PostgreSQL database in which account, customer and contract data are stored.\n• Cloudflare, Inc. (USA/global): storage of documents and files, including contract PDFs and uploaded documents.\n• Resend, Inc. (USA): sending of transactional emails (e.g. confirmations, magic-link sign-in, contract and offer notifications).\n• Google (Google Fonts): provision of fonts when generating PDF documents.\n\nWhere these providers process data in the USA or other countries without an adequate level of data protection recognised by Switzerland, we base the transfer on Standard Contractual Clauses pursuant to Art. 16 revFADP / Art. 46 GDPR, or on the recipient's certification under the (Swiss-US) Data Privacy Framework. We have concluded data processing agreements with all processors."
+    },
     "socialMedia": {
       "title": "Links to Social Networks",
       "content": "In the footer of our website you will find links to our profiles on Facebook, Instagram and LinkedIn. These are explicitly simple hyperlinks, not embedded plugins or tracking pixels. Merely visiting our website does not transfer any data to these social networks.\n\nOnly when you actively click one of these links will you be redirected to the respective platform, and from that point on the privacy provisions of the respective provider apply exclusively. We have no influence over what data is collected or processed there.\n\n• Facebook (Meta Platforms Ireland Ltd.): https://www.facebook.com/privacy/policy\n• Instagram (Meta Platforms Ireland Ltd.): https://privacycenter.instagram.com/policy\n• LinkedIn (LinkedIn Ireland Unlimited Company): https://www.linkedin.com/legal/privacy-policy"
@@ -4626,7 +4654,8 @@
     "consents": {
       "dataProcessingPrefix": "I agree that my data provided in this form may be processed as described in the",
       "dataProcessingLink": "privacy policy",
-      "dataProcessingSuffix": "and used for the preparation of an offer, for contract preparation, customer support and for marketing purposes."
+      "dataProcessingSuffix": "and used for the preparation of an offer, for contract preparation and customer support.",
+      "marketing": "I would also like to receive news and offers from Free State AG by email (optional)."
     }
   },
   "solarSystemCarport": {
@@ -6187,7 +6216,7 @@
         "disclaimer": "By submitting, you agree to data processing per our Privacy Policy and can unsubscribe at any time.",
         "submit": "Next"
       },
-      "success": "Thank you for subscribing to our BiDi newsletter! You will receive the latest updates on bidirectional charging."
+      "success": "Almost there! Please confirm your subscription via the link in the email we just sent you."
     },
     "faq": {
       "title": "Frequently asked questions\nabout bidirectional loading",

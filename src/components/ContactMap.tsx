@@ -5,6 +5,7 @@ import {
   COMPANY_MAIN_MAILTO_HREF,
   COMPANY_MAIN_EMAIL,
   COMPANY_MAIN_PHONE_TEL_HREF,
+  COMPANY_LOCATIONS,
 } from '@/lib/company-contact'
 import { Loader } from '@googlemaps/js-api-loader'
 import { useTranslations } from 'next-intl'
@@ -13,7 +14,7 @@ import { useEffect, useRef } from 'react'
 const ContactMap = () => {
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<google.maps.Map | null>(null)
-  const markerRef = useRef<google.maps.Marker | null>(null)
+  const markersRef = useRef<google.maps.Marker[]>([])
   const initializedRef = useRef(false)
 
   useEffect(() => {
@@ -30,7 +31,10 @@ const ContactMap = () => {
         const loader = new Loader({ apiKey, version: 'weekly' })
         await loader.importLibrary('maps')
 
-        const location = { lat: 47.72236775065768, lng: 8.655320035601854 }
+        const location = {
+          lat: COMPANY_LOCATIONS[0].lat,
+          lng: COMPANY_LOCATIONS[0].lng,
+        }
 
         if (mapRef.current) {
           // Custom map styles to match the green/teal color scheme - minimal display
@@ -191,17 +195,46 @@ const ContactMap = () => {
             fillColor: '#062E25',
             fillOpacity: 1,
             strokeColor: '#ffffff',
-            strokeWeight: 2,
-            scale: 1.5,
+            strokeWeight: 3,
+            scale: 2.6,
             anchor: new google.maps.Point(12, 24), // Anchor at the tip of the pin
           }
 
-          markerRef.current = new google.maps.Marker({
-            position: location,
-            map: mapInstanceRef.current,
-            icon: markerIcon,
-            title: 'Location',
+          const bounds = new google.maps.LatLngBounds()
+          const infoWindow = new google.maps.InfoWindow()
+
+          COMPANY_LOCATIONS.forEach((loc) => {
+            const position = { lat: loc.lat, lng: loc.lng }
+
+            const marker = new google.maps.Marker({
+              position,
+              map: mapInstanceRef.current,
+              icon: markerIcon,
+              title: `Free State AG ${loc.city}`,
+            })
+
+            marker.addListener('click', () => {
+              infoWindow.setContent(
+                `<div style="font-family: inherit; color: #062E25; padding: 2px 4px;"><strong>Free State AG</strong><br />${loc.address}</div>`
+              )
+              infoWindow.open({ anchor: marker, map: mapInstanceRef.current })
+            })
+
+            markersRef.current.push(marker)
+            bounds.extend(position)
           })
+
+          if (COMPANY_LOCATIONS.length > 1) {
+            const isLargeScreen =
+              typeof window !== 'undefined' && window.innerWidth >= 1024
+
+            mapInstanceRef.current.fitBounds(
+              bounds,
+              isLargeScreen
+                ? { top: 80, right: 540, bottom: 140, left: 80 }
+                : { top: 60, right: 60, bottom: 60, left: 60 }
+            )
+          }
 
           initializedRef.current = true
         }
@@ -213,9 +246,8 @@ const ContactMap = () => {
     initializeMap()
 
     return () => {
-      if (markerRef.current) {
-        markerRef.current.setMap(null)
-      }
+      markersRef.current.forEach((marker) => marker.setMap(null))
+      markersRef.current = []
     }
   }, [])
 
@@ -228,11 +260,23 @@ const ContactMap = () => {
         <div className="flex flex-col gap-5">
           <div>
             <h3 className="text-[22px] font-medium text-foreground tracking-tight">
-              {t('address')}
+              {t('locations')}
             </h3>
-            <p className="text-base font-light text-foreground/80 tracking-tight mt-3">
-              Stettemerstrasse 40, 8207 Schaffhausen
-            </p>
+            <ul className="mt-3 flex flex-col gap-3">
+              {COMPANY_LOCATIONS.map((loc) => (
+                <li
+                  key={loc.key}
+                  className="text-base font-light text-foreground/80 tracking-tight"
+                >
+                  <span className="font-medium text-foreground">
+                    {loc.city}
+                  </span>
+                  {loc.address !== loc.city && (
+                    <span className="block">{loc.address}</span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="h-px bg-foreground/20" />
