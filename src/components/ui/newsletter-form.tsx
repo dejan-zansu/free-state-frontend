@@ -1,7 +1,7 @@
 'use client'
 
 import { ArrowButton } from '@/components/ui/arrow-button'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
@@ -12,6 +12,7 @@ type NewsletterFormProps = {
 
 export const NewsletterForm = ({ className }: NewsletterFormProps) => {
   const t = useTranslations('bidirectionalChargingStation.newsletter')
+  const locale = useLocale()
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -32,7 +33,7 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
       const response = await fetch(`${API_URL}/api/newsletters`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, locale }),
       })
 
       const data = await response.json()
@@ -157,7 +158,7 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
         <ArrowButton
           type="submit"
           variant="tertiary"
-          disabled={status === 'loading'}
+          disabled={status === 'loading' || !formData.consentMarketing}
           className="w-fit"
         >
           {t('form.submit')}

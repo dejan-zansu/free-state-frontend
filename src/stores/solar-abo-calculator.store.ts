@@ -72,6 +72,7 @@ export interface ContactDetails {
 
 export interface Consents {
   dataProcessing: boolean
+  marketing: boolean
 }
 
 // ElCom 2026 average residential tariff (Rp./kWh → CHF/kWh)
@@ -343,6 +344,7 @@ const initialContact: ContactDetails = {
 
 const initialConsents: Consents = {
   dataProcessing: false,
+  marketing: false,
 }
 
 const initialState: SolarAboCalculatorState = {

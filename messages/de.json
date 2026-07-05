@@ -330,6 +330,24 @@
     "contact": "Kontakt",
     "myHome": "Mein Zuhause"
   },
+  "newsletterConfirm": {
+    "loadingTitle": "Anmeldung wird bestätigt …",
+    "loadingBody": "Einen Moment bitte, wir bestätigen Ihre Newsletter-Anmeldung.",
+    "successTitle": "Anmeldung bestätigt",
+    "successBody": "Vielen Dank! Ihre Anmeldung zum Newsletter von Free State AG ist nun bestätigt.",
+    "errorTitle": "Bestätigung nicht möglich",
+    "errorBody": "Dieser Bestätigungslink ist ungültig oder abgelaufen. Bitte melden Sie sich erneut an.",
+    "backHome": "Zur Startseite"
+  },
+  "newsletterUnsubscribe": {
+    "loadingTitle": "Abmeldung wird verarbeitet …",
+    "loadingBody": "Einen Moment bitte, wir verarbeiten Ihre Abmeldung.",
+    "successTitle": "Erfolgreich abgemeldet",
+    "successBody": "Sie wurden vom Newsletter abgemeldet und erhalten keine weiteren Marketing-E-Mails von uns.",
+    "errorTitle": "Abmeldung nicht möglich",
+    "errorBody": "Dieser Abmeldelink ist ungültig. Bitte kontaktieren Sie uns unter info@freestate.ch.",
+    "backHome": "Zur Startseite"
+  },
   "footer": {
     "copyright": "© Free State AG. Alle Rechte vorbehalten.",
     "tagline": "Solarenergie als Infrastruktur. Langfristig gebaut. Für wirtschaftliche Leistung konzipiert.",
@@ -337,8 +355,9 @@
     "stayConnected": "BLEIBEN SIE VERBUNDEN",
     "signUpForUpdates": "FÜR UPDATES ANMELDEN",
     "enterEmail": "E-Mail eingeben",
+    "newsletterConsent": "Ich möchte Neuigkeiten erhalten und akzeptiere die <link>Datenschutzerklärung</link>.",
     "subscribe": "Abonnieren",
-    "subscribed": "Abonniert!",
+    "subscribed": "E-Mail prüfen",
     "callUs": "RUFEN SIE UNS AN",
     "callHours": "Mo-Fr 9-18 (kostenlos)",
     "solarAbo": {
@@ -377,7 +396,8 @@
       "title": "Rechtliches",
       "legalNotice": "Impressum",
       "privacyPolicy": "Datenschutz",
-      "agb": "AGB"
+      "agb": "AGB",
+      "cookieSettings": "Cookie-Einstellungen"
     },
     "contact": {
       "title": "Kontakt",
@@ -399,6 +419,7 @@
   },
   "contactMap": {
     "address": "Adresse",
+    "locations": "Standorte",
     "contact": "Kontakt",
     "email": "E-Mail",
     "phone": "Telefon"
@@ -1863,7 +1884,7 @@
     "ownsHomeQuestion": "Besitzen Sie Ihr Eigenheim?",
     "yes": "Ja",
     "no": "Nein",
-    "consent": "Mit Klick auf die Schaltfläche unten erklären Sie sich damit einverstanden, dass Free State AG Sie unter der von Ihnen angegebenen Telefonnummer auch dann kontaktieren sowie automatisierte Anrufe und Nachrichten zu Produkten und Dienstleistungen senden darf, wenn Ihre Nummer in einer „Do Not Call“-Liste eingetragen ist. Es können Gebühren für Nachrichten und Daten anfallen. Maximal 10 Nachrichten pro Monat. Die Einwilligung ist freiwillig und kann jederzeit widerrufen werden. Sie stimmen ausserdem unseren Nutzungsbedingungen zu.",
+    "consent": "Ich bin damit einverstanden, dass Free State AG mich zu meiner Anfrage per Telefon, E-Mail oder SMS kontaktiert, und habe die <link>Datenschutzerklärung</link> gelesen. Diese Einwilligung kann ich jederzeit widerrufen.",
     "submit": "Absenden",
     "successTitle": "Vielen Dank!",
     "successMessage": "Wir haben Ihre Anfrage erhalten und melden uns in Kürze bei Ihnen.",
@@ -1875,7 +1896,8 @@
       "emailInvalid": "Bitte eine gültige E-Mail eingeben",
       "postalCode": "Postleitzahl ist erforderlich",
       "phone": "Telefon ist erforderlich",
-      "ownsHome": "Bitte eine Option auswählen"
+      "ownsHome": "Bitte eine Option auswählen",
+      "consent": "Bitte stimmen Sie zu, um fortzufahren"
     }
   },
   "contactForm": {
@@ -2062,7 +2084,9 @@
       "required": "Pflichtfeld",
       "successTitle": "Anfrage gesendet!",
       "successMessage": "Vielen Dank für Ihre Anfrage. Wir senden Ihnen die gewünschten Unterlagen in Kürze zu.",
-      "errorMessage": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+      "errorMessage": "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.",
+      "consent": "Ich habe die <link>Datenschutzerklärung</link> gelesen und stimme der Bearbeitung meiner Daten zu.",
+      "consentError": "Bitte stimmen Sie zu, um fortzufahren"
     },
     "faq": {
       "title": "Häufig gestellte Fragen",
@@ -2431,7 +2455,7 @@
       "ownerName": "Eigentümer-Name",
       "ownerEmail": "Eigentümer-E-Mail",
       "ownerPhone": "Eigentümer-Telefon",
-      "privacyConsent": "Ich akzeptiere die Datenschutzerklärung.",
+      "privacyConsent": "Ich akzeptiere die <link>Datenschutzerklärung</link>.",
       "marketingConsent": "Ich möchte gelegentlich Informationen und Angebote erhalten.",
       "required": "Pflichtfeld",
       "invalidEmail": "Ungültige E-Mail",
@@ -3744,6 +3768,10 @@
     "analytics": {
       "title": "Webanalyse, Tag-Verwaltung und Nutzungsmessung",
       "content": "Vorbehältlich Ihrer Einwilligung setzen wir die folgenden Dienste ein, um die Nutzung unserer Website zu verstehen und unser Angebot zu verbessern. Ohne Ihre Einwilligung werden diese Dienste nicht aktiviert.\n\n1) Google Tag Manager\nAnbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\nDer Google Tag Manager ist ein Verwaltungswerkzeug, mit dem wir Mess- und Analyse-Tags zentral einbinden können. Der Tag Manager selbst erstellt keine Nutzerprofile und setzt keine eigenen Cookies. Er lädt jedoch andere Dienste (siehe nachfolgend), die ihrerseits Daten verarbeiten.\n\n2) Google Analytics 4 (GA4)\nAnbieter: Google Ireland Limited.\nGA4 erstellt anonymisierte Statistiken über die Nutzung unserer Website (z. B. Seitenaufrufe, Sitzungsdauer, Herkunftsland, Gerätetyp, Verweisquelle). Die IP-Adresse wird vor der Speicherung gekürzt («IP Anonymization»), eine direkte Identifizierung einzelner Personen findet nicht statt. Wir betreiben GA4 mit aktiviertem Google Consent Mode v2 sowie mit deaktivierten Werbe-Funktionen («Google Signals»). Die Aufbewahrungsdauer der Ereignisdaten in GA4 beträgt 14 Monate.\n\n3) Hotjar\nAnbieter: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar erstellt aggregierte Heatmaps sowie auf bestimmten Seiten (insbesondere im Solarrechner und im Kundenbereich) pseudonymisierte Sitzungsaufzeichnungen, um Bedienprobleme zu erkennen. Tastatureingaben in Formularfelder werden standardmässig maskiert; sensible Inhalte (Kundendaten, Verträge) werden nicht aufgezeichnet. Hotjar setzt Cookies mit einer maximalen Lebensdauer von 365 Tagen.\n\n4) Google Search Console\nAnbieter: Google Ireland Limited.\nDie Google Search Console wird ausschliesslich zur Verifizierung des Domain-Eigentums und zur Auswertung anonymer SEO-Statistiken (z. B. eingehende Suchanfragen aus Google) verwendet. Sie setzt keine Cookies auf dieser Website und verarbeitet keine personenbezogenen Daten unserer Besucher.\n\nRechtsgrundlage: Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nDatenübermittlung in die USA: GA4, Google Tag Manager, Google Search Console und Hotjar verarbeiten Daten teilweise in den USA. Google ist nach dem EU-US Data Privacy Framework zertifiziert; Hotjar verarbeitet Daten primär in der EU, kann aber auf Sub-Auftragsverarbeiter in Drittländern zurückgreifen. Soweit eine Übermittlung in ein Land ohne angemessenes Datenschutzniveau erfolgt, stützen wir diese auf Standardvertragsklauseln gemäss Art. 16 revDSG bzw. Art. 46 DSGVO."
+    },
+    "hosting": {
+      "title": "Hosting und Auftragsverarbeiter",
+      "content": "Für den Betrieb unserer Website und Anwendung setzen wir sorgfältig ausgewählte Auftragsverarbeiter ein, die personenbezogene Daten in unserem Auftrag bearbeiten:\n\n• Railway Corporation (USA): Hosting unserer Server und der PostgreSQL-Datenbank, in der Konto-, Kunden- und Vertragsdaten gespeichert werden.\n• Cloudflare, Inc. (USA/global): Speicherung von Dokumenten und Dateien, einschliesslich Vertrags-PDFs und hochgeladener Unterlagen.\n• Resend, Inc. (USA): Versand von transaktionalen E-Mails (z. B. Bestätigungen, Magic-Link-Anmeldung, Vertrags- und Angebotsmitteilungen).\n• Google (Google Fonts): Bereitstellung von Schriftarten bei der Erstellung von PDF-Dokumenten.\n\nSoweit diese Anbieter Daten in den USA oder anderen Ländern ohne von der Schweiz anerkanntes angemessenes Datenschutzniveau bearbeiten, stützen wir die Übermittlung auf Standardvertragsklauseln gemäss Art. 16 revDSG bzw. Art. 46 DSGVO oder auf die Zertifizierung des Empfängers unter dem (Swiss-US) Data Privacy Framework. Mit allen Auftragsverarbeitern bestehen entsprechende Auftragsverarbeitungsverträge."
     },
     "socialMedia": {
       "title": "Verlinkungen zu sozialen Netzwerken",
@@ -5606,7 +5634,7 @@
         "disclaimer": "Mit dem Absenden stimmen Sie der Datenverarbeitung gemäss unserer Datenschutzrichtlinie zu und können sich jederzeit abmelden.",
         "submit": "Weiter"
       },
-      "success": "Vielen Dank für Ihre Anmeldung zu unserem BiDi Newsletter! Sie erhalten die neuesten Updates zum bidirektionalen Laden."
+      "success": "Fast geschafft! Bitte bestätigen Sie Ihre Anmeldung über den Link in der E-Mail, die wir Ihnen soeben gesendet haben."
     },
     "faq": {
       "title": "Häufig gestellte Fragen\nzum bidirektionalen Laden",
@@ -6241,7 +6269,8 @@
     "consents": {
       "dataProcessingPrefix": "Ich bin damit einverstanden, dass meine in diesem Formular angegebenen Daten wie in der",
       "dataProcessingLink": "Datenschutzerklärung",
-      "dataProcessingSuffix": "beschrieben verarbeitet und für die Angebotserstellung, Vertragsanbahnung, Kundenbetreuung und Marketingzwecke verwendet werden dürfen."
+      "dataProcessingSuffix": "beschrieben verarbeitet und für die Angebotserstellung, Vertragsanbahnung und Kundenbetreuung verwendet werden dürfen.",
+      "marketing": "Ich möchte zusätzlich Neuigkeiten und Angebote von Free State AG per E-Mail erhalten (optional)."
     }
   },
   "admin": {

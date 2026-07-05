@@ -6,8 +6,9 @@ import {
 } from '@/lib/company-contact'
 import { cn } from '@/lib/utils'
 import { Phone } from 'lucide-react'
-import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
+import { useState, type ReactNode } from 'react'
+import * as CookieConsent from 'vanilla-cookieconsent'
 import LogoLight from './icons/LogoLight'
 import { ArrowButton } from './ui/arrow-button'
 import { LinkButton } from './ui/link-button'
@@ -38,8 +39,10 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 
 const Footer = () => {
   const t = useTranslations('footer')
+  const locale = useLocale()
   const pathname = usePathname()
   const [email, setEmail] = useState('')
+  const [consent, setConsent] = useState(false)
   const [subscribeStatus, setSubscribeStatus] = useState<
     'idle' | 'loading' | 'success' | 'error'
   >('idle')
@@ -136,19 +139,20 @@ const Footer = () => {
   ]
 
   const handleSubscribe = async () => {
-    if (!email.trim()) return
+    if (!email.trim() || !consent) return
     setSubscribeStatus('loading')
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
       const response = await fetch(`${apiUrl}/api/newsletters`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, consentMarketing: true, locale }),
       })
       const data = await response.json()
       if (data.success) {
         setSubscribeStatus('success')
         setEmail('')
+        setConsent(false)
       } else {
         setSubscribeStatus('error')
       }
@@ -161,11 +165,13 @@ const Footer = () => {
     title,
     links,
     titleClassName,
+    extra,
   }: {
     title: string
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     links: { label: string; href: any }[]
     titleClassName?: string
+    extra?: ReactNode
   }) => (
     <div>
       <h3 className={cn('font-semibold mb-4 text-sm', titleClassName || 'text-solar')}>
@@ -182,6 +188,7 @@ const Footer = () => {
             </Link>
           </li>
         ))}
+        {extra && <li>{extra}</li>}
       </ul>
     </div>
   )
@@ -254,13 +261,49 @@ const Footer = () => {
                     className="bg-transparent text-sm font-medium outline-none w-[200px] sm:w-[260px] placeholder:opacity-50 text-white placeholder:text-white"
                   />
                 </div>
+                <div className="flex items-start gap-2 max-w-[280px]">
+                  <button
+                    type="button"
+                    role="checkbox"
+                    aria-checked={consent}
+                    onClick={() => setConsent(!consent)}
+                    className={cn(
+                      'w-3.5 h-3.5 mt-0.5 rounded-[3px] border shrink-0 flex items-center justify-center transition-colors cursor-pointer',
+                      consent ? 'border-solar bg-solar' : 'border-white/40 bg-transparent'
+                    )}
+                  >
+                    {consent && (
+                      <svg width="9" height="7" viewBox="0 0 10 8" fill="none">
+                        <path
+                          d="M1 4L3.5 6.5L9 1"
+                          stroke="#062E25"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </button>
+                  <span className="text-xs font-normal text-muted-text-light">
+                    {t.rich('newsletterConsent', {
+                      link: chunks => (
+                        <Link
+                          href="/privacy-policy"
+                          className="underline hover:text-white"
+                        >
+                          {chunks}
+                        </Link>
+                      ),
+                    })}
+                  </span>
+                </div>
               </div>
               <ArrowButton
                 variant="primary"
                 size="md"
                 className="h-9 text-sm"
                 onClick={handleSubscribe}
-                disabled={subscribeStatus === 'loading' || !email.trim()}
+                disabled={subscribeStatus === 'loading' || !email.trim() || !consent}
               >
                 {subscribeStatus === 'success'
                   ? t('subscribed')
@@ -329,7 +372,19 @@ const Footer = () => {
                 />
               </div>
               <div className="w-fit">
-                <LinkColumn title={t('legal.title')} links={legalLinks} />
+                <LinkColumn
+                  title={t('legal.title')}
+                  links={legalLinks}
+                  extra={
+                    <button
+                      type="button"
+                      onClick={() => CookieConsent.showPreferences()}
+                      className="text-sm font-normal transition-colors text-left text-muted-text-light hover:text-white"
+                    >
+                      {t('legal.cookieSettings')}
+                    </button>
+                  }
+                />
               </div>
               <div className="w-fit">
                 <LinkColumn title={t('contact.title')} links={contactLinks} />

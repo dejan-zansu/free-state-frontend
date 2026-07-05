@@ -40,6 +40,10 @@ const PrivacyPolicyPage = async () => {
       content: t('analytics.content'),
     },
     {
+      title: t('hosting.title'),
+      content: t('hosting.content'),
+    },
+    {
       title: t('socialMedia.title'),
       content: t('socialMedia.content'),
     },

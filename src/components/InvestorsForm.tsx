@@ -14,6 +14,8 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { ArrowButton } from '@/components/ui/arrow-button'
+import { Link } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
@@ -30,6 +32,7 @@ type InvestorFormData = {
   phone: string
   comment: string
   language: string
+  consentPrivacy: boolean
 }
 
 const inputClassName =
@@ -58,6 +61,7 @@ const InvestorsForm = () => {
       phone: '',
       comment: '',
       language: 'german',
+      consentPrivacy: false,
     },
   })
 
@@ -245,6 +249,51 @@ const InvestorsForm = () => {
                   />
                 </div>
               </div>
+
+              <Controller
+                name="consentPrivacy"
+                control={control}
+                rules={{ validate: v => v === true || t('consentError') }}
+                render={({ field }) => (
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-start gap-2">
+                      <button
+                        type="button"
+                        role="checkbox"
+                        aria-checked={field.value}
+                        onClick={() => field.onChange(!field.value)}
+                        className={cn(
+                          'w-3.5 h-3.5 mt-0.5 rounded-[3px] border shrink-0 flex items-center justify-center transition-colors cursor-pointer',
+                          field.value
+                            ? 'border-solar bg-solar'
+                            : 'border-foreground/40 bg-transparent'
+                        )}
+                      >
+                        {field.value && (
+                          <Check className="w-2.5 h-2.5 text-[#062E25]" strokeWidth={3} />
+                        )}
+                      </button>
+                      <span className="text-foreground/70 text-sm font-normal tracking-[-0.02em]">
+                        {t.rich('consent', {
+                          link: chunks => (
+                            <Link
+                              href="/privacy-policy"
+                              className="underline hover:text-foreground"
+                            >
+                              {chunks}
+                            </Link>
+                          ),
+                        })}
+                      </span>
+                    </div>
+                    {errors.consentPrivacy && (
+                      <p className="text-red-500 text-sm">
+                        {errors.consentPrivacy.message}
+                      </p>
+                    )}
+                  </div>
+                )}
+              />
 
               {status === 'error' && (
                 <p className="text-red-600 text-sm font-medium">{t('errorMessage')}</p>

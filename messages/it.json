@@ -330,6 +330,24 @@
     "contact": "Contatto",
     "myHome": "La mia area"
   },
+  "newsletterConfirm": {
+    "loadingTitle": "Conferma dell'iscrizione …",
+    "loadingBody": "Un momento, stiamo confermando la tua iscrizione alla newsletter.",
+    "successTitle": "Iscrizione confermata",
+    "successBody": "Grazie! La tua iscrizione alla newsletter di Free State AG è ora confermata.",
+    "errorTitle": "Conferma non riuscita",
+    "errorBody": "Questo link di conferma non è valido o è scaduto. Iscriviti di nuovo.",
+    "backHome": "Torna alla home"
+  },
+  "newsletterUnsubscribe": {
+    "loadingTitle": "Elaborazione della disiscrizione …",
+    "loadingBody": "Un momento, stiamo elaborando la tua richiesta.",
+    "successTitle": "Disiscrizione effettuata",
+    "successBody": "Sei stato disiscritto e non riceverai più e-mail di marketing da noi.",
+    "errorTitle": "Disiscrizione non riuscita",
+    "errorBody": "Questo link di disiscrizione non è valido. Contattaci all'indirizzo info@freestate.ch.",
+    "backHome": "Torna alla home"
+  },
   "footer": {
     "copyright": "© Free State AG. Tutti i diritti riservati.",
     "tagline": "Energia solare come infrastruttura. Costruita per durare. Progettata per la performance economica.",
@@ -337,8 +355,9 @@
     "stayConnected": "RESTA CONNESSO",
     "signUpForUpdates": "ISCRIVITI PER AGGIORNAMENTI",
     "enterEmail": "Inserisci email",
+    "newsletterConsent": "Desidero ricevere aggiornamenti e accetto l'<link>informativa sulla privacy</link>.",
     "subscribe": "Iscriviti",
-    "subscribed": "Iscritto!",
+    "subscribed": "Controlla la posta",
     "callUs": "CHIAMACI",
     "callHours": "Lu-Ve 9-18 (gratuito)",
     "solarAbo": {
@@ -377,7 +396,8 @@
       "title": "Note legali",
       "legalNotice": "Note legali",
       "privacyPolicy": "Informativa sulla privacy",
-      "agb": "Condizioni generali"
+      "agb": "Condizioni generali",
+      "cookieSettings": "Impostazioni cookie"
     },
     "contact": {
       "title": "Contatto",
@@ -399,6 +419,7 @@
   },
   "contactMap": {
     "address": "Indirizzo",
+    "locations": "Sedi",
     "contact": "Contatto",
     "email": "Email",
     "phone": "Telefono"
@@ -1806,7 +1827,7 @@
     "ownsHomeQuestion": "Sei proprietario della tua abitazione?",
     "yes": "Sì",
     "no": "No",
-    "consent": "Cliccando sul pulsante qui sotto, accetti che Free State AG possa contattarti al numero di telefono fornito e inviare chiamate e messaggi automatizzati relativi a prodotti e servizi, anche se il tuo numero figura in una lista «Do Not Call». Potrebbero essere applicati costi per messaggi e dati. Massimo 10 messaggi al mese. Il consenso è facoltativo e può essere revocato in qualsiasi momento. Accetti inoltre le nostre condizioni d'uso.",
+    "consent": "Accetto che Free State AG mi contatti in merito alla mia richiesta per telefono, e-mail o SMS e ho letto l'<link>informativa sulla privacy</link>. Posso revocare questo consenso in qualsiasi momento.",
     "submit": "Invia",
     "successTitle": "Grazie!",
     "successMessage": "Abbiamo ricevuto la tua richiesta e ti contatteremo a breve.",
@@ -1818,7 +1839,8 @@
       "emailInvalid": "Inserisci un'e-mail valida",
       "postalCode": "Il CAP è obbligatorio",
       "phone": "Il telefono è obbligatorio",
-      "ownsHome": "Seleziona un'opzione"
+      "ownsHome": "Seleziona un'opzione",
+      "consent": "Fornisci il consenso per continuare"
     }
   },
   "contactForm": {
@@ -2005,7 +2027,9 @@
       "required": "Obbligatorio",
       "successTitle": "Richiesta inviata!",
       "successMessage": "Grazie per la tua richiesta. Ti invieremo a breve i documenti richiesti.",
-      "errorMessage": "Si è verificato un errore. Riprova."
+      "errorMessage": "Si è verificato un errore. Riprova.",
+      "consent": "Ho letto l'<link>informativa sulla privacy</link> e acconsento al trattamento dei miei dati.",
+      "consentError": "Fornisci il consenso per continuare"
     },
     "faq": {
       "title": "Domande frequenti",
@@ -2374,7 +2398,7 @@
       "ownerName": "Eigentümer-Name",
       "ownerEmail": "Eigentümer-E-Mail",
       "ownerPhone": "Eigentümer-Telefon",
-      "privacyConsent": "Ich akzeptiere die Datenschutzerklärung.",
+      "privacyConsent": "Accetto l'<link>informativa sulla privacy</link>.",
       "marketingConsent": "Ich möchte gelegentlich Informationen und Angebote erhalten.",
       "required": "Pflichtfeld",
       "invalidEmail": "Ungültige E-Mail",
@@ -3857,6 +3881,10 @@
       "title": "Web analytics, gestione dei tag e misurazione dell'utilizzo",
       "content": "Previa il tuo consenso, utilizziamo i seguenti servizi per capire come viene utilizzato il nostro sito web e per migliorare la nostra offerta. Senza il tuo consenso, questi servizi non vengono attivati.\n\n1) Google Tag Manager\nFornitore: Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\nGoogle Tag Manager è uno strumento di gestione che ci consente di integrare in modo centralizzato i tag di misurazione e analisi. Il Tag Manager stesso non crea profili utente e non imposta cookie propri. Tuttavia, carica altri servizi (vedi sotto) che trattano essi stessi dati.\n\n2) Google Analytics 4 (GA4)\nFornitore: Google Ireland Limited.\nGA4 produce statistiche anonimizzate sull'uso del nostro sito web (ad es. visualizzazioni di pagina, durata della sessione, paese di origine, tipo di dispositivo, fonte di traffico). L'indirizzo IP viene troncato prima della memorizzazione (\"anonimizzazione IP\") e i singoli utenti non vengono identificati direttamente. Gestiamo GA4 con la Google Consent Mode v2 abilitata e con le funzioni pubblicitarie (\"Google Signals\") disabilitate. Il periodo di conservazione dei dati di evento in GA4 è di 14 mesi.\n\n3) Hotjar\nFornitore: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar produce heatmap aggregate; su determinate pagine (in particolare il calcolatore solare e l'area clienti) registra inoltre sessioni pseudonimizzate per identificare problemi di usabilità. Le battute sui campi dei moduli sono mascherate per impostazione predefinita; i contenuti sensibili (dati dei clienti, contratti) non vengono registrati. Hotjar imposta cookie con una durata massima di 365 giorni.\n\n4) Google Search Console\nFornitore: Google Ireland Limited.\nGoogle Search Console viene utilizzato esclusivamente per la verifica della proprietà del dominio e per l'analisi di statistiche SEO anonime (ad es. query di ricerca in ingresso da Google). Non imposta cookie su questo sito web e non tratta dati personali dei nostri visitatori.\n\nBase giuridica: consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nTrasferimento di dati negli USA: GA4, Google Tag Manager, Google Search Console e Hotjar trattano in parte dati negli USA. Google è certificato ai sensi dell'EU-US Data Privacy Framework; Hotjar tratta i dati prevalentemente nell'UE ma può utilizzare subincaricati in Paesi terzi. Laddove i dati vengano trasferiti in un Paese senza un livello adeguato di protezione dei dati, ci basiamo sulle Clausole Contrattuali Tipo ai sensi dell'art. 16 nLPD / art. 46 GDPR."
     },
+    "hosting": {
+      "title": "Hosting e responsabili del trattamento",
+      "content": "Per gestire il nostro sito web e la nostra applicazione ci avvaliamo di responsabili del trattamento accuratamente selezionati che trattano dati personali per nostro conto:\n\n• Railway Corporation (USA): hosting dei nostri server e del database PostgreSQL in cui sono memorizzati i dati di account, clienti e contratti.\n• Cloudflare, Inc. (USA/globale): archiviazione di documenti e file, inclusi i PDF dei contratti e i documenti caricati.\n• Resend, Inc. (USA): invio di e-mail transazionali (ad es. conferme, accesso tramite magic link, notifiche di contratti e offerte).\n• Google (Google Fonts): fornitura di caratteri durante la generazione di documenti PDF.\n\nQualora tali fornitori trattino dati negli USA o in altri Paesi privi di un livello di protezione adeguato riconosciuto dalla Svizzera, basiamo il trasferimento sulle clausole contrattuali tipo ai sensi dell'art. 16 nLPD / art. 46 GDPR, oppure sulla certificazione del destinatario nell'ambito del Data Privacy Framework (Svizzera-USA). Abbiamo concluso accordi sul trattamento dei dati con tutti i responsabili."
+    },
     "socialMedia": {
       "title": "Link ai social network",
       "content": "Nel footer del nostro sito web troverai link ai nostri profili su Facebook, Instagram e LinkedIn. Si tratta esplicitamente di semplici collegamenti ipertestuali, non di plugin incorporati o pixel di tracciamento. La mera visita al nostro sito web non trasmette alcun dato a questi social network.\n\nSolo quando clicchi attivamente su uno di questi link verrai reindirizzato alla rispettiva piattaforma e da quel momento in poi si applicano esclusivamente le disposizioni sulla privacy del rispettivo fornitore. Non abbiamo alcuna influenza sui dati che vengono raccolti o trattati lì.\n\n• Facebook (Meta Platforms Ireland Ltd.): https://www.facebook.com/privacy/policy\n• Instagram (Meta Platforms Ireland Ltd.): https://privacycenter.instagram.com/policy\n• LinkedIn (LinkedIn Ireland Unlimited Company): https://www.linkedin.com/legal/privacy-policy"
@@ -4626,7 +4654,8 @@
     "consents": {
       "dataProcessingPrefix": "Acconsento che i miei dati forniti in questo modulo siano trattati come descritto nell'",
       "dataProcessingLink": "informativa sulla privacy",
-      "dataProcessingSuffix": "e utilizzati per la preparazione di un'offerta, per la predisposizione del contratto, per il supporto clienti e per finalità di marketing."
+      "dataProcessingSuffix": "e utilizzati per la preparazione di un'offerta, per la predisposizione del contratto e per il supporto clienti.",
+      "marketing": "Desidero inoltre ricevere novità e offerte da Free State AG via e-mail (facoltativo)."
     }
   },
   "solarSystemCarport": {
@@ -6187,7 +6216,7 @@
         "disclaimer": "Inviando, accetti il trattamento dei dati secondo la nostra Informativa sulla privacy e puoi disiscriverti in qualsiasi momento.",
         "submit": "Avanti"
       },
-      "success": "Grazie per esserti iscritto alla nostra newsletter BiDi! Riceverai gli ultimi aggiornamenti sulla ricarica bidirezionale."
+      "success": "Ci siamo quasi! Conferma la tua iscrizione tramite il link nell'e-mail che ti abbiamo appena inviato."
     },
     "faq": {
       "title": "Domande frequenti\nsulla ricarica bidirezionale",

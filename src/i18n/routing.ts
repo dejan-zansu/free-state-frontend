@@ -309,6 +309,8 @@ export const routing = defineRouting({
       it: '/verifica-email',
     },
     '/magic-link-verify': '/magic-link-verify',
+    '/newsletter/confirm': '/newsletter/confirm',
+    '/newsletter/unsubscribe': '/newsletter/unsubscribe',
     '/privacy': {
       en: '/privacy',
       de: '/datenschutz',
