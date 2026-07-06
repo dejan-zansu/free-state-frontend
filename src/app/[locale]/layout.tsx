@@ -4,6 +4,8 @@ import '../globals.css'
 import {
   AnalyticsScripts,
   AnalyticsNoscript,
+  MetaPixelScript,
+  MetaPixelNoscript,
 } from '@/components/analytics/AnalyticsScripts'
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
@@ -90,11 +92,13 @@ export default async function LocaleLayout({
         <JsonLdLocalBusiness />
         <JsonLd data={buildWebSiteJsonLd()} />
         <AnalyticsScripts />
+        <MetaPixelScript />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} antialiased flex flex-col min-h-screen`}
       >
         <AnalyticsNoscript />
+        <MetaPixelNoscript />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <NuqsAdapter>
             <QueryProvider>

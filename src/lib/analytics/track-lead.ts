@@ -30,4 +30,10 @@ export function trackLead({
   if (typeof value === 'number') payload.value = value
 
   window.dataLayer.push(payload)
+
+  if (typeof window.fbq === 'function') {
+    const metaPayload: Record<string, unknown> = { currency }
+    if (typeof value === 'number') metaPayload.value = value
+    window.fbq('track', 'Lead', metaPayload)
+  }
 }
