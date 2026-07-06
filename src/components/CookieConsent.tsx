@@ -242,6 +242,12 @@ function syncConsentToGtag() {
   })
 }
 
+function syncConsentToMetaPixel() {
+  if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
+  const marketing = CookieConsent.acceptedCategory('marketing')
+  window.fbq('consent', marketing ? 'grant' : 'revoke')
+}
+
 function notifyConsentChanged() {
   if (typeof window === 'undefined') return
   window.dispatchEvent(new CustomEvent('app:consent-changed'))
@@ -289,14 +295,17 @@ export default function CookieConsentBanner() {
       },
       onFirstConsent: () => {
         syncConsentToGtag()
+        syncConsentToMetaPixel()
         notifyConsentChanged()
       },
       onConsent: () => {
         syncConsentToGtag()
+        syncConsentToMetaPixel()
         notifyConsentChanged()
       },
       onChange: () => {
         syncConsentToGtag()
+        syncConsentToMetaPixel()
         notifyConsentChanged()
       },
     })

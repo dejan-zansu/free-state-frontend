@@ -1,5 +1,10 @@
 import Script from 'next/script'
-import { gtmEnabled, gtmId } from '@/lib/analytics-env'
+import {
+  gtmEnabled,
+  gtmId,
+  metaPixelEnabled,
+  metaPixelId,
+} from '@/lib/analytics-env'
 
 export function AnalyticsScripts() {
   if (!gtmEnabled) return null
@@ -45,6 +50,48 @@ export function AnalyticsNoscript() {
         height="0"
         width="0"
         style={{ display: 'none', visibility: 'hidden' }}
+      />
+    </noscript>
+  )
+}
+
+export function MetaPixelScript() {
+  if (!metaPixelEnabled) return null
+
+  const metaPixel = `
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('consent', 'revoke');
+    fbq('init', '${metaPixelId}');
+    fbq('track', 'PageView');
+  `
+
+  return (
+    <Script
+      id="meta-pixel"
+      strategy="afterInteractive"
+      dangerouslySetInnerHTML={{ __html: metaPixel }}
+    />
+  )
+}
+
+export function MetaPixelNoscript() {
+  if (!metaPixelEnabled) return null
+
+  return (
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        alt=""
+        style={{ display: 'none' }}
+        src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
       />
     </noscript>
   )

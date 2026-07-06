@@ -31,6 +31,14 @@ declare global {
     hj?: ((...args: unknown[]) => void) & { q?: unknown[] }
     _hjSettings?: { hjid: number; hjsv: number }
     gtag?: (...args: unknown[]) => void
+    fbq?: ((...args: unknown[]) => void) & {
+      callMethod?: (...args: unknown[]) => void
+      queue?: unknown[]
+      loaded?: boolean
+      version?: string
+      push?: unknown
+    }
+    _fbq?: unknown
   }
 }
 
