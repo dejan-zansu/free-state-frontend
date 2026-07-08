@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { X, Phone, Mail } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -16,6 +17,8 @@ export default function ConsultationDock() {
   const [hidden, setHidden] = useState(false)
   const [advisor, setAdvisor] = useState<ConsultationAdvisor | null>(null)
   const rootRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
+  const inCalculatorFlow = pathname?.endsWith('/calculator') ?? false
 
   useEffect(() => {
     setAdvisor(getStickyAdvisor())
@@ -47,7 +50,12 @@ export default function ConsultationDock() {
   return (
     <div
       ref={rootRef}
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-10 z-50 flex flex-col items-end print:hidden"
+      className={cn(
+        'fixed right-4 sm:right-10 z-50 flex flex-col items-end print:hidden',
+        inCalculatorFlow
+          ? 'bottom-24 sm:bottom-24'
+          : 'bottom-4 sm:bottom-6'
+      )}
     >
       {open && (
         <div
