@@ -133,7 +133,7 @@ export default function Step4RoofAreas() {
   )
 
   const redrawAllSegments = useCallback(() => {
-    if (!vectorSourceRef.current || !buildingRef.current) return
+    if (!vectorSourceRef.current || !buildingRef.current?.roofSegments) return
     vectorSourceRef.current.clear()
     buildingRef.current.roofSegments.forEach(segment => {
       const isSelected = selectedSegmentsRef.current.includes(segment.id)
@@ -238,7 +238,7 @@ export default function Step4RoofAreas() {
       const ctx = event.context as CanvasRenderingContext2D | undefined
       const map = mapInstanceRef.current
       const b = buildingRef.current
-      if (!ctx || !map || !b) return
+      if (!ctx || !map || !b?.roofSegments) return
 
       ctx.save()
       ctx.beginPath()

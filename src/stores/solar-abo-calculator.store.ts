@@ -580,13 +580,13 @@ export const useSolarAboCalculatorStore = create<
 
       getSelectedSegments: () => {
         const { building, selectedSegmentIds } = get()
-        if (!building) return []
+        if (!building?.roofSegments) return []
         return building.roofSegments.filter(s => selectedSegmentIds.includes(s.id))
       },
 
       getSelectedArea: () => {
         const { building, selectedSegmentIds } = get()
-        if (!building) return 0
+        if (!building?.roofSegments) return 0
         return building.roofSegments
           .filter(s => selectedSegmentIds.includes(s.id))
           .reduce((sum, s) => sum + s.area, 0)
@@ -1035,6 +1035,17 @@ export const useSolarAboCalculatorStore = create<
     {
       name: 'solar-free-calculator',
       storage: createJSONStorage(() => sessionStorage),
+      merge: (persisted, current) => {
+        const p = (persisted ?? {}) as Partial<SolarAboCalculatorState>
+        const hasValidBuilding =
+          !!p.building && Array.isArray((p.building as SonnendachBuilding).roofSegments)
+        return {
+          ...current,
+          ...p,
+          building: hasValidBuilding ? p.building! : null,
+          selectedSegmentIds: hasValidBuilding ? p.selectedSegmentIds ?? [] : [],
+        }
+      },
       partialize: (state) => ({
         solarModel: state.solarModel,
         buildingType: state.buildingType,
