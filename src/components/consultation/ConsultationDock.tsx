@@ -51,17 +51,20 @@ export default function ConsultationDock() {
     <div
       ref={rootRef}
       className={cn(
-        'fixed right-4 sm:right-10 z-50 flex flex-col items-end print:hidden',
+        'fixed right-4 sm:right-10 z-50 flex items-end print:hidden',
         inCalculatorFlow
-          ? 'bottom-24 sm:bottom-24'
-          : 'bottom-4 sm:bottom-6'
+          ? 'top-1 sm:top-[14px] flex-col-reverse'
+          : 'bottom-4 sm:bottom-6 flex-col'
       )}
     >
       {open && (
         <div
           role="dialog"
           aria-label={t('title')}
-          className="mb-3 w-[300px] sm:w-[360px] max-w-[calc(100vw-2rem)] rounded-2xl border border-glass-border bg-white/80 backdrop-blur-md shadow-[0_25px_34px_0_rgba(6,46,37,0.15)] p-5 sm:p-6"
+          className={cn(
+            'w-[300px] sm:w-[360px] max-w-[calc(100vw-2rem)] rounded-2xl border border-glass-border bg-white/80 backdrop-blur-md shadow-[0_25px_34px_0_rgba(6,46,37,0.15)] p-5 sm:p-6',
+            inCalculatorFlow ? 'mt-3' : 'mb-3'
+          )}
         >
           <div className="flex items-start gap-3">
             <Image
@@ -122,16 +125,29 @@ export default function ConsultationDock() {
         <button
           aria-label={t('open', { name: firstName })}
           onClick={() => setOpen(v => !v)}
-          className="flex items-center gap-2 sm:gap-2.5 rounded-full pl-2 pr-9 py-2 sm:pl-2.5 sm:pr-10 sm:py-2.5 transition-opacity hover:opacity-90"
+          className={cn(
+            'flex items-center rounded-full transition-opacity hover:opacity-90',
+            inCalculatorFlow
+              ? 'gap-2 pl-2 pr-9 py-1.5'
+              : 'gap-2 sm:gap-2.5 pl-2 pr-9 py-2 sm:pl-2.5 sm:pr-10 sm:py-2.5'
+          )}
         >
           <Image
             src={advisor.image}
             alt={name}
             width={48}
             height={48}
-            className="h-10 w-10 sm:h-12 sm:w-12 rounded-full object-cover object-top bg-sage/40"
+            className={cn(
+              'rounded-full object-cover object-top bg-sage/40',
+              inCalculatorFlow ? 'h-9 w-9' : 'h-10 w-10 sm:h-12 sm:w-12'
+            )}
           />
-          <span className="text-sm sm:text-base font-semibold whitespace-nowrap">
+          <span
+            className={cn(
+              'font-semibold whitespace-nowrap',
+              'text-sm sm:text-base'
+            )}
+          >
             {t('open', { name: firstName })}
           </span>
         </button>
@@ -139,7 +155,10 @@ export default function ConsultationDock() {
           <button
             aria-label={t('dismiss')}
             onClick={() => setHidden(true)}
-            className="absolute top-1.5 right-4 flex h-5 w-5 items-center justify-center rounded-full text-white/55 transition-colors hover:bg-white/15 hover:text-white"
+            className={cn(
+              'absolute flex h-5 w-5 items-center justify-center rounded-full text-white/55 transition-colors hover:bg-white/15 hover:text-white',
+              inCalculatorFlow ? 'top-1 right-3.5' : 'top-1.5 right-4'
+            )}
           >
             <X className="h-3.5 w-3.5" />
           </button>
