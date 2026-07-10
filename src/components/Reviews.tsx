@@ -10,6 +10,8 @@ import {
   CarouselItem,
 } from './ui/carousel'
 import { Badge } from './ui/badge'
+import { Reveal } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 
 type Review = {
   quote: string
@@ -114,12 +116,19 @@ const Reviews = ({ isCommercial = false }: { isCommercial?: boolean }) => {
           >
             {eyebrow}
           </Badge>
-          <h2 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[65px] font-medium capitalize">
+          <RevealText
+            as="h2"
+            className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[65px] font-medium capitalize"
+          >
             {title}
-          </h2>
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-tight">
+          </RevealText>
+          <Reveal
+            as="p"
+            delay={0.2}
+            className="text-white/80 text-lg md:text-[22px] font-light tracking-tight"
+          >
             {subtitle}
-          </p>
+          </Reveal>
         </div>
 
         <Carousel

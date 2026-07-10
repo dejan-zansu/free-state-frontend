@@ -1,5 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
+import { Reveal } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
+import RevealImage from '@/components/motion/RevealImage'
 import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
 
@@ -46,7 +49,7 @@ const PathToEnergy = async ({
       />
 
       <div className="relative max-w-[1120px] mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
-        <div className="relative w-full max-w-[300px] sm:max-w-[348px] lg:w-[348px] shrink-0 p-2.5">
+        <Reveal className="relative w-full max-w-[300px] sm:max-w-[348px] lg:w-[348px] shrink-0 p-2.5">
           <div
             className="pointer-events-none absolute inset-0 -m-8 rounded-full"
             style={{
@@ -54,10 +57,10 @@ const PathToEnergy = async ({
               filter: 'blur(80px)',
             }}
           />
-          <div className="relative w-[82%] sm:w-full aspect-[328/225] rounded-lg overflow-hidden mx-auto">
+          <RevealImage className="relative w-[82%] sm:w-full aspect-[328/225] rounded-lg overflow-hidden mx-auto">
             <Image src={image} alt={t('title')} fill className="object-cover" />
-          </div>
-        </div>
+          </RevealImage>
+        </Reveal>
 
         <div className="w-full flex flex-col gap-10">
           <div className="flex flex-col gap-5">
@@ -67,20 +70,29 @@ const PathToEnergy = async ({
             >
               {t('eyebrow')}
             </Badge>
-            <h2 className="text-[#FDFFF5] text-3xl md:text-[45px] font-medium whitespace-pre-line">
+            <RevealText
+              as="h2"
+              className="text-[#FDFFF5] text-3xl md:text-[45px] font-medium whitespace-pre-line"
+            >
               {t('title')}
-            </h2>
-            <p className="text-[#CCD8CE]/80 text-lg md:text-[22px] font-light tracking-tight">
+            </RevealText>
+            <Reveal
+              as="p"
+              delay={0.2}
+              className="text-[#CCD8CE]/80 text-lg md:text-[22px] font-light tracking-tight"
+            >
               {t('description')}
-            </p>
+            </Reveal>
           </div>
-          <LinkButton
-            href={contactHref}
-            variant={buttonVariant}
-            className="self-start shadow-[0_8px_24px_0_rgba(0,0,0,0.24)]"
-          >
-            {t('cta')}
-          </LinkButton>
+          <Reveal as="div" delay={0.3} className="self-start">
+            <LinkButton
+              href={contactHref}
+              variant={buttonVariant}
+              className="shadow-[0_8px_24px_0_rgba(0,0,0,0.24)]"
+            >
+              {t('cta')}
+            </LinkButton>
+          </Reveal>
         </div>
       </div>
     </section>

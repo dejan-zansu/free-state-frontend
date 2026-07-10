@@ -1,3 +1,5 @@
+import { Reveal, RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 import { LinkButton } from '@/components/ui/link-button'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import { cn } from '@/lib/utils'
@@ -65,44 +67,60 @@ const Hero = async ({
         <HeroNav isCommercial={isCommercial} />
 
         <div className="flex flex-col items-center text-center">
-          <h1
+          <RevealText
+            as="h1"
+            on="load"
+            delay={0.15}
             className={cn(
               'text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-3 sm:mb-4 whitespace-pre-line max-w-[900px] px-2',
               isCommercial && 'text-center'
             )}
           >
             {heroTitle}
-          </h1>
-          <p
-            className={cn(
-              'text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-[22px] sm:leading-[28px] md:leading-[30px] mb-3 sm:mb-10 md:mb-12 whitespace-pre-line max-w-[320px] sm:max-w-[750px] px-2'
-            )}
-          >
-            {heroDescription}
-          </p>
+          </RevealText>
 
-          <div className="hidden sm:flex sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
-            <LinkButton
-              variant={isCommercial ? 'secondary' : 'primary'}
-              href={isCommercial ? '/commercial/calculator' : '/calculator'}
-              className="w-full sm:w-auto"
+          <RevealStagger
+            on="load"
+            delay={0.55}
+            as="div"
+            className="flex flex-col items-center w-full"
+          >
+            <p
+              className={cn(
+                'text-white/80 text-sm sm:text-lg md:text-xl font-medium leading-[22px] sm:leading-[28px] md:leading-[30px] mb-3 sm:mb-10 md:mb-12 whitespace-pre-line max-w-[320px] sm:max-w-[750px] px-2'
+              )}
             >
-              {t('hero.cta.primary')}
-            </LinkButton>
-            <LinkButton
-              variant={isCommercial ? 'glass-secondary' : 'glass'}
-              href={COMPANY_CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              {t('hero.cta.schedule')}
-            </LinkButton>
-          </div>
+              {heroDescription}
+            </p>
+
+            <div className="hidden sm:flex sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4">
+              <LinkButton
+                variant={isCommercial ? 'secondary' : 'primary'}
+                href={isCommercial ? '/commercial/calculator' : '/calculator'}
+                className="w-full sm:w-auto"
+              >
+                {t('hero.cta.primary')}
+              </LinkButton>
+              <LinkButton
+                variant={isCommercial ? 'glass-secondary' : 'glass'}
+                href={COMPANY_CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                {t('hero.cta.schedule')}
+              </LinkButton>
+            </div>
+          </RevealStagger>
         </div>
       </div>
 
-      <div className="absolute left-1/2 bottom-4 md:bottom-10 -translate-x-1/2 z-20 w-[calc(100%-1.5rem)] max-w-[1022px] px-0">
+      <Reveal
+        as="div"
+        on="load"
+        delay={0.3}
+        className="absolute left-1/2 bottom-4 md:bottom-10 -translate-x-1/2 z-20 w-[calc(100%-1.5rem)] max-w-[1022px] px-0"
+      >
         <div
           className="w-full rounded-2xl md:rounded-[30px] border border-white/20"
           style={{
@@ -140,7 +158,7 @@ const Hero = async ({
             ))}
           </div>
         </div>
-      </div>
+      </Reveal>
     </section>
   )
 }

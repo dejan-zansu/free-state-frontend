@@ -1,5 +1,7 @@
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
+import { Reveal, RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 import { LinkButton } from './ui/link-button'
 
 type Feature = {
@@ -33,22 +35,31 @@ const WhyFreeState = async ({
       <div className="max-w-[1120px] mx-auto flex flex-col items-center gap-12 md:gap-16">
         <div className="flex flex-col items-center gap-10 max-w-[536px] text-center">
           <div className="flex flex-col items-center gap-5">
-            <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
+            <RevealText
+              as="h2"
+              className="text-foreground text-3xl md:text-[45px] font-medium"
+            >
               {t('title')}
-            </h2>
-            <p className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight whitespace-pre-line">
+            </RevealText>
+            <Reveal
+              as="p"
+              delay={0.2}
+              className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight whitespace-pre-line"
+            >
               {t('subtitle')}
-            </p>
+            </Reveal>
           </div>
-          <LinkButton
-            href="/contact"
-            variant={isCommercial ? 'outline-purple' : 'outline-primary'}
-          >
-            {t('cta')}
-          </LinkButton>
+          <Reveal as="div" delay={0.3}>
+            <LinkButton
+              href="/contact"
+              variant={isCommercial ? 'outline-purple' : 'outline-primary'}
+            >
+              {t('cta')}
+            </LinkButton>
+          </Reveal>
         </div>
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
+        <RevealStagger as="div" className="w-full grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0">
           {features.map((feature, index) => (
             <div
               key={feature.title}
@@ -74,7 +85,7 @@ const WhyFreeState = async ({
               </div>
             </div>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   )

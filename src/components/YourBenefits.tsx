@@ -1,4 +1,6 @@
 import { getTranslations } from 'next-intl/server'
+import { Reveal, RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 import { LinkButton } from './ui/link-button'
 import Image from 'next/image'
 
@@ -37,22 +39,31 @@ const YourBenefits = async ({
       <div className="max-w-[1290px] mx-auto flex flex-col items-center gap-16">
         <div className="flex flex-col items-center gap-10 max-w-[536px] text-center">
           <div className="flex flex-col items-center gap-5">
-            <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
+            <RevealText
+              as="h2"
+              className="text-foreground text-3xl md:text-[45px] font-medium"
+            >
               {t('title')}
-            </h2>
-            <p className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight">
+            </RevealText>
+            <Reveal
+              as="p"
+              delay={0.2}
+              className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight"
+            >
               {t('subtitle')}
-            </p>
+            </Reveal>
           </div>
-          <LinkButton
-            href="/solar-free"
-            variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
-          >
-            {t('cta')}
-          </LinkButton>
+          <Reveal as="div" delay={0.3}>
+            <LinkButton
+              href="/solar-free"
+              variant={isCommercial ? 'outline-quaternary' : 'outline-primary'}
+            >
+              {t('cta')}
+            </LinkButton>
+          </Reveal>
         </div>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
+        <RevealStagger as="div" className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0">
           {benefits.map(benefit => (
             <div
               key={benefit.title}
@@ -77,7 +88,7 @@ const YourBenefits = async ({
               </div>
             </div>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   )

@@ -12,6 +12,7 @@ import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
 import { locales } from '@/i18n/routing'
 import { QueryProvider } from '@/providers/QueryProvider'
+import SmoothScrollProvider from '@/providers/SmoothScrollProvider'
 import ConsultationDock from '@/components/consultation/ConsultationDock'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
@@ -102,13 +103,15 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <NuqsAdapter>
             <QueryProvider>
-              <div className="flex flex-col min-h-screen">
-                <ConditionalHeader />
-                <div className="flex-1">{children}</div>
-                <ConditionalFooter locale={locale} />
-                <CookieConsentBanner />
-                <ConsultationDock />
-              </div>
+              <SmoothScrollProvider>
+                <div className="flex flex-col min-h-screen">
+                  <ConditionalHeader />
+                  <div className="flex-1">{children}</div>
+                  <ConditionalFooter locale={locale} />
+                  <CookieConsentBanner />
+                  <ConsultationDock />
+                </div>
+              </SmoothScrollProvider>
             </QueryProvider>
           </NuqsAdapter>
         </NextIntlClientProvider>

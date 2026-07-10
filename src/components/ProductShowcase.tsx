@@ -1,3 +1,5 @@
+import { RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 import { LearnMoreLink } from './ui/learn-more-link'
 import { LinkButton } from './ui/link-button'
 import Image from 'next/image'
@@ -72,40 +74,42 @@ const ProductShowcase = ({
         mobileTextFirst ? 'order-1 lg:order-0' : ''
       }`}
     >
-      <div className="flex flex-col gap-[30px] max-w-[340px]">
-        <div className="flex flex-col gap-5">
-          <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
-            {title}
-          </h2>
-          <p className="text-foreground/80 text-lg font-light tracking-tight max-w-[387px]">
-            {subtitle}
-          </p>
+      <div className="flex flex-col gap-5 max-w-[340px]">
+        <RevealText as="h2" className="text-foreground text-3xl md:text-[45px] font-medium">
+          {title}
+        </RevealText>
+        <RevealStagger as="div" className="flex flex-col gap-[30px]">
+          <div className="flex flex-col gap-5">
+            <p className="text-foreground/80 text-lg font-light tracking-tight max-w-[387px]">
+              {subtitle}
+            </p>
 
-          <div className="flex flex-col gap-2.5">
-            {steps.map(step => (
-              <div key={step.number} className="flex items-center gap-2">
-                <div
-                  className={`w-[18px] h-[18px] rounded-[9px] border-[1.5px] flex items-center justify-center shrink-0 ${isCommercial ? 'border-[#3D3858]' : 'border-[#036B53]'}`}
-                >
-                  <span className="text-[9px] font-bold text-foreground">
-                    {step.number}
+            <div className="flex flex-col gap-2.5">
+              {steps.map(step => (
+                <div key={step.number} className="flex items-center gap-2">
+                  <div
+                    className={`w-[18px] h-[18px] rounded-[9px] border-[1.5px] flex items-center justify-center shrink-0 ${isCommercial ? 'border-[#3D3858]' : 'border-[#036B53]'}`}
+                  >
+                    <span className="text-[9px] font-bold text-foreground">
+                      {step.number}
+                    </span>
+                  </div>
+                  <span className="text-sm font-medium text-foreground/80 tracking-tight">
+                    {step.text}
                   </span>
                 </div>
-                <span className="text-sm font-medium text-foreground/80 tracking-tight">
-                  {step.text}
-                </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
-        <LinkButton
-          href={ctaHref}
-          variant={isCommercial ? 'quaternary' : 'primary'}
-          className="w-fit"
-        >
-          {cta}
-        </LinkButton>
+          <LinkButton
+            href={ctaHref}
+            variant={isCommercial ? 'quaternary' : 'primary'}
+            className="w-fit"
+          >
+            {cta}
+          </LinkButton>
+        </RevealStagger>
       </div>
     </div>
   )

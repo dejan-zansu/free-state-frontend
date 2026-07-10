@@ -13,10 +13,11 @@ import WhyFreeState from '@/components/WhyFreeState'
 import PathToEnergy from '@/components/PathToEnergy'
 import CustomerStories from '@/components/CustomerStories'
 import Reviews from '@/components/Reviews'
+import StackedPanels from '@/components/motion/StackedPanels'
 
 export default async function HomePage() {
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-clip">
       <Hero />
       <ExperienceTimeline />
       <PromoSection />
@@ -25,9 +26,11 @@ export default async function HomePage() {
       <WhyFreeState />
       <PathToEnergy />
       <FusionSolarApp />
-      <Battery />
-      <HeatPumpsViessmann />
-      <EvCharging />
+      <StackedPanels>
+        <Battery />
+        <HeatPumpsViessmann />
+        <EvCharging />
+      </StackedPanels>
       <YourBenefits />
       <CustomerStories isCommercial />
       <Reviews />
