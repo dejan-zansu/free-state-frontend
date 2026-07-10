@@ -10,37 +10,31 @@ type Member = {
 const members: Member[] = [
   {
     key: 'ivan',
-    image: '/images/team-ivan-55cecd.png',
+    image: '/images/team-ivan-320385.png',
     email: 'ivan.m@freestate.ch',
     phone: '+41 (0)76 364 7775',
   },
   {
     key: 'peter',
-    image: '/images/team-peter-404b05.png',
+    image: '/images/team-peter-700a37.png',
     email: 'peter.aragai@freestate.ch',
     phone: '+41 (0)78 6088 850',
   },
   {
     key: 'dragica',
-    image: '/images/team-dragica-64a235.png',
+    image: '/images/team-dragica-241d4e.png',
     email: 'dragica.miric@freestate.ch',
     phone: '+41 (0)76 815 7775',
   },
   {
     key: 'dejan',
-    image: '/images/team-dejan-52ea40.webp',
+    image: '/images/team-dejan-4f0bcf.png',
     email: 'dejan.djokic@freestate.ch',
     phone: '+41 (0)79 323 16 14',
   },
   {
-    key: 'andreas',
-    image: '/images/team-andreas-6dbcdb.png',
-    email: 'andreas.holz@freestate.ch',
-    phone: '+41 (0)78 8005 284',
-  },
-  {
     key: 'milos',
-    image: '/images/team-milos-32752e.png',
+    image: '/images/team-milos-18abb7.png',
     email: 'milos.z@freestate.ch',
     phone: '+381 66 9512541',
   },
@@ -107,7 +101,7 @@ const TeamGrid = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 w-full">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 w-full">
         {members.map(member => (
           <div
             key={member.key}
