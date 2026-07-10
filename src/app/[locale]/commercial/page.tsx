@@ -9,6 +9,7 @@ import YourBenefits from '@/components/YourBenefits'
 import Reviews from '@/components/Reviews'
 import CustomerStories from '@/components/CustomerStories'
 import SolarModels from '@/components/SolarModels'
+import StackedPanels from '@/components/motion/StackedPanels'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -37,9 +38,11 @@ const CommercialPage = async () => {
       <WhyFreeState isCommercial />
       <PathToEnergy isCommercial />
       <FusionSolarApp isCommercial />
-      <Battery isCommercial />
-      <HeatPumpsViessmann isCommercial />
-      <EvCharging isCommercial />
+      <StackedPanels>
+        <Battery isCommercial />
+        <HeatPumpsViessmann isCommercial />
+        <EvCharging isCommercial />
+      </StackedPanels>
       <CustomerStories isCommercial />
       <Reviews isCommercial />
       <YourBenefits isCommercial />
