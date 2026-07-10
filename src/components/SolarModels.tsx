@@ -1,4 +1,6 @@
 import { getTranslations } from 'next-intl/server'
+import { Reveal, RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
 import CheckBulletIcon from './icons/CheckBulletIcon'
@@ -137,17 +139,24 @@ const SolarModels = async ({
             {t('eyebrow')}
           </Badge>
           <div className="flex flex-col items-center gap-5 w-full">
-            <h3 className="text-3xl md:text-[45px] font-medium text-center text-foreground">
+            <RevealText
+              as="h3"
+              className="text-3xl md:text-[45px] font-medium text-center text-foreground"
+            >
               {t('title')}
-            </h3>
-            <p className="text-lg md:text-[22px] font-light text-center text-foreground/80 tracking-tight">
+            </RevealText>
+            <Reveal
+              as="p"
+              delay={0.2}
+              className="text-lg md:text-[22px] font-light text-center text-foreground/80 tracking-tight"
+            >
               {t('subtitle')}
-            </p>
+            </Reveal>
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row lg:items-end gap-[60px] md:gap-[30px] w-full pt-12">
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
+        <RevealStagger as="div" className="flex flex-col lg:flex-row lg:items-end gap-[60px] md:gap-[30px] w-full pt-12">
+          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
             <Badge
               className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
             >
@@ -237,7 +246,7 @@ const SolarModels = async ({
             </div>
           </div>
 
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
+          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
             <Badge
               className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
             >
@@ -317,7 +326,7 @@ const SolarModels = async ({
             </div>
           </div>
 
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60">
+          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
             <Badge
               className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
             >
@@ -397,7 +406,7 @@ const SolarModels = async ({
               </div>
             </div>
           </div>
-        </div>
+        </RevealStagger>
       </div>
     </section>
   )

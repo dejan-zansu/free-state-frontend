@@ -5,6 +5,8 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { cn } from '@/lib/utils'
+import { Reveal, RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 import {
   residentialCalculatorService,
   type CalculatorPackage,
@@ -52,10 +54,19 @@ export default function PackageCatalogSection() {
     <section className="py-12 sm:py-20 px-4">
       <div className="container mx-auto max-w-[1290px]">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-[36px] font-medium text-[#062E25]">
+          <RevealText
+            as="h2"
+            className="text-2xl sm:text-[36px] font-medium text-[#062E25]"
+          >
             {t('title')}
-          </h2>
-          <p className="mt-3 text-base text-[#062E25]/80">{t('subtitle')}</p>
+          </RevealText>
+          <Reveal
+            as="p"
+            delay={0.2}
+            className="mt-3 text-base text-[#062E25]/80"
+          >
+            {t('subtitle')}
+          </Reveal>
         </div>
 
         <div className="flex justify-center mb-8">
@@ -90,16 +101,16 @@ export default function PackageCatalogSection() {
           </p>
         )}
 
-        <div className="flex flex-wrap justify-center gap-6">
+        <RevealStagger as="div" className="flex flex-wrap justify-center gap-6">
           {packages.map(p => (
             <div
               key={p.id}
-              className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+              className="w-full md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] transition-transform duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <PackageCard pkg={p} model={model} locale={locale} />
             </div>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   )

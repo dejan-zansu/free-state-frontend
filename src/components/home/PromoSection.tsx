@@ -1,4 +1,5 @@
 import { LinkButton } from '@/components/ui/link-button'
+import { Reveal } from '@/components/motion/Reveal'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import type { ReactNode } from 'react'
@@ -231,7 +232,7 @@ const CompleteSlide = async () => {
 const PromoSection = async () => {
   const t = await getTranslations('home.promo')
   return (
-    <section>
+    <Reveal as="section">
       <PromoCarousel
         label={t('carouselLabel')}
         prevLabel={t('prevSlide')}
@@ -241,7 +242,7 @@ const PromoSection = async () => {
         <FamilySlide />
         <CompleteSlide />
       </PromoCarousel>
-    </section>
+    </Reveal>
   )
 }
 

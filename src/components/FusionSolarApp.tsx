@@ -1,4 +1,7 @@
 import { getTranslations } from 'next-intl/server'
+import { Reveal } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
+import RevealImage from '@/components/motion/RevealImage'
 import { Badge } from './ui/badge'
 import Image from 'next/image'
 
@@ -33,15 +36,18 @@ const FusionSolarApp = async ({
           <div className={`absolute top-[-224px] right-[-50px] w-[374px] h-[374px] ${glowClass} rounded-full blur-[490px]`} />
           <div className={`absolute top-[-256px] right-[-10px] w-[291px] h-[291px] ${glowClass} rounded-full blur-[170px]`} />
 
-          <div className="relative z-10 flex flex-col gap-[50px] px-8 sm:px-16 lg:px-[105px] py-20 lg:py-[142px]">
+          <Reveal className="relative z-10 flex flex-col gap-[50px] px-8 sm:px-16 lg:px-[105px] py-20 lg:py-[142px]">
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-5">
                 <Badge variant="outline" className="border-white/20 bg-white/20 text-white font-light text-base backdrop-blur-[65px] w-fit">
                   {t('eyebrow')}
                 </Badge>
-                <h2 className="text-[#FDFFF5] text-3xl sm:text-4xl md:text-5xl lg:text-[70px] font-medium capitalize">
+                <RevealText
+                  as="h2"
+                  className="text-[#FDFFF5] text-3xl sm:text-4xl md:text-5xl lg:text-[70px] font-medium capitalize"
+                >
                   {t('title')}
-                </h2>
+                </RevealText>
               </div>
 
               <div className="flex flex-col gap-1.5">
@@ -84,17 +90,17 @@ const FusionSolarApp = async ({
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
 
-        <div className="relative flex-1 min-h-[400px] lg:min-h-[818px]">
+        <RevealImage className="relative flex-1 min-h-[400px] lg:min-h-[818px]">
           <Image
             src="/images/fusion-solar-phone-4cbe62.webp"
             alt={t('title')}
             fill
             className="object-cover"
           />
-        </div>
+        </RevealImage>
       </div>
     </section>
   )

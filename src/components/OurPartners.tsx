@@ -1,6 +1,8 @@
 import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
 import Image from 'next/image'
+import { Reveal, RevealStagger } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 
 const OurPartners = async () => {
   const t = await getTranslations('home.ourPartners')
@@ -20,15 +22,22 @@ const OurPartners = async () => {
           >
             {t('eyebrow')}
           </Badge>
-          <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
+          <RevealText
+            as="h2"
+            className="text-foreground text-3xl md:text-[45px] font-medium"
+          >
             {t('title')}
-          </h2>
-          <p className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight">
+          </RevealText>
+          <Reveal
+            as="p"
+            delay={0.2}
+            className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight"
+          >
             {t('subtitle')}
-          </p>
+          </Reveal>
         </div>
 
-        <div className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
+        <RevealStagger className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
           {[
             { src: '/images/swisscom-logo.png', alt: 'Swisscom', width: 196, height: 53 },
             { src: '/images/partners/partner-2.svg', alt: 'Partner', width: 95, height: 37 },
@@ -52,7 +61,7 @@ const OurPartners = async () => {
               )}
             </div>
           ))}
-        </div>
+        </RevealStagger>
       </div>
     </section>
   )

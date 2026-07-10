@@ -11,6 +11,8 @@ import {
   CarouselItem,
 } from './ui/carousel'
 import { Badge } from './ui/badge'
+import { Reveal } from '@/components/motion/Reveal'
+import RevealText from '@/components/motion/RevealText'
 
 type Story = {
   quote: string
@@ -80,12 +82,19 @@ const CustomerStories = ({
             {t('eyebrow')}
           </Badge>
           <div className="flex flex-col items-center gap-5">
-            <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
+            <RevealText
+              as="h2"
+              className="text-foreground text-3xl md:text-[45px] font-medium"
+            >
               {t('title')}
-            </h2>
-            <p className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight max-w-[412px]">
+            </RevealText>
+            <Reveal
+              as="p"
+              delay={0.2}
+              className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight max-w-[412px]"
+            >
               {t('subtitle')}
-            </p>
+            </Reveal>
           </div>
         </div>
 
