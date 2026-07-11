@@ -1,3 +1,4 @@
+import type { Attribution } from '@/lib/analytics/funnel-events'
 import api, { setAccessToken } from '@/lib/api'
 import type { SolarModel } from '@/stores/solar-abo-calculator.store'
 import type { RoofSegment } from '@/types/sonnendach'
@@ -61,6 +62,7 @@ interface CreateAccountPayload {
   consents: {
     dataProcessing: boolean
   }
+  attribution?: Attribution
 }
 
 interface CreateAccountResponse {

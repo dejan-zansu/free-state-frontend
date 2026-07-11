@@ -1,0 +1,254 @@
+export type MarketingAlertSeverity = 'red' | 'amber' | 'info'
+
+export interface MarketingAlert {
+  id: string
+  severity: MarketingAlertSeverity
+  title: string
+  detail?: string
+  link?: string
+}
+
+export interface MarketingLeadsTile {
+  thisWeek: number
+  lastWeek: number
+  bySource: { source: string; count: number }[]
+}
+
+export interface MarketingCplTile {
+  valueChf: number | null
+  targetChf: number | null
+  spend7dChf: number
+  paidLeads7d: number
+}
+
+export interface MarketingFunnelTile {
+  sessions7d: number
+  leads7d: number
+  ratePct: number | null
+}
+
+export interface MarketingEngagementTile {
+  available: boolean
+}
+
+export interface MarketingTimelinePoint {
+  date: string
+  total: number
+  bySource: Record<string, number>
+}
+
+export interface MarketingEvent {
+  id: string
+  date: string
+  type: string
+  title: string
+}
+
+export interface MarketingDigest {
+  date: string
+  markdown: string
+}
+
+export interface MarketingOverview {
+  today: MarketingAlert[]
+  tiles: {
+    leads: MarketingLeadsTile
+    cpl: MarketingCplTile
+    funnel: MarketingFunnelTile
+    engagement: MarketingEngagementTile
+  }
+  timeline: MarketingTimelinePoint[]
+  events: MarketingEvent[]
+  latestDigest: MarketingDigest | null
+}
+
+export interface MarketingCampaignRow {
+  campaignId: string
+  name: string
+  status: string
+  spend7dChf: number
+  spend30dChf: number
+  metaLeads30d: number
+  dbLeads30d: number
+  trueCplChf: number | null
+  consults30d: number
+  contracts30d: number
+  wonChf30d: number
+}
+
+export interface MarketingCampaigns {
+  rows: MarketingCampaignRow[]
+  lastSyncAt: string | null
+  unattributedLeads30d: number
+}
+
+export interface MarketingConnectorStatus {
+  name: string
+  lastRunAt: string | null
+  lastStatus: string | null
+  lastError: string | null
+  itemsUpserted: number | null
+  consecutiveFailures: number
+}
+
+export interface MarketingTargets {
+  cplTargetChf: number | null
+  monthlySpendCapChf: number | null
+  weeklyPostGoal: number | null
+}
+
+export interface MarketingCredential {
+  name: string
+  present: boolean
+}
+
+export interface MarketingSettings {
+  connectors: MarketingConnectorStatus[]
+  targets: MarketingTargets
+  credentials: MarketingCredential[]
+}
+
+export interface MarketingTargetsUpdate {
+  cplTargetChf?: number
+  monthlySpendCapChf?: number
+  weeklyPostGoal?: number
+}
+
+export interface MarketingEventCreate {
+  date?: string
+  type: string
+  title: string
+  detail?: string
+}
+
+export type MarketingSocialPlatform = 'INSTAGRAM' | 'FACEBOOK'
+
+export type MarketingDraftStatus =
+  | 'DRAFT'
+  | 'PENDING_APPROVAL'
+  | 'APPROVED'
+  | 'PUBLISHED'
+  | 'REJECTED'
+
+export interface MarketingContentPostRow {
+  id: string
+  platform: MarketingSocialPlatform
+  publishedAt: string | null
+  permalink: string | null
+  type: string
+  pillar: string | null
+  caption: string | null
+  mediaUrl: string | null
+  views: number | null
+  reach: number | null
+  likes: number | null
+  comments: number | null
+  saves: number | null
+  shares: number | null
+  engagementRatePct: number | null
+}
+
+export interface MarketingContentPosts {
+  rows: MarketingContentPostRow[]
+  lastSyncAt: string | null
+}
+
+export interface MarketingContentWinners {
+  rows: MarketingContentPostRow[]
+  windowDays: number
+}
+
+export interface MarketingStudioDraft {
+  id: string
+  channel: MarketingSocialPlatform
+  caption: string
+  headlineHtml: string | null
+  imageSource: string | null
+  renderedCardUrl: string | null
+  variantGroup: string | null
+  status: MarketingDraftStatus
+  scheduledFor: string | null
+  generatedBy: string | null
+  promptVersion: string | null
+  createdAt: string
+}
+
+export interface MarketingStudioDrafts {
+  rows: MarketingStudioDraft[]
+}
+
+export interface MarketingCompetitorRow {
+  id: string
+  name: string
+  website: string | null
+  igHandle: string | null
+  adLibraryUrl: string | null
+  watchUrls: string[]
+  notes: string | null
+  active: boolean
+  lastAdSeenAt: string | null
+  adsLogged30d: number
+  lastPageDiffAt: string | null
+}
+
+export interface MarketingCompetitors {
+  rows: MarketingCompetitorRow[]
+}
+
+export interface MarketingCompetitorCreate {
+  name: string
+  website?: string
+  igHandle?: string
+  adLibraryUrl?: string
+  watchUrls?: string[]
+  notes?: string
+}
+
+export interface MarketingCompetitorUpdate {
+  name?: string
+  website?: string
+  igHandle?: string
+  adLibraryUrl?: string
+  watchUrls?: string[]
+  notes?: string
+  active?: boolean
+}
+
+export interface MarketingCompetitorAdRow {
+  id: string
+  headline: string | null
+  bodyText: string | null
+  screenshotUrl: string | null
+  landingUrl: string | null
+  firstSeenAt: string
+  lastSeenAt: string
+  isActive: boolean
+  euReach: number | null
+  notes: string | null
+}
+
+export interface MarketingCompetitorAds {
+  rows: MarketingCompetitorAdRow[]
+}
+
+export interface MarketingCompetitorAdCreate {
+  headline?: string
+  bodyText?: string
+  screenshotUrl?: string
+  landingUrl?: string
+  firstSeenAt?: string
+  isActive?: boolean
+  euReach?: number
+  notes?: string
+}
+
+export interface MarketingCompetitorDiffRow {
+  id: string
+  url: string
+  changedAt: string
+  diffSummary: string | null
+}
+
+export interface MarketingCompetitorDiffs {
+  rows: MarketingCompetitorDiffRow[]
+}

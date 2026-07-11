@@ -3,6 +3,7 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 
 import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import { getAttribution } from '@/lib/analytics/funnel-events'
 import { setAccessToken } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth.store'
 import { electricityPriceService } from '@/services/electricity-price.service'
@@ -933,6 +934,7 @@ export const useSolarAboCalculatorStore = create<
                 : undefined,
             },
             consents: state.consents,
+            attribution: getAttribution(),
           })
           if (response.data.status === 'pending_verification') {
             set({

@@ -1,5 +1,6 @@
 'use client'
 
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { cn } from '@/lib/utils'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { useTranslations } from 'next-intl'
@@ -84,6 +85,11 @@ export default function CalculatorClient() {
     lastPushedRef.current = currentStep
     setStepParam(currentStep, { history: 'push' })
   }, [currentStep, setStepParam])
+
+  useEffect(() => {
+    if (!solarModel) return
+    trackFunnelEvent('calculator_step_viewed', { step: currentStep })
+  }, [solarModel, currentStep])
 
   useEffect(() => {
     const handler = () => {

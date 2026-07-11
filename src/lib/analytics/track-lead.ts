@@ -1,4 +1,10 @@
-export type LeadForm = 'calculator' | 'contact' | 'quote_request'
+import { consumeLastLeadEventId, postFunnelEvent } from './funnel-events'
+
+export type LeadForm =
+  | 'calculator'
+  | 'commercial_calculator'
+  | 'contact'
+  | 'quote_request'
 
 export type TrackLeadOptions = {
   form: LeadForm
@@ -34,6 +40,16 @@ export function trackLead({
   if (typeof window.fbq === 'function') {
     const metaPayload: Record<string, unknown> = { currency }
     if (typeof value === 'number') metaPayload.value = value
-    window.fbq('track', 'Lead', metaPayload)
+    const eventId = consumeLastLeadEventId()
+    if (eventId) {
+      window.fbq('track', 'Lead', metaPayload, { eventID: eventId })
+    } else {
+      window.fbq('track', 'Lead', metaPayload)
+    }
   }
+
+  const funnelMeta: Record<string, unknown> = { form }
+  if (source) funnelMeta.source = source
+  if (typeof value === 'number') funnelMeta.value = value
+  postFunnelEvent('generate_lead', { meta: funnelMeta })
 }

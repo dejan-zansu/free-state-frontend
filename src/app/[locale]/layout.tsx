@@ -7,6 +7,7 @@ import {
   MetaPixelScript,
   MetaPixelNoscript,
 } from '@/components/analytics/AnalyticsScripts'
+import UtmCapture from '@/components/analytics/UtmCapture'
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
@@ -109,6 +110,7 @@ export default async function LocaleLayout({
                   <div className="flex-1">{children}</div>
                   <ConditionalFooter locale={locale} />
                   <CookieConsentBanner />
+                  <UtmCapture />
                   <ConsultationDock />
                 </div>
               </SmoothScrollProvider>

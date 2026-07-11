@@ -18,6 +18,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { ArrowButton } from './ui/arrow-button'
+import { getAttribution } from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
@@ -75,7 +76,7 @@ const ContactFormSection = () => {
       const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, attribution: getAttribution() }),
       })
 
       const result = await response.json()

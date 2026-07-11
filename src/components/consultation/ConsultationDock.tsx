@@ -9,6 +9,7 @@ import { getStickyAdvisor } from '@/lib/advisor'
 import { type ConsultationAdvisor } from '@/lib/company-contact'
 import { LinkButton } from '@/components/ui/link-button'
 import { cn } from '@/lib/utils'
+import { useUser } from '@/stores/auth.store'
 
 export default function ConsultationDock() {
   const t = useTranslations('dashboard.consultation')
@@ -18,6 +19,7 @@ export default function ConsultationDock() {
   const [advisor, setAdvisor] = useState<ConsultationAdvisor | null>(null)
   const rootRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
+  const user = useUser()
   const inCalculatorFlow = pathname?.endsWith('/calculator') ?? false
 
   useEffect(() => {
@@ -46,6 +48,9 @@ export default function ConsultationDock() {
   const name = tTeam(`${advisor.key}.name`)
   const role = tTeam(`${advisor.key}.role`)
   const firstName = name.split(' ')[0]
+  const calendlyHref = user?.id
+    ? `${advisor.calendlyUrl}${advisor.calendlyUrl.includes('?') ? '&' : '?'}utm_content=${encodeURIComponent(user.id)}`
+    : advisor.calendlyUrl
 
   return (
     <div
@@ -93,7 +98,7 @@ export default function ConsultationDock() {
           </div>
           <p className="mt-3 text-base text-pine/70">{t('subtitle')}</p>
           <LinkButton
-            href={advisor.calendlyUrl}
+            href={calendlyHref}
             target="_blank"
             variant="tertiary"
             className="mt-4 w-full justify-center"

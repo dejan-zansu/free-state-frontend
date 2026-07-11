@@ -287,7 +287,15 @@ export default function Step6ContactDetails() {
         return
       }
       if (s.accountCreated) {
-        trackLead({ form: 'calculator', locale })
+        const annualSavings =
+          s.solarModel === 'solar-free'
+            ? s.getAnnualPpaSavings()
+            : s.getAnnualSavings()
+        trackLead({
+          form: 'calculator',
+          locale,
+          value: Math.round(annualSavings),
+        })
         const projectId = s.createdProjectId
         if (projectId) {
           router.push(`/${locale}/dashboard/project/${projectId}`)

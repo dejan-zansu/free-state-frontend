@@ -11,7 +11,7 @@ import {
   TrendingUp,
   Zap,
 } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useRef, useState } from 'react'
 
 import RoofVisualizationMap, {
@@ -19,6 +19,7 @@ import RoofVisualizationMap, {
 } from '@/components/calculator/RoofVisualizationMap'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { trackLead } from '@/lib/analytics/track-lead'
 import { buildCommercialLeadPayload } from '@/lib/commercial-lead-payload'
 import { commercialLeadService } from '@/services/commercial-lead.service'
 import { reportService } from '@/services/report.service'
@@ -27,6 +28,7 @@ import { SUITABILITY_CLASSES } from '@/types/sonnendach'
 
 export default function SonnendachStep6Results() {
   const t = useTranslations('sonnendach.step5')
+  const locale = useLocale()
   const {
     building,
     address,
@@ -60,6 +62,13 @@ export default function SonnendachStep6Results() {
     try {
       const payload = buildCommercialLeadPayload(useCommercialCalculatorStore.getState())
       const result = await commercialLeadService.create(payload)
+      trackLead({
+        form: 'commercial_calculator',
+        locale,
+        value: Math.round(
+          useCommercialCalculatorStore.getState().getAnnualSavings()
+        ),
+      })
       setSubmissionResult(result)
       goToStep(7)
     } catch (err: any) {

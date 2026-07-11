@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { useEffect } from 'react'
 
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { cn } from '@/lib/utils'
 import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 
@@ -29,6 +30,10 @@ export default function CommercialCalculatorClient() {
   useEffect(() => {
     clearError()
   }, [currentStep, clearError])
+
+  useEffect(() => {
+    trackFunnelEvent('calculator_step_viewed', { step: currentStep })
+  }, [currentStep])
 
   const steps = [
     { id: 1, label: t('steps.step1.title') },

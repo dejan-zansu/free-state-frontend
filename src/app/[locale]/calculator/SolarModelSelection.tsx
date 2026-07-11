@@ -1,5 +1,6 @@
 'use client'
 
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
@@ -103,6 +104,7 @@ export default function SolarModelSelection() {
             type="button"
             onClick={() => {
               if (card.disabled) return
+              trackFunnelEvent('model_selected', { meta: { model: card.model } })
               setSolarModel(card.model)
             }}
             disabled={card.disabled}

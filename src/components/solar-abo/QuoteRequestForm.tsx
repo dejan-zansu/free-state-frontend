@@ -8,6 +8,7 @@ import { ArrowButton } from '@/components/ui/arrow-button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
+import { getAttribution } from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
 import { Link } from '@/i18n/navigation'
 
@@ -103,6 +104,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
           ownsHome: data.ownsHome === true,
           consent: data.consent,
           locale,
+          attribution: getAttribution(),
         }),
       })
 

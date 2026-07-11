@@ -8,20 +8,25 @@ import {
   CircuitBoard,
   ClipboardCheck,
   Coins,
+  Eye,
   Factory,
   FileCheck,
   FileText,
   Flame,
   HandCoins,
+  Images,
   LayoutDashboard,
   LineChart,
   Mail,
+  Megaphone,
   Menu,
   MessageSquareText,
   Newspaper,
   Package,
   PanelTop,
   Plug,
+  Settings,
+  Sparkles,
   Ticket,
   UserPlus,
   Users,
@@ -94,6 +99,17 @@ function useNavGroups() {
       ],
     },
     {
+      label: t('groupMarketing'),
+      items: [
+        { label: t('marketingOverview'),  href: `${prefix}/marketing`,           icon: Megaphone },
+        { label: t('marketingCampaigns'), href: `${prefix}/marketing/campaigns`, icon: BarChart3 },
+        { label: t('marketingContent'),   href: `${prefix}/marketing/content`,   icon: Images },
+        { label: t('marketingStudio'),    href: `${prefix}/marketing/studio`,    icon: Sparkles },
+        { label: t('marketingCompetitors'), href: `${prefix}/marketing/competitors`, icon: Eye },
+        { label: t('marketingSettings'),  href: `${prefix}/marketing/settings`,  icon: Settings },
+      ],
+    },
+    {
       label: t('groupResources'),
       items: [
         { label: t('electricityPrices'), href: `${prefix}/electricity-prices`, icon: Plug },
@@ -125,7 +141,12 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
   const navGroups = useNavGroups()
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
+  const matches = (href: string) => pathname === href || pathname.startsWith(href + '/')
+  const activeHref = navGroups
+    .flatMap((group) => group.items)
+    .filter((item) => matches(item.href))
+    .sort((a, b) => b.href.length - a.href.length)[0]?.href
+  const isActive = (href: string) => href === activeHref
 
   return (
     <nav className="p-3">
