@@ -6390,7 +6390,8 @@
         "saveSuccess": "Gespeichert",
         "credentialsTitle": "Zugangsdaten",
         "present": "vorhanden",
-        "missing": "fehlt"
+        "missing": "fehlt",
+        "warningPrefix": "Hinweis"
       },
       "content": {
         "title": "Content",

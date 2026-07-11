@@ -6389,7 +6389,8 @@
         "saveSuccess": "Salvato",
         "credentialsTitle": "Credenziali",
         "present": "presente",
-        "missing": "mancante"
+        "missing": "mancante",
+        "warningPrefix": "Nota"
       },
       "content": {
         "title": "Content",

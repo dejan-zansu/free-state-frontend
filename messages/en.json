@@ -6389,7 +6389,8 @@
         "saveSuccess": "Saved",
         "credentialsTitle": "Credentials",
         "present": "present",
-        "missing": "missing"
+        "missing": "missing",
+        "warningPrefix": "Note"
       },
       "content": {
         "title": "Content",

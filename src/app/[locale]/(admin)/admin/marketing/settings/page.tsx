@@ -117,10 +117,17 @@ export default function AdminMarketingSettingsPage() {
                     <TableCell>
                       {connector.lastError ? (
                         <span
-                          className="block max-w-[220px] truncate text-sm text-red-600"
+                          className={cn(
+                            'block max-w-[220px] truncate text-sm',
+                            connector.lastStatus === 'OK'
+                              ? 'text-amber-600'
+                              : 'text-red-600'
+                          )}
                           title={connector.lastError}
                         >
-                          {connector.lastError}
+                          {connector.lastStatus === 'OK'
+                            ? `${t('warningPrefix')}: ${connector.lastError}`
+                            : connector.lastError}
                         </span>
                       ) : (
                         <span className="text-[#062E25]/40">—</span>

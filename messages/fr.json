@@ -6389,7 +6389,8 @@
         "saveSuccess": "Enregistré",
         "credentialsTitle": "Identifiants",
         "present": "présent",
-        "missing": "manquant"
+        "missing": "manquant",
+        "warningPrefix": "Remarque"
       },
       "content": {
         "title": "Contenu",
