@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Lenis from 'lenis'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -12,8 +13,13 @@ export default function SmoothScrollProvider({
 }: {
   children: React.ReactNode
 }) {
+  const pathname = usePathname()
+  const isAdmin =
+    !!pathname && (pathname.includes('/admin/') || pathname.endsWith('/admin'))
+
   useEffect(() => {
     if (
+      isAdmin ||
       typeof window === 'undefined' ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
@@ -37,7 +43,7 @@ export default function SmoothScrollProvider({
       gsap.ticker.remove(tick)
       lenis.destroy()
     }
-  }, [])
+  }, [isAdmin])
 
   return <>{children}</>
 }
