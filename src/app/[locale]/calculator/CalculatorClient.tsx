@@ -86,10 +86,12 @@ export default function CalculatorClient() {
     setStepParam(currentStep, { history: 'push' })
   }, [currentStep, setStepParam])
 
+  const stepEventRef = useRef<number | null>(null)
   useEffect(() => {
-    if (!solarModel) return
+    if (stepEventRef.current === currentStep) return
+    stepEventRef.current = currentStep
     trackFunnelEvent('calculator_step_viewed', { step: currentStep })
-  }, [solarModel, currentStep])
+  }, [currentStep])
 
   useEffect(() => {
     const handler = () => {
