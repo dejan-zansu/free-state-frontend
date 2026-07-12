@@ -1,5 +1,7 @@
 import api from '@/lib/api'
 import type {
+  CampaignBreakdowns,
+  CampaignDetail,
   MarketingCampaigns,
   MarketingCompetitorAdCreate,
   MarketingCompetitorAdRow,
@@ -29,6 +31,16 @@ class AdminMarketingService {
 
   async getCampaigns(): Promise<MarketingCampaigns> {
     const response = await api.get<{ success: boolean; data: MarketingCampaigns }>('/admin/marketing/campaigns')
+    return response.data.data
+  }
+
+  async getCampaign(id: string, days: number): Promise<CampaignDetail> {
+    const response = await api.get<{ success: boolean; data: CampaignDetail }>(`/admin/marketing/campaigns/${id}`, { params: { days } })
+    return response.data.data
+  }
+
+  async getCampaignBreakdowns(id: string, days: number): Promise<CampaignBreakdowns> {
+    const response = await api.get<{ success: boolean; data: CampaignBreakdowns }>(`/admin/marketing/campaigns/${id}/breakdowns`, { params: { days } })
     return response.data.data
   }
 

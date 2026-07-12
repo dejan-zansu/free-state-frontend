@@ -82,6 +82,92 @@ export interface MarketingCampaigns {
   unattributedLeads30d: number
 }
 
+export interface CampaignDetail {
+  campaign: {
+    id: string
+    name: string
+    objective: string | null
+    status: string
+    dailyBudgetChf: number | null
+    createdTime: string | null
+    adSetCount: number
+    adCount: number
+    adAccountId: string | null
+  }
+  range: { from: string; to: string; days: number }
+  totals: {
+    spendChf: number
+    impressions: number
+    clicks: number
+    ctrPct: number | null
+    cpcChf: number | null
+    metaLeads: number
+    dbLeads: number
+    trueCplChf: number | null
+    ga4Sessions: number
+    consults: number
+    contracts: number
+    wonChf: number
+  }
+  daily: {
+    date: string
+    spendChf: number
+    impressions: number
+    clicks: number
+    ctrPct: number | null
+    ga4Sessions: number
+    dbLeads: number
+  }[]
+  funnel: {
+    attributed: boolean
+    steps: { step: number; sessions: number }[]
+    modelSelected: number
+    leads: number
+  }
+  ads: {
+    adId: string
+    name: string
+    status: string
+    adSetName: string
+    creativeThumbUrl: string | null
+    spendChf: number
+    impressions: number
+    clicks: number
+    ctrPct: number | null
+    cpcChf: number | null
+    metaLeads: number
+    dbLeads: number
+    trueCplChf: number | null
+  }[]
+  ga4: {
+    linked: boolean
+    byLandingPage: { landingPage: string; sessions: number; engagedSessions: number }[]
+  }
+  lastSyncAt: string | null
+}
+
+export interface CampaignBreakdowns {
+  available: boolean
+  reason: 'ok' | 'not_configured' | 'api_error' | 'no_data'
+  placements: {
+    platform: string
+    position: string
+    spendChf: number
+    impressions: number
+    clicks: number
+    ctrPct: number | null
+  }[]
+  demographics: {
+    age: string
+    gender: string
+    spendChf: number
+    impressions: number
+    clicks: number
+    ctrPct: number | null
+  }[]
+  fetchedAt: string
+}
+
 export interface MarketingConnectorStatus {
   name: string
   lastRunAt: string | null

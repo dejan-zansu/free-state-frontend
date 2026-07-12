@@ -113,6 +113,18 @@ type FunnelEventOptions = {
   meta?: Record<string, unknown>
 }
 
+function getStoredUtmId(): string | undefined {
+  try {
+    const raw = window.sessionStorage.getItem(UTM_STORAGE)
+    if (!raw) return undefined
+    const utm = JSON.parse(raw) as Record<string, unknown>
+    const value = utm.utmId
+    return typeof value === 'string' && value ? value.slice(0, 100) : undefined
+  } catch {
+    return undefined
+  }
+}
+
 export function postFunnelEvent(
   name: string,
   options: FunnelEventOptions = {}
@@ -128,6 +140,8 @@ export function postFunnelEvent(
     }
     if (typeof options.step === 'number') body.step = options.step
     if (options.meta) body.meta = options.meta
+    const utmId = getStoredUtmId()
+    if (utmId) body.utmId = utmId
     void fetch(`${API_URL}/api/events`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

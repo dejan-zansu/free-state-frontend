@@ -1,6 +1,7 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
@@ -33,6 +34,8 @@ function cplClass(value: number | null, target: number | null) {
 export default function AdminMarketingCampaignsPage() {
   const t = useTranslations('admin.marketing.campaigns')
   const tc = useTranslations('admin.common')
+  const locale = useLocale()
+  const router = useRouter()
 
   const { data, isLoading } = useQuery<MarketingCampaigns>({
     queryKey: ['admin', 'marketing', 'campaigns'],
@@ -81,7 +84,13 @@ export default function AdminMarketingCampaignsPage() {
                 </TableHeader>
                 <TableBody>
                   {data.rows.map((row) => (
-                    <TableRow key={row.campaignId}>
+                    <TableRow
+                      key={row.campaignId}
+                      className="cursor-pointer"
+                      onClick={() =>
+                        router.push(`/${locale}/admin/marketing/campaigns/${row.campaignId}`)
+                      }
+                    >
                       <TableCell className="font-medium text-[#062E25]">{row.name}</TableCell>
                       <TableCell>
                         <StatusBadge status={row.status} />
