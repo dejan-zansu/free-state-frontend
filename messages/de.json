@@ -497,7 +497,7 @@
         },
         "customers": {
           "title": "15'000+ Kundinnen und Kunden",
-          "description": "10+ Jahre Erfahrung. 6'000+\nabgeschlossene PV-Projekte aller Grössen."
+          "description": "10+ Jahre Erfahrung.\nPV-Projekte aller Grössen."
         },
         "yieldGuarantee": {
           "title": "Ertragsgarantie",
@@ -5031,7 +5031,7 @@
     },
     "costsInstallation": {
       "title": "Kosten und Installation",
-      "description": "Sich nur auf den Kaufpreis zu konzentrieren ist kurzsichtig, da Ölheizungen aufgrund höherer Betriebskosten langfristig oft teurer sind. Wärmepumpen und Photovoltaikanlagen halten rund 20 Jahre, wobei je nach Standort Subventionen und Steuervorteile verfügbar sind.\n\nEine professionelle Installation gewährleistet optimale Leistung, ob bei der Integration einer neuen oder bestehenden Solaranlage. Dank über 7.000 abgeschlossenen Projekten verfügen wir über die Erfahrung für massgeschneiderte Lösungen. Kontaktieren Sie uns für ein individuelles Angebot.",
+      "description": "Sich nur auf den Kaufpreis zu konzentrieren ist kurzsichtig, da Ölheizungen aufgrund höherer Betriebskosten langfristig oft teurer sind. Wärmepumpen und Photovoltaikanlagen halten rund 20 Jahre, wobei je nach Standort Subventionen und Steuervorteile verfügbar sind.\n\nEine professionelle Installation gewährleistet optimale Leistung, ob bei der Integration einer neuen oder bestehenden Solaranlage. Dank zahlreicher abgeschlossener Projekte verfügen wir über die Erfahrung für massgeschneiderte Lösungen. Kontaktieren Sie uns für ein individuelles Angebot.",
       "cta": "Jetzt Wärmepumpen-Angebot anfordern"
     }
   },
@@ -5129,7 +5129,7 @@
     "monitoring": {
       "eyebrow": "Monitoring",
       "title": "Überwachung Ihrer Anlage",
-      "description": "Mit jahrzehntelanger Solar-Expertise und über 6.000 Anlagen in der Schweiz bietet FreeState 24/7-Überwachung, schnelle Fehlererkennung und regelmässige Inspektionen, um sicherzustellen, dass Ihre Solaranlage über 30 Jahre zuverlässig arbeitet."
+      "description": "Mit jahrzehntelanger Solar-Expertise bietet FreeState 24/7-Überwachung, schnelle Fehlererkennung und regelmässige Inspektionen, um sicherzustellen, dass Ihre Solaranlage über 30 Jahre zuverlässig arbeitet."
     },
     "quoteCTA": {
       "eyebrow": "Kosten einer Solaranlage",

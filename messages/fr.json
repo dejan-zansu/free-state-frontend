@@ -5556,7 +5556,7 @@
     },
     "costsInstallation": {
       "title": "Coûts et installation",
-      "description": "Se focaliser uniquement sur le prix d'achat est réducteur, car le chauffage au mazout coûte souvent plus cher dans la durée en raison des frais d'exploitation. Les pompes à chaleur et installations photovoltaïques durent environ 20 ans, avec subventions et avantages fiscaux selon la localisation.\n\nUne installation professionnelle garantit une performance optimale, que vous intégriez une nouvelle installation solaire ou une existante. Forts de plus de 7 000 projets réalisés, nous mettons notre expérience à votre service pour des solutions sur mesure. Contactez-nous pour un devis personnalisé.",
+      "description": "Se focaliser uniquement sur le prix d'achat est réducteur, car le chauffage au mazout coûte souvent plus cher dans la durée en raison des frais d'exploitation. Les pompes à chaleur et installations photovoltaïques durent environ 20 ans, avec subventions et avantages fiscaux selon la localisation.\n\nUne installation professionnelle garantit une performance optimale, que vous intégriez une nouvelle installation solaire ou une existante. Forts de nombreux projets réalisés, nous mettons notre expérience à votre service pour des solutions sur mesure. Contactez-nous pour un devis personnalisé.",
       "cta": "Demander un devis de pompe à chaleur"
     }
   },
@@ -5654,7 +5654,7 @@
     "monitoring": {
       "eyebrow": "Monitoring",
       "title": "Monitoring de votre installation",
-      "description": "Forts de décennies d'expertise solaire et de plus de 6 000 installations en Suisse, FreeState assure un monitoring 24h/24, une détection rapide des défauts et des inspections régulières pour garantir un fonctionnement fiable de votre installation solaire pendant plus de 30 ans."
+      "description": "Forts de décennies d'expertise solaire, FreeState assure un monitoring 24h/24, une détection rapide des défauts et des inspections régulières pour garantir un fonctionnement fiable de votre installation solaire pendant plus de 30 ans."
     },
     "quoteCTA": {
       "eyebrow": "Coût d'une installation solaire",
@@ -5812,7 +5812,7 @@
         },
         "customers": {
           "title": "Plus de 15 000 clients",
-          "description": "Plus de 10 ans d'expérience. Plus de 6 000\nprojets PV réalisés, toutes tailles confondues."
+          "description": "Plus de 10 ans d'expérience.\nProjets PV de toutes tailles."
         },
         "yieldGuarantee": {
           "title": "Garantie de rendement",
