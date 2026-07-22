@@ -8,6 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+export let activeLenis: Lenis | null = null
+
 export default function SmoothScrollProvider({
   children,
 }: {
@@ -33,6 +35,8 @@ export default function SmoothScrollProvider({
       touchMultiplier: 1.6,
     })
 
+    activeLenis = lenis
+
     lenis.on('scroll', ScrollTrigger.update)
 
     const tick = (time: number) => lenis.raf(time * 1000)
@@ -41,6 +45,7 @@ export default function SmoothScrollProvider({
 
     return () => {
       gsap.ticker.remove(tick)
+      activeLenis = null
       lenis.destroy()
     }
   }, [isAdmin])

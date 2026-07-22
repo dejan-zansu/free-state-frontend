@@ -7,6 +7,7 @@ import FusionSolarApp from '@/components/FusionSolarApp'
 import HeatPumpsViessmann from '@/components/HeatPumpsViessmann'
 import SolarModels from '@/components/SolarModels'
 import ExperienceTimeline from '@/components/ExperienceTimeline'
+import CalculatorSection from '@/components/home/CalculatorSection'
 import PackageCatalogSection from '@/components/home/PackageCatalogSection'
 import PromoSection from '@/components/home/PromoSection'
 import WhyFreeState from '@/components/WhyFreeState'
@@ -35,6 +36,7 @@ export default async function HomePage() {
       <CustomerStories isCommercial />
       <Reviews />
       <OurPartners />
+      <CalculatorSection />
     </div>
   )
 }

@@ -24,6 +24,7 @@ import {
 import { cn } from '@/lib/utils'
 import { trackLead } from '@/lib/analytics/track-lead'
 import { useRouter } from 'next/navigation'
+import { useCalculatorEmbed } from '../CalculatorEmbedContext'
 
 const salutations: Salutation[] = ['mr', 'woman', 'family']
 const countries: ContactCountry[] = ['CH', 'LI']
@@ -196,6 +197,8 @@ export default function Step6ContactDetails() {
   const tPending = useTranslations('calculator.pendingVerification')
   const locale = useLocale()
   const router = useRouter()
+  const embedded = useCalculatorEmbed()
+  const Heading = embedded ? 'h3' : 'h1'
   const {
     contact,
     consents,
@@ -310,11 +313,16 @@ export default function Step6ContactDetails() {
   if (pendingVerification) {
     return (
       <div className="h-full overflow-y-auto">
-        <div className="container mx-auto px-4 pt-8 pb-24">
+        <div
+          className={cn(
+            'container mx-auto px-4 pt-8',
+            embedded ? 'pb-12' : 'pb-24'
+          )}
+        >
           <div className="mx-auto max-w-md text-center py-12">
-            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {tPending('title')}
-            </h1>
+            </Heading>
             <p className="mt-3 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
               {tPending('body')}
             </p>
@@ -328,13 +336,18 @@ export default function Step6ContactDetails() {
   }
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="container mx-auto px-4 pt-8 pb-24">
+    <div className="h-full overflow-y-auto" data-hj-suppress data-cs-mask>
+      <div
+        className={cn(
+          'container mx-auto px-4 pt-8',
+          embedded ? 'pb-12' : 'pb-24'
+        )}
+      >
         <div className="flex flex-col lg:flex-row justify-center gap-10 lg:gap-[60px]">
           <div className="flex flex-col gap-5 w-full max-w-[436px]">
-            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {t('title')}
-            </h1>
+            </Heading>
             <p className="text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
               {t('helper')}
             </p>
@@ -860,7 +873,12 @@ export default function Step6ContactDetails() {
         </div>
 
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          className={cn(
+            'flex justify-end gap-4 px-6 py-4',
+            embedded
+              ? 'mt-8 w-full rounded-2xl'
+              : 'fixed bottom-0 left-0 right-0 z-50'
+          )}
           style={{
             background: 'rgba(234, 237, 223, 0.85)',
             backdropFilter: 'blur(12px)',
