@@ -417,7 +417,10 @@ export default function Step4RoofAreas() {
       return
     }
 
-    map.once('rendercomplete', () => {
+    let advanced = false
+    const capture = () => {
+      if (advanced) return
+      advanced = true
       const target = map.getTargetElement() as HTMLElement
       const canvases = target.querySelectorAll('canvas')
       const firstCanvas = canvases[0]
@@ -442,7 +445,10 @@ export default function Step4RoofAreas() {
       })
       setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
       nextStep()
-    })
+    }
+
+    map.once('rendercomplete', capture)
+    window.setTimeout(capture, 1500)
     map.renderSync()
   }
 
