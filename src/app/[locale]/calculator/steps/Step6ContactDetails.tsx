@@ -24,6 +24,7 @@ import {
 import { cn } from '@/lib/utils'
 import { trackLead } from '@/lib/analytics/track-lead'
 import { useRouter } from 'next/navigation'
+import { useCalculatorEmbed } from '../CalculatorEmbedContext'
 
 const salutations: Salutation[] = ['mr', 'woman', 'family']
 const countries: ContactCountry[] = ['CH', 'LI']
@@ -196,6 +197,8 @@ export default function Step6ContactDetails() {
   const tPending = useTranslations('calculator.pendingVerification')
   const locale = useLocale()
   const router = useRouter()
+  const embedded = useCalculatorEmbed()
+  const Heading = embedded ? 'h3' : 'h1'
   const {
     contact,
     consents,
@@ -228,23 +231,29 @@ export default function Step6ContactDetails() {
         contact.lastName || (isLocalDev ? DEV_DEFAULT_CONTACT.lastName : ''),
       email: contact.email || (isLocalDev ? DEV_DEFAULT_CONTACT.email : ''),
       phoneNumber:
-        contact.phoneNumber || (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
+        contact.phoneNumber ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
       dateOfBirth:
-        contact.dateOfBirth || (isLocalDev ? DEV_DEFAULT_CONTACT.dateOfBirth : ''),
+        contact.dateOfBirth ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.dateOfBirth : ''),
       nationality:
-        contact.nationality || (isLocalDev ? DEV_DEFAULT_CONTACT.nationality : ''),
+        contact.nationality ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.nationality : ''),
       country:
         contact.country || (isLocalDev ? DEV_DEFAULT_CONTACT.country : 'CH'),
       postalCode:
-        contact.postalCode || (isLocalDev ? DEV_DEFAULT_CONTACT.postalCode : ''),
+        contact.postalCode ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.postalCode : ''),
       city: contact.city || (isLocalDev ? DEV_DEFAULT_CONTACT.city : ''),
       street: contact.street || (isLocalDev ? DEV_DEFAULT_CONTACT.street : ''),
       streetNumber:
-        contact.streetNumber || (isLocalDev ? DEV_DEFAULT_CONTACT.streetNumber : ''),
+        contact.streetNumber ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.streetNumber : ''),
       addressAdditional:
         contact.addressAdditional ||
         (isLocalDev ? DEV_DEFAULT_CONTACT.addressAdditional : ''),
-      remarks: contact.remarks || (isLocalDev ? DEV_DEFAULT_CONTACT.remarks : ''),
+      remarks:
+        contact.remarks || (isLocalDev ? DEV_DEFAULT_CONTACT.remarks : ''),
       isPropertyOwner:
         contact.isPropertyOwner === true
           ? true
@@ -253,7 +262,8 @@ export default function Step6ContactDetails() {
             : isLocalDev
               ? true
               : undefined,
-      dataProcessing: consents.dataProcessing || (isLocalDev ? true : undefined),
+      dataProcessing:
+        consents.dataProcessing || (isLocalDev ? true : undefined),
       marketing: consents.marketing ?? false,
     },
   })
@@ -310,11 +320,16 @@ export default function Step6ContactDetails() {
   if (pendingVerification) {
     return (
       <div className="h-full overflow-y-auto">
-        <div className="container mx-auto px-4 pt-8 pb-24">
+        <div
+          className={cn(
+            'container mx-auto px-4 pt-8',
+            embedded ? 'pb-12' : 'pb-24'
+          )}
+        >
           <div className="mx-auto max-w-md text-center py-12">
-            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {tPending('title')}
-            </h1>
+            </Heading>
             <p className="mt-3 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
               {tPending('body')}
             </p>
@@ -328,210 +343,65 @@ export default function Step6ContactDetails() {
   }
 
   return (
-    <div className="h-full overflow-y-auto">
-      <div className="container mx-auto px-4 pt-8 pb-24">
-        <div className="flex flex-col lg:flex-row justify-center gap-10 lg:gap-[60px]">
-          <div className="flex flex-col gap-5 w-full max-w-[436px]">
-            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+    <div className="h-full overflow-y-auto" data-hj-suppress data-cs-mask>
+      <div
+        className={cn(
+          'container mx-auto px-4 pt-8',
+          embedded ? 'pb-12' : 'pb-24'
+        )}
+      >
+        <div
+          className={cn(
+            'flex flex-col',
+            embedded
+              ? 'items-center gap-8'
+              : 'lg:flex-row justify-center gap-10 lg:gap-[60px]'
+          )}
+        >
+          <div
+            className={cn(
+              'flex flex-col w-full',
+              embedded
+                ? 'gap-3 max-w-[700px] items-center text-center'
+                : 'gap-5 max-w-[436px]'
+            )}
+          >
+            <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {t('title')}
-            </h1>
+            </Heading>
             <p className="text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
               {t('helper')}
             </p>
           </div>
 
-          <div className="w-full max-w-[534px]">
+          <div
+            className={cn(
+              'w-full',
+              embedded ? 'max-w-[1040px]' : 'max-w-[534px]'
+            )}
+          >
             <form
               onSubmit={handleSubmit(onSubmit)}
               noValidate
-              className="rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-7 sm:p-8 space-y-5"
+              className={cn(
+                'rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-7 sm:p-8',
+                embedded
+                  ? 'grid grid-cols-1 lg:grid-cols-2 gap-x-10 gap-y-5'
+                  : 'space-y-5'
+              )}
             >
-              <div className="flex flex-col gap-2.5">
-                <label className={labelBase}>
-                  {t('salutation.label')}{' '}
-                  <span className="text-destructive">*</span>
-                </label>
-                <Controller
-                  name="salutation"
-                  control={control}
-                  render={({ field }) => (
-                    <div className="flex items-center gap-[17px]">
-                      {salutations.map(option => {
-                        const selected = field.value === option
-                        return (
-                          <button
-                            key={option}
-                            type="button"
-                            onClick={() => field.onChange(option)}
-                            className="flex items-center gap-1.5"
-                          >
-                            <span
-                              className={cn(
-                                'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                selected
-                                  ? 'border-[#062E25]'
-                                  : 'border-[#D9D9D9]'
-                              )}
-                            >
-                              {selected && (
-                                <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                              )}
-                            </span>
-                            <span
-                              className={cn(
-                                'text-sm sm:text-base font-medium tracking-tight',
-                                selected
-                                  ? 'text-[#062E25]'
-                                  : 'text-[#062E25]/70'
-                              )}
-                            >
-                              {t(`salutation.options.${option}`)}
-                            </span>
-                          </button>
-                        )
-                      })}
-                    </div>
-                  )}
-                />
-                {errors.salutation && (
-                  <p className="text-sm sm:text-base text-destructive">
-                    {errors.salutation.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
-                <div className="space-y-1">
-                  <input
-                    id="firstName"
-                    {...register('firstName')}
-                    placeholder={t('firstName')}
-                    className={cn(
-                      inputBase,
-                      errors.firstName && 'border-destructive'
-                    )}
-                  />
-                  {errors.firstName && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.firstName.message}
-                    </p>
-                  )}
-                </div>
-
-                <div className="space-y-1">
-                  <input
-                    id="lastName"
-                    {...register('lastName')}
-                    placeholder={t('lastName')}
-                    className={cn(
-                      inputBase,
-                      errors.lastName && 'border-destructive'
-                    )}
-                  />
-                  {errors.lastName && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.lastName.message}
-                    </p>
-                  )}
-                </div>
-
-                <div className="space-y-1">
-                  <input
-                    id="phoneNumber"
-                    type="tel"
-                    {...register('phoneNumber')}
-                    placeholder={t('phoneNumber')}
-                    className={cn(
-                      inputBase,
-                      errors.phoneNumber && 'border-destructive'
-                    )}
-                  />
-                  {errors.phoneNumber && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.phoneNumber.message}
-                    </p>
-                  )}
-                </div>
-
-                <div className="space-y-1">
-                  <input
-                    id="email"
-                    type="email"
-                    {...register('email')}
-                    placeholder={t('email')}
-                    className={cn(
-                      inputBase,
-                      errors.email && 'border-destructive'
-                    )}
-                  />
-                  {errors.email && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-
-                <div className="sm:col-span-2 flex flex-col gap-2.5">
-                  <label className={labelBase}>
-                    {t('dateOfBirth')}{' '}
-                    <span className="text-destructive">*</span>
-                  </label>
-                  <Controller
-                    name="dateOfBirth"
-                    control={control}
-                    render={({ field }) => (
-                      <DateOfBirthPicker
-                        initialValue={field.value}
-                        onChange={field.onChange}
-                        hasError={!!errors.dateOfBirth}
-                        locale={locale}
-                        placeholderDay={t('dateOfBirthDay')}
-                        placeholderMonth={t('dateOfBirthMonth')}
-                        placeholderYear={t('dateOfBirthYear')}
-                      />
-                    )}
-                  />
-                  {errors.dateOfBirth && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.dateOfBirth.message}
-                    </p>
-                  )}
-                </div>
-
-                <div className="space-y-1">
-                  <input
-                    id="nationality"
-                    {...register('nationality')}
-                    placeholder={t('nationality')}
-                    className={cn(
-                      inputBase,
-                      errors.nationality && 'border-destructive'
-                    )}
-                  />
-                  {errors.nationality && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.nationality.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="space-y-3 pt-1">
-                <p className={cn(labelBase, 'font-medium')}>
-                  {tAddr('sectionTitle')}
-                </p>
-
+              <div className="space-y-5 min-w-0">
                 <div className="flex flex-col gap-2.5">
                   <label className={labelBase}>
-                    {tAddr('countryLabel')}{' '}
+                    {t('salutation.label')}{' '}
                     <span className="text-destructive">*</span>
                   </label>
                   <Controller
-                    name="country"
+                    name="salutation"
                     control={control}
                     render={({ field }) => (
                       <div className="flex items-center gap-[17px]">
-                        {countries.map(option => {
+                        {salutations.map(option => {
                           const selected = field.value === option
                           return (
                             <button
@@ -560,7 +430,7 @@ export default function Step6ContactDetails() {
                                     : 'text-[#062E25]/70'
                                 )}
                               >
-                                {tAddr(`countryOptions.${option}`)}
+                                {t(`salutation.options.${option}`)}
                               </span>
                             </button>
                           )
@@ -568,181 +438,361 @@ export default function Step6ContactDetails() {
                       </div>
                     )}
                   />
+                  {errors.salutation && (
+                    <p className="text-sm sm:text-base text-destructive">
+                      {errors.salutation.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
                   <div className="space-y-1">
                     <input
-                      id="postalCode"
-                      {...register('postalCode')}
-                      placeholder={tAddr('postalCode')}
+                      id="firstName"
+                      {...register('firstName')}
+                      placeholder={t('firstName')}
                       className={cn(
                         inputBase,
-                        errors.postalCode && 'border-destructive'
+                        errors.firstName && 'border-destructive'
                       )}
                     />
-                    {errors.postalCode && (
+                    {errors.firstName && (
                       <p className="text-sm sm:text-base text-destructive">
-                        {errors.postalCode.message}
+                        {errors.firstName.message}
                       </p>
                     )}
                   </div>
 
                   <div className="space-y-1">
                     <input
-                      id="city"
-                      {...register('city')}
-                      placeholder={tAddr('city')}
+                      id="lastName"
+                      {...register('lastName')}
+                      placeholder={t('lastName')}
                       className={cn(
                         inputBase,
-                        errors.city && 'border-destructive'
+                        errors.lastName && 'border-destructive'
                       )}
                     />
-                    {errors.city && (
+                    {errors.lastName && (
                       <p className="text-sm sm:text-base text-destructive">
-                        {errors.city.message}
+                        {errors.lastName.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-1">
+                    <input
+                      id="phoneNumber"
+                      type="tel"
+                      {...register('phoneNumber')}
+                      placeholder={t('phoneNumber')}
+                      className={cn(
+                        inputBase,
+                        errors.phoneNumber && 'border-destructive'
+                      )}
+                    />
+                    {errors.phoneNumber && (
+                      <p className="text-sm sm:text-base text-destructive">
+                        {errors.phoneNumber.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-1">
+                    <input
+                      id="email"
+                      type="email"
+                      {...register('email')}
+                      placeholder={t('email')}
+                      className={cn(
+                        inputBase,
+                        errors.email && 'border-destructive'
+                      )}
+                    />
+                    {errors.email && (
+                      <p className="text-sm sm:text-base text-destructive">
+                        {errors.email.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="sm:col-span-2 flex flex-col gap-2.5">
+                    <label className={labelBase}>
+                      {t('dateOfBirth')}{' '}
+                      <span className="text-destructive">*</span>
+                    </label>
+                    <Controller
+                      name="dateOfBirth"
+                      control={control}
+                      render={({ field }) => (
+                        <DateOfBirthPicker
+                          initialValue={field.value}
+                          onChange={field.onChange}
+                          hasError={!!errors.dateOfBirth}
+                          locale={locale}
+                          placeholderDay={t('dateOfBirthDay')}
+                          placeholderMonth={t('dateOfBirthMonth')}
+                          placeholderYear={t('dateOfBirthYear')}
+                        />
+                      )}
+                    />
+                    {errors.dateOfBirth && (
+                      <p className="text-sm sm:text-base text-destructive">
+                        {errors.dateOfBirth.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="space-y-1">
+                    <input
+                      id="nationality"
+                      {...register('nationality')}
+                      placeholder={t('nationality')}
+                      className={cn(
+                        inputBase,
+                        errors.nationality && 'border-destructive'
+                      )}
+                    />
+                    {errors.nationality && (
+                      <p className="text-sm sm:text-base text-destructive">
+                        {errors.nationality.message}
                       </p>
                     )}
                   </div>
                 </div>
+              </div>
 
-                <div className="grid grid-cols-[1fr_120px] gap-x-3 gap-y-5">
-                  <div className="space-y-1">
-                    <input
-                      id="street"
-                      {...register('street')}
-                      placeholder={tAddr('street')}
-                      className={cn(
-                        inputBase,
-                        errors.street && 'border-destructive'
+              <div className="space-y-5 min-w-0">
+                <div className="space-y-3 pt-1">
+                  <p className={cn(labelBase, 'font-medium')}>
+                    {tAddr('sectionTitle')}
+                  </p>
+
+                  <div className="flex flex-col gap-2.5">
+                    <label className={labelBase}>
+                      {tAddr('countryLabel')}{' '}
+                      <span className="text-destructive">*</span>
+                    </label>
+                    <Controller
+                      name="country"
+                      control={control}
+                      render={({ field }) => (
+                        <div className="flex items-center gap-[17px]">
+                          {countries.map(option => {
+                            const selected = field.value === option
+                            return (
+                              <button
+                                key={option}
+                                type="button"
+                                onClick={() => field.onChange(option)}
+                                className="flex items-center gap-1.5"
+                              >
+                                <span
+                                  className={cn(
+                                    'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
+                                    selected
+                                      ? 'border-[#062E25]'
+                                      : 'border-[#D9D9D9]'
+                                  )}
+                                >
+                                  {selected && (
+                                    <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
+                                  )}
+                                </span>
+                                <span
+                                  className={cn(
+                                    'text-sm sm:text-base font-medium tracking-tight',
+                                    selected
+                                      ? 'text-[#062E25]'
+                                      : 'text-[#062E25]/70'
+                                  )}
+                                >
+                                  {tAddr(`countryOptions.${option}`)}
+                                </span>
+                              </button>
+                            )
+                          })}
+                        </div>
                       )}
                     />
-                    {errors.street && (
-                      <p className="text-sm sm:text-base text-destructive">
-                        {errors.street.message}
-                      </p>
-                    )}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
+                    <div className="space-y-1">
+                      <input
+                        id="postalCode"
+                        {...register('postalCode')}
+                        placeholder={tAddr('postalCode')}
+                        className={cn(
+                          inputBase,
+                          errors.postalCode && 'border-destructive'
+                        )}
+                      />
+                      {errors.postalCode && (
+                        <p className="text-sm sm:text-base text-destructive">
+                          {errors.postalCode.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-1">
+                      <input
+                        id="city"
+                        {...register('city')}
+                        placeholder={tAddr('city')}
+                        className={cn(
+                          inputBase,
+                          errors.city && 'border-destructive'
+                        )}
+                      />
+                      {errors.city && (
+                        <p className="text-sm sm:text-base text-destructive">
+                          {errors.city.message}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-[1fr_120px] gap-x-3 gap-y-5">
+                    <div className="space-y-1">
+                      <input
+                        id="street"
+                        {...register('street')}
+                        placeholder={tAddr('street')}
+                        className={cn(
+                          inputBase,
+                          errors.street && 'border-destructive'
+                        )}
+                      />
+                      {errors.street && (
+                        <p className="text-sm sm:text-base text-destructive">
+                          {errors.street.message}
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="space-y-1">
+                      <input
+                        id="streetNumber"
+                        {...register('streetNumber')}
+                        placeholder={tAddr('streetNumber')}
+                        className={cn(
+                          inputBase,
+                          errors.streetNumber && 'border-destructive'
+                        )}
+                      />
+                      {errors.streetNumber && (
+                        <p className="text-sm sm:text-base text-destructive">
+                          {errors.streetNumber.message}
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="space-y-1">
                     <input
-                      id="streetNumber"
-                      {...register('streetNumber')}
-                      placeholder={tAddr('streetNumber')}
-                      className={cn(
-                        inputBase,
-                        errors.streetNumber && 'border-destructive'
-                      )}
+                      id="addressAdditional"
+                      {...register('addressAdditional')}
+                      placeholder={tAddr('addressAdditional')}
+                      className={inputBase}
                     />
-                    {errors.streetNumber && (
-                      <p className="text-sm sm:text-base text-destructive">
-                        {errors.streetNumber.message}
-                      </p>
-                    )}
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <input
-                    id="addressAdditional"
-                    {...register('addressAdditional')}
-                    placeholder={tAddr('addressAdditional')}
-                    className={inputBase}
+                  <textarea
+                    id="remarks"
+                    {...register('remarks')}
+                    placeholder={t('remarksPlaceholder')}
+                    rows={2}
+                    className="w-full rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 py-2 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60 resize-none"
                   />
+                </div>
+
+                <div className="flex flex-col gap-2.5">
+                  <label className={labelBase}>
+                    {t('propertyOwner.label')}{' '}
+                    <span className="text-destructive">*</span>
+                  </label>
+                  <Controller
+                    name="isPropertyOwner"
+                    control={control}
+                    render={({ field }) => {
+                      const raw = field.value as unknown
+                      const isYes = raw === true
+                      const isNo = raw === false
+                      return (
+                        <>
+                          <div className="flex items-center gap-[17px]">
+                            <button
+                              type="button"
+                              onClick={() => field.onChange(true)}
+                              className="flex items-center gap-1.5"
+                            >
+                              <span
+                                className={cn(
+                                  'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
+                                  isYes
+                                    ? 'border-[#062E25]'
+                                    : 'border-[#D9D9D9]'
+                                )}
+                              >
+                                {isYes && (
+                                  <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
+                                )}
+                              </span>
+                              <span
+                                className={cn(
+                                  'text-sm sm:text-base font-medium tracking-tight',
+                                  isYes ? 'text-[#062E25]' : 'text-[#062E25]/70'
+                                )}
+                              >
+                                {t('propertyOwner.yes')}
+                              </span>
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => field.onChange(false)}
+                              className="flex items-center gap-1.5"
+                            >
+                              <span
+                                className={cn(
+                                  'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
+                                  isNo ? 'border-[#062E25]' : 'border-[#D9D9D9]'
+                                )}
+                              >
+                                {isNo && (
+                                  <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
+                                )}
+                              </span>
+                              <span
+                                className={cn(
+                                  'text-sm sm:text-base font-medium tracking-tight',
+                                  isNo ? 'text-[#062E25]' : 'text-[#062E25]/70'
+                                )}
+                              >
+                                {t('propertyOwner.no')}
+                              </span>
+                            </button>
+                          </div>
+                          {isNo && (
+                            <div className="rounded-md border border-amber-500 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+                              {t('propertyOwner.ineligible')}
+                            </div>
+                          )}
+                        </>
+                      )
+                    }}
+                  />
+                  {errors.isPropertyOwner && (
+                    <p className="text-sm sm:text-base text-destructive">
+                      {errors.isPropertyOwner.message}
+                    </p>
+                  )}
                 </div>
               </div>
 
-              <div className="space-y-1">
-                <textarea
-                  id="remarks"
-                  {...register('remarks')}
-                  placeholder={t('remarksPlaceholder')}
-                  rows={2}
-                  className="w-full rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 py-2 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60 resize-none"
-                />
-              </div>
-
-              <div className="flex flex-col gap-2.5">
-                <label className={labelBase}>
-                  {t('propertyOwner.label')}{' '}
-                  <span className="text-destructive">*</span>
-                </label>
-                <Controller
-                  name="isPropertyOwner"
-                  control={control}
-                  render={({ field }) => {
-                    const raw = field.value as unknown
-                    const isYes = raw === true
-                    const isNo = raw === false
-                    return (
-                      <>
-                        <div className="flex items-center gap-[17px]">
-                          <button
-                            type="button"
-                            onClick={() => field.onChange(true)}
-                            className="flex items-center gap-1.5"
-                          >
-                            <span
-                              className={cn(
-                                'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                isYes ? 'border-[#062E25]' : 'border-[#D9D9D9]'
-                              )}
-                            >
-                              {isYes && (
-                                <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                              )}
-                            </span>
-                            <span
-                              className={cn(
-                                'text-sm sm:text-base font-medium tracking-tight',
-                                isYes ? 'text-[#062E25]' : 'text-[#062E25]/70'
-                              )}
-                            >
-                              {t('propertyOwner.yes')}
-                            </span>
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => field.onChange(false)}
-                            className="flex items-center gap-1.5"
-                          >
-                            <span
-                              className={cn(
-                                'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                isNo ? 'border-[#062E25]' : 'border-[#D9D9D9]'
-                              )}
-                            >
-                              {isNo && (
-                                <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                              )}
-                            </span>
-                            <span
-                              className={cn(
-                                'text-sm sm:text-base font-medium tracking-tight',
-                                isNo ? 'text-[#062E25]' : 'text-[#062E25]/70'
-                              )}
-                            >
-                              {t('propertyOwner.no')}
-                            </span>
-                          </button>
-                        </div>
-                        {isNo && (
-                          <div className="rounded-md border border-amber-500 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-                            {t('propertyOwner.ineligible')}
-                          </div>
-                        )}
-                      </>
-                    )
-                  }}
-                />
-                {errors.isPropertyOwner && (
-                  <p className="text-sm sm:text-base text-destructive">
-                    {errors.isPropertyOwner.message}
-                  </p>
-                )}
-              </div>
-
-              <div>
+              <div className={cn(embedded && 'lg:col-span-2')}>
                 <Controller
                   name="dataProcessing"
                   control={control}
@@ -804,7 +854,7 @@ export default function Step6ContactDetails() {
                 )}
               </div>
 
-              <div>
+              <div className={cn(embedded && 'lg:col-span-2')}>
                 <Controller
                   name="marketing"
                   control={control}
@@ -851,7 +901,12 @@ export default function Step6ContactDetails() {
               </div>
 
               {submissionError && (
-                <div className="text-sm sm:text-base text-destructive bg-destructive/10 p-3 rounded-md">
+                <div
+                  className={cn(
+                    'text-sm sm:text-base text-destructive bg-destructive/10 p-3 rounded-md',
+                    embedded && 'lg:col-span-2'
+                  )}
+                >
                   {submissionError}
                 </div>
               )}
@@ -860,7 +915,12 @@ export default function Step6ContactDetails() {
         </div>
 
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          className={cn(
+            'flex justify-end gap-4 px-6 py-4',
+            embedded
+              ? 'mt-8 w-full rounded-2xl'
+              : 'fixed bottom-0 left-0 right-0 z-50'
+          )}
           style={{
             background: 'rgba(234, 237, 223, 0.85)',
             backdropFilter: 'blur(12px)',

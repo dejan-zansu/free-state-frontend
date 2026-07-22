@@ -15,6 +15,7 @@ import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
 
 import { JsonLd } from '@/components/seo/JsonLd'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { buildServiceJsonLd } from '@/lib/seo/structured-data'
 
 export async function generateMetadata({
@@ -43,12 +44,13 @@ const SolarFreePage = async ({ params }: SolarFreePageProps) => {
     <>
       <JsonLd
         data={buildServiceJsonLd({
-          name: 'Solar-Abo (PPA)',
-          description: 'Solar-Abo Modell ohne Eigeninvestition. Monatliche Rate statt Kauf.',
+          name: 'SolarFree',
+          description: 'SolarFree: Solaranlage ohne Eigeninvestition (PPA-Modell). Monatliche Rate statt Kauf.',
           url: 'https://www.freestate.ch/solar-free',
           serviceType: 'Solar Power Purchase Agreement',
         })}
       />
+      <JsonLdFaqFromNamespace namespace="solarAboHome" />
       <div className="w-full overflow-x-hidden">
       <SolarAboHero
         translationNamespace="solarFreeHome"

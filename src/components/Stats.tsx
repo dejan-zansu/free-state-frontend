@@ -4,10 +4,10 @@ const Stats = async () => {
   const t = await getTranslations('home.stats')
 
   const stats = [
-    { value: '59', label: t('projects'), suffix: '+' },
-    { value: '16', label: t('experience') },
-    { value: '13', label: t('savings'), sublabel: '-0.13 Rappen / kWh' },
-    { value: '20', label: t('employees') },
+    { value: 'CHF 0', label: t('downPayment') },
+    { value: '18', sublabel: 'Rp/kWh', label: t('solarPrice') },
+    { value: '19', label: t('cantons') },
+    { value: '3', sublabel: 'Schaffhausen · Zürich · St. Gallen', label: t('locations') },
   ]
 
   return (
@@ -23,7 +23,6 @@ const Stats = async () => {
                 <div className="font-medium leading-none mb-3 sm:mb-4 text-foreground">
                   <p className="text-4xl sm:text-5xl md:text-6xl lg:text-[80px]">
                     {stat.value}
-                    {stat.suffix && <span>{stat.suffix}</span>}
                   </p>
                 </div>
                 <div className="text-foreground">

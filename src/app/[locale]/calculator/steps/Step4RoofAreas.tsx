@@ -23,6 +23,8 @@ import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import type { RoofSegment } from '@/types/sonnendach'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
 
+import { useCalculatorEmbed } from '../CalculatorEmbedContext'
+
 import 'ol/ol.css'
 
 const SWISS_SATELLITE_URL =
@@ -76,6 +78,9 @@ export default function Step4RoofAreas() {
     nextStep,
     setRoofImage,
   } = useSolarAboCalculatorStore()
+
+  const embedded = useCalculatorEmbed()
+  const Heading = embedded ? 'h3' : 'h1'
 
   const [isLoadingMap, setIsLoadingMap] = useState(true)
   const [focusedLat, setFocusedLat] = useState<number | null>(null)
@@ -412,7 +417,10 @@ export default function Step4RoofAreas() {
       return
     }
 
-    map.once('rendercomplete', () => {
+    let advanced = false
+    const capture = () => {
+      if (advanced) return
+      advanced = true
       const target = map.getTargetElement() as HTMLElement
       const canvases = target.querySelectorAll('canvas')
       const firstCanvas = canvases[0]
@@ -437,7 +445,10 @@ export default function Step4RoofAreas() {
       })
       setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
       nextStep()
-    })
+    }
+
+    map.once('rendercomplete', capture)
+    window.setTimeout(capture, 1500)
     map.renderSync()
   }
 
@@ -449,9 +460,9 @@ export default function Step4RoofAreas() {
       <div className="h-full flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center px-4 py-12">
           <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {t('title')}
-            </h1>
+            </Heading>
             <p className="mt-5 text-lg sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
               {t('helper')}
             </p>
@@ -484,7 +495,10 @@ export default function Step4RoofAreas() {
         </div>
 
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4"
+          className={cn(
+            'flex justify-end gap-3 px-6 py-4',
+            !embedded && 'fixed bottom-0 left-0 right-0 z-50'
+          )}
           style={{
             background: 'rgba(234, 237, 223, 0.85)',
             backdropFilter: 'blur(12px)',
@@ -506,6 +520,7 @@ export default function Step4RoofAreas() {
     <div className="relative h-full w-full">
       <div
         ref={mapRef}
+        {...(embedded ? { 'data-lenis-prevent-wheel': '' } : {})}
         className={cn(
           'absolute inset-0 w-full h-full bg-muted',
           isLoadingMap && 'flex items-center justify-center'
@@ -646,7 +661,12 @@ export default function Step4RoofAreas() {
       </div>
 
       <div
-        className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-3 px-6 py-4"
+        className={cn(
+          'flex justify-end gap-3 px-6 py-4',
+          embedded
+            ? 'absolute bottom-0 left-0 right-0 z-30'
+            : 'fixed bottom-0 left-0 right-0 z-50'
+        )}
         style={{
           background: 'rgba(234, 237, 223, 0.85)',
           backdropFilter: 'blur(12px)',

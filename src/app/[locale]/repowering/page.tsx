@@ -4,6 +4,7 @@ import RepoweringCtaSection from '@/components/repowering/RepoweringCtaSection'
 import RepoweringFAQSection from '@/components/repowering/RepoweringFAQSection'
 import RepoweringQuoteFormSection from '@/components/repowering/RepoweringQuoteFormSection'
 import RepoweringServicesSection from '@/components/repowering/RepoweringServicesSection'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
@@ -30,6 +31,7 @@ const RepoweringPage = async () => {
 
   return (
     <div>
+      <JsonLdFaqFromNamespace namespace="repowering" />
       <PageHero
         backgroundImage="/images/repowering-hero-bg.png"
         title={t('hero.title')}

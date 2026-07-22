@@ -2,6 +2,8 @@ import api from '@/lib/api'
 import type {
   CampaignBreakdowns,
   CampaignDetail,
+  CreateExperimentInput,
+  Experiment,
   MarketingCampaigns,
   MarketingCompetitorAdCreate,
   MarketingCompetitorAdRow,
@@ -15,12 +17,14 @@ import type {
   MarketingContentWinners,
   MarketingEvent,
   MarketingEventCreate,
+  MarketingExperiments,
   MarketingOverview,
   MarketingSettings,
   MarketingStudioDraft,
   MarketingStudioDrafts,
   MarketingTargets,
   MarketingTargetsUpdate,
+  UpdateExperimentInput,
 } from '@/types/admin-marketing'
 
 class AdminMarketingService {
@@ -121,6 +125,21 @@ class AdminMarketingService {
 
   async getCompetitorDiffs(id: string): Promise<MarketingCompetitorDiffs> {
     const response = await api.get<{ success: boolean; data: MarketingCompetitorDiffs }>(`/admin/marketing/competitors/${id}/diffs`)
+    return response.data.data
+  }
+
+  async getExperiments(): Promise<MarketingExperiments> {
+    const response = await api.get<{ success: boolean; data: MarketingExperiments }>('/admin/marketing/experiments')
+    return response.data.data
+  }
+
+  async createExperiment(data: CreateExperimentInput): Promise<Experiment> {
+    const response = await api.post<{ success: boolean; data: Experiment }>('/admin/marketing/experiments', data)
+    return response.data.data
+  }
+
+  async updateExperiment(id: string, data: UpdateExperimentInput): Promise<Experiment> {
+    const response = await api.patch<{ success: boolean; data: Experiment }>(`/admin/marketing/experiments/${id}`, data)
     return response.data.data
   }
 

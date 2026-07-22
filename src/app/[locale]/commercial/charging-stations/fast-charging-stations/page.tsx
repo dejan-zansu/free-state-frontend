@@ -2,6 +2,7 @@ import PageHero from '@/components/PageHero'
 import FastChargingOffersSection from '@/components/commercial/charging-stations/fast-charging-stations/sections/FastChargingOffersSection'
 import FreeStateOffersSection from '@/components/commercial/charging-stations/fast-charging-stations/sections/FreeStateOffersSection'
 import FAQSection from '@/components/commercial/charging-stations/fast-charging-stations/sections/FAQSection'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -27,6 +28,7 @@ const FastChargingStationsPage = async () => {
 
   return (
     <div>
+      <JsonLdFaqFromNamespace namespace="fastChargingStations" />
       <PageHero
         title={t('hero.title')}
         description={t('hero.description')}

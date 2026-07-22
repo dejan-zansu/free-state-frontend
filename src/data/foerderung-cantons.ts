@@ -22,6 +22,10 @@ export type CantonalFoerderung = {
   sources: { label: string; url: string }[]
 }
 
+export function isPlaceholderCanton(canton: CantonalFoerderung): boolean {
+  return JSON.stringify(canton).includes('[PLACEHOLDER')
+}
+
 const STEUER_HINWEIS =
   'Die Anschaffungskosten einer Solaranlage sind in den meisten Kantonen als Liegenschaftsunterhalt steuerlich abzugsfähig. Details prüfen mit Ihrem Steuerberater oder kantonalem Steueramt.'
 

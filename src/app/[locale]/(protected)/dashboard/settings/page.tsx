@@ -74,7 +74,7 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="max-w-2xl">
+    <div className="max-w-2xl" data-hj-suppress data-cs-mask>
       <h1 className="text-2xl font-bold text-[#062E25] mb-8">{t('title')}</h1>
 
       <Card className="mb-6 border-[#062E25]/10">

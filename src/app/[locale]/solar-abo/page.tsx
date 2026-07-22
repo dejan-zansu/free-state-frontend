@@ -16,6 +16,7 @@ import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
 
 import { JsonLd } from '@/components/seo/JsonLd'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { buildServiceJsonLd } from '@/lib/seo/structured-data'
 
 export async function generateMetadata({
@@ -51,6 +52,7 @@ const SolarAboPage = async ({ params }: SolarAboPageProps) => {
           serviceType: 'Solar Monthly Subscription',
         })}
       />
+      <JsonLdFaqFromNamespace namespace="solarAboPlanHome" />
       <div className="w-full overflow-x-hidden">
         <SolarAboHero
           translationNamespace="solarAboPlanHome"

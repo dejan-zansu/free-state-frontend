@@ -1,7 +1,10 @@
 import { test, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
-import { FOERDERUNG_CANTONS } from '../../data/foerderung-cantons'
+import {
+  FOERDERUNG_CANTONS,
+  type CantonalFoerderung,
+} from '../../data/foerderung-cantons'
 import { CantonalFoerderungPage } from '../CantonalFoerderungPage'
 import deMessages from '../../../messages/de.json'
 
@@ -20,7 +23,7 @@ test('renders an H1 with the canton name for each seeded canton', () => {
   }
 })
 
-test('emits FAQPage JSON-LD with 3 questions', () => {
+test('suppresses FAQPage JSON-LD for placeholder cantons', () => {
   const ag = FOERDERUNG_CANTONS.find(c => c.code === 'AG')!
   render(
     <NextIntlClientProvider
@@ -28,6 +31,23 @@ test('emits FAQPage JSON-LD with 3 questions', () => {
       messages={deMessages as unknown as AbstractIntlMessages}
     >
       <CantonalFoerderungPage canton={ag} />
+    </NextIntlClientProvider>
+  )
+  const ldScript = document.querySelector('script[type="application/ld+json"]')
+  expect(ldScript).toBeNull()
+})
+
+test('emits FAQPage JSON-LD with 3 questions for verified cantons', () => {
+  const ag = FOERDERUNG_CANTONS.find(c => c.code === 'AG')!
+  const verified = JSON.parse(
+    JSON.stringify(ag).replace(/\[PLACEHOLDER[^\]]*\]\s*/g, '')
+  ) as CantonalFoerderung
+  render(
+    <NextIntlClientProvider
+      locale="de"
+      messages={deMessages as unknown as AbstractIntlMessages}
+    >
+      <CantonalFoerderungPage canton={verified} />
     </NextIntlClientProvider>
   )
   const ldScript = document.querySelector('script[type="application/ld+json"]')

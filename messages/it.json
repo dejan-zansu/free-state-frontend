@@ -89,100 +89,100 @@
     "defaultTitle": "Free State AG",
     "titleTemplate": "%s | Free State AG",
     "home": {
-      "title": "",
-      "description": ""
+      "title": "Impianti solari Svizzera: acquisto o da CHF 0",
+      "description": "Impianti fotovoltaici, accumulo, pompe di calore e stazioni di ricarica di Free State AG. Acquisto o abbonamento senza investimento iniziale."
     },
     "solarSystems": {
-      "title": "",
-      "description": ""
+      "title": "Impianti solari Svizzera: fotovoltaico per la casa",
+      "description": "Impianto solare per casa unifamiliare in Svizzera: progettazione, installazione e messa in funzione da un unico fornitore. Da CHF 18'000 o senza anticipo."
     },
     "solarFree": {
-      "title": "",
-      "description": ""
+      "title": "SolarFree: impianto solare senza investimento",
+      "description": "Con SolarFree ottieni il tuo impianto solare senza anticipo (CHF 0). Rata mensile invece dell'acquisto, con opzione di riscatto in ogni momento. Calcola ora."
     },
     "solarDirect": {
-      "title": "",
-      "description": ""
+      "title": "SolarDirect: acquista il tuo impianto solare",
+      "description": "Con SolarDirect acquisti il tuo impianto solare: piena proprietà, garanzie dei produttori e protezione dai costi energetici in aumento. Richiedi un'offerta."
     },
     "solarAbo": {
       "title": "SolarAbo: impianto solare in abbonamento mensile | Free State",
       "description": "SolarAbo di Free State: il vostro impianto solare con rata mensile fissa, monitoraggio, garanzia e assicurazione inclusi. Calcolate la rata."
     },
     "batteryStorage": {
-      "title": "",
-      "description": ""
+      "title": "Accumulo a batteria Svizzera: conserva il tuo solare",
+      "description": "Conserva la tua energia solare per la notte. Accumulatori da 5 kWh. Compatibili con BYD, Huawei, Viessmann. Installazione nella Svizzera tedesca."
     },
     "heatPumps": {
-      "title": "",
-      "description": ""
+      "title": "Pompe di calore Svizzera: aria/acqua e geotermiche",
+      "description": "Pompa di calore per la tua casa in Svizzera. Combinala con un impianto solare per la massima indipendenza. Consulenza, incentivi e installazione."
     },
     "chargingStations": {
-      "title": "",
-      "description": ""
+      "title": "Stazioni di ricarica: wallbox Svizzera | Free State AG",
+      "description": "Wallbox per casa o condominio. In combinazione con l'impianto solare per la ricarica con il surplus. Ricarica bidirezionale disponibile in Svizzera."
     },
     "commercial": {
-      "title": "",
-      "description": ""
+      "title": "Solare per aziende: fotovoltaico commerciale",
+      "description": "Fotovoltaico per le aziende: produci la tua elettricità e pianifica i costi energetici, con modelli senza investimento iniziale. Richiedi una consulenza."
     },
     "cost": {
-      "title": "",
-      "description": ""
+      "title": "Costi impianto solare Svizzera 2026: prezzi ed esempi",
+      "description": "Quanto costa un impianto solare? Esempi di prezzo da CHF 19'500, incentivi e risparmi fiscali inclusi. Calcola il tuo risparmio in soli 2 minuti online."
     },
     "amortization": {
-      "title": "",
-      "description": ""
+      "title": "Ammortamento impianto solare: quando conviene?",
+      "description": "Quando si ripaga il tuo impianto solare? Calcola il periodo di ammortamento con incentivi e autoconsumo. Il tuo risparmio calcolato in soli 2 minuti."
     },
     "solarCalculator": {
-      "title": "",
-      "description": ""
+      "title": "Calcolatore solare Svizzera: risparmio in 2 minuti",
+      "description": "Calcolatore solare gratuito: inserisci il tuo indirizzo e calcola dimensioni, costi e risparmio per il tuo tetto. Senza impegno, risultato in 2 minuti."
     },
     "calculator": {
-      "title": "",
-      "description": ""
+      "title": "Calcolatore solare: calcola il tuo impianto",
+      "description": "Calcola il tuo impianto solare online: dimensioni, costi, resa e risparmio in 2 minuti. Gratuito, senza impegno e con risultato immediato."
     },
     "aboutUs": {
-      "title": "",
-      "description": ""
+      "title": "Chi siamo: il solare da un unico fornitore",
+      "description": "Free State AG progetta e installa impianti solari in 19 cantoni della Svizzera tedesca. Esperienza dal 2008, oggi con SolarFree, SolarAbo e SolarDirect."
     },
     "team": {
-      "title": "",
-      "description": ""
+      "title": "Team: le persone dietro Free State AG",
+      "description": "Conosci il team di Free State AG: consulenza, progettazione e installazione di impianti solari nella Svizzera tedesca, con esperienza dal 2008."
     },
     "history": {
-      "title": "",
-      "description": ""
+      "title": "La nostra storia: esperienza dal 2008",
+      "description": "Dallo studio di ingegneria all'azienda solare: il nostro team lavora nell'energia dal 2008, dal 2024 come Free State AG con piena attenzione al solare."
     },
     "careers": {
-      "title": "",
-      "description": ""
+      "title": "Carriera: lavori nel solare | Free State AG",
+      "description": "Lavorare nel settore solare: posizioni aperte in montaggio, progettazione e consulenza presso Free State AG. Contribuisci al futuro energetico svizzero."
     },
     "faq": {
-      "title": "",
-      "description": ""
+      "title": "FAQ solare: domande frequenti sul fotovoltaico",
+      "description": "Risposte alle domande frequenti sugli impianti solari: costi, incentivi, installazione, manutenzione e SolarFree senza anticipo. Trova le tue risposte."
     },
     "portfolio": {
-      "title": "",
-      "description": ""
+      "title": "Referenze: progetti solari di Free State AG",
+      "description": "Progetti solari selezionati dalla Svizzera tedesca: case unifamiliari, edifici commerciali e agricoli. Scopri cosa producono i nostri impianti solari."
     },
     "service": {
       "title": "",
       "description": ""
     },
     "blog": {
-      "title": "",
-      "description": ""
+      "title": "Blog solare Svizzera: fotovoltaico ed energia",
+      "description": "Articoli su impianti solari, prezzi dell'elettricità, incentivi e futuro energetico in Svizzera. Conoscenze pratiche dal team di Free State AG."
     },
     "contact": {
-      "title": "",
-      "description": ""
+      "title": "Contatto: consulenza solare | Free State AG",
+      "description": "Contatta Free State AG per una consulenza su impianti solari, accumulo e pompe di calore. Sedi a Sciaffusa, Zurigo e San Gallo. Ti rispondiamo rapidamente."
     },
     "energyStorage": {
       "title": "",
       "description": ""
     },
     "repowering": {
-      "title": "",
-      "description": ""
+      "title": "Repowering: modernizza il tuo impianto solare",
+      "description": "Più potenza dallo stesso tetto: modernizziamo impianti solari esistenti con nuovi moduli, inverter e accumulatori. Fai verificare il tuo potenziale ora."
     },
     "solarSystemCarport": {
       "title": "",
@@ -209,8 +209,8 @@
       "description": ""
     },
     "howItWorks": {
-      "title": "",
-      "description": ""
+      "title": "Come funziona: dalla richiesta all'impianto",
+      "description": "Come arriva l'impianto solare sul tuo tetto? Tutti i passaggi dalla consulenza alla messa in funzione, spiegati in modo chiaro da Free State AG."
     },
     "heatPumpsProducts": {
       "title": "",
@@ -500,12 +500,12 @@
     "residentialProperties": "Proprietà residenziali"
   },
   "experienceTimeline": {
-    "sectionHeading": "16 anni di esperienza.",
+    "sectionHeading": "Esperienza dal 2008.",
     "subheading": "Free State AG è una realtà nuova. Il nostro team costruisce impianti solari in Svizzera dal 2008.",
     "node2008Title": "2008",
     "node2008Body": "Il nostro team installa il suo primo impianto solare. L'inizio del nostro mestiere.",
     "node2008_2024Title": "Dal 2008 al 2024",
-    "node2008_2024Body": "Il team costruisce impianto dopo impianto. Oltre 16 anni di esperienza nel solare e nell'energia in Svizzera.",
+    "node2008_2024Body": "Il team costruisce impianto dopo impianto. Esperienza nel solare e nell'energia in Svizzera dal 2008.",
     "node2024Title": "Novembre 2024",
     "node2024Body": "Il team fonda Free State AG a Sciaffusa e punta tutto sul solare.",
     "nodeTodayTitle": "Oggi",
@@ -656,10 +656,10 @@
       }
     },
     "stats": {
-      "projects": "Progetti completati",
-      "experience": "Anni di esperienza",
-      "savings": "Risparmi per i nostri clienti",
-      "employees": "Collaboratori"
+      "downPayment": "Acconto con SolarFree",
+      "solarPrice": "Prezzo dell'energia solare con SolarFree",
+      "cantons": "Cantoni della Svizzera tedesca",
+      "locations": "Sedi"
     },
     "solarModels": {
       "eyebrow": "Modelli solari",
@@ -922,16 +922,16 @@
           "description": "Finanziamento solare con tariffe prevedibili, accessibili e condizioni garantite"
         },
         {
-          "title": "35 anni di garanzia sull'impianto",
-          "description": "Garanzia leader del settore per un sistema premium di pannelli solari e accumulo"
+          "title": "Garanzia e assicurazione incluse",
+          "description": "Con SolarFree e SolarAbo, la garanzia e l'assicurazione dell'intero impianto sono incluse"
         },
         {
-          "title": "Manutenzione e riparazioni gratuite",
-          "description": "35 anni di manutenzione e riparazioni gratuite per una totale tranquillità"
+          "title": "Manutenzione e servizio",
+          "description": "Con SolarFree, gestione, manutenzione e servizio del tuo impianto sono inclusi, con monitoraggio 24/7"
         },
         {
-          "title": "Un'esperienza solare e di accumulo senza pari",
-          "description": "Sostenuto dal n°1 degli installatori residenziali solari e di batterie del paese"
+          "title": "Esperienza dal 2008",
+          "description": "Il nostro team progetta e installa impianti solari dal 2008, oggi in 19 cantoni della Svizzera tedesca"
         }
       ]
     },
@@ -939,6 +939,11 @@
       "eyebrow": "I nostri partner",
       "title": "I marchi che si fidano di FreeState",
       "subtitle": "Con partner solidi e marchi leader, creiamo soluzioni energetiche affidabili per la tua casa."
+    },
+    "calculatorSection": {
+      "eyebrow": "Calcolatore solare",
+      "title": "Calcola ora il tuo potenziale solare",
+      "subtitle": "Rispondi a poche domande e ricevi in pochi minuti il tuo calcolo solare personalizzato. Gratuito e senza impegno."
     },
     "deals": {
       "title": "Offerte attuali",
@@ -3879,7 +3884,7 @@
     },
     "analytics": {
       "title": "Web analytics, gestione dei tag e misurazione dell'utilizzo",
-      "content": "Previa il tuo consenso, utilizziamo i seguenti servizi per capire come viene utilizzato il nostro sito web e per migliorare la nostra offerta. Senza il tuo consenso, questi servizi non vengono attivati.\n\n1) Google Tag Manager\nFornitore: Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\nGoogle Tag Manager è uno strumento di gestione che ci consente di integrare in modo centralizzato i tag di misurazione e analisi. Il Tag Manager stesso non crea profili utente e non imposta cookie propri. Tuttavia, carica altri servizi (vedi sotto) che trattano essi stessi dati.\n\n2) Google Analytics 4 (GA4)\nFornitore: Google Ireland Limited.\nGA4 produce statistiche anonimizzate sull'uso del nostro sito web (ad es. visualizzazioni di pagina, durata della sessione, paese di origine, tipo di dispositivo, fonte di traffico). L'indirizzo IP viene troncato prima della memorizzazione (\"anonimizzazione IP\") e i singoli utenti non vengono identificati direttamente. Gestiamo GA4 con la Google Consent Mode v2 abilitata e con le funzioni pubblicitarie (\"Google Signals\") disabilitate. Il periodo di conservazione dei dati di evento in GA4 è di 14 mesi.\n\n3) Hotjar\nFornitore: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar produce heatmap aggregate; su determinate pagine (in particolare il calcolatore solare e l'area clienti) registra inoltre sessioni pseudonimizzate per identificare problemi di usabilità. Le battute sui campi dei moduli sono mascherate per impostazione predefinita; i contenuti sensibili (dati dei clienti, contratti) non vengono registrati. Hotjar imposta cookie con una durata massima di 365 giorni.\n\n4) Google Search Console\nFornitore: Google Ireland Limited.\nGoogle Search Console viene utilizzato esclusivamente per la verifica della proprietà del dominio e per l'analisi di statistiche SEO anonime (ad es. query di ricerca in ingresso da Google). Non imposta cookie su questo sito web e non tratta dati personali dei nostri visitatori.\n\nBase giuridica: consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nTrasferimento di dati negli USA: GA4, Google Tag Manager, Google Search Console e Hotjar trattano in parte dati negli USA. Google è certificato ai sensi dell'EU-US Data Privacy Framework; Hotjar tratta i dati prevalentemente nell'UE ma può utilizzare subincaricati in Paesi terzi. Laddove i dati vengano trasferiti in un Paese senza un livello adeguato di protezione dei dati, ci basiamo sulle Clausole Contrattuali Tipo ai sensi dell'art. 16 nLPD / art. 46 GDPR."
+      "content": "Previa il tuo consenso, utilizziamo i seguenti servizi per capire come viene utilizzato il nostro sito web e per migliorare la nostra offerta. Senza il tuo consenso, questi servizi non vengono attivati.\n\n1) Google Tag Manager\nFornitore: Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.\nGoogle Tag Manager è uno strumento di gestione che ci consente di integrare in modo centralizzato i tag di misurazione e analisi. Il Tag Manager stesso non crea profili utente e non imposta cookie propri. Tuttavia, carica altri servizi (vedi sotto) che trattano essi stessi dati.\n\n2) Google Analytics 4 (GA4)\nFornitore: Google Ireland Limited.\nGA4 produce statistiche anonimizzate sull'uso del nostro sito web (ad es. visualizzazioni di pagina, durata della sessione, paese di origine, tipo di dispositivo, fonte di traffico). L'indirizzo IP viene troncato prima della memorizzazione (\"anonimizzazione IP\") e i singoli utenti non vengono identificati direttamente. Gestiamo GA4 con la Google Consent Mode v2 abilitata e con le funzioni pubblicitarie (\"Google Signals\") disabilitate. Il periodo di conservazione dei dati di evento in GA4 è di 14 mesi.\n\n3) Contentsquare (ex Hotjar)\nFornitore: Contentsquare SAS, 7 Rue de Madrid, 75008 Paris, Francia.\nContentsquare produce heatmap aggregate; su determinate pagine (in particolare il calcolatore solare e l'area clienti) registra inoltre sessioni pseudonimizzate per identificare problemi di usabilità. Le battute sui campi dei moduli sono mascherate per impostazione predefinita; i contenuti sensibili (dati dei clienti, contratti) non vengono registrati. Contentsquare imposta cookie con una durata massima di 13 mesi.\n\n4) Google Search Console\nFornitore: Google Ireland Limited.\nGoogle Search Console viene utilizzato esclusivamente per la verifica della proprietà del dominio e per l'analisi di statistiche SEO anonime (ad es. query di ricerca in ingresso da Google). Non imposta cookie su questo sito web e non tratta dati personali dei nostri visitatori.\n\nBase giuridica: consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR).\n\nTrasferimento di dati negli USA: GA4, Google Tag Manager, Google Search Console e Contentsquare trattano in parte dati negli USA. Google è certificato ai sensi dell'EU-US Data Privacy Framework; Contentsquare tratta i dati prevalentemente nell'UE ma può utilizzare subincaricati in Paesi terzi. Laddove i dati vengano trasferiti in un Paese senza un livello adeguato di protezione dei dati, ci basiamo sulle Clausole Contrattuali Tipo ai sensi dell'art. 16 nLPD / art. 46 GDPR."
     },
     "hosting": {
       "title": "Hosting e responsabili del trattamento",
@@ -3907,7 +3912,7 @@
     },
     "dataRetention": {
       "title": "Conservazione e cancellazione",
-      "content": "Conserviamo i dati personali solo per il tempo necessario ai rispettivi scopi o richiesto dagli obblighi di conservazione di legge. Si applicano i seguenti periodi di conservazione:\n\n• File di log del server: massimo 30 giorni\n• Registrazioni del consenso ai cookie: fino a 12 mesi dall'ultima conferma\n• Dati di evento di Google Analytics 4: 14 mesi\n• Registrazioni Hotjar: massimo 365 giorni\n• Dati di iscrizione alla newsletter: fino alla revoca del consenso\n• Dati di contatto e di richiesta: fino a 24 mesi dopo la conclusione della richiesta\n• Dati contrattuali e contabili: 10 anni ai sensi dell'art. 958f del Codice delle obbligazioni svizzero\n• Dati dell'account cliente (\"Dashboard\"): fino alla cancellazione dell'account da parte tua o 24 mesi dopo l'ultimo accesso\n\nAlla scadenza del rispettivo termine, i dati vengono cancellati o anonimizzati."
+      "content": "Conserviamo i dati personali solo per il tempo necessario ai rispettivi scopi o richiesto dagli obblighi di conservazione di legge. Si applicano i seguenti periodi di conservazione:\n\n• File di log del server: massimo 30 giorni\n• Registrazioni del consenso ai cookie: fino a 12 mesi dall'ultima conferma\n• Dati di evento di Google Analytics 4: 14 mesi\n• Registrazioni di sessione Contentsquare: massimo 365 giorni\n• Dati di iscrizione alla newsletter: fino alla revoca del consenso\n• Dati di contatto e di richiesta: fino a 24 mesi dopo la conclusione della richiesta\n• Dati contrattuali e contabili: 10 anni ai sensi dell'art. 958f del Codice delle obbligazioni svizzero\n• Dati dell'account cliente (\"Dashboard\"): fino alla cancellazione dell'account da parte tua o 24 mesi dopo l'ultimo accesso\n\nAlla scadenza del rispettivo termine, i dati vengono cancellati o anonimizzati."
     },
     "contact": {
       "title": "Contatto per questioni di protezione dei dati",
@@ -3997,7 +4002,7 @@
     },
     "dataProtection": {
       "title": "11. Protezione dei dati",
-      "content": "Free State AG tratta i dati personali conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD). Ove applicabile, si applica inoltre il Regolamento generale sulla protezione dei dati dell'UE (GDPR).\n\nInformazioni dettagliate sul trattamento dei dati, sui diritti degli interessati e sui fornitori terzi utilizzati (in particolare Google Analytics, Hotjar, Google Maps e Swisscom Trust Services) sono riportate nella nostra informativa sulla privacy all'indirizzo /privacy-policy."
+      "content": "Free State AG tratta i dati personali conformemente alla revisionata Legge federale svizzera sulla protezione dei dati (nLPD). Ove applicabile, si applica inoltre il Regolamento generale sulla protezione dei dati dell'UE (GDPR).\n\nInformazioni dettagliate sul trattamento dei dati, sui diritti degli interessati e sui fornitori terzi utilizzati (in particolare Google Analytics, Contentsquare (ex Hotjar), Google Maps e Swisscom Trust Services) sono riportate nella nostra informativa sulla privacy all'indirizzo /privacy-policy."
     },
     "applicableLaw": {
       "title": "12. Diritto applicabile e foro competente",
@@ -4811,12 +4816,12 @@
       "title": "Perché FreeState?",
       "cards": {
         "experience": {
-          "title": "Esperienza",
-          "subtitle": "Oltre 15.000 impianti installati"
+          "title": "Esperienza dal 2008",
+          "subtitle": "Il nostro team progetta e installa impianti solari dal 2008, oggi in 19 cantoni della Svizzera tedesca."
         },
         "localPresence": {
           "title": "Presenza locale",
-          "subtitle": "Squadre di assistenza in tutta la Svizzera"
+          "subtitle": "Squadre di assistenza nella Svizzera tedesca"
         },
         "comprehensiveService": {
           "title": "Servizio completo",
@@ -5469,17 +5474,7 @@
         "waterOnGround": "Acqua sul pavimento",
         "noUnderfloor": "Nessun riscaldamento a pavimento o radiatori."
       },
-      "footer": "Contatta il nostro partner di servizio regionale."
-    },
-    "servicePartner": {
-      "title": "Partner di assistenza",
-      "company": "TP Heiztechnik GmbH (a pagamento)",
-      "contact": {
-        "phone": "+41 62 530 21 82",
-        "email": "info@tp-heiztechnik.ch",
-        "website": "www.tp-heiztechnik.ch"
-      },
-      "cta": "Contatto"
+      "footer": "Contattaci."
     }
   },
   "heatPumpsProducts": {
@@ -5806,14 +5801,6 @@
     "repoweringServices": {
       "title": "I nostri servizi di repowering",
       "cards": {
-        "numberOne": {
-          "title": "N. 1 in Svizzera",
-          "description": "500+ dipendenti. Il più grande installatore\nsolare della Svizzera e leader di mercato\nnell'accumulo."
-        },
-        "customers": {
-          "title": "Oltre 15.000 clienti",
-          "description": "Oltre 10 anni di esperienza.\nProgetti PV di tutte le dimensioni."
-        },
         "yieldGuarantee": {
           "title": "Garanzia di rendimento",
           "description": "Garanzia di resa energetica 10 anni\ne funzionamento a lungo termine dell'impianto."
@@ -6319,6 +6306,7 @@
       "marketingContent": "Content",
       "marketingStudio": "Studio",
       "marketingCompetitors": "Concorrenti",
+      "marketingExperiments": "Esperimenti",
       "marketingSettings": "Impostazioni"
     },
     "marketing": {
@@ -6530,6 +6518,53 @@
         "adEuReach": "Copertura UE (opzionale)",
         "adIsActive": "Annuncio attivo",
         "adNotes": "Note"
+      },
+      "experiments": {
+        "title": "Esperimenti",
+        "intro": "Una variabile per esperimento. Registrare l'ipotesi, definire le varianti, documentare la decisione e gli apprendimenti.",
+        "newExperiment": "Nuovo esperimento",
+        "empty": "Nessun esperimento registrato finora. Ogni lancio di campagna inizia con un'ipotesi registrata.",
+        "name": "Nome",
+        "status": "Stato",
+        "metric": "Metrica",
+        "variantsCount": "Varianti",
+        "startedAt": "Avviato",
+        "runtime": "Durata",
+        "decision": "Decisione",
+        "actions": "Azioni",
+        "runtimeDays": "{count, plural, one {# giorno} other {# giorni}}",
+        "statusDraft": "Bozza",
+        "statusRunning": "In corso",
+        "statusDecided": "Deciso",
+        "statusAbandoned": "Abbandonato",
+        "start": "Avvia",
+        "decide": "Decidi",
+        "abandon": "Abbandona",
+        "abandonConfirm": "Abbandonare davvero questo esperimento? Lo stato passerà ad Abbandonato.",
+        "decideTitle": "Decidi esperimento",
+        "decisionLabel": "Decisione",
+        "learningsLabel": "Apprendimenti",
+        "decideSave": "Salva decisione",
+        "learnings": "Apprendimenti",
+        "formName": "Nome",
+        "formHypothesis": "Ipotesi",
+        "formHypothesisHint": "Se cambiamo X, Y migliora perché Z",
+        "formVariable": "Variabile",
+        "formVariableHint": "L'unico elemento testato",
+        "formMetric": "Metrica principale",
+        "formMetricHint": "ad es. CPL, CTR, tasso di conversione",
+        "formMinSample": "Campione minimo (opzionale)",
+        "formVariants": "Varianti",
+        "formVariantLabel": "Etichetta",
+        "formVariantRefId": "ID di riferimento (opzionale)",
+        "removeVariant": "Rimuovi variante",
+        "addVariant": "Aggiungi variante",
+        "kindAd": "Annuncio",
+        "kindAdset": "Gruppo di annunci",
+        "kindCampaign": "Campagna",
+        "kindLpVariant": "Variante LP",
+        "formCancel": "Annulla",
+        "formSave": "Salva"
       }
     },
     "dashboard": {
@@ -8080,7 +8115,7 @@
           },
           "averageCost": {
             "question": "Qual è il costo medio dei pannelli solari?",
-            "answer": "Gli impianti costano in genere tra CHF 15'000 e CHF 29'000 per capacità da 4 kW a 8 kW a seconda del cantone e della casa. Opzioni di finanziamento flessibili consentono di passare al solare con poco o nessun anticipo."
+            "answer": "Al netto di incentivi e risparmi fiscali, un impianto solare per una casa unifamiliare costa in genere a partire da CHF 19'500 per un tetto piccolo (3 persone) fino a circa CHF 26'000 per un tetto più grande (5 persone con auto elettrica). Con SolarFree è possibile passare al solare anche con CHF 0 di anticipo."
           },
           "controlCosts": {
             "question": "In che modo il solare mi aiuta a controllare i miei costi?",
@@ -8285,7 +8320,7 @@
       "eyebrow": "2024",
       "title": "La fondazione di FreeState AG",
       "subtitle": "Dall'esperienza, dalla tecnologia e da una chiara visione per il futuro è nata una nuova azienda con piena attenzione ai sistemi energetici decentralizzati.",
-      "cardText": "FreeState AG è nata nel 2024 da oltre 16 anni di esperienza in energia e tecnologia edilizia. L'azienda si concentra interamente su progetti fotovoltaici, sistemi energetici, accumulo a batteria, soluzioni energetiche digitali e modelli di business innovativi per l'energia solare.\nIl nome FreeState rappresenta una chiara visione: un futuro in cui gli edifici producono sempre più la propria energia e diventano più indipendenti dal sistema energetico tradizionale."
+      "cardText": "FreeState AG è nata nel 2024 sulla base di un'esperienza in energia e tecnologia edilizia maturata dal 2008 (in precedenza Telemiiva GmbH). L'azienda si concentra interamente su progetti fotovoltaici, sistemi energetici, accumulo a batteria, soluzioni energetiche digitali e modelli di business innovativi per l'energia solare.\nIl nome FreeState rappresenta una chiara visione: un futuro in cui gli edifici producono sempre più la propria energia e diventano più indipendenti dal sistema energetico tradizionale."
     },
     "futureVision": {
       "eyebrow": "2025 e oltre",

@@ -1,5 +1,6 @@
 'use client'
 
+import { useCalculatorEmbed } from '@/app/[locale]/calculator/CalculatorEmbedContext'
 import { cn } from '@/lib/utils'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { useTranslations } from 'next-intl'
@@ -8,6 +9,8 @@ export default function Steps() {
   const t = useTranslations('solarAboCalculator')
   const { currentStep, goToStep, building } =
     useSolarAboCalculatorStore()
+
+  const embedded = useCalculatorEmbed()
 
   const steps = [
     { id: 1, label: t('progress.step2') },
@@ -27,9 +30,11 @@ export default function Steps() {
         'flex justify-center px-2 py-3 sm:px-4 sm:py-4',
         isOverlayStep
           ? 'absolute left-0 right-0 z-20 pointer-events-none'
-          : 'sticky top-0 z-10'
+          : embedded
+            ? 'relative z-10'
+            : 'sticky top-0 z-10'
       )}
-      style={isOverlayStep ? { top: '77px' } : undefined}
+      style={isOverlayStep && !embedded ? { top: '77px' } : undefined}
     >
       <div
         className="rounded-full px-3 py-2 sm:px-6 sm:py-4 max-w-[1009px] w-full pointer-events-auto"

@@ -2,7 +2,10 @@ import type { MetadataRoute } from 'next'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
 import { buildCanonicalUrl, buildHreflangAlternates } from '@/lib/seo/metadata'
 import { blogService } from '@/services/blog.service'
-import { FOERDERUNG_CANTONS } from '@/data/foerderung-cantons'
+import {
+  FOERDERUNG_CANTONS,
+  isPlaceholderCanton,
+} from '@/data/foerderung-cantons'
 
 const REFRESH_2026_05_16 = new Date('2026-05-16')
 const REFRESH_2026_04_12 = new Date('2026-04-12')
@@ -95,6 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   for (const canton of FOERDERUNG_CANTONS) {
+    if (isPlaceholderCanton(canton)) continue
     const pathname = `/foerderung/${canton.nameSlug}`
     const url = buildCanonicalUrl({
       pathname,

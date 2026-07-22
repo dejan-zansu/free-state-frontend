@@ -1,5 +1,38 @@
-import { test, expect } from 'vitest'
+import { test, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+
+vi.hoisted(() => {
+  if (typeof window.matchMedia !== 'function') {
+    window.matchMedia = (query: string) =>
+      ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: () => {},
+        removeListener: () => {},
+        addEventListener: () => {},
+        removeEventListener: () => {},
+        dispatchEvent: () => false,
+      }) as unknown as MediaQueryList
+  }
+  if (typeof window.ResizeObserver !== 'function') {
+    window.ResizeObserver = class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    } as unknown as typeof ResizeObserver
+  }
+  if (typeof window.IntersectionObserver !== 'function') {
+    window.IntersectionObserver = class {
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+      takeRecords() {
+        return []
+      }
+    } as unknown as typeof IntersectionObserver
+  }
+})
 import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import ExperienceTimeline from '../ExperienceTimeline'
 import deMessages from '../../../messages/de.json'
@@ -12,9 +45,9 @@ test('renders four experience milestones with DE content', () => {
     </NextIntlClientProvider>
   )
   expect(screen.getAllByRole('listitem')).toHaveLength(4)
-  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('16 Jahre Erfahrung.')
+  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent('Erfahrung seit 2008.')
   expect(screen.getByText(/erste Solaranlage/)).toBeInTheDocument()
-  expect(screen.getByText(/Über 16 Jahre/)).toBeInTheDocument()
+  expect(screen.getByText(/Erfahrung in Solar und Energie/)).toBeInTheDocument()
   expect(screen.getByText(/gründet die Free State AG in Schaffhausen/)).toBeInTheDocument()
   expect(screen.getByText(/19 Deutschschweizer Kantonen/)).toBeInTheDocument()
 })

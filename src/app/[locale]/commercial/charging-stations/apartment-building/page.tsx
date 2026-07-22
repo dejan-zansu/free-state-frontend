@@ -3,6 +3,7 @@ import EvChargingIntroSection from '@/components/commercial/charging-stations/ap
 import CalculatorCTASection from '@/components/commercial/charging-stations/apartment-building/sections/CalculatorCTASection'
 import FreeStateOffersSection from '@/components/commercial/charging-stations/apartment-building/sections/FreeStateOffersSection'
 import FAQSection from '@/components/commercial/charging-stations/apartment-building/sections/FAQSection'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -28,6 +29,7 @@ const ApartmentBuildingPage = async () => {
 
   return (
     <div>
+      <JsonLdFaqFromNamespace namespace="apartmentBuilding" />
       <PageHero
         isCommercial
         title={t('hero.title')}

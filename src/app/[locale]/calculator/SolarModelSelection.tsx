@@ -11,6 +11,8 @@ import {
   type SolarModel,
 } from '@/stores/solar-abo-calculator.store'
 
+import { useCalculatorEmbed } from './CalculatorEmbedContext'
+
 const CheckIcon = () => (
   <svg
     width="12"
@@ -84,13 +86,16 @@ export default function SolarModelSelection() {
   const t = useTranslations('solarAboCalculator.modelSelection')
   const tCommon = useTranslations('common')
   const { setSolarModel } = useSolarAboCalculatorStore()
+  const embedded = useCalculatorEmbed()
+  const Heading = embedded ? 'h3' : 'h1'
+  const CardTitle = embedded ? 'h4' : 'h2'
 
   return (
     <div className="flex flex-col items-center px-4 py-6 sm:justify-center sm:min-h-full sm:py-12">
       <div className="text-center mb-6 sm:mb-10">
-        <h1 className="text-2xl sm:text-[45px] font-medium text-[#062E25]">
+        <Heading className="text-2xl sm:text-[45px] font-medium text-[#062E25]">
           {t('title')}
-        </h1>
+        </Heading>
         <p className="mt-3 text-base sm:mt-5 sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
           {t('subtitle')}
         </p>
@@ -141,9 +146,9 @@ export default function SolarModelSelection() {
 
             <div className="relative z-10 flex items-start gap-3 pt-2">
               <div className="flex min-w-0 flex-1 flex-col gap-2.5">
-                <h2 className="text-[17px] sm:text-[22px] font-medium text-[#062E25]">
+                <CardTitle className="text-[17px] sm:text-[22px] font-medium text-[#062E25]">
                   {t(card.titleKey)}
-                </h2>
+                </CardTitle>
                 <div className="flex flex-col gap-1.5">
                   {card.bullets.map(bulletKey => (
                     <div key={bulletKey} className="flex items-center gap-1.5">

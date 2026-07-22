@@ -338,3 +338,60 @@ export interface MarketingCompetitorDiffRow {
 export interface MarketingCompetitorDiffs {
   rows: MarketingCompetitorDiffRow[]
 }
+
+export type ExperimentVariantKind = 'ad' | 'adset' | 'campaign' | 'lp-variant'
+
+export type ExperimentStatus = 'DRAFT' | 'RUNNING' | 'DECIDED' | 'ABANDONED'
+
+export interface ExperimentVariant {
+  kind: ExperimentVariantKind
+  refId?: string | null
+  label: string
+}
+
+export interface Experiment {
+  id: string
+  name: string
+  hypothesis: string
+  variable: string
+  variants: ExperimentVariant[]
+  primaryMetric: string
+  minSample: number | null
+  status: ExperimentStatus
+  startAt: string | null
+  endAt: string | null
+  decision: string | null
+  learnings: string | null
+  createdById: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+export interface MarketingExperiments {
+  rows: Experiment[]
+}
+
+export interface CreateExperimentInput {
+  name: string
+  hypothesis: string
+  variable: string
+  variants: ExperimentVariant[]
+  primaryMetric: string
+  minSample?: number
+  startAt?: string
+  endAt?: string
+}
+
+export interface UpdateExperimentInput {
+  name?: string
+  hypothesis?: string
+  variable?: string
+  variants?: ExperimentVariant[]
+  primaryMetric?: string
+  minSample?: number | null
+  status?: ExperimentStatus
+  startAt?: string
+  endAt?: string
+  decision?: string
+  learnings?: string
+}

@@ -10,6 +10,8 @@ import {
   type HouseholdSize,
 } from '@/stores/solar-abo-calculator.store'
 
+import { useCalculatorEmbed } from '../CalculatorEmbedContext'
+
 const householdOptions: { size: HouseholdSize; labelKey: string; image: string }[] = [
   { size: 1, labelKey: '1', image: '/images/calculator/household/1.webp' },
   { size: 2, labelKey: '2', image: '/images/calculator/household/2.webp' },
@@ -23,6 +25,8 @@ export default function Step2HouseholdSize() {
   const tNav = useTranslations('solarAboCalculator.navigation')
   const { householdSize, setHouseholdSize, setSolarModel, nextStep } =
     useSolarAboCalculatorStore()
+  const embedded = useCalculatorEmbed()
+  const Heading = embedded ? 'h3' : 'h1'
 
   const handleSelect = (size: HouseholdSize) => {
     setHouseholdSize(size)
@@ -33,9 +37,9 @@ export default function Step2HouseholdSize() {
     <div>
       <div className="flex flex-col items-center justify-center px-4 py-12">
         <div className="text-center mb-10">
-          <h1 className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+          <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
             {t('title')}
-          </h1>
+          </Heading>
           <p className="mt-5 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
             {t('helper')}
           </p>
@@ -91,7 +95,12 @@ export default function Step2HouseholdSize() {
         </div>
 
         <div
-          className="fixed bottom-0 left-0 right-0 z-50 flex justify-end gap-4 px-6 py-4"
+          className={cn(
+            'flex justify-end gap-4 px-6 py-4',
+            embedded
+              ? 'mt-8 w-full max-w-[1340px] rounded-2xl'
+              : 'fixed bottom-0 left-0 right-0 z-50'
+          )}
           style={{
             background: 'rgba(234, 237, 223, 0.85)',
             backdropFilter: 'blur(12px)',

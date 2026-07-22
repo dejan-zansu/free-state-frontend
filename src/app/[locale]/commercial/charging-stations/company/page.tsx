@@ -3,6 +3,7 @@ import ChargingSolutionsSection from '@/components/charging-stations/company/Cha
 import CompanySolutionSection from '@/components/charging-stations/company/CompanySolutionSection'
 import FreeStateOffersSection from '@/components/charging-stations/company/FreeStateOffersSection'
 import FAQSection from '@/components/charging-stations/company/FAQSection'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -28,6 +29,7 @@ const CompanyPage = async () => {
 
   return (
     <div>
+      <JsonLdFaqFromNamespace namespace="chargingStationsCompany" />
       <PageHero
         isCommercial
         title={t('hero.title')}

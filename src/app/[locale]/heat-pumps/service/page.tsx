@@ -3,7 +3,6 @@ import ServiceHotlineSection from '@/components/heat-pumps/service/ServiceHotlin
 import EmergencySection from '@/components/heat-pumps/service/EmergencySection'
 import ManufacturerSupportSection from '@/components/heat-pumps/service/ManufacturerSupportSection'
 import HydraulicEmergencySection from '@/components/heat-pumps/service/HydraulicEmergencySection'
-import ServicePartnerSection from '@/components/heat-pumps/service/ServicePartnerSection'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -41,7 +40,6 @@ const HeatPumpsServicePage = async () => {
       <EmergencySection />
       <ManufacturerSupportSection />
       <HydraulicEmergencySection />
-      <ServicePartnerSection />
     </div>
   )
 }

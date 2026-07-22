@@ -11,6 +11,7 @@ import UtmCapture from '@/components/analytics/UtmCapture'
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
+import ContentsquareScript from '@/components/analytics/ContentsquareScript'
 import { locales } from '@/i18n/routing'
 import { QueryProvider } from '@/providers/QueryProvider'
 import SmoothScrollProvider from '@/providers/SmoothScrollProvider'
@@ -110,6 +111,7 @@ export default async function LocaleLayout({
                   <div className="flex-1">{children}</div>
                   <ConditionalFooter locale={locale} />
                   <CookieConsentBanner />
+                  <ContentsquareScript />
                   <UtmCapture />
                   <ConsultationDock />
                 </div>

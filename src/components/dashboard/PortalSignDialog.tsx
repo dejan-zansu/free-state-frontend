@@ -103,7 +103,10 @@ export default function PortalSignDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-lg max-h-[90vh] flex flex-col gap-0 p-0">
+      <DialogContent
+        className="sm:max-w-lg max-h-[90vh] flex flex-col gap-0 p-0"
+        data-hj-suppress data-cs-mask
+      >
         <DialogHeader className="p-6 pb-4 border-b">
           <DialogTitle className="text-xl">{t('title')}</DialogTitle>
           <DialogDescription>{t('subtitle')}</DialogDescription>
