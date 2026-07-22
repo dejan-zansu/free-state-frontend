@@ -74,16 +74,12 @@ describe('sitemap', () => {
     ])
   })
 
-  it('includes the seeded cantonal Förderung pages with per-canton lastModified', async () => {
+  it('excludes cantonal Förderung pages with placeholder data', async () => {
     const entries = await sitemap()
     const urls = entries.map(e => e.url)
-    const slugs = ['aargau', 'luzern', 'st-gallen', 'schaffhausen']
-    for (const slug of slugs) {
-      expect(urls).toContain(`https://www.freestate.ch/foerderung/${slug}`)
+    const placeholderSlugs = ['aargau', 'luzern', 'st-gallen', 'schaffhausen']
+    for (const slug of placeholderSlugs) {
+      expect(urls).not.toContain(`https://www.freestate.ch/foerderung/${slug}`)
     }
-    const luzern = entries.find(
-      e => e.url === 'https://www.freestate.ch/foerderung/luzern'
-    )
-    expect(luzern?.lastModified).toBeInstanceOf(Date)
   })
 })

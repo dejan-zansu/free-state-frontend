@@ -30,6 +30,7 @@ declare global {
     dataLayer?: unknown[]
     hj?: ((...args: unknown[]) => void) & { q?: unknown[] }
     _hjSettings?: { hjid: number; hjsv: number }
+    _uxa?: unknown[]
     gtag?: (...args: unknown[]) => void
     fbq?: ((...args: unknown[]) => void) & {
       callMethod?: (...args: unknown[]) => void

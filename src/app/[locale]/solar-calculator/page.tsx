@@ -7,6 +7,7 @@ import SolarAboShowcaseSection from '@/components/solar-calculator/SolarAboShowc
 import SolarAboCardsSection from '@/components/solar-calculator/SolarAboCardsSection'
 import FAQSection from '@/components/solar-calculator/FAQSection'
 import BottomCTASection from '@/components/solar-calculator/BottomCTASection'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -32,6 +33,7 @@ const SolarCalculatorPage = async () => {
 
   return (
     <div>
+      <JsonLdFaqFromNamespace namespace="solarCalculator" />
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/calculator-hero-bg.png"

@@ -8,6 +8,10 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 import { commercialLeadService } from '@/services/commercial-lead.service'
+import {
+  COMPANY_MAIN_PHONE_DISPLAY,
+  COMPANY_MAIN_PHONE_TEL_HREF,
+} from '@/lib/company-contact'
 import { attachmentTypeLabel } from '@/lib/commercial-lead-labels'
 import type { CommercialAttachmentType } from '@/types/commercial-lead'
 
@@ -186,8 +190,8 @@ export default function SonnendachStep7Confirmation() {
         <div className="mt-8 text-center text-sm text-[#062E25]/60">
           <p>{t('questions')}</p>
           <p className="mt-1">
-            <a href="tel:+41000000000" className="hover:text-[#062E25] inline-flex items-center gap-1">
-              <Phone className="w-4 h-4" /> +41 00 000 00 00
+            <a href={COMPANY_MAIN_PHONE_TEL_HREF} className="hover:text-[#062E25] inline-flex items-center gap-1">
+              <Phone className="w-4 h-4" /> {COMPANY_MAIN_PHONE_DISPLAY}
             </a>
           </p>
         </div>

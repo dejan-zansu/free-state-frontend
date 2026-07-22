@@ -29,6 +29,9 @@ const ORG_DATA = {
     'https://www.linkedin.com/company/free-state-ag/',
     'https://www.facebook.com/freestateag',
     'https://www.instagram.com/free_state_ag',
+    'https://www.uid.admin.ch/Detail.aspx?uid_id=CHE-134.711.335',
+    'https://www.zefix.ch/de/search/entity/list?name=CHE-134.711.335',
+    'https://sh.chregister.ch/cr-portal/auszug/auszug.xhtml?uid=CHE-134.711.335',
   ],
 }
 

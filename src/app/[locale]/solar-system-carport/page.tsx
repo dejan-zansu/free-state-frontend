@@ -8,6 +8,7 @@ import PhotovoltaicsCarportsSection from '@/components/solar-system-carport/Phot
 import SingleDoubleCarportSection from '@/components/solar-system-carport/SingleDoubleCarportSection'
 import WhySolarCarportSection from '@/components/solar-system-carport/WhySolarCarportSection'
 import EnergySolutionsSection from '@/components/heat-pumps/cost/EnergySolutionsSection'
+import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -33,6 +34,7 @@ const SolarSystemCarportPage = async () => {
 
   return (
     <div>
+      <JsonLdFaqFromNamespace namespace="solarSystemCarport" />
       <div className="bg-[#EAEDDF]">
         <PageHero
           backgroundImage="/images/carport-hero-bg.png"

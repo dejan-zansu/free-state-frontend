@@ -1,16 +1,46 @@
 # Free State AG
 
-> Free State AG ist ein Schweizer Anbieter für Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen. Kaufen oder als Solar-Abo ohne Eigeninvestition. Tätig in 19 Kantonen der Deutschschweiz.
+> Free State AG ist ein Schweizer Anbieter für Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen mit Hauptsitz in Schaffhausen und Standorten in Zürich und St. Gallen. Drei Modelle: SolarFree (Solaranlage ohne Eigeninvestition), SolarAbo (eigene Anlage in festen Monatsraten) und SolarDirect (Direktkauf zum Festpreis). Tätig in 19 Kantonen der Deutschschweiz. UID: CHE-134.711.335.
 
 ## Produkte und Leistungen
 
 - [Solaranlagen](https://www.freestate.ch/solaranlagen): Photovoltaikanlagen für Einfamilienhäuser und Mehrfamilienhäuser
-- [Solar-Abo](https://www.freestate.ch/solar-free): Solaranlage ohne Eigeninvestition, monatliche Rate statt Kauf
-- [Solar-Direct](https://www.freestate.ch/solar-direct): Direkter Kauf einer Solaranlage mit transparentem Festpreis
+- [SolarFree](https://www.freestate.ch/solar-free): Solaranlage ohne Eigeninvestition: CHF 0 Anzahlung, Solarstrom zu 18 Rp/kWh, nach 20 Jahren geht die Anlage ins Eigentum über
+- [SolarAbo](https://www.freestate.ch/solar-abo): Eigene Solaranlage in festen Monatsraten, Eigentum ab Tag 1, Versicherung und Garantie inbegriffen
+- [SolarDirect](https://www.freestate.ch/solar-direct): Direkter Kauf einer Solaranlage mit transparentem Festpreis
 - [Batteriespeicher](https://www.freestate.ch/batteriespeicher): Stromspeicher ab 5 kWh
 - [Wärmepumpen](https://www.freestate.ch/waermepumpen): Luft/Wasser und Sole/Wasser
 - [Ladestationen](https://www.freestate.ch/ladestationen): Wallbox für Zuhause und bidirektionales Laden
 - [Gewerbe](https://www.freestate.ch/gewerbe): Lösungen für Unternehmen, Landwirtschaft und öffentliche Gebäude
+
+## Zahlen und Fakten (Stand: Juli 2026)
+
+- Einstiegspreis: Photovoltaikanlage für ein kleines Einfamilienhaus-Dach ab CHF 19'500 (inkl. Förderungen und Steuerersparnissen)
+- SolarFree: CHF 0 Anzahlung, Solarstrom zu 18 Rp/kWh, bis zu 30% unter dem Netztarif (Netztarif z. B. 32 Rp/kWh, je nach Gemeinde)
+- SolarAbo: Eigentum ab Tag 1, feste Monatsraten, nach 25 Jahren vollständig abbezahlt
+- Tätigkeitsgebiet: 19 Kantone der Deutschschweiz
+- Standorte: Schaffhausen (Hauptsitz), Zürich, St. Gallen
+
+## Ressourcen
+
+- [Solarrechner](https://www.freestate.ch/solarrechner): Ersparnis, Förderung und Amortisation in 2 Minuten berechnen
+- [Kosten](https://www.freestate.ch/kosten): Was eine Solaranlage in der Schweiz kostet, mit Preisbeispielen
+- [Amortisation](https://www.freestate.ch/amortisation): Wann sich eine Solaranlage lohnt
+- [Förderung](https://www.freestate.ch/foerderung): Kantonale Förderübersicht für Photovoltaik
+- [So funktioniert's](https://www.freestate.ch/so-funktionierts): Ablauf von der Offerte bis zur Installation
+- [FAQ](https://www.freestate.ch/faq)
+- [Blog](https://www.freestate.ch/blog)
+- [Blog-RSS](https://www.freestate.ch/de/blog/rss.xml)
+- [Referenzen](https://www.freestate.ch/portfolio)
+
+## Ausgewählte Blogartikel
+
+- [Solaranlage Kosten Einfamilienhaus Schweiz 2026](https://www.freestate.ch/blog/solaranlage-kosten-einfamilienhaus-schweiz-2026)
+- [Lohnt sich Photovoltaik in der Schweiz 2026?](https://www.freestate.ch/blog/lohnt-sich-photovoltaik-schweiz-2026)
+- [Solar mieten oder kaufen Schweiz 2026](https://www.freestate.ch/blog/solar-mieten-oder-kaufen-schweiz-2026)
+- [SolarFree vs. SolarDirect: welches Modell passt?](https://www.freestate.ch/blog/solarfree-vs-solardirect-welches-modell-passt)
+- [Solarpflicht Schweiz 2026: Übersicht der Kantone](https://www.freestate.ch/blog/solarpflicht-schweiz-2026-kantone-uebersicht)
+- [Einmalvergütung 2026: KLEIV, GREIV, HEIV](https://www.freestate.ch/blog/einmalverguetung-2026-kleiv-greiv-heiv)
 
 ## Firmeninformationen
 
@@ -20,12 +50,3 @@
 - [Karriere](https://www.freestate.ch/karriere)
 - [Kontakt](https://www.freestate.ch/kontakt)
 - [Impressum](https://www.freestate.ch/impressum)
-
-## Ressourcen
-
-- [Solarrechner](https://www.freestate.ch/solarrechner)
-- [Kosten](https://www.freestate.ch/kosten)
-- [Amortisation](https://www.freestate.ch/amortisation)
-- [FAQ](https://www.freestate.ch/faq)
-- [Blog](https://www.freestate.ch/blog)
-- [Referenzen](https://www.freestate.ch/portfolio)

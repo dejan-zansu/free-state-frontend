@@ -59,7 +59,7 @@ export default function CustomerRequestsPage() {
 
   if (items.length === 0) {
     return (
-      <div className="max-w-5xl">
+      <div className="max-w-5xl" data-hj-suppress data-cs-mask>
         <h1 className="text-2xl font-bold text-pine mb-8">{t('title')}</h1>
         <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
@@ -73,7 +73,7 @@ export default function CustomerRequestsPage() {
   }
 
   return (
-    <div className="max-w-5xl">
+    <div className="max-w-5xl" data-hj-suppress data-cs-mask>
       <h1 className="text-2xl font-bold text-pine mb-1">{t('title')}</h1>
       <p className="text-pine/60 mb-8">{t('subtitle')}</p>
 

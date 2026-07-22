@@ -1,6 +1,9 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { FOERDERUNG_CANTONS } from '@/data/foerderung-cantons'
+import {
+  FOERDERUNG_CANTONS,
+  isPlaceholderCanton,
+} from '@/data/foerderung-cantons'
 import { CantonalFoerderungPage } from '@/components/CantonalFoerderungPage'
 import { siteConfig } from '@/lib/seo/site-config'
 
@@ -27,6 +30,9 @@ export async function generateMetadata({
     title: `Photovoltaik Förderung ${canton.name} 2026 | Free State AG`,
     description: `Alle PV-Förderbeträge ${canton.name} 2026: Pronovo EIV, kantonale Programme, Solarpflicht, EVU-Tarife. Aktualisiert ${canton.lastUpdated}.`,
     alternates: { canonical },
+    ...(isPlaceholderCanton(canton)
+      ? { robots: { index: false, follow: false } }
+      : {}),
   }
 }
 

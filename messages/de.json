@@ -89,20 +89,20 @@
     "defaultTitle": "Free State AG",
     "titleTemplate": "%s | Free State AG",
     "home": {
-      "title": "Solaranlagen Schweiz kaufen oder als Solar-Abo ab CHF 0.–",
-      "description": "Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen von Free State AG. Kauf oder Solar-Abo ohne Eigeninvestition. 19 Kantone in der Deutschschweiz."
+      "title": "Solaranlage Schweiz: kaufen oder mit SolarFree ab CHF 0",
+      "description": "Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen von Free State AG. Kauf oder SolarFree ohne Eigeninvestition. 19 Kantone in der Deutschschweiz."
     },
     "solarSystems": {
       "title": "Solaranlagen Schweiz: Photovoltaik für dein Zuhause",
       "description": "Solaranlage für Einfamilienhaus in der Schweiz: Planung, Installation, Inbetriebnahme aus einer Hand. Ab CHF 18'000 oder als Solar-Abo ohne Eigeninvestition."
     },
     "solarFree": {
-      "title": "Solar-Abo: Solaranlage ohne Eigeninvestition | Free State AG",
-      "description": "Mit dem Solar-Abo von Free State AG bekommst du deine eigene Solaranlage für CHF 0.– Eigeninvestition. Monatliche Rate statt Kauf. Jederzeit mit Option zum Erwerb."
+      "title": "SolarFree: Solaranlage ohne Eigeninvestition | Free State AG",
+      "description": "Mit SolarFree bekommst du deine eigene Solaranlage mit CHF 0 Anzahlung. Monatliche Rate statt Kauf, jederzeit mit Option zum Erwerb. Jetzt Ersparnis berechnen."
     },
     "solarDirect": {
-      "title": "",
-      "description": ""
+      "title": "SolarDirect: Solaranlage kaufen mit vollem Eigentum",
+      "description": "Mit SolarDirect kaufen Sie Ihre Solaranlage direkt: volles Eigentum, Herstellergarantien und Schutz vor steigenden Energiekosten. Jetzt Angebot anfordern."
     },
     "solarAbo": {
       "title": "SolarAbo: Solaranlage im monatlichen Abo | Free State",
@@ -121,68 +121,68 @@
       "description": "Wallbox für zuhause oder Mehrfamilienhaus. Kombiniert mit Solaranlage für Überschuss-Laden. Bidirektionale Ladestationen verfügbar. Installation in der Deutschschweiz."
     },
     "commercial": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlagen für Firmen: Photovoltaik für Ihr Gewerbe",
+      "description": "Photovoltaik für Unternehmen: eigene Stromproduktion, planbare Energiekosten und Modelle ohne Eigeninvestition. Jetzt unverbindlich beraten lassen."
     },
     "cost": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage Kosten Schweiz 2026: Preise und Beispiele",
+      "description": "Was kostet eine Solaranlage? Preisbeispiele ab CHF 19'500 inkl. Förderungen und Steuerersparnis, mit Finanzierungsoptionen. Ersparnis in 2 Minuten berechnen."
     },
     "amortization": {
-      "title": "",
-      "description": ""
+      "title": "Amortisation Solaranlage: Wann lohnt sich Photovoltaik?",
+      "description": "Wann ist Ihre Solaranlage amortisiert? So berechnen Sie die Amortisationszeit mit Förderungen, Eigenverbrauch und Strompreis. Ersparnis in 2 Minuten berechnen."
     },
     "solarCalculator": {
-      "title": "",
-      "description": ""
+      "title": "Solarrechner Schweiz: Ersparnis in 2 Minuten berechnen",
+      "description": "Kostenloser Solarrechner: Adresse eingeben und Anlagengrösse, Kosten und Ersparnis für Ihr Dach berechnen. Unverbindlich und in 2 Minuten zum Ergebnis."
     },
     "calculator": {
-      "title": "",
-      "description": ""
+      "title": "Solarrechner: Jetzt Solaranlage berechnen | Free State AG",
+      "description": "Berechnen Sie Ihre Solaranlage online: Grösse, Kosten, Ertrag und Ersparnis in 2 Minuten. Kostenlos und unverbindlich, mit sofortigem Ergebnis starten."
     },
     "aboutUs": {
-      "title": "",
-      "description": ""
+      "title": "Über uns: Solaranlagen aus einer Hand | Free State AG",
+      "description": "Free State AG plant und installiert Solaranlagen in 19 Kantonen der Deutschschweiz. Erfahrung seit 2008, heute mit SolarFree, SolarAbo und SolarDirect."
     },
     "team": {
-      "title": "",
-      "description": ""
+      "title": "Team: Die Menschen hinter Free State AG",
+      "description": "Lernen Sie das Team von Free State AG kennen: Beratung, Planung und Installation von Solaranlagen in der Deutschschweiz, mit Erfahrung seit 2008."
     },
     "history": {
-      "title": "",
-      "description": ""
+      "title": "Unsere Geschichte: Erfahrung seit 2008 | Free State AG",
+      "description": "Vom Ingenieurbüro zur Solarfirma: Unser Team arbeitet seit 2008 in Energie und Gebäudetechnik, seit 2024 als Free State AG mit vollem Fokus auf Solar."
     },
     "careers": {
-      "title": "",
-      "description": ""
+      "title": "Karriere: Jobs in der Solarbranche | Free State AG",
+      "description": "Arbeiten in der Solarbranche: offene Stellen in Montage, Planung und Beratung bei Free State AG. Gestalten Sie die Energiezukunft der Schweiz aktiv mit."
     },
     "faq": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage FAQ: Häufige Fragen zu Photovoltaik",
+      "description": "Antworten auf häufige Fragen zu Solaranlagen: Kosten, Förderungen, Installation, Wartung und SolarFree mit CHF 0 Anzahlung. Jetzt Antworten zu Solar finden."
     },
     "portfolio": {
-      "title": "",
-      "description": ""
+      "title": "Referenzen: Solarprojekte von Free State AG",
+      "description": "Ausgewählte Solarprojekte aus der Deutschschweiz: Einfamilienhäuser, Gewerbe und Landwirtschaft. Sehen Sie, wie unsere Anlagen aussehen und was sie leisten."
     },
     "service": {
       "title": "",
       "description": ""
     },
     "blog": {
-      "title": "",
-      "description": ""
+      "title": "Solar Blog Schweiz: Wissen zu Photovoltaik und Energie",
+      "description": "Aktuelle Beiträge zu Solaranlagen, Strompreisen, Förderungen und Energiezukunft in der Schweiz. Praxiswissen vom Team der Free State AG. Jetzt reinlesen."
     },
     "contact": {
-      "title": "",
-      "description": ""
+      "title": "Kontakt: Beratung zu Solaranlagen | Free State AG",
+      "description": "Kontaktieren Sie Free State AG für Beratung zu Solaranlagen, Speichern und Wärmepumpen. Standorte in Schaffhausen, Zürich und St. Gallen. Wir melden uns rasch."
     },
     "energyStorage": {
       "title": "",
       "description": ""
     },
     "repowering": {
-      "title": "",
-      "description": ""
+      "title": "Repowering: Solaranlage modernisieren und erweitern",
+      "description": "Mehr Leistung vom gleichen Dach: Wir modernisieren bestehende Solaranlagen mit neuen Modulen, Wechselrichtern und Speichern. Jetzt Potenzial prüfen lassen."
     },
     "solarSystemCarport": {
       "title": "",
@@ -209,8 +209,8 @@
       "description": ""
     },
     "howItWorks": {
-      "title": "",
-      "description": ""
+      "title": "So funktioniert Solar: Von der Anfrage zur Anlage",
+      "description": "Wie kommt die Solaranlage aufs Dach? Alle Schritte von Beratung über Planung bis Installation und Inbetriebnahme, verständlich erklärt von Free State AG."
     },
     "heatPumpsProducts": {
       "title": "",
@@ -491,14 +491,6 @@
     "repoweringServices": {
       "title": "Unsere Erneuerungs-Dienstleistungen",
       "cards": {
-        "numberOne": {
-          "title": "Nr. 1 in der Schweiz",
-          "description": "500+ Mitarbeitende. Grösster Solarinstallateur\nder Schweiz und Marktführer für\nStromspeicher."
-        },
-        "customers": {
-          "title": "15'000+ Kundinnen und Kunden",
-          "description": "10+ Jahre Erfahrung.\nPV-Projekte aller Grössen."
-        },
         "yieldGuarantee": {
           "title": "Ertragsgarantie",
           "description": "10 Jahre Energieertragsgarantie\nund langfristiger Anlagenbetrieb."
@@ -557,12 +549,12 @@
     "residentialProperties": "Wohnimmobilien"
   },
   "experienceTimeline": {
-    "sectionHeading": "16 Jahre Erfahrung.",
+    "sectionHeading": "Erfahrung seit 2008.",
     "subheading": "Free State AG ist neu. Unser Team baut seit 2008 Solaranlagen in der Schweiz.",
     "node2008Title": "2008",
     "node2008Body": "Unser Team installiert seine erste Solaranlage. Der Anfang unseres Handwerks.",
     "node2008_2024Title": "2008 bis 2024",
-    "node2008_2024Body": "Das Team baut Anlage um Anlage. Über 16 Jahre Erfahrung in Solar und Energie in der Schweiz.",
+    "node2008_2024Body": "Das Team baut Anlage um Anlage. Erfahrung in Solar und Energie in der Schweiz seit 2008.",
     "node2024Title": "November 2024",
     "node2024Body": "Das Team gründet die Free State AG in Schaffhausen und setzt ganz auf Solar.",
     "nodeTodayTitle": "Heute",
@@ -713,10 +705,10 @@
       }
     },
     "stats": {
-      "projects": "Realisierte Projekte",
-      "experience": "Jahre Erfahrung",
-      "savings": "Kostenersparnisse unsere Kunden",
-      "employees": "Mitarbeiter"
+      "downPayment": "Anzahlung mit SolarFree",
+      "solarPrice": "Solarstrom-Preis mit SolarFree",
+      "cantons": "Kantone der Deutschschweiz",
+      "locations": "Standorte"
     },
     "solarModels": {
       "eyebrow": "Solarmodelle",
@@ -979,16 +971,16 @@
           "description": "Solarfinanzierung mit vorhersehbaren, erschwinglichen Raten und gesicherten Konditionen"
         },
         {
-          "title": "35-jährige Ausrüstungsgarantie",
-          "description": "Branchenführende Garantie für ein erstklassiges Solarpanel- und Batteriespeichersystem"
+          "title": "Garantie und Versicherung inklusive",
+          "description": "Bei SolarFree und SolarAbo sind Garantie und Versicherung der gesamten Anlage inklusive"
         },
         {
-          "title": "Kostenlose Wartung und Reparaturen",
-          "description": "35 Jahre kostenlose Wartung und Reparaturen für völlige Sicherheit"
+          "title": "Wartung und Service",
+          "description": "Bei SolarFree sind Betrieb, Wartung und Service Ihrer Anlage inklusive, mit 24/7 Monitoring"
         },
         {
-          "title": "Unvergleichliche Solar- und Batterieerfahrung zu Hause",
-          "description": "Unterstützt vom #1 Haus-Solarpanel- und Batterieinstallateur des Landes"
+          "title": "Erfahrung seit 2008",
+          "description": "Unser Team plant und installiert Solaranlagen seit 2008, heute in 19 Kantonen der Deutschschweiz"
         }
       ]
     },
@@ -3772,7 +3764,7 @@
     },
     "analytics": {
       "title": "Webanalyse, Tag-Verwaltung und Nutzungsmessung",
-      "content": "Vorbehältlich Ihrer Einwilligung setzen wir die folgenden Dienste ein, um die Nutzung unserer Website zu verstehen und unser Angebot zu verbessern. Ohne Ihre Einwilligung werden diese Dienste nicht aktiviert.\n\n1) Google Tag Manager\nAnbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\nDer Google Tag Manager ist ein Verwaltungswerkzeug, mit dem wir Mess- und Analyse-Tags zentral einbinden können. Der Tag Manager selbst erstellt keine Nutzerprofile und setzt keine eigenen Cookies. Er lädt jedoch andere Dienste (siehe nachfolgend), die ihrerseits Daten verarbeiten.\n\n2) Google Analytics 4 (GA4)\nAnbieter: Google Ireland Limited.\nGA4 erstellt anonymisierte Statistiken über die Nutzung unserer Website (z. B. Seitenaufrufe, Sitzungsdauer, Herkunftsland, Gerätetyp, Verweisquelle). Die IP-Adresse wird vor der Speicherung gekürzt («IP Anonymization»), eine direkte Identifizierung einzelner Personen findet nicht statt. Wir betreiben GA4 mit aktiviertem Google Consent Mode v2 sowie mit deaktivierten Werbe-Funktionen («Google Signals»). Die Aufbewahrungsdauer der Ereignisdaten in GA4 beträgt 14 Monate.\n\n3) Hotjar\nAnbieter: Hotjar Ltd., Dragonara Business Centre, 5th Floor, Dragonara Road, Paceville St Julian's STJ 3141, Malta.\nHotjar erstellt aggregierte Heatmaps sowie auf bestimmten Seiten (insbesondere im Solarrechner und im Kundenbereich) pseudonymisierte Sitzungsaufzeichnungen, um Bedienprobleme zu erkennen. Tastatureingaben in Formularfelder werden standardmässig maskiert; sensible Inhalte (Kundendaten, Verträge) werden nicht aufgezeichnet. Hotjar setzt Cookies mit einer maximalen Lebensdauer von 365 Tagen.\n\n4) Google Search Console\nAnbieter: Google Ireland Limited.\nDie Google Search Console wird ausschliesslich zur Verifizierung des Domain-Eigentums und zur Auswertung anonymer SEO-Statistiken (z. B. eingehende Suchanfragen aus Google) verwendet. Sie setzt keine Cookies auf dieser Website und verarbeitet keine personenbezogenen Daten unserer Besucher.\n\nRechtsgrundlage: Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nDatenübermittlung in die USA: GA4, Google Tag Manager, Google Search Console und Hotjar verarbeiten Daten teilweise in den USA. Google ist nach dem EU-US Data Privacy Framework zertifiziert; Hotjar verarbeitet Daten primär in der EU, kann aber auf Sub-Auftragsverarbeiter in Drittländern zurückgreifen. Soweit eine Übermittlung in ein Land ohne angemessenes Datenschutzniveau erfolgt, stützen wir diese auf Standardvertragsklauseln gemäss Art. 16 revDSG bzw. Art. 46 DSGVO."
+      "content": "Vorbehältlich Ihrer Einwilligung setzen wir die folgenden Dienste ein, um die Nutzung unserer Website zu verstehen und unser Angebot zu verbessern. Ohne Ihre Einwilligung werden diese Dienste nicht aktiviert.\n\n1) Google Tag Manager\nAnbieter: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\nDer Google Tag Manager ist ein Verwaltungswerkzeug, mit dem wir Mess- und Analyse-Tags zentral einbinden können. Der Tag Manager selbst erstellt keine Nutzerprofile und setzt keine eigenen Cookies. Er lädt jedoch andere Dienste (siehe nachfolgend), die ihrerseits Daten verarbeiten.\n\n2) Google Analytics 4 (GA4)\nAnbieter: Google Ireland Limited.\nGA4 erstellt anonymisierte Statistiken über die Nutzung unserer Website (z. B. Seitenaufrufe, Sitzungsdauer, Herkunftsland, Gerätetyp, Verweisquelle). Die IP-Adresse wird vor der Speicherung gekürzt («IP Anonymization»), eine direkte Identifizierung einzelner Personen findet nicht statt. Wir betreiben GA4 mit aktiviertem Google Consent Mode v2 sowie mit deaktivierten Werbe-Funktionen («Google Signals»). Die Aufbewahrungsdauer der Ereignisdaten in GA4 beträgt 14 Monate.\n\n3) Contentsquare (ehemals Hotjar)\nAnbieter: Contentsquare SAS, 7 Rue de Madrid, 75008 Paris, Frankreich.\nContentsquare erstellt aggregierte Heatmaps sowie auf bestimmten Seiten (insbesondere im Solarrechner und im Kundenbereich) pseudonymisierte Sitzungsaufzeichnungen, um Bedienprobleme zu erkennen. Tastatureingaben in Formularfelder werden standardmässig maskiert; sensible Inhalte (Kundendaten, Verträge) werden nicht aufgezeichnet. Contentsquare setzt Cookies mit einer maximalen Lebensdauer von 13 Monaten.\n\n4) Google Search Console\nAnbieter: Google Ireland Limited.\nDie Google Search Console wird ausschliesslich zur Verifizierung des Domain-Eigentums und zur Auswertung anonymer SEO-Statistiken (z. B. eingehende Suchanfragen aus Google) verwendet. Sie setzt keine Cookies auf dieser Website und verarbeitet keine personenbezogenen Daten unserer Besucher.\n\nRechtsgrundlage: Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO).\n\nDatenübermittlung in die USA: GA4, Google Tag Manager, Google Search Console und Contentsquare verarbeiten Daten teilweise in den USA. Google ist nach dem EU-US Data Privacy Framework zertifiziert; Contentsquare verarbeitet Daten primär in der EU, kann aber auf Sub-Auftragsverarbeiter in Drittländern zurückgreifen. Soweit eine Übermittlung in ein Land ohne angemessenes Datenschutzniveau erfolgt, stützen wir diese auf Standardvertragsklauseln gemäss Art. 16 revDSG bzw. Art. 46 DSGVO."
     },
     "hosting": {
       "title": "Hosting und Auftragsverarbeiter",
@@ -3800,7 +3792,7 @@
     },
     "dataRetention": {
       "title": "Aufbewahrung und Löschung",
-      "content": "Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen. Im Einzelnen gelten die folgenden Richtwerte:\n\n• Server-Logfiles: maximal 30 Tage\n• Cookie-Einwilligungen: bis zu 12 Monate ab letzter Bestätigung\n• Google Analytics 4 Ereignisdaten: 14 Monate\n• Hotjar-Aufzeichnungen: maximal 365 Tage\n• Newsletter-Anmeldedaten: bis zum Widerruf der Einwilligung\n• Kontakt- und Anfragedaten: bis zu 24 Monate nach Abschluss der Anfrage\n• Vertrags- und Buchhaltungsdaten: 10 Jahre gemäss Art. 958f OR\n• Kundenkonto-Daten («Dashboard»): bis zur Löschung des Kontos durch Sie oder bis 24 Monate nach letzter Anmeldung\n\nNach Ablauf der jeweiligen Frist werden die Daten gelöscht oder anonymisiert."
+      "content": "Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen. Im Einzelnen gelten die folgenden Richtwerte:\n\n• Server-Logfiles: maximal 30 Tage\n• Cookie-Einwilligungen: bis zu 12 Monate ab letzter Bestätigung\n• Google Analytics 4 Ereignisdaten: 14 Monate\n• Contentsquare-Sitzungsaufzeichnungen: maximal 365 Tage\n• Newsletter-Anmeldedaten: bis zum Widerruf der Einwilligung\n• Kontakt- und Anfragedaten: bis zu 24 Monate nach Abschluss der Anfrage\n• Vertrags- und Buchhaltungsdaten: 10 Jahre gemäss Art. 958f OR\n• Kundenkonto-Daten («Dashboard»): bis zur Löschung des Kontos durch Sie oder bis 24 Monate nach letzter Anmeldung\n\nNach Ablauf der jeweiligen Frist werden die Daten gelöscht oder anonymisiert."
     },
     "contact": {
       "title": "Kontakt zur datenschutzverantwortlichen Stelle",
@@ -3890,7 +3882,7 @@
     },
     "dataProtection": {
       "title": "11. Datenschutz",
-      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit dem revidierten Schweizer Datenschutzgesetz (revDSG) und, soweit anwendbar, mit der EU-Datenschutz-Grundverordnung (DSGVO).\n\nDetaillierte Informationen zur Datenverarbeitung, zu den Rechten der betroffenen Personen sowie zu den eingesetzten Drittanbietern (insbesondere Google Analytics, Hotjar, Google Maps und Swisscom Trust Services) finden Sie in unserer Datenschutzerklärung unter /datenschutz."
+      "content": "Free State AG verarbeitet personenbezogene Daten in Übereinstimmung mit dem revidierten Schweizer Datenschutzgesetz (revDSG) und, soweit anwendbar, mit der EU-Datenschutz-Grundverordnung (DSGVO).\n\nDetaillierte Informationen zur Datenverarbeitung, zu den Rechten der betroffenen Personen sowie zu den eingesetzten Drittanbietern (insbesondere Google Analytics, Contentsquare (ehemals Hotjar), Google Maps und Swisscom Trust Services) finden Sie in unserer Datenschutzerklärung unter /datenschutz."
     },
     "applicableLaw": {
       "title": "12. Anwendbares Recht und Gerichtsstand",
@@ -4290,12 +4282,12 @@
       "title": "Warum FreeState?",
       "cards": {
         "experience": {
-          "title": "Erfahrung",
-          "subtitle": "15'000+ installierte Systeme"
+          "title": "Erfahrung seit 2008",
+          "subtitle": "Unser Team plant und installiert Solaranlagen seit 2008, heute in 19 Kantonen der Deutschschweiz."
         },
         "localPresence": {
           "title": "Lokale Präsenz",
-          "subtitle": "Serviceteams in der ganzen Schweiz"
+          "subtitle": "Serviceteams in der Deutschschweiz"
         },
         "comprehensiveService": {
           "title": "Umfassender Service",
@@ -4949,17 +4941,7 @@
         "waterOnGround": "Wasser auf dem Boden",
         "noUnderfloor": "Keine Fussbodenheizung oder Heizkörper."
       },
-      "footer": "Kontaktieren Sie unseren regionalen Servicepartner."
-    },
-    "servicePartner": {
-      "title": "Servicepartner",
-      "company": "TP Heiztechnik GmbH (kostenpflichtig)",
-      "contact": {
-        "phone": "+41 62 530 21 82",
-        "email": "info@tp-heiztechnik.ch",
-        "website": "www.tp-heiztechnik.ch"
-      },
-      "cta": "Kontakt"
+      "footer": "Kontaktieren Sie uns."
     }
   },
   "heatPumpsProducts": {
@@ -6325,6 +6307,7 @@
       "marketingContent": "Content",
       "marketingStudio": "Studio",
       "marketingCompetitors": "Konkurrenz",
+      "marketingExperiments": "Experimente",
       "marketingSettings": "Einstellungen"
     },
     "marketing": {
@@ -6536,6 +6519,53 @@
         "adEuReach": "EU-Reichweite (optional)",
         "adIsActive": "Anzeige aktiv",
         "adNotes": "Notizen"
+      },
+      "experiments": {
+        "title": "Experimente",
+        "intro": "Eine Variable pro Experiment. Hypothese festhalten, Varianten definieren, Entscheidung und Learnings dokumentieren.",
+        "newExperiment": "Neues Experiment",
+        "empty": "Noch keine Experimente erfasst. Jeder Kampagnenstart beginnt mit einer registrierten Hypothese.",
+        "name": "Name",
+        "status": "Status",
+        "metric": "Metrik",
+        "variantsCount": "Varianten",
+        "startedAt": "Gestartet",
+        "runtime": "Laufzeit",
+        "decision": "Entscheidung",
+        "actions": "Aktionen",
+        "runtimeDays": "{count, plural, one {# Tag} other {# Tage}}",
+        "statusDraft": "Entwurf",
+        "statusRunning": "Läuft",
+        "statusDecided": "Entschieden",
+        "statusAbandoned": "Abgebrochen",
+        "start": "Starten",
+        "decide": "Entscheiden",
+        "abandon": "Abbrechen",
+        "abandonConfirm": "Experiment wirklich abbrechen? Der Status wird auf Abgebrochen gesetzt.",
+        "decideTitle": "Experiment entscheiden",
+        "decisionLabel": "Entscheidung",
+        "learningsLabel": "Learnings",
+        "decideSave": "Entscheidung speichern",
+        "learnings": "Learnings",
+        "formName": "Name",
+        "formHypothesis": "Hypothese",
+        "formHypothesisHint": "Wenn wir X ändern, verbessert sich Y, weil Z",
+        "formVariable": "Variable",
+        "formVariableHint": "Das eine Element, das getestet wird",
+        "formMetric": "Primäre Metrik",
+        "formMetricHint": "z.B. CPL, CTR, Conversion-Rate",
+        "formMinSample": "Mindest-Stichprobe (optional)",
+        "formVariants": "Varianten",
+        "formVariantLabel": "Bezeichnung",
+        "formVariantRefId": "Referenz-ID (optional)",
+        "removeVariant": "Variante entfernen",
+        "addVariant": "Variante hinzufügen",
+        "kindAd": "Anzeige",
+        "kindAdset": "Anzeigengruppe",
+        "kindCampaign": "Kampagne",
+        "kindLpVariant": "LP-Variante",
+        "formCancel": "Abbrechen",
+        "formSave": "Speichern"
       }
     },
     "dashboard": {
@@ -8086,7 +8116,7 @@
           },
           "averageCost": {
             "question": "Was kosten Solarpanels durchschnittlich?",
-            "answer": "Systeme kosten typischerweise zwischen CHF 15'000 und 29'000 für 4kW–8kW-Kapazitäten, je nach Kanton und Haus. Flexible Finanzierungsoptionen ermöglichen den Umstieg auf Solar mit wenig bis keinem Eigenkapital."
+            "answer": "Eine Solaranlage für ein Einfamilienhaus kostet nach Abzug von Förderungen und Steuerersparnissen typischerweise ab CHF 19'500 für ein kleines Dach (3-Personen-Haushalt) bis rund CHF 26'000 für ein grösseres Dach (5 Personen mit Elektroauto). Mit SolarFree ist der Einstieg auch mit CHF 0 Anzahlung möglich."
           },
           "controlCosts": {
             "question": "Wie hilft Solar, meine Kosten zu kontrollieren?",
@@ -8291,7 +8321,7 @@
       "eyebrow": "2024",
       "title": "Die Gründung von FreeState AG",
       "subtitle": "Aus Erfahrung, Technologie und einem klaren Zukunftsbild entstand ein neues Unternehmen mit vollem Fokus auf dezentrale Energiesysteme.",
-      "cardText": "Aus über 16 Jahren Erfahrung in Energie und Gebäudetechnik entstand 2024 die FreeState AG. Das Unternehmen konzentriert sich vollständig auf Photovoltaikprojekte, Energiesysteme, Batteriespeicher, digitale Energielösungen und innovative Geschäftsmodelle für Solarenergie.\nDer Name FreeState steht für eine klare Vision: eine Zukunft, in der Gebäude ihre Energie zunehmend selbst produzieren und unabhängiger vom klassischen Energiesystem werden."
+      "cardText": "Aus der Erfahrung in Energie und Gebäudetechnik seit 2008 (vormals Telemiiva GmbH) entstand 2024 die FreeState AG. Das Unternehmen konzentriert sich vollständig auf Photovoltaikprojekte, Energiesysteme, Batteriespeicher, digitale Energielösungen und innovative Geschäftsmodelle für Solarenergie.\nDer Name FreeState steht für eine klare Vision: eine Zukunft, in der Gebäude ihre Energie zunehmend selbst produzieren und unabhängiger vom klassischen Energiesystem werden."
     },
     "futureVision": {
       "eyebrow": "2025 und darüber hinaus",

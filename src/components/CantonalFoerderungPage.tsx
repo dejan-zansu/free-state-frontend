@@ -1,6 +1,9 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
-import type { CantonalFoerderung } from '@/data/foerderung-cantons'
+import {
+  isPlaceholderCanton,
+  type CantonalFoerderung,
+} from '@/data/foerderung-cantons'
 import { JsonLdFaqPage } from '@/components/seo/JsonLdFaqPage'
 
 function buildFaqs(canton: CantonalFoerderung) {
@@ -51,7 +54,7 @@ export function CantonalFoerderungPage({ canton }: Props) {
 
   return (
     <>
-      <JsonLdFaqPage faqs={faqs} />
+      {!isPlaceholderCanton(canton) && <JsonLdFaqPage faqs={faqs} />}
       <article className="max-w-[1200px] mx-auto px-6 py-16 md:py-24 text-[#062E25]">
         <section className="mb-12">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">

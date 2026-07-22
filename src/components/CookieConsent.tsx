@@ -277,6 +277,7 @@ export default function CookieConsentBanner() {
               { name: /^_hj/ },
               { name: /^_hjSession/ },
               { name: /^_hjSessionUser/ },
+              { name: /^_cs_/ },
             ],
           },
         },

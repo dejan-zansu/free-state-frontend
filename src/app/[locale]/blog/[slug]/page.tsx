@@ -79,6 +79,7 @@ const BlogPostPage = async ({ params }: Props) => {
           image: post.coverImageUrl ?? undefined,
           authorName: `${post.author.firstName} ${post.author.lastName}`,
           datePublished: post.publishedAt ?? new Date().toISOString(),
+          dateModified: post.updatedAt ?? undefined,
           description: tr.excerpt ?? tr.title,
         })}
       />
