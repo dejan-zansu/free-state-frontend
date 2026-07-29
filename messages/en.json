@@ -2969,7 +2969,16 @@
     "title": "Blog",
     "noPosts": "No posts yet.",
     "readMore": "Read more",
-    "backToBlog": "Back to blog"
+    "backToBlog": "Back to blog",
+    "readingTime": "{minutes} min read",
+    "toc": "Contents",
+    "related": "More articles",
+    "ctaTitle": "What could solar do on <em>your</em> roof?",
+    "ctaText": "We plan your system the way we would sell it to our own family. No obligation, real numbers.",
+    "ctaPrimary": "Start solar calculator",
+    "ctaSecondary": "Get in touch",
+    "paginationPrev": "Previous page",
+    "paginationNext": "Next page"
   },
   "solarSystems": {
     "commercialTopics": {

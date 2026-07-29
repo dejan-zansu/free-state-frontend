@@ -2969,7 +2969,16 @@
     "title": "Blog",
     "noPosts": "Ancora nessun articolo.",
     "readMore": "Leggi di più",
-    "backToBlog": "Torna al blog"
+    "backToBlog": "Torna al blog",
+    "readingTime": "{minutes} min di lettura",
+    "toc": "Indice",
+    "related": "Altri articoli",
+    "ctaTitle": "Cosa può rendere il solare sul <em>vostro</em> tetto?",
+    "ctaText": "Calcoliamo il vostro impianto come lo venderemmo alla nostra famiglia. Senza impegno e con numeri reali.",
+    "ctaPrimary": "Avvia il calcolatore solare",
+    "ctaSecondary": "Contattateci",
+    "paginationPrev": "Pagina precedente",
+    "paginationNext": "Pagina successiva"
   },
   "solarSystems": {
     "commercialTopics": {
