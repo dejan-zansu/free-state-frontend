@@ -2969,7 +2969,16 @@
     "title": "Blog",
     "noPosts": "Pas encore d'articles.",
     "readMore": "Lire la suite",
-    "backToBlog": "Retour au blog"
+    "backToBlog": "Retour au blog",
+    "readingTime": "{minutes} min de lecture",
+    "toc": "Sommaire",
+    "related": "Autres articles",
+    "ctaTitle": "Que rapporterait le solaire sur <em>votre</em> toit ?",
+    "ctaText": "Nous calculons votre installation comme si nous la vendions à notre propre famille. Sans engagement, avec des chiffres réels.",
+    "ctaPrimary": "Lancer le calculateur solaire",
+    "ctaSecondary": "Nous contacter",
+    "paginationPrev": "Page précédente",
+    "paginationNext": "Page suivante"
   },
   "solarSystems": {
     "commercialTopics": {
