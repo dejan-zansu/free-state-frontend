@@ -45,6 +45,7 @@ export default function CalculatorClient({
     }
   }, [])
 
+  const modelSelectedFiredRef = useRef(false)
   useEffect(() => {
     if (embedded) return
     if (!resetReady) return
@@ -56,6 +57,12 @@ export default function CalculatorClient({
     ) {
       if (solarModel !== modelParam) {
         setSolarModel(modelParam as SolarModel)
+      }
+      if (!modelSelectedFiredRef.current) {
+        modelSelectedFiredRef.current = true
+        trackFunnelEvent('model_selected', {
+          meta: { model: modelParam, preselected: true },
+        })
       }
     }
     setModelParam(null, { history: 'replace' })
