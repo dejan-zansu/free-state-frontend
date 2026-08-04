@@ -22,6 +22,7 @@ import {
   type ContactCountry,
 } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
 import { useRouter } from 'next/navigation'
 import { useCalculatorEmbed } from '../CalculatorEmbedContext'
@@ -294,6 +295,9 @@ export default function Step6ContactDetails() {
       await createAccount()
       const s = useSolarAboCalculatorStore.getState()
       if (s.pendingVerification) {
+        trackFunnelEvent('account_pending_verification', {
+          meta: { model: s.solarModel ?? undefined },
+        })
         return
       }
       if (s.accountCreated) {
@@ -305,6 +309,9 @@ export default function Step6ContactDetails() {
           form: 'calculator',
           locale,
           value: Math.round(annualSavings),
+        })
+        trackFunnelEvent('account_created', {
+          meta: { model: s.solarModel ?? undefined, source: 'calculator' },
         })
         const projectId = s.createdProjectId
         if (projectId) {

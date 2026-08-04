@@ -120,9 +120,15 @@ export interface CampaignDetail {
   }[]
   funnel: {
     attributed: boolean
+    landedAny: number
+    landedCalculator: number
     steps: { step: number; sessions: number }[]
     modelSelected: number
     leads: number
+    resultsViewed: number
+    accountsCreated: number
+    consultationsBooked: number
+    contractsSigned: number
   }
   ads: {
     adId: string
@@ -144,6 +150,24 @@ export interface CampaignDetail {
     byLandingPage: { landingPage: string; sessions: number; engagedSessions: number }[]
   }
   lastSyncAt: string | null
+}
+
+export interface MarketingAnalyticsOverview {
+  range: { from: string; to: string }
+  totals: {
+    totalViews: number
+    uniqueSessions: number
+    viewsPerSession: number
+  }
+  daily: { date: string; views: number; sessions: number }[]
+  topPages: { path: string; views: number; sessions: number }[]
+  topSources: { source: string; sessions: number }[]
+  entryPages: { path: string; sessions: number }[]
+  comparison: {
+    firstPartySessions: number
+    ga4Sessions: number
+    capturedMultiple: number | null
+  }
 }
 
 export interface CampaignBreakdowns {

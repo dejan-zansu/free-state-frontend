@@ -3889,7 +3889,7 @@
     },
     "cookies": {
       "title": "Cookie e gestione del consenso",
-      "content": "Il nostro sito web utilizza cookie e tecnologie comparabili (ad es. localStorage). I cookie sono piccoli file di testo memorizzati sul tuo dispositivo. Differiscono per finalità:\n\n• Cookie strettamente necessari: richiesti per il funzionamento del sito web (ad es. preferenza della lingua, sessione di accesso, il consenso ai cookie stesso). Non possono essere deselezionati.\n• Cookie analitici: ci consentono di valutare in forma anonima il comportamento d'uso e di migliorare il sito web.\n• Cookie di marketing: utilizzati per offrire contenuti e pubblicità personalizzati.\n\nAlla prima visita del nostro sito web appare un banner dei cookie in cui puoi decidere per ogni categoria se acconsentire al loro utilizzo. I cookie analitici e di marketing vengono impostati solo dopo il tuo esplicito consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR). Se hai acconsentito ai cookie di marketing, trasmettiamo inoltre gli eventi di conversione (ad es. una richiesta inviata) lato server a Meta Platforms (Conversions API); i dati di contatto come indirizzo e-mail o numero di telefono vengono trasmessi esclusivamente in forma sottoposta a hash (SHA-256) ed è possibile un trattamento negli USA.\n\nPuoi revocare il tuo consenso in qualsiasi momento per il futuro riaprendo le impostazioni dei cookie tramite il link in fondo alla pagina. Finché non hai prestato il consenso, non vengono caricati cookie analitici o di marketing e i nostri servizi di analisi funzionano in modalità \"Consent Mode v2\" con stato \"denied\", cioè senza impostare cookie identificativi.\n\nMisurazione della provenienza e dell'utilizzo senza cookie: quando invii una richiesta (ad es. tramite il calcolatore solare o un modulo di contatto), memorizziamo insieme alla richiesta la provenienza di marketing della tua visita: parametri UTM dell'URL aperto, il sito web di provenienza, la pagina di destinazione nonché eventuali ID di clic pubblicitari (ad es. fbclid, gclid). La base giuridica è il nostro legittimo interesse a misurare l'efficacia della nostra pubblicità nonché le misure precontrattuali (art. 31 cpv. 1 e cpv. 2 lett. a nLPD / art. 6 par. 1 lett. b e f GDPR). Questi parametri di provenienza vengono prima memorizzati esclusivamente in locale nel tuo browser (sessionStorage/localStorage) per un massimo di 30 giorni; non vengono impostati cookie e nessun dato viene trasmesso a terzi. Vengono utilizzati solo se invii effettivamente una richiesta. Inoltre registriamo eventi d'uso pseudonimi del calcolatore solare (ad es. il raggiungimento dei singoli passaggi) con un identificativo di sessione generato casualmente. Questi eventi non sono associati ad alcuna persona, a meno che tu non invii una richiesta."
+      "content": "Il nostro sito web utilizza cookie e tecnologie comparabili (ad es. localStorage). I cookie sono piccoli file di testo memorizzati sul tuo dispositivo. Differiscono per finalità:\n\n• Cookie strettamente necessari: richiesti per il funzionamento del sito web (ad es. preferenza della lingua, sessione di accesso, il consenso ai cookie stesso). Non possono essere deselezionati.\n• Cookie analitici: ci consentono di valutare in forma anonima il comportamento d'uso e di migliorare il sito web.\n• Cookie di marketing: utilizzati per offrire contenuti e pubblicità personalizzati.\n\nAlla prima visita del nostro sito web appare un banner dei cookie in cui puoi decidere per ogni categoria se acconsentire al loro utilizzo. I cookie analitici e di marketing vengono impostati solo dopo il tuo esplicito consenso (art. 31 cpv. 1 nLPD / art. 6 par. 1 lett. a GDPR). Se hai acconsentito ai cookie di marketing, trasmettiamo inoltre gli eventi di conversione (ad es. una richiesta inviata) lato server a Meta Platforms (Conversions API); i dati di contatto come indirizzo e-mail o numero di telefono vengono trasmessi esclusivamente in forma sottoposta a hash (SHA-256) ed è possibile un trattamento negli USA.\n\nPuoi revocare il tuo consenso in qualsiasi momento per il futuro riaprendo le impostazioni dei cookie tramite il link in fondo alla pagina. Finché non hai prestato il consenso, non vengono caricati cookie analitici o di marketing e i nostri servizi di analisi funzionano in modalità \"Consent Mode v2\" con stato \"denied\", cioè senza impostare cookie identificativi.\n\nMisurazione della provenienza e dell'utilizzo senza cookie: quando invii una richiesta (ad es. tramite il calcolatore solare o un modulo di contatto), memorizziamo insieme alla richiesta la provenienza di marketing della tua visita: parametri UTM dell'URL aperto, il sito web di provenienza, la pagina di destinazione nonché eventuali ID di clic pubblicitari (ad es. fbclid, gclid). La base giuridica è il nostro legittimo interesse a misurare l'efficacia della nostra pubblicità nonché le misure precontrattuali (art. 31 cpv. 1 e cpv. 2 lett. a nLPD / art. 6 par. 1 lett. b e f GDPR). Questi parametri di provenienza vengono prima memorizzati esclusivamente in locale nel tuo browser (sessionStorage/localStorage) per un massimo di 30 giorni; non vengono impostati cookie e nessun dato viene trasmesso a terzi. Vengono utilizzati solo se invii effettivamente una richiesta. Inoltre registriamo eventi d'uso pseudonimi del calcolatore solare (ad es. il raggiungimento dei singoli passaggi) con un identificativo di sessione generato casualmente. Questi eventi non sono associati ad alcuna persona, a meno che tu non invii una richiesta.\n\nLa nostra misurazione dell'audience senza cookie: in aggiunta ai servizi di analisi indicati di seguito, effettuiamo una nostra misurazione dell'audience priva di cookie. A ogni visualizzazione di pagina registriamo nel nostro database la pagina consultata (percorso senza parametri di query), il sito web referente, un eventuale identificativo di campagna (utm_id) e il momento della visita, ogni volta insieme all'identificativo di sessione casuale sopra indicato. Non registriamo espressamente il tuo indirizzo IP, né cookie, né identificativi di dispositivo o browser, né alcun collegamento a un account cliente. L'identificativo di sessione è conservato solo nella memoria della singola scheda del browser (sessionStorage) e decade non appena chiudi la scheda; un riconoscimento su più visite non è quindi possibile. La valutazione avviene esclusivamente in forma aggregata, ad esempio come numero di sessioni per pagina o come tasso di abbandono nel calcolatore solare. La base giuridica è il nostro legittimo interesse a una misurazione parsimoniosa dei dati sull'efficacia del nostro sito web e della nostra pubblicità (art. 31 cpv. 2 lett. d nLPD ovvero art. 6 par. 1 lett. f GDPR). Poiché non vengono impostati cookie né memorizzati identificativi personali, non è necessario alcun consenso. Puoi opporti a questo trattamento in qualsiasi momento scrivendo a info@freestate.ch."
     },
     "analytics": {
       "title": "Web analytics, gestione dei tag e misurazione dell'utilizzo",
@@ -3921,13 +3921,13 @@
     },
     "dataRetention": {
       "title": "Conservazione e cancellazione",
-      "content": "Conserviamo i dati personali solo per il tempo necessario ai rispettivi scopi o richiesto dagli obblighi di conservazione di legge. Si applicano i seguenti periodi di conservazione:\n\n• File di log del server: massimo 30 giorni\n• Registrazioni del consenso ai cookie: fino a 12 mesi dall'ultima conferma\n• Dati di evento di Google Analytics 4: 14 mesi\n• Registrazioni di sessione Contentsquare: massimo 365 giorni\n• Dati di iscrizione alla newsletter: fino alla revoca del consenso\n• Dati di contatto e di richiesta: fino a 24 mesi dopo la conclusione della richiesta\n• Dati contrattuali e contabili: 10 anni ai sensi dell'art. 958f del Codice delle obbligazioni svizzero\n• Dati dell'account cliente (\"Dashboard\"): fino alla cancellazione dell'account da parte tua o 24 mesi dopo l'ultimo accesso\n\nAlla scadenza del rispettivo termine, i dati vengono cancellati o anonimizzati."
+      "content": "Conserviamo i dati personali solo per il tempo necessario ai rispettivi scopi o richiesto dagli obblighi di conservazione di legge. Si applicano i seguenti periodi di conservazione:\n\n• File di log del server: massimo 30 giorni\n• Registrazioni del consenso ai cookie: fino a 12 mesi dall'ultima conferma\n• Dati di evento di Google Analytics 4: 14 mesi\n• Registrazioni di sessione Contentsquare: massimo 365 giorni\n• Nostra misurazione dell'audience senza cookie (visualizzazioni di pagina ed eventi d'uso pseudonimi): massimo 24 mesi\n• Dati di iscrizione alla newsletter: fino alla revoca del consenso\n• Dati di contatto e di richiesta: fino a 24 mesi dopo la conclusione della richiesta\n• Dati contrattuali e contabili: 10 anni ai sensi dell'art. 958f del Codice delle obbligazioni svizzero\n• Dati dell'account cliente (\"Dashboard\"): fino alla cancellazione dell'account da parte tua o 24 mesi dopo l'ultimo accesso\n\nAlla scadenza del rispettivo termine, i dati vengono cancellati o anonimizzati."
     },
     "contact": {
       "title": "Contatto per questioni di protezione dei dati",
       "content": "Per qualsiasi domanda riguardante la protezione dei dati, l'esercizio dei tuoi diritti o altre questioni, contatta:\n\nFree State AG\nAll'attenzione di: Protezione dei dati\nStettemerstrasse 40\n8207 Sciaffusa\nSvizzera\n\nEmail: info@freestate.ch\nTelefono: +41 52 525 33 05\n\nFree State AG non è tenuta a nominare un responsabile esterno della protezione dei dati ai sensi dell'art. 10 nLPD o dell'art. 37 GDPR. Per questioni di protezione dei dati utilizza l'indirizzo sopra riportato."
     },
-    "lastUpdated": "Ultimo aggiornamento: luglio 2026"
+    "lastUpdated": "Ultimo aggiornamento: agosto 2026"
   },
   "impressum": {
     "title": "Note legali",
@@ -6312,6 +6312,7 @@
       "groupMarketing": "Marketing",
       "marketingOverview": "Panoramica",
       "marketingCampaigns": "Campagne",
+      "marketingAnalytics": "Analytics",
       "marketingContent": "Content",
       "marketingStudio": "Studio",
       "marketingCompetitors": "Concorrenti",
@@ -6349,6 +6350,24 @@
         "noteDetail": "Dettagli (opzionale)",
         "noteSave": "Salva",
         "noteCancel": "Annulla"
+      },
+      "analytics": {
+        "title": "Analytics del sito",
+        "subtitle": "Misurazione proprietaria, senza cookie e senza banner di consenso. Conta ogni visita, non solo quelle che accettano i cookie.",
+        "rangeDays": "{count} giorni",
+        "rangeLabel": "Dal {from} al {to}",
+        "sessions": "Sessioni",
+        "views": "Visualizzazioni",
+        "viewsPerSession": "Visualizzazioni per sessione",
+        "ga4Sessions": "Sessioni GA4",
+        "capturedMultiple": "Misuriamo {value} volte quello che vede GA4",
+        "chartSessions": "Sessioni al giorno",
+        "chartViews": "Visualizzazioni al giorno",
+        "sourcesTitle": "Provenienza",
+        "entryPagesTitle": "Pagine di ingresso",
+        "topPagesTitle": "Pagine più visitate",
+        "page": "Pagina",
+        "empty": "Ancora nessun dato per questo periodo."
       },
       "campaigns": {
         "title": "Campagne",
@@ -6398,7 +6417,14 @@
           "funnelUnattributed": "L'attribuzione del funnel raccoglie dati dal 12.07.2026. Non ci sono ancora eventi attribuiti a questa campagna.",
           "funnelStep": "Passo {step}",
           "funnelLead": "Lead creato",
-          "modelSelected": "Modello scelto: {count} sessioni",
+          "funnelLandedAny": "Arrivato sul sito",
+          "funnelLandedCalculator": "Calcolatore aperto",
+          "funnelModelSelected": "Modello scelto",
+          "funnelResultsViewed": "Risultato visualizzato",
+          "funnelAccountCreated": "Account creato",
+          "funnelConsultation": "Consulenza richiesta",
+          "funnelContractSigned": "Contratto firmato",
+          "funnelNote": "Sessioni per fase, misurate senza cookie. «Consulenza richiesta» conta i clic sul link di prenotazione, non gli appuntamenti confermati.",
           "ga4Title": "Visite (GA4)",
           "ga4NotLinked": "Le sessioni GA4 vengono associate tramite l'ID campagna non appena il connettore fornisce dati.",
           "landingPage": "Landing page",

@@ -3889,7 +3889,7 @@
     },
     "cookies": {
       "title": "Cookies and Consent Management",
-      "content": "Our website uses cookies and comparable technologies (e.g., localStorage). Cookies are small text files placed on your device. They differ by purpose:\n\n• Strictly necessary cookies: required for the operation of the website (e.g., language preference, login session, the cookie consent itself). These cannot be deselected.\n• Analytics cookies: enable us to evaluate usage behavior anonymously and improve the website.\n• Marketing cookies: used to deliver personalized content and advertising.\n\nThe first time you visit our website, a cookie banner appears in which you can decide per category whether you consent to their use. Analytics and marketing cookies are only set after your explicit consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR). If you have consented to marketing cookies, we additionally report conversion events (e.g., a submitted enquiry) server-side to Meta Platforms (Conversions API); contact data such as email address or phone number is transmitted exclusively in hashed form (SHA-256), and processing in the USA is possible.\n\nYou can withdraw your consent at any time for the future by reopening the cookie settings via the link at the bottom of the page. As long as you have not given consent, no analytics or marketing cookies are loaded, and our analytics services run in \"Consent Mode v2 — denied\" mode, i.e., without setting identifying cookies.\n\nOrigin and usage measurement without cookies: When you submit an enquiry (e.g., via the solar calculator or a contact form), we store the marketing origin of your visit together with the enquiry: UTM parameters of the URL you opened, the referring website, the landing page and any ad click IDs (e.g., fbclid, gclid). The legal basis is our legitimate interest in measuring the effectiveness of our advertising and the initiation of a contract (Art. 31 para. 1 and para. 2 lit. a revFADP / Art. 6 para. 1 lit. b and f GDPR). These origin parameters are first stored exclusively locally in your browser (sessionStorage/localStorage) for a maximum of 30 days; no cookies are set and no data is shared with third parties. They are only used if you actually submit an enquiry. In addition, we record pseudonymous usage events of the solar calculator (e.g., reaching the individual steps) under a randomly generated session identifier. These events are not linked to any person unless you submit an enquiry."
+      "content": "Our website uses cookies and comparable technologies (e.g., localStorage). Cookies are small text files placed on your device. They differ by purpose:\n\n• Strictly necessary cookies: required for the operation of the website (e.g., language preference, login session, the cookie consent itself). These cannot be deselected.\n• Analytics cookies: enable us to evaluate usage behavior anonymously and improve the website.\n• Marketing cookies: used to deliver personalized content and advertising.\n\nThe first time you visit our website, a cookie banner appears in which you can decide per category whether you consent to their use. Analytics and marketing cookies are only set after your explicit consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR). If you have consented to marketing cookies, we additionally report conversion events (e.g., a submitted enquiry) server-side to Meta Platforms (Conversions API); contact data such as email address or phone number is transmitted exclusively in hashed form (SHA-256), and processing in the USA is possible.\n\nYou can withdraw your consent at any time for the future by reopening the cookie settings via the link at the bottom of the page. As long as you have not given consent, no analytics or marketing cookies are loaded, and our analytics services run in \"Consent Mode v2 — denied\" mode, i.e., without setting identifying cookies.\n\nOrigin and usage measurement without cookies: When you submit an enquiry (e.g., via the solar calculator or a contact form), we store the marketing origin of your visit together with the enquiry: UTM parameters of the URL you opened, the referring website, the landing page and any ad click IDs (e.g., fbclid, gclid). The legal basis is our legitimate interest in measuring the effectiveness of our advertising and the initiation of a contract (Art. 31 para. 1 and para. 2 lit. a revFADP / Art. 6 para. 1 lit. b and f GDPR). These origin parameters are first stored exclusively locally in your browser (sessionStorage/localStorage) for a maximum of 30 days; no cookies are set and no data is shared with third parties. They are only used if you actually submit an enquiry. In addition, we record pseudonymous usage events of the solar calculator (e.g., reaching the individual steps, viewing the result, opening a customer account, requesting a consultation appointment and signing a contract) under a randomly generated session identifier. These events are not linked to any person unless you submit an enquiry.\n\nOur own cookieless audience measurement: in addition to the analytics services listed below, we operate our own cookie-free audience measurement. On each page view we store in our own database the page visited (path without query parameters), the referring website, any campaign identifier (utm_id) and the time of the visit, in each case together with the random session identifier mentioned above. We expressly do not store your IP address, cookies, device or browser identifiers, or any link to a customer account. The session identifier is held only in the memory of the individual browser tab (sessionStorage) and expires as soon as you close that tab, so recognition across several visits is not possible. Evaluation is exclusively aggregated, for example as the number of sessions per page or the drop-off rate within the solar calculator. The legal basis is our legitimate interest in a data-minimising measurement of the performance of our website and our advertising (Art. 31 para. 2 lit. d revFADP or Art. 6 para. 1 lit. f GDPR). Because no cookies are set and no personal identifiers are stored, no consent is required. You may object to this processing at any time at info@freestate.ch."
     },
     "analytics": {
       "title": "Web Analytics, Tag Management and Usage Measurement",
@@ -3921,13 +3921,13 @@
     },
     "dataRetention": {
       "title": "Retention and Deletion",
-      "content": "We store personal data only for as long as is necessary for the respective purposes or required by statutory retention obligations. The following retention periods apply:\n\n• Server log files: maximum 30 days\n• Cookie consent records: up to 12 months from last confirmation\n• Google Analytics 4 event data: 14 months\n• Contentsquare session recordings: maximum 365 days\n• Newsletter subscription data: until consent is withdrawn\n• Contact and inquiry data: up to 24 months after the inquiry has been concluded\n• Contract and accounting data: 10 years pursuant to Art. 958f Swiss Code of Obligations\n• Customer account data (\"Dashboard\"): until deletion of the account by you or 24 months after last login\n\nAfter the respective period has expired, the data is deleted or anonymized."
+      "content": "We store personal data only for as long as is necessary for the respective purposes or required by statutory retention obligations. The following retention periods apply:\n\n• Server log files: maximum 30 days\n• Cookie consent records: up to 12 months from last confirmation\n• Google Analytics 4 event data: 14 months\n• Contentsquare session recordings: maximum 365 days\n• Our own cookieless audience measurement (page views and pseudonymous usage events): maximum 24 months\n• Newsletter subscription data: until consent is withdrawn\n• Contact and inquiry data: up to 24 months after the inquiry has been concluded\n• Contract and accounting data: 10 years pursuant to Art. 958f Swiss Code of Obligations\n• Customer account data (\"Dashboard\"): until deletion of the account by you or 24 months after last login\n\nAfter the respective period has expired, the data is deleted or anonymized."
     },
     "contact": {
       "title": "Contact for Data Protection Matters",
       "content": "If you have any questions regarding data protection, the exercise of your rights or other concerns, please contact:\n\nFree State AG\nAttn: Data Protection\nStettemerstrasse 40\n8207 Schaffhausen\nSwitzerland\n\nEmail: info@freestate.ch\nPhone: +41 52 525 33 05\n\nFree State AG is not required to appoint an external data protection officer pursuant to Art. 10 revFADP or Art. 37 GDPR. For data protection matters, please use the address above."
     },
-    "lastUpdated": "Last updated: July 2026"
+    "lastUpdated": "Last updated: August 2026"
   },
   "impressum": {
     "title": "Legal Notice",
@@ -6312,6 +6312,7 @@
       "groupMarketing": "Marketing",
       "marketingOverview": "Overview",
       "marketingCampaigns": "Campaigns",
+      "marketingAnalytics": "Analytics",
       "marketingContent": "Content",
       "marketingStudio": "Studio",
       "marketingCompetitors": "Competitors",
@@ -6349,6 +6350,24 @@
         "noteDetail": "Details (optional)",
         "noteSave": "Save",
         "noteCancel": "Cancel"
+      },
+      "analytics": {
+        "title": "Site analytics",
+        "subtitle": "First-party, cookieless measurement with no consent banner. Counts every visit, not only the ones that accept cookies.",
+        "rangeDays": "{count} days",
+        "rangeLabel": "{from} to {to}",
+        "sessions": "Sessions",
+        "views": "Page views",
+        "viewsPerSession": "Views per session",
+        "ga4Sessions": "GA4 sessions",
+        "capturedMultiple": "We measure {value}x what GA4 sees",
+        "chartSessions": "Sessions per day",
+        "chartViews": "Page views per day",
+        "sourcesTitle": "Sources",
+        "entryPagesTitle": "Entry pages",
+        "topPagesTitle": "Most visited pages",
+        "page": "Page",
+        "empty": "No data for this range yet."
       },
       "campaigns": {
         "title": "Campaigns",
@@ -6398,7 +6417,14 @@
           "funnelUnattributed": "Funnel attribution has been collecting data since 12.07.2026. There are no attributed events for this campaign yet.",
           "funnelStep": "Step {step}",
           "funnelLead": "Lead created",
-          "modelSelected": "Model selected: {count} sessions",
+          "funnelLandedAny": "Landed on the site",
+          "funnelLandedCalculator": "Opened the calculator",
+          "funnelModelSelected": "Model selected",
+          "funnelResultsViewed": "Viewed results",
+          "funnelAccountCreated": "Account created",
+          "funnelConsultation": "Consultation requested",
+          "funnelContractSigned": "Contract signed",
+          "funnelNote": "Sessions per stage, measured cookielessly. \"Consultation requested\" counts clicks on the booking link, not confirmed appointments.",
           "ga4Title": "Visits (GA4)",
           "ga4NotLinked": "GA4 sessions are matched by campaign ID as soon as the connector delivers data.",
           "landingPage": "Landing page",

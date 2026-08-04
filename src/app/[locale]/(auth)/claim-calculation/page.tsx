@@ -12,6 +12,7 @@ import {
   AuthSuccessMark,
 } from '@/components/auth/AuthSplitLayout'
 import { Button } from '@/components/ui/button'
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
 import { useAuthStore } from '@/stores/auth.store'
 
@@ -46,6 +47,7 @@ export default function ClaimCalculationPage() {
       .claimCalculation(token)
       .then(async ({ projectId }) => {
         await checkAuth()
+        trackFunnelEvent('account_created', { meta: { source: 'claim_link' } })
         setStatus('success')
         router.replace(projectId ? `/${locale}/dashboard/project/${projectId}` : `/${locale}/dashboard`)
       })

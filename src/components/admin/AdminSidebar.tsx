@@ -1,6 +1,7 @@
 'use client'
 
 import {
+  Activity,
   BarChart3,
   Battery,
   Box,
@@ -104,6 +105,7 @@ function useNavGroups() {
       items: [
         { label: t('marketingOverview'),  href: `${prefix}/marketing`,           icon: Megaphone },
         { label: t('marketingCampaigns'), href: `${prefix}/marketing/campaigns`, icon: BarChart3 },
+        { label: t('marketingAnalytics'), href: `${prefix}/marketing/analytics`, icon: Activity },
         { label: t('marketingContent'),   href: `${prefix}/marketing/content`,   icon: Images },
         { label: t('marketingStudio'),    href: `${prefix}/marketing/studio`,    icon: Sparkles },
         { label: t('marketingCompetitors'), href: `${prefix}/marketing/competitors`, icon: Eye },

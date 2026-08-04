@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { contractService } from '@/services/contract.service'
 
 type ResolvedStatus = 'verifying' | 'success' | 'awaitingCompany' | 'pending' | 'error'
@@ -26,6 +27,16 @@ export default function SigningCompletePage() {
     initialStatus === 'error' ? 'error' : 'verifying'
   )
   const pollsRef = useRef(0)
+  const signedEventRef = useRef(false)
+
+  useEffect(() => {
+    if (resolved !== 'success' && resolved !== 'awaitingCompany') return
+    if (signedEventRef.current) return
+    signedEventRef.current = true
+    trackFunnelEvent('contract_signed', {
+      meta: { contractId: contractId ?? undefined, state: resolved },
+    })
+  }, [resolved, contractId])
 
   useEffect(() => {
     if (resolved === 'error' || resolved === 'success') return

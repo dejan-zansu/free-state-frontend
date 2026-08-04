@@ -3769,7 +3769,7 @@
     },
     "cookies": {
       "title": "Cookies und Einwilligungsverwaltung",
-      "content": "Unsere Website verwendet Cookies und vergleichbare Technologien (z. B. localStorage). Cookies sind kleine Textdateien, die auf Ihrem Endgerät abgelegt werden. Sie unterscheiden sich nach Zweck:\n\n• Notwendige Cookies: erforderlich für den Betrieb der Website (z. B. Spracheinstellung, Anmeldesitzung, Cookie-Einwilligung selbst). Diese sind nicht abwählbar.\n• Analyse-Cookies: ermöglichen uns, das Nutzungsverhalten anonymisiert auszuwerten und die Website zu verbessern.\n• Marketing-Cookies: werden für personalisierte Inhalte und Werbung eingesetzt.\n\nBeim ersten Besuch unserer Website erscheint ein Cookie-Banner, in dem Sie pro Kategorie entscheiden können, ob Sie der Verwendung zustimmen. Analyse- und Marketing-Cookies werden ausschliesslich nach Ihrer ausdrücklichen Einwilligung gesetzt (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO). Haben Sie in Marketing-Cookies eingewilligt, melden wir Konversionsereignisse (z. B. eine abgeschickte Anfrage) zusätzlich serverseitig an Meta Platforms (Conversions API); Kontaktdaten wie E-Mail-Adresse oder Telefonnummer werden dabei ausschliesslich in gehashter Form (SHA-256) übermittelt, eine Verarbeitung in den USA ist möglich.\n\nSie können Ihre Einwilligung jederzeit für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen über den Link am Seitenende erneut aufrufen. Solange Sie keine Einwilligung erteilen, werden keine Analyse- oder Marketing-Cookies geladen, und unsere Analyse-Dienste laufen im «Consent Mode v2» mit dem Status «denied», d. h. ohne Setzen identifizierender Cookies.\n\nHerkunfts- und Nutzungsmessung ohne Cookies: Wenn Sie eine Anfrage absenden (z. B. über den Solarrechner oder ein Kontaktformular), speichern wir zusammen mit der Anfrage die Marketing-Herkunft Ihres Besuchs: UTM-Parameter der aufgerufenen URL, die verweisende Website, die Einstiegsseite sowie allfällige Klick-IDs von Werbeanzeigen (z. B. fbclid, gclid). Rechtsgrundlage ist unser berechtigtes Interesse an der Messung der Wirksamkeit unserer Werbung sowie die Anbahnung eines Vertrags (Art. 31 Abs. 1 und Abs. 2 lit. a revDSG bzw. Art. 6 Abs. 1 lit. b und f DSGVO). Diese Herkunftsparameter werden vorab ausschliesslich lokal in Ihrem Browser (sessionStorage/localStorage) für höchstens 30 Tage gespeichert; dabei werden keine Cookies gesetzt und keine Daten an Dritte weitergegeben. Verwendet werden sie nur, wenn Sie tatsächlich eine Anfrage absenden. Zudem erfassen wir pseudonyme Nutzungsereignisse des Solarrechners (z. B. das Erreichen der einzelnen Schritte) unter einer zufällig erzeugten Sitzungskennung. Diese Ereignisse sind keiner Person zugeordnet, es sei denn, Sie senden eine Anfrage ab."
+      "content": "Unsere Website verwendet Cookies und vergleichbare Technologien (z. B. localStorage). Cookies sind kleine Textdateien, die auf Ihrem Endgerät abgelegt werden. Sie unterscheiden sich nach Zweck:\n\n• Notwendige Cookies: erforderlich für den Betrieb der Website (z. B. Spracheinstellung, Anmeldesitzung, Cookie-Einwilligung selbst). Diese sind nicht abwählbar.\n• Analyse-Cookies: ermöglichen uns, das Nutzungsverhalten anonymisiert auszuwerten und die Website zu verbessern.\n• Marketing-Cookies: werden für personalisierte Inhalte und Werbung eingesetzt.\n\nBeim ersten Besuch unserer Website erscheint ein Cookie-Banner, in dem Sie pro Kategorie entscheiden können, ob Sie der Verwendung zustimmen. Analyse- und Marketing-Cookies werden ausschliesslich nach Ihrer ausdrücklichen Einwilligung gesetzt (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO). Haben Sie in Marketing-Cookies eingewilligt, melden wir Konversionsereignisse (z. B. eine abgeschickte Anfrage) zusätzlich serverseitig an Meta Platforms (Conversions API); Kontaktdaten wie E-Mail-Adresse oder Telefonnummer werden dabei ausschliesslich in gehashter Form (SHA-256) übermittelt, eine Verarbeitung in den USA ist möglich.\n\nSie können Ihre Einwilligung jederzeit für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen über den Link am Seitenende erneut aufrufen. Solange Sie keine Einwilligung erteilen, werden keine Analyse- oder Marketing-Cookies geladen, und unsere Analyse-Dienste laufen im «Consent Mode v2» mit dem Status «denied», d. h. ohne Setzen identifizierender Cookies.\n\nHerkunfts- und Nutzungsmessung ohne Cookies: Wenn Sie eine Anfrage absenden (z. B. über den Solarrechner oder ein Kontaktformular), speichern wir zusammen mit der Anfrage die Marketing-Herkunft Ihres Besuchs: UTM-Parameter der aufgerufenen URL, die verweisende Website, die Einstiegsseite sowie allfällige Klick-IDs von Werbeanzeigen (z. B. fbclid, gclid). Rechtsgrundlage ist unser berechtigtes Interesse an der Messung der Wirksamkeit unserer Werbung sowie die Anbahnung eines Vertrags (Art. 31 Abs. 1 und Abs. 2 lit. a revDSG bzw. Art. 6 Abs. 1 lit. b und f DSGVO). Diese Herkunftsparameter werden vorab ausschliesslich lokal in Ihrem Browser (sessionStorage/localStorage) für höchstens 30 Tage gespeichert; dabei werden keine Cookies gesetzt und keine Daten an Dritte weitergegeben. Verwendet werden sie nur, wenn Sie tatsächlich eine Anfrage absenden. Zudem erfassen wir pseudonyme Nutzungsereignisse des Solarrechners (z. B. das Erreichen der einzelnen Schritte, das Ansehen des Ergebnisses, die Eröffnung eines Kundenkontos, das Anfragen eines Beratungstermins und die Vertragsunterzeichnung) unter einer zufällig erzeugten Sitzungskennung. Diese Ereignisse sind keiner Person zugeordnet, es sei denn, Sie senden eine Anfrage ab.\n\nEigene Reichweitenmessung ohne Cookies: Ergänzend zu den nachfolgend genannten Analyse-Diensten führen wir eine eigene, cookiefreie Reichweitenmessung durch. Bei jedem Seitenaufruf speichern wir in unserer eigenen Datenbank die aufgerufene Seite (Pfad ohne Abfrageparameter), die verweisende Website, eine allfällige Kampagnenkennung (utm_id) sowie den Zeitpunkt des Aufrufs, jeweils zusammen mit der oben genannten zufälligen Sitzungskennung. Ausdrücklich nicht gespeichert werden dabei: Ihre IP-Adresse, Cookies, Geräte- oder Browserkennungen sowie ein Bezug zu einem Kundenkonto. Die Sitzungskennung wird ausschliesslich im Speicher des jeweiligen Browser-Tabs (sessionStorage) gehalten und verfällt, sobald Sie den Tab schliessen; eine Wiedererkennung über mehrere Besuche hinweg ist damit nicht möglich. Die Auswertung erfolgt ausschliesslich aggregiert, etwa als Anzahl Sitzungen pro Seite oder als Abbruchquote im Solarrechner. Rechtsgrundlage ist unser berechtigtes Interesse an einer datensparsamen Erfolgsmessung unserer Website und unserer Werbung (Art. 31 Abs. 2 lit. d revDSG bzw. Art. 6 Abs. 1 lit. f DSGVO). Da hierfür weder Cookies gesetzt noch personenbezogene Kennungen gespeichert werden, ist keine Einwilligung erforderlich. Sie können dieser Verarbeitung jederzeit unter info@freestate.ch widersprechen."
     },
     "analytics": {
       "title": "Webanalyse, Tag-Verwaltung und Nutzungsmessung",
@@ -3801,13 +3801,13 @@
     },
     "dataRetention": {
       "title": "Aufbewahrung und Löschung",
-      "content": "Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen. Im Einzelnen gelten die folgenden Richtwerte:\n\n• Server-Logfiles: maximal 30 Tage\n• Cookie-Einwilligungen: bis zu 12 Monate ab letzter Bestätigung\n• Google Analytics 4 Ereignisdaten: 14 Monate\n• Contentsquare-Sitzungsaufzeichnungen: maximal 365 Tage\n• Newsletter-Anmeldedaten: bis zum Widerruf der Einwilligung\n• Kontakt- und Anfragedaten: bis zu 24 Monate nach Abschluss der Anfrage\n• Vertrags- und Buchhaltungsdaten: 10 Jahre gemäss Art. 958f OR\n• Kundenkonto-Daten («Dashboard»): bis zur Löschung des Kontos durch Sie oder bis 24 Monate nach letzter Anmeldung\n\nNach Ablauf der jeweiligen Frist werden die Daten gelöscht oder anonymisiert."
+      "content": "Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten dies verlangen. Im Einzelnen gelten die folgenden Richtwerte:\n\n• Server-Logfiles: maximal 30 Tage\n• Cookie-Einwilligungen: bis zu 12 Monate ab letzter Bestätigung\n• Google Analytics 4 Ereignisdaten: 14 Monate\n• Contentsquare-Sitzungsaufzeichnungen: maximal 365 Tage\n• Eigene cookiefreie Reichweitenmessung (Seitenaufrufe und pseudonyme Nutzungsereignisse): maximal 24 Monate\n• Newsletter-Anmeldedaten: bis zum Widerruf der Einwilligung\n• Kontakt- und Anfragedaten: bis zu 24 Monate nach Abschluss der Anfrage\n• Vertrags- und Buchhaltungsdaten: 10 Jahre gemäss Art. 958f OR\n• Kundenkonto-Daten («Dashboard»): bis zur Löschung des Kontos durch Sie oder bis 24 Monate nach letzter Anmeldung\n\nNach Ablauf der jeweiligen Frist werden die Daten gelöscht oder anonymisiert."
     },
     "contact": {
       "title": "Kontakt zur datenschutzverantwortlichen Stelle",
       "content": "Bei Fragen zum Datenschutz, zur Ausübung Ihrer Rechte oder bei sonstigen Anliegen wenden Sie sich bitte an:\n\nFree State AG\nz. Hd. Datenschutz\nStettemerstrasse 40\n8207 Schaffhausen\nSchweiz\n\nE-Mail: info@freestate.ch\nTelefon: +41 52 525 33 05\n\nFree State AG hat keine Verpflichtung zur Bestellung eines externen Datenschutzbeauftragten gemäss Art. 10 revDSG bzw. Art. 37 DSGVO. Für Datenschutzanliegen steht Ihnen die oben genannte Adresse zur Verfügung."
     },
-    "lastUpdated": "Zuletzt aktualisiert: Juli 2026"
+    "lastUpdated": "Zuletzt aktualisiert: August 2026"
   },
   "impressum": {
     "title": "Impressum",
@@ -6313,6 +6313,7 @@
       "groupMarketing": "Marketing",
       "marketingOverview": "Übersicht",
       "marketingCampaigns": "Kampagnen",
+      "marketingAnalytics": "Analytics",
       "marketingContent": "Content",
       "marketingStudio": "Studio",
       "marketingCompetitors": "Konkurrenz",
@@ -6350,6 +6351,24 @@
         "noteDetail": "Details (optional)",
         "noteSave": "Speichern",
         "noteCancel": "Abbrechen"
+      },
+      "analytics": {
+        "title": "Website-Analytics",
+        "subtitle": "Eigene, cookielose Messung ohne Consent-Banner. Zählt jeden Besuch, nicht nur die mit Cookie-Zustimmung.",
+        "rangeDays": "{count} Tage",
+        "rangeLabel": "{from} bis {to}",
+        "sessions": "Sitzungen",
+        "views": "Seitenaufrufe",
+        "viewsPerSession": "Aufrufe pro Sitzung",
+        "ga4Sessions": "GA4-Sitzungen",
+        "capturedMultiple": "Wir messen das {value}-fache von GA4",
+        "chartSessions": "Sitzungen pro Tag",
+        "chartViews": "Seitenaufrufe pro Tag",
+        "sourcesTitle": "Herkunft",
+        "entryPagesTitle": "Einstiegsseiten",
+        "topPagesTitle": "Meistbesuchte Seiten",
+        "page": "Seite",
+        "empty": "Noch keine Daten für diesen Zeitraum."
       },
       "campaigns": {
         "title": "Kampagnen",
@@ -6399,7 +6418,14 @@
           "funnelUnattributed": "Die Funnel-Attribution sammelt seit dem 12.07.2026 Daten. Für diese Kampagne liegen noch keine zugeordneten Ereignisse vor.",
           "funnelStep": "Schritt {step}",
           "funnelLead": "Lead erstellt",
-          "modelSelected": "Modell gewählt: {count} Sitzungen",
+          "funnelLandedAny": "Auf der Website gelandet",
+          "funnelLandedCalculator": "Rechner geöffnet",
+          "funnelModelSelected": "Modell gewählt",
+          "funnelResultsViewed": "Ergebnis angesehen",
+          "funnelAccountCreated": "Konto erstellt",
+          "funnelConsultation": "Beratung angefragt",
+          "funnelContractSigned": "Vertrag unterschrieben",
+          "funnelNote": "Sitzungen pro Stufe, cookielos gemessen. «Beratung angefragt» zählt Klicks auf den Terminlink, keine bestätigten Termine.",
           "ga4Title": "Besuche (GA4)",
           "ga4NotLinked": "GA4-Sitzungen werden über die Kampagnen-ID zugeordnet, sobald der Connector Daten liefert.",
           "landingPage": "Landingpage",

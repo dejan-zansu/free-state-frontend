@@ -113,16 +113,25 @@ type FunnelEventOptions = {
   meta?: Record<string, unknown>
 }
 
-function getStoredUtmId(): string | undefined {
+function readUtmIdFromUrl(): string | undefined {
   try {
-    const raw = window.sessionStorage.getItem(UTM_STORAGE)
-    if (!raw) return undefined
-    const utm = JSON.parse(raw) as Record<string, unknown>
-    const value = utm.utmId
-    return typeof value === 'string' && value ? value.slice(0, 100) : undefined
+    const value = new URLSearchParams(window.location.search).get('utm_id')
+    return value ? value.slice(0, 100) : undefined
   } catch {
     return undefined
   }
+}
+
+export function getStoredUtmId(): string | undefined {
+  try {
+    const raw = window.sessionStorage.getItem(UTM_STORAGE)
+    if (raw) {
+      const utm = JSON.parse(raw) as Record<string, unknown>
+      const value = utm.utmId
+      if (typeof value === 'string' && value) return value.slice(0, 100)
+    }
+  } catch {}
+  return readUtmIdFromUrl()
 }
 
 export function postFunnelEvent(

@@ -15,6 +15,7 @@ import type {
   MarketingCompetitors,
   MarketingContentPosts,
   MarketingContentWinners,
+  MarketingAnalyticsOverview,
   MarketingEvent,
   MarketingEventCreate,
   MarketingExperiments,
@@ -45,6 +46,11 @@ class AdminMarketingService {
 
   async getCampaignBreakdowns(id: string, days: number): Promise<CampaignBreakdowns> {
     const response = await api.get<{ success: boolean; data: CampaignBreakdowns }>(`/admin/marketing/campaigns/${id}/breakdowns`, { params: { days } })
+    return response.data.data
+  }
+
+  async getAnalyticsOverview(params?: { from?: string; to?: string }): Promise<MarketingAnalyticsOverview> {
+    const response = await api.get<{ success: boolean; data: MarketingAnalyticsOverview }>('/admin/marketing/analytics/overview', { params })
     return response.data.data
   }
 

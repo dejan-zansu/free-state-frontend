@@ -13,6 +13,7 @@ import { EquipmentSection } from '@/components/workspace/EquipmentSection'
 import { WorkspaceActions } from '@/components/workspace/WorkspaceActions'
 import { WorkspaceSignSection } from '@/components/workspace/WorkspaceSignSection'
 import { StageTimeline } from '@/components/dashboard/StageTimeline'
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 
 export function ProjectWorkspace({ projectId }: { projectId: string }) {
   const t = useTranslations('dashboard.workspace')
@@ -20,6 +21,7 @@ export function ProjectWorkspace({ projectId }: { projectId: string }) {
   const [data, setData] = useState<WorkspacePayload | null>(null)
   const [failed, setFailed] = useState(false)
   const loadedRef = useRef(false)
+  const resultsEventRef = useRef<string | null>(null)
 
   const load = useCallback(async () => {
     try {
@@ -40,6 +42,13 @@ export function ProjectWorkspace({ projectId }: { projectId: string }) {
   useEffect(() => {
     void load()
   }, [load])
+
+  useEffect(() => {
+    if (!data) return
+    if (resultsEventRef.current === projectId) return
+    resultsEventRef.current = projectId
+    trackFunnelEvent('results_viewed', { meta: { projectId } })
+  }, [data, projectId])
 
   if (failed) {
     return (

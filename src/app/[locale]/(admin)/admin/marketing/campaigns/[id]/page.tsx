@@ -186,21 +186,33 @@ export default function AdminMarketingCampaignDetailPage() {
   ]
 
   const funnelRows = [
-    ...funnel.steps.map((step, index) => ({
+    { key: 'landed-any', label: t('detail.funnelLandedAny'), value: funnel.landedAny },
+    {
+      key: 'landed-calculator',
+      label: t('detail.funnelLandedCalculator'),
+      value: funnel.landedCalculator,
+    },
+    { key: 'model', label: t('detail.funnelModelSelected'), value: funnel.modelSelected },
+    ...funnel.steps.map((step) => ({
       key: `step-${step.step}`,
       label: t('detail.funnelStep', { step: step.step }),
       value: step.sessions,
-      color: FUNNEL_COLORS[Math.min(index, FUNNEL_COLORS.length - 1)],
     })),
+    { key: 'lead', label: t('detail.funnelLead'), value: funnel.leads },
+    { key: 'results', label: t('detail.funnelResultsViewed'), value: funnel.resultsViewed },
+    { key: 'account', label: t('detail.funnelAccountCreated'), value: funnel.accountsCreated },
     {
-      key: 'lead',
-      label: t('detail.funnelLead'),
-      value: funnel.leads,
-      color: FUNNEL_COLORS[Math.min(funnel.steps.length, FUNNEL_COLORS.length - 1)],
+      key: 'consultation',
+      label: t('detail.funnelConsultation'),
+      value: funnel.consultationsBooked,
     },
-  ]
+    { key: 'contract', label: t('detail.funnelContractSigned'), value: funnel.contractsSigned },
+  ].map((row, index) => ({
+    ...row,
+    color: FUNNEL_COLORS[Math.min(index, FUNNEL_COLORS.length - 1)],
+  }))
   const funnelMax = Math.max(...funnelRows.map((row) => row.value), 1)
-  const funnelBase = funnel.steps[0]?.sessions ?? 0
+  const funnelBase = funnel.landedAny || funnel.steps[0]?.sessions || 0
 
   return (
     <div>
@@ -482,7 +494,12 @@ export default function AdminMarketingCampaignDetailPage() {
                 <div className="space-y-2">
                   {funnelRows.map((row) => (
                     <div key={row.key} className="flex items-center gap-3">
-                      <span className="w-32 shrink-0 text-sm text-[#062E25]/60">{row.label}</span>
+                      <span
+                        className="w-44 shrink-0 text-sm text-[#062E25]/60 truncate"
+                        title={row.label}
+                      >
+                        {row.label}
+                      </span>
                       <div className="flex-1 bg-[#062E25]/[0.04] rounded h-7">
                         {row.value > 0 && (
                           <div
@@ -507,9 +524,7 @@ export default function AdminMarketingCampaignDetailPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-sm text-[#062E25]/40 mt-4">
-                  {t('detail.modelSelected', { count: funnel.modelSelected })}
-                </p>
+                <p className="text-sm text-[#062E25]/40 mt-4">{t('detail.funnelNote')}</p>
               </>
             )}
           </CardContent>
