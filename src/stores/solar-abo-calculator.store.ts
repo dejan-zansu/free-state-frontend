@@ -99,7 +99,7 @@ const COVERAGE_PITCHED_NORTH = 0.50
 function segmentCoverageFraction(tiltDeg: number, azimuthDeg: number): number {
   if (tiltDeg <= FLAT_TILT_THRESHOLD_DEG) return COVERAGE_FLAT
   const normalized = ((azimuthDeg % 360) + 360) % 360
-  const deviationFromSouth = Math.abs(normalized - 180)
+  const deviationFromSouth = normalized > 180 ? 360 - normalized : normalized
   if (deviationFromSouth <= 45) return COVERAGE_PITCHED_SOUTH
   if (deviationFromSouth <= 135) return COVERAGE_PITCHED_SIDE
   return COVERAGE_PITCHED_NORTH

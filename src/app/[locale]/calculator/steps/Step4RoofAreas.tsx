@@ -172,9 +172,9 @@ export default function Step4RoofAreas() {
           const MIN_SEGMENT_AREA = 5
 
           buildingData.roofSegments.forEach(segment => {
-            const suitClass = segment.suitability?.class || 0
+            const suitClass = segment.suitability?.class || 3
             const willSelect =
-              segment.area >= MIN_SEGMENT_AREA && suitClass <= 3
+              segment.area >= MIN_SEGMENT_AREA && suitClass >= 3
             if (
               willSelect &&
               !selectedSegmentsRef.current.includes(segment.id)
