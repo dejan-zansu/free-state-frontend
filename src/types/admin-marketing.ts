@@ -168,6 +168,17 @@ export interface MarketingAnalyticsOverview {
     ga4Sessions: number
     capturedMultiple: number | null
   }
+  channelFunnel: {
+    channel: string
+    sessions: number
+    calculatorStarted: number
+    reachedStep2: number
+    reachedLastStep: number
+    modelSelected: number
+    accountsCreated: number
+    step1ToStep2Pct: number | null
+    startToAccountPct: number | null
+  }[]
 }
 
 export interface CampaignBreakdowns {

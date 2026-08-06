@@ -9,7 +9,10 @@ import type {
   AdminLead,
   AdminLeadDetail,
   AdminNewsletterSubscription,
+  AdminProject,
+  AdminProjectDetail,
   AdminQuoteRequest,
+  AdminSendOfferResult,
   AdminUser,
   AdminUserDetail,
   DashboardStats,
@@ -74,6 +77,51 @@ class AdminService {
     } else if (fallbackAddress) {
       const sanitized = fallbackAddress.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)
       filename = `Lead_Report_${sanitized}.pdf`
+    }
+
+    link.download = filename
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    window.URL.revokeObjectURL(url)
+  }
+
+  async listProjects(query: ListQuery = {}): Promise<PaginatedResponse<AdminProject>> {
+    const response = await api.get<PaginatedResponse<AdminProject>>('/admin/projects', { params: query })
+    return response.data
+  }
+
+  async getProjectById(id: string): Promise<AdminProjectDetail> {
+    const response = await api.get<{ success: boolean; data: AdminProjectDetail }>(`/admin/projects/${id}`)
+    return response.data.data
+  }
+
+  async sendProjectOffer(id: string): Promise<AdminSendOfferResult> {
+    const response = await api.post<{ success: boolean; data: AdminSendOfferResult }>(
+      `/admin/projects/${id}/send-offer`,
+    )
+    return response.data.data
+  }
+
+  async downloadProjectReport(id: string, fallbackAddress?: string): Promise<void> {
+    const response = await api.get(`/admin/projects/${id}/report`, {
+      responseType: 'blob',
+      timeout: 60000,
+    })
+
+    const blob = new Blob([response.data], { type: 'application/pdf' })
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+
+    const contentDisposition = response.headers['content-disposition']
+    let filename = 'Offerte.pdf'
+    if (contentDisposition) {
+      const match = contentDisposition.match(/filename="(.+)"/)
+      if (match) filename = match[1]
+    } else if (fallbackAddress) {
+      const sanitized = fallbackAddress.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30)
+      filename = `Offerte_${sanitized}.pdf`
     }
 
     link.download = filename

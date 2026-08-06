@@ -128,7 +128,8 @@ export default function AdminMarketingAnalyticsPage() {
     return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
   }
 
-  const { totals, daily, topPages, topSources, entryPages, comparison } = data
+  const { totals, daily, topPages, topSources, entryPages, comparison, channelFunnel } =
+    data
 
   const tiles = [
     { label: t('sessions'), value: formatCount(totals.uniqueSessions) },
@@ -290,6 +291,62 @@ export default function AdminMarketingAnalyticsPage() {
             </CardContent>
           </Card>
         </div>
+
+        <Card className="border-[#062E25]/10">
+          <CardContent className="p-6">
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('channelFunnelTitle')}
+            </h2>
+            {channelFunnel.length === 0 ? (
+              <p className="text-sm text-[#062E25]/40">{t('empty')}</p>
+            ) : (
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>{t('channel')}</TableHead>
+                      <TableHead className="text-right">{t('calculatorStarted')}</TableHead>
+                      <TableHead className="text-right">{t('reachedStep2')}</TableHead>
+                      <TableHead className="text-right">{t('reachedLastStep')}</TableHead>
+                      <TableHead className="text-right">{t('accountsCreated')}</TableHead>
+                      <TableHead className="text-right">{t('step1ToStep2')}</TableHead>
+                      <TableHead className="text-right">{t('startToAccount')}</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {channelFunnel.map(row => (
+                      <TableRow key={row.channel}>
+                        <TableCell className="font-medium">
+                          {t.has(`channels.${row.channel}`)
+                            ? t(`channels.${row.channel}`)
+                            : row.channel}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums">
+                          {formatCount(row.calculatorStarted)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums">
+                          {formatCount(row.reachedStep2)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums">
+                          {formatCount(row.reachedLastStep)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums">
+                          {formatCount(row.accountsCreated)}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums">
+                          {row.step1ToStep2Pct != null ? `${row.step1ToStep2Pct}%` : '-'}
+                        </TableCell>
+                        <TableCell className="text-right tabular-nums">
+                          {row.startToAccountPct != null ? `${row.startToAccountPct}%` : '-'}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+            )}
+          </CardContent>
+        </Card>
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">

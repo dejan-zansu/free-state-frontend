@@ -6,6 +6,7 @@ import {
   Battery,
   Box,
   Briefcase,
+  Calculator,
   CircuitBoard,
   ClipboardCheck,
   Coins,
@@ -72,6 +73,7 @@ function useNavGroups() {
       items: [
         { label: t('residentialContracts'), href: `${prefix}/contracts`, icon: FileText },
         { label: t('residentialLeads'),     href: `${prefix}/leads`,     icon: BarChart3 },
+        { label: t('residentialProjects'),  href: `${prefix}/projects`,  icon: Calculator },
         { label: t('users'),                href: `${prefix}/users`,     icon: Users },
       ],
     },

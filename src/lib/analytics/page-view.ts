@@ -1,4 +1,8 @@
-import { getOrCreateSessionKey, getStoredUtmId } from './funnel-events'
+import {
+  getOrCreateSessionKey,
+  getStoredAttribution,
+  getStoredUtmId,
+} from './funnel-events'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
@@ -19,6 +23,8 @@ export function postPageView(path: string): void {
     if (referrer) body.referrer = referrer.slice(0, 2000)
     const utmId = getStoredUtmId()
     if (utmId) body.utmId = utmId
+    const attribution = getStoredAttribution()
+    if (attribution) body.attribution = attribution
     void fetch(`${API_URL}/api/pageview`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
