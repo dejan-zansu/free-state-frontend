@@ -108,6 +108,37 @@ export function getAttribution(): Attribution {
   }
 }
 
+export type StoredAttribution = Pick<
+  Attribution,
+  | 'utmSource'
+  | 'utmMedium'
+  | 'utmCampaign'
+  | 'utmId'
+  | 'utmTerm'
+  | 'utmContent'
+  | 'referrer'
+  | 'landingPage'
+  | 'fbclid'
+  | 'gclid'
+>
+
+export function getStoredAttribution(): StoredAttribution | null {
+  if (typeof window === 'undefined') return null
+  try {
+    const raw = window.sessionStorage.getItem(UTM_STORAGE)
+    if (!raw) return null
+    const utm = JSON.parse(raw) as Record<string, unknown>
+    const attribution: StoredAttribution = {}
+    for (const key of ATTRIBUTION_KEYS) {
+      const value = utm[key]
+      if (typeof value === 'string' && value) attribution[key] = value
+    }
+    return Object.keys(attribution).length > 0 ? attribution : null
+  } catch {
+    return null
+  }
+}
+
 type FunnelEventOptions = {
   step?: number
   meta?: Record<string, unknown>
@@ -151,6 +182,8 @@ export function postFunnelEvent(
     if (options.meta) body.meta = options.meta
     const utmId = getStoredUtmId()
     if (utmId) body.utmId = utmId
+    const attribution = getStoredAttribution()
+    if (attribution) body.attribution = attribution
     void fetch(`${API_URL}/api/events`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
