@@ -41,12 +41,16 @@ export default function AdminDashboardPage() {
       icon: BarChart3,
       detail: `${stats.leads.byStatus.NEW || 0} ${t('new')}, ${stats.leads.byStatus.QUALIFIED || 0} ${t('qualified')}`,
     },
-    {
-      label: t('calculatorProjects'),
-      value: stats.projects.withCalculation,
-      icon: Calculator,
-      detail: `${stats.projects.withoutOffer} ${t('projectsWithoutOffer')}, ${stats.projects.last7d} ${t('projectsLast7d')}`,
-    },
+    ...(stats.projects
+      ? [
+          {
+            label: t('calculatorProjects'),
+            value: stats.projects.withCalculation,
+            icon: Calculator,
+            detail: `${stats.projects.withoutOffer} ${t('projectsWithoutOffer')}, ${stats.projects.last7d} ${t('projectsLast7d')}`,
+          },
+        ]
+      : []),
     {
       label: t('contracts'),
       value: stats.contracts.total,
