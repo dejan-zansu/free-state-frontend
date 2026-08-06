@@ -9,6 +9,13 @@ import { useState } from 'react'
 
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { CalculationSnapshotCard } from '@/components/admin/calculation/CalculationSnapshotCard'
+import { ContractsCard } from '@/components/admin/calculation/ContractsCard'
+import { CustomerInputsCard } from '@/components/admin/calculation/CustomerInputsCard'
+import { FinancialsCard } from '@/components/admin/calculation/FinancialsCard'
+import { MonthlyProductionCard } from '@/components/admin/calculation/MonthlyProductionCard'
+import { RoofDetailsCard } from '@/components/admin/calculation/RoofDetailsCard'
+import { fmtChf } from '@/components/admin/calculation/format'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -35,43 +42,12 @@ const LEAD_STATUSES = [
   'ON_HOLD',
 ]
 
-const MONTH_KEYS = [
-  'jan',
-  'feb',
-  'mar',
-  'apr',
-  'may',
-  'jun',
-  'jul',
-  'aug',
-  'sep',
-  'oct',
-  'nov',
-  'dec',
-] as const
-
-function fmtNumber(n: number | null | undefined, digits = 0) {
-  if (n == null || Number.isNaN(n)) return '-'
-  return n.toLocaleString('de-CH', {
-    minimumFractionDigits: digits,
-    maximumFractionDigits: digits,
-  })
-}
-
-function fmtChf(n: number | string | null | undefined) {
-  if (n == null) return '-'
-  const value = typeof n === 'string' ? parseFloat(n) : n
-  if (Number.isNaN(value)) return '-'
-  return `CHF ${value.toLocaleString('de-CH', { maximumFractionDigits: 0 })}`
-}
-
 export default function AdminLeadDetailPage() {
   const params = useParams()
   const locale = useLocale()
   const t = useTranslations('admin.leads')
   const tc = useTranslations('admin.common')
   const tl = useTranslations('admin.statusLabels')
-  const tMonths = useTranslations('admin.leads.months')
   const queryClient = useQueryClient()
   const [saving, setSaving] = useState(false)
   const [downloading, setDownloading] = useState(false)
@@ -158,37 +134,7 @@ export default function AdminLeadDetailPage() {
   const contracts = project?.contracts ?? []
   const hasCalculation = !!calc
   const financials = lead.financials
-  const finIsDirectLike =
-    financials != null && financials.solarModel !== 'solar-free'
   const monthly = calc?.monthlyProductionKwh ?? []
-  const maxMonthly = monthly.length > 0 ? Math.max(...monthly) : 0
-  const roofSegments = calc?.roofSegments ?? []
-  const totalRoofArea = roofSegments.reduce(
-    (sum, s) => sum + (typeof s.area === 'number' ? s.area : 0),
-    0,
-  )
-  const avgTilt =
-    roofSegments.length > 0
-      ? roofSegments.reduce(
-          (sum, s) => sum + (typeof s.tilt === 'number' ? s.tilt : 0),
-          0,
-        ) / roofSegments.length
-      : null
-  const avgAzimuth =
-    roofSegments.length > 0
-      ? roofSegments.reduce(
-          (sum, s) => sum + (typeof s.azimuth === 'number' ? s.azimuth : 0),
-          0,
-        ) / roofSegments.length
-      : null
-  const selfConsumptionPct =
-    calc?.selfConsumptionRate != null
-      ? Math.round(calc.selfConsumptionRate * 100)
-      : null
-  const devices = calc?.devices ?? null
-  const activeDeviceKeys = devices
-    ? (Object.keys(devices) as (keyof typeof devices)[]).filter(k => devices[k])
-    : []
 
   return (
     <div>
@@ -231,261 +177,16 @@ export default function AdminLeadDetailPage() {
       )}
 
       {hasCalculation && calc && (
-        <Card className="border-[#062E25]/10 mb-6">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-semibold text-[#062E25]">
-                {t('calculatorSnapshot')}
-              </h2>
-              {calc.solarModel && (
-                <span className="text-base font-medium px-3 py-1 rounded-full bg-[#062E25]/5 text-[#062E25]">
-                  {calc.solarModel === 'solar-free'
-                    ? t('solarModelFree')
-                    : calc.solarModel === 'solar-abo'
-                      ? t('solarModelAbo')
-                      : t('solarModelDirect')}
-                </span>
-              )}
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('systemSize')}</p>
-                <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                  {calc.totalSystemCapacityKw != null
-                    ? `${fmtNumber(calc.totalSystemCapacityKw, 1)} kWp`
-                    : '-'}
-                </p>
-                {calc.panelCount != null && (
-                  <p className="text-base text-[#062E25]/50 tabular-nums">
-                    {t('panelsCount', { count: calc.panelCount })}
-                  </p>
-                )}
-              </div>
-              <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('annualProduction')}</p>
-                <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                  {calc.annualProductionKwh != null
-                    ? `${fmtNumber(calc.annualProductionKwh)} kWh`
-                    : '-'}
-                </p>
-              </div>
-              <div className="rounded-xl bg-[#062E25] text-white p-4">
-                <p className="text-base text-white/70">{t('annualSavings')}</p>
-                <p className="text-2xl font-bold tabular-nums">
-                  {fmtChf(calc.annualSavingsChf)}
-                </p>
-              </div>
-              <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('co2Offset')}</p>
-                <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                  {calc.carbonOffsetKg != null
-                    ? `${fmtNumber(calc.carbonOffsetKg)} kg`
-                    : '-'}
-                </p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-              <div>
-                <p className="text-base text-[#062E25]/60">{t('selfConsumption')}</p>
-                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
-                  {selfConsumptionPct != null ? `${selfConsumptionPct}%` : '-'}
-                </p>
-              </div>
-              <div>
-                <p className="text-base text-[#062E25]/60">{t('annualConsumption')}</p>
-                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
-                  {calc.annualConsumptionKwh != null
-                    ? `${fmtNumber(calc.annualConsumptionKwh)} kWh`
-                    : '-'}
-                </p>
-              </div>
-              <div>
-                <p className="text-base text-[#062E25]/60">{t('ppaDiscount')}</p>
-                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
-                  {calc.ppaDiscountPercent != null
-                    ? `${calc.ppaDiscountPercent}%`
-                    : '-'}
-                </p>
-              </div>
-              <div>
-                <p className="text-base text-[#062E25]/60">{t('recommendedPackage')}</p>
-                <p className="text-xl font-semibold text-[#062E25]">
-                  {packageLabel(calc.recommendedPackage || project?.selectedPackage)}
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        <CalculationSnapshotCard
+          calc={calc}
+          selectedPackage={project?.selectedPackage ?? null}
+          packageLabel={packageLabel}
+        />
       )}
 
-      {financials && (
-        <Card className="border-[#062E25]/10 mb-6">
-          <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-              {t('financials')}
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {finIsDirectLike && (
-                <>
-                  <div className="rounded-xl bg-[#F5F7EE] p-4">
-                    <p className="text-base text-[#062E25]/60">{t('systemCost')}</p>
-                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                      {fmtChf(financials.totalInvestmentChf)}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#F5F7EE] p-4">
-                    <p className="text-base text-[#062E25]/60">{t('subsidies')}</p>
-                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                      {fmtChf(financials.subsidiesChf)}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#062E25] text-white p-4">
-                    <p className="text-base text-white/70">{t('netCost')}</p>
-                    <p className="text-2xl font-bold tabular-nums">
-                      {fmtChf(financials.netInvestmentChf)}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#F5F7EE] p-4">
-                    <p className="text-base text-[#062E25]/60">{t('paybackPeriod')}</p>
-                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                      {financials.paybackYears != null
-                        ? t('yearsValue', {
-                            years: fmtNumber(financials.paybackYears, 1),
-                          })
-                        : '-'}
-                    </p>
-                  </div>
-                </>
-              )}
-              {financials.solarModel === 'solar-abo' && (
-                <>
-                  <div className="rounded-xl bg-[#062E25] text-white p-4">
-                    <p className="text-base text-white/70">{t('aboMonthly')}</p>
-                    <p className="text-2xl font-bold tabular-nums">
-                      {fmtChf(financials.aboMonthlyChf)}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#F5F7EE] p-4">
-                    <p className="text-base text-[#062E25]/60">{t('aboTotal')}</p>
-                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                      {fmtChf(financials.aboTotalChf)}
-                    </p>
-                    {financials.aboTermMonths != null && (
-                      <p className="text-base text-[#062E25]/50 tabular-nums">
-                        {t('yearsValue', {
-                          years: Math.round(financials.aboTermMonths / 12),
-                        })}
-                      </p>
-                    )}
-                  </div>
-                </>
-              )}
-              {financials.solarModel === 'solar-free' && (
-                <>
-                  <div className="rounded-xl bg-[#062E25] text-white p-4">
-                    <p className="text-base text-white/70">{t('ppaDiscount')}</p>
-                    <p className="text-2xl font-bold tabular-nums">
-                      {financials.ppaDiscountPercent != null
-                        ? `${financials.ppaDiscountPercent}%`
-                        : '-'}
-                    </p>
-                  </div>
-                  <div className="rounded-xl bg-[#F5F7EE] p-4">
-                    <p className="text-base text-[#062E25]/60">{t('contractTerm')}</p>
-                    <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                      {financials.contractTermYears != null
-                        ? t('yearsValue', { years: financials.contractTermYears })
-                        : '-'}
-                    </p>
-                  </div>
-                  {calc?.systemCostChf != null && (
-                    <div className="rounded-xl bg-[#F5F7EE] p-4">
-                      <p className="text-base text-[#062E25]/60">{t('systemCost')}</p>
-                      <p className="text-2xl font-bold text-[#062E25] tabular-nums">
-                        {fmtChf(calc.systemCostChf)}
-                      </p>
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-              {finIsDirectLike && (
-                <div>
-                  <p className="text-base text-[#062E25]/60">{t('savings25y')}</p>
-                  <p className="text-xl font-semibold text-[#062E25] tabular-nums">
-                    {fmtChf(financials.totalSavings25yChf)}
-                  </p>
-                </div>
-              )}
-              <div>
-                <p className="text-base text-[#062E25]/60">
-                  {t('electricityTariffLabel')}
-                </p>
-                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
-                  {financials.electricityTariffRpKwh != null
-                    ? `${fmtNumber(financials.electricityTariffRpKwh, 1)} Rp/kWh`
-                    : '-'}
-                </p>
-              </div>
-              <div>
-                <p className="text-base text-[#062E25]/60">
-                  {t('feedInTariffLabel')}
-                </p>
-                <p className="text-xl font-semibold text-[#062E25] tabular-nums">
-                  {financials.feedInTariffRpKwh != null
-                    ? `${fmtNumber(financials.feedInTariffRpKwh, 1)} Rp/kWh`
-                    : '-'}
-                </p>
-              </div>
-              <div>
-                <p className="text-base text-[#062E25]/60">
-                  {t('electricitySupplier')}
-                </p>
-                <p className="text-xl font-semibold text-[#062E25]">
-                  {financials.electricitySupplier ?? '-'}
-                </p>
-              </div>
-            </div>
-            {financials.costSource === 'estimated' && (
-              <p className="text-sm text-[#062E25]/50 mt-4">
-                {t('financialsEstimated')}
-              </p>
-            )}
-          </CardContent>
-        </Card>
-      )}
+      {financials && <FinancialsCard financials={financials} calc={calc ?? null} />}
 
-      {hasCalculation && monthly.length === 12 && maxMonthly > 0 && (
-        <Card className="border-[#062E25]/10 mb-6">
-          <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-              {t('monthlyProduction')}
-            </h2>
-            <div className="grid grid-cols-12 gap-2 items-end h-36">
-              {monthly.map((value, i) => {
-                const heightPct = maxMonthly > 0 ? (value / maxMonthly) * 100 : 0
-                return (
-                  <div key={i} className="flex flex-col items-center gap-1">
-                    <div className="w-full flex-1 flex items-end">
-                      <div
-                        className="w-full bg-[#B7FE1A] rounded-t"
-                        style={{ height: `${heightPct}%` }}
-                      />
-                    </div>
-                    <span className="text-sm text-[#062E25]/60 uppercase">
-                      {tMonths(MONTH_KEYS[i])}
-                    </span>
-                    <span className="text-sm text-[#062E25] tabular-nums">
-                      {fmtNumber(value)}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
-          </CardContent>
-        </Card>
-      )}
+      {hasCalculation && <MonthlyProductionCard monthly={monthly} />}
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <Card className="border-[#062E25]/10">
@@ -685,180 +386,12 @@ export default function AdminLeadDetailPage() {
 
       {hasCalculation && calc && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-                {t('customerInputs')}
-              </h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('householdSize')}
-                  </label>
-                  <p className="font-medium text-[#062E25] tabular-nums">
-                    {calc.householdSize ?? '-'}
-                  </p>
-                </div>
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('buildingType')}
-                  </label>
-                  <p className="font-medium text-[#062E25]">
-                    {calc.buildingType
-                      ? t.has(`buildingTypes.${calc.buildingType}`)
-                        ? t(`buildingTypes.${calc.buildingType}`)
-                        : calc.buildingType
-                      : '-'}
-                  </p>
-                </div>
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('roofCovering')}
-                  </label>
-                  <p className="font-medium text-[#062E25]">
-                    {calc.roofCovering
-                      ? t.has(`roofCoverings.${calc.roofCovering}`)
-                        ? t(`roofCoverings.${calc.roofCovering}`)
-                        : calc.roofCovering
-                      : '-'}
-                  </p>
-                </div>
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('devices')}
-                  </label>
-                  {activeDeviceKeys.length === 0 ? (
-                    <p className="font-medium text-[#062E25]">{t('noDevices')}</p>
-                  ) : (
-                    <ul className="mt-1 space-y-1">
-                      {activeDeviceKeys.map(key => (
-                        <li
-                          key={key}
-                          className="text-base font-medium text-[#062E25]"
-                        >
-                          • {t(`deviceNames.${key}`)}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="border-[#062E25]/10">
-            <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-                {t('roofDetails')}
-              </h2>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('totalRoofArea')}
-                  </label>
-                  <p className="font-medium text-[#062E25] tabular-nums">
-                    {totalRoofArea > 0 ? `${fmtNumber(totalRoofArea, 1)} m²` : '-'}
-                  </p>
-                </div>
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('roofSegments')}
-                  </label>
-                  <p className="font-medium text-[#062E25] tabular-nums">
-                    {roofSegments.length}
-                  </p>
-                </div>
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('averageTilt')}
-                  </label>
-                  <p className="font-medium text-[#062E25] tabular-nums">
-                    {avgTilt != null ? `${fmtNumber(avgTilt, 1)}°` : '-'}
-                  </p>
-                </div>
-                <div>
-                  <label className="text-sm text-[#062E25]/60">
-                    {t('averageAzimuth')}
-                  </label>
-                  <p className="font-medium text-[#062E25] tabular-nums">
-                    {avgAzimuth != null ? `${fmtNumber(avgAzimuth, 1)}°` : '-'}
-                  </p>
-                </div>
-                {project && (
-                  <>
-                    <div>
-                      <label className="text-sm text-[#062E25]/60">
-                        {t('coordinates')}
-                      </label>
-                      <p className="font-medium text-[#062E25] tabular-nums">
-                        {project.propertyLat.toFixed(5)},{' '}
-                        {project.propertyLng.toFixed(5)}
-                      </p>
-                    </div>
-                    <div>
-                      <label className="text-sm text-[#062E25]/60">
-                        {t('projectStatus')}
-                      </label>
-                      <p className="font-medium text-[#062E25]">
-                        {tl.has(project.status)
-                          ? tl(project.status)
-                          : project.status.replace(/_/g, ' ')}
-                      </p>
-                    </div>
-                  </>
-                )}
-              </div>
-            </CardContent>
-          </Card>
+          <CustomerInputsCard calc={calc} />
+          <RoofDetailsCard calc={calc} project={project ?? null} />
         </div>
       )}
 
-      {contracts.length > 0 && (
-        <Card className="border-[#062E25]/10 mb-6">
-          <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-              {t('contractsTitle')}
-            </h2>
-            <div className="space-y-3">
-              {contracts.map(contract => (
-                <Link
-                  key={contract.id}
-                  href={`/${locale}/admin/contracts/${contract.id}`}
-                  className="flex items-center justify-between p-4 rounded-xl border border-[#062E25]/10 bg-white hover:bg-[#F5F7EE] transition-colors"
-                >
-                  <div>
-                    <div className="flex items-center gap-3">
-                      <p className="font-semibold text-[#062E25]">
-                        {contract.contractNumber}
-                      </p>
-                      <StatusBadge status={contract.status} />
-                    </div>
-                    <p className="text-base text-[#062E25]/60 mt-1">
-                      {t('contractCreatedOn', {
-                        date: new Date(contract.createdAt).toLocaleDateString(
-                          'de-CH',
-                        ),
-                      })}
-                      {contract.customerSignedAt &&
-                        ` · ${t('signedOn', {
-                          date: new Date(
-                            contract.customerSignedAt,
-                          ).toLocaleDateString('de-CH'),
-                        })}`}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <p className="text-base font-semibold text-[#062E25] tabular-nums">
-                      {fmtChf(contract.netAmount)}
-                    </p>
-                    <ExternalLink className="h-4 w-4 text-[#062E25]/50" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
+      <ContractsCard contracts={contracts} />
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">

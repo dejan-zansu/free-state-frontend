@@ -1,6 +1,6 @@
 'use client'
 
-import { BarChart3, FileText, Mail, MessageSquareText, Newspaper, Ticket, TrendingUp, Users } from 'lucide-react'
+import { BarChart3, Calculator, FileText, Mail, MessageSquareText, Newspaper, Ticket, TrendingUp, Users } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 
@@ -40,6 +40,12 @@ export default function AdminDashboardPage() {
       value: stats.leads.total,
       icon: BarChart3,
       detail: `${stats.leads.byStatus.NEW || 0} ${t('new')}, ${stats.leads.byStatus.QUALIFIED || 0} ${t('qualified')}`,
+    },
+    {
+      label: t('calculatorProjects'),
+      value: stats.projects.withCalculation,
+      icon: Calculator,
+      detail: `${stats.projects.withoutOffer} ${t('projectsWithoutOffer')}, ${stats.projects.last7d} ${t('projectsLast7d')}`,
     },
     {
       label: t('contracts'),

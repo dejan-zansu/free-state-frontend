@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { X, Phone, Mail } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { getStickyAdvisor } from '@/lib/advisor'
 import { type ConsultationAdvisor } from '@/lib/company-contact'
 import { LinkButton } from '@/components/ui/link-button'
@@ -102,6 +103,11 @@ export default function ConsultationDock() {
             target="_blank"
             variant="tertiary"
             className="mt-4 w-full justify-center"
+            onClick={() =>
+              trackFunnelEvent('consultation_booked', {
+                meta: { advisor: advisor.key, path: pathname ?? undefined },
+              })
+            }
           >
             {t('cta')}
           </LinkButton>

@@ -7,6 +7,7 @@ import {
   MetaPixelScript,
   MetaPixelNoscript,
 } from '@/components/analytics/AnalyticsScripts'
+import PageViewTracker from '@/components/analytics/PageViewTracker'
 import UtmCapture from '@/components/analytics/UtmCapture'
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
@@ -113,6 +114,7 @@ export default async function LocaleLayout({
                   <CookieConsentBanner />
                   <ContentsquareScript />
                   <UtmCapture />
+                  <PageViewTracker />
                   <ConsultationDock />
                 </div>
               </SmoothScrollProvider>

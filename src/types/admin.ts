@@ -18,6 +18,13 @@ export interface DashboardStats {
     total: number
     byStatus: Record<string, number>
   }
+  projects: {
+    total: number
+    withCalculation: number
+    withoutOffer: number
+    last7d: number
+    last30d: number
+  }
   contracts: {
     total: number
     byStatus: Record<string, number>
@@ -207,6 +214,135 @@ export interface AdminLeadDetail extends AdminLead {
   }
   project: AdminLeadProject | null
   financials: AdminLeadFinancials | null
+}
+
+export type AdminAttributionChannel =
+  | 'google_ads'
+  | 'meta_ads'
+  | 'paid_other'
+  | 'organic_search'
+  | 'ai_assistant'
+  | 'social'
+  | 'referral'
+  | 'direct'
+
+export interface AdminProjectAttribution {
+  channel: AdminAttributionChannel
+  utmSource: string | null
+  utmMedium: string | null
+  utmCampaign: string | null
+  utmId: string | null
+  utmTerm: string | null
+  utmContent: string | null
+  gclid: string | null
+  fbclid: string | null
+  referrer: string | null
+  referrerHost: string | null
+  landingPage: string | null
+  sessionKey: string | null
+  marketingConsent: boolean | null
+}
+
+export interface AdminProjectLead {
+  id: string
+  status: string
+  source?: string
+  offerSentAt: string | null
+  offerCount: number
+  createdAt?: string
+}
+
+export interface AdminProject {
+  id: string
+  propertyAddress: string
+  status: string
+  selectedPackage: string | null
+  calculatorType: string | null
+  isPropertyOwner: boolean
+  createdAt: string
+  updatedAt: string
+  attribution: AdminProjectAttribution
+  customer: {
+    id: string
+    user: {
+      id: string
+      email: string
+      firstName: string
+      lastName: string
+      phone: string | null
+    }
+  }
+  solarCalculation: {
+    totalSystemCapacityKw: number | null
+    annualProductionKwh: number | null
+    annualSavingsChf: number | null
+    solarModel: string | null
+  } | null
+  lead: AdminProjectLead | null
+  _count: {
+    contracts: number
+  }
+}
+
+export interface AdminProjectJourneyEntry {
+  id: string
+  kind: 'page_view' | 'funnel_event'
+  name: string
+  step: number | null
+  path: string | null
+  referrer: string | null
+  utmId: string | null
+  createdAt: string
+}
+
+export interface AdminProjectDetail {
+  id: string
+  propertyAddress: string
+  propertyLat: number
+  propertyLng: number
+  status: string
+  selectedPackage: string | null
+  calculatorType: string | null
+  isPropertyOwner: boolean
+  createdAt: string
+  updatedAt: string
+  attribution: AdminProjectAttribution
+  financials: AdminLeadFinancials | null
+  journey: AdminProjectJourneyEntry[]
+  lead: AdminProjectLead | null
+  contracts: AdminLeadContract[]
+  solarCalculation: AdminLeadSolarCalculation | null
+  customer: {
+    id: string
+    isPropertyOwner: boolean
+    propertyOwnerName: string | null
+    propertyOwnerEmail: string | null
+    propertyOwnerPhone: string | null
+    notes: string | null
+    addressAdditional: string | null
+    street: string | null
+    streetNumber: string | null
+    postalCode: string | null
+    city: string | null
+    user: {
+      id: string
+      email: string
+      firstName: string
+      lastName: string
+      phone: string | null
+      dateOfBirth: string | null
+      nationality: string | null
+      preferredLanguage: string | null
+      emailVerified: boolean
+      createdAt: string
+    }
+  }
+}
+
+export interface AdminSendOfferResult {
+  leadId: string
+  status: 'sent' | 'updated' | 'unchanged' | 'cooldown'
+  retryAfter?: string
 }
 
 export interface AdminContract {
