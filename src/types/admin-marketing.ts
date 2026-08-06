@@ -168,7 +168,7 @@ export interface MarketingAnalyticsOverview {
     ga4Sessions: number
     capturedMultiple: number | null
   }
-  channelFunnel: {
+  channelFunnel?: {
     channel: string
     sessions: number
     calculatorStarted: number

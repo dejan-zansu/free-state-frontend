@@ -128,8 +128,8 @@ export default function AdminMarketingAnalyticsPage() {
     return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
   }
 
-  const { totals, daily, topPages, topSources, entryPages, comparison, channelFunnel } =
-    data
+  const { totals, daily, topPages, topSources, entryPages, comparison } = data
+  const channelFunnel = data.channelFunnel ?? []
 
   const tiles = [
     { label: t('sessions'), value: formatCount(totals.uniqueSessions) },

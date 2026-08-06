@@ -18,7 +18,7 @@ export interface DashboardStats {
     total: number
     byStatus: Record<string, number>
   }
-  projects: {
+  projects?: {
     total: number
     withCalculation: number
     withoutOffer: number

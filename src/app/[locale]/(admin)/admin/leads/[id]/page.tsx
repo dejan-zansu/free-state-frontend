@@ -1,8 +1,7 @@
 'use client'
 
-import { Download, ExternalLink, Loader2 } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
+import { Download, Loader2 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { useState } from 'react'
@@ -15,7 +14,6 @@ import { CustomerInputsCard } from '@/components/admin/calculation/CustomerInput
 import { FinancialsCard } from '@/components/admin/calculation/FinancialsCard'
 import { MonthlyProductionCard } from '@/components/admin/calculation/MonthlyProductionCard'
 import { RoofDetailsCard } from '@/components/admin/calculation/RoofDetailsCard'
-import { fmtChf } from '@/components/admin/calculation/format'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -44,7 +42,6 @@ const LEAD_STATUSES = [
 
 export default function AdminLeadDetailPage() {
   const params = useParams()
-  const locale = useLocale()
   const t = useTranslations('admin.leads')
   const tc = useTranslations('admin.common')
   const tl = useTranslations('admin.statusLabels')
