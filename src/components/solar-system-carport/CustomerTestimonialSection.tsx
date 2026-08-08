@@ -36,7 +36,7 @@ const CustomerTestimonialSection = async () => {
             </div>
 
             <div className="flex flex-col gap-10 pt-6">
-              <p className="text-white/80 text-lg md:text-[22px] font-light text-justify">
+              <p className="text-white/80 text-lg md:text-[22px] text-justify">
                 {t('testimonial.quote')}
                 <svg
                   width={26}

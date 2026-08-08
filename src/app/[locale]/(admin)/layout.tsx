@@ -32,7 +32,7 @@ export default function AdminLayout({
               <AdminSidebarMobileTrigger />
             </div>
             <div className="flex items-center gap-4">
-              <span className="text-sm text-[#062E25]/60">
+              <span className="text-sm text-[#062E25]/75">
                 {user?.firstName} {user?.lastName}
               </span>
               <Button variant="ghost" size="sm" onClick={handleLogout}>

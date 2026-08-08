@@ -48,7 +48,7 @@ export function RoofDetailsCard({ calc, project }: Props) {
         </h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="text-sm text-[#062E25]/60">
+            <label className="text-sm text-[#062E25]">
               {t('totalRoofArea')}
             </label>
             <p className="font-medium text-[#062E25] tabular-nums">
@@ -56,7 +56,7 @@ export function RoofDetailsCard({ calc, project }: Props) {
             </p>
           </div>
           <div>
-            <label className="text-sm text-[#062E25]/60">
+            <label className="text-sm text-[#062E25]">
               {t('roofSegments')}
             </label>
             <p className="font-medium text-[#062E25] tabular-nums">
@@ -64,13 +64,13 @@ export function RoofDetailsCard({ calc, project }: Props) {
             </p>
           </div>
           <div>
-            <label className="text-sm text-[#062E25]/60">{t('averageTilt')}</label>
+            <label className="text-sm text-[#062E25]">{t('averageTilt')}</label>
             <p className="font-medium text-[#062E25] tabular-nums">
               {avgTilt != null ? `${fmtNumber(avgTilt, 1)}°` : '-'}
             </p>
           </div>
           <div>
-            <label className="text-sm text-[#062E25]/60">
+            <label className="text-sm text-[#062E25]">
               {t('averageAzimuth')}
             </label>
             <p className="font-medium text-[#062E25] tabular-nums">
@@ -80,7 +80,7 @@ export function RoofDetailsCard({ calc, project }: Props) {
           {project && (
             <>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('coordinates')}
                 </label>
                 <p className="font-medium text-[#062E25] tabular-nums">
@@ -89,7 +89,7 @@ export function RoofDetailsCard({ calc, project }: Props) {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('projectStatus')}
                 </label>
                 <p className="font-medium text-[#062E25]">

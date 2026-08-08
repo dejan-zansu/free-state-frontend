@@ -80,7 +80,7 @@ const ProductShowcase = ({
         </RevealText>
         <RevealStagger as="div" className="flex flex-col gap-[30px]">
           <div className="flex flex-col gap-5">
-            <p className="text-foreground/80 text-lg font-light tracking-tight max-w-[387px]">
+            <p className="text-foreground/80 text-lg tracking-tight max-w-[387px]">
               {subtitle}
             </p>
 

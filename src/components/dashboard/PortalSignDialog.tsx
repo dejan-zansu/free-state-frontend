@@ -74,9 +74,15 @@ export default function PortalSignDialog({
           ? t('signingDisabled')
           : code === 'CONTRACT_CANCELLED'
             ? t('contractCancelled')
-            : code === 'ALREADY_SIGNED'
-              ? t('alreadySigned')
-              : t('signingError'),
+            : code === 'CONTRACT_EXPIRED'
+              ? t('signatureExpired')
+              : code === 'CONTRACT_MODEL_CHANGED'
+                ? t('modelChanged')
+                : code === 'CONTRACT_DETAILS_MISSING'
+                  ? t('detailsMissing')
+                  : code === 'ALREADY_SIGNED'
+                    ? t('alreadySigned')
+                    : t('signingError'),
       )
     } finally {
       setSubmitting(false)

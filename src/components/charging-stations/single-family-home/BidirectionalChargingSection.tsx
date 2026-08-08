@@ -28,7 +28,7 @@ const BidirectionalChargingSection = async () => {
               {t('bidirectionalCharging.title')}
             </h2>
 
-            <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-justify">
+            <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] text-justify">
               {t('bidirectionalCharging.description')}
             </p>
           </div>

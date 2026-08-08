@@ -48,7 +48,7 @@ const YourBenefits = async ({
             <Reveal
               as="p"
               delay={0.2}
-              className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight"
+              className="text-foreground/80 text-lg md:text-[22px] tracking-tight"
             >
               {t('subtitle')}
             </Reveal>
@@ -82,7 +82,7 @@ const YourBenefits = async ({
                 <h3 className="text-[22px] font-bold text-foreground capitalize">
                   {benefit.title}
                 </h3>
-                <p className="text-base font-light text-foreground/80 tracking-tight">
+                <p className="text-base text-foreground/80 tracking-tight">
                   {benefit.description}
                 </p>
               </div>

@@ -101,14 +101,14 @@ const ImpressumPage = async () => {
                 <h2 className="text-foreground text-xl sm:text-2xl font-semibold mb-4">
                   {section.title}
                 </h2>
-                <p className="text-foreground/70 text-base leading-relaxed whitespace-pre-line">
+                <p className="text-foreground text-base leading-relaxed whitespace-pre-line">
                   {section.content}
                 </p>
               </div>
             ))}
 
             <div className="mt-12 pt-8 border-t border-border">
-              <p className="text-foreground/50 text-sm">{t('lastUpdated')}</p>
+              <p className="text-foreground/75 text-sm">{t('lastUpdated')}</p>
             </div>
           </div>
         </div>

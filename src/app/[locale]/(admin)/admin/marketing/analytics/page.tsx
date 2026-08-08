@@ -32,8 +32,14 @@ import type { MarketingAnalyticsOverview } from '@/types/admin-marketing'
 
 const RANGE_OPTIONS = [7, 30, 90]
 
-const TICK_STYLE = { fill: 'rgba(6,46,37,0.5)', fontSize: 11 }
-const TOOLTIP_STYLE = { borderRadius: 8, border: '1px solid rgba(6,46,37,0.1)', fontSize: 13 }
+const TICK_STYLE = { fill: 'rgba(6,46,37,0.85)', fontSize: 11 }
+const TOOLTIP_STYLE = {
+  borderRadius: 8,
+  border: '1px solid rgba(6,46,37,0.1)',
+  fontSize: 13,
+  color: '#062E25',
+}
+const TOOLTIP_ITEM_STYLE = { color: '#062E25' }
 const CHART_MARGIN = { top: 4, right: 8, left: 0, bottom: 0 }
 
 function formatCount(value: number) {
@@ -71,14 +77,14 @@ function RankedRows({
   color: string
 }) {
   if (rows.length === 0) {
-    return <p className="text-sm text-[#062E25]/40">{emptyLabel}</p>
+    return <p className="text-sm text-[#062E25]">{emptyLabel}</p>
   }
   const max = Math.max(...rows.map(row => row.value), 1)
   return (
     <div className="space-y-2">
       {rows.map(row => (
         <div key={row.label} className="flex items-center gap-3">
-          <span className="w-40 shrink-0 text-sm text-[#062E25]/60 truncate" title={row.label}>
+          <span className="w-40 shrink-0 text-sm text-[#062E25] truncate" title={row.label}>
             {row.label}
           </span>
           <div className="flex-1 bg-[#062E25]/[0.04] rounded h-5">
@@ -125,7 +131,7 @@ export default function AdminMarketingAnalyticsPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const { totals, daily, topPages, topSources, entryPages, comparison } = data
@@ -150,7 +156,7 @@ export default function AdminMarketingAnalyticsPage() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">{t('title')}</h1>
-      <p className="text-sm text-[#062E25]/60 mb-6">{t('subtitle')}</p>
+      <p className="text-sm text-[#062E25]/75 mb-6">{t('subtitle')}</p>
 
       <div className="flex flex-wrap items-center gap-2 mb-6">
         {RANGE_OPTIONS.map(option => (
@@ -164,7 +170,7 @@ export default function AdminMarketingAnalyticsPage() {
             {t('rangeDays', { count: option })}
           </Button>
         ))}
-        <p className="text-sm text-[#062E25]/40 ml-auto">
+        <p className="text-sm text-[#062E25]/75 ml-auto">
           {t('rangeLabel', {
             from: formatFullDay(data.range.from),
             to: formatFullDay(data.range.to),
@@ -177,9 +183,9 @@ export default function AdminMarketingAnalyticsPage() {
           {tiles.map(tile => (
             <Card key={tile.label} className="border-[#062E25]/10">
               <CardContent className="p-5">
-                <p className="text-sm text-[#062E25]/60 mb-2">{tile.label}</p>
+                <p className="text-sm text-[#062E25] mb-2">{tile.label}</p>
                 <p className="text-2xl font-bold text-[#062E25] mb-1">{tile.value}</p>
-                {tile.sub && <p className="text-sm text-[#062E25]/40">{tile.sub}</p>}
+                {tile.sub && <p className="text-sm text-[#062E25]/75">{tile.sub}</p>}
               </CardContent>
             </Card>
           ))}
@@ -211,6 +217,7 @@ export default function AdminMarketingAnalyticsPage() {
                     <Tooltip
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
+                      itemStyle={TOOLTIP_ITEM_STYLE}
                       labelFormatter={value => formatFullDay(String(value))}
                       formatter={value => formatCount(Number(value))}
                     />
@@ -252,6 +259,7 @@ export default function AdminMarketingAnalyticsPage() {
                     <Tooltip
                       cursor={{ stroke: 'rgba(6,46,37,0.2)' }}
                       contentStyle={TOOLTIP_STYLE}
+                      itemStyle={TOOLTIP_ITEM_STYLE}
                       labelFormatter={value => formatFullDay(String(value))}
                       formatter={value => formatCount(Number(value))}
                     />
@@ -298,7 +306,7 @@ export default function AdminMarketingAnalyticsPage() {
               {t('channelFunnelTitle')}
             </h2>
             {channelFunnel.length === 0 ? (
-              <p className="text-sm text-[#062E25]/40">{t('empty')}</p>
+              <p className="text-sm text-[#062E25]">{t('empty')}</p>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
@@ -352,7 +360,7 @@ export default function AdminMarketingAnalyticsPage() {
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('topPagesTitle')}</h2>
             {topPages.length === 0 ? (
-              <p className="text-sm text-[#062E25]/40">{t('empty')}</p>
+              <p className="text-sm text-[#062E25]">{t('empty')}</p>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
@@ -371,10 +379,10 @@ export default function AdminMarketingAnalyticsPage() {
                             {row.path}
                           </span>
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.views)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.sessions)}
                         </TableCell>
                       </TableRow>

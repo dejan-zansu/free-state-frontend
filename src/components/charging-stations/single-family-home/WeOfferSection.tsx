@@ -30,7 +30,7 @@ const WeOfferSection = async () => {
             {t('weOffer.title')}
           </h2>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-justify max-w-[527px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] text-justify max-w-[527px]">
             {t('weOffer.description')}
           </p>
         </div>

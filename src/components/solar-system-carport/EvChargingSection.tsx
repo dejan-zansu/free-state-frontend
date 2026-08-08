@@ -50,7 +50,7 @@ const EvChargingSection = async () => {
               <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium">
                 {t('evCharging.title')}
               </h2>
-              <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light max-w-[507px]">
+              <p className="text-[#062E25] text-lg md:text-[22px] max-w-[507px]">
                 {t('evCharging.description')}
               </p>
             </div>

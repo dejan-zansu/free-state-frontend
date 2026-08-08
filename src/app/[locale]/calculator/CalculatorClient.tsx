@@ -1,6 +1,15 @@
 'use client'
 
-import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
+import {
+  trackFunnelEvent,
+  trackFunnelEventOnce,
+} from '@/lib/analytics/funnel-events'
+import {
+  calculatorFlowV2Enabled,
+  clampToAllowedStep,
+  flowVersionMeta,
+  mapStep,
+} from '@/lib/calculator-flow'
 import { cn } from '@/lib/utils'
 import { activeLenis } from '@/providers/SmoothScrollProvider'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
@@ -18,6 +27,8 @@ import Step2Devices from './steps/Step3Devices'
 import Step3RoofAreas from './steps/Step4RoofAreas'
 import Step4RoofCovering from './steps/Step5RoofCovering'
 import Step5ContactDetails from './steps/Step6ContactDetails'
+import Screen1Address from './v2/Screen1Address'
+import Screen3Consumption from './v2/Screen3Consumption'
 
 const SESSION_ACTIVE_KEY = 'solar-calculator-session-active'
 
@@ -47,7 +58,6 @@ export default function CalculatorClient({
 
   const modelSelectedFiredRef = useRef(false)
   useEffect(() => {
-    if (embedded) return
     if (!resetReady) return
     if (!modelParam) return
     if (
@@ -66,28 +76,38 @@ export default function CalculatorClient({
       }
     }
     setModelParam(null, { history: 'replace' })
-  }, [embedded, resetReady, modelParam, solarModel, setSolarModel, setModelParam])
+  }, [resetReady, modelParam, solarModel, setSolarModel, setModelParam])
   const initRef = useRef(false)
   const fromUrlRef = useRef(false)
   const lastPushedRef = useRef<number | null>(null)
 
   useEffect(() => {
     if (embedded) return
-    if (!resetReady) return
-    if (!solarModel || initRef.current) return
+    if (!resetReady || initRef.current) return
     initRef.current = true
 
     if (stepParam !== null && stepParam !== currentStep) {
-      fromUrlRef.current = true
-      lastPushedRef.current = stepParam
-      goToStep(stepParam)
+      const target = clampToAllowedStep(
+        stepParam,
+        useSolarAboCalculatorStore.getState()
+      )
+      if (target !== currentStep) {
+        fromUrlRef.current = true
+        lastPushedRef.current = target
+        goToStep(target)
+      } else {
+        lastPushedRef.current = currentStep
+      }
+      if (target !== stepParam) {
+        setStepParam(target, { history: 'replace' })
+      }
     } else if (stepParam === null) {
       lastPushedRef.current = currentStep
       setStepParam(currentStep, { history: 'replace' })
     } else {
       lastPushedRef.current = stepParam
     }
-  }, [embedded, resetReady, solarModel, stepParam, currentStep, goToStep, setStepParam])
+  }, [embedded, resetReady, stepParam, currentStep, goToStep, setStepParam])
 
   useEffect(() => {
     if (embedded) return
@@ -114,8 +134,19 @@ export default function CalculatorClient({
       }
     }
     stepEventRef.current = currentStep
-    trackFunnelEvent('calculator_step_viewed', { step: currentStep })
+    if (currentStep === 1) return
+    trackFunnelEvent('calculator_step_viewed', {
+      step: currentStep,
+      ...(calculatorFlowV2Enabled ? { meta: { ...flowVersionMeta } } : {}),
+    })
   }, [embedded, solarModel, currentStep])
+
+  const handleStepOneInteraction = () => {
+    if (calculatorFlowV2Enabled) return
+    const state = useSolarAboCalculatorStore.getState()
+    if (state.currentStep !== 1) return
+    trackFunnelEventOnce('calculator_step_viewed', { step: 1 })
+  }
 
   useEffect(() => {
     if (embedded) return
@@ -123,9 +154,12 @@ export default function CalculatorClient({
       const raw = new URLSearchParams(window.location.search).get('step')
       const n = raw ? parseInt(raw, 10) : null
       const state = useSolarAboCalculatorStore.getState()
-      if (n !== null && !isNaN(n) && n !== state.currentStep) {
+      fromUrlRef.current = false
+      if (n === null || isNaN(n)) return
+      const target = clampToAllowedStep(n, state)
+      if (target !== state.currentStep) {
         fromUrlRef.current = true
-        state.goToStep(n)
+        state.goToStep(target)
       }
     }
     window.addEventListener('popstate', handler)
@@ -156,6 +190,20 @@ export default function CalculatorClient({
   }, [embedded, currentStep])
 
   const renderStep = () => {
+    if (calculatorFlowV2Enabled) {
+      switch (currentStep) {
+        case 1:
+          return <Screen1Address />
+        case 2:
+          return <Step3RoofAreas />
+        case 3:
+          return <Screen3Consumption />
+        case 4:
+          return <Step5ContactDetails />
+        default:
+          return <Screen1Address />
+      }
+    }
     switch (currentStep) {
       case 1:
         return <Step1HouseholdSize />
@@ -172,17 +220,19 @@ export default function CalculatorClient({
     }
   }
 
-  const isMapStep = currentStep === 3
+  const isMapStep = currentStep === mapStep
 
   if (embedded) {
     return (
       <CalculatorEmbedContext.Provider value={true}>
         <div
           ref={wrapperRef}
+          onPointerDownCapture={handleStepOneInteraction}
+          onKeyDownCapture={handleStepOneInteraction}
           className="relative rounded-[24px] border border-[#546963]/40 overflow-clip scroll-mt-28 [overflow-anchor:none]"
           style={{ background: PAGE_BG }}
         >
-          {!solarModel ? (
+          {!calculatorFlowV2Enabled && !solarModel ? (
             <SolarModelSelection />
           ) : (
             <>
@@ -190,7 +240,7 @@ export default function CalculatorClient({
               <div
                 className={cn(
                   isMapStep &&
-                    'relative h-[70vh] min-h-[560px] overflow-hidden rounded-[24px]'
+                    'relative h-[70svh] min-h-[560px] overflow-hidden rounded-[24px]'
                 )}
               >
                 {renderStep()}
@@ -202,10 +252,12 @@ export default function CalculatorClient({
     )
   }
 
-  if (!solarModel) {
+  if (!calculatorFlowV2Enabled && !solarModel) {
     return (
       <div
-        className="h-screen flex flex-col"
+        onPointerDownCapture={handleStepOneInteraction}
+        onKeyDownCapture={handleStepOneInteraction}
+        className="h-svh flex flex-col"
         style={{
           paddingTop: '77px',
           background: PAGE_BG,
@@ -220,8 +272,11 @@ export default function CalculatorClient({
 
   return (
     <div
+      onPointerDownCapture={handleStepOneInteraction}
+      onKeyDownCapture={handleStepOneInteraction}
+      data-lenis-prevent
       className={cn(
-        'h-screen relative',
+        'h-svh relative',
         isMapStep ? 'overflow-hidden' : 'overflow-y-auto pb-20'
       )}
       style={{

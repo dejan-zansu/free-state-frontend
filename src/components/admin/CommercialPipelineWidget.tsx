@@ -42,23 +42,23 @@ export default function CommercialPipelineWidget() {
         {FUNNEL_ORDER.map((s) => (
           <div key={s} className="text-center">
             <div className="text-xl font-bold text-[#062E25]">{stats.funnel?.[s] ?? 0}</div>
-            <div className="text-sm text-[#062E25]/60 truncate">{statusLabel[s]}</div>
+            <div className="text-sm text-[#062E25]/75 truncate">{statusLabel[s]}</div>
           </div>
         ))}
       </div>
-      <div className="mt-4 text-sm text-[#062E25]/60">
+      <div className="mt-4 text-sm text-[#062E25]">
         {t('conversion', { pct: Math.round((stats.conversionRate ?? 0) * 100) })}
       </div>
       {stats.upcoming && stats.upcoming.length > 0 && (
         <div className="mt-4">
-          <p className="text-sm font-semibold text-[#062E25]/70 mb-2">{t('upcoming')}</p>
+          <p className="text-sm font-semibold text-[#062E25]/75 mb-2">{t('upcoming')}</p>
           <ul className="space-y-1">
             {stats.upcoming.map((u) => (
               <li key={u.id} className="text-sm flex justify-between">
                 <Link href={`/${locale}/admin/commercial-leads/${u.id}`} className="text-blue-600 hover:underline">
                   {u.reference} · {u.companyName}
                 </Link>
-                <span className="text-[#062E25]/60">{new Date(u.nextFollowUpAt).toLocaleDateString('de-CH')}</span>
+                <span className="text-[#062E25]/75">{new Date(u.nextFollowUpAt).toLocaleDateString('de-CH')}</span>
               </li>
             ))}
           </ul>

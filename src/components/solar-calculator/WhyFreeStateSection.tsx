@@ -43,7 +43,7 @@ const WhyFreeStateSection = async () => {
                   <h3 className="text-white text-lg md:text-[22px] font-medium tracking-[-0.02em] text-center">
                     {t(`cards.${key}.title`)}
                   </h3>
-                  <p className="text-white/80 text-sm md:text-base font-light tracking-[-0.02em] text-center">
+                  <p className="text-white/80 text-sm md:text-base tracking-[-0.02em] text-center">
                     {t(`cards.${key}.subtitle`)}
                   </p>
                 </div>

@@ -44,7 +44,7 @@ const WhyFreeState = async ({
             <Reveal
               as="p"
               delay={0.2}
-              className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight whitespace-pre-line"
+              className="text-foreground/80 text-lg md:text-[22px] tracking-tight whitespace-pre-line"
             >
               {t('subtitle')}
             </Reveal>
@@ -79,7 +79,7 @@ const WhyFreeState = async ({
                 <h3 className="text-[22px] font-bold text-foreground capitalize">
                   {feature.title}
                 </h3>
-                <p className="text-base font-light text-foreground/80 tracking-tight">
+                <p className="text-base text-foreground/80 tracking-tight">
                   {feature.description}
                 </p>
               </div>

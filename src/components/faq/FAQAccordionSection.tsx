@@ -44,7 +44,7 @@ const FAQAccordionSection = ({
             {title}
           </h2>
 
-          <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em]">
+          <p className="text-[#062E25] text-lg md:text-[22px] tracking-[-0.02em]">
             {description}
           </p>
         </div>
@@ -86,7 +86,7 @@ const FAQAccordionSection = ({
                       openIndex === index ? 'opacity-100' : 'opacity-0'
                     )}
                   >
-                    <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em]">
+                    <p className="text-[#062E25] text-base tracking-[-0.02em]">
                       {item.answer}
                     </p>
                   </div>

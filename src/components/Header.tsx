@@ -48,6 +48,7 @@ const Header = () => {
     '/investors',
     '/careers',
     '/solar-direct',
+    '/solar-abo',
   ]
 
   const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>

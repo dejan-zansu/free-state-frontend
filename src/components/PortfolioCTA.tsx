@@ -25,7 +25,7 @@ const PortfolioCTA = async () => {
               {t('title')}
             </h2>
           </div>
-          <p className="text-white/80 text-lg lg:text-[22px] font-light tracking-tight text-center">
+          <p className="text-white/80 text-lg lg:text-[22px] tracking-tight text-center">
             {t('subtitle')}
           </p>
         </div>

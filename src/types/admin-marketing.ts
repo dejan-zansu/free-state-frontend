@@ -123,10 +123,11 @@ export interface CampaignDetail {
     landedAny: number
     landedCalculator: number
     steps: { step: number; sessions: number }[]
-    modelSelected: number
+    estimateViewed: number
     leads: number
     resultsViewed: number
     accountsCreated: number
+    offerRequested: number
     consultationsBooked: number
     contractsSigned: number
   }
@@ -174,7 +175,7 @@ export interface MarketingAnalyticsOverview {
     calculatorStarted: number
     reachedStep2: number
     reachedLastStep: number
-    modelSelected: number
+    estimateViewed: number
     accountsCreated: number
     step1ToStep2Pct: number | null
     startToAccountPct: number | null

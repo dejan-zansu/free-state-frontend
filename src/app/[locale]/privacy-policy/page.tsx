@@ -112,7 +112,7 @@ const PrivacyPolicyPage = async () => {
       <section className="py-12 sm:py-16 md:py-20">
         <div className="max-w-[900px] mx-auto px-6">
           <div className="prose prose-lg max-w-none">
-            <p className="text-foreground/70 text-base leading-relaxed mb-10">
+            <p className="text-foreground text-base leading-relaxed mb-10">
               {t('intro')}
             </p>
 
@@ -121,14 +121,14 @@ const PrivacyPolicyPage = async () => {
                 <h2 className="text-foreground text-xl sm:text-2xl font-semibold mb-4">
                   {section.title}
                 </h2>
-                <p className="text-foreground/70 text-base leading-relaxed whitespace-pre-line">
+                <p className="text-foreground text-base leading-relaxed whitespace-pre-line">
                   {section.content}
                 </p>
               </div>
             ))}
 
             <div className="mt-12 pt-8 border-t border-border">
-              <p className="text-foreground/50 text-sm">{t('lastUpdated')}</p>
+              <p className="text-foreground/75 text-sm">{t('lastUpdated')}</p>
             </div>
           </div>
         </div>

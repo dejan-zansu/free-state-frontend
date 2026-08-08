@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl'
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 import { cn } from '@/lib/utils'
 import { getFromPriceChf, type SolarModelKey } from './PackageCard'
-import { ABO_TERM_MONTHS, ABO_UPLIFT_FACTOR } from '@/stores/solar-abo-calculator.store'
 
 const YIELD_KWH_PER_KWP = 950
 
@@ -37,16 +36,11 @@ export default function CompactPackageCard({
   const t = useTranslations('packageCatalog.card')
   const fromPrice = getFromPriceChf(pkg)
   const isFree = model === 'solar-free'
-  const isAbo = model === 'solar-abo'
   const price = isFree
     ? '0 CHF'
-    : isAbo
-      ? fromPrice != null
-        ? `${fmtChf(Math.round((fromPrice * ABO_UPLIFT_FACTOR) / ABO_TERM_MONTHS))} CHF / Mt.`
-        : '—'
-      : fromPrice != null
-        ? `${fmtChf(fromPrice)} CHF`
-        : '—'
+    : fromPrice != null
+      ? `${fmtChf(fromPrice)} CHF`
+      : '—'
   const hasRange = pkg.minCapacityKwp != null && pkg.maxCapacityKwp != null
   const equipment = pkg.equipment.filter(e => e.name).slice(0, 4)
 
@@ -80,7 +74,7 @@ export default function CompactPackageCard({
       )}
       <span className="text-base font-bold text-[#062E25]">{pkg.name}</span>
       {hasRange && (
-        <span className="text-sm font-medium text-[#062E25]/70">
+        <span className="text-sm font-medium text-[#062E25]">
           {fmtRange(pkg.minCapacityKwp!, pkg.maxCapacityKwp!)} {t('kwpUnit')}
           {' · '}~
           {fmtRange(
@@ -106,13 +100,13 @@ export default function CompactPackageCard({
       )}
       <span className="mt-auto flex w-full items-baseline gap-1.5 border-t border-[#062E25]/10 pt-2">
         {!isFree && (
-          <span className="text-sm font-semibold uppercase tracking-wider text-[#062E25]/60">
+          <span className="text-sm font-semibold uppercase tracking-wider text-[#062E25]/75">
             {t('priceLabels.from')}
           </span>
         )}
         <span className="text-lg font-bold text-[#062E25]">{price}</span>
         {!isFree && (
-          <span className="text-sm uppercase tracking-wider text-[#062E25]/50">
+          <span className="text-sm uppercase tracking-wider text-[#062E25]/75">
             {t('priceLabels.exclVat')}
           </span>
         )}

@@ -42,14 +42,14 @@ const EnergyTransition = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px]">
             {t('subtitle')}
           </p>
         </div>
 
         <div className="w-full max-w-[643px] mx-auto h-px bg-[#ABB9AD] mt-12" />
 
-        <p className="mt-7 text-foreground/80 text-lg lg:text-[22px] font-light text-center max-w-[592px] mx-auto">
+        <p className="mt-7 text-foreground text-lg lg:text-[22px] text-center max-w-[592px] mx-auto">
           {t('bottomText')}
         </p>
       </div>

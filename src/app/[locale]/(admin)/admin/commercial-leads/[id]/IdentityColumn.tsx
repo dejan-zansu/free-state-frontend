@@ -17,9 +17,9 @@ export default function IdentityColumn({
   return (
     <div className="space-y-4">
       <Card><CardContent className="p-4 space-y-2">
-        <h3 className="text-sm font-semibold text-[#062E25]/60 uppercase tracking-wide">{t('companyCard')}</h3>
+        <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('companyCard')}</h3>
         <p className="font-medium">{lead.companyName}</p>
-        <p className="text-sm text-[#062E25]/60">
+        <p className="text-sm text-[#062E25]">
           {legalFormLabel[lead.legalForm]} · {industryLabel[lead.industry]} · {employeeBracketLabel[lead.employeeBracket]}
         </p>
         {lead.uidNumber && (
@@ -34,24 +34,24 @@ export default function IdentityColumn({
             {lead.website}
           </a>
         )}
-        <p className="text-sm text-[#062E25]/60">{t('sites', { count: lead.numberOfSites })}</p>
+        <p className="text-sm text-[#062E25]">{t('sites', { count: lead.numberOfSites })}</p>
       </CardContent></Card>
 
       <Card><CardContent className="p-4 space-y-2">
-        <h3 className="text-sm font-semibold text-[#062E25]/60 uppercase tracking-wide">{t('contactCard')}</h3>
+        <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('contactCard')}</h3>
         <p className="font-medium">{lead.contactFirstName} {lead.contactLastName}</p>
-        <p className="text-sm text-[#062E25]/60">{contactRoleLabel[lead.contactRole]}</p>
+        <p className="text-sm text-[#062E25]">{contactRoleLabel[lead.contactRole]}</p>
         <a href={`mailto:${lead.contactEmail}`} className="text-sm text-blue-600 hover:underline block">{lead.contactEmail}</a>
         <a href={`tel:${lead.contactPhone}`} className="text-sm text-blue-600 hover:underline block">{lead.contactPhone}</a>
-        <p className="text-sm text-[#062E25]/60">{t('preferredChannel')}: {channelLabel[lead.preferredChannel]}</p>
-        {lead.preferredTime && <p className="text-sm text-[#062E25]/60">{t('preferredTime')}: {lead.preferredTime}</p>}
-        <p className="text-sm text-[#062E25]/60">
+        <p className="text-sm text-[#062E25]">{t('preferredChannel')}: {channelLabel[lead.preferredChannel]}</p>
+        {lead.preferredTime && <p className="text-sm text-[#062E25]">{t('preferredTime')}: {lead.preferredTime}</p>}
+        <p className="text-sm text-[#062E25]">
           {lead.isDecisionMaker ? t('isDecisionMaker') : t('isNotDecisionMaker')}
         </p>
       </CardContent></Card>
 
       <Card><CardContent className="p-4 space-y-2">
-        <h3 className="text-sm font-semibold text-[#062E25]/60 uppercase tracking-wide">{t('addressCard')}</h3>
+        <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('addressCard')}</h3>
         <p className="text-sm">
           {lead.addressStreet}{lead.addressNumber ? ' ' + lead.addressNumber : ''}<br />
           {lead.addressPostalCode} {lead.addressCity} · {lead.addressCanton}
@@ -74,7 +74,7 @@ export default function IdentityColumn({
       </CardContent></Card>
 
       <Card><CardContent className="p-4 space-y-2">
-        <h3 className="text-sm font-semibold text-[#062E25]/60 uppercase tracking-wide">{t('intentCard')}</h3>
+        <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('intentCard')}</h3>
         <p className="text-sm"><strong>{t('timeline')}:</strong> {timelineLabel[lead.timeline]}</p>
         <p className="text-sm"><strong>{t('budget')}:</strong> {budgetLabel[lead.budgetBracket]}</p>
         <p className="text-sm"><strong>{t('existingPv')}:</strong> {existingPvLabel[lead.existingPv]}</p>
@@ -86,7 +86,7 @@ export default function IdentityColumn({
           <strong>{t('financing')}:</strong>{' '}
           {lead.financingPreferences.map((f) => financingLabel[f]).join(', ')}
         </div>
-        {lead.comments && <p className="text-sm text-[#062E25]/70 mt-2">&ldquo;{lead.comments}&rdquo;</p>}
+        {lead.comments && <p className="text-sm text-[#062E25] mt-2">&ldquo;{lead.comments}&rdquo;</p>}
       </CardContent></Card>
     </div>
   )

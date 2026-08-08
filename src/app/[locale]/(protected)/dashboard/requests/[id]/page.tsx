@@ -74,7 +74,7 @@ export default function CustomerRequestDetailPage() {
     <div className="max-w-3xl">
       <Link
         href={`/${locale}/dashboard/requests`}
-        className="inline-flex items-center gap-2 text-sm text-[#062E25]/60 hover:text-[#062E25] mb-4"
+        className="inline-flex items-center gap-2 text-sm text-[#062E25]/75 hover:text-[#062E25] mb-4"
       >
         <ArrowLeft className="h-4 w-4" /> {t('back')}
       </Link>
@@ -84,10 +84,10 @@ export default function CustomerRequestDetailPage() {
         <StatusBadge status={local.status} />
       </div>
       {local.description && (
-        <p className="text-[#062E25]/70 mb-2">{local.description}</p>
+        <p className="text-[#062E25] mb-2">{local.description}</p>
       )}
       {local.dueDate && (
-        <p className="text-sm text-[#062E25]/60 mb-4">
+        <p className="text-sm text-[#062E25]/75 mb-4">
           {t('dueOn', { date: new Date(local.dueDate).toLocaleDateString('de-CH') })}
         </p>
       )}
@@ -128,7 +128,7 @@ export default function CustomerRequestDetailPage() {
 
       {editable && (
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-sm text-[#062E25]/60">
+          <p className="text-sm text-[#062E25]">
             {allComplete ? t('allFilled') : t('fillAll')}
           </p>
           <Button

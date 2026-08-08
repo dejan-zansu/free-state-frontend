@@ -42,7 +42,7 @@ const WhoWeAre = () => {
                 {t('title')}
               </h2>
 
-              <p className="text-foreground/80 text-base font-light leading-[1.5em] max-w-[487px]">
+              <p className="text-foreground/80 text-base leading-[1.5em] max-w-[487px]">
                 &ldquo;{t('quote')}&rdquo;
               </p>
 

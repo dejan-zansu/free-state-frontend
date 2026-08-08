@@ -156,7 +156,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                   {t('title')}
                 </h2>
               </div>
-              <p className="text-white/80 text-lg sm:text-xl lg:text-[22px] font-light tracking-[-0.02em] max-w-[330px]">
+              <p className="text-white/80 text-lg sm:text-xl lg:text-[22px] tracking-[-0.02em] max-w-[330px]">
                 {t('subtitle')}
               </p>
             </div>
@@ -186,7 +186,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                     <h3 className="text-white text-3xl font-light tracking-[-0.02em]">
                       {t('formTitle')}
                     </h3>
-                    <p className="text-[#FDFFF5]/70 text-sm font-light tracking-[-0.02em]">
+                    <p className="text-[#FDFFF5]/70 text-sm tracking-[-0.02em]">
                       {t('requiredHint')}
                     </p>
                   </div>
@@ -287,7 +287,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                     }}
                     render={({ field }) => (
                       <div className="flex flex-col gap-5 mt-3">
-                        <p className="text-white/80 text-base sm:text-[22px] font-light tracking-[-0.02em]">
+                        <p className="text-white/80 text-base sm:text-[22px] tracking-[-0.02em]">
                           {t('ownsHomeQuestion')}
                         </p>
                         <div className="flex items-center gap-[17px]">
@@ -342,7 +342,7 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                               </svg>
                             )}
                           </button>
-                          <span className="text-white/70 text-sm font-light tracking-[-0.02em]">
+                          <span className="text-white/70 text-sm tracking-[-0.02em]">
                             {t.rich('consent', {
                               link: chunks => (
                                 <Link

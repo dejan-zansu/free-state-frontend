@@ -125,7 +125,7 @@ const Reviews = ({ isCommercial = false }: { isCommercial?: boolean }) => {
           <Reveal
             as="p"
             delay={0.2}
-            className="text-white/80 text-lg md:text-[22px] font-light tracking-tight"
+            className="text-white/80 text-lg md:text-[22px] tracking-tight"
           >
             {subtitle}
           </Reveal>
@@ -145,7 +145,7 @@ const Reviews = ({ isCommercial = false }: { isCommercial?: boolean }) => {
                       <ReviewStarIcon key={i} color={starColor} />
                     ))}
                   </div>
-                  <p className="text-white/80 text-base md:text-lg font-light tracking-tight text-center">
+                  <p className="text-white/80 text-base md:text-lg tracking-tight text-center">
                     {`“ ${review.quote} ”`}
                   </p>
                   <div className="flex flex-col items-center gap-1">

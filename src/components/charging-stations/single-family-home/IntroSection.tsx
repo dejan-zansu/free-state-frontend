@@ -16,7 +16,7 @@ const IntroSection = async () => {
                 backdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-[#062E25] text-base font-light tracking-[-0.02em]">
+              <span className="text-[#062E25] text-base tracking-[-0.02em]">
                 {t('intro.eyebrow')}
               </span>
             </div>
@@ -25,7 +25,7 @@ const IntroSection = async () => {
               {t('intro.title')}
             </h2>
 
-            <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-justify">
+            <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] text-justify">
               {t('intro.description')}
             </p>
           </div>

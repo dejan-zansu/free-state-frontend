@@ -23,7 +23,7 @@ const ValuesSection = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light tracking-[-0.02em] max-w-[562px]">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px] tracking-[-0.02em] max-w-[562px]">
             {t('subtitle')}
           </p>
 
@@ -54,7 +54,7 @@ const ValuesSection = () => {
               <h3 className="text-foreground text-[22px] font-bold capitalize">
                 {t(`${value.key}.title`)}
               </h3>
-              <p className="mt-5 text-foreground/80 text-base font-light tracking-[-0.02em]">
+              <p className="mt-5 text-foreground text-base tracking-[-0.02em]">
                 {t(`${value.key}.description`)}
               </p>
             </div>

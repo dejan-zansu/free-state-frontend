@@ -65,7 +65,7 @@ export default function AdminProjectsPage() {
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
-          <p className="text-base text-[#062E25]/60 mb-6">{t('intro')}</p>
+          <p className="text-base text-[#062E25] mb-6">{t('intro')}</p>
 
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <Input
@@ -150,7 +150,7 @@ export default function AdminProjectsPage() {
                             {project.customer.user.firstName}{' '}
                             {project.customer.user.lastName}
                           </p>
-                          <p className="text-sm text-[#062E25]/50">
+                          <p className="text-sm text-[#062E25]">
                             {project.customer.user.email}
                           </p>
                           {!project.isPropertyOwner && (
@@ -160,7 +160,7 @@ export default function AdminProjectsPage() {
                           )}
                         </div>
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60 max-w-48 truncate">
+                      <TableCell className="text-sm text-[#062E25] max-w-48 truncate">
                         {project.propertyAddress}
                       </TableCell>
                       <TableCell className="text-sm tabular-nums">
@@ -190,7 +190,7 @@ export default function AdminProjectsPage() {
                           </span>
                         )}
                       </TableCell>
-                      <TableCell className="text-[#062E25]/60 text-sm">
+                      <TableCell className="text-[#062E25] text-sm">
                         {new Date(project.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
                       <TableCell>
@@ -206,7 +206,7 @@ export default function AdminProjectsPage() {
                     <TableRow>
                       <TableCell
                         colSpan={8}
-                        className="text-center py-8 text-[#062E25]/40"
+                        className="text-center py-8 text-[#062E25]/75"
                       >
                         {t('noProjects')}
                       </TableCell>
@@ -216,7 +216,7 @@ export default function AdminProjectsPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">
+                <p className="text-sm text-[#062E25]/75">
                   {t('totalProjects', { count: total })}
                 </p>
                 <div className="flex items-center gap-2">
@@ -228,7 +228,7 @@ export default function AdminProjectsPage() {
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]/75">
                     {tc('page', { page, totalPages })}
                   </span>
                   <Button

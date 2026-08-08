@@ -90,7 +90,7 @@ const BlogPage = async ({
         </div>
 
         {posts.length === 0 ? (
-          <p className="text-[#062E25]/60 text-center py-16 text-lg">
+          <p className="text-[#062E25] text-center py-16 text-lg">
             {t('noPosts')}
           </p>
         ) : (
@@ -122,7 +122,7 @@ const BlogPage = async ({
                   </div>
 
                   <div className="flex flex-col justify-center gap-5 p-8 md:p-12 lg:p-14">
-                    <div className="flex items-center gap-2 text-base text-[#062E25]/50 font-light tracking-tight">
+                    <div className="flex items-center gap-2 text-base text-[#062E25]/75 font-light tracking-tight">
                       {featured.publishedAt && (
                         <time>
                           {new Date(featured.publishedAt).toLocaleDateString(
@@ -142,7 +142,7 @@ const BlogPage = async ({
                       {featuredTr.title}
                     </h2>
                     {featuredTr.excerpt && (
-                      <p className="text-[#062E25]/60 text-base md:text-lg font-light line-clamp-3">
+                      <p className="text-[#062E25] text-base md:text-lg line-clamp-3">
                         {featuredTr.excerpt}
                       </p>
                     )}
@@ -171,7 +171,7 @@ const BlogPage = async ({
                   <Link
                     href={pageHref(page - 1)}
                     aria-label={t('paginationPrev')}
-                    className="w-10 h-10 rounded-full border border-[#062E25]/15 text-[#062E25]/70 hover:border-[#062E25]/40 flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-full border border-[#062E25]/15 text-[#062E25] hover:border-[#062E25]/40 flex items-center justify-center transition-colors"
                   >
                     <ArrowLeft className="w-4 h-4" />
                   </Link>
@@ -184,7 +184,7 @@ const BlogPage = async ({
                     className={
                       n === page
                         ? 'w-10 h-10 rounded-full bg-[#B7FE1A] text-[#062E25] flex items-center justify-center text-base font-medium'
-                        : 'w-10 h-10 rounded-full border border-[#062E25]/15 text-[#062E25]/70 hover:border-[#062E25]/40 flex items-center justify-center text-base font-medium transition-colors'
+                        : 'w-10 h-10 rounded-full border border-[#062E25]/15 text-[#062E25] hover:border-[#062E25]/40 flex items-center justify-center text-base font-medium transition-colors'
                     }
                   >
                     {n}
@@ -194,7 +194,7 @@ const BlogPage = async ({
                   <Link
                     href={pageHref(page + 1)}
                     aria-label={t('paginationNext')}
-                    className="w-10 h-10 rounded-full border border-[#062E25]/15 text-[#062E25]/70 hover:border-[#062E25]/40 flex items-center justify-center transition-colors"
+                    className="w-10 h-10 rounded-full border border-[#062E25]/15 text-[#062E25] hover:border-[#062E25]/40 flex items-center justify-center transition-colors"
                   >
                     <ArrowRight className="w-4 h-4" />
                   </Link>

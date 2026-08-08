@@ -79,7 +79,7 @@ const FAQSection = () => {
                     {isOpen && (
                       <>
                         <div className="mt-5 mb-5 h-px bg-white/20" />
-                        <p className="text-white/80 text-base font-light tracking-[-0.02em]">
+                        <p className="text-white/80 text-base tracking-[-0.02em]">
                           {t(`items.${key}.answer`)}
                         </p>
                       </>

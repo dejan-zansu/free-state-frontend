@@ -55,7 +55,7 @@ const CareersContactCTA = () => {
                   WebkitBackdropFilter: 'blur(65px)',
                 }}
               >
-                <span className="text-white text-base font-light tracking-[-0.02em] whitespace-nowrap">
+                <span className="text-white text-base tracking-[-0.02em] whitespace-nowrap">
                   {t('eyebrow')}
                 </span>
               </div>
@@ -65,7 +65,7 @@ const CareersContactCTA = () => {
               </h2>
             </div>
 
-            <p className="text-white/80 text-lg lg:text-[22px] font-light tracking-[-0.02em] text-center max-w-[795px]">
+            <p className="text-white/80 text-lg lg:text-[22px] tracking-[-0.02em] text-center max-w-[795px]">
               {t('subtitle')}
             </p>
           </div>

@@ -188,7 +188,7 @@ export default function AdminInspectionDetailPage() {
       <div className="mb-4">
         <Link
           href={`/${locale}/admin/inspections`}
-          className="text-sm text-[#062E25]/60 hover:text-[#062E25] underline underline-offset-4"
+          className="text-sm text-[#062E25]/75 hover:text-[#062E25] underline underline-offset-4"
         >
           ← {t('backToList')}
         </Link>
@@ -197,7 +197,7 @@ export default function AdminInspectionDetailPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
         {t('inspection')} · {user.firstName} {user.lastName}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">
+      <p className="text-base text-[#062E25] mb-6">
         {inspection.lead.propertyAddress} · {t('status')}:{' '}
         <strong>{tl(inspection.status)}</strong>
       </p>
@@ -211,33 +211,33 @@ export default function AdminInspectionDetailPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-3">
+            <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-3">
               {t('preliminaryValues')}
             </p>
             <dl className="grid grid-cols-2 gap-y-2 text-sm">
-              <dt className="text-[#062E25]/60">{t('systemKwp')}</dt>
+              <dt className="text-[#062E25]/75">{t('systemKwp')}</dt>
               <dd className="tabular-nums text-right">
                 {prelimKwp != null ? Number(prelimKwp).toFixed(2) : '—'}
               </dd>
-              <dt className="text-[#062E25]/60">{t('annualProduction')}</dt>
+              <dt className="text-[#062E25]/75">{t('annualProduction')}</dt>
               <dd className="tabular-nums text-right">
                 {prelimProd != null ? Number(prelimProd).toFixed(0) : '—'}
               </dd>
-              <dt className="text-[#062E25]/60">{t('annualConsumption')}</dt>
+              <dt className="text-[#062E25]/75">{t('annualConsumption')}</dt>
               <dd className="tabular-nums text-right">
                 {prelimCons != null ? Number(prelimCons).toFixed(0) : '—'}
               </dd>
             </dl>
             <div className="mt-4 pt-4 border-t border-[#062E25]/10">
-              <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
+              <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-2">
                 {t('contact')}
               </p>
               <p className="text-sm text-[#062E25]">
                 <strong>{user.firstName} {user.lastName}</strong>
               </p>
-              <p className="text-sm text-[#062E25]/70">{user.email}</p>
+              <p className="text-sm text-[#062E25]">{user.email}</p>
               {user.phone && (
-                <p className="text-sm text-[#062E25]/70">{user.phone}</p>
+                <p className="text-sm text-[#062E25]">{user.phone}</p>
               )}
             </div>
           </CardContent>
@@ -245,12 +245,12 @@ export default function AdminInspectionDetailPage() {
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-3">
+            <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-3">
               {t('appointmentInspector')}
             </p>
             <div className="space-y-3">
               <div>
-                <label className="text-sm text-[#062E25]/60 block mb-1">
+                <label className="text-sm text-[#062E25] block mb-1">
                   {t('scheduledDateTime')}
                 </label>
                 <Input
@@ -262,7 +262,7 @@ export default function AdminInspectionDetailPage() {
               </div>
               {inspection.inspector && (
                 <div>
-                  <p className="text-sm text-[#062E25]/60">{t('inspector')}</p>
+                  <p className="text-sm text-[#062E25]/75">{t('inspector')}</p>
                   <p className="text-sm text-[#062E25]">
                     {inspection.inspector.firstName}{' '}
                     {inspection.inspector.lastName}
@@ -270,7 +270,7 @@ export default function AdminInspectionDetailPage() {
                 </div>
               )}
               {inspection.completedAt && (
-                <p className="text-sm text-[#062E25]/60">
+                <p className="text-sm text-[#062E25]">
                   {t('completedOn', { date: fmtDate(inspection.completedAt) })}
                 </p>
               )}
@@ -291,12 +291,12 @@ export default function AdminInspectionDetailPage() {
 
       <Card className="border-[#062E25]/10 mt-4">
         <CardContent className="p-6">
-          <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-4">
+          <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-4">
             {t('verifiedValues')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('systemKwp')} *
               </label>
               <Input
@@ -308,7 +308,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('annualProduction')} *
               </label>
               <Input
@@ -319,7 +319,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('annualConsumptionFromBill')}
               </label>
               <Input
@@ -330,7 +330,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('panelCount')}
               </label>
               <Input
@@ -346,12 +346,12 @@ export default function AdminInspectionDetailPage() {
 
       <Card className="border-[#062E25]/10 mt-4">
         <CardContent className="p-6">
-          <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-4">
+          <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-4">
             {t('observations')}
           </p>
           <div className="space-y-4">
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('shading')}
               </label>
               <textarea
@@ -363,7 +363,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('access')}
               </label>
               <textarea
@@ -375,7 +375,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('roofCondition')}
               </label>
               <textarea
@@ -387,7 +387,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-1">
+              <label className="text-sm text-[#062E25] block mb-1">
                 {t('generalNotes')}
               </label>
               <textarea
@@ -399,7 +399,7 @@ export default function AdminInspectionDetailPage() {
               />
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 block mb-3">
+              <label className="text-sm text-[#062E25] block mb-3">
                 {t('photos')}
               </label>
               <PhotoGalleryUpload

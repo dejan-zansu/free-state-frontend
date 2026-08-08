@@ -108,7 +108,7 @@ export default function SonnendachStep5CompanyDetails() {
   return (
     <div className="container mx-auto px-4 pt-8 pb-24 max-w-3xl">
       <h1 className="text-2xl sm:text-3xl font-medium text-[#062E25]">{t('title')}</h1>
-      <p className="mt-2 text-base text-[#062E25]/60">{t('subtitle')}</p>
+      <p className="mt-2 text-base text-[#062E25]">{t('subtitle')}</p>
 
       {Object.keys(errors).length > 0 && (
         <div className="mt-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm">
@@ -153,7 +153,7 @@ export default function SonnendachStep5CompanyDetails() {
             onChange={(e) => setCompanyDetails({ uidNumber: e.target.value })}
             className="mt-1"
           />
-          <p className="text-sm text-[#062E25]/60 mt-1">{t('uidHelp')}</p>
+          <p className="text-sm text-[#062E25]/75 mt-1">{t('uidHelp')}</p>
           {errors.uidNumber && <p className="text-sm text-red-600 mt-1">{errors.uidNumber}</p>}
         </div>
 
@@ -359,7 +359,7 @@ export default function SonnendachStep5CompanyDetails() {
 
         {propertyRelation && propertyRelation !== 'OWNER' && (
           <div className="space-y-4 pl-4 border-l-2 border-[#062E25]/10">
-            <p className="text-sm text-[#062E25]/60">{t('ownerHelp')}</p>
+            <p className="text-sm text-[#062E25]/75">{t('ownerHelp')}</p>
             <div>
               <Label>{t('ownerName')}</Label>
               <Input value={ownerContact.name}
@@ -407,7 +407,7 @@ export default function SonnendachStep5CompanyDetails() {
                   onClick={() => setProjectIntent({ motivations: toggleInArray(projectIntent.motivations, v) })}
                   className={`px-3 py-1.5 rounded-full text-sm border ${on
                     ? 'bg-[#B7FE1A] border-[#062E25] text-[#062E25]'
-                    : 'bg-white border-[#062E25]/20 text-[#062E25]/60 hover:border-[#062E25]/40'}`}
+                    : 'bg-white border-[#062E25]/20 text-[#062E25] hover:border-[#062E25]/40'}`}
                 >
                   {motivationLabel[v]}
                 </button>
@@ -428,7 +428,7 @@ export default function SonnendachStep5CompanyDetails() {
                   onClick={() => setProjectIntent({ financingPreferences: toggleInArray(projectIntent.financingPreferences, v) })}
                   className={`px-3 py-1.5 rounded-full text-sm border ${on
                     ? 'bg-[#B7FE1A] border-[#062E25] text-[#062E25]'
-                    : 'bg-white border-[#062E25]/20 text-[#062E25]/60 hover:border-[#062E25]/40'}`}
+                    : 'bg-white border-[#062E25]/20 text-[#062E25] hover:border-[#062E25]/40'}`}
                 >
                   {financingLabel[v]}
                 </button>
@@ -477,7 +477,7 @@ export default function SonnendachStep5CompanyDetails() {
             rows={3}
             className="mt-1"
           />
-          <p className="text-sm text-[#062E25]/60 mt-1">{projectIntent.comments.length} / 500</p>
+          <p className="text-sm text-[#062E25]/75 mt-1">{projectIntent.comments.length} / 500</p>
         </div>
       </section>
 
@@ -486,7 +486,7 @@ export default function SonnendachStep5CompanyDetails() {
           <Checkbox id="privacy"
                     checked={consents.privacy}
                     onCheckedChange={(v) => setConsents({ privacy: v === true })} />
-          <Label htmlFor="privacy" className="text-sm text-[#062E25]/70">
+          <Label htmlFor="privacy" className="text-sm text-[#062E25]">
             {t.rich('privacyConsent', {
               link: chunks => (
                 <Link href="/privacy-policy" className="underline hover:text-[#062E25]">
@@ -502,7 +502,7 @@ export default function SonnendachStep5CompanyDetails() {
           <Checkbox id="marketing"
                     checked={consents.marketing}
                     onCheckedChange={(v) => setConsents({ marketing: v === true })} />
-          <Label htmlFor="marketing" className="text-sm text-[#062E25]/70">{t('marketingConsent')}</Label>
+          <Label htmlFor="marketing" className="text-sm text-[#062E25]">{t('marketingConsent')}</Label>
         </div>
       </section>
 

@@ -42,7 +42,7 @@ const STATUS_COLOR: Record<InspectionStatus, string> = {
   SCHEDULED: 'bg-[#062E25]/10 text-[#062E25]',
   IN_PROGRESS: 'bg-[#B7FE1A]/40 text-[#062E25]',
   COMPLETED: 'bg-[#036B53]/15 text-[#036B53]',
-  CANCELLED: 'bg-[#062E25]/5 text-[#062E25]/50',
+  CANCELLED: 'bg-[#062E25]/5 text-[#062E25]/75',
 }
 
 function fmtDate(iso: string | null): string {
@@ -108,7 +108,7 @@ export default function AdminInspectionsPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
         {t('title')}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">{t('subtitle')}</p>
+      <p className="text-base text-[#062E25] mb-6">{t('subtitle')}</p>
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
@@ -197,7 +197,7 @@ export default function AdminInspectionsPage() {
                 <TableRow>
                   <TableCell
                     colSpan={7}
-                    className="text-center text-[#062E25]/50 py-8"
+                    className="text-center text-[#062E25]/75 py-8"
                   >
                     {t('empty')}
                   </TableCell>
@@ -207,7 +207,7 @@ export default function AdminInspectionsPage() {
           </Table>
 
           {totalPages > 1 && (
-            <div className="mt-4 flex items-center justify-between text-sm text-[#062E25]/60">
+            <div className="mt-4 flex items-center justify-between text-sm text-[#062E25]/75">
               <span>{t('pagination', { page, totalPages, total })}</span>
               <div className="flex gap-2">
                 <button

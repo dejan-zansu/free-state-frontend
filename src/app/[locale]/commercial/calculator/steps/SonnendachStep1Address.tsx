@@ -182,7 +182,10 @@ export default function SonnendachStep1Address() {
 
     try {
       const lv95 = await sonnendachService.convertToLV95(lat, lng)
-      const building = await sonnendachService.getBuildingData(lv95.y, lv95.x)
+      const { building } = await sonnendachService.getBuildingData(
+        lv95.y,
+        lv95.x
+      )
 
       if (building && building.roofSegments.length > 0) {
         // Store ALL segments from this building for inner segment detection

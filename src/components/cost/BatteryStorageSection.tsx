@@ -19,7 +19,7 @@ const BatteryStorageSection = async () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[90px]">
-          <p className="text-white/80 text-base md:text-[22px] leading-[1.27em] tracking-[-0.02em] text-justify max-w-[535px] font-light">
+          <p className="text-white/80 text-base md:text-[22px] leading-[1.27em] tracking-[-0.02em] text-justify max-w-[535px]">
             {t('batteryStorage.description')}
           </p>
 

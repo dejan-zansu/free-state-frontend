@@ -97,7 +97,7 @@ const MaintenanceInquirySection = () => {
         }}
       >
         <div className="max-w-[621px] mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#062E25] text-base md:text-[22px] font-light tracking-[-0.02em]">
+          <p className="text-[#062E25] text-base md:text-[22px] tracking-[-0.02em]">
             {t('success')}
           </p>
         </div>
@@ -137,7 +137,7 @@ const MaintenanceInquirySection = () => {
             <div className="flex flex-col gap-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-[5px]">
-                  <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('firstName.label')}
                   </Label>
                   <Input
@@ -151,7 +151,7 @@ const MaintenanceInquirySection = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-[5px]">
-                  <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('lastName.label')}
                   </Label>
                   <Input
@@ -168,7 +168,7 @@ const MaintenanceInquirySection = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-[5px]">
-                  <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('email.label')}
                   </Label>
                   <Input
@@ -183,7 +183,7 @@ const MaintenanceInquirySection = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-[5px]">
-                  <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('phone.label')}
                   </Label>
                   <Input
@@ -200,7 +200,7 @@ const MaintenanceInquirySection = () => {
               </div>
 
               <div className="flex flex-col gap-[5px]">
-                <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                   {t('street.label')}
                 </Label>
                 <Input
@@ -216,7 +216,7 @@ const MaintenanceInquirySection = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="flex flex-col gap-[5px]">
-                  <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('postalCode.label')}
                   </Label>
                   <Input
@@ -230,7 +230,7 @@ const MaintenanceInquirySection = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-[5px]">
-                  <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('location.label')}
                   </Label>
                   <Input
@@ -247,7 +247,7 @@ const MaintenanceInquirySection = () => {
             </div>
 
             <div className="flex flex-col gap-[10px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('maintenanceServices.label')}
               </Label>
               <div className="flex flex-col gap-[7px]">
@@ -269,7 +269,7 @@ const MaintenanceInquirySection = () => {
                       }
                       className="size-[15px] rounded-[3.75px] border-[#4A9A99] opacity-60"
                     />
-                    <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                    <span className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                       {t(`maintenanceServices.${key}`)}
                     </span>
                   </label>
@@ -280,7 +280,7 @@ const MaintenanceInquirySection = () => {
             <div className="h-px bg-[#062E25]/20" />
 
             <div className="flex flex-col gap-[10px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('freeStateSystem.label')}
               </Label>
               <div className="flex flex-col gap-[7px]">
@@ -294,7 +294,7 @@ const MaintenanceInquirySection = () => {
                     }
                     className="size-[15px] accent-[#4A9A99] opacity-60"
                   />
-                  <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <span className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('freeStateSystem.yes')}
                   </span>
                 </label>
@@ -308,7 +308,7 @@ const MaintenanceInquirySection = () => {
                     }
                     className="size-[15px] accent-[#4A9A99] opacity-60"
                   />
-                  <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                  <span className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                     {t('freeStateSystem.no')}
                   </span>
                 </label>
@@ -316,7 +316,7 @@ const MaintenanceInquirySection = () => {
             </div>
 
             <div className="flex flex-col gap-[5px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('systemOutput.label')}
               </Label>
               <Input
@@ -330,7 +330,7 @@ const MaintenanceInquirySection = () => {
             </div>
 
             <div className="flex flex-col gap-[5px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('internetAccess.label')}
               </Label>
               <Select
@@ -352,7 +352,7 @@ const MaintenanceInquirySection = () => {
             </div>
 
             <div className="flex flex-col gap-[10px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('products.label')}
               </Label>
               <div className="flex flex-col gap-[7px]">
@@ -371,7 +371,7 @@ const MaintenanceInquirySection = () => {
                       }
                       className="size-[15px] rounded-[3.75px] border-[#4A9A99] opacity-60"
                     />
-                    <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                    <span className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                       {t(`products.${key}`)}
                     </span>
                   </label>
@@ -383,7 +383,7 @@ const MaintenanceInquirySection = () => {
 
             <div className="flex flex-col gap-5">
               <div className="flex flex-col gap-[5px]">
-                <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                   {t('message.label')}
                 </Label>
                 <Textarea
@@ -407,7 +407,7 @@ const MaintenanceInquirySection = () => {
                   }
                   className="size-[15px] rounded-[3.75px] border-[#062E25] opacity-60"
                 />
-                <span className="text-[#062E25]/40 text-sm font-medium tracking-[-0.02em]">
+                <span className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
                   <Link
                     href="/privacy-policy"
                     onClick={e => e.stopPropagation()}

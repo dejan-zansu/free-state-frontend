@@ -39,7 +39,7 @@ const NewsletterConfirmInner = () => {
               ? t('successTitle')
               : t('errorTitle')}
         </h1>
-        <p className="text-foreground/70 text-base leading-relaxed mb-8">
+        <p className="text-foreground text-base leading-relaxed mb-8">
           {status === 'loading'
             ? t('loadingBody')
             : status === 'success'

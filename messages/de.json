@@ -3871,7 +3871,7 @@
     },
     "solarFreeLease": {
       "title": "6. Solar Free: Leasing- und Abonnementsmodell",
-      "content": "Mit dem «Solar Free»-Modell stellt Free State AG dem Kunden eine Photovoltaikanlage (optional ergänzt durch Batteriespeicher, Ladestation oder Wärmepumpen-Steuerung) zur Nutzung gegen ein monatliches Entgelt zur Verfügung, ohne dass der Kunde die Anlage erwerben muss.\n\nWesentliche Bedingungen:\n\n• Eigentum: Während der gesamten Vertragslaufzeit verbleibt das Eigentum an der Anlage bei Free State AG bzw. einem von Free State AG bezeichneten Finanzierungspartner. Der Kunde stellt das Dach bzw. den Aufstellungsort kostenfrei zur Verfügung und gewährt das für Bau, Betrieb und Wartung erforderliche Zugangsrecht.\n\n• Vertragslaufzeit: Sofern im Einzelvertrag nicht abweichend vereinbart, beträgt die Standardlaufzeit eines Solar-Free-Vertrags 20 Jahre ab Inbetriebnahme.\n\n• Monatliches Entgelt: Das monatliche Entgelt wird im Einzelvertrag verbindlich festgelegt. Es kann eine Indexierung oder ein Stufenmodell vorgesehen werden; in diesem Fall wird die Berechnungsgrundlage im Vertrag offengelegt.\n\n• Wartung und Reparatur: Free State AG übernimmt während der Vertragslaufzeit die ordentliche Wartung sowie die Behebung von Defekten an Komponenten der Anlage, sofern diese nicht durch unsachgemässe Nutzung, Vandalismus, höhere Gewalt oder Eingriffe Dritter verursacht wurden.\n\n• Stromverbrauch und Einspeisung: Sofern im Einzelvertrag nicht anders geregelt, ist der vom Kunden vor Ort verbrauchte Strom im monatlichen Entgelt enthalten. Überschüssiger Strom wird ins Netz eingespeist; die Einspeisevergütung fliesst dem Anlageneigentümer (Free State AG) zu.\n\n• Vorzeitige Beendigung: Eine ordentliche Kündigung vor Ablauf der vereinbarten Laufzeit ist ausgeschlossen. Bei vorzeitiger Auflösung aus wichtigem Grund schuldet die kündigende Partei der Gegenseite Ersatz nach Massgabe des Einzelvertrags. Bei Eigentumswechsel an der Liegenschaft tritt der neue Eigentümer in den Vertrag ein, sofern dies im Einzelvertrag vorgesehen ist.\n\n• Kaufoption: Soweit im Einzelvertrag vorgesehen, hat der Kunde das Recht, die Anlage zu definierten Zeitpunkten zu einem im Voraus bestimmten Restwert zu erwerben.\n\n• Nach Vertragsende: Sofern im Einzelvertrag so vorgesehen, geht das Eigentum an der Anlage nach Ablauf der Vertragslaufzeit unentgeltlich oder zu einem symbolischen Restwert auf den Kunden über. Andernfalls wird die Anlage durch Free State AG demontiert und der Aufstellungsort fachgerecht zurückgebaut.\n\nDie Einzelheiten zu Laufzeit, Entgelt, Indexierung, Eigentumsübergang, Versicherungsdeckung und Kaufoption ergeben sich abschliessend aus dem unterzeichneten Solar-Free-Vertrag, der diesen AGB im Konfliktfall vorgeht."
+      "content": "Mit dem «Solar Free»-Modell stellt Free State AG dem Kunden eine Photovoltaikanlage (optional ergänzt durch Batteriespeicher, Ladestation oder Wärmepumpen-Steuerung) zur Nutzung gegen ein monatliches Entgelt zur Verfügung, ohne dass der Kunde die Anlage erwerben muss.\n\nWesentliche Bedingungen:\n\n• Eigentum: Während der gesamten Vertragslaufzeit verbleibt das Eigentum an der Anlage bei Free State AG bzw. einem von Free State AG bezeichneten Finanzierungspartner. Der Kunde stellt das Dach bzw. den Aufstellungsort kostenfrei zur Verfügung und gewährt das für Bau, Betrieb und Wartung erforderliche Zugangsrecht.\n\n• Vertragslaufzeit: Sofern im Einzelvertrag nicht abweichend vereinbart, beträgt die Standardlaufzeit eines Solar-Free-Vertrags 35 Jahre ab Inbetriebnahme.\n\n• Monatliches Entgelt: Das monatliche Entgelt wird im Einzelvertrag verbindlich festgelegt. Es kann eine Indexierung oder ein Stufenmodell vorgesehen werden; in diesem Fall wird die Berechnungsgrundlage im Vertrag offengelegt.\n\n• Wartung und Reparatur: Free State AG übernimmt während der Vertragslaufzeit die ordentliche Wartung sowie die Behebung von Defekten an Komponenten der Anlage, sofern diese nicht durch unsachgemässe Nutzung, Vandalismus, höhere Gewalt oder Eingriffe Dritter verursacht wurden.\n\n• Stromverbrauch und Einspeisung: Sofern im Einzelvertrag nicht anders geregelt, ist der vom Kunden vor Ort verbrauchte Strom im monatlichen Entgelt enthalten. Überschüssiger Strom wird ins Netz eingespeist; die Einspeisevergütung fliesst dem Anlageneigentümer (Free State AG) zu.\n\n• Vorzeitige Beendigung: Eine ordentliche Kündigung vor Ablauf der vereinbarten Laufzeit ist ausgeschlossen. Bei vorzeitiger Auflösung aus wichtigem Grund schuldet die kündigende Partei der Gegenseite Ersatz nach Massgabe des Einzelvertrags. Bei Eigentumswechsel an der Liegenschaft tritt der neue Eigentümer in den Vertrag ein, sofern dies im Einzelvertrag vorgesehen ist.\n\n• Kaufoption: Soweit im Einzelvertrag vorgesehen, hat der Kunde das Recht, die Anlage zu definierten Zeitpunkten zu einem im Voraus bestimmten Restwert zu erwerben.\n\n• Nach Vertragsende: Sofern im Einzelvertrag so vorgesehen, geht das Eigentum an der Anlage nach Ablauf der Vertragslaufzeit unentgeltlich oder zu einem symbolischen Restwert auf den Kunden über. Andernfalls wird die Anlage durch Free State AG demontiert und der Aufstellungsort fachgerecht zurückgebaut.\n\nDie Einzelheiten zu Laufzeit, Entgelt, Indexierung, Eigentumsübergang, Versicherungsdeckung und Kaufoption ergeben sich abschliessend aus dem unterzeichneten Solar-Free-Vertrag, der diesen AGB im Konfliktfall vorgeht."
     },
     "prices": {
       "title": "7. Preise",
@@ -5686,6 +5686,148 @@
       }
     }
   },
+  "calculatorV2": {
+    "progress": {
+      "stepOf": "Schritt {n} von 5",
+      "screen1": "Adresse",
+      "screen2": "Dachflächen",
+      "screen3": "Verbrauch",
+      "screen4": "Ergebnis",
+      "screen5": "Kontakt"
+    },
+    "screen1": {
+      "headline": "Ihre Ersparnis in 2 Minuten berechnen",
+      "helper": "Geben Sie Ihre Adresse ein. Wir zeigen Ihnen, was Ihr Dach produziert und was der Bund dafür zahlt.",
+      "fieldLabel": "Adresse mit Hausnummer",
+      "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
+      "button": "Dach analysieren",
+      "reassurance1": "Wir prüfen Ihr Dach mit den offiziellen Daten von Sonnendach.ch.",
+      "errors": {
+        "empty": "Bitte geben Sie Ihre Adresse ein.",
+        "notChosen": "Bitte wählen Sie Ihre Adresse aus der Vorschlagsliste.",
+        "noStreetNumber": "Bitte wählen Sie eine Adresse mit Hausnummer. Ohne Hausnummer finden wir Ihr Gebäude nicht.",
+        "notFound": "Wir finden diese Adresse nicht. Prüfen Sie die Schreibweise, oder <link>lassen Sie uns Ihr Dach von Hand prüfen</link>.",
+        "outsideCh": "Wir lesen zurzeit nur Schweizer Adressen automatisch aus. Liegt Ihr Gebäude ausserhalb, <link>schreiben Sie uns Ihre Adresse</link> und wir prüfen sie von Hand.",
+        "placesSlow": "Die Adresssuche antwortet gerade langsam. Einen Moment bitte."
+      },
+      "badge": "Kostenlos und unverbindlich"
+    },
+    "screen2": {
+      "headline": "Das ist Ihr Dach",
+      "helper": "Wir haben die geeigneten Flächen bereits markiert. Tippen Sie auf eine Fläche, um sie hinzuzufügen oder zu entfernen.",
+      "areaReadout": "Sie haben {n} m² Dachfläche ausgewählt.",
+      "button": "Weiter",
+      "otherAddress": "Andere Adresse eingeben",
+      "loading": "Wir laden die Dachdaten des Bundes für Ihre Adresse. Das dauert einen Moment.",
+      "loadingSlow": "Die Dachdaten brauchen gerade länger als üblich. Wir versuchen es weiter.",
+      "segmentListTitle": "Ihre Dachflächen",
+      "segmentListHelper": "Wählen Sie die Flächen aus, die wir einrechnen sollen.",
+      "segmentRow": "Fläche {n} mit {m} m², Eignung {eignung}",
+      "mapAriaLabel": "Karte Ihres Daches. Sie können die Flächen auch in der Liste darunter auswählen.",
+      "gering": "gering",
+      "mittel": "mittel",
+      "gut": "gut",
+      "sehrGut": "sehr gut",
+      "hervorragend": "hervorragend",
+      "errors": {
+        "noneSelected": "Sie haben keine Fläche ausgewählt. Tippen Sie auf Ihr Dach, oder lassen Sie uns Ihr Dach von Hand prüfen.",
+        "noneSelectedAction": "Von Hand prüfen lassen",
+        "noSegments": "Für dieses Gebäude liegen uns keine Dachdaten vor.",
+        "requestFailed": "Wir erreichen die Dachdaten des Bundes gerade nicht.",
+        "noBuilding": "Wir konnten an dieser Adresse kein Gebäude finden.",
+        "tapNoData": "An dieser Stelle liegen uns keine Dachdaten vor. Tippen Sie auf eine markierte Fläche.",
+        "tapSwitchBuilding": "Möchten Sie zu diesem Gebäude wechseln? Ihre bisherige Auswahl geht dabei verloren.",
+        "tapSwitchConfirm": "Gebäude wechseln",
+        "tapSwitchCancel": "Abbrechen"
+      }
+    },
+    "manualCheck": {
+      "noRoofHeadline": "Wir prüfen Ihr Dach von Hand",
+      "noRoofBody1": "Für Ihre Adresse liegen uns keine automatischen Dachdaten vor. Das kommt bei Neubauten und bei einzelnen Gemeinden vor und sagt nichts über die Eignung Ihres Daches aus.",
+      "noRoofBody2": "Hinterlassen Sie Ihre E-Mail-Adresse. Wir prüfen Ihr Dach manuell und melden uns mit einer Auswertung.",
+      "placesHeadline": "Wir prüfen Ihre Adresse von Hand",
+      "placesBody1": "Die Adresssuche antwortet gerade nicht. Das liegt an unserem Kartendienst und nicht an Ihrer Adresse.",
+      "placesBody2": "Schreiben Sie uns Ihre Adresse und Ihre E-Mail-Adresse. Wir prüfen Ihr Dach von Hand und melden uns mit einer Auswertung.",
+      "retryBlockedBody": "Wir konnten Ihre Angaben gerade nicht speichern. Hinterlassen Sie uns Ihre E-Mail-Adresse, dann melden wir uns bei Ihnen mit Ihrer Auswertung.",
+      "partialConsentNote": "Sobald Sie einwilligen, speichern wir Ihre E-Mail-Adresse, damit Ihre Auswertung nicht verloren geht.",
+      "addressLabel": "Adresse mit Hausnummer",
+      "emailLabel": "E-Mail-Adresse",
+      "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
+      "privacyLink": "Datenschutzerklärung",
+      "button": "Auswertung anfordern",
+      "reassurance": "Wir melden uns bei Ihnen, sobald wir Ihr Dach geprüft haben.",
+      "success": "Danke. Wir haben Ihre Anfrage erhalten und prüfen Ihr Dach."
+    },
+    "screen3": {
+      "headline": "Was verbraucht bei Ihnen viel Strom?",
+      "helper": "Sie können mehreres auswählen. Wärmepumpe und E-Auto erhöhen Ihr Ergebnis deutlich.",
+      "heatPump": "Wärmepumpe",
+      "ev": "E-Auto",
+      "boiler": "Boiler",
+      "none": "Keines davon",
+      "existingSolar": "Ich habe bereits eine Solaranlage.",
+      "button": "Weiter",
+      "consumptionLabel": "Ihr geschätzter Jahresverbrauch",
+      "consumptionLabelOverride": "Ihr angegebener Jahresverbrauch",
+      "costLine": "Das entspricht rund CHF {chf} Stromkosten pro Jahr, inkl. MWST.",
+      "costLineRange": "Das entspricht rund CHF {low} bis CHF {high} Stromkosten pro Jahr, inkl. MWST.",
+      "tariffBasis": "Grundlage sind die Stromtarife Ihrer Gemeinde {municipality} für {year}.",
+      "tariffBasisFallback": "Für Ihre Postleitzahl liegt uns kein Gemeindetarif vor. Wir rechnen mit einem Schweizer Durchschnitt, deshalb zeigen wir eine Spanne.",
+      "correctTrigger": "Passt das nicht? Verbrauch selbst angeben",
+      "correctClose": "Eingabe schliessen",
+      "modeKwh": "In kWh",
+      "modeChf": "In Franken",
+      "kwhLabel": "Jahresverbrauch",
+      "kwhUnit": "kWh pro Jahr",
+      "kwhHelper": "Ihren Jahresverbrauch finden Sie auf der Stromrechnung. Für ein Einfamilienhaus sind 3'500 bis 7'000 kWh üblich.",
+      "chfLabel": "Stromkosten",
+      "chfHelper": "Nehmen Sie den Betrag Ihrer Stromrechnung, inkl. MWST. Wenn Sie vierteljährlich zahlen, wählen Sie die Periode Quartal.",
+      "periodMonth": "pro Monat",
+      "periodQuarter": "pro Quartal",
+      "periodYear": "pro Jahr",
+      "echoFromChf": "Das entspricht rund {kwh} kWh pro Jahr.",
+      "echoFromKwh": "Das entspricht rund CHF {chf} pro Jahr, inkl. MWST.",
+      "divergenceHigher": "Das ist deutlich mehr als unsere Schätzung von {estimate} kWh. Wir rechnen mit Ihrem Wert.",
+      "divergenceLower": "Das ist deutlich weniger als unsere Schätzung von {estimate} kWh. Wir rechnen mit Ihrem Wert.",
+      "kwhOutOfRange": "Für einen Haushalt erwarten wir 800 bis 35'000 kWh pro Jahr. Bitte prüfen Sie die Zahl. Bis dahin rechnen wir mit unserer Schätzung.",
+      "outOfRangeLow": "Dieser Betrag ist zu klein für einen Haushalt über ein ganzes Jahr. Bitte prüfen Sie Betrag und Periode. Bis dahin rechnen wir mit unserer Schätzung.",
+      "outOfRangeHigh": "Dieser Betrag liegt über dem, was ein Haushalt im Jahr braucht. Bitte prüfen Sie Betrag und Periode. Bis dahin rechnen wir mit unserer Schätzung.",
+      "periodSuggestionYear": "Meinen Sie CHF {amount} pro Jahr?",
+      "periodSuggestionQuarter": "Meinen Sie CHF {amount} pro Quartal?",
+      "resetToEstimate": "Zurück zu unserer Schätzung",
+      "deviceNoteWithOverride": "Ihr eingegebener Wert bleibt bestehen. Ihre Auswahl hilft uns nur noch beim Eigenverbrauch."
+    },
+    "screen5": {
+      "headline": "Ihre Auswertung ist fertig",
+      "helper": "Ihre Adresse haben wir bereits. Es fehlen nur noch Ihr Name und Ihre Kontaktangaben.",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefonnummer",
+      "phoneHelper": "Wir brauchen Ihre Nummer, damit unser Team Ihre Auswertung mit Ihnen durchgehen kann.",
+      "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
+      "consentNote": "Sobald Sie einwilligen, speichern wir Ihre E-Mail-Adresse, damit Ihre Auswertung nicht verloren geht.",
+      "privacyLink": "Datenschutzerklärung",
+      "button": "Auswertung öffnen",
+      "reassurance1": "Es entstehen Ihnen keine Kosten. Sie entscheiden danach, ob Sie weitergehen möchten.",
+      "reassurance2": "Anbieter aus Schaffhausen.",
+      "addressFallbackHelper": "Bitte ergänzen Sie diese beiden Angaben. Wir konnten sie aus Ihrer Adresse nicht auslesen.",
+      "postalCode": "Postleitzahl",
+      "city": "Ort",
+      "alreadyDone": "Ihre Auswertung ist bereit. Sie finden sie in Ihrem Konto.",
+      "alreadyDoneCta": "Zur Auswertung",
+      "verifyTypoPrompt": "Haben Sie sich bei der E-Mail-Adresse vertippt? Geben Sie sie hier noch einmal ein.",
+      "verifyResendButton": "Link erneut senden",
+      "errors": {
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein.",
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
+        "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal.",
+        "rateLimited": "Wir konnten Ihre Angaben gerade nicht speichern. Hinterlassen Sie uns Ihre E-Mail-Adresse, dann melden wir uns bei Ihnen mit Ihrer Auswertung."
+      }
+    }
+  },
   "solarAboCalculator": {
     "modelSelection": {
       "title": "Wählen Sie Ihr Solarmodell",
@@ -6153,14 +6295,6 @@
     "step7": {
       "title": "Ihre Kontaktdaten für das detaillierte Angebot",
       "helper": "Wir erstellen Ihnen gerne ein persönliches Angebot. Dafür benötigen wir noch Ihre Kontaktdaten.",
-      "salutation": {
-        "label": "Anrede",
-        "options": {
-          "mr": "Herr",
-          "woman": "Frau",
-          "family": "Familie"
-        }
-      },
       "firstName": "Vorname",
       "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
       "lastName": "Nachname",
@@ -6169,19 +6303,6 @@
       "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
       "phoneNumber": "Telefonnummer",
       "phoneNumberPlaceholder": "Geben Sie Ihre Telefonnummer ein",
-      "dateOfBirth": "Geburtsdatum",
-      "dateOfBirthDay": "Tag",
-      "dateOfBirthMonth": "Monat",
-      "dateOfBirthYear": "Jahr",
-      "nationality": "Nationalität",
-      "remarks": "Bemerkungen",
-      "remarksPlaceholder": "Zusätzliche Informationen oder Fragen...",
-      "propertyOwner": {
-        "label": "Sind Sie der eingetragene Eigentümer des Gebäudes?",
-        "yes": "Ja",
-        "no": "Nein",
-        "ineligible": "Nur der eingetragene Gebäudeeigentümer kann diesen Vertrag unterzeichnen. Bitte lassen Sie den Eigentümer den Vorgang starten."
-      },
       "address": {
         "sectionTitle": "Ihre Adresse",
         "countryLabel": "Land",
@@ -6192,8 +6313,7 @@
         "postalCode": "PLZ",
         "city": "Stadt",
         "street": "Strasse",
-        "streetNumber": "Hausnr.",
-        "addressAdditional": "Adresszusatz, z. B. Wohnung oder Stockwerk (optional)"
+        "streetNumber": "Hausnr."
       },
       "errors": {
         "salutationRequired": "Bitte wählen Sie eine Anrede",
@@ -6203,14 +6323,10 @@
         "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
         "phoneRequired": "Telefonnummer ist erforderlich",
         "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein",
-        "dateOfBirthRequired": "Geburtsdatum ist erforderlich",
-        "dateOfBirthInvalid": "Bitte geben Sie ein gültiges Geburtsdatum ein (mindestens 18 Jahre)",
-        "nationalityRequired": "Nationalität ist erforderlich",
         "postalCodeRequired": "PLZ ist erforderlich",
         "cityRequired": "Stadt ist erforderlich",
         "streetRequired": "Strasse ist erforderlich",
         "streetNumberRequired": "Hausnummer ist erforderlich",
-        "propertyOwnerRequired": "Bitte geben Sie an, ob Sie der Eigentümer sind.",
         "consentRequired": "Sie müssen die Datenschutzbestimmungen akzeptieren"
       },
       "submit": "Angebot anfordern",
@@ -6440,9 +6556,10 @@
           "funnelLead": "Lead erstellt",
           "funnelLandedAny": "Auf der Website gelandet",
           "funnelLandedCalculator": "Rechner geöffnet",
-          "funnelModelSelected": "Modell gewählt",
+          "funnelEstimateViewed": "Ergebnis gesehen (alte Stufe)",
           "funnelResultsViewed": "Ergebnis angesehen",
           "funnelAccountCreated": "Konto erstellt",
+          "funnelOfferRequested": "Angebot angefordert",
           "funnelConsultation": "Beratung angefragt",
           "funnelContractSigned": "Vertrag unterschrieben",
           "funnelNote": "Sitzungen pro Stufe, cookielos gemessen. «Beratung angefragt» zählt Klicks auf den Terminlink, keine bestätigten Termine.",
@@ -7737,25 +7854,9 @@
   },
   "dashboard": {
     "workspace": {
-      "metaTitle": "Ihr Solarprojekt",
+      "metaTitle": "Ihre Auswertung",
       "notFound": "Dieses Projekt wurde nicht gefunden.",
       "backToProjects": "Zurück zur Projektübersicht",
-      "conversion": {
-        "calculation_complete": "Berechnung abgeschlossen",
-        "offer_requested": "Angebot angefordert",
-        "contract_pending": "Vertrag ausstehend",
-        "contract_signed": "Vertrag unterzeichnet"
-      },
-      "stats": {
-        "systemBadge": "Ihre Anlage",
-        "systemSubtitle": "{production} kWh/Jahr mit {panels} Modulen",
-        "savingsBadge": "Jährliche Ersparnis",
-        "savingsSubtitle": "geschätzte Ersparnis pro Jahr",
-        "monthlyBadge": "Monatliche Rate",
-        "monthlySubtitle": "monatliche Rate",
-        "co2Subtitle": "CO2-Einsparung pro Jahr",
-        "selfConsumptionSubtitle": "Eigenverbrauchsanteil"
-      },
       "contractStatus": {
         "DRAFT": "Entwurf",
         "PENDING_SIGNATURE": "Unterschrift ausstehend",
@@ -7778,31 +7879,35 @@
         "consumptionCancel": "Abbrechen",
         "saveError": "Änderung konnte nicht gespeichert werden. Bitte versuchen Sie es erneut."
       },
-      "chartsTitle": "Ihre Energiebilanz",
-      "chartsSubtitle": "Produktion und Verbrauch über das ganze Jahr.",
-      "financialTitle": "Ihre Finanzierung",
-      "equipmentTitle": "Ihre Ausrüstung",
+      "modelComparison": {
+        "toggle": "Modelle vergleichen",
+        "headerSolarFree": "SolarFree",
+        "headerSolarDirect": "SolarDirect",
+        "payTodayQuestion": "Was zahle ich heute?",
+        "payTodayFree": "CHF 0",
+        "payTodayDirect": "Kaufpreis in drei Raten, 30 / 60 / 10",
+        "ownerQuestion": "Wem gehört die Anlage?",
+        "ownerFree": "Free State AG, während der Vertragsdauer",
+        "ownerDirect": "Ihnen, nach der Schlusszahlung",
+        "whenMineQuestion": "Wann gehört sie mir?",
+        "whenMineFree": "Nach 35 Jahren, ohne Zahlung",
+        "whenMineDirect": "Nach der Schlusszahlung",
+        "headerSolarAbo": "SolarAbo",
+        "payTodayAbo": "Keine Einmalzahlung, feste Monatsraten",
+        "ownerAbo": "Ihnen, ab dem ersten Tag",
+        "whenMineAbo": "Ab dem ersten Tag. Nach 25 Jahren ist sie bezahlt."
+      },
+      "ownership": {
+        "question": "Gehört Ihnen das Gebäude?",
+        "yes": "Ja",
+        "no": "Nein, ich miete",
+        "helper": "Für die Installation brauchen wir die Zustimmung der Eigentümerschaft. Wir helfen Ihnen dabei."
+      },
       "actionsTitle": "Nächste Schritte",
       "actions": {
-        "downloadTitle": "Bericht herunterladen",
-        "downloadSubtitle": "Ihre vollständige Solaranalyse als PDF.",
-        "downloadButton": "Herunterladen",
-        "emailTitle": "Bericht per E-Mail",
-        "emailSubtitle": "Wir senden den Bericht an Ihre E-Mail-Adresse.",
-        "emailButton": "Senden",
-        "emailSent": "Gesendet",
-        "offerTitle": "Angebot anfordern",
-        "offerSubtitle": "Unser Team meldet sich für einen Vor-Ort-Termin.",
-        "offerButton": "Anfordern",
-        "offerRequestedOn": "Angefordert am {date}",
-        "offerUpdateSubtitle": "Ihre Konfiguration hat sich geändert. Fordern Sie ein aktualisiertes Angebot an.",
-        "offerUpdateButton": "Angebot aktualisieren",
-        "offerCooldown": "Aktualisierung ab {date} möglich",
         "offerResult_updated": "Ihr aktualisiertes Angebot ist unterwegs.",
         "offerResult_unchanged": "Ihre Konfiguration ist unverändert. Kein neues Angebot nötig.",
         "offerResult_cooldown": "Bitte warten Sie, bevor Sie erneut ein Angebot anfordern.",
-        "validUntil": "Gültig bis {date}",
-        "contractTitle": "Ihr Vertrag",
         "actionError": "Aktion fehlgeschlagen. Bitte versuchen Sie es erneut."
       },
       "financial": {
@@ -7851,16 +7956,123 @@
           "uplift": "Finanzierungsaufschlag +{percent}%",
           "total": "Gesamtbetrag"
         },
+        "modelChangedNotice": "Ihr Vertrag wurde für ein anderes Modell erstellt. Wir erstellen ihn neu, bevor Sie unterschreiben.",
         "errors": {
           "disabled": "Die digitale Signatur ist vorübergehend deaktiviert. Bitte versuchen Sie es später erneut.",
           "cancelled": "Dieser Vertrag wurde storniert. Bitte laden Sie die Seite neu.",
           "alreadySigned": "Dieser Vertrag ist bereits unterzeichnet.",
           "aboUnavailable": "SolarAbo-Verträge sind noch nicht verfügbar. Bitte fordern Sie ein Angebot an.",
+          "detailsMissing": "Ihre Adressangaben sind noch unvollständig. Unser Team vervollständigt sie und meldet sich bei Ihnen.",
           "notOwner": "Nur die eingetragene Eigentümerschaft kann den Vertrag unterzeichnen.",
           "expired": "Die Signaturanfrage ist abgelaufen. Bitte starten Sie erneut.",
           "generic": "Die Signatur konnte nicht gestartet werden. Bitte versuchen Sie es erneut."
         }
+      },
+      "hero": {
+        "eyebrow": "Ihre Auswertung",
+        "header": {
+          "download": "Auswertung als PDF",
+          "downloadPending": "Wird erstellt..."
+        },
+        "sizeBadge": "{kwp} kWp Anlage"
+      },
+      "cta": {
+        "primary": "Kostenloses Angebot erhalten",
+        "primaryHelper": "Sie erhalten Ihre Auswertung als PDF und wir besprechen mit Ihnen den nächsten Schritt. Es entstehen Ihnen keine Kosten.",
+        "primaryPending": "Wird angefordert...",
+        "trustFree": "Kostenlos und unverbindlich.",
+        "trustSubsidy": "Die Anmeldung für die Einmalvergütung übernehmen wir für Sie.",
+        "trustPhone": "Lieber direkt sprechen? Rufen Sie uns an unter {phone}.",
+        "requestedTitle": "Ihre Anfrage ist bei uns.",
+        "requestedBody": "Ihre Auswertung ist als PDF an Ihre E-Mail-Adresse unterwegs. Für das verbindliche Angebot brauchen wir eine kurze Besichtigung Ihres Daches.",
+        "requestedOn": "Angefordert am {date}.",
+        "bookSlot": "Termin für die Besichtigung buchen",
+        "bookSlotHelper": "30 Minuten, telefonisch oder vor Ort. Sie wählen den Zeitpunkt selbst.",
+        "updateTitle": "Ihre Konfiguration hat sich geändert.",
+        "updateButton": "Angebot aktualisieren",
+        "cooldown": "Aktualisierung ab {date} möglich.",
+        "notOwnerNote": "Sie mieten das Gebäude. Wir fordern das Angebot trotzdem an und klären die Zustimmung der Eigentümerschaft gemeinsam mit Ihnen.",
+        "aboNote": "Für SolarAbo erstellen wir Ihnen zuerst ein persönliches Angebot."
+      },
+      "sections": {
+        "numbers": "Ihre Zahlen im Detail",
+        "numbersHelper": "Preis, Förderung und Amortisation.",
+        "energy": "Ihre Energiebilanz",
+        "energyHelper": "Produktion und Verbrauch über das ganze Jahr.",
+        "equipment": "Was wir bei Ihnen verbauen",
+        "config": "Konfiguration anpassen",
+        "configHelper": "Wenn Sie hier etwas ändern, stellen wir Ihr Angebot neu zusammen.",
+        "toggleAria": "Abschnitt {title} öffnen oder schliessen"
+      },
+      "numbers": {
+        "electricityPrice": "Ihr Strompreis",
+        "feedInTariff": "Rückliefertarif",
+        "rpPerKwh": "{rate} Rp/kWh",
+        "subsidyTier1": "Einmalvergütung bis {kwp} kWp",
+        "subsidyTier2": "Einmalvergütung über {kwp} kWp",
+        "chfPerKwp": "CHF {amount} pro kWp",
+        "costSourceEstimated": "Der Preis ist aus unserem Katalog geschätzt. Den verbindlichen Preis erhalten Sie nach der Besichtigung.",
+        "costSourceSnapshot": "Der Preis stammt aus Ihrer gespeicherten Konfiguration."
+      },
+      "equipment": {
+        "warrantyInstaller": "{years} Jahre Garantie auf die Installation."
+      },
+      "money": {
+        "question": "Wie möchten Sie bezahlen?",
+        "helper": "Sie können jederzeit wechseln. Wir rechnen Ihre Zahlen neu und stellen Ihr Angebot neu zusammen.",
+        "switchError": "Das Modell konnte nicht gewechselt werden. Bitte versuchen Sie es erneut.",
+        "unavailable": "Ihren Preis rechnen wir mit Ihnen im Gespräch durch.",
+        "direct": {
+          "priceLabel": "Ihr Preis nach Förderung",
+          "priceLabelNoSubsidy": "Ihr Kaufpreis",
+          "grossPrice": "Bruttopreis",
+          "subsidy": "Einmalvergütung des Bundes",
+          "subsidyFootnote": "Einmalige Förderung nach der Energieförderungsverordnung, ausbezahlt über Pronovo.",
+          "subsidyUnavailable": "Die Höhe der Einmalvergütung des Bundes können wir gerade nicht abrufen. Wir rechnen sie in Ihrer Auswertung für Sie durch.",
+          "savings": "Ersparnis pro Jahr",
+          "payback": "Amortisation",
+          "paybackYears": "{years} Jahre",
+          "instalments": "Kaufpreis in drei Raten, 30 / 60 / 10."
+        },
+        "free": {
+          "priceLabel": "Das zahlen Sie heute",
+          "discount": "Rabatt auf Ihren Strompreis",
+          "discountValue": "bis zu {percent} %",
+          "tariff": "Ihr Netztarif",
+          "tariffValue": "{rate} Rp/kWh",
+          "term": "Vertragslaufzeit",
+          "termYears": "{years} Jahre",
+          "savings": "Rabatt auf Ihren Stromeinkauf",
+          "ownership": "Nach {years} Jahren gehört die Anlage Ihnen.",
+          "tariffFootnote": "Sie kaufen den Solarstrom von uns, günstiger als Ihren Netztarif. Die Anlage gehört während der Vertragsdauer der Free State AG."
+        },
+        "abo": {
+          "priceLabel": "Ihre monatliche Rate",
+          "pending": "Wir finanzieren die Anlage auch in Monatsraten über 25 Jahre. Sprechen Sie uns darauf an.",
+          "points": {
+            "owner": "Die Anlage gehört Ihnen.",
+            "fixed": "Feste Monatsraten über 25 Jahre.",
+            "noUpfront": "Keine Einmalzahlung."
+          },
+          "subsidyNote": "Die Einmalvergütung des Bundes gehört Ihnen und reduziert die Finanzierungsbasis.",
+          "next": "Fordern Sie Ihr kostenloses Angebot an. Dann rechnen wir Ihre Rate mit Ihnen durch."
+        }
+      },
+      "facts": {
+        "title": "Das bekommen Sie",
+        "system": "{kwp} kWp mit {panels} Modulen, {production} kWh Strom pro Jahr, {selfConsumption} Prozent Eigenverbrauch.",
+        "systemNoPanels": "{kwp} kWp, {production} kWh Strom pro Jahr, {selfConsumption} Prozent Eigenverbrauch.",
+        "co2": "Das sind {co2} kg weniger CO2 pro Jahr.",
+        "tariff": "Gerechnet mit {rate} Rp/kWh für Ihren Strompreis.",
+        "estimate": "Diese Zahlen sind eine Schätzung aus den offiziellen Dachdaten des Bundes. Den genauen Preis legen wir nach der Besichtigung fest."
       }
+    },
+    "status": {
+      "calculation_complete": "Ihre Auswertung ist bereit. Fordern Sie Ihr kostenloses Angebot an.",
+      "offer_requested": "Angebot angefordert. Wir melden uns für die Besichtigung.",
+      "contract_pending": "Ihr Vertrag liegt zur Unterschrift bereit.",
+      "contract_signed": "Ihr Vertrag ist unterzeichnet. Wir planen jetzt Ihre Installation.",
+      "contractNumber": "Vertrag {number}."
     },
     "settings": {
       "title": "Einstellungen",
@@ -7919,64 +8131,36 @@
       "signingDisabled": "Die digitale Signatur ist vorübergehend deaktiviert. Bitte versuchen Sie es später erneut.",
       "signingError": "Die Signatur konnte nicht gestartet werden. Bitte versuchen Sie es erneut.",
       "signatureExpired": "Die Signaturanfrage ist abgelaufen. Bitte starten Sie erneut.",
+      "modelChanged": "Ihr Vertrag wurde für ein anderes Modell erstellt. Wir erstellen ihn neu, bevor Sie unterschreiben.",
+      "detailsMissing": "Ihre Adressangaben sind noch unvollständig. Unser Team vervollständigt sie und meldet sich bei Ihnen.",
       "checkBackLater": "Die Signatur läuft noch. Schauen Sie später wieder vorbei.",
       "contractCancelled": "Dieser Vertrag wurde storniert. Bitte laden Sie die Seite neu.",
       "alreadySigned": "Dieser Vertrag ist bereits unterzeichnet."
     },
     "project": {
-      "title": "Mein Projekt",
-      "noProjects": "Noch keine Projekte. Starten Sie mit unserem Solarkalkulator.",
-      "package": "Paket",
-      "status": "Status",
-      "systemSize": "kWp Anlagengrösse",
-      "production": "kWh/Jahr Produktion",
-      "annualSavings": "Jährliche Einsparungen",
-      "co2Saved": "kg CO₂/Jahr eingespart",
-      "systemDetails": "Anlagendetails",
-      "estimatedPanels": "Geschätzte Panelanzahl",
-      "selfConsumption": "Eigenverbrauchsquote",
-      "annualConsumption": "Jahresverbrauch",
-      "contractStatus": "Vertragsstatus",
-      "noContract": "Noch kein Vertrag",
-      "viewDetails": "Details ansehen",
+      "title": "Ihre Auswertung",
       "viewContract": "Zum Vertrag",
-      "back": "Zurück zur Übersicht",
-      "conversion": {
-        "calculation_complete": "Berechnung abgeschlossen",
-        "offer_requested": "Angebot angefordert",
-        "contract_pending": "Vertrag ausstehend",
-        "contract_signed": "Vertrag unterzeichnet"
-      },
       "models": {
         "solarFree": "SolarFree",
         "solarDirect": "SolarDirect",
         "solarAbo": "SolarAbo",
         "unknown": "Solarprojekt"
       },
-      "statuses": {
-        "DRAFT": "Entwurf",
-        "CALCULATING": "Berechnung läuft",
-        "QUOTE_GENERATED": "Angebot erstellt",
-        "QUOTE_SENT": "Angebot gesendet",
-        "ACCEPTED": "Angenommen",
-        "CONTRACT_SENT": "Vertrag gesendet",
-        "CONTRACT_SIGNED": "Vertrag signiert",
-        "INSTALLATION_SCHEDULED": "Installation geplant",
-        "INSTALLATION_IN_PROGRESS": "Installation läuft",
-        "COMPLETED": "Abgeschlossen",
-        "CANCELLED": "Storniert"
+      "card": {
+        "savingsLabel": "Ersparnis pro Jahr",
+        "lifetimeLine": "Über 25 Jahre rund CHF {amount}.",
+        "systemLine": "{kwp} kWp, {production} kWh pro Jahr, {co2} kg weniger CO2.",
+        "open": "Auswertung öffnen",
+        "savingsUnavailable": "Ihre Ersparnis rechnen wir mit Ihnen im Gespräch durch."
       },
-      "signatureStatuses": {
-        "PENDING": "Ausstehend",
-        "OTP_SENT": "OTP gesendet",
-        "SIGNED": "Signiert",
-        "FAILED": "Fehlgeschlagen",
-        "EXPIRED": "Abgelaufen",
-        "CANCELLED": "Storniert"
+      "empty": {
+        "title": "Noch keine Auswertung",
+        "body": "Berechnen Sie in zwei Minuten, was Ihr Dach produziert und was der Bund dafür zahlt.",
+        "cta": "Kalkulator starten"
       },
-      "packages": {
-        "home": "SolarFree Home",
-        "multi": "SolarFree Mehrfamilienhaus"
+      "error": {
+        "title": "Wir konnten Ihre Auswertung nicht laden.",
+        "retry": "Erneut versuchen"
       }
     },
     "support": {
@@ -8041,18 +8225,8 @@
     "overview": {
       "welcome": "Willkommen zurück, {firstName}",
       "subtitle": "Hier ist eine Übersicht Ihres Solarprojekts.",
-      "whatsNext": "So geht es weiter",
-      "whatsNextSubtitle": "Ihr Projektfortschritt auf einen Blick.",
       "failedToLoad": "Dashboard-Daten konnten nicht geladen werden.",
       "startCalculator": "Kalkulator starten",
-      "viewContract": "Vertrag ansehen",
-      "requestOfferCta": "Angebot anfordern",
-      "requestingOffer": "Angebot wird angefordert...",
-      "offerError": "Die Anfrage ist fehlgeschlagen. Bitte versuchen Sie es erneut.",
-      "viewDetails": "Details ansehen",
-      "yourProject": "Ihr Projekt",
-      "address": "Adresse",
-      "package": "Paket",
       "activity": "Aktivität",
       "systemSize": "Anlagengrösse",
       "annualProduction": "Jahresproduktion",
@@ -8062,28 +8236,11 @@
       "kwh": "kWh",
       "kgPerYear": "kg/Jahr",
       "chf": "CHF",
-      "statusNoProjectLabel": "Jetzt starten",
-      "statusNoProjectDesc": "Nutzen Sie unseren Solarkalkulator, um Ihre Optionen zu prüfen.",
-      "statusCalcCompleteLabel": "Berechnung abgeschlossen",
-      "statusCalcCompleteDesc": "Ihre Solaranalyse ist bereit. Fordern Sie ein Angebot an oder unterzeichnen Sie einen Vertrag.",
-      "statusOfferRequestedLabel": "Angebot angefragt",
-      "statusOfferRequestedDesc": "Unser Team prüft Ihre Liegenschaft. Wir melden uns für einen Vor-Ort-Termin.",
-      "statusContractPendingLabel": "Vertrag ausstehend",
-      "statusContractPendingDesc": "Ihr Vertrag ist bereit zur Unterzeichnung.",
-      "statusContractSignedLabel": "Vertrag unterzeichnet",
-      "statusContractSignedDesc": "Ihr Vertrag ist unterzeichnet. Die Installationsplanung beginnt in Kürze.",
       "activityAccountCreated": "Konto erstellt",
       "activityCalculationCompleted": "Solarberechnung abgeschlossen",
       "activityOfferRequested": "Angebot angefragt",
       "activityContractCreated": "Vertrag erstellt",
-      "activityContractSigned": "Vertrag unterzeichnet",
-      "downloadReport": "Bericht herunterladen",
-      "downloadingReport": "Wird erstellt...",
-      "emailReport": "Bericht per E-Mail",
-      "sendingReport": "Wird gesendet...",
-      "reportEmailSent": "Gesendet",
-      "reportError": "Bericht konnte nicht erstellt werden. Bitte versuchen Sie es erneut.",
-      "offerRequestedOn": "Angebot angefordert am {date}"
+      "activityContractSigned": "Vertrag unterzeichnet"
     },
     "stages": {
       "title": "So geht es weiter",

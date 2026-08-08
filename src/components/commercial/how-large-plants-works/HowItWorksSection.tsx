@@ -38,12 +38,12 @@ const HowItWorksSection = async () => {
             <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium">
               {t('howItWorks.title')}
             </h2>
-            <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em]">
+            <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em]">
               {t('howItWorks.subtitle')}
             </p>
           </div>
 
-          <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] max-w-[642px] text-center">
+          <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] max-w-[642px] text-center">
             {t('howItWorks.description')}
           </p>
 
@@ -59,7 +59,7 @@ const HowItWorksSection = async () => {
                   'linear-gradient(180deg, rgba(6, 46, 37, 1) 0%, rgba(19, 148, 119, 0) 72%) 1',
               }}
             >
-              <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] mb-8 md:mb-[60px]">
+              <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] mb-8 md:mb-[60px]">
                 {t('howItWorks.graphicDescription')}
               </p>
 

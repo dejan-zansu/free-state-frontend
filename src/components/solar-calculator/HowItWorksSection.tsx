@@ -24,7 +24,7 @@ const HowItWorksSection = async () => {
           <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium">
             {t('title')}
           </h2>
-          <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] max-w-[646px]">
+          <p className="text-[#062E25] text-lg md:text-[22px] tracking-[-0.02em] max-w-[646px]">
             {t('subtitle')}
           </p>
         </div>

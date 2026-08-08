@@ -51,7 +51,7 @@ const SelfConsumptionControlSection = async () => {
             </div>
           </div>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] lg:max-w-[577px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] lg:max-w-[577px]">
             {t('selfConsumptionControl.description')}
           </p>
         </div>

@@ -18,6 +18,11 @@ export interface SwissTariffResponse {
   averageChfKwh: number
   minRpKwh: number
   maxRpKwh: number
+  variableRpKwh: number
+  variableChfKwh: number
+  fixedAnnualChf: number
+  tariffYear: number
+  tariffYearFallback: boolean
   operators: SwissTariffOperator[]
   fallback: boolean
   fallbackReason: string | null

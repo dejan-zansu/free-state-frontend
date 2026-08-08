@@ -59,7 +59,7 @@ const CostCTASection = async () => {
                       WebkitBackdropFilter: 'blur(65px)',
                     }}
                   >
-                    <span className="text-[#062E25] text-base font-light tracking-[-0.02em] text-center whitespace-nowrap">
+                    <span className="text-[#062E25] text-base tracking-[-0.02em] text-center whitespace-nowrap">
                       {t('cta.topButton')}
                     </span>
                   </div>
@@ -70,7 +70,7 @@ const CostCTASection = async () => {
                 </div>
               </div>
 
-              <p className="text-[#062E25]/80 text-base md:text-[22px] font-light leading-[1.27em] tracking-[-0.02em] text-center max-w-[519px]">
+              <p className="text-[#062E25]/80 text-base md:text-[22px] leading-[1.27em] tracking-[-0.02em] text-center max-w-[519px]">
                 {t('cta.subtitle')}
               </p>
             </div>
@@ -103,7 +103,7 @@ const CostCTASection = async () => {
               {t('cta.ctaText')}
             </LinkButton>
 
-            <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] text-center">
+            <p className="text-[#062E25]/80 text-base tracking-[-0.02em] text-center">
               {t('cta.note')}
             </p>
           </div>

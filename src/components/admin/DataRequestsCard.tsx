@@ -41,17 +41,17 @@ export function DataRequestsCard({ contractId, canCreate }: Props) {
         </div>
 
         {!canCreate && (
-          <p className="text-sm text-[#062E25]/60">
+          <p className="text-sm text-[#062E25]/75">
             {t('availableAfterSigned')}
           </p>
         )}
 
         {canCreate && isLoading && (
-          <p className="text-sm text-[#062E25]/60">{t('loading')}</p>
+          <p className="text-sm text-[#062E25]/75">{t('loading')}</p>
         )}
 
         {canCreate && !isLoading && requests.length === 0 && (
-          <p className="text-sm text-[#062E25]/60">{t('noRequests')}</p>
+          <p className="text-sm text-[#062E25]/75">{t('noRequests')}</p>
         )}
 
         {canCreate && requests.length > 0 && (
@@ -64,7 +64,7 @@ export function DataRequestsCard({ contractId, canCreate }: Props) {
               >
                 <div className="flex flex-col">
                   <span className="text-sm font-medium text-[#062E25]">{r.title}</span>
-                  <span className="text-sm text-[#062E25]/50">
+                  <span className="text-sm text-[#062E25]/75">
                     {new Date(r.createdAt).toLocaleDateString('de-CH')}
                     {r.dueDate &&
                       ` · ${t('dueShort', { date: new Date(r.dueDate).toLocaleDateString('de-CH') })}`}

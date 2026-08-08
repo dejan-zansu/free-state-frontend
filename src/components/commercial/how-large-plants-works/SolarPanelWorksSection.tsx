@@ -35,7 +35,7 @@ const SolarPanelWorksSection = async () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-[90px]">
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] lg:max-w-[577px] whitespace-pre-line">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] lg:max-w-[577px] whitespace-pre-line">
             {t('solarPanelWorks.description')}
           </p>
 

@@ -98,7 +98,7 @@ export function PhotoGalleryUpload({
         ))}
 
         {canAddMore && (
-          <div className="aspect-square rounded-lg border-2 border-dashed border-[#062E25]/20 flex flex-col items-center justify-center gap-2 text-[#062E25]/60">
+          <div className="aspect-square rounded-lg border-2 border-dashed border-[#062E25]/20 flex flex-col items-center justify-center gap-2 text-[#062E25]/75">
             {uploading ? (
               <Loader2 className="w-6 h-6 animate-spin" />
             ) : (
@@ -151,7 +151,7 @@ export function PhotoGalleryUpload({
             <Camera className="w-4 h-4 mr-2" />
             Foto aufnehmen
           </Button>
-          <p className="w-full text-sm text-[#062E25]/50">
+          <p className="w-full text-sm text-[#062E25]/75">
             Bis zu {maxPhotos} Fotos, je max. 10 MB.
           </p>
         </div>

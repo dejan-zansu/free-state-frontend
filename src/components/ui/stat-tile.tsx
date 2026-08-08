@@ -51,10 +51,10 @@ export function StatTile({
     <div className="rounded-xl border border-pine/10 bg-white p-5">
       <div className="flex items-center gap-2">
         {icon && <span className="text-teal-deep">{icon}</span>}
-        {label && <p className="text-base text-pine/60">{label}</p>}
+        {label && <p className="text-base text-pine/75">{label}</p>}
       </div>
       <p className="mt-2 text-2xl font-bold text-pine tabular-nums">{value}</p>
-      {subtitle && <p className="mt-1 text-base text-pine/60">{subtitle}</p>}
+      {subtitle && <p className="mt-1 text-base text-pine/75">{subtitle}</p>}
     </div>
   )
 }

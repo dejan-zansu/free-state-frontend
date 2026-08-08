@@ -17,6 +17,7 @@ const PARAM_MAP = {
   utm_content: 'utmContent',
   fbclid: 'fbclid',
   gclid: 'gclid',
+  model: 'model',
 } as const
 
 function readUnexpiredFirstTouch(): Record<string, string> | null {
@@ -37,16 +38,28 @@ export default function UtmCapture() {
   useEffect(() => {
     try {
       getOrCreateSessionKey()
-      if (window.sessionStorage.getItem(UTM_STORAGE)) return
-
       const params = new URLSearchParams(window.location.search)
+      const model = params.get('model')
+
+      const storedRaw = window.sessionStorage.getItem(UTM_STORAGE)
+      if (storedRaw) {
+        if (model) {
+          try {
+            const stored = JSON.parse(storedRaw) as Record<string, unknown>
+            stored.model = model
+            window.sessionStorage.setItem(UTM_STORAGE, JSON.stringify(stored))
+          } catch {}
+        }
+        return
+      }
+
       const utm: Record<string, string> = {}
       let hasCampaignParams = false
       for (const [param, key] of Object.entries(PARAM_MAP)) {
         const value = params.get(param)
         if (value) {
           utm[key] = value
-          hasCampaignParams = true
+          if (param !== 'model') hasCampaignParams = true
         }
       }
 
@@ -55,13 +68,18 @@ export default function UtmCapture() {
         if (first) {
           const hydrated = { ...first }
           delete hydrated.capturedAt
+          if (model) hydrated.model = model
           window.sessionStorage.setItem(UTM_STORAGE, JSON.stringify(hydrated))
           return
         }
       }
 
       if (document.referrer) utm.referrer = document.referrer
-      utm.landingPage = window.location.pathname
+      utm.landingPage = (
+        window.location.origin +
+        window.location.pathname +
+        window.location.search
+      ).slice(0, 2000)
       window.sessionStorage.setItem(UTM_STORAGE, JSON.stringify(utm))
 
       if (!readUnexpiredFirstTouch()) {

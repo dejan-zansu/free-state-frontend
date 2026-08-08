@@ -67,7 +67,7 @@ export function DataRequestItemInput({ requestId, item, disabled, onChange }: Pr
             {item.required && <span className="text-red-500 ml-1">*</span>}
           </p>
           {item.description && (
-            <p className="text-sm text-[#062E25]/60 mt-1">{item.description}</p>
+            <p className="text-sm text-[#062E25] mt-1">{item.description}</p>
           )}
         </div>
         <div className="text-sm text-[#062E25]/40 min-w-[56px] text-right">
@@ -90,7 +90,7 @@ export function DataRequestItemInput({ requestId, item, disabled, onChange }: Pr
                   {isPdf ? (
                     <div className="w-full h-full flex flex-col items-center justify-center gap-1 p-2">
                       <FileIcon className="h-8 w-8 text-[#062E25]/60" />
-                      <span className="text-sm text-[#062E25]/60 truncate w-full text-center">
+                      <span className="text-sm text-[#062E25]/75 truncate w-full text-center">
                         Doc {i + 1}
                       </span>
                     </div>
@@ -128,7 +128,7 @@ export function DataRequestItemInput({ requestId, item, disabled, onChange }: Pr
               </label>
             )}
           </div>
-          <p className="text-sm text-[#062E25]/50">
+          <p className="text-sm text-[#062E25]/75">
             {currentUrls.length} / {max}
             {item.minCount ? ` · min ${item.minCount}` : ''}
           </p>

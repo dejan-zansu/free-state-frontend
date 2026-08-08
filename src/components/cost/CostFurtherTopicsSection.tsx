@@ -48,7 +48,7 @@ const CostFurtherTopicsSection = async () => {
                       <h3 className="text-[#062E25] text-lg md:text-[22px] font-bold capitalize">
                         {t(`furtherTopics.cards.${key}.title`)}
                       </h3>
-                      <p className="text-[#062E25]/80 text-sm md:text-base font-light">
+                      <p className="text-[#062E25]/80 text-sm md:text-base">
                         {t(`furtherTopics.cards.${key}.description`)}
                       </p>
                     </div>

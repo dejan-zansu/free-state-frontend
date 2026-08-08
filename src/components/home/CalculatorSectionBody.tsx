@@ -45,7 +45,7 @@ export default function CalculatorSectionBody() {
   }, [])
 
   return (
-    <div ref={ref}>
+    <div ref={ref} data-calculator-embed="">
       {shouldLoad ? <CalculatorClient embedded /> : <Placeholder />}
     </div>
   )

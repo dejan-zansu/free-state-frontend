@@ -47,7 +47,7 @@ export default function ControlsColumn({
   return (
     <div className="space-y-4">
       <Card><CardContent className="p-4 space-y-4">
-        <h3 className="text-sm font-semibold text-[#062E25]/60 uppercase tracking-wide">{t('controls')}</h3>
+        <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('controls')}</h3>
 
         <div>
           <Label>{t('status')}</Label>
@@ -105,7 +105,7 @@ function QuickActions({ lead, onUpdated }: { lead: CommercialLeadDetail; onUpdat
   }
   return (
     <Card><CardContent className="p-4 space-y-2">
-      <h3 className="text-sm font-semibold text-[#062E25]/60 uppercase tracking-wide">{t('quickActions')}</h3>
+      <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('quickActions')}</h3>
       <Button variant="outline" className="w-full" onClick={logCall}>{t('logCall')}</Button>
       <Button variant="outline" className="w-full" onClick={logMeeting}>{t('logMeeting')}</Button>
       <a href={`mailto:${lead.contactEmail}?subject=${encodeURIComponent(`[${lead.reference}] ${lead.companyName}`)}`}>

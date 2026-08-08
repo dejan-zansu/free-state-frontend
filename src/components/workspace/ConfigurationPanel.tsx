@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
-import { Check, Loader2, Pencil, Plug, X } from 'lucide-react'
+import { Check, Loader2, Plug } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import CompactPackageCard from '@/components/order/CompactPackageCard'
 import type { SolarModelKey } from '@/components/order/PackageCard'
-import { SectionHeader } from '@/components/ui/section-header'
+import { groupNumber } from '@/lib/format-chf'
 import type { WorkspacePayload } from '@/services/customer-portal.service'
 import {
   residentialCalculatorService,
@@ -22,29 +22,34 @@ const MODEL_FILTER: Record<SolarModelKey, SolarModelFilter> = {
   'solar-abo': 'SOLAR_ABO',
 }
 
-function fmt(n: number): string {
-  return Math.round(n).toLocaleString('de-CH')
-}
-
 export function ConfigurationPanel({
   data,
   onRefresh,
+  isOpen,
 }: {
   data: WorkspacePayload
   onRefresh: () => Promise<void>
+  isOpen: boolean
 }) {
   const t = useTranslations('dashboard.workspace.config')
+  const tSections = useTranslations('dashboard.workspace.sections')
+  const tOwnership = useTranslations('dashboard.workspace.ownership')
   const locale = useLocale()
   const [packages, setPackages] = useState<CalculatorPackage[]>([])
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [editing, setEditing] = useState(false)
-  const [draft, setDraft] = useState('')
+  const [hasOpened, setHasOpened] = useState(false)
 
-  const modelKey = (data.calculation.solarModel ?? 'solar-free') as SolarModelKey
+  const modelKey = data.financials.solarModel as SolarModelKey
+  const cardModel: SolarModelKey = modelKey === 'solar-abo' ? 'solar-direct' : modelKey
 
   useEffect(() => {
-    const filter = MODEL_FILTER[(data.calculation.solarModel ?? 'solar-free') as SolarModelKey]
+    if (isOpen) setHasOpened(true)
+  }, [isOpen])
+
+  useEffect(() => {
+    if (!hasOpened) return
+    const filter = MODEL_FILTER[data.financials.solarModel as SolarModelKey]
     residentialCalculatorService
       .getPackages(locale, filter)
       .then(pkgs =>
@@ -53,7 +58,7 @@ export function ConfigurationPanel({
           : setPackages(pkgs)
       )
       .catch(() => setPackages([]))
-  }, [locale, data.calculation.solarModel])
+  }, [hasOpened, locale, data.financials.solarModel])
 
   const selectPackage = async (pkg: CalculatorPackage) => {
     if (pkg.id === data.package?.id) return
@@ -94,14 +99,14 @@ export function ConfigurationPanel({
     }
   }
 
-  const saveConsumption = async (kwh: number | null) => {
-    const clamped = kwh == null ? null : Math.min(50000, Math.max(500, Math.round(kwh)))
+  const saveOwnership = async (value: boolean) => {
+    if (value === data.project.isPropertyOwner) return
     setSaving(true)
     setError(null)
     try {
       await residentialCalculatorService.updateCalculation({
         projectId: data.project.id,
-        calculation: { consumptionOverrideKwh: clamped },
+        calculation: { isPropertyOwner: value },
       })
       await onRefresh()
     } catch {
@@ -111,34 +116,27 @@ export function ConfigurationPanel({
     }
   }
 
-  const startConsumptionEdit = () => {
-    setDraft(String(Math.round(data.calculation.annualConsumptionKwh)))
-    setEditing(true)
-  }
-
-  const commitConsumptionEdit = () => {
-    const parsed = Number(draft.replace(/[^\d]/g, ''))
-    setEditing(false)
-    if (Number.isFinite(parsed) && parsed > 0) void saveConsumption(parsed)
-  }
-
   const evOffer = data.package?.availableEvCharger ?? null
   const evDisplay = data.evCharger ?? evOffer
   const evSelected = data.evCharger != null
-  const consumptionIsOverride = data.calculation.consumptionOverrideKwh != null
 
   return (
     <div className="relative">
-      <div className={cn('space-y-16', saving && 'opacity-60 pointer-events-none')}>
+      <div className={cn('space-y-10', saving && 'opacity-60 pointer-events-none')}>
+        <p className="text-base text-pine/75">{tSections('configHelper')}</p>
+
         {packages.length > 1 && (
-          <section>
-            <SectionHeader title={t('packagesTitle')} subtitle={t('packagesSubtitle')} />
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3 pt-4">
+          <section className="space-y-4">
+            <div className="space-y-1">
+              <h3 className="text-xl font-medium text-pine">{t('packagesTitle')}</h3>
+              <p className="text-base text-pine/75">{t('packagesSubtitle')}</p>
+            </div>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
               {packages.map(pkg => (
                 <CompactPackageCard
                   key={pkg.id}
                   pkg={pkg}
-                  model={modelKey}
+                  model={cardModel}
                   isSelected={pkg.id === data.package?.id}
                   isRecommended={!data.packageRetired && pkg.id === data.package?.id}
                   onSelect={() => void selectPackage(pkg)}
@@ -149,8 +147,8 @@ export function ConfigurationPanel({
         )}
 
         {evDisplay && (
-          <section>
-            <SectionHeader title={t('evTitle')} />
+          <section className="space-y-4">
+            <h3 className="text-xl font-medium text-pine">{t('evTitle')}</h3>
             <div className="rounded-xl bg-white border border-[#062E25]/10 px-5 py-5 sm:px-6 sm:py-6">
               <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-8">
                 <div className="flex flex-1 min-w-0 items-center gap-4">
@@ -171,21 +169,21 @@ export function ConfigurationPanel({
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <div className="text-sm font-semibold uppercase tracking-wider text-[#036B53]">
+                    <div className="text-base font-semibold uppercase tracking-wider text-[#036B53]">
                       {evDisplay.manufacturerName}
                     </div>
                     <div className="text-base font-semibold text-pine truncate">
                       {evDisplay.displayName}
                     </div>
                     <div className="mt-1 text-base font-semibold text-pine tabular-nums">
-                      CHF {fmt(evDisplay.priceChf)}
+                      CHF {groupNumber(evDisplay.priceChf)}
                     </div>
                   </div>
                 </div>
 
                 <div className="shrink-0 flex items-center gap-3">
                   {evSelected && (
-                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#036B53]">
+                    <span className="inline-flex items-center gap-1.5 text-base font-medium text-[#036B53]">
                       <Check className="h-4 w-4" />
                       {t('evSelected')}
                     </span>
@@ -210,68 +208,33 @@ export function ConfigurationPanel({
           </section>
         )}
 
-        <section>
-          <SectionHeader title={t('consumptionTitle')} />
-          <div className="rounded-xl bg-white border border-[#062E25]/10 px-5 py-8 sm:px-6">
-            <div className="flex flex-col items-center gap-3 text-center">
-              {editing ? (
-                <div className="inline-flex items-center gap-2">
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    pattern="[0-9]*"
-                    autoFocus
-                    value={draft}
-                    onChange={e => setDraft(e.target.value.replace(/[^\d]/g, ''))}
-                    onKeyDown={e => {
-                      if (e.key === 'Enter') commitConsumptionEdit()
-                      if (e.key === 'Escape') setEditing(false)
-                    }}
-                    className="w-28 border-b border-[#062E25]/40 bg-transparent text-right text-2xl font-medium text-pine tabular-nums outline-none focus:border-[#062E25]"
-                  />
-                  <span className="text-base text-pine/70">{t('consumptionUnit')}</span>
+        <section className="space-y-4">
+          <h3 className="text-xl font-medium text-pine">{tOwnership('question')}</h3>
+          <div className="rounded-xl bg-white border border-[#062E25]/10 px-5 py-6 sm:px-6">
+            <div className="flex flex-col items-center gap-4 text-center">
+              <div className="inline-flex rounded-full bg-[#F2F4E8] p-1">
+                {[true, false].map(value => (
                   <button
+                    key={String(value)}
                     type="button"
-                    onClick={commitConsumptionEdit}
-                    aria-label={t('consumptionSave')}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#062E25] text-white hover:bg-[#062E25]/90"
+                    onClick={() => void saveOwnership(value)}
+                    aria-pressed={data.project.isPropertyOwner === value}
+                    className={cn(
+                      'px-5 py-2 rounded-full text-base font-medium transition-colors',
+                      data.project.isPropertyOwner === value
+                        ? 'bg-[#062E25] text-white'
+                        : 'text-[#062E25]'
+                    )}
                   >
-                    <Check className="h-3.5 w-3.5" />
+                    {value ? tOwnership('yes') : tOwnership('no')}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => setEditing(false)}
-                    aria-label={t('consumptionCancel')}
-                    className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-[#062E25]/30 text-pine hover:bg-[#062E25]/5"
-                  >
-                    <X className="h-3.5 w-3.5" />
-                  </button>
-                </div>
-              ) : (
-                <button
-                  type="button"
-                  onClick={startConsumptionEdit}
-                  className="group inline-flex items-baseline gap-2 text-pine hover:text-[#062E25]"
-                >
-                  <span className="text-2xl font-medium tabular-nums">
-                    {fmt(data.calculation.annualConsumptionKwh)}
-                  </span>
-                  <span className="text-base text-pine/70">{t('consumptionUnit')}</span>
-                  <Pencil className="h-4 w-4 self-center opacity-60 group-hover:opacity-100" />
-                </button>
-              )}
-              {consumptionIsOverride && !editing && (
-                <button
-                  type="button"
-                  onClick={() => void saveConsumption(null)}
-                  className="text-sm text-pine/60 underline underline-offset-4 hover:text-pine"
-                >
-                  {t('consumptionReset')}
-                </button>
-              )}
+                ))}
+              </div>
+              <p className="max-w-md text-base text-pine/75">{tOwnership('helper')}</p>
             </div>
           </div>
         </section>
+
       </div>
 
       {saving && (

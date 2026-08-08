@@ -109,7 +109,7 @@ export function CantonalFoerderungPage({ canton }: Props) {
             {canton.solarpflicht.summary}
           </p>
           {canton.solarpflicht.inForce && canton.solarpflicht.sinceYear && (
-            <p className="text-sm text-[#062E25]/60">
+            <p className="text-sm text-[#062E25]/75">
               In Kraft seit {canton.solarpflicht.sinceYear}
             </p>
           )}
@@ -210,7 +210,7 @@ export function CantonalFoerderungPage({ canton }: Props) {
           </Link>
         </section>
 
-        <p className="text-sm text-[#062E25]/60">
+        <p className="text-sm text-[#062E25]/75">
           {t('lastUpdated')} {canton.lastUpdated}
         </p>
       </article>

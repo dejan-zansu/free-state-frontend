@@ -12,7 +12,7 @@ const CostSection = async () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[90px]">
-          <div className="text-[#062E25]/80 text-base md:text-[22px] font-light leading-[1.36em] tracking-[-0.02em] text-justify max-w-[535px]">
+          <div className="text-[#062E25]/80 text-base md:text-[22px] leading-[1.36em] tracking-[-0.02em] text-justify max-w-[535px]">
             <p>{t('costSection.paragraph1')}</p>
             <br />
             <p>

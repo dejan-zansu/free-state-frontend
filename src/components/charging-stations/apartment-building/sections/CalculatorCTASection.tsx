@@ -48,7 +48,7 @@ const CalculatorCTASection = async () => {
                 WebkitBackdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-[#062E25] text-base font-light tracking-[-0.02em]">
+              <span className="text-[#062E25] text-base tracking-[-0.02em]">
                 {t('calculatorCta.eyebrow')}
               </span>
             </div>
@@ -58,7 +58,7 @@ const CalculatorCTASection = async () => {
             </h2>
           </div>
 
-          <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[682px]">
+          <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] text-center max-w-[682px]">
             {t('calculatorCta.description')}
           </p>
         </div>
@@ -68,7 +68,7 @@ const CalculatorCTASection = async () => {
             {t('calculatorCta.cta')}
           </LinkButton>
 
-          <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] text-center">
+          <p className="text-[#062E25]/80 text-base tracking-[-0.02em] text-center">
             {t('calculatorCta.subtext')}
           </p>
         </div>

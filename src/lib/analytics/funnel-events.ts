@@ -16,6 +16,7 @@ export type Attribution = {
   landingPage?: string
   fbclid?: string
   gclid?: string
+  model?: string
   sessionKey?: string
   fbp?: string
   fbc?: string
@@ -34,6 +35,7 @@ const ATTRIBUTION_KEYS = [
   'landingPage',
   'fbclid',
   'gclid',
+  'model',
 ] as const
 
 let lastLeadEventId: string | null = null
@@ -120,6 +122,7 @@ export type StoredAttribution = Pick<
   | 'landingPage'
   | 'fbclid'
   | 'gclid'
+  | 'model'
 >
 
 export function getStoredAttribution(): StoredAttribution | null {
@@ -206,4 +209,28 @@ export function trackFunnelEvent(
     window.dataLayer.push(payload)
   } catch {}
   postFunnelEvent(name, options)
+}
+
+const FIRED_ONCE_PREFIX = 'funnel_once_'
+const firedOnce = new Set<string>()
+
+export function trackFunnelEventOnce(
+  name: string,
+  options: FunnelEventOptions = {}
+): void {
+  if (typeof window === 'undefined') return
+  const key = `${FIRED_ONCE_PREFIX}${name}${
+    typeof options.step === 'number' ? `_${options.step}` : ''
+  }`
+  if (firedOnce.has(key)) return
+  let stored = false
+  try {
+    stored = !!window.sessionStorage.getItem(key)
+  } catch {}
+  firedOnce.add(key)
+  if (stored) return
+  try {
+    window.sessionStorage.setItem(key, '1')
+  } catch {}
+  trackFunnelEvent(name, options)
 }

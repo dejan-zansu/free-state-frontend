@@ -64,7 +64,7 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
         <div className="flex flex-col gap-[20px]">
           <div className="flex flex-row gap-[20px]">
             <div className="flex flex-col gap-[5px] flex-1">
-              <label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <label className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
                 {t('form.firstName')}
               </label>
               <input
@@ -75,11 +75,11 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
                   setFormData({ ...formData, firstName: e.target.value })
                 }
                 placeholder={t('form.firstNamePlaceholder')}
-                className="bg-[#EAEDDF] border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-sm text-[#062E25] placeholder:text-[#062E25]/20 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30"
+                className="bg-[#EAEDDF] border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-sm text-[#062E25] placeholder:text-[#062E25]/60 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30"
               />
             </div>
             <div className="flex flex-col gap-[5px] flex-1">
-              <label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <label className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
                 {t('form.lastName')}
               </label>
               <input
@@ -90,13 +90,13 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
                   setFormData({ ...formData, lastName: e.target.value })
                 }
                 placeholder={t('form.lastNamePlaceholder')}
-                className="bg-[#EAEDDF] border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-sm text-[#062E25] placeholder:text-[#062E25]/20 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30"
+                className="bg-[#EAEDDF] border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-sm text-[#062E25] placeholder:text-[#062E25]/60 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30"
               />
             </div>
           </div>
 
           <div className="flex flex-col gap-[5px]">
-            <label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+            <label className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
               {t('form.email')}
             </label>
             <input
@@ -107,11 +107,11 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
                 setFormData({ ...formData, email: e.target.value })
               }
               placeholder={t('form.emailPlaceholder')}
-              className="bg-[#EAEDDF] border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-sm text-[#062E25] placeholder:text-[#062E25]/20 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30"
+              className="bg-[#EAEDDF] border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-sm text-[#062E25] placeholder:text-[#062E25]/60 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30"
             />
           </div>
 
-          <p className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+          <p className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
             {t('form.privacy')}
           </p>
 
@@ -139,12 +139,12 @@ export const NewsletterForm = ({ className }: NewsletterFormProps) => {
                 </svg>
               )}
             </div>
-            <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+            <span className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
               {t('form.consent')}
             </span>
           </div>
 
-          <p className="text-[#062E25]/60 text-sm font-normal tracking-[-0.02em]">
+          <p className="text-[#062E25]/75 text-sm font-normal tracking-[-0.02em]">
             {t('form.disclaimer')}
           </p>
         </div>

@@ -84,7 +84,7 @@ function StageRow({
       </p>
       <div className="grid gap-3 sm:grid-cols-2">
         <div>
-          <label className="mb-1 block text-sm text-[#062E25]/60">
+          <label className="mb-1 block text-sm text-[#062E25]">
             {t('statusLabel')}
           </label>
           <Select
@@ -105,7 +105,7 @@ function StageRow({
           </Select>
         </div>
         <div>
-          <label className="mb-1 block text-sm text-[#062E25]/60">
+          <label className="mb-1 block text-sm text-[#062E25]">
             {t('scheduledLabel')}
           </label>
           <input
@@ -120,7 +120,7 @@ function StageRow({
         </div>
       </div>
       <div className="mt-3">
-        <label className="mb-1 block text-sm text-[#062E25]/60">{t('noteLabel')}</label>
+        <label className="mb-1 block text-sm text-[#062E25]">{t('noteLabel')}</label>
         <Textarea
           value={note}
           onChange={(event) => {
@@ -171,7 +171,7 @@ export function MilestoneControls({ projectId }: { projectId: string }) {
       <CardContent className="p-6">
         <div className="mb-4">
           <h2 className="text-lg font-semibold text-[#062E25]">{t('title')}</h2>
-          <p className="mt-1 text-sm text-[#062E25]/60">{t('subtitle')}</p>
+          <p className="mt-1 text-sm text-[#062E25]/75">{t('subtitle')}</p>
         </div>
         {isLoading ? (
           <div className="flex justify-center py-6">
@@ -180,7 +180,7 @@ export function MilestoneControls({ projectId }: { projectId: string }) {
         ) : isError ? (
           <p className="text-sm text-red-600">{t('loadFailed')}</p>
         ) : ordered.length === 0 ? (
-          <p className="text-sm text-[#062E25]/50">{t('empty')}</p>
+          <p className="text-sm text-[#062E25]/75">{t('empty')}</p>
         ) : (
           <div className="space-y-3">
             {ordered.map((milestone) => (

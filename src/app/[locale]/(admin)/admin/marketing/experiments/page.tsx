@@ -52,7 +52,7 @@ const STATUS_STYLES: Record<ExperimentStatus, string> = {
   RUNNING: 'bg-green-100 text-green-700',
   DRAFT: 'bg-gray-100 text-gray-700',
   DECIDED: 'bg-blue-100 text-blue-700',
-  ABANDONED: 'bg-gray-100 text-gray-500',
+  ABANDONED: 'bg-gray-100 text-gray-600',
 }
 
 type VariantForm = { kind: ExperimentVariantKind; label: string; refId: string }
@@ -137,7 +137,7 @@ export default function AdminMarketingExperimentsPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const kindLabel = (kind: ExperimentVariantKind) => {
@@ -198,12 +198,12 @@ export default function AdminMarketingExperimentsPage() {
           </Button>
         </div>
       </div>
-      <p className="text-[#062E25]/60 mb-6">{t('intro')}</p>
+      <p className="text-[#062E25] mb-6">{t('intro')}</p>
 
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
           {data.rows.length === 0 ? (
-            <p className="text-center py-12 text-[#062E25]/40">{t('empty')}</p>
+            <p className="text-center py-12 text-[#062E25]">{t('empty')}</p>
           ) : (
             <div className="overflow-x-auto">
               <Table>
@@ -228,7 +228,7 @@ export default function AdminMarketingExperimentsPage() {
                           <p className="font-medium text-[#062E25] truncate" title={row.name}>
                             {row.name}
                           </p>
-                          <p className="text-sm text-[#062E25]/50 truncate" title={row.variable}>
+                          <p className="text-sm text-[#062E25] truncate" title={row.variable}>
                             {row.variable}
                           </p>
                         </TableCell>
@@ -246,7 +246,7 @@ export default function AdminMarketingExperimentsPage() {
                         <TableCell className="text-right tabular-nums text-[#062E25]/80">
                           {row.variants.length}
                         </TableCell>
-                        <TableCell className="text-sm text-[#062E25]/60 tabular-nums">
+                        <TableCell className="text-sm text-[#062E25] tabular-nums">
                           {row.startAt ? new Date(row.startAt).toLocaleDateString('de-CH') : '—'}
                         </TableCell>
                         <TableCell className="text-sm text-[#062E25]/80 tabular-nums">
@@ -258,15 +258,15 @@ export default function AdminMarketingExperimentsPage() {
                               {row.decision}
                             </p>
                           ) : (
-                            <span className="text-[#062E25]/40">—</span>
+                            <span className="text-[#062E25]/75">—</span>
                           )}
                           {(row.status === 'DECIDED' || row.status === 'ABANDONED') &&
                             row.learnings && (
                               <details className="mt-1">
-                                <summary className="text-xs text-[#062E25]/60 cursor-pointer">
+                                <summary className="text-xs text-[#062E25] cursor-pointer">
                                   {t('learnings')}
                                 </summary>
-                                <p className="text-xs text-[#062E25]/70 mt-1 whitespace-pre-wrap">
+                                <p className="text-xs text-[#062E25] mt-1 whitespace-pre-wrap">
                                   {row.learnings}
                                 </p>
                               </details>
@@ -476,7 +476,7 @@ export default function AdminMarketingExperimentsPage() {
             <DialogTitle>{t('decideTitle')}</DialogTitle>
           </DialogHeader>
           <div className="space-y-4">
-            {decideTarget && <p className="text-sm text-[#062E25]/60">{decideTarget.name}</p>}
+            {decideTarget && <p className="text-sm text-[#062E25]">{decideTarget.name}</p>}
             <div className="space-y-2">
               <Label htmlFor="experiment-decision">{t('decisionLabel')}</Label>
               <Textarea

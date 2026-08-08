@@ -79,7 +79,7 @@ const PathToEnergy = async ({
             <Reveal
               as="p"
               delay={0.2}
-              className="text-[#CCD8CE]/80 text-lg md:text-[22px] font-light tracking-tight"
+              className="text-[#CCD8CE]/80 text-lg md:text-[22px] tracking-tight"
             >
               {t('description')}
             </Reveal>

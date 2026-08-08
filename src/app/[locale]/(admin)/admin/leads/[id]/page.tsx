@@ -123,7 +123,7 @@ export default function AdminLeadDetailPage() {
   }
 
   if (!lead) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   const project = lead.project
@@ -193,19 +193,19 @@ export default function AdminLeadDetailPage() {
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('name')}</label>
+                <label className="text-sm text-[#062E25]">{t('name')}</label>
                 <p className="font-medium text-[#062E25]">
                   {lead.customer.user.firstName} {lead.customer.user.lastName}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('email')}</label>
+                <label className="text-sm text-[#062E25]">{t('email')}</label>
                 <p className="font-medium text-[#062E25] break-all">
                   {lead.customer.user.email}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('phone')}</label>
+                <label className="text-sm text-[#062E25]">{t('phone')}</label>
                 <p className="font-medium text-[#062E25]">
                   {lead.customer.user.phone ? (
                     <a
@@ -220,7 +220,7 @@ export default function AdminLeadDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('preferredLanguage')}
                 </label>
                 <p className="font-medium text-[#062E25] uppercase">
@@ -228,7 +228,7 @@ export default function AdminLeadDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('dateOfBirth')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -238,7 +238,7 @@ export default function AdminLeadDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('nationality')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -247,7 +247,7 @@ export default function AdminLeadDetailPage() {
               </div>
             </div>
             <div className="mt-4 pt-4 border-t border-[#062E25]/10">
-              <label className="text-sm text-[#062E25]/60">
+              <label className="text-sm text-[#062E25]">
                 {t('propertyOwner')}
               </label>
               <div className="mt-1">
@@ -269,13 +269,13 @@ export default function AdminLeadDetailPage() {
                   lead.customer.propertyOwnerEmail ||
                   lead.customer.propertyOwnerPhone) && (
                   <div className="mt-3">
-                    <label className="text-sm text-[#062E25]/60">
+                    <label className="text-sm text-[#062E25]">
                       {t('ownerContact')}
                     </label>
                     <div className="mt-1 grid grid-cols-2 gap-4">
                       {lead.customer.propertyOwnerName && (
                         <div>
-                          <label className="text-sm text-[#062E25]/60">
+                          <label className="text-sm text-[#062E25]">
                             {t('ownerName')}
                           </label>
                           <p className="font-medium text-[#062E25]">
@@ -285,7 +285,7 @@ export default function AdminLeadDetailPage() {
                       )}
                       {lead.customer.propertyOwnerEmail && (
                         <div>
-                          <label className="text-sm text-[#062E25]/60">
+                          <label className="text-sm text-[#062E25]">
                             {t('ownerEmail')}
                           </label>
                           <p className="font-medium text-[#062E25] break-all">
@@ -295,7 +295,7 @@ export default function AdminLeadDetailPage() {
                       )}
                       {lead.customer.propertyOwnerPhone && (
                         <div>
-                          <label className="text-sm text-[#062E25]/60">
+                          <label className="text-sm text-[#062E25]">
                             {t('ownerPhone')}
                           </label>
                           <p className="font-medium text-[#062E25]">
@@ -311,7 +311,7 @@ export default function AdminLeadDetailPage() {
               <div className="mt-4 pt-4 border-t border-[#062E25]/10 space-y-3">
                 {lead.customer.notes && (
                   <div>
-                    <label className="text-sm text-[#062E25]/60">
+                    <label className="text-sm text-[#062E25]">
                       {t('customerRemarks')}
                     </label>
                     <p className="font-medium text-[#062E25] whitespace-pre-wrap">
@@ -321,7 +321,7 @@ export default function AdminLeadDetailPage() {
                 )}
                 {lead.customer.addressAdditional && (
                   <div>
-                    <label className="text-sm text-[#062E25]/60">
+                    <label className="text-sm text-[#062E25]">
                       {t('addressAdditional')}
                     </label>
                     <p className="font-medium text-[#062E25] whitespace-pre-wrap">
@@ -341,23 +341,23 @@ export default function AdminLeadDetailPage() {
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2">
-                <label className="text-sm text-[#062E25]/60">{t('propertyAddress')}</label>
+                <label className="text-sm text-[#062E25]">{t('propertyAddress')}</label>
                 <p className="font-medium text-[#062E25]">{lead.propertyAddress}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('source')}</label>
+                <label className="text-sm text-[#062E25]">{t('source')}</label>
                 <p className="font-medium text-[#062E25]">
                   {tl.has(lead.source) ? tl(lead.source) : lead.source}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('interestedPackage')}</label>
+                <label className="text-sm text-[#062E25]">{t('interestedPackage')}</label>
                 <p className="font-medium text-[#062E25]">
                   {packageLabel(lead.interestedPackage)}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('estimatedBudget')}</label>
+                <label className="text-sm text-[#062E25]">{t('estimatedBudget')}</label>
                 <p className="font-medium text-[#062E25]">
                   {lead.estimatedBudget
                     ? `CHF ${lead.estimatedBudget.toLocaleString('de-CH')}`
@@ -365,7 +365,7 @@ export default function AdminLeadDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('created')}</label>
+                <label className="text-sm text-[#062E25]">{t('created')}</label>
                 <p className="font-medium text-[#062E25]">
                   {new Date(lead.createdAt).toLocaleDateString('de-CH')}
                 </p>
@@ -397,7 +397,7 @@ export default function AdminLeadDetailPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
+              <label className="text-sm text-[#062E25] mb-1 block">{t('status')}</label>
               <Select
                 value={lead.status}
                 onValueChange={v => handleUpdate({ status: v })}
@@ -416,7 +416,7 @@ export default function AdminLeadDetailPage() {
               </Select>
             </div>
             <div>
-              <label className="text-sm text-[#062E25]/60 mb-1 block">{t('assignedTo')}</label>
+              <label className="text-sm text-[#062E25] mb-1 block">{t('assignedTo')}</label>
               <Select
                 value={lead.assignedTo?.id || '__none__'}
                 onValueChange={v =>
@@ -438,7 +438,7 @@ export default function AdminLeadDetailPage() {
               </Select>
             </div>
             <div className="md:col-span-2">
-              <label className="text-sm text-[#062E25]/60 mb-1 block">{t('notes')}</label>
+              <label className="text-sm text-[#062E25] mb-1 block">{t('notes')}</label>
               <Textarea
                 value={notes}
                 onChange={e => setNotes(e.target.value)}

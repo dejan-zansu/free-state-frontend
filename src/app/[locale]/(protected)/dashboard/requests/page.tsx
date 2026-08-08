@@ -64,8 +64,8 @@ export default function CustomerRequestsPage() {
         <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
             <Inbox className="h-12 w-12 text-pine/20 mx-auto mb-4" />
-            <p className="text-pine/60 mb-2">{t('empty')}</p>
-            <p className="text-sm text-pine/40">{t('emptyHelp')}</p>
+            <p className="text-pine mb-2">{t('empty')}</p>
+            <p className="text-sm text-pine/75">{t('emptyHelp')}</p>
           </CardContent>
         </Card>
       </div>
@@ -75,12 +75,12 @@ export default function CustomerRequestsPage() {
   return (
     <div className="max-w-5xl" data-hj-suppress data-cs-mask>
       <h1 className="text-2xl font-bold text-pine mb-1">{t('title')}</h1>
-      <p className="text-pine/60 mb-8">{t('subtitle')}</p>
+      <p className="text-pine mb-8">{t('subtitle')}</p>
 
       {(['action', 'waiting', 'closed'] as const).map(k =>
         groups[k].length === 0 ? null : (
           <div key={k} className="mb-6">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-pine/50 mb-2">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-pine/75 mb-2">
               {t(groupTitleKey[k])}
             </h2>
             <div className="space-y-2">
@@ -96,13 +96,13 @@ export default function CustomerRequestsPage() {
                         <p className="font-medium text-pine truncate">
                           {r.title}
                         </p>
-                        <p className="text-sm text-pine/50">
+                        <p className="text-sm text-pine/75">
                           {new Date(r.createdAt).toLocaleDateString('de-CH')}
                           {r.dueDate &&
                             ` · ${t('due', { date: new Date(r.dueDate).toLocaleDateString('de-CH') })}`}
                         </p>
                         {projectAddress.has(r.projectId) && (
-                          <p className="text-sm text-pine/60">
+                          <p className="text-sm text-pine">
                             {t('forProject', {
                               address: projectAddress.get(r.projectId),
                             })}

@@ -15,14 +15,14 @@ const FutureVision = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-7 text-foreground/80 text-lg lg:text-[22px] font-light max-w-[563px]">
+          <p className="mt-7 text-foreground text-lg lg:text-[22px] max-w-[563px]">
             {t('subtitle')}
           </p>
         </div>
 
         <div className="w-full max-w-[643px] mx-auto h-px bg-foreground/20 mt-12" />
 
-        <p className="mt-7 text-foreground/80 text-base font-light text-center max-w-[747px] mx-auto whitespace-pre-line">
+        <p className="mt-7 text-foreground text-base text-center max-w-[747px] mx-auto whitespace-pre-line">
           {t('bottomText')}
         </p>
       </div>

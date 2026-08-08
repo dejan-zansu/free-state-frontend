@@ -37,7 +37,7 @@ const CalculatorSection = async () => {
           <Reveal
             as="p"
             delay={0.2}
-            className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight max-w-[760px]"
+            className="text-foreground text-lg md:text-[22px] tracking-tight max-w-[760px]"
           >
             {t('subtitle')}
           </Reveal>

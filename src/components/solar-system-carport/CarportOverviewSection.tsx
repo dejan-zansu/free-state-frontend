@@ -34,7 +34,7 @@ const CarportOverviewSection = async () => {
                   {t('overview.title')}
                 </h2>
 
-                <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light max-w-[557px]">
+                <p className="text-[#062E25] text-lg md:text-[22px] max-w-[557px]">
                   {t('overview.description')}
                 </p>
               </div>

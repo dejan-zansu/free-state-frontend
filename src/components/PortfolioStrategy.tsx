@@ -60,7 +60,7 @@ const PortfolioStrategy = async () => {
                 <h3 className="text-solar text-[22px] font-bold capitalize opacity-80">
                   {t(card.titleKey)}
                 </h3>
-                <p className="text-white text-base font-light tracking-tight opacity-80 mt-2.5">
+                <p className="text-white text-base tracking-tight opacity-80 mt-2.5">
                   {t(card.descKey)}
                 </p>
               </div>

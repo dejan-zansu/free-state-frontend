@@ -40,7 +40,7 @@ const WhySolarCarportSection = async () => {
             <h2 className="text-white text-3xl sm:text-4xl md:text-[65px] font-medium text-center">
               {t('whySolarCarport.title')}
             </h2>
-            <p className="text-white/80 text-lg md:text-[22px] font-light text-center lg:text-justify">
+            <p className="text-white/80 text-lg md:text-[22px] text-center lg:text-justify">
               {t('whySolarCarport.description')}
             </p>
           </div>

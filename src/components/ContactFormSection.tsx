@@ -122,7 +122,7 @@ const ContactFormSection = () => {
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {t('successTitle')}
                 </h3>
-                <p className="text-foreground/60">{t('successMessage')}</p>
+                <p className="text-foreground">{t('successMessage')}</p>
               </div>
             ) : (
               <div className="w-full flex flex-col items-end gap-5">
@@ -186,7 +186,7 @@ const ContactFormSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                      <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                         {t('firstName.label')}
                       </Label>
                       <Input
@@ -202,7 +202,7 @@ const ContactFormSection = () => {
                       )}
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                      <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                         {t('lastName.label')}
                       </Label>
                       <Input
@@ -221,7 +221,7 @@ const ContactFormSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                      <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                         {t('email.label')}
                       </Label>
                       <Input
@@ -236,7 +236,7 @@ const ContactFormSection = () => {
                       )}
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                      <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                         {t('phone.label')}
                       </Label>
                       <Input
@@ -253,7 +253,7 @@ const ContactFormSection = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                    <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                       {t('address.label')}
                     </Label>
                     <Input
@@ -271,7 +271,7 @@ const ContactFormSection = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                      <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                         {t('postalCode.label')}
                       </Label>
                       <Input
@@ -287,7 +287,7 @@ const ContactFormSection = () => {
                       )}
                     </div>
                     <div className="space-y-1">
-                      <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                      <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                         {t('city.label')}
                       </Label>
                       <Input
@@ -303,7 +303,7 @@ const ContactFormSection = () => {
                   </div>
 
                   <div className="space-y-1">
-                    <Label className="text-foreground/60 text-sm md:text-base font-medium tracking-tight">
+                    <Label className="text-foreground text-sm md:text-base font-medium tracking-tight">
                       {t('message.label')}
                     </Label>
                     <Textarea
@@ -328,7 +328,7 @@ const ContactFormSection = () => {
                     />
                     <Label
                       htmlFor="privacy"
-                      className="text-sm md:text-base text-foreground/40 font-medium tracking-tight cursor-pointer mb-0"
+                      className="text-sm md:text-base text-foreground/75 font-medium tracking-tight cursor-pointer mb-0"
                     >
                       <Link
                         href="/privacy-policy"

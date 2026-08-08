@@ -89,11 +89,11 @@ export default function AdminUsersPage() {
                   {data.map((user) => (
                     <TableRow key={user.id}>
                       <TableCell className="font-medium">{user.firstName} {user.lastName}</TableCell>
-                      <TableCell className="text-[#062E25]/60">{user.email}</TableCell>
+                      <TableCell className="text-[#062E25]">{user.email}</TableCell>
                       <TableCell><StatusBadge status={user.role} /></TableCell>
                       <TableCell><StatusBadge status={user.status} /></TableCell>
                       <TableCell>{user._count.assignedLeads}</TableCell>
-                      <TableCell className="text-[#062E25]/60 text-sm">
+                      <TableCell className="text-[#062E25] text-sm">
                         {new Date(user.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
                       <TableCell>
@@ -105,7 +105,7 @@ export default function AdminUsersPage() {
                   ))}
                   {data.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={7} className="text-center py-8 text-[#062E25]/40">
+                      <TableCell colSpan={7} className="text-center py-8 text-[#062E25]/75">
                         {t('noUsers')}
                       </TableCell>
                     </TableRow>
@@ -114,12 +114,12 @@ export default function AdminUsersPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">{t('totalUsers', { count: total })}</p>
+                <p className="text-sm text-[#062E25]/75">{t('totalUsers', { count: total })}</p>
                 <div className="flex items-center gap-2">
                   <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage(page - 1)}>
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]/75">
                     {tc('page', { page, totalPages })}
                   </span>
                   <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage(page + 1)}>

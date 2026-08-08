@@ -73,7 +73,7 @@ const SolarAboShowcaseSection = async () => {
               {t('title')}
             </h2>
 
-            <p className="text-white/80 text-base md:text-[22px] font-light tracking-[-0.02em] text-center">
+            <p className="text-white/80 text-base md:text-[22px] tracking-[-0.02em] text-center">
               {t('description')}
             </p>
           </div>

@@ -90,14 +90,14 @@ export default function AdminFeedInTariffsPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
         {t('title')}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">
+      <p className="text-base text-[#062E25] mb-6">
         {t('description')}
       </p>
 
       {nationalActive && (
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
-            <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
+            <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-2">
               {t('currentNational')}
             </p>
             <p className="text-xl font-semibold text-[#062E25]">
@@ -105,29 +105,29 @@ export default function AdminFeedInTariffsPage() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('tariff')}</p>
+                <p className="text-sm text-[#062E25]">{t('tariff')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtRp(nationalActive.chfPerKwh)} Rp/kWh
                 </p>
-                <p className="text-sm text-[#062E25]/50">
+                <p className="text-sm text-[#062E25]/75">
                   {fmtChf(nationalActive.chfPerKwh)} CHF/kWh
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('validFrom')}</p>
+                <p className="text-sm text-[#062E25]">{t('validFrom')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {fmtDate(nationalActive.validFrom)}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('published')}</p>
+                <p className="text-sm text-[#062E25]">{t('published')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {fmtDate(nationalActive.publishedAt)}
                 </p>
               </div>
             </div>
             {nationalActive.notes && (
-              <p className="text-sm text-[#062E25]/60 mt-4">
+              <p className="text-sm text-[#062E25] mt-4">
                 {nationalActive.notes}
               </p>
             )}
@@ -176,7 +176,7 @@ export default function AdminFeedInTariffsPage() {
                         {t('active')}
                       </span>
                     ) : (
-                      <span className="text-[#062E25]/50 text-sm">{t('inactive')}</span>
+                      <span className="text-[#062E25] text-sm">{t('inactive')}</span>
                     )}
                   </TableCell>
                 </TableRow>
@@ -185,7 +185,7 @@ export default function AdminFeedInTariffsPage() {
                 <TableRow>
                   <TableCell
                     colSpan={7}
-                    className="text-center text-[#062E25]/50 py-8"
+                    className="text-center text-[#062E25]/75 py-8"
                   >
                     {t('empty')}
                   </TableCell>

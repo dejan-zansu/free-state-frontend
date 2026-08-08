@@ -107,7 +107,7 @@ export default function AdminElectricityPricesPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
         {t('title')}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">
+      <p className="text-base text-[#062E25] mb-6">
         {t('descriptionPrefix')}
         <a href="https://www.strompreis.elcom.admin.ch/" target="_blank" rel="noreferrer" className="underline">
           strompreis.elcom.admin.ch
@@ -119,7 +119,7 @@ export default function AdminElectricityPricesPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
-              <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
+              <p className="text-sm text-[#062E25]/75 uppercase tracking-wider">
                 {t('entries')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
@@ -129,18 +129,18 @@ export default function AdminElectricityPricesPage() {
           </Card>
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
-              <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
+              <p className="text-sm text-[#062E25]/75 uppercase tracking-wider">
                 {t('avgTariff')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
                 {formatRp(summary.avgRpKwh)} Rp
               </p>
-              <p className="text-sm text-[#062E25]/50">{avgChf} CHF/kWh</p>
+              <p className="text-sm text-[#062E25]/75">{avgChf} CHF/kWh</p>
             </CardContent>
           </Card>
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
-              <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
+              <p className="text-sm text-[#062E25]/75 uppercase tracking-wider">
                 {t('lowest')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
@@ -150,7 +150,7 @@ export default function AdminElectricityPricesPage() {
           </Card>
           <Card className="border-[#062E25]/10">
             <CardContent className="p-4">
-              <p className="text-sm text-[#062E25]/50 uppercase tracking-wider">
+              <p className="text-sm text-[#062E25]/75 uppercase tracking-wider">
                 {t('highest')}
               </p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
@@ -251,26 +251,26 @@ export default function AdminElectricityPricesPage() {
                     <TableCell className="text-right tabular-nums font-semibold">
                       {formatRp(r.totalRpKwh)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums text-[#062E25]/60">
+                    <TableCell className="text-right tabular-nums text-[#062E25]">
                       {formatChf(r.totalRpKwh)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums text-[#062E25]/60">
+                    <TableCell className="text-right tabular-nums text-[#062E25]">
                       {formatRp(r.energyRpKwh)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums text-[#062E25]/60">
+                    <TableCell className="text-right tabular-nums text-[#062E25]">
                       {formatRp(r.gridusageRpKwh)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums text-[#062E25]/60">
+                    <TableCell className="text-right tabular-nums text-[#062E25]">
                       {formatRp(r.aidfeeRpKwh + r.chargeRpKwh)}
                     </TableCell>
-                    <TableCell className="text-right tabular-nums text-[#062E25]/60">
+                    <TableCell className="text-right tabular-nums text-[#062E25]">
                       {r.fixcostsChf != null ? r.fixcostsChf.toFixed(0) : '—'}
                     </TableCell>
                   </TableRow>
                 ))}
                 {rows.length === 0 && !loading && (
                   <TableRow>
-                    <TableCell colSpan={10} className="text-center text-[#062E25]/50 py-8">
+                    <TableCell colSpan={10} className="text-center text-[#062E25]/75 py-8">
                       {t('empty')}
                     </TableCell>
                   </TableRow>
@@ -280,7 +280,7 @@ export default function AdminElectricityPricesPage() {
           </div>
 
           <div className="flex items-center justify-between mt-6">
-            <p className="text-sm text-[#062E25]/50">
+            <p className="text-sm text-[#062E25]/75">
               {t('pagination', {
                 page,
                 totalPages,

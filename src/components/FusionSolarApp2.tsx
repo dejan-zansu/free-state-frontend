@@ -42,7 +42,7 @@ const FusionSolarApp2 = async () => {
                 {features.map((feature) => (
                   <div key={feature} className="flex items-center gap-1">
                     <CheckIconCircle />
-                    <span className="text-[#062E25]/80 text-lg md:text-[22px] font-light italic tracking-tight">
+                    <span className="text-[#062E25]/80 text-lg md:text-[22px] italic tracking-tight">
                       {feature}
                     </span>
                   </div>

@@ -48,7 +48,7 @@ const HeatPumpTypesSection = async () => {
               {t('heatPumpTypes.title')}
             </h2>
 
-            <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em]">
+            <p className="text-[#062E25] text-lg md:text-[22px] tracking-[-0.02em]">
               {t('heatPumpTypes.subtitle')}
             </p>
 

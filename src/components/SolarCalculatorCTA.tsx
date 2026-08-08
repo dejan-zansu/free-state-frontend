@@ -86,7 +86,7 @@ const SolarCalculatorCTA = async ({
               </div>
 
               <p
-                className={`text-base md:text-[22px] font-light leading-[1.27em] text-center max-w-[519px] ${dark ? 'text-white/80' : 'text-[#062E25]/80'}`}
+                className={`text-base md:text-[22px] leading-[1.27em] text-center max-w-[519px] ${dark ? 'text-white/80' : 'text-[#062E25]/80'}`}
               >
                 {t(`${translationKey}.subtitle`)}
               </p>

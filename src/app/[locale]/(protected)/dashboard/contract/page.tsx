@@ -38,7 +38,10 @@ export default function ContractPage() {
   const [contracts, setContracts] = useState<ContractSummary[]>([])
   const [projects, setProjects] = useState<ProjectSummary[]>([])
   const [loading, setLoading] = useState(true)
-  const [signingEnabled, setSigningEnabled] = useState(true)
+  const [signingConfig, setSigningConfig] = useState<{
+    enabled: boolean
+    aboContractsEnabled: boolean
+  }>({ enabled: true, aboContractsEnabled: false })
   const [dialogContractId, setDialogContractId] = useState<string | null>(null)
   const [pollingContractId, setPollingContractId] = useState<string | null>(null)
   const [signError, setSignError] = useState<{ id: string; message: string } | null>(
@@ -90,8 +93,8 @@ export default function ContractPage() {
   useEffect(() => {
     contractService
       .getSigningConfig()
-      .then(config => setSigningEnabled(config.enabled))
-      .catch(() => setSigningEnabled(true))
+      .then(setSigningConfig)
+      .catch(() => setSigningConfig({ enabled: true, aboContractsEnabled: false }))
   }, [])
 
   useEffect(() => {
@@ -145,8 +148,8 @@ export default function ContractPage() {
         <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
             <FileSignature className="h-12 w-12 text-pine/20 mx-auto mb-4" />
-            <p className="text-pine/60 mb-2">{t('noContracts')}</p>
-            <p className="text-sm text-pine/40">
+            <p className="text-pine mb-2">{t('noContracts')}</p>
+            <p className="text-sm text-pine/75">
               {t('noContractsHelp')}
             </p>
           </CardContent>
@@ -156,6 +159,7 @@ export default function ContractPage() {
   }
 
   const projectAddress = new Map(projects.map(p => [p.id, p.address]))
+  const projectOwnership = new Map(projects.map(p => [p.id, p.isPropertyOwner]))
 
   const groups: { projectId: string; contracts: ContractSummary[] }[] = []
   const groupIndex = new Map<string, number>()
@@ -183,7 +187,7 @@ export default function ContractPage() {
           <button
             type="button"
             onClick={() => router.replace(pathname)}
-            className="text-sm font-medium text-pine underline underline-offset-4 hover:text-pine/70"
+            className="text-sm font-medium text-pine underline underline-offset-4 hover:text-pine/75"
           >
             {t('showAll')}
           </button>
@@ -217,10 +221,17 @@ export default function ContractPage() {
                         STATUS_BADGE.PENDING
                   const BadgeIcon = badge.icon
 
+                  const aboBlocked =
+                    contract.solarModel === 'solar-abo' &&
+                    !signingConfig.aboContractsEnabled
+                  const notOwner =
+                    projectOwnership.get(contract.projectId) === false
                   const signEligible =
                     contract.signatureStatus === 'PENDING' &&
                     !contract.customerSignedAt &&
-                    contract.status !== 'CANCELLED'
+                    contract.status !== 'CANCELLED' &&
+                    !aboBlocked &&
+                    !notOwner
                   const isPolling = pollingContractId === contract.id
 
                   return (
@@ -239,7 +250,7 @@ export default function ContractPage() {
                                 {badge.label}
                               </span>
                             </div>
-                            <p className="text-sm text-pine/60">
+                            <p className="text-sm text-pine">
                               {contract.address}
                             </p>
                           </div>
@@ -247,13 +258,13 @@ export default function ContractPage() {
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm mb-6">
                           <div>
-                            <p className="text-pine/60">{t('type')}</p>
+                            <p className="text-pine">{t('type')}</p>
                             <p className="font-medium text-pine">
                               {contract.contractType}
                             </p>
                           </div>
                           <div>
-                            <p className="text-pine/60">{t('created')}</p>
+                            <p className="text-pine">{t('created')}</p>
                             <p className="font-medium text-pine">
                               {new Date(contract.createdAt).toLocaleDateString(
                                 'de-CH'
@@ -261,7 +272,7 @@ export default function ContractPage() {
                             </p>
                           </div>
                           <div>
-                            <p className="text-pine/60">
+                            <p className="text-pine">
                               {t('validUntil')}
                             </p>
                             <p className="font-medium text-pine">
@@ -273,7 +284,7 @@ export default function ContractPage() {
                             </p>
                           </div>
                           <div>
-                            <p className="text-pine/60">
+                            <p className="text-pine">
                               {t('signedDate')}
                             </p>
                             <p className="font-medium text-pine">
@@ -293,10 +304,7 @@ export default function ContractPage() {
                               size="sm"
                               className="border-pine text-pine hover:bg-pine/5"
                               onClick={() =>
-                                window.open(
-                                  `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf`,
-                                  '_blank'
-                                )
+                                contractService.downloadPdf(contract.id, false)
                               }
                             >
                               <Download className="h-4 w-4 mr-2" />
@@ -308,10 +316,7 @@ export default function ContractPage() {
                               size="sm"
                               className="bg-pine text-white hover:bg-pine/90"
                               onClick={() =>
-                                window.open(
-                                  `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf?signed=true`,
-                                  '_blank'
-                                )
+                                contractService.downloadPdf(contract.id, true)
                               }
                             >
                               <Download className="h-4 w-4 mr-2" />
@@ -319,7 +324,7 @@ export default function ContractPage() {
                             </Button>
                           )}
 
-                          {signEligible && !isPolling && signingEnabled && (
+                          {signEligible && !isPolling && signingConfig.enabled && (
                             <Button
                               size="sm"
                               className="bg-pine text-white hover:bg-pine/90"
@@ -334,7 +339,7 @@ export default function ContractPage() {
                             </Button>
                           )}
 
-                          {signEligible && !isPolling && !signingEnabled && (
+                          {signEligible && !isPolling && !signingConfig.enabled && (
                             <Button
                               size="sm"
                               disabled
@@ -348,11 +353,11 @@ export default function ContractPage() {
                           {signEligible && isPolling && (
                             <div className="flex flex-wrap items-center gap-3">
                               {pollTimedOut === contract.id ? (
-                                <span className="text-sm text-pine/70">
+                                <span className="text-sm text-pine">
                                   {tSigning('checkBackLater')}
                                 </span>
                               ) : (
-                                <span className="inline-flex items-center gap-2 text-sm text-pine/70">
+                                <span className="inline-flex items-center gap-2 text-sm text-pine">
                                   <Loader2 className="h-4 w-4 animate-spin" />
                                   {tSigning('awaitingSignature')}
                                 </span>

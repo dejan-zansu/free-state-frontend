@@ -43,7 +43,7 @@ const DetailRow = ({
         <h3 className="text-[#062E25] text-xl sm:text-[22px] font-bold tracking-[-0.02em]">
           {title}
         </h3>
-        <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em]">
+        <p className="text-[#062E25] text-base tracking-[-0.02em]">
           {description}
         </p>
       </div>
@@ -91,7 +91,7 @@ const SolarAboDetails = async ({
             {t('details.title')}
           </h2>
 
-          <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-light tracking-[-0.02em] text-center max-w-[562px]">
+          <p className="text-[#062E25] text-lg sm:text-xl lg:text-[22px] tracking-[-0.02em] text-center max-w-[562px]">
             {t('details.subtitle')}
           </p>
         </div>

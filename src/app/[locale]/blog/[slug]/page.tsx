@@ -170,7 +170,7 @@ const BlogPostPage = async ({ params }: Props) => {
             <div className="max-w-[720px] mx-auto lg:mx-0">
               <article
                 id="article-content"
-                className="prose prose-lg max-w-none prose-headings:text-[#062E25] prose-headings:font-medium prose-h2:mt-14 prose-h2:scroll-mt-28 prose-p:text-[#062E25]/80 prose-a:text-[#036B53] prose-a:underline-offset-4 prose-a:decoration-[#036B53]/40 hover:prose-a:decoration-[#B7FE1A] prose-strong:text-[#062E25] prose-li:text-[#062E25]/80 prose-li:marker:text-[#B7FE1A] prose-em:text-[#062E25]/70 [&>p:first-of-type]:text-xl [&>p:first-of-type]:font-light [&>p:last-of-type:has(em)]:border-t [&>p:last-of-type:has(em)]:border-[#062E25]/10 [&>p:last-of-type:has(em)]:pt-6 [&>p:last-of-type:has(em)]:text-base [&>p:last-of-type:has(em)]:text-[#062E25]/55"
+                className="prose prose-lg max-w-none prose-headings:text-[#062E25] prose-headings:font-medium prose-h2:mt-14 prose-h2:scroll-mt-28 prose-p:text-[#062E25]/80 prose-a:text-[#036B53] prose-a:underline-offset-4 prose-a:decoration-[#036B53]/40 hover:prose-a:decoration-[#B7FE1A] prose-strong:text-[#062E25] prose-li:text-[#062E25]/80 prose-li:marker:text-[#B7FE1A] prose-em:text-[#062E25] [&>p:first-of-type]:text-xl [&>p:first-of-type]:font-light [&>p:last-of-type:has(em)]:border-t [&>p:last-of-type:has(em)]:border-[#062E25]/10 [&>p:last-of-type:has(em)]:pt-6 [&>p:last-of-type:has(em)]:text-base [&>p:last-of-type:has(em)]:text-[#062E25]/75"
                 dangerouslySetInnerHTML={{ __html: html }}
               />
 
@@ -183,7 +183,7 @@ const BlogPostPage = async ({ params }: Props) => {
                   <p className="text-[#062E25] text-base font-medium">
                     {post.author.firstName} {post.author.lastName}
                   </p>
-                  <p className="text-[#062E25]/55 text-base font-light">
+                  <p className="text-[#062E25]/75 text-base font-light">
                     Free State AG
                   </p>
                 </div>

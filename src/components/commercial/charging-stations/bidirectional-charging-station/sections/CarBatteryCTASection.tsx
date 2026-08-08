@@ -37,7 +37,7 @@ const CarBatteryCTASection = async () => {
                 WebkitBackdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-white text-base font-light tracking-[-0.02em]">
+              <span className="text-white text-base tracking-[-0.02em]">
                 {t('carBattery.eyebrow')}
               </span>
             </div>
@@ -47,7 +47,7 @@ const CarBatteryCTASection = async () => {
             </h2>
           </div>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[556px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] text-center max-w-[556px]">
             {t('carBattery.description')}
           </p>
         </div>

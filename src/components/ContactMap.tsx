@@ -266,7 +266,7 @@ const ContactMap = () => {
               {COMPANY_LOCATIONS.map((loc) => (
                 <li
                   key={loc.key}
-                  className="text-base font-light text-foreground/80 tracking-tight"
+                  className="text-base text-foreground/80 tracking-tight"
                 >
                   <span className="font-medium text-foreground">
                     {loc.city}
@@ -286,7 +286,7 @@ const ContactMap = () => {
               {t('contact')}
             </h3>
             <a
-              className="text-base font-light text-foreground/80 tracking-tight mt-3 hover:text-foreground transition-colors"
+              className="text-base text-foreground/80 tracking-tight mt-3 hover:text-foreground transition-colors"
               href={COMPANY_MAIN_PHONE_TEL_HREF}
               target="_blank"
             >
@@ -301,7 +301,7 @@ const ContactMap = () => {
               {t('email')}
             </h3>
             <a
-              className="text-base font-light text-foreground/80 tracking-tight mt-3 hover:text-foreground transition-colors"
+              className="text-base text-foreground/80 tracking-tight mt-3 hover:text-foreground transition-colors"
               href={COMPANY_MAIN_MAILTO_HREF}
               target="_blank"
             >

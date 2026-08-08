@@ -23,7 +23,7 @@ const ImageShowcaseSection = async () => {
                 backdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-white text-lg md:text-[22px] font-light tracking-[-0.02em]">
+              <span className="text-white text-lg md:text-[22px] tracking-[-0.02em]">
                 {t('imageShowcase.leftLabel')}
               </span>
             </div>
@@ -46,7 +46,7 @@ const ImageShowcaseSection = async () => {
                 backdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-white text-lg md:text-[22px] font-light tracking-[-0.02em]">
+              <span className="text-white text-lg md:text-[22px] tracking-[-0.02em]">
                 {t('imageShowcase.rightLabel')}
               </span>
             </div>

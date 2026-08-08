@@ -50,7 +50,7 @@ export default function AdminUserDetailPage() {
   }
 
   if (!user) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   return (
@@ -70,15 +70,15 @@ export default function AdminUserDetailPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('email')}</label>
+                <label className="text-sm text-[#062E25]">{t('email')}</label>
                 <p className="font-medium text-[#062E25]">{user.email}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('phone')}</label>
+                <label className="text-sm text-[#062E25]">{t('phone')}</label>
                 <p className="font-medium text-[#062E25]">{user.phone || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('dateOfBirth')}</label>
+                <label className="text-sm text-[#062E25]">{t('dateOfBirth')}</label>
                 <p className="font-medium text-[#062E25]">
                   {user.dateOfBirth
                     ? new Date(user.dateOfBirth).toLocaleDateString('de-CH')
@@ -86,17 +86,17 @@ export default function AdminUserDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('nationality')}</label>
+                <label className="text-sm text-[#062E25]">{t('nationality')}</label>
                 <p className="font-medium text-[#062E25]">{user.nationality || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('emailVerified')}</label>
+                <label className="text-sm text-[#062E25]">{t('emailVerified')}</label>
                 <p className="font-medium text-[#062E25]">
                   {user.emailVerified ? t('yes') : t('no')}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('lastLogin')}</label>
+                <label className="text-sm text-[#062E25]">{t('lastLogin')}</label>
                 <p className="font-medium text-[#062E25]">
                   {user.lastLoginAt
                     ? new Date(user.lastLoginAt).toLocaleString('de-CH')
@@ -104,7 +104,7 @@ export default function AdminUserDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('joined')}</label>
+                <label className="text-sm text-[#062E25]">{t('joined')}</label>
                 <p className="font-medium text-[#062E25]">
                   {new Date(user.createdAt).toLocaleDateString('de-CH')}
                 </p>
@@ -120,7 +120,7 @@ export default function AdminUserDetailPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('role')}</label>
+                <label className="text-sm text-[#062E25] mb-1 block">{t('role')}</label>
                 <Select
                   value={user.role}
                   onValueChange={v => handleUpdate('role', v)}
@@ -137,7 +137,7 @@ export default function AdminUserDetailPage() {
                 </Select>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
+                <label className="text-sm text-[#062E25] mb-1 block">{t('status')}</label>
                 <Select
                   value={user.status}
                   onValueChange={v => handleUpdate('status', v)}
@@ -166,33 +166,33 @@ export default function AdminUserDetailPage() {
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('company')}</label>
+                  <label className="text-sm text-[#062E25]">{t('company')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.companyName || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('street')}</label>
+                  <label className="text-sm text-[#062E25]">{t('street')}</label>
                   <p className="font-medium text-[#062E25]">
                     {[user.customer.street, user.customer.streetNumber].filter(Boolean).join(' ') || '-'}
                   </p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('postalCode')}</label>
+                  <label className="text-sm text-[#062E25]">{t('postalCode')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.postalCode || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('city')}</label>
+                  <label className="text-sm text-[#062E25]">{t('city')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.city || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('country')}</label>
+                  <label className="text-sm text-[#062E25]">{t('country')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.country || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('canton')}</label>
+                  <label className="text-sm text-[#062E25]">{t('canton')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.canton || '-'}</p>
                 </div>
                 <div className="md:col-span-2">
-                  <label className="text-sm text-[#062E25]/60">{t('addressAdditional')}</label>
+                  <label className="text-sm text-[#062E25]">{t('addressAdditional')}</label>
                   <p className="font-medium text-[#062E25]">{user.customer.addressAdditional || '-'}</p>
                 </div>
               </div>
@@ -208,11 +208,11 @@ export default function AdminUserDetailPage() {
             <div className="flex gap-8">
               <div>
                 <p className="text-2xl font-bold text-[#062E25]">{user._count.assignedLeads}</p>
-                <p className="text-sm text-[#062E25]/60">{t('assignedLeads')}</p>
+                <p className="text-sm text-[#062E25]">{t('assignedLeads')}</p>
               </div>
               <div>
                 <p className="text-2xl font-bold text-[#062E25]">{user._count.createdQuotes}</p>
-                <p className="text-sm text-[#062E25]/60">{t('createdQuotes')}</p>
+                <p className="text-sm text-[#062E25]">{t('createdQuotes')}</p>
               </div>
             </div>
           </CardContent>

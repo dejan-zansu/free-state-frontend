@@ -3991,7 +3991,7 @@
     },
     "solarFreeLease": {
       "title": "6. Solar Free : modèle de location et d'abonnement",
-      "content": "Dans le cadre du modèle « Solar Free », Free State AG met à disposition du Client une installation photovoltaïque (éventuellement complétée par un stockage batterie, une borne de recharge ou un pilotage de pompe à chaleur) contre une redevance mensuelle, sans que le Client ait à acheter l'installation.\n\nPoints clés :\n\n• Propriété : pendant toute la durée du contrat, la propriété de l'installation reste chez Free State AG ou chez un partenaire financier désigné par Free State AG. Le Client met le toit ou le site d'installation à disposition gratuitement et accorde les droits d'accès nécessaires à la construction, à l'exploitation et à l'entretien.\n\n• Durée du contrat : sauf accord contraire dans le contrat individuel, la durée standard d'un contrat Solar Free est de 20 ans à compter de la mise en service.\n\n• Redevance mensuelle : la redevance mensuelle est fixée de manière contraignante dans le contrat individuel. Une indexation ou un modèle par paliers peut être prévu ; dans ce cas, la base de calcul est indiquée au contrat.\n\n• Entretien et réparation : pendant la durée du contrat, Free State AG est responsable de l'entretien courant et de la réparation des défauts des composants de l'installation, à condition qu'ils ne soient pas causés par un usage inapproprié, du vandalisme, un cas de force majeure ou une intervention de tiers.\n\n• Consommation et injection d'électricité : sauf stipulation contraire au contrat individuel, l'électricité consommée sur place par le Client est incluse dans la redevance mensuelle. L'électricité excédentaire est injectée dans le réseau ; la rémunération d'injection revient au propriétaire de l'installation (Free State AG).\n\n• Résiliation anticipée : la résiliation ordinaire avant l'expiration de la durée convenue est exclue. En cas de résiliation anticipée pour justes motifs, la partie qui résilie doit à l'autre une indemnisation conformément au contrat individuel. En cas de changement de propriétaire du bien, le nouveau propriétaire reprend le contrat, lorsque cela est prévu au contrat individuel.\n\n• Option d'achat : lorsque cela est prévu au contrat individuel, le Client a le droit d'acquérir l'installation à des moments définis à une valeur résiduelle déterminée à l'avance.\n\n• Après la fin du contrat : à l'expiration de la durée du contrat, lorsque cela est prévu au contrat individuel, la propriété de l'installation passe au Client gratuitement ou à une valeur résiduelle symbolique. Sinon, l'installation est démontée par Free State AG et le site d'installation est remis en état de manière professionnelle.\n\nLes détails relatifs à la durée, aux redevances, à l'indexation, au transfert de propriété, à la couverture d'assurance et à l'option d'achat sont fixés de manière définitive dans le contrat Solar Free signé, qui prévaut sur les présentes CG en cas de conflit."
+      "content": "Dans le cadre du modèle « Solar Free », Free State AG met à disposition du Client une installation photovoltaïque (éventuellement complétée par un stockage batterie, une borne de recharge ou un pilotage de pompe à chaleur) contre une redevance mensuelle, sans que le Client ait à acheter l'installation.\n\nPoints clés :\n\n• Propriété : pendant toute la durée du contrat, la propriété de l'installation reste chez Free State AG ou chez un partenaire financier désigné par Free State AG. Le Client met le toit ou le site d'installation à disposition gratuitement et accorde les droits d'accès nécessaires à la construction, à l'exploitation et à l'entretien.\n\n• Durée du contrat : sauf accord contraire dans le contrat individuel, la durée standard d'un contrat Solar Free est de 35 ans à compter de la mise en service.\n\n• Redevance mensuelle : la redevance mensuelle est fixée de manière contraignante dans le contrat individuel. Une indexation ou un modèle par paliers peut être prévu ; dans ce cas, la base de calcul est indiquée au contrat.\n\n• Entretien et réparation : pendant la durée du contrat, Free State AG est responsable de l'entretien courant et de la réparation des défauts des composants de l'installation, à condition qu'ils ne soient pas causés par un usage inapproprié, du vandalisme, un cas de force majeure ou une intervention de tiers.\n\n• Consommation et injection d'électricité : sauf stipulation contraire au contrat individuel, l'électricité consommée sur place par le Client est incluse dans la redevance mensuelle. L'électricité excédentaire est injectée dans le réseau ; la rémunération d'injection revient au propriétaire de l'installation (Free State AG).\n\n• Résiliation anticipée : la résiliation ordinaire avant l'expiration de la durée convenue est exclue. En cas de résiliation anticipée pour justes motifs, la partie qui résilie doit à l'autre une indemnisation conformément au contrat individuel. En cas de changement de propriétaire du bien, le nouveau propriétaire reprend le contrat, lorsque cela est prévu au contrat individuel.\n\n• Option d'achat : lorsque cela est prévu au contrat individuel, le Client a le droit d'acquérir l'installation à des moments définis à une valeur résiduelle déterminée à l'avance.\n\n• Après la fin du contrat : à l'expiration de la durée du contrat, lorsque cela est prévu au contrat individuel, la propriété de l'installation passe au Client gratuitement ou à une valeur résiduelle symbolique. Sinon, l'installation est démontée par Free State AG et le site d'installation est remis en état de manière professionnelle.\n\nLes détails relatifs à la durée, aux redevances, à l'indexation, au transfert de propriété, à la couverture d'assurance et à l'option d'achat sont fixés de manière définitive dans le contrat Solar Free signé, qui prévaut sur les présentes CG en cas de conflit."
     },
     "prices": {
       "title": "7. Prix",
@@ -4087,6 +4087,148 @@
           "href": "/charging-stations/bidirectional-charging-station"
         }
       ]
+    }
+  },
+  "calculatorV2": {
+    "progress": {
+      "stepOf": "Étape {n} sur 5",
+      "screen1": "Adresse",
+      "screen2": "Toiture",
+      "screen3": "Consommation",
+      "screen4": "Résultat",
+      "screen5": "Contact"
+    },
+    "screen1": {
+      "headline": "Calculez vos économies en 2 minutes",
+      "helper": "Saisissez votre adresse. Nous vous montrons ce que votre toit produit et ce que la Confédération verse pour cela.",
+      "fieldLabel": "Adresse avec numéro de maison",
+      "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
+      "button": "Analyser le toit",
+      "reassurance1": "Nous vérifions votre toit avec les données officielles de Sonnendach.ch.",
+      "errors": {
+        "empty": "Veuillez saisir votre adresse.",
+        "notChosen": "Veuillez sélectionner votre adresse dans la liste de suggestions.",
+        "noStreetNumber": "Veuillez sélectionner une adresse avec un numéro de maison. Sans numéro de maison, nous ne trouvons pas votre bâtiment.",
+        "notFound": "Nous ne trouvons pas cette adresse. Vérifiez l'orthographe ou <link>laissez-nous vérifier votre toit à la main</link>.",
+        "outsideCh": "Nous ne lisons actuellement que les adresses suisses automatiquement. Si votre bâtiment se trouve à l'étranger, <link>envoyez-nous votre adresse</link> et nous la vérifierons à la main.",
+        "placesSlow": "La recherche d'adresse répond lentement en ce moment. Un instant s'il vous plaît."
+      },
+      "badge": "Gratuit et sans engagement"
+    },
+    "screen2": {
+      "headline": "Voici votre toit",
+      "helper": "Nous avons déjà marqué les surfaces appropriées. Touchez une surface pour l'ajouter ou la retirer.",
+      "areaReadout": "Vous avez sélectionné {n} m² de surface de toit.",
+      "button": "Continuer",
+      "otherAddress": "Saisir une autre adresse",
+      "loading": "Nous chargeons les données des toits de la Confédération pour votre adresse. Cela prend un instant.",
+      "loadingSlow": "Les données des toits prennent plus de temps que d'habitude. Nous continuons d'essayer.",
+      "segmentListTitle": "Vos surfaces de toit",
+      "segmentListHelper": "Sélectionnez les surfaces que nous devons inclure dans le calcul.",
+      "segmentRow": "Surface {n} de {m} m², aptitude {eignung}",
+      "mapAriaLabel": "Carte de votre toit. Vous pouvez aussi sélectionner les surfaces dans la liste ci-dessous.",
+      "gering": "faible",
+      "mittel": "moyenne",
+      "gut": "bonne",
+      "sehrGut": "très bonne",
+      "hervorragend": "excellente",
+      "errors": {
+        "noneSelected": "Vous n'avez sélectionné aucune surface. Touchez votre toit, ou laissez-nous vérifier votre toit à la main.",
+        "noneSelectedAction": "Faire vérifier à la main",
+        "noSegments": "Aucune donnée de toit n'est disponible pour ce bâtiment.",
+        "requestFailed": "Nous n'arrivons pas à joindre les données des toits de la Confédération en ce moment.",
+        "noBuilding": "Nous n'avons pas trouvé de bâtiment à cette adresse.",
+        "tapNoData": "Aucune donnée de toit n'est disponible à cet endroit. Touchez une surface marquée.",
+        "tapSwitchBuilding": "Voulez-vous passer à ce bâtiment ? Votre sélection actuelle sera perdue.",
+        "tapSwitchConfirm": "Changer de bâtiment",
+        "tapSwitchCancel": "Annuler"
+      }
+    },
+    "manualCheck": {
+      "noRoofHeadline": "Nous vérifions votre toit à la main",
+      "noRoofBody1": "Aucune donnée automatique de toit n'est disponible pour votre adresse. Cela arrive pour les nouvelles constructions et dans certaines communes et ne dit rien sur l'aptitude de votre toit.",
+      "noRoofBody2": "Laissez-nous votre adresse e-mail. Nous vérifions votre toit manuellement et vous recontactons avec une évaluation.",
+      "placesHeadline": "Nous vérifions votre adresse à la main",
+      "placesBody1": "La recherche d'adresse ne répond pas en ce moment. Cela vient de notre service cartographique et non de votre adresse.",
+      "placesBody2": "Envoyez-nous votre adresse et votre adresse e-mail. Nous vérifions votre toit à la main et vous recontactons avec une évaluation.",
+      "retryBlockedBody": "Nous n'avons pas pu enregistrer vos données à l'instant. Laissez-nous votre adresse e-mail et nous vous recontacterons avec votre évaluation.",
+      "partialConsentNote": "Dès que vous donnez votre consentement, nous enregistrons votre adresse e-mail afin que votre évaluation ne soit pas perdue.",
+      "addressLabel": "Adresse avec numéro de maison",
+      "emailLabel": "Adresse e-mail",
+      "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
+      "privacyLink": "Politique de confidentialité",
+      "button": "Demander une évaluation",
+      "reassurance": "Nous vous contacterons dès que nous aurons vérifié votre toit.",
+      "success": "Merci. Nous avons bien reçu votre demande et vérifions votre toit."
+    },
+    "screen3": {
+      "headline": "Qu'est-ce qui consomme beaucoup d'électricité chez vous ?",
+      "helper": "Vous pouvez sélectionner plusieurs options. Une pompe à chaleur et une voiture électrique augmentent nettement votre résultat.",
+      "heatPump": "Pompe à chaleur",
+      "ev": "Voiture électrique",
+      "boiler": "Chauffe-eau",
+      "none": "Aucun de ces éléments",
+      "existingSolar": "J'ai déjà une installation solaire.",
+      "button": "Continuer",
+      "consumptionLabel": "Votre consommation annuelle estimée",
+      "consumptionLabelOverride": "La consommation annuelle que vous avez indiquée",
+      "costLine": "Cela correspond à environ CHF {chf} de frais d'électricité par an, TVA incluse.",
+      "costLineRange": "Cela correspond à environ CHF {low} à CHF {high} de frais d'électricité par an, TVA incluse.",
+      "tariffBasis": "Nous nous basons sur les tarifs d'électricité de votre commune {municipality} pour {year}.",
+      "tariffBasisFallback": "Nous n'avons pas de tarif communal pour votre code postal. Nous calculons avec une moyenne suisse, c'est pourquoi nous indiquons une fourchette.",
+      "correctTrigger": "Cela ne correspond pas ? Indiquez vous-même votre consommation",
+      "correctClose": "Fermer la saisie",
+      "modeKwh": "En kWh",
+      "modeChf": "En francs",
+      "kwhLabel": "Consommation annuelle",
+      "kwhUnit": "kWh par an",
+      "kwhHelper": "Votre consommation annuelle figure sur votre facture d'électricité. Pour une maison individuelle, 3'500 à 7'000 kWh est courant.",
+      "chfLabel": "Frais d'électricité",
+      "chfHelper": "Reprenez le montant de votre facture d'électricité, TVA incluse. Si vous payez tous les trimestres, choisissez la période trimestre.",
+      "periodMonth": "par mois",
+      "periodQuarter": "par trimestre",
+      "periodYear": "par an",
+      "echoFromChf": "Cela correspond à environ {kwh} kWh par an.",
+      "echoFromKwh": "Cela correspond à environ CHF {chf} par an, TVA incluse.",
+      "divergenceHigher": "C'est nettement plus que notre estimation de {estimate} kWh. Nous calculons avec votre valeur.",
+      "divergenceLower": "C'est nettement moins que notre estimation de {estimate} kWh. Nous calculons avec votre valeur.",
+      "kwhOutOfRange": "Pour un ménage, nous attendons 800 à 35'000 kWh par an. Veuillez vérifier ce chiffre. En attendant, nous calculons avec notre estimation.",
+      "outOfRangeLow": "Ce montant est trop faible pour un ménage sur une année entière. Veuillez vérifier le montant et la période. En attendant, nous calculons avec notre estimation.",
+      "outOfRangeHigh": "Ce montant dépasse ce dont un ménage a besoin en une année. Veuillez vérifier le montant et la période. En attendant, nous calculons avec notre estimation.",
+      "periodSuggestionYear": "Voulez-vous dire CHF {amount} par an ?",
+      "periodSuggestionQuarter": "Voulez-vous dire CHF {amount} par trimestre ?",
+      "resetToEstimate": "Revenir à notre estimation",
+      "deviceNoteWithOverride": "La valeur que vous avez saisie reste valable. Votre sélection nous aide désormais uniquement pour l'autoconsommation."
+    },
+    "screen5": {
+      "headline": "Votre évaluation est prête",
+      "helper": "Nous avons déjà votre adresse. Il ne manque plus que votre nom et vos coordonnées.",
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Adresse e-mail",
+      "phone": "Numéro de téléphone",
+      "phoneHelper": "Nous avons besoin de votre numéro pour que notre équipe puisse passer en revue votre évaluation avec vous.",
+      "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
+      "consentNote": "Dès que vous donnez votre consentement, nous enregistrons votre adresse e-mail afin que votre évaluation ne soit pas perdue.",
+      "privacyLink": "Politique de confidentialité",
+      "button": "Ouvrir l'évaluation",
+      "reassurance1": "Cela ne vous coûte rien. Vous décidez ensuite si vous souhaitez continuer.",
+      "reassurance2": "Prestataire de Schaffhouse.",
+      "addressFallbackHelper": "Veuillez compléter ces deux informations. Nous n'avons pas pu les lire depuis votre adresse.",
+      "postalCode": "Code postal",
+      "city": "Localité",
+      "alreadyDone": "Votre évaluation est prête. Vous la trouverez dans votre compte.",
+      "alreadyDoneCta": "Vers l'évaluation",
+      "verifyTypoPrompt": "Vous êtes-vous trompé dans votre adresse e-mail ? Saisissez-la ici encore une fois.",
+      "verifyResendButton": "Renvoyer le lien",
+      "errors": {
+        "phoneInvalid": "Veuillez saisir un numéro de téléphone valide.",
+        "required": "Veuillez remplir ce champ.",
+        "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+        "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
+        "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer.",
+        "rateLimited": "Nous n'avons pas pu enregistrer vos données à l'instant. Laissez-nous votre adresse e-mail et nous vous recontacterons avec votre évaluation."
+      }
     }
   },
   "solarAboCalculator": {
@@ -4556,14 +4698,6 @@
     "step7": {
       "title": "Vos coordonnées pour l'offre détaillée",
       "helper": "Nous serons heureux de vous remettre l'offre en personne. Pour cela, nous avons encore besoin de vos coordonnées.",
-      "salutation": {
-        "label": "Civilité",
-        "options": {
-          "mr": "Monsieur",
-          "woman": "Madame",
-          "family": "Famille"
-        }
-      },
       "firstName": "Prénom",
       "firstNamePlaceholder": "Saisissez votre prénom",
       "lastName": "Nom",
@@ -4572,19 +4706,6 @@
       "emailPlaceholder": "Saisissez votre adresse e-mail",
       "phoneNumber": "Numéro de téléphone",
       "phoneNumberPlaceholder": "Saisissez votre numéro de téléphone",
-      "dateOfBirth": "Date de naissance",
-      "dateOfBirthDay": "Jour",
-      "dateOfBirthMonth": "Mois",
-      "dateOfBirthYear": "Année",
-      "nationality": "Nationalité",
-      "remarks": "Remarques",
-      "remarksPlaceholder": "Informations ou questions complémentaires...",
-      "propertyOwner": {
-        "label": "Êtes-vous le propriétaire enregistré du bâtiment ?",
-        "yes": "Oui",
-        "no": "Non",
-        "ineligible": "Seul le propriétaire enregistré peut signer ce contrat. Merci de demander au propriétaire de démarrer le processus."
-      },
       "address": {
         "sectionTitle": "Votre adresse",
         "countryLabel": "Pays",
@@ -4595,8 +4716,7 @@
         "postalCode": "NPA",
         "city": "Ville",
         "street": "Rue",
-        "streetNumber": "N°",
-        "addressAdditional": "Complément d'adresse, p. ex. appartement ou étage (optionnel)"
+        "streetNumber": "N°"
       },
       "errors": {
         "salutationRequired": "Veuillez sélectionner une civilité",
@@ -4606,14 +4726,10 @@
         "emailInvalid": "Veuillez saisir une adresse e-mail valide",
         "phoneRequired": "Le numéro de téléphone est requis",
         "phoneInvalid": "Veuillez saisir un numéro de téléphone valide",
-        "dateOfBirthRequired": "La date de naissance est requise",
-        "dateOfBirthInvalid": "Veuillez saisir une date de naissance valide (au moins 18 ans)",
-        "nationalityRequired": "La nationalité est requise",
         "postalCodeRequired": "Le NPA est requis",
         "cityRequired": "La ville est requise",
         "streetRequired": "La rue est requise",
         "streetNumberRequired": "Le numéro est requis",
-        "propertyOwnerRequired": "Veuillez indiquer si vous êtes le propriétaire.",
         "consentRequired": "Vous devez accepter les conditions de traitement des données"
       },
       "submit": "Demander l'offre",
@@ -6439,9 +6555,10 @@
           "funnelLead": "Lead créé",
           "funnelLandedAny": "Arrivé sur le site",
           "funnelLandedCalculator": "Calculateur ouvert",
-          "funnelModelSelected": "Modèle choisi",
+          "funnelEstimateViewed": "Estimation consultée (ancienne étape)",
           "funnelResultsViewed": "Résultat consulté",
           "funnelAccountCreated": "Compte créé",
+          "funnelOfferRequested": "Offre demandée",
           "funnelConsultation": "Conseil demandé",
           "funnelContractSigned": "Contrat signé",
           "funnelNote": "Sessions par étape, mesurées sans cookies. «Conseil demandé» compte les clics sur le lien de rendez-vous, pas les rendez-vous confirmés.",
@@ -7736,25 +7853,9 @@
   },
   "dashboard": {
     "workspace": {
-      "metaTitle": "Votre projet solaire",
+      "metaTitle": "Votre évaluation",
       "notFound": "Ce projet est introuvable.",
       "backToProjects": "Retour à l'aperçu des projets",
-      "conversion": {
-        "calculation_complete": "Calcul terminé",
-        "offer_requested": "Offre demandée",
-        "contract_pending": "Contrat en attente",
-        "contract_signed": "Contrat signé"
-      },
-      "stats": {
-        "systemBadge": "Votre installation",
-        "systemSubtitle": "{production} kWh/an avec {panels} modules",
-        "savingsBadge": "Économies annuelles",
-        "savingsSubtitle": "économies estimées par an",
-        "monthlyBadge": "Mensualité",
-        "monthlySubtitle": "mensualité",
-        "co2Subtitle": "Réduction de CO2 par an",
-        "selfConsumptionSubtitle": "Part d'autoconsommation"
-      },
       "contractStatus": {
         "DRAFT": "Brouillon",
         "PENDING_SIGNATURE": "Signature en attente",
@@ -7777,31 +7878,35 @@
         "consumptionCancel": "Annuler",
         "saveError": "La modification n'a pas pu être enregistrée. Veuillez réessayer."
       },
-      "chartsTitle": "Votre bilan énergétique",
-      "chartsSubtitle": "Production et consommation sur l'année.",
-      "financialTitle": "Votre financement",
-      "equipmentTitle": "Votre équipement",
+      "modelComparison": {
+        "toggle": "Comparer les modèles",
+        "headerSolarFree": "SolarFree",
+        "headerSolarDirect": "SolarDirect",
+        "payTodayQuestion": "Qu'est-ce que je paie aujourd'hui ?",
+        "payTodayFree": "CHF 0",
+        "payTodayDirect": "Prix d'achat en trois tranches, 30 / 60 / 10",
+        "ownerQuestion": "À qui appartient l'installation ?",
+        "ownerFree": "À Free State AG, pendant la durée du contrat",
+        "ownerDirect": "À vous, après le paiement final",
+        "whenMineQuestion": "Quand devient-elle ma propriété ?",
+        "whenMineFree": "Après 35 ans, sans paiement",
+        "whenMineDirect": "Après le paiement final",
+        "headerSolarAbo": "SolarAbo",
+        "payTodayAbo": "Aucun paiement unique, mensualités fixes",
+        "ownerAbo": "À vous, dès le premier jour",
+        "whenMineAbo": "Dès le premier jour. Payée après 25 ans."
+      },
+      "ownership": {
+        "question": "Le bâtiment vous appartient-il ?",
+        "yes": "Oui",
+        "no": "Non, je suis locataire",
+        "helper": "Pour l'installation, nous avons besoin de l'accord du propriétaire. Nous vous aidons dans cette démarche."
+      },
       "actionsTitle": "Prochaines étapes",
       "actions": {
-        "downloadTitle": "Télécharger le rapport",
-        "downloadSubtitle": "Votre analyse solaire complète au format PDF.",
-        "downloadButton": "Télécharger",
-        "emailTitle": "Rapport par e-mail",
-        "emailSubtitle": "Nous envoyons le rapport à votre adresse e-mail.",
-        "emailButton": "Envoyer",
-        "emailSent": "Envoyé",
-        "offerTitle": "Demander une offre",
-        "offerSubtitle": "Notre équipe vous contactera pour une visite sur place.",
-        "offerButton": "Demander",
-        "offerRequestedOn": "Demandé le {date}",
-        "offerUpdateSubtitle": "Votre configuration a changé. Demandez une offre mise à jour.",
-        "offerUpdateButton": "Mettre à jour l'offre",
-        "offerCooldown": "Mise à jour possible dès le {date}",
         "offerResult_updated": "Votre offre mise à jour est en route.",
         "offerResult_unchanged": "Votre configuration est inchangée. Aucune nouvelle offre nécessaire.",
         "offerResult_cooldown": "Veuillez patienter avant de demander une nouvelle offre.",
-        "validUntil": "Valable jusqu'au {date}",
-        "contractTitle": "Votre contrat",
         "actionError": "L'action a échoué. Veuillez réessayer."
       },
       "financial": {
@@ -7850,16 +7955,123 @@
           "uplift": "Supplément de financement +{percent}%",
           "total": "Montant total"
         },
+        "modelChangedNotice": "Votre contrat a été créé pour un autre modèle. Nous le créons à nouveau avant votre signature.",
         "errors": {
           "disabled": "La signature numérique est temporairement désactivée. Veuillez réessayer plus tard.",
           "cancelled": "Ce contrat a été annulé. Veuillez recharger la page.",
           "alreadySigned": "Ce contrat a déjà été signé.",
           "aboUnavailable": "Les contrats SolarAbo ne sont pas encore disponibles. Veuillez demander une offre.",
+          "detailsMissing": "Vos données d'adresse sont encore incomplètes. Notre équipe les complétera et vous contactera.",
           "notOwner": "Seule la propriété inscrite peut signer le contrat.",
           "expired": "La demande de signature a expiré. Veuillez recommencer.",
           "generic": "La signature n'a pas pu être lancée. Veuillez réessayer."
         }
+      },
+      "hero": {
+        "eyebrow": "Votre évaluation",
+        "header": {
+          "download": "Évaluation en PDF",
+          "downloadPending": "En préparation..."
+        },
+        "sizeBadge": "Installation de {kwp} kWp"
+      },
+      "cta": {
+        "primary": "Recevoir votre offre gratuite",
+        "primaryHelper": "Vous recevez votre évaluation en PDF et nous discutons de la suite avec vous. Cela ne vous coûte rien.",
+        "primaryPending": "Demande en cours...",
+        "trustFree": "Gratuit et sans engagement.",
+        "trustSubsidy": "Nous nous chargeons pour vous de la demande de rétribution unique.",
+        "trustPhone": "Vous préférez parler directement? Appelez-nous au {phone}.",
+        "requestedTitle": "Nous avons reçu votre demande.",
+        "requestedBody": "Votre évaluation est en route vers votre adresse e-mail en PDF. Pour l'offre ferme, nous avons besoin d'une brève visite de votre toit.",
+        "requestedOn": "Demandée le {date}.",
+        "bookSlot": "Réserver la visite",
+        "bookSlotHelper": "30 minutes, par téléphone ou sur place. Vous choisissez le moment.",
+        "updateTitle": "Votre configuration a changé.",
+        "updateButton": "Mettre l'offre à jour",
+        "cooldown": "Mise à jour possible dès le {date}.",
+        "notOwnerNote": "Vous louez le bâtiment. Nous demandons quand même l'offre et réglons l'accord des propriétaires avec vous.",
+        "aboNote": "Pour Solar-Abo, nous établissons d'abord une offre personnelle."
+      },
+      "sections": {
+        "numbers": "Vos chiffres en détail",
+        "numbersHelper": "Prix, subvention et amortissement.",
+        "energy": "Votre bilan énergétique",
+        "energyHelper": "Production et consommation sur toute l'année.",
+        "equipment": "Ce que nous installons chez vous",
+        "config": "Adapter votre configuration",
+        "configHelper": "Si vous modifiez quelque chose ici, nous recomposons votre offre.",
+        "toggleAria": "Ouvrir ou fermer la section {title}"
+      },
+      "numbers": {
+        "electricityPrice": "Votre prix de l'électricité",
+        "feedInTariff": "Tarif de reprise",
+        "rpPerKwh": "{rate} ct./kWh",
+        "subsidyTier1": "Rétribution unique jusqu'à {kwp} kWp",
+        "subsidyTier2": "Rétribution unique au-delà de {kwp} kWp",
+        "chfPerKwp": "CHF {amount} par kWp",
+        "costSourceEstimated": "Le prix est estimé d'après notre catalogue. Vous recevrez le prix ferme après la visite.",
+        "costSourceSnapshot": "Le prix provient de votre configuration enregistrée."
+      },
+      "equipment": {
+        "warrantyInstaller": "{years} ans de garantie sur l'installation."
+      },
+      "money": {
+        "question": "Comment souhaitez-vous payer ?",
+        "helper": "Vous pouvez changer à tout moment. Nous recalculons vos chiffres et recomposons votre offre.",
+        "switchError": "Le modèle n'a pas pu être changé. Veuillez réessayer.",
+        "unavailable": "Nous calculerons votre prix avec vous lors de l'entretien.",
+        "direct": {
+          "priceLabel": "Votre prix après subvention",
+          "priceLabelNoSubsidy": "Votre prix d'achat",
+          "grossPrice": "Prix brut",
+          "subsidy": "Rétribution unique de la Confédération",
+          "subsidyFootnote": "Subvention unique selon l'ordonnance sur l'encouragement de la production d'électricité, versée par Pronovo.",
+          "subsidyUnavailable": "Nous ne pouvons pas récupérer le montant de la rétribution unique de la Confédération pour le moment. Nous le calculerons pour vous dans votre analyse.",
+          "savings": "Économie par année",
+          "payback": "Amortissement",
+          "paybackYears": "{years} ans",
+          "instalments": "Prix d'achat en trois tranches, 30 / 60 / 10."
+        },
+        "free": {
+          "priceLabel": "Ce que vous payez aujourd'hui",
+          "discount": "Rabais sur votre prix de l'électricité",
+          "discountValue": "jusqu'à {percent} %",
+          "tariff": "Votre tarif de réseau",
+          "tariffValue": "{rate} ct./kWh",
+          "term": "Durée du contrat",
+          "termYears": "{years} ans",
+          "savings": "Rabais sur vos achats d'électricité",
+          "ownership": "Après {years} ans, l'installation vous appartient.",
+          "tariffFootnote": "Vous nous achetez l'électricité solaire, moins cher que votre tarif de réseau. Pendant la durée du contrat, l'installation appartient à Free State AG."
+        },
+        "abo": {
+          "priceLabel": "Votre mensualité",
+          "pending": "Nous finançons aussi l'installation en mensualités sur 25 ans. Parlez-nous-en.",
+          "points": {
+            "owner": "L'installation vous appartient.",
+            "fixed": "Mensualités fixes sur 25 ans.",
+            "noUpfront": "Aucun paiement unique."
+          },
+          "subsidyNote": "La rétribution unique de la Confédération vous revient et réduit le montant financé.",
+          "next": "Demandez votre offre gratuite. Nous calculerons ensuite votre mensualité avec vous."
+        }
+      },
+      "facts": {
+        "title": "Ce que vous recevez",
+        "system": "{kwp} kWp avec {panels} modules, {production} kWh d'électricité par année, {selfConsumption} pour cent d'autoconsommation.",
+        "systemNoPanels": "{kwp} kWp, {production} kWh d'électricité par année, {selfConsumption} pour cent d'autoconsommation.",
+        "co2": "Cela représente {co2} kg de CO2 en moins par année.",
+        "tariff": "Calculé avec {rate} ct./kWh pour votre prix de l'électricité.",
+        "estimate": "Ces chiffres sont une estimation basée sur les données fédérales officielles de toiture. Nous fixons le prix exact après la visite sur place."
       }
+    },
+    "status": {
+      "calculation_complete": "Votre évaluation est prête. Demandez votre offre gratuite.",
+      "offer_requested": "Offre demandée. Nous vous contactons pour la visite.",
+      "contract_pending": "Votre contrat est prêt à être signé.",
+      "contract_signed": "Votre contrat est signé. Nous planifions maintenant votre installation.",
+      "contractNumber": "Contrat {number}."
     },
     "settings": {
       "title": "Paramètres",
@@ -7918,64 +8130,36 @@
       "signingDisabled": "La signature numérique est temporairement désactivée. Veuillez réessayer plus tard.",
       "signingError": "La signature n'a pas pu être lancée. Veuillez réessayer.",
       "signatureExpired": "La demande de signature a expiré. Veuillez recommencer.",
+      "modelChanged": "Votre contrat a été créé pour un autre modèle. Nous le créons à nouveau avant votre signature.",
+      "detailsMissing": "Vos données d'adresse sont encore incomplètes. Notre équipe les complétera et vous contactera.",
       "checkBackLater": "La signature est toujours en cours. Veuillez revenir plus tard.",
       "contractCancelled": "Ce contrat a été annulé. Veuillez recharger la page.",
       "alreadySigned": "Ce contrat a déjà été signé."
     },
     "project": {
-      "title": "Mon projet",
-      "noProjects": "Pas encore de projet. Commencez avec notre calculateur solaire.",
-      "package": "Forfait",
-      "status": "Statut",
-      "systemSize": "Taille de l'installation en kWp",
-      "production": "Production en kWh/an",
-      "annualSavings": "Économies annuelles",
-      "co2Saved": "kg CO₂/an économisés",
-      "systemDetails": "Détails du système",
-      "estimatedPanels": "Panneaux estimés",
-      "selfConsumption": "Taux d'autoconsommation",
-      "annualConsumption": "Consommation annuelle",
-      "contractStatus": "Statut du contrat",
-      "noContract": "Pas encore de contrat",
-      "viewDetails": "Voir les détails",
+      "title": "Votre évaluation",
       "viewContract": "Voir le contrat",
-      "back": "Retour à l'aperçu",
-      "conversion": {
-        "calculation_complete": "Calcul terminé",
-        "offer_requested": "Offre demandée",
-        "contract_pending": "Contrat en attente",
-        "contract_signed": "Contrat signé"
-      },
       "models": {
         "solarFree": "SolarFree",
         "solarDirect": "SolarDirect",
         "solarAbo": "SolarAbo",
         "unknown": "Projet solaire"
       },
-      "statuses": {
-        "DRAFT": "Brouillon",
-        "CALCULATING": "Calcul en cours",
-        "QUOTE_GENERATED": "Devis généré",
-        "QUOTE_SENT": "Devis envoyé",
-        "ACCEPTED": "Accepté",
-        "CONTRACT_SENT": "Contrat envoyé",
-        "CONTRACT_SIGNED": "Contrat signé",
-        "INSTALLATION_SCHEDULED": "Installation planifiée",
-        "INSTALLATION_IN_PROGRESS": "Installation en cours",
-        "COMPLETED": "Terminé",
-        "CANCELLED": "Annulé"
+      "card": {
+        "savingsLabel": "Économies par année",
+        "lifetimeLine": "Environ CHF {amount} sur 25 ans.",
+        "systemLine": "{kwp} kWp, {production} kWh par année, {co2} kg de CO2 en moins.",
+        "open": "Ouvrir l'évaluation",
+        "savingsUnavailable": "Nous calculerons vos économies avec vous lors de l'entretien."
       },
-      "signatureStatuses": {
-        "PENDING": "En attente",
-        "OTP_SENT": "OTP envoyé",
-        "SIGNED": "Signé",
-        "FAILED": "Échoué",
-        "EXPIRED": "Expiré",
-        "CANCELLED": "Annulé"
+      "empty": {
+        "title": "Pas encore d'évaluation",
+        "body": "Calculez en deux minutes ce que produit votre toit et ce que la Confédération verse pour cela.",
+        "cta": "Lancer le calculateur"
       },
-      "packages": {
-        "home": "SolarFree Home",
-        "multi": "SolarFree Multifamilial"
+      "error": {
+        "title": "Nous n'avons pas pu charger votre évaluation.",
+        "retry": "Réessayer"
       }
     },
     "support": {
@@ -8040,18 +8224,8 @@
     "overview": {
       "welcome": "Bon retour, {firstName}",
       "subtitle": "Voici un aperçu de votre projet solaire.",
-      "whatsNext": "Les prochaines étapes",
-      "whatsNextSubtitle": "L'avancement de votre projet en un coup d'oeil.",
       "failedToLoad": "Échec du chargement des données du tableau de bord.",
       "startCalculator": "Démarrer le calculateur",
-      "viewContract": "Voir le contrat",
-      "requestOfferCta": "Demander une offre",
-      "requestingOffer": "Demande en cours...",
-      "offerError": "La demande a échoué. Veuillez réessayer.",
-      "viewDetails": "Voir les détails",
-      "yourProject": "Votre projet",
-      "address": "Adresse",
-      "package": "Forfait",
       "activity": "Activité",
       "systemSize": "Taille de l'installation",
       "annualProduction": "Production annuelle",
@@ -8061,28 +8235,11 @@
       "kwh": "kWh",
       "kgPerYear": "kg/an",
       "chf": "CHF",
-      "statusNoProjectLabel": "Commencer",
-      "statusNoProjectDesc": "Utilisez notre calculateur solaire pour explorer vos options.",
-      "statusCalcCompleteLabel": "Calcul terminé",
-      "statusCalcCompleteDesc": "Votre analyse solaire est prête. Demandez une offre ou signez un contrat.",
-      "statusOfferRequestedLabel": "Offre demandée",
-      "statusOfferRequestedDesc": "Notre équipe examine votre propriété. Nous vous contacterons pour une visite.",
-      "statusContractPendingLabel": "Contrat en attente",
-      "statusContractPendingDesc": "Votre contrat est prêt à être signé.",
-      "statusContractSignedLabel": "Contrat signé",
-      "statusContractSignedDesc": "Votre contrat est signé. La planification de l'installation commencera bientôt.",
       "activityAccountCreated": "Compte créé",
       "activityCalculationCompleted": "Calcul solaire terminé",
       "activityOfferRequested": "Offre demandée",
       "activityContractCreated": "Contrat généré",
-      "activityContractSigned": "Contrat signé",
-      "downloadReport": "Télécharger le rapport",
-      "downloadingReport": "Génération en cours...",
-      "emailReport": "Envoyer le rapport",
-      "sendingReport": "Envoi en cours...",
-      "reportEmailSent": "Envoyé",
-      "reportError": "Le rapport n'a pas pu être généré. Veuillez réessayer.",
-      "offerRequestedOn": "Offre demandée le {date}"
+      "activityContractSigned": "Contrat signé"
     },
     "stages": {
       "title": "Les prochaines étapes",

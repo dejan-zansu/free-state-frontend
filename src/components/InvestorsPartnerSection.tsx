@@ -34,7 +34,7 @@ const InvestorsPartnerSection = () => {
                 <div className="w-3 h-3 shrink-0">
                   <Check className="w-3 h-3 text-[#B7FE1A]" strokeWidth={3} />
                 </div>
-                <span className="text-[#FDFFF5]/80 text-lg lg:text-[22px] font-light tracking-[-0.02em]">
+                <span className="text-[#FDFFF5]/80 text-lg lg:text-[22px] tracking-[-0.02em]">
                   {t(`bullets.${key}`)}
                 </span>
               </div>

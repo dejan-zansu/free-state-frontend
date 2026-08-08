@@ -77,7 +77,7 @@ export default async function FoerderungHubPage() {
                   className="block rounded-xl border border-[#062E25]/15 bg-white p-5 hover:border-[#062E25] hover:shadow-sm transition-all"
                 >
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm font-semibold text-[#062E25]/60">
+                    <span className="text-sm font-semibold text-[#062E25]/75">
                       {c.code}
                     </span>
                     <span className="text-base font-semibold">{c.name}</span>
@@ -90,14 +90,14 @@ export default async function FoerderungHubPage() {
             <li key={c.code}>
               <div className="rounded-xl border border-[#062E25]/10 bg-[#062E25]/5 p-5">
                 <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-sm font-semibold text-[#062E25]/40">
+                  <span className="text-sm font-semibold text-[#062E25]/75">
                     {c.code}
                   </span>
-                  <span className="text-base font-semibold text-[#062E25]/60">
+                  <span className="text-base font-semibold text-[#062E25]/75">
                     {c.name}
                   </span>
                 </div>
-                <span className="inline-block text-xs font-medium text-[#062E25]/60 bg-white rounded-full px-2 py-1">
+                <span className="inline-block text-xs font-medium text-[#062E25]/75 bg-white rounded-full px-2 py-1">
                   {t('inPreparation')}
                 </span>
               </div>

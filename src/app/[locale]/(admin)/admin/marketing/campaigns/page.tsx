@@ -24,10 +24,10 @@ function formatChf(value: number) {
 }
 
 function cplClass(value: number | null, target: number | null) {
-  if (value === null) return 'text-[#062E25]/40'
+  if (value === null) return 'text-[#062E25]/75'
   if (target === null) return 'text-[#062E25]'
   if (value <= target) return 'text-green-700'
-  if (value <= target * 1.3) return 'text-amber-600'
+  if (value <= target * 1.3) return 'text-amber-700'
   return 'text-red-600'
 }
 
@@ -52,7 +52,7 @@ export default function AdminMarketingCampaignsPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const target = settings?.targets.cplTargetChf ?? null
@@ -64,7 +64,7 @@ export default function AdminMarketingCampaignsPage() {
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
           {data.rows.length === 0 ? (
-            <p className="text-center py-12 text-[#062E25]/40">{t('empty')}</p>
+            <p className="text-center py-12 text-[#062E25]">{t('empty')}</p>
           ) : (
             <div className="overflow-x-auto">
               <Table>
@@ -95,16 +95,16 @@ export default function AdminMarketingCampaignsPage() {
                       <TableCell>
                         <StatusBadge status={row.status} />
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {formatChf(row.spend7dChf)}
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {formatChf(row.spend30dChf)}
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {row.metaLeads30d}
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {row.dbLeads30d}
                       </TableCell>
                       <TableCell
@@ -115,19 +115,19 @@ export default function AdminMarketingCampaignsPage() {
                       >
                         {row.trueCplChf !== null ? formatChf(row.trueCplChf) : '—'}
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {row.consults30d}
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {row.contracts30d}
                       </TableCell>
-                      <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                      <TableCell className="text-right tabular-nums text-[#062E25]">
                         {formatChf(row.wonChf30d)}
                       </TableCell>
                     </TableRow>
                   ))}
                   <TableRow className="bg-[#062E25]/[0.03] hover:bg-[#062E25]/[0.03]">
-                    <TableCell colSpan={10} className="text-[#062E25]/60">
+                    <TableCell colSpan={10} className="text-[#062E25]">
                       {t('unattributed', { count: data.unattributedLeads30d })}
                     </TableCell>
                   </TableRow>
@@ -138,11 +138,11 @@ export default function AdminMarketingCampaignsPage() {
 
           <div className="flex flex-wrap items-center justify-between gap-2 mt-4 pt-4 border-t border-[#062E25]/10">
             {data.rows.length === 0 && (
-              <p className="text-sm text-[#062E25]/60">
+              <p className="text-sm text-[#062E25]">
                 {t('unattributed', { count: data.unattributedLeads30d })}
               </p>
             )}
-            <p className="text-sm text-[#062E25]/40 ml-auto">
+            <p className="text-sm text-[#062E25]/75 ml-auto">
               {data.lastSyncAt
                 ? t('lastSync', { date: new Date(data.lastSyncAt).toLocaleString('de-CH') })
                 : t('neverSynced')}

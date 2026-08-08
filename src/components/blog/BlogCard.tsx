@@ -51,7 +51,7 @@ const BlogCard = async ({
         </div>
 
         <div className="flex flex-col gap-3 p-6 pb-7 flex-1">
-          <div className="flex items-center gap-2 text-base text-[#062E25]/45 font-light tracking-tight">
+          <div className="flex items-center gap-2 text-base text-[#062E25]/75 tracking-tight">
             {post.publishedAt && (
               <time>
                 {new Date(post.publishedAt).toLocaleDateString(
@@ -67,7 +67,7 @@ const BlogCard = async ({
             {tr.title}
           </h2>
           {tr.excerpt && (
-            <p className="text-[#062E25]/55 text-base font-light line-clamp-2">
+            <p className="text-[#062E25] text-base line-clamp-2">
               {tr.excerpt}
             </p>
           )}

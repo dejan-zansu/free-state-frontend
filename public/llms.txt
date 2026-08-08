@@ -5,7 +5,7 @@
 ## Produkte und Leistungen
 
 - [Solaranlagen](https://www.freestate.ch/solaranlagen): Photovoltaikanlagen für Einfamilienhäuser und Mehrfamilienhäuser
-- [SolarFree](https://www.freestate.ch/solar-free): Solaranlage ohne Eigeninvestition: CHF 0 Anzahlung, Solarstrom zu 18 Rp/kWh, nach 20 Jahren geht die Anlage ins Eigentum über
+- [SolarFree](https://www.freestate.ch/solar-free): Solaranlage ohne Eigeninvestition: CHF 0 Anzahlung, Solarstrom zu 18 Rp/kWh, nach 35 Jahren geht die Anlage ins Eigentum über
 - [SolarAbo](https://www.freestate.ch/solar-abo): Eigene Solaranlage in festen Monatsraten, Eigentum ab Tag 1, Versicherung und Garantie inbegriffen
 - [SolarDirect](https://www.freestate.ch/solar-direct): Direkter Kauf einer Solaranlage mit transparentem Festpreis
 - [Batteriespeicher](https://www.freestate.ch/batteriespeicher): Stromspeicher ab 5 kWh

@@ -116,7 +116,7 @@ export default function AdminMarketingOverviewPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const { leads, cpl, funnel } = data.tiles
@@ -132,7 +132,7 @@ export default function AdminMarketingOverviewPage() {
           {data.today.length === 0 ? (
             <div className="flex items-center gap-3">
               <span className="h-2 w-2 rounded-full bg-[#0ca30c] shrink-0" />
-              <p className="text-[#062E25]/60">{t('todayEmpty')}</p>
+              <p className="text-[#062E25]">{t('todayEmpty')}</p>
             </div>
           ) : (
             <div className="space-y-3">
@@ -147,7 +147,7 @@ export default function AdminMarketingOverviewPage() {
                   <div className="min-w-0">
                     <p className="font-medium text-[#062E25]">{alert.title}</p>
                     {alert.detail && (
-                      <p className="text-sm text-[#062E25]/50">{alert.detail}</p>
+                      <p className="text-sm text-[#062E25]">{alert.detail}</p>
                     )}
                   </div>
                   {alert.link && (
@@ -167,7 +167,7 @@ export default function AdminMarketingOverviewPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
         <Card className="border-[#062E25]/10">
           <CardContent className="p-5">
-            <p className="text-sm text-[#062E25]/60 mb-2">{t('leadsTile')}</p>
+            <p className="text-sm text-[#062E25] mb-2">{t('leadsTile')}</p>
             <p className="text-2xl font-bold text-[#062E25] mb-1">
               {leads.thisWeek}
               <span
@@ -179,9 +179,9 @@ export default function AdminMarketingOverviewPage() {
                 {leadsDelta >= 0 ? `+${leadsDelta}` : leadsDelta}
               </span>
             </p>
-            <p className="text-sm text-[#062E25]/40">{t('lastWeek', { count: leads.lastWeek })}</p>
+            <p className="text-sm text-[#062E25]">{t('lastWeek', { count: leads.lastWeek })}</p>
             {leads.bySource.length > 0 && (
-              <p className="text-sm text-[#062E25]/40 truncate">
+              <p className="text-sm text-[#062E25] truncate">
                 {leads.bySource.map((s) => `${s.source} ${s.count}`).join(' · ')}
               </p>
             )}
@@ -190,16 +190,16 @@ export default function AdminMarketingOverviewPage() {
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-5">
-            <p className="text-sm text-[#062E25]/60 mb-2">{t('cplTile')}</p>
+            <p className="text-sm text-[#062E25] mb-2">{t('cplTile')}</p>
             <p className="text-2xl font-bold text-[#062E25] mb-1">
               {cpl.valueChf !== null ? `CHF ${formatChf(cpl.valueChf)}` : '—'}
             </p>
-            <p className="text-sm text-[#062E25]/40">
+            <p className="text-sm text-[#062E25]">
               {cpl.targetChf !== null
                 ? t('cplTargetLabel', { value: formatChf(cpl.targetChf) })
                 : t('cplNoTarget')}
             </p>
-            <p className="text-sm text-[#062E25]/40">
+            <p className="text-sm text-[#062E25]">
               {cpl.valueChf !== null
                 ? t('cplSpend', { spend: formatChf(cpl.spend7dChf), leads: cpl.paidLeads7d })
                 : t('cplHint')}
@@ -209,13 +209,13 @@ export default function AdminMarketingOverviewPage() {
 
         <Card className="border-[#062E25]/10">
           <CardContent className="p-5">
-            <p className="text-sm text-[#062E25]/60 mb-2">{t('funnelTile')}</p>
+            <p className="text-sm text-[#062E25] mb-2">{t('funnelTile')}</p>
             <p className="text-2xl font-bold text-[#062E25] mb-1">
               {funnel.ratePct !== null
                 ? `${funnel.ratePct.toLocaleString('de-CH', { maximumFractionDigits: 1 })} %`
                 : '—'}
             </p>
-            <p className="text-sm text-[#062E25]/40">
+            <p className="text-sm text-[#062E25]">
               {funnel.ratePct !== null
                 ? t('funnelDetail', { sessions: funnel.sessions7d, leads: funnel.leads7d })
                 : t('funnelHint')}
@@ -225,9 +225,9 @@ export default function AdminMarketingOverviewPage() {
 
         <Card className="border-[#062E25]/10 opacity-50">
           <CardContent className="p-5">
-            <p className="text-sm text-[#062E25]/60 mb-2">{t('engagementTile')}</p>
+            <p className="text-sm text-[#062E25] mb-2">{t('engagementTile')}</p>
             <p className="text-2xl font-bold text-[#062E25] mb-1">{'—'}</p>
-            <p className="text-sm text-[#062E25]/40">{t('engagementHint')}</p>
+            <p className="text-sm text-[#062E25]/75">{t('engagementHint')}</p>
           </CardContent>
         </Card>
       </div>
@@ -242,7 +242,7 @@ export default function AdminMarketingOverviewPage() {
                   {chart.series.map((series) => (
                     <span
                       key={series.key}
-                      className="flex items-center gap-1.5 text-sm text-[#062E25]/60"
+                      className="flex items-center gap-1.5 text-sm text-[#062E25]"
                     >
                       <span
                         className="h-2.5 w-2.5 rounded-sm shrink-0"
@@ -261,7 +261,7 @@ export default function AdminMarketingOverviewPage() {
                         tickFormatter={formatDay}
                         tickLine={false}
                         axisLine={false}
-                        tick={{ fill: 'rgba(6,46,37,0.5)', fontSize: 11 }}
+                        tick={{ fill: 'rgba(6,46,37,0.75)', fontSize: 11 }}
                         minTickGap={24}
                       />
                       <YAxis
@@ -269,7 +269,7 @@ export default function AdminMarketingOverviewPage() {
                         width={28}
                         tickLine={false}
                         axisLine={false}
-                        tick={{ fill: 'rgba(6,46,37,0.5)', fontSize: 11 }}
+                        tick={{ fill: 'rgba(6,46,37,0.75)', fontSize: 11 }}
                       />
                       <Tooltip
                         cursor={{ fill: 'rgba(6,46,37,0.04)' }}
@@ -297,7 +297,7 @@ export default function AdminMarketingOverviewPage() {
                 </div>
               </>
             ) : (
-              <p className="text-sm text-[#062E25]/40 py-8 text-center">{t('timelineEmpty')}</p>
+              <p className="text-sm text-[#062E25] py-8 text-center">{t('timelineEmpty')}</p>
             )}
             {data.events.length > 0 && (
               <div className="mt-4 pt-4 border-t border-[#062E25]/10">
@@ -305,7 +305,7 @@ export default function AdminMarketingOverviewPage() {
                 <div className="space-y-2">
                   {data.events.map((event) => (
                     <div key={event.id} className="flex items-center gap-3 text-sm">
-                      <span className="text-[#062E25]/40 w-20 shrink-0">
+                      <span className="text-[#062E25]/75 w-20 shrink-0">
                         {new Date(event.date).toLocaleDateString('de-CH')}
                       </span>
                       <StatusBadge status={event.type} />
@@ -333,7 +333,7 @@ export default function AdminMarketingOverviewPage() {
             </div>
             {data.latestDigest ? (
               <>
-                <p className="text-sm text-[#062E25]/40 mb-2">
+                <p className="text-sm text-[#062E25]/75 mb-2">
                   {new Date(data.latestDigest.date).toLocaleDateString('de-CH')}
                 </p>
                 <pre className="whitespace-pre-wrap font-sans text-sm text-[#062E25]/80 max-h-[28rem] overflow-y-auto">
@@ -341,7 +341,7 @@ export default function AdminMarketingOverviewPage() {
                 </pre>
               </>
             ) : (
-              <p className="text-sm text-[#062E25]/40">{t('digestEmpty')}</p>
+              <p className="text-sm text-[#062E25]">{t('digestEmpty')}</p>
             )}
           </CardContent>
         </Card>

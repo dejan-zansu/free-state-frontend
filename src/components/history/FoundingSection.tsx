@@ -16,7 +16,7 @@ const FoundingSection = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light max-w-[679px]">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px] max-w-[679px]">
             {t('subtitle')}
           </p>
         </div>
@@ -40,7 +40,7 @@ const FoundingSection = () => {
 
         <div className="relative z-[2] flex items-center justify-center px-4">
           <div className="max-w-[606px] w-full p-6 sm:p-10 rounded-[16px] border border-[#f6f6f6]/60 backdrop-blur-[10px] bg-[rgba(185,205,191,0.03)]">
-            <p className="text-[#FDFFF5]/80 text-base font-light text-center">
+            <p className="text-[#FDFFF5]/80 text-base text-center">
               {t('cardText')}
             </p>
           </div>

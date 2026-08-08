@@ -60,7 +60,7 @@ const HowPV = ({
               <h3 className="font-figtree font-medium text-3xl md:text-[45px] text-[#062E25]">
                 {row.title}
               </h3>
-              <p className="font-figtree font-light text-[18px] md:text-[22px] tracking-[-0.02em] text-[#062E25]/80 whitespace-pre-line">
+              <p className="font-figtree text-[18px] md:text-[22px] tracking-[-0.02em] text-[#062E25]/80 whitespace-pre-line">
                 {row.description}
               </p>
             </div>

@@ -58,7 +58,7 @@ const ReferralSlide = async () => {
           <h2 className="mt-6 whitespace-pre-line text-3xl font-medium capitalize text-foreground sm:text-4xl xl:text-[50px]">
             {t.rich('referral.title', { accent })}
           </h2>
-          <p className="mt-5 whitespace-pre-line text-lg font-light text-foreground/80 xl:text-[22px]">
+          <p className="mt-5 whitespace-pre-line text-lg text-foreground xl:text-[22px]">
             {t('referral.subtitle')}
           </p>
           <div className="mt-10 flex flex-wrap gap-4 lg:gap-6">
@@ -110,7 +110,7 @@ const FamilySlide = async () => {
           <h2 className="mt-6 whitespace-pre-line text-3xl font-medium capitalize text-foreground sm:text-4xl xl:text-[50px]">
             {t.rich('family.title', { accent })}
           </h2>
-          <p className="mt-5 whitespace-pre-line text-lg font-light text-foreground/80 xl:text-[22px]">
+          <p className="mt-5 whitespace-pre-line text-lg text-foreground xl:text-[22px]">
             {t('family.subtitle')}
           </p>
           <div className="mt-10">
@@ -151,7 +151,7 @@ const CompleteSlide = async () => {
           <h2 className="mt-5 whitespace-pre-line text-3xl font-medium capitalize text-foreground sm:text-4xl xl:text-[50px]">
             {t.rich('complete.title', { accent })}
           </h2>
-          <p className="mt-5 whitespace-pre-line text-lg font-light text-foreground/80 xl:text-[22px]">
+          <p className="mt-5 whitespace-pre-line text-lg text-foreground xl:text-[22px]">
             {t('complete.subtitle')}
           </p>
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
@@ -161,7 +161,7 @@ const CompleteSlide = async () => {
                 <span className="mt-2 text-[10px] font-bold text-foreground">
                   {feature.title}
                 </span>
-                <span className="text-[10px] font-normal text-foreground/70">
+                <span className="text-[10px] font-normal text-foreground/75">
                   {feature.subtitle}
                 </span>
               </div>

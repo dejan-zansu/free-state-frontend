@@ -121,7 +121,7 @@ export default function AdminLeadsPage() {
                             {lead.customer.user.firstName}{' '}
                             {lead.customer.user.lastName}
                           </p>
-                          <p className="text-sm text-[#062E25]/50">
+                          <p className="text-sm text-[#062E25]">
                             {lead.customer.user.email}
                           </p>
                           {lead.project != null && !lead.project.isPropertyOwner && (
@@ -131,25 +131,25 @@ export default function AdminLeadsPage() {
                           )}
                         </div>
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60 max-w-48 truncate">
+                      <TableCell className="text-sm text-[#062E25] max-w-48 truncate">
                         {lead.propertyAddress}
                       </TableCell>
                       <TableCell>
                         <StatusBadge status={lead.status} />
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">
                         {tl.has(lead.source) ? tl(lead.source) : lead.source}
                       </TableCell>
                       <TableCell className="text-sm">
                         {lead.assignedTo ? (
                           `${lead.assignedTo.firstName} ${lead.assignedTo.lastName}`
                         ) : (
-                          <span className="text-[#062E25]/30">
+                          <span className="text-[#062E25]/75">
                             {t('unassigned')}
                           </span>
                         )}
                       </TableCell>
-                      <TableCell className="text-[#062E25]/60 text-sm">
+                      <TableCell className="text-[#062E25] text-sm">
                         {new Date(lead.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
                       <TableCell>
@@ -165,7 +165,7 @@ export default function AdminLeadsPage() {
                     <TableRow>
                       <TableCell
                         colSpan={7}
-                        className="text-center py-8 text-[#062E25]/40"
+                        className="text-center py-8 text-[#062E25]/75"
                       >
                         {t('noLeads')}
                       </TableCell>
@@ -175,7 +175,7 @@ export default function AdminLeadsPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">
+                <p className="text-sm text-[#062E25]/75">
                   {t('totalLeads', { count: total })}
                 </p>
                 <div className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export default function AdminLeadsPage() {
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]/75">
                     {tc('page', { page, totalPages })}
                   </span>
                   <Button

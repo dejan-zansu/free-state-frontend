@@ -17,10 +17,6 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
-import {
-  ABO_TERM_MONTHS,
-  ABO_UPLIFT_FACTOR,
-} from '@/stores/solar-abo-calculator.store'
 import WarrrentyIcon from '../icons/WarrrentyIcon'
 import ChceckIcon from '../icons/ChceckIcon'
 import { Button } from '../ui/button'
@@ -142,11 +138,6 @@ export default function PackageCard(props: {
 
   const { minKwp, maxKwp, minKwh, maxKwh } = getSystemSpecs(pkg)
   const fromPrice = getFromPriceChf(pkg)
-  const isAbo = model === 'solar-abo'
-  const aboMonthlyChf =
-    fromPrice != null
-      ? Math.round((fromPrice * ABO_UPLIFT_FACTOR) / ABO_TERM_MONTHS)
-      : null
 
   return (
     <div
@@ -220,7 +211,7 @@ export default function PackageCard(props: {
           <h3 className="mt-3 text-2xl font-bold leading-none text-[#062E25]">
             {brand ?? pkg.name}
           </h3>
-          <p className="mt-2 text-[13px] italic font-light text-[#062E25]/80">
+          <p className="mt-2 text-[13px] italic text-[#062E25]">
             {brandTagline}
           </p>
 
@@ -233,7 +224,7 @@ export default function PackageCard(props: {
               }}
             >
               <div>
-                <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                <div className="text-[10px] uppercase tracking-wider text-[#062E25]/75">
                   {t('capacity')}
                 </div>
                 <div className="text-[18px] font-extrabold text-[#062E25]">
@@ -242,7 +233,7 @@ export default function PackageCard(props: {
                 </div>
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                <div className="text-[10px] uppercase tracking-wider text-[#062E25]/75">
                   {t('annualProduction')}
                 </div>
                 <div className="text-[18px] font-extrabold text-[#062E25]">
@@ -296,7 +287,7 @@ export default function PackageCard(props: {
                         `equipment.${key}.name` as `equipment.${'quality' | 'app' | 'service'}.name`
                       )}
                     </div>
-                    <div className="text-[11px] text-[#062E25]/70">
+                    <div className="text-[11px] text-[#062E25]/75">
                       {t(
                         `equipment.${key}.desc` as `equipment.${'quality' | 'app' | 'service'}.desc`
                       )}
@@ -331,7 +322,7 @@ export default function PackageCard(props: {
                   {isFree ? (
                     <>
                       <div className="w-fit min-w-[70px]">
-                        <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                        <div className="text-[10px] uppercase tracking-wider text-[#062E25]/75">
                           {t('priceLabels.from')}
                         </div>
                         <div className="flex items-baseline gap-1">
@@ -363,7 +354,7 @@ export default function PackageCard(props: {
                         </span>
                       </div>
                       <div className="border-l border-[#062E25]/10 pl-2 flex-1">
-                        <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                        <div className="text-[10px] uppercase tracking-wider text-[#062E25]/75">
                           {t('priceLabels.alternative')}
                         </div>
                         <div className="flex items-baseline gap-1">
@@ -384,37 +375,14 @@ export default function PackageCard(props: {
                             CHF
                           </span>
                         </div>
-                        <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
+                        <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/75">
                           {t('priceLabels.exclVat')}
                         </div>
                       </div>
                     </>
-                  ) : isAbo ? (
-                    <div className="col-span-2">
-                      <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
-                        {t('priceLabels.from')}
-                      </div>
-                      <div className="flex items-baseline gap-1">
-                        <span
-                          className="text-[28px] font-extrabold leading-none text-[#062E25]"
-                          style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                        >
-                          {fmtChf(aboMonthlyChf)}
-                        </span>
-                        <span
-                          className="text-[12px] font-bold text-[#062E25]"
-                          style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                        >
-                          CHF / Mt.
-                        </span>
-                      </div>
-                      <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
-                        {t('priceLabels.exclVat')}
-                      </div>
-                    </div>
                   ) : (
                     <div className="col-span-2">
-                      <div className="text-[10px] uppercase tracking-wider text-[#062E25]/60">
+                      <div className="text-[10px] uppercase tracking-wider text-[#062E25]/75">
                         {t('priceLabels.from')}
                       </div>
                       <div className="flex items-baseline gap-1">
@@ -431,7 +399,7 @@ export default function PackageCard(props: {
                           CHF
                         </span>
                       </div>
-                      <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/55">
+                      <div className="mt-1 text-[9px] uppercase tracking-wider text-[#062E25]/75">
                         {t('priceLabels.exclVat')}
                       </div>
                     </div>
@@ -477,7 +445,7 @@ export default function PackageCard(props: {
                 <div className="text-[12px] font-extrabold leading-tight text-[#062E25]">
                   {t('trust.warranty.title')}
                 </div>
-                <div className="mt-1 text-[9px] leading-snug text-[#062E25]/65">
+                <div className="mt-1 text-[9px] leading-snug text-[#062E25]/75">
                   {t('trust.warranty.desc')}
                 </div>
               </div>
@@ -532,7 +500,7 @@ function TrustItemCentered({
       <div className="mt-1.5 text-[12px] font-extrabold text-[#062E25]">
         {title}
       </div>
-      <div className="mt-1 text-[9px] leading-snug text-[#062E25]/65">
+      <div className="mt-1 text-[9px] leading-snug text-[#062E25]/75">
         {desc}
       </div>
     </div>

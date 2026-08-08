@@ -95,18 +95,18 @@ export default function AdminSupportPage() {
                           <p className="font-medium">
                             {inquiry.firstName} {inquiry.lastName}
                           </p>
-                          <p className="text-sm text-[#062E25]/50">
+                          <p className="text-sm text-[#062E25]">
                             {inquiry.email}
                           </p>
                         </div>
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60 max-w-64 truncate">
+                      <TableCell className="text-sm text-[#062E25] max-w-64 truncate">
                         {inquiry.message}
                       </TableCell>
                       <TableCell>
                         <StatusBadge status={inquiry.status} />
                       </TableCell>
-                      <TableCell className="text-[#062E25]/60 text-sm">
+                      <TableCell className="text-[#062E25] text-sm">
                         {new Date(inquiry.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
                       <TableCell>
@@ -122,7 +122,7 @@ export default function AdminSupportPage() {
                     <TableRow>
                       <TableCell
                         colSpan={5}
-                        className="text-center py-8 text-[#062E25]/40"
+                        className="text-center py-8 text-[#062E25]/75"
                       >
                         {t('noTickets')}
                       </TableCell>
@@ -132,7 +132,7 @@ export default function AdminSupportPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">
+                <p className="text-sm text-[#062E25]/75">
                   {t('totalTickets', { count: total })}
                 </p>
                 <div className="flex items-center gap-2">
@@ -144,7 +144,7 @@ export default function AdminSupportPage() {
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]/75">
                     {tc('page', { page, totalPages })}
                   </span>
                   <Button

@@ -45,6 +45,7 @@ export interface ProjectSummary {
   status: string
   package: string
   createdAt: string
+  isPropertyOwner: boolean
   solarModel: string | null
   offerRequested: boolean
   offerRequestedAt: string | null

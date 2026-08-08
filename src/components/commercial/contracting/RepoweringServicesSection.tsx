@@ -61,7 +61,7 @@ const RepoweringServicesSection = async () => {
                 <h3 className="text-[#062E25] text-lg md:text-[22px] font-bold text-center">
                   {t(`repoweringServices.cards.${card.key}.title`)}
                 </h3>
-                <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] text-center whitespace-pre-line">
+                <p className="text-[#062E25]/80 text-base tracking-[-0.02em] text-center whitespace-pre-line">
                   {t(`repoweringServices.cards.${card.key}.description`)}
                 </p>
               </div>

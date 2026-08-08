@@ -122,7 +122,7 @@ export default function AdminContractsPage() {
                             {contract.customer.user.firstName}{' '}
                             {contract.customer.user.lastName}
                           </p>
-                          <p className="text-sm text-[#062E25]/50">
+                          <p className="text-sm text-[#062E25]">
                             {contract.customer.user.email}
                           </p>
                         </div>
@@ -137,7 +137,7 @@ export default function AdminContractsPage() {
                         {contract.signatureStatus ? (
                           <StatusBadge status={contract.signatureStatus} />
                         ) : (
-                          <span className="text-[#062E25]/30 text-sm">-</span>
+                          <span className="text-[#062E25]/75 text-sm">-</span>
                         )}
                       </TableCell>
                       <TableCell className="text-sm">
@@ -145,7 +145,7 @@ export default function AdminContractsPage() {
                           ? `CHF ${parseFloat(contract.netAmount).toLocaleString('de-CH')}`
                           : '-'}
                       </TableCell>
-                      <TableCell className="text-[#062E25]/60 text-sm">
+                      <TableCell className="text-[#062E25] text-sm">
                         {new Date(contract.createdAt).toLocaleDateString(
                           'de-CH'
                         )}
@@ -165,7 +165,7 @@ export default function AdminContractsPage() {
                     <TableRow>
                       <TableCell
                         colSpan={8}
-                        className="text-center py-8 text-[#062E25]/40"
+                        className="text-center py-8 text-[#062E25]/75"
                       >
                         {t('noContracts')}
                       </TableCell>
@@ -175,7 +175,7 @@ export default function AdminContractsPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">
+                <p className="text-sm text-[#062E25]/75">
                   {t('totalContracts', { count: total })}
                 </p>
                 <div className="flex items-center gap-2">
@@ -187,7 +187,7 @@ export default function AdminContractsPage() {
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]/75">
                     {tc('page', { page, totalPages })}
                   </span>
                   <Button

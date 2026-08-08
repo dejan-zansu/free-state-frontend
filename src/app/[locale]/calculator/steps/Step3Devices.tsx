@@ -59,7 +59,7 @@ export default function Step3Devices() {
           <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
             {t('title')}
           </Heading>
-          <p className="mt-5 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+          <p className="mt-5 text-base sm:text-[22px] text-[#062E25] tracking-tight">
             {t('helper')}
           </p>
         </div>

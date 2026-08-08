@@ -25,7 +25,7 @@ const InvestorsFormDarkPanel = () => {
             </h2>
           </div>
 
-          <p className="text-[#FDFFF5]/80 text-lg lg:text-[22px] font-light tracking-[-0.02em] max-w-[379px]">
+          <p className="text-[#FDFFF5]/80 text-lg lg:text-[22px] tracking-[-0.02em] max-w-[379px]">
             {t('subtitle')}
           </p>
         </div>

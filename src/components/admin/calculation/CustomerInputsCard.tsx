@@ -25,7 +25,7 @@ export function CustomerInputsCard({ calc }: Props) {
         </h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="text-sm text-[#062E25]/60">
+            <label className="text-sm text-[#062E25]">
               {t('householdSize')}
             </label>
             <p className="font-medium text-[#062E25] tabular-nums">
@@ -33,7 +33,7 @@ export function CustomerInputsCard({ calc }: Props) {
             </p>
           </div>
           <div>
-            <label className="text-sm text-[#062E25]/60">
+            <label className="text-sm text-[#062E25]">
               {t('buildingType')}
             </label>
             <p className="font-medium text-[#062E25]">
@@ -45,7 +45,7 @@ export function CustomerInputsCard({ calc }: Props) {
             </p>
           </div>
           <div>
-            <label className="text-sm text-[#062E25]/60">
+            <label className="text-sm text-[#062E25]">
               {t('roofCovering')}
             </label>
             <p className="font-medium text-[#062E25]">
@@ -57,7 +57,7 @@ export function CustomerInputsCard({ calc }: Props) {
             </p>
           </div>
           <div>
-            <label className="text-sm text-[#062E25]/60">{t('devices')}</label>
+            <label className="text-sm text-[#062E25]">{t('devices')}</label>
             {activeDeviceKeys.length === 0 ? (
               <p className="font-medium text-[#062E25]">{t('noDevices')}</p>
             ) : (

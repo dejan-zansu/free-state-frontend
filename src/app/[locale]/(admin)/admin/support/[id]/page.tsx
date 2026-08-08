@@ -68,7 +68,7 @@ export default function AdminSupportDetailPage() {
   }
 
   if (!inquiry) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   return (
@@ -88,27 +88,27 @@ export default function AdminSupportDetailPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('message')}</label>
+                <label className="text-sm text-[#062E25]">{t('message')}</label>
                 <p className="font-medium text-[#062E25] whitespace-pre-wrap">
                   {inquiry.message || '-'}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('email')}</label>
+                <label className="text-sm text-[#062E25]">{t('email')}</label>
                 <p className="font-medium text-[#062E25]">{inquiry.email}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('phone')}</label>
+                <label className="text-sm text-[#062E25]">{t('phone')}</label>
                 <p className="font-medium text-[#062E25]">{inquiry.phone || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('address')}</label>
+                <label className="text-sm text-[#062E25]">{t('address')}</label>
                 <p className="font-medium text-[#062E25]">
                   {inquiry.street}, {inquiry.postalCode} {inquiry.location}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('created')}</label>
+                <label className="text-sm text-[#062E25]">{t('created')}</label>
                 <p className="font-medium text-[#062E25]">
                   {new Date(inquiry.createdAt).toLocaleDateString('de-CH', {
                     year: 'numeric',
@@ -130,7 +130,7 @@ export default function AdminSupportDetailPage() {
             </h2>
             <div className="flex flex-col gap-4 h-full">
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
+                <label className="text-sm text-[#062E25] mb-1 block">{t('status')}</label>
                 <Select
                   value={status}
                   onValueChange={setStatus}
@@ -149,7 +149,7 @@ export default function AdminSupportDetailPage() {
                 </Select>
               </div>
               <div className="flex flex-col flex-1">
-                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('adminNotes')}</label>
+                <label className="text-sm text-[#062E25] mb-1 block">{t('adminNotes')}</label>
                 <Textarea
                   value={adminNotes}
                   onChange={e => setAdminNotes(e.target.value)}

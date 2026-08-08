@@ -105,19 +105,19 @@ export default function AdminBlogListPage() {
                       <TableCell>
                         <div>
                           <p className="font-medium">{getTitle(post)}</p>
-                          <p className="text-sm text-[#062E25]/50">/{post.slug}</p>
+                          <p className="text-sm text-[#062E25]/75">/{post.slug}</p>
                         </div>
                       </TableCell>
                       <TableCell>
                         <StatusBadge status={post.status} />
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">
                         {post.author.firstName} {post.author.lastName}
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">
                         {post.translations.map(t => t.language.toUpperCase()).join(', ')}
                       </TableCell>
-                      <TableCell className="text-[#062E25]/60 text-sm">
+                      <TableCell className="text-[#062E25] text-sm">
                         {new Date(post.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
                       <TableCell>
@@ -131,7 +131,7 @@ export default function AdminBlogListPage() {
                   ))}
                   {data.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={6} className="text-center py-8 text-[#062E25]/40">
+                      <TableCell colSpan={6} className="text-center py-8 text-[#062E25]/75">
                         {t('noPosts')}
                       </TableCell>
                     </TableRow>
@@ -140,14 +140,14 @@ export default function AdminBlogListPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">
+                <p className="text-sm text-[#062E25]/75">
                   {t('totalPosts', { count: total })}
                 </p>
                 <div className="flex items-center gap-2">
                   <Button variant="outline" size="sm" disabled={page <= 1} onClick={() => setPage(page - 1)}>
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]/75">
                     {tc('page', { page, totalPages })}
                   </span>
                   <Button variant="outline" size="sm" disabled={page >= totalPages} onClick={() => setPage(page + 1)}>

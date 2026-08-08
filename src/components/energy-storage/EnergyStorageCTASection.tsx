@@ -54,7 +54,7 @@ const EnergyStorageCTASection = async () => {
                   WebkitBackdropFilter: 'blur(65px)',
                 }}
               >
-                <span className="text-white text-base font-light tracking-[-0.02em] text-center whitespace-nowrap">
+                <span className="text-white text-base tracking-[-0.02em] text-center whitespace-nowrap">
                   {t('perfectCombination.eyebrow')}
                 </span>
               </div>
@@ -64,7 +64,7 @@ const EnergyStorageCTASection = async () => {
               </h2>
             </div>
 
-            <p className="text-white/80 text-base md:text-[22px] font-light leading-[1.27em] tracking-[-0.02em] text-center max-w-[604px]">
+            <p className="text-white/80 text-base md:text-[22px] leading-[1.27em] tracking-[-0.02em] text-center max-w-[604px]">
               {t('perfectCombination.description')}
             </p>
           </div>

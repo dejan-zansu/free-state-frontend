@@ -98,7 +98,7 @@ const InvestorsForm = () => {
         <div className="flex flex-col items-center py-16">
           <Check className="h-8 w-8 text-green-600 mb-4" strokeWidth={2.5} />
           <h3 className="text-xl font-semibold text-foreground mb-2">{t('successTitle')}</h3>
-          <p className="text-foreground/60">{t('successMessage')}</p>
+          <p className="text-foreground">{t('successMessage')}</p>
         </div>
       ) : (
         <div className="relative w-full max-w-[536px]">
@@ -227,7 +227,7 @@ const InvestorsForm = () => {
               />
 
               <div className="flex items-center justify-between">
-                <span className="text-foreground/70 text-sm font-normal tracking-[-0.02em]">
+                <span className="text-foreground text-sm font-normal tracking-[-0.02em]">
                   {t('languageLabel')}
                 </span>
                 <div className="w-[97px]">
@@ -273,7 +273,7 @@ const InvestorsForm = () => {
                           <Check className="w-2.5 h-2.5 text-[#062E25]" strokeWidth={3} />
                         )}
                       </button>
-                      <span className="text-foreground/70 text-sm font-normal tracking-[-0.02em]">
+                      <span className="text-foreground/75 text-sm font-normal tracking-[-0.02em]">
                         {t.rich('consent', {
                           link: chunks => (
                             <Link

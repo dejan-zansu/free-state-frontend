@@ -32,7 +32,7 @@ const HowItWorks = ({
           <h2 className="text-[#062E25] text-3xl sm:text-4xl lg:text-5xl font-semibold mb-4">
             {title}
           </h2>
-          <p className="text-[#062E25]/70 text-base sm:text-lg lg:text-xl">
+          <p className="text-[#062E25] text-base sm:text-lg lg:text-xl">
             {subtitle}
           </p>
         </div>

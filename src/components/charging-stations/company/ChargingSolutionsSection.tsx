@@ -23,7 +23,7 @@ const ChargingSolutionsSection = async () => {
                 WebkitBackdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-[#062E25] text-base font-light tracking-[-0.02em]">
+              <span className="text-[#062E25] text-base tracking-[-0.02em]">
                 {t('chargingSolutions.eyebrow')}
               </span>
             </div>
@@ -32,7 +32,7 @@ const ChargingSolutionsSection = async () => {
               {t('chargingSolutions.title')}
             </h2>
 
-            <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em]">
+            <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em]">
               {t('chargingSolutions.description')}
             </p>
           </div>

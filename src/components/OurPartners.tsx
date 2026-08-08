@@ -31,7 +31,7 @@ const OurPartners = async () => {
           <Reveal
             as="p"
             delay={0.2}
-            className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight"
+            className="text-foreground/80 text-lg md:text-[22px] tracking-tight"
           >
             {t('subtitle')}
           </Reveal>
