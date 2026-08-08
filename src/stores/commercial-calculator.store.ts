@@ -449,7 +449,11 @@ export const useCommercialCalculatorStore = create<CommercialCalculatorStore>()(
         set({ isFetchingBuilding: true, error: null })
 
         try {
-          const building = await sonnendachService.getBuildingData(x, y)
+          const result = await sonnendachService.getBuildingData(x, y)
+          if (!result.building) {
+            throw new Error('No building found at this location')
+          }
+          const building = result.building
 
           const goodSegmentIds = building.roofSegments
             .filter((s) => s.suitability.class >= 3)

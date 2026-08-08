@@ -22,10 +22,40 @@ export default function ConsultationDock() {
   const pathname = usePathname()
   const user = useUser()
   const inCalculatorFlow = pathname?.endsWith('/calculator') ?? false
+  const onProjectWorkspace = pathname?.includes('/dashboard/project/') ?? false
+  const [embedInView, setEmbedInView] = useState(false)
 
   useEffect(() => {
     setAdvisor(getStickyAdvisor())
   }, [])
+
+  useEffect(() => {
+    if (inCalculatorFlow) {
+      setEmbedInView(false)
+      return
+    }
+    let observer: IntersectionObserver | null = null
+    let retryTimer: number | null = null
+    const attach = () => {
+      const embedEl = document.querySelector('[data-calculator-embed]')
+      if (!embedEl) return false
+      observer = new IntersectionObserver(entries => {
+        setEmbedInView(entries.some(entry => entry.isIntersecting))
+      })
+      observer.observe(embedEl)
+      return true
+    }
+    if (!attach()) {
+      retryTimer = window.setTimeout(() => {
+        attach()
+      }, 1000)
+    }
+    return () => {
+      observer?.disconnect()
+      if (retryTimer !== null) window.clearTimeout(retryTimer)
+      setEmbedInView(false)
+    }
+  }, [pathname, inCalculatorFlow])
 
   useEffect(() => {
     if (!open) return
@@ -44,7 +74,7 @@ export default function ConsultationDock() {
     }
   }, [open])
 
-  if (hidden || !advisor) return null
+  if (hidden || onProjectWorkspace || !advisor) return null
 
   const name = tTeam(`${advisor.key}.name`)
   const role = tTeam(`${advisor.key}.role`)
@@ -59,8 +89,9 @@ export default function ConsultationDock() {
       className={cn(
         'fixed right-4 sm:right-10 z-50 flex items-end print:hidden',
         inCalculatorFlow
-          ? 'top-1 sm:top-[14px] flex-col-reverse'
-          : 'bottom-4 sm:bottom-6 flex-col'
+          ? 'hidden sm:flex sm:bottom-auto sm:top-[14px] sm:flex-col-reverse'
+          : 'bottom-4 sm:bottom-6 flex-col',
+        !inCalculatorFlow && embedInView && 'hidden sm:flex'
       )}
     >
       {open && (
@@ -69,7 +100,7 @@ export default function ConsultationDock() {
           aria-label={t('title')}
           className={cn(
             'w-[300px] sm:w-[360px] max-w-[calc(100vw-2rem)] rounded-2xl border border-glass-border bg-white/80 backdrop-blur-md shadow-[0_25px_34px_0_rgba(6,46,37,0.15)] p-5 sm:p-6',
-            inCalculatorFlow ? 'mt-3' : 'mb-3'
+            inCalculatorFlow ? 'mb-3 sm:mb-0 sm:mt-3' : 'mb-3'
           )}
         >
           <div className="flex items-start gap-3">

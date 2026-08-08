@@ -3,8 +3,6 @@
 import { useTranslations } from 'next-intl'
 import { EquipmentList } from '@/components/results/EquipmentList'
 import { type EquipmentDetail } from '@/components/results/EquipmentDetailCard'
-import { WarrantyCallout } from '@/components/results/WarrantyCallout'
-import { SectionHeader } from '@/components/ui/section-header'
 import type { WorkspacePayload } from '@/services/customer-portal.service'
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 
@@ -60,10 +58,11 @@ export function EquipmentSection({ data }: { data: WorkspacePayload }) {
   if (items.length === 0) return null
 
   return (
-    <section className="space-y-6">
-      <SectionHeader title={t('equipmentTitle')} />
+    <div className="space-y-6">
       <EquipmentList items={items} />
-      <WarrantyCallout installerYears={data.package.installerWarrantyYears ?? 2} productSummary={''} />
-    </section>
+      <p className="text-base text-pine">
+        {t('equipment.warrantyInstaller', { years: data.package.installerWarrantyYears ?? 2 })}
+      </p>
+    </div>
   )
 }

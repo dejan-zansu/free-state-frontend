@@ -110,46 +110,24 @@ export function WorkspaceSignSection({
             <h2 className="text-3xl font-medium text-pine tracking-tight">
               {t('sign.signedTitle')}
             </h2>
-            <p className="text-base text-pine/70">{contract.contractNumber}</p>
+            <p className="text-base text-pine">{contract.contractNumber}</p>
           </div>
-          <a
-            href={contractService.getDownloadUrl(contract.id, true)}
+          <button
+            type="button"
+            onClick={() => contractService.downloadPdf(contract.id, true)}
             className={cn(linkButtonVariants({ variant: 'primary' }), 'text-base tracking-tight')}
           >
             {t('sign.downloadContract')}
             <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-[#062E25]">
               <Download className="h-4 w-4 text-white" aria-hidden />
             </div>
-          </a>
+          </button>
         </div>
       </section>
     )
   }
 
-  if (aboBlocked) {
-    return (
-      <section className="space-y-6">
-        <div className="rounded-2xl border border-pine/10 bg-white/70 p-8 text-center sm:p-12">
-          <p className="mx-auto max-w-md text-base text-pine/80">{t('sign.aboFallback')}</p>
-        </div>
-      </section>
-    )
-  }
-
-  if (notOwner) {
-    return (
-      <section className="space-y-6">
-        <div className="rounded-2xl border border-pine/10 bg-white/70 p-8 text-center sm:p-12">
-          <h2 className="text-2xl font-medium text-pine tracking-tight">
-            {t('sign.notOwnerTitle')}
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-base text-pine/80">
-            {t('sign.notOwnerBody')}
-          </p>
-        </div>
-      </section>
-    )
-  }
+  if (aboBlocked || notOwner) return null
 
   const isPolling = pollingContractId != null
   const ctaLabel = resumable ? t('sign.resumeCta') : t('sign.cta')
@@ -206,7 +184,7 @@ export function WorkspaceSignSection({
                 </div>
               </button>
               {!config.enabled && (
-                <span className="text-base font-medium uppercase tracking-widest text-pine/60">
+                <span className="text-base font-medium uppercase tracking-widest text-pine">
                   {t('sign.unavailable')}
                 </span>
               )}
@@ -214,7 +192,7 @@ export function WorkspaceSignSection({
           )}
 
           {(pollError || pollExhausted) && (
-            <p className="mx-auto max-w-md rounded-lg border border-pine/10 bg-white/80 p-3 text-base text-pine/80">
+            <p className="mx-auto max-w-md rounded-lg border border-pine/10 bg-white/80 p-3 text-base text-pine">
               {pollError ?? pollExhausted}
             </p>
           )}

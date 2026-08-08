@@ -17,6 +17,7 @@ interface ContactPayload {
   city: string
   street: string
   streetNumber: string
+  canton?: string
   addressAdditional: string
   isPropertyOwner?: boolean
 }
@@ -65,6 +66,25 @@ interface CreateAccountPayload {
   attribution?: Attribution
 }
 
+export type ManualCheckSource =
+  | 'no_roof'
+  | 'places_unavailable'
+  | 'retry_blocked'
+  | 'partial_contact'
+
+interface ManualCheckPayload {
+  email: string
+  address: string
+  privacy: true
+  source?: ManualCheckSource
+  postalCode?: string
+  city?: string
+  lat?: number
+  lng?: number
+  systemSizeKwp?: number
+  attribution?: Attribution
+}
+
 interface CreateAccountResponse {
   success: boolean
   data: {
@@ -74,6 +94,7 @@ interface CreateAccountResponse {
     userId?: string
     customerId?: string
     projectId?: string
+    annualSavingsChf?: number
   }
 }
 
@@ -94,6 +115,8 @@ interface RequestOfferResponse {
 interface UpdateCalculationPayload {
   projectId: string
   calculation: {
+    solarModel?: SolarModel
+    isPropertyOwner?: boolean
     systemSizeKwp?: number
     panelCount?: number
     panelWattageW?: number | null
@@ -224,6 +247,10 @@ class ResidentialCalculatorService {
       payload
     )
     return response.data
+  }
+
+  async requestManualCheck(payload: ManualCheckPayload): Promise<void> {
+    await api.post('/residential-calculator/manual-check', payload)
   }
 
   async requestOffer(payload: RequestOfferPayload): Promise<RequestOfferResponse> {

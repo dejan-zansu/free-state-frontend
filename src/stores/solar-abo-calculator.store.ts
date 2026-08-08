@@ -1,14 +1,33 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
-import type { SonnendachLocation, SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
-import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import type { SonnendachBuilding, RoofSegment } from '@/types/sonnendach'
+import {
+  calculatorFlowV2Enabled,
+  mapStep,
+  totalSteps as flowTotalSteps,
+} from '@/lib/calculator-flow'
+import {
+  SCREEN4_REFERENCE_PANEL_M2,
+  SCREEN4_REFERENCE_PANEL_W,
+} from '@/lib/calculator-reference-panel'
+import {
+  CH_FALLBACK_FIXED_ANNUAL_CHF,
+  CH_FALLBACK_VARIABLE_CHF_KWH,
+  CONSUMPTION_MAX_KWH,
+  CONSUMPTION_MIN_KWH,
+  MAX_PLAUSIBLE_FIXED_ANNUAL_CHF,
+  type BillPeriod,
+} from '@/lib/consumption-cost'
+import {
+  residentialCalculatorService,
+  type ManualCheckSource,
+} from '@/services/residential-calculator.service'
 import { getAttribution } from '@/lib/analytics/funnel-events'
 import { setAccessToken } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth.store'
 import { electricityPriceService } from '@/services/electricity-price.service'
 import { subsidyService } from '@/services/subsidy.service'
-import { feedInTariffService } from '@/services/feed-in-tariff.service'
 
 export interface SubsidyRateSnapshot {
   id: string
@@ -36,6 +55,7 @@ export interface FeedInTariffSnapshot {
   notes: string | null
 }
 
+export type ConsumptionInputMode = 'kwh' | 'chf'
 export type SolarModel = 'solar-free' | 'solar-direct' | 'solar-abo'
 export type SolarAboPackage = 'home' | 'multi'
 export type BuildingType = 'single_family' | 'apartment' | 'trade' | 'office'
@@ -44,6 +64,15 @@ export type RoofCoveringType = 'tiled' | 'tin' | 'slate' | 'fiber_cement' | 'gra
 export type RoofType = 'flat' | 'pitched'
 export type Salutation = 'mr' | 'woman' | 'family'
 export type ContactCountry = 'CH' | 'LI'
+export type SubmissionErrorCode = 'rate_limited' | 'network' | 'server'
+
+export interface ParsedAddressFields {
+  street: string
+  streetNumber: string
+  postalCode: string
+  city: string
+  canton: string
+}
 
 export interface HighPowerDevices {
   heatPumpHeating: boolean
@@ -65,6 +94,7 @@ export interface ContactDetails {
   country: ContactCountry
   postalCode: string
   city: string
+  canton: string
   street: string
   streetNumber: string
   addressAdditional: string
@@ -144,50 +174,17 @@ const DEVICE_SELF_CONSUMPTION_BONUS: Record<keyof HighPowerDevices, number> = {
   swimmingPoolSauna: 0.02,
 }
 
-// Combined effective income tax rates (federal + cantonal + municipal) by canton
-// Source: Transforma AG "Tax Rates Switzerland 2025", married, CHF 100k, capital city
-const TAX_RATES_BY_CANTON: Record<string, number> = {
-  ZH: 0.1225, BE: 0.1915, LU: 0.1215, UR: 0.1573, SZ: 0.0999,
-  OW: 0.1461, NW: 0.1184, GL: 0.1309, ZG: 0.0718, FR: 0.1616,
-  SO: 0.1564, BS: 0.2282, BL: 0.1335, SH: 0.1127, AR: 0.1503,
-  AI: 0.1069, SG: 0.1418, GR: 0.1221, AG: 0.1178, TG: 0.1289,
-  TI: 0.1473, VD: 0.1790, VS: 0.1301, NE: 0.1772, GE: 0.1370,
-  JU: 0.1660,
+export function applianceEstimateConsumptionKwh(
+  householdSize: HouseholdSize | null,
+  devices: HighPowerDevices,
+): number {
+  const deviceExtra = (Object.keys(devices) as (keyof HighPowerDevices)[])
+    .filter(key => devices[key])
+    .reduce((sum, key) => sum + DEVICE_CONSUMPTION[key], 0)
+
+  const base = BASE_CONSUMPTION[householdSize || 3] || 3200
+  return base + deviceExtra
 }
-const DEFAULT_TAX_RATE = 0.14
-
-const CANTON_FROM_POSTAL: [number, number, string][] = [
-  [1000, 1199, 'VD'], [1200, 1299, 'GE'], [1300, 1399, 'VD'], [1400, 1499, 'FR'], [1500, 1599, 'FR'],
-  [1600, 1699, 'FR'], [1700, 1799, 'FR'], [1800, 1899, 'VD'], [1900, 1999, 'VS'],
-  [2000, 2099, 'NE'], [2100, 2199, 'NE'], [2200, 2299, 'NE'], [2300, 2399, 'NE'],
-  [2400, 2499, 'BE'], [2500, 2599, 'BE'], [2600, 2699, 'BE'], [2700, 2799, 'BE'],
-  [2800, 2899, 'JU'], [2900, 2999, 'JU'], [3000, 3999, 'BE'], [4000, 4099, 'BS'],
-  [4100, 4199, 'BL'], [4200, 4299, 'BL'], [4300, 4399, 'BL'], [4400, 4499, 'SO'],
-  [4500, 4599, 'SO'], [4600, 4699, 'SO'], [4700, 4799, 'SO'], [4800, 4899, 'AG'],
-  [4900, 4999, 'AG'], [5000, 5499, 'AG'], [5500, 5699, 'AG'], [5700, 5799, 'AG'],
-  [5800, 5899, 'AG'], [5900, 5999, 'AG'], [6000, 6099, 'LU'], [6100, 6199, 'LU'],
-  [6200, 6299, 'LU'], [6300, 6399, 'ZG'], [6400, 6499, 'SZ'], [6500, 6599, 'TI'],
-  [6600, 6699, 'TI'], [6700, 6799, 'TI'], [6800, 6899, 'TI'], [6900, 6999, 'TI'],
-  [7000, 7299, 'GR'], [7300, 7599, 'GR'], [7600, 7999, 'GR'], [8000, 8099, 'ZH'],
-  [8100, 8199, 'ZH'], [8200, 8299, 'SH'], [8300, 8399, 'ZH'], [8400, 8499, 'ZH'],
-  [8500, 8599, 'TG'], [8600, 8699, 'ZH'], [8700, 8799, 'ZH'], [8800, 8899, 'ZH'],
-  [8900, 8999, 'AG'], [9000, 9099, 'SG'], [9100, 9199, 'AR'], [9200, 9299, 'SG'],
-  [9300, 9399, 'SG'], [9400, 9499, 'SG'], [9500, 9599, 'SG'], [9600, 9699, 'AI'],
-  [9700, 9799, 'SG'], [9800, 9899, 'SG'],
-]
-
-function getCantonFromAddress(address: string): string | null {
-  const match = address.match(/\b(\d{4})\b/)
-  if (!match) return null
-  const plz = parseInt(match[1], 10)
-  const entry = CANTON_FROM_POSTAL.find(([min, max]) => plz >= min && plz <= max)
-  return entry ? entry[2] : null
-}
-
-// Monthly solar production distribution for Swiss Plateau (Bern, 46.95N)
-// PVGIS ERA5 data (2005-2023 averages), 30-degree tilt, south-facing
-// Source: EU Joint Research Centre PVGIS v5.3
-const MONTHLY_FACTORS = [0.047, 0.062, 0.091, 0.104, 0.105, 0.113, 0.117, 0.108, 0.095, 0.074, 0.047, 0.037]
 
 interface SolarAboCalculatorState {
   solarModel: SolarModel | null
@@ -198,10 +195,14 @@ interface SolarAboCalculatorState {
   householdSize: HouseholdSize | null
   devices: HighPowerDevices
   consumptionOverrideKwh: number | null
+  consumptionInputMode: ConsumptionInputMode | null
+  consumptionBillChf: number | null
+  consumptionBillPeriod: BillPeriod
   heatPumpInterest: boolean
+  hasExistingSolar: boolean
 
   address: string
-  selectedLocation: SonnendachLocation | null
+  selectedLocation: { lat: number; lng: number } | null
   building: SonnendachBuilding | null
   selectedSegmentIds: string[]
   isSearching: boolean
@@ -213,11 +214,15 @@ interface SolarAboCalculatorState {
   contact: ContactDetails
   consents: Consents
 
+  manualCheckRequested: ManualCheckSource | false
+
   isSubmitting: boolean
   isSubmitted: boolean
   submissionError: string | null
+  submissionErrorCode: SubmissionErrorCode | null
   accountCreated: boolean
   pendingVerification: boolean
+  serverAnnualSavingsChf: number | null
 
   createdUserId: string | null
   createdCustomerId: string | null
@@ -243,6 +248,9 @@ interface SolarAboCalculatorState {
   electricityPriceMunicipality: string | null
   electricityPriceLoading: boolean
   electricityPriceFallback: boolean
+  electricityVariableChfKwh: number | null
+  electricityFixedAnnualChf: number | null
+  electricityTariffYear: number | null
 
   subsidyRate: SubsidyRateSnapshot | null
   subsidyRateLoading: boolean
@@ -257,11 +265,17 @@ interface SolarAboCalculatorActions {
   prevStep: () => void
   goToStep: (step: number) => void
   setHouseholdSize: (size: HouseholdSize) => void
+  setBuildingType: (type: BuildingType) => void
   setDevice: (device: keyof HighPowerDevices, value: boolean) => void
+  setHasExistingSolar: (value: boolean) => void
   setConsumptionOverride: (kwh: number | null) => void
+  setConsumptionInputMode: (mode: ConsumptionInputMode | null) => void
+  setConsumptionBill: (chf: number | null, period: BillPeriod) => void
   setHeatPumpInterest: (value: boolean) => void
   setAddress: (address: string) => void
-  setSelectedLocation: (location: SonnendachLocation | null) => void
+  setSelectedLocation: (location: { lat: number; lng: number } | null) => void
+  setParsedAddress: (fields: ParsedAddressFields) => void
+  setManualCheckRequested: (source: ManualCheckSource | false) => void
   setBuilding: (building: SonnendachBuilding | null) => void
   toggleSegment: (segmentId: string) => void
   setSelectedSegmentIds: (ids: string[]) => void
@@ -282,47 +296,22 @@ interface SolarAboCalculatorActions {
   getSelfConsumptionRate: () => number
   getAnnualSavings: () => number
   getAnnualPpaSavings: () => number
-  getEstimatedNetPrice: (pkg: { purchasePriceChf: number | null }, estimatedSubsidyChf: number) => number
-  getPaybackYears: (estimatedNetPriceChf: number, annualSavings: number) => number
-  getLifetimeSavings25y: (annualSavings: number, estimatedNetPriceChf: number) => number
   getCo2Savings: () => number
-  getMonthlyProduction: () => number[]
-  getProductionFactorForYear: (year: number) => number
-  getLifetimeProductionKwh: (years: number) => number
-  getLifetimePpaSavings: (years: number) => number
   getRecommendedPackage: () => SolarAboPackage
-  setSelectedPackage: (
-    id: string,
-    code: string,
-    pricePerKwp: number | null,
-    panelWattageW?: number | null,
-    panelAreaM2?: number | null,
-    electricitySavingsPercent?: number | null,
-    contractTermYears?: number | null,
-    firstYearDegradationPercent?: number | null,
-    annualDegradationPercent?: number | null,
-    purchasePriceChf?: number | null,
-    installerWarrantyYears?: number | null,
-  ) => void
   setSelectedEvCharger: (id: string, priceChf: number) => void
   clearEvCharger: () => void
-  getEvChargerTotalChf: () => number
-  getGrossAmount: () => number
-  getAboTotalChf: () => number
-  getAboMonthlyChf: () => number
   getSubsidyAmount: () => number
-  getNetAmount: () => number
-  getEstimatedTaxSavings: () => number
   createAccount: () => Promise<void>
   reset: () => void
 
   getElectricityPriceChfKwh: () => number
+  getVariableChfKwh: () => number
+  getFixedAnnualChf: () => number
   fetchElectricityPriceForAddress: () => Promise<void>
 
   fetchSubsidyRate: () => Promise<void>
 
   getFeedInTariffChfKwh: () => number | null
-  fetchFeedInTariff: () => Promise<void>
 }
 
 const initialContact: ContactDetails = {
@@ -337,6 +326,7 @@ const initialContact: ContactDetails = {
   country: 'CH',
   postalCode: '',
   city: '',
+  canton: '',
   street: '',
   streetNumber: '',
   addressAdditional: '',
@@ -351,12 +341,16 @@ const initialConsents: Consents = {
 const initialState: SolarAboCalculatorState = {
   solarModel: null,
   currentStep: 1,
-  totalSteps: 5,
+  totalSteps: flowTotalSteps,
 
   buildingType: 'single_family',
   householdSize: null,
   consumptionOverrideKwh: null,
+  consumptionInputMode: null,
+  consumptionBillChf: null,
+  consumptionBillPeriod: 'month',
   heatPumpInterest: false,
+  hasExistingSolar: false,
   devices: {
     heatPumpHeating: false,
     electricHeating: false,
@@ -378,11 +372,15 @@ const initialState: SolarAboCalculatorState = {
   contact: initialContact,
   consents: initialConsents,
 
+  manualCheckRequested: false,
+
   isSubmitting: false,
   isSubmitted: false,
   submissionError: null,
+  submissionErrorCode: null,
   accountCreated: false,
   pendingVerification: false,
+  serverAnnualSavingsChf: null,
 
   createdUserId: null,
   createdCustomerId: null,
@@ -408,6 +406,9 @@ const initialState: SolarAboCalculatorState = {
   electricityPriceMunicipality: null,
   electricityPriceLoading: false,
   electricityPriceFallback: false,
+  electricityVariableChfKwh: null,
+  electricityFixedAnnualChf: null,
+  electricityTariffYear: null,
 
   subsidyRate: null,
   subsidyRateLoading: false,
@@ -424,34 +425,20 @@ export const useSolarAboCalculatorStore = create<
       ...initialState,
 
       setSolarModel: (model: SolarModel | null) => {
-        set({
-          solarModel: model,
-          heatPumpInterest: false,
-          selectedPackageId: null,
-          selectedPackageCode: null,
-          selectedPackagePricePerKwp: null,
-          selectedPackagePurchasePriceChf: null,
-          selectedPackageInstallerWarrantyYears: null,
-          selectedPackageElectricitySavingsPercent: null,
-          selectedPackageContractTermYears: null,
-          selectedPanelWattageW: null,
-          selectedPanelAreaM2: null,
-          selectedPanelFirstYearDegradationPercent: null,
-          selectedPanelAnnualDegradationPercent: null,
-          isSubmitting: false,
-          isSubmitted: false,
-          submissionError: null,
-          accountCreated: false,
-          pendingVerification: false,
-          createdUserId: null,
-          createdCustomerId: null,
-          createdProjectId: null,
-        })
+        set({ solarModel: model })
       },
 
       nextStep: () => {
         const { currentStep, totalSteps } = get()
         if (currentStep < totalSteps) {
+          if (calculatorFlowV2Enabled && currentStep === mapStep) {
+            set({
+              currentStep: currentStep + 1,
+              selectedPanelAreaM2: SCREEN4_REFERENCE_PANEL_M2,
+              selectedPanelWattageW: SCREEN4_REFERENCE_PANEL_W,
+            })
+            return
+          }
           set({ currentStep: currentStep + 1 })
         }
       },
@@ -475,6 +462,14 @@ export const useSolarAboCalculatorStore = create<
         set({ householdSize: size })
       },
 
+      setBuildingType: (type: BuildingType) => {
+        set({ buildingType: type })
+      },
+
+      setHasExistingSolar: (value: boolean) => {
+        set({ hasExistingSolar: value })
+      },
+
       setDevice: (device: keyof HighPowerDevices, value: boolean) => {
         const { devices } = get()
         set({
@@ -491,8 +486,27 @@ export const useSolarAboCalculatorStore = create<
           return
         }
         if (!Number.isFinite(kwh) || kwh <= 0) return
-        const clamped = Math.max(500, Math.min(50000, Math.round(kwh)))
+        const clamped = Math.max(
+          CONSUMPTION_MIN_KWH,
+          Math.min(CONSUMPTION_MAX_KWH, Math.round(kwh)),
+        )
         set({ consumptionOverrideKwh: clamped })
+      },
+
+      setConsumptionInputMode: (mode: ConsumptionInputMode | null) => {
+        set({ consumptionInputMode: mode })
+      },
+
+      setConsumptionBill: (chf: number | null, period: BillPeriod) => {
+        if (chf == null) {
+          set({ consumptionBillChf: null, consumptionBillPeriod: period })
+          return
+        }
+        if (!Number.isFinite(chf) || chf <= 0) {
+          set({ consumptionBillPeriod: period })
+          return
+        }
+        set({ consumptionBillChf: chf, consumptionBillPeriod: period })
       },
 
       setHeatPumpInterest: (value: boolean) => {
@@ -514,8 +528,26 @@ export const useSolarAboCalculatorStore = create<
         set({ address })
       },
 
-      setSelectedLocation: (location: SonnendachLocation | null) => {
+      setSelectedLocation: (location: { lat: number; lng: number } | null) => {
+        const current = get().selectedLocation
+        const moved =
+          location &&
+          current &&
+          (location.lat !== current.lat || location.lng !== current.lng)
+        if (moved || (location && !current && get().building)) {
+          set({ selectedLocation: location, building: null, selectedSegmentIds: [] })
+          return
+        }
         set({ selectedLocation: location })
+      },
+
+      setParsedAddress: (fields: ParsedAddressFields) => {
+        const { contact } = get()
+        set({ contact: { ...contact, ...fields } })
+      },
+
+      setManualCheckRequested: (source: ManualCheckSource | false) => {
+        set({ manualCheckRequested: source })
       },
 
       setBuilding: (building: SonnendachBuilding | null) => {
@@ -606,12 +638,7 @@ export const useSolarAboCalculatorStore = create<
         if (typeof override === 'number' && override > 0) return override
 
         const { householdSize, devices } = get()
-        const deviceExtra = (Object.keys(devices) as (keyof HighPowerDevices)[])
-          .filter(key => devices[key])
-          .reduce((sum, key) => sum + DEVICE_CONSUMPTION[key], 0)
-
-        const base = BASE_CONSUMPTION[householdSize || 3] || 3200
-        return base + deviceExtra
+        return applianceEstimateConsumptionKwh(householdSize, devices)
       },
 
       getAnnualProduction: () => {
@@ -695,107 +722,15 @@ export const useSolarAboCalculatorStore = create<
         return selfConsumedKwh * price * discountFraction
       },
 
-      getEstimatedNetPrice: (pkg: { purchasePriceChf: number | null }, estimatedSubsidyChf: number) => {
-        const gross = Number(pkg.purchasePriceChf ?? 0)
-        return Math.max(0, gross - estimatedSubsidyChf)
-      },
-
-      getPaybackYears: (estimatedNetPriceChf: number, annualSavings: number) => {
-        if (annualSavings <= 0) return Infinity
-        return estimatedNetPriceChf / annualSavings
-      },
-
-      getLifetimeSavings25y: (annualSavings: number, estimatedNetPriceChf: number) => {
-        return annualSavings * 25 - estimatedNetPriceChf
-      },
-
       getCo2Savings: () => {
         const production = get().getAnnualProduction()
         return production * CO2_FACTOR
-      },
-
-      getMonthlyProduction: () => {
-        const annual = get().getAnnualProduction()
-        return MONTHLY_FACTORS.map(f => annual * f)
-      },
-
-      getProductionFactorForYear: (year: number) => {
-        if (year <= 0) return 1
-        if (year === 1) return 1
-        const firstPct = get().selectedPanelFirstYearDegradationPercent
-        const annualPct = get().selectedPanelAnnualDegradationPercent
-        if (firstPct == null || annualPct == null) return 1
-        const afterFirst = 1 - firstPct / 100
-        const annualMult = 1 - annualPct / 100
-        return afterFirst * Math.pow(annualMult, year - 2)
-      },
-
-      getLifetimeProductionKwh: (years: number) => {
-        if (years <= 0) return 0
-        const annual = get().getAnnualProduction()
-        if (annual === 0) return 0
-        let total = 0
-        for (let y = 1; y <= years; y++) {
-          total += annual * get().getProductionFactorForYear(y)
-        }
-        return total
-      },
-
-      getLifetimePpaSavings: (years: number) => {
-        if (years <= 0) return 0
-        const consumption = get().getEstimatedConsumption()
-        const selfConsumptionRate = get().getSelfConsumptionRate()
-        const price = get().getElectricityPriceChfKwh()
-        const discountPct =
-          get().selectedPackageElectricitySavingsPercent ??
-          DEFAULT_PPA_DISCOUNT_PCT
-        const discountFraction = discountPct / 100
-        const annual = get().getAnnualProduction()
-        if (annual === 0) return 0
-        let total = 0
-        for (let y = 1; y <= years; y++) {
-          const productionY = annual * get().getProductionFactorForYear(y)
-          const selfConsumedY = Math.min(
-            productionY * selfConsumptionRate,
-            consumption,
-          )
-          total += selfConsumedY * price * discountFraction
-        }
-        return total
       },
 
       getRecommendedPackage: (): SolarAboPackage => {
         const code = get().selectedPackageCode
         if (code === 'multi') return 'multi'
         return 'home'
-      },
-
-      setSelectedPackage: (
-        id: string,
-        code: string,
-        pricePerKwp: number | null,
-        panelWattageW?: number | null,
-        panelAreaM2?: number | null,
-        electricitySavingsPercent?: number | null,
-        contractTermYears?: number | null,
-        firstYearDegradationPercent?: number | null,
-        annualDegradationPercent?: number | null,
-        purchasePriceChf?: number | null,
-        installerWarrantyYears?: number | null,
-      ) => {
-        set({
-          selectedPackageId: id,
-          selectedPackageCode: code,
-          selectedPackagePricePerKwp: pricePerKwp,
-          selectedPackagePurchasePriceChf: purchasePriceChf ?? null,
-          selectedPackageInstallerWarrantyYears: installerWarrantyYears ?? null,
-          selectedPanelWattageW: panelWattageW ?? null,
-          selectedPanelAreaM2: panelAreaM2 ?? null,
-          selectedPackageElectricitySavingsPercent: electricitySavingsPercent ?? null,
-          selectedPackageContractTermYears: contractTermYears ?? null,
-          selectedPanelFirstYearDegradationPercent: firstYearDegradationPercent ?? null,
-          selectedPanelAnnualDegradationPercent: annualDegradationPercent ?? null,
-        })
       },
 
       setSelectedEvCharger: (id: string, priceChf: number) => {
@@ -814,37 +749,6 @@ export const useSolarAboCalculatorStore = create<
         })
       },
 
-      getEvChargerTotalChf: () => {
-        const s = get()
-        if (s.selectedEvChargerPriceChf == null) return 0
-        return s.selectedEvChargerPriceChf * s.selectedEvChargerQuantity
-      },
-
-      getGrossAmount: () => {
-        const state = get()
-        const chargerTotal = state.getEvChargerTotalChf()
-        if (state.selectedPackagePurchasePriceChf != null) {
-          return state.selectedPackagePurchasePriceChf + chargerTotal
-        }
-        const systemSizeKwp = state.getSystemSizeKwp()
-        if (state.selectedPackagePricePerKwp) {
-          return state.selectedPackagePricePerKwp * systemSizeKwp + chargerTotal
-        }
-        return systemSizeKwp * 1500 + chargerTotal
-      },
-
-      getAboTotalChf: () => {
-        const gross = get().getGrossAmount()
-        if (gross <= 0) return 0
-        return Math.round(gross * ABO_UPLIFT_FACTOR)
-      },
-
-      getAboMonthlyChf: () => {
-        const total = get().getAboTotalChf()
-        if (total <= 0) return 0
-        return Math.round(total / ABO_TERM_MONTHS)
-      },
-
       getSubsidyAmount: () => {
         const kWp = get().getSystemSizeKwp()
         const rate = get().subsidyRate
@@ -860,21 +764,9 @@ export const useSolarAboCalculatorStore = create<
         return Math.round(tier1Amount + tier2Amount)
       },
 
-      getNetAmount: () => {
-        return get().getGrossAmount() - get().getSubsidyAmount()
-      },
-
-      getEstimatedTaxSavings: () => {
-        const netAmount = get().getNetAmount()
-        if (netAmount <= 0) return 0
-        const canton = getCantonFromAddress(get().address)
-        const rate = canton ? (TAX_RATES_BY_CANTON[canton] || DEFAULT_TAX_RATE) : DEFAULT_TAX_RATE
-        return Math.round(netAmount * rate)
-      },
-
       createAccount: async () => {
         const state = get()
-        set({ isSubmitting: true, submissionError: null })
+        set({ isSubmitting: true, submissionError: null, submissionErrorCode: null })
 
         try {
           const isSolarFree = state.solarModel === 'solar-free'
@@ -894,19 +786,22 @@ export const useSolarAboCalculatorStore = create<
               phone: state.contact.phoneNumber,
               dateOfBirth: state.contact.dateOfBirth,
               nationality: state.contact.nationality,
-              remarks: state.contact.remarks,
+              remarks: state.hasExistingSolar
+                ? 'Hat bereits eine Solaranlage.'
+                : state.contact.remarks,
               country: state.contact.country,
               postalCode: state.contact.postalCode,
               city: state.contact.city,
               street: state.contact.street,
               streetNumber: state.contact.streetNumber,
+              canton: state.contact.canton || undefined,
               addressAdditional: state.contact.addressAdditional,
               isPropertyOwner: state.contact.isPropertyOwner ?? undefined,
             },
             calculation: {
               address: state.address,
-              lat: state.building?.center.lat || 0,
-              lng: state.building?.center.lng || 0,
+              lat: state.selectedLocation?.lat ?? state.building?.center.lat ?? 0,
+              lng: state.selectedLocation?.lng ?? state.building?.center.lng ?? 0,
               selectedSegments: state.getSelectedSegments(),
               selectedArea: state.getSelectedArea(),
               buildingType: state.buildingType,
@@ -941,6 +836,7 @@ export const useSolarAboCalculatorStore = create<
               isSubmitting: false,
               isSubmitted: true,
               pendingVerification: true,
+              serverAnnualSavingsChf: response.data.annualSavingsChf ?? null,
             })
             return
           }
@@ -951,15 +847,25 @@ export const useSolarAboCalculatorStore = create<
             isSubmitting: false,
             isSubmitted: true,
             accountCreated: true,
+            serverAnnualSavingsChf: response.data.annualSavingsChf ?? null,
             createdUserId: response.data.userId ?? null,
             createdCustomerId: response.data.customerId ?? null,
             createdProjectId: response.data.projectId ?? null,
           })
         } catch (error: unknown) {
-          const axiosError = error as { response?: { data?: { error?: { message?: string } } } }
+          const axiosError = error as {
+            response?: {
+              status?: number
+              data?: { error?: { message?: string } }
+            }
+          }
+          const status = axiosError?.response?.status
+          const submissionErrorCode: SubmissionErrorCode =
+            status === 429 ? 'rate_limited' : status ? 'server' : 'network'
           set({
             isSubmitting: false,
             submissionError: axiosError?.response?.data?.error?.message || 'Submission failed',
+            submissionErrorCode,
           })
         }
       },
@@ -973,11 +879,32 @@ export const useSolarAboCalculatorStore = create<
         return typeof price === 'number' && price > 0 ? price : ELECTRICITY_PRICE
       },
 
+      getVariableChfKwh: () => {
+        const variable = get().electricityVariableChfKwh
+        return typeof variable === 'number' &&
+          Number.isFinite(variable) &&
+          variable > 0
+          ? variable
+          : CH_FALLBACK_VARIABLE_CHF_KWH
+      },
+
+      getFixedAnnualChf: () => {
+        const fixed = get().electricityFixedAnnualChf
+        return typeof fixed === 'number' &&
+          Number.isFinite(fixed) &&
+          fixed >= 0 &&
+          fixed <= MAX_PLAUSIBLE_FIXED_ANNUAL_CHF
+          ? fixed
+          : CH_FALLBACK_FIXED_ANNUAL_CHF
+      },
+
       fetchElectricityPriceForAddress: async () => {
-        const address = get().address
-        const match = address.match(/\b(\d{4})\b/)
-        if (!match) return
-        const plz = match[1]
+        const state = get()
+        const contactPlz = state.contact.postalCode.trim()
+        const plz = /^\d{4}$/.test(contactPlz)
+          ? contactPlz
+          : (state.address.match(/\b(\d{4})\b/)?.[1] ?? null)
+        if (!plz) return
 
         if (
           get().electricityPricePlz === plz &&
@@ -995,6 +922,9 @@ export const useSolarAboCalculatorStore = create<
             electricityPricePlz: plz,
             electricityPriceMunicipality: data.municipalityName,
             electricityPriceFallback: data.fallback,
+            electricityVariableChfKwh: data.variableChfKwh,
+            electricityFixedAnnualChf: data.fixedAnnualChf,
+            electricityTariffYear: data.tariffYear,
             electricityPriceLoading: false,
           })
         } catch (err) {
@@ -1021,18 +951,6 @@ export const useSolarAboCalculatorStore = create<
       getFeedInTariffChfKwh: () => {
         return get().feedInTariffRate?.chfPerKwh ?? null
       },
-
-      fetchFeedInTariff: async () => {
-        if (get().feedInTariffRate || get().feedInTariffLoading) return
-        set({ feedInTariffLoading: true })
-        try {
-          const data = await feedInTariffService.getCurrent()
-          set({ feedInTariffRate: data, feedInTariffLoading: false })
-        } catch (err) {
-          console.warn('Failed to fetch feed-in tariff', err)
-          set({ feedInTariffLoading: false })
-        }
-      },
     }),
     {
       name: 'solar-free-calculator',
@@ -1054,7 +972,11 @@ export const useSolarAboCalculatorStore = create<
         householdSize: state.householdSize,
         devices: state.devices,
         consumptionOverrideKwh: state.consumptionOverrideKwh,
+        consumptionInputMode: state.consumptionInputMode,
+        consumptionBillChf: state.consumptionBillChf,
+        consumptionBillPeriod: state.consumptionBillPeriod,
         heatPumpInterest: state.heatPumpInterest,
+        hasExistingSolar: state.hasExistingSolar,
         address: state.address,
         selectedLocation: state.selectedLocation,
         building: state.building,
@@ -1063,6 +985,7 @@ export const useSolarAboCalculatorStore = create<
         roofImage: state.roofImage,
         contact: state.contact,
         consents: state.consents,
+        manualCheckRequested: state.manualCheckRequested,
         accountCreated: state.accountCreated,
         pendingVerification: state.pendingVerification,
         createdUserId: state.createdUserId,
@@ -1082,6 +1005,15 @@ export const useSolarAboCalculatorStore = create<
         selectedEvChargerId: state.selectedEvChargerId,
         selectedEvChargerPriceChf: state.selectedEvChargerPriceChf,
         selectedEvChargerQuantity: state.selectedEvChargerQuantity,
+        electricityPriceChfKwh: state.electricityPriceChfKwh,
+        electricityPricePlz: state.electricityPricePlz,
+        electricityPriceMunicipality: state.electricityPriceMunicipality,
+        electricityPriceFallback: state.electricityPriceFallback,
+        electricityVariableChfKwh: state.electricityVariableChfKwh,
+        electricityFixedAnnualChf: state.electricityFixedAnnualChf,
+        electricityTariffYear: state.electricityTariffYear,
+        subsidyRate: state.subsidyRate,
+        feedInTariffRate: state.feedInTariffRate,
       }),
     }
   )

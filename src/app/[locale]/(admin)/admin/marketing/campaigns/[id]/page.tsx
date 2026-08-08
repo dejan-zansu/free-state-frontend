@@ -192,15 +192,28 @@ export default function AdminMarketingCampaignDetailPage() {
       label: t('detail.funnelLandedCalculator'),
       value: funnel.landedCalculator,
     },
-    { key: 'model', label: t('detail.funnelModelSelected'), value: funnel.modelSelected },
     ...funnel.steps.map((step) => ({
       key: `step-${step.step}`,
       label: t('detail.funnelStep', { step: step.step }),
       value: step.sessions,
     })),
+    ...(funnel.estimateViewed > 0
+      ? [
+          {
+            key: 'estimate',
+            label: t('detail.funnelEstimateViewed'),
+            value: funnel.estimateViewed,
+          },
+        ]
+      : []),
     { key: 'lead', label: t('detail.funnelLead'), value: funnel.leads },
-    { key: 'results', label: t('detail.funnelResultsViewed'), value: funnel.resultsViewed },
     { key: 'account', label: t('detail.funnelAccountCreated'), value: funnel.accountsCreated },
+    { key: 'results', label: t('detail.funnelResultsViewed'), value: funnel.resultsViewed },
+    {
+      key: 'offer',
+      label: t('detail.funnelOfferRequested'),
+      value: funnel.offerRequested ?? 0,
+    },
     {
       key: 'consultation',
       label: t('detail.funnelConsultation'),

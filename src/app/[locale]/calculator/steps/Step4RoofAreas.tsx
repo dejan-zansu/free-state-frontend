@@ -17,18 +17,24 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { trackFunnelEventOnce } from '@/lib/analytics/funnel-events'
+import { calculatorFlowV2Enabled, flowVersionMeta } from '@/lib/calculator-flow'
 import { cn } from '@/lib/utils'
 import { sonnendachService } from '@/services/sonnendach.service'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
-import type { RoofSegment } from '@/types/sonnendach'
+import type { RoofSegment, SonnendachBuilding } from '@/types/sonnendach'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
 
 import { useCalculatorEmbed } from '../CalculatorEmbedContext'
+import ManualCheckCapture from '../v2/ManualCheckCapture'
+import RoofSegmentList from '../v2/RoofSegmentList'
 
 import 'ol/ol.css'
 
 const SWISS_SATELLITE_URL =
   'https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg'
+const SONNENDACH_MAX_ZOOM = 19
+const ROOF_CAPTURE_DEADLINE_MS = 6000
 const SONNENDACH_URL =
   'https://wmts.geo.admin.ch/1.0.0/ch.bfe.solarenergie-eignung-daecher/default/current/3857/{z}/{x}/{y}.png'
 
@@ -62,12 +68,15 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
 export default function Step4RoofAreas() {
   const t = useTranslations('solarAboCalculator.step5')
   const tNav = useTranslations('solarAboCalculator.navigation')
+  const t2 = useTranslations('calculatorV2.screen2')
 
   const {
     address,
     setAddress,
     building,
     setBuilding,
+    selectedLocation,
+    contact,
     selectedSegmentIds,
     toggleSegment,
     isFetchingBuilding,
@@ -87,6 +96,15 @@ export default function Step4RoofAreas() {
   const [focusedLng, setFocusedLng] = useState<number | null>(null)
   const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(true)
   const [addressError, setAddressError] = useState<string | null>(null)
+  const [buildingMissReason, setBuildingMissReason] = useState<
+    'no_building' | 'no_segments' | 'error' | null
+  >(null)
+  const [pendingBuilding, setPendingBuilding] =
+    useState<SonnendachBuilding | null>(null)
+  const [isTapNoticeVisible, setIsTapNoticeVisible] = useState(false)
+  const [isFetchSlow, setIsFetchSlow] = useState(false)
+  const [isCapturing, setIsCapturing] = useState(false)
+  const [isManualCheckOpen, setIsManualCheckOpen] = useState(false)
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
@@ -94,6 +112,7 @@ export default function Step4RoofAreas() {
   const sonnendachLayerRef = useRef<TileLayer<XYZ> | null>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const mapInitializedRef = useRef(false)
+  const tapNoticeTimerRef = useRef<number | null>(null)
   const selectedSegmentsRef = useRef<string[]>([])
   const buildingRef = useRef(building)
   const isFetchingRef = useRef(false)
@@ -157,56 +176,138 @@ export default function Step4RoofAreas() {
     layer.changed()
   }, [building])
 
+  useEffect(() => {
+    if (!isFetchingBuilding) {
+      setIsFetchSlow(false)
+      return
+    }
+    const timer = window.setTimeout(() => setIsFetchSlow(true), 8000)
+    return () => window.clearTimeout(timer)
+  }, [isFetchingBuilding])
+
+  useEffect(() => {
+    return () => {
+      if (tapNoticeTimerRef.current) {
+        window.clearTimeout(tapNoticeTimerRef.current)
+      }
+    }
+  }, [])
+
+  const showTapNotice = useCallback(() => {
+    setIsTapNoticeVisible(true)
+    if (tapNoticeTimerRef.current) {
+      window.clearTimeout(tapNoticeTimerRef.current)
+    }
+    tapNoticeTimerRef.current = window.setTimeout(
+      () => setIsTapNoticeVisible(false),
+      4000
+    )
+  }, [])
+
+  const applyBuilding = useCallback(
+    (buildingData: SonnendachBuilding) => {
+      setBuilding(buildingData)
+      const MIN_SEGMENT_AREA = 5
+
+      let selectedCount = 0
+      buildingData.roofSegments.forEach(segment => {
+        const suitClass = segment.suitability?.class || 3
+        const willSelect = segment.area >= MIN_SEGMENT_AREA && suitClass >= 3
+        if (willSelect) {
+          selectedCount += 1
+          if (!selectedSegmentsRef.current.includes(segment.id)) {
+            toggleSegment(segment.id)
+          }
+        }
+      })
+      if (selectedCount === 0) {
+        const largest = buildingData.roofSegments.reduce((best, seg) =>
+          seg.area > best.area ? seg : best
+        )
+        if (!selectedSegmentsRef.current.includes(largest.id)) {
+          toggleSegment(largest.id)
+        }
+      }
+      if (mapInstanceRef.current) {
+        const center = fromLonLat([
+          buildingData.center.lng,
+          buildingData.center.lat,
+        ])
+        mapInstanceRef.current
+          .getView()
+          .animate({ center, zoom: 20, duration: 500 })
+      }
+    },
+    [toggleSegment, setBuilding]
+  )
+
   const fetchBuildingAt = useCallback(
-    async (lat: number, lng: number) => {
+    async (lat: number, lng: number, origin: 'address' | 'tap' = 'address') => {
       if (isFetchingRef.current) return
       isFetchingRef.current = true
       setIsFetchingBuilding(true)
+      if (origin === 'address') setBuildingMissReason(null)
       try {
         const lv95 = await sonnendachService.convertToLV95(lat, lng)
-        const buildingData = await sonnendachService
-          .getBuildingData(lv95.y, lv95.x)
-          .catch(() => null)
+        const lookup = await sonnendachService.getBuildingData(lv95.y, lv95.x)
+        const buildingData = lookup.building
         if (buildingData && buildingData.roofSegments.length > 0) {
-          setBuilding(buildingData)
-          const MIN_SEGMENT_AREA = 5
-
-          buildingData.roofSegments.forEach(segment => {
-            const suitClass = segment.suitability?.class || 3
-            const willSelect =
-              segment.area >= MIN_SEGMENT_AREA && suitClass >= 3
-            if (
-              willSelect &&
-              !selectedSegmentsRef.current.includes(segment.id)
-            ) {
-              toggleSegment(segment.id)
-            }
+          trackFunnelEventOnce('building_found', {
+            meta: {
+              segmentCount: buildingData.roofSegments.length,
+              totalAreaM2: Math.round(
+                buildingData.roofSegments.reduce(
+                  (sum, segment) => sum + segment.area,
+                  0
+                )
+              ),
+              ...flowVersionMeta,
+            },
           })
-          if (mapInstanceRef.current) {
-            const center = fromLonLat([
-              buildingData.center.lng,
-              buildingData.center.lat,
-            ])
-            mapInstanceRef.current
-              .getView()
-              .animate({ center, zoom: 20, duration: 500 })
+          const current = buildingRef.current
+          if (origin === 'tap' && calculatorFlowV2Enabled && current) {
+            if (current.buildingId !== buildingData.buildingId) {
+              setPendingBuilding(buildingData)
+            }
+          } else {
+            applyBuilding(buildingData)
           }
+        } else if (origin === 'address') {
+          const missReason = lookup.reason ?? 'no_segments'
+          trackFunnelEventOnce('building_not_found', {
+            meta: { reason: missReason, ...flowVersionMeta },
+          })
+          setBuilding(null)
+          setBuildingMissReason(missReason)
+        } else if (calculatorFlowV2Enabled) {
+          showTapNotice()
         }
       } catch (error) {
         console.error('No building data at this location:', error)
+        if (origin === 'address') {
+          trackFunnelEventOnce('building_not_found', {
+            meta: { reason: 'error', ...flowVersionMeta },
+          })
+          setBuilding(null)
+          setBuildingMissReason('error')
+        } else if (calculatorFlowV2Enabled) {
+          showTapNotice()
+        }
       } finally {
         setIsFetchingBuilding(false)
         isFetchingRef.current = false
       }
     },
-    [toggleSegment, setBuilding, setIsFetchingBuilding]
+    [applyBuilding, setBuilding, setIsFetchingBuilding, showTapNotice]
   )
 
   const handleMapClick = useCallback(
     async (coordinate: number[], pixel: number[]) => {
       const map = mapInstanceRef.current
       if (!map) return
-      const clickedFeature = map.forEachFeatureAtPixel(pixel, f => f)
+      const clickedFeature = map.forEachFeatureAtPixel(pixel, f => f, {
+        hitTolerance: 8,
+      })
       if (clickedFeature) {
         const segmentId = clickedFeature.get('segmentId')
         if (segmentId) {
@@ -215,7 +316,7 @@ export default function Step4RoofAreas() {
         }
       }
       const [lng, lat] = toLonLat(coordinate)
-      await fetchBuildingAt(lat, lng)
+      await fetchBuildingAt(lat, lng, 'tap')
     },
     [toggleSegment, fetchBuildingAt]
   )
@@ -233,7 +334,11 @@ export default function Step4RoofAreas() {
     // layer and clipped at draw-time to the user's own building polygon so that
     // neighbouring roofs stay uncoloured. Hidden until a building is loaded.
     const sonnendachLayer = new TileLayer({
-      source: new XYZ({ url: SONNENDACH_URL, crossOrigin: 'anonymous' }),
+      source: new XYZ({
+        url: SONNENDACH_URL,
+        crossOrigin: 'anonymous',
+        maxZoom: SONNENDACH_MAX_ZOOM,
+      }),
       opacity: 0.7,
       visible: !!buildingRef.current,
     })
@@ -313,7 +418,7 @@ export default function Step4RoofAreas() {
 
     mapInstanceRef.current = map
     mapInitializedRef.current = true
-    setIsLoadingMap(false)
+    map.once('rendercomplete', () => setIsLoadingMap(false))
 
     if (buildingRef.current) {
       const center = fromLonLat([
@@ -323,7 +428,7 @@ export default function Step4RoofAreas() {
       map.getView().animate({ center, zoom: 20, duration: 500 })
       redrawAllSegments()
     } else if (focusedLat && focusedLng) {
-      fetchBuildingAt(focusedLat, focusedLng)
+      fetchBuildingAt(focusedLat, focusedLng, 'address')
     }
 
     return () => {
@@ -333,12 +438,21 @@ export default function Step4RoofAreas() {
     }
   }, [hasBuilding, focusedLat, focusedLng, redrawAllSegments, fetchBuildingAt])
 
+  useEffect(() => {
+    if (!calculatorFlowV2Enabled) return
+    if (building || !selectedLocation) return
+    if (focusedLat !== null && focusedLng !== null) return
+    setFocusedLat(selectedLocation.lat)
+    setFocusedLng(selectedLocation.lng)
+  }, [building, selectedLocation, focusedLat, focusedLng])
+
   const placesLoadedRef = useRef(false)
   const autocompleteLibRef = useRef<
     typeof google.maps.places.Autocomplete | null
   >(null)
 
   useEffect(() => {
+    if (calculatorFlowV2Enabled) return
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     if (!apiKey || placesLoadedRef.current) return
     placesLoadedRef.current = true
@@ -403,7 +517,10 @@ export default function Step4RoofAreas() {
 
   const initGooglePlaces = useCallback(
     (el: HTMLInputElement | null) => {
-      if (!el) return
+      if (!el) {
+        inputRef.current = null
+        return
+      }
       inputRef.current = el
       if (autocompleteLibRef.current) attachAutocomplete(el)
     },
@@ -417,45 +534,139 @@ export default function Step4RoofAreas() {
       return
     }
 
+    setIsCapturing(true)
     let advanced = false
-    const capture = () => {
+    let deadlineId = 0
+    const finish = (withImage: boolean) => {
       if (advanced) return
       advanced = true
-      const target = map.getTargetElement() as HTMLElement
-      const canvases = target.querySelectorAll('canvas')
-      const firstCanvas = canvases[0]
-      if (!firstCanvas) {
+      window.clearTimeout(deadlineId)
+      map.un('rendercomplete', onRenderComplete)
+      if (!withImage) {
         nextStep()
         return
       }
-      const mapCanvas = document.createElement('canvas')
-      mapCanvas.width = firstCanvas.width
-      mapCanvas.height = firstCanvas.height
-      const ctx = mapCanvas.getContext('2d')
-      if (!ctx) {
-        nextStep()
-        return
-      }
-      canvases.forEach(c => {
-        if (c.width > 0 && c.height > 0) {
-          try {
-            ctx.drawImage(c, 0, 0)
-          } catch {}
+      try {
+        const size = map.getSize()
+        const canvases = map
+          .getViewport()
+          .querySelectorAll<HTMLCanvasElement>('.ol-layer canvas, canvas.ol-layer')
+        if (size && canvases.length > 0) {
+          const mapCanvas = document.createElement('canvas')
+          mapCanvas.width = size[0]
+          mapCanvas.height = size[1]
+          const ctx = mapCanvas.getContext('2d')
+          if (ctx) {
+            ctx.fillStyle = '#0B1B17'
+            ctx.fillRect(0, 0, mapCanvas.width, mapCanvas.height)
+            canvases.forEach(c => {
+              if (c.width === 0 || c.height === 0) return
+              const parent = c.parentNode as HTMLElement | null
+              const opacity = parent?.style.opacity || c.style.opacity
+              ctx.globalAlpha = opacity === '' || opacity == null ? 1 : Number(opacity)
+              const match = c.style.transform.match(/^matrix\(([^)]*)\)$/)
+              if (match) {
+                const matrix = match[1].split(',').map(Number) as [
+                  number,
+                  number,
+                  number,
+                  number,
+                  number,
+                  number,
+                ]
+                ctx.setTransform(...matrix)
+              } else {
+                ctx.setTransform(1, 0, 0, 1, 0, 0)
+              }
+              try {
+                ctx.drawImage(c, 0, 0)
+              } catch {}
+            })
+            ctx.globalAlpha = 1
+            ctx.setTransform(1, 0, 0, 1, 0, 0)
+            setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.85))
+          }
         }
-      })
-      setRoofImage(mapCanvas.toDataURL('image/jpeg', 0.8))
+      } catch {}
       nextStep()
     }
 
-    map.once('rendercomplete', capture)
-    window.setTimeout(capture, 1500)
+    function onRenderComplete() {
+      finish(true)
+    }
+
+    map.on('rendercomplete', onRenderComplete)
+    deadlineId = window.setTimeout(() => finish(false), ROOF_CAPTURE_DEADLINE_MS)
     map.renderSync()
   }
 
   const selectedArea = getSelectedArea()
   const canProceed = selectedSegmentIds.length > 0
 
+  const manualCheckPrefill = {
+    address,
+    postalCode: contact.postalCode || undefined,
+    city: contact.city || undefined,
+    lat: selectedLocation?.lat,
+    lng: selectedLocation?.lng,
+  }
+
+  if (calculatorFlowV2Enabled && buildingMissReason) {
+    const missReasonMessage =
+      buildingMissReason === 'no_segments'
+        ? t2('errors.noSegments')
+        : buildingMissReason === 'error'
+          ? t2('errors.requestFailed')
+          : t2('errors.noBuilding')
+    return (
+      <div className="h-full flex flex-col">
+        <div className="flex-1 flex flex-col items-center overflow-y-auto px-4 py-12 sm:py-16">
+          <p
+            role="status"
+            className="w-full max-w-md text-base text-[#062E25]/80"
+          >
+            {missReasonMessage}
+          </p>
+          <div className="mt-6 w-full flex flex-col items-center">
+            <ManualCheckCapture source="no_roof" prefill={manualCheckPrefill} />
+          </div>
+        </div>
+
+        <div
+          className={cn(
+            'flex justify-end gap-3 px-6 py-4',
+            !embedded && 'fixed bottom-0 left-0 right-0 z-50'
+          )}
+          style={{
+            background: 'rgba(234, 237, 223, 0.85)',
+            backdropFilter: 'blur(12px)',
+          }}
+        >
+          <Button
+            variant="outline"
+            onClick={prevStep}
+            style={{ borderColor: '#062E25', color: '#062E25' }}
+          >
+            {t2('otherAddress')}
+          </Button>
+        </div>
+      </div>
+    )
+  }
+
   if (!hasBuilding) {
+    if (calculatorFlowV2Enabled) {
+      return (
+        <div className="h-full flex items-center justify-center px-4 py-12">
+          <p
+            role="status"
+            className="max-w-md text-center text-base font-light text-[#062E25]/80 tracking-tight"
+          >
+            {t2('loading')}
+          </p>
+        </div>
+      )
+    }
     return (
       <div className="h-full flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center px-4 py-12">
@@ -520,103 +731,166 @@ export default function Step4RoofAreas() {
     <div className="relative h-full w-full">
       <div
         ref={mapRef}
+        tabIndex={0}
+        {...(calculatorFlowV2Enabled
+          ? { 'aria-label': t2('mapAriaLabel') }
+          : {})}
         {...(embedded ? { 'data-lenis-prevent-wheel': '' } : {})}
+        className="absolute inset-0 w-full h-full bg-muted"
+      />
+      {isLoadingMap && (
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+        </div>
+      )}
+
+      <div
+        data-lenis-prevent
         className={cn(
-          'absolute inset-0 w-full h-full bg-muted',
-          isLoadingMap && 'flex items-center justify-center'
+          'absolute left-4 z-10 hidden sm:flex w-[320px] flex-col',
+          calculatorFlowV2Enabled
+            ? 'top-[84px] gap-2 max-h-[calc(100svh-180px)] overflow-y-auto'
+            : 'top-[100px] gap-3'
         )}
       >
-        {isLoadingMap && (
-          <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-        )}
-      </div>
-
-      <div className="absolute top-[100px] left-4 z-10 hidden sm:flex w-[320px] flex-col gap-3">
         <div
-          className="rounded-2xl p-5"
+          className={cn('rounded-2xl', calculatorFlowV2Enabled ? 'p-4' : 'p-5')}
           style={{
             background: 'rgba(30, 42, 38, 0.85)',
             backdropFilter: 'blur(20px)',
           }}
         >
-          <p className="text-sm text-[#EAEDDF]/70 mb-1.5">
-            {t('locationLabel')}
-          </p>
-          <Input
-            ref={initGooglePlaces}
-            defaultValue={address}
-            placeholder={t('searchPlaceholder')}
-            aria-invalid={!!addressError}
-            className={cn(
-              'bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40',
-              addressError && 'border-red-400 focus-visible:border-red-400'
-            )}
-          />
-          {addressError && (
-            <p className="mt-2 text-sm text-red-300" role="alert">
-              {addressError}
-            </p>
+          {calculatorFlowV2Enabled ? (
+            <>
+              <p className="text-base font-medium text-white">
+                {t2('headline')}
+              </p>
+              <p className="mt-1 text-base font-light text-[#EAEDDF]/80">
+                {t2('helper')}
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-[#EAEDDF]/70 mb-1.5">
+                {t('locationLabel')}
+              </p>
+              <Input
+                ref={initGooglePlaces}
+                defaultValue={address}
+                placeholder={t('searchPlaceholder')}
+                aria-invalid={!!addressError}
+                className={cn(
+                  'bg-[#2A3B36] border-[#4A5B56] text-white placeholder:text-white/40',
+                  addressError && 'border-red-400 focus-visible:border-red-400'
+                )}
+              />
+              {addressError && (
+                <p className="mt-2 text-sm text-red-300" role="alert">
+                  {addressError}
+                </p>
+              )}
+              <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
+                <svg
+                  className="w-4 h-4 mt-0.5 shrink-0"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                >
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="7"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                  />
+                  <path
+                    d="M8 5v3M8 10h.01"
+                    stroke="currentColor"
+                    strokeWidth="1.2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <span>{t('clickHint')}</span>
+              </div>
+            </>
           )}
-          <div className="mt-4 flex items-start gap-2 text-sm text-[#EAEDDF]/80">
-            <svg
-              className="w-4 h-4 mt-0.5 shrink-0"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <circle
-                cx="8"
-                cy="8"
-                r="7"
-                stroke="currentColor"
-                strokeWidth="1.2"
-              />
-              <path
-                d="M8 5v3M8 10h.01"
-                stroke="currentColor"
-                strokeWidth="1.2"
-                strokeLinecap="round"
-              />
-            </svg>
-            <span>{t('clickHint')}</span>
-          </div>
           {isFetchingBuilding && (
-            <div className="mt-3 flex items-center gap-2 text-sm text-[#B7FE1A]">
+            <div
+              className={cn(
+                'mt-3 flex items-center gap-2 text-[#B7FE1A]',
+                calculatorFlowV2Enabled ? 'text-base' : 'text-sm'
+              )}
+            >
               <Loader2 className="h-4 w-4 animate-spin" />
-              {t('loading')}
+              {calculatorFlowV2Enabled
+                ? isFetchSlow
+                  ? t2('loadingSlow')
+                  : t2('loading')
+                : t('loading')}
             </div>
           )}
         </div>
 
         <div
-          className="rounded-2xl p-5"
+          className={cn('rounded-2xl', calculatorFlowV2Enabled ? 'p-4' : 'p-5')}
           style={{
             background: 'rgba(30, 42, 38, 0.85)',
             backdropFilter: 'blur(20px)',
           }}
         >
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
-            <p className="text-2xl font-medium text-[#B7FE1A]">
-              {Math.round(selectedArea)} m²
+          {calculatorFlowV2Enabled ? (
+            <p className="text-base text-[#EAEDDF]">
+              {t2('areaReadout', { n: Math.round(selectedArea) })}
             </p>
-          </div>
+          ) : (
+            <div className="flex items-center justify-between">
+              <p className="text-sm text-[#EAEDDF]/70">{t('selected')}:</p>
+              <p className="text-2xl font-medium text-[#B7FE1A]">
+                {Math.round(selectedArea)} m²
+              </p>
+            </div>
+          )}
 
-          <div className="mt-3 pt-3 border-t border-white/10">
-            <p className="text-sm text-[#EAEDDF]/70">{t('suitability')}</p>
-            <div className="mt-2 h-2 rounded-full overflow-hidden flex">
-              {[1, 2, 3, 4, 5].map(cls => (
-                <div
-                  key={cls}
-                  className="flex-1"
-                  style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
-                />
-              ))}
+          {calculatorFlowV2Enabled && (
+            <div className="mt-3">
+              <RoofSegmentList idPrefix="sidebar" />
             </div>
-            <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/40">
-              <span>{t('excellent')}</span>
-              <span>{t('low')}</span>
+          )}
+
+          {calculatorFlowV2Enabled &&
+            building &&
+            selectedSegmentIds.length === 0 && (
+              <div className="mt-4">
+                <p role="alert" className="text-base text-amber-300">
+                  {t2('errors.noneSelected')}
+                </p>
+                <Button
+                  variant="outline"
+                  onClick={() => setIsManualCheckOpen(true)}
+                  className="mt-3 w-full border-[#EAEDDF]/40 bg-transparent text-base text-[#EAEDDF] hover:bg-white/10 hover:text-white"
+                >
+                  {t2('errors.noneSelectedAction')}
+                </Button>
+              </div>
+            )}
+
+          {!calculatorFlowV2Enabled && (
+            <div className="mt-3 pt-3 border-t border-white/10">
+              <p className="text-sm text-[#EAEDDF]/70">{t('suitability')}</p>
+              <div className="mt-2 h-2 rounded-full overflow-hidden flex">
+                {[1, 2, 3, 4, 5].map(cls => (
+                  <div
+                    key={cls}
+                    className="flex-1"
+                    style={{ backgroundColor: SUITABILITY_CLASSES[cls]?.color }}
+                  />
+                ))}
+              </div>
+              <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/40">
+                <span>{t('low')}</span>
+                <span>{t('excellent')}</span>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
@@ -628,16 +902,29 @@ export default function Step4RoofAreas() {
             backdropFilter: 'blur(20px)',
           }}
         >
+          {calculatorFlowV2Enabled && isFetchingBuilding && (
+            <p role="status" className="px-4 pt-3 text-base text-[#B7FE1A]">
+              {isFetchSlow ? t2('loadingSlow') : t2('loading')}
+            </p>
+          )}
           <button
             type="button"
             onClick={() => setIsMobilePanelOpen(open => !open)}
             className="flex w-full items-center justify-between px-4 py-3 text-left text-white"
           >
-            <span className="text-sm font-medium">{t('selected')}</span>
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-[#B7FE1A]">
-                {Math.round(selectedArea)} m²
+            {calculatorFlowV2Enabled ? (
+              <span className="text-base">
+                {t2('areaReadout', { n: Math.round(selectedArea) })}
               </span>
+            ) : (
+              <span className="text-sm font-medium">{t('selected')}</span>
+            )}
+            <div className="flex items-center gap-2">
+              {!calculatorFlowV2Enabled && (
+                <span className="text-sm text-[#B7FE1A]">
+                  {Math.round(selectedArea)} m²
+                </span>
+              )}
               {isMobilePanelOpen ? (
                 <ChevronDown className="h-4 w-4" />
               ) : (
@@ -653,12 +940,98 @@ export default function Step4RoofAreas() {
                 : 'max-h-0 opacity-0'
             )}
           >
-            <div className="px-4 pb-3 text-sm text-[#EAEDDF]/70">
-              {t('clickHint')}
-            </div>
+            {calculatorFlowV2Enabled ? (
+              <div className="px-4 pb-4">
+                <p className="text-base font-medium text-white">
+                  {t2('headline')}
+                </p>
+                <p className="mt-1 text-base font-light text-[#EAEDDF]/80">
+                  {t2('helper')}
+                </p>
+                <div className="mt-3">
+                  <RoofSegmentList idPrefix="mobile" />
+                </div>
+                {building && selectedSegmentIds.length === 0 && (
+                  <div className="mt-3">
+                    <p role="alert" className="text-base text-amber-300">
+                      {t2('errors.noneSelected')}
+                    </p>
+                    <Button
+                      variant="outline"
+                      onClick={() => setIsManualCheckOpen(true)}
+                      className="mt-3 w-full border-[#EAEDDF]/40 bg-transparent text-base text-[#EAEDDF] hover:bg-white/10 hover:text-white"
+                    >
+                      {t2('errors.noneSelectedAction')}
+                    </Button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="px-4 pb-3 text-sm text-[#EAEDDF]/70">
+                {t('clickHint')}
+              </div>
+            )}
           </div>
         </div>
       </div>
+
+      {calculatorFlowV2Enabled && isTapNoticeVisible && (
+        <div className="absolute left-1/2 top-16 z-30 w-[calc(100%-24px)] max-w-md -translate-x-1/2">
+          <p
+            role="status"
+            className="rounded-xl bg-white/95 px-4 py-3 text-center text-base text-[#062E25] shadow-lg"
+          >
+            {t2('errors.tapNoData')}
+          </p>
+        </div>
+      )}
+
+      {calculatorFlowV2Enabled && pendingBuilding && (
+        <div className="absolute bottom-[84px] left-1/2 z-40 w-[calc(100%-24px)] max-w-md -translate-x-1/2 sm:bottom-auto sm:top-24">
+          <div className="rounded-2xl bg-white p-5 shadow-xl">
+            <p role="alert" className="text-base text-[#062E25]">
+              {t2('errors.tapSwitchBuilding')}
+            </p>
+            <div className="mt-4 flex justify-end gap-3">
+              <Button
+                variant="outline"
+                onClick={() => setPendingBuilding(null)}
+                style={{ borderColor: '#062E25', color: '#062E25' }}
+              >
+                {t2('errors.tapSwitchCancel')}
+              </Button>
+              <Button
+                onClick={() => {
+                  applyBuilding(pendingBuilding)
+                  setPendingBuilding(null)
+                }}
+              >
+                {t2('errors.tapSwitchConfirm')}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {calculatorFlowV2Enabled && isManualCheckOpen && (
+        <div className="absolute inset-0 z-40 flex items-start justify-center overflow-y-auto bg-[#062E25]/50 px-4 py-8">
+          <div className="w-full max-w-md rounded-2xl bg-[#EAEDDF] p-6 shadow-xl">
+            <ManualCheckCapture
+              source="no_roof"
+              prefill={manualCheckPrefill}
+              compact
+            />
+            <Button
+              variant="outline"
+              onClick={() => setIsManualCheckOpen(false)}
+              className="mt-4 w-full text-base"
+              style={{ borderColor: '#062E25', color: '#062E25' }}
+            >
+              {t2('errors.tapSwitchCancel')}
+            </Button>
+          </div>
+        </div>
+      )}
 
       <div
         className={cn(
@@ -677,10 +1050,11 @@ export default function Step4RoofAreas() {
           onClick={prevStep}
           style={{ borderColor: '#062E25', color: '#062E25' }}
         >
-          {tNav('back')}
+          {calculatorFlowV2Enabled ? t2('otherAddress') : tNav('back')}
         </Button>
-        <Button onClick={handleNext} disabled={!canProceed}>
-          {tNav('next')}
+        <Button onClick={handleNext} disabled={!canProceed || isCapturing}>
+          {isCapturing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+          {calculatorFlowV2Enabled ? t2('button') : tNav('next')}
         </Button>
       </div>
     </div>

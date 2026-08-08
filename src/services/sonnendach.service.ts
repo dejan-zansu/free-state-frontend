@@ -13,6 +13,38 @@ import type {
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
+const REQUEST_TIMEOUT_MS = 8000
+
+export type BuildingMissReason = 'no_building' | 'no_segments'
+
+export interface BuildingLookupResult {
+  building: SonnendachBuilding | null
+  reason: BuildingMissReason | null
+}
+
+export class SonnendachRequestError extends Error {
+  readonly reason = 'error' as const
+
+  constructor(message: string) {
+    super(message)
+    this.name = 'SonnendachRequestError'
+  }
+}
+
+async function fetchWithTimeout(url: string): Promise<Response> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+  try {
+    return await fetch(url, { signal: controller.signal })
+  } catch (error) {
+    throw new SonnendachRequestError(
+      error instanceof Error ? error.message : 'Request failed'
+    )
+  } finally {
+    clearTimeout(timer)
+  }
+}
+
 class SonnendachService {
   /**
    * Search for Swiss addresses
@@ -23,11 +55,11 @@ class SonnendachService {
       limit: limit.toString(),
     })
 
-    const response = await fetch(`${API_URL}/api/sonnendach/search?${params}`)
+    const response = await fetchWithTimeout(`${API_URL}/api/sonnendach/search?${params}`)
     const data: SonnendachSearchResponse = await response.json()
 
     if (!data.success || !data.data) {
-      throw new Error(data.error || 'Address search failed')
+      throw new SonnendachRequestError(data.error || 'Address search failed')
     }
 
     return data.data
@@ -36,20 +68,36 @@ class SonnendachService {
   /**
    * Get building data at a point (Swiss LV95 coordinates)
    */
-  async getBuildingData(x: number, y: number): Promise<SonnendachBuilding> {
+  async getBuildingData(x: number, y: number): Promise<BuildingLookupResult> {
     const params = new URLSearchParams({
       x: x.toString(),
       y: y.toString(),
     })
 
-    const response = await fetch(`${API_URL}/api/sonnendach/building-data?${params}`)
-    const data: SonnendachBuildingResponse = await response.json()
+    const response = await fetchWithTimeout(
+      `${API_URL}/api/sonnendach/building-data?${params}`
+    )
 
-    if (!data.success || !data.data) {
-      throw new Error(data.error || 'Failed to get building data')
+    if (response.status === 404) {
+      return { building: null, reason: 'no_building' }
     }
 
-    return data.data
+    let data: SonnendachBuildingResponse & { reason?: BuildingMissReason }
+    try {
+      data = await response.json()
+    } catch {
+      throw new SonnendachRequestError('Invalid building data response')
+    }
+
+    if (data.success && !data.data) {
+      return { building: null, reason: data.reason ?? 'no_building' }
+    }
+
+    if (!data.success || !data.data) {
+      throw new SonnendachRequestError(data.error || 'Failed to get building data')
+    }
+
+    return { building: data.data, reason: null }
   }
 
   /**
@@ -61,11 +109,11 @@ class SonnendachService {
       lng: lng.toString(),
     })
 
-    const response = await fetch(`${API_URL}/api/sonnendach/convert?${params}`)
+    const response = await fetchWithTimeout(`${API_URL}/api/sonnendach/convert?${params}`)
     const data: SonnendachConvertResponse = await response.json()
 
     if (!data.success || !data.data) {
-      throw new Error(data.error || 'Coordinate conversion failed')
+      throw new SonnendachRequestError(data.error || 'Coordinate conversion failed')
     }
 
     return data.data
@@ -74,7 +122,7 @@ class SonnendachService {
   /**
    * Get building data from WGS84 coordinates (convenience method)
    */
-  async getBuildingDataFromWGS84(lat: number, lng: number): Promise<SonnendachBuilding> {
+  async getBuildingDataFromWGS84(lat: number, lng: number): Promise<BuildingLookupResult> {
     const lv95 = await this.convertToLV95(lat, lng)
     return this.getBuildingData(lv95.x, lv95.y)
   }

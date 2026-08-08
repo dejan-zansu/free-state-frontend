@@ -38,7 +38,10 @@ export default function ContractPage() {
   const [contracts, setContracts] = useState<ContractSummary[]>([])
   const [projects, setProjects] = useState<ProjectSummary[]>([])
   const [loading, setLoading] = useState(true)
-  const [signingEnabled, setSigningEnabled] = useState(true)
+  const [signingConfig, setSigningConfig] = useState<{
+    enabled: boolean
+    aboContractsEnabled: boolean
+  }>({ enabled: true, aboContractsEnabled: false })
   const [dialogContractId, setDialogContractId] = useState<string | null>(null)
   const [pollingContractId, setPollingContractId] = useState<string | null>(null)
   const [signError, setSignError] = useState<{ id: string; message: string } | null>(
@@ -90,8 +93,8 @@ export default function ContractPage() {
   useEffect(() => {
     contractService
       .getSigningConfig()
-      .then(config => setSigningEnabled(config.enabled))
-      .catch(() => setSigningEnabled(true))
+      .then(setSigningConfig)
+      .catch(() => setSigningConfig({ enabled: true, aboContractsEnabled: false }))
   }, [])
 
   useEffect(() => {
@@ -156,6 +159,7 @@ export default function ContractPage() {
   }
 
   const projectAddress = new Map(projects.map(p => [p.id, p.address]))
+  const projectOwnership = new Map(projects.map(p => [p.id, p.isPropertyOwner]))
 
   const groups: { projectId: string; contracts: ContractSummary[] }[] = []
   const groupIndex = new Map<string, number>()
@@ -217,10 +221,17 @@ export default function ContractPage() {
                         STATUS_BADGE.PENDING
                   const BadgeIcon = badge.icon
 
+                  const aboBlocked =
+                    contract.solarModel === 'solar-abo' &&
+                    !signingConfig.aboContractsEnabled
+                  const notOwner =
+                    projectOwnership.get(contract.projectId) === false
                   const signEligible =
                     contract.signatureStatus === 'PENDING' &&
                     !contract.customerSignedAt &&
-                    contract.status !== 'CANCELLED'
+                    contract.status !== 'CANCELLED' &&
+                    !aboBlocked &&
+                    !notOwner
                   const isPolling = pollingContractId === contract.id
 
                   return (
@@ -293,10 +304,7 @@ export default function ContractPage() {
                               size="sm"
                               className="border-pine text-pine hover:bg-pine/5"
                               onClick={() =>
-                                window.open(
-                                  `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf`,
-                                  '_blank'
-                                )
+                                contractService.downloadPdf(contract.id, false)
                               }
                             >
                               <Download className="h-4 w-4 mr-2" />
@@ -308,10 +316,7 @@ export default function ContractPage() {
                               size="sm"
                               className="bg-pine text-white hover:bg-pine/90"
                               onClick={() =>
-                                window.open(
-                                  `${process.env.NEXT_PUBLIC_API_URL}/api/contracts/${contract.id}/pdf?signed=true`,
-                                  '_blank'
-                                )
+                                contractService.downloadPdf(contract.id, true)
                               }
                             >
                               <Download className="h-4 w-4 mr-2" />
@@ -319,7 +324,7 @@ export default function ContractPage() {
                             </Button>
                           )}
 
-                          {signEligible && !isPolling && signingEnabled && (
+                          {signEligible && !isPolling && signingConfig.enabled && (
                             <Button
                               size="sm"
                               className="bg-pine text-white hover:bg-pine/90"
@@ -334,7 +339,7 @@ export default function ContractPage() {
                             </Button>
                           )}
 
-                          {signEligible && !isPolling && !signingEnabled && (
+                          {signEligible && !isPolling && !signingConfig.enabled && (
                             <Button
                               size="sm"
                               disabled

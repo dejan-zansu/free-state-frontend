@@ -5,129 +5,7 @@
 
 import api from '@/lib/api'
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
-
 // Types
-export interface Address {
-  street: string
-  streetNumber?: string
-  postalCode: string
-  city: string
-  canton: string
-  country: string
-}
-
-export interface PersonalInfo {
-  firstName: string
-  lastName: string
-  email: string
-  phone: string
-  password: string
-  preferredLanguage: 'de' | 'fr' | 'it' | 'en'
-}
-
-export interface PropertyOwnership {
-  isPropertyOwner: boolean
-  propertyOwnerName?: string
-  propertyOwnerEmail?: string
-  propertyOwnerPhone?: string
-}
-
-export interface Consents {
-  terms: boolean
-  privacy: boolean
-  marketing: boolean
-}
-
-export interface RoofSegment {
-  id: string
-  area: number
-  potentialKwh: number
-  tilt: number
-  orientation: number
-  suitability?: string
-  coordinates?: number[][]
-}
-
-export interface CalculationData {
-  address: string
-  latitude: number
-  longitude: number
-  selectedSegments: RoofSegment[]
-  roofProperties: {
-    roofType: string
-    buildingFloors: number
-    roofMaterial: string
-  }
-  restrictedAreas?: {
-    id: string
-    coordinates: number[][]
-    area: number
-    label?: string
-  }[]
-  selectedPanel: {
-    id: string
-    name: string
-    power: number
-    width: number
-    height: number
-    efficiency: number
-    manufacturer: string
-    price: number
-  }
-  selectedInverter: {
-    id: string
-    name: string
-    power: number
-    efficiency: number
-    manufacturer: string
-    price: number
-  }
-  panelCount: number
-  consumption: {
-    propertyType: string
-    isNewBuilding: boolean
-    evChargingStations: number
-    heatPumpHotWater: boolean
-    heatPumpHeating: boolean
-    electricityProvider?: string
-    residents: number
-    annualConsumptionKwh: number
-    electricityTariff: number
-    feedInTariff: number
-  }
-  usableArea: number
-  estimatedProductionKwh: number
-  systemSizeKwp: number
-  totalInvestment: number
-  subsidies: number
-  netInvestment: number
-  annualSavings: number
-  paybackYears: number
-  co2Savings: number
-}
-
-export interface CreateContractInput {
-  personal: PersonalInfo
-  installationAddress: Address
-  billingAddress?: Address
-  sameAsInstallation: boolean
-  ownership: PropertyOwnership
-  consents: Consents
-  calculation: CalculationData
-  packageCode: string
-}
-
-export interface ContractResponse {
-  contractId: string
-  contractNumber: string
-  projectId: string
-  customerId: string
-  userId: string
-  status: string
-  pdfUrl?: string
-}
-
 export interface SignatureInitiationResponse {
   processId: string
   signingUrl: string
@@ -191,24 +69,6 @@ class ContractService {
     }
   }
 
-  async createFromCalculator(input: CreateContractInput): Promise<ContractResponse> {
-    const response = await fetch(`${API_URL}/api/contracts/from-calculator`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(input),
-    })
-
-    const data = await response.json()
-
-    if (!data.success) {
-      throw new Error(data.error?.message || 'Failed to create contract')
-    }
-
-    return data.data
-  }
-
   /**
    * Get contract by ID
    */
@@ -225,19 +85,25 @@ class ContractService {
   }
 
   /**
-   * Get contract PDF URL
+   * Download contract PDF (authenticated)
    */
-  getPdfUrl(contractId: string, signed = false): string {
+  async downloadPdf(contractId: string, signed = false): Promise<void> {
     const query = signed ? '?signed=true' : ''
-    return `${API_URL}/api/contracts/${contractId}/pdf${query}`
-  }
-
-  /**
-   * Download contract PDF
-   */
-  getDownloadUrl(contractId: string, signed = false): string {
-    const query = signed ? '?signed=true' : ''
-    return `${API_URL}/api/contracts/${contractId}/download${query}`
+    const response = await api.get(`/contracts/${contractId}/download${query}`, {
+      responseType: 'blob',
+      timeout: 60000,
+    })
+    const blob = new Blob([response.data], { type: 'application/pdf' })
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    const disposition = response.headers['content-disposition'] as string | undefined
+    const match = disposition?.match(/filename="(.+)"/)
+    link.download = match?.[1] ?? `Vertrag_${contractId}.pdf`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    window.URL.revokeObjectURL(url)
   }
 
   /**

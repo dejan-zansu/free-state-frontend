@@ -99,7 +99,6 @@ export function WorkspaceSignDialog({
       }
     } else {
       rows.push({ label: t('sign.recap.term'), value: t('sign.recap.termMonths', { months: fin.aboTermMonths }) })
-      rows.push({ label: t('sign.recap.monthlyRate'), value: `CHF ${fmt(fin.aboMonthlyChf ?? 0)} / Mt.`, bold: true })
       rows.push({ label: t('sign.recap.total'), value: `CHF ${fmt(fin.aboTotalChf ?? 0)}` })
     }
     return rows
@@ -138,9 +137,15 @@ export function WorkspaceSignDialog({
       onSigningStarted(contractId)
       onOpenChange(false)
     } catch (err) {
-      const code = (err as { code?: string }).code
+      const code =
+        (err as { code?: string }).code ??
+        (err as { response?: { data?: { error?: { code?: string } } } }).response
+          ?.data?.error?.code
       if (code === 'SIGNING_DISABLED') setError(t('sign.errors.disabled'))
       else if (code === 'CONTRACT_CANCELLED') setError(t('sign.errors.cancelled'))
+      else if (code === 'CONTRACT_EXPIRED') setError(t('sign.errors.expired'))
+      else if (code === 'CONTRACT_MODEL_CHANGED') setError(t('sign.modelChangedNotice'))
+      else if (code === 'CONTRACT_DETAILS_MISSING') setError(t('sign.errors.detailsMissing'))
       else if (code === 'ALREADY_SIGNED') setError(t('sign.errors.alreadySigned'))
       else if (code === 'ABO_CONTRACT_NOT_AVAILABLE') setError(t('sign.errors.aboUnavailable'))
       else if (code === 'NOT_PROPERTY_OWNER') setError(t('sign.errors.notOwner'))
@@ -171,13 +176,13 @@ export function WorkspaceSignDialog({
           <div className="rounded-xl border border-pine/10 bg-pine/5 p-4 space-y-3">
             {rows.map((row) => (
               <div key={row.label} className="flex items-baseline justify-between gap-3">
-                <span className="text-base text-pine/70">{row.label}</span>
+                <span className="text-base text-pine">{row.label}</span>
                 <span className={cn('text-base text-pine', row.bold && 'text-lg font-semibold')}>
                   {row.value}
                 </span>
               </div>
             ))}
-            {note && <p className="text-base text-pine/60">{note}</p>}
+            {note && <p className="text-base text-pine">{note}</p>}
           </div>
 
           <div className="rounded-xl border border-amber-200 bg-amber-50/60 p-4">

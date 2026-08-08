@@ -6,53 +6,36 @@ import { Loader2 } from 'lucide-react'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import {
-  useSolarAboCalculatorStore,
-  type Salutation,
-  type ContactCountry,
-} from '@/stores/solar-abo-calculator.store'
+import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
-import { trackFunnelEvent } from '@/lib/analytics/funnel-events'
+import { calculatorFlowV2Enabled, flowVersionMeta } from '@/lib/calculator-flow'
+import { getAttribution, trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
+import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import { Link as LocaleLink } from '@/i18n/navigation'
 import { useRouter } from 'next/navigation'
 import { useCalculatorEmbed } from '../CalculatorEmbedContext'
+import ManualCheckCapture from '../v2/ManualCheckCapture'
 
-const salutations: Salutation[] = ['mr', 'woman', 'family']
-const countries: ContactCountry[] = ['CH', 'LI']
 const DEV_DEFAULT_CONTACT = {
-  salutation: 'mr' as const,
   firstName: 'Test',
   lastName: 'Test',
   email: 'arsicdejan996@gmail.com',
   phoneNumber: '123123123',
-  dateOfBirth: '1996-04-04',
-  nationality: 'Test',
   country: 'CH' as const,
   postalCode: '11000',
   city: 'Belgrade',
   street: 'Mirijevski bulevar',
   streetNumber: '92',
-  addressAdditional: '',
-  remarks: '',
 }
 
 function useContactSchema(t: (key: string) => string) {
   return useMemo(
     () =>
       z.object({
-        salutation: z.enum(['mr', 'woman', 'family'], {
-          message: t('salutationRequired'),
-        }),
         firstName: z.string().min(1, t('firstNameRequired')),
         lastName: z.string().min(1, t('lastNameRequired')),
         email: z.string().min(1, t('emailRequired')).email(t('emailInvalid')),
@@ -60,30 +43,11 @@ function useContactSchema(t: (key: string) => string) {
           .string()
           .min(1, t('phoneRequired'))
           .regex(/^[+\d][\d\s\-().]{6,}$/, t('phoneInvalid')),
-        dateOfBirth: z
-          .string()
-          .min(1, t('dateOfBirthRequired'))
-          .refine(v => {
-            const d = new Date(v)
-            if (isNaN(d.getTime())) return false
-            const today = new Date()
-            const age =
-              today.getFullYear() -
-              d.getFullYear() -
-              (today < new Date(today.getFullYear(), d.getMonth(), d.getDate())
-                ? 1
-                : 0)
-            return age >= 18 && age <= 120
-          }, t('dateOfBirthInvalid')),
-        nationality: z.string().min(1, t('nationalityRequired')),
         country: z.enum(['CH', 'LI']),
         postalCode: z.string().min(1, t('postalCodeRequired')),
         city: z.string().min(1, t('cityRequired')),
         street: z.string().min(1, t('streetRequired')),
         streetNumber: z.string().min(1, t('streetNumberRequired')),
-        addressAdditional: z.string(),
-        remarks: z.string(),
-        isPropertyOwner: z.boolean({ message: t('propertyOwnerRequired') }),
         dataProcessing: z.literal(true, {
           message: t('consentRequired'),
         }),
@@ -101,101 +65,28 @@ const inputBase =
 const labelBase =
   'text-sm sm:text-base font-light text-[#062E25]/80 tracking-tight'
 
-function DateOfBirthPicker({
-  initialValue,
-  onChange,
-  hasError,
-  locale,
-  placeholderDay,
-  placeholderMonth,
-  placeholderYear,
-}: {
-  initialValue: string
-  onChange: (value: string) => void
-  hasError: boolean
-  locale: string
-  placeholderDay: string
-  placeholderMonth: string
-  placeholderYear: string
-}) {
-  const [y, setY] = useState(() => (initialValue || '').split('-')[0] || '')
-  const [m, setM] = useState(() => (initialValue || '').split('-')[1] || '')
-  const [d, setD] = useState(() => (initialValue || '').split('-')[2] || '')
+const v2InputBase =
+  'w-full h-12 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60'
 
-  const update = (part: 'y' | 'm' | 'd', v: string) => {
-    const ny = part === 'y' ? v : y
-    const nm = part === 'm' ? v : m
-    const nd = part === 'd' ? v : d
-    if (part === 'y') setY(v)
-    if (part === 'm') setM(v)
-    if (part === 'd') setD(v)
-    onChange(ny && nm && nd ? `${ny}-${nm}-${nd}` : '')
-  }
+const v2LabelBase = 'text-base text-[#062E25] tracking-tight'
 
-  const currentYear = new Date().getFullYear()
-  const years = Array.from({ length: 103 }, (_, i) => currentYear - 18 - i)
-  const monthFmt = new Intl.DateTimeFormat(locale, { month: 'long' })
-  const triggerCls = cn(
-    inputBase,
-    'flex items-center justify-between min-w-0 shadow-none dark:bg-white/20 dark:hover:bg-white/20 data-[placeholder]:text-[#062E25]/30',
-    hasError && 'border-destructive'
-  )
-
-  return (
-    <div className="grid grid-cols-[1fr_1.6fr_1fr] gap-2">
-      <Select value={d} onValueChange={v => update('d', v)}>
-        <SelectTrigger className={triggerCls}>
-          <SelectValue placeholder={placeholderDay} />
-        </SelectTrigger>
-        <SelectContent>
-          {Array.from({ length: 31 }, (_, i) => {
-            const v = String(i + 1).padStart(2, '0')
-            return (
-              <SelectItem key={v} value={v}>
-                {v}
-              </SelectItem>
-            )
-          })}
-        </SelectContent>
-      </Select>
-      <Select value={m} onValueChange={v => update('m', v)}>
-        <SelectTrigger className={triggerCls}>
-          <SelectValue placeholder={placeholderMonth} />
-        </SelectTrigger>
-        <SelectContent>
-          {Array.from({ length: 12 }, (_, i) => {
-            const v = String(i + 1).padStart(2, '0')
-            return (
-              <SelectItem key={v} value={v}>
-                {monthFmt.format(new Date(2000, i, 1))}
-              </SelectItem>
-            )
-          })}
-        </SelectContent>
-      </Select>
-      <Select value={y} onValueChange={v => update('y', v)}>
-        <SelectTrigger className={triggerCls}>
-          <SelectValue placeholder={placeholderYear} />
-        </SelectTrigger>
-        <SelectContent>
-          {years.map(yr => (
-            <SelectItem key={yr} value={String(yr)}>
-              {yr}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-    </div>
-  )
-}
+const V2_EMAIL_PATTERN = /^\S+@\S+\.\S+$/
 
 export default function Step6ContactDetails() {
+  if (calculatorFlowV2Enabled) {
+    return <ContactScreenV2 />
+  }
+  return <ContactScreenV1 />
+}
+
+function ContactScreenV1() {
   const t = useTranslations('solarAboCalculator.step7')
   const tErr = useTranslations('solarAboCalculator.step7.errors')
   const tAddr = useTranslations('solarAboCalculator.step7.address')
   const tNav = useTranslations('solarAboCalculator.navigation')
   const tConsent = useTranslations('solarAboCalculator.consents')
   const tPending = useTranslations('calculator.pendingVerification')
+  const tSubmitErr = useTranslations('calculatorV2.screen5.errors')
   const locale = useLocale()
   const router = useRouter()
   const embedded = useCalculatorEmbed()
@@ -208,6 +99,7 @@ export default function Step6ContactDetails() {
     prevStep,
     isSubmitting,
     submissionError,
+    submissionErrorCode,
     pendingVerification,
     createAccount,
   } = useSolarAboCalculatorStore()
@@ -223,9 +115,6 @@ export default function Step6ContactDetails() {
   } = useForm<ContactFormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      salutation:
-        contact.salutation ||
-        (isLocalDev ? DEV_DEFAULT_CONTACT.salutation : undefined),
       firstName:
         contact.firstName || (isLocalDev ? DEV_DEFAULT_CONTACT.firstName : ''),
       lastName:
@@ -234,12 +123,6 @@ export default function Step6ContactDetails() {
       phoneNumber:
         contact.phoneNumber ||
         (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
-      dateOfBirth:
-        contact.dateOfBirth ||
-        (isLocalDev ? DEV_DEFAULT_CONTACT.dateOfBirth : ''),
-      nationality:
-        contact.nationality ||
-        (isLocalDev ? DEV_DEFAULT_CONTACT.nationality : ''),
       country:
         contact.country || (isLocalDev ? DEV_DEFAULT_CONTACT.country : 'CH'),
       postalCode:
@@ -250,19 +133,6 @@ export default function Step6ContactDetails() {
       streetNumber:
         contact.streetNumber ||
         (isLocalDev ? DEV_DEFAULT_CONTACT.streetNumber : ''),
-      addressAdditional:
-        contact.addressAdditional ||
-        (isLocalDev ? DEV_DEFAULT_CONTACT.addressAdditional : ''),
-      remarks:
-        contact.remarks || (isLocalDev ? DEV_DEFAULT_CONTACT.remarks : ''),
-      isPropertyOwner:
-        contact.isPropertyOwner === true
-          ? true
-          : contact.isPropertyOwner === false
-            ? false
-            : isLocalDev
-              ? true
-              : undefined,
       dataProcessing:
         consents.dataProcessing || (isLocalDev ? true : undefined),
       marketing: consents.marketing ?? false,
@@ -272,21 +142,15 @@ export default function Step6ContactDetails() {
   const onSubmit = useCallback(
     async (data: ContactFormData) => {
       setContact({
-        salutation: data.salutation,
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
         phoneNumber: data.phoneNumber,
-        dateOfBirth: data.dateOfBirth,
-        nationality: data.nationality,
         country: data.country,
         postalCode: data.postalCode,
         city: data.city,
         street: data.street,
         streetNumber: data.streetNumber,
-        addressAdditional: data.addressAdditional,
-        remarks: data.remarks,
-        isPropertyOwner: data.isPropertyOwner,
       })
       setConsents({
         dataProcessing: data.dataProcessing,
@@ -294,22 +158,20 @@ export default function Step6ContactDetails() {
       })
       await createAccount()
       const s = useSolarAboCalculatorStore.getState()
+      const serverSavings = s.serverAnnualSavingsChf
+      const leadValue =
+        typeof serverSavings === 'number' && serverSavings > 0
+          ? { value: Math.round(serverSavings) }
+          : {}
       if (s.pendingVerification) {
+        trackLead({ form: 'calculator', locale, ...leadValue })
         trackFunnelEvent('account_pending_verification', {
           meta: { model: s.solarModel ?? undefined },
         })
         return
       }
       if (s.accountCreated) {
-        const annualSavings =
-          s.solarModel === 'solar-free'
-            ? s.getAnnualPpaSavings()
-            : s.getAnnualSavings()
-        trackLead({
-          form: 'calculator',
-          locale,
-          value: Math.round(annualSavings),
-        })
+        trackLead({ form: 'calculator', locale, ...leadValue })
         trackFunnelEvent('account_created', {
           meta: { model: s.solarModel ?? undefined, source: 'calculator' },
         })
@@ -398,60 +260,6 @@ export default function Step6ContactDetails() {
               )}
             >
               <div className="space-y-5 min-w-0">
-                <div className="flex flex-col gap-2.5">
-                  <label className={labelBase}>
-                    {t('salutation.label')}{' '}
-                    <span className="text-destructive">*</span>
-                  </label>
-                  <Controller
-                    name="salutation"
-                    control={control}
-                    render={({ field }) => (
-                      <div className="flex items-center gap-[17px]">
-                        {salutations.map(option => {
-                          const selected = field.value === option
-                          return (
-                            <button
-                              key={option}
-                              type="button"
-                              onClick={() => field.onChange(option)}
-                              className="flex items-center gap-1.5"
-                            >
-                              <span
-                                className={cn(
-                                  'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                  selected
-                                    ? 'border-[#062E25]'
-                                    : 'border-[#D9D9D9]'
-                                )}
-                              >
-                                {selected && (
-                                  <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                                )}
-                              </span>
-                              <span
-                                className={cn(
-                                  'text-sm sm:text-base font-medium tracking-tight',
-                                  selected
-                                    ? 'text-[#062E25]'
-                                    : 'text-[#062E25]/70'
-                                )}
-                              >
-                                {t(`salutation.options.${option}`)}
-                              </span>
-                            </button>
-                          )
-                        })}
-                      </div>
-                    )}
-                  />
-                  {errors.salutation && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.salutation.message}
-                    </p>
-                  )}
-                </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
                   <div className="space-y-1">
                     <input
@@ -522,50 +330,6 @@ export default function Step6ContactDetails() {
                       </p>
                     )}
                   </div>
-
-                  <div className="sm:col-span-2 flex flex-col gap-2.5">
-                    <label className={labelBase}>
-                      {t('dateOfBirth')}{' '}
-                      <span className="text-destructive">*</span>
-                    </label>
-                    <Controller
-                      name="dateOfBirth"
-                      control={control}
-                      render={({ field }) => (
-                        <DateOfBirthPicker
-                          initialValue={field.value}
-                          onChange={field.onChange}
-                          hasError={!!errors.dateOfBirth}
-                          locale={locale}
-                          placeholderDay={t('dateOfBirthDay')}
-                          placeholderMonth={t('dateOfBirthMonth')}
-                          placeholderYear={t('dateOfBirthYear')}
-                        />
-                      )}
-                    />
-                    {errors.dateOfBirth && (
-                      <p className="text-sm sm:text-base text-destructive">
-                        {errors.dateOfBirth.message}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-1">
-                    <input
-                      id="nationality"
-                      {...register('nationality')}
-                      placeholder={t('nationality')}
-                      className={cn(
-                        inputBase,
-                        errors.nationality && 'border-destructive'
-                      )}
-                    />
-                    {errors.nationality && (
-                      <p className="text-sm sm:text-base text-destructive">
-                        {errors.nationality.message}
-                      </p>
-                    )}
-                  </div>
                 </div>
               </div>
 
@@ -574,55 +338,6 @@ export default function Step6ContactDetails() {
                   <p className={cn(labelBase, 'font-medium')}>
                     {tAddr('sectionTitle')}
                   </p>
-
-                  <div className="flex flex-col gap-2.5">
-                    <label className={labelBase}>
-                      {tAddr('countryLabel')}{' '}
-                      <span className="text-destructive">*</span>
-                    </label>
-                    <Controller
-                      name="country"
-                      control={control}
-                      render={({ field }) => (
-                        <div className="flex items-center gap-[17px]">
-                          {countries.map(option => {
-                            const selected = field.value === option
-                            return (
-                              <button
-                                key={option}
-                                type="button"
-                                onClick={() => field.onChange(option)}
-                                className="flex items-center gap-1.5"
-                              >
-                                <span
-                                  className={cn(
-                                    'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                    selected
-                                      ? 'border-[#062E25]'
-                                      : 'border-[#D9D9D9]'
-                                  )}
-                                >
-                                  {selected && (
-                                    <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                                  )}
-                                </span>
-                                <span
-                                  className={cn(
-                                    'text-sm sm:text-base font-medium tracking-tight',
-                                    selected
-                                      ? 'text-[#062E25]'
-                                      : 'text-[#062E25]/70'
-                                  )}
-                                >
-                                  {tAddr(`countryOptions.${option}`)}
-                                </span>
-                              </button>
-                            )
-                          })}
-                        </div>
-                      )}
-                    />
-                  </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5">
                     <div className="space-y-1">
@@ -695,102 +410,6 @@ export default function Step6ContactDetails() {
                       )}
                     </div>
                   </div>
-
-                  <div className="space-y-1">
-                    <input
-                      id="addressAdditional"
-                      {...register('addressAdditional')}
-                      placeholder={tAddr('addressAdditional')}
-                      className={inputBase}
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <textarea
-                    id="remarks"
-                    {...register('remarks')}
-                    placeholder={t('remarksPlaceholder')}
-                    rows={2}
-                    className="w-full rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 py-2 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60 resize-none"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-2.5">
-                  <label className={labelBase}>
-                    {t('propertyOwner.label')}{' '}
-                    <span className="text-destructive">*</span>
-                  </label>
-                  <Controller
-                    name="isPropertyOwner"
-                    control={control}
-                    render={({ field }) => {
-                      const raw = field.value as unknown
-                      const isYes = raw === true
-                      const isNo = raw === false
-                      return (
-                        <>
-                          <div className="flex items-center gap-[17px]">
-                            <button
-                              type="button"
-                              onClick={() => field.onChange(true)}
-                              className="flex items-center gap-1.5"
-                            >
-                              <span
-                                className={cn(
-                                  'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                  isYes
-                                    ? 'border-[#062E25]'
-                                    : 'border-[#D9D9D9]'
-                                )}
-                              >
-                                {isYes && (
-                                  <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                                )}
-                              </span>
-                              <span
-                                className={cn(
-                                  'text-sm sm:text-base font-medium tracking-tight',
-                                  isYes ? 'text-[#062E25]' : 'text-[#062E25]/70'
-                                )}
-                              >
-                                {t('propertyOwner.yes')}
-                              </span>
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => field.onChange(false)}
-                              className="flex items-center gap-1.5"
-                            >
-                              <span
-                                className={cn(
-                                  'w-5 h-5 rounded-full border flex items-center justify-center transition-colors',
-                                  isNo ? 'border-[#062E25]' : 'border-[#D9D9D9]'
-                                )}
-                              >
-                                {isNo && (
-                                  <span className="w-3 h-3 rounded-full bg-[#B7FE1A]" />
-                                )}
-                              </span>
-                              <span
-                                className={cn(
-                                  'text-sm sm:text-base font-medium tracking-tight',
-                                  isNo ? 'text-[#062E25]' : 'text-[#062E25]/70'
-                                )}
-                              >
-                                {t('propertyOwner.no')}
-                              </span>
-                            </button>
-                          </div>
-                        </>
-                      )
-                    }}
-                  />
-                  {errors.isPropertyOwner && (
-                    <p className="text-sm sm:text-base text-destructive">
-                      {errors.isPropertyOwner.message}
-                    </p>
-                  )}
                 </div>
               </div>
 
@@ -909,7 +528,9 @@ export default function Step6ContactDetails() {
                     embedded && 'lg:col-span-2'
                   )}
                 >
-                  {submissionError}
+                  {submissionErrorCode === 'rate_limited'
+                    ? tSubmitErr('rateLimited')
+                    : tSubmitErr('submitFailed')}
                 </div>
               )}
             </form>
@@ -944,6 +565,634 @@ export default function Step6ContactDetails() {
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {tNav('next')}
           </Button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function useV2Schema(tErr: (key: string) => string, needsAddressFallback: boolean) {
+  return useMemo(
+    () =>
+      z
+        .object({
+          email: z.string().min(1, tErr('required')).email(tErr('emailInvalid')),
+          consent: z.literal(true, {
+            message: tErr('consentRequired'),
+          }),
+          firstName: z.string().min(1, tErr('required')),
+          lastName: z.string().min(1, tErr('required')),
+          phoneNumber: z
+            .string()
+            .min(1, tErr('required'))
+            .regex(/^[+\d][\d\s\-().]{6,}$/, tErr('phoneInvalid')),
+          postalCode: z.string(),
+          city: z.string(),
+        })
+        .superRefine((data, ctx) => {
+          if (!needsAddressFallback) return
+          if (!data.postalCode.trim()) {
+            ctx.addIssue({
+              code: 'custom',
+              path: ['postalCode'],
+              message: tErr('required'),
+            })
+          }
+          if (!data.city.trim()) {
+            ctx.addIssue({
+              code: 'custom',
+              path: ['city'],
+              message: tErr('required'),
+            })
+          }
+        }),
+    [tErr, needsAddressFallback]
+  )
+}
+
+type V2FormData = z.infer<ReturnType<typeof useV2Schema>>
+
+function V2FieldError({ id, message }: { id: string; message?: string }) {
+  if (!message) return null
+  return (
+    <p id={id} role="alert" className="mt-1 text-base text-destructive">
+      {message}
+    </p>
+  )
+}
+
+function ContactScreenV2() {
+  const t = useTranslations('calculatorV2.screen5')
+  const tErr = useTranslations('calculatorV2.screen5.errors')
+  const tNav = useTranslations('solarAboCalculator.navigation')
+  const tPending = useTranslations('calculator.pendingVerification')
+  const locale = useLocale()
+  const router = useRouter()
+  const embedded = useCalculatorEmbed()
+  const Heading = embedded ? 'h3' : 'h1'
+
+  const {
+    contact,
+    consents,
+    setContact,
+    setConsents,
+    prevStep,
+    isSubmitting,
+    submissionError,
+    submissionErrorCode,
+    pendingVerification,
+    accountCreated,
+    createdProjectId,
+    address,
+    createAccount,
+  } = useSolarAboCalculatorStore()
+
+  const [needsAddressFallback] = useState(
+    () => !contact.postalCode || !contact.city
+  )
+  const [correctedEmail, setCorrectedEmail] = useState(contact.email)
+  const [resendError, setResendError] = useState<string | null>(null)
+  const partialFiredRef = useRef(false)
+
+  const prevPendingRef = useRef(pendingVerification)
+  useEffect(() => {
+    if (pendingVerification && !prevPendingRef.current) {
+      setCorrectedEmail(useSolarAboCalculatorStore.getState().contact.email)
+    }
+    prevPendingRef.current = pendingVerification
+  }, [pendingVerification])
+
+  const schema = useV2Schema(tErr, needsAddressFallback)
+  const isLocalDev = process.env.NODE_ENV === 'development'
+
+  const {
+    register,
+    control,
+    handleSubmit,
+    getValues,
+    formState: { errors },
+  } = useForm<V2FormData>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: contact.email || (isLocalDev ? DEV_DEFAULT_CONTACT.email : ''),
+      consent: consents.dataProcessing || isLocalDev ? true : undefined,
+      firstName:
+        contact.firstName || (isLocalDev ? DEV_DEFAULT_CONTACT.firstName : ''),
+      lastName:
+        contact.lastName || (isLocalDev ? DEV_DEFAULT_CONTACT.lastName : ''),
+      phoneNumber:
+        contact.phoneNumber ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
+      postalCode: contact.postalCode,
+      city: contact.city,
+    },
+  })
+
+  const maybeCapturePartial = useCallback(
+    (consentOverride?: boolean) => {
+      if (partialFiredRef.current) return
+      const state = useSolarAboCalculatorStore.getState()
+      if (state.manualCheckRequested === 'partial_contact') return
+      if (state.accountCreated) return
+      const email = getValues('email')?.trim() ?? ''
+      const consentTicked = consentOverride ?? getValues('consent') === true
+      if (!consentTicked || !V2_EMAIL_PATTERN.test(email)) return
+      partialFiredRef.current = true
+      const kwp = state.getSystemSizeKwp()
+      residentialCalculatorService
+        .requestManualCheck({
+          email,
+          address: state.address,
+          privacy: true,
+          source: 'partial_contact',
+          postalCode: state.contact.postalCode || undefined,
+          city: state.contact.city || undefined,
+          lat: state.selectedLocation?.lat,
+          lng: state.selectedLocation?.lng,
+          systemSizeKwp: kwp > 0 ? kwp : undefined,
+          attribution: getAttribution(),
+        })
+        .then(() => {
+          trackFunnelEvent('manual_check_requested', {
+            meta: { source: 'partial_contact', ...flowVersionMeta },
+          })
+          useSolarAboCalculatorStore
+            .getState()
+            .setManualCheckRequested('partial_contact')
+        })
+        .catch(() => {
+          partialFiredRef.current = false
+        })
+    },
+    [getValues]
+  )
+
+  const onSubmit = useCallback(
+    async (data: V2FormData) => {
+      setContact({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        ...(needsAddressFallback
+          ? { postalCode: data.postalCode, city: data.city }
+          : {}),
+      })
+      setConsents({ dataProcessing: true })
+      await createAccount()
+      const s = useSolarAboCalculatorStore.getState()
+      const serverSavings = s.serverAnnualSavingsChf
+      const leadValue =
+        typeof serverSavings === 'number' && serverSavings > 0
+          ? { value: Math.round(serverSavings) }
+          : {}
+      if (s.pendingVerification) {
+        trackLead({ form: 'calculator', locale, ...leadValue })
+        trackFunnelEvent('account_pending_verification', {
+          meta: { model: s.solarModel ?? undefined },
+        })
+        return
+      }
+      if (s.accountCreated) {
+        trackLead({ form: 'calculator', locale, ...leadValue })
+        trackFunnelEvent('account_created', {
+          meta: { model: s.solarModel ?? undefined, source: 'calculator' },
+        })
+        const projectId = s.createdProjectId
+        if (projectId) {
+          router.push(`/${locale}/dashboard/project/${projectId}`)
+        } else {
+          router.push(`/${locale}/dashboard`)
+        }
+      }
+    },
+    [setContact, setConsents, createAccount, router, locale, needsAddressFallback]
+  )
+
+  const handleResend = useCallback(async () => {
+    const email = correctedEmail.trim()
+    if (!V2_EMAIL_PATTERN.test(email)) {
+      setResendError(tErr('emailInvalid'))
+      return
+    }
+    setResendError(null)
+    setContact({ email })
+    await createAccount()
+  }, [correctedEmail, setContact, createAccount, tErr])
+
+  if (accountCreated && createdProjectId) {
+    return (
+      <div className="h-full overflow-y-auto">
+        <div
+          className={cn(
+            'container mx-auto px-4 pt-8',
+            embedded ? 'pb-12' : 'pb-24'
+          )}
+        >
+          <div className="mx-auto max-w-md text-center py-12">
+            <Heading className="text-2xl sm:text-3xl font-medium text-[#062E25]">
+              {t('alreadyDone')}
+            </Heading>
+            <Button
+              asChild
+              className="mt-6 h-12 bg-[#062E25] px-6 text-base text-white hover:bg-[#062E25]/90"
+            >
+              <Link href={`/${locale}/dashboard/project/${createdProjectId}`}>
+                {t('alreadyDoneCta')}
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (pendingVerification) {
+    return (
+      <div className="h-full overflow-y-auto" data-hj-suppress data-cs-mask>
+        <div
+          className={cn(
+            'container mx-auto px-4 pt-8',
+            embedded ? 'pb-12' : 'pb-24'
+          )}
+        >
+          <div className="mx-auto max-w-md py-12">
+            <div className="text-center">
+              <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+                {tPending('title')}
+              </Heading>
+              <p className="mt-3 text-base sm:text-[22px] text-[#062E25] tracking-tight">
+                {tPending('body')}
+              </p>
+              <p className="mt-2 text-base text-[#062E25]">
+                {tPending('hint')}
+              </p>
+            </div>
+
+            <div className="mt-10 rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 text-left">
+              <p className="text-base text-[#062E25] tracking-tight">
+                {t('verifyTypoPrompt')}
+              </p>
+              <label htmlFor="v2-verify-email" className={cn(v2LabelBase, 'mt-4 block')}>
+                {t('email')}
+              </label>
+              <input
+                id="v2-verify-email"
+                type="email"
+                autoComplete="email"
+                inputMode="email"
+                value={correctedEmail}
+                onChange={event => setCorrectedEmail(event.target.value)}
+                aria-invalid={!!resendError}
+                aria-describedby={resendError ? 'v2-verify-email-error' : undefined}
+                className={cn(
+                  v2InputBase,
+                  'mt-1',
+                  resendError && 'border-destructive'
+                )}
+              />
+              <V2FieldError
+                id="v2-verify-email-error"
+                message={resendError ?? undefined}
+              />
+              {submissionError && (
+                <p role="alert" className="mt-2 text-base text-destructive">
+                  {submissionErrorCode === 'rate_limited'
+                    ? tErr('rateLimited')
+                    : tErr('submitFailed')}
+                </p>
+              )}
+              <Button
+                onClick={handleResend}
+                disabled={isSubmitting}
+                className="mt-4 h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+              >
+                {isSubmitting && (
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                )}
+                {t('verifyResendButton')}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  if (submissionErrorCode === 'rate_limited') {
+    const state = useSolarAboCalculatorStore.getState()
+    const kwp = state.getSystemSizeKwp()
+    return (
+      <div className="h-full overflow-y-auto" data-hj-suppress data-cs-mask>
+        <div
+          className={cn(
+            'container mx-auto px-4 pt-8',
+            embedded ? 'pb-12' : 'pb-24'
+          )}
+        >
+          <div className="flex flex-col items-center py-8">
+            <ManualCheckCapture
+              source="retry_blocked"
+              prefill={{
+                address,
+                postalCode: contact.postalCode || undefined,
+                city: contact.city || undefined,
+                systemSizeKwp: kwp > 0 ? kwp : undefined,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <div className="h-full overflow-y-auto" data-hj-suppress data-cs-mask>
+      <div
+        className={cn(
+          'container mx-auto px-4 pt-8',
+          embedded ? 'pb-12' : 'pb-24'
+        )}
+      >
+        <div className="mx-auto w-full max-w-xl text-center">
+          <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+            {t('headline')}
+          </Heading>
+          <p className="mt-4 text-base sm:text-[22px] text-[#062E25] tracking-tight">
+            {t('helper')}
+          </p>
+        </div>
+
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          noValidate
+          className="mx-auto mt-8 flex w-full max-w-md flex-col gap-5 rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 text-left sm:p-8"
+        >
+          <div>
+            <label htmlFor="v2-email" className={v2LabelBase}>
+              {t('email')}
+            </label>
+            <input
+              id="v2-email"
+              type="email"
+              autoComplete="email"
+              inputMode="email"
+              {...register('email', { onBlur: () => maybeCapturePartial() })}
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'v2-email-error' : undefined}
+              className={cn(
+                v2InputBase,
+                'mt-1',
+                errors.email && 'border-destructive'
+              )}
+            />
+            <V2FieldError id="v2-email-error" message={errors.email?.message} />
+          </div>
+
+          {needsAddressFallback && (
+            <div>
+              <p className="text-base text-[#062E25] tracking-tight">
+                {t('addressFallbackHelper')}
+              </p>
+              <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="v2-postal-code" className={v2LabelBase}>
+                    {t('postalCode')}
+                  </label>
+                  <input
+                    id="v2-postal-code"
+                    autoComplete="postal-code"
+                    {...register('postalCode')}
+                    aria-invalid={!!errors.postalCode}
+                    aria-describedby={
+                      errors.postalCode ? 'v2-postal-code-error' : undefined
+                    }
+                    className={cn(
+                      v2InputBase,
+                      'mt-1',
+                      errors.postalCode && 'border-destructive'
+                    )}
+                  />
+                  <V2FieldError
+                    id="v2-postal-code-error"
+                    message={errors.postalCode?.message}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="v2-city" className={v2LabelBase}>
+                    {t('city')}
+                  </label>
+                  <input
+                    id="v2-city"
+                    autoComplete="address-level2"
+                    {...register('city')}
+                    aria-invalid={!!errors.city}
+                    aria-describedby={
+                      errors.city ? 'v2-city-error' : undefined
+                    }
+                    className={cn(
+                      v2InputBase,
+                      'mt-1',
+                      errors.city && 'border-destructive'
+                    )}
+                  />
+                  <V2FieldError
+                    id="v2-city-error"
+                    message={errors.city?.message}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div>
+            <Controller
+              name="consent"
+              control={control}
+              render={({ field }) => {
+                const checked = field.value === true
+                return (
+                  <button
+                    type="button"
+                    aria-pressed={checked}
+                    onClick={() => {
+                      const next = checked ? undefined : true
+                      field.onChange(next)
+                      if (next === true) maybeCapturePartial(true)
+                    }}
+                    className="flex items-start gap-2.5 text-left"
+                  >
+                    <span
+                      className={cn(
+                        'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px] border transition-colors',
+                        checked
+                          ? 'bg-[#B7FE1A] border-[#B7FE1A]'
+                          : 'border-[#062E25]/40'
+                      )}
+                    >
+                      {checked && (
+                        <svg
+                          width="13"
+                          height="10"
+                          viewBox="0 0 8 6"
+                          fill="none"
+                        >
+                          <path
+                            d="M1 3L3 5L7 1"
+                            stroke="#062E25"
+                            strokeWidth="1.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      )}
+                    </span>
+                    <span className="text-base text-[#062E25] tracking-tight">
+                      {t.rich('consent', {
+                        privacyLink: chunks => (
+                          <LocaleLink
+                            href="/privacy-policy"
+                            target="_blank"
+                            className="underline underline-offset-2 text-[#062E25] hover:text-[#062E25]"
+                            onClick={event => event.stopPropagation()}
+                          >
+                            {chunks}
+                          </LocaleLink>
+                        ),
+                      })}
+                    </span>
+                  </button>
+                )
+              }}
+            />
+            {errors.consent && (
+              <p role="alert" className="mt-2 text-base text-destructive">
+                {errors.consent.message}
+              </p>
+            )}
+            <p className="mt-2 text-base text-[#062E25] tracking-tight">
+              {t('consentNote')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="v2-first-name" className={v2LabelBase}>
+                {t('firstName')}
+              </label>
+              <input
+                id="v2-first-name"
+                autoComplete="given-name"
+                {...register('firstName')}
+                aria-invalid={!!errors.firstName}
+                aria-describedby={
+                  errors.firstName ? 'v2-first-name-error' : undefined
+                }
+                className={cn(
+                  v2InputBase,
+                  'mt-1',
+                  errors.firstName && 'border-destructive'
+                )}
+              />
+              <V2FieldError
+                id="v2-first-name-error"
+                message={errors.firstName?.message}
+              />
+            </div>
+            <div>
+              <label htmlFor="v2-last-name" className={v2LabelBase}>
+                {t('lastName')}
+              </label>
+              <input
+                id="v2-last-name"
+                autoComplete="family-name"
+                {...register('lastName')}
+                aria-invalid={!!errors.lastName}
+                aria-describedby={
+                  errors.lastName ? 'v2-last-name-error' : undefined
+                }
+                className={cn(
+                  v2InputBase,
+                  'mt-1',
+                  errors.lastName && 'border-destructive'
+                )}
+              />
+              <V2FieldError
+                id="v2-last-name-error"
+                message={errors.lastName?.message}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label htmlFor="v2-phone" className={v2LabelBase}>
+              {t('phone')}
+            </label>
+            <input
+              id="v2-phone"
+              type="tel"
+              autoComplete="tel"
+              {...register('phoneNumber')}
+              aria-invalid={!!errors.phoneNumber}
+              aria-describedby={cn(
+                errors.phoneNumber && 'v2-phone-error',
+                'v2-phone-helper'
+              )}
+              className={cn(
+                v2InputBase,
+                'mt-1',
+                errors.phoneNumber && 'border-destructive'
+              )}
+            />
+            <V2FieldError
+              id="v2-phone-error"
+              message={errors.phoneNumber?.message}
+            />
+            <p
+              id="v2-phone-helper"
+              className="mt-1 text-base text-[#062E25] tracking-tight"
+            >
+              {t('phoneHelper')}
+            </p>
+          </div>
+
+          {submissionError && (
+            <div
+              role="alert"
+              className="rounded-md bg-destructive/10 p-3 text-base text-destructive"
+            >
+              {tErr('submitFailed')}
+            </div>
+          )}
+
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            className="h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+          >
+            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {t('button')}
+          </Button>
+
+          <div>
+            <p className="text-center text-base text-[#062E25] tracking-tight">
+              {t('reassurance1')}
+            </p>
+            <p className="mt-1 text-center text-base text-[#062E25] tracking-tight">
+              {t('reassurance2')}
+            </p>
+          </div>
+        </form>
+
+        <div className="mx-auto mt-6 w-full max-w-md text-center">
+          <button
+            type="button"
+            onClick={prevStep}
+            disabled={isSubmitting}
+            className="text-base text-[#062E25] underline underline-offset-2 hover:text-[#062E25]"
+          >
+            {tNav('back')}
+          </button>
         </div>
       </div>
     </div>

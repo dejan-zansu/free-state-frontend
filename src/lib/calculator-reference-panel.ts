@@ -1,0 +1,2 @@
+export const SCREEN4_REFERENCE_PANEL_W = 485
+export const SCREEN4_REFERENCE_PANEL_M2 = 2.0

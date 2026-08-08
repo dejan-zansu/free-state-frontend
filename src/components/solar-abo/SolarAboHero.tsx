@@ -10,6 +10,12 @@ type LinkButtonVariant = NonNullable<
   VariantProps<typeof linkButtonVariants>['variant']
 >
 
+const CALCULATOR_MODEL_BY_NAMESPACE: Record<string, string> = {
+  solarFreeHome: 'solar-free',
+  solarAboPlanHome: 'solar-abo',
+  solarAboHome: 'solar-direct',
+}
+
 export interface SolarAboHeroProps {
   translationNamespace: string
   imageSrc: string
@@ -97,6 +103,13 @@ const SolarAboHero = async ({
 }: SolarAboHeroProps) => {
   const t = await getTranslations(translationNamespace)
 
+  const calculatorModel = CALCULATOR_MODEL_BY_NAMESPACE[translationNamespace]
+  const calculatorHref = isCommercial
+    ? '/commercial/calculator'
+    : calculatorModel
+      ? `/calculator?model=${calculatorModel}`
+      : '/calculator'
+
   const iconClass =
     statIconClassName ?? (isCommercial ? 'text-white' : 'text-[#062E25]')
   const mobileIconClass = cn(
@@ -160,7 +173,7 @@ const SolarAboHero = async ({
 
             <div>
               <LinkButton
-                href={isCommercial ? '/commercial/calculator' : '/calculator'}
+                href={calculatorHref}
                 variant={
                   ctaVariant ??
                   (isCommercial ? 'outline-quaternary' : 'primary')
