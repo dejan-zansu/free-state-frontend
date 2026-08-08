@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { Check, Loader2, Pencil, X } from 'lucide-react'
 
-import EnergyFlowDiagram from '@/components/results/EnergyFlowDiagram'
 import MonthlyAnalysisChart from '@/components/results/MonthlyAnalysisChart'
 import { groupNumber } from '@/lib/format-chf'
 import { cn } from '@/lib/utils'
@@ -56,12 +55,6 @@ export function WorkspaceCharts({
 
   return (
     <div className="space-y-6">
-      <EnergyFlowDiagram
-        annualProduction={data.calculation.annualProductionKwh}
-        estimatedConsumption={data.calculation.annualConsumptionKwh}
-        selfConsumptionRate={data.calculation.selfConsumptionRate}
-      />
-
       <div className="relative">
         <div
           className={cn(
