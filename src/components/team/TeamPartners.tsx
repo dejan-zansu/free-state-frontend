@@ -22,7 +22,7 @@ const TeamPartners = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light max-w-[518px]">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px] max-w-[518px]">
             {t('subtitle')}
           </p>
 

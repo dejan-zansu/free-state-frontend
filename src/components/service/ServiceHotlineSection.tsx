@@ -68,7 +68,7 @@ const ServiceHotlineSection = async () => {
                 </div>
               </div>
 
-              <p className="text-white/80 text-base md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[604px] whitespace-pre-line">
+              <p className="text-white/80 text-base md:text-[22px] tracking-[-0.02em] text-center max-w-[604px] whitespace-pre-line">
                 {t('hotline.description')}
               </p>
             </div>

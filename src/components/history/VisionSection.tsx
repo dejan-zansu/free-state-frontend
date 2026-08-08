@@ -32,7 +32,7 @@ const VisionSection = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light max-w-[505px]">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px] max-w-[505px]">
             {t('subtitle')}
           </p>
         </div>
@@ -52,7 +52,7 @@ const VisionSection = () => {
           />
 
           <div className="relative z-10 w-full max-w-[577px] p-6 sm:p-10 rounded-[16px] border border-[#f6f6f6]/60 backdrop-blur-[10px] bg-[rgba(28,40,31,0.06)] mb-[40px] md:mb-0">
-            <p className="text-[#FDFFF5]/80 text-base font-light text-center">
+            <p className="text-[#FDFFF5]/80 text-base text-center">
               {t('cardText')}
             </p>
           </div>

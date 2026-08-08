@@ -49,7 +49,7 @@ export default function ComingSoon({
       <div className="relative z-10 px-6 sm:px-10 pt-6">
         <Link
           href={exploreHref}
-          className="inline-flex items-center gap-1.5 text-sm text-[#062E25]/70 hover:text-[#062E25] transition-colors"
+          className="inline-flex items-center gap-1.5 text-sm text-[#062E25]/75 hover:text-[#062E25] transition-colors"
         >
           <ChevronLeft className="h-4 w-4" />
           {t('back')}
@@ -66,7 +66,7 @@ export default function ComingSoon({
             {t('title')}
           </h1>
 
-          <p className="mt-5 text-base sm:text-lg text-[#062E25]/70 max-w-xl mx-auto sm:mx-0 leading-relaxed">
+          <p className="mt-5 text-base sm:text-lg text-[#062E25] max-w-xl mx-auto sm:mx-0 leading-relaxed">
             {t('description')}
           </p>
 

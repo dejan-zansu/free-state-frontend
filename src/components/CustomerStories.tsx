@@ -91,7 +91,7 @@ const CustomerStories = ({
             <Reveal
               as="p"
               delay={0.2}
-              className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight max-w-[412px]"
+              className="text-foreground/80 text-lg md:text-[22px] tracking-tight max-w-[412px]"
             >
               {t('subtitle')}
             </Reveal>
@@ -131,7 +131,7 @@ const CustomerStories = ({
                               <StarIcon key={i} />
                             ))}
                           </div>
-                          <p className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight max-w-[322px]">
+                          <p className="text-foreground/80 text-lg md:text-[22px] tracking-tight max-w-[322px]">
                             {`„${story.quote}“`}
                           </p>
                         </div>

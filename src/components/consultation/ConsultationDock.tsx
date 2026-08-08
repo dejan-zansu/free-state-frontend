@@ -118,7 +118,7 @@ export default function ConsultationDock() {
               <p className="text-base font-semibold text-pine truncate">
                 {name}
               </p>
-              <p className="text-sm text-pine/60 truncate">{role}</p>
+              <p className="text-sm text-pine/75 truncate">{role}</p>
             </div>
             <button
               aria-label={t('close')}
@@ -128,7 +128,7 @@ export default function ConsultationDock() {
               <X className="h-4 w-4" />
             </button>
           </div>
-          <p className="mt-3 text-base text-pine/70">{t('subtitle')}</p>
+          <p className="mt-3 text-base text-pine">{t('subtitle')}</p>
           <LinkButton
             href={calendlyHref}
             target="_blank"
@@ -142,7 +142,7 @@ export default function ConsultationDock() {
           >
             {t('cta')}
           </LinkButton>
-          <div className="mt-3 flex items-center justify-center gap-4 text-sm text-pine/60">
+          <div className="mt-3 flex items-center justify-center gap-4 text-sm text-pine/75">
             <a
               href={`tel:${advisor.phone.replace(/[^+\d]/g, '')}`}
               className="inline-flex items-center gap-1 hover:text-pine"
@@ -198,7 +198,7 @@ export default function ConsultationDock() {
             aria-label={t('dismiss')}
             onClick={() => setHidden(true)}
             className={cn(
-              'absolute flex h-5 w-5 items-center justify-center rounded-full text-white/55 transition-colors hover:bg-white/15 hover:text-white',
+              'absolute flex h-5 w-5 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/15 hover:text-white',
               inCalculatorFlow ? 'top-1 right-3.5' : 'top-1.5 right-4'
             )}
           >

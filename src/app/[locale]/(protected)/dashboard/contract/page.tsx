@@ -148,8 +148,8 @@ export default function ContractPage() {
         <Card className="border-pine/10">
           <CardContent className="p-8 text-center">
             <FileSignature className="h-12 w-12 text-pine/20 mx-auto mb-4" />
-            <p className="text-pine/60 mb-2">{t('noContracts')}</p>
-            <p className="text-sm text-pine/40">
+            <p className="text-pine mb-2">{t('noContracts')}</p>
+            <p className="text-sm text-pine/75">
               {t('noContractsHelp')}
             </p>
           </CardContent>
@@ -187,7 +187,7 @@ export default function ContractPage() {
           <button
             type="button"
             onClick={() => router.replace(pathname)}
-            className="text-sm font-medium text-pine underline underline-offset-4 hover:text-pine/70"
+            className="text-sm font-medium text-pine underline underline-offset-4 hover:text-pine/75"
           >
             {t('showAll')}
           </button>
@@ -250,7 +250,7 @@ export default function ContractPage() {
                                 {badge.label}
                               </span>
                             </div>
-                            <p className="text-sm text-pine/60">
+                            <p className="text-sm text-pine">
                               {contract.address}
                             </p>
                           </div>
@@ -258,13 +258,13 @@ export default function ContractPage() {
 
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm mb-6">
                           <div>
-                            <p className="text-pine/60">{t('type')}</p>
+                            <p className="text-pine">{t('type')}</p>
                             <p className="font-medium text-pine">
                               {contract.contractType}
                             </p>
                           </div>
                           <div>
-                            <p className="text-pine/60">{t('created')}</p>
+                            <p className="text-pine">{t('created')}</p>
                             <p className="font-medium text-pine">
                               {new Date(contract.createdAt).toLocaleDateString(
                                 'de-CH'
@@ -272,7 +272,7 @@ export default function ContractPage() {
                             </p>
                           </div>
                           <div>
-                            <p className="text-pine/60">
+                            <p className="text-pine">
                               {t('validUntil')}
                             </p>
                             <p className="font-medium text-pine">
@@ -284,7 +284,7 @@ export default function ContractPage() {
                             </p>
                           </div>
                           <div>
-                            <p className="text-pine/60">
+                            <p className="text-pine">
                               {t('signedDate')}
                             </p>
                             <p className="font-medium text-pine">
@@ -353,11 +353,11 @@ export default function ContractPage() {
                           {signEligible && isPolling && (
                             <div className="flex flex-wrap items-center gap-3">
                               {pollTimedOut === contract.id ? (
-                                <span className="text-sm text-pine/70">
+                                <span className="text-sm text-pine">
                                   {tSigning('checkBackLater')}
                                 </span>
                               ) : (
-                                <span className="inline-flex items-center gap-2 text-sm text-pine/70">
+                                <span className="inline-flex items-center gap-2 text-sm text-pine">
                                   <Loader2 className="h-4 w-4 animate-spin" />
                                   {tSigning('awaitingSignature')}
                                 </span>

@@ -159,7 +159,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
       {navGroups.map((group, i) => (
         <div key={i} className={cn(i > 0 && 'mt-4')}>
           {group.label && (
-            <p className="px-3 mb-1 text-sm font-semibold uppercase tracking-wider text-[#062E25]/40">
+            <p className="px-3 mb-1 text-sm font-semibold uppercase tracking-wider text-[#062E25]/75">
               {group.label}
             </p>
           )}
@@ -173,7 +173,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
                   'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors',
                   isActive(item.href)
                     ? 'bg-[#062E25]/10 text-[#062E25]'
-                    : 'text-[#062E25]/60 hover:bg-[#062E25]/5 hover:text-[#062E25]'
+                    : 'text-[#062E25]/75 hover:bg-[#062E25]/5 hover:text-[#062E25]'
                 )}
               >
                 <item.icon className="h-4 w-4" />

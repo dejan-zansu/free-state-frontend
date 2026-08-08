@@ -73,39 +73,39 @@ export default function AdminQuoteRequestDetailPage() {
             <h2 className="font-semibold text-[#062E25]">{t('details')}</h2>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
-                <p className="text-[#062E25]/40">{t('source')}</p>
+                <p className="text-[#062E25]">{t('source')}</p>
                 <p className="text-[#062E25]">
                   {t(request.source === 'SOLAR_FREE' ? 'sourceSolarFree' : 'sourceSolarDirect')}
                 </p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('ownsHome')}</p>
+                <p className="text-[#062E25]">{t('ownsHome')}</p>
                 <p className="text-[#062E25]">
                   {request.ownsHome ? t('yes') : t('no')}
                 </p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('email')}</p>
+                <p className="text-[#062E25]">{t('email')}</p>
                 <p className="text-[#062E25]">{request.email}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('phone')}</p>
+                <p className="text-[#062E25]">{t('phone')}</p>
                 <p className="text-[#062E25]">{request.phone}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('postalCode')}</p>
+                <p className="text-[#062E25]">{t('postalCode')}</p>
                 <p className="text-[#062E25]">{request.postalCode}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('locale')}</p>
+                <p className="text-[#062E25]">{t('locale')}</p>
                 <p className="text-[#062E25]">{request.locale || '-'}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('consent')}</p>
+                <p className="text-[#062E25]">{t('consent')}</p>
                 <p className="text-[#062E25]">{request.consent ? t('yes') : t('no')}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('created')}</p>
+                <p className="text-[#062E25]">{t('created')}</p>
                 <p className="text-[#062E25]">
                   {new Date(request.createdAt).toLocaleString('de-CH')}
                 </p>
@@ -118,7 +118,7 @@ export default function AdminQuoteRequestDetailPage() {
           <CardContent className="p-6 space-y-4">
             <h2 className="font-semibold text-[#062E25]">{t('manage')}</h2>
             <div>
-              <p className="text-sm text-[#062E25]/40 mb-1">{t('status')}</p>
+              <p className="text-sm text-[#062E25] mb-1">{t('status')}</p>
               <Select value={status} onValueChange={setStatus}>
                 <SelectTrigger>
                   <SelectValue />
@@ -132,7 +132,7 @@ export default function AdminQuoteRequestDetailPage() {
               </Select>
             </div>
             <div>
-              <p className="text-sm text-[#062E25]/40 mb-1">{t('adminNotes')}</p>
+              <p className="text-sm text-[#062E25] mb-1">{t('adminNotes')}</p>
               <Textarea
                 value={adminNotes}
                 onChange={e => setAdminNotes(e.target.value)}
@@ -143,7 +143,7 @@ export default function AdminQuoteRequestDetailPage() {
               {t('save')}
             </Button>
             {updateMutation.isSuccess && (
-              <p className="text-green-600 text-sm">{t('saved')}</p>
+              <p className="text-green-700 text-sm">{t('saved')}</p>
             )}
           </CardContent>
         </Card>

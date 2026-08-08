@@ -33,7 +33,7 @@ const SelfCheckSection = async () => {
             <h2 className="text-white text-3xl md:text-[45px] font-medium leading-[1em] text-center">
               {t('selfCheck.title')}
             </h2>
-            <p className="text-white/80 text-base md:text-[22px] font-light tracking-[-0.02em] text-center">
+            <p className="text-white/80 text-base md:text-[22px] tracking-[-0.02em] text-center">
               {t('selfCheck.description')}
             </p>
           </div>

@@ -24,7 +24,7 @@ export default function ExperienceTimeline() {
           <Reveal
             as="p"
             delay={0.2}
-            className="text-lg md:text-[22px] font-light text-foreground/80 tracking-tight"
+            className="text-lg md:text-[22px] text-foreground/80 tracking-tight"
           >
             {t('subheading')}
           </Reveal>
@@ -43,7 +43,7 @@ export default function ExperienceTimeline() {
               <h3 className="text-[22px] font-medium text-foreground mb-2">
                 {t(n.titleKey)}
               </h3>
-              <p className="text-base font-light text-foreground/80 tracking-tight">
+              <p className="text-base text-foreground/80 tracking-tight">
                 {t(n.bodyKey)}
               </p>
             </li>

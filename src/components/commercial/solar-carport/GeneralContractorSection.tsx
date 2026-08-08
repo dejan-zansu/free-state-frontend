@@ -39,7 +39,7 @@ const GeneralContractorSection = async () => {
           <h2 className="text-white text-3xl sm:text-4xl md:text-[45px] font-medium text-center">
             {t('generalContractor.title')}
           </h2>
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] text-center">
             {t('generalContractor.subtitle')}
           </p>
         </div>

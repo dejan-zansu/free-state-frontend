@@ -45,7 +45,7 @@ const YourPartnerCarousel = ({
                 <h3 className="text-foreground text-2xl font-bold mb-2.5">
                   {item.title}
                 </h3>
-                <p className="text-foreground text-base font-light mb-6 md:mb-8">
+                <p className="text-foreground text-base mb-6 md:mb-8">
                   {item.description}
                 </p>
                 <Link

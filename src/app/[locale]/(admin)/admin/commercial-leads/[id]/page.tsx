@@ -49,7 +49,7 @@ export default function CommercialLeadDetailPage() {
       </div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="font-mono text-sm text-[#062E25]/50">{lead.reference}</p>
+          <p className="font-mono text-sm text-[#062E25]/75">{lead.reference}</p>
           <h1 className="text-2xl font-bold text-[#062E25]">{lead.companyName}</h1>
         </div>
       </div>
@@ -63,7 +63,7 @@ export default function CommercialLeadDetailPage() {
                 key={k}
                 onClick={() => setTab(k)}
                 className={`px-4 py-2 text-sm font-medium border-b-2 ${
-                  tab === k ? 'border-[#062E25] text-[#062E25]' : 'border-transparent text-[#062E25]/60 hover:text-[#062E25]'
+                  tab === k ? 'border-[#062E25] text-[#062E25]' : 'border-transparent text-[#062E25]/75 hover:text-[#062E25]'
                 }`}
               >
                 {t(`tab_${k}`)}

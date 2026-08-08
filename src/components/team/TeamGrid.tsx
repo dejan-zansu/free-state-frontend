@@ -95,7 +95,7 @@ const TeamGrid = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light tracking-[-0.02em] max-w-[562px]">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px] tracking-[-0.02em] max-w-[562px]">
             {t('subtitle')}
           </p>
         </div>

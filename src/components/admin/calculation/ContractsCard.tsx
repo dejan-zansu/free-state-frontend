@@ -40,7 +40,7 @@ export function ContractsCard({ contracts }: Props) {
                   </p>
                   <StatusBadge status={contract.status} />
                 </div>
-                <p className="text-base text-[#062E25]/60 mt-1">
+                <p className="text-base text-[#062E25]/75 mt-1">
                   {t('contractCreatedOn', {
                     date: new Date(contract.createdAt).toLocaleDateString('de-CH'),
                   })}

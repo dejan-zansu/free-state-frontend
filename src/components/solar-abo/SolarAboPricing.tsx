@@ -40,7 +40,7 @@ const SolarAboPricing = async ({
           <h2 className="text-[#062E25] text-3xl sm:text-4xl lg:text-[45px] font-medium text-center w-full">
             {t('pricing.title')}
           </h2>
-          <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-light text-center tracking-[-0.02em] w-full">
+          <p className="text-[#062E25] text-lg sm:text-xl lg:text-[22px] text-center tracking-[-0.02em] w-full">
             {t('pricing.subtitle')}
           </p>
         </div>

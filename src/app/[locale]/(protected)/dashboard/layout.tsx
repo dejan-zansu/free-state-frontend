@@ -75,7 +75,7 @@ export default function DashboardLayout({
             'flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors',
             isActive(item.href)
               ? 'bg-pine text-white'
-              : 'text-pine/70 hover:bg-pine/5 hover:text-pine'
+              : 'text-pine/75 hover:bg-pine/5 hover:text-pine'
           )}
         >
           <item.icon className="h-4 w-4" />
@@ -103,13 +103,13 @@ export default function DashboardLayout({
             <p className="font-semibold text-pine">
               {user?.firstName} {user?.lastName}
             </p>
-            <p className="text-sm text-pine/60 truncate">{user?.email}</p>
+            <p className="text-sm text-pine/75 truncate">{user?.email}</p>
           </div>
           {NavList}
           <div className="p-4 border-t border-pine/10">
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-pine/70 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-pine/75 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
             >
               <LogOut className="h-4 w-4" />
               {t('signOut')}
@@ -123,7 +123,7 @@ export default function DashboardLayout({
             <p className="font-semibold text-pine">
               {user?.firstName} {user?.lastName}
             </p>
-            <p className="text-sm text-pine/60 truncate">{user?.email}</p>
+            <p className="text-sm text-pine/75 truncate">{user?.email}</p>
           </div>
 
           {NavList}
@@ -131,7 +131,7 @@ export default function DashboardLayout({
           <div className="p-4 border-t border-pine/10">
             <button
               onClick={handleLogout}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-pine/70 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-pine/75 hover:bg-red-50 hover:text-red-600 transition-colors w-full"
             >
               <LogOut className="h-4 w-4" />
               {t('signOut')}

@@ -84,8 +84,8 @@ export default function Steps() {
                             ? 'text-white/80 cursor-pointer hover:bg-[rgba(241,242,233,0.15)]'
                             : 'text-[#062E25]/80 cursor-pointer hover:bg-[#B7FE1A]/25'
                           : isMapDark
-                            ? 'text-white/40 cursor-default'
-                            : 'text-[#062E25]/40 cursor-default'
+                            ? 'text-white/70 cursor-default'
+                            : 'text-[#062E25]/75 cursor-default'
                     )}
                   >
                     {currentStep === step.id && (
@@ -154,7 +154,7 @@ export default function Steps() {
                     className={cn(
                       'text-sm tracking-tight whitespace-nowrap hidden sm:block',
                       isMapDark ? 'text-white' : 'text-[#062E25]',
-                      currentStep === step.id ? 'opacity-100' : isMapDark ? 'opacity-60' : 'opacity-40'
+                      currentStep === step.id ? 'opacity-100' : isMapDark ? 'opacity-60' : 'opacity-75'
                     )}
                   >
                     {step.label}

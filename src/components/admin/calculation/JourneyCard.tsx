@@ -80,12 +80,12 @@ export function JourneyCard({ attribution, journey }: Props) {
         </div>
 
         {detailRows.length === 0 ? (
-          <p className="text-base text-[#062E25]/60">{t('noAttribution')}</p>
+          <p className="text-base text-[#062E25]">{t('noAttribution')}</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {detailRows.map(row => (
               <div key={row.label}>
-                <label className="text-sm text-[#062E25]/60">{row.label}</label>
+                <label className="text-sm text-[#062E25]">{row.label}</label>
                 <p className="font-medium text-[#062E25] break-all">
                   {row.value}
                 </p>
@@ -99,7 +99,7 @@ export function JourneyCard({ attribution, journey }: Props) {
             {t('sessionTimeline')}
           </h3>
           {journey.length === 0 ? (
-            <p className="text-base text-[#062E25]/60">{t('noJourney')}</p>
+            <p className="text-base text-[#062E25]">{t('noJourney')}</p>
           ) : (
             <ol className="space-y-2">
               {journey.map(entry => (
@@ -107,7 +107,7 @@ export function JourneyCard({ attribution, journey }: Props) {
                   key={`${entry.kind}-${entry.id}`}
                   className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-l-2 border-[#062E25]/10 pl-4 py-1"
                 >
-                  <span className="text-sm text-[#062E25]/50 tabular-nums">
+                  <span className="text-sm text-[#062E25]/75 tabular-nums">
                     {fmtDateTime(entry.createdAt)}
                   </span>
                   <span className="text-base font-medium text-[#062E25]">
@@ -117,7 +117,7 @@ export function JourneyCard({ attribution, journey }: Props) {
                     {entry.step != null ? ` ${entry.step}` : ''}
                   </span>
                   {entry.path && (
-                    <span className="text-sm text-[#062E25]/50 break-all">
+                    <span className="text-sm text-[#062E25]/75 break-all">
                       {entry.path}
                     </span>
                   )}

@@ -65,7 +65,7 @@ export function AboFinancialSummary(props: Props) {
         {props.excluded.map(item => (
           <div key={item} className="flex items-center gap-2">
             <X className="h-4 w-4 shrink-0 text-white/50" />
-            <span className="text-sm text-white/60">{item}</span>
+            <span className="text-sm text-white/70">{item}</span>
           </div>
         ))}
       </div>

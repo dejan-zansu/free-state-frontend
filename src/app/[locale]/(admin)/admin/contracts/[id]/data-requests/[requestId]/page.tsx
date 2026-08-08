@@ -70,13 +70,13 @@ export default function AdminDataRequestDetailPage() {
   })
 
   if (isLoading) return <AdminPageLoader className="h-64" />
-  if (!request) return <p className="text-[#062E25]/60">{t('notFound')}</p>
+  if (!request) return <p className="text-[#062E25]">{t('notFound')}</p>
 
   return (
     <div className="max-w-4xl">
       <Link
         href={`/${locale}/admin/contracts/${contractId}`}
-        className="inline-flex items-center gap-2 text-sm text-[#062E25]/60 hover:text-[#062E25] mb-4"
+        className="inline-flex items-center gap-2 text-sm text-[#062E25]/75 hover:text-[#062E25] mb-4"
       >
         <ArrowLeft className="h-4 w-4" /> {t('backToContract')}
       </Link>
@@ -87,10 +87,10 @@ export default function AdminDataRequestDetailPage() {
       </div>
 
       {request.description && (
-        <p className="text-sm text-[#062E25]/70 mb-4">{request.description}</p>
+        <p className="text-sm text-[#062E25] mb-4">{request.description}</p>
       )}
       {request.dueDate && (
-        <p className="text-sm text-[#062E25]/60 mb-6">
+        <p className="text-sm text-[#062E25] mb-6">
           {t('due', { date: new Date(request.dueDate).toLocaleDateString('de-CH') })}
         </p>
       )}
@@ -101,12 +101,12 @@ export default function AdminDataRequestDetailPage() {
             <CardContent className="p-5">
               <div className="flex items-center justify-between mb-2">
                 <h3 className="font-medium text-[#062E25]">{item.label}</h3>
-                <span className="text-sm text-[#062E25]/50 uppercase tracking-wide">
+                <span className="text-sm text-[#062E25]/75 uppercase tracking-wide">
                   {t(`itemTypes.${item.type}`)}
                 </span>
               </div>
               {item.description && (
-                <p className="text-sm text-[#062E25]/60 mb-3">
+                <p className="text-sm text-[#062E25] mb-3">
                   {item.description}
                 </p>
               )}
@@ -114,7 +114,7 @@ export default function AdminDataRequestDetailPage() {
               {(item.type === 'PHOTO' || item.type === 'DOCUMENT') && (
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {(item.fileUrls ?? []).length === 0 && (
-                    <p className="col-span-full text-sm text-[#062E25]/40">
+                    <p className="col-span-full text-sm text-[#062E25]/75">
                       {t('noFiles')}
                     </p>
                   )}
@@ -130,7 +130,7 @@ export default function AdminDataRequestDetailPage() {
                           className="flex flex-col items-center justify-center gap-2 p-4 border border-[#062E25]/10 rounded hover:bg-[#062E25]/5"
                         >
                           <FileIcon className="h-8 w-8 text-[#062E25]/60" />
-                          <span className="text-sm text-[#062E25]/70 truncate w-full text-center">
+                          <span className="text-sm text-[#062E25] truncate w-full text-center">
                             {t('document', { index: i + 1 })}
                           </span>
                         </a>
@@ -160,7 +160,7 @@ export default function AdminDataRequestDetailPage() {
               {item.type === 'TEXT' && (
                 <p className="text-sm text-[#062E25] whitespace-pre-wrap bg-[#062E25]/5 rounded p-3">
                   {item.textValue || (
-                    <span className="text-[#062E25]/40">
+                    <span className="text-[#062E25]/75">
                       {t('noAnswer')}
                     </span>
                   )}
@@ -174,7 +174,7 @@ export default function AdminDataRequestDetailPage() {
                       <Check className="h-4 w-4" /> {t('confirmed')}
                     </span>
                   ) : (
-                    <span className="inline-flex items-center gap-2 text-[#062E25]/40">
+                    <span className="inline-flex items-center gap-2 text-[#062E25]">
                       <X className="h-4 w-4" /> {t('notConfirmed')}
                     </span>
                   )}
@@ -234,7 +234,7 @@ export default function AdminDataRequestDetailPage() {
             <h3 className="text-lg font-semibold text-[#062E25] mb-3">
               {t('requestChangesTitle')}
             </h3>
-            <p className="text-sm text-[#062E25]/60 mb-3">
+            <p className="text-sm text-[#062E25] mb-3">
               {t('requestChangesDescription')}
             </p>
             <Textarea

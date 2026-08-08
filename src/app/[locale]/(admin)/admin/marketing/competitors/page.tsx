@@ -104,11 +104,11 @@ export default function AdminMarketingCompetitorsPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const relativeAdSeen = (value: string | null) => {
-    if (!value) return <span className="text-[#062E25]/40">{t('never')}</span>
+    if (!value) return <span className="text-[#062E25]">{t('never')}</span>
     const days = daysSince(value)
     const label = days <= 0 ? t('today') : days === 1 ? t('yesterday') : t('daysAgo', { count: days })
     return (
@@ -149,7 +149,7 @@ export default function AdminMarketingCompetitorsPage() {
       <Card className="border-[#062E25]/10">
         <CardContent className="p-6">
           {data.rows.length === 0 ? (
-            <p className="text-center py-12 text-[#062E25]/40">{t('empty')}</p>
+            <p className="text-center py-12 text-[#062E25]">{t('empty')}</p>
           ) : (
             <div className="overflow-x-auto">
               <Table>
@@ -191,7 +191,7 @@ export default function AdminMarketingCompetitorsPage() {
                       <TableCell className="text-right tabular-nums text-[#062E25]/80">
                         {row.adsLogged30d}
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">
                         {row.lastPageDiffAt
                           ? new Date(row.lastPageDiffAt).toLocaleDateString('de-CH')
                           : '—'}
@@ -214,7 +214,7 @@ export default function AdminMarketingCompetitorsPage() {
                             </a>
                           </Button>
                         ) : (
-                          <span className="text-[#062E25]/40">—</span>
+                          <span className="text-[#062E25]/75">—</span>
                         )}
                       </TableCell>
                     </TableRow>

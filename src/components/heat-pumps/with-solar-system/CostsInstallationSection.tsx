@@ -36,7 +36,7 @@ const CostsInstallationSection = async () => {
               }}
             />
             <div className="relative z-10 px-6 md:px-10 py-6">
-              <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] whitespace-pre-line">
+              <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] whitespace-pre-line">
                 {t('costsInstallation.description')}
               </p>
             </div>

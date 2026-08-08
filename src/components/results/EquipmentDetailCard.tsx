@@ -32,7 +32,7 @@ export function EquipmentDetailCard({ item }: { item: EquipmentDetail }) {
       ) : null}
 
       <div className="flex min-w-0 flex-col gap-0.5">
-        <p className="text-sm uppercase tracking-wide text-[#062E25]/60">
+        <p className="text-sm uppercase tracking-wide text-[#062E25]/75">
           {t(`category.${item.category}`)}
         </p>
         <h4 className="text-base font-medium text-[#062E25]">
@@ -44,7 +44,7 @@ export function EquipmentDetailCard({ item }: { item: EquipmentDetail }) {
           <dl className="flex flex-wrap gap-x-2 text-sm">
             {Object.entries(item.specs).map(([k, v]) => (
               <div key={k} className="flex gap-1">
-                <dt className="text-[#062E25]/60">{t(`spec.${k}`)}</dt>
+                <dt className="text-[#062E25]/75">{t(`spec.${k}`)}</dt>
                 <dd className="text-[#062E25]">{String(v)}</dd>
               </div>
             ))}
@@ -52,7 +52,7 @@ export function EquipmentDetailCard({ item }: { item: EquipmentDetail }) {
         ) : null}
 
         {item.warranty ? (
-          <p className="text-sm text-[#062E25]/70">
+          <p className="text-sm text-[#062E25]">
             {item.warranty.performanceYears
               ? t('warrantyWithPerformance', {
                   years: item.warranty.years,

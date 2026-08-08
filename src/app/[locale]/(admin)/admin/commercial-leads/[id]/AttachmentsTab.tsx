@@ -55,13 +55,13 @@ export default function AttachmentsTab({
 
       <Card><CardContent className="p-0">
         {lead.attachments.length === 0
-          ? <div className="p-6 text-[#062E25]/50">{t('noAttachments')}</div>
+          ? <div className="p-6 text-[#062E25]/75">{t('noAttachments')}</div>
           : <ul>
               {lead.attachments.map((a) => (
                 <li key={a.id} className="flex items-center justify-between px-4 py-3 border-b border-[#062E25]/5 last:border-0">
                   <div>
                     <p className="font-medium">{attachmentTypeLabel[a.type]}</p>
-                    <p className="text-sm text-[#062E25]/60">
+                    <p className="text-sm text-[#062E25]">
                       <a href={a.storagePath} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">
                         {a.fileName}
                       </a>

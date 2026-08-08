@@ -38,8 +38,14 @@ const RANGE_OPTIONS = [7, 30, 90]
 const FUNNEL_COLORS = ['#67c299', '#3fae7d', '#1f9866', '#128254', '#0d6c45', '#095536', '#063f27']
 const BREAKDOWN_COLOR = '#2a78d6'
 
-const TICK_STYLE = { fill: 'rgba(6,46,37,0.5)', fontSize: 11 }
-const TOOLTIP_STYLE = { borderRadius: 8, border: '1px solid rgba(6,46,37,0.1)', fontSize: 13 }
+const TICK_STYLE = { fill: 'rgba(6,46,37,0.85)', fontSize: 11 }
+const TOOLTIP_STYLE = {
+  borderRadius: 8,
+  border: '1px solid rgba(6,46,37,0.1)',
+  fontSize: 13,
+  color: '#062E25',
+}
+const TOOLTIP_ITEM_STYLE = { color: '#062E25' }
 const CHART_MARGIN = { top: 4, right: 8, left: 0, bottom: 0 }
 
 function formatChf(value: number) {
@@ -80,14 +86,14 @@ function BreakdownRows({
   emptyLabel: string
 }) {
   if (rows.length === 0) {
-    return <p className="text-sm text-[#062E25]/40">{emptyLabel}</p>
+    return <p className="text-sm text-[#062E25]">{emptyLabel}</p>
   }
   const maxSpend = Math.max(...rows.map((row) => row.spendChf))
   return (
     <div className="space-y-2">
       {rows.map((row) => (
         <div key={row.label} className="flex items-center gap-3">
-          <span className="w-32 shrink-0 text-sm text-[#062E25]/60 truncate" title={row.label}>
+          <span className="w-32 shrink-0 text-sm text-[#062E25] truncate" title={row.label}>
             {row.label}
           </span>
           <div className="flex-1 bg-[#062E25]/[0.04] rounded h-5">
@@ -102,7 +108,7 @@ function BreakdownRows({
               />
             )}
           </div>
-          <span className="shrink-0 text-sm tabular-nums text-[#062E25]/80 text-right whitespace-nowrap">
+          <span className="shrink-0 text-sm tabular-nums text-[#062E25] text-right whitespace-nowrap">
             CHF {formatChf(row.spendChf)} · {formatPct(row.ctrPct)}
           </span>
         </div>
@@ -142,7 +148,7 @@ export default function AdminMarketingCampaignDetailPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const { campaign, totals, daily, funnel, ads, ga4 } = data
@@ -253,7 +259,7 @@ export default function AdminMarketingCampaignDetailPage() {
         )}
       </div>
 
-      {subline && <p className="text-sm text-[#062E25]/60 mb-6">{subline}</p>}
+      {subline && <p className="text-sm text-[#062E25]/75 mb-6">{subline}</p>}
 
       <div className="flex flex-wrap items-center gap-2 mb-6">
         {RANGE_OPTIONS.map((option) => (
@@ -267,7 +273,7 @@ export default function AdminMarketingCampaignDetailPage() {
             {t('detail.rangeDays', { count: option })}
           </Button>
         ))}
-        <p className="text-sm text-[#062E25]/40 ml-auto">
+        <p className="text-sm text-[#062E25]/75 ml-auto">
           {data.lastSyncAt
             ? t('lastSync', { date: new Date(data.lastSyncAt).toLocaleString('de-CH') })
             : t('neverSynced')}
@@ -279,9 +285,9 @@ export default function AdminMarketingCampaignDetailPage() {
           {tiles.map((tile) => (
             <Card key={tile.label} className="border-[#062E25]/10">
               <CardContent className="p-5">
-                <p className="text-sm text-[#062E25]/60 mb-2">{tile.label}</p>
+                <p className="text-sm text-[#062E25] mb-2">{tile.label}</p>
                 <p className="text-2xl font-bold text-[#062E25] mb-1">{tile.value}</p>
-                {tile.sub && <p className="text-sm text-[#062E25]/40">{tile.sub}</p>}
+                {tile.sub && <p className="text-sm text-[#062E25]/75">{tile.sub}</p>}
               </CardContent>
             </Card>
           ))}
@@ -307,6 +313,7 @@ export default function AdminMarketingCampaignDetailPage() {
                     <Tooltip
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
+                      itemStyle={TOOLTIP_ITEM_STYLE}
                       labelFormatter={(value) => formatFullDay(String(value))}
                       formatter={(value) => `CHF ${formatChf(Number(value))}`}
                     />
@@ -348,6 +355,7 @@ export default function AdminMarketingCampaignDetailPage() {
                     <Tooltip
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
+                      itemStyle={TOOLTIP_ITEM_STYLE}
                       labelFormatter={(value) => formatFullDay(String(value))}
                       formatter={(value) => formatCount(Number(value))}
                     />
@@ -383,6 +391,7 @@ export default function AdminMarketingCampaignDetailPage() {
                     <Tooltip
                       cursor={{ stroke: 'rgba(6,46,37,0.2)' }}
                       contentStyle={TOOLTIP_STYLE}
+                      itemStyle={TOOLTIP_ITEM_STYLE}
                       labelFormatter={(value) => formatFullDay(String(value))}
                       formatter={(value) => formatPct(Number(value))}
                     />
@@ -428,6 +437,7 @@ export default function AdminMarketingCampaignDetailPage() {
                     <Tooltip
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
+                      itemStyle={TOOLTIP_ITEM_STYLE}
                       labelFormatter={(value) => formatFullDay(String(value))}
                       formatter={(value) => formatCount(Number(value))}
                     />
@@ -446,7 +456,7 @@ export default function AdminMarketingCampaignDetailPage() {
         </div>
 
         <details className="mb-6">
-          <summary className="cursor-pointer text-sm text-[#062E25]/60 hover:text-[#062E25]">
+          <summary className="cursor-pointer text-sm text-[#062E25]">
             {t('detail.dailyTableToggle')}
           </summary>
           <Card className="border-[#062E25]/10 mt-3">
@@ -470,22 +480,22 @@ export default function AdminMarketingCampaignDetailPage() {
                         <TableCell className="text-sm tabular-nums text-[#062E25]">
                           {formatFullDay(row.date)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatChf(row.spendChf)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.impressions)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.clicks)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatPct(row.ctrPct)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.ga4Sessions)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.dbLeads)}
                         </TableCell>
                       </TableRow>
@@ -501,14 +511,14 @@ export default function AdminMarketingCampaignDetailPage() {
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.funnelTitle')}</h2>
             {!funnel.attributed ? (
-              <p className="text-sm text-[#062E25]/40">{t('detail.funnelUnattributed')}</p>
+              <p className="text-sm text-[#062E25]">{t('detail.funnelUnattributed')}</p>
             ) : (
               <>
                 <div className="space-y-2">
                   {funnelRows.map((row) => (
                     <div key={row.key} className="flex items-center gap-3">
                       <span
-                        className="w-44 shrink-0 text-sm text-[#062E25]/60 truncate"
+                        className="w-44 shrink-0 text-sm text-[#062E25] truncate"
                         title={row.label}
                       >
                         {row.label}
@@ -528,7 +538,7 @@ export default function AdminMarketingCampaignDetailPage() {
                       <span className="shrink-0 text-sm tabular-nums text-[#062E25] text-right whitespace-nowrap">
                         {formatCount(row.value)}
                         {funnelBase > 0 && (
-                          <span className="text-[#062E25]/40">
+                          <span className="text-[#062E25]/75">
                             {' '}
                             · {Math.round((row.value / funnelBase) * 100)} %
                           </span>
@@ -537,7 +547,7 @@ export default function AdminMarketingCampaignDetailPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-sm text-[#062E25]/40 mt-4">{t('detail.funnelNote')}</p>
+                <p className="text-sm text-[#062E25]/75 mt-4">{t('detail.funnelNote')}</p>
               </>
             )}
           </CardContent>
@@ -547,7 +557,7 @@ export default function AdminMarketingCampaignDetailPage() {
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.ga4Title')}</h2>
             {!ga4.linked ? (
-              <p className="text-sm text-[#062E25]/40">{t('detail.ga4NotLinked')}</p>
+              <p className="text-sm text-[#062E25]">{t('detail.ga4NotLinked')}</p>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
@@ -566,10 +576,10 @@ export default function AdminMarketingCampaignDetailPage() {
                             {row.landingPage}
                           </span>
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.sessions)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(row.engagedSessions)}
                         </TableCell>
                       </TableRow>
@@ -585,7 +595,7 @@ export default function AdminMarketingCampaignDetailPage() {
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.adsTitle')}</h2>
             {ads.length === 0 ? (
-              <p className="text-center py-12 text-[#062E25]/40">{t('detail.adsEmpty')}</p>
+              <p className="text-center py-12 text-[#062E25]">{t('detail.adsEmpty')}</p>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
@@ -617,35 +627,35 @@ export default function AdminMarketingCampaignDetailPage() {
                             )}
                             <div className="min-w-0">
                               <p className="font-medium text-[#062E25] truncate">{ad.name}</p>
-                              <p className="text-sm text-[#062E25]/40 truncate">{ad.adSetName}</p>
+                              <p className="text-sm text-[#062E25]/75 truncate">{ad.adSetName}</p>
                             </div>
                           </div>
                         </TableCell>
                         <TableCell>
                           <StatusBadge status={ad.status} />
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatChf(ad.spendChf)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(ad.impressions)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(ad.clicks)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatPct(ad.ctrPct)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {ad.cpcChf !== null ? formatChf(ad.cpcChf) : '—'}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(ad.metaLeads)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatCount(ad.dbLeads)}
                         </TableCell>
-                        <TableCell className="text-right tabular-nums text-[#062E25]/80">
+                        <TableCell className="text-right tabular-nums text-[#062E25]">
                           {ad.trueCplChf !== null ? formatChf(ad.trueCplChf) : '—'}
                         </TableCell>
                       </TableRow>
@@ -661,11 +671,11 @@ export default function AdminMarketingCampaignDetailPage() {
       {breakdownsLoading ? (
         <AdminPageLoader className="h-32" />
       ) : !breakdowns ? (
-        <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+        <p className="text-[#062E25]">{tc('failedToLoad')}</p>
       ) : !breakdowns.available ? (
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <p className="text-sm text-[#062E25]/40">
+            <p className="text-sm text-[#062E25]">
               {breakdowns.reason === 'not_configured'
                 ? t('detail.breakdownNotConfigured')
                 : breakdowns.reason === 'api_error'

@@ -70,7 +70,7 @@ export default function AdminMarketingSettingsPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   return (
@@ -99,7 +99,7 @@ export default function AdminMarketingSettingsPage() {
                     <TableCell className="font-medium text-[#062E25]">
                       {connector.name}
                     </TableCell>
-                    <TableCell className="text-sm text-[#062E25]/60">
+                    <TableCell className="text-sm text-[#062E25]">
                       {connector.lastRunAt
                         ? new Date(connector.lastRunAt).toLocaleString('de-CH')
                         : t('never')}
@@ -108,7 +108,7 @@ export default function AdminMarketingSettingsPage() {
                       {connector.lastStatus ? (
                         <StatusBadge status={connector.lastStatus} />
                       ) : (
-                        <span className="text-[#062E25]/40">—</span>
+                        <span className="text-[#062E25]/75">—</span>
                       )}
                     </TableCell>
                     <TableCell className="text-right tabular-nums text-[#062E25]/80">
@@ -130,7 +130,7 @@ export default function AdminMarketingSettingsPage() {
                             : connector.lastError}
                         </span>
                       ) : (
-                        <span className="text-[#062E25]/40">—</span>
+                        <span className="text-[#062E25]/75">—</span>
                       )}
                     </TableCell>
                     <TableCell
@@ -226,7 +226,7 @@ export default function AdminMarketingSettingsPage() {
                     )}
                   />
                   <span className="text-sm font-medium text-[#062E25]">{credential.name}</span>
-                  <span className="text-sm text-[#062E25]/40 ml-auto">
+                  <span className="text-sm text-[#062E25] ml-auto">
                     {credential.present ? t('present') : t('missing')}
                   </span>
                 </div>

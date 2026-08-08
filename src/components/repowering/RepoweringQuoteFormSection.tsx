@@ -70,7 +70,7 @@ const RepoweringQuoteFormSection = () => {
         }}
       >
         <div className="max-w-[621px] mx-auto px-4 sm:px-6 text-center">
-          <p className="text-[#062E25] text-base md:text-[22px] font-light tracking-[-0.02em]">
+          <p className="text-[#062E25] text-base md:text-[22px] tracking-[-0.02em]">
             Thank you for your inquiry. We will get back to you shortly.
           </p>
         </div>
@@ -98,7 +98,7 @@ const RepoweringQuoteFormSection = () => {
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-[5px]">
-                <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                   {t('firstName')}
                 </Label>
                 <Input
@@ -112,7 +112,7 @@ const RepoweringQuoteFormSection = () => {
                 />
               </div>
               <div className="flex flex-col gap-[5px]">
-                <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                   {t('lastName')}
                 </Label>
                 <Input
@@ -128,7 +128,7 @@ const RepoweringQuoteFormSection = () => {
             </div>
 
             <div className="flex flex-col gap-[10px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('interestedIn')}
               </Label>
               <div className="flex flex-col gap-[7px]">
@@ -142,7 +142,7 @@ const RepoweringQuoteFormSection = () => {
                       onCheckedChange={() => toggleInterest(key)}
                       className="size-[15px] rounded-full border-[#4A9A99] opacity-60"
                     />
-                    <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                    <span className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                       {t(key)}
                     </span>
                   </label>
@@ -151,7 +151,7 @@ const RepoweringQuoteFormSection = () => {
             </div>
 
             <div className="flex flex-col gap-[10px]">
-              <Label className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+              <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                 {t('callbackLabel')}
               </Label>
               <label className="flex items-center gap-[10px] cursor-pointer">
@@ -165,7 +165,7 @@ const RepoweringQuoteFormSection = () => {
                   }
                   className="size-[15px] rounded-[3.75px] border-[#4A9A99] opacity-60"
                 />
-                <span className="text-[#062E25]/60 text-sm font-medium tracking-[-0.02em]">
+                <span className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
                   {t('callbackYes')}
                 </span>
               </label>

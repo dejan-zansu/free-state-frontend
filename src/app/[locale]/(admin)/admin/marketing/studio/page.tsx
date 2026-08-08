@@ -63,7 +63,7 @@ function DraftImage({ draft }: { draft: MarketingStudioDraft }) {
       ) : (
         <div className="flex h-full w-full flex-col items-center justify-center gap-2">
           <ImageOff className="h-6 w-6 text-[#062E25]/20" />
-          <span className="text-sm text-[#062E25]/30">{t('noImage')}</span>
+          <span className="text-sm text-[#062E25]/75">{t('noImage')}</span>
         </div>
       )}
     </div>
@@ -120,7 +120,7 @@ function PendingDraftCard({
               {t('variant', { group: draft.variantGroup })}
             </Badge>
           )}
-          <span className="text-sm text-[#062E25]/40 ml-auto">
+          <span className="text-sm text-[#062E25]/75 ml-auto">
             {new Date(draft.createdAt).toLocaleDateString('de-CH')}
           </span>
         </div>
@@ -156,7 +156,7 @@ function PendingDraftCard({
         </div>
 
         {(draft.generatedBy || draft.promptVersion) && (
-          <p className="text-sm text-[#062E25]/40 mb-4 truncate">
+          <p className="text-sm text-[#062E25]/75 mb-4 truncate">
             {[draft.generatedBy, draft.promptVersion].filter(Boolean).join(' · ')}
           </p>
         )}
@@ -192,7 +192,7 @@ function ReadOnlyDraftCard({ draft }: { draft: MarketingStudioDraft }) {
               {t('variant', { group: draft.variantGroup })}
             </Badge>
           )}
-          <span className="text-sm text-[#062E25]/40 ml-auto">
+          <span className="text-sm text-[#062E25]/75 ml-auto">
             {new Date(draft.createdAt).toLocaleDateString('de-CH')}
           </span>
         </div>
@@ -200,7 +200,7 @@ function ReadOnlyDraftCard({ draft }: { draft: MarketingStudioDraft }) {
           {draft.caption}
         </p>
         {draft.scheduledFor && (
-          <p className="text-sm text-[#062E25]/40">
+          <p className="text-sm text-[#062E25]">
             {t('scheduledForLabel', {
               date: new Date(draft.scheduledFor).toLocaleString('de-CH'),
             })}
@@ -269,11 +269,11 @@ export default function AdminMarketingStudioPage() {
       {isLoading ? (
         <AdminPageLoader className="h-64" />
       ) : !data ? (
-        <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+        <p className="text-[#062E25]">{tc('failedToLoad')}</p>
       ) : data.rows.length === 0 ? (
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
-            <p className="text-center py-12 text-[#062E25]/40">
+            <p className="text-center py-12 text-[#062E25]">
               {status === 'PENDING_APPROVAL' ? t('emptyPending') : t('empty')}
             </p>
           </CardContent>

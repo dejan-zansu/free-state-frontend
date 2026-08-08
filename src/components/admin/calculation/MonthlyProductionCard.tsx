@@ -49,7 +49,7 @@ export function MonthlyProductionCard({ monthly }: Props) {
                     style={{ height: `${heightPct}%` }}
                   />
                 </div>
-                <span className="text-sm text-[#062E25]/60 uppercase">
+                <span className="text-sm text-[#062E25]/75 uppercase">
                   {tMonths(MONTH_KEYS[i])}
                 </span>
                 <span className="text-sm text-[#062E25] tabular-nums">

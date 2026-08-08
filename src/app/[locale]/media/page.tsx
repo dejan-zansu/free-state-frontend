@@ -71,7 +71,7 @@ const MediaPage = async () => {
               <h2 className="text-foreground text-3xl md:text-[40px] font-medium leading-[1.1em]">
                 {t('about.title')}
               </h2>
-              <p className="text-foreground/70 text-lg md:text-[22px] font-light leading-[1.55] max-w-[680px]">
+              <p className="text-foreground text-lg md:text-[22px] leading-[1.55] max-w-[680px]">
                 {t('about.description')}
               </p>
             </div>
@@ -82,7 +82,7 @@ const MediaPage = async () => {
                   <span className="text-foreground text-2xl md:text-3xl font-medium leading-none">
                     {t(`about.stats.${key}.value`)}
                   </span>
-                  <span className="text-foreground/50 text-base font-light">
+                  <span className="text-foreground/75 text-base font-light">
                     {t(`about.stats.${key}.label`)}
                   </span>
                 </div>
@@ -103,7 +103,7 @@ const MediaPage = async () => {
             <h2 className="text-foreground text-3xl md:text-[40px] font-medium leading-[1.1em]">
               {t('topics.title')}
             </h2>
-            <p className="text-foreground/70 text-lg font-light leading-[1.55]">
+            <p className="text-foreground text-lg leading-[1.55]">
               {t('topics.description')}
             </p>
           </div>
@@ -117,7 +117,7 @@ const MediaPage = async () => {
                 <h3 className="text-foreground text-xl font-medium">
                   {t(`topics.items.${key}.title`)}
                 </h3>
-                <p className="text-foreground/60 text-base font-light leading-[1.55]">
+                <p className="text-foreground text-base leading-[1.55]">
                   {t(`topics.items.${key}.description`)}
                 </p>
               </div>
@@ -172,7 +172,7 @@ const MediaPage = async () => {
                 </div>
               </div>
 
-              <p className="text-white/40 text-sm font-light">
+              <p className="text-white/70 text-sm font-light">
                 {t('pressContact.responseTime')}
               </p>
             </div>
@@ -187,7 +187,7 @@ const MediaPage = async () => {
               <h2 className="text-foreground text-2xl md:text-3xl font-medium leading-[1.1em]">
                 {t('brandAssets.title')}
               </h2>
-              <p className="text-foreground/70 text-base md:text-lg font-light leading-[1.55] max-w-[480px]">
+              <p className="text-foreground text-base md:text-lg leading-[1.55] max-w-[480px]">
                 {t('brandAssets.description')}
               </p>
               <div className="pt-2">

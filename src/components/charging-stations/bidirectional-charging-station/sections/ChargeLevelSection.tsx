@@ -53,7 +53,7 @@ const ChargeLevelSection = async ({ variant = 'green' }: ChargeLevelSectionProps
                 WebkitBackdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-white text-base font-light tracking-[-0.02em]">
+              <span className="text-white text-base tracking-[-0.02em]">
                 {t('chargeLevel.eyebrow')}
               </span>
             </div>
@@ -63,7 +63,7 @@ const ChargeLevelSection = async ({ variant = 'green' }: ChargeLevelSectionProps
             </h2>
           </div>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[594px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] text-center max-w-[594px]">
             {t('chargeLevel.description')}
           </p>
         </div>

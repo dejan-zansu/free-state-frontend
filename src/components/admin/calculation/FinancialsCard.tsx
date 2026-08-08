@@ -29,13 +29,13 @@ export function FinancialsCard({ financials, calc }: Props) {
           {isDirectLike && (
             <>
               <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('systemCost')}</p>
+                <p className="text-base text-[#062E25]">{t('systemCost')}</p>
                 <p className="text-2xl font-bold text-[#062E25] tabular-nums">
                   {fmtChf(financials.totalInvestmentChf)}
                 </p>
               </div>
               <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('subsidies')}</p>
+                <p className="text-base text-[#062E25]">{t('subsidies')}</p>
                 <p className="text-2xl font-bold text-[#062E25] tabular-nums">
                   {fmtChf(financials.subsidiesChf)}
                 </p>
@@ -47,7 +47,7 @@ export function FinancialsCard({ financials, calc }: Props) {
                 </p>
               </div>
               <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('paybackPeriod')}</p>
+                <p className="text-base text-[#062E25]">{t('paybackPeriod')}</p>
                 <p className="text-2xl font-bold text-[#062E25] tabular-nums">
                   {financials.paybackYears != null
                     ? t('yearsValue', {
@@ -67,12 +67,12 @@ export function FinancialsCard({ financials, calc }: Props) {
                 </p>
               </div>
               <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('aboTotal')}</p>
+                <p className="text-base text-[#062E25]">{t('aboTotal')}</p>
                 <p className="text-2xl font-bold text-[#062E25] tabular-nums">
                   {fmtChf(financials.aboTotalChf)}
                 </p>
                 {financials.aboTermMonths != null && (
-                  <p className="text-base text-[#062E25]/50 tabular-nums">
+                  <p className="text-base text-[#062E25]/75 tabular-nums">
                     {t('yearsValue', {
                       years: Math.round(financials.aboTermMonths / 12),
                     })}
@@ -92,7 +92,7 @@ export function FinancialsCard({ financials, calc }: Props) {
                 </p>
               </div>
               <div className="rounded-xl bg-[#F5F7EE] p-4">
-                <p className="text-base text-[#062E25]/60">{t('contractTerm')}</p>
+                <p className="text-base text-[#062E25]">{t('contractTerm')}</p>
                 <p className="text-2xl font-bold text-[#062E25] tabular-nums">
                   {financials.contractTermYears != null
                     ? t('yearsValue', { years: financials.contractTermYears })
@@ -101,7 +101,7 @@ export function FinancialsCard({ financials, calc }: Props) {
               </div>
               {calc?.systemCostChf != null && (
                 <div className="rounded-xl bg-[#F5F7EE] p-4">
-                  <p className="text-base text-[#062E25]/60">{t('systemCost')}</p>
+                  <p className="text-base text-[#062E25]">{t('systemCost')}</p>
                   <p className="text-2xl font-bold text-[#062E25] tabular-nums">
                     {fmtChf(calc.systemCostChf)}
                   </p>
@@ -113,14 +113,14 @@ export function FinancialsCard({ financials, calc }: Props) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
           {isDirectLike && (
             <div>
-              <p className="text-base text-[#062E25]/60">{t('savings25y')}</p>
+              <p className="text-base text-[#062E25]">{t('savings25y')}</p>
               <p className="text-xl font-semibold text-[#062E25] tabular-nums">
                 {fmtChf(financials.totalSavings25yChf)}
               </p>
             </div>
           )}
           <div>
-            <p className="text-base text-[#062E25]/60">
+            <p className="text-base text-[#062E25]">
               {t('electricityTariffLabel')}
             </p>
             <p className="text-xl font-semibold text-[#062E25] tabular-nums">
@@ -130,7 +130,7 @@ export function FinancialsCard({ financials, calc }: Props) {
             </p>
           </div>
           <div>
-            <p className="text-base text-[#062E25]/60">{t('feedInTariffLabel')}</p>
+            <p className="text-base text-[#062E25]">{t('feedInTariffLabel')}</p>
             <p className="text-xl font-semibold text-[#062E25] tabular-nums">
               {financials.feedInTariffRpKwh != null
                 ? `${fmtNumber(financials.feedInTariffRpKwh, 1)} Rp/kWh`
@@ -138,7 +138,7 @@ export function FinancialsCard({ financials, calc }: Props) {
             </p>
           </div>
           <div>
-            <p className="text-base text-[#062E25]/60">
+            <p className="text-base text-[#062E25]">
               {t('electricitySupplier')}
             </p>
             <p className="text-xl font-semibold text-[#062E25]">
@@ -147,7 +147,7 @@ export function FinancialsCard({ financials, calc }: Props) {
           </div>
         </div>
         {financials.costSource === 'estimated' && (
-          <p className="text-sm text-[#062E25]/50 mt-4">
+          <p className="text-sm text-[#062E25]/75 mt-4">
             {t('financialsEstimated')}
           </p>
         )}

@@ -65,7 +65,7 @@ const PhotovoltaicSystemSection = async () => {
                       <h3 className="text-foreground text-lg sm:text-xl font-bold uppercase mb-3 sm:mb-4">
                         {feature.title}
                       </h3>
-                      <p className="text-foreground text-sm sm:text-base font-light leading-normal text-start">
+                      <p className="text-foreground text-sm sm:text-base leading-normal text-start">
                         {feature.description}
                       </p>
                     </div>

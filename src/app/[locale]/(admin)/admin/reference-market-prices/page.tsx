@@ -98,7 +98,7 @@ export default function AdminReferenceMarketPricesPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
         {t('title')}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">
+      <p className="text-base text-[#062E25] mb-6">
         {t('descriptionPrefix')}
         <a
           href="https://opendata.swiss/de/dataset/referenz-marktpreise-gemass-art-15-enfv"
@@ -118,33 +118,33 @@ export default function AdminReferenceMarketPricesPage() {
       {latestPv && (
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
-            <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
+            <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-2">
               {t('latestValue', { tech: techLabel(latestPv.technology) })}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('quarter')}</p>
+                <p className="text-sm text-[#062E25]">{t('quarter')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {latestPv.year} {latestPv.period}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('price')}</p>
+                <p className="text-sm text-[#062E25]">{t('price')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtRp(latestPv.priceChfPerMwh)} Rp/kWh
                 </p>
-                <p className="text-sm text-[#062E25]/50 tabular-nums">
+                <p className="text-sm text-[#062E25]/75 tabular-nums">
                   {fmtChfMwh(latestPv.priceChfPerMwh)} CHF/MWh
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('volume')}</p>
+                <p className="text-sm text-[#062E25]">{t('volume')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtVolume(latestPv.volumeMwh)} MWh
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('imported')}</p>
+                <p className="text-sm text-[#062E25]">{t('imported')}</p>
                 <p className="text-base font-semibold text-[#062E25]">
                   {new Date(latestPv.importedAt).toLocaleDateString('de-CH')}
                 </p>
@@ -222,7 +222,7 @@ export default function AdminReferenceMarketPricesPage() {
                   <TableCell className="text-right tabular-nums">
                     {r.days ?? '—'}
                   </TableCell>
-                  <TableCell className="text-sm text-[#062E25]/60">
+                  <TableCell className="text-sm text-[#062E25]">
                     {new Date(r.importedAt).toLocaleDateString('de-CH')}
                   </TableCell>
                 </TableRow>
@@ -231,7 +231,7 @@ export default function AdminReferenceMarketPricesPage() {
                 <TableRow>
                   <TableCell
                     colSpan={8}
-                    className="text-center text-[#062E25]/50 py-8"
+                    className="text-center text-[#062E25]/75 py-8"
                   >
                     {t('empty')}
                   </TableCell>

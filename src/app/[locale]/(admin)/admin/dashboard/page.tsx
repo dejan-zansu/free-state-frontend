@@ -25,7 +25,7 @@ export default function AdminDashboardPage() {
   }
 
   if (!stats) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   const cards = [
@@ -99,12 +99,12 @@ export default function AdminDashboardPage() {
             <CardContent className="p-5">
               <div className="flex items-center gap-3 mb-2">
                 <card.icon className="h-5 w-5 text-[#062E25]/40" />
-                <span className="text-sm text-[#062E25]/60">{card.label}</span>
+                <span className="text-sm text-[#062E25]">{card.label}</span>
               </div>
               <p className="text-2xl font-bold text-[#062E25] mb-1">
                 {card.value}
               </p>
-              <p className="text-sm text-[#062E25]/40">{card.detail}</p>
+              <p className="text-sm text-[#062E25]/75">{card.detail}</p>
             </CardContent>
           </Card>
         ))}
@@ -123,7 +123,7 @@ export default function AdminDashboardPage() {
             <div className="space-y-3">
               {Object.entries(stats.leads.byStatus).map(([status, count]) => (
                 <div key={status} className="flex items-center justify-between">
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]">
                     {tl.has(status) ? tl(status) : status.replace(/_/g, ' ')}
                   </span>
                   <span className="text-sm font-medium text-[#062E25]">
@@ -147,7 +147,7 @@ export default function AdminDashboardPage() {
                     key={status}
                     className="flex items-center justify-between"
                   >
-                    <span className="text-sm text-[#062E25]/60">
+                    <span className="text-sm text-[#062E25]">
                       {tl.has(status) ? tl(status) : status.replace(/_/g, ' ')}
                     </span>
                     <span className="text-sm font-medium text-[#062E25]">

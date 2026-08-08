@@ -147,7 +147,7 @@ export default function AdminMarketingContentPage() {
   }
 
   if (!data) {
-    return <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+    return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
 
   return (
@@ -159,9 +159,9 @@ export default function AdminMarketingContentPage() {
           <h2 className="text-lg font-semibold text-[#062E25]">
             {t('winnersTitle', { days: winners?.windowDays ?? 28 })}
           </h2>
-          <p className="text-sm text-[#062E25]/40 mb-4">{t('winnersHint')}</p>
+          <p className="text-sm text-[#062E25]/75 mb-4">{t('winnersHint')}</p>
           {!winners || winners.rows.length === 0 ? (
-            <p className="text-sm text-[#062E25]/40 py-6 text-center">{t('winnersEmpty')}</p>
+            <p className="text-sm text-[#062E25] py-6 text-center">{t('winnersEmpty')}</p>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
               {winners.rows.map((row) => (
@@ -201,7 +201,7 @@ export default function AdminMarketingContentPage() {
                       {t('savesShares', { count: (row.saves ?? 0) + (row.shares ?? 0) })}
                     </p>
                     {row.caption && (
-                      <p className="text-sm text-[#062E25]/50 truncate" title={row.caption}>
+                      <p className="text-sm text-[#062E25] truncate" title={row.caption}>
                         {row.caption}
                       </p>
                     )}
@@ -244,7 +244,7 @@ export default function AdminMarketingContentPage() {
           </div>
 
           {sortedRows.length === 0 ? (
-            <p className="text-center py-12 text-[#062E25]/40">{t('empty')}</p>
+            <p className="text-center py-12 text-[#062E25]">{t('empty')}</p>
           ) : (
             <div className="overflow-x-auto">
               <Table>
@@ -280,13 +280,13 @@ export default function AdminMarketingContentPage() {
                       <TableCell>
                         <PlatformBadge platform={row.platform} />
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60 whitespace-nowrap">
+                      <TableCell className="text-sm text-[#062E25] whitespace-nowrap">
                         {row.publishedAt
                           ? new Date(row.publishedAt).toLocaleDateString('de-CH')
                           : '—'}
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">{row.type}</TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">{row.type}</TableCell>
+                      <TableCell className="text-sm text-[#062E25]">
                         {row.pillar ?? '—'}
                       </TableCell>
                       <TableCell>
@@ -340,7 +340,7 @@ export default function AdminMarketingContentPage() {
           )}
 
           <div className="flex items-center justify-end mt-4 pt-4 border-t border-[#062E25]/10">
-            <p className="text-sm text-[#062E25]/40">
+            <p className="text-sm text-[#062E25]/75">
               {data.lastSyncAt
                 ? t('lastSync', { date: new Date(data.lastSyncAt).toLocaleString('de-CH') })
                 : t('neverSynced')}

@@ -15,7 +15,7 @@ const InvestorsInvesting = async () => {
         </div>
 
         <div className='max-w-4xl mx-auto'>
-          <p className='text-foreground/80 text-lg font-light leading-relaxed mb-8'>
+          <p className='text-foreground/80 text-lg leading-relaxed mb-8'>
             {t('description')}
           </p>
 

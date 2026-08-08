@@ -153,7 +153,7 @@ export default function AdminCommercialLeadsPage() {
                       <TableCell>
                         <div>
                           <p className="font-medium">{l.companyName}</p>
-                          <p className="text-sm text-[#062E25]/50">
+                          <p className="text-sm text-[#062E25]">
                             {legalFormLabel[l.legalForm]} · {industryLabel[l.industry]} · {l.addressCanton}
                           </p>
                         </div>
@@ -165,12 +165,12 @@ export default function AdminCommercialLeadsPage() {
                       <TableCell className="text-sm">{timelineLabel[l.timeline]}</TableCell>
                       <TableCell><StatusBadge status={l.status} /></TableCell>
                       <TableCell className="text-sm">
-                        {l.assignedTo ? `${l.assignedTo.firstName} ${l.assignedTo.lastName}` : <span className="text-[#062E25]/30">{t('unassigned')}</span>}
+                        {l.assignedTo ? `${l.assignedTo.firstName} ${l.assignedTo.lastName}` : <span className="text-[#062E25]/75">{t('unassigned')}</span>}
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">
                         {new Date(l.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
-                      <TableCell className="text-sm text-[#062E25]/60">
+                      <TableCell className="text-sm text-[#062E25]">
                         {l.nextFollowUpAt ? new Date(l.nextFollowUpAt).toLocaleDateString('de-CH') : '—'}
                       </TableCell>
                       <TableCell>
@@ -182,7 +182,7 @@ export default function AdminCommercialLeadsPage() {
                   ))}
                   {data.data.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={10} className="text-center py-8 text-[#062E25]/40">
+                      <TableCell colSpan={10} className="text-center py-8 text-[#062E25]/75">
                         {t('empty')}
                       </TableCell>
                     </TableRow>
@@ -191,14 +191,14 @@ export default function AdminCommercialLeadsPage() {
               </Table>
 
               <div className="flex items-center justify-between mt-4 pt-4 border-t border-[#062E25]/10">
-                <p className="text-sm text-[#062E25]/60">{t('total', { count: data.meta.total })}</p>
+                <p className="text-sm text-[#062E25]">{t('total', { count: data.meta.total })}</p>
                 <div className="flex items-center gap-2">
                   <Button variant="outline" size="sm"
                           disabled={data.meta.page <= 1}
                           onClick={() => setQuery((q) => ({ ...q, page: (q.page ?? 1) - 1 }))}>
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
-                  <span className="text-sm text-[#062E25]/60">
+                  <span className="text-sm text-[#062E25]">
                     {tc('page', { page: data.meta.page, totalPages: data.meta.totalPages })}
                   </span>
                   <Button variant="outline" size="sm"

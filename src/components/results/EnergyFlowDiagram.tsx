@@ -139,12 +139,12 @@ function FlowCard({
         >
           {icon}
         </div>
-        <p className="text-sm text-[#062E25]/60">{label}</p>
+        <p className="text-sm text-[#062E25]">{label}</p>
       </div>
 
       <p className="mt-3 text-2xl sm:text-[28px] font-semibold text-[#062E25] tabular-nums leading-tight">
         {total}
-        <span className="ml-1.5 text-sm font-normal text-[#062E25]/50">
+        <span className="ml-1.5 text-sm font-normal text-[#062E25]/75">
           kWh
         </span>
       </p>
@@ -171,11 +171,11 @@ function FlowCard({
                 style={{ backgroundColor: item.color }}
                 aria-hidden
               />
-              <span className="truncate text-[#062E25]/70">{item.label}</span>
+              <span className="truncate text-[#062E25]">{item.label}</span>
             </div>
             <span className="font-medium text-[#062E25] tabular-nums">
               {item.value}{' '}
-              <span className="text-[#062E25]/50 font-normal">kWh</span>
+              <span className="text-[#062E25]/75 font-normal">kWh</span>
             </span>
           </div>
         ))}

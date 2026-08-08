@@ -43,7 +43,7 @@ const PhotovoltaicsCarportsSection = async () => {
             {t('photovoltaicsCarports.title')}
           </h2>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light text-center max-w-[672px]">
+          <p className="text-white/80 text-lg md:text-[22px] text-center max-w-[672px]">
             {t('photovoltaicsCarports.description')}
           </p>
         </div>

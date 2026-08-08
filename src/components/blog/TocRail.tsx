@@ -39,7 +39,7 @@ const TocRail = ({
               className={`block pl-4 -ml-px border-l-2 text-base transition-colors ${
                 activeId === h.id
                   ? 'border-[#B7FE1A] text-[#062E25] font-medium'
-                  : 'border-transparent text-[#062E25]/55 hover:text-[#062E25]'
+                  : 'border-transparent text-[#062E25]/75 hover:text-[#062E25]'
               }`}
             >
               {h.text}

@@ -22,7 +22,7 @@ const NewsletterSection = () => {
 
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-[98px]">
             <div className="lg:w-[380px] lg:shrink-0 flex flex-col gap-[20px]">
-              <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] whitespace-pre-line">
+              <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] whitespace-pre-line">
                 {t('description')}
               </p>
               <div className="relative w-full aspect-[380/280]">

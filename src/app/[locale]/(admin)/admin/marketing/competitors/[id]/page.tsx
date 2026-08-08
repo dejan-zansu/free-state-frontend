@@ -55,7 +55,7 @@ function AdCard({ ad }: { ad: MarketingCompetitorAdRow }) {
         ) : (
           <div className="flex h-full w-full flex-col items-center justify-center gap-2">
             <ImageOff className="h-6 w-6 text-[#062E25]/20" />
-            <span className="text-sm text-[#062E25]/30">{t('noScreenshot')}</span>
+            <span className="text-sm text-[#062E25]/75">{t('noScreenshot')}</span>
           </div>
         )}
       </div>
@@ -67,7 +67,7 @@ function AdCard({ ad }: { ad: MarketingCompetitorAdRow }) {
               {t('euReach', { count: ad.euReach.toLocaleString('de-CH') })}
             </Badge>
           )}
-          <span className="text-sm text-[#062E25]/40 ml-auto tabular-nums">
+          <span className="text-sm text-[#062E25]/75 ml-auto tabular-nums">
             {new Date(ad.firstSeenAt).toLocaleDateString('de-CH')}
             {' – '}
             {new Date(ad.lastSeenAt).toLocaleDateString('de-CH')}
@@ -84,13 +84,13 @@ function AdCard({ ad }: { ad: MarketingCompetitorAdRow }) {
             href={ad.landingUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-1.5 text-sm text-[#062E25]/60 hover:text-[#062E25] hover:underline mb-2"
+            className="flex items-center gap-1.5 text-sm text-[#062E25]/75 hover:text-[#062E25] hover:underline mb-2"
           >
             <ExternalLink className="h-3.5 w-3.5 shrink-0" />
             <span className="truncate">{ad.landingUrl}</span>
           </a>
         )}
-        {ad.notes && <p className="text-sm text-[#062E25]/40">{ad.notes}</p>}
+        {ad.notes && <p className="text-sm text-[#062E25]">{ad.notes}</p>}
       </CardContent>
     </Card>
   )
@@ -167,7 +167,7 @@ export default function AdminMarketingCompetitorDetailPage() {
   const competitor = competitors?.rows.find((row) => row.id === competitorId)
 
   if (!competitor) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   return (
@@ -205,10 +205,10 @@ export default function AdminMarketingCompetitorDetailPage() {
       {(competitor.igHandle || competitor.notes) && (
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-6">
           {competitor.igHandle && (
-            <span className="text-sm text-[#062E25]/60">{competitor.igHandle}</span>
+            <span className="text-sm text-[#062E25]">{competitor.igHandle}</span>
           )}
           {competitor.notes && (
-            <span className="text-sm text-[#062E25]/40">{competitor.notes}</span>
+            <span className="text-sm text-[#062E25]">{competitor.notes}</span>
           )}
         </div>
       )}
@@ -234,11 +234,11 @@ export default function AdminMarketingCompetitorDetailPage() {
           {adsLoading ? (
             <AdminPageLoader className="h-64" />
           ) : !ads ? (
-            <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+            <p className="text-[#062E25]">{tc('failedToLoad')}</p>
           ) : ads.rows.length === 0 ? (
             <Card className="border-[#062E25]/10">
               <CardContent className="p-6">
-                <p className="text-center py-12 text-[#062E25]/40">{t('adsEmpty')}</p>
+                <p className="text-center py-12 text-[#062E25]">{t('adsEmpty')}</p>
               </CardContent>
             </Card>
           ) : (
@@ -257,14 +257,14 @@ export default function AdminMarketingCompetitorDetailPage() {
             {diffsLoading ? (
               <AdminPageLoader className="h-32" />
             ) : !diffs ? (
-              <p className="text-[#062E25]/60">{tc('failedToLoad')}</p>
+              <p className="text-[#062E25]">{tc('failedToLoad')}</p>
             ) : diffs.rows.length === 0 ? (
-              <p className="text-center py-12 text-[#062E25]/40">{t('diffsEmpty')}</p>
+              <p className="text-center py-12 text-[#062E25]">{t('diffsEmpty')}</p>
             ) : (
               <div className="space-y-4">
                 {diffs.rows.map((diff) => (
                   <div key={diff.id} className="flex items-start gap-3">
-                    <span className="text-sm text-[#062E25]/40 w-24 shrink-0 tabular-nums">
+                    <span className="text-sm text-[#062E25]/75 w-24 shrink-0 tabular-nums">
                       {new Date(diff.changedAt).toLocaleDateString('de-CH')}
                     </span>
                     <div className="min-w-0">
@@ -277,7 +277,7 @@ export default function AdminMarketingCompetitorDetailPage() {
                         {diff.url}
                       </a>
                       {diff.diffSummary && (
-                        <p className="text-sm text-[#062E25]/60">{diff.diffSummary}</p>
+                        <p className="text-sm text-[#062E25]">{diff.diffSummary}</p>
                       )}
                     </div>
                   </div>
@@ -329,7 +329,7 @@ export default function AdminMarketingCompetitorDetailPage() {
                   ) : (
                     <>
                       <Upload className="h-5 w-5 text-[#062E25]/40" />
-                      <span className="text-sm text-[#062E25]/40">{t('uploadScreenshot')}</span>
+                      <span className="text-sm text-[#062E25]/75">{t('uploadScreenshot')}</span>
                     </>
                   )}
                 </button>

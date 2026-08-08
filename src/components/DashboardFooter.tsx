@@ -8,7 +8,7 @@ export default function DashboardFooter() {
 
   return (
     <footer className="border-t border-[#062E25]/10 bg-white/60 backdrop-blur-sm">
-      <div className="max-w-360 mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-[#062E25]/60">
+      <div className="max-w-360 mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-[#062E25]/75">
         <p>&copy; {new Date().getFullYear()} Free State AG</p>
         <div className="flex items-center gap-4">
           <Link href={`/${locale}/privacy-policy`} className="hover:text-[#062E25] transition-colors">

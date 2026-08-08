@@ -49,7 +49,7 @@ export default function DashboardPage() {
   if (!data) {
     return (
       <div className="text-center py-16">
-        <p className="text-pine/60">{t('failedToLoad')}</p>
+        <p className="text-pine">{t('failedToLoad')}</p>
       </div>
     )
   }
@@ -59,7 +59,7 @@ export default function DashboardPage() {
       <h1 className="text-2xl font-bold text-pine mb-1">
         {t('welcome', { firstName: data.user.firstName })}
       </h1>
-      <p className="text-pine/60 mb-8">{t('subtitle')}</p>
+      <p className="text-pine mb-8">{t('subtitle')}</p>
 
       <DataRequestActionRequiredCard />
 
@@ -116,7 +116,7 @@ export default function DashboardPage() {
                   <p className="text-base font-medium text-pine">
                     {ACTIVITY_KEYS[item.type] ? t(ACTIVITY_KEYS[item.type]) : item.type}
                   </p>
-                  <p className="text-base text-pine/60">
+                  <p className="text-base text-pine/75">
                     {new Date(item.date).toLocaleDateString('de-CH', {
                       year: 'numeric',
                       month: 'long',

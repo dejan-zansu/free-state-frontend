@@ -26,7 +26,7 @@ const ServiceCard = ({
       <h3 className="text-[#062E25] text-xl sm:text-[22px] font-bold tracking-tight">
         {title}
       </h3>
-      <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em]">
+      <p className="text-[#062E25] text-base tracking-[-0.02em]">
         {description}
       </p>
     </div>
@@ -70,7 +70,7 @@ const SolarAboService = async ({
             <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-5xl lg:text-[45px] font-medium tracking-tight">
               {t('service.title')}
             </h2>
-            <p className="text-[#062E25]/80 text-lg sm:text-xl lg:text-[22px] font-light tracking-[-0.02em]">
+            <p className="text-[#062E25] text-lg sm:text-xl lg:text-[22px] tracking-[-0.02em]">
               {t('service.subtitle')}
             </p>
           </div>

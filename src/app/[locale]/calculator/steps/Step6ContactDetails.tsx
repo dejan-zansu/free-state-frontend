@@ -60,13 +60,13 @@ function useContactSchema(t: (key: string) => string) {
 type ContactFormData = z.infer<ReturnType<typeof useContactSchema>>
 
 const inputBase =
-  'w-full h-9 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60'
+  'w-full h-9 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/50 focus:outline-none focus:border-[#062E25]/60'
 
 const labelBase =
-  'text-sm sm:text-base font-light text-[#062E25]/80 tracking-tight'
+  'text-sm sm:text-base text-[#062E25] tracking-tight'
 
 const v2InputBase =
-  'w-full h-12 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/30 focus:outline-none focus:border-[#062E25]/60'
+  'w-full h-12 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/50 focus:outline-none focus:border-[#062E25]/60'
 
 const v2LabelBase = 'text-base text-[#062E25] tracking-tight'
 
@@ -199,10 +199,10 @@ function ContactScreenV1() {
             <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {tPending('title')}
             </Heading>
-            <p className="mt-3 text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+            <p className="mt-3 text-base sm:text-[22px] text-[#062E25] tracking-tight">
               {tPending('body')}
             </p>
-            <p className="mt-2 text-base text-[#062E25]/60">
+            <p className="mt-2 text-base text-[#062E25]">
               {tPending('hint')}
             </p>
           </div>
@@ -238,7 +238,7 @@ function ContactScreenV1() {
             <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {t('title')}
             </Heading>
-            <p className="text-base sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+            <p className="text-base sm:text-[22px] text-[#062E25] tracking-tight">
               {t('helper')}
             </p>
           </div>
@@ -452,7 +452,7 @@ function ContactScreenV1() {
                             </svg>
                           )}
                         </span>
-                        <span className="text-sm sm:text-base font-light text-[#062E25]/70 tracking-tight">
+                        <span className="text-sm sm:text-base text-[#062E25] tracking-tight">
                           {tConsent('dataProcessingPrefix')}{' '}
                           <Link
                             href="/privacy-policy"
@@ -512,7 +512,7 @@ function ContactScreenV1() {
                             </svg>
                           )}
                         </span>
-                        <span className="text-sm sm:text-base font-light text-[#062E25]/70 tracking-tight">
+                        <span className="text-sm sm:text-base text-[#062E25] tracking-tight">
                           {tConsent('marketing')}
                         </span>
                       </button>

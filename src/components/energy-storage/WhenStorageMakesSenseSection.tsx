@@ -18,7 +18,7 @@ const WhenStorageMakesSenseSection = async () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-[90px]">
-          <p className="text-[#062E25]/80 text-base md:text-[22px] font-light leading-[1.27em] tracking-[-0.02em] text-justify max-w-[535px]">
+          <p className="text-[#062E25]/80 text-base md:text-[22px] leading-[1.27em] tracking-[-0.02em] text-justify max-w-[535px]">
             {t('whenMakesSense.description')}
           </p>
 

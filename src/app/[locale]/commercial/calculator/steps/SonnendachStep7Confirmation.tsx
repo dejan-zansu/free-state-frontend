@@ -41,7 +41,7 @@ export default function SonnendachStep7Confirmation() {
   if (!submissionResult) {
     return (
       <div className="h-full flex items-center justify-center">
-        <p className="text-base text-[#062E25]/60">{t('noSubmission')}</p>
+        <p className="text-base text-[#062E25]">{t('noSubmission')}</p>
       </div>
     )
   }
@@ -90,10 +90,10 @@ export default function SonnendachStep7Confirmation() {
             <h1 className="text-2xl sm:text-3xl font-semibold text-[#062E25]">
               {t('heading', { firstName: contactDetails.firstName })}
             </h1>
-            <p className="text-base text-[#062E25]/70 mt-2">{t('subheading')}</p>
+            <p className="text-base text-[#062E25] mt-2">{t('subheading')}</p>
 
             <div className="mt-6 inline-flex items-center gap-3 bg-[#062E25]/5 px-4 py-2 rounded-lg">
-              <span className="text-sm text-[#062E25]/60">{t('reference')}:</span>
+              <span className="text-sm text-[#062E25]/75">{t('reference')}:</span>
               <span className="font-mono text-base font-semibold text-[#062E25]">{submissionResult.reference}</span>
               <button onClick={handleCopy} className="text-[#062E25]/60 hover:text-[#062E25]"
                       aria-label={t('copy')}>
@@ -133,14 +133,14 @@ export default function SonnendachStep7Confirmation() {
         <Card className="mb-6">
           <CardContent className="pt-6 pb-6">
             <h2 className="text-base font-semibold text-[#062E25]">{t('uploadTitle')}</h2>
-            <p className="text-sm text-[#062E25]/60 mt-1 mb-4">{t('uploadSubtitle')}</p>
+            <p className="text-sm text-[#062E25] mt-1 mb-4">{t('uploadSubtitle')}</p>
 
             <div className="grid sm:grid-cols-2 gap-4">
               {UPLOAD_TYPES.map((type) => (
                 <div key={type} className="border border-[#062E25]/10 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <p className="font-medium text-[#062E25]">{attachmentTypeLabel[type]}</p>
-                    <label className="cursor-pointer text-[#062E25]/60 hover:text-[#062E25]">
+                    <label className="cursor-pointer text-[#062E25] hover:text-[#062E25]">
                       <Upload className="w-4 h-4" />
                       <input
                         type="file" className="hidden"
@@ -156,12 +156,12 @@ export default function SonnendachStep7Confirmation() {
                   <ul className="space-y-1 mt-2">
                     {(uploadsByType[type] ?? []).map((u, idx) => (
                       <li key={idx} className="text-sm flex items-center justify-between gap-2">
-                        <span className="truncate text-[#062E25]/70">{u.name}</span>
+                        <span className="truncate text-[#062E25]">{u.name}</span>
                         {u.error
                           ? <span className="text-red-600">{u.error}</span>
                           : u.done
                             ? <span className="text-green-600">{t('done')}</span>
-                            : <span className="text-[#062E25]/50">{u.progress}%</span>}
+                            : <span className="text-[#062E25]/75">{u.progress}%</span>}
                       </li>
                     ))}
                   </ul>
@@ -187,7 +187,7 @@ export default function SonnendachStep7Confirmation() {
           </a>
         </div>
 
-        <div className="mt-8 text-center text-sm text-[#062E25]/60">
+        <div className="mt-8 text-center text-sm text-[#062E25]/75">
           <p>{t('questions')}</p>
           <p className="mt-1">
             <a href={COMPANY_MAIN_PHONE_TEL_HREF} className="hover:text-[#062E25] inline-flex items-center gap-1">

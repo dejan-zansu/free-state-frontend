@@ -47,7 +47,7 @@ const HowItWorksSection = async () => {
               WebkitBackdropFilter: 'blur(65px)',
             }}
           >
-            <span className="text-[#062E25] text-base font-light tracking-[-0.02em]">
+            <span className="text-[#062E25] text-base tracking-[-0.02em]">
               {t('howItWorks.eyebrow')}
             </span>
           </div>

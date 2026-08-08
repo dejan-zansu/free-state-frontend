@@ -134,7 +134,7 @@ export default function SetPasswordPage() {
       <div className="w-full max-w-md">
         <Link
           href="/login"
-          className="mb-8 inline-flex items-center gap-2 text-sm lg:text-base font-medium text-[#062E25]/70 transition-colors hover:text-[#062E25]"
+          className="mb-8 inline-flex items-center gap-2 text-sm lg:text-base font-medium text-[#062E25] transition-colors hover:text-[#062E25]"
         >
           <ArrowLeft className="h-4 w-4" />
           {t('goToLogin')}

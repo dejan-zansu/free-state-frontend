@@ -39,7 +39,7 @@ const QuoteCTASection = async () => {
                 backdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-white text-base font-light tracking-[-0.02em]">
+              <span className="text-white text-base tracking-[-0.02em]">
                 {t('quoteCTA.eyebrow')}
               </span>
             </div>
@@ -49,7 +49,7 @@ const QuoteCTASection = async () => {
             </h2>
           </div>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[519px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] text-center max-w-[519px]">
             {t('quoteCTA.description')}
           </p>
 
@@ -70,7 +70,7 @@ const QuoteCTASection = async () => {
             <LinkButton href="/solar-calculator" variant="outline-secondary">
               {t('quoteCTA.cta')}
             </LinkButton>
-            <p className="text-white/80 text-base font-light tracking-[-0.02em] text-center">
+            <p className="text-white/80 text-base tracking-[-0.02em] text-center">
               {t('quoteCTA.ctaSubtext')}
             </p>
           </div>

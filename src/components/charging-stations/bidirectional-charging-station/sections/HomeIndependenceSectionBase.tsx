@@ -61,7 +61,7 @@ const HomeIndependenceSectionBase = async ({
                 <p className="text-white/80 text-[22px] font-semibold tracking-[-0.02em]">
                   {t('homeIndependence.capacityComparison.title')}
                 </p>
-                <p className="text-white/80 text-[22px] font-light tracking-[-0.02em]">
+                <p className="text-white/80 text-[22px] tracking-[-0.02em]">
                   {t('homeIndependence.capacityComparison.description')}
                 </p>
               </div>

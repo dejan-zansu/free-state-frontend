@@ -45,7 +45,7 @@ const QuoteCTASection = async () => {
             {t('quoteCTA.title')}
           </h2>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] max-w-[519px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] max-w-[519px]">
             {t('quoteCTA.description')}
           </p>
         </div>

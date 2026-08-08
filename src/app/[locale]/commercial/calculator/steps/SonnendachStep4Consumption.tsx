@@ -32,7 +32,7 @@ export default function SonnendachStep4Consumption() {
   if (selectedSegments.length === 0) {
     return (
       <div className="h-full flex flex-col items-center justify-center gap-4 p-8">
-        <p className="text-sm text-[#062E25]/50">{t('noSegments')}</p>
+        <p className="text-sm text-[#062E25]">{t('noSegments')}</p>
         <Button variant="outline" onClick={() => goToStep(1)}>
           {t('backToSelection')}
         </Button>
@@ -46,7 +46,7 @@ export default function SonnendachStep4Consumption() {
         <h1 className="text-2xl sm:text-3xl font-medium text-[#062E25]">
           {t('title')}
         </h1>
-        <p className="mt-2 text-sm text-[#062E25]/60">
+        <p className="mt-2 text-sm text-[#062E25]">
           {t('subtitle')}
         </p>
 
@@ -57,7 +57,7 @@ export default function SonnendachStep4Consumption() {
             </h2>
             <div className="space-y-4">
               <div>
-                <Label className="text-sm text-[#062E25]/70">{t('buildingType')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('buildingType')}</Label>
                 <Select
                   value={consumption.propertyType}
                   onValueChange={value =>
@@ -79,7 +79,7 @@ export default function SonnendachStep4Consumption() {
               </div>
 
               <div>
-                <Label className="text-sm text-[#062E25]/70">{t('isNewBuilding')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('isNewBuilding')}</Label>
                 <Select
                   value={consumption.isNewBuilding ? 'yes' : 'no'}
                   onValueChange={value =>
@@ -104,7 +104,7 @@ export default function SonnendachStep4Consumption() {
             </h2>
             <div className="space-y-4">
               <div>
-                <Label className="text-sm text-[#062E25]/70">{t('annualConsumption')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('annualConsumption')}</Label>
                 <div className="flex items-center gap-2 mt-1">
                   <Input
                     type="number"
@@ -116,9 +116,9 @@ export default function SonnendachStep4Consumption() {
                     }
                     placeholder={t('annualConsumptionPlaceholder')}
                   />
-                  <span className="text-sm text-[#062E25]/50 shrink-0">kWh</span>
+                  <span className="text-sm text-[#062E25]/75 shrink-0">kWh</span>
                 </div>
-                <p className="text-sm text-[#062E25]/40 mt-1">{t('annualConsumptionHint')}</p>
+                <p className="text-sm text-[#062E25]/75 mt-1">{t('annualConsumptionHint')}</p>
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function SonnendachStep4Consumption() {
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label className="text-sm text-[#062E25]/70">{t('electricityTariff')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('electricityTariff')}</Label>
                 <div className="flex items-center gap-2 mt-1">
                   <Input
                     type="number"
@@ -142,7 +142,7 @@ export default function SonnendachStep4Consumption() {
                     }
                     placeholder={consumption.electricityTariffAuto ? '25' : ''}
                   />
-                  <span className="text-sm text-[#062E25]/50 shrink-0">Rp/kWh</span>
+                  <span className="text-sm text-[#062E25]/75 shrink-0">Rp/kWh</span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <Checkbox
@@ -152,14 +152,14 @@ export default function SonnendachStep4Consumption() {
                       setConsumption({ electricityTariffAuto: v === true })
                     }
                   />
-                  <Label htmlFor="autoTariff" className="text-sm text-[#062E25]/40">
+                  <Label htmlFor="autoTariff" className="text-sm text-[#062E25]">
                     {t('useAverage')}
                   </Label>
                 </div>
               </div>
 
               <div>
-                <Label className="text-sm text-[#062E25]/70">{t('feedInTariff')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('feedInTariff')}</Label>
                 <div className="flex items-center gap-2 mt-1">
                   <Input
                     type="number"
@@ -172,7 +172,7 @@ export default function SonnendachStep4Consumption() {
                     }
                     placeholder={consumption.feedInTariffAuto ? '12' : ''}
                   />
-                  <span className="text-sm text-[#062E25]/50 shrink-0">Rp/kWh</span>
+                  <span className="text-sm text-[#062E25]/75 shrink-0">Rp/kWh</span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <Checkbox
@@ -182,7 +182,7 @@ export default function SonnendachStep4Consumption() {
                       setConsumption({ feedInTariffAuto: v === true })
                     }
                   />
-                  <Label htmlFor="autoFeedIn" className="text-sm text-[#062E25]/40">
+                  <Label htmlFor="autoFeedIn" className="text-sm text-[#062E25]">
                     {t('useAverage')}
                   </Label>
                 </div>

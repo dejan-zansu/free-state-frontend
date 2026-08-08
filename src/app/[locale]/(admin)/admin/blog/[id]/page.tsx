@@ -21,7 +21,7 @@ export default function AdminBlogEditPage() {
   }
 
   if (!post) {
-    return <p className="text-[#062E25]/60">Post not found.</p>
+    return <p className="text-[#062E25]">Post not found.</p>
   }
 
   return <BlogPostForm post={post} />

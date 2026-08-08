@@ -26,7 +26,7 @@ const ServiceHighestLevelSection = async () => {
               {t('highestLevel.title')}
             </h2>
 
-            <p className="text-[#062E25]/80 text-base md:text-[22px] font-light tracking-[-0.02em] whitespace-pre-line">
+            <p className="text-[#062E25] text-base md:text-[22px] tracking-[-0.02em] whitespace-pre-line">
               {t('highestLevel.description')}
             </p>
           </div>

@@ -27,7 +27,7 @@ const BatteryInstallationSection = async () => {
                 WebkitBackdropFilter: 'blur(65px)',
               }}
             >
-              <span className="text-[#062E25] text-base font-light tracking-[-0.02em] text-center whitespace-nowrap">
+              <span className="text-[#062E25] text-base tracking-[-0.02em] text-center whitespace-nowrap">
                 {t('installation.eyebrow')}
               </span>
             </div>
@@ -36,7 +36,7 @@ const BatteryInstallationSection = async () => {
               {t('installation.title')}
             </h2>
 
-            <p className="text-[#062E25]/80 text-base md:text-[22px] font-light leading-[1.27em] tracking-[-0.02em]">
+            <p className="text-[#062E25]/80 text-base md:text-[22px] leading-[1.27em] tracking-[-0.02em]">
               {t('installation.description')}
             </p>
           </div>

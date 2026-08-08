@@ -58,7 +58,7 @@ const InvestorsFAQ = () => {
               </button>
               {openIndex === index && (
                 <div className='px-6 pb-4'>
-                  <p className='text-foreground/80 text-base font-light leading-relaxed'>
+                  <p className='text-foreground/80 text-base leading-relaxed'>
                     {faq.answer}
                   </p>
                 </div>

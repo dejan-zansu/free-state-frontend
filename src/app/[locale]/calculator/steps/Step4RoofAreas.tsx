@@ -660,7 +660,7 @@ export default function Step4RoofAreas() {
         <div className="h-full flex items-center justify-center px-4 py-12">
           <p
             role="status"
-            className="max-w-md text-center text-base font-light text-[#062E25]/80 tracking-tight"
+            className="max-w-md text-center text-base text-[#062E25] tracking-tight"
           >
             {t2('loading')}
           </p>
@@ -674,7 +674,7 @@ export default function Step4RoofAreas() {
             <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
               {t('title')}
             </Heading>
-            <p className="mt-5 text-lg sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+            <p className="mt-5 text-lg sm:text-[22px] text-[#062E25] tracking-tight">
               {t('helper')}
             </p>
           </div>
@@ -700,7 +700,7 @@ export default function Step4RoofAreas() {
             )}
           </div>
 
-          <p className="mt-5 text-sm text-[#062E25]/40 italic">
+          <p className="mt-5 text-sm text-[#062E25]/75 italic">
             {t('officialMap')}
           </p>
         </div>
@@ -885,7 +885,7 @@ export default function Step4RoofAreas() {
                   />
                 ))}
               </div>
-              <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/40">
+              <div className="mt-1 flex justify-between text-sm text-[#EAEDDF]/70">
                 <span>{t('low')}</span>
                 <span>{t('excellent')}</span>
               </div>

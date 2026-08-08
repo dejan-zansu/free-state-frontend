@@ -82,21 +82,21 @@ export default function SettingsPage() {
           <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('profile')}</h2>
           <div className="space-y-4">
             <div>
-              <Label className="text-sm text-[#062E25]/60">{t('email')}</Label>
+              <Label className="text-sm text-[#062E25]">{t('email')}</Label>
               <Input value={user?.email || ''} disabled className="mt-1 bg-[#062E25]/5" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <Label className="text-sm text-[#062E25]/60">{t('firstName')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('firstName')}</Label>
                 <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} className="mt-1" />
               </div>
               <div>
-                <Label className="text-sm text-[#062E25]/60">{t('lastName')}</Label>
+                <Label className="text-sm text-[#062E25]">{t('lastName')}</Label>
                 <Input value={lastName} onChange={(e) => setLastName(e.target.value)} className="mt-1" />
               </div>
             </div>
             <div>
-              <Label className="text-sm text-[#062E25]/60">{t('phone')}</Label>
+              <Label className="text-sm text-[#062E25]">{t('phone')}</Label>
               <Input value={phone} onChange={(e) => setPhone(e.target.value)} className="mt-1" />
             </div>
             <Button
@@ -115,7 +115,7 @@ export default function SettingsPage() {
           <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('changePassword')}</h2>
           <div className="space-y-4">
             <div>
-              <Label className="text-sm text-[#062E25]/60">{t('currentPassword')}</Label>
+              <Label className="text-sm text-[#062E25]">{t('currentPassword')}</Label>
               <Input
                 type="password"
                 value={currentPassword}
@@ -124,7 +124,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label className="text-sm text-[#062E25]/60">{t('newPassword')}</Label>
+              <Label className="text-sm text-[#062E25]">{t('newPassword')}</Label>
               <Input
                 type="password"
                 value={newPassword}
@@ -133,7 +133,7 @@ export default function SettingsPage() {
               />
             </div>
             <div>
-              <Label className="text-sm text-[#062E25]/60">{t('confirmPassword')}</Label>
+              <Label className="text-sm text-[#062E25]">{t('confirmPassword')}</Label>
               <Input
                 type="password"
                 value={confirmPassword}

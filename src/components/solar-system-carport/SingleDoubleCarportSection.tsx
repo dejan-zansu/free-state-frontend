@@ -87,7 +87,7 @@ const SingleDoubleCarportSection = async () => {
                         {carport.price}
                       </span>
                     </div>
-                    <p className="text-[#062E25]/80 text-base font-light text-center">
+                    <p className="text-[#062E25] text-base text-center">
                       {t('technicalDetails.footnote')}
                     </p>
                   </div>

@@ -45,7 +45,7 @@ const SupportSection = async () => {
             {t('support.title')}
           </h2>
 
-          <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] max-w-[519px]">
+          <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] max-w-[519px]">
             {t('support.description')}
           </p>
         </div>

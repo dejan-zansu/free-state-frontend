@@ -19,7 +19,7 @@ const WhichHeatPumpSection = async () => {
           </h2>
 
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[90px]">
-            <p className="text-white/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-justify max-w-[535px]">
+            <p className="text-white/80 text-lg md:text-[22px] tracking-[-0.02em] text-justify max-w-[535px]">
               {t('whichHeatPump.description')}
             </p>
 

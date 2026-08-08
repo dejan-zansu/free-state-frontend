@@ -24,7 +24,7 @@ export default function AdminContactDetailPage() {
   }
 
   if (!submission) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   return (
@@ -41,29 +41,29 @@ export default function AdminContactDetailPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('entityType')}</label>
+                <label className="text-sm text-[#062E25]">{t('entityType')}</label>
                 <p className="font-medium text-[#062E25]">{submission.entityType || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('salutation')}</label>
+                <label className="text-sm text-[#062E25]">{t('salutation')}</label>
                 <p className="font-medium text-[#062E25]">{submission.salutation || '-'}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('email')}</label>
+                <label className="text-sm text-[#062E25]">{t('email')}</label>
                 <p className="font-medium text-[#062E25]">{submission.email}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('phone')}</label>
+                <label className="text-sm text-[#062E25]">{t('phone')}</label>
                 <p className="font-medium text-[#062E25]">{submission.phone}</p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('address')}</label>
+                <label className="text-sm text-[#062E25]">{t('address')}</label>
                 <p className="font-medium text-[#062E25]">
                   {submission.postalCode} {submission.city}
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">{t('created')}</label>
+                <label className="text-sm text-[#062E25]">{t('created')}</label>
                 <p className="font-medium text-[#062E25]">
                   {new Date(submission.createdAt).toLocaleDateString('de-CH', {
                     year: 'numeric',

@@ -260,7 +260,7 @@ export function BlogPostForm({ post }: BlogPostFormProps) {
                     ) : (
                       <>
                         <Upload className="h-5 w-5 text-[#062E25]/40" />
-                        <span className="text-sm text-[#062E25]/40">{t('uploadImage')}</span>
+                        <span className="text-sm text-[#062E25]/75">{t('uploadImage')}</span>
                       </>
                     )}
                   </button>

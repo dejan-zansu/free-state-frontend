@@ -208,7 +208,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
               <button
                 type="button"
                 onClick={() => setDueDate(undefined)}
-                className="text-xs text-[#062E25]/60 hover:text-[#062E25] underline"
+                className="text-xs text-[#062E25]/75 hover:text-[#062E25] underline"
               >
                 {t('clearDate')}
               </button>
@@ -236,7 +236,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                   <Card key={idx} className="border-[#062E25]/10 shadow-none">
                     <CardContent className="p-4 space-y-3">
                       <div className="flex items-center gap-3">
-                        <span className="text-sm font-medium text-[#062E25]/60 w-6 shrink-0">
+                        <span className="text-sm font-medium text-[#062E25]/75 w-6 shrink-0">
                           {idx + 1}.
                         </span>
 
@@ -268,7 +268,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
                           />
                           <Label
                             htmlFor={`req-${idx}`}
-                            className="text-sm font-normal text-[#062E25]/70 cursor-pointer"
+                            className="text-sm font-normal text-[#062E25] cursor-pointer"
                           >
                             {t('required')}
                           </Label>

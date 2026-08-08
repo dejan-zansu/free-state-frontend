@@ -59,14 +59,14 @@ export default function AdminSubsidyRatesPage() {
       <h1 className="text-2xl font-bold text-[#062E25] mb-2">
         {t('title')}
       </h1>
-      <p className="text-base text-[#062E25]/60 mb-6">
+      <p className="text-base text-[#062E25] mb-6">
         {t('description')}
       </p>
 
       {active && (
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
-            <p className="text-sm text-[#062E25]/50 uppercase tracking-wider mb-2">
+            <p className="text-sm text-[#062E25]/75 uppercase tracking-wider mb-2">
               {t('currentTariff')}
             </p>
             <p className="text-xl font-semibold text-[#062E25]">
@@ -74,25 +74,25 @@ export default function AdminSubsidyRatesPage() {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('tier1Max')}</p>
+                <p className="text-sm text-[#062E25]">{t('tier1Max')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {active.tier1MaxKwp}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('tier1Chf')}</p>
+                <p className="text-sm text-[#062E25]">{t('tier1Chf')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtChf(active.tier1ChfPerKwp)}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('tier2Max')}</p>
+                <p className="text-sm text-[#062E25]">{t('tier2Max')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {active.tier2MaxKwp}
                 </p>
               </div>
               <div>
-                <p className="text-sm text-[#062E25]/50">{t('tier2Chf')}</p>
+                <p className="text-sm text-[#062E25]">{t('tier2Chf')}</p>
                 <p className="text-base font-semibold text-[#062E25] tabular-nums">
                   {fmtChf(active.tier2ChfPerKwp)}
                 </p>
@@ -141,7 +141,7 @@ export default function AdminSubsidyRatesPage() {
                         {t('active')}
                       </span>
                     ) : (
-                      <span className="text-[#062E25]/50 text-sm">{t('inactive')}</span>
+                      <span className="text-[#062E25] text-sm">{t('inactive')}</span>
                     )}
                   </TableCell>
                 </TableRow>
@@ -150,7 +150,7 @@ export default function AdminSubsidyRatesPage() {
                 <TableRow>
                   <TableCell
                     colSpan={8}
-                    className="text-center text-[#062E25]/50 py-8"
+                    className="text-center text-[#062E25]/75 py-8"
                   >
                     {t('empty')}
                   </TableCell>

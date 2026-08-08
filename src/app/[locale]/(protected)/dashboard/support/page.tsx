@@ -110,7 +110,7 @@ export default function SupportPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold text-[#062E25]">{t('title')}</h1>
-          <p className="text-sm text-[#062E25]/60 mt-1">{t('subtitle')}</p>
+          <p className="text-sm text-[#062E25] mt-1">{t('subtitle')}</p>
         </div>
       </div>
 
@@ -143,12 +143,12 @@ export default function SupportPage() {
                     <p className="text-sm font-medium text-[#062E25]">{t('callUs')}</p>
                     <a
                       href={COMPANY_MAIN_PHONE_TEL_HREF}
-                      className="text-sm text-[#062E25]/70 hover:text-[#062E25]"
+                      className="text-sm text-[#062E25] hover:text-[#062E25]"
                     >
                       {COMPANY_MAIN_PHONE_DISPLAY}
                     </a>
                   </div>
-                  <p className="text-sm text-[#062E25]/50">{t('callHours')}</p>
+                  <p className="text-sm text-[#062E25]/75">{t('callHours')}</p>
                 </CardContent>
               </Card>
 
@@ -159,11 +159,11 @@ export default function SupportPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-[#062E25]">{t('emailUs')}</p>
-                    <a href="mailto:solar@freestate.ch" className="text-sm text-[#062E25]/70 hover:text-[#062E25]">
+                    <a href="mailto:solar@freestate.ch" className="text-sm text-[#062E25] hover:text-[#062E25]">
                       solar@freestate.ch
                     </a>
                   </div>
-                  <p className="text-sm text-[#062E25]/50">{t('emailResponse')}</p>
+                  <p className="text-sm text-[#062E25]/75">{t('emailResponse')}</p>
                 </CardContent>
               </Card>
 
@@ -174,7 +174,7 @@ export default function SupportPage() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-[#062E25]">{t('openTicket')}</p>
-                    <p className="text-sm text-[#062E25]/70">{t('openTicketDesc')}</p>
+                    <p className="text-sm text-[#062E25]">{t('openTicketDesc')}</p>
                   </div>
                   <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
                     <DialogTrigger asChild>
@@ -192,7 +192,7 @@ export default function SupportPage() {
                             <Send className="h-6 w-6 text-green-600" />
                           </div>
                           <p className="font-medium text-[#062E25]">{t('ticketSent')}</p>
-                          <p className="text-sm text-[#062E25]/60 mt-1">{t('ticketSentDesc')}</p>
+                          <p className="text-sm text-[#062E25] mt-1">{t('ticketSentDesc')}</p>
                         </div>
                       ) : (
                         <div className="space-y-4 pt-2">
@@ -262,7 +262,7 @@ export default function SupportPage() {
                     </button>
                     {openFaq === i && (
                       <div className="px-4 pb-4 border-t border-[#062E25]/5 pt-3">
-                        <p className="text-sm text-[#062E25]/70">{item.a}</p>
+                        <p className="text-sm text-[#062E25]">{item.a}</p>
                       </div>
                     )}
                   </Card>
@@ -275,7 +275,7 @@ export default function SupportPage() {
         <TabsContent value="tickets">
           <div className="space-y-4">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm text-[#062E25]/60">
+              <p className="text-sm text-[#062E25]/75">
                 {t('ticketCount', { count: inquiries.length })}
               </p>
               <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
@@ -295,7 +295,7 @@ export default function SupportPage() {
                         <Send className="h-6 w-6 text-green-600" />
                       </div>
                       <p className="font-medium text-[#062E25]">{t('ticketSent')}</p>
-                      <p className="text-sm text-[#062E25]/60 mt-1">{t('ticketSentDesc')}</p>
+                      <p className="text-sm text-[#062E25] mt-1">{t('ticketSentDesc')}</p>
                     </div>
                   ) : (
                     <div className="space-y-4 pt-2">
@@ -351,8 +351,8 @@ export default function SupportPage() {
               <Card className="border-[#062E25]/10 border-dashed">
                 <CardContent className="p-12 text-center">
                   <Ticket className="h-10 w-10 text-[#062E25]/20 mx-auto mb-3" />
-                  <p className="font-medium text-[#062E25]/70">{t('noTickets')}</p>
-                  <p className="text-sm text-[#062E25]/50 mt-1">{t('noTicketsDesc')}</p>
+                  <p className="font-medium text-[#062E25]">{t('noTickets')}</p>
+                  <p className="text-sm text-[#062E25]/75 mt-1">{t('noTicketsDesc')}</p>
                 </CardContent>
               </Card>
             ) : (
@@ -379,7 +379,7 @@ export default function SupportPage() {
                               )}>
                                 {t(`status_${inq.status}`)}
                               </span>
-                              <span className="flex items-center gap-1 text-sm text-[#062E25]/40">
+                              <span className="flex items-center gap-1 text-sm text-[#062E25]/75">
                                 <Clock className="h-3 w-3" />
                                 {formatDate(inq.createdAt)}
                               </span>

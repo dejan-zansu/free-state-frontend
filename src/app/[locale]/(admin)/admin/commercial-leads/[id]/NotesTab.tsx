@@ -38,13 +38,13 @@ export default function NotesTab({
       </CardContent></Card>
       <Card><CardContent className="p-0">
         {notes.length === 0
-          ? <div className="p-6 text-[#062E25]/50">{t('noNotes')}</div>
+          ? <div className="p-6 text-[#062E25]/75">{t('noNotes')}</div>
           : <ul>
               {notes.map((n) => (
                 <li key={n.id} className="px-4 py-3 border-b border-[#062E25]/5 last:border-0">
                   <div className="flex justify-between">
                     <p className="font-medium text-sm">{n.author.firstName} {n.author.lastName}</p>
-                    <span className="text-sm text-[#062E25]/50">{new Date(n.createdAt).toLocaleString('de-CH')}</span>
+                    <span className="text-sm text-[#062E25]/75">{new Date(n.createdAt).toLocaleString('de-CH')}</span>
                   </div>
                   <p className="text-sm text-[#062E25]/80 mt-1 whitespace-pre-wrap">{n.body}</p>
                 </li>

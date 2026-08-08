@@ -51,7 +51,7 @@ export default function AdminContractDetailPage() {
   }
 
   if (!contract) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   return (
@@ -72,27 +72,27 @@ export default function AdminContractDetailPage() {
             </h2>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('status')}</span>
+                <span className="text-sm text-[#062E25]">{t('status')}</span>
                 <StatusBadge status={contract.status} />
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('type')}</span>
+                <span className="text-sm text-[#062E25]">{t('type')}</span>
                 <StatusBadge status={contract.contractType} />
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('package')}</span>
+                <span className="text-sm text-[#062E25]">{t('package')}</span>
                 <span className="text-sm font-medium text-[#062E25]">
                   {contract.packageCode || '-'}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('language')}</span>
+                <span className="text-sm text-[#062E25]">{t('language')}</span>
                 <span className="text-sm font-medium text-[#062E25]">
                   {contract.language.toUpperCase()}
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('created')}</span>
+                <span className="text-sm text-[#062E25]">{t('created')}</span>
                 <span className="text-sm font-medium text-[#062E25]">
                   {new Date(contract.createdAt).toLocaleDateString('de-CH')}
                 </span>
@@ -108,7 +108,7 @@ export default function AdminContractDetailPage() {
             </h2>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('grossAmount')}</span>
+                <span className="text-sm text-[#062E25]">{t('grossAmount')}</span>
                 <span className="text-sm font-medium text-[#062E25]">
                   {contract.grossAmount
                     ? `CHF ${parseFloat(contract.grossAmount).toLocaleString('de-CH')}`
@@ -116,7 +116,7 @@ export default function AdminContractDetailPage() {
                 </span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('subsidy')}</span>
+                <span className="text-sm text-[#062E25]">{t('subsidy')}</span>
                 <span className="text-sm font-medium text-green-700">
                   {contract.subsidyAmount
                     ? `- CHF ${parseFloat(contract.subsidyAmount).toLocaleString('de-CH')}`
@@ -142,14 +142,14 @@ export default function AdminContractDetailPage() {
             </h2>
             <div className="space-y-3">
               <div>
-                <span className="text-sm text-[#062E25]/60">{t('name')}</span>
+                <span className="text-sm text-[#062E25]">{t('name')}</span>
                 <p className="font-medium text-[#062E25]">
                   {contract.customer.user.firstName}{' '}
                   {contract.customer.user.lastName}
                 </p>
               </div>
               <div>
-                <span className="text-sm text-[#062E25]/60">{t('email')}</span>
+                <span className="text-sm text-[#062E25]">{t('email')}</span>
                 <p className="font-medium text-[#062E25]">
                   {contract.customer.user.email}
                 </p>
@@ -165,15 +165,15 @@ export default function AdminContractDetailPage() {
             </h2>
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('signatureStatus')}</span>
+                <span className="text-sm text-[#062E25]">{t('signatureStatus')}</span>
                 {contract.signatureStatus ? (
                   <StatusBadge status={contract.signatureStatus} />
                 ) : (
-                  <span className="text-sm text-[#062E25]/30">{t('notStarted')}</span>
+                  <span className="text-sm text-[#062E25]/75">{t('notStarted')}</span>
                 )}
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-[#062E25]/60">{t('customerSigned')}</span>
+                <span className="text-sm text-[#062E25]">{t('customerSigned')}</span>
                 <span className="text-sm font-medium text-[#062E25]">
                   {contract.customerSignedAt
                     ? new Date(contract.customerSignedAt).toLocaleString('de-CH')
@@ -191,19 +191,19 @@ export default function AdminContractDetailPage() {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div>
-                <span className="text-sm text-[#062E25]/60">{t('property')}</span>
+                <span className="text-sm text-[#062E25]">{t('property')}</span>
                 <p className="font-medium text-[#062E25]">
                   {contract.project.propertyAddress}
                 </p>
               </div>
               <div>
-                <span className="text-sm text-[#062E25]/60">{t('projectStatus')}</span>
+                <span className="text-sm text-[#062E25]">{t('projectStatus')}</span>
                 <p>
                   <StatusBadge status={contract.project.status} />
                 </p>
               </div>
               <div>
-                <span className="text-sm text-[#062E25]/60">{t('package')}</span>
+                <span className="text-sm text-[#062E25]">{t('package')}</span>
                 <p className="font-medium text-[#062E25]">
                   {packageLabel(contract.project.selectedPackage)}
                 </p>

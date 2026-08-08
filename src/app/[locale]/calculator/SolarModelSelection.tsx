@@ -96,7 +96,7 @@ export default function SolarModelSelection() {
         <Heading className="text-2xl sm:text-[45px] font-medium text-[#062E25]">
           {t('title')}
         </Heading>
-        <p className="mt-3 text-base sm:mt-5 sm:text-[22px] font-light text-[#062E25]/80 tracking-tight">
+        <p className="mt-3 text-base sm:mt-5 sm:text-[22px] text-[#062E25] tracking-tight">
           {t('subtitle')}
         </p>
       </div>
@@ -155,7 +155,7 @@ export default function SolarModelSelection() {
                       <span className="shrink-0">
                         <CheckIcon />
                       </span>
-                      <span className="whitespace-nowrap text-sm font-light text-[#062E25]/80 tracking-tight">
+                      <span className="whitespace-nowrap text-sm text-[#062E25] tracking-tight">
                         {t(bulletKey)}
                       </span>
                     </div>
@@ -177,7 +177,7 @@ export default function SolarModelSelection() {
         ))}
       </div>
 
-      <p className="mt-5 text-sm font-light text-[#062E25]/60 tracking-tight">
+      <p className="mt-5 text-sm font-light text-[#062E25]/75 tracking-tight">
         {t('learnMorePrefix')}{' '}
         <Link
           href="/solar-free"

@@ -73,41 +73,41 @@ export default function AdminInvestorRequestDetailPage() {
             <h2 className="font-semibold text-[#062E25]">{t('details')}</h2>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
-                <p className="text-[#062E25]/40">{t('type')}</p>
+                <p className="text-[#062E25]/75">{t('type')}</p>
                 <p className="text-[#062E25] capitalize">{request.entityType || '-'}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('salutation')}</p>
+                <p className="text-[#062E25]/75">{t('salutation')}</p>
                 <p className="text-[#062E25] capitalize">{request.salutation || '-'}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('email')}</p>
+                <p className="text-[#062E25]/75">{t('email')}</p>
                 <p className="text-[#062E25]">{request.email}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('phone')}</p>
+                <p className="text-[#062E25]/75">{t('phone')}</p>
                 <p className="text-[#062E25]">{request.phonePrefix} {request.phone || '-'}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('address')}</p>
+                <p className="text-[#062E25]/75">{t('address')}</p>
                 <p className="text-[#062E25]">{request.address || '-'}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('location')}</p>
+                <p className="text-[#062E25]/75">{t('location')}</p>
                 <p className="text-[#062E25]">{request.postalCode} {request.city || '-'}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('language')}</p>
+                <p className="text-[#062E25]/75">{t('language')}</p>
                 <p className="text-[#062E25] capitalize">{request.language}</p>
               </div>
               <div>
-                <p className="text-[#062E25]/40">{t('created')}</p>
+                <p className="text-[#062E25]/75">{t('created')}</p>
                 <p className="text-[#062E25]">{new Date(request.createdAt).toLocaleString('de-CH')}</p>
               </div>
             </div>
             {request.comment && (
               <div>
-                <p className="text-[#062E25]/40 text-sm">{t('comment')}</p>
+                <p className="text-[#062E25]/75 text-sm">{t('comment')}</p>
                 <p className="text-[#062E25] text-sm mt-1">{request.comment}</p>
               </div>
             )}
@@ -118,7 +118,7 @@ export default function AdminInvestorRequestDetailPage() {
           <CardContent className="p-6 space-y-4">
             <h2 className="font-semibold text-[#062E25]">{t('manage')}</h2>
             <div>
-              <p className="text-sm text-[#062E25]/40 mb-1">{t('status')}</p>
+              <p className="text-sm text-[#062E25] mb-1">{t('status')}</p>
               <Select value={status} onValueChange={setStatus}>
                 <SelectTrigger>
                   <SelectValue />
@@ -132,7 +132,7 @@ export default function AdminInvestorRequestDetailPage() {
               </Select>
             </div>
             <div>
-              <p className="text-sm text-[#062E25]/40 mb-1">{t('adminNotes')}</p>
+              <p className="text-sm text-[#062E25] mb-1">{t('adminNotes')}</p>
               <Textarea
                 value={adminNotes}
                 onChange={e => setAdminNotes(e.target.value)}

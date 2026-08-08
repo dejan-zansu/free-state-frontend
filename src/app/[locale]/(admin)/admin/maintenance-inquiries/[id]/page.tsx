@@ -62,7 +62,7 @@ export default function AdminMaintenanceInquiryDetailPage() {
   }
 
   if (!inquiry) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   return (
@@ -83,21 +83,21 @@ export default function AdminMaintenanceInquiryDetailPage() {
               </h2>
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('email')}</label>
+                  <label className="text-sm text-[#062E25]">{t('email')}</label>
                   <p className="font-medium text-[#062E25]">{inquiry.email}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('phone')}</label>
+                  <label className="text-sm text-[#062E25]">{t('phone')}</label>
                   <p className="font-medium text-[#062E25]">{inquiry.phone || '-'}</p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('address')}</label>
+                  <label className="text-sm text-[#062E25]">{t('address')}</label>
                   <p className="font-medium text-[#062E25]">
                     {inquiry.street}, {inquiry.postalCode} {inquiry.location}
                   </p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('created')}</label>
+                  <label className="text-sm text-[#062E25]">{t('created')}</label>
                   <p className="font-medium text-[#062E25]">
                     {new Date(inquiry.createdAt).toLocaleDateString('de-CH', {
                       year: 'numeric',
@@ -119,7 +119,7 @@ export default function AdminMaintenanceInquiryDetailPage() {
               </h2>
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('services')}</label>
+                  <label className="text-sm text-[#062E25]">{t('services')}</label>
                   <div className="flex flex-wrap gap-2 mt-1">
                     {inquiry.maintenanceServices.length > 0
                       ? inquiry.maintenanceServices.map(s => (
@@ -131,7 +131,7 @@ export default function AdminMaintenanceInquiryDetailPage() {
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('freeStateSystem')}</label>
+                  <label className="text-sm text-[#062E25]">{t('freeStateSystem')}</label>
                   <p className="font-medium text-[#062E25]">
                     {inquiry.hasFreeStateSystem === true
                       ? t('yes')
@@ -141,13 +141,13 @@ export default function AdminMaintenanceInquiryDetailPage() {
                   </p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('systemOutput')}</label>
+                  <label className="text-sm text-[#062E25]">{t('systemOutput')}</label>
                   <p className="font-medium text-[#062E25]">
                     {inquiry.systemOutputKwp ? `${inquiry.systemOutputKwp} kWp` : '-'}
                   </p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('internetAccess')}</label>
+                  <label className="text-sm text-[#062E25]">{t('internetAccess')}</label>
                   <p className="font-medium text-[#062E25]">
                     {inquiry.hasInternetAccess === 'yes'
                       ? t('yes')
@@ -157,7 +157,7 @@ export default function AdminMaintenanceInquiryDetailPage() {
                   </p>
                 </div>
                 <div>
-                  <label className="text-sm text-[#062E25]/60">{t('products')}</label>
+                  <label className="text-sm text-[#062E25]">{t('products')}</label>
                   <div className="flex flex-wrap gap-2 mt-1">
                     {inquiry.products.length > 0
                       ? inquiry.products.map(p => (
@@ -191,7 +191,7 @@ export default function AdminMaintenanceInquiryDetailPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('status')}</label>
+                <label className="text-sm text-[#062E25] mb-1 block">{t('status')}</label>
                 <Select
                   value={inquiry.status}
                   onValueChange={v => handleUpdate({ status: v })}
@@ -210,7 +210,7 @@ export default function AdminMaintenanceInquiryDetailPage() {
                 </Select>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60 mb-1 block">{t('adminNotes')}</label>
+                <label className="text-sm text-[#062E25] mb-1 block">{t('adminNotes')}</label>
                 <Textarea
                   value={adminNotes}
                   onChange={e => setAdminNotes(e.target.value)}

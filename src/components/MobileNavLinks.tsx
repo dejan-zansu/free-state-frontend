@@ -295,7 +295,7 @@ const MobileNavLinks = ({
                         'pl-8 pr-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-1.5',
                         isPathActive(sub.href)
                           ? 'bg-[#E6EAE9] text-[#062E25] font-medium'
-                          : 'text-[#062E25]/60 hover:bg-[rgba(6,46,37,0.08)] hover:text-[#062E25]'
+                          : 'text-[#062E25]/75 hover:bg-[rgba(6,46,37,0.08)] hover:text-[#062E25]'
                       )}
                     >
                       <span

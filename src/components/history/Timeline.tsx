@@ -29,7 +29,7 @@ const Timeline = () => {
             {t('title')}
           </h2>
 
-          <p className="mt-5 text-foreground/80 text-lg lg:text-[22px] font-light max-w-[562px]">
+          <p className="mt-5 text-foreground text-lg lg:text-[22px] max-w-[562px]">
             {t('subtitle')}
           </p>
         </div>
@@ -56,7 +56,7 @@ const Timeline = () => {
               <h3 className="mt-5 text-foreground text-xl sm:text-[22px] font-bold capitalize">
                 {t(`${m.key}.title`)}
               </h3>
-              <p className="mt-3 text-foreground/80 text-base font-light">
+              <p className="mt-3 text-foreground text-base">
                 {t(`${m.key}.description`)}
               </p>
             </div>
@@ -105,7 +105,7 @@ const Timeline = () => {
                 <h3 className="text-foreground text-[22px] font-bold capitalize">
                   {t(`${m.key}.title`)}
                 </h3>
-                <p className="mt-5 text-foreground/80 text-base font-light">
+                <p className="mt-5 text-foreground text-base">
                   {t(`${m.key}.description`)}
                 </p>
               </div>

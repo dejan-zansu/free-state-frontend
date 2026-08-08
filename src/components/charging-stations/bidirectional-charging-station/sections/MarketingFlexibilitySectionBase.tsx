@@ -39,7 +39,7 @@ const MarketingFlexibilitySectionBase = async ({
             <h2 className="text-[#062E25] text-3xl sm:text-4xl md:text-[45px] font-medium text-center">
               {t('marketingFlexibility.title')}
             </h2>
-            <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center max-w-[670px] mx-auto">
+            <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] text-center max-w-[670px] mx-auto">
               {t('marketingFlexibility.description')}
             </p>
             <p className="text-[#062E25]/80 text-[22px] font-semibold tracking-[-0.02em] text-center">
@@ -64,7 +64,7 @@ const MarketingFlexibilitySectionBase = async ({
                 <h3 className="text-[#062E25] text-[22px] font-bold text-center capitalize">
                   {t('marketingFlexibility.cards.withSolar.title')}
                 </h3>
-                <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] text-center">
+                <p className="text-[#062E25]/80 text-base tracking-[-0.02em] text-center">
                   {t('marketingFlexibility.cards.withSolar.amount')}
                 </p>
               </div>
@@ -86,7 +86,7 @@ const MarketingFlexibilitySectionBase = async ({
                 <h3 className="text-[#062E25] text-[22px] font-bold text-center capitalize">
                   {t('marketingFlexibility.cards.systemComparison.title')}
                 </h3>
-                <p className="text-[#062E25]/80 text-base font-light tracking-[-0.02em] text-center">
+                <p className="text-[#062E25]/80 text-base tracking-[-0.02em] text-center">
                   {t('marketingFlexibility.cards.systemComparison.amount')}
                 </p>
               </div>

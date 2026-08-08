@@ -51,7 +51,7 @@ const AdvantageList = ({
         ) : (
           <CheckBulletIcon className="w-3.5 h-3.5 shrink-0" />
         )}
-        <span className="text-sm italic font-light text-foreground/80 tracking-tight">
+        <span className="text-sm italic text-foreground/80 tracking-tight">
           {item}
         </span>
       </div>
@@ -148,7 +148,7 @@ const SolarModels = async ({
             <Reveal
               as="p"
               delay={0.2}
-              className="text-lg md:text-[22px] font-light text-center text-foreground/80 tracking-tight"
+              className="text-lg md:text-[22px] text-center text-foreground/80 tracking-tight"
             >
               {t('subtitle')}
             </Reveal>
@@ -185,7 +185,7 @@ const SolarModels = async ({
                 <h4 className="text-[22px] font-medium text-foreground">
                   {t('solarFree.title')}
                 </h4>
-                <p className="text-sm font-light text-foreground/80 tracking-tight">
+                <p className="text-sm text-foreground/80 tracking-tight">
                   {t('solarFree.description')}
                 </p>
               </div>
@@ -275,7 +275,7 @@ const SolarModels = async ({
                 <h4 className="text-[22px] font-medium text-foreground">
                   {t('solarAbo.title')}
                 </h4>
-                <p className="text-sm font-light text-foreground/80 tracking-tight">
+                <p className="text-sm text-foreground/80 tracking-tight">
                   {t('solarAbo.description')}
                 </p>
               </div>
@@ -355,7 +355,7 @@ const SolarModels = async ({
                 <h4 className="text-[22px] font-medium text-foreground">
                   {t('solarDirect.title')}
                 </h4>
-                <p className="text-sm font-light text-foreground/80 tracking-tight">
+                <p className="text-sm text-foreground/80 tracking-tight">
                   {t('solarDirect.description')}
                 </p>
               </div>

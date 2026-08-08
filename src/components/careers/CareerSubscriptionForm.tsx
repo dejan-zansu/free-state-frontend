@@ -37,10 +37,10 @@ const buildSchema = (m: FormMessages) =>
 type CareerFormValues = z.infer<ReturnType<typeof buildSchema>>
 
 const fieldClassName =
-  'bg-white border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-base text-[#062E25] placeholder:text-[#062E25]/20 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30'
+  'bg-white border border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] px-[11px] py-2 text-base text-[#062E25] placeholder:text-[#062E25]/50 w-full outline-none focus:border-[#062E25]/30 focus:ring-1 focus:ring-[#062E25]/30'
 
 const labelClassName =
-  'text-[#062E25]/60 text-base font-medium tracking-[-0.02em]'
+  'text-[#062E25] text-base font-medium tracking-[-0.02em]'
 
 export const CareerSubscriptionForm = ({
   className,
@@ -111,7 +111,7 @@ export const CareerSubscriptionForm = ({
   if (status === 'success') {
     return (
       <div className={className}>
-        <p className="text-[#062E25]/80 text-lg md:text-[22px] font-light tracking-[-0.02em] text-center">
+        <p className="text-[#062E25]/80 text-lg md:text-[22px] tracking-[-0.02em] text-center">
           {t('success')}
         </p>
       </div>
@@ -248,7 +248,7 @@ export const CareerSubscriptionForm = ({
             </p>
           )}
 
-          <p className="text-[#062E25]/60 text-base font-normal tracking-[-0.02em]">
+          <p className="text-[#062E25]/75 text-base font-normal tracking-[-0.02em]">
             {t('form.disclaimer')}
           </p>
         </div>

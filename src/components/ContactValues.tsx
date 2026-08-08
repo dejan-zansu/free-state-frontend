@@ -75,7 +75,7 @@ const ContactValues = async () => {
             <h2 className="text-foreground text-3xl md:text-[45px] font-medium">
               {t('title')}
             </h2>
-            <p className="text-foreground/80 text-lg md:text-[22px] font-light tracking-tight">
+            <p className="text-foreground/80 text-lg md:text-[22px] tracking-tight">
               {t('subtitle')}
             </p>
           </div>
@@ -107,7 +107,7 @@ const ContactValues = async () => {
                 <h3 className="text-[22px] font-bold text-foreground capitalize">
                   {value.title}
                 </h3>
-                <p className="text-base font-light text-foreground/80 tracking-tight">
+                <p className="text-base text-foreground/80 tracking-tight">
                   {value.description}
                 </p>
                 {value.contacts.length > 0 && (
@@ -116,7 +116,7 @@ const ContactValues = async () => {
                       <a
                         key={contact.text}
                         href={contact.href}
-                        className="flex items-center gap-2.5 text-foreground/80 text-base font-light tracking-tight hover:text-foreground transition-colors w-fit"
+                        className="flex items-center gap-2.5 text-foreground/80 text-base tracking-tight hover:text-foreground transition-colors w-fit"
                       >
                         {contact.icon === 'phone' && (
                           <Phone className="w-4 h-3.5 shrink-0 text-[#295823]" />
@@ -145,7 +145,7 @@ const ContactValues = async () => {
                   {serviceItems.map(label => (
                     <div
                       key={label}
-                      className="flex items-center gap-2.5 text-foreground/80 text-base font-light tracking-tight"
+                      className="flex items-center gap-2.5 text-foreground/80 text-base tracking-tight"
                     >
                       <GreenWorldIcon
                         className="shrink-0 w-3.5 h-3.5"

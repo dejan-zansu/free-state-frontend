@@ -114,7 +114,7 @@ export default function AdminProjectDetailPage() {
   }
 
   if (!project) {
-    return <p className="text-[#062E25]/60">{tc('notFound')}</p>
+    return <p className="text-[#062E25]">{tc('notFound')}</p>
   }
 
   const calc = project.solarCalculation
@@ -206,7 +206,7 @@ export default function AdminProjectDetailPage() {
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('name')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -214,7 +214,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('email')}
                 </label>
                 <p className="font-medium text-[#062E25] break-all">
@@ -224,7 +224,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('phone')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -238,7 +238,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('preferredLanguage')}
                 </label>
                 <p className="font-medium text-[#062E25] uppercase">
@@ -246,7 +246,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('dateOfBirth')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -256,7 +256,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('nationality')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -264,7 +264,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div className="col-span-2">
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('billingAddress')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -301,7 +301,7 @@ export default function AdminProjectDetailPage() {
               <div className="mt-4 pt-4 border-t border-[#062E25]/10 space-y-3">
                 {project.customer.notes && (
                   <div>
-                    <label className="text-sm text-[#062E25]/60">
+                    <label className="text-sm text-[#062E25]">
                       {tLeads('customerRemarks')}
                     </label>
                     <p className="font-medium text-[#062E25] whitespace-pre-wrap">
@@ -311,7 +311,7 @@ export default function AdminProjectDetailPage() {
                 )}
                 {project.customer.addressAdditional && (
                   <div>
-                    <label className="text-sm text-[#062E25]/60">
+                    <label className="text-sm text-[#062E25]">
                       {tLeads('addressAdditional')}
                     </label>
                     <p className="font-medium text-[#062E25] whitespace-pre-wrap">
@@ -331,7 +331,7 @@ export default function AdminProjectDetailPage() {
             </h2>
             <div className="grid grid-cols-2 gap-4">
               <div className="col-span-2">
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('propertyAddress')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -339,7 +339,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('interestedPackage')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -347,7 +347,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {tLeads('projectStatus')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -357,7 +357,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('createdAt')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -365,7 +365,7 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('lastActivity')}
                 </label>
                 <p className="font-medium text-[#062E25]">
@@ -373,13 +373,13 @@ export default function AdminProjectDetailPage() {
                 </p>
               </div>
               <div className="col-span-2 pt-4 border-t border-[#062E25]/10">
-                <label className="text-sm text-[#062E25]/60">
+                <label className="text-sm text-[#062E25]">
                   {t('offerStatus')}
                 </label>
                 {project.lead ? (
                   <div className="mt-1 flex flex-wrap items-center gap-3">
                     <StatusBadge status={project.lead.status} />
-                    <span className="text-base text-[#062E25]/60">
+                    <span className="text-base text-[#062E25]">
                       {project.lead.offerSentAt
                         ? t('offerSentOn', {
                             date: fmtDateTime(project.lead.offerSentAt),
