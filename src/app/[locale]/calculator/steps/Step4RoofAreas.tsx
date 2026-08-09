@@ -94,7 +94,7 @@ export default function Step4RoofAreas() {
   const [isLoadingMap, setIsLoadingMap] = useState(true)
   const [focusedLat, setFocusedLat] = useState<number | null>(null)
   const [focusedLng, setFocusedLng] = useState<number | null>(null)
-  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(true)
+  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(false)
   const [addressError, setAddressError] = useState<string | null>(null)
   const [buildingMissReason, setBuildingMissReason] = useState<
     'no_building' | 'no_segments' | 'error' | null
