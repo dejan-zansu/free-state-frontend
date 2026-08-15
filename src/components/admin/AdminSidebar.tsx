@@ -18,6 +18,7 @@ import {
   FlaskConical,
   HandCoins,
   Images,
+  Inbox,
   LayoutDashboard,
   LineChart,
   Mail,
@@ -28,6 +29,7 @@ import {
   Package,
   PanelTop,
   Plug,
+  Radar,
   Settings,
   Sparkles,
   Ticket,
@@ -81,6 +83,9 @@ function useNavGroups() {
       label: t('groupCommercial'),
       items: [
         { label: t('commercialLeads'),      href: `${prefix}/commercial-leads`, icon: Briefcase },
+        { label: t('outreach'),             href: `${prefix}/outreach`,         icon: Radar },
+        { label: t('outreachQueues'),       href: `${prefix}/outreach/queue`,   icon: Inbox },
+        { label: t('outreachStats'),        href: `${prefix}/outreach/stats`,   icon: LineChart },
       ],
     },
     {

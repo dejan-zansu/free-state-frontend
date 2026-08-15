@@ -6,13 +6,14 @@ import type { CommercialLeadDetail } from '@/types/commercial-lead'
 
 export default function SnapshotTab({ lead }: { lead: CommercialLeadDetail }) {
   const t = useTranslations('admin.commercialLeads.detail')
-  const fmt = (v: string | number) => Number(v).toLocaleString('de-CH', { maximumFractionDigits: 1 })
+  const fmt = (v: string | number | null) =>
+    v == null ? '-' : Number(v).toLocaleString('de-CH', { maximumFractionDigits: 1 })
   return (
     <Card><CardContent className="p-6">
       <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide mb-4">{t('snapshot')}</h3>
       <dl className="grid grid-cols-2 gap-y-3 gap-x-6">
         <dt className="text-sm text-[#062E25]">{t('systemKwp')}</dt><dd className="font-medium">{fmt(lead.estimatedSystemKwp)} kWp</dd>
-        <dt className="text-sm text-[#062E25]">{t('panels')}</dt><dd className="font-medium">{lead.estimatedPanelCount}</dd>
+        <dt className="text-sm text-[#062E25]">{t('panels')}</dt><dd className="font-medium">{lead.estimatedPanelCount ?? '-'}</dd>
         <dt className="text-sm text-[#062E25]">{t('annualProduction')}</dt><dd className="font-medium">{fmt(lead.estimatedAnnualProductionKwh)} kWh</dd>
         <dt className="text-sm text-[#062E25]">{t('roofArea')}</dt><dd className="font-medium">{fmt(lead.roofAreaM2)} m²</dd>
         <dt className="text-sm text-[#062E25]">{t('investment')}</dt><dd className="font-medium">CHF {fmt(lead.estimatedInvestmentChf)}</dd>

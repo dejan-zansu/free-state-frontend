@@ -50,6 +50,19 @@ const STATUS_COLORS: Record<string, string> = {
   IN_PROGRESS: 'bg-blue-100 text-blue-700',
   RESOLVED: 'bg-green-100 text-green-700',
   CLOSED: 'bg-gray-100 text-gray-700',
+
+  DISCOVERED: 'bg-blue-100 text-blue-700',
+  SCREENED_OUT: 'bg-gray-100 text-gray-500',
+  ROOF_QUALIFIED: 'bg-teal-100 text-teal-700',
+  CONTACT_FOUND: 'bg-indigo-100 text-indigo-700',
+  DRAFTED: 'bg-amber-100 text-amber-700',
+  FOLLOW_UP_DUE: 'bg-orange-100 text-orange-700',
+  REPLIED: 'bg-purple-100 text-purple-700',
+  SNOOZED: 'bg-gray-100 text-gray-700',
+  CONVERTED: 'bg-green-100 text-green-700',
+  NOT_INTERESTED: 'bg-red-100 text-red-700',
+  OPTED_OUT: 'bg-red-100 text-red-700',
+  BOUNCED: 'bg-rose-100 text-rose-700',
 }
 
 interface StatusBadgeProps {

@@ -26,7 +26,7 @@ export default function AdminLayout({
     <ProtectedRoute allowedRoles={['ADMIN']}>
       <div className="flex min-h-screen bg-gray-50/50">
         <AdminSidebar />
-        <div className="flex-1 flex flex-col">
+        <div className="flex-1 min-w-0 flex flex-col">
           <header className="h-14 border-b border-[#062E25]/10 bg-white flex items-center justify-between px-4 lg:px-6">
             <div>
               <AdminSidebarMobileTrigger />
@@ -40,7 +40,7 @@ export default function AdminLayout({
               </Button>
             </div>
           </header>
-          <div className="flex-1 p-6">{children}</div>
+          <div className="flex-1 min-w-0 p-6">{children}</div>
         </div>
       </div>
     </ProtectedRoute>

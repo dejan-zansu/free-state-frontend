@@ -39,7 +39,9 @@ export type CommercialExistingPv = 'NONE' | 'EXISTING_EXPANSION' | 'EXISTING_REP
 
 export type CommercialPreferredChannel = 'EMAIL' | 'PHONE' | 'WHATSAPP'
 
-export type CommercialPropertyRelation = 'OWNER' | 'TENANT_WITH_CONSENT' | 'TENANT_WITHOUT_CONSENT'
+export type CommercialPropertyRelation = 'OWNER' | 'TENANT_WITH_CONSENT' | 'TENANT_WITHOUT_CONSENT' | 'UNKNOWN'
+
+export type CommercialLeadOrigin = 'INBOUND' | 'OUTBOUND'
 
 export type CommercialAttachmentType =
   | 'ELECTRICITY_BILL' | 'PROPERTY_REGISTER' | 'BUILDING_PLANS' | 'SUPPLIER_CONTRACT' | 'OTHER'
@@ -56,14 +58,15 @@ export interface CommercialLeadSummary {
   reference: string
   status: CommercialLeadStatus
   companyName: string
-  legalForm: CommercialLegalForm
-  industry: CommercialIndustry
+  legalForm: CommercialLegalForm | null
+  industry: CommercialIndustry | null
   addressCanton: string
-  contactFirstName: string
-  contactLastName: string
-  contactRole: CommercialContactRole
-  estimatedSystemKwp: string
-  timeline: CommercialTimeline
+  contactFirstName: string | null
+  contactLastName: string | null
+  contactRole: CommercialContactRole | null
+  estimatedSystemKwp: string | null
+  timeline: CommercialTimeline | null
+  origin?: CommercialLeadOrigin
   assignedTo: { id: string; firstName: string; lastName: string } | null
   createdAt: string
   nextFollowUpAt: string | null
@@ -104,7 +107,7 @@ export interface CommercialLeadDetail extends CommercialLeadSummary {
   website: string | null
   numberOfSites: number
   contactEmail: string
-  contactPhone: string
+  contactPhone: string | null
   isDecisionMaker: boolean
   preferredChannel: CommercialPreferredChannel
   preferredTime: string | null
@@ -115,7 +118,7 @@ export interface CommercialLeadDetail extends CommercialLeadSummary {
   addressCountry: string
   addressLat: number | null
   addressLng: number | null
-  propertyRelation: CommercialPropertyRelation
+  propertyRelation: CommercialPropertyRelation | null
   ownerName: string | null
   ownerEmail: string | null
   ownerPhone: string | null
@@ -128,21 +131,21 @@ export interface CommercialLeadDetail extends CommercialLeadSummary {
   contractEndDate: string | null
   annualElectricityCostChf: string | null
   annualConsumptionKwh: number | null
-  roofAreaM2: string
+  roofAreaM2: string | null
   usableRoofAreaM2: string | null
-  estimatedPanelCount: number
-  estimatedAnnualProductionKwh: number
-  estimatedInvestmentChf: string
-  estimatedSubsidyChf: string
-  estimatedNetInvestmentChf: string
-  estimatedAnnualSavingsChf: string
-  estimatedPaybackYears: string
-  estimatedCo2ReductionKg: number
+  estimatedPanelCount: number | null
+  estimatedAnnualProductionKwh: number | null
+  estimatedInvestmentChf: string | null
+  estimatedSubsidyChf: string | null
+  estimatedNetInvestmentChf: string | null
+  estimatedAnnualSavingsChf: string | null
+  estimatedPaybackYears: string | null
+  estimatedCo2ReductionKg: number | null
   calculatorSnapshot: unknown
   reportPdfStoragePath: string | null
-  privacyConsent: boolean
+  privacyConsent: boolean | null
   marketingConsent: boolean
-  consentDate: string
+  consentDate: string | null
   utmSource: string | null
   utmMedium: string | null
   utmCampaign: string | null

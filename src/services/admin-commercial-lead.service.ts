@@ -4,7 +4,7 @@ import type {
   CommercialLeadNote, CommercialLeadAttachment, CommercialLeadActivity,
   CommercialAttachmentType, CommercialIndustry, CommercialTimeline,
   CommercialFinancingPreference, CommercialLegalForm, CommercialEmployeeBracket,
-  CommercialBudgetBracket, CommercialExistingPv,
+  CommercialBudgetBracket, CommercialExistingPv, CommercialLeadOrigin,
 } from '@/types/commercial-lead'
 
 export interface ListQuery {
@@ -16,6 +16,7 @@ export interface ListQuery {
   canton?: string[]
   timeline?: CommercialTimeline[]
   financing?: CommercialFinancingPreference[]
+  origin?: CommercialLeadOrigin
   assignedToId?: string
   unassigned?: boolean
   overdueFollowUp?: boolean
