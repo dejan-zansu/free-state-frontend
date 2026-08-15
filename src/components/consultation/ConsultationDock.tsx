@@ -23,6 +23,7 @@ export default function ConsultationDock() {
   const user = useUser()
   const inCalculatorFlow = pathname?.endsWith('/calculator') ?? false
   const onProjectWorkspace = pathname?.includes('/dashboard/project/') ?? false
+  const onRoofOnePager = pathname?.includes('/dach/') ?? false
   const [embedInView, setEmbedInView] = useState(false)
 
   useEffect(() => {
@@ -74,7 +75,7 @@ export default function ConsultationDock() {
     }
   }, [open])
 
-  if (hidden || onProjectWorkspace || !advisor) return null
+  if (hidden || onProjectWorkspace || onRoofOnePager || !advisor) return null
 
   const name = tTeam(`${advisor.key}.name`)
   const role = tTeam(`${advisor.key}.role`)

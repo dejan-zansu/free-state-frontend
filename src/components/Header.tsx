@@ -51,9 +51,10 @@ const Header = () => {
     '/solar-abo',
   ]
 
-  const shouldUseDarkHeader = pagesWithDarkHeader.some(path =>
-    pathname?.startsWith(path)
-  )
+  const isBlogPost = /^\/blog\/[^/]+/.test(pathname ?? '')
+
+  const shouldUseDarkHeader =
+    !isBlogPost && pagesWithDarkHeader.some(path => pathname?.startsWith(path))
 
   useEffect(() => {
     const handleScroll = () => {

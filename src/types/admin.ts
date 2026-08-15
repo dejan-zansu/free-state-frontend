@@ -524,3 +524,113 @@ export interface ListQuery {
   sortOrder?: 'asc' | 'desc'
   [key: string]: string | number | undefined
 }
+
+export type InternalTaskStatus = 'OPEN' | 'IN_PROGRESS' | 'BLOCKED' | 'DONE' | 'CANCELLED'
+
+export type InternalTaskPriority = 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT'
+
+export type InternalTaskActivityType =
+  | 'CREATED'
+  | 'STATUS_CHANGED'
+  | 'PRIORITY_CHANGED'
+  | 'ASSIGNED'
+  | 'DUE_DATE_CHANGED'
+  | 'DETAILS_CHANGED'
+  | 'COMMENT_ADDED'
+  | 'COMMENT_DELETED'
+  | 'ATTACHMENT_UPLOADED'
+  | 'ATTACHMENT_DELETED'
+
+export interface UserLite {
+  id: string
+  firstName: string
+  lastName: string
+  email?: string
+}
+
+export interface InternalTaskListItem {
+  id: string
+  reference: string
+  title: string
+  status: InternalTaskStatus
+  priority: InternalTaskPriority
+  dueDate: string | null
+  assignedTo: UserLite | null
+  createdBy: UserLite | null
+  _count: {
+    comments: number
+    attachments: number
+  }
+  createdAt: string
+  updatedAt: string
+}
+
+export interface InternalTaskComment {
+  id: string
+  body: string
+  author: UserLite | null
+  createdAt: string
+  updatedAt: string
+}
+
+export interface InternalTaskAttachment {
+  id: string
+  fileName: string
+  mimeType: string
+  sizeBytes: number
+  uploadedBy: UserLite | null
+  uploadedAt: string
+}
+
+export interface InternalTaskActivity {
+  id: string
+  type: InternalTaskActivityType
+  actor: UserLite | null
+  payload: Record<string, unknown> | null
+  createdAt: string
+}
+
+export interface InternalTaskDetail extends Omit<InternalTaskListItem, '_count'> {
+  description: string | null
+  completedAt: string | null
+  comments: InternalTaskComment[]
+  attachments: InternalTaskAttachment[]
+  activities: InternalTaskActivity[]
+}
+
+export interface InternalTaskSummary {
+  myOpen: number
+  myOverdue: number
+}
+
+export interface InternalTaskCreateInput {
+  title: string
+  description?: string | null
+  priority?: InternalTaskPriority
+  dueDate?: string | null
+  assignedToId?: string | null
+}
+
+export interface InternalTaskUpdateInput {
+  title?: string
+  description?: string | null
+  status?: InternalTaskStatus
+  priority?: InternalTaskPriority
+  dueDate?: string | null
+  assignedToId?: string | null
+}
+
+export interface InternalTaskListQuery {
+  page?: number
+  limit?: number
+  search?: string
+  sortBy?: 'createdAt' | 'updatedAt' | 'dueDate' | 'priority' | 'status' | 'title'
+  sortOrder?: 'asc' | 'desc'
+  status?: InternalTaskStatus[]
+  priority?: InternalTaskPriority
+  assignedToId?: string
+  createdById?: string
+  dueBefore?: string
+  dueAfter?: string
+  overdue?: boolean
+}

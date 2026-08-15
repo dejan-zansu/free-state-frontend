@@ -512,6 +512,24 @@
     "nodeTodayBody": "We build in 19 German-speaking Swiss cantons, with SolarFree, SolarDirect and SolarAbo models."
   },
   "home": {
+    "referenceRoofs": {
+      "title": "Reference roofs",
+      "subtitle": "Three completed Free State AG projects.",
+      "entries": [
+        {
+          "name": "Diggelmann Bau AG",
+          "description": "Solar installation on the construction company's building."
+        },
+        {
+          "name": "Stiftung Wetterbaum",
+          "description": "Solar installation on the foundation's roof."
+        },
+        {
+          "name": "Bowling Five",
+          "description": "Solar installation on the roof of the bowling centre in Thayngen SH."
+        }
+      ]
+    },
     "promo": {
       "carouselLabel": "Current offers",
       "prevSlide": "Previous slide",
@@ -6385,6 +6403,109 @@
     }
   },
   "admin": {
+    "tasks": {
+      "title": "Tasks",
+      "newTask": "New task",
+      "tabs": {
+        "mine": "My tasks",
+        "open": "All open",
+        "createdByMe": "Created by me",
+        "done": "Done",
+        "all": "All"
+      },
+      "searchPlaceholder": "Search...",
+      "allPriorities": "All priorities",
+      "allAssignees": "All people",
+      "allStatuses": "All statuses",
+      "unassigned": "Unassigned",
+      "overdue": "Overdue",
+      "items": "{count} tasks",
+      "noTasks": "No tasks found.",
+      "columns": {
+        "reference": "Ref.",
+        "title": "Title",
+        "assignee": "Assigned to",
+        "priority": "Priority",
+        "status": "Status",
+        "dueDate": "Due",
+        "updated": "Updated"
+      },
+      "statusLabels": {
+        "OPEN": "Open",
+        "IN_PROGRESS": "In progress",
+        "BLOCKED": "Blocked",
+        "DONE": "Done",
+        "CANCELLED": "Cancelled"
+      },
+      "priorityLabels": {
+        "LOW": "Low",
+        "MEDIUM": "Medium",
+        "HIGH": "High",
+        "URGENT": "Urgent"
+      },
+      "dialog": {
+        "title": "New task",
+        "titleLabel": "Title",
+        "titlePlaceholder": "What needs to be done?",
+        "descriptionLabel": "Description (optional)",
+        "assigneeLabel": "Assigned to",
+        "priorityLabel": "Priority",
+        "dueDateLabel": "Due date (optional)",
+        "cancel": "Cancel",
+        "create": "Create",
+        "creating": "Creating...",
+        "errorTitleRequired": "Title is required.",
+        "errorCreateFailed": "The task could not be created."
+      },
+      "detail": {
+        "back": "Back",
+        "editTitle": "Edit title",
+        "save": "Save",
+        "saved": "Saved.",
+        "cancel": "Cancel",
+        "edit": "Edit",
+        "delete": "Delete",
+        "confirmDeleteTask": "Delete this task permanently?",
+        "status": "Status",
+        "priority": "Priority",
+        "assignee": "Assigned to",
+        "dueDate": "Due date",
+        "clearDueDate": "Clear date",
+        "createdByLine": "Created by {name} on {date}",
+        "unknownUser": "Unknown",
+        "description": "Description",
+        "descriptionPlaceholder": "Add a description...",
+        "comments": "Comments",
+        "commentPlaceholder": "Write a comment...",
+        "addComment": "Add comment",
+        "noComments": "No comments yet.",
+        "confirmDeleteComment": "Delete this comment?",
+        "attachments": "Attachments",
+        "upload": "Upload file",
+        "uploading": "Uploading...",
+        "download": "Download",
+        "noAttachments": "No attachments.",
+        "confirmDeleteAttachment": "Delete this attachment?",
+        "activity": "Activity",
+        "showActivity": "Show activity",
+        "hideActivity": "Hide activity",
+        "noActivity": "No activity yet.",
+        "error": "The action failed. Please try again.",
+        "uploadError": "Upload failed."
+      },
+      "activityLabels": {
+        "CREATED": "Task created",
+        "STATUS_CHANGED": "Status changed",
+        "PRIORITY_CHANGED": "Priority changed",
+        "ASSIGNED": "Assignment changed",
+        "DUE_DATE_CHANGED": "Due date changed",
+        "DETAILS_CHANGED": "Details changed",
+        "COMMENT_ADDED": "Comment added",
+        "COMMENT_DELETED": "Comment deleted",
+        "ATTACHMENT_UPLOADED": "Attachment uploaded",
+        "ATTACHMENT_DELETED": "Attachment deleted"
+      }
+    },
     "sidebar": {
       "title": "Admin Panel",
       "dashboard": "Dashboard",
@@ -6437,7 +6558,8 @@
       "marketingSettings": "Settings",
       "outreach": "Outreach",
       "outreachQueues": "Outreach Queues",
-      "outreachStats": "Outreach stats"
+      "outreachStats": "Outreach stats",
+      "tasks": "Tasks"
     },
     "outreach": {
       "title": "Outreach",
@@ -6477,7 +6599,12 @@
         "tabReplies": "Replies",
         "emptyDrafts": "No drafts to review.",
         "emptyFollowUps": "No follow-ups due.",
-        "emptyReplies": "No unhandled replies."
+        "emptyReplies": "No unhandled replies.",
+        "tabCalls": "Calls",
+        "emptyCalls": "No calls due.",
+        "phone": "Phone",
+        "logCall": "Log call",
+        "callNotePrompt": "Call note (optional)"
       },
       "replyClassifications": {
         "INTERESTED": "Interested",
@@ -6629,7 +6756,21 @@
         "segClass": "Suitability",
         "websiteTextShow": "Show website text ({chars} characters)",
         "showBody": "Show text",
-        "activityShowAll": "Show all {count}"
+        "activityShowAll": "Show all {count}",
+        "replyButton": "Reply",
+        "replyTitle": "Compose reply",
+        "replyHint": "Creates a draft in the existing thread. Sending happens separately with a click in the draft.",
+        "replyCreate": "Create draft",
+        "replyFailed": "Draft could not be created.",
+        "logMeeting": "Meeting booked",
+        "logCall": "Log call",
+        "logCallTitle": "Log call",
+        "logCallDescription": "Records a call for this prospect.",
+        "logCallNote": "Note (optional)",
+        "logCallConfirm": "Log",
+        "letterLink": "Letter",
+        "logLetter": "Letter sent",
+        "logFailed": "Activity could not be logged."
       },
       "new": {
         "back": "Back to list",
@@ -6680,7 +6821,18 @@
         "colStage": "Stage",
         "colCount": "Count",
         "colClassification": "Classification",
-        "lastRuns": "Last runs"
+        "lastRuns": "Last runs",
+        "cardMeetingsBooked": "Meetings booked",
+        "notInterestedTitle": "Rejection reasons",
+        "noNotInterestedReasons": "No rejection reasons recorded yet.",
+        "notInterestedReasons": {
+          "PREIS": "Price",
+          "EIGENE_PLAENE": "Own plans",
+          "MIETER_OHNE_DACHRECHT": "Tenant without roof rights",
+          "KEIN_BEDARF": "No need",
+          "TIMING": "Timing",
+          "SONSTIGES": "Other"
+        }
       },
       "promote": {
         "cardTitle": "Commercial lead",
@@ -6708,7 +6860,15 @@
         "openExisting": "Open lead {reference}",
         "notPromotable": "This prospect cannot be converted in its current status.",
         "failed": "Conversion failed.",
-        "close": "Close"
+        "close": "Close",
+        "assignee": "Assignee",
+        "assigneePlaceholder": "Select a person",
+        "nextFollowUpAt": "Next follow-up",
+        "attachHint": "Instead of creating a new lead, the prospect can be linked to the existing lead.",
+        "attachExisting": "Link to existing lead",
+        "attaching": "Linking…",
+        "attachSuccess": "Prospect linked to the existing lead.",
+        "attachFailed": "Linking failed."
       },
       "statsButton": "Stats",
       "newProspect": "Add prospect",
@@ -8072,7 +8232,8 @@
         "payback": "Amortisation",
         "years": "Jahre",
         "co2": "CO₂-Reduktion",
-        "propertyRelationUnknown": "Property relation unknown"
+        "propertyRelationUnknown": "Property relation unknown",
+        "tab_outbound": "Outbound history"
       },
       "dashboard": {
         "title": "Gewerbe-Pipeline (90 Tage)",
@@ -8082,7 +8243,15 @@
       },
       "allOrigins": "All origins",
       "originInbound": "Inbound",
-      "originOutbound": "Outbound"
+      "originOutbound": "Outbound",
+      "outbound": {
+        "openProspect": "Open prospect",
+        "noEmails": "No emails yet.",
+        "inbound": "Inbound",
+        "outbound": "Sent (touch {step})",
+        "showBody": "Show text",
+        "showLess": "Show less"
+      }
     }
   },
   "register": {

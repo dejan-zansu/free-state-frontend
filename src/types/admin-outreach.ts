@@ -46,8 +46,14 @@ export interface OutboundProspectListItem {
   createdAt: string
   contactName: string | null
   contactEmail: string | null
+  contactPhone: string | null
   contactIsRoleAddress: boolean
+  fitScore: number | null
   emailSummary: OutboundEmailSummary
+}
+
+export interface OutboundCallQueue {
+  items: OutboundProspectListItem[]
 }
 
 export interface OutboundEmailSummary {
@@ -143,6 +149,7 @@ export interface OutboundProspectDetail {
   websiteText: string | null
   extractedEmails: string[] | null
   openerSuggestion: string | null
+  publicToken: string | null
   assignedToId: string | null
   commercialLeadId: string | null
   regionRunId: string | null
@@ -188,7 +195,7 @@ export interface OutboundRunRow extends OutboundLastRun {
 
 export interface OutreachSendsPerDayPoint {
   day: string
-  count: number
+  sent: number
 }
 
 export interface OutreachTemplatePerformance {
@@ -210,6 +217,8 @@ export interface OutreachStats {
   contactFindRate?: number
   draftsUneditedPct?: number
   medianDraftToSendHours?: number | null
+  meetingsBooked?: number
+  notInterestedReasons?: Record<string, number>
 }
 
 export type OutboundConnectorName = 'outbound-pv-import' | 'outbound-discovery'
@@ -267,6 +276,8 @@ export type OutboundSendErrorCode =
   | 'DAILY_CAP_REACHED' | 'PV_DETECTED' | 'COMPOSED_INVALID' | 'SMTP_SEND_FAILED'
 
 export interface OutboundPromoteInput {
+  assignedToId: string
+  nextFollowUpAt?: string
   contactFirstName?: string
   contactLastName?: string
   contactPhone?: string
@@ -274,6 +285,33 @@ export interface OutboundPromoteInput {
   industry?: string
   timeline?: string
   note?: string
+}
+
+export interface OutboundAssignee {
+  id: string
+  name: string
+  role: string
+}
+
+export interface OutboundManualReplyInput {
+  bodyText: string
+  subject?: string
+}
+
+export type OutboundManualActivityType = 'MEETING_BOOKED' | 'CALL_LOGGED' | 'LETTER_SENT' | 'NOTE'
+
+export interface OutboundManualActivityInput {
+  type: OutboundManualActivityType
+  note?: string
+}
+
+export interface OutboundLeadThread {
+  id: string
+  reference: string
+  status: OutboundProspectStatus
+  companyName: string
+  contactEmail: string | null
+  emails: OutboundEmail[]
 }
 
 export interface OutboundPromoteResult {

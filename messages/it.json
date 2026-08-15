@@ -512,6 +512,24 @@
     "nodeTodayBody": "Costruiamo in 19 cantoni della Svizzera tedesca, con i modelli SolarFree, SolarDirect e SolarAbo."
   },
   "home": {
+    "referenceRoofs": {
+      "title": "Tetti di riferimento",
+      "subtitle": "Tre progetti realizzati da Free State AG.",
+      "entries": [
+        {
+          "name": "Diggelmann Bau AG",
+          "description": "Impianto solare sull'edificio dell'impresa di costruzioni."
+        },
+        {
+          "name": "Stiftung Wetterbaum",
+          "description": "Impianto solare sul tetto della fondazione."
+        },
+        {
+          "name": "Bowling Five",
+          "description": "Impianto solare sul tetto del bowling a Thayngen SH."
+        }
+      ]
+    },
     "promo": {
       "carouselLabel": "Offerte attuali",
       "prevSlide": "Slide precedente",
@@ -6385,6 +6403,109 @@
     }
   },
   "admin": {
+    "tasks": {
+      "title": "Attività",
+      "newTask": "Nuova attività",
+      "tabs": {
+        "mine": "Le mie attività",
+        "open": "Tutte aperte",
+        "createdByMe": "Create da me",
+        "done": "Completate",
+        "all": "Tutte"
+      },
+      "searchPlaceholder": "Cerca...",
+      "allPriorities": "Tutte le priorità",
+      "allAssignees": "Tutte le persone",
+      "allStatuses": "Tutti gli stati",
+      "unassigned": "Non assegnata",
+      "overdue": "In ritardo",
+      "items": "{count} attività",
+      "noTasks": "Nessuna attività trovata.",
+      "columns": {
+        "reference": "Rif.",
+        "title": "Titolo",
+        "assignee": "Assegnata a",
+        "priority": "Priorità",
+        "status": "Stato",
+        "dueDate": "Scadenza",
+        "updated": "Aggiornata"
+      },
+      "statusLabels": {
+        "OPEN": "Aperta",
+        "IN_PROGRESS": "In corso",
+        "BLOCKED": "Bloccata",
+        "DONE": "Completata",
+        "CANCELLED": "Annullata"
+      },
+      "priorityLabels": {
+        "LOW": "Bassa",
+        "MEDIUM": "Media",
+        "HIGH": "Alta",
+        "URGENT": "Urgente"
+      },
+      "dialog": {
+        "title": "Nuova attività",
+        "titleLabel": "Titolo",
+        "titlePlaceholder": "Cosa c'è da fare?",
+        "descriptionLabel": "Descrizione (facoltativa)",
+        "assigneeLabel": "Assegnata a",
+        "priorityLabel": "Priorità",
+        "dueDateLabel": "Data di scadenza (facoltativa)",
+        "cancel": "Annulla",
+        "create": "Crea",
+        "creating": "Creazione in corso...",
+        "errorTitleRequired": "Il titolo è obbligatorio.",
+        "errorCreateFailed": "Non è stato possibile creare l'attività."
+      },
+      "detail": {
+        "back": "Indietro",
+        "editTitle": "Modifica titolo",
+        "save": "Salva",
+        "saved": "Salvato.",
+        "cancel": "Annulla",
+        "edit": "Modifica",
+        "delete": "Elimina",
+        "confirmDeleteTask": "Eliminare definitivamente questa attività?",
+        "status": "Stato",
+        "priority": "Priorità",
+        "assignee": "Assegnata a",
+        "dueDate": "Data di scadenza",
+        "clearDueDate": "Rimuovi data",
+        "createdByLine": "Creata da {name} il {date}",
+        "unknownUser": "Sconosciuto",
+        "description": "Descrizione",
+        "descriptionPlaceholder": "Aggiungi una descrizione...",
+        "comments": "Commenti",
+        "commentPlaceholder": "Scrivi un commento...",
+        "addComment": "Aggiungi commento",
+        "noComments": "Ancora nessun commento.",
+        "confirmDeleteComment": "Eliminare questo commento?",
+        "attachments": "Allegati",
+        "upload": "Carica file",
+        "uploading": "Caricamento in corso...",
+        "download": "Scarica",
+        "noAttachments": "Nessun allegato.",
+        "confirmDeleteAttachment": "Eliminare questo allegato?",
+        "activity": "Cronologia",
+        "showActivity": "Mostra cronologia",
+        "hideActivity": "Nascondi cronologia",
+        "noActivity": "Ancora nessuna cronologia.",
+        "error": "Azione non riuscita. Riprova.",
+        "uploadError": "Caricamento non riuscito."
+      },
+      "activityLabels": {
+        "CREATED": "Attività creata",
+        "STATUS_CHANGED": "Stato modificato",
+        "PRIORITY_CHANGED": "Priorità modificata",
+        "ASSIGNED": "Assegnazione modificata",
+        "DUE_DATE_CHANGED": "Data di scadenza modificata",
+        "DETAILS_CHANGED": "Dettagli modificati",
+        "COMMENT_ADDED": "Commento aggiunto",
+        "COMMENT_DELETED": "Commento eliminato",
+        "ATTACHMENT_UPLOADED": "Allegato caricato",
+        "ATTACHMENT_DELETED": "Allegato eliminato"
+      }
+    },
     "sidebar": {
       "title": "Pannello amministratore",
       "dashboard": "Dashboard",
@@ -6437,7 +6558,8 @@
       "marketingSettings": "Impostazioni",
       "outreach": "Prospezione",
       "outreachQueues": "Code di prospezione",
-      "outreachStats": "Statistiche di prospezione"
+      "outreachStats": "Statistiche di prospezione",
+      "tasks": "Attività"
     },
     "outreach": {
       "title": "Prospezione",
@@ -6477,7 +6599,12 @@
         "tabReplies": "Risposte",
         "emptyDrafts": "Nessuna bozza da rivedere.",
         "emptyFollowUps": "Nessun follow-up da inviare.",
-        "emptyReplies": "Nessuna risposta da gestire."
+        "emptyReplies": "Nessuna risposta da gestire.",
+        "tabCalls": "Chiamate",
+        "emptyCalls": "Nessuna chiamata in sospeso.",
+        "phone": "Telefono",
+        "logCall": "Registra chiamata",
+        "callNotePrompt": "Nota sulla chiamata (facoltativa)"
       },
       "replyClassifications": {
         "INTERESTED": "Interessato",
@@ -6629,7 +6756,21 @@
         "segClass": "Idoneità",
         "websiteTextShow": "Mostra il testo del sito ({chars} caratteri)",
         "showBody": "Mostra il testo",
-        "activityShowAll": "Mostra tutti i {count}"
+        "activityShowAll": "Mostra tutti i {count}",
+        "replyButton": "Rispondi",
+        "replyTitle": "Scrivi risposta",
+        "replyHint": "Crea una bozza nel thread esistente. L'invio avviene separatamente con un clic nella bozza.",
+        "replyCreate": "Crea bozza",
+        "replyFailed": "Impossibile creare la bozza.",
+        "logMeeting": "Appuntamento fissato",
+        "logCall": "Registra chiamata",
+        "logCallTitle": "Registra chiamata",
+        "logCallDescription": "Registra una chiamata per questo prospect.",
+        "logCallNote": "Nota (facoltativa)",
+        "logCallConfirm": "Registra",
+        "letterLink": "Lettera",
+        "logLetter": "Lettera inviata",
+        "logFailed": "Impossibile registrare l'attività."
       },
       "new": {
         "back": "Torna alla lista",
@@ -6680,7 +6821,18 @@
         "colStage": "Fase",
         "colCount": "Numero",
         "colClassification": "Classificazione",
-        "lastRuns": "Ultime esecuzioni"
+        "lastRuns": "Ultime esecuzioni",
+        "cardMeetingsBooked": "Appuntamenti fissati",
+        "notInterestedTitle": "Motivi di rifiuto",
+        "noNotInterestedReasons": "Nessun motivo di rifiuto registrato finora.",
+        "notInterestedReasons": {
+          "PREIS": "Prezzo",
+          "EIGENE_PLAENE": "Piani propri",
+          "MIETER_OHNE_DACHRECHT": "Inquilino senza diritti sul tetto",
+          "KEIN_BEDARF": "Nessuna necessità",
+          "TIMING": "Tempistica",
+          "SONSTIGES": "Altro"
+        }
       },
       "promote": {
         "cardTitle": "Lead commerciale",
@@ -6708,7 +6860,15 @@
         "openExisting": "Apri il lead {reference}",
         "notPromotable": "Questo prospect non può essere convertito nello stato attuale.",
         "failed": "Conversione non riuscita.",
-        "close": "Chiudi"
+        "close": "Chiudi",
+        "assignee": "Responsabile",
+        "assigneePlaceholder": "Seleziona una persona",
+        "nextFollowUpAt": "Prossimo follow-up",
+        "attachHint": "Invece di creare un nuovo lead, il prospect può essere collegato al lead esistente.",
+        "attachExisting": "Collega al lead esistente",
+        "attaching": "Collegamento…",
+        "attachSuccess": "Prospect collegato al lead esistente.",
+        "attachFailed": "Collegamento non riuscito."
       },
       "statsButton": "Statistiche",
       "newProspect": "Aggiungi prospect",
@@ -8072,7 +8232,8 @@
         "payback": "Amortisation",
         "years": "Jahre",
         "co2": "CO₂-Reduktion",
-        "propertyRelationUnknown": "Rapporto di proprietà sconosciuto"
+        "propertyRelationUnknown": "Rapporto di proprietà sconosciuto",
+        "tab_outbound": "Storico outbound"
       },
       "dashboard": {
         "title": "Gewerbe-Pipeline (90 Tage)",
@@ -8082,7 +8243,15 @@
       },
       "allOrigins": "Tutte le origini",
       "originInbound": "Inbound",
-      "originOutbound": "Outbound"
+      "originOutbound": "Outbound",
+      "outbound": {
+        "openProspect": "Apri il prospect",
+        "noEmails": "Ancora nessuna e-mail.",
+        "inbound": "In entrata",
+        "outbound": "Inviato (contatto {step})",
+        "showBody": "Mostra il testo",
+        "showLess": "Mostra meno"
+      }
     }
   },
   "register": {

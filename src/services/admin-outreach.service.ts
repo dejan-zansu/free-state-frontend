@@ -1,10 +1,16 @@
 import api from '@/lib/api'
 import type {
+  OutboundActivity,
+  OutboundAssignee,
+  OutboundCallQueue,
   OutboundConnectorName,
   OutboundContactPatch,
   OutboundEmail,
   OutboundEmailPatch,
   OutboundEmailPreview,
+  OutboundLeadThread,
+  OutboundManualActivityInput,
+  OutboundManualReplyInput,
   OutboundPromoteInput,
   OutboundPromoteResult,
   OutboundSendResult,
@@ -18,6 +24,11 @@ import type {
 } from '@/types/admin-outreach'
 
 class AdminOutreachService {
+  async listCallQueue(): Promise<OutboundCallQueue> {
+    const response = await api.get<{ success: boolean; data: OutboundCallQueue }>('/admin/outreach/call-queue')
+    return response.data.data
+  }
+
   async listProspects(q: OutreachListQuery = {}): Promise<OutreachProspectList> {
     const response = await api.get<{ success: boolean; data: OutreachProspectList }>('/admin/outreach/prospects', {
       params: { ...q, status: q.status?.join(',') || undefined },
@@ -82,6 +93,31 @@ class AdminOutreachService {
 
   async listTemplates(): Promise<OutboundTemplateRow[]> {
     const response = await api.get<{ success: boolean; data: OutboundTemplateRow[] }>('/admin/outreach/templates')
+    return response.data.data
+  }
+
+  async createManualReply(prospectId: string, input: OutboundManualReplyInput): Promise<OutboundEmail> {
+    const response = await api.post<{ success: boolean; data: OutboundEmail }>(`/admin/outreach/prospects/${prospectId}/emails`, input)
+    return response.data.data
+  }
+
+  async logActivity(prospectId: string, input: OutboundManualActivityInput): Promise<OutboundActivity> {
+    const response = await api.post<{ success: boolean; data: OutboundActivity }>(`/admin/outreach/prospects/${prospectId}/activities`, input)
+    return response.data.data
+  }
+
+  async listAssignees(): Promise<OutboundAssignee[]> {
+    const response = await api.get<{ success: boolean; data: OutboundAssignee[] }>('/admin/outreach/assignees')
+    return response.data.data
+  }
+
+  async attachLead(prospectId: string, leadId: string): Promise<OutboundPromoteResult> {
+    const response = await api.post<{ success: boolean; data: OutboundPromoteResult }>(`/admin/outreach/prospects/${prospectId}/attach-lead`, { leadId })
+    return response.data.data
+  }
+
+  async getByLead(leadId: string): Promise<OutboundLeadThread | null> {
+    const response = await api.get<{ success: boolean; data: OutboundLeadThread | null }>(`/admin/outreach/by-lead/${leadId}`)
     return response.data.data
   }
 }

@@ -512,6 +512,24 @@
     "nodeTodayBody": "Nous construisons dans 19 cantons de Suisse alémanique, avec les modèles SolarFree, SolarDirect et SolarAbo."
   },
   "home": {
+    "referenceRoofs": {
+      "title": "Toits de référence",
+      "subtitle": "Trois projets réalisés par Free State AG.",
+      "entries": [
+        {
+          "name": "Diggelmann Bau AG",
+          "description": "Installation solaire sur le bâtiment de l'entreprise de construction."
+        },
+        {
+          "name": "Stiftung Wetterbaum",
+          "description": "Installation solaire sur le toit de la fondation."
+        },
+        {
+          "name": "Bowling Five",
+          "description": "Installation solaire sur le toit du bowling à Thayngen SH."
+        }
+      ]
+    },
     "promo": {
       "carouselLabel": "Offres actuelles",
       "prevSlide": "Slide précédente",
@@ -6385,6 +6403,109 @@
     }
   },
   "admin": {
+    "tasks": {
+      "title": "Tâches",
+      "newTask": "Nouvelle tâche",
+      "tabs": {
+        "mine": "Mes tâches",
+        "open": "Toutes ouvertes",
+        "createdByMe": "Créées par moi",
+        "done": "Terminées",
+        "all": "Toutes"
+      },
+      "searchPlaceholder": "Rechercher...",
+      "allPriorities": "Toutes les priorités",
+      "allAssignees": "Toutes les personnes",
+      "allStatuses": "Tous les statuts",
+      "unassigned": "Non attribuée",
+      "overdue": "En retard",
+      "items": "{count} tâches",
+      "noTasks": "Aucune tâche trouvée.",
+      "columns": {
+        "reference": "Réf.",
+        "title": "Titre",
+        "assignee": "Attribuée à",
+        "priority": "Priorité",
+        "status": "Statut",
+        "dueDate": "Échéance",
+        "updated": "Mise à jour"
+      },
+      "statusLabels": {
+        "OPEN": "Ouverte",
+        "IN_PROGRESS": "En cours",
+        "BLOCKED": "Bloquée",
+        "DONE": "Terminée",
+        "CANCELLED": "Annulée"
+      },
+      "priorityLabels": {
+        "LOW": "Basse",
+        "MEDIUM": "Moyenne",
+        "HIGH": "Haute",
+        "URGENT": "Urgente"
+      },
+      "dialog": {
+        "title": "Nouvelle tâche",
+        "titleLabel": "Titre",
+        "titlePlaceholder": "Que faut-il faire ?",
+        "descriptionLabel": "Description (facultatif)",
+        "assigneeLabel": "Attribuée à",
+        "priorityLabel": "Priorité",
+        "dueDateLabel": "Date d'échéance (facultatif)",
+        "cancel": "Annuler",
+        "create": "Créer",
+        "creating": "Création en cours...",
+        "errorTitleRequired": "Le titre est obligatoire.",
+        "errorCreateFailed": "La tâche n'a pas pu être créée."
+      },
+      "detail": {
+        "back": "Retour",
+        "editTitle": "Modifier le titre",
+        "save": "Enregistrer",
+        "saved": "Enregistré.",
+        "cancel": "Annuler",
+        "edit": "Modifier",
+        "delete": "Supprimer",
+        "confirmDeleteTask": "Supprimer définitivement cette tâche ?",
+        "status": "Statut",
+        "priority": "Priorité",
+        "assignee": "Attribuée à",
+        "dueDate": "Date d'échéance",
+        "clearDueDate": "Effacer la date",
+        "createdByLine": "Créée par {name} le {date}",
+        "unknownUser": "Inconnu",
+        "description": "Description",
+        "descriptionPlaceholder": "Ajouter une description...",
+        "comments": "Commentaires",
+        "commentPlaceholder": "Écrire un commentaire...",
+        "addComment": "Ajouter un commentaire",
+        "noComments": "Aucun commentaire pour l'instant.",
+        "confirmDeleteComment": "Supprimer ce commentaire ?",
+        "attachments": "Pièces jointes",
+        "upload": "Télécharger un fichier",
+        "uploading": "Téléchargement en cours...",
+        "download": "Télécharger",
+        "noAttachments": "Aucune pièce jointe.",
+        "confirmDeleteAttachment": "Supprimer cette pièce jointe ?",
+        "activity": "Historique",
+        "showActivity": "Afficher l'historique",
+        "hideActivity": "Masquer l'historique",
+        "noActivity": "Aucun historique pour l'instant.",
+        "error": "L'action a échoué. Veuillez réessayer.",
+        "uploadError": "Le téléchargement a échoué."
+      },
+      "activityLabels": {
+        "CREATED": "Tâche créée",
+        "STATUS_CHANGED": "Statut modifié",
+        "PRIORITY_CHANGED": "Priorité modifiée",
+        "ASSIGNED": "Attribution modifiée",
+        "DUE_DATE_CHANGED": "Date d'échéance modifiée",
+        "DETAILS_CHANGED": "Détails modifiés",
+        "COMMENT_ADDED": "Commentaire ajouté",
+        "COMMENT_DELETED": "Commentaire supprimé",
+        "ATTACHMENT_UPLOADED": "Pièce jointe ajoutée",
+        "ATTACHMENT_DELETED": "Pièce jointe supprimée"
+      }
+    },
     "sidebar": {
       "title": "Panneau d'administration",
       "dashboard": "Tableau de bord",
@@ -6437,7 +6558,8 @@
       "marketingSettings": "Paramètres",
       "outreach": "Prospection",
       "outreachQueues": "Files de prospection",
-      "outreachStats": "Statistiques de prospection"
+      "outreachStats": "Statistiques de prospection",
+      "tasks": "Tâches"
     },
     "outreach": {
       "title": "Prospection",
@@ -6477,7 +6599,12 @@
         "tabReplies": "Réponses",
         "emptyDrafts": "Aucun brouillon à relire.",
         "emptyFollowUps": "Aucune relance à envoyer.",
-        "emptyReplies": "Aucune réponse à traiter."
+        "emptyReplies": "Aucune réponse à traiter.",
+        "tabCalls": "Appels",
+        "emptyCalls": "Aucun appel à effectuer.",
+        "phone": "Téléphone",
+        "logCall": "Consigner l'appel",
+        "callNotePrompt": "Note sur l'appel (facultatif)"
       },
       "replyClassifications": {
         "INTERESTED": "Intéressé",
@@ -6629,7 +6756,21 @@
         "segClass": "Aptitude",
         "websiteTextShow": "Afficher le texte du site ({chars} caractères)",
         "showBody": "Afficher le texte",
-        "activityShowAll": "Afficher les {count}"
+        "activityShowAll": "Afficher les {count}",
+        "replyButton": "Répondre",
+        "replyTitle": "Rédiger la réponse",
+        "replyHint": "Crée un brouillon dans le fil existant. L'envoi se fait séparément d'un clic dans le brouillon.",
+        "replyCreate": "Créer le brouillon",
+        "replyFailed": "Le brouillon n'a pas pu être créé.",
+        "logMeeting": "Rendez-vous fixé",
+        "logCall": "Consigner un appel",
+        "logCallTitle": "Consigner un appel",
+        "logCallDescription": "Consigne un appel pour ce prospect.",
+        "logCallNote": "Note (facultatif)",
+        "logCallConfirm": "Consigner",
+        "letterLink": "Lettre",
+        "logLetter": "Lettre envoyée",
+        "logFailed": "L'activité n'a pas pu être consignée."
       },
       "new": {
         "back": "Retour à la liste",
@@ -6680,7 +6821,18 @@
         "colStage": "Phase",
         "colCount": "Nombre",
         "colClassification": "Classification",
-        "lastRuns": "Dernières exécutions"
+        "lastRuns": "Dernières exécutions",
+        "cardMeetingsBooked": "Rendez-vous fixés",
+        "notInterestedTitle": "Motifs de refus",
+        "noNotInterestedReasons": "Aucun motif de refus enregistré pour le moment.",
+        "notInterestedReasons": {
+          "PREIS": "Prix",
+          "EIGENE_PLAENE": "Projets propres",
+          "MIETER_OHNE_DACHRECHT": "Locataire sans droit sur le toit",
+          "KEIN_BEDARF": "Pas de besoin",
+          "TIMING": "Calendrier",
+          "SONSTIGES": "Autre"
+        }
       },
       "promote": {
         "cardTitle": "Lead commercial",
@@ -6708,7 +6860,15 @@
         "openExisting": "Ouvrir le lead {reference}",
         "notPromotable": "Ce prospect ne peut pas être converti dans son statut actuel.",
         "failed": "Échec de la conversion.",
-        "close": "Fermer"
+        "close": "Fermer",
+        "assignee": "Responsable",
+        "assigneePlaceholder": "Choisir une personne",
+        "nextFollowUpAt": "Prochaine relance",
+        "attachHint": "Au lieu de créer un nouveau lead, le prospect peut être lié au lead existant.",
+        "attachExisting": "Lier au lead existant",
+        "attaching": "Liaison…",
+        "attachSuccess": "Prospect lié au lead existant.",
+        "attachFailed": "La liaison a échoué."
       },
       "statsButton": "Statistiques",
       "newProspect": "Saisir un prospect",
@@ -8072,7 +8232,8 @@
         "payback": "Amortissement",
         "years": "Ans",
         "co2": "Réduction de CO₂",
-        "propertyRelationUnknown": "Relation à la propriété inconnue"
+        "propertyRelationUnknown": "Relation à la propriété inconnue",
+        "tab_outbound": "Historique outbound"
       },
       "dashboard": {
         "title": "Pipeline commercial (90 jours)",
@@ -8082,7 +8243,15 @@
       },
       "allOrigins": "Toutes les origines",
       "originInbound": "Inbound",
-      "originOutbound": "Outbound"
+      "originOutbound": "Outbound",
+      "outbound": {
+        "openProspect": "Ouvrir le prospect",
+        "noEmails": "Pas encore d'e-mails.",
+        "inbound": "Entrant",
+        "outbound": "Envoyé (contact {step})",
+        "showBody": "Afficher le texte",
+        "showLess": "Afficher moins"
+      }
     }
   },
   "register": {

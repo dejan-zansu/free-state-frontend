@@ -9,6 +9,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
 import { commercialLeadService } from '@/services/commercial-lead.service'
 import {
+  COMPANY_MAIN_EMAIL,
   COMPANY_MAIN_PHONE_DISPLAY,
   COMPANY_MAIN_PHONE_TEL_HREF,
 } from '@/lib/company-contact'
@@ -177,7 +178,7 @@ export default function SonnendachStep7Confirmation() {
             {t('startOver')}
           </Button>
           <a
-            href={`mailto:commercial@freestate.ag?subject=${encodeURIComponent(`Terminanfrage ${submissionResult.reference}`)}`}
+            href={`mailto:${COMPANY_MAIN_EMAIL}?subject=${encodeURIComponent(`Terminanfrage ${submissionResult.reference}`)}`}
             className="flex-1"
           >
             <Button variant="outline" className="w-full gap-2">

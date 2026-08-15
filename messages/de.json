@@ -561,6 +561,24 @@
     "nodeTodayBody": "Wir bauen in 19 Deutschschweizer Kantonen, mit SolarFree-, SolarDirect- und SolarAbo-Modellen."
   },
   "home": {
+    "referenceRoofs": {
+      "title": "Referenzdächer",
+      "subtitle": "Drei realisierte Projekte von Free State AG.",
+      "entries": [
+        {
+          "name": "Diggelmann Bau AG",
+          "description": "Solaranlage auf dem Firmengebäude des Bauunternehmens."
+        },
+        {
+          "name": "Stiftung Wetterbaum",
+          "description": "Solaranlage auf dem Dach der Stiftung."
+        },
+        {
+          "name": "Bowling Five",
+          "description": "Solaranlage auf dem Dach des Bowlingcenters in Thayngen SH."
+        }
+      ]
+    },
     "promo": {
       "carouselLabel": "Aktuelle Angebote",
       "prevSlide": "Vorheriger Slide",
@@ -6386,6 +6404,109 @@
     }
   },
   "admin": {
+    "tasks": {
+      "title": "Aufgaben",
+      "newTask": "Neue Aufgabe",
+      "tabs": {
+        "mine": "Meine Aufgaben",
+        "open": "Alle offenen",
+        "createdByMe": "Von mir erstellt",
+        "done": "Erledigt",
+        "all": "Alle"
+      },
+      "searchPlaceholder": "Suchen...",
+      "allPriorities": "Alle Prioritäten",
+      "allAssignees": "Alle Personen",
+      "allStatuses": "Alle Status",
+      "unassigned": "Nicht zugewiesen",
+      "overdue": "Überfällig",
+      "items": "{count} Aufgaben",
+      "noTasks": "Keine Aufgaben gefunden.",
+      "columns": {
+        "reference": "Nr.",
+        "title": "Titel",
+        "assignee": "Zugewiesen an",
+        "priority": "Priorität",
+        "status": "Status",
+        "dueDate": "Fällig am",
+        "updated": "Aktualisiert"
+      },
+      "statusLabels": {
+        "OPEN": "Offen",
+        "IN_PROGRESS": "In Arbeit",
+        "BLOCKED": "Blockiert",
+        "DONE": "Erledigt",
+        "CANCELLED": "Abgebrochen"
+      },
+      "priorityLabels": {
+        "LOW": "Niedrig",
+        "MEDIUM": "Mittel",
+        "HIGH": "Hoch",
+        "URGENT": "Dringend"
+      },
+      "dialog": {
+        "title": "Neue Aufgabe",
+        "titleLabel": "Titel",
+        "titlePlaceholder": "Was ist zu tun?",
+        "descriptionLabel": "Beschreibung (optional)",
+        "assigneeLabel": "Zugewiesen an",
+        "priorityLabel": "Priorität",
+        "dueDateLabel": "Fälligkeitsdatum (optional)",
+        "cancel": "Abbrechen",
+        "create": "Erstellen",
+        "creating": "Wird erstellt...",
+        "errorTitleRequired": "Titel ist erforderlich.",
+        "errorCreateFailed": "Aufgabe konnte nicht erstellt werden."
+      },
+      "detail": {
+        "back": "Zurück",
+        "editTitle": "Titel bearbeiten",
+        "save": "Speichern",
+        "saved": "Gespeichert.",
+        "cancel": "Abbrechen",
+        "edit": "Bearbeiten",
+        "delete": "Löschen",
+        "confirmDeleteTask": "Diese Aufgabe endgültig löschen?",
+        "status": "Status",
+        "priority": "Priorität",
+        "assignee": "Zugewiesen an",
+        "dueDate": "Fälligkeitsdatum",
+        "clearDueDate": "Datum entfernen",
+        "createdByLine": "Erstellt von {name} am {date}",
+        "unknownUser": "Unbekannt",
+        "description": "Beschreibung",
+        "descriptionPlaceholder": "Beschreibung hinzufügen...",
+        "comments": "Kommentare",
+        "commentPlaceholder": "Kommentar schreiben...",
+        "addComment": "Kommentar hinzufügen",
+        "noComments": "Noch keine Kommentare.",
+        "confirmDeleteComment": "Diesen Kommentar löschen?",
+        "attachments": "Anhänge",
+        "upload": "Datei hochladen",
+        "uploading": "Wird hochgeladen...",
+        "download": "Herunterladen",
+        "noAttachments": "Keine Anhänge.",
+        "confirmDeleteAttachment": "Diesen Anhang löschen?",
+        "activity": "Verlauf",
+        "showActivity": "Verlauf anzeigen",
+        "hideActivity": "Verlauf ausblenden",
+        "noActivity": "Noch kein Verlauf.",
+        "error": "Aktion fehlgeschlagen. Bitte erneut versuchen.",
+        "uploadError": "Upload fehlgeschlagen."
+      },
+      "activityLabels": {
+        "CREATED": "Aufgabe erstellt",
+        "STATUS_CHANGED": "Status geändert",
+        "PRIORITY_CHANGED": "Priorität geändert",
+        "ASSIGNED": "Zuweisung geändert",
+        "DUE_DATE_CHANGED": "Fälligkeitsdatum geändert",
+        "DETAILS_CHANGED": "Details geändert",
+        "COMMENT_ADDED": "Kommentar hinzugefügt",
+        "COMMENT_DELETED": "Kommentar gelöscht",
+        "ATTACHMENT_UPLOADED": "Anhang hochgeladen",
+        "ATTACHMENT_DELETED": "Anhang gelöscht"
+      }
+    },
     "sidebar": {
       "title": "Admin-Bereich",
       "dashboard": "Dashboard",
@@ -6438,7 +6559,8 @@
       "marketingSettings": "Einstellungen",
       "outreach": "Outreach",
       "outreachQueues": "Outreach Queues",
-      "outreachStats": "Outreach-Statistik"
+      "outreachStats": "Outreach-Statistik",
+      "tasks": "Aufgaben"
     },
     "outreach": {
       "title": "Outreach",
@@ -6478,7 +6600,12 @@
         "tabReplies": "Antworten",
         "emptyDrafts": "Keine Entwürfe zur Durchsicht.",
         "emptyFollowUps": "Keine Follow-ups fällig.",
-        "emptyReplies": "Keine unbearbeiteten Antworten."
+        "emptyReplies": "Keine unbearbeiteten Antworten.",
+        "tabCalls": "Anrufe",
+        "emptyCalls": "Keine Anrufe fällig.",
+        "phone": "Telefon",
+        "logCall": "Anruf erfassen",
+        "callNotePrompt": "Notiz zum Anruf (optional)"
       },
       "replyClassifications": {
         "INTERESTED": "Interessiert",
@@ -6630,7 +6757,21 @@
         "segClass": "Eignung",
         "websiteTextShow": "Website-Text anzeigen ({chars} Zeichen)",
         "showBody": "Text anzeigen",
-        "activityShowAll": "Alle {count} anzeigen"
+        "activityShowAll": "Alle {count} anzeigen",
+        "replyButton": "Antworten",
+        "replyTitle": "Antwort verfassen",
+        "replyHint": "Erstellt einen Entwurf im bestehenden Verlauf. Der Versand erfolgt separat per Klick im Entwurf.",
+        "replyCreate": "Entwurf erstellen",
+        "replyFailed": "Entwurf konnte nicht erstellt werden.",
+        "logMeeting": "Termin gebucht",
+        "logCall": "Anruf erfassen",
+        "logCallTitle": "Anruf erfassen",
+        "logCallDescription": "Protokolliert einen Anruf zu diesem Prospect.",
+        "logCallNote": "Notiz (optional)",
+        "logCallConfirm": "Erfassen",
+        "letterLink": "Brief",
+        "logLetter": "Brief versendet",
+        "logFailed": "Aktivität konnte nicht erfasst werden."
       },
       "new": {
         "back": "Zurück zur Liste",
@@ -6681,7 +6822,18 @@
         "colStage": "Phase",
         "colCount": "Anzahl",
         "colClassification": "Klassifikation",
-        "lastRuns": "Letzte Läufe"
+        "lastRuns": "Letzte Läufe",
+        "cardMeetingsBooked": "Termine gebucht",
+        "notInterestedTitle": "Absagegründe",
+        "noNotInterestedReasons": "Noch keine Absagegründe erfasst.",
+        "notInterestedReasons": {
+          "PREIS": "Preis",
+          "EIGENE_PLAENE": "Eigene Pläne",
+          "MIETER_OHNE_DACHRECHT": "Mieter ohne Dachrecht",
+          "KEIN_BEDARF": "Kein Bedarf",
+          "TIMING": "Timing",
+          "SONSTIGES": "Sonstiges"
+        }
       },
       "promote": {
         "cardTitle": "Gewerbe-Lead",
@@ -6709,7 +6861,15 @@
         "openExisting": "Lead {reference} öffnen",
         "notPromotable": "Dieser Prospect kann im aktuellen Status nicht umgewandelt werden.",
         "failed": "Umwandlung fehlgeschlagen.",
-        "close": "Schliessen"
+        "close": "Schliessen",
+        "assignee": "Zuständig",
+        "assigneePlaceholder": "Person wählen",
+        "nextFollowUpAt": "Nächstes Follow-up",
+        "attachHint": "Statt einen neuen Lead zu erstellen, kann der Prospect mit dem bestehenden Lead verknüpft werden.",
+        "attachExisting": "Mit bestehendem Lead verknüpfen",
+        "attaching": "Verknüpfen…",
+        "attachSuccess": "Prospect mit dem bestehenden Lead verknüpft.",
+        "attachFailed": "Verknüpfung fehlgeschlagen."
       },
       "statsButton": "Statistik",
       "newProspect": "Interessent erfassen",
@@ -8073,7 +8233,8 @@
         "payback": "Amortisation",
         "years": "Jahre",
         "co2": "CO₂-Reduktion",
-        "propertyRelationUnknown": "Eigentumsverhältnis unbekannt"
+        "propertyRelationUnknown": "Eigentumsverhältnis unbekannt",
+        "tab_outbound": "Outbound-Verlauf"
       },
       "dashboard": {
         "title": "Gewerbe-Pipeline (90 Tage)",
@@ -8083,7 +8244,15 @@
       },
       "allOrigins": "Alle Herkünfte",
       "originInbound": "Inbound",
-      "originOutbound": "Outbound"
+      "originOutbound": "Outbound",
+      "outbound": {
+        "openProspect": "Prospect öffnen",
+        "noEmails": "Noch keine E-Mails.",
+        "inbound": "Eingehend",
+        "outbound": "Gesendet (Kontakt {step})",
+        "showBody": "Text anzeigen",
+        "showLess": "Weniger anzeigen"
+      }
     }
   },
   "register": {

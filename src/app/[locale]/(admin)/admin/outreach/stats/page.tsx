@@ -48,6 +48,7 @@ export default function AdminOutreachStatsPage() {
   const locale = useLocale()
   const t = useTranslations('admin.outreach.stats')
   const tr = useTranslations('admin.outreach.replyClassifications')
+  const tn = useTranslations('admin.outreach.stats.notInterestedReasons')
 
   const { data: stats, isLoading } = useQuery({
     queryKey: ['admin', 'outreach', 'stats'],
@@ -58,6 +59,9 @@ export default function AdminOutreachStatsPage() {
 
   const sendsPerDay = stats.sendsPerDay ?? []
   const replyMix = Object.entries(stats.replyMix ?? {}).sort((a, b) => b[1] - a[1])
+  const notInterestedReasons = Object.entries(stats.notInterestedReasons ?? {}).sort(
+    (a, b) => b[1] - a[1],
+  )
   const perTemplate = stats.perTemplate ?? []
   const statusRows = OUTBOUND_PROSPECT_STATUSES
     .map((s) => ({ status: s, count: stats.byStatus[s] ?? 0 }))
@@ -74,9 +78,10 @@ export default function AdminOutreachStatsPage() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-6">
         <KpiCard label={t('cardProspects')} value={stats.total.toLocaleString('de-CH')} />
         <KpiCard label={t('cardContactFindRate')} value={formatPct(stats.contactFindRate)} />
+        <KpiCard label={t('cardMeetingsBooked')} value={(stats.meetingsBooked ?? 0).toLocaleString('de-CH')} />
         <KpiCard label={t('cardDraftsUnedited')} value={formatPct(stats.draftsUneditedPct)} />
         <KpiCard
           label={t('cardMedianDraftToSend')}
@@ -104,7 +109,7 @@ export default function AdminOutreachStatsPage() {
                     labelFormatter={(day) => formatDay(String(day))}
                     formatter={(value) => [String(value), t('sendsTooltipLabel')]}
                   />
-                  <Bar dataKey="count" fill={BAR_COLOR} radius={[3, 3, 0, 0]} />
+                  <Bar dataKey="sent" fill={BAR_COLOR} radius={[3, 3, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -165,6 +170,24 @@ export default function AdminOutreachStatsPage() {
           </CardContent>
         </Card>
       </div>
+
+      <Card className="border-[#062E25]/10 mb-6">
+        <CardContent className="p-6">
+          <h3 className="font-semibold text-[#062E25]/75 uppercase tracking-wide mb-3">{t('notInterestedTitle')}</h3>
+          {notInterestedReasons.length === 0 ? (
+            <p className="text-[#062E25]/75">{t('noNotInterestedReasons')}</p>
+          ) : (
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {notInterestedReasons.map(([reason, count]) => (
+                <span key={reason} className="inline-flex items-center gap-2">
+                  <span>{tn.has(reason) ? tn(reason) : reason}</span>
+                  <span className="font-bold tabular-nums">{count.toLocaleString('de-CH')}</span>
+                </span>
+              ))}
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       <Card className="border-[#062E25]/10 mb-6">
         <CardContent className="p-6">

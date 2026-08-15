@@ -9,6 +9,7 @@ import {
   Calculator,
   CircuitBoard,
   ClipboardCheck,
+  ClipboardList,
   Coins,
   Eye,
   Factory,
@@ -43,6 +44,7 @@ import { usePathname } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
+import { TasksNavBadge } from '@/components/admin/TasksNavBadge'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
@@ -56,6 +58,7 @@ interface NavItem {
   label: string
   href: string
   icon: React.ElementType
+  badge?: React.ReactNode
 }
 
 function useNavGroups() {
@@ -91,6 +94,7 @@ function useNavGroups() {
     {
       label: t('groupOperations'),
       items: [
+        { label: t('tasks'),                href: `${prefix}/tasks`,                  icon: ClipboardList, badge: <TasksNavBadge /> },
         { label: t('support'),              href: `${prefix}/support`,                icon: Ticket },
         { label: t('contacts'),             href: `${prefix}/contacts`,               icon: MessageSquareText },
         { label: t('quoteRequests'),        href: `${prefix}/quote-requests`,         icon: FileCheck },
@@ -183,6 +187,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
               >
                 <item.icon className="h-4 w-4" />
                 {item.label}
+                {item.badge}
               </Link>
             ))}
           </div>

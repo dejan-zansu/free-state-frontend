@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Header from './Header'
 
-const HIDDEN_PATTERNS = ['/admin/', '/dashboard', '/login', '/anmelden', '/register', '/registrieren', '/set-password', '/passwort-setzen', '/forgot-password', '/passwort-vergessen', '/verify-email', '/email-verifizieren', '/magic-link-verify']
+const HIDDEN_PATTERNS = ['/admin/', '/dashboard', '/dach/', '/login', '/anmelden', '/register', '/registrieren', '/set-password', '/passwort-setzen', '/forgot-password', '/passwort-vergessen', '/verify-email', '/email-verifizieren', '/magic-link-verify']
 
 export default function ConditionalHeader() {
   const pathname = usePathname()

@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
-import { ArrowLeft } from 'lucide-react'
-import { useQuery } from '@tanstack/react-query'
+import { ArrowLeft, Phone } from 'lucide-react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { PROSPECT_TABLE_COLSPAN, ProspectRowCells, ProspectTableHeadCells } from '../prospect-table'
@@ -23,10 +23,10 @@ import type {
 
 const QUEUE_LIMIT = 100
 
-type QueueTabKey = 'drafts' | 'followups' | 'replies'
+type QueueTabKey = 'drafts' | 'followups' | 'replies' | 'calls'
 
 const QUEUE_TABS: {
-  key: QueueTabKey
+  key: Exclude<QueueTabKey, 'calls'>
   labelKey: 'queue.tabDrafts' | 'queue.tabFollowUps' | 'queue.tabReplies'
   emptyKey: 'queue.emptyDrafts' | 'queue.emptyFollowUps' | 'queue.emptyReplies'
   statuses: OutboundProspectStatus[]
@@ -45,7 +45,7 @@ function useQueueList(key: QueueTabKey, statuses: OutboundProspectStatus[]) {
   })
 }
 
-function tabCount(key: QueueTabKey, byStatus: Partial<Record<OutboundProspectStatus, number>>) {
+function tabCount(key: Exclude<QueueTabKey, 'calls'>, byStatus: Partial<Record<OutboundProspectStatus, number>>) {
   if (key === 'drafts') return (byStatus.DRAFTED ?? 0) + (byStatus.FOLLOW_UP_DUE ?? 0)
   if (key === 'followups') return byStatus.FOLLOW_UP_DUE ?? 0
   return byStatus.REPLIED ?? 0
@@ -54,6 +54,7 @@ function tabCount(key: QueueTabKey, byStatus: Partial<Record<OutboundProspectSta
 export default function AdminOutreachQueuePage() {
   const locale = useLocale()
   const router = useRouter()
+  const queryClient = useQueryClient()
   const t = useTranslations('admin.outreach')
 
   const [activeTab, setActiveTab] = useState<QueueTabKey>('drafts')
@@ -62,6 +63,10 @@ export default function AdminOutreachQueuePage() {
   const drafts = useQueueList('drafts', QUEUE_TABS[0].statuses)
   const followups = useQueueList('followups', QUEUE_TABS[1].statuses)
   const replies = useQueueList('replies', QUEUE_TABS[2].statuses)
+  const calls = useQuery({
+    queryKey: ['admin', 'outreach', 'queue', 'calls'],
+    queryFn: () => adminOutreachService.listCallQueue(),
+  })
 
   const queries = { drafts, followups, replies }
   const byStatus =
@@ -69,7 +74,22 @@ export default function AdminOutreachQueuePage() {
     ?? followups.data?.summary.byStatus
     ?? replies.data?.summary.byStatus
 
-  const activeItems = queries[activeTab].data?.items ?? []
+  const callItems = calls.data?.items ?? []
+  const activeItems = activeTab === 'calls' ? callItems : (queries[activeTab].data?.items ?? [])
+
+  const logCallMutation = useMutation({
+    mutationFn: ({ id, note }: { id: string; note?: string }) =>
+      adminOutreachService.logActivity(id, { type: 'CALL_LOGGED', ...(note ? { note } : {}) }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
+    },
+  })
+
+  const logCall = (id: string) => {
+    const note = window.prompt(t('queue.callNotePrompt'))
+    if (note === null) return
+    logCallMutation.mutate({ id, note: note.trim() || undefined })
+  }
 
   const openProspect = (id: string) => {
     router.push(`/${locale}/admin/outreach/${id}`)
@@ -119,11 +139,45 @@ export default function AdminOutreachQueuePage() {
           onClick={() => openProspect(p.id)}
         >
           <ProspectRowCells p={p} />
+          {tabKey === 'calls' && (
+            <>
+              <TableCell className="align-top whitespace-nowrap">
+                {p.contactPhone ? (
+                  <a
+                    href={`tel:${p.contactPhone.replace(/\s/g, '')}`}
+                    className="tabular-nums text-[#062E25] underline underline-offset-2"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {p.contactPhone}
+                  </a>
+                ) : (
+                  <span className="text-[#062E25]/40">-</span>
+                )}
+              </TableCell>
+              <TableCell className="align-top">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="gap-2 whitespace-nowrap"
+                  disabled={logCallMutation.isPending}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    logCall(p.id)
+                  }}
+                >
+                  <Phone className="w-4 h-4" />{t('queue.logCall')}
+                </Button>
+              </TableCell>
+            </>
+          )}
         </TableRow>
       ))}
       {items.length === 0 && (
         <TableRow>
-          <TableCell colSpan={PROSPECT_TABLE_COLSPAN} className="text-center py-8 text-[#062E25]/75">
+          <TableCell
+            colSpan={tabKey === 'calls' ? PROSPECT_TABLE_COLSPAN + 2 : PROSPECT_TABLE_COLSPAN}
+            className="text-center py-8 text-[#062E25]/75"
+          >
             {emptyText}
           </TableCell>
         </TableRow>
@@ -162,6 +216,12 @@ export default function AdminOutreachQueuePage() {
               )}
             </TabsTrigger>
           ))}
+          <TabsTrigger value="calls" className="px-4 py-2 text-base">
+            {t('queue.tabCalls')}
+            {calls.data && (
+              <span className="tabular-nums">({callItems.length})</span>
+            )}
+          </TabsTrigger>
         </TabsList>
 
         {QUEUE_TABS.map((tab) => {
@@ -194,6 +254,34 @@ export default function AdminOutreachQueuePage() {
             </TabsContent>
           )
         })}
+
+        <TabsContent value="calls">
+          <Card className="border-[#062E25]/10">
+            <CardContent className="p-6">
+              {calls.isLoading ? <AdminPageLoader /> : (
+                <>
+                  <div className="overflow-x-auto">
+                    <Table className="text-base min-w-[1100px]">
+                      <TableHeader>
+                        <TableRow className="hover:bg-transparent">
+                          <ProspectTableHeadCells />
+                          <TableHead className="whitespace-nowrap">{t('queue.phone')}</TableHead>
+                          <TableHead />
+                        </TableRow>
+                      </TableHeader>
+                      {renderRows('calls', callItems, t('queue.emptyCalls'))}
+                    </Table>
+                  </div>
+                  {callItems.length > 0 && (
+                    <p className="mt-4 pt-4 border-t border-[#062E25]/10 text-[#062E25]">
+                      {t('total', { count: callItems.length })}
+                    </p>
+                  )}
+                </>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
       </Tabs>
     </div>
   )

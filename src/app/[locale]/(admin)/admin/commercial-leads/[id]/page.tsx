@@ -8,6 +8,8 @@ import { ChevronLeft } from 'lucide-react'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
 import { adminCommercialLeadService } from '@/services/admin-commercial-lead.service'
+import { adminOutreachService } from '@/services/admin-outreach.service'
+import type { OutboundLeadThread } from '@/types/admin-outreach'
 import type { CommercialLeadDetail } from '@/types/commercial-lead'
 
 import IdentityColumn from './IdentityColumn'
@@ -16,8 +18,9 @@ import ActivityTab from './ActivityTab'
 import NotesTab from './NotesTab'
 import AttachmentsTab from './AttachmentsTab'
 import SnapshotTab from './SnapshotTab'
+import OutboundTab from './OutboundTab'
 
-type TabKey = 'activity' | 'notes' | 'attachments' | 'snapshot'
+type TabKey = 'activity' | 'notes' | 'attachments' | 'snapshot' | 'outbound'
 
 export default function CommercialLeadDetailPage() {
   const params = useParams<{ id: string }>()
@@ -25,6 +28,7 @@ export default function CommercialLeadDetailPage() {
   const t = useTranslations('admin.commercialLeads.detail')
 
   const [lead, setLead] = useState<CommercialLeadDetail | null>(null)
+  const [outbound, setOutbound] = useState<OutboundLeadThread | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [tab, setTab] = useState<TabKey>('activity')
 
@@ -36,6 +40,7 @@ export default function CommercialLeadDetailPage() {
   useEffect(() => {
     setIsLoading(true)
     refresh().finally(() => setIsLoading(false))
+    adminOutreachService.getByLead(params.id).then(setOutbound).catch(() => setOutbound(null))
   }, [params.id])
 
   if (isLoading || !lead) return <AdminPageLoader />
@@ -58,7 +63,10 @@ export default function CommercialLeadDetailPage() {
         <IdentityColumn lead={lead} onUpdated={refresh} />
         <div>
           <div className="flex gap-2 border-b border-[#062E25]/10 mb-4">
-            {(['activity','notes','attachments','snapshot'] as TabKey[]).map((k) => (
+            {([
+              'activity', 'notes', 'attachments', 'snapshot',
+              ...(outbound ? (['outbound'] as TabKey[]) : []),
+            ] as TabKey[]).map((k) => (
               <button
                 key={k}
                 onClick={() => setTab(k)}
@@ -74,6 +82,7 @@ export default function CommercialLeadDetailPage() {
           {tab === 'notes' && <NotesTab leadId={lead.id} notes={lead.notes} onChange={refresh} />}
           {tab === 'attachments' && <AttachmentsTab lead={lead} onChange={refresh} />}
           {tab === 'snapshot' && <SnapshotTab lead={lead} />}
+          {tab === 'outbound' && outbound && <OutboundTab thread={outbound} />}
         </div>
         <ControlsColumn lead={lead} onUpdated={refresh} />
       </div>

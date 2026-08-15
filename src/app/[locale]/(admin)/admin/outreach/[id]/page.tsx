@@ -788,6 +788,12 @@ const PROMOTABLE_STATUSES: OutboundProspectStatus[] = [
   'CONTACT_FOUND', 'DRAFTED', 'CONTACTED', 'FOLLOW_UP_DUE', 'REPLIED',
 ]
 
+function defaultFollowUpDate(): string {
+  const d = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000)
+  const pad = (n: number) => String(n).padStart(2, '0')
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
+}
+
 function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const t = useTranslations('admin.outreach.promote')
   const tc = useTranslations('admin.common')
@@ -795,6 +801,8 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const queryClient = useQueryClient()
 
   const [open, setOpen] = useState(false)
+  const [assignedToId, setAssignedToId] = useState('')
+  const [nextFollowUpAt, setNextFollowUpAt] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [phone, setPhone] = useState('')
@@ -803,8 +811,18 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const [timeline, setTimeline] = useState('__none__')
   const [note, setNote] = useState('')
 
+  const { data: assignees } = useQuery({
+    queryKey: ['admin', 'outreach', 'assignees'],
+    queryFn: () => adminOutreachService.listAssignees(),
+    enabled: open,
+  })
+
   const mutation = useMutation({
     mutationFn: () => adminOutreachService.promoteProspect(prospect.id, {
+      assignedToId,
+      nextFollowUpAt: nextFollowUpAt
+        ? new Date(`${nextFollowUpAt}T09:00:00`).toISOString()
+        : undefined,
       contactFirstName: firstName.trim() || undefined,
       contactLastName: lastName.trim() || undefined,
       contactPhone: phone.trim() || undefined,
@@ -821,19 +839,15 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
     setFirstName(spaceIdx > 0 ? name.slice(0, spaceIdx) : '')
     setLastName(spaceIdx > 0 ? name.slice(spaceIdx + 1).trim() : '')
     setPhone(prospect.contactPhone ?? '')
+    setAssignedToId('')
+    setNextFollowUpAt(defaultFollowUpDate())
     setRole('__none__')
     setIndustry('__none__')
     setTimeline('__none__')
     setNote('')
     mutation.reset()
+    attachMutation.reset()
     setOpen(true)
-  }
-
-  const closeDialog = () => {
-    setOpen(false)
-    if (mutation.isSuccess) {
-      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
-    }
   }
 
   const promoted = mutation.data
@@ -847,6 +861,20 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const duplicate = errorCode === 'DUPLICATE_COMMERCIAL_LEAD'
     ? axiosError?.response?.data?.error?.data ?? axiosError?.response?.data?.data ?? null
     : null
+
+  const attachMutation = useMutation({
+    mutationFn: () => {
+      if (!duplicate) throw new Error('no duplicate lead to attach')
+      return adminOutreachService.attachLead(prospect.id, duplicate.existingLeadId)
+    },
+  })
+
+  const closeDialog = () => {
+    setOpen(false)
+    if (mutation.isSuccess || attachMutation.isSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
+    }
+  }
 
   if (prospect.status === 'CONVERTED') {
     return (
@@ -887,22 +915,63 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
               </DialogFooter>
             </div>
           ) : duplicate ? (
-            <div className="space-y-3">
-              <p className="p-3 rounded bg-amber-50 text-amber-800 font-medium">{t('duplicateTitle')}</p>
-              <Link href={`/${locale}/admin/commercial-leads/${duplicate.existingLeadId}`}
-                    className="text-blue-600 hover:underline block">
-                {t('openExisting', { reference: duplicate.existingReference })}
-              </Link>
-              <p className="text-[#062E25]/75">{t('duplicateMatchedOn', { matchedOn: duplicate.matchedOn })}</p>
-              <DialogFooter>
-                <Button variant="outline" onClick={closeDialog}>{t('close')}</Button>
-              </DialogFooter>
-            </div>
+            attachMutation.data ? (
+              <div className="space-y-3">
+                <p className="p-3 rounded bg-green-50 text-green-700 font-medium">{t('attachSuccess')}</p>
+                <Link href={`/${locale}/admin/commercial-leads/${attachMutation.data.id}`}
+                      className="text-blue-600 hover:underline block">
+                  {t('openExisting', { reference: attachMutation.data.reference })}
+                </Link>
+                <DialogFooter>
+                  <Button onClick={closeDialog}>{t('close')}</Button>
+                </DialogFooter>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <p className="p-3 rounded bg-amber-50 text-amber-800 font-medium">{t('duplicateTitle')}</p>
+                <Link href={`/${locale}/admin/commercial-leads/${duplicate.existingLeadId}`}
+                      className="text-blue-600 hover:underline block">
+                  {t('openExisting', { reference: duplicate.existingReference })}
+                </Link>
+                <p className="text-[#062E25]/75">{t('duplicateMatchedOn', { matchedOn: duplicate.matchedOn })}</p>
+                <p className="text-[#062E25]/75">{t('attachHint')}</p>
+                {attachMutation.isError && (
+                  <p className="p-3 rounded bg-red-50 text-red-700">{t('attachFailed')}</p>
+                )}
+                <DialogFooter>
+                  <Button variant="outline" onClick={closeDialog} disabled={attachMutation.isPending}>
+                    {t('close')}
+                  </Button>
+                  <Button onClick={() => attachMutation.mutate()} disabled={attachMutation.isPending}>
+                    {attachMutation.isPending ? t('attaching') : t('attachExisting')}
+                  </Button>
+                </DialogFooter>
+              </div>
+            )
           ) : (
             <div className="space-y-3">
               <div className="p-3 rounded bg-[#062E25]/5 space-y-1">
                 <Row label={t('summaryCompany')}><span className="font-medium">{prospect.companyName}</span></Row>
                 <Row label={t('summaryEmail')}><span className="break-all">{prospect.contactEmail ?? '-'}</span></Row>
+              </div>
+
+              <div>
+                <Label>{t('assignee')}</Label>
+                <Select value={assignedToId} onValueChange={setAssignedToId}>
+                  <SelectTrigger className="mt-1 text-base">
+                    <SelectValue placeholder={t('assigneePlaceholder')} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {(assignees ?? []).map((u) => (
+                      <SelectItem key={u.id} value={u.id}>{u.name}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <Label>{t('nextFollowUpAt')}</Label>
+                <Input type="date" value={nextFollowUpAt}
+                       onChange={(e) => setNextFollowUpAt(e.target.value)} className="mt-1 text-base" />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
@@ -970,7 +1039,7 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
                 <Button variant="outline" onClick={closeDialog} disabled={mutation.isPending}>
                   {tc('cancel')}
                 </Button>
-                <Button onClick={() => mutation.mutate()} disabled={mutation.isPending}>
+                <Button onClick={() => mutation.mutate()} disabled={mutation.isPending || !assignedToId}>
                   {mutation.isPending ? t('submitting') : t('submit')}
                 </Button>
               </DialogFooter>
@@ -984,11 +1053,45 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
 
 function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const t = useTranslations('admin.outreach.detail')
+  const tc = useTranslations('admin.common')
+  const queryClient = useQueryClient()
   const nonDraft = prospect.emails.filter((e) => !(e.direction === 'OUTBOUND' && e.status === 'DRAFT'))
+  const hasDraft = prospect.emails.some((e) => e.direction === 'OUTBOUND' && e.status === 'DRAFT')
+  const hasInbound = prospect.emails.some((e) => e.direction === 'INBOUND')
+
+  const [replyOpen, setReplyOpen] = useState(false)
+  const [replyBody, setReplyBody] = useState('')
+
+  const replyMutation = useMutation({
+    mutationFn: () => adminOutreachService.createManualReply(prospect.id, { bodyText: replyBody }),
+    onSuccess: () => {
+      setReplyOpen(false)
+      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
+    },
+  })
+
+  const canReply =
+    !hasDraft &&
+    !!prospect.contactEmail &&
+    (prospect.status === 'REPLIED' || (prospect.status === 'CONTACTED' && hasInbound))
+
+  const openReply = () => {
+    const greeting = prospect.contactName?.trim()
+      ? `Guten Tag ${prospect.contactName.trim()}`
+      : 'Sehr geehrte Damen und Herren'
+    setReplyBody(`${greeting}\n\n\n\nFreundliche Grüsse\nIvan Miric`)
+    replyMutation.reset()
+    setReplyOpen(true)
+  }
 
   return (
     <Card><CardContent className="p-4">
-      <SectionTitle>{t('emailsCard')}</SectionTitle>
+      <div className="flex items-center justify-between gap-2">
+        <SectionTitle>{t('emailsCard')}</SectionTitle>
+        {canReply && !replyOpen && (
+          <Button variant="outline" size="sm" onClick={openReply}>{t('replyButton')}</Button>
+        )}
+      </div>
       {nonDraft.length === 0 ? (
         <p className="text-[#062E25]/75 mt-2">{t('noEmails')}</p>
       ) : (
@@ -1000,7 +1103,99 @@ function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
           ))}
         </ol>
       )}
+      {replyOpen && (
+        <div className="mt-3 p-3 rounded-lg border border-[#062E25]/10 bg-[#062E25]/5 space-y-2">
+          <p className="font-medium">{t('replyTitle')}</p>
+          <Textarea rows={8} value={replyBody} onChange={(e) => setReplyBody(e.target.value)}
+                    className="text-base bg-white" />
+          <p className="text-[#062E25]/60">{t('replyHint')}</p>
+          {replyMutation.isError && <p className="text-red-600">{t('replyFailed')}</p>}
+          <div className="flex items-center gap-2">
+            <Button onClick={() => replyMutation.mutate()}
+                    disabled={replyMutation.isPending || !replyBody.trim()}>
+              {replyMutation.isPending ? t('saving') : t('replyCreate')}
+            </Button>
+            <Button variant="outline" onClick={() => setReplyOpen(false)} disabled={replyMutation.isPending}>
+              {tc('cancel')}
+            </Button>
+          </div>
+        </div>
+      )}
     </CardContent></Card>
+  )
+}
+
+function LogActivityButtons({ prospect }: { prospect: OutboundProspectDetail }) {
+  const t = useTranslations('admin.outreach.detail')
+  const tc = useTranslations('admin.common')
+  const locale = useLocale()
+  const queryClient = useQueryClient()
+  const [callOpen, setCallOpen] = useState(false)
+  const [callNote, setCallNote] = useState('')
+
+  const invalidate = () => queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
+
+  const meetingMutation = useMutation({
+    mutationFn: () => adminOutreachService.logActivity(prospect.id, { type: 'MEETING_BOOKED' }),
+    onSuccess: invalidate,
+  })
+  const callMutation = useMutation({
+    mutationFn: () => adminOutreachService.logActivity(prospect.id, {
+      type: 'CALL_LOGGED',
+      note: callNote.trim() || undefined,
+    }),
+    onSuccess: () => {
+      setCallOpen(false)
+      invalidate()
+    },
+  })
+  const letterMutation = useMutation({
+    mutationFn: () => adminOutreachService.logActivity(prospect.id, { type: 'LETTER_SENT' }),
+    onSuccess: invalidate,
+  })
+
+  return (
+    <>
+      <Button variant="outline" onClick={() => meetingMutation.mutate()} disabled={meetingMutation.isPending}>
+        {t('logMeeting')}
+      </Button>
+      <Button variant="outline"
+              onClick={() => { setCallNote(''); callMutation.reset(); setCallOpen(true) }}>
+        {t('logCall')}
+      </Button>
+      <Button variant="outline" asChild>
+        <Link href={`/${locale}/admin/outreach/${prospect.id}/letter`}>{t('letterLink')}</Link>
+      </Button>
+      <Button variant="outline" onClick={() => letterMutation.mutate()} disabled={letterMutation.isPending}>
+        {t('logLetter')}
+      </Button>
+      {(meetingMutation.isError || letterMutation.isError) && (
+        <span className="text-red-600">{t('logFailed')}</span>
+      )}
+
+      <Dialog open={callOpen} onOpenChange={setCallOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{t('logCallTitle')}</DialogTitle>
+            <DialogDescription>{t('logCallDescription')}</DialogDescription>
+          </DialogHeader>
+          <div>
+            <Label>{t('logCallNote')}</Label>
+            <Textarea rows={3} value={callNote} onChange={(e) => setCallNote(e.target.value)}
+                      className="mt-1 text-base" />
+          </div>
+          {callMutation.isError && <p className="text-red-600">{t('logFailed')}</p>}
+          <DialogFooter>
+            <Button variant="outline" onClick={() => setCallOpen(false)} disabled={callMutation.isPending}>
+              {tc('cancel')}
+            </Button>
+            <Button onClick={() => callMutation.mutate()} disabled={callMutation.isPending}>
+              {callMutation.isPending ? t('saving') : t('logCallConfirm')}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }
 
@@ -1083,7 +1278,8 @@ export default function AdminOutreachDetailPage() {
             <span className="font-mono text-[#062E25]/50">{prospect.reference}</span>
           </div>
         </div>
-        <div className="flex items-center gap-2 pt-5">
+        <div className="flex flex-wrap items-center gap-2 pt-5">
+          <LogActivityButtons prospect={prospect} />
           <PromoteCard prospect={prospect} />
         </div>
       </div>
