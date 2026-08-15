@@ -20,7 +20,11 @@ export default function IdentityColumn({
         <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('companyCard')}</h3>
         <p className="font-medium">{lead.companyName}</p>
         <p className="text-sm text-[#062E25]">
-          {legalFormLabel[lead.legalForm]} · {industryLabel[lead.industry]} · {employeeBracketLabel[lead.employeeBracket]}
+          {[
+            lead.legalForm ? legalFormLabel[lead.legalForm] : null,
+            lead.industry ? industryLabel[lead.industry] : null,
+            employeeBracketLabel[lead.employeeBracket],
+          ].filter(Boolean).join(' · ')}
         </p>
         {lead.uidNumber && (
           <a href={`https://www.zefix.ch/de/search/entity/list?name=${encodeURIComponent(lead.companyName)}`}
@@ -40,9 +44,11 @@ export default function IdentityColumn({
       <Card><CardContent className="p-4 space-y-2">
         <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('contactCard')}</h3>
         <p className="font-medium">{lead.contactFirstName} {lead.contactLastName}</p>
-        <p className="text-sm text-[#062E25]">{contactRoleLabel[lead.contactRole]}</p>
+        {lead.contactRole && <p className="text-sm text-[#062E25]">{contactRoleLabel[lead.contactRole]}</p>}
         <a href={`mailto:${lead.contactEmail}`} className="text-sm text-blue-600 hover:underline block">{lead.contactEmail}</a>
-        <a href={`tel:${lead.contactPhone}`} className="text-sm text-blue-600 hover:underline block">{lead.contactPhone}</a>
+        {lead.contactPhone && (
+          <a href={`tel:${lead.contactPhone}`} className="text-sm text-blue-600 hover:underline block">{lead.contactPhone}</a>
+        )}
         <p className="text-sm text-[#062E25]">{t('preferredChannel')}: {channelLabel[lead.preferredChannel]}</p>
         {lead.preferredTime && <p className="text-sm text-[#062E25]">{t('preferredTime')}: {lead.preferredTime}</p>}
         <p className="text-sm text-[#062E25]">
@@ -62,7 +68,11 @@ export default function IdentityColumn({
             {t('openMaps')}
           </a>
         )}
-        <p className="text-sm mt-2">{propertyRelationLabel[lead.propertyRelation]}</p>
+        <p className="text-sm mt-2">
+          {lead.propertyRelation && lead.propertyRelation !== 'UNKNOWN'
+            ? propertyRelationLabel[lead.propertyRelation]
+            : t('propertyRelationUnknown')}
+        </p>
         {(lead.ownerName || lead.ownerEmail || lead.ownerPhone) && (
           <div className="mt-2 p-2 bg-[#062E25]/5 rounded text-sm">
             <p className="font-medium">{t('ownerContact')}</p>
@@ -75,7 +85,7 @@ export default function IdentityColumn({
 
       <Card><CardContent className="p-4 space-y-2">
         <h3 className="text-sm font-semibold text-[#062E25]/75 uppercase tracking-wide">{t('intentCard')}</h3>
-        <p className="text-sm"><strong>{t('timeline')}:</strong> {timelineLabel[lead.timeline]}</p>
+        <p className="text-sm"><strong>{t('timeline')}:</strong> {lead.timeline ? timelineLabel[lead.timeline] : '-'}</p>
         <p className="text-sm"><strong>{t('budget')}:</strong> {budgetLabel[lead.budgetBracket]}</p>
         <p className="text-sm"><strong>{t('existingPv')}:</strong> {existingPvLabel[lead.existingPv]}</p>
         <div className="text-sm">

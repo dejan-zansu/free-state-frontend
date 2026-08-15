@@ -348,7 +348,7 @@ export default function SonnendachStep5CompanyDetails() {
             onValueChange={(v) => setPropertyRelation(v as CommercialPropertyRelation)}
             className="mt-2 flex flex-col gap-2"
           >
-            {(Object.keys(propertyRelationLabel) as CommercialPropertyRelation[]).map((v) => (
+            {(Object.keys(propertyRelationLabel) as Exclude<CommercialPropertyRelation, 'UNKNOWN'>[]).map((v) => (
               <label key={v} className="flex items-center gap-2">
                 <RadioGroupItem value={v} />{propertyRelationLabel[v]}
               </label>

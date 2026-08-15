@@ -20,7 +20,7 @@ import { adminCommercialLeadService, type ListQuery } from '@/services/admin-com
 import {
   statusLabel, industryLabel, timelineLabel, legalFormLabel,
 } from '@/lib/commercial-lead-labels'
-import type { CommercialLeadListResponse, CommercialLeadStatus, CommercialIndustry, CommercialTimeline } from '@/types/commercial-lead'
+import type { CommercialLeadListResponse, CommercialLeadOrigin, CommercialLeadStatus, CommercialIndustry, CommercialTimeline } from '@/types/commercial-lead'
 
 const PAGE_SIZE = 20
 
@@ -115,6 +115,16 @@ export default function AdminCommercialLeadsPage() {
               </SelectContent>
             </Select>
 
+            <Select value={query.origin ?? '__all__'}
+                    onValueChange={(v) => updateFilter('origin', v === '__all__' ? undefined : v as CommercialLeadOrigin)}>
+              <SelectTrigger className="w-48"><SelectValue placeholder={t('allOrigins')} /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="__all__">{t('allOrigins')}</SelectItem>
+                <SelectItem value="INBOUND">{t('originInbound')}</SelectItem>
+                <SelectItem value="OUTBOUND">{t('originOutbound')}</SelectItem>
+              </SelectContent>
+            </Select>
+
             <Button
               variant={query.unassigned ? 'default' : 'outline'}
               onClick={() => updateFilter('unassigned', query.unassigned ? undefined : true)}
@@ -152,17 +162,32 @@ export default function AdminCommercialLeadsPage() {
                       <TableCell className="font-mono text-sm">{l.reference}</TableCell>
                       <TableCell>
                         <div>
-                          <p className="font-medium">{l.companyName}</p>
+                          <div className="flex items-center gap-2">
+                            <p className="font-medium">{l.companyName}</p>
+                            {l.origin === 'OUTBOUND' && (
+                              <span className="inline-flex items-center px-2 py-0.5 rounded-full text-sm bg-blue-100 text-blue-700 whitespace-nowrap">
+                                {t('originOutbound')}
+                              </span>
+                            )}
+                          </div>
                           <p className="text-sm text-[#062E25]">
-                            {legalFormLabel[l.legalForm]} · {industryLabel[l.industry]} · {l.addressCanton}
+                            {[
+                              l.legalForm ? legalFormLabel[l.legalForm] : null,
+                              l.industry ? industryLabel[l.industry] : null,
+                              l.addressCanton,
+                            ].filter(Boolean).join(' · ')}
                           </p>
                         </div>
                       </TableCell>
                       <TableCell className="text-sm">
-                        {l.contactFirstName} {l.contactLastName}
+                        {l.contactFirstName || l.contactLastName
+                          ? `${l.contactFirstName ?? ''} ${l.contactLastName ?? ''}`.trim()
+                          : '-'}
                       </TableCell>
-                      <TableCell className="text-right font-medium">{Number(l.estimatedSystemKwp).toFixed(1)}</TableCell>
-                      <TableCell className="text-sm">{timelineLabel[l.timeline]}</TableCell>
+                      <TableCell className="text-right font-medium">
+                        {l.estimatedSystemKwp != null ? Number(l.estimatedSystemKwp).toFixed(1) : '-'}
+                      </TableCell>
+                      <TableCell className="text-sm">{l.timeline ? timelineLabel[l.timeline] : '-'}</TableCell>
                       <TableCell><StatusBadge status={l.status} /></TableCell>
                       <TableCell className="text-sm">
                         {l.assignedTo ? `${l.assignedTo.firstName} ${l.assignedTo.lastName}` : <span className="text-[#062E25]/75">{t('unassigned')}</span>}
@@ -171,7 +196,7 @@ export default function AdminCommercialLeadsPage() {
                         {new Date(l.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]">
-                        {l.nextFollowUpAt ? new Date(l.nextFollowUpAt).toLocaleDateString('de-CH') : '—'}
+                        {l.nextFollowUpAt ? new Date(l.nextFollowUpAt).toLocaleDateString('de-CH') : '-'}
                       </TableCell>
                       <TableCell>
                         <Button variant="ghost" size="sm" asChild>

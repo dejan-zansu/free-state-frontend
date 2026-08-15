@@ -8,6 +8,7 @@ import WhyFreeState from '@/components/WhyFreeState'
 import YourBenefits from '@/components/YourBenefits'
 import Reviews from '@/components/Reviews'
 import CustomerStories from '@/components/CustomerStories'
+import ReferenceRoofs from '@/components/ReferenceRoofs'
 import SolarModels from '@/components/SolarModels'
 import StackedPanels from '@/components/motion/StackedPanels'
 import type { Metadata } from 'next'
@@ -44,6 +45,7 @@ const CommercialPage = async () => {
         <EvCharging isCommercial />
       </StackedPanels>
       <CustomerStories isCommercial />
+      <ReferenceRoofs />
       <Reviews isCommercial />
       <YourBenefits isCommercial />
     </div>

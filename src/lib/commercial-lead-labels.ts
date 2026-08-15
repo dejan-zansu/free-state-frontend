@@ -69,7 +69,7 @@ export const channelLabel: Record<CommercialPreferredChannel, string> = {
   EMAIL: 'E-Mail', PHONE: 'Telefon', WHATSAPP: 'WhatsApp',
 }
 
-export const propertyRelationLabel: Record<CommercialPropertyRelation, string> = {
+export const propertyRelationLabel: Record<Exclude<CommercialPropertyRelation, 'UNKNOWN'>, string> = {
   OWNER: 'Eigentümer:in',
   TENANT_WITH_CONSENT: 'Mieter:in mit Zustimmung des Eigentümers',
   TENANT_WITHOUT_CONSENT: 'Mieter:in ohne Zustimmung',
