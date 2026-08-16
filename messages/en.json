@@ -6770,7 +6770,12 @@
         "logCallConfirm": "Log",
         "letterLink": "Letter",
         "logLetter": "Letter sent",
-        "logFailed": "Activity could not be logged."
+        "logFailed": "Activity could not be logged.",
+        "activityDetails": "Details",
+        "activityDetailsHide": "Hide details",
+        "activityRepeat": "×{count}",
+        "composeButton": "Write draft",
+        "composeTitle": "New email draft"
       },
       "new": {
         "back": "Back to list",
@@ -6896,6 +6901,43 @@
         "nextAwaitContact": "Finding contact",
         "nextSnoozedUntil": "Paused until {date}",
         "nextNone": "-"
+      },
+      "activityFields": {
+        "egid": "EGID {value}",
+        "companies": "{count} companies at this address",
+        "confidence": "confidence {value}%",
+        "version": "template version {value}",
+        "step": "sequence step {value}",
+        "to": "to {value}",
+        "from": "from {value}",
+        "keyword": "keyword \"{value}\"",
+        "statusCode": "SMTP code {value}",
+        "match": "match: {value}"
+      },
+      "activitySources": {
+        "building-first": "building sweep",
+        "discovery": "company sweep",
+        "manual": "entered manually",
+        "manual-reply": "manual draft",
+        "reply-suggestion": "suggested reply",
+        "website-fetch-auto": "auto-picked from website",
+        "ported-dev-verification": "ported from staging"
+      },
+      "activityReasons": {
+        "already_known": "contact already known",
+        "suppressed": "on the suppression list",
+        "hard_bounce": "hard bounce",
+        "OPT_OUT": "opt-out",
+        "PRIOR_CONTACT": "prior contact",
+        "prior_contact": "prior contact",
+        "geocode_failed": "address could not be geocoded",
+        "has_pv": "plant in the PV register",
+        "has_pv_imagery": "plant visible on the satellite image",
+        "no_building": "no building found",
+        "residential": "residential building",
+        "roof_too_small": "roof too small",
+        "sequence_complete": "sequence complete",
+        "snooze_woke": "snooze expired"
       }
     },
     "marketing": {

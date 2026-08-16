@@ -6770,7 +6770,12 @@
         "logCallConfirm": "Consigner",
         "letterLink": "Lettre",
         "logLetter": "Lettre envoyée",
-        "logFailed": "L'activité n'a pas pu être consignée."
+        "logFailed": "L'activité n'a pas pu être consignée.",
+        "activityDetails": "Détails",
+        "activityDetailsHide": "Masquer les détails",
+        "activityRepeat": "×{count}",
+        "composeButton": "Rédiger un brouillon",
+        "composeTitle": "Nouveau brouillon d’e-mail"
       },
       "new": {
         "back": "Retour à la liste",
@@ -6896,6 +6901,43 @@
         "nextAwaitContact": "Recherche du contact",
         "nextSnoozedUntil": "En pause jusqu’au {date}",
         "nextNone": "-"
+      },
+      "activityFields": {
+        "egid": "EGID {value}",
+        "companies": "{count} entreprises à cette adresse",
+        "confidence": "confiance {value}%",
+        "version": "version du modèle {value}",
+        "step": "étape de séquence {value}",
+        "to": "à {value}",
+        "from": "de {value}",
+        "keyword": "mot-clé « {value} »",
+        "statusCode": "code SMTP {value}",
+        "match": "correspondance : {value}"
+      },
+      "activitySources": {
+        "building-first": "recherche de bâtiments",
+        "discovery": "recherche d’entreprises",
+        "manual": "saisie manuelle",
+        "manual-reply": "brouillon manuel",
+        "reply-suggestion": "réponse suggérée",
+        "website-fetch-auto": "trouvé automatiquement sur le site",
+        "ported-dev-verification": "repris de l’environnement de test"
+      },
+      "activityReasons": {
+        "already_known": "contact déjà connu",
+        "suppressed": "sur la liste de blocage",
+        "hard_bounce": "échec définitif de distribution",
+        "OPT_OUT": "désinscription",
+        "PRIOR_CONTACT": "contact antérieur",
+        "prior_contact": "contact antérieur",
+        "geocode_failed": "adresse non géocodable",
+        "has_pv": "installation dans le registre PV",
+        "has_pv_imagery": "installation visible sur l’image satellite",
+        "no_building": "aucun bâtiment trouvé",
+        "residential": "bâtiment résidentiel",
+        "roof_too_small": "toiture trop petite",
+        "sequence_complete": "séquence terminée",
+        "snooze_woke": "rappel arrivé à échéance"
       }
     },
     "marketing": {
