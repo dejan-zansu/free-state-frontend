@@ -6771,7 +6771,12 @@
         "logCallConfirm": "Erfassen",
         "letterLink": "Brief",
         "logLetter": "Brief versendet",
-        "logFailed": "Aktivität konnte nicht erfasst werden."
+        "logFailed": "Aktivität konnte nicht erfasst werden.",
+        "activityDetails": "Details",
+        "activityDetailsHide": "Details ausblenden",
+        "activityRepeat": "×{count}",
+        "composeButton": "Entwurf schreiben",
+        "composeTitle": "Neuer E-Mail-Entwurf"
       },
       "new": {
         "back": "Zurück zur Liste",
@@ -6897,6 +6902,43 @@
         "nextAwaitContact": "Kontakt wird gesucht",
         "nextSnoozedUntil": "Pausiert bis {date}",
         "nextNone": "-"
+      },
+      "activityFields": {
+        "egid": "EGID {value}",
+        "companies": "{count} Firmen an dieser Adresse",
+        "confidence": "Konfidenz {value}%",
+        "version": "Vorlagenversion {value}",
+        "step": "Sequenzschritt {value}",
+        "to": "an {value}",
+        "from": "von {value}",
+        "keyword": "Stichwort «{value}»",
+        "statusCode": "SMTP-Code {value}",
+        "match": "Treffer: {value}"
+      },
+      "activitySources": {
+        "building-first": "Gebäudesuche",
+        "discovery": "Firmensuche",
+        "manual": "Manuell erfasst",
+        "manual-reply": "Manueller Entwurf",
+        "reply-suggestion": "Antwortvorschlag",
+        "website-fetch-auto": "Automatisch von der Website",
+        "ported-dev-verification": "Aus der Testumgebung übernommen"
+      },
+      "activityReasons": {
+        "already_known": "Kontakt bereits bekannt",
+        "suppressed": "Auf der Sperrliste",
+        "hard_bounce": "Harter Zustellfehler",
+        "OPT_OUT": "Abmeldung",
+        "PRIOR_CONTACT": "Früherer Kontakt",
+        "prior_contact": "Früherer Kontakt",
+        "geocode_failed": "Adresse nicht geokodierbar",
+        "has_pv": "Anlage im PV-Register",
+        "has_pv_imagery": "Anlage auf dem Luftbild erkennbar",
+        "no_building": "Kein Gebäude gefunden",
+        "residential": "Wohngebäude",
+        "roof_too_small": "Dach zu klein",
+        "sequence_complete": "Sequenz abgeschlossen",
+        "snooze_woke": "Wiedervorlage fällig"
       }
     },
     "marketing": {

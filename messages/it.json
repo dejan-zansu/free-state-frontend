@@ -6770,7 +6770,12 @@
         "logCallConfirm": "Registra",
         "letterLink": "Lettera",
         "logLetter": "Lettera inviata",
-        "logFailed": "Impossibile registrare l'attività."
+        "logFailed": "Impossibile registrare l'attività.",
+        "activityDetails": "Dettagli",
+        "activityDetailsHide": "Nascondi dettagli",
+        "activityRepeat": "×{count}",
+        "composeButton": "Scrivi bozza",
+        "composeTitle": "Nuova bozza e-mail"
       },
       "new": {
         "back": "Torna alla lista",
@@ -6896,6 +6901,43 @@
         "nextAwaitContact": "Ricerca del contatto",
         "nextSnoozedUntil": "In pausa fino al {date}",
         "nextNone": "-"
+      },
+      "activityFields": {
+        "egid": "EGID {value}",
+        "companies": "{count} aziende a questo indirizzo",
+        "confidence": "confidenza {value}%",
+        "version": "versione modello {value}",
+        "step": "passo sequenza {value}",
+        "to": "a {value}",
+        "from": "da {value}",
+        "keyword": "parola chiave «{value}»",
+        "statusCode": "codice SMTP {value}",
+        "match": "corrispondenza: {value}"
+      },
+      "activitySources": {
+        "building-first": "ricerca edifici",
+        "discovery": "ricerca aziende",
+        "manual": "inserito manualmente",
+        "manual-reply": "bozza manuale",
+        "reply-suggestion": "risposta suggerita",
+        "website-fetch-auto": "trovato automaticamente sul sito",
+        "ported-dev-verification": "ripreso dall’ambiente di test"
+      },
+      "activityReasons": {
+        "already_known": "contatto già noto",
+        "suppressed": "in lista di blocco",
+        "hard_bounce": "errore di consegna definitivo",
+        "OPT_OUT": "disiscrizione",
+        "PRIOR_CONTACT": "contatto precedente",
+        "prior_contact": "contatto precedente",
+        "geocode_failed": "indirizzo non geocodificabile",
+        "has_pv": "impianto nel registro FV",
+        "has_pv_imagery": "impianto visibile sull’immagine satellitare",
+        "no_building": "nessun edificio trovato",
+        "residential": "edificio residenziale",
+        "roof_too_small": "tetto troppo piccolo",
+        "sequence_complete": "sequenza completata",
+        "snooze_woke": "promemoria scaduto"
       }
     },
     "marketing": {

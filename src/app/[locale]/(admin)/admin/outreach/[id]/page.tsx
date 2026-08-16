@@ -30,7 +30,8 @@ import { contactRoleLabel, industryLabel, timelineLabel } from '@/lib/commercial
 import { cn } from '@/lib/utils'
 import { adminOutreachService } from '@/services/admin-outreach.service'
 import type {
-  OutboundEmail, OutboundPromoteDuplicateData, OutboundProspectDetail, OutboundProspectStatus,
+  OutboundActivity, OutboundEmail, OutboundPromoteDuplicateData, OutboundProspectDetail,
+  OutboundProspectStatus,
 } from '@/types/admin-outreach'
 
 const REPLY_CLASSIFICATION_COLORS: Record<string, string> = {
@@ -1060,10 +1061,18 @@ function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const hasInbound = prospect.emails.some((e) => e.direction === 'INBOUND')
 
   const [replyOpen, setReplyOpen] = useState(false)
+  const [replySubject, setReplySubject] = useState('')
   const [replyBody, setReplyBody] = useState('')
 
+  const lastSent = [...prospect.emails]
+    .filter((e) => e.direction === 'OUTBOUND' && e.status === 'SENT')
+    .sort((a, b) => new Date(b.sentAt ?? b.createdAt).getTime() - new Date(a.sentAt ?? a.createdAt).getTime())[0]
+
   const replyMutation = useMutation({
-    mutationFn: () => adminOutreachService.createManualReply(prospect.id, { bodyText: replyBody }),
+    mutationFn: () => adminOutreachService.createManualReply(prospect.id, {
+      bodyText: replyBody,
+      ...(replySubject.trim() ? { subject: replySubject.trim() } : {}),
+    }),
     onSuccess: () => {
       setReplyOpen(false)
       queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
@@ -1073,12 +1082,13 @@ function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const canReply =
     !hasDraft &&
     !!prospect.contactEmail &&
-    (prospect.status === 'REPLIED' || (prospect.status === 'CONTACTED' && hasInbound))
+    !['OPTED_OUT', 'BOUNCED', 'SCREENED_OUT', 'CONVERTED'].includes(prospect.status)
 
   const openReply = () => {
     const greeting = prospect.contactName?.trim()
       ? `Guten Tag ${prospect.contactName.trim()}`
       : 'Sehr geehrte Damen und Herren'
+    setReplySubject(lastSent?.subject ?? '')
     setReplyBody(`${greeting}\n\n\n\nFreundliche Grüsse\nIvan Miric`)
     replyMutation.reset()
     setReplyOpen(true)
@@ -1089,7 +1099,9 @@ function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
       <div className="flex items-center justify-between gap-2">
         <SectionTitle>{t('emailsCard')}</SectionTitle>
         {canReply && !replyOpen && (
-          <Button variant="outline" size="sm" onClick={openReply}>{t('replyButton')}</Button>
+          <Button variant="outline" size="sm" onClick={openReply}>
+            {hasInbound ? t('replyButton') : t('composeButton')}
+          </Button>
         )}
       </div>
       {nonDraft.length === 0 ? (
@@ -1105,14 +1117,19 @@ function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
       )}
       {replyOpen && (
         <div className="mt-3 p-3 rounded-lg border border-[#062E25]/10 bg-[#062E25]/5 space-y-2">
-          <p className="font-medium">{t('replyTitle')}</p>
+          <p className="font-medium">{hasInbound ? t('replyTitle') : t('composeTitle')}</p>
+          <div>
+            <Label>{t('draftSubject')}</Label>
+            <Input value={replySubject} onChange={(e) => setReplySubject(e.target.value)}
+                   className="mt-1 text-base bg-white" />
+          </div>
           <Textarea rows={8} value={replyBody} onChange={(e) => setReplyBody(e.target.value)}
                     className="text-base bg-white" />
           <p className="text-[#062E25]/60">{t('replyHint')}</p>
           {replyMutation.isError && <p className="text-red-600">{t('replyFailed')}</p>}
           <div className="flex items-center gap-2">
             <Button onClick={() => replyMutation.mutate()}
-                    disabled={replyMutation.isPending || !replyBody.trim()}>
+                    disabled={replyMutation.isPending || !replyBody.trim() || !replySubject.trim()}>
               {replyMutation.isPending ? t('saving') : t('replyCreate')}
             </Button>
             <Button variant="outline" onClick={() => setReplyOpen(false)} disabled={replyMutation.isPending}>
@@ -1199,49 +1216,163 @@ function LogActivityButtons({ prospect }: { prospect: OutboundProspectDetail }) 
   )
 }
 
-function ActivityCard({ prospect }: { prospect: OutboundProspectDetail }) {
+type ActivityGroup = {
+  key: string
+  type: OutboundActivity['type']
+  payload: Record<string, unknown> | null
+  actor: OutboundActivity['actor']
+  createdAt: string
+  count: number
+}
+
+function groupActivities(activities: OutboundActivity[]): ActivityGroup[] {
+  const groups: ActivityGroup[] = []
+  for (const activity of activities) {
+    const signature = `${activity.type}|${JSON.stringify(activity.payload ?? {})}|${activity.actorId ?? ''}`
+    const previous = groups[groups.length - 1]
+    if (previous && previous.key === signature) {
+      previous.count += 1
+      continue
+    }
+    groups.push({
+      key: signature,
+      type: activity.type,
+      payload: activity.payload,
+      actor: activity.actor,
+      createdAt: activity.createdAt,
+      count: 1,
+    })
+  }
+  return groups
+}
+
+function asText(value: unknown): string | null {
+  if (typeof value === 'string' && value.trim()) return value.trim()
+  if (typeof value === 'number') return String(value)
+  return null
+}
+
+function ActivityRow({ group }: { group: ActivityGroup }) {
   const t = useTranslations('admin.outreach.detail')
   const ta = useTranslations('admin.outreach.activityTypes')
+  const tf = useTranslations('admin.outreach.activityFields')
+  const ts = useTranslations('admin.outreach.activitySources')
+  const trs = useTranslations('admin.outreach.activityReasons')
+  const trc = useTranslations('admin.outreach.replyClassifications')
+  const [open, setOpen] = useState(false)
+
+  const payload = group.payload ?? {}
+  const note = asText(payload.note)
+  const chips: string[] = []
+
+  const source = asText(payload.source)
+  if (source) chips.push(ts.has(source) ? ts(source) : source)
+
+  const reason = asText(payload.reason)
+  if (reason) chips.push(trs.has(reason) ? trs(reason) : reason)
+
+  const classification = asText(payload.classification)
+  if (classification) {
+    chips.push(trc.has(classification) ? trc(classification) : classification)
+  }
+  if (typeof payload.confidence === 'number') {
+    chips.push(tf('confidence', { value: Math.round(payload.confidence * 100) }))
+  }
+
+  const egid = asText(payload.egid)
+  if (egid) chips.push(tf('egid', { value: egid }))
+  if (Array.isArray(payload.companies)) {
+    chips.push(tf('companies', { count: payload.companies.length }))
+  }
+  if (typeof payload.garea === 'number') {
+    chips.push(`${Math.round(payload.garea).toLocaleString('de-CH')} m²`)
+  }
+
+  const osmName = asText(payload.osmName)
+  if (osmName) chips.push(osmName)
+  const zefixName = asText(payload.zefixName)
+  if (zefixName) chips.push(zefixName)
+
+  if (typeof payload.version === 'number') chips.push(tf('version', { value: payload.version }))
+  if (typeof payload.sequenceStep === 'number') {
+    chips.push(tf('step', { value: payload.sequenceStep }))
+  }
+
+  const to = asText(payload.to)
+  if (to) chips.push(tf('to', { value: to }))
+  const fromAddress = asText(payload.fromAddress)
+  if (fromAddress) chips.push(tf('from', { value: fromAddress }))
+  const subject = asText(payload.subject)
+  if (subject) chips.push(`«${subject}»`)
+  const keyword = asText(payload.keyword)
+  if (keyword) chips.push(tf('keyword', { value: keyword }))
+  const statusCode = asText(payload.statusCode)
+  if (statusCode) chips.push(tf('statusCode', { value: statusCode }))
+  const match = asText(payload.match)
+  if (match) chips.push(tf('match', { value: match }))
+  const email = asText(payload.email)
+  if (email) chips.push(email)
+
+  const hasPayload = Object.keys(payload).length > 0
+
+  return (
+    <li className="py-2.5 border-b border-[#062E25]/5 last:border-0">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+        <p className="font-medium">
+          {ta.has(group.type) ? ta(group.type) : group.type.replace(/_/g, ' ')}
+          {group.count > 1 && (
+            <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded-full bg-[#062E25]/5 text-[#062E25]/75">
+              {t('activityRepeat', { count: group.count })}
+            </span>
+          )}
+        </p>
+        <span className="text-[#062E25]/60 whitespace-nowrap">
+          {new Date(group.createdAt).toLocaleString('de-CH')}
+          {group.actor ? ` · ${group.actor.firstName} ${group.actor.lastName}` : ''}
+        </span>
+      </div>
+
+      {chips.length > 0 && (
+        <p className="text-[#062E25]/75 break-words">{chips.join(' · ')}</p>
+      )}
+      {note && <p className="text-[#062E25] mt-0.5 whitespace-pre-wrap break-words">{note}</p>}
+
+      {hasPayload && (
+        <>
+          <button onClick={() => setOpen((v) => !v)} className="text-blue-600 hover:underline mt-1">
+            {open ? t('activityDetailsHide') : t('activityDetails')}
+          </button>
+          {open && (
+            <pre className="mt-1 p-2 rounded bg-[#062E25]/5 overflow-x-auto font-mono text-[#062E25]/75">
+              {JSON.stringify(payload, null, 2)}
+            </pre>
+          )}
+        </>
+      )}
+    </li>
+  )
+}
+
+function ActivityCard({ prospect }: { prospect: OutboundProspectDetail }) {
+  const t = useTranslations('admin.outreach.detail')
   const [showAll, setShowAll] = useState(false)
 
-  const activities = showAll ? prospect.activities : prospect.activities.slice(0, 6)
+  const groups = useMemo(() => groupActivities(prospect.activities), [prospect.activities])
+  const shown = showAll ? groups : groups.slice(0, 8)
 
   return (
     <Card><CardContent className="p-4">
       <SectionTitle>{t('activityCard')}</SectionTitle>
-      {prospect.activities.length === 0 ? (
+      {groups.length === 0 ? (
         <p className="text-[#062E25]/75 mt-2">{t('noActivity')}</p>
       ) : (
         <>
           <ol className="mt-1">
-            {activities.map((a) => {
-              const payload = a.payload && Object.keys(a.payload).length > 0
-                ? JSON.stringify(a.payload)
-                : null
-              const note = a.payload && typeof (a.payload as { note?: unknown }).note === 'string'
-                ? String((a.payload as { note: string }).note)
-                : null
-              return (
-                <li key={a.id} className="py-2 border-b border-[#062E25]/5 last:border-0">
-                  <div className="flex items-baseline justify-between gap-2">
-                    <p className="font-medium">{ta.has(a.type) ? ta(a.type) : a.type.replace(/_/g, ' ')}</p>
-                    <span className="text-[#062E25]/60 whitespace-nowrap">
-                      {new Date(a.createdAt).toLocaleDateString('de-CH')}
-                    </span>
-                  </div>
-                  {a.actor && <p className="text-[#062E25]/75">{a.actor.firstName} {a.actor.lastName}</p>}
-                  {note ? (
-                    <p className="text-[#062E25] mt-0.5">{note}</p>
-                  ) : payload ? (
-                    <p className="text-[#062E25]/60 truncate" title={payload}>{payload}</p>
-                  ) : null}
-                </li>
-              )
-            })}
+            {shown.map((group) => <ActivityRow key={`${group.key}-${group.createdAt}`} group={group} />)}
           </ol>
-          {prospect.activities.length > 6 && (
+          {groups.length > 8 && (
             <button onClick={() => setShowAll((v) => !v)} className="text-blue-600 hover:underline mt-2">
-              {showAll ? t('showLess') : t('activityShowAll', { count: prospect.activities.length })}
+              {showAll ? t('showLess') : t('activityShowAll', { count: groups.length })}
             </button>
           )}
         </>
@@ -1306,20 +1437,18 @@ export default function AdminOutreachDetailPage() {
         )}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_360px] gap-5 items-start">
-        <div className="space-y-5 min-w-0">
-          {draft && (
-            <DraftEditor key={`${draft.id}-${draft.updatedAt}`} prospect={prospect} draft={draft} />
-          )}
+      <div className="space-y-5">
+        {draft && (
+          <DraftEditor key={`${draft.id}-${draft.updatedAt}`} prospect={prospect} draft={draft} />
+        )}
+        <ThreadCard prospect={prospect} />
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
           <ContactCard prospect={prospect} />
-          <ThreadCard prospect={prospect} />
-          <WebsiteTextCard prospect={prospect} />
-        </div>
-        <div className="space-y-5">
-          <RoofCard prospect={prospect} />
           <CompanyCard prospect={prospect} />
-          <ActivityCard prospect={prospect} />
+          <RoofCard prospect={prospect} />
         </div>
+        <WebsiteTextCard prospect={prospect} />
+        <ActivityCard prospect={prospect} />
       </div>
     </div>
   )
