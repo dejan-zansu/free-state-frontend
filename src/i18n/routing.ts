@@ -45,6 +45,12 @@ export const routing = defineRouting({
       fr: '/portfolio',
       it: '/portfolio',
     },
+    '/portfolio/[slug]': {
+      en: '/portfolio/[slug]',
+      de: '/portfolio/[slug]',
+      fr: '/portfolio/[slug]',
+      it: '/portfolio/[slug]',
+    },
     '/blog': {
       en: '/blog',
       de: '/blog',

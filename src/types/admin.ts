@@ -634,3 +634,77 @@ export interface InternalTaskListQuery {
   dueAfter?: string
   overdue?: boolean
 }
+
+export type ReferenceStatus = 'DRAFT' | 'PUBLISHED'
+
+export type ReferenceCategory =
+  | 'INDUSTRIEDACH'
+  | 'GEWERBE'
+  | 'OEFFENTLICHE_GEBAEUDE'
+  | 'LANDWIRTSCHAFT'
+  | 'WOHNGEBAEUDE'
+  | 'FREIFLAECHE'
+
+export type ReferenceMountingType =
+  | 'AUFDACH'
+  | 'INDACH'
+  | 'FLACHDACH'
+  | 'FASSADE'
+  | 'FREIFLAECHE'
+  | 'CARPORT'
+
+export interface AdminReferenceTranslation {
+  id: string
+  referenceId: string
+  language: string
+  title: string
+  subtitle: string | null
+  lead: string | null
+  body: string | null
+  situation: string | null
+  approach: string | null
+  outcome: string | null
+  quoteText: string | null
+  quoteAuthorRole: string | null
+  metaTitle: string | null
+  metaDescription: string | null
+}
+
+export interface AdminReferenceImage {
+  id: string
+  referenceId: string
+  url: string
+  alt: string | null
+  sortOrder: number
+}
+
+export interface AdminReference {
+  id: string
+  slug: string
+  status: ReferenceStatus
+  category: ReferenceCategory
+  featured: boolean
+  sortOrder: number
+  publishedAt: string | null
+  coverImageUrl: string | null
+  location: string | null
+  year: number | null
+  clientName: string | null
+  contactPerson: string | null
+  installedKwp: number | null
+  moduleCount: number | null
+  moduleWattPeak: number | null
+  batteryKwh: number | null
+  annualYieldKwh: number | null
+  mountingType: ReferenceMountingType | null
+  productModel: string | null
+  inverter: string | null
+  storageSystem: string | null
+  buildDurationWeeks: number | null
+  commissionedAt: string | null
+  quoteAuthorName: string | null
+  images: AdminReferenceImage[]
+  translations: AdminReferenceTranslation[]
+  createdAt: string
+  updatedAt: string
+}

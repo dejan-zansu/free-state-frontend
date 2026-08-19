@@ -1,82 +1,48 @@
-import { getTranslations } from 'next-intl/server'
+import { ArrowRight } from 'lucide-react'
+import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
+import { Link } from '@/i18n/navigation'
+import { referenceService } from '@/services/reference.service'
+import type { AdminReference, AdminReferenceTranslation } from '@/types/admin'
+
+const getTranslation = (
+  reference: AdminReference,
+  locale: string
+): AdminReferenceTranslation | undefined =>
+  reference.translations.find(t => t.language === locale) ||
+  reference.translations.find(t => t.language === 'de') ||
+  reference.translations[0]
 
 const PortfolioProjects = async () => {
+  const locale = await getLocale()
   const t = await getTranslations('portfolioPage.projects')
+  const tCategories = await getTranslations('referencePage.categories')
 
-  const projects = [
-    {
-      title: t('items.industrialZurich.title'),
-      image: '/images/projects/industrial-building-zurich.png',
-      tags: [
-        // '500 kWp',
+  let references: AdminReference[] = []
+  try {
+    const result = await referenceService.listPublished()
+    references = result.data || []
+  } catch {
+    return null
+  }
 
-        t('tags.industrialRooftop'),
-      ],
-    },
-    {
-      title: t('items.industrialBern.title'),
-      image: '/images/projects/industrial-building-bern.png',
-      tags: [
-        // '400 kWp',
-        t('tags.industrialRooftop'),
-      ],
-    },
-    {
-      title: t('items.industrialAargau1.title'),
-      image: '/images/projects/industrial-building-aargau.png',
-      tags: [
-        // '350 kWp',
-        t('tags.industrialRooftop'),
-      ],
-    },
-    {
-      title: t('items.industrialLuzern1.title'),
-      image: '/images/projects/industrial-building-luzern.png',
-      tags: [
-        // '450 kWp',
-        t('tags.industrialRooftop'),
-      ],
-    },
-    {
-      title: t('items.industrialChur.title'),
-      image: '/images/projects/industrial-building-chur.png',
-      tags: [
-        // '250 kWp',
-        t('tags.industrialRooftop'),
-      ],
-    },
-    {
-      title: t('items.industrialAargau3.title'),
-      image: '/images/projects/industrial-building-aargau-2.png',
-      tags: [
-        // '280 kWp',
-        t('tags.industrialRooftop'),
-      ],
-    },
-    {
-      title: t('items.farmThun.title'),
-      image: '/images/projects/farm-thun.png',
-      tags: [
-        // '200 kWp',
-        t('tags.agricultural'),
-      ],
-    },
-    {
-      title: t('items.industrialLuzern2.title'),
-      image: '/images/projects/industrial-building-luzern-2.png',
-      tags: [
-        // '380 kWp',
-        t('tags.industrialRooftop'),
-      ],
-    },
+  const projects = references
+    .map(reference => {
+      const translation = getTranslation(reference, locale)
+      const image = reference.coverImageUrl || reference.images[0]?.url
+      if (!translation || !image) return null
+      return {
+        slug: reference.slug,
+        title: translation.title,
+        image,
+        category: reference.category,
+      }
+    })
+    .filter(
+      (project): project is NonNullable<typeof project> => project !== null
+    )
 
-    // {
-    //   title: t('items.industrialGeneva.title'),
-    //   image: '/images/projects/industrial-building-genf.jpeg',
-    //   tags: ['420 kWp', t('tags.industrialRooftop')],
-    // },
-  ]
+  if (projects.length === 0) return null
 
   return (
     <section className="relative py-12 bg-background">
@@ -91,9 +57,14 @@ const PortfolioProjects = async () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
-          {projects.map((project, index) => (
-            <div
-              key={index}
+          {projects.map(project => (
+            <Link
+              key={project.slug}
+              href={
+                `/portfolio/${project.slug}` as Parameters<
+                  typeof Link
+                >[0]['href']
+              }
               className="flex flex-col items-start gap-5 w-full max-w-[678px] group"
             >
               <div className="relative w-full h-[390px] overflow-hidden">
@@ -106,39 +77,33 @@ const PortfolioProjects = async () => {
                 <div className="absolute inset-0 w-full h-full pointer-events-none" />
 
                 <div className="absolute bottom-4 right-4 flex flex-row gap-3">
-                  {project.tags.map((tag, tagIndex) => (
-                    <div
-                      key={tagIndex}
-                      className="flex flex-row justify-center items-center px-4 py-[10px] gap-2.5 rounded-[20px]"
-                      style={{
-                        background: 'rgba(255, 255, 255, 0.2)',
-                        border: '1px solid #B7FE1A',
-                        backdropFilter: 'blur(32.5px)',
-                      }}
-                    >
-                      <span className="text-white text-base font-medium leading-[14px] text-center tracking-[-0.02em]">
-                        {tag}
-                      </span>
-                    </div>
-                  ))}
+                  <div
+                    className="flex flex-row justify-center items-center px-4 py-[10px] gap-2.5 rounded-[20px]"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.2)',
+                      border: '1px solid #B7FE1A',
+                      backdropFilter: 'blur(32.5px)',
+                    }}
+                  >
+                    <span className="text-white text-base font-medium leading-[14px] text-center tracking-[-0.02em]">
+                      {tCategories(project.category)}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* <div className='flex flex-col gap-2'>
-                <h3 className='text-[#062E25] text-[22px] font-bold leading-[30px] capitalize'>
+              <div className="flex flex-col gap-2">
+                <h3 className="text-[#062E25] text-[22px] font-bold leading-[30px]">
                   {project.title}
                 </h3>
 
-                <UnderlineLink
-                  href='/portfolio'
-                  variant='separate'
-                  underlineColor='#062E25'
-                  className='text-[#062E25] text-base leading-[14px] tracking-[-0.02em]'
-                >
+                <span className="inline-flex items-center gap-2 text-[#062E25] text-base font-medium leading-[14px] tracking-[-0.02em] transition-opacity duration-300 group-hover:opacity-80">
                   {t('viewProject')}
-                </UnderlineLink>
-              </div> */}
-            </div>
+                  <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+                <span className="h-px w-[105px] bg-[#062E25]" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

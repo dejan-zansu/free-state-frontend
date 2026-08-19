@@ -53,8 +53,11 @@ const Header = () => {
 
   const isBlogPost = /^\/blog\/[^/]+/.test(pathname ?? '')
 
+  const isReferenceDetail = /^\/portfolio\/[^/]+/.test(pathname ?? '')
+
   const shouldUseDarkHeader =
-    !isBlogPost && pagesWithDarkHeader.some(path => pathname?.startsWith(path))
+    isReferenceDetail ||
+    (!isBlogPost && pagesWithDarkHeader.some(path => pathname?.startsWith(path)))
 
   useEffect(() => {
     const handleScroll = () => {

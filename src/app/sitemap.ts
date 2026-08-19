@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
 import { buildCanonicalUrl, buildHreflangAlternates } from '@/lib/seo/metadata'
 import { blogService } from '@/services/blog.service'
+import { referenceService } from '@/services/reference.service'
 import {
   FOERDERUNG_CANTONS,
   isPlaceholderCanton,
@@ -131,6 +132,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
+  const references = await fetchAllReferences()
+  for (const reference of references) {
+    const url = `${siteConfig.url}/portfolio/${reference.slug}`
+    const lastModified = reference.updatedAt
+      ? new Date(reference.updatedAt)
+      : reference.publishedAt
+        ? new Date(reference.publishedAt)
+        : REFRESH_2026_02_01
+    entries.push({
+      url,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    })
+  }
+
   return entries
 }
 
@@ -150,5 +167,26 @@ async function fetchAllBlogPosts() {
     return posts
   } catch {
     return posts
+  }
+}
+
+async function fetchAllReferences() {
+  const PAGE_SIZE = 100
+  const references: NonNullable<
+    Awaited<ReturnType<typeof referenceService.listPublished>>['data']
+  > = []
+  try {
+    let page = 1
+    while (true) {
+      const result = await referenceService.listPublished(page, PAGE_SIZE)
+      const items = result.data ?? []
+      references.push(...items)
+      const totalPages = result.meta?.totalPages ?? 1
+      if (page >= totalPages || items.length === 0) break
+      page += 1
+    }
+    return references
+  } catch {
+    return references
   }
 }

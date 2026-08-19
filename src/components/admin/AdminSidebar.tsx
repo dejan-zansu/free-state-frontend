@@ -6,6 +6,7 @@ import {
   Battery,
   Box,
   Briefcase,
+  Building2,
   Calculator,
   CircuitBoard,
   ClipboardCheck,
@@ -108,6 +109,7 @@ function useNavGroups() {
       label: t('groupContent'),
       items: [
         { label: t('blog'),       href: `${prefix}/blog`,       icon: Newspaper },
+        { label: t('references'), href: `${prefix}/references`, icon: Building2 },
         { label: t('newsletter'), href: `${prefix}/newsletter`, icon: Mail },
       ],
     },
