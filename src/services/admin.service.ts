@@ -12,6 +12,7 @@ import type {
   AdminProject,
   AdminProjectDetail,
   AdminQuoteRequest,
+  AdminReference,
   AdminSendOfferResult,
   AdminUser,
   AdminUserDetail,
@@ -228,6 +229,30 @@ class AdminService {
 
   async deleteBlogPost(id: string): Promise<void> {
     await api.delete(`/blog/${id}`)
+  }
+
+  async listReferences(query: ListQuery = {}): Promise<PaginatedResponse<AdminReference>> {
+    const response = await api.get<PaginatedResponse<AdminReference>>('/references', { params: query })
+    return response.data
+  }
+
+  async getReferenceById(id: string): Promise<AdminReference> {
+    const response = await api.get<{ success: boolean; data: AdminReference }>(`/references/${id}`)
+    return response.data.data
+  }
+
+  async createReference(data: Record<string, unknown>): Promise<AdminReference> {
+    const response = await api.post<{ success: boolean; data: AdminReference }>('/references', data)
+    return response.data.data
+  }
+
+  async updateReference(id: string, data: Record<string, unknown>): Promise<AdminReference> {
+    const response = await api.patch<{ success: boolean; data: AdminReference }>(`/references/${id}`, data)
+    return response.data.data
+  }
+
+  async deleteReference(id: string): Promise<void> {
+    await api.delete(`/references/${id}`)
   }
 
   async uploadImage(file: File, folder?: string): Promise<string> {
