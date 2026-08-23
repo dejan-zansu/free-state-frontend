@@ -580,12 +580,7 @@ function useV2Schema(tErr: (key: string) => string, needsAddressFallback: boolea
           consent: z.literal(true, {
             message: tErr('consentRequired'),
           }),
-          firstName: z.string().min(1, tErr('required')),
-          lastName: z.string().min(1, tErr('required')),
-          phoneNumber: z
-            .string()
-            .min(1, tErr('required'))
-            .regex(/^[+\d][\d\s\-().]{6,}$/, tErr('phoneInvalid')),
+          name: z.string().trim().min(1, tErr('required')),
           postalCode: z.string(),
           city: z.string(),
         })
@@ -611,6 +606,20 @@ function useV2Schema(tErr: (key: string) => string, needsAddressFallback: boolea
 }
 
 type V2FormData = z.infer<ReturnType<typeof useV2Schema>>
+
+// The v2 contact step asks for one "Name" field. The rest of the system stores a
+// first and a last name, so split on the first space: everything before it is the
+// first name, the remainder the last name. A single word leaves the last name empty,
+// which the backend and the PDF templates already tolerate.
+function splitName(input: string): { firstName: string; lastName: string } {
+  const trimmed = input.trim().replace(/\s+/g, ' ')
+  const firstSpace = trimmed.indexOf(' ')
+  if (firstSpace === -1) return { firstName: trimmed, lastName: '' }
+  return {
+    firstName: trimmed.slice(0, firstSpace),
+    lastName: trimmed.slice(firstSpace + 1),
+  }
+}
 
 function V2FieldError({ id, message }: { id: string; message?: string }) {
   if (!message) return null
@@ -645,7 +654,24 @@ function ContactScreenV2() {
     createdProjectId,
     address,
     createAccount,
+    getSelectedArea,
+    getSystemSizeKwp,
+    getAnnualProduction,
   } = useSolarAboCalculatorStore()
+
+  // Ungated teaser: the physical facts about the roof are shown before the contact
+  // ask, the financial result stays behind it. Swiss thousands separator regardless
+  // of locale, because all four site locales are Swiss.
+  const roofAreaM2 = Math.round(getSelectedArea())
+  const systemSizeKwp = getSystemSizeKwp()
+  const annualProductionKwh = Math.round(getAnnualProduction())
+  const showTeaser =
+    roofAreaM2 > 0 && systemSizeKwp > 0 && annualProductionKwh > 0
+  const swissNumber = (value: number, digits = 0) =>
+    value.toLocaleString('de-CH', {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+    })
 
   const [needsAddressFallback] = useState(
     () => !contact.postalCode || !contact.city
@@ -676,13 +702,11 @@ function ContactScreenV2() {
     defaultValues: {
       email: contact.email || (isLocalDev ? DEV_DEFAULT_CONTACT.email : ''),
       consent: consents.dataProcessing || isLocalDev ? true : undefined,
-      firstName:
-        contact.firstName || (isLocalDev ? DEV_DEFAULT_CONTACT.firstName : ''),
-      lastName:
-        contact.lastName || (isLocalDev ? DEV_DEFAULT_CONTACT.lastName : ''),
-      phoneNumber:
-        contact.phoneNumber ||
-        (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
+      name:
+        [contact.firstName, contact.lastName].filter(Boolean).join(' ') ||
+        (isLocalDev
+          ? `${DEV_DEFAULT_CONTACT.firstName} ${DEV_DEFAULT_CONTACT.lastName}`
+          : ''),
       postalCode: contact.postalCode,
       city: contact.city,
     },
@@ -729,11 +753,11 @@ function ContactScreenV2() {
 
   const onSubmit = useCallback(
     async (data: V2FormData) => {
+      const { firstName, lastName } = splitName(data.name)
       setContact({
-        firstName: data.firstName,
-        lastName: data.lastName,
+        firstName,
+        lastName,
         email: data.email,
-        phoneNumber: data.phoneNumber,
         ...(needsAddressFallback
           ? { postalCode: data.postalCode, city: data.city }
           : {}),
@@ -923,6 +947,49 @@ function ContactScreenV2() {
           </p>
         </div>
 
+        {showTeaser && (
+          <div className="mx-auto mt-8 w-full max-w-md rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 sm:p-8">
+            <p className="text-base font-medium text-[#062E25] tracking-tight">
+              {t('teaserTitle')}
+            </p>
+            <dl className="mt-4 grid grid-cols-3 gap-3">
+              <div>
+                <dt className="text-base text-[#062E25]/70 tracking-tight">
+                  {t('teaserArea')}
+                </dt>
+                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
+                  {swissNumber(roofAreaM2)}
+                  <span className="text-base font-normal"> m²</span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-base text-[#062E25]/70 tracking-tight">
+                  {t('teaserKwp')}
+                </dt>
+                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
+                  {swissNumber(systemSizeKwp, 1)}
+                  <span className="text-base font-normal"> kWp</span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-base text-[#062E25]/70 tracking-tight">
+                  {t('teaserProduction')}
+                </dt>
+                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
+                  {swissNumber(annualProductionKwh)}
+                  <span className="text-base font-normal"> kWh</span>
+                </dd>
+              </div>
+            </dl>
+            <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
+              {t('teaserSource')}
+            </p>
+            <p className="mt-3 text-base text-[#062E25] tracking-tight">
+              {t('teaserNext')}
+            </p>
+          </div>
+        )}
+
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
@@ -1075,85 +1142,23 @@ function ContactScreenV2() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label htmlFor="v2-first-name" className={v2LabelBase}>
-                {t('firstName')}
-              </label>
-              <input
-                id="v2-first-name"
-                autoComplete="given-name"
-                {...register('firstName')}
-                aria-invalid={!!errors.firstName}
-                aria-describedby={
-                  errors.firstName ? 'v2-first-name-error' : undefined
-                }
-                className={cn(
-                  v2InputBase,
-                  'mt-1',
-                  errors.firstName && 'border-destructive'
-                )}
-              />
-              <V2FieldError
-                id="v2-first-name-error"
-                message={errors.firstName?.message}
-              />
-            </div>
-            <div>
-              <label htmlFor="v2-last-name" className={v2LabelBase}>
-                {t('lastName')}
-              </label>
-              <input
-                id="v2-last-name"
-                autoComplete="family-name"
-                {...register('lastName')}
-                aria-invalid={!!errors.lastName}
-                aria-describedby={
-                  errors.lastName ? 'v2-last-name-error' : undefined
-                }
-                className={cn(
-                  v2InputBase,
-                  'mt-1',
-                  errors.lastName && 'border-destructive'
-                )}
-              />
-              <V2FieldError
-                id="v2-last-name-error"
-                message={errors.lastName?.message}
-              />
-            </div>
-          </div>
-
           <div>
-            <label htmlFor="v2-phone" className={v2LabelBase}>
-              {t('phone')}
+            <label htmlFor="v2-name" className={v2LabelBase}>
+              {t('name')}
             </label>
             <input
-              id="v2-phone"
-              type="tel"
-              autoComplete="tel"
-              {...register('phoneNumber')}
-              aria-invalid={!!errors.phoneNumber}
-              aria-describedby={cn(
-                errors.phoneNumber && 'v2-phone-error',
-                'v2-phone-helper'
-              )}
+              id="v2-name"
+              autoComplete="name"
+              {...register('name')}
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'v2-name-error' : undefined}
               className={cn(
                 v2InputBase,
                 'mt-1',
-                errors.phoneNumber && 'border-destructive'
+                errors.name && 'border-destructive'
               )}
             />
-            <V2FieldError
-              id="v2-phone-error"
-              message={errors.phoneNumber?.message}
-            />
-            <p
-              id="v2-phone-helper"
-              className="mt-1 text-base text-[#062E25] tracking-tight"
-            >
-              {t('phoneHelper')}
-            </p>
+            <V2FieldError id="v2-name-error" message={errors.name?.message} />
           </div>
 
           {submissionError && (

@@ -5765,12 +5765,10 @@
   },
   "calculatorV2": {
     "progress": {
-      "stepOf": "Schritt {n} von 5",
       "screen1": "Adresse",
       "screen2": "Dachflächen",
       "screen3": "Verbrauch",
-      "screen4": "Ergebnis",
-      "screen5": "Kontakt"
+      "screen4": "Kontakt"
     },
     "screen1": {
       "headline": "Ihre Ersparnis in 2 Minuten berechnen",
@@ -5876,12 +5874,15 @@
     },
     "screen5": {
       "headline": "Ihre Auswertung ist fertig",
-      "helper": "Ihre Adresse haben wir bereits. Es fehlen nur noch Ihr Name und Ihre Kontaktangaben.",
-      "firstName": "Vorname",
-      "lastName": "Nachname",
+      "helper": "Ihre Adresse haben wir bereits. Es fehlen nur noch Ihr Name und Ihre E-Mail-Adresse.",
+      "teaserTitle": "Das kann Ihr Dach",
+      "teaserArea": "Dachfläche",
+      "teaserKwp": "Anlagengrösse",
+      "teaserProduction": "Strom pro Jahr",
+      "teaserSource": "Geschätzt aus den Dachdaten des Bundes (Sonnendach.ch) für die von Ihnen gewählten Flächen.",
+      "teaserNext": "Was Sie damit sparen und was der Bund dazu zahlt, sehen Sie in Ihrer Auswertung.",
       "email": "E-Mail-Adresse",
-      "phone": "Telefonnummer",
-      "phoneHelper": "Wir brauchen Ihre Nummer, damit unser Team Ihre Auswertung mit Ihnen durchgehen kann.",
+      "name": "Name",
       "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
       "consentNote": "Sobald Sie einwilligen, speichern wir Ihre E-Mail-Adresse, damit Ihre Auswertung nicht verloren geht.",
       "privacyLink": "Datenschutzerklärung",
@@ -5896,7 +5897,6 @@
       "verifyTypoPrompt": "Haben Sie sich bei der E-Mail-Adresse vertippt? Geben Sie sie hier noch einmal ein.",
       "verifyResendButton": "Link erneut senden",
       "errors": {
-        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein.",
         "required": "Bitte füllen Sie dieses Feld aus.",
         "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
         "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",

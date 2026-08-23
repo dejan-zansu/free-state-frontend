@@ -4168,12 +4168,10 @@
   },
   "calculatorV2": {
     "progress": {
-      "stepOf": "Passo {n} di 5",
       "screen1": "Indirizzo",
       "screen2": "Tetto",
       "screen3": "Consumo",
-      "screen4": "Risultato",
-      "screen5": "Contatto"
+      "screen4": "Contatto"
     },
     "screen1": {
       "headline": "Calcola il tuo risparmio in 2 minuti",
@@ -4279,12 +4277,15 @@
     },
     "screen5": {
       "headline": "La tua valutazione è pronta",
-      "helper": "Il tuo indirizzo lo abbiamo già. Mancano solo il tuo nome e i tuoi contatti.",
-      "firstName": "Nome",
-      "lastName": "Cognome",
+      "helper": "Il tuo indirizzo lo abbiamo già. Mancano solo il tuo nome e il tuo indirizzo e-mail.",
+      "teaserTitle": "Cosa può produrre il tuo tetto",
+      "teaserArea": "Superficie del tetto",
+      "teaserKwp": "Potenza",
+      "teaserProduction": "Elettricità all’anno",
+      "teaserSource": "Stima basata sui dati federali dei tetti (Sonnendach.ch) per le superfici che hai scelto.",
+      "teaserNext": "Il tuo risparmio e il contributo della Confederazione sono nella tua valutazione.",
       "email": "Indirizzo e-mail",
-      "phone": "Numero di telefono",
-      "phoneHelper": "Ci serve il tuo numero perché il nostro team possa esaminare la tua valutazione con te.",
+      "name": "Nome",
       "consent": "Acconsento che Free State AG utilizzi i miei dati per elaborare la mia richiesta. Si applica l'<privacyLink>informativa sulla privacy</privacyLink>.",
       "consentNote": "Non appena dai il tuo consenso, salviamo il tuo indirizzo e-mail affinché la tua valutazione non vada persa.",
       "privacyLink": "Informativa sulla privacy",
@@ -4299,7 +4300,6 @@
       "verifyTypoPrompt": "Hai sbagliato a scrivere il tuo indirizzo e-mail? Inseriscilo qui un'altra volta.",
       "verifyResendButton": "Invia di nuovo il link",
       "errors": {
-        "phoneInvalid": "Inserisci un numero di telefono valido.",
         "required": "Compila questo campo.",
         "emailInvalid": "Inserisci un indirizzo e-mail valido.",
         "consentRequired": "Conferma il tuo consenso affinché possiamo elaborare la tua richiesta.",

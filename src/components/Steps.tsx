@@ -18,11 +18,12 @@ export default function Steps() {
 
   const steps = calculatorFlowV2Enabled
     ? [
+        // Four screens, matching totalSteps in calculator-flow.ts. The result is not
+        // a step: it lives in the project workspace after the contact step.
         { id: 1, label: tV2('screen1') },
         { id: 2, label: tV2('screen2') },
         { id: 3, label: tV2('screen3') },
-        { id: 4, label: tV2('screen5') },
-        { id: 5, label: tV2('screen4') },
+        { id: 4, label: tV2('screen4') },
       ]
     : [
         { id: 1, label: t('progress.step2') },

@@ -4168,12 +4168,10 @@
   },
   "calculatorV2": {
     "progress": {
-      "stepOf": "Étape {n} sur 5",
       "screen1": "Adresse",
       "screen2": "Toiture",
       "screen3": "Consommation",
-      "screen4": "Résultat",
-      "screen5": "Contact"
+      "screen4": "Contact"
     },
     "screen1": {
       "headline": "Calculez vos économies en 2 minutes",
@@ -4279,12 +4277,15 @@
     },
     "screen5": {
       "headline": "Votre évaluation est prête",
-      "helper": "Nous avons déjà votre adresse. Il ne manque plus que votre nom et vos coordonnées.",
-      "firstName": "Prénom",
-      "lastName": "Nom",
+      "helper": "Nous avons déjà votre adresse. Il ne manque plus que votre nom et votre adresse e-mail.",
+      "teaserTitle": "Ce que votre toit peut produire",
+      "teaserArea": "Surface de toiture",
+      "teaserKwp": "Puissance",
+      "teaserProduction": "Électricité par an",
+      "teaserSource": "Estimation établie à partir des données fédérales de toiture (Sonnendach.ch) pour les surfaces que vous avez choisies.",
+      "teaserNext": "Vos économies et la contribution de la Confédération figurent dans votre évaluation.",
       "email": "Adresse e-mail",
-      "phone": "Numéro de téléphone",
-      "phoneHelper": "Nous avons besoin de votre numéro pour que notre équipe puisse passer en revue votre évaluation avec vous.",
+      "name": "Nom",
       "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
       "consentNote": "Dès que vous donnez votre consentement, nous enregistrons votre adresse e-mail afin que votre évaluation ne soit pas perdue.",
       "privacyLink": "Politique de confidentialité",
@@ -4299,7 +4300,6 @@
       "verifyTypoPrompt": "Vous êtes-vous trompé dans votre adresse e-mail ? Saisissez-la ici encore une fois.",
       "verifyResendButton": "Renvoyer le lien",
       "errors": {
-        "phoneInvalid": "Veuillez saisir un numéro de téléphone valide.",
         "required": "Veuillez remplir ce champ.",
         "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
         "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",

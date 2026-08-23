@@ -4168,12 +4168,10 @@
   },
   "calculatorV2": {
     "progress": {
-      "stepOf": "Step {n} of 5",
       "screen1": "Address",
       "screen2": "Roof areas",
       "screen3": "Consumption",
-      "screen4": "Result",
-      "screen5": "Contact"
+      "screen4": "Contact"
     },
     "screen1": {
       "headline": "Calculate your savings in 2 minutes",
@@ -4279,12 +4277,15 @@
     },
     "screen5": {
       "headline": "Your report is ready",
-      "helper": "We already have your address. Only your name and contact details are missing.",
-      "firstName": "First name",
-      "lastName": "Last name",
+      "helper": "We already have your address. All we still need is your name and your email address.",
+      "teaserTitle": "What your roof can do",
+      "teaserArea": "Roof area",
+      "teaserKwp": "System size",
+      "teaserProduction": "Electricity per year",
+      "teaserSource": "Estimated from the federal roof data (Sonnendach.ch) for the areas you selected.",
+      "teaserNext": "What you save, and what the federal subsidy adds, is in your report.",
       "email": "Email address",
-      "phone": "Phone number",
-      "phoneHelper": "We need your number so our team can walk through your report with you.",
+      "name": "Name",
       "consent": "I agree that Free State AG may use my details to process my request. The <privacyLink>privacy policy</privacyLink> applies.",
       "consentNote": "As soon as you consent, we store your email address so your report does not get lost.",
       "privacyLink": "Privacy policy",
@@ -4299,7 +4300,6 @@
       "verifyTypoPrompt": "Did you mistype your email address? Enter it here once more.",
       "verifyResendButton": "Send link again",
       "errors": {
-        "phoneInvalid": "Please enter a valid phone number.",
         "required": "Please fill in this field.",
         "emailInvalid": "Please enter a valid email address.",
         "consentRequired": "Please confirm your consent so that we may process your request.",
