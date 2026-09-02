@@ -1,6 +1,7 @@
 'use client'
 
 import { AdminSidebar, AdminSidebarMobileTrigger } from '@/components/admin/AdminSidebar'
+import { PushNotificationToggle } from '@/components/admin/PushNotificationToggle'
 import { ProtectedRoute } from '@/components/auth/ProtectedRoute'
 import { useUser } from '@/stores/auth.store'
 import { LogOut } from 'lucide-react'
@@ -24,6 +25,8 @@ export default function AdminLayout({
 
   return (
     <ProtectedRoute allowedRoles={['ADMIN']}>
+      <link rel="manifest" href="/manifest.webmanifest" />
+      <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       <div className="flex min-h-screen bg-gray-50/50">
         <AdminSidebar />
         <div className="flex-1 min-w-0 flex flex-col">
@@ -35,6 +38,7 @@ export default function AdminLayout({
               <span className="text-sm text-[#062E25]/75">
                 {user?.firstName} {user?.lastName}
               </span>
+              <PushNotificationToggle />
               <Button variant="ghost" size="sm" onClick={handleLogout}>
                 <LogOut className="h-4 w-4" />
               </Button>
