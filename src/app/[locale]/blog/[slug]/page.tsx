@@ -14,6 +14,7 @@ import {
 } from '@/lib/seo/structured-data'
 import { prepareArticle, readingTimeMinutes } from '@/lib/blog/article'
 import BlogCard from '@/components/blog/BlogCard'
+import BlogReadTracker from '@/components/blog/BlogReadTracker'
 import ReadingProgress from '@/components/blog/ReadingProgress'
 import TocRail from '@/components/blog/TocRail'
 
@@ -102,6 +103,11 @@ const BlogPostPage = async ({ params }: Props) => {
         ])}
       />
       <ReadingProgress targetId="article-content" />
+      <BlogReadTracker
+        slug={post.slug}
+        targetId="article-content"
+        locale={locale}
+      />
 
       <div className="bg-[#062E25]">
         <div className="max-w-[1310px] mx-auto px-4 sm:px-6 pt-32 pb-16 lg:pb-20">

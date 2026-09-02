@@ -8131,7 +8131,31 @@
       "metaDescription": "Meta-Beschreibung",
       "save": "Speichern",
       "delete": "Löschen",
-      "confirmDelete": "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?"
+      "confirmDelete": "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?",
+      "analytics": {
+        "title": "Blog-Statistik",
+        "subtitle": "Wie oft jeder Beitrag aufgerufen und wie weit er gelesen wird.",
+        "backToPosts": "Zurück zu den Beiträgen",
+        "rangeDays": "{count} Tage",
+        "totalViews": "Aufrufe",
+        "totalSessions": "Leserinnen und Leser",
+        "totalReads": "Gemessene Lesevorgänge",
+        "avgDepth": "Ø Lesetiefe",
+        "gscClicks": "Google-Klicks",
+        "post": "Beitrag",
+        "views": "Aufrufe",
+        "readers": "Leser",
+        "reads": "Messungen",
+        "depth": "Ø Tiefe",
+        "finished": "Zu Ende gelesen",
+        "readTime": "Median Lesezeit",
+        "clicks": "Klicks",
+        "impressions": "Impressionen",
+        "position": "Ø Position",
+        "publishedOn": "Veröffentlicht am {date}",
+        "empty": "Für diesen Zeitraum liegen keine Daten vor",
+        "readsNote": "Aufrufe stammen aus der eigenen Messung. Lesetiefe und Lesezeit werden erst seit dem Einbau der Lesemessung erfasst, ältere Beiträge zeigen dort noch keine Werte. Klicks, Impressionen und Position kommen aus der Google Search Console."
+      }
     },
     "references": {
       "title": "Referenzen",

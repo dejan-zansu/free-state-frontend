@@ -1,6 +1,6 @@
 'use client'
 
-import { ChevronLeft, ChevronRight, Plus } from 'lucide-react'
+import { BarChart3, ChevronLeft, ChevronRight, Plus } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
@@ -53,12 +53,20 @@ export default function AdminBlogListPage() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-[#062E25]">{t('title')}</h1>
-        <Button asChild className="bg-[#062E25] hover:bg-[#062E25]/90 text-white">
-          <Link href={`/${locale}/admin/blog/new`}>
-            <Plus className="h-4 w-4 mr-2" />
-            {t('newPost')}
-          </Link>
-        </Button>
+        <div className="flex items-center gap-3">
+          <Button asChild variant="outline">
+            <Link href={`/${locale}/admin/blog/analytics`}>
+              <BarChart3 className="h-4 w-4 mr-2" />
+              {t('analytics.title')}
+            </Link>
+          </Button>
+          <Button asChild className="bg-[#062E25] hover:bg-[#062E25]/90 text-white">
+            <Link href={`/${locale}/admin/blog/new`}>
+              <Plus className="h-4 w-4 mr-2" />
+              {t('newPost')}
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Card className="border-[#062E25]/10">

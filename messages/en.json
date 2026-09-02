@@ -7986,7 +7986,31 @@
       "metaDescription": "Meta Description",
       "save": "Save",
       "delete": "Delete",
-      "confirmDelete": "Are you sure you want to delete this post?"
+      "confirmDelete": "Are you sure you want to delete this post?",
+      "analytics": {
+        "title": "Blog analytics",
+        "subtitle": "How often each post is opened and how far it is read.",
+        "backToPosts": "Back to posts",
+        "rangeDays": "{count} days",
+        "totalViews": "Views",
+        "totalSessions": "Readers",
+        "totalReads": "Measured reads",
+        "avgDepth": "Avg. read depth",
+        "gscClicks": "Google clicks",
+        "post": "Post",
+        "views": "Views",
+        "readers": "Readers",
+        "reads": "Measurements",
+        "depth": "Avg. depth",
+        "finished": "Read to the end",
+        "readTime": "Median read time",
+        "clicks": "Clicks",
+        "impressions": "Impressions",
+        "position": "Avg. position",
+        "publishedOn": "Published on {date}",
+        "empty": "No data for this period",
+        "readsNote": "Views come from our own page-view tracking. Read depth and read time are only recorded since the reading measurement was added, so older posts show no values there yet. Clicks, impressions and position come from Google Search Console."
+      }
     },
     "references": {
       "title": "References",

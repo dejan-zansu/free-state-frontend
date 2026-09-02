@@ -516,6 +516,39 @@ export interface AdminBlogPost {
   updatedAt: string
 }
 
+export interface BlogPostAnalyticsRow {
+  id: string
+  slug: string
+  title: string
+  status: 'DRAFT' | 'PUBLISHED'
+  publishedAt: string | null
+  views: number
+  sessions: number
+  viewsByLocale: Record<string, number>
+  reads: number
+  avgDepth: number | null
+  medianSeconds: number | null
+  deepReadRate: number | null
+  finishRate: number | null
+  gscClicks: number
+  gscImpressions: number
+  gscPosition: number | null
+}
+
+export interface BlogAnalytics {
+  range: { from: string; to: string }
+  totals: {
+    posts: number
+    views: number
+    sessions: number
+    reads: number
+    avgDepth: number | null
+    gscClicks: number
+    gscImpressions: number
+  }
+  posts: BlogPostAnalyticsRow[]
+}
+
 export interface ListQuery {
   page?: number
   limit?: number

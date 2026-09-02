@@ -16,6 +16,7 @@ import type {
   AdminSendOfferResult,
   AdminUser,
   AdminUserDetail,
+  BlogAnalytics,
   DashboardStats,
   ListQuery,
   PaginatedResponse,
@@ -210,6 +211,11 @@ class AdminService {
   async listBlogPosts(query: ListQuery = {}): Promise<PaginatedResponse<AdminBlogPost>> {
     const response = await api.get<PaginatedResponse<AdminBlogPost>>('/blog', { params: query })
     return response.data
+  }
+
+  async getBlogAnalytics(range: { from: string; to: string }): Promise<BlogAnalytics> {
+    const response = await api.get<{ success: boolean; data: BlogAnalytics }>('/blog/analytics', { params: range })
+    return response.data.data
   }
 
   async getBlogPostById(id: string): Promise<AdminBlogPost> {

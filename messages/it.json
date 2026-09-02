@@ -7986,7 +7986,31 @@
       "metaDescription": "Meta descrizione",
       "save": "Salva",
       "delete": "Elimina",
-      "confirmDelete": "Sei sicuro di voler eliminare questo post?"
+      "confirmDelete": "Sei sicuro di voler eliminare questo post?",
+      "analytics": {
+        "title": "Statistiche del blog",
+        "subtitle": "Quante volte ogni articolo viene aperto e fino a che punto viene letto.",
+        "backToPosts": "Torna agli articoli",
+        "rangeDays": "{count} giorni",
+        "totalViews": "Visualizzazioni",
+        "totalSessions": "Lettori",
+        "totalReads": "Letture misurate",
+        "avgDepth": "Profondità di lettura media",
+        "gscClicks": "Clic Google",
+        "post": "Articolo",
+        "views": "Visualizzazioni",
+        "readers": "Lettori",
+        "reads": "Misurazioni",
+        "depth": "Profondità media",
+        "finished": "Letto fino in fondo",
+        "readTime": "Tempo di lettura mediano",
+        "clicks": "Clic",
+        "impressions": "Impressioni",
+        "position": "Posizione media",
+        "publishedOn": "Pubblicato il {date}",
+        "empty": "Nessun dato per questo periodo",
+        "readsNote": "Le visualizzazioni provengono dalla nostra misurazione delle pagine viste. Profondità e tempo di lettura vengono registrati solo da quando è stata aggiunta la misurazione della lettura, quindi gli articoli più vecchi non mostrano ancora valori. Clic, impressioni e posizione arrivano da Google Search Console."
+      }
     },
     "references": {
       "title": "Referenze",
