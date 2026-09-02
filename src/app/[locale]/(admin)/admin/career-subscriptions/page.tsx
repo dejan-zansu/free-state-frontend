@@ -80,7 +80,7 @@ export default function AdminCareerSubscriptionsPage() {
                       </TableCell>
                       <TableCell className="text-base text-[#062E25] max-w-xs">
                         <p className="truncate" title={sub.comment ?? ''}>
-                          {sub.comment ?? '—'}
+                          {sub.comment ?? '-'}
                         </p>
                       </TableCell>
                       <TableCell className="text-base text-[#062E25] uppercase">

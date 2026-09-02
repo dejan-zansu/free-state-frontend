@@ -49,7 +49,7 @@ function fmtChfMwh(n: number): string {
 }
 
 function fmtVolume(n: number | null): string {
-  if (n == null) return '—'
+  if (n == null) return '-'
   return Math.round(n).toLocaleString('de-CH')
 }
 
@@ -220,7 +220,7 @@ export default function AdminReferenceMarketPricesPage() {
                     {fmtVolume(r.volumeMwh)}
                   </TableCell>
                   <TableCell className="text-right tabular-nums">
-                    {r.days ?? '—'}
+                    {r.days ?? '-'}
                   </TableCell>
                   <TableCell className="text-sm text-[#062E25]">
                     {new Date(r.importedAt).toLocaleDateString('de-CH')}

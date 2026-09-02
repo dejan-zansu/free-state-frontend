@@ -153,7 +153,7 @@ const Header = () => {
           <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
             <Link
               href="/"
-              aria-label="Free State AG — Startseite"
+              aria-label="Free State AG, Startseite"
               className="flex items-start gap-2 shrink-0"
             >
               {showDarkHeader ? (

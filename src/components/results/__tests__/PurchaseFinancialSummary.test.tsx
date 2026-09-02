@@ -48,7 +48,7 @@ describe('PurchaseFinancialSummary', () => {
     expect(screen.getByText(/unavailable|onboarding/i)).toBeInTheDocument()
   })
 
-  it('renders an em-dash placeholder for non-finite payback', () => {
+  it('renders a hyphen placeholder for non-finite payback', () => {
     renderWithIntl(
       <PurchaseFinancialSummary
         grossPriceChf={25000}
@@ -59,6 +59,6 @@ describe('PurchaseFinancialSummary', () => {
         lifetimeSavings25y={-25000}
       />,
     )
-    expect(screen.getByText(/—|N\/A|∞/)).toBeInTheDocument()
+    expect(screen.getByText('-')).toBeInTheDocument()
   })
 })

@@ -61,7 +61,7 @@ function PlatformBadge({ platform }: { platform: MarketingSocialPlatform }) {
 }
 
 function formatCount(value: number | null) {
-  return value !== null ? value.toLocaleString('de-CH') : '—'
+  return value !== null ? value.toLocaleString('de-CH') : '-'
 }
 
 function sortValue(row: MarketingContentPostRow, key: SortKey): number {
@@ -283,11 +283,11 @@ export default function AdminMarketingContentPage() {
                       <TableCell className="text-sm text-[#062E25] whitespace-nowrap">
                         {row.publishedAt
                           ? new Date(row.publishedAt).toLocaleDateString('de-CH')
-                          : '—'}
+                          : '-'}
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]">{row.type}</TableCell>
                       <TableCell className="text-sm text-[#062E25]">
-                        {row.pillar ?? '—'}
+                        {row.pillar ?? '-'}
                       </TableCell>
                       <TableCell>
                         {row.permalink ? (
@@ -298,14 +298,14 @@ export default function AdminMarketingContentPage() {
                             className="block max-w-[240px] truncate text-sm text-[#062E25]/80 hover:underline"
                             title={row.caption ?? undefined}
                           >
-                            {row.caption ?? '—'}
+                            {row.caption ?? '-'}
                           </a>
                         ) : (
                           <span
                             className="block max-w-[240px] truncate text-sm text-[#062E25]/80"
                             title={row.caption ?? undefined}
                           >
-                            {row.caption ?? '—'}
+                            {row.caption ?? '-'}
                           </span>
                         )}
                       </TableCell>
@@ -330,7 +330,7 @@ export default function AdminMarketingContentPage() {
                       <TableCell className="text-right tabular-nums text-[#062E25]/80">
                         {row.engagementRatePct !== null
                           ? `${row.engagementRatePct.toLocaleString('de-CH', { maximumFractionDigits: 1 })} %`
-                          : '—'}
+                          : '-'}
                       </TableCell>
                     </TableRow>
                   ))}

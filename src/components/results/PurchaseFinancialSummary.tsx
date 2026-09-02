@@ -21,7 +21,7 @@ export function PurchaseFinancialSummary(props: Props) {
     `CHF ${n.toLocaleString('de-CH', { maximumFractionDigits: 0 })}`
   const paybackText = Number.isFinite(props.paybackYears)
     ? `${props.paybackYears.toFixed(1)} ${t('yearsShort')}`
-    : '—'
+    : '-'
 
   return (
     <section className={cn('flex flex-col gap-3 rounded-xl bg-[#0F2A24] p-5 text-white', props.className)}>

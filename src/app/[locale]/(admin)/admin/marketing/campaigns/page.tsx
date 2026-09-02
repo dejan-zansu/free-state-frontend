@@ -39,7 +39,7 @@ function formatCount(value: number) {
 }
 
 function formatPct(value: number | null) {
-  if (value === null) return '—'
+  if (value === null) return '-'
   return `${value.toLocaleString('de-CH', { maximumFractionDigits: 2 })} %`
 }
 
@@ -157,10 +157,10 @@ export default function AdminMarketingCampaignsPage() {
                         {formatPct(row.ctrPct30d)}
                       </TableCell>
                       <TableCell className="text-right tabular-nums text-[#062E25]">
-                        {row.cpcChf30d !== null ? formatChf(row.cpcChf30d) : '—'}
+                        {row.cpcChf30d !== null ? formatChf(row.cpcChf30d) : '-'}
                       </TableCell>
                       <TableCell className="text-right tabular-nums text-[#062E25]">
-                        {row.sessions30d !== null ? formatCount(row.sessions30d) : '—'}
+                        {row.sessions30d !== null ? formatCount(row.sessions30d) : '-'}
                       </TableCell>
                       <TableCell className="text-right tabular-nums text-[#062E25]">
                         {formatCount(row.signups30d)}
@@ -171,7 +171,7 @@ export default function AdminMarketingCampaignsPage() {
                           cplClass(row.costPerSignupChf, target)
                         )}
                       >
-                        {row.costPerSignupChf !== null ? formatChf(row.costPerSignupChf) : '—'}
+                        {row.costPerSignupChf !== null ? formatChf(row.costPerSignupChf) : '-'}
                       </TableCell>
                       <TableCell className="text-right tabular-nums text-[#062E25]">
                         {formatCount(row.dbLeads30d)}

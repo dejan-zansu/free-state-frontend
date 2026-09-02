@@ -177,11 +177,11 @@ export default function AdminMarketingSettingsPage() {
                       {connector.lastStatus ? (
                         <StatusBadge status={connector.lastStatus} />
                       ) : (
-                        <span className="text-[#062E25]/75">—</span>
+                        <span className="text-[#062E25]/75">-</span>
                       )}
                     </TableCell>
                     <TableCell className="text-right tabular-nums text-[#062E25]/80">
-                      {connector.itemsUpserted ?? '—'}
+                      {connector.itemsUpserted ?? '-'}
                     </TableCell>
                     <TableCell>
                       {connector.lastError ? (
@@ -199,7 +199,7 @@ export default function AdminMarketingSettingsPage() {
                             : connector.lastError}
                         </span>
                       ) : (
-                        <span className="text-[#062E25]/75">—</span>
+                        <span className="text-[#062E25]/75">-</span>
                       )}
                     </TableCell>
                     <TableCell

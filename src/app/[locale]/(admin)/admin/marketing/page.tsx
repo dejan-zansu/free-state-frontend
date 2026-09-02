@@ -225,7 +225,7 @@ export default function AdminMarketingOverviewPage() {
           <CardContent className="p-5">
             <p className="text-sm text-[#062E25] mb-2">{t('cplTile')}</p>
             <p className="text-2xl font-bold text-[#062E25] mb-1">
-              {cpl.valueChf !== null ? `CHF ${formatChf(cpl.valueChf)}` : '—'}
+              {cpl.valueChf !== null ? `CHF ${formatChf(cpl.valueChf)}` : '-'}
             </p>
             <p className="text-sm text-[#062E25]">
               {cpl.targetChf !== null
@@ -254,7 +254,7 @@ export default function AdminMarketingOverviewPage() {
             <p className="text-2xl font-bold text-[#062E25] mb-1">
               {funnel.ratePct !== null
                 ? `${funnel.ratePct.toLocaleString('de-CH', { maximumFractionDigits: 1 })} %`
-                : '—'}
+                : '-'}
             </p>
             <p className="text-sm text-[#062E25]">
               {funnel.ratePct !== null
@@ -267,7 +267,7 @@ export default function AdminMarketingOverviewPage() {
         <Card className="border-[#062E25]/10 opacity-50">
           <CardContent className="p-5">
             <p className="text-sm text-[#062E25] mb-2">{t('engagementTile')}</p>
-            <p className="text-2xl font-bold text-[#062E25] mb-1">{'—'}</p>
+            <p className="text-2xl font-bold text-[#062E25] mb-1">{'-'}</p>
             <p className="text-sm text-[#062E25]/75">{t('engagementHint')}</p>
           </CardContent>
         </Card>

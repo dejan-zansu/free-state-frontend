@@ -194,7 +194,7 @@ export default function AdminMarketingCompetitorsPage() {
                       <TableCell className="text-sm text-[#062E25]">
                         {row.lastPageDiffAt
                           ? new Date(row.lastPageDiffAt).toLocaleDateString('de-CH')
-                          : '—'}
+                          : '-'}
                       </TableCell>
                       <TableCell onClick={(e) => e.stopPropagation()}>
                         <Switch
@@ -214,7 +214,7 @@ export default function AdminMarketingCompetitorsPage() {
                             </a>
                           </Button>
                         ) : (
-                          <span className="text-[#062E25]/75">—</span>
+                          <span className="text-[#062E25]/75">-</span>
                         )}
                       </TableCell>
                     </TableRow>

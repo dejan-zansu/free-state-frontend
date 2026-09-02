@@ -41,7 +41,7 @@ export function PhotoGalleryUpload({
       const newUrls: string[] = []
       for (const file of toUpload) {
         if (!file.type.startsWith('image/')) {
-          setError(`Überspringe "${file.name}" — kein Bild.`)
+          setError(`Überspringe "${file.name}", kein Bild.`)
           continue
         }
         if (file.size > 10 * 1024 * 1024) {

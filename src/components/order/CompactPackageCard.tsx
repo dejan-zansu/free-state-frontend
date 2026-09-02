@@ -10,7 +10,7 @@ import { getFromPriceChf, type SolarModelKey } from './PackageCard'
 const YIELD_KWH_PER_KWP = 950
 
 function fmtChf(n: number | null | undefined): string {
-  return n != null ? n.toLocaleString('de-CH') : '—'
+  return n != null ? n.toLocaleString('de-CH') : '-'
 }
 
 function fmtRange(min: number, max: number, digits = 1): string {
@@ -40,7 +40,7 @@ export default function CompactPackageCard({
     ? '0 CHF'
     : fromPrice != null
       ? `${fmtChf(fromPrice)} CHF`
-      : '—'
+      : '-'
   const hasRange = pkg.minCapacityKwp != null && pkg.maxCapacityKwp != null
   const equipment = pkg.equipment.filter(e => e.name).slice(0, 4)
 

@@ -69,7 +69,7 @@ export interface SonnendachReportParams {
   // Solar model routing (defaults server-side to 'solar-direct' for backward compat)
   solarModel?: SolarModel
 
-  // Ownership financial fields — required only when solarModel === 'solar-direct'
+  // Ownership financial fields, required only when solarModel === 'solar-direct'
   panelCost?: number
   inverterCost?: number
   installationCost?: number
@@ -85,7 +85,7 @@ export interface SonnendachReportParams {
   // Semantic-aware: ownership savings for solar-direct, PPA savings for solar-free
   annualSavings: number
 
-  // PPA-specific — required only when solarModel === 'solar-free'
+  // PPA-specific, required only when solarModel === 'solar-free'
   ppaDiscountPercent?: number | null
   contractTermYears?: number | null
 

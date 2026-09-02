@@ -96,7 +96,7 @@ export default function AdminElectricityPricesPage() {
   const summary = data?.summary
 
   const avgChf = useMemo(
-    () => (summary ? (summary.avgRpKwh / 100).toFixed(4) : '—'),
+    () => (summary ? (summary.avgRpKwh / 100).toFixed(4) : '-'),
     [summary],
   )
 
@@ -244,7 +244,7 @@ export default function AdminElectricityPricesPage() {
                   <TableRow key={`${r.bfsNumber}-${r.operatorName}-${r.productCode}-${r.year}-${r.category}-${i}`}>
                     <TableCell className="font-medium tabular-nums">{r.bfsNumber}</TableCell>
                     <TableCell>{r.municipalityName}</TableCell>
-                    <TableCell>{r.cantonCode ?? '—'}</TableCell>
+                    <TableCell>{r.cantonCode ?? '-'}</TableCell>
                     <TableCell className="max-w-xs truncate" title={r.operatorName}>
                       {r.operatorName}
                     </TableCell>
@@ -264,7 +264,7 @@ export default function AdminElectricityPricesPage() {
                       {formatRp(r.aidfeeRpKwh + r.chargeRpKwh)}
                     </TableCell>
                     <TableCell className="text-right tabular-nums text-[#062E25]">
-                      {r.fixcostsChf != null ? r.fixcostsChf.toFixed(0) : '—'}
+                      {r.fixcostsChf != null ? r.fixcostsChf.toFixed(0) : '-'}
                     </TableCell>
                   </TableRow>
                 ))}

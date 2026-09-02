@@ -76,7 +76,7 @@ function formatChf(value: number) {
 }
 
 function formatMaybeChf(value: number | null) {
-  return value !== null ? formatChf(value) : '—'
+  return value !== null ? formatChf(value) : '-'
 }
 
 function formatCount(value: number) {
@@ -84,11 +84,11 @@ function formatCount(value: number) {
 }
 
 function formatMaybeCount(value: number | null) {
-  return value !== null ? formatCount(value) : '—'
+  return value !== null ? formatCount(value) : '-'
 }
 
 function formatPct(value: number | null) {
-  if (value === null) return '—'
+  if (value === null) return '-'
   return `${value.toLocaleString('de-CH', { maximumFractionDigits: 2 })} %`
 }
 
@@ -201,7 +201,7 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
       ? t('detail.creativeSourceGoogleAds')
       : ad.creativeSource === 'manual'
         ? t('detail.creativeSourceManual')
-        : '—'
+        : '-'
 
   const stats = [
     { label: t('detail.spend'), value: `CHF ${formatChf(ad.spendChf)}` },
@@ -450,7 +450,7 @@ export default function AdminMarketingCampaignDetailPage() {
         { label: t('detail.ctr'), value: formatPct(totals.ctrPct) },
         {
           label: t('detail.cpc'),
-          value: totals.cpcChf !== null ? `CHF ${formatChf(totals.cpcChf)}` : '—',
+          value: totals.cpcChf !== null ? `CHF ${formatChf(totals.cpcChf)}` : '-',
         },
         {
           label: t('detail.sessions'),
@@ -464,7 +464,7 @@ export default function AdminMarketingCampaignDetailPage() {
         {
           label: t('detail.costPerSignup'),
           value:
-            totals.costPerSignupChf !== null ? `CHF ${formatChf(totals.costPerSignupChf)}` : '—',
+            totals.costPerSignupChf !== null ? `CHF ${formatChf(totals.costPerSignupChf)}` : '-',
         },
         {
           label: t('detail.keyEvents'),
@@ -493,13 +493,13 @@ export default function AdminMarketingCampaignDetailPage() {
         },
         {
           label: t('trueCpl'),
-          value: totals.trueCplChf !== null ? `CHF ${formatChf(totals.trueCplChf)}` : '—',
+          value: totals.trueCplChf !== null ? `CHF ${formatChf(totals.trueCplChf)}` : '-',
         },
         { label: t('detail.signups'), value: formatCount(totals.signups) },
         {
           label: t('detail.costPerSignup'),
           value:
-            totals.costPerSignupChf !== null ? `CHF ${formatChf(totals.costPerSignupChf)}` : '—',
+            totals.costPerSignupChf !== null ? `CHF ${formatChf(totals.costPerSignupChf)}` : '-',
         },
         { label: t('detail.consults'), value: formatCount(totals.consults) },
         {
@@ -992,7 +992,7 @@ export default function AdminMarketingCampaignDetailPage() {
                         </TableCell>
                         <TableCell>
                           {group.synthetic ? (
-                            <span className="text-[#062E25]/60">—</span>
+                            <span className="text-[#062E25]/60">-</span>
                           ) : (
                             <StatusBadge status={group.status} />
                           )}
@@ -1113,7 +1113,7 @@ export default function AdminMarketingCampaignDetailPage() {
                         </TableCell>
                         <TableCell>
                           {ad.synthetic ? (
-                            <span className="text-[#062E25]/60">—</span>
+                            <span className="text-[#062E25]/60">-</span>
                           ) : (
                             <StatusBadge status={ad.status} />
                           )}
@@ -1181,12 +1181,12 @@ export default function AdminMarketingCampaignDetailPage() {
                           <p className="font-medium text-[#062E25]">{keyword.text}</p>
                           <p className="text-sm text-[#062E25]/75">{keyword.adGroupName}</p>
                         </TableCell>
-                        <TableCell className="text-[#062E25]">{keyword.matchType ?? '—'}</TableCell>
+                        <TableCell className="text-[#062E25]">{keyword.matchType ?? '-'}</TableCell>
                         <TableCell>
                           {keyword.status ? (
                             <StatusBadge status={keyword.status} />
                           ) : (
-                            <span className="text-[#062E25]/75">—</span>
+                            <span className="text-[#062E25]/75">-</span>
                           )}
                         </TableCell>
                         <TableCell className="text-right tabular-nums text-[#062E25]">
@@ -1215,7 +1215,7 @@ export default function AdminMarketingCampaignDetailPage() {
                             ? keyword.conversions.toLocaleString('de-CH', {
                                 maximumFractionDigits: 1,
                               })
-                            : '—'}
+                            : '-'}
                         </TableCell>
                       </TableRow>
                     ))}
@@ -1271,8 +1271,8 @@ export default function AdminMarketingCampaignDetailPage() {
                           <p className="font-medium text-[#062E25]">{row.term}</p>
                           <p className="text-sm text-[#062E25]/75">{row.adGroupName}</p>
                         </TableCell>
-                        <TableCell className="text-[#062E25]">{row.matchedKeyword ?? '—'}</TableCell>
-                        <TableCell className="text-[#062E25]">{row.matchType ?? '—'}</TableCell>
+                        <TableCell className="text-[#062E25]">{row.matchedKeyword ?? '-'}</TableCell>
+                        <TableCell className="text-[#062E25]">{row.matchType ?? '-'}</TableCell>
                         <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatChf(row.spendChf)}
                         </TableCell>
@@ -1294,7 +1294,7 @@ export default function AdminMarketingCampaignDetailPage() {
                         <TableCell className="text-right tabular-nums text-[#062E25]">
                           {row.conversions !== null
                             ? row.conversions.toLocaleString('de-CH', { maximumFractionDigits: 1 })
-                            : '—'}
+                            : '-'}
                         </TableCell>
                       </TableRow>
                     ))}

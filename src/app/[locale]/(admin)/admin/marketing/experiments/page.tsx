@@ -247,10 +247,10 @@ export default function AdminMarketingExperimentsPage() {
                           {row.variants.length}
                         </TableCell>
                         <TableCell className="text-sm text-[#062E25] tabular-nums">
-                          {row.startAt ? new Date(row.startAt).toLocaleDateString('de-CH') : '—'}
+                          {row.startAt ? new Date(row.startAt).toLocaleDateString('de-CH') : '-'}
                         </TableCell>
                         <TableCell className="text-sm text-[#062E25]/80 tabular-nums">
-                          {running !== null ? t('runtimeDays', { count: running }) : '—'}
+                          {running !== null ? t('runtimeDays', { count: running }) : '-'}
                         </TableCell>
                         <TableCell className="max-w-[240px]">
                           {row.decision ? (
@@ -258,7 +258,7 @@ export default function AdminMarketingExperimentsPage() {
                               {row.decision}
                             </p>
                           ) : (
-                            <span className="text-[#062E25]/75">—</span>
+                            <span className="text-[#062E25]/75">-</span>
                           )}
                           {(row.status === 'DECIDED' || row.status === 'ABANDONED') &&
                             row.learnings && (

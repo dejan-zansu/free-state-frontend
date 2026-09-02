@@ -348,7 +348,7 @@ const Footer = () => {
             <div className="w-fit">
               <Link
                 href="/"
-                aria-label="Free State AG — Startseite"
+                aria-label="Free State AG, Startseite"
                 className="inline-block"
               >
                 <LogoLight className="h-10 w-auto" />

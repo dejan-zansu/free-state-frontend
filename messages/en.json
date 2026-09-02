@@ -2,7 +2,7 @@
   "title": "Free State AG",
   "packageCatalog": {
     "title": "Choose your solar package",
-    "subtitle": "Pre-configured systems — pick one and order in minutes.",
+    "subtitle": "Pre-configured systems. Pick one and order in minutes.",
     "errorLoading": "Could not load packages.",
     "retry": "Retry",
     "empty": "No packages available right now.",
@@ -47,7 +47,7 @@
         },
         "app": {
           "name": "App & monitoring",
-          "desc": "Always in view — anytime, anywhere"
+          "desc": "Always in view, anytime, anywhere"
         },
         "service": {
           "name": "Installation & service",
@@ -407,14 +407,14 @@
   "contactHero": {
     "badge": "Get in touch",
     "title": "Let's talk",
-    "subtitle": "Whether you have a question, a project inquiry, or need advice—we look forward to your message and will get back to you soon.",
+    "subtitle": "Whether you have a question, a project inquiry, or need advice, we look forward to your message and will get back to you soon.",
     "cta": "Get in touch",
     "phoneTel": "tel:+41525253305"
   },
   "contactCTA": {
     "eyebrow": "Free consultation",
     "title": "Let's talk when it suits you",
-    "description": "Pick a 30-minute slot with one of our advisors and get personalised answers on photovoltaics, heat pumps, or electric mobility — no strings attached.",
+    "description": "Pick a 30-minute slot with one of our advisors and get personalised answers on photovoltaics, heat pumps, or electric mobility, no strings attached.",
     "cta": "Book a meeting"
   },
   "contactMap": {
@@ -1102,7 +1102,7 @@
     "hero": {
       "eyebrow": "Buy solar modules",
       "title": "SolarFree",
-      "subtitle": "State-of-the-art solar and battery storage with FreeState AG's solar leasing — with no upfront cost.",
+      "subtitle": "State-of-the-art solar and battery storage with FreeState AG's solar leasing, with no upfront cost.",
       "cta": "Start the Solar Calculator",
       "tag": "No registration required · No obligation",
       "stats": {
@@ -1138,14 +1138,14 @@
     "details": {
       "eyebrow": "Details",
       "title": "What's included in SolarFree",
-      "subtitle": "All services and components for a reliable energy supply — with no upfront costs.",
+      "subtitle": "All services and components for a reliable energy supply, with no upfront costs.",
       "solarModules": {
         "title": "High-quality solar modules",
-        "description": "Highly efficient solar modules for maximum energy generation — durable and resilient."
+        "description": "Highly efficient solar modules for maximum energy generation, durable and resilient."
       },
       "batteryStorage": {
         "title": "Powerful battery storage",
-        "description": "Reliable energy when you need it — as backup or to optimize self-consumption."
+        "description": "Reliable energy when you need it, as backup or to optimize self-consumption."
       }
     },
     "includes": {
@@ -1203,14 +1203,14 @@
         },
         "2": {
           "question": "What are the advantages of buying a solar system?",
-          "answer": "Long-term cost savings, energy independence, higher property value, and full control — with amortization typically achieved in 5–10 years."
+          "answer": "Long-term cost savings, energy independence, higher property value, and full control, with amortization typically achieved in 5–10 years."
         },
         "3": {
           "question": "Can I buy solar modules myself?",
           "answer": "Yes, but professional installation, grid connection, and permits are still required. Our turnkey SolarDirect package handles all of that for you."
         },
         "4": {
-          "question": "Leasing or buying — which is better?",
+          "question": "Leasing or buying, which is better?",
           "answer": "Buying offers the lowest total cost and full ownership. Leasing (like SolarFree) removes the upfront investment. The right choice depends on your cash flow and long-term goals."
         },
         "5": {
@@ -1223,7 +1223,7 @@
         },
         "7": {
           "question": "Do electricity costs remain with a solar system?",
-          "answer": "You still pay a basic grid connection fee and pay for electricity drawn from the grid at night or on cloudy days — but your overall bill drops significantly."
+          "answer": "You still pay a basic grid connection fee and pay for electricity drawn from the grid at night or on cloudy days, but your overall bill drops significantly."
         },
         "8": {
           "question": "What happens with surplus electricity?",
@@ -1806,7 +1806,7 @@
   "quoteRequestForm": {
     "eyebrow": "Energy costs",
     "title": "Control your energy costs",
-    "subtitle": "Stay in control of consumption and costs — with an efficient, predictable energy system.",
+    "subtitle": "Stay in control of consumption and costs, with an efficient, predictable energy system.",
     "formTitle": "Free quote",
     "requiredHint": "All fields are required.",
     "firstName": "First name",
@@ -2340,7 +2340,7 @@
   "comingSoon": {
     "eyebrow": "In development",
     "title": "Solar calculator",
-    "description": "Size and quote your rooftop PV system in minutes. We're putting the finishing touches on it — talk to our team now and we'll tailor an offer for you.",
+    "description": "Size and quote your rooftop PV system in minutes. We're putting the finishing touches on it. Talk to our team now and we'll tailor an offer for you.",
     "contactCta": "Talk to our team",
     "exploreCta": "Discover our solutions",
     "back": "Back"
@@ -2417,7 +2417,7 @@
       "sectionCompany": "Firma",
       "legalForm": "Rechtsform",
       "uidNumber": "UID-Nummer",
-      "uidHelp": "Optional — beschleunigt die Prüfung.",
+      "uidHelp": "Optional, beschleunigt die Prüfung.",
       "industry": "Branche",
       "employees": "Mitarbeitende",
       "website": "Website",
@@ -3507,7 +3507,7 @@
       "features": {
         "1": {
           "title": "Everything from a single source",
-          "description": "From consultation and planning to installation and maintenance — we handle every step so you don't have to."
+          "description": "From consultation and planning to installation and maintenance, we handle every step so you don't have to."
         },
         "2": {
           "title": "Personal service",
@@ -3853,7 +3853,7 @@
   "privacyPolicy": {
     "title": "Privacy Policy",
     "subtitle": "How we handle your personal data",
-    "intro": "Free State AG takes the protection of your personal data seriously. We treat your data confidentially and in accordance with the revised Swiss Federal Act on Data Protection (revFADP, in force since 1 September 2023) and — where applicable — the EU General Data Protection Regulation (GDPR). This privacy policy describes which data we collect, for what purpose we use it, with whom we share it, and what rights you have as a data subject.",
+    "intro": "Free State AG takes the protection of your personal data seriously. We treat your data confidentially and in accordance with the revised Swiss Federal Act on Data Protection (revFADP, in force since 1 September 2023) and, where applicable, the EU General Data Protection Regulation (GDPR). This privacy policy describes which data we collect, for what purpose we use it, with whom we share it, and what rights you have as a data subject.",
     "dataCollection": {
       "title": "Data Controller and Data Collection",
       "content": "The controller responsible for the processing of personal data on this website within the meaning of the revFADP and the GDPR is:\n\nFree State AG\nStettemerstrasse 40\n8207 Schaffhausen, Switzerland\nEmail: info@freestate.ch\nPhone: +41 52 525 33 05\n\nLegal representative: Ivan Miric, Member of the Board of Directors and Managing Director.\n\nWe collect personal data in two ways: actively, when you provide it to us (e.g., via the contact form, the newsletter form, the solar calculator, maintenance requests, or when registering a customer account), and automatically through our IT systems when you visit the website (technical connection data such as browser, operating system and time of access)."
@@ -3864,11 +3864,11 @@
     },
     "cookies": {
       "title": "Cookies and Consent Management",
-      "content": "Our website uses cookies and comparable technologies (e.g., localStorage). Cookies are small text files placed on your device. They differ by purpose:\n\n• Strictly necessary cookies: required for the operation of the website (e.g., language preference, login session, the cookie consent itself). These cannot be deselected.\n• Analytics cookies: enable us to evaluate usage behavior anonymously and improve the website.\n• Marketing cookies: used to deliver personalized content and advertising.\n\nThe first time you visit our website, a cookie banner appears in which you can decide per category whether you consent to their use. Analytics and marketing cookies are only set after your explicit consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR). If you have consented to marketing cookies, we additionally report conversion events (e.g., a submitted enquiry) server-side to Meta Platforms (Conversions API); contact data such as email address or phone number is transmitted exclusively in hashed form (SHA-256), and processing in the USA is possible.\n\nYou can withdraw your consent at any time for the future by reopening the cookie settings via the link at the bottom of the page. As long as you have not given consent, no analytics or marketing cookies are loaded, and our analytics services run in \"Consent Mode v2 — denied\" mode, i.e., without setting identifying cookies.\n\nOrigin and usage measurement without cookies: When you submit an enquiry (e.g., via the solar calculator or a contact form), we store the marketing origin of your visit together with the enquiry: UTM parameters of the URL you opened, the referring website, the landing page and any ad click IDs (e.g., fbclid, gclid). The legal basis is our legitimate interest in measuring the effectiveness of our advertising and the initiation of a contract (Art. 31 para. 1 and para. 2 lit. a revFADP / Art. 6 para. 1 lit. b and f GDPR). These origin parameters are first stored exclusively locally in your browser (sessionStorage/localStorage) for a maximum of 30 days; no cookies are set and no data is shared with third parties. They are only used if you actually submit an enquiry. In addition, we record pseudonymous usage events of the solar calculator (e.g., reaching the individual steps, viewing the result, opening a customer account, requesting a consultation appointment and signing a contract) under a randomly generated session identifier. These events are not linked to any person unless you submit an enquiry.\n\nOur own cookieless audience measurement: in addition to the analytics services listed below, we operate our own cookie-free audience measurement. On each page view we store in our own database the page visited (path without query parameters), the referring website, any campaign identifier (utm_id) and the time of the visit, in each case together with the random session identifier mentioned above. We expressly do not store your IP address, cookies, or device and browser identifiers. The session identifier is held only in the memory of the individual browser tab (sessionStorage) and expires as soon as you close that tab, so recognition across several visits is not possible. If you submit an enquiry, the same session identifier is recorded on that enquiry, which means a page view could be attributed to it for as long as the enquiry is retained. After 24 months at the latest we irreversibly replace the session identifier on the measurement data with a new random value, which permanently removes that possibility. Evaluation is exclusively aggregated, for example as the number of sessions per page or the drop-off rate within the solar calculator. The legal basis is our legitimate interest in a data-minimising measurement of the performance of our website and our advertising (Art. 31 para. 2 lit. d revFADP or Art. 6 para. 1 lit. f GDPR). Because no cookies are set and no personal identifiers are stored, no consent is required. You may object to this processing at any time at info@freestate.ch."
+      "content": "Our website uses cookies and comparable technologies (e.g., localStorage). Cookies are small text files placed on your device. They differ by purpose:\n\n• Strictly necessary cookies: required for the operation of the website (e.g., language preference, login session, the cookie consent itself). These cannot be deselected.\n• Analytics cookies: enable us to evaluate usage behavior anonymously and improve the website.\n• Marketing cookies: used to deliver personalized content and advertising.\n\nThe first time you visit our website, a cookie banner appears in which you can decide per category whether you consent to their use. Analytics and marketing cookies are only set after your explicit consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR). If you have consented to marketing cookies, we additionally report conversion events (e.g., a submitted enquiry) server-side to Meta Platforms (Conversions API); contact data such as email address or phone number is transmitted exclusively in hashed form (SHA-256), and processing in the USA is possible.\n\nYou can withdraw your consent at any time for the future by reopening the cookie settings via the link at the bottom of the page. As long as you have not given consent, no analytics or marketing cookies are loaded, and our analytics services run in \"Consent Mode v2\" mode with the status \"denied\", i.e., without setting identifying cookies.\n\nOrigin and usage measurement without cookies: When you submit an enquiry (e.g., via the solar calculator or a contact form), we store the marketing origin of your visit together with the enquiry: UTM parameters of the URL you opened, the referring website, the landing page and any ad click IDs (e.g., fbclid, gclid). The legal basis is our legitimate interest in measuring the effectiveness of our advertising and the initiation of a contract (Art. 31 para. 1 and para. 2 lit. a revFADP / Art. 6 para. 1 lit. b and f GDPR). These origin parameters are first stored exclusively locally in your browser (sessionStorage/localStorage) for a maximum of 30 days; no cookies are set and no data is shared with third parties. They are only used if you actually submit an enquiry. In addition, we record pseudonymous usage events of the solar calculator (e.g., reaching the individual steps, viewing the result, opening a customer account, requesting a consultation appointment and signing a contract) under a randomly generated session identifier. These events are not linked to any person unless you submit an enquiry.\n\nOur own cookieless audience measurement: in addition to the analytics services listed below, we operate our own cookie-free audience measurement. On each page view we store in our own database the page visited (path without query parameters), the referring website, any campaign identifier (utm_id) and the time of the visit, in each case together with the random session identifier mentioned above. We expressly do not store your IP address, cookies, or device and browser identifiers. The session identifier is held only in the memory of the individual browser tab (sessionStorage) and expires as soon as you close that tab, so recognition across several visits is not possible. If you submit an enquiry, the same session identifier is recorded on that enquiry, which means a page view could be attributed to it for as long as the enquiry is retained. After 24 months at the latest we irreversibly replace the session identifier on the measurement data with a new random value, which permanently removes that possibility. Evaluation is exclusively aggregated, for example as the number of sessions per page or the drop-off rate within the solar calculator. The legal basis is our legitimate interest in a data-minimising measurement of the performance of our website and our advertising (Art. 31 para. 2 lit. d revFADP or Art. 6 para. 1 lit. f GDPR). Because no cookies are set and no personal identifiers are stored, no consent is required. You may object to this processing at any time at info@freestate.ch."
     },
     "analytics": {
       "title": "Web Analytics, Tag Management and Usage Measurement",
-      "content": "Subject to your consent, we use the following services to understand how our website is used and to improve our offering. Without your consent, these services are not activated.\n\n1) Google Tag Manager\nProvider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.\nGoogle Tag Manager is a management tool that allows us to embed measurement and analytics tags centrally. The Tag Manager itself does not create user profiles and does not set its own cookies. However, it loads other services (see below) that process data themselves.\n\n2) Google Analytics 4 (GA4)\nProvider: Google Ireland Limited.\nGA4 produces anonymized statistics about the use of our website (e.g., page views, session duration, country of origin, device type, traffic source). The IP address is truncated before storage (\"IP Anonymization\") and individual users are not directly identified. We operate GA4 with Google Consent Mode v2 enabled and with advertising features (\"Google Signals\") disabled. The retention period for event data in GA4 is 14 months.\n\n3) Contentsquare (formerly Hotjar)\nProvider: Contentsquare SAS, 7 Rue de Madrid, 75008 Paris, France.\nContentsquare produces aggregated heatmaps and — on certain pages (in particular the solar calculator and the customer area) — pseudonymized session recordings to identify usability issues. Keystrokes in form fields are masked by default; sensitive content (customer data, contracts) is not recorded. Contentsquare sets cookies with a maximum lifetime of 13 months.\n\n4) Google Search Console\nProvider: Google Ireland Limited.\nGoogle Search Console is used exclusively for verifying domain ownership and analyzing anonymous SEO statistics (e.g., incoming search queries from Google). It does not set any cookies on this website and does not process any personal data of our visitors.\n\nLegal basis: consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR).\n\nData transfer to the USA: GA4, Google Tag Manager, Google Search Console and Contentsquare partly process data in the USA. Google is certified under the EU-US Data Privacy Framework; Contentsquare primarily processes data in the EU but may use sub-processors in third countries. Where data is transferred to a country without an adequate level of data protection, we rely on Standard Contractual Clauses pursuant to Art. 16 revFADP / Art. 46 GDPR."
+      "content": "Subject to your consent, we use the following services to understand how our website is used and to improve our offering. Without your consent, these services are not activated.\n\n1) Google Tag Manager\nProvider: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.\nGoogle Tag Manager is a management tool that allows us to embed measurement and analytics tags centrally. The Tag Manager itself does not create user profiles and does not set its own cookies. However, it loads other services (see below) that process data themselves.\n\n2) Google Analytics 4 (GA4)\nProvider: Google Ireland Limited.\nGA4 produces anonymized statistics about the use of our website (e.g., page views, session duration, country of origin, device type, traffic source). The IP address is truncated before storage (\"IP Anonymization\") and individual users are not directly identified. We operate GA4 with Google Consent Mode v2 enabled and with advertising features (\"Google Signals\") disabled. The retention period for event data in GA4 is 14 months.\n\n3) Contentsquare (formerly Hotjar)\nProvider: Contentsquare SAS, 7 Rue de Madrid, 75008 Paris, France.\nContentsquare produces aggregated heatmaps and, on certain pages (in particular the solar calculator and the customer area), pseudonymized session recordings to identify usability issues. Keystrokes in form fields are masked by default; sensitive content (customer data, contracts) is not recorded. Contentsquare sets cookies with a maximum lifetime of 13 months.\n\n4) Google Search Console\nProvider: Google Ireland Limited.\nGoogle Search Console is used exclusively for verifying domain ownership and analyzing anonymous SEO statistics (e.g., incoming search queries from Google). It does not set any cookies on this website and does not process any personal data of our visitors.\n\nLegal basis: consent (Art. 31 para. 1 revFADP / Art. 6 para. 1 lit. a GDPR).\n\nData transfer to the USA: GA4, Google Tag Manager, Google Search Console and Contentsquare partly process data in the USA. Google is certified under the EU-US Data Privacy Framework; Contentsquare primarily processes data in the EU but may use sub-processors in third countries. Where data is transferred to a country without an adequate level of data protection, we rely on Standard Contractual Clauses pursuant to Art. 16 revFADP / Art. 46 GDPR."
     },
     "hosting": {
       "title": "Hosting and data processors",
@@ -3880,7 +3880,7 @@
     },
     "googleMaps": {
       "title": "Google Maps",
-      "content": "On certain pages (in particular the contact page and the solar calculator for address entry and roof area selection) we embed interactive maps from Google Maps. The provider is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.\n\nIn order for the maps to be displayed correctly, your browser transmits technical connection data (in particular your IP address) to Google when you use these features. Processing in the USA cannot be ruled out. This processing is necessary to provide the function you actively requested (e.g., address entry in the solar calculator) and is based on our legitimate interest in a user-friendly online application as well as — where an explicit configuration step is required — on your consent.\n\nFor more information on the handling of user data by Google, please see: https://policies.google.com/privacy"
+      "content": "On certain pages (in particular the contact page and the solar calculator for address entry and roof area selection) we embed interactive maps from Google Maps. The provider is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland.\n\nIn order for the maps to be displayed correctly, your browser transmits technical connection data (in particular your IP address) to Google when you use these features. Processing in the USA cannot be ruled out. This processing is necessary to provide the function you actively requested (e.g., address entry in the solar calculator) and is based on our legitimate interest in a user-friendly online application as well as, where an explicit configuration step is required, on your consent.\n\nFor more information on the handling of user data by Google, please see: https://policies.google.com/privacy"
     },
     "newsletter": {
       "title": "Newsletter",
@@ -3888,11 +3888,11 @@
     },
     "calculator": {
       "title": "Solar Calculator, Contact Requests and Electronic Contract Signing",
-      "content": "Our solar calculator guides you step by step through a needs-based design of a photovoltaic system and — if desired — through to the conclusion of a Solar Free contract. In doing so, we process the following categories of personal data:\n\n• Address and location data for evaluating the roof area (via map services)\n• Consumption and building data (e.g., electricity consumption, roof inclination, planned devices such as a heat pump or wallbox)\n• Contact data (name, address, telephone number, email address)\n• In addition, when concluding a contract: date of birth, AHV data or comparable identification features, where required for contract verification\n\nThe processing of this data is carried out for the initiation and performance of a contract (Art. 31 para. 2 lit. a revFADP / Art. 6 para. 1 lit. b GDPR) or — if you submit a request without concluding a contract — on the basis of your consent.\n\nFor the legally binding electronic signing of contracts we use Swisscom Trust Services AG (Konradstrasse 12, 8005 Zurich, Switzerland) as a trust service provider. Swisscom Trust Services is licensed as a qualified trust service provider under the Swiss Federal Act on Electronic Signatures (ZertES) and enables the creation of qualified electronic signatures with statutorily recognized evidentiary value. As part of the signing process, identification data and biometric features (e.g., Mobile ID confirmation) are transmitted to Swisscom Trust Services. For more information, please see https://trustservices.swisscom.com.\n\nWe also process maintenance requests, support tickets and data from the customer area (\"Dashboard\") for the purposes of contract performance and to comply with statutory retention obligations."
+      "content": "Our solar calculator guides you step by step through a needs-based design of a photovoltaic system and, if desired, through to the conclusion of a Solar Free contract. In doing so, we process the following categories of personal data:\n\n• Address and location data for evaluating the roof area (via map services)\n• Consumption and building data (e.g., electricity consumption, roof inclination, planned devices such as a heat pump or wallbox)\n• Contact data (name, address, telephone number, email address)\n• In addition, when concluding a contract: date of birth, AHV data or comparable identification features, where required for contract verification\n\nThe processing of this data is carried out for the initiation and performance of a contract (Art. 31 para. 2 lit. a revFADP / Art. 6 para. 1 lit. b GDPR) or, if you submit a request without concluding a contract, on the basis of your consent.\n\nFor the legally binding electronic signing of contracts we use Swisscom Trust Services AG (Konradstrasse 12, 8005 Zurich, Switzerland) as a trust service provider. Swisscom Trust Services is licensed as a qualified trust service provider under the Swiss Federal Act on Electronic Signatures (ZertES) and enables the creation of qualified electronic signatures with statutorily recognized evidentiary value. As part of the signing process, identification data and biometric features (e.g., Mobile ID confirmation) are transmitted to Swisscom Trust Services. For more information, please see https://trustservices.swisscom.com.\n\nWe also process maintenance requests, support tickets and data from the customer area (\"Dashboard\") for the purposes of contract performance and to comply with statutory retention obligations."
     },
     "userRights": {
       "title": "Your Rights as a Data Subject",
-      "content": "Under the revFADP and the GDPR you have the following rights:\n\n• Right of access: you can request information about the data stored about you free of charge at any time, including its origin, recipients, purpose and retention period.\n• Right to rectification: you can request the correction of inaccurate data or the completion of incomplete data.\n• Right to erasure: you can request the deletion of your data, unless statutory retention obligations or other legitimate interests prevent it.\n• Right to restriction of processing: under certain conditions.\n• Right to data portability (GDPR): you can receive the data you have provided in a structured, commonly used, machine-readable format.\n• Right to withdraw consent: any consent you have given can be withdrawn at any time for the future.\n• Right to object: you can object to the processing of your data on grounds relating to your particular situation.\n\nTo exercise your rights, please contact us at info@freestate.ch. To safeguard the security of your data, we may need to verify your identity before processing the request.\n\nRight to lodge a complaint: you have the right at any time to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC, https://www.edoeb.admin.ch) or — if you are resident in the EU — with your competent national data protection authority."
+      "content": "Under the revFADP and the GDPR you have the following rights:\n\n• Right of access: you can request information about the data stored about you free of charge at any time, including its origin, recipients, purpose and retention period.\n• Right to rectification: you can request the correction of inaccurate data or the completion of incomplete data.\n• Right to erasure: you can request the deletion of your data, unless statutory retention obligations or other legitimate interests prevent it.\n• Right to restriction of processing: under certain conditions.\n• Right to data portability (GDPR): you can receive the data you have provided in a structured, commonly used, machine-readable format.\n• Right to withdraw consent: any consent you have given can be withdrawn at any time for the future.\n• Right to object: you can object to the processing of your data on grounds relating to your particular situation.\n\nTo exercise your rights, please contact us at info@freestate.ch. To safeguard the security of your data, we may need to verify your identity before processing the request.\n\nRight to lodge a complaint: you have the right at any time to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC, https://www.edoeb.admin.ch) or, if you are resident in the EU, with your competent national data protection authority."
     },
     "dataRetention": {
       "title": "Retention and Deletion",
@@ -3965,8 +3965,8 @@
       "content": "Free State AG plans, supplies, installs and maintains photovoltaic systems, battery storage, heat pumps, charging stations, energy management systems and related installations and services in the field of renewable energy.\n\nThe exact scope of services is determined by the offer, the order confirmation or the individual contract. Where required for execution, Free State AG also coordinates with the local distribution grid operator, files the connection request and registers subsidies and feed-in tariffs, where contractually agreed.\n\nChanges to the scope of services are possible where technical, regulatory or supplier-side reasons make them necessary and the changes are reasonable for the Customer. Free State AG informs the Customer in good time in such cases."
     },
     "solarFreeLease": {
-      "title": "6. Solar Free — Leasing and Subscription Model",
-      "content": "Under the \"Solar Free\" model, Free State AG provides the Customer with a photovoltaic system (optionally supplemented by battery storage, charging station or heat-pump control) for use against a monthly fee, without the Customer having to purchase the system.\n\nKey terms:\n\n• Ownership: For the entire contract term, ownership of the system remains with Free State AG or with a financing partner designated by Free State AG. The Customer makes the roof or installation site available free of charge and grants the access rights required for construction, operation and maintenance.\n\n• Contract term: Unless otherwise agreed in the individual contract, the standard term of a Solar Free contract is 35 years from commissioning.\n\n• Monthly fee: The monthly fee is bindingly set out in the individual contract. An indexation or stepped model may be provided; in this case, the basis of calculation is disclosed in the contract.\n\n• Maintenance and repair: During the contract term, Free State AG is responsible for ordinary maintenance and the rectification of defects in components of the system, provided these are not caused by improper use, vandalism, force majeure or third-party intervention.\n\n• Electricity consumption and feed-in: The electricity consumed on-site by the Customer is — unless otherwise stipulated in the individual contract — included in the monthly fee. Surplus electricity is fed into the grid; the feed-in remuneration accrues to the system owner (Free State AG).\n\n• Early termination: Ordinary termination before expiry of the agreed term is excluded. In the event of early termination for important reasons, the terminating party owes the other party compensation in accordance with the individual contract. Upon a change of ownership of the property, the new owner enters into the contract, where so provided in the individual contract.\n\n• Purchase option: Where so provided in the individual contract, the Customer has the right to acquire the system at defined points in time at a residual value determined in advance.\n\n• After contract end: Upon expiry of the contract term, ownership of the system passes — where so provided in the individual contract — free of charge or at a symbolic residual value to the Customer. Otherwise, the system is dismantled by Free State AG and the installation site is professionally restored.\n\nThe details of term, fee, indexation, transfer of ownership, insurance cover and purchase option are conclusively set out in the signed Solar Free contract, which prevails over these GTC in the event of conflict."
+      "title": "6. Solar Free (Leasing and Subscription Model)",
+      "content": "Under the \"Solar Free\" model, Free State AG provides the Customer with a photovoltaic system (optionally supplemented by battery storage, charging station or heat-pump control) for use against a monthly fee, without the Customer having to purchase the system.\n\nKey terms:\n\n• Ownership: For the entire contract term, ownership of the system remains with Free State AG or with a financing partner designated by Free State AG. The Customer makes the roof or installation site available free of charge and grants the access rights required for construction, operation and maintenance.\n\n• Contract term: Unless otherwise agreed in the individual contract, the standard term of a Solar Free contract is 35 years from commissioning.\n\n• Monthly fee: The monthly fee is bindingly set out in the individual contract. An indexation or stepped model may be provided; in this case, the basis of calculation is disclosed in the contract.\n\n• Maintenance and repair: During the contract term, Free State AG is responsible for ordinary maintenance and the rectification of defects in components of the system, provided these are not caused by improper use, vandalism, force majeure or third-party intervention.\n\n• Electricity consumption and feed-in: The electricity consumed on-site by the Customer is, unless otherwise stipulated in the individual contract, included in the monthly fee. Surplus electricity is fed into the grid; the feed-in remuneration accrues to the system owner (Free State AG).\n\n• Early termination: Ordinary termination before expiry of the agreed term is excluded. In the event of early termination for important reasons, the terminating party owes the other party compensation in accordance with the individual contract. Upon a change of ownership of the property, the new owner enters into the contract, where so provided in the individual contract.\n\n• Purchase option: Where so provided in the individual contract, the Customer has the right to acquire the system at defined points in time at a residual value determined in advance.\n\n• After contract end: Upon expiry of the contract term, ownership of the system passes, where so provided in the individual contract, free of charge or at a symbolic residual value to the Customer. Otherwise, the system is dismantled by Free State AG and the installation site is professionally restored.\n\nThe details of term, fee, indexation, transfer of ownership, insurance cover and purchase option are conclusively set out in the signed Solar Free contract, which prevails over these GTC in the event of conflict."
     },
     "prices": {
       "title": "7. Prices",
@@ -3982,11 +3982,11 @@
     },
     "liability": {
       "title": "10. Liability",
-      "content": "Free State AG is liable for damages only in cases of willful intent and gross negligence. Liability for slight negligence is — to the extent permitted by law — excluded.\n\nLiability for indirect damages, consequential damages, lost profits, production losses or data losses is excluded to the extent permitted by law.\n\nThe total liability of Free State AG per claim is limited to the contract value of the affected order or — under the Solar Free model — to the annual fee owed in the year in which the loss occurred.\n\nMandatory liability under the Swiss Product Liability Act and for personal injury remains unaffected."
+      "content": "Free State AG is liable for damages only in cases of willful intent and gross negligence. Liability for slight negligence is, to the extent permitted by law, excluded.\n\nLiability for indirect damages, consequential damages, lost profits, production losses or data losses is excluded to the extent permitted by law.\n\nThe total liability of Free State AG per claim is limited to the contract value of the affected order or, under the Solar Free model, to the annual fee owed in the year in which the loss occurred.\n\nMandatory liability under the Swiss Product Liability Act and for personal injury remains unaffected."
     },
     "dataProtection": {
       "title": "11. Data Protection",
-      "content": "Free State AG processes personal data in accordance with the revised Swiss Federal Act on Data Protection (revFADP) and — where applicable — the EU General Data Protection Regulation (GDPR).\n\nDetailed information on data processing, the rights of data subjects and the third-party providers used (in particular Google Analytics, Contentsquare (formerly Hotjar), Google Maps and Swisscom Trust Services) can be found in our privacy policy at /privacy-policy."
+      "content": "Free State AG processes personal data in accordance with the revised Swiss Federal Act on Data Protection (revFADP) and, where applicable, the EU General Data Protection Regulation (GDPR).\n\nDetailed information on data processing, the rights of data subjects and the third-party providers used (in particular Google Analytics, Contentsquare (formerly Hotjar), Google Maps and Swisscom Trust Services) can be found in our privacy policy at /privacy-policy."
     },
     "applicableLaw": {
       "title": "12. Applicable Law and Jurisdiction",
@@ -4442,8 +4442,8 @@
         "cashflow": "Cumulative cashflow"
       },
       "abo": {
-        "title": "SolarFree — Zero Investment",
-        "description": "With SolarFree, Free State AG installs and maintains the solar system on your roof — at no cost to you.",
+        "title": "SolarFree (Zero Investment)",
+        "description": "With SolarFree, Free State AG installs and maintains the solar system on your roof, at no cost to you.",
         "savings": "You benefit from clean solar energy and save CHF {amount} per year on your electricity bill."
       },
       "package": {
@@ -4460,7 +4460,7 @@
         "reportDescription": "Download a detailed PDF report with system analysis, charts, and financial projections.",
         "reportButton": "Download PDF",
         "downloadTitle": "Email results",
-        "downloadDescription": "Receive your solar analysis by email — no commitment.",
+        "downloadDescription": "Receive your solar analysis by email, no commitment.",
         "downloadButton": "Send to my email",
         "offerTitle": "Request offer",
         "offerDescription": "We will review your property and prepare a personalized offer with a site visit.",
@@ -4509,7 +4509,7 @@
           "consumptionCancel": "Cancel",
           "consumptionReset": "Reset to estimate",
           "consumptionHintOverride": "Entered by you.",
-          "consumptionHintEstimate": "Estimated from household size — find your real value on your yearly bill."
+          "consumptionHintEstimate": "Estimated from household size. Find your real value on your yearly bill."
         },
         "yourImpact": {
           "label": "Your impact",
@@ -4733,7 +4733,7 @@
       },
       "awaitingCompany": {
         "title": "Awaiting Free State AG counter-signature",
-        "message": "You've signed successfully. Free State AG will counter-sign shortly — we'll email you the fully executed contract as soon as it's complete.",
+        "message": "You've signed successfully. Free State AG will counter-sign shortly. We'll email you the fully executed contract as soon as it's complete.",
         "backButton": "Go to dashboard"
       },
       "pending": {
@@ -5571,7 +5571,7 @@
     },
     "howHeatPumpWorks": {
       "title": "How does a heat\npump work?",
-      "description": "Heat pumps are highly efficient, quickly installed sustainable heating systems that extract energy from air, ground, or water—most commonly as air-to-water models—offering a reliable alternative to fossil fuels.",
+      "description": "Heat pumps are highly efficient, quickly installed sustainable heating systems that extract energy from air, ground, or water (most commonly as air-to-water models), offering a reliable alternative to fossil fuels.",
       "steps": {
         "1": "Ground source heat pump (ground probe)",
         "2": "Water-to-water heat pump",
@@ -5783,7 +5783,7 @@
     },
     "generalContractor": {
       "title": "Complete General Contractor Service",
-      "subtitle": "End-to-end project management — from planning to operation.",
+      "subtitle": "End-to-end project management, from planning to operation.",
       "steps": {
         "strategicPlanning": "Strategic Planning",
         "feasibilityStudy": "Feasibility Study",
@@ -5800,7 +5800,7 @@
       "items": {
         "doorstep": "Generate solar power at your doorstep or workplace.",
         "costs": "Lower electricity costs with smart energy management.",
-        "protection": "Protect vehicles from sun, rain, and snow — sustainably."
+        "protection": "Protect vehicles from sun, rain, and snow. Sustainably."
       }
     },
     "customSolar": {
@@ -5832,11 +5832,11 @@
     },
     "solarFuture": {
       "title": "Solar energy for the future",
-      "description": "We assess your roof, develop the technical concept, and manage the entire project lifecycle — financing, construction, operation, and maintenance included.\n\nAll risks and investment costs are borne by the contractor, while clear contractual agreements secure rights and responsibilities. Roofs from 200 m² are generally suitable, and acquisition options are defined upfront."
+      "description": "We assess your roof, develop the technical concept, and manage the entire project lifecycle (financing, construction, operation, and maintenance included).\n\nAll risks and investment costs are borne by the contractor, while clear contractual agreements secure rights and responsibilities. Roofs from 200 m² are generally suitable, and acquisition options are defined upfront."
     },
     "ourServices": {
       "title": "Our Services",
-      "description": "With our long-standing experience in solar power plants, we provide end-to-end services from a single source — giving you one point of contact for the entire project.",
+      "description": "With our long-standing experience in solar power plants, we provide end-to-end services from a single source, giving you one point of contact for the entire project.",
       "items": {
         "consultation": "Consultation",
         "feasibilityStudy": "Feasibility Study",
@@ -6023,7 +6023,7 @@
     },
     "offersSection": {
       "title": "Offer fast charging\nstations too",
-      "description": "Fast charging stations are installed at gas stations, shopping centers, and company sites, offering strong commercial potential. We support you with planning and implementation—contact us to discuss your project.",
+      "description": "Fast charging stations are installed at gas stations, shopping centers, and company sites, offering strong commercial potential. We support you with planning and implementation. Contact us to discuss your project.",
       "cta": "Contact"
     },
     "freeStateOffers": {
@@ -6067,7 +6067,7 @@
     },
     "benefitsComparison": {
       "title": "Bidirectional charging pays off for everyone.",
-      "description": "With or without solar panels, bidirectional charging lowers costs and creates new revenue opportunities—adding extra value to existing systems.",
+      "description": "With or without solar panels, bidirectional charging lowers costs and creates new revenue opportunities, adding extra value to existing systems.",
       "headers": {
         "yourAdvantage": "Your advantage",
         "withSolar": "With solar panels",
@@ -7254,7 +7254,7 @@
     "resources": {
       "electricityPrices": {
         "title": "Electricity prices by municipality",
-        "descriptionPrefix": "Official ElCom tariffs per municipality, operator and tariff category — informational. Source: ",
+        "descriptionPrefix": "Official ElCom tariffs per municipality, operator and tariff category (informational). Source: ",
         "descriptionSuffix": " (LINDAS).",
         "entries": "Entries",
         "avgTariff": "Avg tariff",
@@ -7283,7 +7283,7 @@
       },
       "subsidyRates": {
         "title": "One-time remuneration (Pronovo KLEIV)",
-        "description": "Current and historical one-time remuneration tariffs from Pronovo AG for photovoltaic ≤100 kWp. Published twice yearly. Used in contracts — changes are made exclusively via seed scripts (not through the UI).",
+        "description": "Current and historical one-time remuneration tariffs from Pronovo AG for photovoltaic ≤100 kWp. Published twice yearly. Used in contracts. Changes are made exclusively via seed scripts (not through the UI).",
         "currentTariff": "Currently active tariff",
         "tier1Max": "Tier 1 (up to kWp)",
         "tier1Chf": "CHF / kWp (Tier 1)",
@@ -7326,7 +7326,7 @@
       },
       "referenceMarketPrices": {
         "title": "Reference market prices (BFE, Art. 15 EnFV)",
-        "descriptionPrefix": "Quarterly reference market prices published by the BFE — from 2026 the basis for feed-in remuneration under Art. 15 EnG. Source: ",
+        "descriptionPrefix": "Quarterly reference market prices published by the BFE, from 2026 the basis for feed-in remuneration under Art. 15 EnG. Source: ",
         "descriptionMiddle": ". Import via ",
         "descriptionSuffix": ".",
         "techPhotovoltaik": "Photovoltaics",
@@ -7813,7 +7813,7 @@
       "systemKwp": "System (kWp)",
       "annualProduction": "Annual production (kWh)",
       "annualConsumption": "Annual consumption (kWh)",
-      "annualConsumptionFromBill": "Annual consumption (kWh) — from electricity bill",
+      "annualConsumptionFromBill": "Annual consumption (kWh), from electricity bill",
       "contact": "Contact",
       "appointmentInspector": "Appointment & inspector",
       "scheduledDateTime": "Scheduled date / time",
@@ -9020,7 +9020,7 @@
         "items": {
           "care": {
             "question": "How do I care for my solar panels?",
-            "answer": "Trim nearby trees for maximum sun exposure. Spray dusty panels with water — rainy days typically provide sufficient cleaning. Avoid cleaning snow as it naturally slides off."
+            "answer": "Trim nearby trees for maximum sun exposure. Spray dusty panels with water. Rainy days typically provide sufficient cleaning. Avoid cleaning snow as it naturally slides off."
           },
           "monitoring": {
             "question": "Is my system monitored?",
@@ -9303,7 +9303,7 @@
     },
     "topics": {
       "title": "Topic areas",
-      "description": "Our expertise spans the following areas — we are available for background discussions and expert contributions.",
+      "description": "Our expertise spans the following areas. We are available for background discussions and expert contributions.",
       "items": {
         "solar": {
           "title": "Photovoltaics & solar energy",
@@ -9363,7 +9363,7 @@
           "consentRequired": "Please accept to continue"
         }
       },
-      "success": "Thanks — you're subscribed. We'll be in touch when roles open.",
+      "success": "Thanks, you're subscribed. We'll be in touch when roles open.",
       "error": "Something went wrong. Please try again."
     },
     "contactCta": {
@@ -9416,14 +9416,14 @@
     "details": {
       "eyebrow": "Details",
       "title": "What's included in SolarFree",
-      "subtitle": "All services and components for a reliable energy supply — with no upfront costs.",
+      "subtitle": "All services and components for a reliable energy supply, with no upfront costs.",
       "solarModules": {
         "title": "High-quality solar modules",
-        "description": "Highly efficient solar modules for maximum energy generation — durable and resilient."
+        "description": "Highly efficient solar modules for maximum energy generation, durable and resilient."
       },
       "batteryStorage": {
         "title": "Powerful battery storage",
-        "description": "Reliable energy when you need it — as backup or to optimize self-consumption."
+        "description": "Reliable energy when you need it, as backup or to optimize self-consumption."
       }
     },
     "includes": {
@@ -9481,14 +9481,14 @@
         },
         "2": {
           "question": "What are the advantages of buying a solar system?",
-          "answer": "Long-term cost savings, energy independence, higher property value, and full control — with amortization typically achieved in 5–10 years."
+          "answer": "Long-term cost savings, energy independence, higher property value, and full control, with amortization typically achieved in 5–10 years."
         },
         "3": {
           "question": "Can I buy solar modules myself?",
           "answer": "Yes, but professional installation, grid connection, and permits are still required. Our turnkey SolarDirect package handles all of that for you."
         },
         "4": {
-          "question": "Leasing or buying — which is better?",
+          "question": "Leasing or buying, which is better?",
           "answer": "Buying offers the lowest total cost and full ownership. Leasing (like SolarFree) removes the upfront investment. The right choice depends on your cash flow and long-term goals."
         },
         "5": {
@@ -9501,7 +9501,7 @@
         },
         "7": {
           "question": "Do electricity costs remain with a solar system?",
-          "answer": "You still pay a basic grid connection fee and pay for electricity drawn from the grid at night or on cloudy days — but your overall bill drops significantly."
+          "answer": "You still pay a basic grid connection fee and pay for electricity drawn from the grid at night or on cloudy days, but your overall bill drops significantly."
         },
         "8": {
           "question": "What happens with surplus electricity?",

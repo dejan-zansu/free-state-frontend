@@ -46,7 +46,7 @@ const STATUS_COLOR: Record<InspectionStatus, string> = {
 }
 
 function fmtDate(iso: string | null): string {
-  if (!iso) return '—'
+  if (!iso) return '-'
   return new Date(iso).toLocaleDateString('de-CH', {
     day: '2-digit',
     month: '2-digit',
@@ -161,7 +161,7 @@ export default function AdminInspectionsPage() {
                 const fullName = `${user.firstName} ${user.lastName}`.trim()
                 const inspectorName = r.inspector
                   ? `${r.inspector.firstName} ${r.inspector.lastName}`.trim()
-                  : '—'
+                  : '-'
                 const preliminaryKwp =
                   r.lead.project?.solarCalculation?.totalSystemCapacityKw
                 return (
@@ -172,7 +172,7 @@ export default function AdminInspectionsPage() {
                     <TableCell className="text-right tabular-nums">
                       {preliminaryKwp != null
                         ? Number(preliminaryKwp).toFixed(1)
-                        : '—'}
+                        : '-'}
                     </TableCell>
                     <TableCell>{inspectorName}</TableCell>
                     <TableCell>

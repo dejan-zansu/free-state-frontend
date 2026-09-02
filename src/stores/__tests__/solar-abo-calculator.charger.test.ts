@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest'
 import { useSolarAboCalculatorStore } from '../solar-abo-calculator.store'
 
-describe('solar-abo-calculator store — EV charger', () => {
+describe('solar-abo-calculator store, EV charger', () => {
   beforeEach(() => {
     useSolarAboCalculatorStore.getState().reset()
   })

@@ -22,7 +22,7 @@ function num(v: string): number | null {
 }
 
 function fmtDate(iso: string | null): string {
-  if (!iso) return '—'
+  if (!iso) return '-'
   return new Date(iso).toLocaleDateString('de-CH')
 }
 
@@ -217,15 +217,15 @@ export default function AdminInspectionDetailPage() {
             <dl className="grid grid-cols-2 gap-y-2 text-sm">
               <dt className="text-[#062E25]/75">{t('systemKwp')}</dt>
               <dd className="tabular-nums text-right">
-                {prelimKwp != null ? Number(prelimKwp).toFixed(2) : '—'}
+                {prelimKwp != null ? Number(prelimKwp).toFixed(2) : '-'}
               </dd>
               <dt className="text-[#062E25]/75">{t('annualProduction')}</dt>
               <dd className="tabular-nums text-right">
-                {prelimProd != null ? Number(prelimProd).toFixed(0) : '—'}
+                {prelimProd != null ? Number(prelimProd).toFixed(0) : '-'}
               </dd>
               <dt className="text-[#062E25]/75">{t('annualConsumption')}</dt>
               <dd className="tabular-nums text-right">
-                {prelimCons != null ? Number(prelimCons).toFixed(0) : '—'}
+                {prelimCons != null ? Number(prelimCons).toFixed(0) : '-'}
               </dd>
             </dl>
             <div className="mt-4 pt-4 border-t border-[#062E25]/10">

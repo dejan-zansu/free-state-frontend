@@ -33,7 +33,7 @@ function brandFromCode(code: string): 'HUAWEI' | 'SIGENERGY' | null {
 }
 
 function fmtChf(n: number | null | undefined): string {
-  return n != null ? n.toLocaleString('de-CH') : '—'
+  return n != null ? n.toLocaleString('de-CH') : '-'
 }
 
 function getSystemSpecs(pkg: CalculatorPackage) {
