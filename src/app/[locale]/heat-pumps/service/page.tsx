@@ -1,7 +1,6 @@
 import PageHero from '@/components/PageHero'
 import ServiceHotlineSection from '@/components/heat-pumps/service/ServiceHotlineSection'
 import EmergencySection from '@/components/heat-pumps/service/EmergencySection'
-import ManufacturerSupportSection from '@/components/heat-pumps/service/ManufacturerSupportSection'
 import HydraulicEmergencySection from '@/components/heat-pumps/service/HydraulicEmergencySection'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
@@ -38,7 +37,6 @@ const HeatPumpsServicePage = async () => {
         <ServiceHotlineSection />
       </div>
       <EmergencySection />
-      <ManufacturerSupportSection />
       <HydraulicEmergencySection />
     </div>
   )

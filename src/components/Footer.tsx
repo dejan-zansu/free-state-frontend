@@ -133,7 +133,7 @@ const Footer = () => {
     // },
     {
       icon: LinkedInIcon,
-      href: 'https://www.linkedin.com/company/agribusiness-training-institute-of-free-state/',
+      href: 'https://www.linkedin.com/company/free-state-ag/',
       label: 'LinkedIn',
     },
   ]

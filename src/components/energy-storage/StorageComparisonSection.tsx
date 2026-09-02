@@ -2,8 +2,8 @@ import LeafIcon from '@/components/icons/LeafIcon'
 import { LinkButton } from '@/components/ui/link-button'
 import { getTranslations } from 'next-intl/server'
 
-const columns = ['huawei', 'sun', 'e3dc'] as const
-const gridCols = 'grid grid-cols-4'
+const columns = ['huawei'] as const
+const gridCols = 'grid grid-cols-2'
 
 const StorageComparisonSection = async () => {
   const t = await getTranslations('energyStorage.comparison')
@@ -125,7 +125,7 @@ const StorageComparisonSection = async () => {
                   <span className="px-5 py-5 text-[#062E25]/80 text-lg font-semibold tracking-[-0.02em] whitespace-pre-line">
                     {t('smartEnergy.label')}
                   </span>
-                  <div className="col-span-3 px-5 py-5 flex flex-col gap-[6px]">
+                  <div className="col-span-1 px-5 py-5 flex flex-col gap-[6px]">
                     <div className="flex items-center gap-2">
                       <LeafIcon className="w-[9px] h-[9px] shrink-0 text-[#036B53]" />
                       <span className="text-[#062E25]/80 text-lg italic tracking-[-0.02em]">

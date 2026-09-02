@@ -18,7 +18,7 @@ const members: Member[] = [
     key: 'peter',
     image: '/images/team-peter-700a37.png',
     email: 'peter.aragai@freestate.ch',
-    phone: '+41 (0)78 6088 850',
+    phone: '+41 78 608 88 50',
   },
   {
     key: 'dragica',

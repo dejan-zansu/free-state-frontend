@@ -64,7 +64,7 @@ export const CONSULTATION_ADVISORS = [
     key: 'peter',
     image: '/images/peter.webp',
     email: 'peter.aragai@freestate.ch',
-    phone: '+41 (0)78 6088 850',
+    phone: '+41 78 608 88 50',
     calendlyUrl: COMPANY_CALENDLY_URL,
   },
 ] as const

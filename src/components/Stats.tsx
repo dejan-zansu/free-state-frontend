@@ -6,7 +6,7 @@ const Stats = async () => {
   const stats = [
     { value: 'CHF 0', label: t('downPayment') },
     { value: '18', sublabel: 'Rp/kWh', label: t('solarPrice') },
-    { value: '19', label: t('cantons') },
+    { value: '2008', label: t('experienceSince') },
     { value: '3', sublabel: 'Schaffhausen · Zürich · St. Gallen', label: t('locations') },
   ]
 

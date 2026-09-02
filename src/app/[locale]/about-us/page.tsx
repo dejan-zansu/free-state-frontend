@@ -1,7 +1,6 @@
 import AboutFreeState from '@/components/about-us/AboutFreeState'
 import FounderSection from '@/components/about-us/FounderSection'
 import LocationsCTA from '@/components/about-us/LocationsCTA'
-import PartnersSection from '@/components/about-us/PartnersSection'
 import SolutionsSection from '@/components/about-us/SolutionsSection'
 import VisionMission from '@/components/about-us/VisionMission'
 import ContactMap from '@/components/ContactMap'
@@ -56,7 +55,6 @@ const AboutUsPage = () => {
       <VisionMission />
       <FounderSection />
       <SolutionsSection />
-      <PartnersSection />
       <LocationsCTA />
       <ContactMap />
     </div>

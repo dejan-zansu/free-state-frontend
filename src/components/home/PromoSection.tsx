@@ -204,14 +204,6 @@ const CompleteSlide = async () => {
               height={15}
               className="h-[15px] w-auto"
             />
-            <div className="hidden h-12 w-px bg-[#4D6960]/40 sm:block" />
-            <Image
-              src="/images/promo/logo-goodwe.svg"
-              alt="GoodWe"
-              width={116}
-              height={15}
-              className="h-[15px] w-auto"
-            />
           </div>
         </div>
       </div>

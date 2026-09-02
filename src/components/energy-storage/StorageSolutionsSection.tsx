@@ -10,11 +10,6 @@ const products = [
     hasSections: ['features', 'warranty', 'options'] as const,
   },
   {
-    key: 'sonnen',
-    image: '/images/energy-storage/product-sonnen-50d6f2.webp',
-    hasSections: ['features', 'warranty', 'options'] as const,
-  },
-  {
     key: 'byd',
     image: '/images/energy-storage/product-byd-50d6f2.webp',
     hasSections: ['features', 'warranty'] as const,

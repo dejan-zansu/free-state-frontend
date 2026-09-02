@@ -36,8 +36,8 @@
       "details": {
         "label": "Standard package",
         "tagline": {
-          "HUAWEI": "The Swiss market standard. Safe. Proven. Efficient.",
-          "SIGENERGY": "European premium technology. Innovative. Reliable."
+          "HUAWEI": "Widely used in Switzerland. Safe. Proven. Efficient.",
+          "SIGENERGY": "Premium technology. Innovative. Reliable."
         }
       },
       "equipment": {
@@ -142,7 +142,7 @@
     },
     "aboutUs": {
       "title": "About Us: Solar from One Provider | Free State AG",
-      "description": "Free State AG plans and installs solar systems in 19 German-speaking Swiss cantons. Experience since 2008, today with SolarFree, SolarAbo and SolarDirect."
+      "description": "Free State AG plans and installs solar systems in German-speaking Switzerland. Experience since 2008, today with SolarFree, SolarAbo and SolarDirect."
     },
     "team": {
       "title": "Team: The People Behind Free State AG",
@@ -444,7 +444,7 @@
       },
       {
         "title": "Disruptions",
-        "description": "No power, gas smell, or burst pipe? We are available around the clock for disruptions and emergencies."
+        "description": "A fault with your solar system, heat pump or charging station? Contact us by phone or via the form."
       }
     ],
     "serviceLinks": {
@@ -509,7 +509,7 @@
     "node2024Title": "November 2024",
     "node2024Body": "The team founds Free State AG in Schaffhausen and commits fully to solar.",
     "nodeTodayTitle": "Today",
-    "nodeTodayBody": "We build in 19 German-speaking Swiss cantons, with SolarFree, SolarDirect and SolarAbo models."
+    "nodeTodayBody": "We build in German-speaking Switzerland, with SolarFree, SolarDirect and SolarAbo models."
   },
   "home": {
     "referenceRoofs": {
@@ -577,7 +577,7 @@
             "subtitle": "~3 months"
           }
         ],
-        "partnersLabel": "Including premium brands"
+        "partnersLabel": "Brands we install"
       }
     },
     "hero": {
@@ -676,7 +676,7 @@
     "stats": {
       "downPayment": "Down payment with SolarFree",
       "solarPrice": "Solar power price with SolarFree",
-      "cantons": "Cantons in German-speaking Switzerland",
+      "experienceSince": "Experience since",
       "locations": "Locations"
     },
     "solarModels": {
@@ -779,7 +779,6 @@
       "eyebrow": "Customer stories",
       "title": "What our customers say",
       "subtitle": "Real experiences with FreeState – transparent, personal and relatable.",
-      "verifiedOwner": "verified owner",
       "stats": {
         "savings": "Yearly savings",
         "installTime": "from enquiry to installation",
@@ -819,32 +818,7 @@
           "image": "/images/3.jpeg"
         }
       ],
-      "stories": [
-        {
-          "quote": "Everything ran smoothly, from consulting to installation. Very reliable and professional.",
-          "savings": "CHF 3,419.–",
-          "installTime": "2 months",
-          "capacity": "15.5 kWp",
-          "authorName": "Franz McLaren",
-          "image": "/images/customer-story-house-334153.webp"
-        },
-        {
-          "quote": "Planning was transparent and post-installation service was excellent. Our electricity costs dropped significantly.",
-          "savings": "CHF 2,850.–",
-          "installTime": "6 weeks",
-          "capacity": "12.0 kWp",
-          "authorName": "Sabine Keller",
-          "image": "/images/single-family-home.png"
-        },
-        {
-          "quote": "From the first enquiry to the finished system we felt perfectly supported. Communication was always clear.",
-          "savings": "CHF 4,100.–",
-          "installTime": "8 weeks",
-          "capacity": "18.2 kWp",
-          "authorName": "Markus Weber",
-          "image": "/images/hero-solar-panels.webp"
-        }
-      ]
+      "stories": []
     },
     "reviews": {
       "eyebrow": "Customer reviews",
@@ -852,7 +826,7 @@
       "subtitle": "Real reviews from our customers.",
       "commercialEyebrow": "Business voices",
       "commercialTitle": "Experiences from businesses",
-      "commercialSubtitle": "Real reviews from partner companies and corporate customers.",
+      "commercialSubtitle": "Genuine reviews from business customers.",
       "commercialItems": [
         {
           "quote": "Our barn roofs were used perfectly to generate solar energy. Free State supported us brilliantly – from detailed planning to regular maintenance. Thanks to this, we are not only saving on energy costs but also making an important contribution to climate protection.",
@@ -887,7 +861,7 @@
     },
     "battery": {
       "title": "Battery",
-      "subtitle": "FreeState offers intelligent battery storage solutions in partnership with Huawei – with reliable hardware, seamless integration, and future-oriented energy management for your home.",
+      "subtitle": "With Huawei hardware, FreeState offers intelligent battery storage solutions with seamless integration and future-oriented energy management for your home.",
       "step1": "Up to 80% self-consumption instead of 30%",
       "step2": "Backup power during grid outages, optional",
       "step3": "5 to 30 kWh storage, expandable any time",
@@ -914,7 +888,7 @@
     },
     "evCharging": {
       "title": "EV Charging Solutions",
-      "subtitle": "FreeState offers smart EV charging solutions in partnership with Huawei – with reliable hardware, seamless integration, and future-oriented energy management for your home.",
+      "subtitle": "With Huawei hardware, FreeState offers intelligent EV charging solutions with seamless integration and future-oriented energy management for your home.",
       "step1": "Smart EV charging for your home",
       "step2": "EV charging made easy",
       "step3": "Reliable charging solutions with Huawei",
@@ -949,14 +923,14 @@
         },
         {
           "title": "Experience since 2008",
-          "description": "Our team has been planning and installing solar systems since 2008, today in 19 German-speaking Swiss cantons"
+          "description": "Our team has been planning and installing solar systems since 2008, today across German-speaking Switzerland."
         }
       ]
     },
     "ourPartners": {
-      "eyebrow": "Our Partners",
-      "title": "Brands that trust FreeState",
-      "subtitle": "With strong partners and leading brands, we create reliable energy solutions for your home."
+      "eyebrow": "Our technology brands",
+      "title": "Brands we install",
+      "subtitle": "With proven brands we create reliable energy solutions for your home."
     },
     "calculatorSection": {
       "eyebrow": "Solar calculator",
@@ -1062,16 +1036,16 @@
       "title": "Portfolio",
       "subtitle": "Sustainable energy, long-term cost savings and full transparency – without your own investment risk.",
       "item1": {
-        "title": "Bauernhof Thun",
-        "details": "• Up to 30% cost savings \n• 250 kWp system"
+        "title": "Bowling Five, Thayngen SH",
+        "details": "230 kWp • 500 modules • Sofar + 256 kWh storage"
       },
       "item2": {
-        "title": "Industriegebäude Zürich",
-        "details": "• CO₂ reduction: 12 t/year \n• 400 kWp"
+        "title": "Diggelmann Bau AG, Laupen ZH",
+        "details": "75.25 kWp • 164 modules • Huawei with storage"
       },
       "item3": {
-        "title": "Industriegebäude Chur",
-        "details": "• Self-consumption: 75% \n• 180 kWp"
+        "title": "Stiftung Wetterbaum, Frauenfeld",
+        "details": "134.06 kWp • 292 modules • Huawei with storage"
       },
       "learnMore": "Learn more"
     },
@@ -1213,11 +1187,11 @@
       },
       "installation": {
         "title": "Experienced installation",
-        "description": "Proven at over 1 million households."
+        "description": "Professional installation by our team."
       },
       "support": {
-        "title": "Support around\nthe clock",
-        "description": "24/7 assistance and system monitoring."
+        "title": "Monitoring &\nSupport",
+        "description": "System monitoring and support during office hours."
       }
     },
     "faq": {
@@ -1286,7 +1260,7 @@
         "label": "Cost per\nm² in CHF",
         "value": "approx. CHF 780.00"
       },
-      "solarAboPrice": "With SolarFree 00.00 CHF",
+      "solarAboPrice": "With SolarFree CHF 0",
       "orderNow": "ORDER NOW",
       "orderLink": "/calculator"
     },
@@ -1382,7 +1356,7 @@
       }
     },
     "publicSpaces": {
-      "title": "Powering Public Spaces",
+      "title": "Energy for your apartment building",
       "subtitle": "With clean, reliable energy",
       "body": "Get a non-binding assessment now\n\nTransform your multi-family building into a modern energy project without any financial risk. Recommend us to your management or owners' association – we check everything and handle the full implementation.\n\nWe analyze the building and roof potential, calculate profitability and develop a concrete implementation concept including all technical and legal aspects (ZEV). Financing, planning and realization are fully handled by us.\n\nYour effort stays minimal: you make the initial contact, we coordinate everything else. You benefit from affordable solar electricity, stable energy costs and a sustainable increase in the value of your property. Start now free of charge and without obligation and receive a well-founded assessment of the potential – Request a free analysis"
     },
@@ -1412,7 +1386,7 @@
         "label": "Cost per\nm² in CHF",
         "value": "approx. CHF 780.00"
       },
-      "solarAboPrice": "With SolarFree 00.00 CHF",
+      "solarAboPrice": "With SolarFree CHF 0",
       "orderNow": "ORDER NOW",
       "orderLink": "/calculator"
     },
@@ -1450,11 +1424,11 @@
     "howPV": {
       "row1": {
         "title": "How PV works",
-        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+        "description": "PV contracting sounds complicated but works quite simply: you have a large roof and would like a solar system, but do not want to invest. That is why Free State AG finances, builds and operates the system for you. And you benefit from an annual roof lease and/or low electricity prices."
       },
       "row2": {
-        "title": "How it works",
-        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+        "title": "The process",
+        "description": "The process is simple. We assess your roof and your electricity consumption, prepare an offer with a roof lease or electricity price, plan and build the system, and then take care of operation, maintenance and monitoring. All you provide is the roof."
       }
     },
     "publicSpaces": {
@@ -1576,11 +1550,11 @@
     "howPV": {
       "row1": {
         "title": "How PV works",
-        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+        "description": "PV contracting sounds complicated but works quite simply: you have a large roof and would like a solar system, but do not want to invest. That is why Free State AG finances, builds and operates the system for you. And you benefit from an annual roof lease and/or low electricity prices."
       },
       "row2": {
-        "title": "How it works",
-        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+        "title": "The process",
+        "description": "The process is simple. We assess your roof and your electricity consumption, prepare an offer with a roof lease or electricity price, plan and build the system, and then take care of operation, maintenance and monitoring. All you provide is the roof."
       }
     },
     "publicSpaces": {
@@ -1702,7 +1676,7 @@
     "howPV": {
       "row1": {
         "title": "How PV works",
-        "description": "PV contracting sounds complicated, but it's actually very simple: you have a large roof and would like a solar system, but don't want to invest. That's why we at enalpin finance and operate the system – it's built by our sister company, the solar pioneers at tritec. And you benefit from an annual roof lease and/or favourable electricity prices."
+        "description": "PV contracting sounds complicated but works quite simply: you have a large roof and would like a solar system, but do not want to invest. That is why Free State AG finances, builds and operates the system for you. And you benefit from an annual roof lease and/or low electricity prices."
       }
     },
     "publicSpaces": {
@@ -1818,15 +1792,15 @@
     "description": "Have questions about our solar solutions? We're here to help. Reach out to us through any of the following methods.",
     "email": {
       "label": "Email",
-      "value": "info@freestate.ag"
+      "value": "info@freestate.ch"
     },
     "phone": {
       "label": "Phone",
-      "value": "+41 XX XXX XX XX"
+      "value": "+41 52 525 33 05"
     },
     "address": {
       "label": "Address",
-      "value": "Free State AG\nSwitzerland"
+      "value": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen"
     }
   },
   "quoteRequestForm": {
@@ -1924,63 +1898,36 @@
     "title": "Portfolio",
     "subtitle": "Your energy, our responsibility – sustainable and worry-free",
     "hero": {
-      "title": "Our solar projects\nacross Switzerland"
+      "title": "Our solar projects\nin German-speaking Switzerland"
     },
     "strategy": {
       "title": "Strategy",
-      "description": "Free State AG is an established producer of green electricity in Switzerland and operates modern solar power plants. In the medium term, the company aims to build a diverse and balanced portfolio of renewable energies with a total installed capacity of 59 megawatts*. The goal is to position itself as one of the leading operators of renewable energies in Switzerland.",
-      "diversification": "A central element of the investment strategy is diversification. It minimizes risks in the areas of market conditions, legal frameworks and availability of generation types.",
-      "future": "In the future, electricity production from solar energy should account for about 20–30 percent of the company's revenue. Free State AG invests exclusively in plants with mature technology that are either already in operation or have full approval at the start of construction. The sale of power plants is not part of the business model.",
-      "synergies": "In addition to further acquisitions, Free State maximizes synergies in plant operation to continuously increase operational efficiency. The expansion of a diversified portfolio should sustainably promote revenue and profit development."
+      "description": "Free State AG plans, finances and realises photovoltaic systems in Switzerland for private and business customers."
     },
     "projects": {
       "title": "Solar projects in action",
-      "description": "A selection of utility-scale and commercial solar installations delivered across Switzerland - from planning to operation.",
+      "description": "A selection of solar systems for businesses and private customers, realised in German-speaking Switzerland - from planning to operation.",
       "viewProject": "View Project",
       "tags": {
         "industrialRooftop": "Industrial Rooftop",
         "agricultural": "Agricultural"
       },
       "items": {
-        "industrialZurich": {
-          "title": "Industrial building Zurich",
-          "description": "Modern solar installation on industrial building"
+        "diggelmannBau": {
+          "title": "Diggelmann Bau AG, Laupen ZH",
+          "description": "Solar system on the construction company's building, 75.25 kWp, Huawei inverter with storage."
         },
-        "industrialBern": {
-          "title": "Industrial building Bern",
-          "description": "Solar energy system for industrial facility"
+        "stiftungWetterbaum": {
+          "title": "Stiftung Wetterbaum, Frauenfeld",
+          "description": "Rooftop system on the foundation's building, 134.06 kWp, Huawei inverter with storage."
         },
-        "industrialAargau1": {
-          "title": "Industrial building Aargau",
-          "description": "Efficient solar power generation installation"
+        "bowlingFive": {
+          "title": "Bowling Five, Thayngen SH",
+          "description": "Solar system on the roof of the bowling centre, 230 kWp, Sofar inverters with 256 kWh storage."
         },
-        "industrialAargau2": {
-          "title": "Industrial building Aargau",
-          "description": "Sustainable solar energy project"
-        },
-        "industrialAargau3": {
-          "title": "Industrial building Aargau",
-          "description": "Renewable energy installation"
-        },
-        "industrialLuzern1": {
-          "title": "Industrial building Lucerne",
-          "description": "Sustainable energy solution for industrial site"
-        },
-        "industrialLuzern2": {
-          "title": "Industrial building Lucerne",
-          "description": "Green energy system for industrial facility"
-        },
-        "industrialChur": {
-          "title": "Industrial building Chur",
-          "description": "Renewable energy installation on industrial roof"
-        },
-        "farmThun": {
-          "title": "Farm Thun",
-          "description": "Solar panels for agricultural facility"
-        },
-        "industrialGeneva": {
-          "title": "Industrial building Geneva",
-          "description": "Green energy system for industrial complex"
+        "reneSchmid": {
+          "title": "Rene Schmid",
+          "description": "Photovoltaic system realised by Free State AG."
         }
       }
     },
@@ -2061,12 +2008,12 @@
     }
   },
   "investorsPage": {
-    "title": "Partnerships & Investors",
-    "subtitle": "Together with strong partners and investors, we are shaping the future of decentralized energy solutions.",
+    "title": "Investors",
+    "subtitle": "Together with investors, we shape the future of decentralised energy solutions.",
     "heroCta": "Get in touch",
     "investing": {
       "title": "Invest sustainably",
-      "description": "With an investment in renewable energies, you are betting on sustainable and future-proof value creation. Free State AG offers you the opportunity to participate in solar power plants and other environmentally friendly projects. Benefit from stable returns, a growing market and an active contribution to the energy transition. Our experience and our focus on mature technologies guarantee you security and success – for a greener future."
+      "description": "By investing in renewable energy, you are backing sustainable, future-proof value creation. Free State AG offers you the opportunity to participate in photovoltaic systems and other environmentally friendly projects. Benefit from a growing market and an active contribution to the energy transition."
     },
     "partner": {
       "eyebrow": "FreeState App",
@@ -2080,7 +2027,7 @@
     "formPanel": {
       "eyebrow": "FreeState App",
       "title": "Request Documents",
-      "subtitle": "Become an early investor at FreeState AG and benefit from the Private Equity and Green Bond offering."
+      "subtitle": "Request our investor documents."
     },
     "form": {
       "eyebrow": "For Investors",
@@ -2111,23 +2058,6 @@
       "errorMessage": "An error occurred. Please try again.",
       "consent": "I have read the <link>privacy policy</link> and agree to the processing of my data.",
       "consentError": "Please provide your consent to continue"
-    },
-    "faq": {
-      "title": "Frequently asked questions",
-      "items": {
-        "invest": {
-          "question": "Can I invest in Free State Energie AG?",
-          "answer": "If you are a person with residence in Switzerland and qualify as a qualified investor by investing funds or knowledge, then yes. Every person with residence in Switzerland who has a Swiss bank account and experience in the investment world can subscribe to shares under the officially set conditions of the capital increase."
-        },
-        "deposit": {
-          "question": "Where are my Free State AG shares deposited?",
-          "answer": "The shares of Free State Energie AG are digitized and are issued by Schaffhauser Kantonalbank AG and distributed to a deposit account at your bank. It is possible that your bank values them at a price of 0 (zero), as the company is not yet listed on the stock exchange."
-        },
-        "listed": {
-          "question": "Is Free State Energie AG listed on a public stock exchange?",
-          "answer": "No, currently the company is privately owned and is not listed on a stock exchange. Each shareholder has full shareholder rights including dividend rights. Free State AG intends to go public in the near future, but this depends heavily on the market situation, company development and the number of investors."
-        }
-      }
     }
   },
   "calculator": {
@@ -3194,7 +3124,7 @@
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
       "title": "Battery Storage",
-      "subtitle": "For single-family homes without battery storage"
+      "subtitle": "Store solar power and use it when you need it"
     },
     "revenue": {
       "title": "Turn Energy Storage into a Revenue Engine",
@@ -3209,7 +3139,7 @@
           "description": "Store surplus instead of selling it at low prices."
         },
         "smartDispatch": {
-          "title": "Smart Dispatch",
+          "title": "Intelligent control",
           "description": "Decide when to use, store, or sell energy."
         },
         "revenue": {
@@ -3240,51 +3170,19 @@
       }
     },
     "gridServices": {
-      "title": "Maximizing Returns from Grid Services",
-      "description": "Energy storage allows participation in grid service markets, where flexibility is rewarded. Your system is automatically dispatched to support the grid and generate additional income.",
+      "title": "Grid services for large storage systems",
+      "description": "Large storage systems can participate in the balancing energy market via an aggregator. We work out with you whether this is worthwhile for your project.",
       "financialBenefits": {
-        "title": "Financial Benefits",
-        "item1": "Additional revenue from grid availability",
+        "title": "Possible benefits",
+        "item1": "Remuneration for flexibility provided",
         "item2": "No active trading required",
-        "item3": "Passive income stream"
+        "item3": "Marketing via an aggregator"
       },
       "automatedParticipation": {
-        "title": "Fully automated participation",
+        "title": "Requirements",
         "item1": "Suitable grid connection",
         "item2": "Approved storage system",
-        "item3": "Location-specific eligibility"
-      }
-    },
-    "predictableReturns": {
-      "title": "Energy Storage with Predictable Returns",
-      "description": "For selected projects, FreeState AG offers energy storage models with predefined return structures. This ensures planning security while unlocking long-term value from flexibility markets.",
-      "financialBenefits": {
-        "title": "Financial Benefits",
-        "item1": "Predictable annual returns",
-        "item2": "Reduced market exposure",
-        "item3": "Long-term revenue visibility"
-      },
-      "automatedParticipation": {
-        "title": "Fully automated participation",
-        "item1": "Minimum system size",
-        "item2": "Contractual availability commitment",
-        "item3": "Site assessment and approval"
-      }
-    },
-    "landLease": {
-      "title": "Earn from Your Land - Without Investment",
-      "description": "If you own suitable land or infrastructure, FreeState AG can install and operate energy storage systems on your site. You receive fixed lease payments without investment or operational effort.",
-      "financialBenefits": {
-        "title": "Financial Benefits",
-        "item1": "Fixed location lease income",
-        "item2": "No capital expenditure",
-        "item3": "No operational responsibility"
-      },
-      "automatedParticipation": {
-        "title": "Fully automated participation",
-        "item1": "Suitable site location",
-        "item2": "Grid access availability",
-        "item3": "Long-term lease agreement"
+        "item3": "Sufficient storage size"
       }
     },
     "cta": {
@@ -3542,17 +3440,17 @@
       "cta": "More information",
       "items": {
         "1": {
-          "brand": "Stiebel Eltron",
+          "brand": "NIBE",
           "description": "Air-to-water heat pump (installed outdoors)",
           "link": "/contact"
         },
         "2": {
-          "brand": "Stiebel Eltron",
+          "brand": "Viessmann",
           "description": "Air-to-water heat pump (indoor installation)",
           "link": "/contact"
         },
         "3": {
-          "brand": "Stiebel Eltron",
+          "brand": "NIBE",
           "description": "Ground source heat pump (ground probe)",
           "link": "/contact"
         }
@@ -3612,8 +3510,8 @@
           "description": "From consultation and planning to installation and maintenance — we handle every step so you don't have to."
         },
         "2": {
-          "title": "A 24/7 service",
-          "description": "Our support team is available around the clock, ensuring your heat pump system runs smoothly at all times."
+          "title": "Personal service",
+          "description": "Our team takes care of maintenance and faults and is there for you."
         },
         "3": {
           "title": "Product quality",
@@ -3625,7 +3523,7 @@
         },
         "5": {
           "title": "Comprehensive expertise",
-          "description": "Our certified specialists bring years of experience in heat pump technology and energy solutions."
+          "description": "Our specialists bring years of experience in heat pump technology and energy solutions."
         },
         "6": {
           "title": "Fail-safety",
@@ -3795,7 +3693,7 @@
     },
     "pricingSection": {
       "title": "Cost of a solar system in CHF",
-      "note": "Acquisition costs per household after 30% deduction of subsidies & 25% tax savings",
+      "note": "Purchase costs per household after deduction of the Pronovo one-off remuneration and the tax deduction",
       "table": {
         "headers": {
           "roofSize": "Roof size",
@@ -3843,7 +3741,7 @@
       "subtitle": "We provide comprehensive advice on investment selection and support you with various financing solutions.",
       "bullets": {
         "monthlyPayments": "No high one-time investment costs, instead monthly payments",
-        "installmentPlan": "With the installment payment plan, the photovoltaic system belongs to you after 10-15 years.",
+        "installmentPlan": "With the instalment plan, the photovoltaic system belongs to you after 25 years.",
         "maintenance": "Thanks to additional maintenance packages, your system is always in top condition."
       },
       "idealTime": {
@@ -4104,7 +4002,7 @@
     "hero": {
       "eyebrow": "Zero investment. Lower electricity costs. No worries.",
       "title": "Charging Stations",
-      "subtitle": "For single-family homes without battery storage"
+      "subtitle": "Charge your electric car at home with your own solar power"
     },
     "commercialTopics": {
       "title": "Everything about charging stations",
@@ -4873,19 +4771,19 @@
     "overview": {
       "eyebrow": "Amortization",
       "title": "Solar system for carport",
-      "description": "Make the most of your carport's roof space! With a solar system from FreeState on a Uninorm carport, you not only benefit from environmentally friendly solar power, but also protect your car from the elements.",
+      "description": "Make the most of your carport roof! With a FreeState solar system on your carport, you not only benefit from environmentally friendly solar power but also protect your car from the weather.",
       "advantagesTitle": "Your advantages at a glance",
       "advantages": {
         "dualUse": "Dual use: Transform the roof of your carport into a small solar power plant.",
         "independence": "Independence: Reduce your electricity bill and protect yourself against rising energy prices.",
         "subsidies": "Subsidies & tax savings: Benefit from attractive subsidies and tax advantages in Switzerland.",
         "sustainability": "Sustainability: Help drive the energy transition forward and reduce your carbon footprint.",
-        "easyIntegration": "Easy integration: Thanks to our partnership with Uninorm, you receive a perfectly integrated solution that is optimally tailored to your carport."
+        "easyIntegration": "Easy integration: You get a solution that is perfectly matched to your carport."
       }
     },
     "photovoltaicsCarports": {
       "title": "Photovoltaics and carports – the perfect match",
-      "description": "Uninorm carports use high-quality photovoltaic modules to generate solar energy on site, offering an eco-friendly and cost-efficient solution.",
+      "description": "Solar carports use high-quality photovoltaic modules to generate solar energy on site and offer an environmentally friendly, cost-efficient solution.",
       "card": {
         "title": "Photovoltaics on the carport",
         "efficientEnergy": "Efficient energy generation: Make optimal use of the roof area of your carport for electricity production.",
@@ -4918,7 +4816,7 @@
     "whySolarCarport": {
       "eyebrow": "Installation",
       "title": "Why install solar panels on your carport?",
-      "description": "A solar panel system on your carport lets you use sustainable energy while protecting your vehicle. It reduces dependence on rising electricity prices and supports climate protection. With custom-designed carports from Uninorm, you get maximum energy efficiency without sacrificing style."
+      "description": "A solar system on your carport lets you use sustainable energy while protecting your vehicle. It reduces your dependence on rising electricity prices and supports climate protection. With a tailor-made carport system, you get maximum energy efficiency without compromising on design."
     },
     "evCharging": {
       "eyebrow": "Charging",
@@ -4966,12 +4864,6 @@
           "answer": "Yes, with a battery storage system, you can store excess solar energy and use it later, for example in the evening or on cloudy days. We offer suitable storage solutions that can be seamlessly integrated with your solar carport."
         }
       }
-    },
-    "testimonial": {
-      "title": "Here's what our\ncustomers say",
-      "quote": "Project planning and execution were smooth and professional. The team was friendly, competent, transparent throughout the process, and handled any issues efficiently.",
-      "authorName": "Franz McLaren",
-      "verifiedOwner": "verified owner"
     }
   },
   "solarCalculator": {
@@ -5019,26 +4911,26 @@
       "cards": {
         "experience": {
           "title": "Experience since 2008",
-          "subtitle": "Our team has been planning and installing solar systems since 2008, today in 19 German-speaking Swiss cantons."
+          "subtitle": "Our team has been planning and installing solar systems since 2008, today across German-speaking Switzerland."
         },
         "localPresence": {
           "title": "Local presence",
-          "subtitle": "Service teams across German-speaking Switzerland"
+          "subtitle": "Locations in Schaffhausen, Zurich and St. Gallen"
         },
         "comprehensiveService": {
           "title": "Comprehensive service",
           "subtitle": "Consultation, financing, installation & maintenance"
         },
         "exclusiveTariffs": {
-          "title": "Exclusive tariffs",
-          "subtitle": "Electricity revenue thanks to FreeState ONE exclusive tariffs"
+          "title": "Feed-in remuneration",
+          "subtitle": "Remuneration for surplus electricity based on the SFOE reference market price"
         }
       }
     },
     "solarAbo": {
       "eyebrow": "SolarFree",
       "title": "Up to 60% lower energy costs",
-      "description": "SolarFree connects your solar system, storage and EV, using AI to maximize self-consumption and sell surplus power at the best rate."
+      "description": "SolarFree connects your solar system, storage, heat pump and electric vehicle and optimises your self-consumption."
     },
     "cards": {
       "investment": {
@@ -5100,7 +4992,7 @@
       "description": "A battery storage system is the ideal complement to a solar power system, because households don't need as much solar power as they produce. The energy storage system stores the excess energy produced by the photovoltaic system during the day. Thanks to the battery storage, solar power is also available in the evenings, at night, and in the mornings."
     },
     "benefits": {
-      "title": "The solar system self-check",
+      "title": "Your benefits",
       "items": {
         "independentPower": "You benefit from an independent power supply",
         "risingPrices": "Less dependent on rising electricity prices.",
@@ -5109,53 +5001,41 @@
       }
     },
     "comparison": {
-      "title": "FreeState storage system comparison",
+      "title": "Huawei storage system at a glance",
       "columns": {
-        "huawei": "Huawei",
-        "sun": "Sun",
-        "e3dc": "E3DC"
+        "huawei": "Huawei"
       },
       "manufacturer": {
         "label": "Manufacturer"
       },
       "inverter": {
         "label": "Inverter",
-        "huawei": "Only usable with the specified inverter (DC system)\n\nKTL-M1",
-        "sun": "Compatible with any inverter (AC system)",
-        "e3dc": "All in One"
+        "huawei": "Only usable with the specified inverter (DC system)\n\nKTL-M1"
       },
       "storageCapacity": {
         "label": "Storage Capacity"
       },
       "capacity": {
-        "huawei": "5–90 kWh",
-        "sun": "11–55 kWh",
-        "e3dc": "4 – 84 kWh"
+        "huawei": "5–90 kWh"
       },
       "emergencyPower": {
         "label": "Emergency power",
-        "huawei": "2 lighting groups\n(e.g., refrigerator\n& living room lighting)",
-        "sun": "Entire house without\na heat pump",
-        "e3dc": "Entire house\nwith heat pump"
+        "huawei": "2 lighting groups\n(e.g., refrigerator\n& living room lighting)"
       },
       "islandOperation": {
         "label": "Island operation",
-        "huawei": "Yes, limited",
-        "sun": "Under review",
-        "e3dc": "Yes"
+        "huawei": "Yes, limited"
       },
       "costs": {
         "label": "Costs/Indicative Prices:",
-        "huawei": "14 kWh:\nFrom CHF 12,000.–\n21 kWh:\nFrom CHF 17,000.–",
-        "sun": "11 kWh:\nFrom CHF 13,000.–\n22 kWh:\nFrom CHF 17,000.–",
-        "e3dc": "14 kWh:\nFrom CHF 21,000.–\n18 kWh:\nFrom CHF 24,000.–\n21 kWh:\nFrom CHF 25,000.–"
+        "huawei": "14 kWh:\nFrom CHF 12,000.–\n21 kWh:\nFrom CHF 17,000.–"
       },
       "footnotes": {
         "note1": "installed, excl. VAT",
-        "note2": "Prices exclude inverter, emergency power or off-grid operation (except E3DC)"
+        "note2": "Prices exclude inverter, backup power and off-grid operation"
       },
       "smartEnergy": {
-        "label": "SmartEnergy, FreeState ONE\nInstalled, excluding VAT.",
+        "label": "Energy management\nInstalled, excl. VAT",
         "note1": "From CHF 1,500 (Data logger only, without consumption measurement)",
         "note2": "From CHF 3,900.–, with boiler control 50% and 100%"
       },
@@ -5187,7 +5067,7 @@
     "solutions": {
       "eyebrow": "PV System",
       "title": "Our Storage Solutions",
-      "description": "We work with leading manufacturers to offer you reliable, high-performance energy storage systems tailored to your needs.",
+      "description": "We install storage systems from leading manufacturers and offer you reliable, high-performance energy storage tailored to your needs.",
       "warrantyLabel": "Warranty",
       "optionsLabel": "Options",
       "cta": "Get a quote now",
@@ -5198,20 +5078,13 @@
           "featuresLabel": "Key Features",
           "features": "Whole-home emergency power|Integrated inverter (up to 15 kWp)|Expandable capacity (18–21 kWh)|Smart energy management|Remote control & home automation integration|Solar-optimized EV charging",
           "warranty": "10-year manufacturer warranty|Free service",
-          "options": "Wallbox charging station|Bidirectional charging interface|Modbus / KNX connectivity|Loxone integration"
-        },
-        "sonnen": {
-          "name": "sonnenBatterie",
-          "featuresLabel": "Key Features",
-          "features": "Lithium iron phosphate technology|Smart software for higher self-consumption|App-based monitoring & analytics|Capacity: 11–55 kWh|Expandable at any time",
-          "warranty": "10-year system warranty (80% capacity)",
-          "options": "Emergency power (Sonnen Protect 8000)"
+          "options": "Wallbox charging station|Bidirectional charging interface|Modbus / KNX connectivity"
         },
         "byd": {
           "name": "BYD",
           "featuresLabel": "Key Features",
-          "features": "Space-saving design|Modular & expandable|Compatible with Kostal & SolarEdge|20 years of battery expertise",
-          "warranty": "10 years on BYD battery|5–12 years on inverters (depending on brand)"
+          "features": "Space-saving design|Modular & expandable|20 years of battery expertise",
+          "warranty": "10-year manufacturer's warranty on the BYD battery"
         },
         "huawei": {
           "name": "HUAWEI LUNA",
@@ -5234,7 +5107,7 @@
     "highestLevel": {
       "eyebrow": "Service",
       "title": "Service at the highest level",
-      "description": "We offer our solar panel and battery storage service throughout Switzerland. Our experienced service technicians are regionally based and can therefore be on-site quickly. We can even resolve minor malfunctions or damage within a few working days.\n\nOur services apply both to photovoltaic systems and battery storage systems built by us and to systems installed by third parties."
+      "description": "We offer our solar panel and battery storage service in German-speaking Switzerland. Our experienced service technicians are regionally based and can therefore be on-site quickly. We can even resolve minor malfunctions or damage within a few working days.\n\nOur services apply both to photovoltaic systems and battery storage systems built by us and to systems installed by third parties."
     },
     "selfCheck": {
       "title": "The solar system self-check",
@@ -5387,7 +5260,7 @@
       "cta": "Get in touch now"
     },
     "customerBenefits": {
-      "title": "The Customer Benefits",
+      "title": "Customer benefits (example calculation)",
       "description": "With FreeState, you get smart energy management for maximum efficiency.",
       "existingFacility": "Existing facility\nwithout control",
       "newFacility": "New facility\nwith SolarFree",
@@ -5550,7 +5423,7 @@
       "description": "Heat pump costs depend on whether you're replacing an old system or installing a new one, as well as the installation location. Air-to-water systems are cheaper and easier to install, while geothermal systems require higher upfront investment but offer greater efficiency and lower long-term operating costs."
     },
     "comparison": {
-      "title": "The solar system self-check",
+      "title": "Heating system cost comparison",
       "headers": {
         "purchase": "Purchase in CHF",
         "maintenance": "Maintenance fees in CHF (annually)",
@@ -5587,14 +5460,14 @@
     "support": {
       "eyebrow": "Support",
       "title": "What kind of support can I expect?",
-      "description": "Basel-Stadt subsidizes brine-to-water heat pumps up to CHF 25,850, while Bern offers up to CHF 6,000.",
+      "description": "Depending on the canton and municipality, heat pumps are subsidised with contributions of several thousand francs, especially when replacing an oil or gas heating system.",
       "checkItem": "Check local energy subsidies on Energy Francs using your postcode.",
       "cta": "Energy francs"
     },
     "taxDeduction": {
       "eyebrow": "Heat Pump",
       "title": "Tax deduction",
-      "description": "The Swiss government supports heat pump installations with subsidies and tax benefits. Depending on the project type, investments can be up to 100% tax-deductible."
+      "description": "Cantons and municipalities (Buildings Programme) support heat pump installations with subsidies and tax benefits. Depending on the project type, investments can be up to 100% tax-deductible."
     },
     "quoteCTA": {
       "eyebrow": "Support",
@@ -5629,7 +5502,7 @@
     },
     "hotline": {
       "eyebrow": "We are here for you",
-      "title": "Service Hotline - We and our partners are here for you!",
+      "title": "Service hotline - We are here for you!",
       "cta": "Contact"
     },
     "emergency": {
@@ -5641,29 +5514,6 @@
         "pumpNotWorking": "The heat pump is not working",
         "tooColdOrWarm": "Too cold or too warm in the house",
         "strangeNoises": "Strange noises from heat pump"
-      }
-    },
-    "manufacturerSupport": {
-      "title": "Contact Manufacturer Support for Immediate Assistance",
-      "cards": {
-        "stiebelEltron1": {
-          "title": "Stiebel Eltron",
-          "description": "For emergencies, call 0844 333 444",
-          "link": "Stiebel Eltron Services",
-          "href": "https://www.stiebel-eltron.ch"
-        },
-        "stiebelEltron2": {
-          "title": "Stiebel Eltron",
-          "description": "For emergencies, call 0844 333 444",
-          "link": "Stiebel Eltron Services",
-          "href": "https://www.stiebel-eltron.ch"
-        },
-        "stiebelEltron3": {
-          "title": "Stiebel Eltron",
-          "description": "For emergencies, call 0844 333 444",
-          "link": "Stiebel Eltron Services",
-          "href": "https://www.stiebel-eltron.ch"
-        }
       }
     },
     "hydraulic": {
@@ -5846,12 +5696,12 @@
     },
     "installation": {
       "title": "Installation of large\nsolar power plants",
-      "description": "FreeState employs experienced professionals such as electricians, roofers, carpenters, plumbers, and sheet metal workers. To ensure you can benefit from your system as quickly as possible, our professionals will install it from start to finish. Installation costs are fully included in the purchase price."
+      "description": "We work with experienced electricians and roofers. So that you can benefit from your system as quickly as possible, our specialists install it from start to finish. Installation costs are fully included in the purchase price."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
       "title": "Monitoring your system",
-      "description": "With decades of solar expertise, FreeState provides 24/7 monitoring, rapid fault detection, and regular inspections to ensure your solar system operates reliably for over 30 years."
+      "description": "FreeState provides continuous system monitoring, fast fault detection and regular inspections to ensure that your solar system operates reliably for more than 30 years."
     },
     "quoteCTA": {
       "eyebrow": "Cost of a Solar System",
@@ -5869,7 +5719,7 @@
   "projectDevelopment": {
     "hero": {
       "title": "Project development",
-      "description": "FreeState delivers EPC services for photovoltaic power plants across Switzerland."
+      "description": "FreeState provides EPC services for photovoltaic systems in German-speaking Switzerland."
     },
     "epc": {
       "eyebrow": "EPC",
@@ -6081,7 +5931,7 @@
     "freeStateOffers": {
       "title": "FreeState offers you this",
       "bullets": {
-        "owners": "For owners and property managers: we design, install, and maintain charging infrastructure, with a fully digital billing system handling administration.",
+        "owners": "For owners and property managers: We plan, install and maintain the charging infrastructure, with billing as required.",
         "condominiums": "For condominium owners: we install scalable charging infrastructure and stations as needed, with clear expansion planning and transparent, flexible billing."
       }
     },
@@ -6098,15 +5948,15 @@
         },
         "billing": {
           "question": "Can employees, guests, and customers be billed differently?",
-          "answer": "Yes, our digital billing system supports differentiated pricing for employees, guests, and customers, with transparent reporting and flexible rate structures."
+          "answer": "Yes, the charging stations we install support differentiated prices for employees, guests and customers, with transparent reporting and flexible tariff structures."
         },
         "homeCharging": {
           "question": "Can I allow my employees to charge their devices at home?",
-          "answer": "Yes, we offer home charging solutions for employees that integrate with your company's billing system, enabling seamless reimbursement and usage tracking."
+          "answer": "Yes, on request."
         },
         "fleetOverload": {
           "question": "Will a large fleet overload the charging network?",
-          "answer": "No, our intelligent load management system distributes charging power across all stations to prevent grid overload while ensuring all vehicles are charged on time."
+          "answer": "No, load management distributes the charging power across all stations to prevent grid overload while ensuring that all vehicles are charged on time."
         },
         "taxBreaks": {
           "question": "Are there tax breaks for charging solutions?",
@@ -6123,11 +5973,11 @@
     "intro": {
       "eyebrow": "Family houses",
       "title": "Your house, your\ncharging station",
-      "description": "Affordable charging stations are available for every need. FreeState models offer load management, remote access, and the option to charge your EV with your own solar power."
+      "description": "Affordable charging stations are available for every need. Our wallboxes offer load management, remote access and the option of charging your EV with your own solar power."
     },
     "weOffer": {
       "title": "We offer you this",
-      "description": "We plan and install smart home charging solutions using high-quality partner products, fully integrated with your solar system or heat pump—including bidirectional charging—and supported by ongoing technical service.\n\nGet a non-binding cost estimate in minutes with our online quote calculator."
+      "description": "We plan and install intelligent home charging solutions with high-quality products that integrate fully with your solar system or heat pump, enable bidirectional charging and are backed by ongoing technical service.\n\nGet a non-binding cost estimate in just a few minutes with our online quote calculator."
     },
     "calculator": {
       "eyebrow": "Calculate",
@@ -6229,27 +6079,11 @@
         "lowerElectricityBill": "Lower electricity bill",
         "multiDaySelfSufficiency": "Multi-day self-sufficiency"
       },
-      "footnote": "Depending on the situation, this results in an annual financial benefit of up to CHF 520 with a solar system or up to CHF 300 without a solar system. Details of the financial benefit follow:"
-    },
-    "marketingFlexibility": {
-      "title": "Marketing Flexibility",
-      "description": "Your EV battery can join FreeState's virtual power plant, supporting the grid and earning a FLEXBONUS through standby and peak-rate payments.",
-      "additionalIncome": "Additional income via FLEXBONUS:",
-      "cards": {
-        "withSolar": {
-          "title": "With solar system",
-          "amount": "up to CHF 170 per year"
-        },
-        "systemComparison": {
-          "title": "system comparison",
-          "amount": "up to CHF 170 per year"
-        }
-      },
-      "note": "Note: The yield potential mentioned here can only be achieved under optimal conditions – these include around 60% plug-in time, a large pool size, favorable market development and sufficient available battery capacity."
+      "footnote": "The annual financial benefit depends on your situation. We will gladly calculate it for you."
     },
     "keyFacts": {
       "title": "Bidirectional Charging: Key Facts",
-      "description": "Bidirectional charging integrates your EV into your home energy system, managed automatically by Free State AG ONE for optimal energy use—while transparently addressing current technical limitations.",
+      "description": "Bidirectional charging integrates your electric vehicle into your home energy system, which an intelligent energy management system manages automatically for optimal energy use while transparently taking current technical limitations into account.",
       "steps": {
         "1": "Small loads need a home battery buffer (>1.8 kW limit).",
         "2": "Large loads run directly; discharge limited to 20–80% SoC."
@@ -6257,8 +6091,8 @@
     },
     "carBattery": {
       "eyebrow": "Car Battery",
-      "title": "Your car battery becomes part of\nFree State AG",
-      "description": "Your EV battery unlocks savings and revenue, while Free State AG automatically optimizes energy use in real time.",
+      "title": "Your car battery becomes part\nof your energy system",
+      "description": "Your EV battery unlocks savings and income while the energy management system automatically optimises energy consumption in real time.",
       "cta": "Request a quote"
     },
     "homeIndependence": {
@@ -6274,12 +6108,12 @@
     },
     "chargingPaysOff": {
       "title": "Bidirectional charging pays off",
-      "description": "Instead of CHF 3,600 for a conventional charging station, you invest around CHF 5,700 and thus make your electric car's battery part of your energy system. Your added financial benefit: Additional savings and revenue."
+      "description": "With a bidirectional charging station, you make your electric car's battery part of your energy system. Your additional financial benefit: further savings and income."
     },
     "chargeLevel": {
       "eyebrow": "Charge Level",
       "title": "Always full\ncontrol over the charge level",
-      "description": "With the Free State AG app, you monitor your EV battery, set a minimum charge level, and optimize surplus energy use.",
+      "description": "Via the manufacturer's app, you monitor your EV battery, set a minimum state of charge and optimise the use of surplus energy.",
       "cta": "Request a quote"
     },
     "funding": {
@@ -6392,7 +6226,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "All our solar projects can be easily upgraded to include bidirectional charging thanks to Free State AG ONE. Are you interested in the latest information about bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
+      "description": "All our solar projects can easily be extended with bidirectional charging using a suitable energy management system. Interested in the latest information on bidirectional charging?\n\nThen sign up for our BiDi newsletter.",
       "form": {
         "firstName": "First name",
         "firstNamePlaceholder": "Enter your First name",
@@ -6432,7 +6266,7 @@
         },
         "savings": {
           "question": "Can you save or earn with an EV battery?",
-          "answer": "Yes. You can save by using stored solar energy instead of grid power, and earn through flexibility services (FLEXBONUS) by allowing your battery to support grid stability during peak demand."
+          "answer": "Yes. You can save by using stored solar power instead of grid electricity, and earn through flexibility services by making your battery available for grid stabilisation at peak load."
         },
         "rangeLimit": {
           "question": "Could your EV battery be drained, limiting your driving range?",
@@ -6440,7 +6274,7 @@
         },
         "requirements": {
           "question": "What is required for bidirectional charging?",
-          "answer": "You need a compatible EV, a bidirectional DC charging station, and a smart energy management system like Free State AG ONE. A solar system is recommended but not required."
+          "answer": "You need a compatible electric vehicle, a bidirectional DC charging station and an intelligent energy management system. A solar system is recommended but not required."
         },
         "specialChargers": {
           "question": "Do EVs need special chargers for bidirectional use?",
@@ -9078,11 +8912,11 @@
           },
           "stateIncentives": {
             "question": "Are there incentives to go solar?",
-            "answer": "Common incentives include tax credits, net metering, and utility rebates. Federal and cantonal solar incentives can significantly reduce the cost of your system."
+            "answer": "Yes. Solar systems benefit from the one-off remuneration from Pronovo, cantonal and municipal funding programmes, the tax deduction of the investment and the grid operator's feed-in remuneration for exported electricity."
           },
           "homeValue": {
             "question": "Will solar panels increase the value of my home?",
-            "answer": "Studies show that homes with solar sell for approximately 4% more than homes without. Installing a solar system increases your home's appeal and value for potential buyers."
+            "answer": "Installing a solar system increases the attractiveness and value of your home for potential buyers."
           }
         }
       },
@@ -9109,11 +8943,11 @@
           },
           "afterActivation": {
             "question": "What happens after I turn my system on?",
-            "answer": "Your home becomes powered by roof-mounted solar. You can monitor production through our online portal. Monthly bills arrive 30 days after system activation for monthly-payment customers."
+            "answer": "Your home is powered by solar energy from your roof. You can monitor production via our online portal."
           },
           "permissionToOperate": {
-            "question": "What is Permission to Operate?",
-            "answer": "Permission to Operate (PTO) grants permission to connect your system to the utility grid — it's required before activation. We submit interconnection applications following inspection completion, which typically takes 2–6 weeks."
+            "question": "What is the grid connection application?",
+            "answer": "Before commissioning, we submit the grid connection application for your system to the grid operator and register it with Pronovo for the one-off remuneration. After completion, the electrician reports the system to the grid operator, who approves commissioning. Processing usually takes a few weeks."
           }
         }
       },
@@ -9158,8 +8992,8 @@
             "answer": "Leasing requires minimal upfront costs with included maintenance. Purchasing offers direct access to tax credits and incentives but requires maintenance responsibility outside warranty coverage. Both options have unique advantages depending on your situation."
           },
           "leasePPA": {
-            "question": "What's a solar lease or PPA?",
-            "answer": "Solar leases involve a fixed monthly payment for system use. Power Purchase Agreements (PPAs) charge per kilowatt-hour for generated electricity. Both require minimal upfront costs and include maintenance."
+            "question": "What is the difference between SolarFree, SolarAbo and SolarDirect?",
+            "answer": "With SolarFree you use the system without investing and pay a fixed price per kilowatt hour for the solar power produced. With SolarAbo you finance the system through a fixed monthly instalment. With SolarDirect you buy the system and it belongs to you from day one."
           },
           "averageCost": {
             "question": "What is the average cost of solar panels?",
@@ -9175,7 +9009,7 @@
           },
           "taxCredits": {
             "question": "Are there tax benefits for going solar?",
-            "answer": "Federal and cantonal tax incentives can significantly reduce the cost of your solar system. Contact our solar advisors for details on the specific incentives available in your area."
+            "answer": "Yes. In most cantons, the investment in a solar system is deductible from taxable income. In addition, you receive the one-off remuneration from Pronovo. Contact our solar advisors for details on your canton."
           }
         }
       },
@@ -9190,19 +9024,19 @@
           },
           "monitoring": {
             "question": "Is my system monitored?",
-            "answer": "Yes, a dedicated monitoring team watches continuously. Meters send production data multiple times daily. Daily evaluation confirms expected performance, and any problems trigger investigation and repair."
+            "answer": "Yes. Your system continuously sends its production data to the inverter manufacturer's monitoring portal. With a maintenance contract, we monitor the system and follow up on deviations."
           },
           "breaks": {
             "question": "What happens if my system breaks or isn't working as expected?",
-            "answer": "We handle all repairs and replacements throughout your agreement. Report issues through our support portal for immediate agent assistance."
+            "answer": "With SolarFree and SolarAbo, we cover all repairs and replacements for the entire contract term. With SolarDirect, the manufacturers' warranties apply, supplemented by an optional maintenance contract. Report problems via our support portal."
           },
           "warranty": {
             "question": "Will my home solar system have a warranty?",
-            "answer": "Yes, equipment is backed by robust warranties including 24/7 monitoring and maintenance. Any breakdowns receive free repair service for the duration of your agreement."
+            "answer": "Yes. The components are covered by the manufacturers' warranties. With SolarFree and SolarAbo, monitoring and maintenance are included, and defects are repaired free of charge for the entire contract term."
           },
           "roofReplacement": {
             "question": "What if I need to have my roof replaced?",
-            "answer": "Contact our customer care for removal and reinstallation quotes. Our local teams temporarily remove panels during roof replacement. We recommend providing 45 days advance notice when possible."
+            "answer": "Contact our customer service for removal and reinstallation quotes. Our team temporarily removes the modules during the roof renovation. Please get in touch early so that we can schedule the work."
           },
           "shade": {
             "question": "Will trees or shade impact my solar performance?",
@@ -9217,11 +9051,11 @@
         "items": {
           "whatBackup": {
             "question": "What can my battery back up?",
-            "answer": "Batteries can backup your kitchen (including refrigerator), bedroom and bathroom lights, garage door opener, and WiFi for approximately 8–12 hours. Solar panels recharge batteries at sunrise."
+            "answer": "Batteries can supply selected circuits, such as the refrigerator, lighting and internet. The duration depends on the storage size and your consumption. Solar modules recharge the battery in daylight."
           },
           "outage": {
             "question": "How does battery storage work during a power outage?",
-            "answer": "During outages, batteries power backed-up circuits within seconds, providing 8–12 hours of backup energy depending on usage. Solar panels recharge batteries daily, enabling multi-day outage support."
+            "answer": "In the event of an outage, batteries supply the backed-up circuits within seconds. How long depends on the storage size and consumption. Solar modules recharge the battery daily, which enables support over several days."
           },
           "offGrid": {
             "question": "Can I go off the grid with a battery?",
@@ -9233,7 +9067,7 @@
           },
           "placement": {
             "question": "Where will my battery be placed?",
-            "answer": "Batteries are typically wall-mounted inside garages or on exterior home walls. Installation requires approximately 6.5 feet of height by 10 feet of width clearance."
+            "answer": "Batteries are typically wall-mounted in garages, utility rooms or on exterior walls."
           },
           "batteryMaintenance": {
             "question": "Do I need to do any setup or maintenance on my battery?",
@@ -9255,12 +9089,8 @@
             "answer": "Solar adoption provides clean electricity with zero emissions. Home-generated power reduces grid strain during peak demand, benefiting your entire community's safety and infrastructure."
           },
           "netMetering": {
-            "question": "What is net metering?",
-            "answer": "Net metering tracks excess solar power you send into the grid. Your utility credits these exports against future grid purchases, ensuring your solar power never goes to waste."
-          },
-          "energyCredits": {
-            "question": "What are energy credits?",
-            "answer": "Utilities provide credits for excess solar-produced power fed into the grid. Energy used immediately from solar never enters billing. Battery-stored energy similarly avoids grid entry and billing impact."
+            "question": "What is feed-in remuneration?",
+            "answer": "Surplus solar power that you do not consume yourself is fed into the grid. The grid operator pays you for every kilowatt hour exported. Each grid operator sets its own tariffs, which are published by ElCom."
           }
         }
       }
@@ -9323,9 +9153,9 @@
       }
     },
     "partners": {
-      "eyebrow": "Our Partners",
-      "title": "Brands that trust FreeState",
-      "subtitle": "With strong partners and leading brands, we create reliable energy solutions for your home."
+      "eyebrow": "Components",
+      "title": "Components we install",
+      "subtitle": "We install inverters and storage systems from Huawei, Sofar and Sigenergy."
     }
   },
   "history": {
@@ -9433,14 +9263,14 @@
       }
     },
     "partners": {
-      "eyebrow": "Strong Partners",
-      "title": "Together with established partners",
-      "subtitle": "For energy trading, infrastructure and project development, FreeState works with experienced partners – for stable projects and long-term collaboration."
+      "eyebrow": "Components",
+      "title": "Components we install",
+      "subtitle": "We install inverters and storage systems from Huawei, Sofar and Sigenergy."
     },
     "locations": {
       "eyebrow": "Our Locations",
-      "title": "Regionally rooted, internationally active",
-      "subtitle": "From Schaffhausen, Zurich, Bern, Aargau and Liechtenstein, FreeState develops and realizes photovoltaic projects in Switzerland as well as international energy projects.",
+      "title": "Regionally rooted",
+      "subtitle": "From Schaffhausen, Zurich and St. Gallen, FreeState develops and realises photovoltaic projects in Switzerland.",
       "ctaContact": "Contact us",
       "ctaCalculator": "Start solar calculator"
     }
@@ -9451,7 +9281,7 @@
     "about": {
       "eyebrow": "About Free State AG",
       "title": "Renewable energy for Switzerland",
-      "description": "Free State AG is an established producer of green electricity in Switzerland. We operate modern solar power plants and offer innovative energy solutions for residential and commercial customers. With a growing portfolio of photovoltaic systems, we are actively contributing to the energy transition.",
+      "description": "Free State AG plans, finances and realises photovoltaic systems in Switzerland for private and business customers.",
       "stats": {
         "location": {
           "value": "Schaffhausen",
@@ -9635,11 +9465,11 @@
       },
       "installation": {
         "title": "Experienced installation",
-        "description": "Proven at over 1 million households."
+        "description": "Experience since 2008."
       },
       "support": {
-        "title": "Support around\nthe clock",
-        "description": "24/7 assistance and system monitoring."
+        "title": "Monitoring &\nSupport",
+        "description": "System monitoring and support during office hours."
       }
     },
     "faq": {
@@ -9708,7 +9538,7 @@
         "label": "Cost per\nm² in CHF",
         "value": "approx. CHF 780.00"
       },
-      "solarAboPrice": "With SolarFree 00.00 CHF",
+      "solarAboPrice": "With SolarFree CHF 0",
       "orderNow": "ORDER NOW",
       "orderLink": "/calculator"
     },

@@ -37,22 +37,6 @@ const StatIcon = ({ src, alt }: { src: string; alt: string }) => (
   <Image src={src} alt={alt} width={22} height={22} className="shrink-0" />
 )
 
-const VerifiedIcon = () => (
-  <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-    <path
-      d="M6.5 0L7.94 1.82L10.27 1.27L10.17 3.66L12.35 4.78L10.89 6.5L12.35 8.22L10.17 9.34L10.27 11.73L7.94 11.18L6.5 13L5.06 11.18L2.73 11.73L2.83 9.34L0.65 8.22L2.11 6.5L0.65 4.78L2.83 3.66L2.73 1.27L5.06 1.82L6.5 0Z"
-      fill="#062E25"
-    />
-    <path
-      d="M4.5 6.5L5.75 7.75L8.5 5"
-      stroke="#FDFFF5"
-      strokeWidth="1"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-)
-
 const CustomerStories = ({
   isCommercial = false,
 }: {
@@ -65,6 +49,8 @@ const CustomerStories = ({
   const statsKey = isCommercial ? 'commercialStats' : 'stats'
 
   const [api, setApi] = useState<CarouselApi>()
+
+  if (stories.length === 0) return null
 
   return (
     <section
@@ -170,14 +156,9 @@ const CustomerStories = ({
                           <span className="text-foreground text-sm font-medium">
                             {story.authorName}
                           </span>
-                          {story.authorRole ? (
+                          {story.authorRole && (
                             <span className="text-foreground/80 text-sm font-light tracking-tight">
                               {story.authorRole}
-                            </span>
-                          ) : (
-                            <span className="flex items-center gap-1.5 text-foreground/90 text-sm font-light">
-                              {t('verifiedOwner')}
-                              <VerifiedIcon />
                             </span>
                           )}
                         </div>

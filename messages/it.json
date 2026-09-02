@@ -36,8 +36,8 @@
       "details": {
         "label": "Pacchetto standard",
         "tagline": {
-          "HUAWEI": "Lo standard del mercato svizzero. Sicuro. Affidabile. Efficiente.",
-          "SIGENERGY": "Tecnologia premium europea. Innovativa. Affidabile."
+          "HUAWEI": "Ampiamente diffuso in Svizzera. Sicuro. Collaudato. Efficiente.",
+          "SIGENERGY": "Tecnologia premium. Innovativa. Affidabile."
         }
       },
       "equipment": {
@@ -142,7 +142,7 @@
     },
     "aboutUs": {
       "title": "Chi siamo: il solare da un unico fornitore",
-      "description": "Free State AG progetta e installa impianti solari in 19 cantoni della Svizzera tedesca. Esperienza dal 2008, oggi con SolarFree, SolarAbo e SolarDirect."
+      "description": "Free State AG progetta e installa impianti solari nella Svizzera tedesca. Esperienza dal 2008, oggi con SolarFree, SolarAbo e SolarDirect."
     },
     "team": {
       "title": "Team: le persone dietro Free State AG",
@@ -444,7 +444,7 @@
       },
       {
         "title": "Guasti",
-        "description": "Senza corrente, odore di gas o tubo scoppiato? Siamo disponibili 24 ore su 24 per guasti ed emergenze."
+        "description": "Un guasto al vostro impianto solare, alla pompa di calore o alla stazione di ricarica? Contattateci telefonicamente o tramite il modulo."
       }
     ],
     "serviceLinks": {
@@ -509,7 +509,7 @@
     "node2024Title": "Novembre 2024",
     "node2024Body": "Il team fonda Free State AG a Sciaffusa e punta tutto sul solare.",
     "nodeTodayTitle": "Oggi",
-    "nodeTodayBody": "Costruiamo in 19 cantoni della Svizzera tedesca, con i modelli SolarFree, SolarDirect e SolarAbo."
+    "nodeTodayBody": "Costruiamo nella Svizzera tedesca, con i modelli SolarFree, SolarDirect e SolarAbo."
   },
   "home": {
     "referenceRoofs": {
@@ -577,7 +577,7 @@
             "subtitle": "~3 mesi"
           }
         ],
-        "partnersLabel": "Fornitori premium inclusi"
+        "partnersLabel": "Marchi installati"
       }
     },
     "hero": {
@@ -676,7 +676,7 @@
     "stats": {
       "downPayment": "Acconto con SolarFree",
       "solarPrice": "Prezzo dell'energia solare con SolarFree",
-      "cantons": "Cantoni della Svizzera tedesca",
+      "experienceSince": "Esperienza dal",
       "locations": "Sedi"
     },
     "solarModels": {
@@ -779,7 +779,6 @@
       "eyebrow": "Testimonianze clienti",
       "title": "Cosa dicono i nostri clienti",
       "subtitle": "Esperienze reali, trasparenti, personali e autentiche con FreeState.",
-      "verifiedOwner": "proprietario verificato",
       "stats": {
         "savings": "Risparmi annui",
         "installTime": "dalla richiesta all'installazione",
@@ -819,32 +818,7 @@
           "image": "/images/3.jpeg"
         }
       ],
-      "stories": [
-        {
-          "quote": "Tutto è filato liscio, dalla consulenza all'installazione. Molto affidabili e professionali.",
-          "savings": "CHF 3.419.–",
-          "installTime": "2 mesi",
-          "capacity": "15,5 kWp",
-          "authorName": "Franz McLaren",
-          "image": "/images/customer-story-house-334153.webp"
-        },
-        {
-          "quote": "La pianificazione è stata trasparente e il servizio post-installazione eccellente. I nostri costi dell'elettricità sono calati notevolmente.",
-          "savings": "CHF 2.850.–",
-          "installTime": "6 settimane",
-          "capacity": "12,0 kWp",
-          "authorName": "Sabine Keller",
-          "image": "/images/single-family-home.png"
-        },
-        {
-          "quote": "Dalla prima richiesta all'impianto finito ci siamo sentiti perfettamente seguiti. La comunicazione è stata sempre chiara.",
-          "savings": "CHF 4.100.–",
-          "installTime": "8 settimane",
-          "capacity": "18,2 kWp",
-          "authorName": "Markus Weber",
-          "image": "/images/hero-solar-panels.webp"
-        }
-      ]
+      "stories": []
     },
     "reviews": {
       "eyebrow": "Recensioni dei clienti",
@@ -852,7 +826,7 @@
       "subtitle": "Recensioni autentiche dei nostri clienti.",
       "commercialEyebrow": "Voci aziendali",
       "commercialTitle": "Esperienze aziendali",
-      "commercialSubtitle": "Recensioni autentiche di aziende partner e clienti corporate.",
+      "commercialSubtitle": "Recensioni autentiche di clienti aziendali.",
       "commercialItems": [
         {
           "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
@@ -887,7 +861,7 @@
     },
     "battery": {
       "title": "Batteria",
-      "subtitle": "In collaborazione con Huawei, FreeState offre soluzioni intelligenti di accumulo a batteria con hardware affidabile, integrazione perfetta e gestione energetica orientata al futuro per la tua casa.",
+      "subtitle": "Con hardware Huawei, FreeState offre soluzioni intelligenti di accumulo a batteria con integrazione perfetta e una gestione dell'energia orientata al futuro per la vostra casa.",
       "step1": "Accumulo di energia intelligente per la tua casa",
       "step2": "Accumulo a batteria semplificato",
       "step3": "Soluzioni di accumulo affidabili con Huawei",
@@ -914,7 +888,7 @@
     },
     "evCharging": {
       "title": "Soluzioni di ricarica VE",
-      "subtitle": "In collaborazione con Huawei, FreeState offre soluzioni di ricarica VE intelligenti con hardware affidabile, integrazione perfetta e gestione energetica orientata al futuro per la tua casa.",
+      "subtitle": "Con hardware Huawei, FreeState offre soluzioni intelligenti di ricarica per veicoli elettrici con integrazione perfetta e una gestione dell'energia orientata al futuro per la vostra casa.",
       "step1": "Ricarica VE intelligente per la tua casa",
       "step2": "Ricarica VE semplificata",
       "step3": "Soluzioni di ricarica affidabili con Huawei",
@@ -949,14 +923,14 @@
         },
         {
           "title": "Esperienza dal 2008",
-          "description": "Il nostro team progetta e installa impianti solari dal 2008, oggi in 19 cantoni della Svizzera tedesca"
+          "description": "Il nostro team progetta e installa impianti solari dal 2008, oggi in tutta la Svizzera tedesca."
         }
       ]
     },
     "ourPartners": {
-      "eyebrow": "I nostri partner",
-      "title": "I marchi che si fidano di FreeState",
-      "subtitle": "Con partner solidi e marchi leader, creiamo soluzioni energetiche affidabili per la tua casa."
+      "eyebrow": "I nostri marchi tecnologici",
+      "title": "I marchi che installiamo",
+      "subtitle": "Con marchi collaudati creiamo soluzioni energetiche affidabili per la vostra casa."
     },
     "calculatorSection": {
       "eyebrow": "Calcolatore solare",
@@ -1062,16 +1036,16 @@
       "title": "Portfolio",
       "subtitle": "Energia sostenibile, risparmio a lungo termine e piena trasparenza, senza alcun rischio di investimento da parte tua.",
       "item1": {
-        "title": "Azienda agricola Thun",
-        "details": "• Fino al 30% di risparmio sui costi \n• Impianto da 250 kWp"
+        "title": "Bowling Five, Thayngen SH",
+        "details": "230 kWp • 500 moduli • Sofar + accumulo 256 kWh"
       },
       "item2": {
-        "title": "Edificio industriale Zurigo",
-        "details": "• Riduzione CO₂: 12 t/anno \n• 400 kWp"
+        "title": "Diggelmann Bau AG, Laupen ZH",
+        "details": "75.25 kWp • 164 moduli • Huawei con accumulo"
       },
       "item3": {
-        "title": "Edificio industriale Coira",
-        "details": "• Autoconsumo: 75% \n• 180 kWp"
+        "title": "Stiftung Wetterbaum, Frauenfeld",
+        "details": "134.06 kWp • 292 moduli • Huawei con accumulo"
       },
       "learnMore": "Scopri di più"
     },
@@ -1213,11 +1187,11 @@
       },
       "installation": {
         "title": "Installazione esperta",
-        "description": "Collaudata in oltre 1 milione di abitazioni."
+        "description": "Montaggio a regola d'arte dal nostro team."
       },
       "support": {
-        "title": "Assistenza\n24 ore su 24",
-        "description": "Assistenza e monitoraggio del sistema 24/7."
+        "title": "Monitoraggio &\nSupporto",
+        "description": "Monitoraggio dell'impianto e supporto negli orari d'ufficio."
       }
     },
     "faq": {
@@ -1286,7 +1260,7 @@
         "label": "Costo per\nm² in CHF",
         "value": "circa CHF 780.00"
       },
-      "solarAboPrice": "Con SolarFree 00.00 CHF",
+      "solarAboPrice": "Con SolarFree CHF 0",
       "orderNow": "ORDINA ORA",
       "orderLink": "/calculator"
     },
@@ -1382,7 +1356,7 @@
       }
     },
     "publicSpaces": {
-      "title": "Powering Public Spaces",
+      "title": "Energia per il vostro condominio",
       "subtitle": "Con energia pulita e affidabile",
       "body": "Richiedi ora una valutazione senza impegno\n\nTrasforma il tuo stabile plurifamiliare in un moderno progetto energetico senza alcun rischio finanziario. Ti basta raccomandarci alla tua amministrazione o alla comunità dei proprietari: verifichiamo tutto e ci occupiamo dell'intera realizzazione.\n\nAnalizziamo l'edificio e il potenziale del tetto, calcoliamo la redditività e sviluppiamo un concetto di realizzazione concreto, inclusi tutti gli aspetti tecnici e legali (ZEV). Finanziamento, pianificazione e realizzazione sono interamente a nostro carico.\n\nIl tuo impegno resta minimo: tu prendi il primo contatto, noi coordiniamo tutto il resto. Beneficerai di energia solare conveniente, costi energetici stabili e un aumento di valore sostenibile del tuo immobile. Inizia ora, gratuitamente e senza impegno. Richiedi la tua analisi gratuita e ricevi una valutazione solida del potenziale."
     },
@@ -1412,7 +1386,7 @@
         "label": "Costo per\nm² in CHF",
         "value": "circa CHF 780.00"
       },
-      "solarAboPrice": "Con SolarFree 00.00 CHF",
+      "solarAboPrice": "Con SolarFree CHF 0",
       "orderNow": "ORDINA ORA",
       "orderLink": "/calculator"
     },
@@ -1450,11 +1424,11 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting fotovoltaico sembra complicato, ma funziona in modo molto semplice: avete un grande tetto e desiderate un impianto solare, ma non volete investire. Per questo Free State AG finanzia, costruisce e gestisce l'impianto per voi. E voi beneficiate di un canone annuo per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       },
       "row2": {
-        "title": "Come funziona",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "title": "Il processo",
+        "description": "Il processo è semplice. Valutiamo il vostro tetto e il vostro consumo di elettricità, prepariamo un'offerta con canone per il tetto o prezzo dell'elettricità, progettiamo e costruiamo l'impianto e poi ci occupiamo di gestione, manutenzione e monitoraggio. Voi mettete a disposizione solo il tetto."
       }
     },
     "publicSpaces": {
@@ -1576,11 +1550,11 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting fotovoltaico sembra complicato, ma funziona in modo molto semplice: avete un grande tetto e desiderate un impianto solare, ma non volete investire. Per questo Free State AG finanzia, costruisce e gestisce l'impianto per voi. E voi beneficiate di un canone annuo per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       },
       "row2": {
-        "title": "Come funziona",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "title": "Il processo",
+        "description": "Il processo è semplice. Valutiamo il vostro tetto e il vostro consumo di elettricità, prepariamo un'offerta con canone per il tetto o prezzo dell'elettricità, progettiamo e costruiamo l'impianto e poi ci occupiamo di gestione, manutenzione e monitoraggio. Voi mettete a disposizione solo il tetto."
       }
     },
     "publicSpaces": {
@@ -1702,7 +1676,7 @@
     "howPV": {
       "row1": {
         "title": "Come funziona il FV",
-        "description": "Il contracting FV sembra complicato, ma in realtà è molto semplice: hai un grande tetto e desideri un impianto solare, ma non vuoi investire. Per questo enalpin finanzia e gestisce l'impianto, costruito dalla nostra consociata tritec, i pionieri del solare. E tu benefici di un affitto annuale per il tetto e/o di prezzi dell'elettricità vantaggiosi."
+        "description": "Il contracting fotovoltaico sembra complicato, ma funziona in modo molto semplice: avete un grande tetto e desiderate un impianto solare, ma non volete investire. Per questo Free State AG finanzia, costruisce e gestisce l'impianto per voi. E voi beneficiate di un canone annuo per il tetto e/o di prezzi dell'elettricità vantaggiosi."
       }
     },
     "publicSpaces": {
@@ -1818,15 +1792,15 @@
     "description": "Hai domande sulle nostre soluzioni solari? Siamo qui per aiutarti. Contattaci tramite uno dei seguenti canali.",
     "email": {
       "label": "E-mail",
-      "value": "info@freestate.ag"
+      "value": "info@freestate.ch"
     },
     "phone": {
       "label": "Telefono",
-      "value": "+41 XX XXX XX XX"
+      "value": "+41 52 525 33 05"
     },
     "address": {
       "label": "Indirizzo",
-      "value": "Free State AG\nSvizzera"
+      "value": "Free State AG\nStettemerstrasse 40\n8207 Schaffhausen"
     }
   },
   "quoteRequestForm": {
@@ -1924,63 +1898,36 @@
     "title": "Portfolio",
     "subtitle": "La tua energia, la nostra responsabilità: sostenibile e senza preoccupazioni",
     "hero": {
-      "title": "I nostri progetti solari\nin tutta la Svizzera"
+      "title": "I nostri progetti solari\nnella Svizzera tedesca"
     },
     "strategy": {
       "title": "Strategia",
-      "description": "Free State AG è un produttore affermato di elettricità verde in Svizzera e gestisce moderne centrali solari. Nel medio termine, l'azienda mira a costruire un portfolio diversificato e bilanciato di energie rinnovabili con una capacità installata totale di 59 megawatt*. L'obiettivo è posizionarsi come uno dei principali operatori di energie rinnovabili in Svizzera.",
-      "diversification": "Un elemento centrale della strategia di investimento è la diversificazione. Riduce al minimo i rischi relativi alle condizioni di mercato, ai quadri normativi e alla disponibilità dei tipi di generazione.",
-      "future": "In futuro, la produzione di elettricità da energia solare dovrebbe rappresentare circa il 20–30 per cento del fatturato dell'azienda. Free State AG investe esclusivamente in impianti con tecnologia matura, già in esercizio o con approvazione completa all'inizio della costruzione. La vendita delle centrali non fa parte del modello di business.",
-      "synergies": "Oltre a ulteriori acquisizioni, Free State massimizza le sinergie nella gestione degli impianti per aumentare continuamente l'efficienza operativa. L'espansione di un portfolio diversificato dovrebbe promuovere in modo sostenibile lo sviluppo del fatturato e degli utili."
+      "description": "Free State AG progetta, finanzia e realizza impianti fotovoltaici in Svizzera per clienti privati e aziendali."
     },
     "projects": {
       "title": "Progetti solari in azione",
-      "description": "Una selezione di impianti solari su scala industriale e commerciale realizzati in tutta la Svizzera, dalla pianificazione all'esercizio.",
+      "description": "Una selezione di impianti solari per aziende e privati, realizzati nella Svizzera tedesca - dalla progettazione alla gestione.",
       "viewProject": "Vedi progetto",
       "tags": {
         "industrialRooftop": "Tetto industriale",
         "agricultural": "Agricolo"
       },
       "items": {
-        "industrialZurich": {
-          "title": "Edificio industriale Zurigo",
-          "description": "Impianto solare moderno su edificio industriale"
+        "diggelmannBau": {
+          "title": "Diggelmann Bau AG, Laupen ZH",
+          "description": "Impianto solare sull'edificio dell'impresa di costruzioni, 75.25 kWp, inverter Huawei con accumulo."
         },
-        "industrialBern": {
-          "title": "Edificio industriale Berna",
-          "description": "Impianto di energia solare per struttura industriale"
+        "stiftungWetterbaum": {
+          "title": "Stiftung Wetterbaum, Frauenfeld",
+          "description": "Impianto sul tetto dell'edificio della fondazione, 134.06 kWp, inverter Huawei con accumulo."
         },
-        "industrialAargau1": {
-          "title": "Edificio industriale Argovia",
-          "description": "Impianto efficiente di generazione di energia solare"
+        "bowlingFive": {
+          "title": "Bowling Five, Thayngen SH",
+          "description": "Impianto solare sul tetto del centro bowling, 230 kWp, inverter Sofar con accumulo da 256 kWh."
         },
-        "industrialAargau2": {
-          "title": "Edificio industriale Argovia",
-          "description": "Progetto di energia solare sostenibile"
-        },
-        "industrialAargau3": {
-          "title": "Edificio industriale Argovia",
-          "description": "Impianto di energia rinnovabile"
-        },
-        "industrialLuzern1": {
-          "title": "Edificio industriale Lucerna",
-          "description": "Soluzione energetica sostenibile per sito industriale"
-        },
-        "industrialLuzern2": {
-          "title": "Edificio industriale Lucerna",
-          "description": "Sistema di energia verde per struttura industriale"
-        },
-        "industrialChur": {
-          "title": "Edificio industriale Coira",
-          "description": "Impianto di energia rinnovabile su tetto industriale"
-        },
-        "farmThun": {
-          "title": "Azienda agricola Thun",
-          "description": "Pannelli solari per struttura agricola"
-        },
-        "industrialGeneva": {
-          "title": "Edificio industriale Ginevra",
-          "description": "Sistema di energia verde per complesso industriale"
+        "reneSchmid": {
+          "title": "Rene Schmid",
+          "description": "Impianto fotovoltaico realizzato da Free State AG."
         }
       }
     },
@@ -2061,12 +2008,12 @@
     }
   },
   "investorsPage": {
-    "title": "Partnership e investitori",
-    "subtitle": "Insieme a partner e investitori solidi, stiamo plasmando il futuro delle soluzioni energetiche decentralizzate.",
+    "title": "Investitori",
+    "subtitle": "Insieme agli investitori plasmiamo il futuro delle soluzioni energetiche decentralizzate.",
     "heroCta": "Mettiti in contatto",
     "investing": {
       "title": "Investi in modo sostenibile",
-      "description": "Con un investimento nelle energie rinnovabili, scommetti sulla creazione di valore sostenibile e a prova di futuro. Free State AG ti offre l'opportunità di partecipare a centrali solari e altri progetti ecocompatibili. Approfitta di rendimenti stabili, di un mercato in crescita e di un contributo attivo alla transizione energetica. La nostra esperienza e il nostro focus sulle tecnologie mature ti garantiscono sicurezza e successo, per un futuro più verde."
+      "description": "Investendo nelle energie rinnovabili puntate su una creazione di valore sostenibile e a prova di futuro. Free State AG vi offre la possibilità di partecipare a impianti fotovoltaici e ad altri progetti ecologici. Approfittate di un mercato in crescita e di un contributo attivo alla transizione energetica."
     },
     "partner": {
       "eyebrow": "App FreeState",
@@ -2080,7 +2027,7 @@
     "formPanel": {
       "eyebrow": "App FreeState",
       "title": "Richiedi i documenti",
-      "subtitle": "Diventa un investitore early di FreeState AG e approfitta dell'offerta Private Equity e Green Bond."
+      "subtitle": "Richiedete la nostra documentazione per investitori."
     },
     "form": {
       "eyebrow": "Per gli investitori",
@@ -2111,23 +2058,6 @@
       "errorMessage": "Si è verificato un errore. Riprova.",
       "consent": "Ho letto l'<link>informativa sulla privacy</link> e acconsento al trattamento dei miei dati.",
       "consentError": "Fornisci il consenso per continuare"
-    },
-    "faq": {
-      "title": "Domande frequenti",
-      "items": {
-        "invest": {
-          "question": "Posso investire in Free State Energie AG?",
-          "answer": "Se sei una persona con residenza in Svizzera e ti qualifichi come investitore qualificato apportando capitali o competenze, allora sì. Ogni persona con residenza in Svizzera che dispone di un conto bancario svizzero e di esperienza nel mondo degli investimenti può sottoscrivere azioni alle condizioni ufficialmente stabilite dell'aumento di capitale."
-        },
-        "deposit": {
-          "question": "Dove vengono depositate le mie azioni Free State AG?",
-          "answer": "Le azioni di Free State Energie AG sono digitalizzate, emesse da Schaffhauser Kantonalbank AG e depositate sul tuo conto titoli presso la tua banca. È possibile che la tua banca le valuti a un prezzo di 0 (zero), poiché la società non è ancora quotata in borsa."
-        },
-        "listed": {
-          "question": "Free State Energie AG è quotata in una borsa pubblica?",
-          "answer": "No, attualmente la società è di proprietà privata e non è quotata in borsa. Ogni azionista ha pieni diritti societari, compresi i diritti sui dividendi. Free State AG intende quotarsi in borsa nel prossimo futuro, ma ciò dipende in larga misura dalla situazione del mercato, dallo sviluppo dell'azienda e dal numero di investitori."
-        }
-      }
     }
   },
   "calculator": {
@@ -3194,7 +3124,7 @@
     "hero": {
       "eyebrow": "Zero investimento. Bollette più basse. Zero preoccupazioni.",
       "title": "Accumulo a batteria",
-      "subtitle": "Per case unifamiliari senza accumulo a batteria"
+      "subtitle": "Accumulate l'energia solare e usatela quando vi serve"
     },
     "revenue": {
       "title": "Trasforma l'accumulo energetico in un motore di ricavi",
@@ -3209,7 +3139,7 @@
           "description": "Immagazzina il surplus invece di venderlo a prezzi bassi."
         },
         "smartDispatch": {
-          "title": "Dispacciamento intelligente",
+          "title": "Controllo intelligente",
           "description": "Decidi quando usare, immagazzinare o vendere l'energia."
         },
         "revenue": {
@@ -3240,51 +3170,19 @@
       }
     },
     "gridServices": {
-      "title": "Massimizzare i rendimenti dai servizi di rete",
-      "description": "L'accumulo energetico consente la partecipazione ai mercati dei servizi di rete, dove la flessibilità è premiata. Il tuo impianto viene dispacciato automaticamente per supportare la rete e generare ricavi aggiuntivi.",
+      "title": "Servizi di rete per grandi sistemi di accumulo",
+      "description": "I grandi sistemi di accumulo possono partecipare al mercato dell'energia di regolazione tramite un aggregatore. Valutiamo insieme a voi se ciò conviene per il vostro progetto.",
       "financialBenefits": {
-        "title": "Vantaggi finanziari",
-        "item1": "Ricavi aggiuntivi dalla disponibilità di rete",
+        "title": "Possibili vantaggi",
+        "item1": "Rimunerazione per la flessibilità messa a disposizione",
         "item2": "Nessun trading attivo richiesto",
-        "item3": "Flusso di reddito passivo"
+        "item3": "Commercializzazione tramite un aggregatore"
       },
       "automatedParticipation": {
-        "title": "Partecipazione completamente automatizzata",
-        "item1": "Connessione alla rete adeguata",
-        "item2": "Sistema di accumulo approvato",
-        "item3": "Idoneità specifica del sito"
-      }
-    },
-    "predictableReturns": {
-      "title": "Accumulo energetico con rendimenti prevedibili",
-      "description": "Per progetti selezionati, FreeState AG offre modelli di accumulo energetico con strutture di rendimento predefinite. Questo garantisce sicurezza di pianificazione sbloccando al contempo valore a lungo termine dai mercati della flessibilità.",
-      "financialBenefits": {
-        "title": "Vantaggi finanziari",
-        "item1": "Rendimenti annui prevedibili",
-        "item2": "Esposizione di mercato ridotta",
-        "item3": "Visibilità dei ricavi a lungo termine"
-      },
-      "automatedParticipation": {
-        "title": "Partecipazione completamente automatizzata",
-        "item1": "Dimensione minima dell'impianto",
-        "item2": "Impegno contrattuale di disponibilità",
-        "item3": "Valutazione e approvazione del sito"
-      }
-    },
-    "landLease": {
-      "title": "Guadagna dal tuo terreno senza investimento",
-      "description": "Se possiedi terreni o infrastrutture idonee, FreeState AG può installare e gestire sistemi di accumulo energetico sul tuo sito. Ricevi pagamenti di locazione fissi senza investimento né impegno operativo.",
-      "financialBenefits": {
-        "title": "Vantaggi finanziari",
-        "item1": "Reddito da locazione del sito fisso",
-        "item2": "Nessuna spesa in conto capitale",
-        "item3": "Nessuna responsabilità operativa"
-      },
-      "automatedParticipation": {
-        "title": "Partecipazione completamente automatizzata",
-        "item1": "Ubicazione del sito idonea",
-        "item2": "Disponibilità di accesso alla rete",
-        "item3": "Contratto di locazione a lungo termine"
+        "title": "Requisiti",
+        "item1": "Allacciamento alla rete adeguato",
+        "item2": "Sistema di accumulo omologato",
+        "item3": "Capacità di accumulo sufficiente"
       }
     },
     "cta": {
@@ -3542,17 +3440,17 @@
       "cta": "Maggiori informazioni",
       "items": {
         "1": {
-          "brand": "Stiebel Eltron",
+          "brand": "NIBE",
           "description": "Pompa di calore aria-acqua (installata all'esterno)",
           "link": "/contact"
         },
         "2": {
-          "brand": "Stiebel Eltron",
+          "brand": "Viessmann",
           "description": "Pompa di calore aria-acqua (installazione interna)",
           "link": "/contact"
         },
         "3": {
-          "brand": "Stiebel Eltron",
+          "brand": "NIBE",
           "description": "Pompa di calore geotermica (sonda geotermica)",
           "link": "/contact"
         }
@@ -3612,8 +3510,8 @@
           "description": "Ci occupiamo di ogni fase al posto tuo, dalla consulenza e pianificazione fino all'installazione e manutenzione."
         },
         "2": {
-          "title": "Un servizio 24 ore su 24, 7 giorni su 7",
-          "description": "Il nostro team di supporto è disponibile 24 ore su 24, garantendo il corretto funzionamento del tuo sistema a pompa di calore in ogni momento."
+          "title": "Servizio personale",
+          "description": "Il nostro team si occupa di manutenzione e guasti ed è a vostra disposizione."
         },
         "3": {
           "title": "Qualità dei prodotti",
@@ -3625,7 +3523,7 @@
         },
         "5": {
           "title": "Competenza completa",
-          "description": "I nostri specialisti certificati portano anni di esperienza nella tecnologia delle pompe di calore e nelle soluzioni energetiche."
+          "description": "I nostri specialisti vantano anni di esperienza nella tecnologia delle pompe di calore e nelle soluzioni energetiche."
         },
         "6": {
           "title": "Sicurezza antiguasti",
@@ -3795,7 +3693,7 @@
     },
     "pricingSection": {
       "title": "Costo di un impianto solare in CHF",
-      "note": "Costi di acquisto per famiglia dopo la deduzione del 30% di sussidi e del 25% di risparmi fiscali",
+      "note": "Costi di acquisto per nucleo familiare al netto della rimunerazione unica Pronovo e della deduzione fiscale",
       "table": {
         "headers": {
           "roofSize": "Dimensione del tetto",
@@ -3843,7 +3741,7 @@
       "subtitle": "Offriamo una consulenza completa nella scelta dell'investimento e ti assistiamo con diverse soluzioni di finanziamento.",
       "bullets": {
         "monthlyPayments": "Nessun elevato investimento una tantum, bensì pagamenti mensili",
-        "installmentPlan": "Con il piano di pagamento rateale, l'impianto fotovoltaico ti appartiene dopo 10-15 anni.",
+        "installmentPlan": "Con il piano di pagamento rateale, l'impianto fotovoltaico è vostro dopo 25 anni.",
         "maintenance": "Grazie ai pacchetti di manutenzione aggiuntivi, il tuo impianto è sempre in perfette condizioni."
       },
       "idealTime": {
@@ -4104,7 +4002,7 @@
     "hero": {
       "eyebrow": "Nessun investimento. Costi elettrici ridotti. Nessun pensiero.",
       "title": "Stazioni di ricarica",
-      "subtitle": "Per case unifamiliari senza accumulo a batteria"
+      "subtitle": "Ricaricate la vostra auto elettrica a casa con la vostra energia solare"
     },
     "commercialTopics": {
       "title": "Tutto sulle stazioni di ricarica",
@@ -4873,19 +4771,19 @@
     "overview": {
       "eyebrow": "Ammortamento",
       "title": "Impianto solare per carport",
-      "description": "Sfrutta al meglio lo spazio sul tetto del tuo carport! Con un impianto solare FreeState su un carport Uninorm, non solo benefici di energia solare ecologica, ma proteggi anche la tua auto dalle intemperie.",
+      "description": "Sfruttate al meglio la superficie del tetto del vostro carport! Con un impianto solare FreeState sul vostro carport non solo beneficiate di energia solare ecologica, ma proteggete anche la vostra auto dalle intemperie.",
       "advantagesTitle": "I tuoi vantaggi in sintesi",
       "advantages": {
         "dualUse": "Doppio utilizzo: trasforma il tetto del tuo carport in una piccola centrale solare.",
         "independence": "Indipendenza: riduci la bolletta elettrica e proteggiti dall'aumento dei prezzi dell'energia.",
         "subsidies": "Incentivi e risparmi fiscali: approfitta di interessanti incentivi e vantaggi fiscali in Svizzera.",
         "sustainability": "Sostenibilità: contribuisci alla transizione energetica e riduci la tua impronta di carbonio.",
-        "easyIntegration": "Integrazione semplice: grazie alla nostra partnership con Uninorm, ricevi una soluzione perfettamente integrata e ottimizzata per il tuo carport."
+        "easyIntegration": "Integrazione semplice: ricevete una soluzione perfettamente adatta al vostro carport."
       }
     },
     "photovoltaicsCarports": {
       "title": "Fotovoltaico e carport: la combinazione perfetta",
-      "description": "I carport Uninorm utilizzano moduli fotovoltaici di alta qualità per generare energia solare in loco, offrendo una soluzione ecologica ed economicamente efficiente.",
+      "description": "I carport solari utilizzano moduli fotovoltaici di alta qualità per produrre energia solare in loco e offrono una soluzione ecologica ed economica.",
       "card": {
         "title": "Fotovoltaico sul carport",
         "efficientEnergy": "Generazione efficiente di energia: sfrutta in modo ottimale la superficie del tetto del tuo carport per la produzione di elettricità.",
@@ -4918,7 +4816,7 @@
     "whySolarCarport": {
       "eyebrow": "Installation",
       "title": "Perché installare pannelli solari sul tuo carport?",
-      "description": "Un impianto di pannelli solari sul tuo carport ti permette di utilizzare energia sostenibile proteggendo al contempo il tuo veicolo. Riduce la dipendenza dall'aumento dei prezzi dell'elettricità e sostiene la protezione del clima. Con i carport su misura di Uninorm, ottieni la massima efficienza energetica senza rinunciare allo stile."
+      "description": "Un impianto solare sul vostro carport vi permette di utilizzare energia sostenibile proteggendo al contempo il vostro veicolo. Riduce la dipendenza dall'aumento dei prezzi dell'elettricità e sostiene la protezione del clima. Con un impianto carport su misura ottenete la massima efficienza energetica senza rinunciare al design."
     },
     "evCharging": {
       "eyebrow": "Ricarica",
@@ -4966,12 +4864,6 @@
           "answer": "Sì, con un sistema di accumulo a batteria puoi accumulare l'energia solare in eccesso e utilizzarla in seguito, ad esempio la sera o nei giorni nuvolosi. Offriamo soluzioni di accumulo adatte che possono essere perfettamente integrate con il tuo carport solare."
         }
       }
-    },
-    "testimonial": {
-      "title": "Ecco cosa dicono\ni nostri clienti",
-      "quote": "La progettazione e l'esecuzione del progetto sono state fluide e professionali. Il team è stato cordiale, competente, trasparente durante tutto il processo e ha gestito eventuali problemi in modo efficiente.",
-      "authorName": "Franz McLaren",
-      "verifiedOwner": "proprietario verificato"
     }
   },
   "solarCalculator": {
@@ -5019,26 +4911,26 @@
       "cards": {
         "experience": {
           "title": "Esperienza dal 2008",
-          "subtitle": "Il nostro team progetta e installa impianti solari dal 2008, oggi in 19 cantoni della Svizzera tedesca."
+          "subtitle": "Il nostro team progetta e installa impianti solari dal 2008, oggi in tutta la Svizzera tedesca."
         },
         "localPresence": {
           "title": "Presenza locale",
-          "subtitle": "Squadre di assistenza nella Svizzera tedesca"
+          "subtitle": "Sedi a Sciaffusa, Zurigo e San Gallo"
         },
         "comprehensiveService": {
           "title": "Servizio completo",
           "subtitle": "Consulenza, finanziamento, installazione e manutenzione"
         },
         "exclusiveTariffs": {
-          "title": "Tariffe esclusive",
-          "subtitle": "Ricavi dall'elettricità grazie alle tariffe esclusive FreeState ONE"
+          "title": "Rimunerazione dell'immissione",
+          "subtitle": "Rimunerazione dell'elettricità in eccesso secondo il prezzo di mercato di riferimento dell'UFE"
         }
       }
     },
     "solarAbo": {
       "eyebrow": "SolarFree",
       "title": "Fino al 60% in meno di costi energetici",
-      "description": "SolarFree collega il tuo impianto solare, l'accumulo, la pompa di calore e il veicolo elettrico, utilizzando l'IA per massimizzare l'autoconsumo e vendere l'energia in eccesso alla tariffa migliore."
+      "description": "SolarFree collega il vostro impianto solare, l'accumulatore, la pompa di calore e il veicolo elettrico e ottimizza l'autoconsumo."
     },
     "cards": {
       "investment": {
@@ -5100,7 +4992,7 @@
       "description": "Un sistema di accumulo a batteria è il complemento ideale di un impianto solare, perché le famiglie non hanno bisogno di tutta l'energia solare che producono. Il sistema di accumulo immagazzina l'energia in eccesso prodotta dall'impianto fotovoltaico durante il giorno. Grazie all'accumulo a batteria, l'energia solare è disponibile anche di sera, di notte e al mattino."
     },
     "benefits": {
-      "title": "L'auto-verifica dell'impianto solare",
+      "title": "I vostri vantaggi",
       "items": {
         "independentPower": "Benefici di un'alimentazione elettrica indipendente",
         "risingPrices": "Meno dipendente dall'aumento dei prezzi dell'elettricità.",
@@ -5109,53 +5001,41 @@
       }
     },
     "comparison": {
-      "title": "Confronto sistemi di accumulo FreeState",
+      "title": "Il sistema di accumulo Huawei in sintesi",
       "columns": {
-        "huawei": "Huawei",
-        "sun": "Sun",
-        "e3dc": "E3DC"
+        "huawei": "Huawei"
       },
       "manufacturer": {
         "label": "Produttore"
       },
       "inverter": {
         "label": "Inverter",
-        "huawei": "Utilizzabile solo con l'inverter specificato (sistema DC)\n\nKTL-M1",
-        "sun": "Compatibile con qualsiasi inverter (sistema AC)",
-        "e3dc": "All in One"
+        "huawei": "Utilizzabile solo con l'inverter specificato (sistema DC)\n\nKTL-M1"
       },
       "storageCapacity": {
         "label": "Capacità di accumulo"
       },
       "capacity": {
-        "huawei": "5–90 kWh",
-        "sun": "11–55 kWh",
-        "e3dc": "4–84 kWh"
+        "huawei": "5–90 kWh"
       },
       "emergencyPower": {
         "label": "Alimentazione di emergenza",
-        "huawei": "2 gruppi luce\n(es. frigorifero\ne illuminazione del soggiorno)",
-        "sun": "Intera casa senza\npompa di calore",
-        "e3dc": "Intera casa\ncon pompa di calore"
+        "huawei": "2 gruppi luce\n(es. frigorifero\ne illuminazione del soggiorno)"
       },
       "islandOperation": {
         "label": "Funzionamento ad isola",
-        "huawei": "Sì, limitato",
-        "sun": "In valutazione",
-        "e3dc": "Sì"
+        "huawei": "Sì, limitato"
       },
       "costs": {
         "label": "Costi/prezzi indicativi:",
-        "huawei": "14 kWh:\nDa CHF 12'000.–\n21 kWh:\nDa CHF 17'000.–",
-        "sun": "11 kWh:\nDa CHF 13'000.–\n22 kWh:\nDa CHF 17'000.–",
-        "e3dc": "14 kWh:\nDa CHF 21'000.–\n18 kWh:\nDa CHF 24'000.–\n21 kWh:\nDa CHF 25'000.–"
+        "huawei": "14 kWh:\nDa CHF 12'000.–\n21 kWh:\nDa CHF 17'000.–"
       },
       "footnotes": {
         "note1": "installato, IVA esclusa",
-        "note2": "Prezzi esclusi inverter, alimentazione di emergenza o funzionamento off-grid (eccetto E3DC)"
+        "note2": "Prezzi esclusi inverter, alimentazione di emergenza e funzionamento a isola"
       },
       "smartEnergy": {
-        "label": "SmartEnergy, FreeState ONE\nInstallato, IVA esclusa.",
+        "label": "Gestione dell'energia\nMontata, IVA esclusa",
         "note1": "Da CHF 1'500 (solo data logger, senza misurazione dei consumi)",
         "note2": "Da CHF 3'900.–, con controllo boiler 50% e 100%"
       },
@@ -5187,7 +5067,7 @@
     "solutions": {
       "eyebrow": "Impianto fotovoltaico",
       "title": "Le nostre soluzioni di accumulo",
-      "description": "Collaboriamo con produttori leader per offrirti sistemi di accumulo di energia affidabili e ad alte prestazioni, adatti alle tue esigenze.",
+      "description": "Installiamo sistemi di accumulo dei principali produttori e vi offriamo soluzioni affidabili e performanti, su misura per le vostre esigenze.",
       "warrantyLabel": "Garanzia",
       "optionsLabel": "Opzioni",
       "cta": "Richiedi un preventivo ora",
@@ -5198,20 +5078,13 @@
           "featuresLabel": "Caratteristiche principali",
           "features": "Alimentazione di emergenza per tutta la casa|Inverter integrato (fino a 15 kWp)|Capacità espandibile (18–21 kWh)|Gestione energetica intelligente|Controllo remoto e integrazione domotica|Ricarica EV ottimizzata con energia solare",
           "warranty": "Garanzia produttore 10 anni|Assistenza gratuita",
-          "options": "Stazione di ricarica wallbox|Interfaccia di ricarica bidirezionale|Connettività Modbus / KNX|Integrazione Loxone"
-        },
-        "sonnen": {
-          "name": "sonnenBatterie",
-          "featuresLabel": "Caratteristiche principali",
-          "features": "Tecnologia a litio ferro fosfato|Software intelligente per un autoconsumo maggiore|Monitoraggio e analisi tramite app|Capacità: 11–55 kWh|Espandibile in qualsiasi momento",
-          "warranty": "Garanzia di sistema 10 anni (80% capacità)",
-          "options": "Alimentazione di emergenza (Sonnen Protect 8000)"
+          "options": "Stazione di ricarica Wallbox|Interfaccia di ricarica bidirezionale|Connettività Modbus / KNX"
         },
         "byd": {
           "name": "BYD",
           "featuresLabel": "Caratteristiche principali",
-          "features": "Design salvaspazio|Modulare ed espandibile|Compatibile con Kostal e SolarEdge|20 anni di esperienza sulle batterie",
-          "warranty": "10 anni sulla batteria BYD|5–12 anni sugli inverter (a seconda del marchio)"
+          "features": "Design salvaspazio|Modulare ed espandibile|20 anni di esperienza nelle batterie",
+          "warranty": "10 anni di garanzia del produttore sulla batteria BYD"
         },
         "huawei": {
           "name": "HUAWEI LUNA",
@@ -5234,7 +5107,7 @@
     "highestLevel": {
       "eyebrow": "Service",
       "title": "Assistenza ai massimi livelli",
-      "description": "Offriamo il nostro servizio di pannelli solari e accumulo a batteria in tutta la Svizzera. I nostri tecnici di servizio esperti sono dislocati a livello regionale e possono quindi essere rapidamente sul posto. Possiamo persino risolvere piccole anomalie o danni entro pochi giorni lavorativi.\n\nI nostri servizi si applicano sia agli impianti fotovoltaici e ai sistemi di accumulo a batteria costruiti da noi, sia ai sistemi installati da terzi."
+      "description": "Offriamo il nostro servizio di pannelli solari e accumulo a batteria nella Svizzera tedesca. I nostri tecnici di servizio esperti sono dislocati a livello regionale e possono quindi essere rapidamente sul posto. Possiamo persino risolvere piccole anomalie o danni entro pochi giorni lavorativi.\n\nI nostri servizi si applicano sia agli impianti fotovoltaici e ai sistemi di accumulo a batteria costruiti da noi, sia ai sistemi installati da terzi."
     },
     "selfCheck": {
       "title": "L'auto-verifica dell'impianto solare",
@@ -5387,7 +5260,7 @@
       "cta": "Contattaci ora"
     },
     "customerBenefits": {
-      "title": "I vantaggi per il cliente",
+      "title": "I vantaggi per il cliente (esempio di calcolo)",
       "description": "Con FreeState ottieni una gestione energetica intelligente per la massima efficienza.",
       "existingFacility": "Impianto esistente\nsenza controllo",
       "newFacility": "Nuovo impianto\ncon SolarFree",
@@ -5550,7 +5423,7 @@
       "description": "I costi di una pompa di calore dipendono se stai sostituendo un vecchio impianto o ne stai installando uno nuovo, nonché dalla posizione dell'installazione. I sistemi aria-acqua sono più economici e facili da installare, mentre i sistemi geotermici richiedono un investimento iniziale più elevato ma offrono maggiore efficienza e minori costi operativi a lungo termine."
     },
     "comparison": {
-      "title": "L'auto-verifica dell'impianto solare",
+      "title": "Confronto dei costi dei sistemi di riscaldamento",
       "headers": {
         "purchase": "Acquisto in CHF",
         "maintenance": "Costi di manutenzione in CHF (annuali)",
@@ -5587,14 +5460,14 @@
     "support": {
       "eyebrow": "Supporto",
       "title": "Che tipo di sostegno posso aspettarmi?",
-      "description": "Basilea-Città sovvenziona le pompe di calore salamoia-acqua fino a CHF 25'850, mentre Berna offre fino a CHF 6'000.",
+      "description": "A seconda del cantone e del comune, le pompe di calore sono sovvenzionate con contributi di diverse migliaia di franchi, in particolare in caso di sostituzione di un riscaldamento a gasolio o a gas.",
       "checkItem": "Verifica gli incentivi energetici locali su Energy Francs utilizzando il tuo codice postale.",
       "cta": "Franchi energia"
     },
     "taxDeduction": {
       "eyebrow": "Pompa di calore",
       "title": "Detrazione fiscale",
-      "description": "Il governo svizzero sostiene l'installazione di pompe di calore con incentivi e agevolazioni fiscali. A seconda del tipo di progetto, gli investimenti possono essere deducibili dalle tasse fino al 100%."
+      "description": "Cantoni e comuni (Programma Edifici) sostengono l'installazione di pompe di calore con sovvenzioni e agevolazioni fiscali. A seconda del tipo di progetto, gli investimenti possono essere deducibili fiscalmente fino al 100%."
     },
     "quoteCTA": {
       "eyebrow": "Supporto",
@@ -5629,7 +5502,7 @@
     },
     "hotline": {
       "eyebrow": "Siamo qui per te",
-      "title": "Hotline di servizio - Noi e i nostri partner siamo qui per te!",
+      "title": "Hotline di assistenza - Siamo qui per voi!",
       "cta": "Contatto"
     },
     "emergency": {
@@ -5641,29 +5514,6 @@
         "pumpNotWorking": "La pompa di calore non funziona",
         "tooColdOrWarm": "Troppo freddo o troppo caldo in casa",
         "strangeNoises": "Rumori strani dalla pompa di calore"
-      }
-    },
-    "manufacturerSupport": {
-      "title": "Contatta l'assistenza del produttore per un aiuto immediato",
-      "cards": {
-        "stiebelEltron1": {
-          "title": "Stiebel Eltron",
-          "description": "Per emergenze, chiama 0844 333 444",
-          "link": "Stiebel Eltron Services",
-          "href": "https://www.stiebel-eltron.ch"
-        },
-        "stiebelEltron2": {
-          "title": "Stiebel Eltron",
-          "description": "Per emergenze, chiama 0844 333 444",
-          "link": "Stiebel Eltron Services",
-          "href": "https://www.stiebel-eltron.ch"
-        },
-        "stiebelEltron3": {
-          "title": "Stiebel Eltron",
-          "description": "Per emergenze, chiama 0844 333 444",
-          "link": "Stiebel Eltron Services",
-          "href": "https://www.stiebel-eltron.ch"
-        }
       }
     },
     "hydraulic": {
@@ -5846,12 +5696,12 @@
     },
     "installation": {
       "title": "Installazione di grandi\nimpianti solari",
-      "description": "FreeState impiega professionisti esperti come elettricisti, conciatetti, carpentieri, idraulici e lattonieri. Per garantirti di beneficiare del tuo impianto il prima possibile, i nostri professionisti lo installeranno dall'inizio alla fine. I costi di installazione sono interamente inclusi nel prezzo di acquisto."
+      "description": "Collaboriamo con elettricisti e copritetto esperti. Affinché possiate beneficiare del vostro impianto il prima possibile, i nostri specialisti lo installano dall'inizio alla fine. I costi di installazione sono interamente inclusi nel prezzo d'acquisto."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
       "title": "Monitoraggio del tuo impianto",
-      "description": "Con decenni di esperienza nel solare, FreeState offre monitoraggio 24/7, rilevamento rapido dei guasti e ispezioni regolari per garantire che il tuo impianto solare funzioni in modo affidabile per oltre 30 anni."
+      "description": "FreeState offre un monitoraggio continuo dell'impianto, un rapido rilevamento dei guasti e ispezioni regolari per garantire che il vostro impianto solare funzioni in modo affidabile per oltre 30 anni."
     },
     "quoteCTA": {
       "eyebrow": "Costo di un impianto solare",
@@ -5869,7 +5719,7 @@
   "projectDevelopment": {
     "hero": {
       "title": "Sviluppo progetto",
-      "description": "FreeState fornisce servizi EPC per centrali fotovoltaiche in tutta la Svizzera."
+      "description": "FreeState fornisce servizi EPC per impianti fotovoltaici nella Svizzera tedesca."
     },
     "epc": {
       "eyebrow": "EPC",
@@ -6081,7 +5931,7 @@
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
       "bullets": {
-        "owners": "Per proprietari e amministratori di immobili: progettiamo, installiamo e manteniamo l'infrastruttura di ricarica, con un sistema di fatturazione completamente digitale che gestisce l'amministrazione.",
+        "owners": "Per proprietari e amministratori: progettiamo, installiamo e manteniamo l'infrastruttura di ricarica, con fatturazione secondo le esigenze.",
         "condominiums": "Per i proprietari di condominio: installiamo infrastrutture e stazioni di ricarica scalabili secondo necessità, con una chiara pianificazione dell'espansione e una fatturazione trasparente e flessibile."
       }
     },
@@ -6098,15 +5948,15 @@
         },
         "billing": {
           "question": "I dipendenti, gli ospiti e i clienti possono essere fatturati in modo diverso?",
-          "answer": "Sì, il nostro sistema di fatturazione digitale supporta prezzi differenziati per dipendenti, ospiti e clienti, con reportistica trasparente e strutture tariffarie flessibili."
+          "answer": "Sì, le stazioni di ricarica installate supportano prezzi differenziati per collaboratori, ospiti e clienti, con rendicontazione trasparente e strutture tariffarie flessibili."
         },
         "homeCharging": {
           "question": "Posso consentire ai miei dipendenti di ricaricare a casa?",
-          "answer": "Sì, offriamo soluzioni di ricarica domestica per i dipendenti che si integrano con il sistema di fatturazione aziendale, consentendo un rimborso e un tracciamento dell'uso senza interruzioni."
+          "answer": "Sì, su richiesta."
         },
         "fleetOverload": {
           "question": "Una flotta di grandi dimensioni sovraccaricherà la rete di ricarica?",
-          "answer": "No, il nostro sistema intelligente di gestione del carico distribuisce la potenza di ricarica su tutte le stazioni per prevenire sovraccarichi della rete, assicurando al contempo che tutti i veicoli siano ricaricati in tempo."
+          "answer": "No, una gestione dei carichi distribuisce la potenza di ricarica su tutte le stazioni per evitare un sovraccarico della rete e garantire al contempo che tutti i veicoli siano ricaricati in tempo."
         },
         "taxBreaks": {
           "question": "Esistono agevolazioni fiscali per le soluzioni di ricarica?",
@@ -6123,11 +5973,11 @@
     "intro": {
       "eyebrow": "Case unifamiliari",
       "title": "La tua casa,\nla tua stazione di ricarica",
-      "description": "Stazioni di ricarica convenienti sono disponibili per ogni esigenza. I modelli FreeState offrono gestione del carico, accesso remoto e la possibilità di ricaricare il tuo EV con la tua energia solare."
+      "description": "Stazioni di ricarica convenienti sono disponibili per ogni esigenza. Le nostre wallbox offrono gestione dei carichi, accesso remoto e la possibilità di ricaricare la vostra auto elettrica con la vostra energia solare."
     },
     "weOffer": {
       "title": "Noi ti offriamo questo",
-      "description": "Pianifichiamo e installiamo soluzioni di ricarica domestica smart utilizzando prodotti di partner di alta qualità, completamente integrate con il tuo impianto solare o pompa di calore, con ricarica bidirezionale inclusa e supporto tecnico continuo.\n\nOttieni una stima dei costi non vincolante in pochi minuti con il nostro calcolatore di preventivi online."
+      "description": "Progettiamo e installiamo soluzioni intelligenti di ricarica domestica con prodotti di alta qualità, che si integrano completamente con il vostro impianto solare o la pompa di calore, consentono la ricarica bidirezionale e sono supportate da un servizio tecnico continuo.\n\nOttenete in pochi minuti una stima dei costi senza impegno con il nostro calcolatore di offerte online."
     },
     "calculator": {
       "eyebrow": "Calcola",
@@ -6229,27 +6079,11 @@
         "lowerElectricityBill": "Bolletta elettrica più bassa",
         "multiDaySelfSufficiency": "Autosufficienza per più giorni"
       },
-      "footnote": "A seconda della situazione, ne deriva un beneficio finanziario annuo fino a CHF 520 con un impianto solare o fino a CHF 300 senza impianto solare. Seguono i dettagli del beneficio finanziario:"
-    },
-    "marketingFlexibility": {
-      "title": "Flessibilità di marketing",
-      "description": "La batteria del tuo EV può entrare a far parte della centrale elettrica virtuale di FreeState, supportando la rete e guadagnando un FLEXBONUS grazie a pagamenti di standby e tariffe di picco.",
-      "additionalIncome": "Reddito aggiuntivo tramite FLEXBONUS:",
-      "cards": {
-        "withSolar": {
-          "title": "Con impianto solare",
-          "amount": "fino a CHF 170 all'anno"
-        },
-        "systemComparison": {
-          "title": "confronto di sistema",
-          "amount": "fino a CHF 170 all'anno"
-        }
-      },
-      "note": "Nota: il potenziale di rendimento qui indicato può essere raggiunto solo in condizioni ottimali, che includono circa il 60% di tempo di collegamento, un'ampia dimensione del pool, uno sviluppo favorevole del mercato e una sufficiente capacità della batteria disponibile."
+      "footnote": "Il vantaggio finanziario annuo dipende dalla vostra situazione. Lo calcoliamo volentieri per voi."
     },
     "keyFacts": {
       "title": "Ricarica bidirezionale: fatti chiave",
-      "description": "La ricarica bidirezionale integra il tuo EV nel sistema energetico domestico, gestito automaticamente da Free State AG ONE per un uso ottimale dell'energia. Affrontiamo in modo trasparente le attuali limitazioni tecniche.",
+      "description": "La ricarica bidirezionale integra il vostro veicolo elettrico nel sistema energetico domestico, che un sistema intelligente di gestione dell'energia gestisce automaticamente per un uso ottimale dell'energia, tenendo conto in modo trasparente delle attuali limitazioni tecniche.",
       "steps": {
         "1": "I piccoli carichi necessitano di un buffer della batteria domestica (limite >1,8 kW).",
         "2": "I carichi elevati funzionano direttamente; scarica limitata al 20-80% SoC."
@@ -6257,8 +6091,8 @@
     },
     "carBattery": {
       "eyebrow": "Batteria dell'auto",
-      "title": "La batteria della tua auto diventa parte di\nFree State AG",
-      "description": "La batteria del tuo EV sblocca risparmi e ricavi, mentre Free State AG ottimizza automaticamente l'uso dell'energia in tempo reale.",
+      "title": "La batteria della vostra auto diventa\nparte del vostro sistema energetico",
+      "description": "La batteria del vostro veicolo elettrico genera risparmi e ricavi, mentre il sistema di gestione dell'energia ottimizza automaticamente il consumo in tempo reale.",
       "cta": "Richiedi un preventivo"
     },
     "homeIndependence": {
@@ -6274,12 +6108,12 @@
     },
     "chargingPaysOff": {
       "title": "La ricarica bidirezionale conviene",
-      "description": "Invece di CHF 3'600 per una stazione di ricarica convenzionale, investi circa CHF 5'700 e rendi così la batteria della tua auto elettrica parte del tuo sistema energetico. Il tuo vantaggio finanziario aggiuntivo: ulteriori risparmi e ricavi."
+      "description": "Con una stazione di ricarica bidirezionale, la batteria della vostra auto elettrica diventa parte del vostro sistema energetico. Il vostro vantaggio finanziario aggiuntivo: ulteriori risparmi e ricavi."
     },
     "chargeLevel": {
       "eyebrow": "Livello di carica",
       "title": "Sempre controllo completo\nsul livello di carica",
-      "description": "Con l'app Free State AG monitori la batteria del tuo EV, imposti un livello minimo di carica e ottimizzi l'uso dell'energia in eccesso.",
+      "description": "Tramite l'app del produttore monitorate la batteria del vostro veicolo elettrico, impostate un livello minimo di carica e ottimizzate l'uso dell'energia in eccesso.",
       "cta": "Richiedi un preventivo"
     },
     "funding": {
@@ -6392,7 +6226,7 @@
     },
     "newsletter": {
       "title": "BiDi Newsletter",
-      "description": "Tutti i nostri progetti solari possono essere facilmente aggiornati per includere la ricarica bidirezionale grazie a Free State AG ONE. Sei interessato alle ultime informazioni sulla ricarica bidirezionale?\n\nAllora iscriviti alla nostra newsletter BiDi.",
+      "description": "Tutti i nostri progetti solari possono essere facilmente ampliati con la ricarica bidirezionale grazie a un sistema di gestione dell'energia adeguato. Vi interessano le ultime informazioni sulla ricarica bidirezionale?\n\nIscrivetevi alla nostra newsletter BiDi.",
       "form": {
         "firstName": "Nome",
         "firstNamePlaceholder": "Inserisci il tuo nome",
@@ -6432,7 +6266,7 @@
         },
         "savings": {
           "question": "Si può risparmiare o guadagnare con la batteria di un EV?",
-          "answer": "Sì. Puoi risparmiare utilizzando l'energia solare accumulata invece di quella di rete e guadagnare grazie a servizi di flessibilità (FLEXBONUS) permettendo alla tua batteria di supportare la stabilità della rete durante la domanda di picco."
+          "answer": "Sì. Potete risparmiare utilizzando l'energia solare accumulata al posto dell'elettricità di rete e guadagnare tramite servizi di flessibilità mettendo a disposizione la vostra batteria per la stabilizzazione della rete nei picchi di carico."
         },
         "rangeLimit": {
           "question": "La batteria del tuo EV potrebbe scaricarsi, limitando la tua autonomia?",
@@ -6440,7 +6274,7 @@
         },
         "requirements": {
           "question": "Cosa è necessario per la ricarica bidirezionale?",
-          "answer": "Ti servono un EV compatibile, una stazione di ricarica DC bidirezionale e un sistema intelligente di gestione dell'energia come Free State AG ONE. Un impianto solare è consigliato ma non obbligatorio."
+          "answer": "Servono un veicolo elettrico compatibile, una stazione di ricarica DC bidirezionale e un sistema intelligente di gestione dell'energia. Un impianto solare è consigliato ma non obbligatorio."
         },
         "specialChargers": {
           "question": "Gli EV necessitano di caricatori speciali per l'uso bidirezionale?",
@@ -9078,11 +8912,11 @@
           },
           "stateIncentives": {
             "question": "Esistono incentivi per passare al solare?",
-            "answer": "Gli incentivi comuni includono crediti d'imposta, net metering e rimborsi dalle utility. Gli incentivi solari federali e cantonali possono ridurre significativamente il costo del tuo impianto."
+            "answer": "Sì. Gli impianti solari beneficiano della rimunerazione unica di Pronovo, dei programmi di incentivazione cantonali e comunali, della deduzione fiscale dell'investimento e della rimunerazione del gestore di rete per l'elettricità immessa in rete."
           },
           "homeValue": {
             "question": "I pannelli solari aumenteranno il valore della mia casa?",
-            "answer": "Gli studi mostrano che le case con impianto solare si vendono a circa il 4% in più rispetto a quelle senza. L'installazione di un impianto solare aumenta l'appeal e il valore della tua casa per i potenziali acquirenti."
+            "answer": "L'installazione di un impianto solare aumenta l'attrattiva e il valore della vostra casa per i potenziali acquirenti."
           }
         }
       },
@@ -9109,11 +8943,11 @@
           },
           "afterActivation": {
             "question": "Cosa succede dopo che ho acceso il mio impianto?",
-            "answer": "La tua casa viene alimentata dall'energia solare montata sul tetto. Puoi monitorare la produzione tramite il nostro portale online. Le bollette mensili arrivano 30 giorni dopo l'attivazione dell'impianto per i clienti con pagamento mensile."
+            "answer": "La vostra casa è alimentata dall'energia solare del tetto. Potete monitorare la produzione tramite il nostro portale online."
           },
           "permissionToOperate": {
-            "question": "Cos'è il permesso di operare?",
-            "answer": "Il permesso di operare (PTO) concede l'autorizzazione a collegare il tuo impianto alla rete elettrica ed è richiesto prima dell'attivazione. Presentiamo le richieste di interconnessione al termine dell'ispezione, che richiede in genere 2-6 settimane."
+            "question": "Che cos'è la domanda di allacciamento?",
+            "answer": "Prima della messa in servizio presentiamo al gestore di rete la domanda di allacciamento del vostro impianto e lo registriamo presso Pronovo per la rimunerazione unica. Al termine dei lavori l'installatore elettricista notifica l'impianto al gestore di rete, che autorizza la messa in servizio. L'elaborazione richiede di norma alcune settimane."
           }
         }
       },
@@ -9158,8 +8992,8 @@
             "answer": "Il noleggio richiede costi iniziali minimi con manutenzione inclusa. L'acquisto offre accesso diretto a crediti d'imposta e incentivi, ma richiede responsabilità per la manutenzione al di fuori della copertura di garanzia. Entrambe le opzioni hanno vantaggi unici a seconda della tua situazione."
           },
           "leasePPA": {
-            "question": "Cos'è un leasing solare o un PPA?",
-            "answer": "I leasing solari prevedono un pagamento mensile fisso per l'uso dell'impianto. I Power Purchase Agreement (PPA) addebitano al kilowattora per l'elettricità generata. Entrambi richiedono costi iniziali minimi e includono la manutenzione."
+            "question": "Qual è la differenza tra SolarFree, SolarAbo e SolarDirect?",
+            "answer": "Con SolarFree utilizzate l'impianto senza investire e pagate l'energia solare prodotta a un prezzo fisso per chilowattora. Con SolarAbo finanziate l'impianto con una rata mensile fissa. Con SolarDirect acquistate l'impianto, che è vostro fin dal primo giorno."
           },
           "averageCost": {
             "question": "Qual è il costo medio dei pannelli solari?",
@@ -9175,7 +9009,7 @@
           },
           "taxCredits": {
             "question": "Ci sono vantaggi fiscali per passare al solare?",
-            "answer": "Gli incentivi fiscali federali e cantonali possono ridurre significativamente il costo del tuo impianto solare. Contatta i nostri consulenti solari per dettagli sugli incentivi specifici disponibili nella tua zona."
+            "answer": "Sì. Nella maggior parte dei cantoni l'investimento in un impianto solare è deducibile dal reddito imponibile. Inoltre ricevete la rimunerazione unica di Pronovo. Contattate i nostri consulenti solari per i dettagli sul vostro cantone."
           }
         }
       },
@@ -9190,19 +9024,19 @@
           },
           "monitoring": {
             "question": "Il mio impianto è monitorato?",
-            "answer": "Sì, un team dedicato al monitoraggio osserva continuamente. I contatori inviano dati di produzione più volte al giorno. La valutazione quotidiana conferma le prestazioni attese e qualsiasi problema attiva un'indagine e una riparazione."
+            "answer": "Sì. Il vostro impianto invia continuamente i dati di produzione al portale di monitoraggio del produttore dell'inverter. Con un contratto di manutenzione monitoriamo l'impianto e verifichiamo eventuali anomalie."
           },
           "breaks": {
             "question": "Cosa succede se il mio impianto si rompe o non funziona come previsto?",
-            "answer": "Ci occupiamo di tutte le riparazioni e sostituzioni durante il tuo contratto. Segnala i problemi tramite il nostro portale di supporto per l'assistenza immediata di un operatore."
+            "answer": "Con SolarFree e SolarAbo ci occupiamo di tutte le riparazioni e sostituzioni per l'intera durata del contratto. Con SolarDirect si applicano le garanzie dei produttori, integrate da un contratto di manutenzione opzionale. Segnalate i problemi tramite il nostro portale di supporto."
           },
           "warranty": {
             "question": "Il mio impianto solare domestico avrà una garanzia?",
-            "answer": "Sì, l'attrezzatura è coperta da solide garanzie che includono monitoraggio e manutenzione 24/7. Qualsiasi guasto riceve un servizio di riparazione gratuito per la durata del tuo contratto."
+            "answer": "Sì. I componenti sono coperti dalle garanzie dei produttori. Con SolarFree e SolarAbo il monitoraggio e la manutenzione sono inclusi e i difetti vengono riparati gratuitamente per l'intera durata del contratto."
           },
           "roofReplacement": {
             "question": "Cosa succede se devo sostituire il tetto?",
-            "answer": "Contatta il nostro servizio clienti per preventivi di rimozione e reinstallazione. I nostri team locali rimuovono temporaneamente i pannelli durante la sostituzione del tetto. Consigliamo di dare 45 giorni di preavviso quando possibile."
+            "answer": "Contattate il nostro servizio clienti per un'offerta di smontaggio e reinstallazione. Il nostro team rimuove temporaneamente i moduli durante il rifacimento del tetto. Vi preghiamo di contattarci per tempo, così da poter pianificare i lavori."
           },
           "shade": {
             "question": "Alberi o ombra influiranno sulle prestazioni del mio impianto solare?",
@@ -9217,11 +9051,11 @@
         "items": {
           "whatBackup": {
             "question": "Cosa può alimentare la mia batteria come backup?",
-            "answer": "Le batterie possono fornire backup alla tua cucina (incluso il frigorifero), alle luci di camera e bagno, al motore del cancello e al WiFi per circa 8-12 ore. I pannelli solari ricaricano le batterie all'alba."
+            "answer": "Le batterie possono alimentare circuiti selezionati, come frigorifero, illuminazione e internet. La durata dipende dalla capacità dell'accumulatore e dal vostro consumo. I moduli solari ricaricano la batteria con la luce del giorno."
           },
           "outage": {
             "question": "Come funziona l'accumulo a batteria durante un'interruzione di corrente?",
-            "answer": "Durante le interruzioni, le batterie alimentano i circuiti di backup in pochi secondi, fornendo 8-12 ore di energia di backup a seconda dell'utilizzo. I pannelli solari ricaricano le batterie quotidianamente, consentendo un supporto multi-giornaliero in caso di interruzioni."
+            "answer": "In caso di blackout le batterie alimentano i circuiti protetti in pochi secondi. La durata dipende dalla capacità dell'accumulatore e dal consumo. I moduli solari ricaricano la batteria ogni giorno, consentendo un supporto per più giorni."
           },
           "offGrid": {
             "question": "Posso andare off-grid con una batteria?",
@@ -9233,7 +9067,7 @@
           },
           "placement": {
             "question": "Dove sarà collocata la mia batteria?",
-            "answer": "Le batterie sono tipicamente montate a parete all'interno di garage o sulle pareti esterne della casa. L'installazione richiede circa 2 metri di altezza per 3 metri di larghezza di spazio libero."
+            "answer": "Le batterie vengono generalmente montate a parete in garage, locali tecnici o su pareti esterne."
           },
           "batteryMaintenance": {
             "question": "Devo effettuare configurazioni o manutenzioni sulla mia batteria?",
@@ -9255,12 +9089,8 @@
             "answer": "L'adozione del solare fornisce elettricità pulita a zero emissioni. L'energia generata domesticamente riduce lo stress sulla rete durante la domanda di picco, beneficiando la sicurezza e l'infrastruttura dell'intera comunità."
           },
           "netMetering": {
-            "question": "Cos'è il net metering?",
-            "answer": "Il net metering tiene traccia dell'energia solare in eccesso che immetti in rete. La tua utility accredita queste immissioni a fronte di acquisti futuri dalla rete, garantendo che la tua energia solare non vada mai sprecata."
-          },
-          "energyCredits": {
-            "question": "Cosa sono i crediti energetici?",
-            "answer": "Le utility forniscono crediti per l'energia prodotta in eccesso e immessa in rete. L'energia utilizzata immediatamente dal solare non entra mai nella fatturazione. L'energia accumulata in batteria evita analogamente di entrare in rete e di incidere sulla fatturazione."
+            "question": "Che cos'è la rimunerazione dell'immissione?",
+            "answer": "L'energia solare in eccesso che non consumate voi stessi viene immessa in rete. Il gestore di rete vi rimunera ogni chilowattora immesso. Ogni gestore di rete stabilisce le proprie tariffe, pubblicate dalla ElCom."
           }
         }
       }
@@ -9323,9 +9153,9 @@
       }
     },
     "partners": {
-      "eyebrow": "I nostri partner",
-      "title": "Marchi che si fidano di FreeState",
-      "subtitle": "Con partner solidi e marchi leader, creiamo soluzioni energetiche affidabili per la tua casa."
+      "eyebrow": "Componenti",
+      "title": "I componenti che installiamo",
+      "subtitle": "Installiamo inverter e sistemi di accumulo di Huawei, Sofar e Sigenergy."
     }
   },
   "history": {
@@ -9433,14 +9263,14 @@
       }
     },
     "partners": {
-      "eyebrow": "Partner forti",
-      "title": "Insieme a partner consolidati",
-      "subtitle": "Per il trading energetico, l'infrastruttura e lo sviluppo di progetti, FreeState collabora con partner esperti, garantendo progetti stabili e una cooperazione a lungo termine."
+      "eyebrow": "Componenti",
+      "title": "I componenti che installiamo",
+      "subtitle": "Installiamo inverter e sistemi di accumulo di Huawei, Sofar e Sigenergy."
     },
     "locations": {
       "eyebrow": "Le nostre sedi",
-      "title": "Radicati a livello regionale, attivi a livello internazionale",
-      "subtitle": "Da Sciaffusa, Zurigo, Berna, Argovia e Liechtenstein, FreeState sviluppa e realizza progetti fotovoltaici in Svizzera e progetti energetici internazionali.",
+      "title": "Radicati nella regione",
+      "subtitle": "Da Sciaffusa, Zurigo e San Gallo, FreeState sviluppa e realizza progetti fotovoltaici in Svizzera.",
       "ctaContact": "Contattaci",
       "ctaCalculator": "Avvia calcolatore solare"
     }
@@ -9451,7 +9281,7 @@
     "about": {
       "eyebrow": "Chi è Free State AG",
       "title": "Energia rinnovabile per la Svizzera",
-      "description": "Free State AG è un produttore consolidato di energia verde in Svizzera. Gestiamo moderne centrali solari e offriamo soluzioni energetiche innovative per clienti residenziali e commerciali. Con un portafoglio in crescita di impianti fotovoltaici, contribuiamo attivamente alla transizione energetica.",
+      "description": "Free State AG progetta, finanzia e realizza impianti fotovoltaici in Svizzera per clienti privati e aziendali.",
       "stats": {
         "location": {
           "value": "Schaffhausen",
@@ -9618,11 +9448,11 @@
       },
       "installation": {
         "title": "Installazione esperta",
-        "description": "Collaudata in oltre 1 milione di abitazioni."
+        "description": "Esperienza dal 2008."
       },
       "support": {
-        "title": "Assistenza\n24 ore su 24",
-        "description": "Assistenza e monitoraggio del sistema 24/7."
+        "title": "Monitoraggio &\nSupporto",
+        "description": "Monitoraggio dell'impianto e supporto negli orari d'ufficio."
       }
     },
     "faq": {
@@ -9691,7 +9521,7 @@
         "label": "Costo per\nm² in CHF",
         "value": "circa CHF 780.00"
       },
-      "solarAboPrice": "Con SolarFree 00.00 CHF",
+      "solarAboPrice": "Con SolarFree CHF 0",
       "orderNow": "ORDINA ORA",
       "orderLink": "/calculator"
     },

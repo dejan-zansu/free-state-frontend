@@ -1,6 +1,5 @@
 import PageHero from '@/components/PageHero'
 import TeamGrid from '@/components/team/TeamGrid'
-import TeamPartners from '@/components/team/TeamPartners'
 import ValuesSection from '@/components/team/ValuesSection'
 import { LinkButton } from '@/components/ui/link-button'
 import { useTranslations } from 'next-intl'
@@ -42,7 +41,6 @@ const TeamPage = () => {
 
       <TeamGrid />
       <ValuesSection />
-      <TeamPartners />
     </div>
   )
 }

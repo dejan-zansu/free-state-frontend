@@ -2,6 +2,7 @@ import {
   COMPANY_LOCATIONS,
   type CompanyLocation,
 } from '@/lib/company-contact'
+import { siteConfig } from '@/lib/seo/site-config'
 
 const REGION_BY_KEY: Record<string, string> = {
   schaffhausen: 'SH',
@@ -37,7 +38,7 @@ const SHARED = {
   '@context': 'https://schema.org',
   '@type': 'SolarEnergyContractor',
   url: 'https://www.freestate.ch',
-  image: 'https://www.freestate.ch/og/default-1200x630.png',
+  image: `${siteConfig.url}${siteConfig.ogImage.url}`,
   telephone: '+41 52 525 33 05',
   email: 'info@freestate.ch',
   priceRange: 'CHF',

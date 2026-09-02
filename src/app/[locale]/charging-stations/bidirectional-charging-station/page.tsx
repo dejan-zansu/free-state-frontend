@@ -1,7 +1,6 @@
 import PageHero from '@/components/PageHero'
 import HowItWorksSection from '@/components/charging-stations/bidirectional-charging-station/sections/HowItWorksSection'
 import BenefitsComparisonSection from '@/components/charging-stations/bidirectional-charging-station/sections/BenefitsComparisonSection'
-import MarketingFlexibilitySection from '@/components/charging-stations/bidirectional-charging-station/sections/MarketingFlexibilitySection'
 import KeyFactsSection from '@/components/charging-stations/bidirectional-charging-station/sections/KeyFactsSection'
 import CarBatteryCTASection from '@/components/charging-stations/bidirectional-charging-station/sections/CarBatteryCTASection'
 import HomeIndependenceSection from '@/components/charging-stations/bidirectional-charging-station/sections/HomeIndependenceSection'
@@ -48,7 +47,6 @@ const BidirectionalChargingStationPage = async () => {
       />
       <HowItWorksSection />
       <BenefitsComparisonSection />
-      <MarketingFlexibilitySection />
       <KeyFactsSection />
       <CarBatteryCTASection />
       <HomeIndependenceSection />

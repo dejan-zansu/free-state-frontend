@@ -39,11 +39,9 @@ const OurPartners = async () => {
 
         <RevealStagger className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
           {[
-            { src: '/images/swisscom-logo.png', alt: 'Swisscom', width: 196, height: 53 },
-            { src: '/images/partners/partner-2.svg', alt: 'Partner', width: 95, height: 37 },
-            { src: '/images/partners/partner-3.svg', alt: 'Partner', width: 225, height: 34 },
-            { src: '/images/partners/partner-4.svg', alt: 'Partner', width: 169, height: 21 },
-            { src: '/images/partners/partner-5.svg', alt: 'Partner', width: 183, height: 45 },
+            { src: '/images/promo/logo-huawei.webp', alt: 'Huawei', width: 145, height: 36 },
+            { src: '/images/promo/logo-sigenergy.svg', alt: 'Sigenergy', width: 202, height: 24 },
+            { src: '/images/promo/logo-sofar.svg', alt: 'Sofar', width: 128, height: 24 },
           ].map((logo, i) => (
             <div key={logo.src} className="flex items-center">
               <Image
@@ -53,7 +51,7 @@ const OurPartners = async () => {
                 height={logo.height}
                 className="h-auto max-h-[56px] w-auto object-contain"
               />
-              {i < 4 && (
+              {i < 2 && (
                 <span
                   aria-hidden
                   className="hidden md:block ml-10 md:ml-14 w-px h-[89px] bg-[#062E25]/30"

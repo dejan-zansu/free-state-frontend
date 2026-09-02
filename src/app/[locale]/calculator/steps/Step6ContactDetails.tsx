@@ -23,13 +23,13 @@ import ManualCheckCapture from '../v2/ManualCheckCapture'
 const DEV_DEFAULT_CONTACT = {
   firstName: 'Test',
   lastName: 'Test',
-  email: 'arsicdejan996@gmail.com',
-  phoneNumber: '123123123',
+  email: 'dev@example.com',
+  phoneNumber: '0791234567',
   country: 'CH' as const,
-  postalCode: '11000',
-  city: 'Belgrade',
-  street: 'Mirijevski bulevar',
-  streetNumber: '92',
+  postalCode: '8200',
+  city: 'Schaffhausen',
+  street: 'Musterstrasse',
+  streetNumber: '1',
 }
 
 function useContactSchema(t: (key: string) => string) {
