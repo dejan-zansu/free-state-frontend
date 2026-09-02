@@ -1,5 +1,11 @@
 export type MarketingAlertSeverity = 'red' | 'amber' | 'info'
 
+export type MarketingPlatform = 'meta' | 'google'
+
+export type MarketingDataSource = 'meta-ads' | 'ga4' | 'google-ads'
+
+export type MarketingCreativeSource = 'meta-ads' | 'google-ads' | 'manual'
+
 export interface MarketingAlert {
   id: string
   severity: MarketingAlertSeverity
@@ -19,6 +25,13 @@ export interface MarketingCplTile {
   targetChf: number | null
   spend7dChf: number
   paidLeads7d: number
+  spendByPlatform7d?: { meta: number; google: number }
+}
+
+export interface MarketingSignupsTile {
+  thisWeek: number
+  lastWeek: number
+  byChannel: { channel: string; count: number }[]
 }
 
 export interface MarketingFunnelTile {
@@ -56,6 +69,7 @@ export interface MarketingOverview {
     cpl: MarketingCplTile
     funnel: MarketingFunnelTile
     engagement: MarketingEngagementTile
+    signups?: MarketingSignupsTile
   }
   timeline: MarketingTimelinePoint[]
   events: MarketingEvent[]
@@ -64,13 +78,23 @@ export interface MarketingOverview {
 
 export interface MarketingCampaignRow {
   campaignId: string
+  platform: MarketingPlatform
+  dataSource: MarketingDataSource
   name: string
   status: string
   spend7dChf: number
   spend30dChf: number
-  metaLeads30d: number
+  impressions30d: number
+  clicks30d: number
+  ctrPct30d: number | null
+  cpcChf30d: number | null
+  sessions30d: number | null
+  metaLeads30d: number | null
   dbLeads30d: number
   trueCplChf: number | null
+  signups7d: number
+  signups30d: number
+  costPerSignupChf: number | null
   consults30d: number
   contracts30d: number
   wonChf30d: number
@@ -79,7 +103,84 @@ export interface MarketingCampaignRow {
 export interface MarketingCampaigns {
   rows: MarketingCampaignRow[]
   lastSyncAt: string | null
+  lastSyncByPlatform: { meta: string | null; google: string | null }
   unattributedLeads30d: number
+}
+
+export interface CampaignAdGroup {
+  id: string
+  name: string
+  status: string
+  spendChf: number
+  impressions: number
+  clicks: number
+  ctrPct: number | null
+  sessions: number | null
+  keywordCount: number
+  adCount: number
+  synthetic?: boolean
+}
+
+export interface CampaignKeyword {
+  id: string
+  adGroupId: string
+  adGroupName: string
+  text: string
+  matchType: string | null
+  status: string | null
+  qualityScore: number | null
+  cpcBidChf: number | null
+  spendChf: number
+  impressions: number
+  clicks: number
+  ctrPct: number | null
+  cpcChf: number | null
+  sessions: number | null
+  conversions: number | null
+  source: 'ga4' | 'google-ads'
+}
+
+export interface CampaignSearchTerm {
+  term: string
+  adGroupId: string
+  adGroupName: string
+  matchedKeyword: string | null
+  matchType: string | null
+  spendChf: number
+  impressions: number
+  clicks: number
+  ctrPct: number | null
+  cpcChf: number | null
+  sessions: number | null
+  conversions: number | null
+  source: 'ga4' | 'google-ads'
+}
+
+export interface CampaignBreakdownStoredRow {
+  key: string
+  spendChf: number
+  impressions: number
+  clicks: number
+  ctrPct: number | null
+  conversions?: number | null
+}
+
+export type CampaignBreakdownDimension = 'network' | 'device' | 'region' | 'placement' | 'ageGender'
+
+export type CampaignBreakdownsStored = Partial<
+  Record<CampaignBreakdownDimension, CampaignBreakdownStoredRow[]>
+>
+
+export interface CampaignDataSources {
+  ga4: { active: boolean; lastSyncAt: string | null }
+  googleAds: { configured: boolean; lastSyncAt: string | null; lastError: string | null }
+}
+
+export interface CampaignAdCreativePatch {
+  headlines?: string[]
+  descriptions?: string[]
+  finalUrl?: string
+  name?: string
 }
 
 export interface CampaignDetail {
@@ -93,6 +194,10 @@ export interface CampaignDetail {
     adSetCount: number
     adCount: number
     adAccountId: string | null
+    platform: MarketingPlatform
+    dataSource: MarketingDataSource
+    externalAccountId: string | null
+    consoleUrl: string | null
   }
   range: { from: string; to: string; days: number }
   totals: {
@@ -108,6 +213,12 @@ export interface CampaignDetail {
     consults: number
     contracts: number
     wonChf: number
+    sessions: number | null
+    engagedSessions: number | null
+    keyEvents: number | null
+    conversions: number | null
+    signups: number
+    costPerSignupChf: number | null
   }
   daily: {
     date: string
@@ -117,6 +228,8 @@ export interface CampaignDetail {
     ctrPct: number | null
     ga4Sessions: number
     dbLeads: number
+    sessions: number | null
+    signups: number
   }[]
   funnel: {
     attributed: boolean
@@ -145,7 +258,21 @@ export interface CampaignDetail {
     metaLeads: number
     dbLeads: number
     trueCplChf: number | null
+    platform: MarketingPlatform
+    headlines: string[] | null
+    descriptions: string[] | null
+    finalUrls: string[] | null
+    adStrength: string | null
+    creativeSource: MarketingCreativeSource | null
+    sessions: number | null
+    signups: number
+    synthetic?: boolean
   }[]
+  adGroups: CampaignAdGroup[]
+  keywords: CampaignKeyword[]
+  searchTerms: CampaignSearchTerm[]
+  breakdownsStored: CampaignBreakdownsStored
+  dataSources: CampaignDataSources | null
   ga4: {
     linked: boolean
     byLandingPage: { landingPage: string; sessions: number; engagedSessions: number }[]
@@ -184,7 +311,7 @@ export interface MarketingAnalyticsOverview {
 
 export interface CampaignBreakdowns {
   available: boolean
-  reason: 'ok' | 'not_configured' | 'api_error' | 'no_data'
+  reason: 'ok' | 'not_configured' | 'api_error' | 'no_data' | 'not_applicable'
   placements: {
     platform: string
     position: string
@@ -228,6 +355,7 @@ export interface MarketingSettings {
   connectors: MarketingConnectorStatus[]
   targets: MarketingTargets
   credentials: MarketingCredential[]
+  internalEmails: string[]
 }
 
 export interface MarketingTargetsUpdate {

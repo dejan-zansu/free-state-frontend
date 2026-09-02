@@ -1,5 +1,6 @@
 import api from '@/lib/api'
 import type {
+  CampaignAdCreativePatch,
   CampaignBreakdowns,
   CampaignDetail,
   CreateExperimentInput,
@@ -49,6 +50,18 @@ class AdminMarketingService {
     return response.data.data
   }
 
+  async updateAdCreative(
+    campaignId: string,
+    adId: string,
+    patch: CampaignAdCreativePatch
+  ): Promise<CampaignDetail['ads'][number]> {
+    const response = await api.patch<{ success: boolean; data: CampaignDetail['ads'][number] }>(
+      `/admin/marketing/campaigns/${campaignId}/ads/${adId}`,
+      patch
+    )
+    return response.data.data
+  }
+
   async getAnalyticsOverview(params?: { from?: string; to?: string }): Promise<MarketingAnalyticsOverview> {
     const response = await api.get<{ success: boolean; data: MarketingAnalyticsOverview }>('/admin/marketing/analytics/overview', { params })
     return response.data.data
@@ -61,6 +74,11 @@ class AdminMarketingService {
 
   async updateTargets(data: MarketingTargetsUpdate): Promise<MarketingTargets> {
     const response = await api.put<{ success: boolean; data: MarketingTargets }>('/admin/marketing/settings/targets', data)
+    return response.data.data
+  }
+
+  async updateInternalEmails(emails: string[]): Promise<string[]> {
+    const response = await api.put<{ success: boolean; data: string[] }>('/admin/marketing/settings/internal-emails', { emails })
     return response.data.data
   }
 

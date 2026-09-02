@@ -63,6 +63,14 @@ export default function UtmCapture() {
         }
       }
 
+      if (!utm.utmId) {
+        const gadCampaignId = params.get('gad_campaignid')
+        if (gadCampaignId && /^\d+$/.test(gadCampaignId)) {
+          utm.utmId = gadCampaignId
+          hasCampaignParams = true
+        }
+      }
+
       if (!hasCampaignParams) {
         const first = readUnexpiredFirstTouch()
         if (first) {

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Play } from 'lucide-react'
+import { Play, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
@@ -21,7 +21,47 @@ import {
 } from '@/components/ui/table'
 import { cn } from '@/lib/utils'
 import { adminMarketingService } from '@/services/admin-marketing.service'
-import type { MarketingSettings, MarketingTargetsUpdate } from '@/types/admin-marketing'
+import type {
+  MarketingCredential,
+  MarketingSettings,
+  MarketingTargetsUpdate,
+} from '@/types/admin-marketing'
+
+const GOOGLE_ADS_CREDENTIAL_PREFIX = 'GOOGLE_ADS_'
+const GOOGLE_ADS_DOC_PATH = 'docs/marketing/59-google-ads-visibility.md'
+
+function isGoogleAdsCredential(credential: MarketingCredential) {
+  return credential.name.startsWith(GOOGLE_ADS_CREDENTIAL_PREFIX)
+}
+
+function CredentialRows({
+  credentials,
+  presentLabel,
+  missingLabel,
+}: {
+  credentials: MarketingCredential[]
+  presentLabel: string
+  missingLabel: string
+}) {
+  return (
+    <div className="space-y-3">
+      {credentials.map((credential) => (
+        <div key={credential.name} className="flex items-center gap-3">
+          <span
+            className={cn(
+              'h-2 w-2 rounded-full shrink-0',
+              credential.present ? 'bg-[#0ca30c]' : 'bg-gray-300'
+            )}
+          />
+          <span className="text-sm font-medium text-[#062E25]">{credential.name}</span>
+          <span className="text-sm text-[#062E25] ml-auto">
+            {credential.present ? presentLabel : missingLabel}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default function AdminMarketingSettingsPage() {
   const t = useTranslations('admin.marketing.settings')
@@ -34,6 +74,8 @@ export default function AdminMarketingSettingsPage() {
   })
 
   const [form, setForm] = useState({ cpl: '', cap: '', posts: '' })
+  const [emails, setEmails] = useState<string[]>([])
+  const [newEmail, setNewEmail] = useState('')
 
   useEffect(() => {
     if (data) {
@@ -42,6 +84,7 @@ export default function AdminMarketingSettingsPage() {
         cap: data.targets.monthlySpendCapChf !== null ? String(data.targets.monthlySpendCapChf) : '',
         posts: data.targets.weeklyPostGoal !== null ? String(data.targets.weeklyPostGoal) : '',
       })
+      setEmails(data.internalEmails ?? [])
     }
   }, [data])
 
@@ -65,6 +108,29 @@ export default function AdminMarketingSettingsPage() {
     },
   })
 
+  const emailsMutation = useMutation({
+    mutationFn: (next: string[]) => adminMarketingService.updateInternalEmails(next),
+    onSuccess: (saved) => {
+      setEmails(saved)
+      queryClient.invalidateQueries({ queryKey: ['admin', 'marketing'] })
+    },
+  })
+
+  const addEmail = () => {
+    const candidate = newEmail.trim().toLowerCase()
+    if (!candidate || emails.includes(candidate)) return
+    const next = [...emails, candidate]
+    setEmails(next)
+    setNewEmail('')
+    emailsMutation.mutate(next)
+  }
+
+  const removeEmail = (email: string) => {
+    const next = emails.filter((entry) => entry !== email)
+    setEmails(next)
+    emailsMutation.mutate(next)
+  }
+
   if (isLoading) {
     return <AdminPageLoader className="h-64" />
   }
@@ -72,6 +138,9 @@ export default function AdminMarketingSettingsPage() {
   if (!data) {
     return <p className="text-[#062E25]">{tc('failedToLoad')}</p>
   }
+
+  const googleAdsCredentials = data.credentials.filter(isGoogleAdsCredential)
+  const otherCredentials = data.credentials.filter((credential) => !isGoogleAdsCredential(credential))
 
   return (
     <div>
@@ -162,7 +231,7 @@ export default function AdminMarketingSettingsPage() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('targetsTitle')}</h2>
@@ -216,21 +285,98 @@ export default function AdminMarketingSettingsPage() {
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('credentialsTitle')}</h2>
-            <div className="space-y-3">
-              {data.credentials.map((credential) => (
-                <div key={credential.name} className="flex items-center gap-3">
+            <CredentialRows
+              credentials={otherCredentials}
+              presentLabel={t('present')}
+              missingLabel={t('missing')}
+            />
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card className="border-[#062E25]/10">
+          <CardContent className="p-6">
+            <h2 className="text-lg font-semibold text-[#062E25] mb-2">
+              {t('internalEmailsTitle')}
+            </h2>
+            <p className="text-base text-[#062E25] mb-4">{t('internalEmailsHint')}</p>
+            {emails.length === 0 ? (
+              <p className="text-sm text-[#062E25]/75 mb-4">{t('internalEmailsEmpty')}</p>
+            ) : (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {emails.map((email) => (
                   <span
-                    className={cn(
-                      'h-2 w-2 rounded-full shrink-0',
-                      credential.present ? 'bg-[#0ca30c]' : 'bg-gray-300'
-                    )}
-                  />
-                  <span className="text-sm font-medium text-[#062E25]">{credential.name}</span>
-                  <span className="text-sm text-[#062E25] ml-auto">
-                    {credential.present ? t('present') : t('missing')}
+                    key={email}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-[#062E25]/15 pl-3 pr-1.5 py-1 text-sm text-[#062E25]"
+                  >
+                    {email}
+                    <button
+                      type="button"
+                      aria-label={t('internalEmailsRemove')}
+                      title={t('internalEmailsRemove')}
+                      disabled={emailsMutation.isPending}
+                      onClick={() => removeEmail(email)}
+                      className="rounded-full p-0.5 hover:bg-[#062E25]/10 disabled:opacity-50"
+                    >
+                      <X className="h-3.5 w-3.5" />
+                    </button>
                   </span>
-                </div>
-              ))}
+                ))}
+              </div>
+            )}
+            <div className="flex flex-wrap items-center gap-3">
+              <Input
+                id="internal-email"
+                type="email"
+                className="max-w-xs"
+                placeholder={t('internalEmailsPlaceholder')}
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault()
+                    addEmail()
+                  }
+                }}
+              />
+              <Button
+                variant="outline"
+                disabled={emailsMutation.isPending || newEmail.trim() === ''}
+                onClick={addEmail}
+              >
+                {t('internalEmailsAdd')}
+              </Button>
+              {emailsMutation.isError && (
+                <span className="text-sm text-red-600">{t('internalEmailsSaveError')}</span>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="border-[#062E25]/10">
+          <CardContent className="p-6">
+            <h2 className="text-lg font-semibold text-[#062E25] mb-2">{t('googleAdsTitle')}</h2>
+            <p className="text-base text-[#062E25] mb-4">{t('googleAdsIntro')}</p>
+            {googleAdsCredentials.length > 0 ? (
+              <CredentialRows
+                credentials={googleAdsCredentials}
+                presentLabel={t('present')}
+                missingLabel={t('missing')}
+              />
+            ) : (
+              <p className="text-sm text-[#062E25]/75">{t('googleAdsNoCredentials')}</p>
+            )}
+            <div className="mt-4 pt-4 border-t border-[#062E25]/10">
+              <p className="text-sm font-semibold text-[#062E25] mb-2">{t('googleAdsStepsTitle')}</p>
+              <ol className="list-decimal pl-5 space-y-1 text-base text-[#062E25]">
+                <li>{t('googleAdsStep1')}</li>
+                <li>{t('googleAdsStep2')}</li>
+                <li>{t('googleAdsStep3')}</li>
+              </ol>
+              <p className="text-sm text-[#062E25]/75 mt-3">
+                {t('googleAdsDocs', { path: GOOGLE_ADS_DOC_PATH })}
+              </p>
             </div>
           </CardContent>
         </Card>

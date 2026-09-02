@@ -149,8 +149,11 @@ type FunnelEventOptions = {
 
 function readUtmIdFromUrl(): string | undefined {
   try {
-    const value = new URLSearchParams(window.location.search).get('utm_id')
-    return value ? value.slice(0, 100) : undefined
+    const params = new URLSearchParams(window.location.search)
+    const value = params.get('utm_id')
+    if (value) return value.slice(0, 100)
+    const gadCampaignId = params.get('gad_campaignid')
+    return gadCampaignId && /^\d+$/.test(gadCampaignId) ? gadCampaignId : undefined
   } catch {
     return undefined
   }

@@ -120,7 +120,10 @@ export default function AdminMarketingOverviewPage() {
   }
 
   const { leads, cpl, funnel } = data.tiles
+  const signups = data.tiles.signups
   const leadsDelta = leads.thisWeek - leads.lastWeek
+  const signupsDelta = signups ? signups.thisWeek - signups.lastWeek : 0
+  const spendByPlatform = cpl.spendByPlatform7d
 
   return (
     <div>
@@ -164,7 +167,12 @@ export default function AdminMarketingOverviewPage() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+      <div
+        className={cn(
+          'grid grid-cols-1 md:grid-cols-2 gap-4 mb-6',
+          signups ? 'xl:grid-cols-5' : 'xl:grid-cols-4'
+        )}
+      >
         <Card className="border-[#062E25]/10">
           <CardContent className="p-5">
             <p className="text-sm text-[#062E25] mb-2">{t('leadsTile')}</p>
@@ -188,6 +196,31 @@ export default function AdminMarketingOverviewPage() {
           </CardContent>
         </Card>
 
+        {signups && (
+          <Card className="border-[#062E25]/10">
+            <CardContent className="p-5">
+              <p className="text-sm text-[#062E25] mb-2">{t('signupsTile')}</p>
+              <p className="text-2xl font-bold text-[#062E25] mb-1">
+                {signups.thisWeek}
+                <span
+                  className={cn(
+                    'ml-2 text-sm font-medium',
+                    signupsDelta >= 0 ? 'text-[#006300]' : 'text-[#d03b3b]'
+                  )}
+                >
+                  {signupsDelta >= 0 ? `+${signupsDelta}` : signupsDelta}
+                </span>
+              </p>
+              <p className="text-sm text-[#062E25]">{t('lastWeek', { count: signups.lastWeek })}</p>
+              {Array.isArray(signups.byChannel) && signups.byChannel.length > 0 && (
+                <p className="text-sm text-[#062E25] truncate">
+                  {signups.byChannel.map((c) => `${c.channel} ${c.count}`).join(' · ')}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        )}
+
         <Card className="border-[#062E25]/10">
           <CardContent className="p-5">
             <p className="text-sm text-[#062E25] mb-2">{t('cplTile')}</p>
@@ -204,6 +237,14 @@ export default function AdminMarketingOverviewPage() {
                 ? t('cplSpend', { spend: formatChf(cpl.spend7dChf), leads: cpl.paidLeads7d })
                 : t('cplHint')}
             </p>
+            {spendByPlatform && (
+              <p className="text-sm text-[#062E25] truncate">
+                {t('spendByPlatform', {
+                  meta: formatChf(spendByPlatform.meta ?? 0),
+                  google: formatChf(spendByPlatform.google ?? 0),
+                })}
+              </p>
+            )}
           </CardContent>
         </Card>
 
