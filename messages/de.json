@@ -8132,6 +8132,8 @@
       "save": "Speichern",
       "delete": "Löschen",
       "confirmDelete": "Sind Sie sicher, dass Sie diesen Beitrag löschen möchten?",
+      "publishedDate": "Veröffentlicht",
+      "views90d": "Aufrufe (90 T.)",
       "analytics": {
         "title": "Blog-Statistik",
         "subtitle": "Wie oft jeder Beitrag aufgerufen und wie weit er gelesen wird.",

@@ -1,5 +1,7 @@
 'use client'
 
+import { useMemo } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { BarChart3, ChevronLeft, ChevronRight, Plus } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
@@ -26,11 +28,17 @@ import {
 } from '@/components/ui/table'
 import { useAdminQuery } from '@/hooks/use-admin-query'
 import { adminService } from '@/services/admin.service'
-import type { AdminBlogPost } from '@/types/admin'
+import type { AdminBlogPost, BlogAnalytics } from '@/types/admin'
+
+const ANALYTICS_DAYS = 90
 
 function getTitle(post: AdminBlogPost) {
   const de = post.translations.find((t) => t.language === 'de')
   return de?.title || post.translations[0]?.title || '-'
+}
+
+function isoDay(date: Date) {
+  return date.toISOString().slice(0, 10)
 }
 
 export default function AdminBlogListPage() {
@@ -48,6 +56,26 @@ export default function AdminBlogListPage() {
     setFilter,
     filters,
   } = useAdminQuery<AdminBlogPost>('blog', adminService.listBlogPosts.bind(adminService))
+
+  const range = useMemo(() => {
+    const to = new Date()
+    const from = new Date(to.getTime() - (ANALYTICS_DAYS - 1) * 24 * 60 * 60 * 1000)
+    return { from: isoDay(from), to: isoDay(to) }
+  }, [])
+
+  const { data: analytics } = useQuery<BlogAnalytics>({
+    queryKey: ['admin', 'blog', 'analytics', range.from, range.to],
+    queryFn: () => adminService.getBlogAnalytics(range),
+    staleTime: 5 * 60 * 1000,
+  })
+
+  const viewsById = useMemo(() => {
+    const map = new Map<string, { views: number; avgDepth: number | null }>()
+    analytics?.posts.forEach(row =>
+      map.set(row.id, { views: row.views, avgDepth: row.avgDepth })
+    )
+    return map
+  }, [analytics])
 
   return (
     <div>
@@ -101,45 +129,58 @@ export default function AdminBlogListPage() {
                   <TableRow>
                     <TableHead>{t('postTitle')}</TableHead>
                     <TableHead>{t('status')}</TableHead>
+                    <TableHead className="text-right">{t('views90d')}</TableHead>
+                    <TableHead className="text-right">{t('analytics.depth')}</TableHead>
+                    <TableHead>{t('publishedDate')}</TableHead>
                     <TableHead>{t('author')}</TableHead>
                     <TableHead>{t('languages')}</TableHead>
-                    <TableHead>{t('created')}</TableHead>
                     <TableHead />
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {data.map(post => (
-                    <TableRow key={post.id}>
-                      <TableCell>
-                        <div>
-                          <p className="font-medium">{getTitle(post)}</p>
-                          <p className="text-sm text-[#062E25]/75">/{post.slug}</p>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <StatusBadge status={post.status} />
-                      </TableCell>
-                      <TableCell className="text-sm text-[#062E25]">
-                        {post.author.firstName} {post.author.lastName}
-                      </TableCell>
-                      <TableCell className="text-sm text-[#062E25]">
-                        {post.translations.map(t => t.language.toUpperCase()).join(', ')}
-                      </TableCell>
-                      <TableCell className="text-[#062E25] text-sm">
-                        {new Date(post.createdAt).toLocaleDateString('de-CH')}
-                      </TableCell>
-                      <TableCell>
-                        <Button variant="ghost" size="sm" asChild>
-                          <Link href={`/${locale}/admin/blog/${post.id}`}>
-                            {t('edit')}
-                          </Link>
-                        </Button>
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                  {data.map(post => {
+                    const stats = viewsById.get(post.id)
+                    return (
+                      <TableRow key={post.id}>
+                        <TableCell>
+                          <div>
+                            <p className="font-medium">{getTitle(post)}</p>
+                            <p className="text-sm text-[#062E25]/75">/{post.slug}</p>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <StatusBadge status={post.status} />
+                        </TableCell>
+                        <TableCell className="text-right text-sm text-[#062E25] tabular-nums">
+                          {stats ? stats.views.toLocaleString('de-CH') : '-'}
+                        </TableCell>
+                        <TableCell className="text-right text-sm text-[#062E25] tabular-nums">
+                          {stats && stats.avgDepth !== null ? `${stats.avgDepth}%` : '-'}
+                        </TableCell>
+                        <TableCell className="text-[#062E25] text-sm">
+                          {post.publishedAt
+                            ? new Date(post.publishedAt).toLocaleDateString('de-CH')
+                            : '-'}
+                        </TableCell>
+                        <TableCell className="text-sm text-[#062E25]">
+                          {post.author.firstName} {post.author.lastName}
+                        </TableCell>
+                        <TableCell className="text-sm text-[#062E25]">
+                          {post.translations.map(t => t.language.toUpperCase()).join(', ')}
+                        </TableCell>
+                        <TableCell>
+                          <Button variant="ghost" size="sm" asChild>
+                            <Link href={`/${locale}/admin/blog/${post.id}`}>
+                              {t('edit')}
+                            </Link>
+                          </Button>
+                        </TableCell>
+                      </TableRow>
+                    )
+                  })}
                   {data.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={6} className="text-center py-8 text-[#062E25]/75">
+                      <TableCell colSpan={8} className="text-center py-8 text-[#062E25]/75">
                         {t('noPosts')}
                       </TableCell>
                     </TableRow>

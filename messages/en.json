@@ -7987,6 +7987,8 @@
       "save": "Save",
       "delete": "Delete",
       "confirmDelete": "Are you sure you want to delete this post?",
+      "publishedDate": "Published",
+      "views90d": "Views (90 d)",
       "analytics": {
         "title": "Blog analytics",
         "subtitle": "How often each post is opened and how far it is read.",

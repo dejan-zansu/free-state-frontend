@@ -7987,6 +7987,8 @@
       "save": "Enregistrer",
       "delete": "Supprimer",
       "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet article ?",
+      "publishedDate": "Publié",
+      "views90d": "Vues (90 j)",
       "analytics": {
         "title": "Statistiques du blog",
         "subtitle": "Combien de fois chaque article est ouvert et jusqu'où il est lu.",

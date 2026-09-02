@@ -7987,6 +7987,8 @@
       "save": "Salva",
       "delete": "Elimina",
       "confirmDelete": "Sei sicuro di voler eliminare questo post?",
+      "publishedDate": "Pubblicato",
+      "views90d": "Visualizzazioni (90 g)",
       "analytics": {
         "title": "Statistiche del blog",
         "subtitle": "Quante volte ogni articolo viene aperto e fino a che punto viene letto.",
