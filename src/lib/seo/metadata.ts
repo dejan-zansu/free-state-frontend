@@ -31,13 +31,19 @@ export function buildCanonicalUrl({ pathname, locale }: BuildCanonicalArgs): str
 }
 
 export function buildHreflangAlternates(
-  pathname: PathnameKey | string
+  pathname: PathnameKey | string,
+  availableLocales?: readonly SiteLocale[]
 ): Record<string, string> {
+  const locales =
+    availableLocales && availableLocales.length > 0
+      ? siteConfig.locales.filter(locale => availableLocales.includes(locale))
+      : siteConfig.locales
   const entries: Record<string, string> = {}
-  for (const locale of siteConfig.locales) {
+  for (const locale of locales) {
     entries[locale] = buildCanonicalUrl({ pathname, locale })
   }
-  entries['x-default'] = entries[siteConfig.defaultLocale]
+  entries['x-default'] =
+    entries[siteConfig.defaultLocale] ?? entries[locales[0]] ?? ''
   return entries
 }
 
@@ -48,6 +54,7 @@ type GenerateSEOMetadataArgs = {
   description: string
   ogImage?: { url: string; width?: number; height?: number; alt?: string }
   noIndex?: boolean
+  availableLocales?: readonly SiteLocale[]
 }
 
 export async function generateSEOMetadata({
@@ -57,9 +64,15 @@ export async function generateSEOMetadata({
   description,
   ogImage,
   noIndex,
+  availableLocales,
 }: GenerateSEOMetadataArgs): Promise<Metadata> {
-  const canonical = buildCanonicalUrl({ pathname, locale })
-  const languages = buildHreflangAlternates(pathname)
+  const translated =
+    !availableLocales ||
+    availableLocales.length === 0 ||
+    availableLocales.includes(locale)
+  const canonicalLocale = translated ? locale : siteConfig.defaultLocale
+  const canonical = buildCanonicalUrl({ pathname, locale: canonicalLocale })
+  const languages = buildHreflangAlternates(pathname, availableLocales)
   const resolvedTitle = title || siteConfig.name
   const resolvedDescription = description || siteConfig.description
   const image = ogImage ?? {
@@ -68,6 +81,13 @@ export async function generateSEOMetadata({
     height: siteConfig.ogImage.height,
     alt: siteConfig.ogImage.alt,
   }
+  const alternateLocale = (
+    availableLocales && availableLocales.length > 0
+      ? siteConfig.locales.filter(
+          l => l !== canonicalLocale && availableLocales.includes(l)
+        )
+      : siteConfig.locales.filter(l => l !== locale)
+  ) as string[]
 
   return {
     title: resolvedTitle,
@@ -80,8 +100,8 @@ export async function generateSEOMetadata({
       title: resolvedTitle,
       description: resolvedDescription,
       url: canonical,
-      locale,
-      alternateLocale: siteConfig.locales.filter(l => l !== locale) as string[],
+      locale: canonicalLocale,
+      alternateLocale,
       siteName: siteConfig.name,
       type: 'website',
       images: [image],

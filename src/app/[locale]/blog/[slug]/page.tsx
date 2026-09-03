@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { blogService } from '@/services/blog.service'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
-import type { SiteLocale } from '@/lib/seo/site-config'
+import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
 import { JsonLd } from '@/components/seo/JsonLd'
 import {
   buildArticleJsonLd,
@@ -41,11 +41,15 @@ export async function generateMetadata({
       title: 'Blog | Free State AG',
     }
   }
+  const availableLocales = siteConfig.locales.filter(l =>
+    post.translations.some(t => t.language === l)
+  )
   return generateSEOMetadata({
     locale: locale as SiteLocale,
     pathname: `/blog/${slug}`,
     title: `${tr.title} | Free State AG`,
     description: tr.excerpt || tr.title,
+    availableLocales,
     ogImage: post.coverImageUrl
       ? { url: post.coverImageUrl, width: 1200, height: 630, alt: tr.title }
       : undefined,
