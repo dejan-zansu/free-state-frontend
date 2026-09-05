@@ -4073,6 +4073,7 @@
     },
     "screen1": {
       "headline": "Calculate your savings in 2 minutes",
+      "subline": "What does a solar system cost in Switzerland? Enter your address, check your roof, see your savings.",
       "helper": "Enter your address. We show you what your roof produces and what the federal government pays for it.",
       "fieldLabel": "Address with house number",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
@@ -6878,7 +6879,6 @@
         "viewsPerSession": "Views per session",
         "ga4Sessions": "GA4 sessions",
         "capturedMultiple": "We measure {value}x what GA4 sees",
-        "chartSessions": "Sessions per day",
         "chartViews": "Page views per day",
         "sourcesTitle": "Sources",
         "entryPagesTitle": "Entry pages",
@@ -6902,8 +6902,27 @@
           "social": "Social",
           "referral": "Referral",
           "direct": "Direct",
-          "unknown": "Unknown"
-        }
+          "unknown": "Unknown",
+          "unattributed": "Unattributed"
+        },
+        "rangeMonth": "Month",
+        "rangeMonthPlaceholder": "Choose month",
+        "previousRange": "Previous period {from} to {to}",
+        "signups": "Signups",
+        "spend": "Ad spend",
+        "chartSessionsByChannel": "Sessions per day by channel",
+        "chartSessionsByChannelHint": "Stacked, paid against organic channels.",
+        "chartViewsHint": "Daily values with a rolling average.",
+        "rollingAverage": "{count}-day average",
+        "chartProgress": "Cumulative sessions",
+        "chartProgressHint": "Running total against the previous period of the same length.",
+        "currentPeriod": "Current period",
+        "previousPeriod": "Previous period",
+        "chartConversions": "Signups and ad spend",
+        "chartConversionsHint": "Bars are signups per day, the lines show the running total and the spend.",
+        "cumulativeSignups": "Signups cumulative",
+        "rangeCustom": "Pick a range",
+        "vsPrevious": "vs. previous period"
       },
       "campaigns": {
         "title": "Campaigns",

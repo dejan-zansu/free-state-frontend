@@ -5606,6 +5606,7 @@
     },
     "screen1": {
       "headline": "Ihre Ersparnis in 2 Minuten berechnen",
+      "subline": "Was kostet eine Solaranlage in der Schweiz? Adresse eingeben, Dach prüfen, Ersparnis sehen.",
       "helper": "Geben Sie Ihre Adresse ein. Wir zeigen Ihnen, was Ihr Dach produziert und was der Bund dafür zahlt.",
       "fieldLabel": "Adresse mit Hausnummer",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
@@ -6879,7 +6880,6 @@
         "viewsPerSession": "Aufrufe pro Sitzung",
         "ga4Sessions": "GA4-Sitzungen",
         "capturedMultiple": "Wir messen das {value}-fache von GA4",
-        "chartSessions": "Sitzungen pro Tag",
         "chartViews": "Seitenaufrufe pro Tag",
         "sourcesTitle": "Herkunft",
         "entryPagesTitle": "Einstiegsseiten",
@@ -6903,8 +6903,27 @@
           "social": "Social",
           "referral": "Verweis",
           "direct": "Direkt",
-          "unknown": "Unbekannt"
-        }
+          "unknown": "Unbekannt",
+          "unattributed": "Ohne Zuordnung"
+        },
+        "rangeMonth": "Monat",
+        "rangeMonthPlaceholder": "Monat wählen",
+        "previousRange": "Vorperiode {from} bis {to}",
+        "signups": "Anmeldungen",
+        "spend": "Werbeausgaben",
+        "chartSessionsByChannel": "Sitzungen pro Tag nach Kanal",
+        "chartSessionsByChannelHint": "Gestapelt, bezahlte und organische Kanäle im Vergleich.",
+        "chartViewsHint": "Tageswerte mit gleitendem Durchschnitt.",
+        "rollingAverage": "{count}-Tage-Schnitt",
+        "chartProgress": "Kumulierte Sitzungen",
+        "chartProgressHint": "Laufende Summe im Vergleich zur gleich langen Vorperiode.",
+        "currentPeriod": "Aktueller Zeitraum",
+        "previousPeriod": "Vorperiode",
+        "chartConversions": "Anmeldungen und Werbeausgaben",
+        "chartConversionsHint": "Balken sind Anmeldungen pro Tag, die Linien zeigen die laufende Summe und die Ausgaben.",
+        "cumulativeSignups": "Anmeldungen kumuliert",
+        "rangeCustom": "Zeitraum wählen",
+        "vsPrevious": "gegenüber Vorperiode"
       },
       "campaigns": {
         "title": "Kampagnen",

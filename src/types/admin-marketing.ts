@@ -307,6 +307,23 @@ export interface MarketingAnalyticsOverview {
     step1ToStep2Pct: number | null
     startToAccountPct: number | null
   }[]
+  // Channel keys ordered by session count, highest first.
+  channels?: string[]
+  dailyByChannel?: { date: string; sessions: Record<string, number> }[]
+  dailySignups?: { date: string; total: number; byChannel: Record<string, number> }[]
+  dailySpend?: { date: string; meta: number; google: number; total: number }[]
+  // Same-length window right before the range, aligned by position for the
+  // progress lines (day 1 against day 1).
+  previous?: {
+    from: string
+    to: string
+    views: number
+    sessions: number
+    signups: number
+    daily: { date: string; views: number; sessions: number; signups: number }[]
+  }
+  signups?: { total: number }
+  spend?: { totalChf: number }
 }
 
 export interface CampaignBreakdowns {

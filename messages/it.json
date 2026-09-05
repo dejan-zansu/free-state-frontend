@@ -4073,6 +4073,7 @@
     },
     "screen1": {
       "headline": "Calcola il tuo risparmio in 2 minuti",
+      "subline": "Quanto costa un impianto solare in Svizzera? Inserite il vostro indirizzo, verificate il tetto, vedete il risparmio.",
       "helper": "Inserisci il tuo indirizzo. Ti mostriamo cosa produce il tuo tetto e cosa paga la Confederazione.",
       "fieldLabel": "Indirizzo con numero civico",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
@@ -6878,7 +6879,6 @@
         "viewsPerSession": "Visualizzazioni per sessione",
         "ga4Sessions": "Sessioni GA4",
         "capturedMultiple": "Misuriamo {value} volte quello che vede GA4",
-        "chartSessions": "Sessioni al giorno",
         "chartViews": "Visualizzazioni al giorno",
         "sourcesTitle": "Provenienza",
         "entryPagesTitle": "Pagine di ingresso",
@@ -6902,8 +6902,27 @@
           "social": "Social",
           "referral": "Referral",
           "direct": "Diretto",
-          "unknown": "Sconosciuto"
-        }
+          "unknown": "Sconosciuto",
+          "unattributed": "Non attribuito"
+        },
+        "rangeMonth": "Mese",
+        "rangeMonthPlaceholder": "Scegli il mese",
+        "previousRange": "Periodo precedente dal {from} al {to}",
+        "signups": "Registrazioni",
+        "spend": "Spesa pubblicitaria",
+        "chartSessionsByChannel": "Sessioni al giorno per canale",
+        "chartSessionsByChannelHint": "Impilato, canali a pagamento e organici.",
+        "chartViewsHint": "Valori giornalieri con media mobile.",
+        "rollingAverage": "Media su {count} giorni",
+        "chartProgress": "Sessioni cumulate",
+        "chartProgressHint": "Totale progressivo rispetto al periodo precedente di pari durata.",
+        "currentPeriod": "Periodo attuale",
+        "previousPeriod": "Periodo precedente",
+        "chartConversions": "Registrazioni e spesa pubblicitaria",
+        "chartConversionsHint": "Le barre sono le registrazioni al giorno, le linee mostrano il totale progressivo e la spesa.",
+        "cumulativeSignups": "Registrazioni cumulate",
+        "rangeCustom": "Scegli il periodo",
+        "vsPrevious": "rispetto al periodo precedente"
       },
       "campaigns": {
         "title": "Campagne",
