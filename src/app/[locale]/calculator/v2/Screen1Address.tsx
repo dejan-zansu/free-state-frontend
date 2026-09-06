@@ -26,6 +26,16 @@ type Screen1Error =
 const PLACES_SLOW_MS = 3000
 const PLACES_UNAVAILABLE_MS = 8000
 
+const TYPED_MIN_CHARS = 3
+
+const ERROR_CODE: Record<Screen1Error, number> = {
+  empty: 1,
+  notChosen: 2,
+  noStreetNumber: 3,
+  notFound: 4,
+  outsideCh: 5,
+}
+
 const INPUT_ID = 'calculator-v2-address'
 const ERROR_ID = 'calculator-v2-address-error'
 const STATUS_ID = 'calculator-v2-address-status'
@@ -54,6 +64,7 @@ export default function Screen1Address() {
   const [error, setError] = useState<Screen1Error | null>(null)
   const [typedAddress, setTypedAddress] = useState(address)
 
+  const mountedAtRef = useRef<number>(Date.now())
   const inputRef = useRef<HTMLInputElement | null>(null)
   const autocompleteClassRef = useRef<
     typeof google.maps.places.Autocomplete | null
@@ -61,11 +72,30 @@ export default function Screen1Address() {
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
   const lastFailedTextRef = useRef<string | null>(null)
 
+  const emitAddressError = useCallback((reason: Screen1Error) => {
+    trackFunnelEventOnce('calculator_address_error', {
+      step: ERROR_CODE[reason],
+      meta: {
+        reason,
+        typedLength: inputRef.current?.value.trim().length ?? 0,
+        ...flowVersionMeta,
+      },
+    })
+  }, [])
+
+  const emitAddressTyped = useCallback((value: string) => {
+    if (value.trim().length < TYPED_MIN_CHARS) return
+    trackFunnelEventOnce('calculator_address_typed', {
+      meta: { ...flowVersionMeta },
+    })
+  }, [])
+
   const handlePlace = useCallback(
     (place: google.maps.places.PlaceResult | undefined) => {
       if (!place?.geometry?.location || !place.formatted_address) {
         lastFailedTextRef.current = inputRef.current?.value.trim() ?? null
         setError('notFound')
+        emitAddressError('notFound')
         return
       }
 
@@ -76,12 +106,14 @@ export default function Screen1Address() {
       const countryCode = component('country')?.short_name ?? ''
       if (countryCode && countryCode !== 'CH') {
         setError('outsideCh')
+        emitAddressError('outsideCh')
         return
       }
 
       const streetNumber = component('street_number')?.long_name ?? ''
       if (!streetNumber) {
         setError('noStreetNumber')
+        emitAddressError('noStreetNumber')
         return
       }
 
@@ -123,6 +155,7 @@ export default function Screen1Address() {
       setSelectedLocation,
       setAddress,
       nextStep,
+      emitAddressError,
     ]
   )
 
@@ -158,6 +191,12 @@ export default function Screen1Address() {
         autocompleteClassRef.current = Autocomplete
         setPlacesSlow(false)
         setPlacesReady(true)
+        trackFunnelEventOnce('calculator_ready', {
+          meta: {
+            msToPlacesReady: Date.now() - mountedAtRef.current,
+            ...flowVersionMeta,
+          },
+        })
       })
       .catch(() => {
         if (cancelled) return
@@ -195,6 +234,7 @@ export default function Screen1Address() {
     const value = inputRef.current?.value.trim() ?? ''
     if (!value) {
       setError('empty')
+      emitAddressError('empty')
       return
     }
     if (selectedLocation && value === address.trim()) {
@@ -204,10 +244,12 @@ export default function Screen1Address() {
     }
     if (value === lastFailedTextRef.current) {
       setError('notFound')
+      emitAddressError('notFound')
       return
     }
     lastFailedTextRef.current = value
     setError('notChosen')
+    emitAddressError('notChosen')
   }
 
   const openManualCheck = useCallback(() => {
@@ -251,12 +293,19 @@ export default function Screen1Address() {
         <Heading className="mt-4 text-2xl sm:text-[34px] font-medium text-[#062E25]">
           {t('headline')}
         </Heading>
+        <p className="mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight">
+          {t('subline')}
+        </p>
         <p className="mt-4 text-base sm:text-lg text-[#062E25] tracking-tight">
           {t('helper')}
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} noValidate className="mt-10 w-full max-w-md">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="mt-10 w-full max-w-md"
+      >
         <label
           htmlFor={INPUT_ID}
           className="text-base text-[#062E25] tracking-tight"
@@ -273,13 +322,18 @@ export default function Screen1Address() {
             onFocus={emitStepOneInteraction}
             onChange={event => {
               emitStepOneInteraction()
+              emitAddressTyped(event.target.value)
               setTypedAddress(event.target.value)
             }}
             placeholder={t('placeholder')}
             autoComplete="street-address"
             aria-invalid={!!error}
             aria-describedby={
-              error ? ERROR_ID : placesSlow && !placesReady ? STATUS_ID : undefined
+              error
+                ? ERROR_ID
+                : placesSlow && !placesReady
+                  ? STATUS_ID
+                  : undefined
             }
             className={cn(
               'h-14 text-base md:text-base pl-12 pr-4 rounded-xl border-[#062E25]/20 bg-white shadow-sm focus-visible:border-[#062E25]/40',
