@@ -1146,9 +1146,6 @@ function ContactScreenV2() {
                 {errors.consent.message}
               </p>
             )}
-            <p className="mt-2 text-base text-[#062E25] tracking-tight">
-              {t('consentNote')}
-            </p>
           </div>
 
           <div>
