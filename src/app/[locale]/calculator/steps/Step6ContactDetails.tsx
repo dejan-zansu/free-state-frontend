@@ -581,6 +581,11 @@ function useV2Schema(tErr: (key: string) => string, needsAddressFallback: boolea
             message: tErr('consentRequired'),
           }),
           name: z.string().trim().min(1, tErr('required')),
+          phoneNumber: z
+            .string()
+            .trim()
+            .min(1, tErr('required'))
+            .regex(/^[+\d][\d\s\-().]{6,}$/, tErr('phoneInvalid')),
           postalCode: z.string(),
           city: z.string(),
         })
@@ -707,6 +712,9 @@ function ContactScreenV2() {
         (isLocalDev
           ? `${DEV_DEFAULT_CONTACT.firstName} ${DEV_DEFAULT_CONTACT.lastName}`
           : ''),
+      phoneNumber:
+        contact.phoneNumber ||
+        (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
       postalCode: contact.postalCode,
       city: contact.city,
     },
@@ -758,6 +766,7 @@ function ContactScreenV2() {
         firstName,
         lastName,
         email: data.email,
+        phoneNumber: data.phoneNumber,
         ...(needsAddressFallback
           ? { postalCode: data.postalCode, city: data.city }
           : {}),
@@ -1159,6 +1168,30 @@ function ContactScreenV2() {
               )}
             />
             <V2FieldError id="v2-name-error" message={errors.name?.message} />
+          </div>
+
+          <div>
+            <label htmlFor="v2-phone" className={v2LabelBase}>
+              {t('phoneNumber')}
+            </label>
+            <input
+              id="v2-phone"
+              type="tel"
+              autoComplete="tel"
+              inputMode="tel"
+              {...register('phoneNumber')}
+              aria-invalid={!!errors.phoneNumber}
+              aria-describedby={errors.phoneNumber ? 'v2-phone-error' : undefined}
+              className={cn(
+                v2InputBase,
+                'mt-1',
+                errors.phoneNumber && 'border-destructive'
+              )}
+            />
+            <V2FieldError
+              id="v2-phone-error"
+              message={errors.phoneNumber?.message}
+            />
           </div>
 
           {submissionError && (

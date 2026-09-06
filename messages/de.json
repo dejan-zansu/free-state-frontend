@@ -5718,6 +5718,7 @@
       "teaserNext": "Was Sie damit sparen und was der Bund dazu zahlt, sehen Sie in Ihrer Auswertung.",
       "email": "E-Mail-Adresse",
       "name": "Name",
+      "phoneNumber": "Telefonnummer",
       "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
       "consentNote": "Sobald Sie einwilligen, speichern wir Ihre E-Mail-Adresse, damit Ihre Auswertung nicht verloren geht.",
       "privacyLink": "Datenschutzerklärung",
@@ -5734,6 +5735,7 @@
       "errors": {
         "required": "Bitte füllen Sie dieses Feld aus.",
         "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein.",
         "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
         "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal.",
         "rateLimited": "Wir konnten Ihre Angaben gerade nicht speichern. Hinterlassen Sie uns Ihre E-Mail-Adresse, dann melden wir uns bei Ihnen mit Ihrer Auswertung."

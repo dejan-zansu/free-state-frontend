@@ -4185,6 +4185,7 @@
       "teaserNext": "Il tuo risparmio e il contributo della Confederazione sono nella tua valutazione.",
       "email": "Indirizzo e-mail",
       "name": "Nome",
+      "phoneNumber": "Numero di telefono",
       "consent": "Acconsento che Free State AG utilizzi i miei dati per elaborare la mia richiesta. Si applica l'<privacyLink>informativa sulla privacy</privacyLink>.",
       "consentNote": "Non appena dai il tuo consenso, salviamo il tuo indirizzo e-mail affinché la tua valutazione non vada persa.",
       "privacyLink": "Informativa sulla privacy",
@@ -4201,6 +4202,7 @@
       "errors": {
         "required": "Compila questo campo.",
         "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+        "phoneInvalid": "Inserisci un numero di telefono valido.",
         "consentRequired": "Conferma il tuo consenso affinché possiamo elaborare la tua richiesta.",
         "submitFailed": "Non ha funzionato. Riprova per favore.",
         "rateLimited": "Non siamo riusciti a salvare i tuoi dati in questo momento. Lasciaci il tuo indirizzo e-mail e ti ricontatteremo con la tua valutazione."
