@@ -38,14 +38,14 @@ export function MonthlyProductionCard({ monthly }: Props) {
         <h2 className="text-lg font-semibold text-[#062E25] mb-4">
           {t('monthlyProduction')}
         </h2>
-        <div className="grid grid-cols-12 gap-2 items-end h-36">
+        <div className="grid grid-cols-12 gap-2 h-36">
           {monthly.map((value, i) => {
             const heightPct = maxMonthly > 0 ? (value / maxMonthly) * 100 : 0
             return (
-              <div key={i} className="flex flex-col items-center gap-1">
-                <div className="w-full flex-1 flex items-end">
+              <div key={i} className="flex h-full flex-col items-center gap-1">
+                <div className="relative w-full flex-1 min-h-0">
                   <div
-                    className="w-full bg-[#B7FE1A] rounded-t"
+                    className="absolute inset-x-0 bottom-0 bg-[#B7FE1A] rounded-t"
                     style={{ height: `${heightPct}%` }}
                   />
                 </div>
