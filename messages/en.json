@@ -4074,11 +4074,9 @@
     "screen1": {
       "headline": "Calculate your savings in 2 minutes",
       "subline": "What does a solar system cost in Switzerland? Enter your address, check your roof, see your savings.",
-      "helper": "Enter your address. We show you what your roof produces and what the federal government pays for it.",
       "fieldLabel": "Address with house number",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Analyze roof",
-      "reassurance1": "We check your roof with the official data from Sonnendach.ch.",
       "errors": {
         "empty": "Please enter your address.",
         "notChosen": "Please select your address from the suggestion list.",

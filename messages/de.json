@@ -5607,11 +5607,9 @@
     "screen1": {
       "headline": "Ihre Ersparnis in 2 Minuten berechnen",
       "subline": "Was kostet eine Solaranlage in der Schweiz? Adresse eingeben, Dach prüfen, Ersparnis sehen.",
-      "helper": "Geben Sie Ihre Adresse ein. Wir zeigen Ihnen, was Ihr Dach produziert und was der Bund dafür zahlt.",
       "fieldLabel": "Adresse mit Hausnummer",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Dach analysieren",
-      "reassurance1": "Wir prüfen Ihr Dach mit den offiziellen Daten von Sonnendach.ch.",
       "errors": {
         "empty": "Bitte geben Sie Ihre Adresse ein.",
         "notChosen": "Bitte wählen Sie Ihre Adresse aus der Vorschlagsliste.",

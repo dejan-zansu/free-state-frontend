@@ -4074,11 +4074,9 @@
     "screen1": {
       "headline": "Calcola il tuo risparmio in 2 minuti",
       "subline": "Quanto costa un impianto solare in Svizzera? Inserite il vostro indirizzo, verificate il tetto, vedete il risparmio.",
-      "helper": "Inserisci il tuo indirizzo. Ti mostriamo cosa produce il tuo tetto e cosa paga la Confederazione.",
       "fieldLabel": "Indirizzo con numero civico",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Analizza il tetto",
-      "reassurance1": "Verifichiamo il tuo tetto con i dati ufficiali di Sonnendach.ch.",
       "errors": {
         "empty": "Inserisci il tuo indirizzo.",
         "notChosen": "Seleziona il tuo indirizzo dall'elenco dei suggerimenti.",

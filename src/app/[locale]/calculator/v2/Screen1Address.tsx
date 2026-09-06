@@ -296,9 +296,6 @@ export default function Screen1Address() {
         <p className="mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight">
           {t('subline')}
         </p>
-        <p className="mt-4 text-base sm:text-lg text-[#062E25] tracking-tight">
-          {t('helper')}
-        </p>
       </div>
 
       <form
@@ -366,10 +363,6 @@ export default function Screen1Address() {
         >
           {t('button')}
         </Button>
-
-        <p className="mt-6 text-center text-base text-[#062E25] tracking-tight">
-          {t('reassurance1')}
-        </p>
       </form>
     </div>
   )

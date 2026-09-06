@@ -4074,11 +4074,9 @@
     "screen1": {
       "headline": "Calculez vos économies en 2 minutes",
       "subline": "Combien coûte une installation solaire en Suisse? Saisissez votre adresse, vérifiez votre toit, voyez vos économies.",
-      "helper": "Saisissez votre adresse. Nous vous montrons ce que votre toit produit et ce que la Confédération verse pour cela.",
       "fieldLabel": "Adresse avec numéro de maison",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Analyser le toit",
-      "reassurance1": "Nous vérifions votre toit avec les données officielles de Sonnendach.ch.",
       "errors": {
         "empty": "Veuillez saisir votre adresse.",
         "notChosen": "Veuillez sélectionner votre adresse dans la liste de suggestions.",
