@@ -1,878 +1,542 @@
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
 
-import { sonnendachService } from '@/services/sonnendach.service'
+import { getAttribution } from '@/lib/analytics/funnel-events'
+import {
+  computeCommercialEstimate,
+  tariffCategoryForConsumption,
+  type BuildingUse,
+  type CommercialEstimate,
+  type SubsidyTiers,
+  type TariffCategory,
+} from '@/lib/commercial-estimate'
+import {
+  COMMERCIAL_TOTAL_STEPS,
+  clampToAllowedCommercialStep,
+} from '@/lib/commercial-calculator-flow'
+import { PERIOD_FACTOR, type BillPeriod } from '@/lib/consumption-cost'
+import {
+  commercialLeadService,
+  type CommercialLeadPayload,
+  type CommercialManualCheckSource,
+} from '@/services/commercial-lead.service'
+import { electricityPriceService } from '@/services/electricity-price.service'
+import { subsidyService } from '@/services/subsidy.service'
 import type {
-  CommercialLegalForm,
   CommercialIndustry,
-  CommercialEmployeeBracket,
-  CommercialContactRole,
-  CommercialPreferredChannel,
-  CommercialTimeline,
-  CommercialMotivation,
-  CommercialFinancingPreference,
-  CommercialBudgetBracket,
-  CommercialExistingPv,
-  CommercialPropertyRelation,
+  CreateCommercialLeadResponse,
 } from '@/types/commercial-lead'
-import type {
-  SonnendachLocation,
-  SonnendachBuilding,
-  RoofSegment,
-} from '@/types/sonnendach'
+import type { RoofSegment, SonnendachBuilding } from '@/types/sonnendach'
 
-export interface SolarPanel {
-  id: string
-  name: string
-  power: number
-  width: number
-  height: number
-  efficiency: number
-  manufacturer: string
-  price: number
+export type { BuildingUse }
+
+export const BUILDING_USE_TO_INDUSTRY: Record<BuildingUse, CommercialIndustry> =
+  {
+    office_trade: 'GEWERBE',
+    industry: 'INDUSTRIE',
+    agriculture: 'LANDWIRTSCHAFT',
+    retail_gastro: 'HANDEL',
+    public: 'OEFFENTLICHE_HAND',
+    multi_family: 'DIENSTLEISTUNG',
+    other: 'ANDERE',
+  }
+
+export type BuildingMissReason = 'no_building' | 'no_segments' | 'error'
+
+export interface CommercialTariff {
+  rpKwh: number
+  chfKwh: number
+  category: string
+  municipality: string
+  year: number
+  fallback: boolean
+  plz: string
 }
 
-export interface Inverter {
-  id: string
-  name: string
-  power: number
-  manufacturer: string
-  efficiency: number
-  price: number
-}
+export type SubmissionErrorCode = 'rate_limited' | 'server' | 'network'
 
-export type RoofType = 'flat' | 'low_slope' | 'medium' | 'steep'
-export type RoofMaterial = 'bitumen' | 'gravel' | 'green_roof' | 'granulate' | 'tiles' | 'metal' | 'unknown'
-
-export interface RoofProperties {
-  roofType: RoofType
-  buildingFloors: number
-  roofMaterial: RoofMaterial
-}
-
-export type PropertyType = 'residential' | 'commercial' | 'industrial' | 'agricultural'
-
-export interface Address {
-  street: string
-  streetNumber?: string
-  postalCode: string
-  city: string
-  canton: string
-  country: string
-}
-
-export interface PersonalInfo {
-  firstName: string
-  lastName: string
-  email: string
-  phone: string
-  password: string
-  preferredLanguage: 'de' | 'fr' | 'it' | 'en'
-}
-
-export interface PropertyOwnership {
-  isPropertyOwner: boolean
-  propertyOwnerName?: string
-  propertyOwnerEmail?: string
-  propertyOwnerPhone?: string
-}
-
-export interface Consents {
-  terms: boolean
-  privacy: boolean
-  marketing: boolean
-}
-
-export interface ConsumptionData {
-  propertyType: PropertyType
-  isNewBuilding: boolean
-  evChargingStations: number
-  heatPumpHotWater: boolean
-  heatPumpHeating: boolean
-  electricityProvider: string
-
-  residents: number
-  annualElectricityCost: number
-  annualConsumptionKwh: number
-
-  electricityTariffAuto: boolean
-  electricityTariff: number
-  feedInTariffAuto: boolean
-  feedInTariff: number
-}
-
-export interface RestrictedArea {
-  id: string
-  coordinates: number[][]
-  area: number
-  label?: string
-}
-
-export interface CompanyDetails {
+export interface CommercialContact {
   companyName: string
-  legalForm: CommercialLegalForm | ''
-  uidNumber: string
-  industry: CommercialIndustry | ''
-  employeeBracket: CommercialEmployeeBracket
-  website: string
-  numberOfSites: number
-}
-
-export interface ContactDetails {
-  firstName: string
-  lastName: string
-  role: CommercialContactRole | ''
+  name: string
   email: string
   phone: string
-  isDecisionMaker: boolean
-  preferredChannel: CommercialPreferredChannel
-  preferredTime: string
 }
 
-export interface ProjectIntent {
-  timeline: CommercialTimeline | ''
-  motivations: CommercialMotivation[]
-  financingPreferences: CommercialFinancingPreference[]
-  budgetBracket: CommercialBudgetBracket
-  existingPv: CommercialExistingPv
-  comments: string
-}
-
-export interface SubmissionResult {
-  id: string
-  reference: string
-  uploadToken: string
-  uploadTokenExpiresAt: string
+interface SubmissionState {
+  status: 'idle' | 'submitting' | 'done' | 'error'
+  errorCode: SubmissionErrorCode | null
+  result: CreateCommercialLeadResponse | null
 }
 
 export interface CommercialCalculatorState {
   currentStep: number
-  totalSteps: number
 
   address: string
-  selectedLocation: SonnendachLocation | null
-  searchResults: SonnendachLocation[]
-  isSearching: boolean
+  street: string
+  streetNumber: string
+  postalCode: string
+  city: string
+  canton: string
+  lat: number | null
+  lng: number | null
 
   building: SonnendachBuilding | null
   selectedSegmentIds: string[]
   isFetchingBuilding: boolean
+  buildingMissReason: BuildingMissReason | null
+  roofImage: string | null
 
-  roofProperties: RoofProperties
-  restrictedAreas: RestrictedArea[]
+  buildingUse: BuildingUse | null
+  consumptionInputMode: 'kwh' | 'chf'
+  consumptionKwh: number | null
+  consumptionBillChf: number | null
+  consumptionBillPeriod: BillPeriod
+  hasExistingPv: boolean
 
-  selectedPanel: SolarPanel | null
-  selectedInverter: Inverter | null
-  panelCount: number
-  maxPanelCount: number
+  tariff: CommercialTariff | null
+  tariffLoading: boolean
+  subsidyRate: SubsidyTiers | null
+  subsidyLoading: boolean
 
-  consumption: ConsumptionData
+  contact: CommercialContact
+  consent: boolean
+  submission: SubmissionState
+  manualCheckRequested: CommercialManualCheckSource | null
+  partialCaptured: boolean
 
-  selectedArea: number
-  selectedPotentialKwh: number
-  estimatedPanelCount: number
-
-  personalInfo: PersonalInfo
-  installationAddress: Address
-  billingAddress: Address
-  sameAsInstallation: boolean
-  propertyOwnership: PropertyOwnership
-  consents: Consents
-
-  companyDetails: CompanyDetails
-  contactDetails: ContactDetails
-  projectIntent: ProjectIntent
-  propertyRelation: CommercialPropertyRelation | ''
-  ownerContact: { name: string; email: string; phone: string }
-  submissionResult: SubmissionResult | null
-  isSubmitting: boolean
-  submitError: string | null
-
-  isLoading: boolean
-  error: string | null
-}
-
-interface CommercialCalculatorActions {
+  goToStep: (step: number) => void
   nextStep: () => void
   prevStep: () => void
-  goToStep: (step: number) => void
 
-  setAddress: (address: string) => void
-  searchAddresses: (query: string) => Promise<void>
-  selectLocation: (location: SonnendachLocation) => void
-  clearSearchResults: () => void
+  setResolvedAddress: (a: {
+    formatted: string
+    street: string
+    streetNumber: string
+    postalCode: string
+    city: string
+    canton: string
+    lat: number
+    lng: number
+  }) => void
+  setAddressFallback: (a: { postalCode?: string; city?: string }) => void
+  clearAddress: () => void
 
-  fetchBuildingData: () => Promise<void>
-  fetchBuildingDataAtPoint: (x: number, y: number) => Promise<void>
-  toggleSegmentSelection: (segmentId: string) => void
-  selectAllSegments: () => void
-  clearSegmentSelection: () => void
-  selectSegmentsByMinSuitability: (minClass: number) => void
+  setBuilding: (building: SonnendachBuilding | null) => void
+  setSelectedSegmentIds: (ids: string[]) => void
+  toggleSegment: (id: string) => void
+  setIsFetchingBuilding: (v: boolean) => void
+  setBuildingMissReason: (r: BuildingMissReason | null) => void
+  setRoofImage: (dataUrl: string | null) => void
+
+  setBuildingUse: (use: BuildingUse | null) => void
+  setConsumptionInputMode: (mode: 'kwh' | 'chf') => void
+  setConsumptionKwh: (kwh: number | null) => void
+  setConsumptionBill: (chf: number | null, period: BillPeriod) => void
+  setHasExistingPv: (v: boolean) => void
+
+  fetchTariff: () => Promise<void>
+  fetchSubsidyRate: () => Promise<void>
+
+  setContact: (patch: Partial<CommercialContact>) => void
+  setConsent: (v: boolean) => void
+  setManualCheckRequested: (source: CommercialManualCheckSource | null) => void
+  setPartialCaptured: (v: boolean) => void
+  submitLead: (locale: string) => Promise<CreateCommercialLeadResponse | null>
+  reset: () => void
 
   getSelectedSegments: () => RoofSegment[]
-  calculateTotals: () => void
-
-  setSelectedSegmentsData: (segments: RoofSegment[], allBuildingSegments?: RoofSegment[]) => void
-
-  setRoofProperties: (properties: Partial<RoofProperties>) => void
-  addRestrictedArea: (area: RestrictedArea) => void
-  removeRestrictedArea: (id: string) => void
-  clearRestrictedAreas: () => void
-  getUsableArea: () => number
-  getTotalRestrictedArea: () => number
-  getEffectiveRestrictedArea: () => number
-  getRestrictedAreasInNonSelectedSegments: () => RestrictedArea[]
-
-  selectPanel: (panel: SolarPanel) => void
-  selectInverter: (inverter: Inverter) => void
-  setPanelCount: (count: number) => void
-  setMaxPanelCount: (count: number) => void
-
-  setConsumption: (data: Partial<ConsumptionData>) => void
-
-  setPersonalInfo: (data: Partial<PersonalInfo>) => void
-  setInstallationAddress: (address: Address) => void
-  setBillingAddress: (address: Address) => void
-  setSameAsInstallation: (same: boolean) => void
-  setPropertyOwnership: (data: Partial<PropertyOwnership>) => void
-  setConsents: (data: Partial<Consents>) => void
-
-  setCompanyDetails: (data: Partial<CompanyDetails>) => void
-  setContactDetails: (data: Partial<ContactDetails>) => void
-  setProjectIntent: (data: Partial<ProjectIntent>) => void
-  setPropertyRelation: (v: CommercialPropertyRelation | '') => void
-  setOwnerContact: (data: Partial<{ name: string; email: string; phone: string }>) => void
-  setSubmissionResult: (r: SubmissionResult | null) => void
-  setSubmitting: (v: boolean) => void
-  setSubmitError: (e: string | null) => void
-
-  getSystemSizeKwp: () => number
-  getEstimatedProductionKwh: () => number
-  getTotalInvestment: () => number
-  getSubsidies: () => number
-  getNetInvestment: () => number
-  getAnnualSavings: () => number
-  getPaybackYears: () => number
-  getCo2Savings: () => number
-
-  reset: () => void
-  clearError: () => void
+  getConsumptionKwh: () => number | null
+  getTariffCategory: () => TariffCategory
+  getEstimate: () => CommercialEstimate
 }
 
-type CommercialCalculatorStore = CommercialCalculatorState & CommercialCalculatorActions
+const initialContact: CommercialContact = {
+  companyName: '',
+  name: '',
+  email: '',
+  phone: '',
+}
 
-const initialState: CommercialCalculatorState = {
+const initialSubmission: SubmissionState = {
+  status: 'idle',
+  errorCode: null,
+  result: null,
+}
+
+const initialState = {
   currentStep: 1,
-  totalSteps: 7,
-
   address: '',
-  selectedLocation: null,
-  searchResults: [],
-  isSearching: false,
-
+  street: '',
+  streetNumber: '',
+  postalCode: '',
+  city: '',
+  canton: '',
+  lat: null,
+  lng: null,
   building: null,
   selectedSegmentIds: [],
   isFetchingBuilding: false,
-
-  roofProperties: {
-    roofType: 'flat',
-    buildingFloors: 1,
-    roofMaterial: 'unknown',
-  },
-  restrictedAreas: [],
-
-  selectedPanel: null,
-  selectedInverter: null,
-  panelCount: 0,
-  maxPanelCount: 0,
-
-  consumption: {
-    propertyType: 'residential',
-    isNewBuilding: false,
-    evChargingStations: 0,
-    heatPumpHotWater: false,
-    heatPumpHeating: false,
-    electricityProvider: 'standard',
-    residents: 2,
-    annualElectricityCost: 0,
-    annualConsumptionKwh: 0,
-    electricityTariffAuto: true,
-    electricityTariff: 25,
-    feedInTariffAuto: true,
-    feedInTariff: 12,
-  },
-
-  selectedArea: 0,
-  selectedPotentialKwh: 0,
-  estimatedPanelCount: 0,
-
-  personalInfo: {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    password: '',
-    preferredLanguage: 'de',
-  },
-  installationAddress: {
-    street: '',
-    streetNumber: '',
-    postalCode: '',
-    city: '',
-    canton: '',
-    country: 'CH',
-  },
-  billingAddress: {
-    street: '',
-    streetNumber: '',
-    postalCode: '',
-    city: '',
-    canton: '',
-    country: 'CH',
-  },
-  sameAsInstallation: true,
-  propertyOwnership: {
-    isPropertyOwner: true,
-    propertyOwnerName: '',
-    propertyOwnerEmail: '',
-    propertyOwnerPhone: '',
-  },
-  consents: {
-    terms: false,
-    privacy: false,
-    marketing: false,
-  },
-
-  companyDetails: {
-    companyName: '', legalForm: '', uidNumber: '', industry: '',
-    employeeBracket: 'UNKNOWN', website: '', numberOfSites: 1,
-  },
-  contactDetails: {
-    firstName: '', lastName: '', role: '',
-    email: '', phone: '',
-    isDecisionMaker: true, preferredChannel: 'EMAIL', preferredTime: '',
-  },
-  projectIntent: {
-    timeline: '', motivations: [], financingPreferences: [],
-    budgetBracket: 'UNSPECIFIED', existingPv: 'NONE', comments: '',
-  },
-  propertyRelation: '',
-  ownerContact: { name: '', email: '', phone: '' },
-  submissionResult: null,
-  isSubmitting: false,
-  submitError: null,
-
-  isLoading: false,
-  error: null,
+  buildingMissReason: null,
+  roofImage: null,
+  buildingUse: null,
+  consumptionInputMode: 'kwh' as const,
+  consumptionKwh: null,
+  consumptionBillChf: null,
+  consumptionBillPeriod: 'year' as BillPeriod,
+  hasExistingPv: false,
+  tariff: null,
+  tariffLoading: false,
+  subsidyRate: null,
+  subsidyLoading: false,
+  contact: initialContact,
+  consent: false,
+  submission: initialSubmission,
+  manualCheckRequested: null,
+  partialCaptured: false,
 }
 
-export const useCommercialCalculatorStore = create<CommercialCalculatorStore>()(
+export function splitName(full: string): {
+  firstName: string
+  lastName: string
+} {
+  const trimmed = full.trim().replace(/\s+/g, ' ')
+  const idx = trimmed.indexOf(' ')
+  if (idx === -1) return { firstName: trimmed, lastName: '' }
+  return { firstName: trimmed.slice(0, idx), lastName: trimmed.slice(idx + 1) }
+}
+
+export const useCommercialCalculatorStore = create<CommercialCalculatorState>()(
   persist(
     (set, get) => ({
       ...initialState,
 
-      nextStep: () => {
-        const { currentStep, totalSteps } = get()
-        if (currentStep < totalSteps) {
-          set({ currentStep: currentStep + 1 })
-        }
+      goToStep: step => {
+        const s = get()
+        const target = clampToAllowedCommercialStep(step, {
+          address: s.address,
+          building: s.building,
+          selectedSegmentIds: s.selectedSegmentIds,
+          submissionDone: s.submission.status === 'done',
+        })
+        set({ currentStep: target })
       },
-
+      nextStep: () => {
+        const { currentStep } = get()
+        if (currentStep < COMMERCIAL_TOTAL_STEPS)
+          get().goToStep(currentStep + 1)
+      },
       prevStep: () => {
         const { currentStep } = get()
-        if (currentStep > 1) {
-          set({ currentStep: currentStep - 1 })
-        }
+        if (currentStep > 1) get().goToStep(currentStep - 1)
       },
 
-      goToStep: (step: number) => {
-        const { totalSteps } = get()
-        if (step >= 1 && step <= totalSteps) {
-          set({ currentStep: step })
-        }
-      },
-
-      setAddress: (address: string) => {
-        set({ address })
-      },
-
-      searchAddresses: async (query: string) => {
-        if (!query || query.length < 3) {
-          set({ searchResults: [] })
-          return
-        }
-
-        set({ isSearching: true, error: null })
-
-        try {
-          const results = await sonnendachService.searchAddress(query)
-          set({ searchResults: results, isSearching: false })
-        } catch (error) {
-          console.error('Address search failed:', error)
-          set({
-            error: error instanceof Error ? error.message : 'Address search failed',
-            isSearching: false,
-            searchResults: [],
-          })
-        }
-      },
-
-      selectLocation: (location: SonnendachLocation) => {
+      setResolvedAddress: a => {
         set({
-          selectedLocation: location,
-          address: location.attrs.label,
-          searchResults: [],
+          address: a.formatted,
+          street: a.street,
+          streetNumber: a.streetNumber,
+          postalCode: a.postalCode,
+          city: a.city,
+          canton: a.canton,
+          lat: a.lat,
+          lng: a.lng,
           building: null,
           selectedSegmentIds: [],
-          selectedArea: 0,
-          selectedPotentialKwh: 0,
-          estimatedPanelCount: 0,
+          buildingMissReason: null,
+          roofImage: null,
+          tariff: null,
         })
+        void get().fetchTariff()
       },
-
-      clearSearchResults: () => {
-        set({ searchResults: [] })
+      setAddressFallback: a => {
+        set(state => ({
+          postalCode: a.postalCode ?? state.postalCode,
+          city: a.city ?? state.city,
+        }))
+        void get().fetchTariff()
       },
-
-      fetchBuildingData: async () => {
-        const { selectedLocation } = get()
-        if (!selectedLocation) {
-          set({ error: 'No location selected' })
-          return
-        }
-
-        const { x, y } = selectedLocation.attrs
-        await get().fetchBuildingDataAtPoint(x, y)
-      },
-
-      fetchBuildingDataAtPoint: async (x: number, y: number) => {
-        set({ isFetchingBuilding: true, error: null })
-
-        try {
-          const result = await sonnendachService.getBuildingData(x, y)
-          if (!result.building) {
-            throw new Error('No building found at this location')
-          }
-          const building = result.building
-
-          const goodSegmentIds = building.roofSegments
-            .filter((s) => s.suitability.class >= 3)
-            .map((s) => s.id)
-
-          set({
-            building,
-            selectedSegmentIds: goodSegmentIds,
-            isFetchingBuilding: false,
-          })
-
-          get().calculateTotals()
-        } catch (error) {
-          console.error('Failed to fetch building data:', error)
-          set({
-            error: error instanceof Error ? error.message : 'Failed to load building data',
-            isFetchingBuilding: false,
-          })
-        }
-      },
-
-      toggleSegmentSelection: (segmentId: string) => {
-        const { selectedSegmentIds } = get()
-        const isSelected = selectedSegmentIds.includes(segmentId)
-
-        if (isSelected) {
-          set({
-            selectedSegmentIds: selectedSegmentIds.filter((id) => id !== segmentId),
-          })
-        } else {
-          set({
-            selectedSegmentIds: [...selectedSegmentIds, segmentId],
-          })
-        }
-
-        get().calculateTotals()
-      },
-
-      selectAllSegments: () => {
-        const { building } = get()
-        if (!building) return
-
+      clearAddress: () =>
         set({
-          selectedSegmentIds: building.roofSegments.map((s) => s.id),
-        })
-
-        get().calculateTotals()
-      },
-
-      clearSegmentSelection: () => {
-        set({
+          address: '',
+          street: '',
+          streetNumber: '',
+          postalCode: '',
+          city: '',
+          canton: '',
+          lat: null,
+          lng: null,
+          building: null,
           selectedSegmentIds: [],
-          selectedArea: 0,
-          selectedPotentialKwh: 0,
-          estimatedPanelCount: 0,
+          buildingMissReason: null,
+          roofImage: null,
+          tariff: null,
+          manualCheckRequested: null,
+          currentStep: 1,
+        }),
+
+      setBuilding: building =>
+        set({ building, selectedSegmentIds: [], buildingMissReason: null }),
+      setSelectedSegmentIds: ids => set({ selectedSegmentIds: ids }),
+      toggleSegment: id =>
+        set(state => ({
+          selectedSegmentIds: state.selectedSegmentIds.includes(id)
+            ? state.selectedSegmentIds.filter(x => x !== id)
+            : [...state.selectedSegmentIds, id],
+        })),
+      setIsFetchingBuilding: v => set({ isFetchingBuilding: v }),
+      setBuildingMissReason: r => set({ buildingMissReason: r }),
+      setRoofImage: dataUrl => set({ roofImage: dataUrl }),
+
+      setBuildingUse: use => set({ buildingUse: use }),
+      setConsumptionInputMode: mode => set({ consumptionInputMode: mode }),
+      setConsumptionKwh: kwh => set({ consumptionKwh: kwh }),
+      setConsumptionBill: (chf, period) =>
+        set({ consumptionBillChf: chf, consumptionBillPeriod: period }),
+      setHasExistingPv: v => set({ hasExistingPv: v }),
+
+      fetchTariff: async () => {
+        const { postalCode, city, tariffLoading } = get()
+        if (!postalCode || tariffLoading) return
+        const category = get().getTariffCategory()
+        const existing = get().tariff
+        if (
+          existing &&
+          existing.plz === postalCode &&
+          existing.category === category
+        )
+          return
+        set({ tariffLoading: true })
+        try {
+          const year = new Date().getFullYear()
+          const data = await electricityPriceService.getSwissTariff(
+            postalCode,
+            year,
+            category
+          )
+          set({
+            tariff: {
+              rpKwh: data.averageRpKwh,
+              chfKwh: data.averageChfKwh,
+              category: data.category,
+              municipality: data.municipalityName || city,
+              year: data.tariffYear,
+              fallback: data.fallback,
+              plz: postalCode,
+            },
+            tariffLoading: false,
+          })
+        } catch {
+          set({ tariffLoading: false })
+        }
+      },
+
+      fetchSubsidyRate: async () => {
+        if (get().subsidyRate || get().subsidyLoading) return
+        set({ subsidyLoading: true })
+        try {
+          const data = await subsidyService.getCurrentRate()
+          set({
+            subsidyRate: {
+              tier1MaxKwp: data.tier1MaxKwp,
+              tier1ChfPerKwp: data.tier1ChfPerKwp,
+              tier2MaxKwp: data.tier2MaxKwp,
+              tier2ChfPerKwp: data.tier2ChfPerKwp,
+            },
+            subsidyLoading: false,
+          })
+        } catch {
+          set({ subsidyLoading: false })
+        }
+      },
+
+      setContact: patch =>
+        set(state => ({ contact: { ...state.contact, ...patch } })),
+      setConsent: v => set({ consent: v }),
+      setManualCheckRequested: source => set({ manualCheckRequested: source }),
+      setPartialCaptured: v => set({ partialCaptured: v }),
+
+      submitLead: async locale => {
+        const s = get()
+        if (s.submission.status === 'done' && s.submission.result)
+          return s.submission.result
+        if (s.submission.status === 'submitting') return null
+        set({
+          submission: { status: 'submitting', errorCode: null, result: null },
         })
+        const estimate = s.getEstimate()
+        const { firstName, lastName } = splitName(s.contact.name)
+        const payload: CommercialLeadPayload = {
+          locale,
+          company: {
+            companyName: s.contact.companyName.trim(),
+            industry: s.buildingUse
+              ? BUILDING_USE_TO_INDUSTRY[s.buildingUse]
+              : null,
+          },
+          contact: {
+            firstName,
+            lastName,
+            email: s.contact.email.trim().toLowerCase(),
+            phone: s.contact.phone.trim(),
+          },
+          address: {
+            street: s.street || s.address,
+            number: s.streetNumber || undefined,
+            postalCode: s.postalCode,
+            city: s.city,
+            canton: /^[A-Za-z]{2}$/.test(s.canton)
+              ? s.canton.toUpperCase()
+              : undefined,
+            country: 'CH',
+            lat: s.lat ?? undefined,
+            lng: s.lng ?? undefined,
+          },
+          energy: { annualConsumptionKwh: estimate.consumptionKwh },
+          intent: {
+            existingPv: s.hasExistingPv ? 'EXISTING_EXPANSION' : 'NONE',
+          },
+          calculation: {
+            roofAreaM2: Math.round(estimate.grossAreaM2 * 100) / 100,
+            usableRoofAreaM2: Math.round(estimate.usableAreaM2 * 100) / 100,
+            estimatedPanelCount: estimate.panelCount,
+            estimatedSystemKwp: Math.round(estimate.systemSizeKwp * 100) / 100,
+            estimatedAnnualProductionKwh: Math.round(estimate.productionKwh),
+            estimatedCo2ReductionKg: estimate.co2Kg,
+            estimatedSubsidyChf: estimate.subsidyChf,
+            estimatedAnnualSavingsChf: estimate.selfConsumptionValueChf,
+            snapshot: {
+              version: 2,
+              buildingUse: s.buildingUse,
+              consumption: {
+                kwh: estimate.consumptionKwh,
+                assumed: estimate.consumptionAssumed,
+                inputMode: s.consumptionInputMode,
+                billChf: s.consumptionBillChf,
+                billPeriod: s.consumptionBillPeriod,
+              },
+              tariff: s.tariff,
+              selfConsumption: {
+                kwh: Math.round(estimate.selfConsumedKwh),
+                share: Math.round(estimate.selfConsumptionShare * 100) / 100,
+                ppaSavingsChf: estimate.ppaSavingsChf,
+              },
+              subsidyAboveTiers: estimate.subsidyAboveTiers,
+              subsidyTierMaxKwp: s.subsidyRate?.tier2MaxKwp ?? null,
+              lowResult: estimate.isLowResult,
+              segments: s.getSelectedSegments().map(seg => ({
+                id: seg.id,
+                area: seg.area,
+                tilt: seg.tilt,
+                azimuth: seg.azimuth,
+                electricityYield: seg.electricityYield,
+                suitabilityClass: seg.suitability?.class ?? null,
+              })),
+              buildingId: s.building?.buildingId ?? null,
+              roofImage: false,
+            },
+          },
+          consents: { privacy: true, marketing: false },
+          attribution: getAttribution(),
+        }
+        try {
+          const result = await commercialLeadService.create(payload)
+          set({ submission: { status: 'done', errorCode: null, result } })
+          return result
+        } catch (err) {
+          const status = (err as { response?: { status?: number } })?.response
+            ?.status
+          const errorCode: SubmissionErrorCode =
+            status === 429 ? 'rate_limited' : status ? 'server' : 'network'
+          set({ submission: { status: 'error', errorCode, result: null } })
+          return null
+        }
       },
-
-      selectSegmentsByMinSuitability: (minClass: number) => {
-        const { building } = get()
-        if (!building) return
-
-        const segmentIds = building.roofSegments
-          .filter((s) => s.suitability.class >= minClass)
-          .map((s) => s.id)
-
-        set({ selectedSegmentIds: segmentIds })
-        get().calculateTotals()
-      },
+      reset: () => set({ ...initialState }),
 
       getSelectedSegments: () => {
         const { building, selectedSegmentIds } = get()
-        if (!building) return []
-
-        return building.roofSegments.filter((s) => selectedSegmentIds.includes(s.id))
+        if (!building?.roofSegments) return []
+        return building.roofSegments.filter(s =>
+          selectedSegmentIds.includes(s.id)
+        )
       },
 
-      calculateTotals: () => {
-        const selectedSegments = get().getSelectedSegments()
+      getConsumptionKwh: () => {
+        const s = get()
+        if (s.consumptionInputMode === 'kwh') {
+          return s.consumptionKwh && s.consumptionKwh > 0
+            ? s.consumptionKwh
+            : null
+        }
+        if (!s.consumptionBillChf || s.consumptionBillChf <= 0) return null
+        const rate = s.tariff?.chfKwh
+        if (!rate || rate <= 0) return null
+        const annualChf =
+          s.consumptionBillChf * PERIOD_FACTOR[s.consumptionBillPeriod]
+        return Math.round(annualChf / rate)
+      },
 
-        const selectedArea = selectedSegments.reduce((sum, s) => sum + s.area, 0)
-        const selectedPotentialKwh = selectedSegments.reduce(
-          (sum, s) => sum + s.electricityYield,
-          0
-        )
-        const estimatedPanelCount = selectedSegments.reduce(
-          (sum, s) => sum + (s.estimatedPanels || 0),
-          0
-        )
+      getTariffCategory: () =>
+        tariffCategoryForConsumption(get().getConsumptionKwh()),
 
-        set({
-          selectedArea: Math.round(selectedArea * 10) / 10,
-          selectedPotentialKwh: Math.round(selectedPotentialKwh),
-          estimatedPanelCount,
+      getEstimate: () => {
+        const s = get()
+        return computeCommercialEstimate({
+          segments: s.getSelectedSegments(),
+          buildingUse: s.buildingUse,
+          consumptionKwh: s.getConsumptionKwh(),
+          tariffChfKwh: s.tariff?.chfKwh ?? null,
+          subsidyTiers: s.subsidyRate,
         })
-      },
-
-      setSelectedSegmentsData: (segments: RoofSegment[], allBuildingSegments?: RoofSegment[]) => {
-        const totalArea = segments.reduce((sum, s) => sum + s.area, 0)
-        const totalPotentialKwh = segments.reduce((sum, s) => sum + s.electricityYield, 0)
-        const estimatedPanelCount = segments.reduce((sum, s) => sum + (s.estimatedPanels || 0), 0)
-
-        const bestSuitability = segments.length > 0
-          ? Math.max(...segments.map((s) => s.suitability.class))
-          : 1
-
-        const allSegments = allBuildingSegments && allBuildingSegments.length > 0
-          ? allBuildingSegments
-          : segments
-
-        set({
-          building: {
-            buildingId: 0,
-            center: { lat: 0, lng: 0, x: 0, y: 0 },
-            roofSegments: allSegments,
-            totalArea: Math.round(totalArea * 10) / 10,
-            totalPotentialKwh: Math.round(totalPotentialKwh),
-            suitabilityClass: bestSuitability,
-            suitabilityLabel: '',
-          },
-          selectedSegmentIds: segments.map((s) => s.id),
-          selectedArea: Math.round(totalArea * 10) / 10,
-          selectedPotentialKwh: Math.round(totalPotentialKwh),
-          estimatedPanelCount,
-        })
-      },
-
-      setRoofProperties: (properties: Partial<RoofProperties>) => {
-        const { roofProperties } = get()
-        set({ roofProperties: { ...roofProperties, ...properties } })
-      },
-
-      addRestrictedArea: (area: RestrictedArea) => {
-        const { restrictedAreas } = get()
-        set({ restrictedAreas: [...restrictedAreas, area] })
-      },
-
-      removeRestrictedArea: (id: string) => {
-        const { restrictedAreas } = get()
-        set({ restrictedAreas: restrictedAreas.filter((a) => a.id !== id) })
-      },
-
-      clearRestrictedAreas: () => {
-        set({ restrictedAreas: [] })
-      },
-
-      getUsableArea: () => {
-        const { selectedArea } = get()
-        const effectiveRestricted = get().getEffectiveRestrictedArea()
-        return Math.max(0, selectedArea - effectiveRestricted)
-      },
-
-      getEffectiveRestrictedArea: () => {
-        const { building, selectedSegmentIds, restrictedAreas } = get()
-        if (!building || restrictedAreas.length === 0) return 0
-
-        const nonSelectedSegments = building.roofSegments.filter(
-          s => !selectedSegmentIds.includes(s.id)
-        )
-
-        if (nonSelectedSegments.length === 0) {
-          return restrictedAreas.reduce((sum, a) => sum + a.area, 0)
-        }
-
-        let effectiveArea = 0
-
-        for (const restricted of restrictedAreas) {
-          const restrictedCoords = restricted.coordinates
-          if (restrictedCoords.length < 3) continue
-
-          const centerLng = restrictedCoords.reduce((sum, c) => sum + c[0], 0) / restrictedCoords.length
-          const centerLat = restrictedCoords.reduce((sum, c) => sum + c[1], 0) / restrictedCoords.length
-
-          let isInsideNonSelected = false
-          for (const segment of nonSelectedSegments) {
-            const segmentCoords = segment.geometry.coordinatesWGS84?.[0] || []
-            if (segmentCoords.length < 3) continue
-
-            let inside = false
-            for (let i = 0, j = segmentCoords.length - 1; i < segmentCoords.length; j = i++) {
-              const xi = segmentCoords[i][0], yi = segmentCoords[i][1]
-              const xj = segmentCoords[j][0], yj = segmentCoords[j][1]
-              const intersect = yi > centerLat !== yj > centerLat &&
-                centerLng < ((xj - xi) * (centerLat - yi)) / (yj - yi) + xi
-              if (intersect) inside = !inside
-            }
-
-            if (inside) {
-              isInsideNonSelected = true
-              break
-            }
-          }
-
-          if (!isInsideNonSelected) {
-            effectiveArea += restricted.area
-          }
-        }
-
-        return effectiveArea
-      },
-
-      getRestrictedAreasInNonSelectedSegments: () => {
-        const { building, selectedSegmentIds, restrictedAreas } = get()
-        if (!building || restrictedAreas.length === 0) return []
-
-        const nonSelectedSegments = building.roofSegments.filter(
-          s => !selectedSegmentIds.includes(s.id)
-        )
-
-        if (nonSelectedSegments.length === 0) return []
-
-        const overlappingAreas: RestrictedArea[] = []
-
-        for (const restricted of restrictedAreas) {
-          const restrictedCoords = restricted.coordinates
-          if (restrictedCoords.length < 3) continue
-
-          const centerLng = restrictedCoords.reduce((sum, c) => sum + c[0], 0) / restrictedCoords.length
-          const centerLat = restrictedCoords.reduce((sum, c) => sum + c[1], 0) / restrictedCoords.length
-
-          for (const segment of nonSelectedSegments) {
-            const segmentCoords = segment.geometry.coordinatesWGS84?.[0] || []
-            if (segmentCoords.length < 3) continue
-
-            let inside = false
-            for (let i = 0, j = segmentCoords.length - 1; i < segmentCoords.length; j = i++) {
-              const xi = segmentCoords[i][0], yi = segmentCoords[i][1]
-              const xj = segmentCoords[j][0], yj = segmentCoords[j][1]
-              const intersect = yi > centerLat !== yj > centerLat &&
-                centerLng < ((xj - xi) * (centerLat - yi)) / (yj - yi) + xi
-              if (intersect) inside = !inside
-            }
-
-            if (inside) {
-              overlappingAreas.push(restricted)
-              break
-            }
-          }
-        }
-
-        return overlappingAreas
-      },
-
-      getTotalRestrictedArea: () => {
-        const { restrictedAreas } = get()
-        return restrictedAreas.reduce((sum, a) => sum + a.area, 0)
-      },
-
-      selectPanel: (panel: SolarPanel) => {
-        set({ selectedPanel: panel })
-      },
-
-      selectInverter: (inverter: Inverter) => {
-        set({ selectedInverter: inverter })
-      },
-
-      setPanelCount: (count: number) => {
-        const { maxPanelCount } = get()
-        set({ panelCount: Math.min(count, maxPanelCount) })
-      },
-
-      setMaxPanelCount: (count: number) => {
-        set({ maxPanelCount: count })
-      },
-
-      setConsumption: (data: Partial<ConsumptionData>) => {
-        const { consumption } = get()
-        set({ consumption: { ...consumption, ...data } })
-      },
-
-      setPersonalInfo: (data: Partial<PersonalInfo>) => {
-        const { personalInfo } = get()
-        set({ personalInfo: { ...personalInfo, ...data } })
-      },
-
-      setInstallationAddress: (address: Address) => {
-        set({ installationAddress: address })
-      },
-
-      setBillingAddress: (address: Address) => {
-        set({ billingAddress: address })
-      },
-
-      setSameAsInstallation: (same: boolean) => {
-        set({ sameAsInstallation: same })
-      },
-
-      setPropertyOwnership: (data: Partial<PropertyOwnership>) => {
-        const { propertyOwnership } = get()
-        set({ propertyOwnership: { ...propertyOwnership, ...data } })
-      },
-
-      setConsents: (data: Partial<Consents>) => {
-        const { consents } = get()
-        set({ consents: { ...consents, ...data } })
-      },
-
-      setCompanyDetails: (data: Partial<CompanyDetails>) => set((s) => ({ companyDetails: { ...s.companyDetails, ...data } })),
-      setContactDetails: (data: Partial<ContactDetails>) => set((s) => ({ contactDetails: { ...s.contactDetails, ...data } })),
-      setProjectIntent: (data: Partial<ProjectIntent>) => set((s) => ({ projectIntent: { ...s.projectIntent, ...data } })),
-      setPropertyRelation: (v: CommercialPropertyRelation | '') => set({ propertyRelation: v }),
-      setOwnerContact: (data: Partial<{ name: string; email: string; phone: string }>) => set((s) => ({ ownerContact: { ...s.ownerContact, ...data } })),
-      setSubmissionResult: (r: SubmissionResult | null) => set({ submissionResult: r }),
-      setSubmitting: (v: boolean) => set({ isSubmitting: v }),
-      setSubmitError: (e: string | null) => set({ submitError: e }),
-
-      getSystemSizeKwp: () => {
-        const { selectedPanel, panelCount } = get()
-        if (!selectedPanel) return 0
-        return (selectedPanel.power * panelCount) / 1000
-      },
-
-      getEstimatedProductionKwh: () => {
-        const { selectedPotentialKwh, panelCount, estimatedPanelCount } = get()
-        if (!estimatedPanelCount) return selectedPotentialKwh
-        return Math.round(selectedPotentialKwh * (panelCount / estimatedPanelCount))
-      },
-
-      getTotalInvestment: () => {
-        const { selectedPanel, selectedInverter, panelCount } = get()
-        if (!selectedPanel || !selectedInverter) return 0
-        const panelCost = selectedPanel.price * panelCount
-        const inverterCost = selectedInverter.price
-        const installationCost = get().getSystemSizeKwp() * 800
-        return Math.round(panelCost + inverterCost + installationCost)
-      },
-
-      getSubsidies: () => {
-        const kWp = get().getSystemSizeKwp()
-        const tier1 = Math.min(kWp, 30) * 360
-        const tier2 = Math.max(0, Math.min(kWp - 30, 70)) * 300
-        return Math.round(tier1 + tier2)
-      },
-
-      getNetInvestment: () => {
-        return get().getTotalInvestment() - get().getSubsidies()
-      },
-
-      getAnnualSavings: () => {
-        const { consumption } = get()
-        const production = get().getEstimatedProductionKwh()
-
-        let selfConsumptionRate = 0.30
-        if (consumption.heatPumpHotWater) selfConsumptionRate += 0.05
-        if (consumption.heatPumpHeating) selfConsumptionRate += 0.10
-        if (consumption.evChargingStations > 0) selfConsumptionRate += 0.05
-        selfConsumptionRate = Math.min(selfConsumptionRate, 0.50)
-
-        const selfConsumed = production * selfConsumptionRate
-        const exported = production * (1 - selfConsumptionRate)
-
-        const electricityTariffChf = consumption.electricityTariff / 100
-        const feedInTariffChf = consumption.feedInTariff / 100
-
-        const selfConsumptionSavings = selfConsumed * electricityTariffChf
-        const exportRevenue = exported * feedInTariffChf
-
-        return Math.round(selfConsumptionSavings + exportRevenue)
-      },
-
-      getPaybackYears: () => {
-        const netInvestment = get().getNetInvestment()
-        const annualSavings = get().getAnnualSavings()
-        if (annualSavings <= 0) return 99
-        return Math.round((netInvestment / annualSavings) * 10) / 10
-      },
-
-      getCo2Savings: () => {
-        const production = get().getEstimatedProductionKwh()
-        return Math.round(production * 0.3)
-      },
-
-      reset: () => {
-        set(initialState)
-      },
-
-      clearError: () => {
-        set({ error: null })
       },
     }),
     {
-      name: 'commercial-calculator',
+      name: 'commercial-calculator-v2',
       storage: createJSONStorage(() => sessionStorage),
-      partialize: (state) => ({
+      merge: (persisted, current) => {
+        const p = (persisted ?? {}) as Partial<CommercialCalculatorState>
+        const hasValidBuilding =
+          !!p.building &&
+          Array.isArray((p.building as SonnendachBuilding).roofSegments)
+        return {
+          ...current,
+          ...p,
+          building: hasValidBuilding ? p.building! : null,
+          selectedSegmentIds: hasValidBuilding
+            ? (p.selectedSegmentIds ?? [])
+            : [],
+          submission:
+            p.submission?.status === 'done' && p.submission.result
+              ? p.submission
+              : initialSubmission,
+        }
+      },
+      partialize: state => ({
         address: state.address,
-        selectedLocation: state.selectedLocation,
-        currentStep: state.currentStep,
+        street: state.street,
+        streetNumber: state.streetNumber,
+        postalCode: state.postalCode,
+        city: state.city,
+        canton: state.canton,
+        lat: state.lat,
+        lng: state.lng,
         building: state.building,
         selectedSegmentIds: state.selectedSegmentIds,
-        roofProperties: state.roofProperties,
-        restrictedAreas: state.restrictedAreas,
-        selectedPanel: state.selectedPanel,
-        selectedInverter: state.selectedInverter,
-        panelCount: state.panelCount,
-        consumption: state.consumption,
-        personalInfo: state.personalInfo,
-        installationAddress: state.installationAddress,
-        billingAddress: state.billingAddress,
-        sameAsInstallation: state.sameAsInstallation,
-        propertyOwnership: state.propertyOwnership,
-        consents: state.consents,
-        companyDetails: state.companyDetails,
-        contactDetails: state.contactDetails,
-        projectIntent: state.projectIntent,
-        propertyRelation: state.propertyRelation,
-        ownerContact: state.ownerContact,
-        submissionResult: state.submissionResult,
+        roofImage: state.roofImage,
+        buildingUse: state.buildingUse,
+        consumptionInputMode: state.consumptionInputMode,
+        consumptionKwh: state.consumptionKwh,
+        consumptionBillChf: state.consumptionBillChf,
+        consumptionBillPeriod: state.consumptionBillPeriod,
+        hasExistingPv: state.hasExistingPv,
+        tariff: state.tariff,
+        subsidyRate: state.subsidyRate,
+        contact: state.contact,
+        consent: state.consent,
+        submission: state.submission,
+        manualCheckRequested: state.manualCheckRequested,
+        partialCaptured: state.partialCaptured,
       }),
     }
   )
 )
-
-export const useCommercialCalculatorStep = () =>
-  useCommercialCalculatorStore((state) => state.currentStep)
-export const useCommercialCalculatorBuilding = () =>
-  useCommercialCalculatorStore((state) => state.building)
-export const useCommercialCalculatorSelectedSegments = () =>
-  useCommercialCalculatorStore((state) => state.getSelectedSegments())
-export const useCommercialCalculatorError = () =>
-  useCommercialCalculatorStore((state) => state.error)
-export const useCommercialCalculatorLoading = () =>
-  useCommercialCalculatorStore((state) => state.isLoading || state.isFetchingBuilding)

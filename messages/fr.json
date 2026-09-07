@@ -245,8 +245,8 @@
       "description": ""
     },
     "commercialCalculator": {
-      "title": "",
-      "description": ""
+      "title": "Calculateur solaire pour les entreprises | Free State AG",
+      "description": "Saisissez votre toit, voyez la puissance de l'installation et la production d'électricité à partir des données Sonnendach de la Confédération. Gratuit et sans engagement pour les entreprises, l'agriculture et le secteur public."
     },
     "commercialSolarSystems": {
       "title": "",
@@ -1409,7 +1409,7 @@
       "topButton": "Voir si SolarFree Multifamilial convient à votre toit",
       "heading": "Voir si SolarFree Multifamilial convient à votre toit",
       "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "solarAboBusiness": {
@@ -1535,7 +1535,7 @@
       "topButton": "Voir si Industrie / Commerce convient à votre bâtiment",
       "heading": "Voir si Industrie / Commerce convient à votre bâtiment",
       "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "solarAboAgro": {
@@ -1661,7 +1661,7 @@
       "topButton": "Voir si Fermes convient à votre ferme",
       "heading": "Voir si Fermes convient à votre ferme",
       "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "solarAboPublic": {
@@ -1783,7 +1783,7 @@
       "topButton": "Voir si Bâtiments publics convient à votre bâtiment",
       "heading": "Voir si Bâtiments publics convient à votre bâtiment",
       "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "contact": {
@@ -2335,631 +2335,6 @@
       "title": "Consultez votre boîte de réception",
       "body": "Un compte existe déjà pour cette adresse e-mail. Nous vous avons envoyé un lien pour ouvrir votre nouveau calcul en toute sécurité dans votre compte.",
       "hint": "Pas d'e-mail ? Vérifiez votre dossier spam."
-    }
-  },
-  "comingSoon": {
-    "eyebrow": "En développement",
-    "title": "Calculateur solaire",
-    "description": "Dimensionnez et chiffrez votre installation photovoltaïque en quelques minutes. Nous y apportons les dernières touches : contactez-nous dès maintenant pour une offre sur mesure.",
-    "contactCta": "Parler à notre équipe",
-    "exploreCta": "Découvrir nos solutions",
-    "back": "Retour"
-  },
-  "sonnendach": {
-    "error": "Erreur",
-    "steps": {
-      "step1": {
-        "title": "Adresse",
-        "description": "Sélectionner les pans de toit"
-      },
-      "step2": {
-        "title": "Surface utilisable",
-        "description": "Définir l'espace utilisable"
-      },
-      "step3": {
-        "title": "Installation solaire",
-        "description": "Choisissez vos panneaux"
-      },
-      "step4": {
-        "title": "Consommation",
-        "description": "Bien & usage"
-      },
-      "step5": {
-        "title": "Résultats",
-        "description": "Votre potentiel solaire"
-      },
-      "step6": {
-        "title": "Informations personnelles",
-        "description": "Vos coordonnées"
-      },
-      "step7": {
-        "title": "Revue du contrat",
-        "description": "Confirmez votre offre"
-      },
-      "step8": {
-        "title": "Signature",
-        "description": "Signer numériquement"
-      },
-      "step5Company": {
-        "title": "Entreprise & contact"
-      }
-    },
-    "navigation": {
-      "back": "Retour",
-      "next": "Suivant"
-    },
-    "step5Company": {
-      "title": "Données de l'entreprise et de la demande",
-      "subtitle": "Aidez-nous à élaborer une offre sur mesure.",
-      "companySection": "Informations sur l'entreprise",
-      "companyName": "Nom de l'entreprise",
-      "companyRole": "Votre fonction",
-      "companyRolePlaceholder": "p. ex. Propriétaire, Facility Manager, CEO",
-      "contactSection": "Personne de contact",
-      "firstName": "Prénom",
-      "lastName": "Nom",
-      "email": "E-mail",
-      "phone": "Téléphone",
-      "propertySection": "Détails du bien",
-      "street": "Rue et numéro",
-      "postalCode": "NPA",
-      "city": "Localité",
-      "canton": "Canton",
-      "isPropertyOwner": "Je suis propriétaire du bien",
-      "ownerName": "Nom du propriétaire",
-      "ownerEmail": "E-mail du propriétaire",
-      "ownerPhone": "Téléphone du propriétaire",
-      "privacyConsent": "J'accepte la <link>politique de confidentialité</link>.",
-      "marketingConsent": "Je souhaite recevoir occasionnellement des informations et des offres.",
-      "required": "Champ obligatoire",
-      "invalidEmail": "E-mail invalide",
-      "errorBannerTitle": "Veuillez vérifier les champs signalés.",
-      "sectionCompany": "Entreprise",
-      "legalForm": "Forme juridique",
-      "uidNumber": "Numéro IDE",
-      "uidHelp": "Facultatif, mais accélère la vérification.",
-      "industry": "Secteur d'activité",
-      "employees": "Collaborateurs",
-      "website": "Site web",
-      "numberOfSites": "Nombre de sites",
-      "sectionContact": "Personne de contact",
-      "role": "Rôle",
-      "decisionMaker": "Êtes-vous décisionnaire ?",
-      "decisionYes": "Oui",
-      "decisionNo": "Non, je transmets",
-      "preferredChannel": "Canal de contact préféré",
-      "preferredTime": "Horaire préféré",
-      "noPreference": "Aucune préférence",
-      "morning": "Matin",
-      "afternoon": "Après-midi",
-      "evening": "Soir",
-      "sectionAddress": "Adresse d'installation",
-      "propertyRelation": "Relation avec le bien",
-      "ownerHelp": "Si vous n'avez pas les coordonnées du propriétaire sous la main, nous pourrons clarifier cela plus tard.",
-      "sectionIntent": "Projet",
-      "timeline": "Calendrier",
-      "motivations": "Motivation (plusieurs choix possibles)",
-      "financing": "Préférence de financement (plusieurs choix possibles)",
-      "budget": "Fourchette de budget",
-      "existingPv": "Installation PV existante",
-      "comments": "Commentaire",
-      "select": "Sélectionner",
-      "invalidPhone": "Numéro de téléphone invalide",
-      "invalidPostalCode": "Le NPA doit comporter quatre chiffres",
-      "invalidUid": "Format : CHE-xxx.xxx.xxx",
-      "invalidUrl": "Doit commencer par http:// ou https://"
-    },
-    "step4Commercial": {
-      "title": "Bien & consommation",
-      "subtitle": "Parlez-nous de votre bâtiment et de votre consommation énergétique pour calculer l'installation solaire optimale.",
-      "buildingSection": "Bâtiment",
-      "buildingType": "Type de bâtiment",
-      "selectBuildingType": "Choisir un type",
-      "types": {
-        "office": "Bureau / Commercial",
-        "warehouse": "Entrepôt / Industriel",
-        "retail": "Commerce / Vente",
-        "agricultural": "Agricole"
-      },
-      "isNewBuilding": "Construction neuve ?",
-      "yes": "Oui",
-      "no": "Non",
-      "consumptionSection": "Consommation d'électricité",
-      "annualConsumption": "Consommation annuelle d'électricité",
-      "annualConsumptionPlaceholder": "p. ex. 50000",
-      "annualConsumptionHint": "Vous pouvez la trouver sur votre facture d'électricité ou auprès de votre fournisseur.",
-      "equipmentSection": "Gros consommateurs",
-      "heatPump": "Pompe à chaleur (chauffage)",
-      "hotWater": "Eau chaude électrique / chauffe-eau",
-      "evStations": "Bornes de recharge VE",
-      "none": "Aucun",
-      "tariffSection": "Tarifs de l'électricité",
-      "electricityTariff": "Tarif d'achat",
-      "feedInTariff": "Tarif d'injection",
-      "useAverage": "Utiliser la moyenne suisse",
-      "noSegments": "Aucun pan de toit sélectionné. Veuillez revenir en arrière et sélectionner des pans.",
-      "backToSelection": "Retour à la sélection de toit"
-    },
-    "step1": {
-      "title": "Trouvez votre bâtiment",
-      "subtitle": "Cliquez sur une zone colorée pour l'ajouter à l'installation solaire",
-      "placeholder": "Rechercher une adresse",
-      "clickRoofInfo": "Cliquez sur les pans de toit colorés pour les sélectionner. Chaque clic ajoute un pan à votre sélection. Cliquez à nouveau pour le retirer.",
-      "continue": "Définir la surface utilisable",
-      "loading": "Chargement des données du bâtiment...",
-      "legend": "Potentiel solaire",
-      "legendExcellent": "Excellent",
-      "legendVeryGood": "Très bon",
-      "legendGood": "Bon",
-      "legendMedium": "Moyen",
-      "legendLow": "Faible",
-      "legendSelected": "Sélectionné",
-      "selectedSummary": "Pans sélectionnés",
-      "selectedSegments": "Sélectionnés",
-      "selectedArea": "Surface sélectionnée",
-      "selectedPotential": "Potentiel sélectionné",
-      "estimatedPanels": "Panneaux estimés",
-      "clearSelection": "Effacer la sélection",
-      "clickToSelect": "Cliquez sur les pans pour les sélectionner ou les désélectionner",
-      "selectedRoofParts": "Pans de toit sélectionnés",
-      "roofPart": "Pan de toit"
-    },
-    "step2Usable": {
-      "noSegments": "Aucun pan de toit sélectionné. Veuillez revenir en arrière et sélectionner au moins un pan.",
-      "backToSelection": "Retour à la sélection",
-      "totalArea": "Surface totale",
-      "restricted": "Restreinte",
-      "usable": "Utilisable",
-      "roofProperties": "Caractéristiques du toit",
-      "roofType": "Type de toit",
-      "roofTypes": {
-        "flat": "Toit plat",
-        "lowSlope": "Faible pente (< 15°)",
-        "medium": "Pente moyenne (15-35°)",
-        "steep": "Forte pente (> 35°)"
-      },
-      "buildingFloors": "Étages du bâtiment",
-      "roofMaterial": "Matériau du toit",
-      "materials": {
-        "bitumen": "Bitume",
-        "gravel": "Gravier",
-        "greenRoof": "Toit végétalisé",
-        "granulate": "Granulat",
-        "tiles": "Tuiles",
-        "metal": "Tôle métallique",
-        "unknown": "Inconnu"
-      },
-      "restrictedAreas": "Zones restreintes",
-      "restrictedInfo": "Dessinez les zones où les panneaux ne peuvent pas être installés (lucarnes, cheminées, CVC, etc.)",
-      "addRestrictedArea": "Ajouter une zone restreinte",
-      "cancelDrawing": "Annuler",
-      "drawingMode": "Mode dessin actif",
-      "drawingInstructions": "Cliquez sur la carte pour dessiner les coins du polygone. Double-clic pour terminer.",
-      "drawingModeActive": "Mode dessin : cliquez pour ajouter des points",
-      "area": "Surface",
-      "clearAll": "Tout effacer",
-      "noRestrictedAreas": "Aucune zone restreinte définie",
-      "overlapWarning": "Zone restreinte dans un pan non sélectionné",
-      "overlapWarningDetail": "{count} zone(s) restreinte(s) se trouvent dans des pans que vous n'avez pas sélectionnés. Elles ne seront pas soustraites de votre surface utilisable.",
-      "nonSelectedSegmentsInfo": "Il existe {count} autre(s) pan(s) de toit sur ce bâtiment (affichés en gris). Les zones restreintes dessinées sur ces pans n'affecteront pas le calcul de votre surface utilisable.",
-      "loadingMap": "Chargement de la carte...",
-      "legend": "Légende",
-      "legendSegment": "Pan sélectionné",
-      "legendNonSelected": "Pan non sélectionné",
-      "legendRestricted": "Zone restreinte",
-      "back": "Retour",
-      "continue": "Configurer le système"
-    },
-    "step2": {
-      "buildingInfo": "Informations sur le bâtiment",
-      "totalArea": "Surface totale de toit",
-      "totalPotential": "Potentiel total",
-      "roofSegments": "Pans de toit",
-      "selectedSummary": "Pans sélectionnés",
-      "selectedSegments": "Sélectionnés",
-      "selectedArea": "Surface sélectionnée",
-      "selectedPotential": "Potentiel sélectionné",
-      "estimatedPanels": "Panneaux estimés",
-      "quickSelection": "Sélection rapide",
-      "selectAll": "Tout sélectionner",
-      "selectGoodAndAbove": "Sélectionner Bon & supérieur",
-      "selectVeryGoodAndAbove": "Sélectionner Très bon & supérieur",
-      "clearSelection": "Effacer la sélection",
-      "roofSegmentsList": "Pans de toit",
-      "legend": "Légende d'aptitude",
-      "back": "Retour",
-      "continue": "Voir les résultats",
-      "loadingBuilding": "Chargement des données du bâtiment...",
-      "mapHelp": {
-        "title": "Contrôles de la carte",
-        "click": "Cliquez sur un pan pour le sélectionner/désélectionner"
-      }
-    },
-    "step3System": {
-      "noSegments": "Aucun pan de toit sélectionné. Veuillez revenir en arrière et sélectionner au moins un pan.",
-      "backToSelection": "Retour à la sélection",
-      "systemSize": "Taille de l'installation",
-      "panels": "Panneaux",
-      "estCost": "Coût estimé",
-      "tabPanels": "Panneaux",
-      "tabInverter": "Onduleur",
-      "loadingPanels": "Chargement des panneaux...",
-      "loadingInverters": "Chargement des onduleurs...",
-      "loadingMap": "Chargement de la carte...",
-      "noPanels": "Aucun panneau disponible",
-      "noInverters": "Aucun onduleur disponible",
-      "retry": "Réessayer",
-      "efficiency": "efficacité",
-      "numberOfPanels": "Nombre de panneaux",
-      "maxFit": "Max possible",
-      "capacity": "Puissance",
-      "panelCost": "Coût des panneaux",
-      "panelArea": "Surface des panneaux",
-      "roofSegments": "Pans de toit",
-      "recommendedInverter": "Taille d'onduleur recommandée :",
-      "dcAcRatioInfo": "Ratio DC/AC 1,2-1,5:1 est optimal",
-      "dcAcRatio": "Ratio DC/AC",
-      "inverterCost": "Coût de l'onduleur",
-      "bestFit": "Meilleur choix",
-      "legend": "Légende",
-      "legendSegment": "Pan sélectionné",
-      "legendPanel": "Panneau solaire",
-      "back": "Retour",
-      "continue": "Voir les résultats"
-    },
-    "step4Consumption": {
-      "title": "Bien & consommation",
-      "subtitle": "Saisissez les détails de votre bien et votre consommation énergétique pour des calculs précis",
-      "noSegments": "Aucun pan de toit sélectionné. Veuillez revenir en arrière et sélectionner au moins un pan.",
-      "backToSelection": "Retour à la sélection",
-      "propertyInfo": {
-        "title": "Informations sur le bien",
-        "propertyType": "Type de bien",
-        "selectPropertyType": "Choisir le type de bien",
-        "types": {
-          "residential": "Résidentiel",
-          "commercial": "Commercial",
-          "industrial": "Industriel",
-          "agricultural": "Agricole"
-        },
-        "newBuilding": "Construction neuve",
-        "evCharging": "Borne de recharge VE",
-        "heatPumpHotWater": "Pompe à chaleur (eau chaude)",
-        "heatPumpHeating": "Pompe à chaleur (chauffage)",
-        "electricityProvider": "Fournisseur d'électricité",
-        "selectProvider": "Choisir le fournisseur",
-        "providers": {
-          "standard": "Standard / Inconnu",
-          "ewz": "EWZ (Zurich)",
-          "axpo": "Axpo",
-          "bkw": "BKW",
-          "other": "Autre"
-        }
-      },
-      "consumption": {
-        "title": "Consommation d'énergie",
-        "residents": "Nombre d'habitants",
-        "annualCost": "Coût annuel d'électricité",
-        "annualCostPlaceholder": "p. ex. 1500",
-        "annualKwh": "Consommation annuelle",
-        "annualKwhPlaceholder": "p. ex. 4500",
-        "kwhHelp": "Vous pouvez la trouver sur votre facture d'électricité. Moyenne d'un ménage suisse : 4 500 kWh/an"
-      },
-      "tariffs": {
-        "title": "Tarifs d'électricité",
-        "electricityTariff": "Tarif d'électricité",
-        "feedInTariff": "Tarif d'injection",
-        "auto": "Auto",
-        "manual": "Manuel",
-        "autoDescription": "Utilisation du tarif moyen suisse (25 ct/kWh)",
-        "feedInAutoDescription": "Utilisation du tarif d'injection moyen suisse (12 ct/kWh)"
-      },
-      "common": {
-        "yes": "Oui",
-        "no": "Non",
-        "none": "Aucun"
-      },
-      "reports": {
-        "energyFlow": {
-          "title": "Autoconsommation",
-          "production": "Production",
-          "productionTooltip": "Production annuelle d'électricité solaire de votre installation",
-          "consumption": "Consommation",
-          "consumptionTooltip": "Votre consommation totale annuelle d'électricité",
-          "selfConsumption": "Autoconsommation",
-          "selfConsumptionTooltip": "Électricité solaire utilisée directement chez vous",
-          "feedIn": "Injection",
-          "feedInTooltip": "Électricité solaire excédentaire revendue au réseau",
-          "independence": "Indépendance",
-          "independenceTooltip": "Part de votre consommation couverte par le solaire",
-          "gridPurchase": "Achat réseau",
-          "gridPurchaseTooltip": "Électricité encore nécessaire depuis le réseau",
-          "gridFeedIn": "Injection réseau",
-          "gridFeedInTooltip": "Surplus d'électricité injectée dans le réseau"
-        },
-        "keyFigures": {
-          "title": "Chiffres clés",
-          "investment": "Investissement",
-          "investmentTooltip": "Coût total de l'installation solaire",
-          "grossReturn": "Rendement brut (35 ans)",
-          "grossReturnTooltip": "Économies et revenus totaux sur 35 ans",
-          "subsidies": "Subventions / avantages fiscaux",
-          "subsidiesTooltip": "Subventions fédérales et déductions fiscales cantonales",
-          "annualReturn": "Rendement annuel",
-          "annualReturnTooltip": "Rendement annuel de votre investissement",
-          "netInvestment": "Investissement net",
-          "netInvestmentTooltip": "Investissement après subventions et avantages fiscaux",
-          "annualYield": "Rendement annuel",
-          "annualYieldTooltip": "Économies annuelles d'autoconsommation + revenus d'injection"
-        },
-        "roiChart": {
-          "title": "Retour sur investissement",
-          "years": "Années",
-          "year": "Année",
-          "cumulative": "Flux de trésorerie cumulé",
-          "payback": "Retour"
-        },
-        "monthlyChart": {
-          "title": "Analyse mensuelle",
-          "production": "Production",
-          "consumption": "Consommation",
-          "selfConsumption": "Autoconsommation"
-        }
-      },
-      "back": "Retour",
-      "continue": "Voir les résultats"
-    },
-    "step5": {
-      "noData": "Aucune donnée disponible",
-      "roofVisualization": "Votre installation solaire",
-      "roofArea": "Surface de toit",
-      "usableArea": "Surface utilisable",
-      "restricted": "restreinte",
-      "panels": "Panneaux",
-      "selectedRoofs": "Pans de toit sélectionnés",
-      "totalRoofArea": "Surface totale de toit",
-      "restrictedAreas": "Zones restreintes",
-      "averageTilt": "Inclinaison moyenne",
-      "dominantOrientation": "Orientation dominante",
-      "systemSize": "Taille de l'installation",
-      "panelType": "Panneau",
-      "inverter": "Onduleur",
-      "financialEstimate": "Estimation financière",
-      "estimatedCost": "Coût estimé",
-      "federalSubsidy": "Subvention fédérale (est.)",
-      "netCost": "Coût net",
-      "yearlySavings": "Économies annuelles",
-      "paybackPeriod": "Période de retour",
-      "disclaimer": "Ces estimations reposent sur des valeurs moyennes suisses. Les coûts et économies réels peuvent varier selon votre situation, le choix des équipements et les tarifs d'électricité.",
-      "back": "Retour",
-      "startOver": "Recommencer",
-      "requestQuote": "Demander un devis",
-      "downloadReport": "Télécharger le rapport",
-      "downloadingReport": "Génération...",
-      "submitting": "Envoi en cours…"
-    },
-    "step6PersonalInfo": {
-      "title": "Informations personnelles",
-      "subtitle": "Veuillez saisir vos coordonnées pour recevoir votre offre personnalisée.",
-      "personalInfo": {
-        "title": "Coordonnées",
-        "firstName": "Prénom",
-        "firstNamePlaceholder": "Jean",
-        "lastName": "Nom",
-        "lastNamePlaceholder": "Dupont",
-        "email": "E-mail",
-        "emailPlaceholder": "jean.dupont@email.ch",
-        "phone": "Téléphone",
-        "phonePlaceholder": "+41 79 123 45 67",
-        "phoneHint": "Pour la vérification SMS lors de la signature du contrat",
-        "password": "Mot de passe",
-        "passwordPlaceholder": "Au moins 8 caractères",
-        "passwordHint": "Pour accéder à votre espace client"
-      },
-      "installationAddress": {
-        "title": "Adresse d'installation",
-        "street": "Rue",
-        "streetPlaceholder": "Rue exemple",
-        "streetNumber": "N°",
-        "streetNumberPlaceholder": "1a",
-        "postalCode": "Code postal",
-        "postalCodePlaceholder": "8000",
-        "city": "Ville",
-        "cityPlaceholder": "Zurich",
-        "canton": "Canton",
-        "selectCanton": "Choisir un canton"
-      },
-      "billingAddress": {
-        "title": "Adresse de facturation",
-        "sameAsInstallation": "Identique à l'adresse d'installation"
-      },
-      "propertyOwnership": {
-        "title": "Propriété du bien",
-        "isOwner": "Je suis propriétaire du bien",
-        "ownerInfo": "Informations sur le propriétaire",
-        "ownerName": "Nom du propriétaire",
-        "ownerNamePlaceholder": "Nom du propriétaire",
-        "ownerEmail": "E-mail du propriétaire",
-        "ownerEmailPlaceholder": "proprietaire@email.ch",
-        "ownerPhone": "Téléphone du propriétaire",
-        "ownerPhonePlaceholder": "+41 79 123 45 67"
-      },
-      "consents": {
-        "title": "Consentements",
-        "terms": "J'accepte les conditions générales",
-        "privacy": "J'accepte la politique de confidentialité",
-        "marketing": "Je souhaite recevoir newsletters et offres (optionnel)"
-      },
-      "validation": {
-        "required": "Ce champ est requis",
-        "invalidEmail": "Adresse e-mail invalide",
-        "invalidPhone": "Numéro de téléphone invalide (format suisse)",
-        "passwordTooShort": "Le mot de passe doit comporter au moins 8 caractères"
-      }
-    },
-    "step7ContractReview": {
-      "title": "Revue du contrat",
-      "subtitle": "Vérifiez les détails de votre installation solaire et sélectionnez votre forfait.",
-      "systemSummary": {
-        "title": "Résumé du système",
-        "systemSize": "Taille de l'installation",
-        "panelCount": "Nombre de panneaux",
-        "annualProduction": "Production annuelle",
-        "selfConsumption": "Autoconsommation"
-      },
-      "packageSelection": {
-        "title": "Choix du forfait",
-        "subtitle": "Choisissez le forfait le mieux adapté à vos besoins",
-        "basic": {
-          "name": "Basic",
-          "description": "Forfait d'entrée",
-          "feature1": "Panneaux & onduleur standard",
-          "feature2": "Garantie 10 ans",
-          "feature3": "Monitoring en ligne"
-        },
-        "comfort": {
-          "name": "Confort",
-          "description": "Le choix le plus populaire",
-          "feature1": "Panneaux & onduleur premium",
-          "feature2": "Garantie 15 ans",
-          "feature3": "Monitoring avancé",
-          "feature4": "Entretien annuel"
-        },
-        "premium": {
-          "name": "Premium",
-          "description": "Tout compris",
-          "feature1": "Panneaux & onduleur haut de gamme",
-          "feature2": "Garantie 35 ans",
-          "feature3": "Intégration smart home",
-          "feature4": "Support prioritaire"
-        },
-        "recommended": "Recommandé"
-      },
-      "priceSummary": {
-        "title": "Résumé du prix",
-        "equipment": "Équipement & installation",
-        "subtotal": "Sous-total",
-        "federalSubsidy": "Subvention fédérale",
-        "total": "Total",
-        "vatIncluded": "TVA comprise"
-      },
-      "importantNotice": {
-        "title": "Avis important",
-        "content": "Il s'agit d'une offre préliminaire basée sur vos informations. Les coûts finaux seront confirmés après une inspection sur place par notre équipe. Les prix et subventions indiqués sont des estimations et peuvent varier."
-      },
-      "acknowledgments": {
-        "title": "Confirmations",
-        "preliminary": "Je comprends qu'il s'agit d'une offre préliminaire qui sera finalisée après l'inspection sur place.",
-        "termsAccepted": "J'ai lu et j'accepte les conditions générales.",
-        "dataProcessing": "Je consens au traitement de mes données conformément à la politique de confidentialité."
-      },
-      "errors": {
-        "selectPackage": "Veuillez sélectionner un forfait",
-        "acceptAcknowledgments": "Veuillez confirmer toutes les validations",
-        "contractCreation": "Erreur lors de la création du contrat"
-      },
-      "creatingContract": "Création du contrat..."
-    },
-    "step8Signature": {
-      "title": "Signature numérique",
-      "subtitle": "Signez votre contrat en toute sécurité avec vérification par SMS",
-      "summary": {
-        "title": "Résumé du contrat",
-        "document": "Document",
-        "preliminaryAgreement": "Accord préliminaire",
-        "contractNumber": "Numéro de contrat",
-        "signer": "Signataire",
-        "email": "E-mail"
-      },
-      "initiating": {
-        "title": "Envoi du code de vérification...",
-        "message": "Veuillez patienter, nous vous envoyons le code."
-      },
-      "otp": {
-        "title": "Vérification SMS",
-        "sentTo": "Nous avons envoyé un code à 6 chiffres à :",
-        "verify": "Vérifier & signer",
-        "verifying": "Vérification...",
-        "didntReceive": "Code non reçu ?",
-        "resend": "Renvoyer le code"
-      },
-      "failed": {
-        "title": "Échec de la vérification",
-        "message": "Une erreur s'est produite lors de l'envoi du code.",
-        "retry": "Réessayer",
-        "retrying": "Nouvelle tentative..."
-      },
-      "security": {
-        "title": "Signature sécurisée",
-        "message": "Votre signature est sécurisée par Swisscom Trust Services et conforme aux lois suisses sur la signature numérique."
-      },
-      "downloadContract": "Télécharger le contrat"
-    },
-    "confirmation": {
-      "title": "Merci !",
-      "subtitle": "Votre contrat a été signé avec succès.",
-      "contractSummary": {
-        "title": "Résumé du contrat",
-        "contractNumber": "Numéro de contrat",
-        "signedBy": "Signé par",
-        "systemSize": "Taille de l'installation",
-        "panels": "Nombre de panneaux"
-      },
-      "download": {
-        "title": "Contrat signé",
-        "description": "Téléchargez votre contrat signé au format PDF.",
-        "button": "Télécharger le PDF"
-      },
-      "nextSteps": {
-        "title": "Prochaines étapes",
-        "step1": {
-          "title": "Confirmation par e-mail",
-          "description": "Vous recevrez sous peu une confirmation par e-mail avec tous les détails."
-        },
-        "step2": {
-          "title": "Inspection sur place",
-          "description": "Notre équipe vous contactera sous 2-3 jours ouvrables pour planifier une visite."
-        },
-        "step3": {
-          "title": "Offre finale",
-          "description": "Après l'inspection, vous recevrez une offre ferme."
-        },
-        "step4": {
-          "title": "Installation",
-          "description": "Après votre accord, l'installation commencera sous 4-6 semaines."
-        }
-      },
-      "contact": {
-        "title": "Des questions ?",
-        "description": "Notre équipe est là pour vous aider."
-      },
-      "emailNote": {
-        "title": "Confirmation par e-mail",
-        "message": "Une confirmation a été envoyée à {email}."
-      },
-      "actions": {
-        "newCalculation": "Nouveau calcul",
-        "backToHome": "Retour à l'accueil"
-      }
-    },
-    "step7Confirmation": {
-      "noSubmission": "Aucune demande trouvée.",
-      "heading": "Merci, {firstName} !",
-      "subheading": "Votre demande a été transmise avec succès.",
-      "reference": "Référence",
-      "copy": "Copier",
-      "copied": "Copié",
-      "timelineTitle": "Voici la suite",
-      "step1": "E-mail de confirmation envoyé à {email}.",
-      "step2": "Notre équipe examine votre demande (1 jour ouvré).",
-      "step3": "Prise de contact personnelle.",
-      "step4": "Offre sur mesure sous 5 à 7 jours ouvrés.",
-      "uploadTitle": "Transmettre des documents (facultatif)",
-      "uploadSubtitle": "Accélère l'analyse et l'élaboration de l'offre.",
-      "done": "Terminé",
-      "startOver": "Nouveau calcul",
-      "bookCall": "Prendre rendez-vous",
-      "questions": "Des questions ? Appelez-nous :"
     }
   },
   "common": {
@@ -4204,6 +3579,200 @@
         "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer.",
         "rateLimited": "Nous n'avons pas pu enregistrer vos données à l'instant. Laissez-nous votre adresse e-mail et nous vous recontacterons avec votre évaluation."
       }
+    }
+  },
+  "commercialCalculator": {
+    "progress": {
+      "step1": "Adresse",
+      "step2": "Toiture",
+      "step3": "Entreprise",
+      "step4": "Contact"
+    },
+    "screen1": {
+      "badge": "Calculateur solaire pour les entreprises",
+      "headline": "Ce que produit le toit de votre entreprise",
+      "helper": "Saisissez l'adresse de votre bâtiment. Nous lisons les données officielles de toiture de la Confédération et calculons votre installation.",
+      "fieldLabel": "Adresse avec numéro de maison",
+      "placeholder": "Industriestrasse 12, 8207 Schaffhausen",
+      "button": "Analyser le toit",
+      "reassurance": "Gratuit et sans engagement. Nous vérifions votre toit avec les données de Sonnendach.ch.",
+      "errors": {
+        "empty": "Veuillez saisir l'adresse de votre bâtiment.",
+        "notChosen": "Veuillez sélectionner l'adresse dans la liste de suggestions.",
+        "noStreetNumber": "Veuillez sélectionner une adresse avec un numéro de maison. Sans numéro de maison, nous ne trouvons pas votre bâtiment.",
+        "notFound": "Nous ne trouvons pas cette adresse. Vérifiez l'orthographe ou <link>laissez-nous vérifier le toit à la main</link>.",
+        "outsideCh": "Nous ne lisons actuellement que les adresses suisses automatiquement. Si votre bâtiment se trouve à l'étranger, <link>envoyez-nous votre adresse</link> et nous la vérifierons à la main.",
+        "placesSlow": "La recherche d'adresse répond lentement en ce moment. Un instant s'il vous plaît."
+      },
+      "backToAddress": "Retour à la saisie de l'adresse"
+    },
+    "screen2": {
+      "headline": "Voici votre toit",
+      "helper": "Nous avons déjà marqué les surfaces appropriées. Touchez une surface pour l'ajouter ou la retirer.",
+      "areaReadout": "Vous avez sélectionné {n} m² de surface de toit.",
+      "button": "Continuer",
+      "otherAddress": "Saisir une autre adresse",
+      "loading": "Nous chargeons les données des toits de la Confédération pour votre adresse. Cela prend un instant.",
+      "loadingSlow": "Les données des toits prennent plus de temps que d'habitude. Nous continuons d'essayer.",
+      "segmentListTitle": "Vos surfaces de toit",
+      "segmentListHelper": "Sélectionnez les surfaces que nous devons inclure dans le calcul.",
+      "segmentRow": "Surface {n} de {m} m², aptitude {eignung}",
+      "mapAriaLabel": "Carte de votre toit. Vous pouvez aussi sélectionner les surfaces dans la liste ci-dessous.",
+      "gering": "faible",
+      "mittel": "moyenne",
+      "gut": "bonne",
+      "sehrGut": "très bonne",
+      "hervorragend": "excellente",
+      "errors": {
+        "noneSelected": "Vous n'avez sélectionné aucune surface. Touchez votre toit, ou laissez-nous vérifier le toit à la main.",
+        "noneSelectedAction": "Faire vérifier à la main",
+        "noSegments": "Aucune donnée de toit n'est disponible pour ce bâtiment.",
+        "requestFailed": "Nous n'arrivons pas à joindre les données des toits de la Confédération en ce moment.",
+        "noBuilding": "Nous n'avons pas trouvé de bâtiment à cette adresse.",
+        "tapNoData": "Aucune donnée de toit n'est disponible à cet endroit. Touchez une surface marquée.",
+        "tapSwitchBuilding": "Voulez-vous passer à ce bâtiment ? Votre sélection actuelle sera perdue.",
+        "tapSwitchConfirm": "Changer de bâtiment",
+        "tapSwitchCancel": "Annuler"
+      },
+      "zoomIn": "Agrandir la carte",
+      "zoomOut": "Réduire la carte"
+    },
+    "manualCheck": {
+      "noRoofHeadline": "Nous vérifions le toit de votre entreprise à la main",
+      "noRoofBody1": "Aucune donnée automatique de toit n'est disponible pour votre adresse. Cela arrive pour les nouvelles constructions et dans certaines communes et ne dit rien sur l'aptitude de votre toit.",
+      "noRoofBody2": "Laissez-nous votre adresse e-mail. Nous vérifions votre toit manuellement et vous recontactons avec une évaluation.",
+      "placesHeadline": "Nous vérifions votre adresse à la main",
+      "placesBody1": "La recherche d'adresse ne répond pas en ce moment. Cela vient de notre service cartographique et non de votre adresse.",
+      "placesBody2": "Envoyez-nous votre adresse et votre adresse e-mail. Nous vérifions votre toit à la main et vous recontactons avec une évaluation.",
+      "retryBlockedBody": "Nous n'avons pas pu enregistrer vos données à l'instant. Laissez-nous votre adresse e-mail et nous vous recontacterons avec votre résultat.",
+      "addressLabel": "Adresse avec numéro de maison",
+      "emailLabel": "Adresse e-mail",
+      "companyLabel": "Entreprise",
+      "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
+      "button": "Demander une évaluation",
+      "reassurance": "Nous vous contacterons dès que nous aurons vérifié votre toit.",
+      "success": "Merci. Nous avons bien reçu votre demande et vérifions votre toit.",
+      "errors": {
+        "addressRequired": "Veuillez saisir l'adresse de votre bâtiment.",
+        "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+        "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
+        "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer."
+      },
+      "addressHeadline": "Nous vérifions votre adresse manuellement",
+      "addressBody1": "Nous n'avons pas pu attribuer votre adresse automatiquement. Cela arrive avec les nouvelles rues, les adresses particulières et les bâtiments hors de Suisse.",
+      "addressBody2": "Envoyez-nous votre adresse et votre adresse e-mail. Nous vérifions votre toit manuellement et revenons vers vous avec une évaluation."
+    },
+    "screen3": {
+      "headline": "À quoi utilisez-vous le bâtiment ?",
+      "helper": "Cela nous permet d'estimer la part d'électricité solaire que vous consommez vous-même. Vous pouvez aussi passer ces indications.",
+      "uses": {
+        "office_trade": "Artisanat et bureau",
+        "industry": "Industrie et production",
+        "agriculture": "Agriculture",
+        "retail_gastro": "Commerce de détail et restauration",
+        "public": "Secteur public",
+        "multi_family": "Immeuble d'habitation",
+        "other": "Autre"
+      },
+      "consumptionLabel": "Votre consommation d'électricité par an",
+      "consumptionHelper": "Vous la trouvez sur votre facture d'électricité. Sans indication, nous calculons avec une entreprise typique de votre secteur.",
+      "modeKwh": "en kWh",
+      "modeChf": "en CHF",
+      "kwhLabel": "Consommation annuelle",
+      "kwhUnit": "kWh par an",
+      "chfLabel": "Coûts d'électricité",
+      "periodMonth": "par mois",
+      "periodQuarter": "par trimestre",
+      "periodYear": "par an",
+      "echoFromChf": "Cela correspond à environ {kwh} kWh par an.",
+      "echoFromKwh": "Cela correspond à environ CHF {chf} par an.",
+      "echoNoTariff": "Dès que nous aurons chargé le tarif d'électricité de votre commune, nous convertirons le montant en kWh.",
+      "kwhOutOfRange": "Pour une entreprise, nous attendons 2'000 à 5'000'000 kWh par an. Veuillez vérifier le chiffre. En attendant, nous calculons sans votre indication.",
+      "chfOutOfRange": "Ce montant ne correspond pas à une entreprise sur la période choisie. Veuillez vérifier le montant et la période. En attendant, nous calculons sans votre indication.",
+      "tariffBasis": "La base est le tarif commercial de votre commune {municipality} pour {year}.",
+      "tariffBasisFallback": "Aucun tarif communal pour les entreprises n'est disponible pour votre code postal. Nous calculons avec un tarif de référence suisse.",
+      "existingPv": "Une installation solaire se trouve déjà sur le toit.",
+      "button": "Afficher le résultat",
+      "back": "Retour"
+    },
+    "screen4": {
+      "headline": "Votre évaluation est prête",
+      "helper": "Il ne manque plus que votre entreprise et vos coordonnées. Vous verrez ensuite votre résultat complet.",
+      "teaserTitle": "Votre toit en chiffres",
+      "teaserArea": "surface de toit utilisable",
+      "teaserKwp": "puissance de l'installation",
+      "teaserProduction": "production d'électricité par an",
+      "teaserSource": "Estimation établie à partir des données Sonnendach de la Confédération pour votre adresse.",
+      "teaserNext": "Vos économies et la contribution de la Confédération figurent dans le résultat complet.",
+      "email": "Adresse e-mail",
+      "company": "Entreprise",
+      "name": "Votre nom",
+      "phone": "Numéro de téléphone",
+      "phoneHelper": "Notre équipe vous appelle pour parcourir le résultat avec vous.",
+      "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
+      "button": "Afficher le résultat",
+      "reassurance": "Gratuit et sans engagement. Prestataire de Schaffhouse.",
+      "addressFallbackHelper": "Veuillez compléter ces deux informations. Nous n'avons pas pu les lire depuis votre adresse.",
+      "postalCode": "Code postal",
+      "city": "Localité",
+      "back": "Retour",
+      "errors": {
+        "required": "Veuillez remplir ce champ.",
+        "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+        "phoneInvalid": "Veuillez saisir un numéro de téléphone valide.",
+        "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
+        "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer.",
+        "serverFailed": "Nous n'avons pas pu enregistrer vos données à l'instant. Veuillez réessayer dans une minute."
+      }
+    },
+    "result": {
+      "headline": "Ce que peut faire le toit de votre entreprise",
+      "headlineLow": "Votre toit convient à une petite installation",
+      "headlineExistingPv": "Voici le potentiel supplémentaire de votre toit",
+      "subline": "Calculé avec les données officielles de toiture de la Confédération pour {address}.",
+      "lowBody": "Votre surface de toit est limitée. La rétribution unique de la Confédération est versée également pour les petites installations. Notre équipe vérifie avec vous si une installation en vaut la peine pour vous.",
+      "area": "Surface de toit utilisable",
+      "kwp": "Puissance de l'installation",
+      "production": "Production d'électricité par an",
+      "co2": "CO₂ évité par an",
+      "moneyA": "Valeur de votre autoconsommation par an",
+      "moneyAFootnote": "C'est la quantité d'électricité que vous n'achetez plus au réseau, calculée avec le tarif de {municipality}.",
+      "moneyAFootnoteFallback": "C'est la quantité d'électricité que vous n'achetez plus au réseau, calculée avec un tarif de référence suisse.",
+      "moneyB": "Économies avec SolarFree par an, jusqu'à",
+      "moneyBFootnote": "Avec SolarFree, nous construisons et exploitons l'installation. Vous n'investissez rien et achetez l'électricité solaire jusqu'à 30 pour cent en dessous de votre tarif de réseau.",
+      "moneyUnavailable": "Dès que nous aurons chargé le tarif d'électricité de votre commune, nous vous montrerons la valeur de votre autoconsommation.",
+      "subsidy": "Rétribution unique de la Confédération",
+      "subsidyAboveTiers": "Pour les installations de plus de {kwp} kWp, nous calculons la subvention de la Confédération individuellement.",
+      "subsidyExistingPv": "La rétribution unique de la Confédération s'applique aux extensions sous réserve. Nous clarifions cela lors de l'entretien.",
+      "subsidyUnavailable": "Nous calculons la rétribution unique de la Confédération lors de l'entretien.",
+      "assumptionKnown": "Nous partons du principe que vous consommez vous-même {pct} pour cent de l'électricité solaire, calculé avec {kwh} kWh de consommation annuelle.",
+      "assumptionUnknown": "Nous partons du principe que vous consommez vous-même environ {pct} pour cent de l'électricité solaire, comme une entreprise typique de votre secteur. Avec votre consommation réelle, le résultat devient plus précis.",
+      "tariffLocal": "Tarif d'électricité {rp} Rp/kWh, catégorie {cat}, {municipality} {year}.",
+      "tariffFallback": "Calculé avec un tarif de référence suisse de {rp} Rp/kWh. Nous tenons compte de votre tarif local lors de l'entretien.",
+      "estimateNote": "Tous les chiffres sont des estimations issues des données Sonnendach de la Confédération. Nous établissons l'offre ferme après une visite sur place.",
+      "roofImageAlt": "Vue aérienne de votre toit avec les surfaces sélectionnées",
+      "reference": "Votre numéro de référence est {reference}.",
+      "copyReference": "Copier la référence",
+      "copied": "Copié",
+      "nextStep": "Notre équipe vous appelle dans les prochains jours ouvrables et parcourt le résultat avec vous.",
+      "uploadTitle": "Téléversez votre facture d'électricité si vous le souhaitez",
+      "uploadHelper": "Avec votre facture d'électricité, nous calculons avec votre consommation et votre tarif réels. PDF, JPG ou PNG jusqu'à 10 MB.",
+      "uploadButton": "Choisir un fichier",
+      "uploadUploading": "Téléversement en cours, {pct} pour cent.",
+      "uploadDone": "Merci, nous avons bien reçu votre facture d'électricité.",
+      "uploadError": "Le téléversement n'a pas fonctionné. Veuillez réessayer.",
+      "uploadTooLarge": "Le fichier dépasse 10 MB. Veuillez choisir un fichier plus petit.",
+      "uploadUnsupported": "Veuillez téléverser un fichier PDF, JPG ou PNG.",
+      "phoneLine": "Vous préférez en parler directement ? Appelez-nous au {phone}.",
+      "restart": "Calculer un autre bâtiment"
+    },
+    "confirmation": {
+      "loading": "Nous chargeons votre résultat.",
+      "expiredHeadline": "Ce lien a expiré",
+      "expiredBody": "Les liens vers un résultat sont valables 30 jours. Recalculez votre toit, ou appelez-nous au {phone}.",
+      "expiredCta": "Vers le calculateur solaire",
+      "notFoundHeadline": "Nous ne trouvons pas ce résultat",
+      "notFoundBody": "Vérifiez le lien de votre e-mail, ou recalculez votre toit."
     }
   },
   "solarAboCalculator": {

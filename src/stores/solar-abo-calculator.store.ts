@@ -8,6 +8,13 @@ import {
   totalSteps as flowTotalSteps,
 } from '@/lib/calculator-flow'
 import {
+  FLAT_TILT_THRESHOLD_DEG,
+  annualProductionKwh,
+  estimatedPanelCount,
+  grossRoofAreaM2,
+  usableRoofAreaM2,
+} from '@/lib/roof-estimate'
+import {
   SCREEN4_REFERENCE_PANEL_M2,
   SCREEN4_REFERENCE_PANEL_W,
 } from '@/lib/calculator-reference-panel'
@@ -118,22 +125,6 @@ export const DEFAULT_PPA_DISCOUNT_PCT = 30
 export const ABO_UPLIFT_FACTOR = 1.35
 export const ABO_TERM_MONTHS = 300
 
-const FLAT_TILT_THRESHOLD_DEG = 10
-
-const COVERAGE_FLAT = 0.45
-
-const COVERAGE_PITCHED_SOUTH = 0.80
-const COVERAGE_PITCHED_SIDE = 0.75
-const COVERAGE_PITCHED_NORTH = 0.50
-
-function segmentCoverageFraction(tiltDeg: number, azimuthDeg: number): number {
-  if (tiltDeg <= FLAT_TILT_THRESHOLD_DEG) return COVERAGE_FLAT
-  const normalized = ((azimuthDeg % 360) + 360) % 360
-  const deviationFromSouth = normalized > 180 ? 360 - normalized : normalized
-  if (deviationFromSouth <= 45) return COVERAGE_PITCHED_SOUTH
-  if (deviationFromSouth <= 135) return COVERAGE_PITCHED_SIDE
-  return COVERAGE_PITCHED_NORTH
-}
 
 // BFE/Nipkow study "Typischer Haushalt-Stromverbrauch" (2021), single-family house values
 // Excludes electric heating, heat pump, and electric hot water
@@ -617,21 +608,9 @@ export const useSolarAboCalculatorStore = create<
         return building.roofSegments.filter(s => selectedSegmentIds.includes(s.id))
       },
 
-      getSelectedArea: () => {
-        const { building, selectedSegmentIds } = get()
-        if (!building?.roofSegments) return 0
-        return building.roofSegments
-          .filter(s => selectedSegmentIds.includes(s.id))
-          .reduce((sum, s) => sum + s.area, 0)
-      },
+      getSelectedArea: () => grossRoofAreaM2(get().getSelectedSegments()),
 
-      getUsableRoofAreaM2: () => {
-        const segments = get().getSelectedSegments()
-        return segments.reduce(
-          (sum, s) => sum + s.area * segmentCoverageFraction(s.tilt, s.azimuth),
-          0,
-        )
-      },
+      getUsableRoofAreaM2: () => usableRoofAreaM2(get().getSelectedSegments()),
 
       getEstimatedConsumption: () => {
         const override = get().consumptionOverrideKwh
@@ -641,23 +620,10 @@ export const useSolarAboCalculatorStore = create<
         return applianceEstimateConsumptionKwh(householdSize, devices)
       },
 
-      getAnnualProduction: () => {
-        const segments = get().getSelectedSegments()
-        return segments.reduce((total, seg) => {
-          const fraction = segmentCoverageFraction(seg.tilt, seg.azimuth)
-          return total + seg.electricityYield * fraction
-        }, 0)
-      },
+      getAnnualProduction: () => annualProductionKwh(get().getSelectedSegments()),
 
-      getEstimatedPanelCount: () => {
-        const segments = get().getSelectedSegments()
-        const panelArea = get().selectedPanelAreaM2
-        if (segments.length === 0 || !panelArea) return 0
-        return segments.reduce((total, seg) => {
-          const fraction = segmentCoverageFraction(seg.tilt, seg.azimuth)
-          return total + Math.floor((seg.area * fraction) / panelArea)
-        }, 0)
-      },
+      getEstimatedPanelCount: () =>
+        estimatedPanelCount(get().getSelectedSegments(), get().selectedPanelAreaM2 ?? 0),
 
       getSystemSizeKwp: () => {
         const panelCount = get().getEstimatedPanelCount()

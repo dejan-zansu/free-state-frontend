@@ -21,7 +21,10 @@ export default function ConsultationDock() {
   const rootRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
   const user = useUser()
-  const inCalculatorFlow = pathname?.endsWith('/calculator') ?? false
+  const inCalculatorFlow =
+    /\/(calculator|gewerbe\/rechner|commercial\/calculateur|commerciale\/calcolatore)$/.test(
+      pathname ?? ''
+    )
   const onProjectWorkspace = pathname?.includes('/dashboard/project/') ?? false
   const onRoofOnePager = pathname?.includes('/dach/') ?? false
   const [embedInView, setEmbedInView] = useState(false)

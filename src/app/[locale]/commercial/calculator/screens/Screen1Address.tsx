@@ -1,0 +1,368 @@
+'use client'
+
+import { Loader } from '@googlemaps/js-api-loader'
+import { Search } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { trackFunnelEventOnce } from '@/lib/analytics/funnel-events'
+import { commercialFlowMeta } from '@/lib/commercial-calculator-flow'
+import { cn } from '@/lib/utils'
+import { useCommercialCalculatorStore } from '@/stores/commercial-calculator.store'
+
+import ManualCheckCapture from './ManualCheckCapture'
+
+type Screen1Error =
+  | 'empty'
+  | 'notChosen'
+  | 'noStreetNumber'
+  | 'notFound'
+  | 'outsideCh'
+
+const PLACES_SLOW_MS = 3000
+const PLACES_UNAVAILABLE_MS = 8000
+
+const TYPED_MIN_CHARS = 3
+
+const ERROR_CODE: Record<Screen1Error, number> = {
+  empty: 1,
+  notChosen: 2,
+  noStreetNumber: 3,
+  notFound: 4,
+  outsideCh: 5,
+}
+
+const INPUT_ID = 'commercial-calculator-address'
+const ERROR_ID = 'commercial-calculator-address-error'
+const STATUS_ID = 'commercial-calculator-address-status'
+
+export default function Screen1Address() {
+  const t = useTranslations('commercialCalculator.screen1')
+  const tErrors = useTranslations('commercialCalculator.screen1.errors')
+
+  const address = useCommercialCalculatorStore(state => state.address)
+  const lat = useCommercialCalculatorStore(state => state.lat)
+  const lng = useCommercialCalculatorStore(state => state.lng)
+  const nextStep = useCommercialCalculatorStore(state => state.nextStep)
+
+  const [placesReady, setPlacesReady] = useState(false)
+  const [placesSlow, setPlacesSlow] = useState(false)
+  const [placesUnavailable, setPlacesUnavailable] = useState(false)
+  const [showManualCheck, setShowManualCheck] = useState(false)
+  const [error, setError] = useState<Screen1Error | null>(null)
+  const [typedAddress, setTypedAddress] = useState(address)
+
+  const mountedAtRef = useRef<number>(Date.now())
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const autocompleteClassRef = useRef<
+    typeof google.maps.places.Autocomplete | null
+  >(null)
+  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
+  const lastFailedTextRef = useRef<string | null>(null)
+
+  const emitAddressError = useCallback((reason: Screen1Error) => {
+    trackFunnelEventOnce('calculator_address_error', {
+      step: ERROR_CODE[reason],
+      meta: {
+        reason,
+        typedLength: inputRef.current?.value.trim().length ?? 0,
+        ...commercialFlowMeta,
+      },
+    })
+  }, [])
+
+  const emitAddressTyped = useCallback((value: string) => {
+    if (value.trim().length < TYPED_MIN_CHARS) return
+    trackFunnelEventOnce('calculator_address_typed', {
+      meta: { ...commercialFlowMeta },
+    })
+  }, [])
+
+  const handlePlace = useCallback(
+    (place: google.maps.places.PlaceResult | undefined) => {
+      if (!place?.geometry?.location || !place.formatted_address) {
+        lastFailedTextRef.current = inputRef.current?.value.trim() ?? null
+        setError('notFound')
+        emitAddressError('notFound')
+        return
+      }
+
+      const components = place.address_components ?? []
+      const component = (type: string) =>
+        components.find(entry => entry.types?.includes(type))
+
+      const countryCode = component('country')?.short_name ?? ''
+      if (countryCode && countryCode !== 'CH') {
+        setError('outsideCh')
+        emitAddressError('outsideCh')
+        return
+      }
+
+      const streetNumber = component('street_number')?.long_name ?? ''
+      if (!streetNumber) {
+        setError('noStreetNumber')
+        emitAddressError('noStreetNumber')
+        return
+      }
+
+      const street = component('route')?.long_name ?? ''
+      const postalCode = component('postal_code')?.long_name ?? ''
+      const city =
+        component('locality')?.long_name ||
+        component('postal_town')?.long_name ||
+        component('administrative_area_level_2')?.long_name ||
+        ''
+      const cantonComponent = component('administrative_area_level_1')
+      const canton =
+        cantonComponent?.short_name || cantonComponent?.long_name || ''
+
+      trackFunnelEventOnce('address_resolved', {
+        meta: {
+          hasPostalCode: !!postalCode,
+          hasCity: !!city,
+          hasStreet: !!street,
+          hasStreetNumber: !!streetNumber,
+          hasCanton: !!canton,
+          ...commercialFlowMeta,
+        },
+      })
+
+      setError(null)
+      useCommercialCalculatorStore.getState().setResolvedAddress({
+        formatted: place.formatted_address,
+        street,
+        streetNumber,
+        postalCode,
+        city,
+        canton,
+        lat: place.geometry.location.lat(),
+        lng: place.geometry.location.lng(),
+      })
+      nextStep()
+    },
+    [nextStep, emitAddressError]
+  )
+
+  const handlePlaceRef = useRef(handlePlace)
+  handlePlaceRef.current = handlePlace
+
+  useEffect(() => {
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    if (!apiKey) {
+      setPlacesUnavailable(true)
+      return
+    }
+
+    let cancelled = false
+    const slowTimer = window.setTimeout(() => {
+      if (!cancelled) setPlacesSlow(true)
+    }, PLACES_SLOW_MS)
+    const failTimer = window.setTimeout(() => {
+      if (!cancelled) setPlacesUnavailable(true)
+    }, PLACES_UNAVAILABLE_MS)
+
+    const loader = new Loader({
+      apiKey,
+      version: 'weekly',
+      libraries: ['places'],
+    })
+    loader
+      .importLibrary('places')
+      .then(({ Autocomplete }) => {
+        if (cancelled) return
+        window.clearTimeout(slowTimer)
+        window.clearTimeout(failTimer)
+        autocompleteClassRef.current = Autocomplete
+        setPlacesSlow(false)
+        setPlacesReady(true)
+        trackFunnelEventOnce('calculator_ready', {
+          meta: {
+            msToPlacesReady: Date.now() - mountedAtRef.current,
+            ...commercialFlowMeta,
+          },
+        })
+      })
+      .catch(() => {
+        if (cancelled) return
+        window.clearTimeout(slowTimer)
+        window.clearTimeout(failTimer)
+        setPlacesUnavailable(true)
+      })
+
+    return () => {
+      cancelled = true
+      window.clearTimeout(slowTimer)
+      window.clearTimeout(failTimer)
+    }
+  }, [])
+
+  useEffect(() => {
+    const AutocompleteClass = autocompleteClassRef.current
+    const el = inputRef.current
+    if (!placesReady || !AutocompleteClass || !el || autocompleteRef.current) {
+      return
+    }
+    const autocomplete = new AutocompleteClass(el, {
+      componentRestrictions: { country: 'ch' },
+      fields: ['formatted_address', 'geometry', 'address_components'],
+      types: ['address'],
+    })
+    autocomplete.addListener('place_changed', () => {
+      handlePlaceRef.current(autocomplete.getPlace())
+    })
+    autocompleteRef.current = autocomplete
+  }, [placesReady])
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const value = inputRef.current?.value.trim() ?? ''
+    if (!value) {
+      setError('empty')
+      emitAddressError('empty')
+      return
+    }
+    if (lat !== null && lng !== null && value === address.trim()) {
+      setError(null)
+      nextStep()
+      return
+    }
+    if (value === lastFailedTextRef.current) {
+      setError('notFound')
+      emitAddressError('notFound')
+      return
+    }
+    lastFailedTextRef.current = value
+    setError('notChosen')
+    emitAddressError('notChosen')
+  }
+
+  const openManualCheck = useCallback(() => {
+    setShowManualCheck(true)
+  }, [])
+
+  const emitStepOneInteraction = useCallback(() => {
+    trackFunnelEventOnce('calculator_step_viewed', {
+      step: 1,
+      meta: { ...commercialFlowMeta },
+    })
+  }, [])
+
+  if (placesUnavailable || showManualCheck) {
+    return (
+      <div className="flex flex-col items-center px-4 py-12 sm:py-16">
+        <ManualCheckCapture
+          source={placesUnavailable ? 'places_unavailable' : 'address_not_found'}
+          prefill={{ address: typedAddress || address }}
+        />
+        {!placesUnavailable && (
+          <button
+            type="button"
+            onClick={() => setShowManualCheck(false)}
+            className="mt-6 min-h-[44px] text-base text-[#062E25] underline underline-offset-2"
+          >
+            {t('backToAddress')}
+          </button>
+        )}
+      </div>
+    )
+  }
+
+  const manualCheckLink = (chunks: React.ReactNode) => (
+    <button
+      type="button"
+      onClick={openManualCheck}
+      className="underline underline-offset-2 text-red-700 hover:text-red-800"
+    >
+      {chunks}
+    </button>
+  )
+
+  return (
+    <div className="flex flex-col items-center px-4 py-12 sm:py-16">
+      <div className="w-full max-w-2xl text-center">
+        <span className="inline-block rounded-full bg-[#B7FE1A] px-4 py-1.5 text-base font-medium text-[#062E25]">
+          {t('badge')}
+        </span>
+        <h1 className="mt-4 text-2xl sm:text-[34px] font-medium text-[#062E25]">
+          {t('headline')}
+        </h1>
+        <p className="mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight">
+          {t('helper')}
+        </p>
+      </div>
+
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        className="mt-10 w-full max-w-md"
+      >
+        <label
+          htmlFor={INPUT_ID}
+          className="text-base text-[#062E25] tracking-tight"
+        >
+          {t('fieldLabel')}
+        </label>
+        <div className="relative mt-1.5">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[#062E25]/30 pointer-events-none" />
+          <Input
+            id={INPUT_ID}
+            ref={inputRef}
+            type="text"
+            defaultValue={address}
+            onFocus={emitStepOneInteraction}
+            onChange={event => {
+              emitStepOneInteraction()
+              emitAddressTyped(event.target.value)
+              setTypedAddress(event.target.value)
+            }}
+            placeholder={t('placeholder')}
+            autoComplete="street-address"
+            aria-invalid={!!error}
+            aria-describedby={
+              error
+                ? ERROR_ID
+                : placesSlow && !placesReady
+                  ? STATUS_ID
+                  : undefined
+            }
+            className={cn(
+              'h-14 text-base md:text-base pl-12 pr-4 rounded-xl border-[#062E25]/20 bg-white shadow-sm focus-visible:border-[#062E25]/40',
+              error && 'border-red-500 focus-visible:border-red-500'
+            )}
+          />
+        </div>
+
+        {placesSlow && !placesReady && (
+          <p
+            id={STATUS_ID}
+            role="status"
+            className="mt-2 text-base text-[#062E25]"
+          >
+            {tErrors('placesSlow')}
+          </p>
+        )}
+
+        {error && (
+          <p id={ERROR_ID} role="alert" className="mt-2 text-base text-red-600">
+            {error === 'notFound' || error === 'outsideCh'
+              ? tErrors.rich(error, { link: manualCheckLink })
+              : tErrors(error)}
+          </p>
+        )}
+
+        <Button
+          type="submit"
+          className="mt-6 h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+        >
+          {t('button')}
+        </Button>
+
+        <p className="mt-4 text-center text-base text-[#062E25]/80 tracking-tight">
+          {t('reassurance')}
+        </p>
+      </form>
+    </div>
+  )
+}

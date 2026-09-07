@@ -33,6 +33,12 @@ export const routing = defineRouting({
       fr: '/commercial/calculateur',
       it: '/commerciale/calcolatore',
     },
+    '/commercial/confirmation': {
+      en: '/commercial/confirmation',
+      de: '/gewerbe/bestaetigung',
+      fr: '/commercial/confirmation',
+      it: '/commerciale/conferma',
+    },
     '/how-it-works': {
       en: '/how-it-works',
       de: '/so-funktionierts',

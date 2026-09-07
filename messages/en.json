@@ -245,8 +245,8 @@
       "description": ""
     },
     "commercialCalculator": {
-      "title": "",
-      "description": ""
+      "title": "Solar calculator for businesses | Free State AG",
+      "description": "Enter your roof, see the system size and electricity production from the federal Sonnendach data. Free and non-binding for businesses, agriculture and the public sector."
     },
     "commercialSolarSystems": {
       "title": "",
@@ -1409,7 +1409,7 @@
       "topButton": "See if SolarFree Multi-Family works for your roof",
       "heading": "See if SolarFree Multi-Family works for your roof",
       "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "solarAboBusiness": {
@@ -1535,7 +1535,7 @@
       "topButton": "See if Industry / Commercial works for your building",
       "heading": "See if Industry / Commercial works for your building",
       "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "solarAboAgro": {
@@ -1661,7 +1661,7 @@
       "topButton": "See if Farmhouses works for your farm",
       "heading": "See if Farmhouses works for your farm",
       "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "solarAboPublic": {
@@ -1783,7 +1783,7 @@
       "topButton": "See if Public Buildings works for your building",
       "heading": "See if Public Buildings works for your building",
       "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/calculator"
+      "ctaLink": "/commercial/calculator"
     }
   },
   "contact": {
@@ -2335,631 +2335,6 @@
       "title": "Check your inbox",
       "body": "An account already exists for this email address. We have sent you a link to open your new calculation securely in your account.",
       "hint": "No email? Check your spam folder."
-    }
-  },
-  "comingSoon": {
-    "eyebrow": "In development",
-    "title": "Solar calculator",
-    "description": "Size and quote your rooftop PV system in minutes. We're putting the finishing touches on it. Talk to our team now and we'll tailor an offer for you.",
-    "contactCta": "Talk to our team",
-    "exploreCta": "Discover our solutions",
-    "back": "Back"
-  },
-  "sonnendach": {
-    "error": "Error",
-    "steps": {
-      "step1": {
-        "title": "Address",
-        "description": "Select roof segments"
-      },
-      "step2": {
-        "title": "Usable Area",
-        "description": "Define usable space"
-      },
-      "step3": {
-        "title": "Solar System",
-        "description": "Choose your panels"
-      },
-      "step4": {
-        "title": "Consumption",
-        "description": "Property & usage"
-      },
-      "step5": {
-        "title": "Results",
-        "description": "Your solar potential"
-      },
-      "step6": {
-        "title": "Personal Info",
-        "description": "Your contact details"
-      },
-      "step7": {
-        "title": "Contract Review",
-        "description": "Confirm your offer"
-      },
-      "step8": {
-        "title": "Signature",
-        "description": "Sign digitally"
-      },
-      "step5Company": {
-        "title": "Company & Contact"
-      }
-    },
-    "navigation": {
-      "back": "Back",
-      "next": "Next"
-    },
-    "step5Company": {
-      "title": "Firmen- & Anfragedaten",
-      "subtitle": "Helfen Sie uns, ein passgenaues Angebot zu erstellen.",
-      "companySection": "Company Information",
-      "companyName": "Firmenname",
-      "companyRole": "Your role",
-      "companyRolePlaceholder": "e.g. Owner, Facility Manager, CEO",
-      "contactSection": "Contact Person",
-      "firstName": "Vorname",
-      "lastName": "Nachname",
-      "email": "E-Mail",
-      "phone": "Telefon",
-      "propertySection": "Property Details",
-      "street": "Strasse und Hausnummer",
-      "postalCode": "PLZ",
-      "city": "Ort",
-      "canton": "Kanton",
-      "isPropertyOwner": "I am the property owner",
-      "ownerName": "Eigentümer-Name",
-      "ownerEmail": "Eigentümer-E-Mail",
-      "ownerPhone": "Eigentümer-Telefon",
-      "privacyConsent": "I accept the <link>privacy policy</link>.",
-      "marketingConsent": "Ich möchte gelegentlich Informationen und Angebote erhalten.",
-      "required": "Pflichtfeld",
-      "invalidEmail": "Ungültige E-Mail",
-      "errorBannerTitle": "Bitte überprüfen Sie die markierten Felder.",
-      "sectionCompany": "Firma",
-      "legalForm": "Rechtsform",
-      "uidNumber": "UID-Nummer",
-      "uidHelp": "Optional, beschleunigt die Prüfung.",
-      "industry": "Branche",
-      "employees": "Mitarbeitende",
-      "website": "Website",
-      "numberOfSites": "Anzahl Standorte",
-      "sectionContact": "Kontaktperson",
-      "role": "Rolle",
-      "decisionMaker": "Sind Sie entscheidungsbefugt?",
-      "decisionYes": "Ja",
-      "decisionNo": "Nein, ich leite weiter",
-      "preferredChannel": "Bevorzugter Kontaktkanal",
-      "preferredTime": "Bevorzugte Zeit",
-      "noPreference": "Keine Präferenz",
-      "morning": "Vormittag",
-      "afternoon": "Nachmittag",
-      "evening": "Abend",
-      "sectionAddress": "Installationsadresse",
-      "propertyRelation": "Beziehung zur Liegenschaft",
-      "ownerHelp": "Falls Sie die Eigentümer-Kontaktdaten jetzt nicht zur Hand haben, können wir dies später klären.",
-      "sectionIntent": "Projekt",
-      "timeline": "Zeitrahmen",
-      "motivations": "Motivation (mehrere möglich)",
-      "financing": "Finanzierungspräferenz (mehrere möglich)",
-      "budget": "Budget-Rahmen",
-      "existingPv": "Bestehende PV-Anlage",
-      "comments": "Kommentar",
-      "select": "Auswählen",
-      "invalidPhone": "Ungültige Telefonnummer",
-      "invalidPostalCode": "PLZ muss vier Ziffern haben",
-      "invalidUid": "Format: CHE-xxx.xxx.xxx",
-      "invalidUrl": "Muss mit http:// oder https:// beginnen"
-    },
-    "step4Commercial": {
-      "title": "Property & Consumption",
-      "subtitle": "Tell us about your building and energy usage to calculate the optimal solar system.",
-      "buildingSection": "Building",
-      "buildingType": "Building type",
-      "selectBuildingType": "Select type",
-      "types": {
-        "office": "Office / Commercial",
-        "warehouse": "Warehouse / Industrial",
-        "retail": "Retail / Shopping",
-        "agricultural": "Agricultural"
-      },
-      "isNewBuilding": "New construction?",
-      "yes": "Yes",
-      "no": "No",
-      "consumptionSection": "Electricity Consumption",
-      "annualConsumption": "Annual electricity consumption",
-      "annualConsumptionPlaceholder": "e.g. 50000",
-      "annualConsumptionHint": "You can find this on your electricity bill or ask your provider.",
-      "equipmentSection": "Large Consumers",
-      "heatPump": "Heat pump (heating)",
-      "hotWater": "Electric hot water / boiler",
-      "evStations": "EV charging stations",
-      "none": "None",
-      "tariffSection": "Electricity Tariffs",
-      "electricityTariff": "Purchase tariff",
-      "feedInTariff": "Feed-in tariff",
-      "useAverage": "Use Swiss average",
-      "noSegments": "No roof segments selected. Please go back and select segments.",
-      "backToSelection": "Back to roof selection"
-    },
-    "step1": {
-      "title": "Find Your Building",
-      "subtitle": "Click on a colored area to add it to the solar system",
-      "placeholder": "Search for an address",
-      "clickRoofInfo": "Click on colored roof segments on the map to select them. Each click adds a segment to your selection. Click again on a selected segment to remove it.",
-      "continue": "Define Usable Area",
-      "loading": "Loading building data...",
-      "legend": "Solar Potential",
-      "legendExcellent": "Excellent",
-      "legendVeryGood": "Very Good",
-      "legendGood": "Good",
-      "legendMedium": "Medium",
-      "legendLow": "Low",
-      "legendSelected": "Selected",
-      "selectedSummary": "Selected Segments",
-      "selectedSegments": "Selected",
-      "selectedArea": "Selected Area",
-      "selectedPotential": "Selected Potential",
-      "estimatedPanels": "Estimated Panels",
-      "clearSelection": "Clear Selection",
-      "clickToSelect": "Click on roof segments to select or deselect them",
-      "selectedRoofParts": "Selected Roof Parts",
-      "roofPart": "Roof Part"
-    },
-    "step2Usable": {
-      "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
-      "backToSelection": "Back to Selection",
-      "totalArea": "Total Area",
-      "restricted": "Restricted",
-      "usable": "Usable",
-      "roofProperties": "Roof Properties",
-      "roofType": "Roof Type",
-      "roofTypes": {
-        "flat": "Flat Roof",
-        "lowSlope": "Low Slope (< 15°)",
-        "medium": "Medium Pitch (15-35°)",
-        "steep": "Steep (> 35°)"
-      },
-      "buildingFloors": "Building Floors",
-      "roofMaterial": "Roof Material",
-      "materials": {
-        "bitumen": "Bitumen",
-        "gravel": "Gravel",
-        "greenRoof": "Green Roof",
-        "granulate": "Granulate",
-        "tiles": "Tiles",
-        "metal": "Metal Sheet",
-        "unknown": "Unknown"
-      },
-      "restrictedAreas": "Restricted Areas",
-      "restrictedInfo": "Draw areas where panels cannot be installed (skylights, chimneys, HVAC, etc.)",
-      "addRestrictedArea": "Add Restricted Area",
-      "cancelDrawing": "Cancel",
-      "drawingMode": "Drawing Mode Active",
-      "drawingInstructions": "Click on the map to draw polygon corners. Double-click to finish.",
-      "drawingModeActive": "Drawing Mode - Click to add points",
-      "area": "Area",
-      "clearAll": "Clear All",
-      "noRestrictedAreas": "No restricted areas defined",
-      "overlapWarning": "Restricted area in non-selected segment",
-      "overlapWarningDetail": "{count} restricted area(s) are inside roof segments that you didn't select. These will not be subtracted from your usable area.",
-      "nonSelectedSegmentsInfo": "There are {count} other roof segment(s) on this building (shown in gray). Restricted areas drawn over these segments won't affect your usable area calculation.",
-      "loadingMap": "Loading map...",
-      "legend": "Legend",
-      "legendSegment": "Selected Segment",
-      "legendNonSelected": "Non-Selected Segment",
-      "legendRestricted": "Restricted Area",
-      "back": "Back",
-      "continue": "Configure System"
-    },
-    "step2": {
-      "buildingInfo": "Building Information",
-      "totalArea": "Total Roof Area",
-      "totalPotential": "Total Potential",
-      "roofSegments": "Roof Segments",
-      "selectedSummary": "Selected Segments",
-      "selectedSegments": "Selected",
-      "selectedArea": "Selected Area",
-      "selectedPotential": "Selected Potential",
-      "estimatedPanels": "Estimated Panels",
-      "quickSelection": "Quick Selection",
-      "selectAll": "Select All Segments",
-      "selectGoodAndAbove": "Select Good & Above",
-      "selectVeryGoodAndAbove": "Select Very Good & Above",
-      "clearSelection": "Clear Selection",
-      "roofSegmentsList": "Roof Segments",
-      "legend": "Suitability Legend",
-      "back": "Back",
-      "continue": "View Results",
-      "loadingBuilding": "Loading building data...",
-      "mapHelp": {
-        "title": "Map Controls",
-        "click": "Click a roof segment to select/deselect"
-      }
-    },
-    "step3System": {
-      "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
-      "backToSelection": "Back to Selection",
-      "systemSize": "System Size",
-      "panels": "Panels",
-      "estCost": "Est. Cost",
-      "tabPanels": "Panels",
-      "tabInverter": "Inverter",
-      "loadingPanels": "Loading panels...",
-      "loadingInverters": "Loading inverters...",
-      "loadingMap": "Loading map...",
-      "noPanels": "No panels available",
-      "noInverters": "No inverters available",
-      "retry": "Retry",
-      "efficiency": "efficiency",
-      "numberOfPanels": "Number of Panels",
-      "maxFit": "Max fit",
-      "capacity": "Capacity",
-      "panelCost": "Panel Cost",
-      "panelArea": "Panel Area",
-      "roofSegments": "Roof Segments",
-      "recommendedInverter": "Recommended inverter size:",
-      "dcAcRatioInfo": "DC/AC ratio 1.2-1.5:1 is optimal",
-      "dcAcRatio": "DC/AC Ratio",
-      "inverterCost": "Inverter Cost",
-      "bestFit": "Best fit",
-      "legend": "Legend",
-      "legendSegment": "Selected Segment",
-      "legendPanel": "Solar Panel",
-      "back": "Back",
-      "continue": "View Results"
-    },
-    "step4Consumption": {
-      "title": "Property & Consumption",
-      "subtitle": "Enter your property details and energy consumption for accurate calculations",
-      "noSegments": "No roof segments selected. Please go back and select at least one roof segment.",
-      "backToSelection": "Back to Selection",
-      "propertyInfo": {
-        "title": "Property Information",
-        "propertyType": "Property Type",
-        "selectPropertyType": "Select property type",
-        "types": {
-          "residential": "Residential",
-          "commercial": "Commercial",
-          "industrial": "Industrial",
-          "agricultural": "Agricultural"
-        },
-        "newBuilding": "New Building",
-        "evCharging": "EV Charging Station",
-        "heatPumpHotWater": "Heat Pump (Hot Water)",
-        "heatPumpHeating": "Heat Pump (Heating)",
-        "electricityProvider": "Electricity Provider",
-        "selectProvider": "Select provider",
-        "providers": {
-          "standard": "Standard / Unknown",
-          "ewz": "EWZ (Zurich)",
-          "axpo": "Axpo",
-          "bkw": "BKW",
-          "other": "Other"
-        }
-      },
-      "consumption": {
-        "title": "Energy Consumption",
-        "residents": "Number of Residents",
-        "annualCost": "Annual Electricity Cost",
-        "annualCostPlaceholder": "e.g. 1500",
-        "annualKwh": "Annual Consumption",
-        "annualKwhPlaceholder": "e.g. 4500",
-        "kwhHelp": "You can find this on your electricity bill. Average Swiss household: 4,500 kWh/year"
-      },
-      "tariffs": {
-        "title": "Electricity Tariffs",
-        "electricityTariff": "Electricity Tariff",
-        "feedInTariff": "Feed-in Tariff",
-        "auto": "Auto",
-        "manual": "Manual",
-        "autoDescription": "Using Swiss average rate (25 Rp/kWh)",
-        "feedInAutoDescription": "Using Swiss average feed-in rate (12 Rp/kWh)"
-      },
-      "common": {
-        "yes": "Yes",
-        "no": "No",
-        "none": "None"
-      },
-      "reports": {
-        "energyFlow": {
-          "title": "Self-Consumption",
-          "production": "Production",
-          "productionTooltip": "Annual solar electricity production from your system",
-          "consumption": "Consumption",
-          "consumptionTooltip": "Your total annual electricity consumption",
-          "selfConsumption": "Self-Consumption",
-          "selfConsumptionTooltip": "Solar electricity used directly in your home",
-          "feedIn": "Feed-in",
-          "feedInTooltip": "Excess solar electricity sold to the grid",
-          "independence": "Independence",
-          "independenceTooltip": "Percentage of your consumption covered by solar",
-          "gridPurchase": "Grid Purchase",
-          "gridPurchaseTooltip": "Electricity still needed from the grid",
-          "gridFeedIn": "Grid Feed-in",
-          "gridFeedInTooltip": "Surplus electricity exported to the grid"
-        },
-        "keyFigures": {
-          "title": "Key Figures",
-          "investment": "Investment",
-          "investmentTooltip": "Total cost of the solar system installation",
-          "grossReturn": "Gross Return (35 yrs)",
-          "grossReturnTooltip": "Total savings and income over 35 years",
-          "subsidies": "Subsidies / Tax Benefits",
-          "subsidiesTooltip": "Federal subsidies and cantonal tax deductions",
-          "annualReturn": "Annual Return",
-          "annualReturnTooltip": "Yearly return on your investment",
-          "netInvestment": "Net Investment",
-          "netInvestmentTooltip": "Investment after subsidies and tax benefits",
-          "annualYield": "Annual Yield",
-          "annualYieldTooltip": "Yearly savings from self-consumption + feed-in revenue"
-        },
-        "roiChart": {
-          "title": "Return on Investment",
-          "years": "Years",
-          "year": "Year",
-          "cumulative": "Cumulative Cash Flow",
-          "payback": "Payback"
-        },
-        "monthlyChart": {
-          "title": "Monthly Analysis",
-          "production": "Production",
-          "consumption": "Consumption",
-          "selfConsumption": "Self-Consumption"
-        }
-      },
-      "back": "Back",
-      "continue": "View Results"
-    },
-    "step5": {
-      "noData": "No data available",
-      "roofVisualization": "Your Solar Installation",
-      "roofArea": "Roof Area",
-      "usableArea": "Usable Area",
-      "restricted": "restricted",
-      "panels": "Panels",
-      "selectedRoofs": "Selected Roof Segments",
-      "totalRoofArea": "Total Roof Area",
-      "restrictedAreas": "Restricted Areas",
-      "averageTilt": "Average Tilt",
-      "dominantOrientation": "Dominant Orientation",
-      "systemSize": "System Size",
-      "panelType": "Panel",
-      "inverter": "Inverter",
-      "financialEstimate": "Financial Estimate",
-      "estimatedCost": "Estimated Cost",
-      "federalSubsidy": "Federal Subsidy (est.)",
-      "netCost": "Net Cost",
-      "yearlySavings": "Yearly Savings",
-      "paybackPeriod": "Payback Period",
-      "disclaimer": "These are estimates based on average Swiss values. Actual costs and savings may vary based on your specific situation, equipment choices, and electricity rates.",
-      "back": "Back",
-      "startOver": "Start Over",
-      "requestQuote": "Request Quote",
-      "downloadReport": "Download Report",
-      "downloadingReport": "Generating...",
-      "submitting": "Wird gesendet…"
-    },
-    "step6PersonalInfo": {
-      "title": "Personal Information",
-      "subtitle": "Please enter your contact details to receive your personalized offer.",
-      "personalInfo": {
-        "title": "Contact Details",
-        "firstName": "First Name",
-        "firstNamePlaceholder": "John",
-        "lastName": "Last Name",
-        "lastNamePlaceholder": "Doe",
-        "email": "Email",
-        "emailPlaceholder": "john.doe@email.ch",
-        "phone": "Phone",
-        "phonePlaceholder": "+41 79 123 45 67",
-        "phoneHint": "For SMS verification when signing the contract",
-        "password": "Password",
-        "passwordPlaceholder": "At least 8 characters",
-        "passwordHint": "For access to your customer portal"
-      },
-      "installationAddress": {
-        "title": "Installation Address",
-        "street": "Street",
-        "streetPlaceholder": "Example Street",
-        "streetNumber": "No.",
-        "streetNumberPlaceholder": "1a",
-        "postalCode": "Postal Code",
-        "postalCodePlaceholder": "8000",
-        "city": "City",
-        "cityPlaceholder": "Zurich",
-        "canton": "Canton",
-        "selectCanton": "Select canton"
-      },
-      "billingAddress": {
-        "title": "Billing Address",
-        "sameAsInstallation": "Same as installation address"
-      },
-      "propertyOwnership": {
-        "title": "Property Ownership",
-        "isOwner": "I am the owner of the property",
-        "ownerInfo": "Owner Information",
-        "ownerName": "Owner Name",
-        "ownerNamePlaceholder": "Name of the owner",
-        "ownerEmail": "Owner Email",
-        "ownerEmailPlaceholder": "owner@email.ch",
-        "ownerPhone": "Owner Phone",
-        "ownerPhonePlaceholder": "+41 79 123 45 67"
-      },
-      "consents": {
-        "title": "Consents",
-        "terms": "I accept the Terms and Conditions",
-        "privacy": "I accept the Privacy Policy",
-        "marketing": "I would like to receive newsletters and offers (optional)"
-      },
-      "validation": {
-        "required": "This field is required",
-        "invalidEmail": "Invalid email address",
-        "invalidPhone": "Invalid phone number (Swiss format)",
-        "passwordTooShort": "Password must be at least 8 characters"
-      }
-    },
-    "step7ContractReview": {
-      "title": "Contract Review",
-      "subtitle": "Review the details of your solar system and select your package.",
-      "systemSummary": {
-        "title": "System Summary",
-        "systemSize": "System Size",
-        "panelCount": "Panel Count",
-        "annualProduction": "Annual Production",
-        "selfConsumption": "Self-Consumption"
-      },
-      "packageSelection": {
-        "title": "Package Selection",
-        "subtitle": "Choose the package that best fits your needs",
-        "basic": {
-          "name": "Basic",
-          "description": "Entry-level package",
-          "feature1": "Standard panels & inverter",
-          "feature2": "10-year warranty",
-          "feature3": "Online monitoring"
-        },
-        "comfort": {
-          "name": "Comfort",
-          "description": "Most popular choice",
-          "feature1": "Premium panels & inverter",
-          "feature2": "15-year warranty",
-          "feature3": "Advanced monitoring",
-          "feature4": "Annual maintenance"
-        },
-        "premium": {
-          "name": "Premium",
-          "description": "All-inclusive",
-          "feature1": "Top-tier panels & inverter",
-          "feature2": "35-year warranty",
-          "feature3": "Smart home integration",
-          "feature4": "Priority support"
-        },
-        "recommended": "Recommended"
-      },
-      "priceSummary": {
-        "title": "Price Summary",
-        "equipment": "Equipment & Installation",
-        "subtotal": "Subtotal",
-        "federalSubsidy": "Federal Subsidy",
-        "total": "Total",
-        "vatIncluded": "VAT included"
-      },
-      "importantNotice": {
-        "title": "Important Notice",
-        "content": "This is a preliminary offer based on your inputs. Final costs will be confirmed after an on-site inspection by our team. The prices and subsidies shown are estimates and may vary."
-      },
-      "acknowledgments": {
-        "title": "Acknowledgments",
-        "preliminary": "I understand this is a preliminary offer that will be finalized after the on-site inspection.",
-        "termsAccepted": "I have read and accept the Terms and Conditions.",
-        "dataProcessing": "I consent to the processing of my data according to the Privacy Policy."
-      },
-      "errors": {
-        "selectPackage": "Please select a package",
-        "acceptAcknowledgments": "Please confirm all acknowledgments",
-        "contractCreation": "Error creating contract"
-      },
-      "creatingContract": "Creating contract..."
-    },
-    "step8Signature": {
-      "title": "Digital Signature",
-      "subtitle": "Sign your contract securely with SMS verification",
-      "summary": {
-        "title": "Contract Summary",
-        "document": "Document",
-        "preliminaryAgreement": "Preliminary Agreement",
-        "contractNumber": "Contract Number",
-        "signer": "Signer",
-        "email": "Email"
-      },
-      "initiating": {
-        "title": "Sending verification code...",
-        "message": "Please wait while we send you the code."
-      },
-      "otp": {
-        "title": "SMS Verification",
-        "sentTo": "We have sent a 6-digit code to:",
-        "verify": "Verify & Sign",
-        "verifying": "Verifying...",
-        "didntReceive": "Didn't receive the code?",
-        "resend": "Resend code"
-      },
-      "failed": {
-        "title": "Verification Failed",
-        "message": "An error occurred while sending the code.",
-        "retry": "Try Again",
-        "retrying": "Retrying..."
-      },
-      "security": {
-        "title": "Secure Signature",
-        "message": "Your signature is secured by Swisscom Trust Services and complies with Swiss digital signature laws."
-      },
-      "downloadContract": "Download Contract"
-    },
-    "confirmation": {
-      "title": "Thank You!",
-      "subtitle": "Your contract has been successfully signed.",
-      "contractSummary": {
-        "title": "Contract Summary",
-        "contractNumber": "Contract Number",
-        "signedBy": "Signed By",
-        "systemSize": "System Size",
-        "panels": "Panel Count"
-      },
-      "download": {
-        "title": "Signed Contract",
-        "description": "Download your signed contract as PDF.",
-        "button": "Download PDF"
-      },
-      "nextSteps": {
-        "title": "Next Steps",
-        "step1": {
-          "title": "Email Confirmation",
-          "description": "You will receive an email confirmation with all details shortly."
-        },
-        "step2": {
-          "title": "On-Site Inspection",
-          "description": "Our team will contact you within 2-3 business days to schedule a site visit."
-        },
-        "step3": {
-          "title": "Final Offer",
-          "description": "After the inspection, you will receive a binding offer."
-        },
-        "step4": {
-          "title": "Installation",
-          "description": "Upon your approval, installation will begin within 4-6 weeks."
-        }
-      },
-      "contact": {
-        "title": "Questions?",
-        "description": "Our team is here to help."
-      },
-      "emailNote": {
-        "title": "Email Confirmation",
-        "message": "A confirmation has been sent to {email}."
-      },
-      "actions": {
-        "newCalculation": "New Calculation",
-        "backToHome": "Back to Home"
-      }
-    },
-    "step7Confirmation": {
-      "noSubmission": "Keine Anfrage gefunden.",
-      "heading": "Vielen Dank, {firstName}!",
-      "subheading": "Ihre Anfrage wurde erfolgreich übermittelt.",
-      "reference": "Referenz",
-      "copy": "Kopieren",
-      "copied": "Kopiert",
-      "timelineTitle": "So geht es weiter",
-      "step1": "Bestätigungs-E-Mail an {email} versendet.",
-      "step2": "Unser Team prüft Ihre Anfrage (1 Arbeitstag).",
-      "step3": "Persönliche Kontaktaufnahme.",
-      "step4": "Massgeschneidertes Angebot innert 5–7 Arbeitstagen.",
-      "uploadTitle": "Unterlagen nachreichen (optional)",
-      "uploadSubtitle": "Beschleunigt die Analyse und Angebotserstellung.",
-      "done": "Erledigt",
-      "startOver": "Neue Berechnung",
-      "bookCall": "Termin vereinbaren",
-      "questions": "Fragen? Rufen Sie uns an:"
     }
   },
   "common": {
@@ -4204,6 +3579,200 @@
         "submitFailed": "That did not work. Please try again.",
         "rateLimited": "We could not save your details just now. Leave us your email address and we will get back to you with your analysis."
       }
+    }
+  },
+  "commercialCalculator": {
+    "progress": {
+      "step1": "Address",
+      "step2": "Roof",
+      "step3": "Business",
+      "step4": "Contact"
+    },
+    "screen1": {
+      "badge": "Solar calculator for businesses",
+      "headline": "What your company roof produces",
+      "helper": "Enter the address of your building. We read the official federal roof data and calculate your system.",
+      "fieldLabel": "Address with house number",
+      "placeholder": "Industriestrasse 12, 8207 Schaffhausen",
+      "button": "Analyze roof",
+      "reassurance": "Free and non-binding. We check your roof with the data from Sonnendach.ch.",
+      "errors": {
+        "empty": "Please enter the address of your building.",
+        "notChosen": "Please select the address from the suggestion list.",
+        "noStreetNumber": "Please select an address with a house number. Without a house number we cannot find your building.",
+        "notFound": "We cannot find this address. Check the spelling, or <link>let us check the roof by hand</link>.",
+        "outsideCh": "We currently only read Swiss addresses automatically. If your building is outside Switzerland, <link>send us your address</link> and we will check it by hand.",
+        "placesSlow": "The address search is responding slowly right now. One moment please."
+      },
+      "backToAddress": "Back to the address field"
+    },
+    "screen2": {
+      "headline": "This is your roof",
+      "helper": "We have already marked the suitable areas. Tap an area to add or remove it.",
+      "areaReadout": "You have selected {n} m² of roof area.",
+      "button": "Continue",
+      "otherAddress": "Enter a different address",
+      "loading": "We are loading the federal roof data for your address. This takes a moment.",
+      "loadingSlow": "The roof data is taking longer than usual. We keep trying.",
+      "segmentListTitle": "Your roof areas",
+      "segmentListHelper": "Select the areas we should include in the calculation.",
+      "segmentRow": "Area {n} with {m} m², suitability {eignung}",
+      "mapAriaLabel": "Map of your roof. You can also select the areas in the list below.",
+      "gering": "low",
+      "mittel": "medium",
+      "gut": "good",
+      "sehrGut": "very good",
+      "hervorragend": "excellent",
+      "errors": {
+        "noneSelected": "You have not selected any area. Tap your roof, or let us check the roof by hand.",
+        "noneSelectedAction": "Have it checked by hand",
+        "noSegments": "No roof data is available for this building.",
+        "requestFailed": "We cannot reach the federal roof data right now.",
+        "noBuilding": "We could not find a building at this address.",
+        "tapNoData": "No roof data is available at this spot. Tap a marked area.",
+        "tapSwitchBuilding": "Do you want to switch to this building? Your current selection will be lost.",
+        "tapSwitchConfirm": "Switch building",
+        "tapSwitchCancel": "Cancel"
+      },
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out"
+    },
+    "manualCheck": {
+      "noRoofHeadline": "We will check your company roof by hand",
+      "noRoofBody1": "No automatic roof data is available for your address. This happens with new buildings and in some municipalities and says nothing about the suitability of your roof.",
+      "noRoofBody2": "Leave us your email address. We will check your roof manually and get back to you with an analysis.",
+      "placesHeadline": "We will check your address by hand",
+      "placesBody1": "The address search is not responding right now. This is due to our map service and not to your address.",
+      "placesBody2": "Send us your address and your email address. We will check your roof by hand and get back to you with an analysis.",
+      "retryBlockedBody": "We could not save your details just now. Leave us your email address and we will get back to you with your result.",
+      "addressLabel": "Address with house number",
+      "emailLabel": "Email address",
+      "companyLabel": "Company",
+      "consent": "I agree that Free State AG may use my details to process my request. The <privacyLink>privacy policy</privacyLink> applies.",
+      "button": "Request analysis",
+      "reassurance": "We will contact you as soon as we have checked your roof.",
+      "success": "Thank you. We have received your request and are checking your roof.",
+      "errors": {
+        "addressRequired": "Please enter the address of your building.",
+        "emailInvalid": "Please enter a valid email address.",
+        "consentRequired": "Please confirm your consent so that we may process your request.",
+        "submitFailed": "That did not work. Please try again."
+      },
+      "addressHeadline": "We will check your address by hand",
+      "addressBody1": "We could not match your address automatically. This happens with new streets, special addresses and buildings outside Switzerland.",
+      "addressBody2": "Send us your address and your email address. We will check your roof by hand and get back to you with an assessment."
+    },
+    "screen3": {
+      "headline": "What do you use the building for?",
+      "helper": "This lets us estimate how much solar electricity you use yourself. You can also skip these details.",
+      "uses": {
+        "office_trade": "Trade and office",
+        "industry": "Industry and production",
+        "agriculture": "Agriculture",
+        "retail_gastro": "Retail and hospitality",
+        "public": "Public sector",
+        "multi_family": "Apartment building",
+        "other": "Other"
+      },
+      "consumptionLabel": "Your electricity consumption per year",
+      "consumptionHelper": "You will find it on your electricity bill. Without it we calculate with a typical business in your sector.",
+      "modeKwh": "in kWh",
+      "modeChf": "in CHF",
+      "kwhLabel": "Annual consumption",
+      "kwhUnit": "kWh per year",
+      "chfLabel": "Electricity costs",
+      "periodMonth": "per month",
+      "periodQuarter": "per quarter",
+      "periodYear": "per year",
+      "echoFromChf": "That equals roughly {kwh} kWh per year.",
+      "echoFromKwh": "That equals roughly CHF {chf} per year.",
+      "echoNoTariff": "As soon as we have loaded the electricity tariff for your municipality, we convert the amount into kWh.",
+      "kwhOutOfRange": "For a business we expect 2'000 to 5'000'000 kWh per year. Please check the number. Until then we calculate without your entry.",
+      "chfOutOfRange": "This amount does not fit a business over the selected period. Please check the amount and the period. Until then we calculate without your entry.",
+      "tariffBasis": "The basis is the commercial tariff of your municipality {municipality} for {year}.",
+      "tariffBasisFallback": "No municipal tariff for businesses is available for your postal code. We calculate with a Swiss reference tariff.",
+      "existingPv": "There is already a solar system on the roof.",
+      "button": "Show result",
+      "back": "Back"
+    },
+    "screen4": {
+      "headline": "Your analysis is ready",
+      "helper": "We still need your company and your contact details. After that you will see your full result.",
+      "teaserTitle": "Your roof in numbers",
+      "teaserArea": "usable roof area",
+      "teaserKwp": "system size",
+      "teaserProduction": "electricity production per year",
+      "teaserSource": "Estimated from the federal Sonnendach data for your address.",
+      "teaserNext": "What you save with it, and what the federal subsidy adds, is in your full result.",
+      "email": "Email address",
+      "company": "Company",
+      "name": "Your name",
+      "phone": "Phone number",
+      "phoneHelper": "Our team calls you to go through the result with you.",
+      "consent": "I agree that Free State AG may use my details to process my request. The <privacyLink>privacy policy</privacyLink> applies.",
+      "button": "Show result",
+      "reassurance": "Free and non-binding. A provider from Schaffhausen.",
+      "addressFallbackHelper": "Please add these two details. We could not read them from your address.",
+      "postalCode": "Postal code",
+      "city": "City",
+      "back": "Back",
+      "errors": {
+        "required": "Please fill in this field.",
+        "emailInvalid": "Please enter a valid email address.",
+        "phoneInvalid": "Please enter a valid phone number.",
+        "consentRequired": "Please confirm your consent so that we may process your request.",
+        "submitFailed": "That did not work. Please try again.",
+        "serverFailed": "We could not save your details just now. Please try again in a minute."
+      }
+    },
+    "result": {
+      "headline": "What your company roof can do",
+      "headlineLow": "Your roof is suitable for a small system",
+      "headlineExistingPv": "This is the additional potential of your roof",
+      "subline": "Calculated with the official federal roof data for {address}.",
+      "lowBody": "Your roof area is limited. The federal one-time subsidy is paid out for small systems as well. Our team will check with you whether a system is worthwhile for you.",
+      "area": "Usable roof area",
+      "kwp": "System size",
+      "production": "Electricity production per year",
+      "co2": "CO₂ avoided per year",
+      "moneyA": "Value of your self-consumption per year",
+      "moneyAFootnote": "That is how much electricity you no longer have to buy from the grid, calculated with the tariff in {municipality}.",
+      "moneyAFootnoteFallback": "That is how much electricity you no longer have to buy from the grid, calculated with a Swiss reference tariff.",
+      "moneyB": "Savings with SolarFree per year, up to",
+      "moneyBFootnote": "With SolarFree we build and operate the system. You invest nothing and buy the solar electricity at up to 30 percent below your grid tariff.",
+      "moneyUnavailable": "As soon as we have loaded the electricity tariff for your municipality, we will show you the value of your self-consumption.",
+      "subsidy": "Federal one-time subsidy",
+      "subsidyAboveTiers": "For systems above {kwp} kWp we calculate the federal subsidy individually.",
+      "subsidyExistingPv": "The federal one-time subsidy applies to extensions subject to conditions. We clarify that in the conversation.",
+      "subsidyUnavailable": "We calculate the federal one-time subsidy for you in the conversation.",
+      "assumptionKnown": "We assume that you use {pct} percent of the solar electricity yourself, calculated with {kwh} kWh annual consumption.",
+      "assumptionUnknown": "We assume you use around {pct} percent of the solar power on site, like a typical business in your sector. With your actual consumption the result becomes more precise.",
+      "tariffLocal": "Electricity tariff {rp} Rp/kWh, category {cat}, {municipality} {year}.",
+      "tariffFallback": "Calculated with a Swiss reference tariff of {rp} Rp/kWh. We take your local tariff into account in the conversation.",
+      "estimateNote": "All figures are estimates from the federal Sonnendach data. We prepare the binding offer after a site visit.",
+      "roofImageAlt": "Aerial image of your roof with the selected areas",
+      "reference": "Your reference number is {reference}.",
+      "copyReference": "Copy reference",
+      "copied": "Copied",
+      "nextStep": "Our team will call you in the next working days and go through the result with you.",
+      "uploadTitle": "Upload your electricity bill if you like",
+      "uploadHelper": "With your electricity bill we calculate with your real consumption and tariff. PDF, JPG or PNG up to 10 MB.",
+      "uploadButton": "Choose file",
+      "uploadUploading": "Uploading, {pct} percent.",
+      "uploadDone": "Thank you, we have received your electricity bill.",
+      "uploadError": "The upload did not work. Please try again.",
+      "uploadTooLarge": "The file is larger than 10 MB. Please choose a smaller file.",
+      "uploadUnsupported": "Please upload a PDF, JPG or PNG file.",
+      "phoneLine": "Prefer to talk directly? Call us on {phone}.",
+      "restart": "Calculate another building"
+    },
+    "confirmation": {
+      "loading": "We are loading your result.",
+      "expiredHeadline": "This link has expired",
+      "expiredBody": "Links to a result are valid for 30 days. Calculate your roof again, or call us on {phone}.",
+      "expiredCta": "To the solar calculator",
+      "notFoundHeadline": "We cannot find this result",
+      "notFoundBody": "Check the link from your email, or calculate your roof again."
     }
   },
   "solarAboCalculator": {
