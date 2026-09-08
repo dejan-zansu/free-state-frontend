@@ -126,7 +126,7 @@
     },
     "cost": {
       "title": "Solar Panel Costs Switzerland 2026: Prices and Examples",
-      "description": "What does a solar system cost in Switzerland? Price examples from CHF 19,500 incl. subsidies and tax savings. Calculate your savings in just 2 minutes."
+      "description": "What does a solar system cost in Switzerland in 2026? CHF {min} to {max} per kWp incl. battery, price examples for 6, 10 and 15 kWp, federal subsidy and tax deduction explained. Get your own price in 2 minutes."
     },
     "amortization": {
       "title": "Solar Payback Period: When Does Solar Pay Off?",
@@ -3057,93 +3057,227 @@
     }
   },
   "cost": {
+    "breadcrumb": {
+      "home": "Home",
+      "cost": "Cost",
+      "slug": "cost"
+    },
     "hero": {
-      "title": "Cost of a solar system"
-    },
-    "costSection": {
-      "title": "How much does a solar power system cost?",
-      "paragraph1": "A photovoltaic system on a small roof of a detached house can now be installed for as little as CHF 19,500 (including subsidies and tax savings). This is a guideline figure, as various factors influence the price of the photovoltaic system.",
-      "paragraph2": "The net investment costs for the photovoltaic system are significantly reduced by <subsidies>subsidies</subsidies> – depending on the canton, these subsidies can amount to several thousand Swiss francs. FreeState handles all registrations and applications, ensuring you receive the maximum possible subsidies.",
-      "infoCard": "The cost of a solar power system depends mainly on the following factors: roof size and output, choice of solar modules, material costs (inverter + substructure) and scaffolding including fuse box."
-    },
-    "pricingSection": {
-      "title": "Cost of a solar system in CHF",
-      "note": "Purchase costs per household after deduction of the Pronovo one-off remuneration and the tax deduction",
-      "table": {
-        "headers": {
-          "roofSize": "Roof size",
-          "residents": "Residents",
-          "costPerSqm": "Cost per m² in CHF",
-          "cost": "Cost in CHF"
+      "title": "What does a solar system cost in Switzerland in 2026?",
+      "subtitle": "A turnkey system with battery costs CHF {min} to {max} per kWp with us, excl. VAT. These are the same prices our solar calculator uses.",
+      "stats": {
+        "perKwp": {
+          "value": "CHF {min} to {max}",
+          "label": "per kWp, turnkey, excl. VAT"
         },
-        "rows": {
-          "threePerson": {
-            "roofSize": "approx. 25 m²",
-            "residents": "three-person",
-            "costPerSqm": "approx. CHF 780.",
-            "cost": "CHF 19,500"
-          },
-          "fourPerson": {
-            "roofSize": "approx. 40 m²",
-            "residents": "four-person",
-            "costPerSqm": "approx. CHF 550.",
-            "cost": "CHF 22,000"
-          },
-          "fivePerson": {
-            "roofSize": "approx. 60 m²",
-            "residents": "five-person / car",
-            "costPerSqm": "approx. CHF 434.",
-            "cost": "CHF 26,000"
-          }
+        "subsidy": {
+          "value": "CHF {rate} per kWp",
+          "label": "Federal one-off subsidy (KLEIV 2026)"
+        },
+        "solarFree": {
+          "value": "CHF 0",
+          "label": "investment with SolarFree"
+        }
+      },
+      "ctaCalculator": "Calculate your price",
+      "ctaExamples": "See price examples",
+      "note": "Guide values from our current package catalog. The exact price depends on your roof."
+    },
+    "examples": {
+      "eyebrow": "Price examples 2026",
+      "title": "Three typical systems, from gross to net",
+      "subtitle": "Range by manufacturer (Huawei or Sigenergy) and package size, CHF {min} to {max} per kWp. The one-off subsidy is paid out by Pronovo after commissioning.",
+      "rangeSeparator": "to",
+      "columns": {
+        "system": "System"
+      },
+      "sizes": {
+        "6": "Small detached house",
+        "10": "Average household",
+        "15": "Large detached house"
+      },
+      "rows": {
+        "grossExVat": "System excl. VAT",
+        "vat": "VAT 8.1 %",
+        "grossInclVat": "System incl. VAT",
+        "subsidy": "One-off subsidy (KLEIV)",
+        "net": "Your net investment"
+      },
+      "footnote": "Calculated with the per-kWp prices from our SolarDirect package catalog (updated automatically) and the one-off subsidy per {source}, valid from {validFrom}. Guide values without guarantee, the binding price is in your quote. Tax deduction not included.",
+      "cta": "Calculate your system"
+    },
+    "included": {
+      "title": "What the price includes",
+      "subtitle": "Our packages are turnkey. You get a registered, running system, not an itemised list with surprises.",
+      "note": "All prices excl. VAT (8.1 %). The hardware matches our current package catalog, which you also see in the solar calculator.",
+      "items": {
+        "modules": {
+          "title": "Solar modules",
+          "description": "AIKO N-type ABC modules with 485 W, 88.85 % guaranteed output after 30 years"
+        },
+        "inverter": {
+          "title": "Hybrid inverter",
+          "description": "Huawei SUN2000 or Sigenergy SigenStor, sized to the system"
+        },
+        "battery": {
+          "title": "Battery storage",
+          "description": "5 to 20 kWh depending on the package, optional on the smallest systems"
+        },
+        "mounting": {
+          "title": "Mounting system and installation",
+          "description": "Substructure and installation on the roof by our team"
+        },
+        "electrical": {
+          "title": "Electrical installation",
+          "description": "Connection of the system to your house grid"
+        },
+        "commissioning": {
+          "title": "Commissioning",
+          "description": "Configuration, testing and handover of the running system"
+        },
+        "registration": {
+          "title": "Registrations and subsidy application",
+          "description": "We register the system with the grid operator and apply for the one-off subsidy at Pronovo"
+        },
+        "monitoring": {
+          "title": "Energy management and monitoring",
+          "description": "Huawei EMMA or Sigenergy Gateway with app monitoring"
+        }
+      },
+      "optional": {
+        "evCharger": "Optional: charging station for your electric car (11 to 22 kW)",
+        "evChargerPrice": "+ CHF {price} excl. VAT"
+      }
+    },
+    "drivers": {
+      "title": "What determines the price of your system",
+      "cards": {
+        "size": {
+          "title": "Output in kWp",
+          "description": "The biggest lever. More modules cost more, but the price per kWp drops with size."
+        },
+        "battery": {
+          "title": "Battery size",
+          "description": "5, 10 or 15 kWh and more. A larger battery raises self-consumption and the price."
+        },
+        "brand": {
+          "title": "Manufacturer",
+          "description": "Huawei or Sigenergy. Both are complete systems, the prices per kWp differ by a few hundred francs."
+        },
+        "roof": {
+          "title": "Roof shape and orientation",
+          "description": "Flat roof, pitched roof, tilt and shading determine how many modules fit and how much they deliver."
+        },
+        "access": {
+          "title": "Accessibility",
+          "description": "Roof height, scaffolding needs and cable routes to the meter cabinet affect the installation effort."
         }
       }
     },
-    "cta": {
-      "topButton": "Cost of a Solar System",
-      "heading": "Get a free, no-obligation quote now!",
-      "subtitle": "Configure your own system in minutes with our solar calculator and receive a concrete offer immediately:",
-      "items": {
-        "investmentCosts": "Investment costs",
-        "subsidies": "Subsidies & tax deductions",
-        "efficiency": "Economic efficiency & energy balance"
+    "subsidy": {
+      "eyebrow": "Subsidies",
+      "title": "The one-off subsidy cuts your investment by several thousand francs",
+      "paragraph1": "The federal government pays a one-off subsidy (KLEIV) for every new photovoltaic system. In 2026 it is CHF {rate1} per kWp up to {tier1} kWp and CHF {rate2} per kWp for the share up to {tier2} kWp. It is paid out via Pronovo after commissioning.",
+      "feedIn": "Surplus electricity is fed into the grid. For systems up to 30 kWp a legal minimum tariff of {rate} rappen per kWh applies since 2026. Your grid operator sets the actual tariff.",
+      "tax": "Then there is the tax deduction: in most cantons you can deduct the investment in a solar system on an existing building from your taxable income. How much that is worth depends on your canton and income.",
+      "links": {
+        "blog": "KLEIV, GREIV and HEIV explained",
+        "cantons": "Subsidies by canton"
       },
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/calculator",
-      "note": "free - uncomplicated - precise - non-binding"
-    },
-    "financing": {
-      "title": "Financing the solar system",
-      "subtitle": "We provide comprehensive advice on investment selection and support you with various financing solutions.",
-      "bullets": {
-        "monthlyPayments": "No high one-time investment costs, instead monthly payments",
-        "installmentPlan": "With the instalment plan, the photovoltaic system belongs to you after 25 years.",
-        "maintenance": "Thanks to additional maintenance packages, your system is always in top condition."
-      },
-      "idealTime": {
-        "title": "The ideal time to buy",
-        "description": "Due to high demand for photovoltaic systems, the solar market has seen considerable activity in recent years. Why is now the best time to buy a solar system?\n\nHowever, due to high demand, the authorities are reaching their financial limits. Consequently, subsidies for solar power systems are decreasing annually.\n\nThe best and cheapest time to buy a solar power system is right now. The longer you wait, the less funding will be available to you.",
-        "infoCard": "Photovoltaic systems now cost only 20% of what they did ten years ago. At the same time, subsidies are decreasing annually."
+      "example": {
+        "label": "Worked example {kwp} kWp",
+        "result": "One-off subsidy",
+        "note": "Rate per {source}. Paid out by Pronovo after commissioning and registration."
       }
     },
-    "furtherTopics": {
-      "title": "Further topics on solar systems",
+    "models": {
+      "title": "Three ways to your own solar system",
+      "subtitle": "Buy, pay in instalments or invest nothing at all. The solar calculator shows all three with your numbers.",
+      "direct": {
+        "name": "SolarDirect",
+        "headline": "Buy and keep everything from day 1",
+        "tagline": "The system is yours, and so are the subsidy and the solar power.",
+        "points": {
+          "1": "Price as above, transparent per kWp",
+          "2": "The one-off subsidy goes to you",
+          "3": "Payment in three tranches: 30 % on contract, 60 % before installation, 10 % after handover"
+        },
+        "cta": "See SolarDirect"
+      },
+      "abo": {
+        "name": "SolarAbo",
+        "headline": "Your own system in fixed monthly instalments",
+        "tagline": "The same system as SolarDirect, spread over 25 years.",
+        "points": {
+          "1": "Ownership from day 1",
+          "2": "Insurance and warranty included",
+          "3": "Fully paid off after 25 years"
+        },
+        "cta": "See SolarAbo"
+      },
+      "free": {
+        "name": "SolarFree",
+        "headline": "CHF 0 investment, solar power from 18 rp./kWh",
+        "tagline": "We build and operate the system on your roof, you only buy the electricity.",
+        "points": {
+          "1": "No down payment, no investment",
+          "2": "Up to 30 % below the grid tariff (e.g. 18 instead of 32 rp./kWh)",
+          "3": "After 35 years the system is yours"
+        },
+        "cta": "See SolarFree"
+      }
+    },
+    "calculator": {
+      "eyebrow": "Solar calculator",
+      "title": "Your price in 2 minutes",
+      "subtitle": "Select your roof, enter your consumption, see the numbers. Free and without obligation."
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "title": "Questions about cost",
+      "description": "Short answers, using the numbers on this page.",
+      "items": {
+        "1": {
+          "question": "What does a solar system for a detached house cost?",
+          "answer": "With us CHF {min} to {max} per kWp excl. VAT, turnkey with battery. A typical 10 kWp system costs around CHF {tenNetMin} to {tenNetMax} incl. VAT after deducting the one-off subsidy of CHF {tenSubsidy}."
+        },
+        "2": {
+          "question": "How high is the one-off subsidy in 2026?",
+          "answer": "CHF {rate} per kWp for the first {tier1} kWp (KLEIV). For 10 kWp that is CHF {tenSubsidy}. Pronovo pays the amount after commissioning, we handle the registration."
+        },
+        "3": {
+          "question": "Can I deduct the solar system from my taxes?",
+          "answer": "In most cantons yes, provided the system goes on an existing building. The deduction applies to taxable income in the year of the investment. The amount depends on canton and income, which is why we do not include it above."
+        },
+        "4": {
+          "question": "What does a solar system with battery cost?",
+          "answer": "Our packages already include the battery, 5 to 20 kWh depending on size. The price per kWp above includes battery, inverter, installation and registrations. On the smallest systems the battery is optional."
+        },
+        "5": {
+          "question": "Is it possible without any investment?",
+          "answer": "Yes. With SolarFree we build the system on your roof and you only pay for the solar power, from 18 rappen per kWh. After 35 years the system is yours. With SolarAbo you pay fixed monthly instalments over 25 years and own the system from day 1."
+        },
+        "6": {
+          "question": "When does the system pay off?",
+          "answer": "That depends on your electricity price, your self-consumption and the system size. What you do not use yourself is paid by the grid operator at a minimum of {feedIn} rappen per kWh. The solar calculator works out the payback with your local tariff."
+        }
+      }
+    },
+    "topics": {
+      "title": "Related topics",
       "learnMore": "Learn more",
       "cards": {
-        "financialSupport": {
-          "title": "Financial support",
-          "description": "Are solar power systems subsidized?"
-        },
-        "cost": {
-          "title": "Cost",
-          "description": "How much does a system cost?"
-        },
-        "monitoringAndService": {
-          "title": "Monitoring and Service",
-          "description": "Service at the highest level"
+        "subsidies": {
+          "title": "Subsidies by canton",
+          "description": "Which cantonal contributions come on top of the one-off subsidy."
         },
         "amortization": {
-          "title": "Amortization",
-          "description": "When is a photovoltaic system worthwhile?"
+          "title": "Payback",
+          "description": "When your photovoltaic system pays for itself."
+        },
+        "storage": {
+          "title": "Battery storage",
+          "description": "How a battery raises your self-consumption."
         }
       }
     }
@@ -8610,7 +8744,7 @@
           },
           "averageCost": {
             "question": "What is the average cost of solar panels?",
-            "answer": "After deducting subsidies and tax savings, a solar system for a single-family home typically costs from CHF 19,500 for a small roof (3-person household) up to around CHF 26,000 for a larger roof (5 people with an electric car). With SolarFree you can also go solar with CHF 0 down payment."
+            "answer": "At Free State a turnkey solar system with battery costs CHF 2,300 to 2,800 per kWp excl. VAT. A 10 kWp system comes to roughly CHF 21,000 to 27,000 incl. VAT after the federal one-off subsidy. With SolarFree you can also go solar with CHF 0 down payment."
           },
           "controlCosts": {
             "question": "How does solar help control my costs?",

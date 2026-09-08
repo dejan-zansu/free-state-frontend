@@ -13,6 +13,8 @@ interface PageHeroProps {
   descriptionClassName?: string
   /** Override title typography; default adds `capitalize` (use e.g. `normal-case` for sentence-case titles). */
   titleClassName?: string
+  /** Darkens the background image so white text stays readable on bright photos. */
+  dimBackground?: boolean
 }
 
 const PageHero = ({
@@ -25,6 +27,7 @@ const PageHero = ({
   isCommercial = false,
   descriptionClassName,
   titleClassName,
+  dimBackground = false,
 }: PageHeroProps) => {
   return (
     <section
@@ -40,6 +43,10 @@ const PageHero = ({
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url('${backgroundImage}')` }}
         />
+      )}
+
+      {dimBackground && (
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,46,37,0.55)_0%,rgba(6,46,37,0.75)_100%)]" />
       )}
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[230px] w-full">

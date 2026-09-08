@@ -126,7 +126,7 @@
     },
     "cost": {
       "title": "Costi impianto solare Svizzera 2026: prezzi ed esempi",
-      "description": "Quanto costa un impianto solare? Esempi di prezzo da CHF 19'500, incentivi e risparmi fiscali inclusi. Calcola il tuo risparmio in soli 2 minuti online."
+      "description": "Quanto costa un impianto solare in Svizzera nel 2026? CHF {min} a {max} per kWp batteria inclusa, esempi di prezzo per 6, 10 e 15 kWp, rimunerazione unica e deduzione fiscale spiegate. Il tuo prezzo in 2 minuti."
     },
     "amortization": {
       "title": "Ammortamento impianto solare: quando conviene?",
@@ -3057,93 +3057,227 @@
     }
   },
   "cost": {
+    "breadcrumb": {
+      "home": "Home",
+      "cost": "Costi",
+      "slug": "costi"
+    },
     "hero": {
-      "title": "Costo di un impianto solare"
-    },
-    "costSection": {
-      "title": "Quanto costa un impianto solare?",
-      "paragraph1": "Un impianto fotovoltaico su un piccolo tetto di una casa unifamiliare può ora essere installato a partire da CHF 19'500 (inclusi sussidi e risparmi fiscali). Questo è un valore indicativo, poiché diversi fattori influenzano il prezzo dell'impianto fotovoltaico.",
-      "paragraph2": "I <subsidies>sussidi</subsidies> riducono notevolmente i costi netti di investimento per l'impianto fotovoltaico e, a seconda del cantone, possono ammontare a diverse migliaia di franchi svizzeri. FreeState si occupa di tutte le iscrizioni e domande, garantendoti di ricevere il massimo sussidio possibile.",
-      "infoCard": "Il costo di un impianto solare dipende principalmente dai seguenti fattori: dimensione e potenza del tetto, scelta dei moduli solari, costi dei materiali (inverter + sottostruttura) e impalcatura inclusa la cassetta dei fusibili."
-    },
-    "pricingSection": {
-      "title": "Costo di un impianto solare in CHF",
-      "note": "Costi di acquisto per nucleo familiare al netto della rimunerazione unica Pronovo e della deduzione fiscale",
-      "table": {
-        "headers": {
-          "roofSize": "Dimensione del tetto",
-          "residents": "Abitanti",
-          "costPerSqm": "Costo per m² in CHF",
-          "cost": "Costo in CHF"
+      "title": "Quanto costa un impianto solare in Svizzera nel 2026?",
+      "subtitle": "Un impianto chiavi in mano con batteria costa da noi CHF {min} a {max} per kWp, IVA esclusa. Sono gli stessi prezzi con cui calcola il nostro calcolatore solare.",
+      "stats": {
+        "perKwp": {
+          "value": "CHF {min} a {max}",
+          "label": "per kWp, chiavi in mano, IVA esclusa"
         },
-        "rows": {
-          "threePerson": {
-            "roofSize": "circa 25 m²",
-            "residents": "tre persone",
-            "costPerSqm": "circa CHF 780.-",
-            "cost": "CHF 19'500"
-          },
-          "fourPerson": {
-            "roofSize": "circa 40 m²",
-            "residents": "quattro persone",
-            "costPerSqm": "circa CHF 550.-",
-            "cost": "CHF 22'000"
-          },
-          "fivePerson": {
-            "roofSize": "circa 60 m²",
-            "residents": "cinque persone / auto",
-            "costPerSqm": "circa CHF 434.-",
-            "cost": "CHF 26'000"
-          }
+        "subsidy": {
+          "value": "CHF {rate} per kWp",
+          "label": "Rimunerazione unica della Confederazione (RU 2026)"
+        },
+        "solarFree": {
+          "value": "CHF 0",
+          "label": "di investimento con SolarFree"
+        }
+      },
+      "ctaCalculator": "Calcola il tuo prezzo",
+      "ctaExamples": "Vedi gli esempi di prezzo",
+      "note": "Valori indicativi dal nostro catalogo pacchetti attuale. Il prezzo esatto dipende dal tuo tetto."
+    },
+    "examples": {
+      "eyebrow": "Esempi di prezzo 2026",
+      "title": "Tre impianti tipici, dal lordo al netto",
+      "subtitle": "Fascia in base al produttore (Huawei o Sigenergy) e alla dimensione del pacchetto, CHF {min} a {max} per kWp. La rimunerazione unica ti viene versata da Pronovo dopo la messa in servizio.",
+      "rangeSeparator": "a",
+      "columns": {
+        "system": "Impianto"
+      },
+      "sizes": {
+        "6": "Piccola casa unifamiliare",
+        "10": "Economia domestica media",
+        "15": "Grande casa unifamiliare"
+      },
+      "rows": {
+        "grossExVat": "Impianto IVA esclusa",
+        "vat": "IVA 8.1 %",
+        "grossInclVat": "Impianto IVA inclusa",
+        "subsidy": "Rimunerazione unica (RU)",
+        "net": "Il tuo investimento netto"
+      },
+      "footnote": "Calcolato con i prezzi per kWp del nostro catalogo pacchetti SolarDirect (aggiornato automaticamente) e la rimunerazione unica secondo {source}, valida dal {validFrom}. Valori indicativi senza garanzia, il prezzo vincolante è nella tua offerta. Deduzione fiscale non inclusa.",
+      "cta": "Calcola il tuo impianto"
+    },
+    "included": {
+      "title": "Cosa comprende il prezzo",
+      "subtitle": "I nostri pacchetti sono chiavi in mano. Ricevi un impianto registrato e funzionante, non un elenco di voci con sorprese.",
+      "note": "Tutti i prezzi IVA esclusa (8.1 %). L'hardware corrisponde al nostro catalogo pacchetti attuale, che vedi anche nel calcolatore solare.",
+      "items": {
+        "modules": {
+          "title": "Moduli solari",
+          "description": "Moduli AIKO N-Type ABC da 485 W, 88.85 % di potenza garantita dopo 30 anni"
+        },
+        "inverter": {
+          "title": "Inverter ibrido",
+          "description": "Huawei SUN2000 o Sigenergy SigenStor, dimensionato in base all'impianto"
+        },
+        "battery": {
+          "title": "Batteria di accumulo",
+          "description": "Da 5 a 20 kWh a seconda del pacchetto, opzionale sugli impianti più piccoli"
+        },
+        "mounting": {
+          "title": "Struttura e montaggio",
+          "description": "Sistema di fissaggio e installazione sul tetto da parte del nostro team"
+        },
+        "electrical": {
+          "title": "Installazione elettrica",
+          "description": "Collegamento dell'impianto alla rete domestica"
+        },
+        "commissioning": {
+          "title": "Messa in servizio",
+          "description": "Configurazione, test e consegna dell'impianto funzionante"
+        },
+        "registration": {
+          "title": "Notifiche e richiesta di incentivo",
+          "description": "Notifichiamo l'impianto al gestore di rete e richiediamo la rimunerazione unica a Pronovo"
+        },
+        "monitoring": {
+          "title": "Gestione dell'energia e monitoraggio",
+          "description": "Huawei EMMA o Sigenergy Gateway con monitoraggio via app"
+        }
+      },
+      "optional": {
+        "evCharger": "Opzionale: stazione di ricarica per l'auto elettrica (da 11 a 22 kW)",
+        "evChargerPrice": "+ CHF {price} IVA esclusa"
+      }
+    },
+    "drivers": {
+      "title": "Cosa determina il prezzo del tuo impianto",
+      "cards": {
+        "size": {
+          "title": "Potenza in kWp",
+          "description": "La leva principale. Più moduli costano di più, ma il prezzo per kWp scende con la dimensione."
+        },
+        "battery": {
+          "title": "Dimensione della batteria",
+          "description": "5, 10 o 15 kWh e oltre. Una batteria più grande aumenta l'autoconsumo e il prezzo."
+        },
+        "brand": {
+          "title": "Scelta del produttore",
+          "description": "Huawei o Sigenergy. Entrambi sono sistemi completi, i prezzi per kWp differiscono di qualche centinaio di franchi."
+        },
+        "roof": {
+          "title": "Forma e orientamento del tetto",
+          "description": "Tetto piano, tetto a falda, inclinazione e ombreggiamento determinano quanti moduli trovano posto e quanto producono."
+        },
+        "access": {
+          "title": "Accessibilità",
+          "description": "Altezza del tetto, necessità di ponteggio e percorso dei cavi fino al quadro influenzano il lavoro di montaggio."
         }
       }
     },
-    "cta": {
-      "topButton": "Costo di un impianto solare",
-      "heading": "Ricevi ora un preventivo gratuito e senza impegno!",
-      "subtitle": "Configura il tuo impianto in pochi minuti con il nostro calcolatore solare e ricevi subito un'offerta concreta:",
-      "items": {
-        "investmentCosts": "Costi di investimento",
-        "subsidies": "Sussidi e deduzioni fiscali",
-        "efficiency": "Redditività ed equilibrio energetico"
+    "subsidy": {
+      "eyebrow": "Incentivi",
+      "title": "La rimunerazione unica riduce il tuo investimento di diverse migliaia di franchi",
+      "paragraph1": "La Confederazione versa una rimunerazione unica (RU) per ogni nuovo impianto fotovoltaico. Nel 2026 ammonta a CHF {rate1} per kWp fino a {tier1} kWp e CHF {rate2} per kWp per la quota fino a {tier2} kWp. Viene versata tramite Pronovo dopo la messa in servizio.",
+      "feedIn": "L'elettricità in eccesso viene immessa in rete. Per gli impianti fino a 30 kWp vale dal 2026 una tariffa minima legale di {rate} ct. per kWh. La tariffa effettiva è fissata dal tuo gestore di rete.",
+      "tax": "A ciò si aggiunge la deduzione fiscale: nella maggior parte dei cantoni l'investimento in un impianto solare su un edificio esistente è deducibile dal reddito imponibile. Quanto vale dipende dal tuo cantone e dal tuo reddito.",
+      "links": {
+        "blog": "RU piccola, grande e alta spiegate",
+        "cantons": "Incentivi per cantone"
       },
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaLink": "/calculator",
-      "note": "gratuito - semplice - preciso - senza impegno"
-    },
-    "financing": {
-      "title": "Finanziamento dell'impianto solare",
-      "subtitle": "Offriamo una consulenza completa nella scelta dell'investimento e ti assistiamo con diverse soluzioni di finanziamento.",
-      "bullets": {
-        "monthlyPayments": "Nessun elevato investimento una tantum, bensì pagamenti mensili",
-        "installmentPlan": "Con il piano di pagamento rateale, l'impianto fotovoltaico è vostro dopo 25 anni.",
-        "maintenance": "Grazie ai pacchetti di manutenzione aggiuntivi, il tuo impianto è sempre in perfette condizioni."
-      },
-      "idealTime": {
-        "title": "Il momento ideale per acquistare",
-        "description": "A causa dell'elevata domanda di impianti fotovoltaici, il mercato solare ha visto un'attività considerevole negli ultimi anni. Perché questo è il momento migliore per acquistare un impianto solare?\n\nTuttavia, a causa dell'elevata domanda, le autorità stanno raggiungendo i loro limiti finanziari. Di conseguenza, i sussidi per gli impianti solari diminuiscono ogni anno.\n\nIl momento migliore e più economico per acquistare un impianto solare è proprio adesso. Più aspetti, meno finanziamenti saranno disponibili per te.",
-        "infoCard": "Gli impianti fotovoltaici costano ora solo il 20% di quanto costavano dieci anni fa. Allo stesso tempo, i sussidi diminuiscono ogni anno."
+      "example": {
+        "label": "Esempio di calcolo {kwp} kWp",
+        "result": "Rimunerazione unica",
+        "note": "Tasso secondo {source}. Versamento da parte di Pronovo dopo la messa in servizio e la notifica."
       }
     },
-    "furtherTopics": {
-      "title": "Ulteriori temi sugli impianti solari",
+    "models": {
+      "title": "Tre strade verso il tuo impianto solare",
+      "subtitle": "Acquistare, pagare a rate o non investire nulla. Il calcolatore solare mostra tutte e tre con i tuoi numeri.",
+      "direct": {
+        "name": "SolarDirect",
+        "headline": "Acquista e tieni tutto dal primo giorno",
+        "tagline": "L'impianto è tuo, così come la rimunerazione unica e l'energia solare.",
+        "points": {
+          "1": "Prezzo come sopra, trasparente per kWp",
+          "2": "La rimunerazione unica va a te",
+          "3": "Pagamento in tre tranche: 30 % alla firma, 60 % prima dell'installazione, 10 % dopo la consegna"
+        },
+        "cta": "Vedi SolarDirect"
+      },
+      "abo": {
+        "name": "SolarAbo",
+        "headline": "Il tuo impianto in rate mensili fisse",
+        "tagline": "Lo stesso impianto di SolarDirect, ripartito su 25 anni.",
+        "points": {
+          "1": "Proprietà dal primo giorno",
+          "2": "Assicurazione e garanzia incluse",
+          "3": "Interamente pagato dopo 25 anni"
+        },
+        "cta": "Vedi SolarAbo"
+      },
+      "free": {
+        "name": "SolarFree",
+        "headline": "CHF 0 di investimento, energia solare da 18 ct./kWh",
+        "tagline": "Costruiamo e gestiamo l'impianto sul tuo tetto, tu acquisti solo l'elettricità.",
+        "points": {
+          "1": "Nessun anticipo, nessun investimento",
+          "2": "Fino al 30 % sotto la tariffa di rete (ad es. 18 invece di 32 ct./kWh)",
+          "3": "Dopo 35 anni l'impianto è tuo"
+        },
+        "cta": "Vedi SolarFree"
+      }
+    },
+    "calculator": {
+      "eyebrow": "Calcolatore solare",
+      "title": "Il tuo prezzo in 2 minuti",
+      "subtitle": "Scegli il tetto, indica il consumo, guarda i numeri. Gratuito e senza impegno."
+    },
+    "faq": {
+      "eyebrow": "Domande frequenti",
+      "title": "Domande sui costi",
+      "description": "Risposte brevi, con i numeri di questa pagina.",
+      "items": {
+        "1": {
+          "question": "Quanto costa un impianto solare per una casa unifamiliare?",
+          "answer": "Da noi CHF {min} a {max} per kWp IVA esclusa, chiavi in mano con batteria. Un impianto tipico da 10 kWp costa circa CHF {tenNetMin} a {tenNetMax} IVA inclusa dopo la rimunerazione unica di CHF {tenSubsidy}."
+        },
+        "2": {
+          "question": "A quanto ammonta la rimunerazione unica nel 2026?",
+          "answer": "CHF {rate} per kWp per i primi {tier1} kWp (RU). Per 10 kWp sono CHF {tenSubsidy}. Pronovo versa l'importo dopo la messa in servizio, noi ci occupiamo della notifica."
+        },
+        "3": {
+          "question": "Posso dedurre l'impianto solare dalle tasse?",
+          "answer": "Nella maggior parte dei cantoni sì, purché l'impianto sia installato su un edificio esistente. La deduzione vale sul reddito imponibile dell'anno dell'investimento. L'importo dipende dal cantone e dal reddito, per questo non lo includiamo sopra."
+        },
+        "4": {
+          "question": "Quanto costa un impianto solare con batteria?",
+          "answer": "I nostri pacchetti includono già la batteria, da 5 a 20 kWh a seconda della dimensione. Il prezzo per kWp sopra comprende batteria, inverter, montaggio e notifiche. Sugli impianti più piccoli la batteria è opzionale."
+        },
+        "5": {
+          "question": "È possibile senza investimento?",
+          "answer": "Sì. Con SolarFree costruiamo l'impianto sul tuo tetto e tu paghi solo l'energia solare, da 18 ct. per kWh. Dopo 35 anni l'impianto è tuo. Con SolarAbo paghi rate mensili fisse per 25 anni e sei proprietario dal primo giorno."
+        },
+        "6": {
+          "question": "Quando si ripaga l'impianto?",
+          "answer": "Dipende dal tuo prezzo dell'elettricità, dall'autoconsumo e dalla dimensione dell'impianto. Ciò che non consumi viene remunerato dal gestore di rete con almeno {feedIn} ct. per kWh. Il calcolatore solare calcola l'ammortamento con la tua tariffa locale."
+        }
+      }
+    },
+    "topics": {
+      "title": "Altri temi",
       "learnMore": "Scopri di più",
       "cards": {
-        "financialSupport": {
-          "title": "Sostegno finanziario",
-          "description": "Gli impianti solari sono sussidiati?"
-        },
-        "cost": {
-          "title": "Costo",
-          "description": "Quanto costa un impianto?"
-        },
-        "monitoringAndService": {
-          "title": "Monitoraggio e servizio",
-          "description": "Servizio ai massimi livelli"
+        "subsidies": {
+          "title": "Incentivi per cantone",
+          "description": "Quali contributi cantonali si aggiungono alla rimunerazione unica."
         },
         "amortization": {
           "title": "Ammortamento",
-          "description": "Quando conviene un impianto fotovoltaico?"
+          "description": "Quando il tuo impianto fotovoltaico si ripaga."
+        },
+        "storage": {
+          "title": "Accumulo di energia",
+          "description": "Come una batteria aumenta il tuo autoconsumo."
         }
       }
     }
@@ -8610,7 +8744,7 @@
           },
           "averageCost": {
             "question": "Qual è il costo medio dei pannelli solari?",
-            "answer": "Al netto di incentivi e risparmi fiscali, un impianto solare per una casa unifamiliare costa in genere a partire da CHF 19'500 per un tetto piccolo (3 persone) fino a circa CHF 26'000 per un tetto più grande (5 persone con auto elettrica). Con SolarFree è possibile passare al solare anche con CHF 0 di anticipo."
+            "answer": "Da Free State un impianto solare chiavi in mano con batteria costa CHF 2'300 a 2'800 per kWp IVA esclusa. Un impianto da 10 kWp costa circa CHF 21'000 a 27'000 IVA inclusa dopo la rimunerazione unica. Con SolarFree è possibile passare al solare anche con CHF 0 di anticipo."
           },
           "controlCosts": {
             "question": "In che modo il solare mi aiuta a controllare i miei costi?",

@@ -126,7 +126,7 @@
     },
     "cost": {
       "title": "Prix d'une installation solaire en Suisse 2026 : exemples",
-      "description": "Combien coûte une installation solaire ? Exemples de prix dès 19 500 CHF, subventions et économies d'impôts incluses. Calculez vos économies en 2 minutes."
+      "description": "Combien coûte une installation solaire en Suisse en 2026 ? CHF {min} à {max} par kWc batterie comprise, exemples de prix pour 6, 10 et 15 kWc, rétribution unique et déduction fiscale expliquées. Votre prix en 2 minutes."
     },
     "amortization": {
       "title": "Amortissement d'une installation solaire : rentabilité",
@@ -3057,93 +3057,227 @@
     }
   },
   "cost": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "cost": "Coûts",
+      "slug": "couts"
+    },
     "hero": {
-      "title": "Coût d'une installation solaire"
-    },
-    "costSection": {
-      "title": "Combien coûte une installation solaire ?",
-      "paragraph1": "Une installation photovoltaïque sur le petit toit d'une maison individuelle peut désormais être installée à partir de 19 500 CHF (subventions et économies d'impôts comprises). Il s'agit d'une valeur indicative, car plusieurs facteurs influencent le prix.",
-      "paragraph2": "Les coûts nets de l'investissement photovoltaïque sont nettement réduits grâce aux <subsidies>subventions</subsidies>, qui peuvent atteindre plusieurs milliers de francs selon le canton. FreeState s'occupe de toutes les inscriptions et demandes, garantissant les subventions maximales.",
-      "infoCard": "Le coût d'une installation solaire dépend principalement des facteurs suivants : taille et puissance du toit, choix des modules, coûts des matériaux (onduleur + sous-construction) et échafaudage, y compris le tableau électrique."
-    },
-    "pricingSection": {
-      "title": "Coût d'une installation solaire en CHF",
-      "note": "Coûts d'acquisition par ménage après déduction de la rétribution unique Pronovo et de la déduction fiscale",
-      "table": {
-        "headers": {
-          "roofSize": "Surface de toit",
-          "residents": "Habitants",
-          "costPerSqm": "Coût par m² en CHF",
-          "cost": "Coût en CHF"
+      "title": "Combien coûte une installation solaire en Suisse en 2026 ?",
+      "subtitle": "Une installation clé en main avec batterie coûte chez nous CHF {min} à {max} par kWc, hors TVA. Ce sont les mêmes prix que ceux utilisés par notre calculateur solaire.",
+      "stats": {
+        "perKwp": {
+          "value": "CHF {min} à {max}",
+          "label": "par kWc, clé en main, hors TVA"
         },
-        "rows": {
-          "threePerson": {
-            "roofSize": "env. 25 m²",
-            "residents": "3 personnes",
-            "costPerSqm": "env. 780 CHF",
-            "cost": "19 500 CHF"
-          },
-          "fourPerson": {
-            "roofSize": "env. 40 m²",
-            "residents": "4 personnes",
-            "costPerSqm": "env. 550 CHF",
-            "cost": "22 000 CHF"
-          },
-          "fivePerson": {
-            "roofSize": "env. 60 m²",
-            "residents": "5 personnes / voiture",
-            "costPerSqm": "env. 434 CHF",
-            "cost": "26 000 CHF"
-          }
+        "subsidy": {
+          "value": "CHF {rate} par kWc",
+          "label": "Rétribution unique de la Confédération (PRU 2026)"
+        },
+        "solarFree": {
+          "value": "CHF 0",
+          "label": "d'investissement avec SolarFree"
+        }
+      },
+      "ctaCalculator": "Calculer mon prix",
+      "ctaExamples": "Voir les exemples de prix",
+      "note": "Valeurs indicatives issues de notre catalogue de paquets actuel. Le prix exact dépend de votre toit."
+    },
+    "examples": {
+      "eyebrow": "Exemples de prix 2026",
+      "title": "Trois installations types, du brut au net",
+      "subtitle": "Fourchette selon le fabricant (Huawei ou Sigenergy) et la taille du paquet, CHF {min} à {max} par kWc. La rétribution unique vous est versée par Pronovo après la mise en service.",
+      "rangeSeparator": "à",
+      "columns": {
+        "system": "Installation"
+      },
+      "sizes": {
+        "6": "Petite maison individuelle",
+        "10": "Ménage moyen",
+        "15": "Grande maison individuelle"
+      },
+      "rows": {
+        "grossExVat": "Installation hors TVA",
+        "vat": "TVA 8.1 %",
+        "grossInclVat": "Installation TVA comprise",
+        "subsidy": "Rétribution unique (PRU)",
+        "net": "Votre investissement net"
+      },
+      "footnote": "Calculé avec les prix par kWc de notre catalogue de paquets SolarDirect (mis à jour automatiquement) et la rétribution unique selon {source}, valable dès le {validFrom}. Valeurs indicatives sans garantie, le prix contractuel figure dans votre offre. Déduction fiscale non comprise.",
+      "cta": "Calculer mon installation"
+    },
+    "included": {
+      "title": "Ce que le prix comprend",
+      "subtitle": "Nos paquets sont clé en main. Vous recevez une installation annoncée et en service, pas une liste de postes avec des surprises.",
+      "note": "Tous les prix hors TVA (8.1 %). Le matériel correspond à notre catalogue de paquets actuel, que vous voyez aussi dans le calculateur solaire.",
+      "items": {
+        "modules": {
+          "title": "Modules solaires",
+          "description": "Modules AIKO N-Type ABC de 485 W, 88.85 % de puissance garantie après 30 ans"
+        },
+        "inverter": {
+          "title": "Onduleur hybride",
+          "description": "Huawei SUN2000 ou Sigenergy SigenStor, dimensionné selon l'installation"
+        },
+        "battery": {
+          "title": "Batterie de stockage",
+          "description": "5 à 20 kWh selon le paquet, en option sur les plus petites installations"
+        },
+        "mounting": {
+          "title": "Structure et montage",
+          "description": "Système de fixation et installation sur le toit par notre équipe"
+        },
+        "electrical": {
+          "title": "Installation électrique",
+          "description": "Raccordement de l'installation au réseau de votre maison"
+        },
+        "commissioning": {
+          "title": "Mise en service",
+          "description": "Réglage, test et remise de l'installation en fonctionnement"
+        },
+        "registration": {
+          "title": "Annonces et demande de subvention",
+          "description": "Nous annonçons l'installation au gestionnaire de réseau et demandons la rétribution unique auprès de Pronovo"
+        },
+        "monitoring": {
+          "title": "Gestion de l'énergie et monitoring",
+          "description": "Huawei EMMA ou Sigenergy Gateway avec suivi par application"
+        }
+      },
+      "optional": {
+        "evCharger": "En option : borne de recharge pour votre voiture électrique (11 à 22 kW)",
+        "evChargerPrice": "+ CHF {price} hors TVA"
+      }
+    },
+    "drivers": {
+      "title": "Ce qui détermine le prix de votre installation",
+      "cards": {
+        "size": {
+          "title": "Puissance en kWc",
+          "description": "Le levier principal. Plus de modules coûtent plus cher, mais le prix par kWc baisse avec la taille."
+        },
+        "battery": {
+          "title": "Taille de la batterie",
+          "description": "5, 10 ou 15 kWh et plus. Une batterie plus grande augmente l'autoconsommation et le prix."
+        },
+        "brand": {
+          "title": "Choix du fabricant",
+          "description": "Huawei ou Sigenergy. Les deux sont des systèmes complets, les prix par kWc diffèrent de quelques centaines de francs."
+        },
+        "roof": {
+          "title": "Forme et orientation du toit",
+          "description": "Toit plat, toit incliné, pente et ombrage déterminent combien de modules trouvent place et ce qu'ils produisent."
+        },
+        "access": {
+          "title": "Accessibilité",
+          "description": "Hauteur du toit, besoin d'échafaudage et cheminement des câbles jusqu'au tableau influencent le travail de montage."
         }
       }
     },
-    "cta": {
-      "topButton": "Coût d'une installation solaire",
-      "heading": "Obtenez un devis gratuit et sans engagement !",
-      "subtitle": "Configurez votre installation en quelques minutes avec notre calculateur et recevez immédiatement une offre concrète :",
-      "items": {
-        "investmentCosts": "Coûts d'investissement",
-        "subsidies": "Subventions & déductions fiscales",
-        "efficiency": "Rentabilité & bilan énergétique"
+    "subsidy": {
+      "eyebrow": "Subventions",
+      "title": "La rétribution unique réduit votre investissement de plusieurs milliers de francs",
+      "paragraph1": "La Confédération verse une rétribution unique (PRU) pour chaque nouvelle installation photovoltaïque. En 2026, elle s'élève à CHF {rate1} par kWc jusqu'à {tier1} kWc et CHF {rate2} par kWc pour la part jusqu'à {tier2} kWc. Elle est versée via Pronovo après la mise en service.",
+      "feedIn": "Le surplus d'électricité est injecté dans le réseau. Pour les installations jusqu'à 30 kWc, un tarif minimum légal de {rate} ct. par kWh s'applique depuis 2026. Le tarif effectif est fixé par votre gestionnaire de réseau.",
+      "tax": "S'y ajoute la déduction fiscale : dans la plupart des cantons, l'investissement dans une installation solaire sur un bâtiment existant est déductible du revenu imposable. Le gain dépend de votre canton et de votre revenu.",
+      "links": {
+        "blog": "PRU petite, grande et haute expliquées",
+        "cantons": "Subventions par canton"
       },
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/calculator",
-      "note": "gratuit - simple - précis - sans engagement"
-    },
-    "financing": {
-      "title": "Financement de l'installation solaire",
-      "subtitle": "Nous vous conseillons de manière complète sur le choix de l'investissement et vous soutenons avec différentes solutions de financement.",
-      "bullets": {
-        "monthlyPayments": "Pas de gros coûts d'investissement unique, mais des paiements mensuels",
-        "installmentPlan": "Avec le plan de paiement échelonné, l'installation photovoltaïque vous appartient après 25 ans.",
-        "maintenance": "Grâce à des forfaits d'entretien supplémentaires, votre installation est toujours en parfait état."
-      },
-      "idealTime": {
-        "title": "Le moment idéal pour acheter",
-        "description": "En raison de la forte demande de systèmes photovoltaïques, le marché solaire a été très actif ces dernières années. Pourquoi maintenant est-il le meilleur moment pour acheter une installation solaire ?\n\nCependant, en raison de la forte demande, les autorités atteignent leurs limites financières. Par conséquent, les subventions pour les installations solaires diminuent chaque année.\n\nLe meilleur moment et le plus économique pour acheter une installation solaire, c'est maintenant. Plus vous attendez, moins vous bénéficierez de soutien.",
-        "infoCard": "Les installations photovoltaïques ne coûtent aujourd'hui plus que 20 % de ce qu'elles coûtaient il y a dix ans. Parallèlement, les subventions diminuent chaque année."
+      "example": {
+        "label": "Exemple de calcul {kwp} kWc",
+        "result": "Rétribution unique",
+        "note": "Taux selon {source}. Versement par Pronovo après la mise en service et l'annonce."
       }
     },
-    "furtherTopics": {
-      "title": "Autres sujets sur les installations solaires",
+    "models": {
+      "title": "Trois voies vers votre propre installation solaire",
+      "subtitle": "Acheter, payer par mensualités ou ne rien investir. Le calculateur solaire présente les trois avec vos chiffres.",
+      "direct": {
+        "name": "SolarDirect",
+        "headline": "Acheter et tout garder dès le premier jour",
+        "tagline": "L'installation vous appartient, tout comme la rétribution unique et l'électricité solaire.",
+        "points": {
+          "1": "Prix comme ci-dessus, transparent par kWc",
+          "2": "La rétribution unique vous revient",
+          "3": "Paiement en trois tranches : 30 % à la signature, 60 % avant l'installation, 10 % après la remise"
+        },
+        "cta": "Voir SolarDirect"
+      },
+      "abo": {
+        "name": "SolarAbo",
+        "headline": "Votre installation en mensualités fixes",
+        "tagline": "La même installation que SolarDirect, répartie sur 25 ans.",
+        "points": {
+          "1": "Propriété dès le premier jour",
+          "2": "Assurance et garantie comprises",
+          "3": "Entièrement remboursée après 25 ans"
+        },
+        "cta": "Voir SolarAbo"
+      },
+      "free": {
+        "name": "SolarFree",
+        "headline": "CHF 0 d'investissement, électricité solaire dès 18 ct./kWh",
+        "tagline": "Nous construisons et exploitons l'installation sur votre toit, vous n'achetez que l'électricité.",
+        "points": {
+          "1": "Pas d'acompte, pas d'investissement",
+          "2": "Jusqu'à 30 % sous le tarif du réseau (p. ex. 18 au lieu de 32 ct./kWh)",
+          "3": "Après 35 ans, l'installation vous appartient"
+        },
+        "cta": "Voir SolarFree"
+      }
+    },
+    "calculator": {
+      "eyebrow": "Calculateur solaire",
+      "title": "Votre prix en 2 minutes",
+      "subtitle": "Choisissez votre toit, indiquez votre consommation, voyez les chiffres. Gratuit et sans engagement."
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Questions sur les coûts",
+      "description": "Réponses courtes, avec les chiffres de cette page.",
+      "items": {
+        "1": {
+          "question": "Combien coûte une installation solaire pour une maison individuelle ?",
+          "answer": "Chez nous CHF {min} à {max} par kWc hors TVA, clé en main avec batterie. Une installation type de 10 kWc coûte environ CHF {tenNetMin} à {tenNetMax} TVA comprise après déduction de la rétribution unique de CHF {tenSubsidy}."
+        },
+        "2": {
+          "question": "À combien s'élève la rétribution unique en 2026 ?",
+          "answer": "CHF {rate} par kWc pour les premiers {tier1} kWc (PRU). Pour 10 kWc, cela fait CHF {tenSubsidy}. Pronovo verse le montant après la mise en service, nous nous chargeons de l'annonce."
+        },
+        "3": {
+          "question": "Puis-je déduire l'installation solaire de mes impôts ?",
+          "answer": "Dans la plupart des cantons oui, à condition que l'installation soit posée sur un bâtiment existant. La déduction s'applique au revenu imposable de l'année de l'investissement. Le montant dépend du canton et du revenu, c'est pourquoi nous ne l'incluons pas ci-dessus."
+        },
+        "4": {
+          "question": "Combien coûte une installation solaire avec batterie ?",
+          "answer": "Nos paquets comprennent déjà la batterie, 5 à 20 kWh selon la taille. Le prix par kWc ci-dessus inclut batterie, onduleur, montage et annonces. Sur les plus petites installations, la batterie est en option."
+        },
+        "5": {
+          "question": "Est-ce possible sans investissement ?",
+          "answer": "Oui. Avec SolarFree, nous construisons l'installation sur votre toit et vous ne payez que l'électricité solaire, dès 18 ct. par kWh. Après 35 ans, l'installation vous appartient. Avec SolarAbo, vous payez des mensualités fixes sur 25 ans et êtes propriétaire dès le premier jour."
+        },
+        "6": {
+          "question": "Quand l'installation est-elle rentable ?",
+          "answer": "Cela dépend de votre prix de l'électricité, de votre autoconsommation et de la taille de l'installation. Ce que vous ne consommez pas est rétribué par le gestionnaire de réseau à au moins {feedIn} ct. par kWh. Le calculateur solaire calcule l'amortissement avec votre tarif local."
+        }
+      }
+    },
+    "topics": {
+      "title": "Autres thèmes",
       "learnMore": "En savoir plus",
       "cards": {
-        "financialSupport": {
-          "title": "Aide financière",
-          "description": "Les installations solaires sont-elles subventionnées ?"
-        },
-        "cost": {
-          "title": "Coûts",
-          "description": "Combien coûte une installation ?"
-        },
-        "monitoringAndService": {
-          "title": "Monitoring et service",
-          "description": "Service au plus haut niveau"
+        "subsidies": {
+          "title": "Subventions par canton",
+          "description": "Quelles contributions cantonales s'ajoutent à la rétribution unique."
         },
         "amortization": {
           "title": "Amortissement",
-          "description": "Quand une installation photovoltaïque est-elle rentable ?"
+          "description": "Quand votre installation photovoltaïque est-elle rentabilisée."
+        },
+        "storage": {
+          "title": "Stockage d'électricité",
+          "description": "Comment une batterie augmente votre autoconsommation."
         }
       }
     }
@@ -8610,7 +8744,7 @@
           },
           "averageCost": {
             "question": "Quel est le coût moyen des panneaux solaires ?",
-            "answer": "Après déduction des subventions et des économies d'impôts, une installation solaire pour une maison individuelle coûte généralement à partir de 19 500 CHF pour un petit toit (ménage de 3 personnes) et jusqu'à environ 26 000 CHF pour un toit plus grand (5 personnes avec voiture électrique). Avec SolarFree, vous pouvez aussi passer au solaire sans acompte (CHF 0)."
+            "answer": "Chez Free State, une installation solaire clé en main avec batterie coûte CHF 2'300 à 2'800 par kWc hors TVA. Une installation de 10 kWc revient à environ CHF 21'000 à 27'000 TVA comprise après déduction de la rétribution unique. Avec SolarFree, vous pouvez aussi passer au solaire sans acompte (CHF 0)."
           },
           "controlCosts": {
             "question": "Comment le solaire m'aide-t-il à maîtriser mes coûts ?",

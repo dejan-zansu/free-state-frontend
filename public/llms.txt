@@ -15,7 +15,8 @@
 
 ## Zahlen und Fakten (Stand: Juli 2026)
 
-- Einstiegspreis: Photovoltaikanlage für ein kleines Einfamilienhaus-Dach ab CHF 19'500 (inkl. Förderungen und Steuerersparnissen)
+- Preis SolarDirect: schlüsselfertige Solaranlage mit Speicher CHF 2'300 bis 2'800 pro kWp exkl. MwSt. (Stand September 2026); 10 kWp nach Einmalvergütung rund CHF 21'000 bis 27'000 inkl. MwSt.
+- Einmalvergütung 2026 (KLEIV): CHF 360 pro kWp bis 30 kWp, Auszahlung durch Pronovo nach Inbetriebnahme
 - SolarFree: CHF 0 Anzahlung, Solarstrom zu 18 Rp/kWh, bis zu 30% unter dem Netztarif (Netztarif z. B. 32 Rp/kWh, je nach Gemeinde)
 - SolarAbo: Eigentum ab Tag 1, feste Monatsraten, nach 25 Jahren vollständig abbezahlt
 - Tätigkeitsgebiet: 19 Kantone der Deutschschweiz
