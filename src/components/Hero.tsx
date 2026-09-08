@@ -63,7 +63,12 @@ const Hero = async ({
         />
       </div>
 
-      <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[90px] sm:pt-[140px] md:pt-[230px] lg:pt-[225px] pb-[250px] sm:pb-[170px] md:pb-0 w-full">
+      <div
+        className={cn(
+          'relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[90px] sm:pt-[140px] md:pt-[230px] lg:pt-[225px] pb-[250px] sm:pb-[170px] w-full',
+          isCommercial ? 'md:pb-[150px]' : 'md:pb-0'
+        )}
+      >
         <HeroNav isCommercial={isCommercial} />
 
         <div className="flex flex-col items-center text-center">
@@ -72,8 +77,10 @@ const Hero = async ({
             on="load"
             delay={0.15}
             className={cn(
-              'text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium mb-3 sm:mb-4 whitespace-pre-line max-w-[900px] px-2',
-              isCommercial && 'text-center'
+              'text-white text-3xl sm:text-4xl md:text-5xl font-medium mb-3 sm:mb-4 whitespace-pre-line px-2',
+              isCommercial
+                ? 'text-center lg:text-5xl xl:text-6xl max-w-[1100px]'
+                : 'lg:text-6xl xl:text-7xl max-w-[900px]'
             )}
           >
             {heroTitle}
