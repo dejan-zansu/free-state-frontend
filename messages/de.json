@@ -5246,6 +5246,14 @@
         "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal.",
         "rateLimited": "Wir konnten Ihre Angaben gerade nicht speichern. Hinterlassen Sie uns Ihre E-Mail-Adresse, dann melden wir uns bei Ihnen mit Ihrer Auswertung."
       }
+    },
+    "costAnchor": {
+      "title": "Was kostet eine Solaranlage in der Schweiz?",
+      "perKwp": "Bei uns CHF {min} bis {max} pro kWp exkl. MwSt., schlüsselfertig mit Speicher.",
+      "example": "Eine typische Anlage mit 10 kWp kostet nach Abzug der Einmalvergütung von CHF {tenSubsidy} rund CHF {tenNetMin} bis {tenNetMax} inkl. MwSt.",
+      "solarFree": "Mit SolarFree zahlen Sie CHF 0 Anzahlung und beziehen Ihren Solarstrom ab 18 Rp./kWh.",
+      "note": "Richtwerte, der genaue Preis hängt von Dach und Verbrauch ab.",
+      "linkLabel": "Alle Kosten im Detail"
     }
   },
   "solarAboCalculator": {

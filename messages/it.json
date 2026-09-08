@@ -3713,6 +3713,14 @@
         "submitFailed": "Non ha funzionato. Riprova per favore.",
         "rateLimited": "Non siamo riusciti a salvare i tuoi dati in questo momento. Lasciaci il tuo indirizzo e-mail e ti ricontatteremo con la tua valutazione."
       }
+    },
+    "costAnchor": {
+      "title": "Quanto costa un impianto solare in Svizzera?",
+      "perKwp": "Da noi CHF {min} a {max} per kWp IVA esclusa, chiavi in mano con accumulatore.",
+      "example": "Un impianto tipico da 10 kWp costa circa CHF {tenNetMin} a {tenNetMax} IVA inclusa, dopo la rimunerazione unica di CHF {tenSubsidy}.",
+      "solarFree": "Con SolarFree pagate CHF 0 di acconto e acquistate la vostra energia solare da 18 ct./kWh.",
+      "note": "Valori indicativi, il prezzo esatto dipende dal tetto e dal consumo.",
+      "linkLabel": "Tutti i costi in dettaglio"
     }
   },
   "commercialCalculator": {

@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
+import CostAnchor from '@/components/calculator/CostAnchor'
+
 import CalculatorClient from './CalculatorClient'
 
 export async function generateMetadata({
@@ -20,5 +22,10 @@ export async function generateMetadata({
 }
 
 export default function SolarAboCalculatorPage() {
-  return <CalculatorClient />
+  return (
+    <>
+      <CalculatorClient />
+      <CostAnchor />
+    </>
+  )
 }

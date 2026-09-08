@@ -3713,6 +3713,14 @@
         "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer.",
         "rateLimited": "Nous n'avons pas pu enregistrer vos données à l'instant. Laissez-nous votre adresse e-mail et nous vous recontacterons avec votre évaluation."
       }
+    },
+    "costAnchor": {
+      "title": "Combien coûte une installation solaire en Suisse?",
+      "perKwp": "Chez nous CHF {min} à {max} par kWp hors TVA, clé en main avec accumulateur.",
+      "example": "Une installation typique de 10 kWp coûte environ CHF {tenNetMin} à {tenNetMax} TVA comprise, après la rétribution unique de CHF {tenSubsidy}.",
+      "solarFree": "Avec SolarFree, vous payez CHF 0 d’acompte et achetez votre courant solaire dès 18 ct./kWh.",
+      "note": "Valeurs indicatives, le prix exact dépend de votre toit et de votre consommation.",
+      "linkLabel": "Tous les coûts en détail"
     }
   },
   "commercialCalculator": {
