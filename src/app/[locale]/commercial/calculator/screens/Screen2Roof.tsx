@@ -31,7 +31,7 @@ const MIN_SUITABILITY_CLASS = 3
 const SCREEN_STEP = 2
 
 const PANEL_STYLE = {
-  background: 'rgba(30, 42, 38, 0.92)',
+  background: 'rgba(58, 46, 62, 0.92)',
   backdropFilter: 'blur(20px)',
 }
 
@@ -355,7 +355,7 @@ export default function Screen2Roof() {
   )
 
   return (
-    <div className="relative flex h-full flex-col bg-[#0B1B17] lg:flex-row">
+    <div className="relative flex h-full flex-col bg-[#241C27] lg:flex-row">
       <div className="relative h-[55svh] min-h-[320px] w-full lg:h-auto lg:min-h-[560px] lg:flex-1">
         <SonnendachRoofMap
           building={building}
@@ -375,7 +375,7 @@ export default function Screen2Roof() {
           <div className="pointer-events-none absolute inset-x-3 top-3 z-20 flex justify-center">
             <p
               role="status"
-              className="flex max-w-md items-center gap-2 rounded-xl px-4 py-3 text-base text-[#B7FE1A]"
+              className="flex max-w-md items-center gap-2 rounded-xl px-4 py-3 text-base text-[#F2C6CD]"
               style={PANEL_STYLE}
             >
               <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
@@ -427,7 +427,7 @@ export default function Screen2Roof() {
 
       <aside
         className="flex w-full flex-col gap-4 p-4 text-[#EAEDDF] sm:p-6 lg:w-[380px] lg:shrink-0 lg:overflow-y-auto lg:pt-28"
-        style={{ background: 'rgba(30, 42, 38, 0.97)' }}
+        style={{ background: 'rgba(58, 46, 62, 0.97)' }}
       >
         <div>
           <h2 className="text-xl font-medium text-white sm:text-2xl">
@@ -439,7 +439,7 @@ export default function Screen2Roof() {
           {isFetchingBuilding && (
             <p
               role="status"
-              className="mt-3 flex items-center gap-2 text-base text-[#B7FE1A]"
+              className="mt-3 flex items-center gap-2 text-base text-[#F2C6CD]"
             >
               <Loader2 className="h-4 w-4 shrink-0 animate-spin" />
               <span>{loadingText}</span>
@@ -461,7 +461,7 @@ export default function Screen2Roof() {
           <Button
             onClick={handleNext}
             disabled={!canProceed || isCapturing}
-            className="min-h-[44px] bg-[#B7FE1A] text-base text-[#062E25] hover:bg-[#B7FE1A]/90"
+            className="min-h-[44px] bg-energy text-base text-white hover:bg-energy/90"
           >
             {isCapturing && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {t('button')}

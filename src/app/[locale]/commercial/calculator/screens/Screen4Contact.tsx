@@ -438,7 +438,7 @@ export default function Screen4Contact() {
                       className={cn(
                         'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px] border transition-colors',
                         checked
-                          ? 'bg-[#B7FE1A] border-[#B7FE1A]'
+                          ? 'bg-energy border-energy'
                           : 'border-[#062E25]/40'
                       )}
                     >
@@ -451,7 +451,7 @@ export default function Screen4Contact() {
                         >
                           <path
                             d="M1 3L3 5L7 1"
-                            stroke="#062E25"
+                            stroke="#FFFFFF"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -578,7 +578,7 @@ export default function Screen4Contact() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="min-h-[44px] w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90 sm:h-12"
+            className="min-h-[44px] w-full bg-energy text-base text-white hover:bg-energy/90 sm:h-12"
           >
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             {t('button')}

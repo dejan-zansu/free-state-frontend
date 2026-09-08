@@ -66,7 +66,7 @@ export default function RoofSegmentList({ idPrefix }: { idPrefix: string }) {
                   type="checkbox"
                   checked={selectedSegmentIds.includes(segment.id)}
                   onChange={() => toggleSegment(segment.id)}
-                  className="mt-0.5 h-5 w-5 shrink-0 rounded-[4px] accent-[#B7FE1A]"
+                  className="mt-0.5 h-5 w-5 shrink-0 rounded-[4px] accent-[#9F3E4F]"
                 />
                 <span
                   aria-hidden

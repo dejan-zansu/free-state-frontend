@@ -153,7 +153,7 @@ export default function ManualCheckCapture({
       {headline && (
         <h2
           className={cn(
-            'font-medium text-[#062E25]',
+            'font-medium text-white',
             compact ? 'text-xl' : 'text-2xl sm:text-3xl'
           )}
         >
@@ -298,7 +298,7 @@ export default function ManualCheckCapture({
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+          className="h-12 w-full bg-energy text-base text-white hover:bg-energy/90"
         >
           {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {t('button')}

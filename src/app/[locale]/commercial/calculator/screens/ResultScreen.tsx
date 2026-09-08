@@ -46,7 +46,7 @@ const COPIED_RESET_MS = 2000
 const CARD =
   'rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-5 sm:p-8'
 const BUTTON_PRIMARY =
-  'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-[#062E25] px-6 text-base font-medium text-white transition-colors hover:bg-[#062E25]/90 disabled:opacity-60'
+  'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-energy px-6 text-base font-medium text-white transition-colors hover:bg-energy/90 disabled:opacity-60'
 const BUTTON_OUTLINE =
   'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-[#062E25] bg-white px-5 text-base font-medium text-[#062E25] transition-colors hover:bg-[#062E25]/5'
 

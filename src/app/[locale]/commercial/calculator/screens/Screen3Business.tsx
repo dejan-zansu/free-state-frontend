@@ -97,14 +97,14 @@ function CheckMark({ checked }: { checked: boolean }) {
     <span
       className={cn(
         'flex items-center justify-center w-[22px] h-[22px] shrink-0 rounded-full border transition-all',
-        checked ? 'bg-[#B7FE1A] border-[#B7FE1A]' : 'bg-white border-[#809792]'
+        checked ? 'bg-energy border-energy' : 'bg-white border-[#809792]'
       )}
     >
       {checked && (
         <svg width="11" height="9" viewBox="0 0 10 8" fill="none">
           <path
             d="M1 4L3.5 6.5L9 1"
-            stroke="#062E25"
+            stroke="#FFFFFF"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -368,7 +368,7 @@ export default function Screen3Business() {
                 className={cn(
                   'flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-colors sm:h-16 sm:w-16',
                   isSelected
-                    ? 'border-[#B7FE1A] bg-[#B7FE1A]/20'
+                    ? 'border-energy bg-energy/20'
                     : 'border-[#062E25]/15 bg-[#EAEDDF]'
                 )}
               >
@@ -410,7 +410,7 @@ export default function Screen3Business() {
                 className={cn(
                   'min-h-[44px] flex-1 rounded-full border px-4 text-base transition-colors',
                   active
-                    ? 'border-[#062E25] bg-[#062E25] text-white'
+                    ? 'border-energy bg-energy text-white'
                     : 'border-[#809792]/60 bg-white text-[#062E25] hover:border-[#062E25]'
                 )}
               >
@@ -484,7 +484,7 @@ export default function Screen3Business() {
                     className={cn(
                       'min-h-[44px] flex-1 rounded-full border px-3 text-base transition-colors',
                       active
-                        ? 'border-[#062E25] bg-[#062E25] text-white'
+                        ? 'border-energy bg-energy text-white'
                         : 'border-[#809792]/60 bg-white text-[#062E25] hover:border-[#062E25]'
                     )}
                   >
@@ -555,7 +555,7 @@ export default function Screen3Business() {
           {t('back')}
         </Button>
         <Button
-          className="min-h-[44px] bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+          className="min-h-[44px] bg-energy text-base text-white hover:bg-energy/90"
           onClick={nextStep}
         >
           {t('button')}

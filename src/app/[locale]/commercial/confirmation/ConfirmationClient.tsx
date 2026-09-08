@@ -281,7 +281,7 @@ function ConfirmationInner() {
         </p>
         <Link
           href="/commercial/calculator"
-          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-full bg-[#062E25] px-6 text-base font-medium text-white transition-colors hover:bg-[#062E25]/90"
+          className="mt-8 inline-flex min-h-[44px] items-center justify-center rounded-full bg-energy px-6 text-base font-medium text-white transition-colors hover:bg-energy/90"
         >
           {t('expiredCta')}
         </Link>

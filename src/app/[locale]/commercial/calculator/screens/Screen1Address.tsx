@@ -282,7 +282,7 @@ export default function Screen1Address() {
   return (
     <div className="flex flex-col items-center px-4 py-12 sm:py-16">
       <div className="w-full max-w-2xl text-center">
-        <span className="inline-block rounded-full bg-[#B7FE1A] px-4 py-1.5 text-base font-medium text-[#062E25]">
+        <span className="inline-block rounded-full bg-energy px-4 py-1.5 text-base font-medium text-white">
           {t('badge')}
         </span>
         <h1 className="mt-4 text-2xl sm:text-[34px] font-medium text-[#062E25]">
@@ -354,7 +354,7 @@ export default function Screen1Address() {
 
         <Button
           type="submit"
-          className="mt-6 h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+          className="mt-6 h-12 w-full bg-energy text-base text-white hover:bg-energy/90"
         >
           {t('button')}
         </Button>

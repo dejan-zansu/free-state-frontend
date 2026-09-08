@@ -45,7 +45,7 @@ export default function CommercialSteps() {
             : 'rgba(255, 255, 255, 1)',
           border: '1px solid rgba(156, 169, 166, 0.3)',
           backdropFilter: isMapDark ? 'blur(14.7px)' : 'blur(29px)',
-          boxShadow: '0px 25px 34px 0px rgba(183, 254, 26, 0.1)',
+          boxShadow: '0px 25px 34px 0px rgba(159, 62, 79, 0.15)',
         }}
       >
         <MotionConfig reducedMotion="user">
@@ -60,11 +60,11 @@ export default function CommercialSteps() {
                 className={cn(
                   'relative rounded-full px-3.5 py-1.5 text-base tracking-tight whitespace-nowrap transition-colors',
                   currentStep === step.id
-                    ? 'font-medium text-[#062E25]'
+                    ? 'font-medium text-white'
                     : currentStep > step.id
                       ? isMapDark
                         ? 'text-white/80 cursor-pointer hover:bg-[rgba(241,242,233,0.15)]'
-                        : 'text-[#062E25]/80 cursor-pointer hover:bg-[#B7FE1A]/25'
+                        : 'text-[#062E25]/80 cursor-pointer hover:bg-energy/10'
                       : isMapDark
                         ? 'text-white/70 cursor-default'
                         : 'text-[#062E25]/75 cursor-default'
@@ -73,7 +73,7 @@ export default function CommercialSteps() {
                 {currentStep === step.id && (
                   <motion.span
                     layoutId="commercialCalculatorStepPill"
-                    className="absolute inset-0 rounded-full bg-[#B7FE1A]"
+                    className="absolute inset-0 rounded-full bg-energy"
                     transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                   />
                 )}
@@ -90,7 +90,7 @@ export default function CommercialSteps() {
                 className={cn(
                   'h-1.5 rounded-full transition-all',
                   currentStep === step.id
-                    ? 'w-4 bg-[#B7FE1A]'
+                    ? 'w-4 bg-energy'
                     : currentStep > step.id
                       ? cn(
                           'w-1.5',

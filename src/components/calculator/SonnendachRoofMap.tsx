@@ -29,10 +29,10 @@ const TAP_HIT_TOLERANCE = 8
 const BUILDING_ZOOM = 20
 const ADDRESS_ZOOM = 19
 const SWITZERLAND_CENTER: [number, number] = [8.2275, 46.8182]
-const MAP_BACKGROUND = '#0B1B17'
+const MAP_BACKGROUND = '#241C27'
 
-const SELECTED_COLOR = '#1B332D'
-const SELECTED_STROKE = '#b7fe1a'
+const SELECTED_COLOR = '#3D3858'
+const SELECTED_STROKE = '#F2C6CD'
 
 const selectedStyle = new Style({
   fill: new Fill({ color: `${SELECTED_COLOR}CC` }),
