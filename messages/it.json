@@ -6796,13 +6796,6 @@
         "present": "presente",
         "missing": "mancante",
         "warningPrefix": "Nota",
-        "internalEmailsTitle": "Indirizzi e-mail interni",
-        "internalEmailsHint": "Gli account con questi indirizzi non vengono conteggiati come registrazioni. Gli indirizzi @freestate.ch sono sempre esclusi.",
-        "internalEmailsEmpty": "Ancora nessun indirizzo inserito.",
-        "internalEmailsPlaceholder": "nome@esempio.ch",
-        "internalEmailsAdd": "Aggiungi",
-        "internalEmailsRemove": "Rimuovi",
-        "internalEmailsSaveError": "Salvataggio non riuscito.",
         "googleAdsTitle": "API Google Ads",
         "googleAdsIntro": "Senza accesso API le campagne Google si basano sui dati GA4. L’API aggiunge testo degli annunci, tipi di corrispondenza, punteggio di qualità e conversioni.",
         "googleAdsNoCredentials": "Ancora nessuna credenziale Google Ads segnalata.",
@@ -7315,7 +7308,9 @@
       "feedInTariffLabel": "Tariffa di immissione",
       "electricitySupplier": "Fornitore di elettricità",
       "yearsValue": "{years} anni",
-      "financialsEstimated": "Stima basata sui prezzi dei pacchetti (non salvata dal calcolatore)"
+      "financialsEstimated": "Stima basata sui prezzi dei pacchetti (non salvata dal calcolatore)",
+      "offerRequested": "Offerta richiesta",
+      "hideInternal": "Nascondi account interni"
     },
     "projects": {
       "title": "Progetti del calcolatore",

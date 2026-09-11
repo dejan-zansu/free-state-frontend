@@ -82,6 +82,7 @@ export interface AdminUserDetail extends AdminUser {
 
 export interface AdminLead {
   id: string
+  offerCount: number
   status: string
   source: string
   propertyAddress: string

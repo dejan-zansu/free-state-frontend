@@ -6603,13 +6603,6 @@
         "present": "vorhanden",
         "missing": "fehlt",
         "warningPrefix": "Hinweis",
-        "internalEmailsTitle": "Interne E-Mail-Adressen",
-        "internalEmailsHint": "Konten mit diesen Adressen werden nicht als Anmeldungen gezählt. Adressen mit @freestate.ch sind immer ausgeschlossen.",
-        "internalEmailsEmpty": "Noch keine Adressen eingetragen.",
-        "internalEmailsPlaceholder": "name@beispiel.ch",
-        "internalEmailsAdd": "Hinzufügen",
-        "internalEmailsRemove": "Entfernen",
-        "internalEmailsSaveError": "Speichern fehlgeschlagen.",
         "googleAdsTitle": "Google Ads API",
         "googleAdsIntro": "Ohne API-Zugang laufen die Google-Kampagnen über GA4. Die API ergänzt Anzeigentext, Übereinstimmungstypen, Qualitätsfaktor und Conversions.",
         "googleAdsNoCredentials": "Noch keine Google Ads-Zugangsdaten gemeldet.",
@@ -7122,7 +7115,9 @@
       "feedInTariffLabel": "Einspeisevergütung",
       "electricitySupplier": "Stromversorger",
       "yearsValue": "{years} Jahre",
-      "financialsEstimated": "Geschätzt anhand der Paketpreise (nicht vom Rechner gespeichert)"
+      "financialsEstimated": "Geschätzt anhand der Paketpreise (nicht vom Rechner gespeichert)",
+      "offerRequested": "Angebot angefordert",
+      "hideInternal": "Interne Konten ausblenden"
     },
     "projects": {
       "title": "Rechner-Projekte",

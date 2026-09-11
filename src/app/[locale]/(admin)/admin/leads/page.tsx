@@ -94,6 +94,15 @@ export default function AdminLeadsPage() {
                 <SelectItem value="OTHER">{tl('OTHER')}</SelectItem>
               </SelectContent>
             </Select>
+            <label className="flex items-center gap-2 text-sm text-[#062E25]">
+              <input
+                type="checkbox"
+                className="h-4 w-4 accent-[#062E25]"
+                checked={filters.hideInternal === 'true'}
+                onChange={e => setFilter('hideInternal', e.target.checked ? 'true' : undefined)}
+              />
+              {t('hideInternal')}
+            </label>
           </div>
 
           {isLoading ? (
@@ -127,6 +136,11 @@ export default function AdminLeadsPage() {
                           {lead.project != null && !lead.project.isPropertyOwner && (
                             <span className="mt-1 inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-800">
                               {t('notOwner')}
+                            </span>
+                          )}
+                          {lead.offerCount > 0 && (
+                            <span className="mt-1 inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+                              {t('offerRequested')}
                             </span>
                           )}
                         </div>

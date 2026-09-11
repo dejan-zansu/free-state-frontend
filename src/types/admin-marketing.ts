@@ -372,7 +372,6 @@ export interface MarketingSettings {
   connectors: MarketingConnectorStatus[]
   targets: MarketingTargets
   credentials: MarketingCredential[]
-  internalEmails: string[]
 }
 
 export interface MarketingTargetsUpdate {

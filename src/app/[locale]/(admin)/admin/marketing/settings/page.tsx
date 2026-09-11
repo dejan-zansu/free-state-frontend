@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Play, X } from 'lucide-react'
+import { Play } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
@@ -74,8 +74,6 @@ export default function AdminMarketingSettingsPage() {
   })
 
   const [form, setForm] = useState({ cpl: '', cap: '', posts: '' })
-  const [emails, setEmails] = useState<string[]>([])
-  const [newEmail, setNewEmail] = useState('')
 
   useEffect(() => {
     if (data) {
@@ -84,7 +82,6 @@ export default function AdminMarketingSettingsPage() {
         cap: data.targets.monthlySpendCapChf !== null ? String(data.targets.monthlySpendCapChf) : '',
         posts: data.targets.weeklyPostGoal !== null ? String(data.targets.weeklyPostGoal) : '',
       })
-      setEmails(data.internalEmails ?? [])
     }
   }, [data])
 
@@ -107,29 +104,6 @@ export default function AdminMarketingSettingsPage() {
       queryClient.invalidateQueries({ queryKey: ['admin', 'marketing'] })
     },
   })
-
-  const emailsMutation = useMutation({
-    mutationFn: (next: string[]) => adminMarketingService.updateInternalEmails(next),
-    onSuccess: (saved) => {
-      setEmails(saved)
-      queryClient.invalidateQueries({ queryKey: ['admin', 'marketing'] })
-    },
-  })
-
-  const addEmail = () => {
-    const candidate = newEmail.trim().toLowerCase()
-    if (!candidate || emails.includes(candidate)) return
-    const next = [...emails, candidate]
-    setEmails(next)
-    setNewEmail('')
-    emailsMutation.mutate(next)
-  }
-
-  const removeEmail = (email: string) => {
-    const next = emails.filter((entry) => entry !== email)
-    setEmails(next)
-    emailsMutation.mutate(next)
-  }
 
   if (isLoading) {
     return <AdminPageLoader className="h-64" />
@@ -295,65 +269,6 @@ export default function AdminMarketingSettingsPage() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="border-[#062E25]/10">
-          <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-2">
-              {t('internalEmailsTitle')}
-            </h2>
-            <p className="text-base text-[#062E25] mb-4">{t('internalEmailsHint')}</p>
-            {emails.length === 0 ? (
-              <p className="text-sm text-[#062E25]/75 mb-4">{t('internalEmailsEmpty')}</p>
-            ) : (
-              <div className="flex flex-wrap gap-2 mb-4">
-                {emails.map((email) => (
-                  <span
-                    key={email}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-[#062E25]/15 pl-3 pr-1.5 py-1 text-sm text-[#062E25]"
-                  >
-                    {email}
-                    <button
-                      type="button"
-                      aria-label={t('internalEmailsRemove')}
-                      title={t('internalEmailsRemove')}
-                      disabled={emailsMutation.isPending}
-                      onClick={() => removeEmail(email)}
-                      className="rounded-full p-0.5 hover:bg-[#062E25]/10 disabled:opacity-50"
-                    >
-                      <X className="h-3.5 w-3.5" />
-                    </button>
-                  </span>
-                ))}
-              </div>
-            )}
-            <div className="flex flex-wrap items-center gap-3">
-              <Input
-                id="internal-email"
-                type="email"
-                className="max-w-xs"
-                placeholder={t('internalEmailsPlaceholder')}
-                value={newEmail}
-                onChange={(e) => setNewEmail(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') {
-                    e.preventDefault()
-                    addEmail()
-                  }
-                }}
-              />
-              <Button
-                variant="outline"
-                disabled={emailsMutation.isPending || newEmail.trim() === ''}
-                onClick={addEmail}
-              >
-                {t('internalEmailsAdd')}
-              </Button>
-              {emailsMutation.isError && (
-                <span className="text-sm text-red-600">{t('internalEmailsSaveError')}</span>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-
         <Card className="border-[#062E25]/10">
           <CardContent className="p-6">
             <h2 className="text-lg font-semibold text-[#062E25] mb-2">{t('googleAdsTitle')}</h2>

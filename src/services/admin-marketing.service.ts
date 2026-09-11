@@ -77,11 +77,6 @@ class AdminMarketingService {
     return response.data.data
   }
 
-  async updateInternalEmails(emails: string[]): Promise<string[]> {
-    const response = await api.put<{ success: boolean; data: string[] }>('/admin/marketing/settings/internal-emails', { emails })
-    return response.data.data
-  }
-
   async createEvent(data: MarketingEventCreate): Promise<MarketingEvent> {
     const response = await api.post<{ success: boolean; data: MarketingEvent }>('/admin/marketing/events', data)
     return response.data.data
