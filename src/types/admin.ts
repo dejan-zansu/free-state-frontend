@@ -1,3 +1,5 @@
+import type { UserRole } from '@/types/auth'
+
 export interface PaginatedResponse<T> {
   success: boolean
   data: T[]
@@ -55,7 +57,7 @@ export interface AdminUser {
   phone: string | null
   dateOfBirth: string | null
   nationality: string | null
-  role: 'ADMIN' | 'CUSTOMER' | 'SALES_REP'
+  role: UserRole
   status: 'ACTIVE' | 'INACTIVE' | 'PENDING_VERIFICATION' | 'SUSPENDED'
   emailVerified: boolean
   lastLoginAt: string | null
@@ -78,6 +80,15 @@ export interface AdminUserDetail extends AdminUser {
     country: string
     addressAdditional: string | null
   } | null
+}
+
+export interface StaffAuditEntry {
+  id: string
+  action: 'USER_INVITED' | 'INVITE_RESENT' | 'ROLE_CHANGED' | 'STATUS_CHANGED'
+  before: Record<string, string>
+  after: Record<string, string>
+  createdAt: string
+  actor: UserLite | null
 }
 
 export interface AdminLead {
@@ -301,6 +312,8 @@ export interface AdminProjectDetail {
   propertyAddress: string
   propertyLat: number
   propertyLng: number
+  postalCode: string | null
+  administrativeArea: string | null
   status: string
   selectedPackage: string | null
   calculatorType: string | null
@@ -313,6 +326,7 @@ export interface AdminProjectDetail {
   lead: AdminProjectLead | null
   contracts: AdminLeadContract[]
   solarCalculation: AdminLeadSolarCalculation | null
+  workspace: { id: string; number: string } | null
   customer: {
     id: string
     isPropertyOwner: boolean
@@ -559,7 +573,12 @@ export interface ListQuery {
   [key: string]: string | number | undefined
 }
 
-export type InternalTaskStatus = 'OPEN' | 'IN_PROGRESS' | 'BLOCKED' | 'DONE' | 'CANCELLED'
+export type InternalTaskStatus =
+  | 'OPEN'
+  | 'IN_PROGRESS'
+  | 'BLOCKED'
+  | 'DONE'
+  | 'CANCELLED'
 
 export type InternalTaskPriority = 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT'
 
@@ -624,7 +643,10 @@ export interface InternalTaskActivity {
   createdAt: string
 }
 
-export interface InternalTaskDetail extends Omit<InternalTaskListItem, '_count'> {
+export interface InternalTaskDetail extends Omit<
+  InternalTaskListItem,
+  '_count'
+> {
   description: string | null
   completedAt: string | null
   comments: InternalTaskComment[]
@@ -658,7 +680,13 @@ export interface InternalTaskListQuery {
   page?: number
   limit?: number
   search?: string
-  sortBy?: 'createdAt' | 'updatedAt' | 'dueDate' | 'priority' | 'status' | 'title'
+  sortBy?:
+    | 'createdAt'
+    | 'updatedAt'
+    | 'dueDate'
+    | 'priority'
+    | 'status'
+    | 'title'
   sortOrder?: 'asc' | 'desc'
   status?: InternalTaskStatus[]
   priority?: InternalTaskPriority

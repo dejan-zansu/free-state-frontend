@@ -2,7 +2,7 @@ import { test, expect, vi, beforeEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import { NextIntlClientProvider, type AbstractIntlMessages } from 'next-intl'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import deMessages from '../../../../../../../../../messages/de.json'
+import deMessages from '../../../../../../../../../../messages/de.json'
 import AdminPackageDetailPage from '../page'
 
 vi.mock('next/navigation', () => ({
@@ -33,7 +33,9 @@ const packageData = {
   displayOrder: 0,
   isActive: true,
   supportedSolarModels: ['SOLAR_FREE'],
-  translations: [{ language: 'de', name: 'Home Paket', description: 'Beschreibung' }],
+  translations: [
+    { language: 'de', name: 'Home Paket', description: 'Beschreibung' },
+  ],
 }
 
 const itemsData = [

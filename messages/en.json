@@ -3594,7 +3594,12 @@
         "outsideCh": "We currently only read Swiss addresses automatically. If your building is outside Switzerland, <link>send us your address</link> and we will check it by hand.",
         "placesSlow": "The address search is responding slowly right now. One moment please."
       },
-      "badge": "Free and non-binding"
+      "badge": "Free and non-binding",
+      "houseNumber": {
+        "label": "House number",
+        "helper": "Almost there. Add the house number and we will find your building.",
+        "button": "Find building"
+      }
     },
     "screen2": {
       "headline": "This is your roof",
@@ -3683,7 +3688,7 @@
     },
     "screen5": {
       "headline": "Your report is ready",
-      "helper": "We already have your address. All we still need is your name and your email address.",
+      "helper": "We already have your address. All we still need is your name, your email address and your phone number.",
       "teaserTitle": "What your roof can do",
       "teaserArea": "Roof area",
       "teaserKwp": "System size",
@@ -6110,6 +6115,199 @@
         "ATTACHMENT_DELETED": "Attachment deleted"
       }
     },
+    "workspaces": {
+      "title": "Projects",
+      "create": "New project",
+      "searchPlaceholder": "Search by number, name or address...",
+      "tabs": {
+        "all": "All",
+        "mine": "Mine",
+        "archived": "Archived"
+      },
+      "columns": {
+        "number": "Number",
+        "name": "Name",
+        "address": "Address",
+        "members": "Members",
+        "lastActivity": "Last activity"
+      },
+      "empty": "No projects found.",
+      "open": "Open",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "dialog": {
+        "title": "New project",
+        "name": "Name",
+        "siteAddress": "Site address",
+        "description": "Description",
+        "template": "Folder structure",
+        "templateStandard": "Standard (Photos before, Plans, Building permit, Installation, Handover, Contracts)",
+        "templateEmpty": "Empty",
+        "submit": "Create project"
+      },
+      "errors": {
+        "LINK_TAKEN": "This record already has a project.",
+        "WORKSPACE_ARCHIVED": "This project is archived and cannot be changed.",
+        "LAST_MANAGER": "A project needs at least one project manager.",
+        "MEMBER_NOT_ELIGIBLE": "This person cannot be added to projects.",
+        "FOLDER_NOT_FOUND": "Folder not found.",
+        "FILE_NOT_FOUND": "File not found.",
+        "FORBIDDEN_LEVEL": "Your access does not allow this.",
+        "FILE_TOO_LARGE": "Files may be at most 5 GB.",
+        "FILE_TYPE_BLOCKED": "This file type is not allowed.",
+        "UPLOAD_INCOMPLETE": "The upload is incomplete. Please try again.",
+        "UPLOAD_FAILED": "Upload failed.",
+        "ZIP_TOO_LARGE": "The selection is larger than 2 GB.",
+        "FOLDER_CYCLE": "A folder cannot be moved into itself.",
+        "FOLDER_EXISTS": "A folder with this name already exists here.",
+        "generic": "Action failed."
+      },
+      "detail": {
+        "back": "Back",
+        "edit": "Edit",
+        "save": "Save",
+        "archive": "Archive",
+        "restore": "Restore",
+        "linkedProject": "Open calculator project",
+        "linkedLead": "Open commercial lead",
+        "tabs": {
+          "files": "Files",
+          "members": "Members",
+          "activity": "Activity",
+          "trash": "Trash"
+        },
+        "archivedNotice": "Archived projects are read-only. Restore it first to make changes."
+      },
+      "levels": {
+        "VIEWER": "View",
+        "CONTRIBUTOR": "Contribute",
+        "MANAGER": "Project lead"
+      },
+      "members": {
+        "add": "Add member",
+        "selectUser": "Select person",
+        "level": "Access",
+        "remove": "Remove",
+        "confirmRemove": "Really remove?",
+        "empty": "No members yet.",
+        "columns": {
+          "name": "Name",
+          "email": "Email"
+        }
+      },
+      "activity": {
+        "system": "System",
+        "loadMore": "Load more",
+        "empty": "No activity yet.",
+        "types": {
+          "WORKSPACE_CREATED": "Project created",
+          "WORKSPACE_UPDATED": "Project edited",
+          "WORKSPACE_ARCHIVED": "Project archived",
+          "WORKSPACE_RESTORED": "Project restored",
+          "MEMBER_ADDED": "Member added",
+          "MEMBER_LEVEL_CHANGED": "Access changed",
+          "MEMBER_REMOVED": "Member removed",
+          "FOLDER_CREATED": "Folder created",
+          "FOLDER_RENAMED": "Folder renamed",
+          "FOLDER_MOVED": "Folder moved",
+          "FOLDER_RESTRICTED": "Folder restricted",
+          "FOLDER_UNRESTRICTED": "Restriction lifted",
+          "FOLDER_ACCESS_CHANGED": "Folder access changed",
+          "FOLDER_TRASHED": "Folder moved to trash",
+          "FOLDER_RESTORED": "Folder restored",
+          "FILE_UPLOADED": "File uploaded",
+          "FILE_RENAMED": "File renamed",
+          "FILE_MOVED": "File moved",
+          "FILE_TRASHED": "File moved to trash",
+          "FILE_RESTORED": "File restored",
+          "FILE_DELETED": "File permanently deleted"
+        }
+      },
+      "files": {
+        "upload": "Upload",
+        "newFolder": "New folder",
+        "newFolderPlaceholder": "Folder name",
+        "search": "Search this project...",
+        "searchLabel": "Search",
+        "viewGrid": "Tiles",
+        "viewList": "List",
+        "sortName": "Name",
+        "sortDate": "Date",
+        "sortSize": "Size",
+        "columns": {
+          "name": "Name",
+          "size": "Size",
+          "uploader": "Uploaded by",
+          "date": "Modified"
+        },
+        "empty": "This folder is empty.",
+        "dropHere": "Drop here",
+        "incomplete": "Incomplete",
+        "remove": "Remove",
+        "selected": "{count} selected",
+        "clearSelection": "Clear selection",
+        "downloadZip": "Download as ZIP",
+        "actions": {
+          "open": "Open",
+          "download": "Download",
+          "rename": "Rename",
+          "move": "Move",
+          "restrict": "Access",
+          "trash": "Move to trash"
+        },
+        "confirmTrash": "Move to trash? You can restore it for 30 days.",
+        "trashed": "Moved to trash",
+        "renamed": "Renamed",
+        "moved": "Moved",
+        "folderCreated": "Folder created",
+        "restrictedBadge": "Restricted",
+        "noResults": "No results."
+      },
+      "upload": {
+        "title": "{done} of {total} uploaded",
+        "queued": "Queued",
+        "uploading": "Uploading",
+        "done": "Done",
+        "error": "Error",
+        "cancelled": "Cancelled",
+        "retry": "Retry",
+        "cancel": "Cancel",
+        "clearFinished": "Hide finished"
+      },
+      "move": {
+        "title": "Move to",
+        "root": "Project folder",
+        "confirm": "Move here"
+      },
+      "restrict": {
+        "title": "Folder access",
+        "toggle": "Restricted",
+        "hint": "Only project management and selected members can see this folder.",
+        "save": "Save",
+        "saved": "Access saved",
+        "managers": "Project management always sees this"
+      },
+      "preview": {
+        "download": "Download",
+        "previous": "Previous",
+        "next": "Next",
+        "noPreview": "No preview available."
+      },
+      "trash": {
+        "folders": "Folders",
+        "files": "Files",
+        "deletedAt": "Deleted on",
+        "restore": "Restore",
+        "deleteForever": "Delete forever",
+        "confirmDelete": "Delete forever? This cannot be undone.",
+        "empty": "The trash is empty.",
+        "retention": "Items are automatically deleted after 30 days."
+      },
+      "link": {
+        "open": "Open project files",
+        "create": "Create project files"
+      }
+    },
     "sidebar": {
       "title": "Admin Panel",
       "dashboard": "Dashboard",
@@ -6164,7 +6362,8 @@
       "outreach": "Outreach",
       "outreachQueues": "Outreach Queues",
       "outreachStats": "Outreach stats",
-      "tasks": "Tasks"
+      "tasks": "Tasks",
+      "workspaces": "Projects"
     },
     "outreach": {
       "title": "Outreach",
@@ -7079,10 +7278,13 @@
       "ADMIN": "Admin",
       "CUSTOMER": "Customer",
       "SALES_REP": "Sales Rep",
+      "PROJECT_MANAGER": "Project manager",
+      "EMPLOYEE": "Employee",
       "ACTIVE": "Active",
       "INACTIVE": "Inactive",
       "PENDING_VERIFICATION": "Pending Verification",
       "SUSPENDED": "Suspended",
+      "ARCHIVED": "Archived",
       "SCHEDULED": "Scheduled",
       "COMPLETED": "Completed",
       "CALCULATING": "Calculating",
@@ -7179,7 +7381,38 @@
       "addressAdditional": "Address additional",
       "activitySummary": "Activity Summary",
       "assignedLeads": "Assigned Leads",
-      "createdQuotes": "Created Quotes"
+      "createdQuotes": "Created Quotes",
+      "invite": {
+        "button": "Invite staff member",
+        "title": "Invite staff member",
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email",
+        "role": "Role",
+        "language": "Language",
+        "submit": "Send invite",
+        "resend": "Resend invite",
+        "resent": "Invite was resent",
+        "errorExists": "An account with this email already exists.",
+        "errorGeneric": "The invite could not be sent."
+      },
+      "errors": {
+        "SELF_ROLE_CHANGE": "You cannot change your own role or status.",
+        "LAST_ADMIN": "The last active admin cannot be demoted or suspended.",
+        "CUSTOMER_ROLE_LOCKED": "Customer accounts cannot become staff accounts here.",
+        "INVITE_NOT_PENDING": "This invite is already active, it cannot be resent.",
+        "generic": "The change could not be saved."
+      },
+      "audit": {
+        "title": "Change log",
+        "empty": "No changes logged.",
+        "USER_INVITED": "Invited",
+        "INVITE_RESENT": "Invite resent",
+        "ROLE_CHANGED": "Role changed",
+        "STATUS_CHANGED": "Status changed",
+        "transition": "{before} to {after}",
+        "actorUnknown": "Unknown"
+      }
     },
     "leads": {
       "title": "Leads",
@@ -8404,6 +8637,15 @@
         "co2": "That is {co2} kg less CO2 per year.",
         "tariff": "Calculated with {rate} Rp/kWh for your electricity price.",
         "estimate": "These figures are an estimate based on the official federal roof data. We set the exact price after the site visit."
+      },
+      "phoneAsk": {
+        "title": "How can we best reach you?",
+        "helper": "A phone number helps us with questions about your roof. It is optional.",
+        "label": "Phone number",
+        "button": "Save",
+        "saved": "Phone number saved. Thank you.",
+        "errorInvalid": "Please enter a valid phone number.",
+        "errorFailed": "That did not work. Please try again."
       }
     },
     "status": {

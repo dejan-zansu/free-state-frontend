@@ -6,6 +6,7 @@ import { useTranslations } from 'next-intl'
 import { ChevronLeft } from 'lucide-react'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { WorkspaceLinkButton } from '@/components/admin/workspaces/WorkspaceLinkButton'
 import { Button } from '@/components/ui/button'
 import { adminCommercialLeadService } from '@/services/admin-commercial-lead.service'
 import { adminOutreachService } from '@/services/admin-outreach.service'
@@ -40,7 +41,10 @@ export default function CommercialLeadDetailPage() {
   useEffect(() => {
     setIsLoading(true)
     refresh().finally(() => setIsLoading(false))
-    adminOutreachService.getByLead(params.id).then(setOutbound).catch(() => setOutbound(null))
+    adminOutreachService
+      .getByLead(params.id)
+      .then(setOutbound)
+      .catch(() => setOutbound(null))
   }, [params.id])
 
   if (isLoading || !lead) return <AdminPageLoader />
@@ -49,29 +53,56 @@ export default function CommercialLeadDetailPage() {
     <div>
       <div className="flex items-center justify-between mb-4">
         <Button variant="ghost" onClick={() => router.back()} className="gap-2">
-          <ChevronLeft className="w-4 h-4" />{t('back')}
+          <ChevronLeft className="w-4 h-4" />
+          {t('back')}
         </Button>
       </div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="font-mono text-sm text-[#062E25]/75">{lead.reference}</p>
-          <h1 className="text-2xl font-bold text-[#062E25]">{lead.companyName}</h1>
+          <p className="font-mono text-sm text-[#062E25]/75">
+            {lead.reference}
+          </p>
+          <h1 className="text-2xl font-bold text-[#062E25]">
+            {lead.companyName}
+          </h1>
         </div>
+        <WorkspaceLinkButton
+          workspace={lead.workspace}
+          link={{
+            commercialLeadId: lead.id,
+            name: lead.companyName,
+            siteAddress: [
+              lead.addressStreet,
+              lead.addressNumber,
+              lead.addressPostalCode,
+              lead.addressCity,
+            ]
+              .filter(Boolean)
+              .join(' '),
+          }}
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr_300px] gap-6">
         <IdentityColumn lead={lead} onUpdated={refresh} />
         <div>
           <div className="flex gap-2 border-b border-[#062E25]/10 mb-4">
-            {([
-              'activity', 'notes', 'attachments', 'snapshot',
-              ...(outbound ? (['outbound'] as TabKey[]) : []),
-            ] as TabKey[]).map((k) => (
+            {(
+              [
+                'activity',
+                'notes',
+                'attachments',
+                'snapshot',
+                ...(outbound ? (['outbound'] as TabKey[]) : []),
+              ] as TabKey[]
+            ).map(k => (
               <button
                 key={k}
                 onClick={() => setTab(k)}
                 className={`px-4 py-2 text-sm font-medium border-b-2 ${
-                  tab === k ? 'border-[#062E25] text-[#062E25]' : 'border-transparent text-[#062E25]/75 hover:text-[#062E25]'
+                  tab === k
+                    ? 'border-[#062E25] text-[#062E25]'
+                    : 'border-transparent text-[#062E25]/75 hover:text-[#062E25]'
                 }`}
               >
                 {t(`tab_${k}`)}
@@ -79,8 +110,12 @@ export default function CommercialLeadDetailPage() {
             ))}
           </div>
           {tab === 'activity' && <ActivityTab activities={lead.activities} />}
-          {tab === 'notes' && <NotesTab leadId={lead.id} notes={lead.notes} onChange={refresh} />}
-          {tab === 'attachments' && <AttachmentsTab lead={lead} onChange={refresh} />}
+          {tab === 'notes' && (
+            <NotesTab leadId={lead.id} notes={lead.notes} onChange={refresh} />
+          )}
+          {tab === 'attachments' && (
+            <AttachmentsTab lead={lead} onChange={refresh} />
+          )}
           {tab === 'snapshot' && <SnapshotTab lead={lead} />}
           {tab === 'outbound' && outbound && <OutboundTab thread={outbound} />}
         </div>

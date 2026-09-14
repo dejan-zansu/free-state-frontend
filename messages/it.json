@@ -3594,7 +3594,12 @@
         "outsideCh": "Al momento leggiamo automaticamente solo indirizzi svizzeri. Se il tuo edificio si trova all'estero, <link>scrivici il tuo indirizzo</link> e lo verificheremo a mano.",
         "placesSlow": "La ricerca dell'indirizzo sta rispondendo lentamente. Un attimo per favore."
       },
-      "badge": "Gratuito e senza impegno"
+      "badge": "Gratuito e senza impegno",
+      "houseNumber": {
+        "label": "Numero civico",
+        "helper": "Ci siamo quasi. Aggiungi il numero civico e troveremo il tuo edificio.",
+        "button": "Trova l'edificio"
+      }
     },
     "screen2": {
       "headline": "Questo è il tuo tetto",
@@ -3683,7 +3688,7 @@
     },
     "screen5": {
       "headline": "La tua valutazione è pronta",
-      "helper": "Il tuo indirizzo lo abbiamo già. Mancano solo il tuo nome e il tuo indirizzo e-mail.",
+      "helper": "Il tuo indirizzo lo abbiamo già. Mancano solo il tuo nome, il tuo indirizzo e-mail e il tuo numero di telefono.",
       "teaserTitle": "Cosa può produrre il tuo tetto",
       "teaserArea": "Superficie del tetto",
       "teaserKwp": "Potenza",
@@ -6110,6 +6115,199 @@
         "ATTACHMENT_DELETED": "Allegato eliminato"
       }
     },
+    "workspaces": {
+      "title": "Progetti",
+      "create": "Nuovo progetto",
+      "searchPlaceholder": "Cerca per numero, nome o indirizzo...",
+      "tabs": {
+        "all": "Tutti",
+        "mine": "I miei",
+        "archived": "Archiviati"
+      },
+      "columns": {
+        "number": "Numero",
+        "name": "Nome",
+        "address": "Indirizzo",
+        "members": "Membri",
+        "lastActivity": "Ultima attività"
+      },
+      "empty": "Nessun progetto trovato.",
+      "open": "Apri",
+      "previousPage": "Pagina precedente",
+      "nextPage": "Pagina successiva",
+      "dialog": {
+        "title": "Nuovo progetto",
+        "name": "Nome",
+        "siteAddress": "Indirizzo dell'impianto",
+        "description": "Descrizione",
+        "template": "Struttura delle cartelle",
+        "templateStandard": "Standard (Foto prima, Piani, Domanda di costruzione, Montaggio, Collaudo, Contratti)",
+        "templateEmpty": "Vuota",
+        "submit": "Crea progetto"
+      },
+      "errors": {
+        "LINK_TAKEN": "Questo record ha già un progetto.",
+        "WORKSPACE_ARCHIVED": "Questo progetto è archiviato e non può essere modificato.",
+        "LAST_MANAGER": "Un progetto necessita di almeno un responsabile di progetto.",
+        "MEMBER_NOT_ELIGIBLE": "Questa persona non può essere aggiunta ai progetti.",
+        "FOLDER_NOT_FOUND": "Cartella non trovata.",
+        "FILE_NOT_FOUND": "File non trovato.",
+        "FORBIDDEN_LEVEL": "Il tuo accesso non lo consente.",
+        "FILE_TOO_LARGE": "I file possono avere al massimo 5 GB.",
+        "FILE_TYPE_BLOCKED": "Questo tipo di file non è consentito.",
+        "UPLOAD_INCOMPLETE": "Il caricamento è incompleto. Riprova.",
+        "UPLOAD_FAILED": "Caricamento non riuscito.",
+        "ZIP_TOO_LARGE": "La selezione supera i 2 GB.",
+        "FOLDER_CYCLE": "Una cartella non può essere spostata in se stessa.",
+        "FOLDER_EXISTS": "Esiste già una cartella con questo nome qui.",
+        "generic": "Azione non riuscita."
+      },
+      "detail": {
+        "back": "Indietro",
+        "edit": "Modifica",
+        "save": "Salva",
+        "archive": "Archivia",
+        "restore": "Ripristina",
+        "linkedProject": "Apri il progetto del calcolatore",
+        "linkedLead": "Apri la richiesta commerciale",
+        "tabs": {
+          "files": "File",
+          "members": "Membri",
+          "activity": "Attività",
+          "trash": "Cestino"
+        },
+        "archivedNotice": "I progetti archiviati sono di sola lettura. Ripristinalo prima di modificarlo."
+      },
+      "levels": {
+        "VIEWER": "Visualizzazione",
+        "CONTRIBUTOR": "Collaborazione",
+        "MANAGER": "Direzione progetto"
+      },
+      "members": {
+        "add": "Aggiungi membro",
+        "selectUser": "Seleziona persona",
+        "level": "Accesso",
+        "remove": "Rimuovi",
+        "confirmRemove": "Rimuovere davvero?",
+        "empty": "Nessun membro per ora.",
+        "columns": {
+          "name": "Nome",
+          "email": "E-mail"
+        }
+      },
+      "activity": {
+        "system": "Sistema",
+        "loadMore": "Carica altro",
+        "empty": "Nessuna attività per ora.",
+        "types": {
+          "WORKSPACE_CREATED": "Progetto creato",
+          "WORKSPACE_UPDATED": "Progetto modificato",
+          "WORKSPACE_ARCHIVED": "Progetto archiviato",
+          "WORKSPACE_RESTORED": "Progetto ripristinato",
+          "MEMBER_ADDED": "Membro aggiunto",
+          "MEMBER_LEVEL_CHANGED": "Accesso modificato",
+          "MEMBER_REMOVED": "Membro rimosso",
+          "FOLDER_CREATED": "Cartella creata",
+          "FOLDER_RENAMED": "Cartella rinominata",
+          "FOLDER_MOVED": "Cartella spostata",
+          "FOLDER_RESTRICTED": "Cartella limitata",
+          "FOLDER_UNRESTRICTED": "Limitazione rimossa",
+          "FOLDER_ACCESS_CHANGED": "Accesso alla cartella modificato",
+          "FOLDER_TRASHED": "Cartella spostata nel cestino",
+          "FOLDER_RESTORED": "Cartella ripristinata",
+          "FILE_UPLOADED": "File caricato",
+          "FILE_RENAMED": "File rinominato",
+          "FILE_MOVED": "File spostato",
+          "FILE_TRASHED": "File spostato nel cestino",
+          "FILE_RESTORED": "File ripristinato",
+          "FILE_DELETED": "File eliminato definitivamente"
+        }
+      },
+      "files": {
+        "upload": "Carica",
+        "newFolder": "Nuova cartella",
+        "newFolderPlaceholder": "Nome della cartella",
+        "search": "Cerca in questo progetto...",
+        "searchLabel": "Cerca",
+        "viewGrid": "Riquadri",
+        "viewList": "Elenco",
+        "sortName": "Nome",
+        "sortDate": "Data",
+        "sortSize": "Dimensione",
+        "columns": {
+          "name": "Nome",
+          "size": "Dimensione",
+          "uploader": "Caricato da",
+          "date": "Modificato"
+        },
+        "empty": "Questa cartella è vuota.",
+        "dropHere": "Rilascia qui",
+        "incomplete": "Incompleto",
+        "remove": "Rimuovi",
+        "selected": "{count} selezionati",
+        "clearSelection": "Deseleziona",
+        "downloadZip": "Scarica come ZIP",
+        "actions": {
+          "open": "Apri",
+          "download": "Scarica",
+          "rename": "Rinomina",
+          "move": "Sposta",
+          "restrict": "Accesso",
+          "trash": "Sposta nel cestino"
+        },
+        "confirmTrash": "Spostare nel cestino? Puoi ripristinarlo per 30 giorni.",
+        "trashed": "Spostato nel cestino",
+        "renamed": "Rinominato",
+        "moved": "Spostato",
+        "folderCreated": "Cartella creata",
+        "restrictedBadge": "Limitato",
+        "noResults": "Nessun risultato."
+      },
+      "upload": {
+        "title": "{done} di {total} caricati",
+        "queued": "In attesa",
+        "uploading": "Caricamento in corso",
+        "done": "Completato",
+        "error": "Errore",
+        "cancelled": "Annullato",
+        "retry": "Riprova",
+        "cancel": "Annulla",
+        "clearFinished": "Nascondi completati"
+      },
+      "move": {
+        "title": "Sposta in",
+        "root": "Cartella del progetto",
+        "confirm": "Sposta qui"
+      },
+      "restrict": {
+        "title": "Accesso alla cartella",
+        "toggle": "Limitato",
+        "hint": "Solo la direzione del progetto e i membri selezionati vedono questa cartella.",
+        "save": "Salva",
+        "saved": "Accesso salvato",
+        "managers": "La direzione del progetto vede sempre"
+      },
+      "preview": {
+        "download": "Scarica",
+        "previous": "Precedente",
+        "next": "Successivo",
+        "noPreview": "Nessuna anteprima disponibile."
+      },
+      "trash": {
+        "folders": "Cartelle",
+        "files": "File",
+        "deletedAt": "Eliminato il",
+        "restore": "Ripristina",
+        "deleteForever": "Elimina definitivamente",
+        "confirmDelete": "Eliminare definitivamente? Questa azione non può essere annullata.",
+        "empty": "Il cestino è vuoto.",
+        "retention": "Gli elementi vengono eliminati automaticamente dopo 30 giorni."
+      },
+      "link": {
+        "open": "Apri i file del progetto",
+        "create": "Crea i file del progetto"
+      }
+    },
     "sidebar": {
       "title": "Pannello amministratore",
       "dashboard": "Dashboard",
@@ -6164,7 +6362,8 @@
       "outreach": "Prospezione",
       "outreachQueues": "Code di prospezione",
       "outreachStats": "Statistiche di prospezione",
-      "tasks": "Attività"
+      "tasks": "Attività",
+      "workspaces": "Progetti"
     },
     "outreach": {
       "title": "Prospezione",
@@ -7079,10 +7278,13 @@
       "ADMIN": "Admin",
       "CUSTOMER": "Cliente",
       "SALES_REP": "Commerciale",
+      "PROJECT_MANAGER": "Responsabile di progetto",
+      "EMPLOYEE": "Collaboratore",
       "ACTIVE": "Attivo",
       "INACTIVE": "Inattivo",
       "PENDING_VERIFICATION": "Verifica in sospeso",
       "SUSPENDED": "Sospeso",
+      "ARCHIVED": "Archiviato",
       "SCHEDULED": "Pianificato",
       "COMPLETED": "Completato",
       "CALCULATING": "Calcolo in corso",
@@ -7179,7 +7381,38 @@
       "addressAdditional": "Complemento d'indirizzo",
       "activitySummary": "Riepilogo attività",
       "assignedLeads": "Lead assegnati",
-      "createdQuotes": "Preventivi creati"
+      "createdQuotes": "Preventivi creati",
+      "invite": {
+        "button": "Invita un collaboratore",
+        "title": "Invita un collaboratore",
+        "firstName": "Nome",
+        "lastName": "Cognome",
+        "email": "Email",
+        "role": "Ruolo",
+        "language": "Lingua",
+        "submit": "Invia invito",
+        "resend": "Invia di nuovo l'invito",
+        "resent": "L'invito è stato inviato di nuovo",
+        "errorExists": "Esiste già un account con questa email.",
+        "errorGeneric": "Non è stato possibile inviare l'invito."
+      },
+      "errors": {
+        "SELF_ROLE_CHANGE": "Non puoi modificare il tuo ruolo o stato.",
+        "LAST_ADMIN": "L'ultimo amministratore attivo non può essere retrocesso o sospeso.",
+        "CUSTOMER_ROLE_LOCKED": "Gli account cliente non possono diventare account collaboratore qui.",
+        "INVITE_NOT_PENDING": "Questo invito è già attivo, non può essere inviato di nuovo.",
+        "generic": "La modifica non è stata salvata."
+      },
+      "audit": {
+        "title": "Registro delle modifiche",
+        "empty": "Nessuna modifica registrata.",
+        "USER_INVITED": "Invitato",
+        "INVITE_RESENT": "Invito inviato di nuovo",
+        "ROLE_CHANGED": "Ruolo modificato",
+        "STATUS_CHANGED": "Stato modificato",
+        "transition": "da {before} a {after}",
+        "actorUnknown": "Sconosciuto"
+      }
     },
     "leads": {
       "title": "Leads",
@@ -8404,6 +8637,15 @@
         "co2": "Sono {co2} kg di CO2 in meno all'anno.",
         "tariff": "Calcolato con {rate} ct./kWh per il Suo prezzo dell'elettricità.",
         "estimate": "Queste cifre sono una stima basata sui dati federali ufficiali dei tetti. Il prezzo esatto lo fissiamo dopo il sopralluogo."
+      },
+      "phoneAsk": {
+        "title": "Come possiamo raggiungerLa al meglio?",
+        "helper": "Un numero di telefono ci aiuta in caso di domande sul Suo tetto. È facoltativo.",
+        "label": "Numero di telefono",
+        "button": "Salva",
+        "saved": "Numero di telefono salvato. Grazie.",
+        "errorInvalid": "Inserisca un numero di telefono valido.",
+        "errorFailed": "Non ha funzionato. La preghiamo di riprovare."
       }
     },
     "status": {

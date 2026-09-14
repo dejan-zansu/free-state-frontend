@@ -12,7 +12,11 @@ import { Button } from '@/components/ui/button'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import { cn } from '@/lib/utils'
 import { calculatorFlowV2Enabled, flowVersionMeta } from '@/lib/calculator-flow'
-import { getAttribution, trackFunnelEvent } from '@/lib/analytics/funnel-events'
+import {
+  getAttribution,
+  trackFunnelEvent,
+  trackFunnelEventOnce,
+} from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
 import { residentialCalculatorService } from '@/services/residential-calculator.service'
 import { Link as LocaleLink } from '@/i18n/navigation'
@@ -62,8 +66,7 @@ type ContactFormData = z.infer<ReturnType<typeof useContactSchema>>
 const inputBase =
   'w-full h-9 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/50 focus:outline-none focus:border-[#062E25]/60'
 
-const labelBase =
-  'text-sm sm:text-base text-[#062E25] tracking-tight'
+const labelBase = 'text-sm sm:text-base text-[#062E25] tracking-tight'
 
 const v2InputBase =
   'w-full h-12 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/50 focus:outline-none focus:border-[#062E25]/60'
@@ -202,9 +205,7 @@ function ContactScreenV1() {
             <p className="mt-3 text-base sm:text-[22px] text-[#062E25] tracking-tight">
               {tPending('body')}
             </p>
-            <p className="mt-2 text-base text-[#062E25]">
-              {tPending('hint')}
-            </p>
+            <p className="mt-2 text-base text-[#062E25]">{tPending('hint')}</p>
           </div>
         </div>
       </div>
@@ -571,12 +572,18 @@ function ContactScreenV1() {
   )
 }
 
-function useV2Schema(tErr: (key: string) => string, needsAddressFallback: boolean) {
+function useV2Schema(
+  tErr: (key: string) => string,
+  needsAddressFallback: boolean
+) {
   return useMemo(
     () =>
       z
         .object({
-          email: z.string().min(1, tErr('required')).email(tErr('emailInvalid')),
+          email: z
+            .string()
+            .min(1, tErr('required'))
+            .email(tErr('emailInvalid')),
           consent: z.literal(true, {
             message: tErr('consentRequired'),
           }),
@@ -611,6 +618,8 @@ function useV2Schema(tErr: (key: string) => string, needsAddressFallback: boolea
 }
 
 type V2FormData = z.infer<ReturnType<typeof useV2Schema>>
+
+const CONTACT_FIELD_CODE = { email: 1, consent: 2, name: 3, phone: 4 } as const
 
 // The v2 contact step asks for one "Name" field. The rest of the system stores a
 // first and a last name, so split on the first space: everything before it is the
@@ -680,6 +689,15 @@ function ContactScreenV2() {
 
   const [needsAddressFallback] = useState(
     () => !contact.postalCode || !contact.city
+  )
+  const emitFieldFocus = useCallback(
+    (field: 'email' | 'consent' | 'name' | 'phone') => {
+      trackFunnelEventOnce('contact_field_focused', {
+        step: CONTACT_FIELD_CODE[field],
+        meta: { field, ...flowVersionMeta },
+      })
+    },
+    []
   )
   const [correctedEmail, setCorrectedEmail] = useState(contact.email)
   const [resendError, setResendError] = useState<string | null>(null)
@@ -799,7 +817,14 @@ function ContactScreenV2() {
         }
       }
     },
-    [setContact, setConsents, createAccount, router, locale, needsAddressFallback]
+    [
+      setContact,
+      setConsents,
+      createAccount,
+      router,
+      locale,
+      needsAddressFallback,
+    ]
   )
 
   const handleResend = useCallback(async () => {
@@ -866,7 +891,10 @@ function ContactScreenV2() {
               <p className="text-base text-[#062E25] tracking-tight">
                 {t('verifyTypoPrompt')}
               </p>
-              <label htmlFor="v2-verify-email" className={cn(v2LabelBase, 'mt-4 block')}>
+              <label
+                htmlFor="v2-verify-email"
+                className={cn(v2LabelBase, 'mt-4 block')}
+              >
                 {t('email')}
               </label>
               <input
@@ -877,7 +905,9 @@ function ContactScreenV2() {
                 value={correctedEmail}
                 onChange={event => setCorrectedEmail(event.target.value)}
                 aria-invalid={!!resendError}
-                aria-describedby={resendError ? 'v2-verify-email-error' : undefined}
+                aria-describedby={
+                  resendError ? 'v2-verify-email-error' : undefined
+                }
                 className={cn(
                   v2InputBase,
                   'mt-1',
@@ -1013,6 +1043,7 @@ function ContactScreenV2() {
               type="email"
               autoComplete="email"
               inputMode="email"
+              onFocus={() => emitFieldFocus('email')}
               {...register('email', { onBlur: () => maybeCapturePartial() })}
               aria-invalid={!!errors.email}
               aria-describedby={errors.email ? 'v2-email-error' : undefined}
@@ -1063,9 +1094,7 @@ function ContactScreenV2() {
                     autoComplete="address-level2"
                     {...register('city')}
                     aria-invalid={!!errors.city}
-                    aria-describedby={
-                      errors.city ? 'v2-city-error' : undefined
-                    }
+                    aria-describedby={errors.city ? 'v2-city-error' : undefined}
                     className={cn(
                       v2InputBase,
                       'mt-1',
@@ -1091,6 +1120,7 @@ function ContactScreenV2() {
                   <button
                     type="button"
                     aria-pressed={checked}
+                    onFocus={() => emitFieldFocus('consent')}
                     onClick={() => {
                       const next = checked ? undefined : true
                       field.onChange(next)
@@ -1155,6 +1185,7 @@ function ContactScreenV2() {
             <input
               id="v2-name"
               autoComplete="name"
+              onFocus={() => emitFieldFocus('name')}
               {...register('name')}
               aria-invalid={!!errors.name}
               aria-describedby={errors.name ? 'v2-name-error' : undefined}
@@ -1176,9 +1207,12 @@ function ContactScreenV2() {
               type="tel"
               autoComplete="tel"
               inputMode="tel"
+              onFocus={() => emitFieldFocus('phone')}
               {...register('phoneNumber')}
               aria-invalid={!!errors.phoneNumber}
-              aria-describedby={errors.phoneNumber ? 'v2-phone-error' : undefined}
+              aria-describedby={
+                errors.phoneNumber ? 'v2-phone-error' : undefined
+              }
               className={cn(
                 v2InputBase,
                 'mt-1',

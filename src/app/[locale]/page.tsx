@@ -34,9 +34,9 @@ export default async function HomePage() {
       </StackedPanels>
       <YourBenefits />
       <CustomerStories isCommercial />
+      <CalculatorSection />
       <Reviews />
       <OurPartners />
-      <CalculatorSection />
     </div>
   )
 }

@@ -21,8 +21,10 @@ import type {
   ListQuery,
   PaginatedResponse,
   SalesRep,
+  StaffAuditEntry,
 } from '@/types/admin'
 import type { Milestone, MilestoneStage, MilestoneStatus } from '@/types/milestone'
+import type { UserRole } from '@/types/auth'
 
 class AdminService {
   async getDashboardStats(): Promise<DashboardStats> {
@@ -42,6 +44,20 @@ class AdminService {
 
   async updateUser(id: string, data: Partial<{ role: string; status: string; firstName: string; lastName: string; phone: string | null }>): Promise<AdminUser> {
     const response = await api.patch<{ success: boolean; data: AdminUser }>(`/admin/users/${id}`, data)
+    return response.data.data
+  }
+
+  async inviteStaff(data: { email: string; firstName: string; lastName: string; role: UserRole; preferredLanguage: string }): Promise<AdminUser> {
+    const response = await api.post<{ success: boolean; data: AdminUser }>('/admin/users/invite', data)
+    return response.data.data
+  }
+
+  async resendInvite(id: string): Promise<void> {
+    await api.post(`/admin/users/${id}/resend-invite`)
+  }
+
+  async listUserAudit(id: string): Promise<StaffAuditEntry[]> {
+    const response = await api.get<{ success: boolean; data: StaffAuditEntry[] }>(`/admin/users/${id}/audit`)
     return response.data.data
   }
 

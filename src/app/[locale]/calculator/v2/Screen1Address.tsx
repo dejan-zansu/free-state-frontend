@@ -23,6 +23,17 @@ type Screen1Error =
   | 'notFound'
   | 'outsideCh'
 
+type ResolvedPlace = google.maps.GeocoderResult | google.maps.places.PlaceResult
+
+type AddressSource = 'places' | 'houseNumberPrompt'
+
+type PartialAddress = {
+  street: string
+  postalCode: string
+  city: string
+  canton: string
+}
+
 const PLACES_SLOW_MS = 3000
 const PLACES_UNAVAILABLE_MS = 8000
 
@@ -37,8 +48,32 @@ const ERROR_CODE: Record<Screen1Error, number> = {
 }
 
 const INPUT_ID = 'calculator-v2-address'
+const HOUSE_NUMBER_ID = 'calculator-v2-house-number'
 const ERROR_ID = 'calculator-v2-address-error'
 const STATUS_ID = 'calculator-v2-address-status'
+
+const visibleSuggestionState = () => {
+  const items = Array.from(
+    document.querySelectorAll<HTMLElement>('.pac-container .pac-item')
+  )
+  const first = items.find(item => item.offsetParent !== null)
+  if (!first) return null
+  const container = first.closest('.pac-container')
+  const selected = !!container?.querySelector('.pac-item-selected')
+  return { selected }
+}
+
+const dispatchKey = (el: HTMLInputElement, key: string, keyCode: number) => {
+  el.dispatchEvent(
+    new KeyboardEvent('keydown', {
+      key,
+      code: key,
+      keyCode,
+      which: keyCode,
+      bubbles: true,
+    })
+  )
+}
 
 export default function Screen1Address() {
   const t = useTranslations('calculatorV2.screen1')
@@ -63,14 +98,20 @@ export default function Screen1Address() {
   const [showManualCheck, setShowManualCheck] = useState(false)
   const [error, setError] = useState<Screen1Error | null>(null)
   const [typedAddress, setTypedAddress] = useState(address)
+  const [showHouseNumber, setShowHouseNumber] = useState(false)
+  const [houseNumber, setHouseNumber] = useState('')
+  const [geocoding, setGeocoding] = useState(false)
 
   const mountedAtRef = useRef<number>(Date.now())
   const inputRef = useRef<HTMLInputElement | null>(null)
+  const loaderRef = useRef<Loader | null>(null)
   const autocompleteClassRef = useRef<
     typeof google.maps.places.Autocomplete | null
   >(null)
+  const geocoderClassRef = useRef<typeof google.maps.Geocoder | null>(null)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
   const lastFailedTextRef = useRef<string | null>(null)
+  const partialAddressRef = useRef<PartialAddress | null>(null)
 
   const emitAddressError = useCallback((reason: Screen1Error) => {
     trackFunnelEventOnce('calculator_address_error', {
@@ -91,7 +132,7 @@ export default function Screen1Address() {
   }, [])
 
   const handlePlace = useCallback(
-    (place: google.maps.places.PlaceResult | undefined) => {
+    (place: ResolvedPlace | undefined, source: AddressSource = 'places') => {
       if (!place?.geometry?.location || !place.formatted_address) {
         lastFailedTextRef.current = inputRef.current?.value.trim() ?? null
         setError('notFound')
@@ -110,13 +151,6 @@ export default function Screen1Address() {
         return
       }
 
-      const streetNumber = component('street_number')?.long_name ?? ''
-      if (!streetNumber) {
-        setError('noStreetNumber')
-        emitAddressError('noStreetNumber')
-        return
-      }
-
       const street = component('route')?.long_name ?? ''
       const postalCode = component('postal_code')?.long_name ?? ''
       const city =
@@ -128,6 +162,21 @@ export default function Screen1Address() {
       const canton =
         cantonComponent?.short_name || cantonComponent?.long_name || ''
 
+      const streetNumber = component('street_number')?.long_name ?? ''
+      if (!streetNumber) {
+        if (source === 'houseNumberPrompt') {
+          setError('notFound')
+          emitAddressError('notFound')
+          return
+        }
+        partialAddressRef.current = { street, postalCode, city, canton }
+        setHouseNumber('')
+        setShowHouseNumber(true)
+        setError('noStreetNumber')
+        emitAddressError('noStreetNumber')
+        return
+      }
+
       trackFunnelEventOnce('address_resolved', {
         meta: {
           hasPostalCode: !!postalCode,
@@ -135,11 +184,13 @@ export default function Screen1Address() {
           hasStreet: !!street,
           hasStreetNumber: !!streetNumber,
           hasCanton: !!canton,
+          source,
           ...flowVersionMeta,
         },
       })
 
       setError(null)
+      setShowHouseNumber(false)
       setParsedAddress({ street, streetNumber, postalCode, city, canton })
       void fetchElectricityPriceForAddress()
       setSelectedLocation({
@@ -182,6 +233,7 @@ export default function Screen1Address() {
       version: 'weekly',
       libraries: ['places'],
     })
+    loaderRef.current = loader
     loader
       .importLibrary('places')
       .then(({ Autocomplete }) => {
@@ -215,23 +267,65 @@ export default function Screen1Address() {
   useEffect(() => {
     const AutocompleteClass = autocompleteClassRef.current
     const el = inputRef.current
-    if (!placesReady || !AutocompleteClass || !el || autocompleteRef.current) {
+    if (!placesReady || !AutocompleteClass || !el) {
       return
     }
-    const autocomplete = new AutocompleteClass(el, {
-      componentRestrictions: { country: 'ch' },
-      fields: ['formatted_address', 'geometry', 'address_components'],
-      types: ['address'],
-    })
-    autocomplete.addListener('place_changed', () => {
-      handlePlaceRef.current(autocomplete.getPlace())
-    })
-    autocompleteRef.current = autocomplete
+    if (!autocompleteRef.current) {
+      const autocomplete = new AutocompleteClass(el, {
+        componentRestrictions: { country: 'ch' },
+        fields: ['formatted_address', 'geometry', 'address_components'],
+        types: ['address'],
+      })
+      autocomplete.addListener('place_changed', () => {
+        handlePlaceRef.current(autocomplete.getPlace())
+      })
+      autocompleteRef.current = autocomplete
+    }
+
+    const selectFirstSuggestionOnEnter = (event: KeyboardEvent) => {
+      if (event.key !== 'Enter') return
+      const suggestions = visibleSuggestionState()
+      if (!suggestions || suggestions.selected) return
+      dispatchKey(el, 'ArrowDown', 40)
+    }
+    el.addEventListener('keydown', selectFirstSuggestionOnEnter, true)
+
+    return () => {
+      el.removeEventListener('keydown', selectFirstSuggestionOnEnter, true)
+    }
   }, [placesReady])
+
+  const handleHouseNumberSubmit = async () => {
+    const partial = partialAddressRef.current
+    const number = houseNumber.trim()
+    if (!partial || !number || geocoding) return
+
+    setGeocoding(true)
+    try {
+      let GeocoderClass = geocoderClassRef.current
+      if (!GeocoderClass) {
+        const loader = loaderRef.current
+        if (!loader) throw new Error('Maps loader not initialised')
+        ;({ Geocoder: GeocoderClass } = await loader.importLibrary('geocoding'))
+        geocoderClassRef.current = GeocoderClass
+      }
+      const { results } = await new GeocoderClass().geocode({
+        address: `${partial.street} ${number}, ${partial.postalCode} ${partial.city}, Schweiz`,
+        componentRestrictions: { country: 'ch' },
+      })
+      handlePlace(results[0], 'houseNumberPrompt')
+    } catch {
+      setError('notFound')
+      emitAddressError('notFound')
+    } finally {
+      setGeocoding(false)
+    }
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const value = inputRef.current?.value.trim() ?? ''
+    const el = inputRef.current
+    const value = el?.value.trim() ?? ''
     if (!value) {
       setError('empty')
       emitAddressError('empty')
@@ -242,6 +336,16 @@ export default function Screen1Address() {
       nextStep()
       return
     }
+    if (showHouseNumber && houseNumber.trim()) {
+      void handleHouseNumberSubmit()
+      return
+    }
+    const suggestions = el ? visibleSuggestionState() : null
+    if (el && suggestions) {
+      if (!suggestions.selected) dispatchKey(el, 'ArrowDown', 40)
+      dispatchKey(el, 'Enter', 13)
+      return
+    }
     if (value === lastFailedTextRef.current) {
       setError('notFound')
       emitAddressError('notFound')
@@ -250,6 +354,10 @@ export default function Screen1Address() {
     lastFailedTextRef.current = value
     setError('notChosen')
     emitAddressError('notChosen')
+  }
+
+  const keepInputFocusWhileSuggesting = (event: React.MouseEvent) => {
+    if (visibleSuggestionState()) event.preventDefault()
   }
 
   const openManualCheck = useCallback(() => {
@@ -321,6 +429,7 @@ export default function Screen1Address() {
               emitStepOneInteraction()
               emitAddressTyped(event.target.value)
               setTypedAddress(event.target.value)
+              setShowHouseNumber(false)
             }}
             placeholder={t('placeholder')}
             autoComplete="street-address"
@@ -357,8 +466,47 @@ export default function Screen1Address() {
           </p>
         )}
 
+        {showHouseNumber && (
+          <div className="mt-4">
+            <label
+              htmlFor={HOUSE_NUMBER_ID}
+              className="text-base text-[#062E25] tracking-tight"
+            >
+              {t('houseNumber.label')}
+            </label>
+            <p className="mt-1 text-base text-[#062E25]/80 tracking-tight">
+              {t('houseNumber.helper')}
+            </p>
+            <div className="mt-1.5 flex gap-2">
+              <Input
+                id={HOUSE_NUMBER_ID}
+                type="text"
+                inputMode="numeric"
+                autoComplete="off"
+                value={houseNumber}
+                onChange={event => setHouseNumber(event.target.value)}
+                onKeyDown={event => {
+                  if (event.key !== 'Enter') return
+                  event.preventDefault()
+                  void handleHouseNumberSubmit()
+                }}
+                className="h-14 w-32 text-base md:text-base px-4 rounded-xl border-[#062E25]/20 bg-white shadow-sm focus-visible:border-[#062E25]/40"
+              />
+              <Button
+                type="button"
+                disabled={geocoding || !houseNumber.trim()}
+                onClick={() => void handleHouseNumberSubmit()}
+                className="h-14 flex-1 bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+              >
+                {t('houseNumber.button')}
+              </Button>
+            </div>
+          </div>
+        )}
+
         <Button
           type="submit"
+          onMouseDown={keepInputFocusWhileSuggesting}
           className="mt-6 h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
         >
           {t('button')}

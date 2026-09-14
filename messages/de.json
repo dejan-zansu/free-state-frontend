@@ -5127,7 +5127,12 @@
         "outsideCh": "Wir lesen zurzeit nur Schweizer Adressen automatisch aus. Liegt Ihr Gebäude ausserhalb, <link>schreiben Sie uns Ihre Adresse</link> und wir prüfen sie von Hand.",
         "placesSlow": "Die Adresssuche antwortet gerade langsam. Einen Moment bitte."
       },
-      "badge": "Kostenlos und unverbindlich"
+      "badge": "Kostenlos und unverbindlich",
+      "houseNumber": {
+        "label": "Hausnummer",
+        "helper": "Fast geschafft. Ergänzen Sie die Hausnummer, dann finden wir Ihr Gebäude.",
+        "button": "Gebäude suchen"
+      }
     },
     "screen2": {
       "headline": "Das ist Ihr Dach",
@@ -5216,7 +5221,7 @@
     },
     "screen5": {
       "headline": "Ihre Auswertung ist fertig",
-      "helper": "Ihre Adresse haben wir bereits. Es fehlen nur noch Ihr Name und Ihre E-Mail-Adresse.",
+      "helper": "Ihre Adresse haben wir bereits. Es fehlen nur noch Ihr Name, Ihre E-Mail-Adresse und Ihre Telefonnummer.",
       "teaserTitle": "Das kann Ihr Dach",
       "teaserArea": "Dachfläche",
       "teaserKwp": "Anlagengrösse",
@@ -5917,6 +5922,199 @@
         "ATTACHMENT_DELETED": "Anhang gelöscht"
       }
     },
+    "workspaces": {
+      "title": "Projekte",
+      "create": "Neues Projekt",
+      "searchPlaceholder": "Nach Nummer, Name oder Adresse suchen...",
+      "tabs": {
+        "all": "Alle",
+        "mine": "Meine",
+        "archived": "Archiviert"
+      },
+      "columns": {
+        "number": "Nummer",
+        "name": "Name",
+        "address": "Adresse",
+        "members": "Mitglieder",
+        "lastActivity": "Letzte Aktivität"
+      },
+      "empty": "Keine Projekte gefunden.",
+      "open": "Öffnen",
+      "previousPage": "Vorherige Seite",
+      "nextPage": "Nächste Seite",
+      "dialog": {
+        "title": "Neues Projekt",
+        "name": "Name",
+        "siteAddress": "Adresse der Anlage",
+        "description": "Beschreibung",
+        "template": "Ordnerstruktur",
+        "templateStandard": "Standard (Fotos vorher, Pläne, Baugesuch, Montage, Abnahme, Verträge)",
+        "templateEmpty": "Leer",
+        "submit": "Projekt anlegen"
+      },
+      "errors": {
+        "LINK_TAKEN": "Dieser Datensatz hat bereits ein Projekt.",
+        "WORKSPACE_ARCHIVED": "Dieses Projekt ist archiviert und kann nicht geändert werden.",
+        "LAST_MANAGER": "Ein Projekt braucht mindestens eine Projektleitung.",
+        "MEMBER_NOT_ELIGIBLE": "Diese Person kann nicht zu Projekten hinzugefügt werden.",
+        "FOLDER_NOT_FOUND": "Ordner nicht gefunden.",
+        "FILE_NOT_FOUND": "Datei nicht gefunden.",
+        "FORBIDDEN_LEVEL": "Ihr Zugriff erlaubt das nicht.",
+        "FILE_TOO_LARGE": "Dateien dürfen höchstens 5 GB gross sein.",
+        "FILE_TYPE_BLOCKED": "Dieser Dateityp ist nicht erlaubt.",
+        "UPLOAD_INCOMPLETE": "Der Upload ist unvollständig. Bitte erneut versuchen.",
+        "UPLOAD_FAILED": "Upload fehlgeschlagen.",
+        "ZIP_TOO_LARGE": "Die Auswahl ist grösser als 2 GB.",
+        "FOLDER_CYCLE": "Ein Ordner kann nicht in sich selbst verschoben werden.",
+        "FOLDER_EXISTS": "Ein Ordner mit diesem Namen existiert hier bereits.",
+        "generic": "Aktion fehlgeschlagen."
+      },
+      "detail": {
+        "back": "Zurück",
+        "edit": "Bearbeiten",
+        "save": "Speichern",
+        "archive": "Archivieren",
+        "restore": "Wiederherstellen",
+        "linkedProject": "Rechner-Projekt öffnen",
+        "linkedLead": "Gewerbe-Lead öffnen",
+        "tabs": {
+          "files": "Dateien",
+          "members": "Mitglieder",
+          "activity": "Aktivität",
+          "trash": "Papierkorb"
+        },
+        "archivedNotice": "Archivierte Projekte sind schreibgeschützt. Zum Bearbeiten zuerst wiederherstellen."
+      },
+      "levels": {
+        "VIEWER": "Ansehen",
+        "CONTRIBUTOR": "Mitarbeiten",
+        "MANAGER": "Projektleitung"
+      },
+      "members": {
+        "add": "Mitglied hinzufügen",
+        "selectUser": "Person wählen",
+        "level": "Zugriff",
+        "remove": "Entfernen",
+        "confirmRemove": "Wirklich entfernen?",
+        "empty": "Noch keine Mitglieder.",
+        "columns": {
+          "name": "Name",
+          "email": "E-Mail"
+        }
+      },
+      "activity": {
+        "system": "System",
+        "loadMore": "Mehr laden",
+        "empty": "Noch keine Aktivität.",
+        "types": {
+          "WORKSPACE_CREATED": "Projekt angelegt",
+          "WORKSPACE_UPDATED": "Projekt bearbeitet",
+          "WORKSPACE_ARCHIVED": "Projekt archiviert",
+          "WORKSPACE_RESTORED": "Projekt wiederhergestellt",
+          "MEMBER_ADDED": "Mitglied hinzugefügt",
+          "MEMBER_LEVEL_CHANGED": "Zugriff geändert",
+          "MEMBER_REMOVED": "Mitglied entfernt",
+          "FOLDER_CREATED": "Ordner erstellt",
+          "FOLDER_RENAMED": "Ordner umbenannt",
+          "FOLDER_MOVED": "Ordner verschoben",
+          "FOLDER_RESTRICTED": "Ordner eingeschränkt",
+          "FOLDER_UNRESTRICTED": "Einschränkung aufgehoben",
+          "FOLDER_ACCESS_CHANGED": "Ordnerzugriff geändert",
+          "FOLDER_TRASHED": "Ordner in den Papierkorb verschoben",
+          "FOLDER_RESTORED": "Ordner wiederhergestellt",
+          "FILE_UPLOADED": "Datei hochgeladen",
+          "FILE_RENAMED": "Datei umbenannt",
+          "FILE_MOVED": "Datei verschoben",
+          "FILE_TRASHED": "Datei in den Papierkorb verschoben",
+          "FILE_RESTORED": "Datei wiederhergestellt",
+          "FILE_DELETED": "Datei endgültig gelöscht"
+        }
+      },
+      "files": {
+        "upload": "Hochladen",
+        "newFolder": "Neuer Ordner",
+        "newFolderPlaceholder": "Ordnername",
+        "search": "In diesem Projekt suchen...",
+        "searchLabel": "Suchen",
+        "viewGrid": "Kacheln",
+        "viewList": "Liste",
+        "sortName": "Name",
+        "sortDate": "Datum",
+        "sortSize": "Grösse",
+        "columns": {
+          "name": "Name",
+          "size": "Grösse",
+          "uploader": "Hochgeladen von",
+          "date": "Geändert"
+        },
+        "empty": "Dieser Ordner ist leer.",
+        "dropHere": "Hier ablegen",
+        "incomplete": "Unvollständig",
+        "remove": "Entfernen",
+        "selected": "{count} ausgewählt",
+        "clearSelection": "Auswahl aufheben",
+        "downloadZip": "Als ZIP herunterladen",
+        "actions": {
+          "open": "Öffnen",
+          "download": "Herunterladen",
+          "rename": "Umbenennen",
+          "move": "Verschieben",
+          "restrict": "Zugriff",
+          "trash": "In den Papierkorb"
+        },
+        "confirmTrash": "In den Papierkorb verschieben? Sie können es 30 Tage lang wiederherstellen.",
+        "trashed": "In den Papierkorb verschoben",
+        "renamed": "Umbenannt",
+        "moved": "Verschoben",
+        "folderCreated": "Ordner erstellt",
+        "restrictedBadge": "Eingeschränkt",
+        "noResults": "Keine Treffer."
+      },
+      "upload": {
+        "title": "{done} von {total} hochgeladen",
+        "queued": "Wartet",
+        "uploading": "Lädt hoch",
+        "done": "Fertig",
+        "error": "Fehler",
+        "cancelled": "Abgebrochen",
+        "retry": "Erneut",
+        "cancel": "Abbrechen",
+        "clearFinished": "Fertige ausblenden"
+      },
+      "move": {
+        "title": "Verschieben nach",
+        "root": "Projektordner",
+        "confirm": "Hierher verschieben"
+      },
+      "restrict": {
+        "title": "Zugriff auf Ordner",
+        "toggle": "Eingeschränkt",
+        "hint": "Nur Projektleitung und ausgewählte Mitglieder sehen diesen Ordner.",
+        "save": "Speichern",
+        "saved": "Zugriff gespeichert",
+        "managers": "Projektleitung sieht immer"
+      },
+      "preview": {
+        "download": "Herunterladen",
+        "previous": "Vorherige",
+        "next": "Nächste",
+        "noPreview": "Keine Vorschau verfügbar."
+      },
+      "trash": {
+        "folders": "Ordner",
+        "files": "Dateien",
+        "deletedAt": "Gelöscht am",
+        "restore": "Wiederherstellen",
+        "deleteForever": "Endgültig löschen",
+        "confirmDelete": "Endgültig löschen? Das kann nicht rückgängig gemacht werden.",
+        "empty": "Der Papierkorb ist leer.",
+        "retention": "Elemente werden nach 30 Tagen automatisch gelöscht."
+      },
+      "link": {
+        "open": "Projektdateien öffnen",
+        "create": "Projektdateien anlegen"
+      }
+    },
     "sidebar": {
       "title": "Admin-Bereich",
       "dashboard": "Dashboard",
@@ -5971,7 +6169,8 @@
       "outreach": "Outreach",
       "outreachQueues": "Outreach Queues",
       "outreachStats": "Outreach-Statistik",
-      "tasks": "Aufgaben"
+      "tasks": "Aufgaben",
+      "workspaces": "Projekte"
     },
     "outreach": {
       "title": "Outreach",
@@ -6886,10 +7085,13 @@
       "ADMIN": "Admin",
       "CUSTOMER": "Kunde",
       "SALES_REP": "Vertrieb",
+      "PROJECT_MANAGER": "Projektleitung",
+      "EMPLOYEE": "Mitarbeiter",
       "ACTIVE": "Aktiv",
       "INACTIVE": "Inaktiv",
       "PENDING_VERIFICATION": "Verifizierung ausstehend",
       "SUSPENDED": "Gesperrt",
+      "ARCHIVED": "Archiviert",
       "SCHEDULED": "Geplant",
       "COMPLETED": "Abgeschlossen",
       "CALCULATING": "Berechnung läuft",
@@ -6986,7 +7188,38 @@
       "addressAdditional": "Adresszusatz",
       "activitySummary": "Übersicht Aktivitäten",
       "assignedLeads": "Zugewiesene Leads",
-      "createdQuotes": "Erstellte Angebote"
+      "createdQuotes": "Erstellte Angebote",
+      "invite": {
+        "button": "Mitarbeiter einladen",
+        "title": "Mitarbeiter einladen",
+        "firstName": "Vorname",
+        "lastName": "Nachname",
+        "email": "E-Mail",
+        "role": "Rolle",
+        "language": "Sprache",
+        "submit": "Einladung senden",
+        "resend": "Einladung erneut senden",
+        "resent": "Einladung wurde erneut gesendet",
+        "errorExists": "Ein Konto mit dieser E-Mail existiert bereits.",
+        "errorGeneric": "Einladung konnte nicht gesendet werden."
+      },
+      "errors": {
+        "SELF_ROLE_CHANGE": "Sie können Ihre eigene Rolle oder Ihren Status nicht ändern.",
+        "LAST_ADMIN": "Der letzte aktive Admin kann nicht herabgestuft oder gesperrt werden.",
+        "CUSTOMER_ROLE_LOCKED": "Kundenkonten können hier nicht zu Mitarbeiterkonten werden.",
+        "INVITE_NOT_PENDING": "Diese Einladung ist bereits aktiv, ein erneutes Senden ist nicht möglich.",
+        "generic": "Änderung konnte nicht gespeichert werden."
+      },
+      "audit": {
+        "title": "Änderungsprotokoll",
+        "empty": "Keine Änderungen protokolliert.",
+        "USER_INVITED": "Eingeladen",
+        "INVITE_RESENT": "Einladung erneut gesendet",
+        "ROLE_CHANGED": "Rolle geändert",
+        "STATUS_CHANGED": "Status geändert",
+        "transition": "{before} zu {after}",
+        "actorUnknown": "Unbekannt"
+      }
     },
     "leads": {
       "title": "Leads",
@@ -8211,6 +8444,15 @@
         "co2": "Das sind {co2} kg weniger CO2 pro Jahr.",
         "tariff": "Gerechnet mit {rate} Rp/kWh für Ihren Strompreis.",
         "estimate": "Diese Zahlen sind eine Schätzung aus den offiziellen Dachdaten des Bundes. Den genauen Preis legen wir nach der Besichtigung fest."
+      },
+      "phoneAsk": {
+        "title": "Wie erreichen wir Sie am besten?",
+        "helper": "Eine Telefonnummer hilft uns bei Rückfragen zu Ihrem Dach. Sie ist freiwillig.",
+        "label": "Telefonnummer",
+        "button": "Speichern",
+        "saved": "Telefonnummer gespeichert. Danke.",
+        "errorInvalid": "Bitte geben Sie eine gültige Telefonnummer ein.",
+        "errorFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal."
       }
     },
     "status": {

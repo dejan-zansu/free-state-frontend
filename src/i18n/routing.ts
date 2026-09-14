@@ -163,6 +163,7 @@ export const routing = defineRouting({
     },
 
     '/admin/dashboard': '/admin/dashboard',
+    '/admin/workspaces': '/admin/workspaces',
     '/admin/login': '/admin/login',
     '/admin/users': '/admin/users',
     '/admin/leads': '/admin/leads',

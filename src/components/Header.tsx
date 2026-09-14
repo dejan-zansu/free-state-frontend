@@ -57,7 +57,8 @@ const Header = () => {
 
   const shouldUseDarkHeader =
     isReferenceDetail ||
-    (!isBlogPost && pagesWithDarkHeader.some(path => pathname?.startsWith(path)))
+    (!isBlogPost &&
+      pagesWithDarkHeader.some(path => pathname?.startsWith(path)))
 
   useEffect(() => {
     const handleScroll = () => {
@@ -301,14 +302,17 @@ const Header = () => {
                     typeof Link
                   >['href']
                 }
-                className={navItemClass(false)}
+                className={cn(
+                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base flex justify-center items-center bg-solar text-solar-foreground'
+                )}
               >
                 {tHome('hero.cta.primary')}
               </Link>
               <Link
                 href="/login"
                 className={cn(
-                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base hidden sm:flex justify-center items-center bg-solar text-solar-foreground gap-1.5'
+                  navItemClass(false),
+                  'hidden sm:flex items-center gap-1.5 text-sm sm:text-base'
                 )}
               >
                 <LogoutSquare />

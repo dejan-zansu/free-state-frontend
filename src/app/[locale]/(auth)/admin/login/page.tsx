@@ -46,7 +46,16 @@ export default function AdminLoginPage() {
     try {
       await login(data)
       const user = useAuthStore.getState().user
-      router.push(user?.role === 'ADMIN' ? '/admin/dashboard' : '/dashboard')
+      const capabilities = user?.capabilities ?? []
+      if (capabilities.includes('staff.area')) {
+        router.push(
+          capabilities.includes('users.manage')
+            ? '/admin/dashboard'
+            : '/admin/workspaces'
+        )
+      } else {
+        router.push('/dashboard')
+      }
     } catch {}
   }
 
@@ -118,9 +127,7 @@ export default function AdminLoginPage() {
               </button>
             </div>
             {errors.password && (
-              <p className="text-sm text-red-600">
-                {errors.password.message}
-              </p>
+              <p className="text-sm text-red-600">{errors.password.message}</p>
             )}
           </div>
 

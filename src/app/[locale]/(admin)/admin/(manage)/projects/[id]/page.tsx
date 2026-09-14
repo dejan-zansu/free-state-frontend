@@ -17,6 +17,7 @@ import { JourneyCard } from '@/components/admin/calculation/JourneyCard'
 import { MonthlyProductionCard } from '@/components/admin/calculation/MonthlyProductionCard'
 import { RoofDetailsCard } from '@/components/admin/calculation/RoofDetailsCard'
 import { fmtDateTime } from '@/components/admin/calculation/format'
+import { WorkspaceLinkButton } from '@/components/admin/workspaces/WorkspaceLinkButton'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -45,7 +46,7 @@ export default function AdminProjectDetailPage() {
   const [offerDialogOpen, setOfferDialogOpen] = useState(false)
   const [sendingOffer, setSendingOffer] = useState(false)
   const [offerResult, setOfferResult] = useState<AdminSendOfferResult | null>(
-    null,
+    null
   )
 
   const { data: project, isLoading } = useQuery<AdminProjectDetail>({
@@ -65,7 +66,7 @@ export default function AdminProjectDetailPage() {
     (packagesResponse?.data ?? []).map(p => [
       p.code,
       p.translations?.[0]?.name || p.code,
-    ]),
+    ])
   )
 
   const packageLabel = (code: string | null | undefined) => {
@@ -81,11 +82,11 @@ export default function AdminProjectDetailPage() {
     try {
       await adminService.downloadProjectReport(
         project.id,
-        project.propertyAddress,
+        project.propertyAddress
       )
     } catch (err: unknown) {
       setActionError(
-        err instanceof Error ? err.message : tLeads('reportDownloadFailed'),
+        err instanceof Error ? err.message : tLeads('reportDownloadFailed')
       )
     } finally {
       setDownloading(false)
@@ -100,7 +101,9 @@ export default function AdminProjectDetailPage() {
       const result = await adminService.sendProjectOffer(project.id)
       setOfferResult(result)
       setOfferDialogOpen(false)
-      queryClient.invalidateQueries({ queryKey: ['admin', 'project', params.id] })
+      queryClient.invalidateQueries({
+        queryKey: ['admin', 'project', params.id],
+      })
     } catch (err: unknown) {
       setActionError(err instanceof Error ? err.message : t('offerSendFailed'))
       setOfferDialogOpen(false)
@@ -135,6 +138,20 @@ export default function AdminProjectDetailPage() {
           </span>
         )}
         <div className="ml-auto flex flex-wrap items-center gap-2">
+          <WorkspaceLinkButton
+            workspace={project.workspace}
+            link={{
+              residentialProjectId: project.id,
+              name: `${user.firstName} ${user.lastName}`,
+              siteAddress: [
+                project.propertyAddress,
+                project.postalCode,
+                project.administrativeArea,
+              ]
+                .filter(Boolean)
+                .join(' '),
+            }}
+          />
           <Button
             variant="outline"
             onClick={handleDownload}
@@ -174,7 +191,9 @@ export default function AdminProjectDetailPage() {
       {!hasCalculation && (
         <Card className="border-amber-200 bg-amber-50 mb-6">
           <CardContent className="p-4">
-            <p className="text-base text-amber-900">{tLeads('noCalculation')}</p>
+            <p className="text-base text-amber-900">
+              {tLeads('noCalculation')}
+            </p>
           </CardContent>
         </Card>
       )}

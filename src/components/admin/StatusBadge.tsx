@@ -18,6 +18,7 @@ const STATUS_COLORS: Record<string, string> = {
   ON_HOLD: 'bg-gray-100 text-gray-700',
 
   ACTIVE: 'bg-green-100 text-green-700',
+  ARCHIVED: 'bg-gray-100 text-gray-700',
   INACTIVE: 'bg-gray-100 text-gray-700',
   PENDING_VERIFICATION: 'bg-amber-100 text-amber-700',
   SUSPENDED: 'bg-red-100 text-red-700',
@@ -39,6 +40,8 @@ const STATUS_COLORS: Record<string, string> = {
   ADMIN: 'bg-purple-100 text-purple-700',
   CUSTOMER: 'bg-blue-100 text-blue-700',
   SALES_REP: 'bg-teal-100 text-teal-700',
+  PROJECT_MANAGER: 'bg-indigo-100 text-indigo-700',
+  EMPLOYEE: 'bg-sky-100 text-sky-700',
 
   PRELIMINARY: 'bg-blue-100 text-blue-700',
   FINAL: 'bg-green-100 text-green-700',

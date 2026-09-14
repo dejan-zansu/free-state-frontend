@@ -1,6 +1,23 @@
-export type UserRole = 'ADMIN' | 'CUSTOMER' | 'SALES_REP'
+export type UserRole =
+  | 'ADMIN'
+  | 'CUSTOMER'
+  | 'SALES_REP'
+  | 'PROJECT_MANAGER'
+  | 'EMPLOYEE'
 
-export type UserStatus = 'ACTIVE' | 'INACTIVE' | 'PENDING_VERIFICATION' | 'SUSPENDED'
+export type Capability =
+  | 'staff.area'
+  | 'users.manage'
+  | 'projects.create'
+  | 'projects.viewAll'
+  | 'projects.access'
+  | 'sales.tools'
+
+export type UserStatus =
+  | 'ACTIVE'
+  | 'INACTIVE'
+  | 'PENDING_VERIFICATION'
+  | 'SUSPENDED'
 
 export interface User {
   id: string
@@ -13,6 +30,7 @@ export interface User {
   preferredLanguage: string
   emailVerified: boolean
   createdAt: string
+  capabilities: Capability[]
 }
 
 export interface AuthTokens {
@@ -75,4 +93,3 @@ export interface ApiError {
     details?: unknown
   }
 }
-

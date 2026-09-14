@@ -1,57 +1,122 @@
 export type CommercialLeadStatus =
-  | 'NEW' | 'CONTACTED' | 'QUALIFIED'
-  | 'QUOTE_PREPARING' | 'QUOTE_SENT' | 'NEGOTIATION'
-  | 'WON' | 'LOST' | 'ON_HOLD'
+  | 'NEW'
+  | 'CONTACTED'
+  | 'QUALIFIED'
+  | 'QUOTE_PREPARING'
+  | 'QUOTE_SENT'
+  | 'NEGOTIATION'
+  | 'WON'
+  | 'LOST'
+  | 'ON_HOLD'
 
 export type CommercialLegalForm =
-  | 'AG' | 'GMBH' | 'EINZELFIRMA' | 'VEREIN'
-  | 'GENOSSENSCHAFT' | 'STIFTUNG' | 'OEFFENTLICH_RECHTLICH' | 'ANDERE'
+  | 'AG'
+  | 'GMBH'
+  | 'EINZELFIRMA'
+  | 'VEREIN'
+  | 'GENOSSENSCHAFT'
+  | 'STIFTUNG'
+  | 'OEFFENTLICH_RECHTLICH'
+  | 'ANDERE'
 
 export type CommercialIndustry =
-  | 'LANDWIRTSCHAFT' | 'INDUSTRIE' | 'GEWERBE' | 'DIENSTLEISTUNG'
-  | 'HANDEL' | 'OEFFENTLICHE_HAND' | 'BILDUNG' | 'GESUNDHEIT'
-  | 'GASTRONOMIE_HOTELLERIE' | 'ANDERE'
+  | 'LANDWIRTSCHAFT'
+  | 'INDUSTRIE'
+  | 'GEWERBE'
+  | 'DIENSTLEISTUNG'
+  | 'HANDEL'
+  | 'OEFFENTLICHE_HAND'
+  | 'BILDUNG'
+  | 'GESUNDHEIT'
+  | 'GASTRONOMIE_HOTELLERIE'
+  | 'ANDERE'
 
 export type CommercialContactRole =
-  | 'EIGENTUEMER' | 'GESCHAEFTSFUEHRUNG' | 'VERWALTUNG'
-  | 'FACILITY_MANAGEMENT' | 'NACHHALTIGKEIT' | 'EINKAUF'
-  | 'EXTERNE_BERATUNG' | 'ANDERE'
+  | 'EIGENTUEMER'
+  | 'GESCHAEFTSFUEHRUNG'
+  | 'VERWALTUNG'
+  | 'FACILITY_MANAGEMENT'
+  | 'NACHHALTIGKEIT'
+  | 'EINKAUF'
+  | 'EXTERNE_BERATUNG'
+  | 'ANDERE'
 
 export type CommercialEmployeeBracket =
-  | 'MICRO' | 'SMALL' | 'MEDIUM' | 'LARGE' | 'UNKNOWN'
+  | 'MICRO'
+  | 'SMALL'
+  | 'MEDIUM'
+  | 'LARGE'
+  | 'UNKNOWN'
 
 export type CommercialTimeline =
-  | 'IMMEDIATE' | 'WITHIN_3_MONTHS' | 'WITHIN_6_MONTHS'
-  | 'WITHIN_12_MONTHS' | 'EXPLORING'
+  | 'IMMEDIATE'
+  | 'WITHIN_3_MONTHS'
+  | 'WITHIN_6_MONTHS'
+  | 'WITHIN_12_MONTHS'
+  | 'EXPLORING'
 
 export type CommercialBudgetBracket =
-  | 'UNDER_50K' | 'RANGE_50_150K' | 'RANGE_150_500K'
-  | 'RANGE_500K_1M' | 'OVER_1M' | 'UNSPECIFIED'
+  | 'UNDER_50K'
+  | 'RANGE_50_150K'
+  | 'RANGE_150_500K'
+  | 'RANGE_500K_1M'
+  | 'OVER_1M'
+  | 'UNSPECIFIED'
 
 export type CommercialMotivation =
-  | 'COST_SAVINGS' | 'SUSTAINABILITY' | 'ENERGY_INDEPENDENCE'
-  | 'EXPIRING_CONTRACT' | 'REGULATORY' | 'OTHER'
+  | 'COST_SAVINGS'
+  | 'SUSTAINABILITY'
+  | 'ENERGY_INDEPENDENCE'
+  | 'EXPIRING_CONTRACT'
+  | 'REGULATORY'
+  | 'OTHER'
 
 export type CommercialFinancingPreference =
-  | 'OUTRIGHT_PURCHASE' | 'PPA' | 'LEASING' | 'CONTRACTING' | 'UNDECIDED'
+  | 'OUTRIGHT_PURCHASE'
+  | 'PPA'
+  | 'LEASING'
+  | 'CONTRACTING'
+  | 'UNDECIDED'
 
-export type CommercialExistingPv = 'NONE' | 'EXISTING_EXPANSION' | 'EXISTING_REPLACEMENT'
+export type CommercialExistingPv =
+  | 'NONE'
+  | 'EXISTING_EXPANSION'
+  | 'EXISTING_REPLACEMENT'
 
 export type CommercialPreferredChannel = 'EMAIL' | 'PHONE' | 'WHATSAPP'
 
-export type CommercialPropertyRelation = 'OWNER' | 'TENANT_WITH_CONSENT' | 'TENANT_WITHOUT_CONSENT' | 'UNKNOWN'
+export type CommercialPropertyRelation =
+  | 'OWNER'
+  | 'TENANT_WITH_CONSENT'
+  | 'TENANT_WITHOUT_CONSENT'
+  | 'UNKNOWN'
 
 export type CommercialLeadOrigin = 'INBOUND' | 'OUTBOUND'
 
 export type CommercialAttachmentType =
-  | 'ELECTRICITY_BILL' | 'PROPERTY_REGISTER' | 'BUILDING_PLANS' | 'SUPPLIER_CONTRACT' | 'OTHER'
+  | 'ELECTRICITY_BILL'
+  | 'PROPERTY_REGISTER'
+  | 'BUILDING_PLANS'
+  | 'SUPPLIER_CONTRACT'
+  | 'OTHER'
 
 export type CommercialActivityType =
-  | 'CREATED' | 'STATUS_CHANGED' | 'ASSIGNED' | 'UNASSIGNED'
-  | 'NOTE_ADDED' | 'NOTE_EDITED' | 'NOTE_DELETED'
-  | 'EMAIL_SENT' | 'CALL_LOGGED' | 'MEETING_SCHEDULED' | 'QUOTE_SENT'
-  | 'ATTACHMENT_UPLOADED' | 'ATTACHMENT_DELETED'
-  | 'FOLLOW_UP_SCHEDULED' | 'WON' | 'LOST'
+  | 'CREATED'
+  | 'STATUS_CHANGED'
+  | 'ASSIGNED'
+  | 'UNASSIGNED'
+  | 'NOTE_ADDED'
+  | 'NOTE_EDITED'
+  | 'NOTE_DELETED'
+  | 'EMAIL_SENT'
+  | 'CALL_LOGGED'
+  | 'MEETING_SCHEDULED'
+  | 'QUOTE_SENT'
+  | 'ATTACHMENT_UPLOADED'
+  | 'ATTACHMENT_DELETED'
+  | 'FOLLOW_UP_SCHEDULED'
+  | 'WON'
+  | 'LOST'
 
 export interface CommercialLeadSummary {
   id: string
@@ -158,6 +223,7 @@ export interface CommercialLeadDetail extends CommercialLeadSummary {
   attachments: CommercialLeadAttachment[]
   notes: CommercialLeadNote[]
   activities: CommercialLeadActivity[]
+  workspace: { id: string; number: string } | null
 }
 
 export interface CommercialLeadListResponse {

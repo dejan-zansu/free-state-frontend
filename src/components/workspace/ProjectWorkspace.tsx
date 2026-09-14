@@ -9,6 +9,7 @@ import { PageLoader } from '@/components/ui/page-loader'
 import { WorkspaceHero } from '@/components/workspace/WorkspaceHero'
 import { WorkspaceMoney } from '@/components/workspace/WorkspaceMoney'
 import { WorkspaceFacts } from '@/components/workspace/WorkspaceFacts'
+import { WorkspacePhoneAsk } from '@/components/workspace/WorkspacePhoneAsk'
 import { WorkspaceNextStep } from '@/components/workspace/WorkspaceNextStep'
 import { WorkspaceDisclosure } from '@/components/workspace/WorkspaceDisclosure'
 import { NumbersSection } from '@/components/workspace/NumbersSection'
@@ -129,6 +130,8 @@ export function ProjectWorkspace({ projectId }: { projectId: string }) {
         <WorkspaceMoney data={data} onRefresh={load} />
 
         <WorkspaceFacts data={data} />
+
+        <WorkspacePhoneAsk />
 
         <WorkspaceNextStep data={data} onRefresh={load} />
 

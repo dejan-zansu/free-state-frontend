@@ -1,7 +1,7 @@
 'use client'
 
 import { useAuthStore } from '@/stores/auth.store'
-import { UserRole } from '@/types/auth'
+import { Capability, UserRole } from '@/types/auth'
 import { useRouter } from '@/i18n/navigation'
 import { useEffect, useRef } from 'react'
 import { PageLoader } from '@/components/ui/page-loader'
@@ -9,6 +9,7 @@ import { PageLoader } from '@/components/ui/page-loader'
 interface ProtectedRouteProps {
   children: React.ReactNode
   allowedRoles?: UserRole[]
+  requiredCapability?: Capability
   redirectTo?: string
   adminRedirect?: string
 }
@@ -16,6 +17,7 @@ interface ProtectedRouteProps {
 export function ProtectedRoute({
   children,
   allowedRoles,
+  requiredCapability,
   redirectTo = '/login',
   adminRedirect,
 }: ProtectedRouteProps) {
@@ -25,7 +27,7 @@ export function ProtectedRoute({
 
   useEffect(() => {
     checkAuth()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useEffect(() => {
@@ -38,27 +40,56 @@ export function ProtectedRoute({
     }
 
     if (isAuthenticated && user) {
-      if (adminRedirect && user.role === 'ADMIN') {
+      const capabilities = user.capabilities ?? []
+
+      if (adminRedirect && capabilities.includes('staff.area')) {
         hasRedirected.current = true
-        router.replace(adminRedirect as any)
+        const target = capabilities.includes('users.manage')
+          ? adminRedirect
+          : '/admin/workspaces'
+        router.replace(target as any)
         return
       }
       if (allowedRoles && !allowedRoles.includes(user.role)) {
         hasRedirected.current = true
         router.replace('/login' as any)
+        return
+      }
+      if (requiredCapability && !capabilities.includes(requiredCapability)) {
+        hasRedirected.current = true
+        router.replace('/login' as any)
       }
     }
-  }, [isInitialized, isAuthenticated, user, allowedRoles, adminRedirect, redirectTo, router])
+  }, [
+    isInitialized,
+    isAuthenticated,
+    user,
+    allowedRoles,
+    requiredCapability,
+    adminRedirect,
+    redirectTo,
+    router,
+  ])
 
   if (!isInitialized || !isAuthenticated) {
     return <PageLoader fullscreen />
   }
 
-  if (adminRedirect && user?.role === 'ADMIN') {
+  const capabilities = user?.capabilities ?? []
+
+  if (adminRedirect && capabilities.includes('staff.area')) {
     return <PageLoader fullscreen />
   }
 
   if (allowedRoles && user && !allowedRoles.includes(user.role)) {
+    return <PageLoader fullscreen />
+  }
+
+  if (
+    requiredCapability &&
+    user &&
+    !capabilities.includes(requiredCapability)
+  ) {
     return <PageLoader fullscreen />
   }
 

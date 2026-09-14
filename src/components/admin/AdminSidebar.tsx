@@ -18,6 +18,7 @@ import {
   FileText,
   Flame,
   FlaskConical,
+  FolderOpen,
   HandCoins,
   Images,
   Inbox,
@@ -53,13 +54,16 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import { useCapabilities } from '@/lib/capabilities'
 import { cn } from '@/lib/utils'
+import type { Capability } from '@/types/auth'
 
 interface NavItem {
   label: string
   href: string
   icon: React.ElementType
   badge?: React.ReactNode
+  capability?: Capability
 }
 
 function useNavGroups() {
@@ -71,97 +75,319 @@ function useNavGroups() {
   const navGroups: { label?: string; items: NavItem[] }[] = [
     {
       items: [
-        { label: t('dashboard'), href: `${prefix}/dashboard`, icon: LayoutDashboard },
+        {
+          label: t('dashboard'),
+          href: `${prefix}/dashboard`,
+          icon: LayoutDashboard,
+          capability: 'users.manage',
+        },
       ],
     },
     {
       label: t('groupResidential'),
       items: [
-        { label: t('residentialContracts'), href: `${prefix}/contracts`, icon: FileText },
-        { label: t('residentialLeads'),     href: `${prefix}/leads`,     icon: BarChart3 },
-        { label: t('residentialProjects'),  href: `${prefix}/projects`,  icon: Calculator },
-        { label: t('users'),                href: `${prefix}/users`,     icon: Users },
+        {
+          label: t('residentialContracts'),
+          href: `${prefix}/contracts`,
+          icon: FileText,
+          capability: 'users.manage',
+        },
+        {
+          label: t('residentialLeads'),
+          href: `${prefix}/leads`,
+          icon: BarChart3,
+          capability: 'users.manage',
+        },
+        {
+          label: t('residentialProjects'),
+          href: `${prefix}/projects`,
+          icon: Calculator,
+          capability: 'users.manage',
+        },
+        {
+          label: t('users'),
+          href: `${prefix}/users`,
+          icon: Users,
+          capability: 'users.manage',
+        },
       ],
     },
     {
       label: t('groupCommercial'),
       items: [
-        { label: t('commercialLeads'),      href: `${prefix}/commercial-leads`, icon: Briefcase },
-        { label: t('outreach'),             href: `${prefix}/outreach`,         icon: Radar },
-        { label: t('outreachQueues'),       href: `${prefix}/outreach/queue`,   icon: Inbox },
-        { label: t('outreachStats'),        href: `${prefix}/outreach/stats`,   icon: LineChart },
+        {
+          label: t('commercialLeads'),
+          href: `${prefix}/commercial-leads`,
+          icon: Briefcase,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreach'),
+          href: `${prefix}/outreach`,
+          icon: Radar,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreachQueues'),
+          href: `${prefix}/outreach/queue`,
+          icon: Inbox,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreachStats'),
+          href: `${prefix}/outreach/stats`,
+          icon: LineChart,
+          capability: 'sales.tools',
+        },
       ],
     },
     {
       label: t('groupOperations'),
       items: [
-        { label: t('tasks'),                href: `${prefix}/tasks`,                  icon: ClipboardList, badge: <TasksNavBadge /> },
-        { label: t('support'),              href: `${prefix}/support`,                icon: Ticket },
-        { label: t('contacts'),             href: `${prefix}/contacts`,               icon: MessageSquareText },
-        { label: t('quoteRequests'),        href: `${prefix}/quote-requests`,         icon: FileCheck },
-        { label: t('investorRequests'),     href: `${prefix}/investor-requests`,      icon: Briefcase },
-        { label: t('maintenanceInquiries'), href: `${prefix}/maintenance-inquiries`,  icon: Wrench },
-        { label: t('inspections'),          href: `${prefix}/inspections`,            icon: ClipboardCheck },
-        { label: t('careerSubscriptions'),  href: `${prefix}/career-subscriptions`,   icon: UserPlus },
+        {
+          label: t('workspaces'),
+          href: `${prefix}/workspaces`,
+          icon: FolderOpen,
+          capability: 'projects.access',
+        },
+        {
+          label: t('tasks'),
+          href: `${prefix}/tasks`,
+          icon: ClipboardList,
+          badge: <TasksNavBadge />,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('support'),
+          href: `${prefix}/support`,
+          icon: Ticket,
+          capability: 'users.manage',
+        },
+        {
+          label: t('contacts'),
+          href: `${prefix}/contacts`,
+          icon: MessageSquareText,
+          capability: 'users.manage',
+        },
+        {
+          label: t('quoteRequests'),
+          href: `${prefix}/quote-requests`,
+          icon: FileCheck,
+          capability: 'users.manage',
+        },
+        {
+          label: t('investorRequests'),
+          href: `${prefix}/investor-requests`,
+          icon: Briefcase,
+          capability: 'users.manage',
+        },
+        {
+          label: t('maintenanceInquiries'),
+          href: `${prefix}/maintenance-inquiries`,
+          icon: Wrench,
+          capability: 'users.manage',
+        },
+        {
+          label: t('inspections'),
+          href: `${prefix}/inspections`,
+          icon: ClipboardCheck,
+          capability: 'users.manage',
+        },
+        {
+          label: t('careerSubscriptions'),
+          href: `${prefix}/career-subscriptions`,
+          icon: UserPlus,
+          capability: 'users.manage',
+        },
       ],
     },
     {
       label: t('groupContent'),
       items: [
-        { label: t('blog'),       href: `${prefix}/blog`,       icon: Newspaper },
-        { label: t('references'), href: `${prefix}/references`, icon: Building2 },
-        { label: t('newsletter'), href: `${prefix}/newsletter`, icon: Mail },
+        {
+          label: t('blog'),
+          href: `${prefix}/blog`,
+          icon: Newspaper,
+          capability: 'users.manage',
+        },
+        {
+          label: t('references'),
+          href: `${prefix}/references`,
+          icon: Building2,
+          capability: 'users.manage',
+        },
+        {
+          label: t('newsletter'),
+          href: `${prefix}/newsletter`,
+          icon: Mail,
+          capability: 'users.manage',
+        },
       ],
     },
     {
       label: t('groupMarketing'),
       items: [
-        { label: t('marketingOverview'),  href: `${prefix}/marketing`,           icon: Megaphone },
-        { label: t('marketingCampaigns'), href: `${prefix}/marketing/campaigns`, icon: BarChart3 },
-        { label: t('marketingAnalytics'), href: `${prefix}/marketing/analytics`, icon: Activity },
-        { label: t('marketingContent'),   href: `${prefix}/marketing/content`,   icon: Images },
-        { label: t('marketingStudio'),    href: `${prefix}/marketing/studio`,    icon: Sparkles },
-        { label: t('marketingCompetitors'), href: `${prefix}/marketing/competitors`, icon: Eye },
-        { label: t('marketingExperiments'), href: `${prefix}/marketing/experiments`, icon: FlaskConical },
-        { label: t('marketingSettings'),  href: `${prefix}/marketing/settings`,  icon: Settings },
+        {
+          label: t('marketingOverview'),
+          href: `${prefix}/marketing`,
+          icon: Megaphone,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingCampaigns'),
+          href: `${prefix}/marketing/campaigns`,
+          icon: BarChart3,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingAnalytics'),
+          href: `${prefix}/marketing/analytics`,
+          icon: Activity,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingContent'),
+          href: `${prefix}/marketing/content`,
+          icon: Images,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingStudio'),
+          href: `${prefix}/marketing/studio`,
+          icon: Sparkles,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingCompetitors'),
+          href: `${prefix}/marketing/competitors`,
+          icon: Eye,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingExperiments'),
+          href: `${prefix}/marketing/experiments`,
+          icon: FlaskConical,
+          capability: 'users.manage',
+        },
+        {
+          label: t('marketingSettings'),
+          href: `${prefix}/marketing/settings`,
+          icon: Settings,
+          capability: 'users.manage',
+        },
       ],
     },
     {
       label: t('groupResources'),
       items: [
-        { label: t('electricityPrices'), href: `${prefix}/electricity-prices`, icon: Plug },
-        { label: t('subsidyRates'), href: `${prefix}/subsidy-rates`, icon: HandCoins },
-        { label: t('feedInTariffs'), href: `${prefix}/feed-in-tariffs`, icon: Coins },
-        { label: t('referenceMarketPrices'), href: `${prefix}/reference-market-prices`, icon: LineChart },
+        {
+          label: t('electricityPrices'),
+          href: `${prefix}/electricity-prices`,
+          icon: Plug,
+          capability: 'users.manage',
+        },
+        {
+          label: t('subsidyRates'),
+          href: `${prefix}/subsidy-rates`,
+          icon: HandCoins,
+          capability: 'users.manage',
+        },
+        {
+          label: t('feedInTariffs'),
+          href: `${prefix}/feed-in-tariffs`,
+          icon: Coins,
+          capability: 'users.manage',
+        },
+        {
+          label: t('referenceMarketPrices'),
+          href: `${prefix}/reference-market-prices`,
+          icon: LineChart,
+          capability: 'users.manage',
+        },
       ],
     },
     {
       label: t('groupEquipment'),
       items: [
-        { label: t('manufacturers'),   href: `${prefix}/equipment/manufacturers`,    icon: Factory },
-        { label: t('solarPanels'),     href: `${prefix}/equipment/solar-panels`,     icon: PanelTop },
-        { label: t('inverters'),       href: `${prefix}/equipment/inverters`,        icon: Zap },
-        { label: t('batteries'),       href: `${prefix}/equipment/batteries`,        icon: Battery },
-        { label: t('mountingSystems'), href: `${prefix}/equipment/mounting-systems`, icon: Box },
-        { label: t('ems'),             href: `${prefix}/equipment/ems`,              icon: CircuitBoard },
-        { label: t('heatPumps'),       href: `${prefix}/equipment/heat-pumps`,       icon: Flame },
-        { label: t('evChargers'),      href: `${prefix}/equipment/ev-chargers`,      icon: Plug },
-        { label: t('packages'),        href: `${prefix}/equipment/packages`,         icon: Package },
+        {
+          label: t('manufacturers'),
+          href: `${prefix}/equipment/manufacturers`,
+          icon: Factory,
+          capability: 'users.manage',
+        },
+        {
+          label: t('solarPanels'),
+          href: `${prefix}/equipment/solar-panels`,
+          icon: PanelTop,
+          capability: 'users.manage',
+        },
+        {
+          label: t('inverters'),
+          href: `${prefix}/equipment/inverters`,
+          icon: Zap,
+          capability: 'users.manage',
+        },
+        {
+          label: t('batteries'),
+          href: `${prefix}/equipment/batteries`,
+          icon: Battery,
+          capability: 'users.manage',
+        },
+        {
+          label: t('mountingSystems'),
+          href: `${prefix}/equipment/mounting-systems`,
+          icon: Box,
+          capability: 'users.manage',
+        },
+        {
+          label: t('ems'),
+          href: `${prefix}/equipment/ems`,
+          icon: CircuitBoard,
+          capability: 'users.manage',
+        },
+        {
+          label: t('heatPumps'),
+          href: `${prefix}/equipment/heat-pumps`,
+          icon: Flame,
+          capability: 'users.manage',
+        },
+        {
+          label: t('evChargers'),
+          href: `${prefix}/equipment/ev-chargers`,
+          icon: Plug,
+          capability: 'users.manage',
+        },
+        {
+          label: t('packages'),
+          href: `${prefix}/equipment/packages`,
+          icon: Package,
+          capability: 'users.manage',
+        },
       ],
     },
   ]
 
+  const capabilities = useCapabilities()
+
   return navGroups
+    .map(group => ({
+      ...group,
+      items: group.items.filter(
+        item => !item.capability || capabilities.includes(item.capability)
+      ),
+    }))
+    .filter(group => group.items.length > 0)
 }
 
 function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname()
   const navGroups = useNavGroups()
 
-  const matches = (href: string) => pathname === href || pathname.startsWith(href + '/')
+  const matches = (href: string) =>
+    pathname === href || pathname.startsWith(href + '/')
   const activeHref = navGroups
-    .flatMap((group) => group.items)
-    .filter((item) => matches(item.href))
+    .flatMap(group => group.items)
+    .filter(item => matches(item.href))
     .sort((a, b) => b.href.length - a.href.length)[0]?.href
   const isActive = (href: string) => href === activeHref
 
@@ -175,7 +401,7 @@ function SidebarNav({ onNavigate }: { onNavigate?: () => void }) {
             </p>
           )}
           <div className="space-y-1">
-            {group.items.map((item) => (
+            {group.items.map(item => (
               <Link
                 key={item.href}
                 href={item.href}

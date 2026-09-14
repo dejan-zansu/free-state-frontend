@@ -23,8 +23,13 @@ export default function AuthLayout({
 
   useEffect(() => {
     if (isInitialized && isAuthenticated && user) {
-      if (user.role === 'ADMIN') {
-        router.replace('/admin/dashboard' as any)
+      const capabilities = user.capabilities ?? []
+      if (capabilities.includes('staff.area')) {
+        router.replace(
+          (capabilities.includes('users.manage')
+            ? '/admin/dashboard'
+            : '/admin/workspaces') as any
+        )
       } else {
         router.replace('/dashboard' as any)
       }
