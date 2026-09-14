@@ -9,6 +9,8 @@ import { StatusBadge } from '@/components/admin/StatusBadge'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import {
   Select,
   SelectContent,
@@ -28,9 +30,10 @@ export default function AdminUserDetailPage() {
   const queryClient = useQueryClient()
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
-  const [resending, setResending] = useState(false)
-  const [resendMessage, setResendMessage] = useState<string | null>(null)
-  const [resendError, setResendError] = useState<string | null>(null)
+  const [newPassword, setNewPassword] = useState('')
+  const [settingPassword, setSettingPassword] = useState(false)
+  const [passwordMessage, setPasswordMessage] = useState<string | null>(null)
+  const [passwordError, setPasswordError] = useState<string | null>(null)
 
   const { data: user, isLoading } = useQuery<AdminUserDetail>({
     queryKey: ['admin', 'user', params.id],
@@ -74,14 +77,15 @@ export default function AdminUserDetailPage() {
     }
   }
 
-  const handleResendInvite = async () => {
+  const handleSetPassword = async () => {
     if (!user) return
-    setResending(true)
-    setResendMessage(null)
-    setResendError(null)
+    setSettingPassword(true)
+    setPasswordMessage(null)
+    setPasswordError(null)
     try {
-      await adminService.resendInvite(user.id)
-      setResendMessage(t('invite.resent'))
+      await adminService.setStaffPassword(user.id, newPassword)
+      setPasswordMessage(t('invite.passwordSet'))
+      setNewPassword('')
       queryClient.invalidateQueries({
         queryKey: ['admin', 'users', params.id, 'audit'],
       })
@@ -89,13 +93,13 @@ export default function AdminUserDetailPage() {
       const code = (
         e as { response?: { data?: { error?: { code?: string } } } }
       )?.response?.data?.error?.code
-      setResendError(
-        code === 'INVITE_NOT_PENDING'
-          ? t('errors.INVITE_NOT_PENDING')
+      setPasswordError(
+        code === 'NOT_STAFF'
+          ? t('errors.NOT_STAFF')
           : t('invite.errorGeneric')
       )
     } finally {
-      setResending(false)
+      setSettingPassword(false)
     }
   }
 
@@ -249,29 +253,41 @@ export default function AdminUserDetailPage() {
               {saveError && (
                 <p className="text-sm text-destructive">{saveError}</p>
               )}
-              {user.status === 'PENDING_VERIFICATION' &&
-                user.role !== 'CUSTOMER' && (
-                  <div>
+              {user.role !== 'CUSTOMER' && (
+                <div>
+                  <Label>{t('invite.setPassword')}</Label>
+                  <div className="mt-1 flex flex-wrap items-center gap-2">
+                    <Input
+                      type="password"
+                      autoComplete="new-password"
+                      className="w-56"
+                      value={newPassword}
+                      onChange={e => setNewPassword(e.target.value)}
+                    />
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={handleResendInvite}
-                      disabled={resending}
+                      onClick={handleSetPassword}
+                      disabled={settingPassword || newPassword.length < 6}
                     >
-                      {t('invite.resend')}
+                      {t('invite.setPasswordSubmit')}
                     </Button>
-                    {resendMessage && (
-                      <p className="text-sm text-[#062E25]/75 mt-1">
-                        {resendMessage}
-                      </p>
-                    )}
-                    {resendError && (
-                      <p className="text-sm text-destructive mt-1">
-                        {resendError}
-                      </p>
-                    )}
                   </div>
-                )}
+                  <p className="mt-1 text-sm text-[#062E25]/75">
+                    {t('invite.setPasswordHint')}
+                  </p>
+                  {passwordMessage && (
+                    <p className="mt-1 text-sm text-[#062E25]/75">
+                      {passwordMessage}
+                    </p>
+                  )}
+                  {passwordError && (
+                    <p className="mt-1 text-sm text-destructive">
+                      {passwordError}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -381,6 +397,14 @@ export default function AdminUserDetailPage() {
               <div className="space-y-3">
                 {auditEntries.map(entry => {
                   const transition = auditTransition(entry)
+                  // Der Datenbank-Enum kennt kein eigenes PASSWORD_SET. Ein
+                  // spaeteres Passwort-Setzen schreibt USER_INVITED ohne Rolle,
+                  // daran erkennen wir es hier.
+                  const isPasswordOnly =
+                    entry.action === 'USER_INVITED' && !entry.after.role
+                  const actionLabel = isPasswordOnly
+                    ? t('audit.PASSWORD_SET')
+                    : t(`audit.${entry.action}`)
                   const actorName = entry.actor
                     ? `${entry.actor.firstName} ${entry.actor.lastName}`
                     : t('audit.actorUnknown')
@@ -394,7 +418,7 @@ export default function AdminUserDetailPage() {
                         {actorName}
                       </p>
                       <p className="text-sm font-medium text-[#062E25]">
-                        {t(`audit.${entry.action}`)}
+                        {actionLabel}
                         {transition ? `: ${transition}` : ''}
                       </p>
                     </div>

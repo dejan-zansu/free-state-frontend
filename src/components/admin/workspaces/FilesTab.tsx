@@ -662,7 +662,7 @@ export function FilesTab({
             <p className="text-sm text-[#062E25]">
               {t('files.selected', { count: selected.size })}
             </p>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2">
               <Button
                 type="button"
                 variant="outline"

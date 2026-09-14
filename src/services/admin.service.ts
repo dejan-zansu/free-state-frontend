@@ -47,13 +47,13 @@ class AdminService {
     return response.data.data
   }
 
-  async inviteStaff(data: { email: string; firstName: string; lastName: string; role: UserRole; preferredLanguage: string }): Promise<AdminUser> {
+  async inviteStaff(data: { email: string; firstName: string; lastName: string; role: UserRole; preferredLanguage: string; password: string }): Promise<AdminUser> {
     const response = await api.post<{ success: boolean; data: AdminUser }>('/admin/users/invite', data)
     return response.data.data
   }
 
-  async resendInvite(id: string): Promise<void> {
-    await api.post(`/admin/users/${id}/resend-invite`)
+  async setStaffPassword(id: string, password: string): Promise<void> {
+    await api.post(`/admin/users/${id}/password`, { password })
   }
 
   async listUserAudit(id: string): Promise<StaffAuditEntry[]> {

@@ -103,7 +103,7 @@ export function CreateWorkspaceDialog({
         <DialogHeader>
           <DialogTitle>{t('dialog.title')}</DialogTitle>
         </DialogHeader>
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <div>
             <Label>{t('dialog.name')}</Label>
             <Input value={name} onChange={e => setName(e.target.value)} />
@@ -129,7 +129,7 @@ export function CreateWorkspaceDialog({
               value={template}
               onValueChange={v => setTemplate(v as 'standard' | 'empty')}
             >
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>

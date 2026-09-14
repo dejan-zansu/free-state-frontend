@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MoreVertical } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
@@ -76,6 +76,15 @@ export function FileRow({
 
   const isMobile = useIsMobile()
   const [ctxOpen, setCtxOpen] = useState(false)
+  const renameRef = useRef<HTMLInputElement>(null)
+
+  // Radix gibt den Fokus beim Schliessen des Menues an den Ausloeser zurueck
+  // und ueberschreibt damit autoFocus. Deshalb setzen wir ihn danach selbst.
+  useEffect(() => {
+    if (!renaming) return
+    const timer = setTimeout(() => renameRef.current?.focus(), 60)
+    return () => clearTimeout(timer)
+  }, [renaming])
 
   if (file && incomplete) {
     return (
@@ -143,10 +152,12 @@ export function FileRow({
               />
               {renaming ? (
                 <Input
+                  ref={renameRef}
                   autoFocus
                   value={renameValue}
                   onChange={event => onRenameValueChange(event.target.value)}
                   onClick={event => event.stopPropagation()}
+                  onDoubleClick={event => event.stopPropagation()}
                   onKeyDown={event => {
                     if (event.key === 'Enter') onRenameSubmit()
                     if (event.key === 'Escape') onRenameCancel()
@@ -171,7 +182,9 @@ export function FileRow({
                 </span>
               )}
               {folder?.isRestricted && (
-                <Badge variant="secondary">{t('restrictedBadge')}</Badge>
+                <Badge variant="secondary" className="shrink-0">
+                  {t('restrictedBadge')}
+                </Badge>
               )}
             </div>
           </TableCell>
@@ -195,7 +208,10 @@ export function FileRow({
                   <MoreVertical className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
+              <DropdownMenuContent
+                align="end"
+                onClick={event => event.stopPropagation()}
+              >
                 <FileActionsMenu
                   kind={kind}
                   item={item}
@@ -210,7 +226,7 @@ export function FileRow({
           </TableCell>
         </TableRow>
       </ContextMenuTrigger>
-      <ContextMenuContent>
+      <ContextMenuContent onClick={event => event.stopPropagation()}>
         <FileActionsMenu
           kind={kind}
           item={item}

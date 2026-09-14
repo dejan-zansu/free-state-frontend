@@ -50,6 +50,7 @@ export function InviteStaffDialog({
   const [lastName, setLastName] = useState('')
   const [role, setRole] = useState<UserRole>('EMPLOYEE')
   const [language, setLanguage] = useState<string>('de')
+  const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -59,6 +60,7 @@ export function InviteStaffDialog({
     setLastName('')
     setRole('EMPLOYEE')
     setLanguage('de')
+    setPassword('')
     setError(null)
   }
 
@@ -72,6 +74,7 @@ export function InviteStaffDialog({
         lastName: lastName.trim(),
         role,
         preferredLanguage: language,
+        password,
       })
       await queryClient.invalidateQueries({ queryKey: ['admin', 'users'] })
       reset()
@@ -98,7 +101,7 @@ export function InviteStaffDialog({
         <DialogHeader>
           <DialogTitle>{t('title')}</DialogTitle>
         </DialogHeader>
-        <div className="space-y-4">
+        <div className="min-w-0 space-y-4">
           <div>
             <Label>{t('firstName')}</Label>
             <Input
@@ -122,9 +125,19 @@ export function InviteStaffDialog({
             />
           </div>
           <div>
+            <Label>{t('password')}</Label>
+            <Input
+              type="password"
+              autoComplete="new-password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            <p className="mt-1 text-sm text-[#062E25]/75">{t('passwordHint')}</p>
+          </div>
+          <div>
             <Label>{t('role')}</Label>
             <Select value={role} onValueChange={v => setRole(v as UserRole)}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -139,7 +152,7 @@ export function InviteStaffDialog({
           <div>
             <Label>{t('language')}</Label>
             <Select value={language} onValueChange={setLanguage}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -167,7 +180,11 @@ export function InviteStaffDialog({
           <Button
             onClick={submit}
             disabled={
-              busy || !email.trim() || !firstName.trim() || !lastName.trim()
+              busy ||
+              !email.trim() ||
+              !firstName.trim() ||
+              !lastName.trim() ||
+              password.length < 6
             }
             className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
           >

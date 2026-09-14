@@ -5,7 +5,12 @@ import { ArrowLeft, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
-import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import {
+  keepPreviousData,
+  useMutation,
+  useQuery,
+  useQueryClient,
+} from '@tanstack/react-query'
 import {
   Bar,
   BarChart,
@@ -45,7 +50,15 @@ import type {
 type CampaignAd = CampaignDetail['ads'][number]
 
 const RANGE_OPTIONS = [7, 30, 90]
-const FUNNEL_COLORS = ['#67c299', '#3fae7d', '#1f9866', '#128254', '#0d6c45', '#095536', '#063f27']
+const FUNNEL_COLORS = [
+  '#67c299',
+  '#3fae7d',
+  '#1f9866',
+  '#128254',
+  '#0d6c45',
+  '#095536',
+  '#063f27',
+]
 const BREAKDOWN_COLOR = '#2a78d6'
 const STORED_BREAKDOWN_ORDER: CampaignBreakdownDimension[] = [
   'network',
@@ -112,11 +125,17 @@ function formatFullDay(date: string) {
 function splitLines(value: string) {
   return value
     .split('\n')
-    .map((line) => line.trim())
-    .filter((line) => line.length > 0)
+    .map(line => line.trim())
+    .filter(line => line.length > 0)
 }
 
-function PlatformPill({ platform, label }: { platform: MarketingPlatform; label: string }) {
+function PlatformPill({
+  platform,
+  label,
+}: {
+  platform: MarketingPlatform
+  label: string
+}) {
   return (
     <span
       className={cn(
@@ -133,18 +152,26 @@ function BreakdownRows({
   rows,
   emptyLabel,
 }: {
-  rows: { label: string; spendChf: number; ctrPct: number | null; extra?: string }[]
+  rows: {
+    label: string
+    spendChf: number
+    ctrPct: number | null
+    extra?: string
+  }[]
   emptyLabel: string
 }) {
   if (rows.length === 0) {
     return <p className="text-sm text-[#062E25]">{emptyLabel}</p>
   }
-  const maxSpend = Math.max(...rows.map((row) => row.spendChf))
+  const maxSpend = Math.max(...rows.map(row => row.spendChf))
   return (
     <div className="space-y-2">
-      {rows.map((row) => (
+      {rows.map(row => (
         <div key={row.label} className="flex items-center gap-3">
-          <span className="w-32 shrink-0 text-sm text-[#062E25] truncate" title={row.label}>
+          <span
+            className="w-32 shrink-0 text-sm text-[#062E25] truncate"
+            title={row.label}
+          >
             {row.label}
           </span>
           <div className="flex-1 bg-[#062E25]/[0.04] rounded h-5">
@@ -169,7 +196,13 @@ function BreakdownRows({
   )
 }
 
-function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }) {
+function GoogleAdCard({
+  ad,
+  campaignId,
+}: {
+  ad: CampaignAd
+  campaignId: string
+}) {
   const t = useTranslations('admin.marketing.campaigns')
   const tc = useTranslations('admin.common')
   const queryClient = useQueryClient()
@@ -191,7 +224,9 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
         finalUrl: form.finalUrl.trim() || undefined,
       }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['admin', 'marketing', 'campaigns', campaignId] })
+      queryClient.invalidateQueries({
+        queryKey: ['admin', 'marketing', 'campaigns', campaignId],
+      })
       setEditing(false)
     },
   })
@@ -223,14 +258,18 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
             {t('detail.adStrength')}: {ad.adStrength}
           </span>
         )}
-        <span className="text-sm text-[#062E25]/75 ml-auto truncate">{ad.adSetName}</span>
+        <span className="text-sm text-[#062E25]/75 ml-auto truncate">
+          {ad.adSetName}
+        </span>
       </div>
 
       <dl className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-7 gap-3 mb-4">
-        {stats.map((stat) => (
+        {stats.map(stat => (
           <div key={stat.label}>
             <dt className="text-sm text-[#062E25]/75">{stat.label}</dt>
-            <dd className="tabular-nums font-medium text-[#062E25]">{stat.value}</dd>
+            <dd className="tabular-nums font-medium text-[#062E25]">
+              {stat.value}
+            </dd>
           </div>
         ))}
       </dl>
@@ -238,7 +277,9 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
       {hasText && !editing ? (
         <div className="space-y-3">
           <div>
-            <p className="text-sm text-[#062E25]/75 mb-1">{t('detail.adHeadlines')}</p>
+            <p className="text-sm text-[#062E25]/75 mb-1">
+              {t('detail.adHeadlines')}
+            </p>
             <div className="flex flex-wrap gap-2">
               {(ad.headlines ?? []).map((headline, index) => (
                 <span
@@ -252,7 +293,9 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
           </div>
           {ad.descriptions && ad.descriptions.length > 0 && (
             <div>
-              <p className="text-sm text-[#062E25]/75 mb-1">{t('detail.adDescriptions')}</p>
+              <p className="text-sm text-[#062E25]/75 mb-1">
+                {t('detail.adDescriptions')}
+              </p>
               <div className="space-y-1">
                 {ad.descriptions.map((description, index) => (
                   <p key={`${index}-${description}`} className="text-[#062E25]">
@@ -264,8 +307,10 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
           )}
           {ad.finalUrls && ad.finalUrls.length > 0 && (
             <div>
-              <p className="text-sm text-[#062E25]/75 mb-1">{t('detail.adFinalUrl')}</p>
-              {ad.finalUrls.map((url) => (
+              <p className="text-sm text-[#062E25]/75 mb-1">
+                {t('detail.adFinalUrl')}
+              </p>
+              {ad.finalUrls.map(url => (
                 <a
                   key={url}
                   href={url}
@@ -301,46 +346,66 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
               {t('detail.adTextMissing')}
             </div>
           )}
-          {locked && <p className="text-base text-[#062E25]">{t('detail.adLockedByApi')}</p>}
+          {locked && (
+            <p className="text-base text-[#062E25]">
+              {t('detail.adLockedByApi')}
+            </p>
+          )}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor={`ad-headlines-${ad.adId}`}>{t('detail.adHeadlines')}</Label>
+              <Label htmlFor={`ad-headlines-${ad.adId}`}>
+                {t('detail.adHeadlines')}
+              </Label>
               <Textarea
                 id={`ad-headlines-${ad.adId}`}
                 rows={5}
                 disabled={locked}
                 placeholder={t('detail.adHeadlinesPlaceholder')}
                 value={form.headlines}
-                onChange={(e) => setForm((prev) => ({ ...prev, headlines: e.target.value }))}
+                onChange={e =>
+                  setForm(prev => ({ ...prev, headlines: e.target.value }))
+                }
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor={`ad-descriptions-${ad.adId}`}>{t('detail.adDescriptions')}</Label>
+              <Label htmlFor={`ad-descriptions-${ad.adId}`}>
+                {t('detail.adDescriptions')}
+              </Label>
               <Textarea
                 id={`ad-descriptions-${ad.adId}`}
                 rows={5}
                 disabled={locked}
                 placeholder={t('detail.adDescriptionsPlaceholder')}
                 value={form.descriptions}
-                onChange={(e) => setForm((prev) => ({ ...prev, descriptions: e.target.value }))}
+                onChange={e =>
+                  setForm(prev => ({ ...prev, descriptions: e.target.value }))
+                }
               />
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor={`ad-final-url-${ad.adId}`}>{t('detail.adFinalUrl')}</Label>
+            <Label htmlFor={`ad-final-url-${ad.adId}`}>
+              {t('detail.adFinalUrl')}
+            </Label>
             <Input
               id={`ad-final-url-${ad.adId}`}
               type="url"
               disabled={locked}
               placeholder="https://"
               value={form.finalUrl}
-              onChange={(e) => setForm((prev) => ({ ...prev, finalUrl: e.target.value }))}
+              onChange={e =>
+                setForm(prev => ({ ...prev, finalUrl: e.target.value }))
+              }
             />
           </div>
           <div className="flex flex-wrap items-center gap-3">
             <Button
               className="bg-[#062E25] hover:bg-[#062E25]/90 text-white"
-              disabled={locked || saveMutation.isPending || splitLines(form.headlines).length === 0}
+              disabled={
+                locked ||
+                saveMutation.isPending ||
+                splitLines(form.headlines).length === 0
+              }
               onClick={() => saveMutation.mutate()}
             >
               {t('detail.adSave')}
@@ -351,7 +416,9 @@ function GoogleAdCard({ ad, campaignId }: { ad: CampaignAd; campaignId: string }
               </Button>
             )}
             {saveMutation.isError && (
-              <span className="text-sm text-red-600">{t('detail.adSaveError')}</span>
+              <span className="text-sm text-red-600">
+                {t('detail.adSaveError')}
+              </span>
             )}
           </div>
         </div>
@@ -383,8 +450,16 @@ export default function AdminMarketingCampaignDetailPage() {
     isLoading: breakdownsLoading,
     isPlaceholderData: breakdownsPlaceholder,
   } = useQuery<CampaignBreakdowns>({
-    queryKey: ['admin', 'marketing', 'campaigns', campaignId, 'breakdowns', days],
-    queryFn: () => adminMarketingService.getCampaignBreakdowns(campaignId, days),
+    queryKey: [
+      'admin',
+      'marketing',
+      'campaigns',
+      campaignId,
+      'breakdowns',
+      days,
+    ],
+    queryFn: () =>
+      adminMarketingService.getCampaignBreakdowns(campaignId, days),
     placeholderData: keepPreviousData,
     enabled: !!data && !isGoogle,
   })
@@ -398,12 +473,12 @@ export default function AdminMarketingCampaignDetailPage() {
   }
 
   const { campaign, totals, daily, funnel, ads, ga4 } = data
-  const realAds = ads.filter((ad) => !ad.synthetic)
-  const syntheticAds = ads.filter((ad) => ad.synthetic)
+  const realAds = ads.filter(ad => !ad.synthetic)
+  const syntheticAds = ads.filter(ad => ad.synthetic)
   const adGroupsAll = data.adGroups ?? []
   const adGroups = [
-    ...adGroupsAll.filter((group) => !group.synthetic),
-    ...adGroupsAll.filter((group) => group.synthetic),
+    ...adGroupsAll.filter(group => !group.synthetic),
+    ...adGroupsAll.filter(group => group.synthetic),
   ]
   const keywords = data.keywords ?? []
   const searchTerms = data.searchTerms ?? []
@@ -414,8 +489,11 @@ export default function AdminMarketingCampaignDetailPage() {
 
   const dataSourceLabels = isGoogle
     ? [
-        dataSources?.ga4.active || campaign.dataSource === 'ga4' ? t('detail.dataSourceGa4') : null,
-        dataSources?.googleAds.configured || campaign.dataSource === 'google-ads'
+        dataSources?.ga4.active || campaign.dataSource === 'ga4'
+          ? t('detail.dataSourceGa4')
+          : null,
+        dataSources?.googleAds.configured ||
+        campaign.dataSource === 'google-ads'
           ? t('detail.dataSourceGoogleAds')
           : null,
       ].filter((label): label is string => label !== null)
@@ -433,7 +511,9 @@ export default function AdminMarketingCampaignDetailPage() {
       ? t('detail.dailyBudget', { value: formatChf(campaign.dailyBudgetChf) })
       : null,
     campaign.createdTime !== null
-      ? t('detail.createdOn', { date: new Date(campaign.createdTime).toLocaleDateString('de-CH') })
+      ? t('detail.createdOn', {
+          date: new Date(campaign.createdTime).toLocaleDateString('de-CH'),
+        })
       : null,
   ]
     .filter(Boolean)
@@ -444,27 +524,34 @@ export default function AdminMarketingCampaignDetailPage() {
         {
           label: t('detail.spend'),
           value: `CHF ${formatChf(totals.spendChf)}`,
-          sub: t('detail.impressionsSub', { count: formatCount(totals.impressions) }),
+          sub: t('detail.impressionsSub', {
+            count: formatCount(totals.impressions),
+          }),
         },
         { label: t('detail.clicks'), value: formatCount(totals.clicks) },
         { label: t('detail.ctr'), value: formatPct(totals.ctrPct) },
         {
           label: t('detail.cpc'),
-          value: totals.cpcChf !== null ? `CHF ${formatChf(totals.cpcChf)}` : '-',
+          value:
+            totals.cpcChf !== null ? `CHF ${formatChf(totals.cpcChf)}` : '-',
         },
         {
           label: t('detail.sessions'),
           value: formatMaybeCount(totals.sessions),
           sub:
             totals.engagedSessions !== null
-              ? t('detail.engagedSessionsSub', { count: formatCount(totals.engagedSessions) })
+              ? t('detail.engagedSessionsSub', {
+                  count: formatCount(totals.engagedSessions),
+                })
               : undefined,
         },
         { label: t('detail.signups'), value: formatCount(totals.signups) },
         {
           label: t('detail.costPerSignup'),
           value:
-            totals.costPerSignupChf !== null ? `CHF ${formatChf(totals.costPerSignupChf)}` : '-',
+            totals.costPerSignupChf !== null
+              ? `CHF ${formatChf(totals.costPerSignupChf)}`
+              : '-',
         },
         {
           label: t('detail.keyEvents'),
@@ -472,20 +559,31 @@ export default function AdminMarketingCampaignDetailPage() {
           sub:
             totals.conversions !== null
               ? t('detail.conversionsSub', {
-                  count: totals.conversions.toLocaleString('de-CH', { maximumFractionDigits: 1 }),
+                  count: totals.conversions.toLocaleString('de-CH', {
+                    maximumFractionDigits: 1,
+                  }),
                 })
               : undefined,
         },
       ]
     : [
-        { label: t('detail.spend'), value: `CHF ${formatChf(totals.spendChf)}` },
+        {
+          label: t('detail.spend'),
+          value: `CHF ${formatChf(totals.spendChf)}`,
+        },
         {
           label: t('detail.clicks'),
           value: formatCount(totals.clicks),
           sub: t('detail.ctrSub', { value: formatPct(totals.ctrPct) }),
         },
-        { label: t('detail.impressions'), value: formatCount(totals.impressions) },
-        { label: t('detail.ga4Sessions'), value: formatCount(totals.ga4Sessions) },
+        {
+          label: t('detail.impressions'),
+          value: formatCount(totals.impressions),
+        },
+        {
+          label: t('detail.ga4Sessions'),
+          value: formatCount(totals.ga4Sessions),
+        },
         {
           label: t('detail.dbLeads'),
           value: formatCount(totals.dbLeads),
@@ -493,13 +591,18 @@ export default function AdminMarketingCampaignDetailPage() {
         },
         {
           label: t('trueCpl'),
-          value: totals.trueCplChf !== null ? `CHF ${formatChf(totals.trueCplChf)}` : '-',
+          value:
+            totals.trueCplChf !== null
+              ? `CHF ${formatChf(totals.trueCplChf)}`
+              : '-',
         },
         { label: t('detail.signups'), value: formatCount(totals.signups) },
         {
           label: t('detail.costPerSignup'),
           value:
-            totals.costPerSignupChf !== null ? `CHF ${formatChf(totals.costPerSignupChf)}` : '-',
+            totals.costPerSignupChf !== null
+              ? `CHF ${formatChf(totals.costPerSignupChf)}`
+              : '-',
         },
         { label: t('detail.consults'), value: formatCount(totals.consults) },
         {
@@ -510,13 +613,17 @@ export default function AdminMarketingCampaignDetailPage() {
       ]
 
   const funnelRows = [
-    { key: 'landed-any', label: t('detail.funnelLandedAny'), value: funnel.landedAny },
+    {
+      key: 'landed-any',
+      label: t('detail.funnelLandedAny'),
+      value: funnel.landedAny,
+    },
     {
       key: 'landed-calculator',
       label: t('detail.funnelLandedCalculator'),
       value: funnel.landedCalculator,
     },
-    ...funnel.steps.map((step) => ({
+    ...funnel.steps.map(step => ({
       key: `step-${step.step}`,
       label: t('detail.funnelStep', { step: step.step }),
       value: step.sessions,
@@ -531,8 +638,16 @@ export default function AdminMarketingCampaignDetailPage() {
         ]
       : []),
     { key: 'lead', label: t('detail.funnelLead'), value: funnel.leads },
-    { key: 'account', label: t('detail.funnelAccountCreated'), value: funnel.accountsCreated },
-    { key: 'results', label: t('detail.funnelResultsViewed'), value: funnel.resultsViewed },
+    {
+      key: 'account',
+      label: t('detail.funnelAccountCreated'),
+      value: funnel.accountsCreated,
+    },
+    {
+      key: 'results',
+      label: t('detail.funnelResultsViewed'),
+      value: funnel.resultsViewed,
+    },
     {
       key: 'offer',
       label: t('detail.funnelOfferRequested'),
@@ -543,21 +658,27 @@ export default function AdminMarketingCampaignDetailPage() {
       label: t('detail.funnelConsultation'),
       value: funnel.consultationsBooked,
     },
-    { key: 'contract', label: t('detail.funnelContractSigned'), value: funnel.contractsSigned },
+    {
+      key: 'contract',
+      label: t('detail.funnelContractSigned'),
+      value: funnel.contractsSigned,
+    },
   ].map((row, index) => ({
     ...row,
     color: FUNNEL_COLORS[Math.min(index, FUNNEL_COLORS.length - 1)],
   }))
-  const funnelMax = Math.max(...funnelRows.map((row) => row.value), 1)
+  const funnelMax = Math.max(...funnelRows.map(row => row.value), 1)
   const funnelBase = funnel.landedAny || funnel.steps[0]?.sessions || 0
 
-  const sortedSearchTerms = [...searchTerms].sort((a, b) => b.spendChf - a.spendChf)
+  const sortedSearchTerms = [...searchTerms].sort(
+    (a, b) => b.spendChf - a.spendChf
+  )
   const visibleSearchTerms = showAllSearchTerms
     ? sortedSearchTerms
     : sortedSearchTerms.slice(0, SEARCH_TERMS_LIMIT)
 
   const storedDimensions = STORED_BREAKDOWN_ORDER.filter(
-    (dimension) => (breakdownsStored[dimension]?.length ?? 0) > 0
+    dimension => (breakdownsStored[dimension]?.length ?? 0) > 0
   )
   const storedDimensionLabel: Record<CampaignBreakdownDimension, string> = {
     network: t('detail.breakdownNetwork'),
@@ -567,12 +688,12 @@ export default function AdminMarketingCampaignDetailPage() {
     ageGender: t('detail.breakdownAgeGender'),
   }
 
-  const keywordsAllGa4 = keywords.length > 0 && keywords.every((row) => row.source === 'ga4')
+  const keywordsAllGa4 =
+    keywords.length > 0 && keywords.every(row => row.source === 'ga4')
   const searchTermsAllGa4 =
-    searchTerms.length > 0 && searchTerms.every((row) => row.source === 'ga4')
+    searchTerms.length > 0 && searchTerms.every(row => row.source === 'ga4')
 
-  const dailySessions = (row: CampaignDetail['daily'][number]) =>
-    isGoogle ? row.sessions : row.ga4Sessions
+  const dailySessions = (row: CampaignDetail['daily'][number]) => row.sessions
 
   return (
     <div>
@@ -585,13 +706,18 @@ export default function AdminMarketingCampaignDetailPage() {
 
       <div className="flex flex-wrap items-center gap-3 mb-2">
         <h1 className="text-2xl font-bold text-[#062E25]">{campaign.name}</h1>
-        <PlatformPill platform={isGoogle ? 'google' : 'meta'} label={platformLabel} />
+        <PlatformPill
+          platform={isGoogle ? 'google' : 'meta'}
+          label={platformLabel}
+        />
         <StatusBadge status={campaign.status} />
         {consoleUrl && (
           <Button variant="outline" size="sm" asChild className="ml-auto">
             <a href={consoleUrl} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="h-4 w-4 mr-2" />
-              {isGoogle ? t('detail.openGoogleAds') : t('detail.openAdsManager')}
+              {isGoogle
+                ? t('detail.openGoogleAds')
+                : t('detail.openAdsManager')}
             </a>
           </Button>
         )}
@@ -605,12 +731,14 @@ export default function AdminMarketingCampaignDetailPage() {
       )}
 
       <div className="flex flex-wrap items-center gap-2 mb-6">
-        {RANGE_OPTIONS.map((option) => (
+        {RANGE_OPTIONS.map(option => (
           <Button
             key={option}
             variant={days === option ? 'default' : 'outline'}
             size="sm"
-            className={cn(days === option && 'bg-[#062E25] hover:bg-[#062E25]/90 text-white')}
+            className={cn(
+              days === option && 'bg-[#062E25] hover:bg-[#062E25]/90 text-white'
+            )}
             onClick={() => setDays(option)}
           >
             {t('detail.rangeDays', { count: option })}
@@ -618,24 +746,32 @@ export default function AdminMarketingCampaignDetailPage() {
         ))}
         <p className="text-sm text-[#062E25]/75 ml-auto">
           {data.lastSyncAt
-            ? t('lastSync', { date: new Date(data.lastSyncAt).toLocaleString('de-CH') })
+            ? t('lastSync', {
+                date: new Date(data.lastSyncAt).toLocaleString('de-CH'),
+              })
             : t('neverSynced')}
         </p>
       </div>
 
-      <div className={cn('transition-opacity', isPlaceholderData && 'opacity-60')}>
+      <div
+        className={cn('transition-opacity', isPlaceholderData && 'opacity-60')}
+      >
         <div
           className={cn(
             'grid grid-cols-1 md:grid-cols-2 gap-4 mb-6',
             tiles.length > 8 ? 'xl:grid-cols-5' : 'xl:grid-cols-4'
           )}
         >
-          {tiles.map((tile) => (
+          {tiles.map(tile => (
             <Card key={tile.label} className="border-[#062E25]/10">
               <CardContent className="p-5">
                 <p className="text-sm text-[#062E25] mb-2">{tile.label}</p>
-                <p className="text-2xl font-bold text-[#062E25] mb-1">{tile.value}</p>
-                {tile.sub && <p className="text-sm text-[#062E25]/75">{tile.sub}</p>}
+                <p className="text-2xl font-bold text-[#062E25] mb-1">
+                  {tile.value}
+                </p>
+                {tile.sub && (
+                  <p className="text-sm text-[#062E25]/75">{tile.sub}</p>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -644,11 +780,16 @@ export default function AdminMarketingCampaignDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.chartSpend')}</h2>
+              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+                {t('detail.chartSpend')}
+              </h2>
               <div className="h-56">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={daily} margin={CHART_MARGIN}>
-                    <CartesianGrid vertical={false} stroke="rgba(6,46,37,0.06)" />
+                    <CartesianGrid
+                      vertical={false}
+                      stroke="rgba(6,46,37,0.06)"
+                    />
                     <XAxis
                       dataKey="date"
                       tickFormatter={formatDay}
@@ -657,13 +798,18 @@ export default function AdminMarketingCampaignDetailPage() {
                       tick={TICK_STYLE}
                       minTickGap={24}
                     />
-                    <YAxis width={40} tickLine={false} axisLine={false} tick={TICK_STYLE} />
+                    <YAxis
+                      width={40}
+                      tickLine={false}
+                      axisLine={false}
+                      tick={TICK_STYLE}
+                    />
                     <Tooltip
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
                       itemStyle={TOOLTIP_ITEM_STYLE}
-                      labelFormatter={(value) => formatFullDay(String(value))}
-                      formatter={(value) => `CHF ${formatChf(Number(value))}`}
+                      labelFormatter={value => formatFullDay(String(value))}
+                      formatter={value => `CHF ${formatChf(Number(value))}`}
                     />
                     <Bar
                       dataKey="spendChf"
@@ -680,11 +826,16 @@ export default function AdminMarketingCampaignDetailPage() {
 
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.chartClicks')}</h2>
+              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+                {t('detail.chartClicks')}
+              </h2>
               <div className="h-56">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={daily} margin={CHART_MARGIN}>
-                    <CartesianGrid vertical={false} stroke="rgba(6,46,37,0.06)" />
+                    <CartesianGrid
+                      vertical={false}
+                      stroke="rgba(6,46,37,0.06)"
+                    />
                     <XAxis
                       dataKey="date"
                       tickFormatter={formatDay}
@@ -704,8 +855,8 @@ export default function AdminMarketingCampaignDetailPage() {
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
                       itemStyle={TOOLTIP_ITEM_STYLE}
-                      labelFormatter={(value) => formatFullDay(String(value))}
-                      formatter={(value) => formatCount(Number(value))}
+                      labelFormatter={value => formatFullDay(String(value))}
+                      formatter={value => formatCount(Number(value))}
                     />
                     <Bar
                       dataKey="clicks"
@@ -722,11 +873,16 @@ export default function AdminMarketingCampaignDetailPage() {
 
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
-              <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.chartCtr')}</h2>
+              <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+                {t('detail.chartCtr')}
+              </h2>
               <div className="h-56">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={daily} margin={CHART_MARGIN}>
-                    <CartesianGrid vertical={false} stroke="rgba(6,46,37,0.06)" />
+                    <CartesianGrid
+                      vertical={false}
+                      stroke="rgba(6,46,37,0.06)"
+                    />
                     <XAxis
                       dataKey="date"
                       tickFormatter={formatDay}
@@ -735,13 +891,18 @@ export default function AdminMarketingCampaignDetailPage() {
                       tick={TICK_STYLE}
                       minTickGap={24}
                     />
-                    <YAxis width={40} tickLine={false} axisLine={false} tick={TICK_STYLE} />
+                    <YAxis
+                      width={40}
+                      tickLine={false}
+                      axisLine={false}
+                      tick={TICK_STYLE}
+                    />
                     <Tooltip
                       cursor={{ stroke: 'rgba(6,46,37,0.2)' }}
                       contentStyle={TOOLTIP_STYLE}
                       itemStyle={TOOLTIP_ITEM_STYLE}
-                      labelFormatter={(value) => formatFullDay(String(value))}
-                      formatter={(value) => formatPct(Number(value))}
+                      labelFormatter={value => formatFullDay(String(value))}
+                      formatter={value => formatPct(Number(value))}
                     />
                     <Line
                       dataKey="ctrPct"
@@ -761,12 +922,17 @@ export default function AdminMarketingCampaignDetailPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
               <h2 className="text-lg font-semibold text-[#062E25] mb-4">
-                {isGoogle ? t('detail.chartSessionsGoogle') : t('detail.chartSessions')}
+                {isGoogle
+                  ? t('detail.chartSessionsGoogle')
+                  : t('detail.chartSessions')}
               </h2>
               <div className="h-56">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={daily} margin={CHART_MARGIN}>
-                    <CartesianGrid vertical={false} stroke="rgba(6,46,37,0.06)" />
+                    <CartesianGrid
+                      vertical={false}
+                      stroke="rgba(6,46,37,0.06)"
+                    />
                     <XAxis
                       dataKey="date"
                       tickFormatter={formatDay}
@@ -786,11 +952,11 @@ export default function AdminMarketingCampaignDetailPage() {
                       cursor={{ fill: 'rgba(6,46,37,0.04)' }}
                       contentStyle={TOOLTIP_STYLE}
                       itemStyle={TOOLTIP_ITEM_STYLE}
-                      labelFormatter={(value) => formatFullDay(String(value))}
-                      formatter={(value) => formatCount(Number(value))}
+                      labelFormatter={value => formatFullDay(String(value))}
+                      formatter={value => formatCount(Number(value))}
                     />
                     <Bar
-                      dataKey={isGoogle ? 'sessions' : 'ga4Sessions'}
+                      dataKey="sessions"
                       name={t('detail.sessions')}
                       fill="#c98500"
                       maxBarSize={22}
@@ -823,17 +989,31 @@ export default function AdminMarketingCampaignDetailPage() {
                   <TableHeader>
                     <TableRow>
                       <TableHead>{t('detail.date')}</TableHead>
-                      <TableHead className="text-right">{t('detail.spend')}</TableHead>
-                      <TableHead className="text-right">{t('detail.impressions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.clicks')}</TableHead>
-                      <TableHead className="text-right">{t('detail.ctr')}</TableHead>
-                      <TableHead className="text-right">{t('detail.sessions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.signups')}</TableHead>
-                      <TableHead className="text-right">{t('detail.leads')}</TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.spend')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.impressions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.clicks')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.ctr')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.sessions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.signups')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.leads')}
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {daily.map((row) => (
+                    {daily.map(row => (
                       <TableRow key={row.date}>
                         <TableCell className="text-sm tabular-nums text-[#062E25]">
                           {formatFullDay(row.date)}
@@ -870,13 +1050,17 @@ export default function AdminMarketingCampaignDetailPage() {
 
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.funnelTitle')}</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('detail.funnelTitle')}
+            </h2>
             {!funnel.attributed ? (
-              <p className="text-sm text-[#062E25]">{t('detail.funnelUnattributed')}</p>
+              <p className="text-sm text-[#062E25]">
+                {t('detail.funnelUnattributed')}
+              </p>
             ) : (
               <>
                 <div className="space-y-2">
-                  {funnelRows.map((row) => (
+                  {funnelRows.map(row => (
                     <div key={row.key} className="flex items-center gap-3">
                       <span
                         className="w-44 shrink-0 text-sm text-[#062E25] truncate"
@@ -908,7 +1092,9 @@ export default function AdminMarketingCampaignDetailPage() {
                     </div>
                   ))}
                 </div>
-                <p className="text-sm text-[#062E25]/75 mt-4">{t('detail.funnelNote')}</p>
+                <p className="text-sm text-[#062E25]/75 mt-4">
+                  {t('detail.funnelNote')}
+                </p>
               </>
             )}
           </CardContent>
@@ -916,24 +1102,35 @@ export default function AdminMarketingCampaignDetailPage() {
 
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.ga4Title')}</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('detail.ga4Title')}
+            </h2>
             {!ga4.linked ? (
-              <p className="text-sm text-[#062E25]">{t('detail.ga4NotLinked')}</p>
+              <p className="text-sm text-[#062E25]">
+                {t('detail.ga4NotLinked')}
+              </p>
             ) : (
               <div className="overflow-x-auto">
                 <Table>
                   <TableHeader>
                     <TableRow>
                       <TableHead>{t('detail.landingPage')}</TableHead>
-                      <TableHead className="text-right">{t('detail.sessions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.engagedSessions')}</TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.sessions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.engagedSessions')}
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {ga4.byLandingPage.map((row) => (
+                    {ga4.byLandingPage.map(row => (
                       <TableRow key={row.landingPage}>
                         <TableCell className="text-[#062E25]">
-                          <span className="block max-w-xs truncate" title={row.landingPage}>
+                          <span
+                            className="block max-w-xs truncate"
+                            title={row.landingPage}
+                          >
                             {row.landingPage}
                           </span>
                         </TableCell>
@@ -964,17 +1161,31 @@ export default function AdminMarketingCampaignDetailPage() {
                     <TableRow>
                       <TableHead>{t('detail.adGroup')}</TableHead>
                       <TableHead>{t('status')}</TableHead>
-                      <TableHead className="text-right">{t('detail.spend')}</TableHead>
-                      <TableHead className="text-right">{t('detail.impressions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.clicks')}</TableHead>
-                      <TableHead className="text-right">{t('detail.ctr')}</TableHead>
-                      <TableHead className="text-right">{t('detail.sessions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.keywordCount')}</TableHead>
-                      <TableHead className="text-right">{t('detail.adCount')}</TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.spend')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.impressions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.clicks')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.ctr')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.sessions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.keywordCount')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.adCount')}
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {adGroups.map((group) => (
+                    {adGroups.map(group => (
                       <TableRow
                         key={group.id}
                         className={cn(
@@ -985,7 +1196,9 @@ export default function AdminMarketingCampaignDetailPage() {
                         <TableCell
                           className={cn(
                             'font-medium',
-                            group.synthetic ? 'text-[#062E25]/70' : 'text-[#062E25]'
+                            group.synthetic
+                              ? 'text-[#062E25]/70'
+                              : 'text-[#062E25]'
                           )}
                         >
                           {group.name}
@@ -1029,15 +1242,19 @@ export default function AdminMarketingCampaignDetailPage() {
 
         <Card className="border-[#062E25]/10 mb-6">
           <CardContent className="p-6">
-            <h2 className="text-lg font-semibold text-[#062E25] mb-4">{t('detail.adsTitle')}</h2>
+            <h2 className="text-lg font-semibold text-[#062E25] mb-4">
+              {t('detail.adsTitle')}
+            </h2>
             {ads.length === 0 ? (
-              <p className="text-center py-12 text-[#062E25]">{t('detail.adsEmpty')}</p>
+              <p className="text-center py-12 text-[#062E25]">
+                {t('detail.adsEmpty')}
+              </p>
             ) : isGoogle ? (
               <div className="space-y-4">
-                {realAds.map((ad) => (
+                {realAds.map(ad => (
                   <GoogleAdCard key={ad.adId} ad={ad} campaignId={campaignId} />
                 ))}
-                {syntheticAds.map((ad) => (
+                {syntheticAds.map(ad => (
                   <div
                     key={ad.adId}
                     className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-md bg-[#062E25]/[0.03] px-4 py-3 text-sm text-[#062E25]/70"
@@ -1068,18 +1285,34 @@ export default function AdminMarketingCampaignDetailPage() {
                     <TableRow>
                       <TableHead>{t('detail.ad')}</TableHead>
                       <TableHead>{t('status')}</TableHead>
-                      <TableHead className="text-right">{t('detail.spend')}</TableHead>
-                      <TableHead className="text-right">{t('detail.impressions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.clicks')}</TableHead>
-                      <TableHead className="text-right">{t('detail.ctr')}</TableHead>
-                      <TableHead className="text-right">{t('detail.cpc')}</TableHead>
-                      <TableHead className="text-right">{t('detail.metaLeads')}</TableHead>
-                      <TableHead className="text-right">{t('detail.dbLeads')}</TableHead>
-                      <TableHead className="text-right">{t('detail.cpl')}</TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.spend')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.impressions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.clicks')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.ctr')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.cpc')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.metaLeads')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.dbLeads')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.cpl')}
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {[...realAds, ...syntheticAds].map((ad) => (
+                    {[...realAds, ...syntheticAds].map(ad => (
                       <TableRow
                         key={ad.adId}
                         className={cn(
@@ -1100,13 +1333,17 @@ export default function AdminMarketingCampaignDetailPage() {
                               <p
                                 className={cn(
                                   'font-medium truncate',
-                                  ad.synthetic ? 'text-[#062E25]/70' : 'text-[#062E25]'
+                                  ad.synthetic
+                                    ? 'text-[#062E25]/70'
+                                    : 'text-[#062E25]'
                                 )}
                               >
                                 {ad.name}
                               </p>
                               {!ad.synthetic && (
-                                <p className="text-sm text-[#062E25]/75 truncate">{ad.adSetName}</p>
+                                <p className="text-sm text-[#062E25]/75 truncate">
+                                  {ad.adSetName}
+                                </p>
                               )}
                             </div>
                           </div>
@@ -1164,24 +1401,46 @@ export default function AdminMarketingCampaignDetailPage() {
                       <TableHead>{t('detail.keyword')}</TableHead>
                       <TableHead>{t('detail.matchType')}</TableHead>
                       <TableHead>{t('status')}</TableHead>
-                      <TableHead className="text-right">{t('detail.qualityScore')}</TableHead>
-                      <TableHead className="text-right">{t('detail.spend')}</TableHead>
-                      <TableHead className="text-right">{t('detail.impressions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.clicks')}</TableHead>
-                      <TableHead className="text-right">{t('detail.ctr')}</TableHead>
-                      <TableHead className="text-right">{t('detail.cpc')}</TableHead>
-                      <TableHead className="text-right">{t('detail.sessions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.conversions')}</TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.qualityScore')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.spend')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.impressions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.clicks')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.ctr')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.cpc')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.sessions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.conversions')}
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {keywords.map((keyword) => (
+                    {keywords.map(keyword => (
                       <TableRow key={keyword.id}>
                         <TableCell>
-                          <p className="font-medium text-[#062E25]">{keyword.text}</p>
-                          <p className="text-sm text-[#062E25]/75">{keyword.adGroupName}</p>
+                          <p className="font-medium text-[#062E25]">
+                            {keyword.text}
+                          </p>
+                          <p className="text-sm text-[#062E25]/75">
+                            {keyword.adGroupName}
+                          </p>
                         </TableCell>
-                        <TableCell className="text-[#062E25]">{keyword.matchType ?? '-'}</TableCell>
+                        <TableCell className="text-[#062E25]">
+                          {keyword.matchType ?? '-'}
+                        </TableCell>
                         <TableCell>
                           {keyword.status ? (
                             <StatusBadge status={keyword.status} />
@@ -1223,7 +1482,9 @@ export default function AdminMarketingCampaignDetailPage() {
                 </Table>
               </div>
               <p className="text-sm text-[#062E25]/75 mt-4">
-                {keywordsAllGa4 ? t('detail.keywordsSourceGa4') : t('detail.keywordsSourceGoogleAds')}
+                {keywordsAllGa4
+                  ? t('detail.keywordsSourceGa4')
+                  : t('detail.keywordsSourceGoogleAds')}
               </p>
             </CardContent>
           </Card>
@@ -1240,11 +1501,15 @@ export default function AdminMarketingCampaignDetailPage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => setShowAllSearchTerms((prev) => !prev)}
+                    onClick={() => setShowAllSearchTerms(prev => !prev)}
                   >
                     {showAllSearchTerms
-                      ? t('detail.searchTermsShowTop', { count: SEARCH_TERMS_LIMIT })
-                      : t('detail.searchTermsShowAll', { count: sortedSearchTerms.length })}
+                      ? t('detail.searchTermsShowTop', {
+                          count: SEARCH_TERMS_LIMIT,
+                        })
+                      : t('detail.searchTermsShowAll', {
+                          count: sortedSearchTerms.length,
+                        })}
                   </Button>
                 )}
               </div>
@@ -1255,24 +1520,46 @@ export default function AdminMarketingCampaignDetailPage() {
                       <TableHead>{t('detail.searchTerm')}</TableHead>
                       <TableHead>{t('detail.matchedKeyword')}</TableHead>
                       <TableHead>{t('detail.matchType')}</TableHead>
-                      <TableHead className="text-right">{t('detail.spend')}</TableHead>
-                      <TableHead className="text-right">{t('detail.impressions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.clicks')}</TableHead>
-                      <TableHead className="text-right">{t('detail.ctr')}</TableHead>
-                      <TableHead className="text-right">{t('detail.cpc')}</TableHead>
-                      <TableHead className="text-right">{t('detail.sessions')}</TableHead>
-                      <TableHead className="text-right">{t('detail.conversions')}</TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.spend')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.impressions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.clicks')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.ctr')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.cpc')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.sessions')}
+                      </TableHead>
+                      <TableHead className="text-right">
+                        {t('detail.conversions')}
+                      </TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {visibleSearchTerms.map((row) => (
+                    {visibleSearchTerms.map(row => (
                       <TableRow key={`${row.adGroupId}-${row.term}`}>
                         <TableCell>
-                          <p className="font-medium text-[#062E25]">{row.term}</p>
-                          <p className="text-sm text-[#062E25]/75">{row.adGroupName}</p>
+                          <p className="font-medium text-[#062E25]">
+                            {row.term}
+                          </p>
+                          <p className="text-sm text-[#062E25]/75">
+                            {row.adGroupName}
+                          </p>
                         </TableCell>
-                        <TableCell className="text-[#062E25]">{row.matchedKeyword ?? '-'}</TableCell>
-                        <TableCell className="text-[#062E25]">{row.matchType ?? '-'}</TableCell>
+                        <TableCell className="text-[#062E25]">
+                          {row.matchedKeyword ?? '-'}
+                        </TableCell>
+                        <TableCell className="text-[#062E25]">
+                          {row.matchType ?? '-'}
+                        </TableCell>
                         <TableCell className="text-right tabular-nums text-[#062E25]">
                           {formatChf(row.spendChf)}
                         </TableCell>
@@ -1293,7 +1580,9 @@ export default function AdminMarketingCampaignDetailPage() {
                         </TableCell>
                         <TableCell className="text-right tabular-nums text-[#062E25]">
                           {row.conversions !== null
-                            ? row.conversions.toLocaleString('de-CH', { maximumFractionDigits: 1 })
+                            ? row.conversions.toLocaleString('de-CH', {
+                                maximumFractionDigits: 1,
+                              })
                             : '-'}
                         </TableCell>
                       </TableRow>
@@ -1343,7 +1632,7 @@ export default function AdminMarketingCampaignDetailPage() {
                   {t('detail.placementsTitle')}
                 </h2>
                 <BreakdownRows
-                  rows={breakdowns.placements.map((row) => ({
+                  rows={breakdowns.placements.map(row => ({
                     label: `${row.platform} · ${row.position}`,
                     spendChf: row.spendChf,
                     ctrPct: row.ctrPct,
@@ -1358,7 +1647,7 @@ export default function AdminMarketingCampaignDetailPage() {
                   {t('detail.demographicsTitle')}
                 </h2>
                 <BreakdownRows
-                  rows={breakdowns.demographics.map((row) => ({
+                  rows={breakdowns.demographics.map(row => ({
                     label: `${row.age} · ${row.gender}`,
                     spendChf: row.spendChf,
                     ctrPct: row.ctrPct,
@@ -1371,24 +1660,30 @@ export default function AdminMarketingCampaignDetailPage() {
         ))}
 
       {storedDimensions.length > 0 && (
-        <div className={cn('mb-6 transition-opacity', isPlaceholderData && 'opacity-60')}>
+        <div
+          className={cn(
+            'mb-6 transition-opacity',
+            isPlaceholderData && 'opacity-60'
+          )}
+        >
           <h2 className="text-lg font-semibold text-[#062E25] mb-4">
             {t('detail.breakdownsTitle')}
           </h2>
           <div className="grid lg:grid-cols-2 gap-4">
-            {storedDimensions.map((dimension) => (
+            {storedDimensions.map(dimension => (
               <Card key={dimension} className="border-[#062E25]/10">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold text-[#062E25] mb-4">
                     {storedDimensionLabel[dimension]}
                   </h3>
                   <BreakdownRows
-                    rows={(breakdownsStored[dimension] ?? []).map((row) => ({
+                    rows={(breakdownsStored[dimension] ?? []).map(row => ({
                       label: row.key,
                       spendChf: row.spendChf,
                       ctrPct: row.ctrPct,
                       extra:
-                        row.conversions !== null && row.conversions !== undefined
+                        row.conversions !== null &&
+                        row.conversions !== undefined
                           ? `${row.conversions.toLocaleString('de-CH', { maximumFractionDigits: 1 })} ${t('detail.conversions')}`
                           : undefined,
                     }))}
@@ -1415,7 +1710,9 @@ export default function AdminMarketingCampaignDetailPage() {
                     dataSources?.ga4.active ? 'bg-[#0ca30c]' : 'bg-gray-300'
                   )}
                 />
-                <span className="font-medium text-[#062E25]">{t('detail.dataSourceGa4')}</span>
+                <span className="font-medium text-[#062E25]">
+                  {t('detail.dataSourceGa4')}
+                </span>
                 <span className="text-sm text-[#062E25] ml-auto">
                   {dataSources?.ga4.active
                     ? t('detail.dataSourceActive')
@@ -1423,7 +1720,9 @@ export default function AdminMarketingCampaignDetailPage() {
                   {' · '}
                   {dataSources?.ga4.lastSyncAt
                     ? t('lastSync', {
-                        date: new Date(dataSources.ga4.lastSyncAt).toLocaleString('de-CH'),
+                        date: new Date(
+                          dataSources.ga4.lastSyncAt
+                        ).toLocaleString('de-CH'),
                       })
                     : t('neverSynced')}
                 </span>
@@ -1432,7 +1731,9 @@ export default function AdminMarketingCampaignDetailPage() {
                 <span
                   className={cn(
                     'h-2 w-2 rounded-full shrink-0',
-                    dataSources?.googleAds.configured ? 'bg-[#0ca30c]' : 'bg-gray-300'
+                    dataSources?.googleAds.configured
+                      ? 'bg-[#0ca30c]'
+                      : 'bg-gray-300'
                   )}
                 />
                 <span className="font-medium text-[#062E25]">
@@ -1445,14 +1746,18 @@ export default function AdminMarketingCampaignDetailPage() {
                   {' · '}
                   {dataSources?.googleAds.lastSyncAt
                     ? t('lastSync', {
-                        date: new Date(dataSources.googleAds.lastSyncAt).toLocaleString('de-CH'),
+                        date: new Date(
+                          dataSources.googleAds.lastSyncAt
+                        ).toLocaleString('de-CH'),
                       })
                     : t('neverSynced')}
                 </span>
               </div>
               {dataSources?.googleAds.lastError && (
                 <p className="text-sm text-red-600 break-words">
-                  {t('detail.dataSourceLastError', { error: dataSources.googleAds.lastError })}
+                  {t('detail.dataSourceLastError', {
+                    error: dataSources.googleAds.lastError,
+                  })}
                 </p>
               )}
             </div>
