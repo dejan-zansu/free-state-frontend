@@ -35,6 +35,9 @@ export function NumbersSection({ data }: { data: WorkspacePayload }) {
           annualSavingsChf={fin.annualSavingsChf}
           paybackYears={fin.paybackYears ?? Infinity}
           lifetimeSavings25y={fin.lifetimeSavings25yChf}
+          taxSavingChf={fin.taxSavingChf ?? null}
+          effectiveNetPriceChf={fin.effectiveNetPriceChf ?? null}
+          priceEscalationPercent={fin.priceEscalationPercent ?? null}
           addOnLabel={data.evCharger?.displayName}
           addOnChf={fin.evChargerTotalChf}
         />

@@ -671,6 +671,7 @@ function ContactScreenV2() {
     getSelectedArea,
     getSystemSizeKwp,
     getAnnualProduction,
+    getRoofCapacityKwp,
   } = useSolarAboCalculatorStore()
 
   // Ungated teaser: the physical facts about the roof are shown before the contact
@@ -679,6 +680,8 @@ function ContactScreenV2() {
   const roofAreaM2 = Math.round(getSelectedArea())
   const systemSizeKwp = getSystemSizeKwp()
   const annualProductionKwh = Math.round(getAnnualProduction())
+  const roofCapacityKwp = getRoofCapacityKwp()
+  const showSizedNote = roofCapacityKwp > systemSizeKwp + 0.5
   const showTeaser =
     roofAreaM2 > 0 && systemSizeKwp > 0 && annualProductionKwh > 0
   const swissNumber = (value: number, digits = 0) =>
@@ -1023,6 +1026,11 @@ function ContactScreenV2() {
             <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
               {t('teaserSource')}
             </p>
+            {showSizedNote && (
+              <p className="mt-2 text-base text-[#062E25]/70 tracking-tight">
+                {t('teaserSized', { kwp: swissNumber(roofCapacityKwp, 1) })}
+              </p>
+            )}
             <p className="mt-3 text-base text-[#062E25] tracking-tight">
               {t('teaserNext')}
             </p>

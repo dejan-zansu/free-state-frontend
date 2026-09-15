@@ -62,6 +62,8 @@ function DirectPanel({ data }: { data: WorkspacePayload }) {
   const savingsAvailable = fin.annualSavingsChf > 0
   const paybackAvailable =
     fin.paybackYears != null && Number.isFinite(fin.paybackYears) && fin.paybackYears > 0
+  const taxSavingAvailable =
+    fin.taxSavingChf != null && fin.taxSavingChf > 0 && fin.effectiveNetPriceChf != null
 
   return (
     <div className="space-y-8">
@@ -74,6 +76,12 @@ function DirectPanel({ data }: { data: WorkspacePayload }) {
         <Row label={t('direct.grossPrice')} value={chf(fin.grossPriceChf)} />
         {subsidyAvailable && (
           <Row label={t('direct.subsidy')} value={`− ${chf(subsidyChf)}`} />
+        )}
+        {taxSavingAvailable && (
+          <>
+            <Row label={t('direct.taxSaving')} value={`− ${chf(fin.taxSavingChf!)}`} />
+            <Row label={t('direct.effectiveCost')} value={chf(fin.effectiveNetPriceChf!)} strong />
+          </>
         )}
         {savingsAvailable && (
           <Row label={t('direct.savings')} value={chf(fin.annualSavingsChf)} strong />
@@ -92,6 +100,14 @@ function DirectPanel({ data }: { data: WorkspacePayload }) {
           <Note>{t('direct.subsidyFootnote')}</Note>
         ) : (
           <Note>{t('direct.subsidyUnavailable')}</Note>
+        )}
+        {paybackAvailable && fin.priceEscalationPercent != null && (
+          <Note>
+            {t('direct.projectionNote', {
+              escalation: fin.priceEscalationPercent.toLocaleString('de-CH'),
+              tax: fin.taxSavingPercent ?? 15,
+            })}
+          </Note>
         )}
       </div>
     </div>

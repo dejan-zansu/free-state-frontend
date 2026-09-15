@@ -170,6 +170,10 @@ export interface WorkspaceFinancials {
   evChargerTotalChf: number
   grossPriceChf: number
   netPriceChf: number
+  taxSavingChf?: number
+  effectiveNetPriceChf?: number
+  priceEscalationPercent?: number
+  taxSavingPercent?: number
   annualSavingsChf: number
   paybackYears: number | null
   lifetimeSavings25yChf: number

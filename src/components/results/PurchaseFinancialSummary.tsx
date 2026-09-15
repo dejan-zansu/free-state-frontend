@@ -10,6 +10,9 @@ interface Props {
   annualSavingsChf: number
   paybackYears: number
   lifetimeSavings25y: number
+  taxSavingChf?: number | null
+  effectiveNetPriceChf?: number | null
+  priceEscalationPercent?: number | null
   addOnLabel?: string
   addOnChf?: number
   className?: string
@@ -37,10 +40,21 @@ export function PurchaseFinancialSummary(props: Props) {
       )}
       <hr className="border-white/20" />
       <Row label={t('netInvestment')} value={fmt(props.estimatedNetPriceChf)} bold />
+      {props.taxSavingChf != null && props.taxSavingChf > 0 && props.effectiveNetPriceChf != null && (
+        <>
+          <Row label={t('taxSaving')} value={`− ${fmt(props.taxSavingChf)}`} />
+          <Row label={t('effectiveCost')} value={fmt(props.effectiveNetPriceChf)} bold />
+        </>
+      )}
       <hr className="border-white/20" />
       <Row label={t('annualSavings')} value={`${fmt(props.annualSavingsChf)} / ${t('year')}`} />
       <Row label={t('paybackPeriod')} value={paybackText} />
       <Row label={t('lifetime25y')} value={fmt(props.lifetimeSavings25y)} />
+      {props.priceEscalationPercent != null && (
+        <p className="text-sm text-white/70">
+          {t('projectionNote', { escalation: props.priceEscalationPercent.toLocaleString('de-CH') })}
+        </p>
+      )}
     </section>
   )
 }

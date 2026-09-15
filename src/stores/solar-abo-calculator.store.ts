@@ -9,10 +9,11 @@ import {
 } from '@/lib/calculator-flow'
 import {
   FLAT_TILT_THRESHOLD_DEG,
-  annualProductionKwh,
-  estimatedPanelCount,
   grossRoofAreaM2,
+  sizeSystem,
+  sizingTargetKwh,
   usableRoofAreaM2,
+  type SizedSystem,
 } from '@/lib/roof-estimate'
 import {
   SCREEN4_REFERENCE_PANEL_M2,
@@ -281,8 +282,10 @@ interface SolarAboCalculatorActions {
   getSelectedArea: () => number
   getUsableRoofAreaM2: () => number
   getEstimatedConsumption: () => number
+  getSizedSystem: () => SizedSystem
   getAnnualProduction: () => number
   getSystemSizeKwp: () => number
+  getRoofCapacityKwp: () => number
   getEstimatedPanelCount: () => number
   getSelfConsumptionRate: () => number
   getAnnualSavings: () => number
@@ -620,17 +623,23 @@ export const useSolarAboCalculatorStore = create<
         return applianceEstimateConsumptionKwh(householdSize, devices)
       },
 
-      getAnnualProduction: () => annualProductionKwh(get().getSelectedSegments()),
-
-      getEstimatedPanelCount: () =>
-        estimatedPanelCount(get().getSelectedSegments(), get().selectedPanelAreaM2 ?? 0),
-
-      getSystemSizeKwp: () => {
-        const panelCount = get().getEstimatedPanelCount()
-        const panelWattageW = get().selectedPanelWattageW
-        if (panelCount === 0 || !panelWattageW) return 0
-        return panelCount * (panelWattageW / 1000)
+      getSizedSystem: () => {
+        const state = get()
+        return sizeSystem(
+          state.getSelectedSegments(),
+          state.selectedPanelAreaM2 ?? SCREEN4_REFERENCE_PANEL_M2,
+          state.selectedPanelWattageW ?? SCREEN4_REFERENCE_PANEL_W,
+          sizingTargetKwh(state.getEstimatedConsumption()),
+        )
       },
+
+      getAnnualProduction: () => get().getSizedSystem().annualProductionKwh,
+
+      getEstimatedPanelCount: () => get().getSizedSystem().panelCount,
+
+      getSystemSizeKwp: () => get().getSizedSystem().systemSizeKwp,
+
+      getRoofCapacityKwp: () => get().getSizedSystem().roofSystemSizeKwp,
 
       getSelfConsumptionRate: () => {
         const consumption = get().getEstimatedConsumption()
