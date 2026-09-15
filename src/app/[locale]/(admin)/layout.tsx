@@ -44,11 +44,13 @@ export default function AdminLayout({
 
   const handleLogout = async () => {
     await logout()
-    router.replace('/login' as any)
+    // Nicht auf die Kundenanmeldung, die laeuft passwortlos per E-Mail-Link.
+    // Mitarbeitende melden sich mit Passwort unter /admin/login an.
+    router.replace('/admin/login' as any)
   }
 
   return (
-    <ProtectedRoute requiredCapability="staff.area">
+    <ProtectedRoute requiredCapability="staff.area" redirectTo="/admin/login">
       <link rel="manifest" href="/manifest.webmanifest" />
       <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
       <Toaster position="bottom-left" />
