@@ -49,6 +49,12 @@ export function prepareArticle(html: string): {
   return { html: prepared, headings }
 }
 
+export function splitIntro(html: string): { intro: string; rest: string } {
+  const end = html.indexOf('</p>')
+  if (end === -1) return { intro: html, rest: '' }
+  return { intro: html.slice(0, end + 4), rest: html.slice(end + 4) }
+}
+
 export function readingTimeMinutes(html: string): number {
   const words = html
     .replace(/<[^>]+>/g, ' ')

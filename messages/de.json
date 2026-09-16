@@ -165,8 +165,8 @@
       "description": "Ausgewählte Solarprojekte aus der Deutschschweiz: Einfamilienhäuser, Gewerbe und Landwirtschaft. Sehen Sie, wie unsere Anlagen aussehen und was sie leisten."
     },
     "service": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage Wartung und Reparatur, auch für Fremdanlagen",
+      "description": "Wartung, Überwachung und Reparatur für Solaranlagen und Batteriespeicher in der Deutschschweiz, auch für Anlagen anderer Anbieter. Systemcheck ab CHF 510."
     },
     "blog": {
       "title": "Solar Blog Schweiz: Wissen zu Photovoltaik und Energie",
@@ -177,136 +177,136 @@
       "description": "Kontaktieren Sie Free State AG für Beratung zu Solaranlagen, Speichern und Wärmepumpen. Standorte in Schaffhausen, Zürich und St. Gallen. Wir melden uns rasch."
     },
     "energyStorage": {
-      "title": "",
-      "description": ""
+      "title": "Energiespeicher für Solaranlagen: Solarenergie speichern",
+      "description": "Speichern Sie Solarenergie vom Tag für den Abend und die Nacht. Wir installieren Stromspeicher von SigenStor, BYD und Huawei mit zertifizierten Spezialisten."
     },
     "repowering": {
       "title": "Repowering: Solaranlage modernisieren und erweitern",
       "description": "Mehr Leistung vom gleichen Dach: Wir modernisieren bestehende Solaranlagen mit neuen Modulen, Wechselrichtern und Speichern. Jetzt Potenzial prüfen lassen."
     },
     "solarSystemCarport": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage für Carport: Einzel- und Doppelcarport",
+      "description": "Solaranlage für Ihren Einzel- oder Doppelcarport ab CHF 15'000. Sie erzeugen Solarstrom, schützen Ihr Auto vor Witterung und laden Ihr E-Auto direkt am Carport."
     },
     "media": {
-      "title": "",
-      "description": ""
+      "title": "Medien und Presse: Pressekontakt der Free State AG",
+      "description": "Pressekontakt, Themengebiete und Bildmaterial für Medienvertreter. Free State AG plant, finanziert und realisiert Photovoltaikanlagen in der Schweiz."
     },
     "investors": {
-      "title": "",
-      "description": ""
+      "title": "Investoren: Unterlagen der Free State AG anfordern",
+      "description": "Gemeinsam mit Investoren gestaltet Free State AG dezentrale Energielösungen. Fordern Sie als Privatperson oder Firma kostenlos unsere Investoren-Unterlagen an."
     },
     "impressum": {
-      "title": "",
-      "description": ""
+      "title": "Impressum der Free State AG",
+      "description": "Impressum der Free State AG in Schaffhausen mit Firmeninformationen, Handelsregistereintrag, UID, MWST-Nummer und Kontaktangaben."
     },
     "agb": {
-      "title": "",
-      "description": ""
+      "title": "AGB: Allgemeine Geschäftsbedingungen der Free State AG",
+      "description": "Allgemeine Geschäftsbedingungen der Free State AG für Solaranlagen, Speicher, Wärmepumpen und Ladestationen, mit Solar Free, Widerrufsrecht und Gewährleistung."
     },
     "privacyPolicy": {
-      "title": "",
-      "description": ""
+      "title": "Datenschutzerklärung der Free State AG",
+      "description": "Wie Free State AG Ihre persönlichen Daten nach revDSG und DSGVO bearbeitet, von Cookies und Webanalyse bis zum Solarrechner, und welche Rechte Sie haben."
     },
     "howItWorks": {
       "title": "So funktioniert Solar: Von der Anfrage zur Anlage",
       "description": "Wie kommt die Solaranlage aufs Dach? Alle Schritte von Beratung über Planung bis Installation und Inbetriebnahme, verständlich erklärt von Free State AG."
     },
     "heatPumpsProducts": {
-      "title": "",
-      "description": ""
+      "title": "Wärmepumpen von NIBE und Viessmann: Modelle und Daten",
+      "description": "Luft-Wasser- und Sole-Wasser-Wärmepumpen von NIBE und Viessmann im Überblick, mit Heizleistung, Vorlauftemperatur, SCOP und Kältemittel für jedes Modell."
     },
     "heatPumpsCost": {
-      "title": "",
-      "description": ""
+      "title": "Wärmepumpe Kosten Schweiz: Anschaffung, Betrieb, Förderung",
+      "description": "Was kostet eine Wärmepumpe? Kostenvergleich von Luft-Wasser, Sole-Wasser und Ölheizung, Förderbeiträge von Kantonen und Gemeinden sowie der Steuerabzug."
     },
     "heatPumpsHowItWorks": {
-      "title": "",
-      "description": ""
+      "title": "Wie funktioniert eine Wärmepumpe? Aufbau, Typen, Aufstellung",
+      "description": "Aufbau und Kreislauf einer Wärmepumpe, die Typen Erdwärme, Wasser-Wasser und Luft-Wasser, Innen- oder Aussenaufstellung und der Vergleich mit der Ölheizung."
     },
     "heatPumpsWithSolarSystem": {
-      "title": "",
-      "description": ""
+      "title": "Wärmepumpe mit Solaranlage: Heizen mit Solarstrom",
+      "description": "Kombinieren Sie Wärmepumpe und Photovoltaik. Eigener Solarstrom senkt die Heizkosten und erhöht den Eigenverbrauch. Angebot auch für bestehende Solaranlagen."
     },
     "heatPumpsService": {
-      "title": "",
-      "description": ""
+      "title": "Wärmepumpen Service: Hilfe bei Störung und Notfall",
+      "description": "Kalt im Haus, kein Warmwasser oder seltsame Geräusche? Unser Wärmepumpen-Service hilft bei Störungen sowie Heizungs- und Wassernotfällen. Kontaktieren Sie uns."
     },
     "chargingStationsApartment": {
-      "title": "",
-      "description": ""
+      "title": "Ladestation Mehrfamilienhaus: Installation und Abrechnung",
+      "description": "Ladestationen im Mehrfamilienhaus für Eigentümer, Verwaltungen und Stockwerkeigentümer. Planung, Installation und Wartung mit digitaler Abrechnung."
     },
     "chargingStationsSingleFamily": {
-      "title": "",
-      "description": ""
+      "title": "Ladestation Einfamilienhaus: Wallbox für Ihren Solarstrom",
+      "description": "Wallbox für Ihr Einfamilienhaus mit Lastmanagement und Fernzugriff. Laden Sie Ihr E-Auto mit Solarstrom. Wärmepumpe und bidirektionales Laden integrierbar."
     },
     "chargingStationsBidirectional": {
-      "title": "",
-      "description": ""
+      "title": "Bidirektionale Ladestation: E-Auto als Stromspeicher nutzen",
+      "description": "Mit einer bidirektionalen Ladestation wird Ihr E-Auto zum Energiespeicher für Ihr Zuhause. Kompatible Fahrzeuge, kantonale Förderung und persönliches Angebot."
     },
     "commercialCalculator": {
       "title": "Solarrechner für Gewerbe | Free State AG",
       "description": "Dach eingeben, Anlagengrösse und Stromproduktion aus den Sonnendach-Daten des Bundes sehen. Kostenlos und unverbindlich für Betriebe, Landwirtschaft und öffentliche Hand."
     },
     "commercialSolarSystems": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlagen für Gewerbe und Industrie in der Schweiz",
+      "description": "Grossanlagen für Unternehmen von der Planung bis zum Betrieb, Solarcarports für Parkflächen und Contracting ohne Eigeninvestition. Prüfen Sie Ihr Dach online."
     },
     "commercialChargingStations": {
-      "title": "",
-      "description": ""
+      "title": "Ladestationen für Unternehmen und Mehrfamilienhäuser",
+      "description": "Skalierbare Ladeinfrastruktur für Wohnanlagen, Lastmanagement und Monitoring für Firmenflotten, Schnellladestationen für Unternehmen und bidirektionales Laden."
     },
     "commercialSolarFree": {
       "title": "",
       "description": ""
     },
     "commercialSolarFreeIndustry": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage für Industrie und Gewerbe ohne Investition",
+      "description": "Free State AG finanziert, baut und betreibt die Solaranlage auf Ihrem Industrie- oder Gewerbedach. Sie erhalten eine Dachpacht oder Solarstrom zum Fixpreis."
     },
     "commercialSolarFreeMultiFamily": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage für Mehrfamilienhäuser ohne Investition",
+      "description": "Mit SolarFree finanzieren, installieren und betreiben wir die Solaranlage auf Ihrem Mehrfamilienhaus, mit ZEV-Abrechnung und Monitoring pro Wohnung."
     },
     "commercialSolarFreeFarmhouses": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage für Landwirtschaftsbetriebe ohne Investition",
+      "description": "Wir finanzieren, bauen und betreiben die Solaranlage auf Ihrem Scheunen- oder Stalldach. Sie erhalten günstigen Strom für den Hof und eine jährliche Dachpacht."
     },
     "commercialSolarFreePublicBuildings": {
-      "title": "",
-      "description": ""
+      "title": "Solaranlage für öffentliche Gebäude ohne Investition",
+      "description": "Für Schulen, Spitäler und Gemeindegebäude. Wir planen, finanzieren, bauen und betreiben die Solaranlage und prüfen Potenzial und Wirtschaftlichkeit kostenlos."
     },
     "commercialSolarSystemsHow": {
-      "title": "",
-      "description": ""
+      "title": "Wie grosse Solaranlagen für Unternehmen funktionieren",
+      "description": "So funktionieren grosse Solaranlagen auf Gewerbedächern. Wechselrichter, Indach oder Aufdach, Speicher und Steuerung für mehr Eigenverbrauch sowie Monitoring."
     },
     "commercialSolarSystemsProjectDev": {
-      "title": "",
-      "description": ""
+      "title": "Projektentwicklung und EPC für Solarkraftwerke",
+      "description": "EPC-Leistungen für Photovoltaik in der Deutschschweiz. Wir bauen schlüsselfertige Solarkraftwerke für Investoren, von der Dachsuche bis zur Inbetriebnahme."
     },
     "commercialSolarSystemsCarport": {
-      "title": "",
-      "description": ""
+      "title": "Solar-Carport für Firmen und Private in der Schweiz",
+      "description": "Wir planen und bauen Ihren Solar-Carport als Generalunternehmer, von der Machbarkeitsstudie bis zum Betrieb. Optional mit Speicher, Ladestation und Wärmepumpe."
     },
     "commercialSolarSystemsContracting": {
-      "title": "",
-      "description": ""
+      "title": "Solar-Contracting in der Schweiz ohne Anfangsinvestition",
+      "description": "Wir finanzieren, bauen und betreiben die Solaranlage auf Ihrer Liegenschaft. Sie nutzen günstigen Solarstrom vom Dach und erhalten jährliche Mieteinnahmen."
     },
     "commercialChargingApartment": {
-      "title": "",
-      "description": ""
+      "title": "Ladestationen für Mehrfamilienhäuser in der Schweiz",
+      "description": "Für Eigentümer, Verwaltungen und Stockwerkeigentümer. Wir planen, installieren und warten skalierbare Ladeinfrastruktur mit digitaler, transparenter Abrechnung."
     },
     "commercialChargingFast": {
-      "title": "",
-      "description": ""
+      "title": "Schnellladestationen für Unternehmen in der Schweiz",
+      "description": "Für Tankstellen, Einkaufszentren und Firmengelände. Wir planen, installieren und warten Ihre Schnellladestation, als Paket bis zum Betrieb oder modular."
     },
     "commercialChargingBidirectional": {
-      "title": "",
-      "description": ""
+      "title": "Bidirektionale Ladestation Schweiz, Förderung und Fahrzeuge",
+      "description": "Bidirektionales Laden macht Ihr Elektroauto zum Stromspeicher. Mit Übersicht zu kantonaler Förderung, kompatiblen Fahrzeugen und Arten wie Vehicle-to-Building."
     },
     "commercialChargingCompany": {
-      "title": "",
-      "description": ""
+      "title": "Ladestationen für Firmen und Flotten in der Schweiz",
+      "description": "Wir planen, installieren und warten Ladeinfrastruktur für Mitarbeiter, Gäste, Kunden und Firmenflotten, mit Lastmanagement und flexibler Abrechnung."
     }
   },
   "apiErrors": {
@@ -2408,6 +2408,18 @@
     "ctaText": "Wir rechnen Ihre Anlage so durch, wie wir sie der eigenen Familie verkaufen würden. Unverbindlich und mit echten Zahlen.",
     "ctaPrimary": "Solarrechner starten",
     "ctaSecondary": "Kontakt aufnehmen",
+    "calcTeaserEyebrow": "Solarrechner",
+    "calcTeaserTitle": "Rechnen Sie Ihr Dach in wenigen Minuten durch",
+    "calcTeaserText": "Geben Sie Ihre Adresse ein und sehen Sie, was eine Solaranlage auf Ihrem Dach bringt. Kostenlos und unverbindlich.",
+    "topicLink": {
+      "storage": "Mehr zu Stromspeichern",
+      "heatPumps": "Mehr zu Wärmepumpen",
+      "charging": "Mehr zu Ladestationen",
+      "subsidies": "Förderung im Überblick",
+      "cost": "Was eine Solaranlage kostet",
+      "service": "Wartung und Service",
+      "repowering": "Mehr zu Repowering"
+    },
     "paginationPrev": "Vorherige Seite",
     "paginationNext": "Nächste Seite"
   },

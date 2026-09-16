@@ -165,8 +165,8 @@
       "description": "Projets solaires sélectionnés en Suisse alémanique : maisons individuelles, bâtiments commerciaux et agricoles. Découvrez ce que nos installations produisent."
     },
     "service": {
-      "title": "",
-      "description": ""
+      "title": "Entretien d'installation solaire, même posée par un tiers",
+      "description": "Entretien, monitoring et réparation des installations photovoltaïques et batteries en Suisse alémanique, y compris celles de tiers. Contrôle unique dès 510 CHF."
     },
     "blog": {
       "title": "Blog solaire Suisse : photovoltaïque et énergie",
@@ -177,136 +177,136 @@
       "description": "Contactez Free State AG pour un conseil sur les installations solaires, le stockage et les pompes à chaleur. Sites à Schaffhouse, Zurich et Saint-Gall."
     },
     "energyStorage": {
-      "title": "",
-      "description": ""
+      "title": "Stockage d'énergie solaire pour votre installation",
+      "description": "Stockez l'énergie solaire du jour et utilisez-la le soir et la nuit. Nous installons des batteries SigenStor, BYD et Huawei avec des spécialistes certifiés."
     },
     "repowering": {
       "title": "Repowering : moderniser son installation solaire",
       "description": "Plus de puissance sur le même toit : nous modernisons les installations solaires existantes avec de nouveaux modules, onduleurs et batteries. Faites le test."
     },
     "solarSystemCarport": {
-      "title": "",
-      "description": ""
+      "title": "Carport solaire : installation pour carport simple ou double",
+      "description": "Installation solaire pour carport simple ou double dès 15 000 CHF. Produisez de l'électricité solaire, protégez votre voiture et rechargez votre VE sur place."
     },
     "media": {
-      "title": "",
-      "description": ""
+      "title": "Médias et presse : contact presse de Free State AG",
+      "description": "Contact presse, thèmes d'expertise et visuels pour les médias. Free State AG planifie, finance et réalise des installations photovoltaïques en Suisse."
     },
     "investors": {
-      "title": "",
-      "description": ""
+      "title": "Investisseurs : documentation de Free State AG",
+      "description": "Free State AG crée avec ses investisseurs des solutions énergétiques décentralisées. Particulier ou entreprise, demandez gratuitement notre documentation."
     },
     "impressum": {
-      "title": "",
-      "description": ""
+      "title": "Mentions légales de Free State AG",
+      "description": "Mentions légales de Free State AG à Schaffhouse avec informations sur la société, inscription au registre du commerce, IDE, numéro TVA et coordonnées."
     },
     "agb": {
-      "title": "",
-      "description": ""
+      "title": "CGV : conditions générales de Free State AG",
+      "description": "Conditions générales de Free State AG pour installations solaires, stockage, pompes à chaleur et bornes de recharge, avec Solar Free, révocation et garantie."
     },
     "privacyPolicy": {
-      "title": "",
-      "description": ""
+      "title": "Politique de confidentialité de Free State AG",
+      "description": "Comment Free State AG traite vos données personnelles selon la nLPD et le RGPD, des cookies à l'analyse web et au calculateur solaire, et quels sont vos droits."
     },
     "howItWorks": {
       "title": "Comment ça marche : de la demande à l'installation",
       "description": "Comment l'installation solaire arrive-t-elle sur votre toit ? Toutes les étapes, du conseil à la mise en service, expliquées clairement par Free State AG."
     },
     "heatPumpsProducts": {
-      "title": "",
-      "description": ""
+      "title": "Pompes à chaleur NIBE et Viessmann : modèles et données",
+      "description": "Pompes à chaleur air-eau et géothermiques NIBE et Viessmann en un coup d'œil, avec puissance de chauffage, température de départ, SCOP et réfrigérant."
     },
     "heatPumpsCost": {
-      "title": "",
-      "description": ""
+      "title": "Coût d'une pompe à chaleur en Suisse : achat, frais, aides",
+      "description": "Combien coûte une pompe à chaleur ? Comparaison air-eau, géothermie et mazout, aides des cantons et communes et déduction fiscale pour votre projet en Suisse."
     },
     "heatPumpsHowItWorks": {
-      "title": "",
-      "description": ""
+      "title": "Comment fonctionne une pompe à chaleur ? Types, installation",
+      "description": "Composition et fonctionnement d'une pompe à chaleur, types géothermique, eau-eau et air-eau, installation intérieure ou extérieure, comparaison avec le mazout."
     },
     "heatPumpsWithSolarSystem": {
-      "title": "",
-      "description": ""
+      "title": "Pompe à chaleur et installation solaire : chauffer au solaire",
+      "description": "Combinez pompe à chaleur et photovoltaïque pour réduire vos frais de chauffage et augmenter l'autoconsommation. Devis aussi avec installation solaire existante."
     },
     "heatPumpsService": {
-      "title": "",
-      "description": ""
+      "title": "Service pompe à chaleur : aide en cas de panne et urgence",
+      "description": "Froid dans la maison, pas d'eau chaude ou bruits étranges ? Notre service pompes à chaleur aide en cas de panne et d'urgence chauffage ou eau. Contactez-nous."
     },
     "chargingStationsApartment": {
-      "title": "",
-      "description": ""
+      "title": "Borne de recharge immeuble collectif : pose et facturation",
+      "description": "Bornes de recharge en immeuble pour propriétaires, gérances et PPE. Nous planifions, installons et entretenons l'infrastructure, avec une facturation numérique."
     },
     "chargingStationsSingleFamily": {
-      "title": "",
-      "description": ""
+      "title": "Borne de recharge maison individuelle : wallbox et solaire",
+      "description": "Wallbox pour maison individuelle avec gestion de charge et accès à distance. Rechargez au solaire. Intégration pompe à chaleur et recharge bidirectionnelle."
     },
     "chargingStationsBidirectional": {
-      "title": "",
-      "description": ""
+      "title": "Borne de recharge bidirectionnelle : votre VE comme stockage",
+      "description": "Une borne bidirectionnelle fait de votre voiture électrique un stockage d'énergie pour la maison. Véhicules compatibles, aides cantonales, offre personnalisée."
     },
     "commercialCalculator": {
       "title": "Calculateur solaire pour les entreprises | Free State AG",
       "description": "Saisissez votre toit, voyez la puissance de l'installation et la production d'électricité à partir des données Sonnendach de la Confédération. Gratuit et sans engagement pour les entreprises, l'agriculture et le secteur public."
     },
     "commercialSolarSystems": {
-      "title": "",
-      "description": ""
+      "title": "Installations solaires pour entreprises en Suisse",
+      "description": "Grandes installations pour entreprises de la planification à l'exploitation, carports solaires et contracting sans investissement. Testez votre toit en ligne."
     },
     "commercialChargingStations": {
-      "title": "",
-      "description": ""
+      "title": "Bornes de recharge pour entreprises et immeubles collectifs",
+      "description": "Infrastructure de recharge évolutive pour complexes résidentiels, gestion de charge et monitoring pour flottes, recharge rapide et recharge bidirectionnelle."
     },
     "commercialSolarFree": {
       "title": "",
       "description": ""
     },
     "commercialSolarFreeIndustry": {
-      "title": "",
-      "description": ""
+      "title": "Solaire sans investissement pour l'industrie et le commerce",
+      "description": "Free State AG finance, construit et exploite l'installation solaire sur votre toit industriel ou commercial. Loyer de toiture ou électricité à prix fixe."
     },
     "commercialSolarFreeMultiFamily": {
-      "title": "",
-      "description": ""
+      "title": "Installation solaire immeuble collectif sans investissement",
+      "description": "Avec SolarFree, nous finançons, installons et exploitons l'installation solaire de votre immeuble, avec facturation RCP et monitoring par appartement."
     },
     "commercialSolarFreeFarmhouses": {
-      "title": "",
-      "description": ""
+      "title": "Installation solaire agricole sans investissement",
+      "description": "Nous finançons, construisons et exploitons l'installation solaire sur votre grange ou étable. Vous recevez une électricité avantageuse et un loyer annuel."
     },
     "commercialSolarFreePublicBuildings": {
-      "title": "",
-      "description": ""
+      "title": "Installation solaire bâtiments publics sans investissement",
+      "description": "Pour écoles, hôpitaux et bâtiments communaux. Nous assurons planification, financement, construction et exploitation, et analysons gratuitement le potentiel."
     },
     "commercialSolarSystemsHow": {
-      "title": "",
-      "description": ""
+      "title": "Comment fonctionnent les grandes installations solaires",
+      "description": "Comment fonctionnent les grandes installations sur toits commerciaux. Onduleur, montage intégré ou en surimposition, stockage, pilotage et monitoring."
     },
     "commercialSolarSystemsProjectDev": {
-      "title": "",
-      "description": ""
+      "title": "Développement de projets solaires et EPC en Suisse",
+      "description": "Services EPC pour le photovoltaïque en Suisse alémanique. Nous construisons des centrales solaires clé en main pour investisseurs, du toit à la mise en service."
     },
     "commercialSolarSystemsCarport": {
-      "title": "",
-      "description": ""
+      "title": "Carport solaire pour entreprises et particuliers en Suisse",
+      "description": "Nous réalisons votre carport solaire en entreprise générale, de l'étude de faisabilité à l'exploitation. En option avec stockage, borne et pompe à chaleur."
     },
     "commercialSolarSystemsContracting": {
-      "title": "",
-      "description": ""
+      "title": "Contracting solaire en Suisse sans investissement initial",
+      "description": "Nous finançons, construisons et exploitons l'installation solaire sur votre bien. Vous profitez d'électricité solaire abordable et d'un revenu locatif annuel."
     },
     "commercialChargingApartment": {
-      "title": "",
-      "description": ""
+      "title": "Bornes de recharge pour immeubles collectifs en Suisse",
+      "description": "Pour propriétaires, gérances et PPE. Nous planifions, installons et entretenons une infrastructure de recharge évolutive avec facturation transparente."
     },
     "commercialChargingFast": {
-      "title": "",
-      "description": ""
+      "title": "Bornes de recharge rapide pour entreprises en Suisse",
+      "description": "Pour stations-service, centres commerciaux et sites d'entreprise. Nous planifions, installons et entretenons votre borne rapide, en pack ou à la carte."
     },
     "commercialChargingBidirectional": {
-      "title": "",
-      "description": ""
+      "title": "Recharge bidirectionnelle Suisse, subventions et véhicules",
+      "description": "La recharge bidirectionnelle transforme votre voiture électrique en stockage d'énergie. Aperçu des subventions cantonales, des véhicules compatibles et du V2B."
     },
     "commercialChargingCompany": {
-      "title": "",
-      "description": ""
+      "title": "Bornes de recharge pour entreprises et flottes en Suisse",
+      "description": "Nous planifions, installons et entretenons la recharge pour collaborateurs, visiteurs, clients et flottes, avec gestion de charge et facturation flexible."
     }
   },
   "apiErrors": {
@@ -2359,6 +2359,18 @@
     "ctaText": "Nous calculons votre installation comme si nous la vendions à notre propre famille. Sans engagement, avec des chiffres réels.",
     "ctaPrimary": "Lancer le calculateur solaire",
     "ctaSecondary": "Nous contacter",
+    "calcTeaserEyebrow": "Calculateur solaire",
+    "calcTeaserTitle": "Calculez le potentiel de votre toit en quelques minutes",
+    "calcTeaserText": "Saisissez votre adresse et découvrez ce qu'une installation solaire rapporterait sur votre toit. Gratuit et sans engagement.",
+    "topicLink": {
+      "storage": "En savoir plus sur le stockage d'énergie",
+      "heatPumps": "En savoir plus sur les pompes à chaleur",
+      "charging": "En savoir plus sur les bornes de recharge",
+      "subsidies": "Aperçu des subventions",
+      "cost": "Ce que coûte une installation solaire",
+      "service": "Maintenance et service",
+      "repowering": "En savoir plus sur le repowering"
+    },
     "paginationPrev": "Page précédente",
     "paginationNext": "Page suivante"
   },

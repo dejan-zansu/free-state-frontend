@@ -7,6 +7,7 @@ import { postFunnelEvent } from '@/lib/analytics/funnel-events'
 const TICK_MS = 1000
 const IDLE_LIMIT_MS = 90_000
 const MAX_SECONDS = 3600
+export const CALCULATOR_JUMP_EVENT = 'blog-calculator-jump'
 
 type Props = {
   slug: string
@@ -24,8 +25,10 @@ export default function BlogReadTracker({ slug, targetId, locale }: Props) {
     let lastActivity = Date.now()
     let sent = false
     let frame = 0
+    let jumped = false
 
     const measure = () => {
+      if (jumped) return
       const rect = target.getBoundingClientRect()
       const scrollable = rect.height - window.innerHeight
       const ratio =
@@ -63,9 +66,15 @@ export default function BlogReadTracker({ slug, targetId, locale }: Props) {
           slug,
           locale,
           depth: maxDepth,
+          calculatorJump: jumped,
           seconds: Math.min(MAX_SECONDS, Math.round(activeMs / 1000)),
         },
       })
+    }
+
+    const onCalculatorJump = () => {
+      measure()
+      jumped = true
     }
 
     const onVisibilityChange = () => {
@@ -78,6 +87,7 @@ export default function BlogReadTracker({ slug, targetId, locale }: Props) {
     window.addEventListener('resize', onScroll)
     window.addEventListener('pointerdown', onActivity, { passive: true })
     window.addEventListener('keydown', onActivity)
+    window.addEventListener(CALCULATOR_JUMP_EVENT, onCalculatorJump)
     document.addEventListener('visibilitychange', onVisibilityChange)
     window.addEventListener('pagehide', send)
 
@@ -89,6 +99,7 @@ export default function BlogReadTracker({ slug, targetId, locale }: Props) {
       window.removeEventListener('resize', onScroll)
       window.removeEventListener('pointerdown', onActivity)
       window.removeEventListener('keydown', onActivity)
+      window.removeEventListener(CALCULATOR_JUMP_EVENT, onCalculatorJump)
       document.removeEventListener('visibilitychange', onVisibilityChange)
       window.removeEventListener('pagehide', send)
     }

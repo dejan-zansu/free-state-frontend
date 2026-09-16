@@ -165,8 +165,8 @@
       "description": "Progetti solari selezionati dalla Svizzera tedesca: case unifamiliari, edifici commerciali e agricoli. Scopri cosa producono i nostri impianti solari."
     },
     "service": {
-      "title": "",
-      "description": ""
+      "title": "Manutenzione impianto solare, anche installato da terzi",
+      "description": "Manutenzione, monitoraggio e riparazioni per impianti fotovoltaici e accumuli a batteria nella Svizzera tedesca, anche di terzi. Controllo unico da CHF 510."
     },
     "blog": {
       "title": "Blog solare Svizzera: fotovoltaico ed energia",
@@ -177,136 +177,136 @@
       "description": "Contatta Free State AG per una consulenza su impianti solari, accumulo e pompe di calore. Sedi a Sciaffusa, Zurigo e San Gallo. Ti rispondiamo rapidamente."
     },
     "energyStorage": {
-      "title": "",
-      "description": ""
+      "title": "Accumulo di energia solare: batterie per il tuo impianto",
+      "description": "Accumula l'energia solare del giorno e usala di sera e di notte. Installiamo sistemi di accumulo SigenStor, BYD e Huawei con specialisti certificati."
     },
     "repowering": {
       "title": "Repowering: modernizza il tuo impianto solare",
       "description": "Più potenza dallo stesso tetto: modernizziamo impianti solari esistenti con nuovi moduli, inverter e accumulatori. Fai verificare il tuo potenziale ora."
     },
     "solarSystemCarport": {
-      "title": "",
-      "description": ""
+      "title": "Carport solare: impianto per carport singolo o doppio",
+      "description": "Impianto solare per carport singolo o doppio da CHF 15'000. Produci energia solare, proteggi l'auto dalle intemperie e ricarica l'auto elettrica sul posto."
     },
     "media": {
-      "title": "",
-      "description": ""
+      "title": "Media e stampa: contatto stampa di Free State AG",
+      "description": "Contatto stampa, temi di competenza e materiale visivo per i media. Free State AG progetta, finanzia e realizza impianti fotovoltaici in Svizzera."
     },
     "investors": {
-      "title": "",
-      "description": ""
+      "title": "Investitori: richieda la documentazione di Free State AG",
+      "description": "Free State AG sviluppa con gli investitori soluzioni energetiche decentralizzate. Richiedi gratuitamente la documentazione, come privato o come azienda."
     },
     "impressum": {
-      "title": "",
-      "description": ""
+      "title": "Note legali di Free State AG",
+      "description": "Note legali di Free State AG a Sciaffusa con informazioni aziendali, iscrizione al Registro delle imprese, UID, numero IVA e contatti."
     },
     "agb": {
-      "title": "",
-      "description": ""
+      "title": "Condizioni generali di contratto di Free State AG",
+      "description": "Condizioni generali di Free State AG per impianti solari, accumuli, pompe di calore e stazioni di ricarica, incluso Solar Free, diritto di revoca e garanzia."
     },
     "privacyPolicy": {
-      "title": "",
-      "description": ""
+      "title": "Informativa sulla privacy di Free State AG",
+      "description": "Come Free State AG tratta i tuoi dati personali secondo la nLPD e il GDPR, dai cookie all'analisi web fino al calcolatore solare, e quali diritti hai."
     },
     "howItWorks": {
       "title": "Come funziona: dalla richiesta all'impianto",
       "description": "Come arriva l'impianto solare sul tuo tetto? Tutti i passaggi dalla consulenza alla messa in funzione, spiegati in modo chiaro da Free State AG."
     },
     "heatPumpsProducts": {
-      "title": "",
-      "description": ""
+      "title": "Pompe di calore NIBE e Viessmann: modelli e dati tecnici",
+      "description": "Pompe di calore aria-acqua e geotermiche di NIBE e Viessmann in sintesi, con potenza termica, temperatura di mandata, SCOP e refrigerante per ogni modello."
     },
     "heatPumpsCost": {
-      "title": "",
-      "description": ""
+      "title": "Costo pompa di calore in Svizzera: acquisto e incentivi",
+      "description": "Quanto costa una pompa di calore? Confronto tra aria-acqua, geotermica e riscaldamento a gasolio, incentivi di cantoni e comuni e detrazione fiscale."
     },
     "heatPumpsHowItWorks": {
-      "title": "",
-      "description": ""
+      "title": "Come funziona una pompa di calore? Tipi e installazione",
+      "description": "Funzionamento della pompa di calore, tipi geotermica, acqua-acqua e aria-acqua, installazione interna o esterna e confronto con il riscaldamento a olio."
     },
     "heatPumpsWithSolarSystem": {
-      "title": "",
-      "description": ""
+      "title": "Pompa di calore con impianto solare: riscaldare con il sole",
+      "description": "Combina pompa di calore e fotovoltaico per ridurre i costi di riscaldamento e aumentare l'autoconsumo. Preventivo su misura, anche con impianto esistente."
     },
     "heatPumpsService": {
-      "title": "",
-      "description": ""
+      "title": "Assistenza pompe di calore: guasti ed emergenze",
+      "description": "Casa fredda, niente acqua calda o rumori strani? La nostra assistenza pompe di calore interviene per guasti ed emergenze di riscaldamento o acqua. Contattaci."
     },
     "chargingStationsApartment": {
-      "title": "",
-      "description": ""
+      "title": "Stazione di ricarica in condominio: progetto e fatturazione",
+      "description": "Stazioni di ricarica in condominio per proprietari e amministratori. Progettiamo, installiamo e manteniamo l'infrastruttura, con fatturazione digitale."
     },
     "chargingStationsSingleFamily": {
-      "title": "",
-      "description": ""
+      "title": "Stazione di ricarica per casa unifamiliare: wallbox e solare",
+      "description": "Wallbox per casa unifamiliare con gestione dei carichi e accesso remoto. Ricarica solare, integrazione con pompa di calore e ricarica bidirezionale possibili."
     },
     "chargingStationsBidirectional": {
-      "title": "",
-      "description": ""
+      "title": "Stazione di ricarica bidirezionale: l'auto come accumulo",
+      "description": "Con una stazione bidirezionale l'auto elettrica diventa un accumulo di energia per la casa. Veicoli compatibili, incentivi cantonali e offerta personalizzata."
     },
     "commercialCalculator": {
       "title": "Calcolatore solare per le aziende | Free State AG",
       "description": "Inserisca il tetto e veda la potenza dell'impianto e la produzione di elettricità dai dati Sonnendach della Confederazione. Gratuito e senza impegno per aziende, agricoltura e settore pubblico."
     },
     "commercialSolarSystems": {
-      "title": "",
-      "description": ""
+      "title": "Impianti solari per aziende e industria in Svizzera",
+      "description": "Grandi impianti per aziende dalla pianificazione all'esercizio, carport solari e contracting senza investimento. Verifica online il potenziale del tuo tetto."
     },
     "commercialChargingStations": {
-      "title": "",
-      "description": ""
+      "title": "Stazioni di ricarica per aziende e condomini in Svizzera",
+      "description": "Infrastruttura di ricarica scalabile per complessi residenziali, gestione del carico e monitoraggio per flotte aziendali, ricarica rapida e bidirezionale."
     },
     "commercialSolarFree": {
       "title": "",
       "description": ""
     },
     "commercialSolarFreeIndustry": {
-      "title": "",
-      "description": ""
+      "title": "Impianto solare per industria e commercio senza investimento",
+      "description": "Free State AG finanzia, costruisce e gestisce l'impianto solare sul tuo tetto industriale o commerciale. Canone per il tetto o elettricità a prezzo fisso."
     },
     "commercialSolarFreeMultiFamily": {
-      "title": "",
-      "description": ""
+      "title": "Impianto solare per case plurifamiliari senza investimento",
+      "description": "Con SolarFree finanziamo, installiamo e gestiamo l'impianto solare del tuo stabile, con fatturazione RCP e monitoraggio per appartamento. Analisi gratuita."
     },
     "commercialSolarFreeFarmhouses": {
-      "title": "",
-      "description": ""
+      "title": "Impianto solare per aziende agricole senza investimento",
+      "description": "Finanziamo, costruiamo e gestiamo l'impianto solare sul tetto del tuo fienile o della tua stalla. Ricevi elettricità conveniente e un affitto annuale."
     },
     "commercialSolarFreePublicBuildings": {
-      "title": "",
-      "description": ""
+      "title": "Impianto solare per edifici pubblici senza investimento",
+      "description": "Per scuole, ospedali ed edifici comunali. Ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto e analizziamo gratis il potenziale."
     },
     "commercialSolarSystemsHow": {
-      "title": "",
-      "description": ""
+      "title": "Come funzionano i grandi impianti solari per le aziende",
+      "description": "Come funzionano i grandi impianti su tetti commerciali. Inverter, montaggio integrato o sopra il tetto, accumulo e controllo per più autoconsumo, monitoraggio."
     },
     "commercialSolarSystemsProjectDev": {
-      "title": "",
-      "description": ""
+      "title": "Sviluppo di progetti solari ed EPC in Svizzera",
+      "description": "Servizi EPC per il fotovoltaico nella Svizzera tedesca. Costruiamo centrali solari chiavi in mano per investitori, dal tetto alla messa in servizio."
     },
     "commercialSolarSystemsCarport": {
-      "title": "",
-      "description": ""
+      "title": "Carport solare per aziende e privati in Svizzera",
+      "description": "Realizziamo il tuo carport solare come general contractor, dallo studio di fattibilità all'esercizio. Opzionalmente con accumulo, ricarica e pompa di calore."
     },
     "commercialSolarSystemsContracting": {
-      "title": "",
-      "description": ""
+      "title": "Contracting solare in Svizzera senza investimento iniziale",
+      "description": "Finanziamo, costruiamo e gestiamo l'impianto solare sulla tua proprietà. Ricevi energia solare conveniente dal tuo tetto e ricavi annuali di locazione."
     },
     "commercialChargingApartment": {
-      "title": "",
-      "description": ""
+      "title": "Stazioni di ricarica per condomini in Svizzera",
+      "description": "Per proprietari, amministratori di immobili e proprietari di condominio. Progettiamo, installiamo e manteniamo infrastrutture di ricarica scalabili."
     },
     "commercialChargingFast": {
-      "title": "",
-      "description": ""
+      "title": "Stazioni di ricarica rapida per aziende in Svizzera",
+      "description": "Per stazioni di servizio, centri commerciali, hotel e flotte. Progettiamo, installiamo e manteniamo la stazione di ricarica rapida, in pacchetto o a moduli."
     },
     "commercialChargingBidirectional": {
-      "title": "",
-      "description": ""
+      "title": "Ricarica bidirezionale in Svizzera, incentivi e veicoli",
+      "description": "La ricarica bidirezionale trasforma la tua auto elettrica in un accumulatore. Con incentivi cantonali, veicoli compatibili e tipi come il vehicle-to-building."
     },
     "commercialChargingCompany": {
-      "title": "",
-      "description": ""
+      "title": "Stazioni di ricarica per aziende e flotte in Svizzera",
+      "description": "Progettiamo, installiamo e manteniamo la ricarica per collaboratori, ospiti, clienti e flotte, con gestione dei carichi e fatturazione flessibile."
     }
   },
   "apiErrors": {
@@ -2359,6 +2359,18 @@
     "ctaText": "Calcoliamo il vostro impianto come lo venderemmo alla nostra famiglia. Senza impegno e con numeri reali.",
     "ctaPrimary": "Avvia il calcolatore solare",
     "ctaSecondary": "Contattateci",
+    "calcTeaserEyebrow": "Calcolatore solare",
+    "calcTeaserTitle": "Calcolate il potenziale del vostro tetto in pochi minuti",
+    "calcTeaserText": "Inserite il vostro indirizzo e scoprite cosa renderebbe un impianto solare sul vostro tetto. Gratuito e senza impegno.",
+    "topicLink": {
+      "storage": "Di più sull'accumulo di energia",
+      "heatPumps": "Di più sulle pompe di calore",
+      "charging": "Di più sulle stazioni di ricarica",
+      "subsidies": "Incentivi in sintesi",
+      "cost": "Quanto costa un impianto solare",
+      "service": "Manutenzione e assistenza",
+      "repowering": "Di più sul repowering"
+    },
     "paginationPrev": "Pagina precedente",
     "paginationNext": "Pagina successiva"
   },

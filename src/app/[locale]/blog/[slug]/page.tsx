@@ -3,7 +3,7 @@ import { getLocale, getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 import { blogService } from '@/services/blog.service'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
@@ -12,8 +12,15 @@ import {
   buildArticleJsonLd,
   buildBreadcrumbListJsonLd,
 } from '@/lib/seo/structured-data'
-import { prepareArticle, readingTimeMinutes } from '@/lib/blog/article'
+import {
+  prepareArticle,
+  readingTimeMinutes,
+  splitIntro,
+} from '@/lib/blog/article'
+import { blogTopic, relatedPosts } from '@/lib/blog/topics'
+import BlogCalculatorTeaser from '@/components/blog/BlogCalculatorTeaser'
 import BlogCard from '@/components/blog/BlogCard'
+import CalculatorSection from '@/components/home/CalculatorSection'
 import BlogReadTracker from '@/components/blog/BlogReadTracker'
 import ReadingProgress from '@/components/blog/ReadingProgress'
 import TocRail from '@/components/blog/TocRail'
@@ -47,8 +54,8 @@ export async function generateMetadata({
   return generateSEOMetadata({
     locale: locale as SiteLocale,
     pathname: `/blog/${slug}`,
-    title: `${tr.title} | Free State AG`,
-    description: tr.excerpt || tr.title,
+    title: tr.metaTitle || `${tr.title} | Free State AG`,
+    description: tr.metaDescription || tr.excerpt || tr.title,
     availableLocales,
     ogImage: post.coverImageUrl
       ? { url: post.coverImageUrl, width: 1200, height: 630, alt: tr.title }
@@ -59,6 +66,12 @@ export async function generateMetadata({
 interface Props {
   params: Promise<{ slug: string }>
 }
+
+const ARTICLE_PROSE =
+  'prose prose-lg max-w-none prose-headings:text-[#062E25] prose-headings:font-medium prose-h2:mt-14 prose-h2:scroll-mt-28 prose-p:text-[#062E25]/80 prose-a:text-[#036B53] prose-a:underline-offset-4 prose-a:decoration-[#036B53]/40 hover:prose-a:decoration-[#B7FE1A] prose-strong:text-[#062E25] prose-li:text-[#062E25]/80 prose-li:marker:text-[#B7FE1A] prose-em:text-[#062E25]'
+const INTRO_STYLE = '[&>p:first-of-type]:text-xl [&>p:first-of-type]:font-light'
+const SOURCES_STYLE =
+  '[&>p:last-of-type:has(em)]:border-t [&>p:last-of-type:has(em)]:border-[#062E25]/10 [&>p:last-of-type:has(em)]:pt-6 [&>p:last-of-type:has(em)]:text-base [&>p:last-of-type:has(em)]:text-[#062E25]/75'
 
 const BlogPostPage = async ({ params }: Props) => {
   const { slug } = await params
@@ -80,11 +93,11 @@ const BlogPostPage = async ({ params }: Props) => {
   }
 
   const { html, headings } = prepareArticle(tr.content)
+  const { intro, rest } = splitIntro(html)
+  const topic = blogTopic(post.slug)
   const minutes = readingTimeMinutes(tr.content)
-  const relatedResult = await blogService.listPublished(1, 4)
-  const related = (relatedResult.data || [])
-    .filter(p => p.slug !== post.slug)
-    .slice(0, 3)
+  const relatedResult = await blogService.listPublished(1, 50)
+  const related = relatedPosts(post, relatedResult.data || [])
 
   return (
     <>
@@ -178,11 +191,19 @@ const BlogPostPage = async ({ params }: Props) => {
         <div className="max-w-[1310px] mx-auto px-4 sm:px-6 py-14 lg:py-20">
           <div className="lg:grid lg:grid-cols-[minmax(0,720px)_280px] lg:gap-16 lg:justify-center">
             <div className="max-w-[720px] mx-auto lg:mx-0">
-              <article
-                id="article-content"
-                className="prose prose-lg max-w-none prose-headings:text-[#062E25] prose-headings:font-medium prose-h2:mt-14 prose-h2:scroll-mt-28 prose-p:text-[#062E25]/80 prose-a:text-[#036B53] prose-a:underline-offset-4 prose-a:decoration-[#036B53]/40 hover:prose-a:decoration-[#B7FE1A] prose-strong:text-[#062E25] prose-li:text-[#062E25]/80 prose-li:marker:text-[#B7FE1A] prose-em:text-[#062E25] [&>p:first-of-type]:text-xl [&>p:first-of-type]:font-light [&>p:last-of-type:has(em)]:border-t [&>p:last-of-type:has(em)]:border-[#062E25]/10 [&>p:last-of-type:has(em)]:pt-6 [&>p:last-of-type:has(em)]:text-base [&>p:last-of-type:has(em)]:text-[#062E25]/75"
-                dangerouslySetInnerHTML={{ __html: html }}
-              />
+              <article id="article-content">
+                <div
+                  className={`${ARTICLE_PROSE} ${INTRO_STYLE} ${rest ? '' : SOURCES_STYLE}`}
+                  dangerouslySetInnerHTML={{ __html: intro }}
+                />
+                <BlogCalculatorTeaser topic={topic} />
+                {rest && (
+                  <div
+                    className={`${ARTICLE_PROSE} ${SOURCES_STYLE}`}
+                    dangerouslySetInnerHTML={{ __html: rest }}
+                  />
+                )}
+              </article>
 
               <div className="mt-12 flex items-center gap-4 border-t border-[#062E25]/10 pt-8">
                 <div className="w-12 h-12 rounded-full bg-[#062E25] text-[#FDFFF5] flex items-center justify-center text-base font-medium">
@@ -207,35 +228,18 @@ const BlogPostPage = async ({ params }: Props) => {
             </aside>
           </div>
 
-          <section className="mt-20">
-            <div className="bg-[#062E25] rounded-[20px] px-8 py-12 md:px-14 md:py-16">
-              <h2 className="text-[#FDFFF5] text-2xl sm:text-3xl md:text-[34px] font-medium max-w-[560px]">
-                {t.rich('ctaTitle', {
-                  em: chunks => (
-                    <em className="text-[#B7FE1A] italic">{chunks}</em>
-                  ),
-                })}
-              </h2>
-              <p className="text-[#FDFFF5]/70 text-base md:text-lg font-light mt-4 max-w-[560px]">
-                {t('ctaText')}
-              </p>
-              <div className="flex flex-wrap gap-4 mt-8">
-                <Link
-                  href={`/${locale}/calculator`}
-                  className="inline-flex items-center gap-2 rounded-full bg-[#B7FE1A] text-[#062E25] px-7 py-3.5 text-base font-medium hover:brightness-105 transition"
-                >
-                  {t('ctaPrimary')}
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="inline-flex items-center rounded-full border border-[#FDFFF5]/30 text-[#FDFFF5] px-7 py-3.5 text-base font-medium hover:border-[#FDFFF5]/70 transition-colors"
-                >
-                  {t('ctaSecondary')}
-                </Link>
-              </div>
-            </div>
-          </section>
+          <div className="mt-20 rounded-[24px] overflow-clip">
+            <CalculatorSection />
+          </div>
+          <p className="mt-8 text-center text-[#062E25]/75 text-base font-light">
+            {t('ctaText')}{' '}
+            <Link
+              href={`/${locale}/contact`}
+              className="font-medium text-[#036B53] underline underline-offset-4 decoration-[#036B53]/40 hover:decoration-[#B7FE1A]"
+            >
+              {t('ctaSecondary')}
+            </Link>
+          </p>
 
           {related.length > 0 && (
             <section className="mt-20">
