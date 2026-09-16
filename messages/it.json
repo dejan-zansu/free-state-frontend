@@ -257,8 +257,8 @@
       "description": "Infrastruttura di ricarica scalabile per complessi residenziali, gestione del carico e monitoraggio per flotte aziendali, ricarica rapida e bidirezionale."
     },
     "commercialSolarFree": {
-      "title": "",
-      "description": ""
+      "title": "SolarFree per aziende, fattorie ed edifici pubblici",
+      "description": "Finanziamo, costruiamo e gestiamo l'impianto solare sul tuo tetto, senza investimento. Per industria, fattorie, edifici pubblici e case plurifamiliari."
     },
     "commercialSolarFreeIndustry": {
       "title": "Impianto solare per industria e commercio senza investimento",
@@ -1680,7 +1680,7 @@
       }
     },
     "publicSpaces": {
-      "title": "Powering Public Spaces",
+      "title": "Elettricità per gli edifici pubblici",
       "subtitle": "Con energia pulita e affidabile",
       "body": "Scuole, edifici amministrativi e immobili pubblici hanno una responsabilità nella transizione energetica, senza per questo gravare sui bilanci. Analizziamo gratuitamente potenziale e redditività e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Senza anticipare un solo franco, il comune beneficia di costi energetici stabili, di un contributo visibile alla sostenibilità e di una funzione esemplare. Richiedi ora un'analisi senza impegno."
     },
@@ -1782,6 +1782,57 @@
     "cta": {
       "topButton": "Scopri se Edifici pubblici è adatto al tuo edificio",
       "heading": "Scopri se Edifici pubblici è adatto al tuo edificio",
+      "ctaText": "Avvia il calcolatore solare",
+      "ctaLink": "/commercial/calculator"
+    }
+  },
+  "commercialSolarFreeHub": {
+    "hero": {
+      "title": "SolarFree",
+      "description": "Impianti solari senza investimento per edifici commerciali e industriali, aziende agricole, edifici pubblici e case plurifamiliari"
+    },
+    "topics": {
+      "title": "Quale SolarFree è adatto al tuo edificio?",
+      "items": [
+        {
+          "title": "Case plurifamiliari",
+          "description": "Per case plurifamiliari (RCP / CEL)",
+          "linkLabel": "Case plurifamiliari",
+          "image": "/images/solar-abo-multi.png",
+          "href": "/commercial/solar-free/solar-free-multi-family"
+        },
+        {
+          "title": "Industria / Commercio",
+          "description": "Per edifici commerciali e industriali",
+          "linkLabel": "Industria / Commercio",
+          "image": "/images/solar-abo-business.png",
+          "href": "/commercial/solar-free/industry-commercial"
+        },
+        {
+          "title": "Fattorie",
+          "description": "Per aziende agricole e allevamenti",
+          "linkLabel": "Fattorie",
+          "image": "/images/solar-abo-agro.png",
+          "href": "/commercial/solar-free/farmhouses"
+        },
+        {
+          "title": "Edifici pubblici",
+          "description": "Per scuole, ospedali ed edifici comunali",
+          "linkLabel": "Edifici pubblici",
+          "image": "/images/solar-abo-public.png",
+          "href": "/commercial/solar-free/public-buildings"
+        }
+      ]
+    },
+    "howPV": {
+      "row1": {
+        "title": "Come funziona SolarFree",
+        "description": "Desideri un impianto solare, ma non vuoi investire. Analizziamo gratuitamente il tuo edificio e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Tu metti a disposizione il tetto e benefici di prezzi dell'elettricità vantaggiosi."
+      }
+    },
+    "cta": {
+      "topButton": "Zero investimento. Bollette più basse.",
+      "heading": "Scopri se SolarFree è adatto al tuo edificio",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/commercial/calculator"
     }
@@ -5061,6 +5112,17 @@
       "optionChargingStation": "Stazione di ricarica",
       "callbackLabel": "Richiamatemi la prossima settimana per una consulenza iniziale gratuita.",
       "callbackYes": "Sì, volentieri",
+      "email": "Email",
+      "emailPlaceholder": "Inserisci la tua email",
+      "phone": "Numero di telefono",
+      "phonePlaceholder": "Inserisci il tuo numero di telefono",
+      "postalCode": "Codice postale",
+      "postalCodePlaceholder": "Inserisci il tuo codice postale",
+      "city": "Località",
+      "cityPlaceholder": "Inserisci la tua località",
+      "privacy": "Confermo di aver letto e compreso l'informativa sulla privacy.",
+      "success": "La tua richiesta è stata inviata con successo. Ti risponderemo al più presto.",
+      "error": "Qualcosa è andato storto. Si prega di riprovare.",
       "submit": "Richiedi un preventivo ora"
     },
     "faq": {
@@ -5203,9 +5265,9 @@
     },
     "quoteCTA": {
       "eyebrow": "Supporto",
-      "title": "Richiedi un preventivo gratuito e senza impegno ora!",
-      "description": "Configura la pompa di calore giusta in pochi minuti con il nostro calcolatore e ricevi immediatamente un'offerta concreta:",
-      "cta": "Avvia calcolatore solare"
+      "title": "Richiedi ora un preventivo gratuito e senza impegno",
+      "description": "Contattaci e ricevi un'offerta concreta per la pompa di calore giusta.",
+      "cta": "Richiedi un preventivo"
     },
     "energySolutions": {
       "title": "Le nostre soluzioni energetiche",
@@ -5264,7 +5326,7 @@
   "heatPumpsProducts": {
     "hero": {
       "title": "Portfolio prodotti\npompe di calore",
-      "description": "Moduli solari per una produzione di energia efficiente e duratura"
+      "description": "Pompe di calore aria-acqua e geotermiche di NIBE e Viessmann per installazione interna ed esterna."
     },
     "outdoorTable": {
       "title": "Pompa di calore aria-acqua per installazione esterna",
@@ -5346,14 +5408,14 @@
     "evChargingIntro": {
       "eyebrow": "Proprietari di appartamenti",
       "title": "Installa ricarica per EV\nnei condomini",
-      "description": "Aiutiamo i proprietari di immobili a pianificare soluzioni di ricarica per EV scalabili.\n\nOttieni una stima non vincolante con il nostro calcolatore online."
+      "description": "Aiutiamo i proprietari di immobili a pianificare soluzioni di ricarica per EV scalabili.\n\nContattaci per una consulenza senza impegno."
     },
     "calculatorCta": {
-      "eyebrow": "Calcola",
-      "title": "Calcola ora il prezzo della tua stazione di ricarica.",
-      "description": "Calcola il prezzo della tua stazione di ricarica in base a pochi dettagli.",
-      "cta": "Avvia il calcolatore solare",
-      "subtext": "gratuito - semplice - preciso - senza impegno"
+      "eyebrow": "Consulenza",
+      "title": "Richiedi ora una consulenza per la tua infrastruttura di ricarica.",
+      "description": "Ti aiutiamo a pianificare soluzioni di ricarica per EV scalabili per il tuo condominio.",
+      "cta": "Contattaci",
+      "subtext": "gratuito - semplice - senza impegno"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
@@ -5437,8 +5499,8 @@
     },
     "quoteCTA": {
       "eyebrow": "Costo di un impianto solare",
-      "title": "Richiedi un preventivo gratuito e senza impegno ora!",
-      "description": "Configura il tuo impianto in pochi minuti con il nostro calcolatore solare e ricevi immediatamente un'offerta concreta:",
+      "title": "Calcola ora gratuitamente il tuo impianto solare",
+      "description": "Configura il tuo impianto in pochi minuti con il nostro calcolatore solare:",
       "checklist": {
         "investmentCosts": "Costi d'investimento",
         "subsidies": "Sussidi e detrazioni fiscali",
@@ -5599,19 +5661,19 @@
   "chargingStationsApartmentBuilding": {
     "hero": {
       "title": "Edificio condominiale",
-      "description": "Moduli solari per una produzione di energia efficiente e duratura"
+      "description": "Infrastrutture di ricarica pronte per il futuro nei condomini, dalla pianificazione alla fatturazione."
     },
     "evChargingIntro": {
       "eyebrow": "Ricarica EV",
       "title": "Ricarica EV nei\ncondomini",
-      "description": "Sosteniamo i proprietari di immobili nella pianificazione e installazione di infrastrutture di ricarica pronte per il futuro.\n\nOttieni una stima dei costi non vincolante con il nostro calcolatore online."
+      "description": "Sosteniamo i proprietari di immobili nella pianificazione e installazione di infrastrutture di ricarica pronte per il futuro.\n\nContattaci per una consulenza senza impegno."
     },
     "calculatorCta": {
-      "eyebrow": "Calcola",
-      "title": "Calcola ora il prezzo della tua stazione di ricarica.",
-      "description": "Calcola il prezzo della tua stazione di ricarica in base a pochi dettagli.",
-      "cta": "Avvia il calcolatore solare",
-      "subtext": "gratuito - semplice - preciso - senza impegno"
+      "eyebrow": "Consulenza",
+      "title": "Richiedi ora una consulenza per la tua stazione di ricarica.",
+      "description": "Ti consigliamo sulla pianificazione, l'installazione e la fatturazione della tua infrastruttura di ricarica.",
+      "cta": "Contattaci",
+      "subtext": "gratuito - semplice - senza impegno"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
@@ -5658,13 +5720,13 @@
     "companySolution": {
       "title": "La soluzione di ricarica\nper la tua azienda",
       "description": "Le soluzioni di ricarica aiutano gli operatori di flotte a beneficiare di incentivi, gestione del carico e controllo automatizzato delle stazioni. Contattaci per una consulenza o pianificazione.",
-      "cta": "Avvia calcolatore solare"
+      "cta": "Contattaci"
     },
     "freeStateOffers": {
       "title": "FreeState ti offre questo",
       "bullets": {
         "owners": "Per proprietari e amministratori: progettiamo, installiamo e manteniamo l'infrastruttura di ricarica, con fatturazione secondo le esigenze.",
-        "condominiums": "Per i proprietari di condominio: installiamo infrastrutture e stazioni di ricarica scalabili secondo necessità, con una chiara pianificazione dell'espansione e una fatturazione trasparente e flessibile."
+        "condominiums": "Per le flotte aziendali, una gestione dei carichi distribuisce la potenza di ricarica su tutte le stazioni. Collaboratori, ospiti e clienti possono essere fatturati con tariffe diverse."
       }
     },
     "faq": {
@@ -5699,8 +5761,8 @@
   },
   "chargingStationsSingleFamilyHome": {
     "hero": {
-      "title": "Single - Family House",
-      "description": "Moduli solari per una produzione di energia efficiente e duratura"
+      "title": "Casa unifamiliare",
+      "description": "Wallbox intelligenti per la tua casa, integrate con il tuo impianto solare o la tua pompa di calore."
     },
     "intro": {
       "eyebrow": "Case unifamiliari",
@@ -5709,14 +5771,14 @@
     },
     "weOffer": {
       "title": "Noi ti offriamo questo",
-      "description": "Progettiamo e installiamo soluzioni intelligenti di ricarica domestica con prodotti di alta qualità, che si integrano completamente con il vostro impianto solare o la pompa di calore, consentono la ricarica bidirezionale e sono supportate da un servizio tecnico continuo.\n\nOttenete in pochi minuti una stima dei costi senza impegno con il nostro calcolatore di offerte online."
+      "description": "Progettiamo e installiamo soluzioni intelligenti di ricarica domestica con prodotti di alta qualità, che si integrano completamente con il tuo impianto solare o la pompa di calore, consentono la ricarica bidirezionale e sono supportate da un servizio tecnico continuo.\n\nContattaci per una consulenza senza impegno."
     },
     "calculator": {
-      "eyebrow": "Calcola",
-      "title": "Calcola ora il prezzo della tua stazione di ricarica.",
-      "description": "Calcola il prezzo della tua stazione di ricarica in base a pochi dettagli.",
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaSubtext": "gratuito - semplice - preciso - senza impegno"
+      "eyebrow": "Consulenza",
+      "title": "Richiedi ora una consulenza per la tua stazione di ricarica.",
+      "description": "Progettiamo e installiamo la tua wallbox, in linea con il tuo impianto solare o la tua pompa di calore.",
+      "ctaText": "Contattaci",
+      "ctaSubtext": "gratuito - semplice - senza impegno"
     },
     "bidirectionalCharging": {
       "title": "Ricarica solare bidirezionale",
@@ -9392,6 +9454,23 @@
     "eyebrow": "SolarDirect",
     "title": "Verifica il potenziale solare\ndel tuo tetto",
     "cta": "Avvia calcolatore solare"
+  },
+  "foerderung": {
+    "hubTitle": "Incentivi per il fotovoltaico in Svizzera 2026",
+    "hubSubheading": "Programmi di incentivi FV attuali, tariffe di immissione e stato dell'obbligo solare in tutti i 26 cantoni.",
+    "inPreparation": "in preparazione",
+    "ctaCalculate": "Calcola l'impianto solare",
+    "lastUpdated": "Aggiornato il",
+    "sections": {
+      "pronovo": "Rimunerazione unica Pronovo",
+      "cantonal": "Programmi cantonali",
+      "solarpflicht": "Obbligo solare",
+      "tariffs": "Tariffe di immissione delle aziende elettriche",
+      "gemeinden": "Principali comuni con incentivi aggiuntivi",
+      "steuer": "Aspetti fiscali",
+      "sources": "Fonti",
+      "faq": "Domande frequenti"
+    }
   },
   "solarAboPlanHome": {
     "hero": {

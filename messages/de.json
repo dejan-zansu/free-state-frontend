@@ -93,12 +93,12 @@
       "description": "Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen von Free State AG. Kauf oder SolarFree ohne Eigeninvestition. 19 Kantone in der Deutschschweiz."
     },
     "solarSystems": {
-      "title": "Solaranlagen Schweiz: Photovoltaik für dein Zuhause",
+      "title": "Solaranlagen Schweiz: Photovoltaik für Ihr Zuhause",
       "description": "Solaranlage für Einfamilienhaus in der Schweiz: Planung, Installation, Inbetriebnahme aus einer Hand. Ab CHF 18'000 oder als Solar-Abo ohne Eigeninvestition."
     },
     "solarFree": {
       "title": "SolarFree: Solaranlage ohne Eigeninvestition | Free State AG",
-      "description": "Mit SolarFree bekommst du deine eigene Solaranlage mit CHF 0 Anzahlung. Monatliche Rate statt Kauf, jederzeit mit Option zum Erwerb. Jetzt Ersparnis berechnen."
+      "description": "Mit SolarFree bekommen Sie Ihre eigene Solaranlage mit CHF 0 Anzahlung. Monatliche Rate statt Kauf, jederzeit mit Option zum Erwerb. Jetzt Ersparnis berechnen."
     },
     "solarDirect": {
       "title": "SolarDirect: Solaranlage kaufen mit vollem Eigentum",
@@ -109,12 +109,12 @@
       "description": "SolarAbo von Free State: Ihre Solaranlage mit fester Monatsrate, Monitoring, Garantie und Versicherung inklusive. Jetzt Monatsrate berechnen."
     },
     "batteryStorage": {
-      "title": "Batteriespeicher Schweiz: Stromspeicher für deine Solaranlage",
-      "description": "Speichere deinen Solarstrom für die Nacht. Batteriespeicher ab 5 kWh. Kompatibel mit BYD, Huawei, Viessmann. Planung und Installation in der Deutschschweiz."
+      "title": "Batteriespeicher Schweiz: Stromspeicher für Ihre Solaranlage",
+      "description": "Speichern Sie Ihren Solarstrom für die Nacht. Batteriespeicher ab 5 kWh. Kompatibel mit BYD, Huawei, Viessmann. Planung und Installation in der Deutschschweiz."
     },
     "heatPumps": {
       "title": "Wärmepumpen Schweiz: Luft/Wasser und Sole/Wasser | Free State AG",
-      "description": "Wärmepumpe für dein Haus in der Schweiz. Kombiniere mit Solaranlage für maximale Unabhängigkeit. Beratung, Förderabklärung und Installation aus einer Hand."
+      "description": "Wärmepumpe für Ihr Haus in der Schweiz. Kombinieren Sie sie mit einer Solaranlage für maximale Unabhängigkeit. Beratung, Förderabklärung und Installation aus einer Hand."
     },
     "chargingStations": {
       "title": "Ladestationen für Elektroautos: Wallbox Schweiz | Free State AG",
@@ -257,8 +257,8 @@
       "description": "Skalierbare Ladeinfrastruktur für Wohnanlagen, Lastmanagement und Monitoring für Firmenflotten, Schnellladestationen für Unternehmen und bidirektionales Laden."
     },
     "commercialSolarFree": {
-      "title": "",
-      "description": ""
+      "title": "SolarFree für Firmen, Höfe, Gemeinden und Mehrfamilienhäuser",
+      "description": "Wir finanzieren, bauen und betreiben die Solaranlage auf Ihrem Dach, ohne Investition. Für Gewerbe, Bauernhöfe, öffentliche Gebäude und Mehrfamilienhäuser."
     },
     "commercialSolarFreeIndustry": {
       "title": "Solaranlage für Industrie und Gewerbe ohne Investition",
@@ -1729,7 +1729,7 @@
       }
     },
     "publicSpaces": {
-      "title": "Powering Public Spaces",
+      "title": "Strom für öffentliche Gebäude",
       "subtitle": "Mit sauberer, zuverlässiger Energie",
       "body": "Schulen, Verwaltungsgebäude und öffentliche Liegenschaften tragen Verantwortung für die Energiewende, ohne dass dafür ihre Budgets belastet werden. Wir prüfen Potenzial und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Bau und Betrieb der Anlage. So profitiert die Gemeinde von stabilen Energiekosten, einem sichtbaren Nachhaltigkeitsbeitrag und einer Vorbildfunktion, ohne dafür einen Franken vorzustrecken. Jetzt unverbindlich Analyse anfordern."
     },
@@ -1831,6 +1831,57 @@
     "cta": {
       "topButton": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
       "heading": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
+      "ctaText": "Solarrechner starten",
+      "ctaLink": "/commercial/calculator"
+    }
+  },
+  "commercialSolarFreeHub": {
+    "hero": {
+      "title": "SolarFree",
+      "description": "Solaranlagen ohne Investition für Gewerbe- und Industriegebäude, Bauernhöfe, öffentliche Gebäude und Mehrfamilienhäuser"
+    },
+    "topics": {
+      "title": "Welches SolarFree passt zu Ihrem Gebäude?",
+      "items": [
+        {
+          "title": "Mehrfamilienhäuser",
+          "description": "Für Mehrfamilienhäuser (ZEV / LEG)",
+          "linkLabel": "Mehrfamilienhäuser",
+          "image": "/images/solar-abo-multi.png",
+          "href": "/commercial/solar-free/solar-free-multi-family"
+        },
+        {
+          "title": "Industrie / Gewerbe",
+          "description": "Für Gewerbe- und Industriegebäude",
+          "linkLabel": "Industrie / Gewerbe",
+          "image": "/images/solar-abo-business.png",
+          "href": "/commercial/solar-free/industry-commercial"
+        },
+        {
+          "title": "Bauernhäuser",
+          "description": "Für Bauernhöfe und landwirtschaftliche Betriebe",
+          "linkLabel": "Bauernhäuser",
+          "image": "/images/solar-abo-agro.png",
+          "href": "/commercial/solar-free/farmhouses"
+        },
+        {
+          "title": "Öffentliche Gebäude",
+          "description": "Für Schulen, Spitäler und Gemeindegebäude",
+          "linkLabel": "Öffentliche Gebäude",
+          "image": "/images/solar-abo-public.png",
+          "href": "/commercial/solar-free/public-buildings"
+        }
+      ]
+    },
+    "howPV": {
+      "row1": {
+        "title": "So funktioniert SolarFree",
+        "description": "Sie wünschen sich eine Solaranlage, möchten aber nicht investieren. Wir prüfen Ihr Gebäude kostenlos und übernehmen Planung, Finanzierung, Bau und Betrieb der Anlage. Sie stellen das Dach zur Verfügung und profitieren von günstigen Strompreisen."
+      }
+    },
+    "cta": {
+      "topButton": "Kein Investment. Geringere Stromkosten.",
+      "heading": "Prüfen Sie, ob SolarFree zu Ihrem Gebäude passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/commercial/calculator"
     }
@@ -3282,9 +3333,9 @@
           "href": "/commercial/charging-stations/apartment-building"
         },
         {
-          "title": "Verfolgen",
+          "title": "Unternehmen",
           "description": "Lastmanagement und Monitoring für Firmenflotten.",
-          "linkLabel": "Verfolgen",
+          "linkLabel": "Unternehmen",
           "image": "/images/commercial-charging-verfolgen-483c1d.webp",
           "href": "/commercial/charging-stations/company"
         },
@@ -4201,6 +4252,17 @@
       "optionChargingStation": "Ladestation",
       "callbackLabel": "Bitte rufen Sie mich nächste Woche für eine kostenlose Erstberatung zurück.",
       "callbackYes": "Ja gerne",
+      "email": "E-Mail",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
+      "phone": "Telefonnummer",
+      "phonePlaceholder": "Geben Sie Ihre Telefonnummer ein",
+      "postalCode": "Postleitzahl",
+      "postalCodePlaceholder": "Geben Sie Ihre Postleitzahl ein",
+      "city": "Ort",
+      "cityPlaceholder": "Geben Sie Ihren Ort ein",
+      "privacy": "Hiermit bestätige ich, dass ich die Datenschutzerklärung gelesen und verstanden habe.",
+      "success": "Ihre Anfrage wurde erfolgreich übermittelt. Wir werden uns in Kürze bei Ihnen melden.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
       "submit": "Jetzt Angebot einholen"
     },
     "faq": {
@@ -4343,9 +4405,9 @@
     },
     "quoteCTA": {
       "eyebrow": "Förderung",
-      "title": "Jetzt ein kostenloses, unverbindliches Angebot erhalten!",
-      "description": "Konfigurieren Sie die richtige Wärmepumpe in Minuten mit unserem Rechner und erhalten Sie sofort ein konkretes Angebot:",
-      "cta": "Solarrechner starten"
+      "title": "Jetzt ein kostenloses, unverbindliches Angebot anfordern",
+      "description": "Kontaktieren Sie uns und erhalten Sie ein konkretes Angebot für die richtige Wärmepumpe.",
+      "cta": "Angebot anfordern"
     },
     "energySolutions": {
       "title": "Unsere Energielösungen",
@@ -4404,7 +4466,7 @@
   "heatPumpsProducts": {
     "hero": {
       "title": "Produktportfolio\nWärmepumpen",
-      "description": "Solarmodule für eine effiziente, langfristige Energieerzeugung"
+      "description": "Luft-Wasser- und Sole-Wasser-Wärmepumpen von NIBE und Viessmann für Innen- und Aussenaufstellung."
     },
     "outdoorTable": {
       "title": "Luft-Wasser-Wärmepumpe für Aussenaufstellung",
@@ -4486,14 +4548,14 @@
     "evChargingIntro": {
       "eyebrow": "Wohnungseigentümer",
       "title": "E-Laden in\nMehrfamilienhäusern installieren",
-      "description": "Wir helfen Immobilienbesitzern bei der Planung skalierbarer E-Ladelösungen.\n\nErhalten Sie eine unverbindliche Schätzung mit unserem Online-Rechner."
+      "description": "Wir helfen Immobilienbesitzern bei der Planung skalierbarer E-Ladelösungen.\n\nKontaktieren Sie uns für eine unverbindliche Beratung."
     },
     "calculatorCta": {
-      "eyebrow": "Berechnen",
-      "title": "Berechnen Sie jetzt den Preis Ihrer Ladestation.",
-      "description": "Berechnet den Preis Ihrer Ladestation anhand weniger Angaben.",
-      "cta": "Solar-Rechner starten",
-      "subtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+      "eyebrow": "Beratung",
+      "title": "Lassen Sie sich jetzt zu Ihrer Ladeinfrastruktur beraten.",
+      "description": "Wir helfen Ihnen bei der Planung skalierbarer E-Ladelösungen für Ihr Mehrfamilienhaus.",
+      "cta": "Kontakt aufnehmen",
+      "subtext": "kostenlos - unkompliziert - unverbindlich"
     },
     "freeStateOffers": {
       "title": "FreeState bietet Ihnen das",
@@ -4577,8 +4639,8 @@
     },
     "quoteCTA": {
       "eyebrow": "Kosten einer Solaranlage",
-      "title": "Jetzt ein kostenloses, unverbindliches Angebot erhalten!",
-      "description": "Konfigurieren Sie Ihre eigene Anlage in wenigen Minuten mit unserem Solarrechner und erhalten Sie sofort ein konkretes Angebot:",
+      "title": "Jetzt Ihre Solaranlage kostenlos berechnen",
+      "description": "Konfigurieren Sie Ihre eigene Anlage in wenigen Minuten mit unserem Solarrechner:",
       "checklist": {
         "investmentCosts": "Investitionskosten",
         "subsidies": "Förderungen & Steuerabzüge",
@@ -4690,19 +4752,19 @@
   "chargingStationsApartmentBuilding": {
     "hero": {
       "title": "Mehrfamilienhaus",
-      "description": "Solarmodule für effiziente, langfristige Energieerzeugung"
+      "description": "Zukunftssichere Ladeinfrastruktur für Mehrfamilienhäuser, von der Planung bis zur Abrechnung."
     },
     "evChargingIntro": {
       "eyebrow": "E-Ladestationen",
       "title": "E-Ladestationen im\nMehrfamilienhaus",
-      "description": "Wir unterstützen Immobilienbesitzer bei der Planung und Installation zukunftssicherer Ladeinfrastruktur.\n\nErhalten Sie eine unverbindliche Kostenschätzung mit unserem Online-Rechner."
+      "description": "Wir unterstützen Immobilienbesitzer bei der Planung und Installation zukunftssicherer Ladeinfrastruktur.\n\nKontaktieren Sie uns für eine unverbindliche Beratung."
     },
     "calculatorCta": {
-      "eyebrow": "Berechnen",
-      "title": "Berechnen Sie jetzt den Preis Ihrer Ladestation.",
-      "description": "Berechnet den Preis Ihrer Ladestation anhand weniger Angaben.",
-      "cta": "Solarrechner starten",
-      "subtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+      "eyebrow": "Beratung",
+      "title": "Lassen Sie sich jetzt zu Ihrer Ladestation beraten.",
+      "description": "Wir beraten Sie zu Planung, Installation und Abrechnung Ihrer Ladeinfrastruktur.",
+      "cta": "Kontakt aufnehmen",
+      "subtext": "kostenlos - unkompliziert - unverbindlich"
     },
     "freeStateOffers": {
       "title": "Das bietet Ihnen FreeState",
@@ -4749,13 +4811,13 @@
     "companySolution": {
       "title": "Die Ladelösung\nfür Ihr Unternehmen",
       "description": "Ladelösungen helfen Flottenbetreibern, von Förderungen, Lastmanagement und automatisierter Stationssteuerung zu profitieren. Kontaktieren Sie uns für Beratung oder Planung.",
-      "cta": "Solarrechner starten"
+      "cta": "Kontakt aufnehmen"
     },
     "freeStateOffers": {
       "title": "FreeState bietet Ihnen das",
       "bullets": {
         "owners": "Für Eigentümer und Verwalter: Wir planen, installieren und warten die Ladeinfrastruktur mit Abrechnung nach Bedarf.",
-        "condominiums": "Für Stockwerkeigentümer: Wir installieren skalierbare Ladeinfrastruktur und Stationen nach Bedarf, mit klarer Ausbauplanung und transparenter, flexibler Abrechnung."
+        "condominiums": "Für Firmenflotten verteilt ein Lastmanagement die Ladeleistung über alle Stationen. Mitarbeiter, Gäste und Kunden lassen sich unterschiedlich abrechnen."
       }
     },
     "faq": {
@@ -4791,7 +4853,7 @@
   "chargingStationsSingleFamilyHome": {
     "hero": {
       "title": "Einfamilienhaus",
-      "description": "Solarmodule für effiziente, langfristige Energieerzeugung"
+      "description": "Intelligente Wallboxen für Ihr Zuhause, abgestimmt auf Ihre Solaranlage oder Wärmepumpe."
     },
     "intro": {
       "eyebrow": "Einfamilienhäuser",
@@ -4800,14 +4862,14 @@
     },
     "weOffer": {
       "title": "Das bieten wir Ihnen",
-      "description": "Wir planen und installieren intelligente Heimladelösungen mit hochwertigen Produkten, die sich vollständig in Ihre Solaranlage oder Wärmepumpe integrieren lassen, bidirektionales Laden ermöglichen und durch laufenden technischen Service unterstützt werden.\n\nErhalten Sie in wenigen Minuten eine unverbindliche Kostenschätzung mit unserem Online-Angebotsrechner."
+      "description": "Wir planen und installieren intelligente Heimladelösungen mit hochwertigen Produkten, die sich vollständig in Ihre Solaranlage oder Wärmepumpe integrieren lassen, bidirektionales Laden ermöglichen und durch laufenden technischen Service unterstützt werden.\n\nKontaktieren Sie uns für eine unverbindliche Beratung."
     },
     "calculator": {
-      "eyebrow": "Berechnen",
-      "title": "Berechnen Sie jetzt den Preis Ihrer Ladestation.",
-      "description": "Berechnet den Preis Ihrer Ladestation anhand weniger Angaben.",
-      "ctaText": "Solar-Rechner starten",
-      "ctaSubtext": "kostenlos - unkompliziert - präzise - unverbindlich"
+      "eyebrow": "Beratung",
+      "title": "Lassen Sie sich jetzt zu Ihrer Ladestation beraten.",
+      "description": "Wir planen und installieren Ihre Wallbox, passend zu Ihrer Solaranlage oder Wärmepumpe.",
+      "ctaText": "Kontakt aufnehmen",
+      "ctaSubtext": "kostenlos - unkompliziert - unverbindlich"
     },
     "bidirectionalCharging": {
       "title": "Bidirektionales Solarladen",

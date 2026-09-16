@@ -34,7 +34,7 @@ const CompanySolutionSection = async () => {
 
             <LinkButton
               variant="quaternary"
-              href="/solar-calculator"
+              href="/contact"
               className="w-fit"
             >
               {t('companySolution.cta')}

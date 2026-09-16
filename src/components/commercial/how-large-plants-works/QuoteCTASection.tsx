@@ -67,7 +67,7 @@ const QuoteCTASection = async () => {
           </div>
 
           <div className="flex flex-col items-center gap-5">
-            <LinkButton href="/solar-calculator" variant="outline-secondary">
+            <LinkButton href="/commercial/calculator" variant="outline-secondary">
               {t('quoteCTA.cta')}
             </LinkButton>
             <p className="text-white/80 text-base tracking-[-0.02em] text-center">

@@ -257,8 +257,8 @@
       "description": "Scalable charging infrastructure for residential complexes, load management and monitoring for company fleets, fast charging and bidirectional charging."
     },
     "commercialSolarFree": {
-      "title": "",
-      "description": ""
+      "title": "SolarFree for Businesses, Farms and Public Buildings",
+      "description": "We finance, build and operate the solar system on your roof with no investment. For commercial buildings, farms, public buildings and apartment buildings."
     },
     "commercialSolarFreeIndustry": {
       "title": "Solar for Industrial and Commercial Buildings, No Investment",
@@ -1782,6 +1782,57 @@
     "cta": {
       "topButton": "See if Public Buildings works for your building",
       "heading": "See if Public Buildings works for your building",
+      "ctaText": "Start the Solar Calculator",
+      "ctaLink": "/commercial/calculator"
+    }
+  },
+  "commercialSolarFreeHub": {
+    "hero": {
+      "title": "SolarFree",
+      "description": "Solar systems without investment for commercial and industrial buildings, farms, public buildings and apartment buildings"
+    },
+    "topics": {
+      "title": "Which SolarFree fits your building?",
+      "items": [
+        {
+          "title": "Apartment Buildings",
+          "description": "For apartment buildings (ZEV / LEG)",
+          "linkLabel": "Apartment Buildings",
+          "image": "/images/solar-abo-multi.png",
+          "href": "/commercial/solar-free/solar-free-multi-family"
+        },
+        {
+          "title": "Industry / Commercial",
+          "description": "For commercial and industrial buildings",
+          "linkLabel": "Industry / Commercial",
+          "image": "/images/solar-abo-business.png",
+          "href": "/commercial/solar-free/industry-commercial"
+        },
+        {
+          "title": "Farmhouses",
+          "description": "For farms and agricultural operations",
+          "linkLabel": "Farmhouses",
+          "image": "/images/solar-abo-agro.png",
+          "href": "/commercial/solar-free/farmhouses"
+        },
+        {
+          "title": "Public Buildings",
+          "description": "For schools, hospitals and municipal buildings",
+          "linkLabel": "Public Buildings",
+          "image": "/images/solar-abo-public.png",
+          "href": "/commercial/solar-free/public-buildings"
+        }
+      ]
+    },
+    "howPV": {
+      "row1": {
+        "title": "How SolarFree works",
+        "description": "You would like a solar system but do not want to invest. We assess your building for free and take care of planning, financing, construction and operation of the system. You provide the roof and benefit from low electricity prices."
+      }
+    },
+    "cta": {
+      "topButton": "Zero investment. Lower electricity costs.",
+      "heading": "See if SolarFree works for your building",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/commercial/calculator"
     }
@@ -5061,6 +5112,17 @@
       "optionChargingStation": "Charging Station",
       "callbackLabel": "Please call me back next week for a free initial consultation.",
       "callbackYes": "Yes gladly",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Telephone number",
+      "phonePlaceholder": "Enter your telephone number",
+      "postalCode": "Postal code",
+      "postalCodePlaceholder": "Enter your postal code",
+      "city": "Location",
+      "cityPlaceholder": "Enter your location",
+      "privacy": "I hereby confirm that I have read and understood the privacy policy.",
+      "success": "Your inquiry has been submitted successfully. We will get back to you shortly.",
+      "error": "Something went wrong. Please try again.",
       "submit": "Get a quote now"
     },
     "faq": {
@@ -5203,9 +5265,9 @@
     },
     "quoteCTA": {
       "eyebrow": "Support",
-      "title": "Get a free, no-obligation quote now!",
-      "description": "Configure the right heat pump in minutes with our calculator and receive a concrete offer immediately:",
-      "cta": "Start solar calculator"
+      "title": "Request a free, no-obligation quote now",
+      "description": "Contact us and receive a concrete offer for the right heat pump.",
+      "cta": "Request a quote"
     },
     "energySolutions": {
       "title": "Our energy solutions",
@@ -5264,7 +5326,7 @@
   "heatPumpsProducts": {
     "hero": {
       "title": "Product Portfolio\nHeat Pumps",
-      "description": "Solar modules for efficient, long-term energy production"
+      "description": "Air-to-water and ground source heat pumps from NIBE and Viessmann for indoor and outdoor installation."
     },
     "outdoorTable": {
       "title": "Air-to-water heat pump for outdoor installation",
@@ -5346,14 +5408,14 @@
     "evChargingIntro": {
       "eyebrow": "Apartment Owners",
       "title": "Install EV Charging\nin Apartments",
-      "description": "We help property owners plan scalable EV charging solutions.\n\nGet a non-binding estimate with our online calculator."
+      "description": "We help property owners plan scalable EV charging solutions.\n\nContact us for a non-binding consultation."
     },
     "calculatorCta": {
-      "eyebrow": "Calculate",
-      "title": "Calculate the price of your charging station now.",
-      "description": "Calculates the price of your charging station based on just a few details.",
-      "cta": "Start the Solar Calculator",
-      "subtext": "free - uncomplicated - precise - non-binding"
+      "eyebrow": "Consultation",
+      "title": "Get advice on your charging infrastructure now.",
+      "description": "We help you plan scalable EV charging solutions for your apartment building.",
+      "cta": "Get in touch",
+      "subtext": "free - uncomplicated - non-binding"
     },
     "freeStateOffers": {
       "title": "FreeState offers you this",
@@ -5437,8 +5499,8 @@
     },
     "quoteCTA": {
       "eyebrow": "Cost of a Solar System",
-      "title": "Get a free, no-obligation quote now!",
-      "description": "Configure your own system in minutes with our solar calculator and receive a concrete offer immediately:",
+      "title": "Calculate your solar system for free now",
+      "description": "Configure your own system in minutes with our solar calculator:",
       "checklist": {
         "investmentCosts": "Investment costs",
         "subsidies": "Subsidies & tax deductions",
@@ -5599,19 +5661,19 @@
   "chargingStationsApartmentBuilding": {
     "hero": {
       "title": "Apartment Building",
-      "description": "Solar modules for efficient, long-term energy production"
+      "description": "Future-ready charging infrastructure for apartment buildings, from planning to billing."
     },
     "evChargingIntro": {
       "eyebrow": "EV Charging",
       "title": "EV Charging in\nApartment Buildings",
-      "description": "We support property owners in planning and installing future-ready charging infrastructure.\n\nGet a non-binding cost estimate with our online calculator."
+      "description": "We support property owners in planning and installing future-ready charging infrastructure.\n\nContact us for a non-binding consultation."
     },
     "calculatorCta": {
-      "eyebrow": "Calculate",
-      "title": "Calculate the price of your charging station now.",
-      "description": "Calculates the price of your charging station based on just a few details.",
-      "cta": "Start the Solar Calculator",
-      "subtext": "free - uncomplicated - precise - non-binding"
+      "eyebrow": "Consultation",
+      "title": "Get advice on your charging station now.",
+      "description": "We advise you on planning, installing and billing your charging infrastructure.",
+      "cta": "Get in touch",
+      "subtext": "free - uncomplicated - non-binding"
     },
     "freeStateOffers": {
       "title": "FreeState offers you this",
@@ -5658,13 +5720,13 @@
     "companySolution": {
       "title": "Your company's\ncharging solution",
       "description": "Charging solutions help fleet operators benefit from subsidies, load management, and automated station control. Contact us for consultation or planning.",
-      "cta": "Start solar calculator"
+      "cta": "Get in touch"
     },
     "freeStateOffers": {
       "title": "FreeState offers you this",
       "bullets": {
         "owners": "For owners and property managers: We plan, install and maintain the charging infrastructure, with billing as required.",
-        "condominiums": "For condominium owners: we install scalable charging infrastructure and stations as needed, with clear expansion planning and transparent, flexible billing."
+        "condominiums": "For company fleets, load management distributes charging power across all stations. Employees, guests and customers can be billed at different rates."
       }
     },
     "faq": {
@@ -5700,7 +5762,7 @@
   "chargingStationsSingleFamilyHome": {
     "hero": {
       "title": "Single - Family House",
-      "description": "Solar modules for efficient, long-term energy production"
+      "description": "Smart wallboxes for your home, integrated with your solar system or heat pump."
     },
     "intro": {
       "eyebrow": "Family houses",
@@ -5709,14 +5771,14 @@
     },
     "weOffer": {
       "title": "We offer you this",
-      "description": "We plan and install intelligent home charging solutions with high-quality products that integrate fully with your solar system or heat pump, enable bidirectional charging and are backed by ongoing technical service.\n\nGet a non-binding cost estimate in just a few minutes with our online quote calculator."
+      "description": "We plan and install intelligent home charging solutions with high-quality products that integrate fully with your solar system or heat pump, enable bidirectional charging and are backed by ongoing technical service.\n\nContact us for a non-binding consultation."
     },
     "calculator": {
-      "eyebrow": "Calculate",
-      "title": "Calculate the price of your charging station now.",
-      "description": "Calculates the price of your charging station based on just a few details.",
-      "ctaText": "Start the Solar Calculator",
-      "ctaSubtext": "free - uncomplicated - precise - non-binding"
+      "eyebrow": "Consultation",
+      "title": "Get advice on your charging station now.",
+      "description": "We plan and install your wallbox to match your solar system or heat pump.",
+      "ctaText": "Get in touch",
+      "ctaSubtext": "free - uncomplicated - non-binding"
     },
     "bidirectionalCharging": {
       "title": "Bidirectional Solar Charging",

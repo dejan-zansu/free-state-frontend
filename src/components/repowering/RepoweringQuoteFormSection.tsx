@@ -4,7 +4,10 @@ import { ArrowButton } from '@/components/ui/arrow-button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
+import { getAttribution } from '@/lib/analytics/funnel-events'
+import { trackLead } from '@/lib/analytics/track-lead'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 const interestOptions = [
@@ -15,14 +18,23 @@ const interestOptions = [
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
+const inputClassName =
+  'h-9 bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-[#062E25] placeholder:text-[#062E25]/20 text-sm font-medium tracking-[-0.02em]'
+
 const RepoweringQuoteFormSection = () => {
   const t = useTranslations('repowering.quoteForm')
+  const locale = useLocale()
 
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
+    email: '',
+    phone: '',
+    postalCode: '',
+    city: '',
     interests: [] as string[],
     callbackRequested: false,
+    privacy: false,
   })
 
   const [status, setStatus] = useState<
@@ -41,16 +53,23 @@ const RepoweringQuoteFormSection = () => {
     e.preventDefault()
     setStatus('loading')
 
+    const { interests, callbackRequested, ...contact } = formData
+
     try {
-      const response = await fetch(`${API_URL}/api/repowering-inquiries`, {
+      const response = await fetch(`${API_URL}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...contact,
+          repowering: { interests, callbackRequested },
+          attribution: getAttribution(),
+        }),
       })
 
       const data = await response.json()
 
       if (data.success) {
+        trackLead({ form: 'contact', source: 'repowering', locale })
         setStatus('success')
       } else {
         setStatus('error')
@@ -71,7 +90,7 @@ const RepoweringQuoteFormSection = () => {
       >
         <div className="max-w-[621px] mx-auto px-4 sm:px-6 text-center">
           <p className="text-[#062E25] text-base md:text-[22px] tracking-[-0.02em]">
-            Thank you for your inquiry. We will get back to you shortly.
+            {t('success')}
           </p>
         </div>
       </section>
@@ -107,7 +126,7 @@ const RepoweringQuoteFormSection = () => {
                     setFormData({ ...formData, firstName: e.target.value })
                   }
                   placeholder={t('firstNamePlaceholder')}
-                  className="h-9 bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-[#062E25] placeholder:text-[#062E25]/20 text-sm font-medium tracking-[-0.02em]"
+                  className={inputClassName}
                   required
                 />
               </div>
@@ -121,7 +140,71 @@ const RepoweringQuoteFormSection = () => {
                     setFormData({ ...formData, lastName: e.target.value })
                   }
                   placeholder={t('lastNamePlaceholder')}
-                  className="h-9 bg-[#EAEDDF] border-[#E5E5E5] rounded-[5px] backdrop-blur-[65px] text-[#062E25] placeholder:text-[#062E25]/20 text-sm font-medium tracking-[-0.02em]"
+                  className={inputClassName}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-[5px]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
+                  {t('email')}
+                </Label>
+                <Input
+                  type="email"
+                  value={formData.email}
+                  onChange={e =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  placeholder={t('emailPlaceholder')}
+                  className={inputClassName}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-[5px]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
+                  {t('phone')}
+                </Label>
+                <Input
+                  type="tel"
+                  value={formData.phone}
+                  onChange={e =>
+                    setFormData({ ...formData, phone: e.target.value })
+                  }
+                  placeholder={t('phonePlaceholder')}
+                  className={inputClassName}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="flex flex-col gap-[5px]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
+                  {t('postalCode')}
+                </Label>
+                <Input
+                  value={formData.postalCode}
+                  onChange={e =>
+                    setFormData({ ...formData, postalCode: e.target.value })
+                  }
+                  placeholder={t('postalCodePlaceholder')}
+                  className={inputClassName}
+                  required
+                />
+              </div>
+              <div className="flex flex-col gap-[5px]">
+                <Label className="text-[#062E25] text-sm font-medium tracking-[-0.02em]">
+                  {t('city')}
+                </Label>
+                <Input
+                  value={formData.city}
+                  onChange={e =>
+                    setFormData({ ...formData, city: e.target.value })
+                  }
+                  placeholder={t('cityPlaceholder')}
+                  className={inputClassName}
                   required
                 />
               </div>
@@ -171,20 +254,37 @@ const RepoweringQuoteFormSection = () => {
               </label>
             </div>
 
+            <label className="flex items-center gap-[10px] cursor-pointer">
+              <Checkbox
+                checked={formData.privacy}
+                onCheckedChange={checked =>
+                  setFormData({ ...formData, privacy: checked as boolean })
+                }
+                className="size-[15px] rounded-[3.75px] border-[#062E25] opacity-60"
+              />
+              <span className="text-[#062E25]/75 text-sm font-medium tracking-[-0.02em]">
+                <Link
+                  href="/privacy-policy"
+                  onClick={e => e.stopPropagation()}
+                  className="hover:underline"
+                >
+                  {t('privacy')}
+                </Link>
+              </span>
+            </label>
+
             <div className="mt-4 mb-16">
               <ArrowButton
                 type="submit"
                 variant="tertiary"
-                disabled={status === 'loading'}
+                disabled={status === 'loading' || !formData.privacy}
               >
                 {t('submit')}
               </ArrowButton>
             </div>
 
             {status === 'error' && (
-              <p className="text-red-600 text-sm">
-                Something went wrong. Please try again.
-              </p>
+              <p className="text-red-600 text-sm">{t('error')}</p>
             )}
           </form>
         </div>

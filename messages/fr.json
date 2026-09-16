@@ -257,8 +257,8 @@
       "description": "Infrastructure de recharge évolutive pour complexes résidentiels, gestion de charge et monitoring pour flottes, recharge rapide et recharge bidirectionnelle."
     },
     "commercialSolarFree": {
-      "title": "",
-      "description": ""
+      "title": "SolarFree pour entreprises, fermes et bâtiments publics",
+      "description": "Nous finançons, construisons et exploitons l'installation solaire sur votre toit, sans investissement. Pour entreprises, fermes, bâtiments publics et immeubles."
     },
     "commercialSolarFreeIndustry": {
       "title": "Solaire sans investissement pour l'industrie et le commerce",
@@ -1680,7 +1680,7 @@
       }
     },
     "publicSpaces": {
-      "title": "Powering Public Spaces",
+      "title": "De l'électricité pour les bâtiments publics",
       "subtitle": "Avec une énergie propre et fiable",
       "body": "Les écoles, bâtiments administratifs et propriétés publiques ont une responsabilité dans la transition énergétique, qu'ils peuvent assumer sans alourdir leurs budgets. Nous analysons gratuitement le potentiel et la rentabilité et nous occupons de la planification, du financement, de la construction et de l'exploitation de l'installation. La commune profite ainsi de coûts énergétiques stables, d'une contribution visible à la durabilité et d'une fonction d'exemple, sans avoir à avancer un seul franc. Demandez une analyse sans engagement dès maintenant."
     },
@@ -1782,6 +1782,57 @@
     "cta": {
       "topButton": "Voir si Bâtiments publics convient à votre bâtiment",
       "heading": "Voir si Bâtiments publics convient à votre bâtiment",
+      "ctaText": "Démarrer le calculateur solaire",
+      "ctaLink": "/commercial/calculator"
+    }
+  },
+  "commercialSolarFreeHub": {
+    "hero": {
+      "title": "SolarFree",
+      "description": "Installations solaires sans investissement pour bâtiments commerciaux et industriels, fermes, bâtiments publics et immeubles collectifs"
+    },
+    "topics": {
+      "title": "Quel SolarFree convient à votre bâtiment ?",
+      "items": [
+        {
+          "title": "Immeubles collectifs",
+          "description": "Pour immeubles collectifs (RCP / CEL)",
+          "linkLabel": "Immeubles collectifs",
+          "image": "/images/solar-abo-multi.png",
+          "href": "/commercial/solar-free/solar-free-multi-family"
+        },
+        {
+          "title": "Industrie / Commerce",
+          "description": "Pour bâtiments commerciaux et industriels",
+          "linkLabel": "Industrie / Commerce",
+          "image": "/images/solar-abo-business.png",
+          "href": "/commercial/solar-free/industry-commercial"
+        },
+        {
+          "title": "Fermes",
+          "description": "Pour fermes et exploitations agricoles",
+          "linkLabel": "Fermes",
+          "image": "/images/solar-abo-agro.png",
+          "href": "/commercial/solar-free/farmhouses"
+        },
+        {
+          "title": "Bâtiments publics",
+          "description": "Pour écoles, hôpitaux et bâtiments communaux",
+          "linkLabel": "Bâtiments publics",
+          "image": "/images/solar-abo-public.png",
+          "href": "/commercial/solar-free/public-buildings"
+        }
+      ]
+    },
+    "howPV": {
+      "row1": {
+        "title": "Comment fonctionne SolarFree",
+        "description": "Vous souhaitez une installation solaire sans vouloir investir. Nous analysons gratuitement votre bâtiment et nous occupons de la planification, du financement, de la construction et de l'exploitation de l'installation. Vous mettez le toit à disposition et profitez de prix de l'électricité avantageux."
+      }
+    },
+    "cta": {
+      "topButton": "Zéro investissement. Coûts d'électricité réduits.",
+      "heading": "Voir si SolarFree convient à votre bâtiment",
       "ctaText": "Démarrer le calculateur solaire",
       "ctaLink": "/commercial/calculator"
     }
@@ -5061,6 +5112,17 @@
       "optionChargingStation": "Borne de recharge",
       "callbackLabel": "Veuillez me rappeler la semaine prochaine pour une première consultation gratuite.",
       "callbackYes": "Oui, volontiers",
+      "email": "E-mail",
+      "emailPlaceholder": "Saisissez votre e-mail",
+      "phone": "Numéro de téléphone",
+      "phonePlaceholder": "Saisissez votre numéro de téléphone",
+      "postalCode": "Code postal",
+      "postalCodePlaceholder": "Saisissez votre code postal",
+      "city": "Localité",
+      "cityPlaceholder": "Saisissez votre localité",
+      "privacy": "Je confirme avoir lu et compris la politique de confidentialité.",
+      "success": "Votre demande a été envoyée avec succès. Nous vous recontacterons sous peu.",
+      "error": "Une erreur s'est produite. Veuillez réessayer.",
       "submit": "Demander un devis"
     },
     "faq": {
@@ -5203,9 +5265,9 @@
     },
     "quoteCTA": {
       "eyebrow": "Soutien",
-      "title": "Obtenez un devis gratuit et sans engagement !",
-      "description": "Configurez la bonne pompe à chaleur en quelques minutes avec notre calculateur et recevez immédiatement une offre concrète :",
-      "cta": "Démarrer le calculateur solaire"
+      "title": "Demandez dès maintenant un devis gratuit et sans engagement",
+      "description": "Contactez-nous et recevez une offre concrète pour la bonne pompe à chaleur.",
+      "cta": "Demander un devis"
     },
     "energySolutions": {
       "title": "Nos solutions énergétiques",
@@ -5264,7 +5326,7 @@
   "heatPumpsProducts": {
     "hero": {
       "title": "Gamme de produits\nPompes à chaleur",
-      "description": "Modules solaires pour une production d'énergie efficace et durable"
+      "description": "Pompes à chaleur air-eau et géothermiques de NIBE et Viessmann pour installation intérieure et extérieure."
     },
     "outdoorTable": {
       "title": "Pompe à chaleur air-eau pour installation extérieure",
@@ -5346,14 +5408,14 @@
     "evChargingIntro": {
       "eyebrow": "Propriétaires d'immeubles",
       "title": "Installer la recharge VE\ndans les immeubles",
-      "description": "Nous aidons les propriétaires à planifier des solutions de recharge VE évolutives.\n\nObtenez une estimation non contraignante avec notre calculateur en ligne."
+      "description": "Nous aidons les propriétaires à planifier des solutions de recharge VE évolutives.\n\nContactez-nous pour un conseil sans engagement."
     },
     "calculatorCta": {
-      "eyebrow": "Calculer",
-      "title": "Calculez maintenant le prix de votre borne de recharge.",
-      "description": "Calcule le prix de votre borne de recharge à partir de quelques informations seulement.",
-      "cta": "Démarrer le calculateur solaire",
-      "subtext": "gratuit - simple - précis - sans engagement"
+      "eyebrow": "Conseil",
+      "title": "Faites-vous conseiller dès maintenant pour votre infrastructure de recharge.",
+      "description": "Nous vous aidons à planifier des solutions de recharge VE évolutives pour votre immeuble collectif.",
+      "cta": "Nous contacter",
+      "subtext": "gratuit - simple - sans engagement"
     },
     "freeStateOffers": {
       "title": "Voici ce que FreeState vous propose",
@@ -5437,8 +5499,8 @@
     },
     "quoteCTA": {
       "eyebrow": "Coût d'une installation solaire",
-      "title": "Obtenez un devis gratuit et sans engagement !",
-      "description": "Configurez votre propre installation en quelques minutes avec notre calculateur et recevez immédiatement une offre concrète :",
+      "title": "Calculez gratuitement votre installation solaire dès maintenant",
+      "description": "Configurez votre propre installation en quelques minutes avec notre calculateur :",
       "checklist": {
         "investmentCosts": "Coûts d'investissement",
         "subsidies": "Subventions & déductions fiscales",
@@ -5599,19 +5661,19 @@
   "chargingStationsApartmentBuilding": {
     "hero": {
       "title": "Immeuble collectif",
-      "description": "Modules solaires pour une production d'énergie efficace et durable"
+      "description": "Une infrastructure de recharge prête pour l'avenir dans les immeubles collectifs, de la planification à la facturation."
     },
     "evChargingIntro": {
       "eyebrow": "Recharge VE",
       "title": "Recharge VE dans les\nimmeubles collectifs",
-      "description": "Nous accompagnons les propriétaires dans la planification et l'installation d'une infrastructure de recharge prête pour l'avenir.\n\nObtenez une estimation non contraignante avec notre calculateur en ligne."
+      "description": "Nous accompagnons les propriétaires dans la planification et l'installation d'une infrastructure de recharge prête pour l'avenir.\n\nContactez-nous pour un conseil sans engagement."
     },
     "calculatorCta": {
-      "eyebrow": "Calculer",
-      "title": "Calculez maintenant le prix de votre borne de recharge.",
-      "description": "Calcule le prix de votre borne de recharge à partir de quelques informations seulement.",
-      "cta": "Démarrer le calculateur solaire",
-      "subtext": "gratuit - simple - précis - sans engagement"
+      "eyebrow": "Conseil",
+      "title": "Faites-vous conseiller dès maintenant pour votre borne de recharge.",
+      "description": "Nous vous conseillons sur la planification, l'installation et la facturation de votre infrastructure de recharge.",
+      "cta": "Nous contacter",
+      "subtext": "gratuit - simple - sans engagement"
     },
     "freeStateOffers": {
       "title": "Voici ce que FreeState vous propose",
@@ -5658,13 +5720,13 @@
     "companySolution": {
       "title": "La solution de recharge\nde votre entreprise",
       "description": "Les solutions de recharge permettent aux gestionnaires de flotte de bénéficier de subventions, de gestion de charge et de contrôle automatisé des bornes. Contactez-nous pour un conseil ou une planification.",
-      "cta": "Démarrer le calculateur solaire"
+      "cta": "Nous contacter"
     },
     "freeStateOffers": {
       "title": "Voici ce que FreeState vous propose",
       "bullets": {
         "owners": "Pour les propriétaires et les gérances : nous planifions, installons et entretenons l'infrastructure de recharge, avec une facturation selon les besoins.",
-        "condominiums": "Pour les propriétaires en PPE : nous installons une infrastructure de recharge évolutive et des bornes au besoin, avec une planification d'extension claire et une facturation transparente et flexible."
+        "condominiums": "Pour les flottes d'entreprise, une gestion de la charge répartit la puissance de recharge entre toutes les bornes. Les collaborateurs, les visiteurs et les clients peuvent être facturés à des tarifs différents."
       }
     },
     "faq": {
@@ -5700,7 +5762,7 @@
   "chargingStationsSingleFamilyHome": {
     "hero": {
       "title": "Maison individuelle",
-      "description": "Modules solaires pour une production d'énergie efficace et durable"
+      "description": "Des wallbox intelligentes pour votre maison, intégrées à votre installation solaire ou à votre pompe à chaleur."
     },
     "intro": {
       "eyebrow": "Maisons individuelles",
@@ -5709,14 +5771,14 @@
     },
     "weOffer": {
       "title": "Voici ce que nous proposons",
-      "description": "Nous planifions et installons des solutions de recharge à domicile intelligentes avec des produits de haute qualité, qui s'intègrent entièrement à votre installation solaire ou à votre pompe à chaleur, permettent la recharge bidirectionnelle et bénéficient d'un service technique continu.\n\nObtenez en quelques minutes une estimation de coûts sans engagement grâce à notre calculateur d'offre en ligne."
+      "description": "Nous planifions et installons des solutions de recharge à domicile intelligentes avec des produits de haute qualité, qui s'intègrent entièrement à votre installation solaire ou à votre pompe à chaleur, permettent la recharge bidirectionnelle et bénéficient d'un service technique continu.\n\nContactez-nous pour un conseil sans engagement."
     },
     "calculator": {
-      "eyebrow": "Calculer",
-      "title": "Calculez maintenant le prix de votre borne de recharge.",
-      "description": "Calcule le prix de votre borne de recharge à partir de quelques informations seulement.",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaSubtext": "gratuit - simple - précis - sans engagement"
+      "eyebrow": "Conseil",
+      "title": "Faites-vous conseiller dès maintenant pour votre borne de recharge.",
+      "description": "Nous planifions et installons votre wallbox en l'adaptant à votre installation solaire ou à votre pompe à chaleur.",
+      "ctaText": "Nous contacter",
+      "ctaSubtext": "gratuit - simple - sans engagement"
     },
     "bidirectionalCharging": {
       "title": "Recharge solaire bidirectionnelle",
@@ -9392,6 +9454,23 @@
     "eyebrow": "SolarDirect",
     "title": "Vérifiez le potentiel solaire\nde votre toit",
     "cta": "Démarrer le calculateur solaire"
+  },
+  "foerderung": {
+    "hubTitle": "Subventions photovoltaïques en Suisse 2026",
+    "hubSubheading": "Programmes de subventions PV actuels, tarifs de reprise et état de l'obligation solaire dans les 26 cantons.",
+    "inPreparation": "en préparation",
+    "ctaCalculate": "Calculer une installation solaire",
+    "lastUpdated": "Mis à jour le",
+    "sections": {
+      "pronovo": "Rétribution unique Pronovo",
+      "cantonal": "Programmes cantonaux",
+      "solarpflicht": "Obligation solaire",
+      "tariffs": "Tarifs de reprise des fournisseurs d'énergie",
+      "gemeinden": "Principales communes avec subventions supplémentaires",
+      "steuer": "Aspects fiscaux",
+      "sources": "Sources",
+      "faq": "Questions fréquentes"
+    }
   },
   "solarAboPlanHome": {
     "hero": {
