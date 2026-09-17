@@ -85,6 +85,30 @@ interface ManualCheckPayload {
   attribution?: Attribution
 }
 
+export interface EstimatePayload {
+  address: string
+  selectedSegments: RoofSegment[]
+  estimatedConsumption: number
+  consumptionOverrideKwh?: number | null
+  devices: CalculationPayload['devices']
+  solarModel: SolarModel
+  ppaDiscountPercent: number | null
+  selectedPackageId?: string
+}
+
+export interface SavingsEstimate {
+  solarModel: SolarModel
+  annualSavingsChf: number
+  systemSizeKwp: number
+  roofSystemSizeKwp: number
+  annualProductionKwh: number
+}
+
+interface EstimateResponse {
+  success: boolean
+  data: SavingsEstimate | null
+}
+
 interface CreateAccountResponse {
   success: boolean
   data: {
@@ -237,6 +261,14 @@ class ResidentialCalculatorService {
     if (solarModel) params.set('solarModel', solarModel)
     const response = await api.get<GetPackagesResponse>(
       `/equipment/packages?${params}`
+    )
+    return response.data.data
+  }
+
+  async estimate(payload: EstimatePayload): Promise<SavingsEstimate | null> {
+    const response = await api.post<EstimateResponse>(
+      '/residential-calculator/estimate',
+      payload
     )
     return response.data.data
   }

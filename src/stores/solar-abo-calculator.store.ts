@@ -30,6 +30,7 @@ import {
 import {
   residentialCalculatorService,
   type ManualCheckSource,
+  type SavingsEstimate,
 } from '@/services/residential-calculator.service'
 import { getAttribution } from '@/lib/analytics/funnel-events'
 import { setAccessToken } from '@/lib/api'
@@ -295,6 +296,7 @@ interface SolarAboCalculatorActions {
   setSelectedEvCharger: (id: string, priceChf: number) => void
   clearEvCharger: () => void
   getSubsidyAmount: () => number
+  fetchSavingsEstimate: () => Promise<SavingsEstimate | null>
   createAccount: () => Promise<void>
   reset: () => void
 
@@ -737,6 +739,23 @@ export const useSolarAboCalculatorStore = create<
         )
         const tier2Amount = tier2Kwp * rate.tier2ChfPerKwp
         return Math.round(tier1Amount + tier2Amount)
+      },
+
+      fetchSavingsEstimate: async () => {
+        const state = get()
+        const isSolarFree = state.solarModel === 'solar-free'
+        return residentialCalculatorService.estimate({
+          address: state.address,
+          selectedSegments: state.getSelectedSegments(),
+          estimatedConsumption: state.getEstimatedConsumption(),
+          consumptionOverrideKwh: state.consumptionOverrideKwh ?? undefined,
+          devices: state.devices,
+          solarModel: state.solarModel ?? 'solar-direct',
+          ppaDiscountPercent: isSolarFree
+            ? (state.selectedPackageElectricitySavingsPercent ?? DEFAULT_PPA_DISCOUNT_PCT)
+            : null,
+          selectedPackageId: state.selectedPackageId ?? undefined,
+        })
       },
 
       createAccount: async () => {

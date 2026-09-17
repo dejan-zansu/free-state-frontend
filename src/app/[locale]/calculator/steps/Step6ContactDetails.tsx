@@ -18,7 +18,10 @@ import {
   trackFunnelEventOnce,
 } from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
-import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import {
+  residentialCalculatorService,
+  type SavingsEstimate,
+} from '@/services/residential-calculator.service'
 import { Link as LocaleLink } from '@/i18n/navigation'
 import { useRouter } from 'next/navigation'
 import { useCalculatorEmbed } from '../CalculatorEmbedContext'
@@ -672,23 +675,54 @@ function ContactScreenV2() {
     getSystemSizeKwp,
     getAnnualProduction,
     getRoofCapacityKwp,
+    fetchSavingsEstimate,
   } = useSolarAboCalculatorStore()
 
-  // Ungated teaser: the physical facts about the roof are shown before the contact
-  // ask, the financial result stays behind it. Swiss thousands separator regardless
-  // of locale, because all four site locales are Swiss.
+  // Ungated teaser: the physical facts about the roof plus the yearly savings are
+  // shown before the contact ask (CLM-019 lifted by the owner on 2026-09-17). Price,
+  // subsidy and payback stay behind it. Swiss thousands separator regardless of
+  // locale, because all four site locales are Swiss.
   const roofAreaM2 = Math.round(getSelectedArea())
-  const systemSizeKwp = getSystemSizeKwp()
-  const annualProductionKwh = Math.round(getAnnualProduction())
-  const roofCapacityKwp = getRoofCapacityKwp()
-  const showSizedNote = roofCapacityKwp > systemSizeKwp + 0.5
+  const clientSystemSizeKwp = getSystemSizeKwp()
+  const clientAnnualProductionKwh = Math.round(getAnnualProduction())
   const showTeaser =
-    roofAreaM2 > 0 && systemSizeKwp > 0 && annualProductionKwh > 0
+    roofAreaM2 > 0 && clientSystemSizeKwp > 0 && clientAnnualProductionKwh > 0
   const swissNumber = (value: number, digits = 0) =>
     value.toLocaleString('de-CH', {
       minimumFractionDigits: digits,
       maximumFractionDigits: digits,
     })
+
+  const [savingsEstimate, setSavingsEstimate] =
+    useState<SavingsEstimate | null>(null)
+  useEffect(() => {
+    if (!showTeaser) return
+    let cancelled = false
+    fetchSavingsEstimate()
+      .then(result => {
+        if (!cancelled) setSavingsEstimate(result)
+      })
+      .catch(() => {})
+    return () => {
+      cancelled = true
+    }
+  }, [showTeaser, fetchSavingsEstimate])
+  const systemSizeKwp = savingsEstimate?.systemSizeKwp ?? clientSystemSizeKwp
+  const annualProductionKwh =
+    savingsEstimate?.annualProductionKwh ?? clientAnnualProductionKwh
+  const roofCapacityKwp =
+    savingsEstimate?.roofSystemSizeKwp ?? getRoofCapacityKwp()
+  const showSizedNote = roofCapacityKwp > systemSizeKwp + 0.5
+  const showSavings =
+    showTeaser &&
+    savingsEstimate != null &&
+    savingsEstimate.annualSavingsChf > 0
+  const savingsNoteKey =
+    savingsEstimate?.solarModel === 'solar-free'
+      ? 'teaserSavingsNoteFree'
+      : savingsEstimate?.solarModel === 'solar-abo'
+        ? 'teaserSavingsNoteAbo'
+        : 'teaserSavingsNoteDirect'
 
   const [needsAddressFallback] = useState(
     () => !contact.postalCode || !contact.city
@@ -1023,6 +1057,23 @@ function ContactScreenV2() {
                 </dd>
               </div>
             </dl>
+            {showSavings && (
+              <div className="mt-4 border-t border-[#9CA9A6]/30 pt-4">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-base text-[#062E25]/70 tracking-tight">
+                    {t('teaserSavings')}
+                  </span>
+                  <span className="shrink-0 whitespace-nowrap text-2xl font-medium text-[#062E25] tabular-nums">
+                    {t('teaserSavingsValue', {
+                      amount: swissNumber(savingsEstimate.annualSavingsChf),
+                    })}
+                  </span>
+                </div>
+                <p className="mt-1 text-base text-[#062E25]/70 tracking-tight">
+                  {t(savingsNoteKey)}
+                </p>
+              </div>
+            )}
             <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
               {t('teaserSource')}
             </p>
@@ -1032,7 +1083,7 @@ function ContactScreenV2() {
               </p>
             )}
             <p className="mt-3 text-base text-[#062E25] tracking-tight">
-              {t('teaserNext')}
+              {t(showSavings ? 'teaserNextWithSavings' : 'teaserNext')}
             </p>
           </div>
         )}
