@@ -890,6 +890,11 @@
       ],
       "items": [
         {
+          "quote": "Wir sind sehr zufrieden mit der gesamten Abwicklung. Von der ersten Beratung bis zur Installation der Solaranlage verlief alles professionell, zuverlässig und termingerecht. Das Team war freundlich, kompetent und hat alle Fragen verständlich beantwortet. Die Montage wurde sauber und zügig durchgeführt. Wir können diese Solarfirma uneingeschränkt weiterempfehlen. Vielen Dank für die hervorragende Arbeit Ivan.",
+          "authorName": "Savier Mundackal",
+          "source": "google"
+        },
+        {
           "quote": "Unsere Scheunendächer wurden perfekt genutzt, um Solarenergie zu erzeugen. Free State hat uns dabei von der detaillierten Planung bis hin zur regelmässigen Wartung hervorragend unterstützt. Dank dieser Massnahme sparen wir nicht nur Energiekosten, sondern leisten auch einen wichtigen Beitrag zum Klimaschutz.",
           "authorName": "Rivero Pineda Leonardo",
           "source": "google"
@@ -897,6 +902,11 @@
         {
           "quote": "Sehr zufrieden. Äusserst kompetent, zuverlässig und immer freundlich. Die Kommunikation war hervorragend, alles lief reibungslos und professionell ab. Ich kann sie nur empfehlen.",
           "authorName": "Jason Ackles",
+          "source": "google"
+        },
+        {
+          "quote": "Super hilfreich und hilfsbereiter als viele Solarunternehmen.",
+          "authorName": "K harw",
           "source": "google"
         }
       ]
@@ -2472,7 +2482,9 @@
       "repowering": "Mehr zu Repowering"
     },
     "paginationPrev": "Vorherige Seite",
-    "paginationNext": "Nächste Seite"
+    "paginationNext": "Nächste Seite",
+    "latestTitle": "Neu im Blog",
+    "allPosts": "Alle Beiträge"
   },
   "solarSystems": {
     "commercialTopics": {

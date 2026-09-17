@@ -841,6 +841,11 @@
       ],
       "items": [
         {
+          "quote": "Nous sommes très satisfaits de l'ensemble du déroulement. De la première consultation à l'installation de l'installation solaire, tout a été professionnel, fiable et dans les délais. L'équipe était aimable, compétente et a répondu clairement à toutes nos questions. Le montage a été réalisé proprement et rapidement. Nous recommandons cette entreprise solaire sans réserve. Un grand merci à Ivan pour son excellent travail.",
+          "authorName": "Savier Mundackal",
+          "source": "google"
+        },
+        {
           "quote": "Nos toits de granges ont été parfaitement utilisés pour produire de l'énergie solaire. Free State nous a brillamment accompagnés, de la planification détaillée jusqu'à l'entretien régulier. Nous économisons sur nos coûts d'énergie tout en contribuant à la protection du climat.",
           "authorName": "Rivero Pineda Leonardo",
           "source": "google"
@@ -848,6 +853,11 @@
         {
           "quote": "Extrêmement satisfait. Très compétent, fiable et toujours aimable. La communication a été excellente, tout s'est déroulé en douceur et de manière professionnelle. Je ne peux que les recommander.",
           "authorName": "Jason Ackles",
+          "source": "google"
+        },
+        {
+          "quote": "Très utiles et plus serviables que beaucoup d'entreprises solaires.",
+          "authorName": "K harw",
           "source": "google"
         }
       ]
@@ -2423,7 +2433,9 @@
       "repowering": "En savoir plus sur le repowering"
     },
     "paginationPrev": "Page précédente",
-    "paginationNext": "Page suivante"
+    "paginationNext": "Page suivante",
+    "latestTitle": "Nouveautés du blog",
+    "allPosts": "Tous les articles"
   },
   "solarSystems": {
     "commercialTopics": {

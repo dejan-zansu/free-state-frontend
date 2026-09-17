@@ -841,6 +841,11 @@
       ],
       "items": [
         {
+          "quote": "We are very satisfied with the entire process. From the first consultation to the installation of the solar system, everything was professional, reliable and on schedule. The team was friendly, competent and answered every question clearly. The installation was carried out cleanly and quickly. We can recommend this solar company without reservation. Many thanks to Ivan for the excellent work.",
+          "authorName": "Savier Mundackal",
+          "source": "google"
+        },
+        {
           "quote": "Our barn roofs were used perfectly to generate solar energy. Free State supported us brilliantly – from detailed planning to regular maintenance. Thanks to this, we are not only saving on energy costs but also making an important contribution to climate protection.",
           "authorName": "Rivero Pineda Leonardo",
           "source": "google"
@@ -848,6 +853,11 @@
         {
           "quote": "Extremely satisfied. Highly competent, reliable and always friendly. Communication was excellent, everything went smoothly and professionally. I can only recommend them.",
           "authorName": "Jason Ackles",
+          "source": "google"
+        },
+        {
+          "quote": "Super helpful and more accommodating than many solar companies.",
+          "authorName": "K harw",
           "source": "google"
         }
       ]
@@ -2423,7 +2433,9 @@
       "repowering": "More about repowering"
     },
     "paginationPrev": "Previous page",
-    "paginationNext": "Next page"
+    "paginationNext": "Next page",
+    "latestTitle": "New on the blog",
+    "allPosts": "All articles"
   },
   "solarSystems": {
     "commercialTopics": {

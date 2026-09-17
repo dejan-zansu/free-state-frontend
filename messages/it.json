@@ -841,6 +841,11 @@
       ],
       "items": [
         {
+          "quote": "Siamo molto soddisfatti dell'intero svolgimento. Dalla prima consulenza fino all'installazione dell'impianto solare tutto è stato professionale, affidabile e puntuale. Il team è stato cordiale, competente e ha risposto a ogni domanda in modo chiaro. Il montaggio è stato eseguito in modo pulito e rapido. Possiamo raccomandare questa azienda solare senza riserve. Molte grazie a Ivan per l'ottimo lavoro.",
+          "authorName": "Savier Mundackal",
+          "source": "google"
+        },
+        {
           "quote": "I tetti dei nostri fienili sono stati sfruttati perfettamente per produrre energia solare. Free State ci ha supportato brillantemente dalla pianificazione dettagliata alla manutenzione regolare. Risparmiamo sui costi energetici e contribuiamo alla protezione del clima.",
           "authorName": "Rivero Pineda Leonardo",
           "source": "google"
@@ -848,6 +853,11 @@
         {
           "quote": "Estremamente soddisfatto. Molto competente, affidabile e sempre cordiale. La comunicazione è stata eccellente, tutto è andato liscio e in modo professionale. Posso solo raccomandarli.",
           "authorName": "Jason Ackles",
+          "source": "google"
+        },
+        {
+          "quote": "Super disponibili e più accomodanti di molte aziende solari.",
+          "authorName": "K harw",
           "source": "google"
         }
       ]
@@ -2423,7 +2433,9 @@
       "repowering": "Di più sul repowering"
     },
     "paginationPrev": "Pagina precedente",
-    "paginationNext": "Pagina successiva"
+    "paginationNext": "Pagina successiva",
+    "latestTitle": "Novità dal blog",
+    "allPosts": "Tutti gli articoli"
   },
   "solarSystems": {
     "commercialTopics": {
