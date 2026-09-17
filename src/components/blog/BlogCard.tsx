@@ -29,7 +29,12 @@ const BlogCard = async ({
   const minutes = readingTimeMinutes(tr.content)
 
   return (
-    <Link href={`/${locale}/blog/${post.slug}`} className="group block">
+    <Link
+      href={
+        locale === 'de' ? `/blog/${post.slug}` : `/${locale}/blog/${post.slug}`
+      }
+      className="group block"
+    >
       <article className="relative h-full rounded-[20px] overflow-hidden border border-[#062E25]/10 bg-white flex flex-col">
         <div className="relative aspect-16/10 overflow-hidden bg-[#E5E6DE]">
           {post.coverImageUrl ? (

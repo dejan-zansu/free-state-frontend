@@ -1,3 +1,4 @@
+import LatestPostsSection from '@/components/blog/LatestPostsSection'
 import CostCalculatorSection from '@/components/cost/CostCalculatorSection'
 import CostExamplesSection from '@/components/cost/CostExamplesSection'
 import CostFaqSection from '@/components/cost/CostFaqSection'
@@ -69,6 +70,10 @@ const CostPage = async ({
       <CostModelsSection />
       <CostCalculatorSection />
       <CostFaqSection figures={figures} examples={examples} />
+      <LatestPostsSection
+        topic="cost"
+        className="bg-[#EAEDDF] px-4 sm:px-6 pt-16 md:pt-[70px]"
+      />
       <CostTopicsSection />
     </div>
   )

@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { BlogIndexStatus } from '@/components/admin/BlogIndexStatus'
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -205,6 +206,9 @@ export default function AdminBlogAnalyticsPage() {
                     </button>
                   </TableHead>
                 ))}
+                <TableHead>
+                  {t.has('indexStatus') ? t('indexStatus') : 'Google-Index'}
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -255,6 +259,18 @@ export default function AdminBlogAnalyticsPage() {
                   </TableCell>
                   <TableCell className="text-right tabular-nums text-[#062E25]">
                     {formatPosition(row.gscPosition)}
+                  </TableCell>
+                  <TableCell>
+                    {row.status === 'PUBLISHED' ? (
+                      <BlogIndexStatus
+                        verdict={row.indexVerdict}
+                        coverageState={row.coverageState}
+                        lastCrawlTime={row.lastCrawlTime}
+                        detailClassName="text-base"
+                      />
+                    ) : (
+                      <span className="text-[#062E25]">-</span>
+                    )}
                   </TableCell>
                 </TableRow>
               ))}

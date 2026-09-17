@@ -548,6 +548,9 @@ export interface BlogPostAnalyticsRow {
   gscClicks: number
   gscImpressions: number
   gscPosition: number | null
+  indexVerdict: string | null
+  coverageState: string | null
+  lastCrawlTime: string | null
 }
 
 export interface BlogAnalytics {

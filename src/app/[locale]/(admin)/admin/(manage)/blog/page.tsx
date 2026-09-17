@@ -6,6 +6,7 @@ import { BarChart3, ChevronLeft, ChevronRight, Plus } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 
+import { BlogIndexStatus } from '@/components/admin/BlogIndexStatus'
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
@@ -28,7 +29,7 @@ import {
 } from '@/components/ui/table'
 import { useAdminQuery } from '@/hooks/use-admin-query'
 import { adminService } from '@/services/admin.service'
-import type { AdminBlogPost, BlogAnalytics } from '@/types/admin'
+import type { AdminBlogPost, BlogAnalytics, BlogPostAnalyticsRow } from '@/types/admin'
 
 const ANALYTICS_DAYS = 90
 
@@ -70,9 +71,21 @@ export default function AdminBlogListPage() {
   })
 
   const viewsById = useMemo(() => {
-    const map = new Map<string, { views: number; avgDepth: number | null }>()
+    const map = new Map<
+      string,
+      Pick<
+        BlogPostAnalyticsRow,
+        'views' | 'avgDepth' | 'indexVerdict' | 'coverageState' | 'lastCrawlTime'
+      >
+    >()
     analytics?.posts.forEach(row =>
-      map.set(row.id, { views: row.views, avgDepth: row.avgDepth })
+      map.set(row.id, {
+        views: row.views,
+        avgDepth: row.avgDepth,
+        indexVerdict: row.indexVerdict,
+        coverageState: row.coverageState,
+        lastCrawlTime: row.lastCrawlTime,
+      })
     )
     return map
   }, [analytics])
@@ -131,6 +144,9 @@ export default function AdminBlogListPage() {
                     <TableHead>{t('status')}</TableHead>
                     <TableHead className="text-right">{t('views90d')}</TableHead>
                     <TableHead className="text-right">{t('analytics.depth')}</TableHead>
+                    <TableHead>
+                      {t.has('analytics.indexStatus') ? t('analytics.indexStatus') : 'Google-Index'}
+                    </TableHead>
                     <TableHead>{t('publishedDate')}</TableHead>
                     <TableHead>{t('author')}</TableHead>
                     <TableHead>{t('languages')}</TableHead>
@@ -157,6 +173,18 @@ export default function AdminBlogListPage() {
                         <TableCell className="text-right text-sm text-[#062E25] tabular-nums">
                           {stats && stats.avgDepth !== null ? `${stats.avgDepth}%` : '-'}
                         </TableCell>
+                        <TableCell>
+                          {post.status === 'PUBLISHED' && stats ? (
+                            <BlogIndexStatus
+                              verdict={stats.indexVerdict}
+                              coverageState={stats.coverageState}
+                              lastCrawlTime={stats.lastCrawlTime}
+                              detailClassName="text-sm"
+                            />
+                          ) : (
+                            <span className="text-sm text-[#062E25]">-</span>
+                          )}
+                        </TableCell>
                         <TableCell className="text-[#062E25] text-sm">
                           {post.publishedAt
                             ? new Date(post.publishedAt).toLocaleDateString('de-CH')
@@ -180,7 +208,7 @@ export default function AdminBlogListPage() {
                   })}
                   {data.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={8} className="text-center py-8 text-[#062E25]/75">
+                      <TableCell colSpan={9} className="text-center py-8 text-[#062E25]/75">
                         {t('noPosts')}
                       </TableCell>
                     </TableRow>

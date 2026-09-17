@@ -15,6 +15,7 @@ import PathToEnergy from '@/components/PathToEnergy'
 import CustomerStories from '@/components/CustomerStories'
 import Reviews from '@/components/Reviews'
 import StackedPanels from '@/components/motion/StackedPanels'
+import LatestPostsSection from '@/components/blog/LatestPostsSection'
 
 export default async function HomePage() {
   return (
@@ -36,6 +37,7 @@ export default async function HomePage() {
       <CustomerStories isCommercial />
       <CalculatorSection />
       <Reviews />
+      <LatestPostsSection className="bg-[#F2F4E8] py-16 md:py-24 px-4 sm:px-6" />
       <OurPartners />
     </div>
   )
