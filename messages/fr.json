@@ -9808,15 +9808,18 @@
         "solar-free": "Commander avec SolarFree",
         "solar-direct": "Acheter en SolarDirect",
         "solar-abo": "Commander en SolarAbo"
-      }
+      },
+      "consultation": "Ou prendre rendez-vous pour un conseil"
     },
     "components": {
-      "title": "Ce que contient ce forfait",
-      "subtitle": "{count, plural, =1 {1 composant} other {# composants}}, chacun en modèle 3D d'après les cotes du fabricant.",
+      "title": "Composants et données techniques",
+      "subtitle": "{count, plural, =1 {1 composant} other {# composants}} dans ce forfait, avec les données des fabricants.",
       "optional": "en option",
       "evCharger": "Borne de recharge",
-      "allSpecs": "Toutes les données techniques",
-      "chargerNote": "La borne de recharge est en option et coûte {price} CHF de plus."
+      "allSpecs": "Page produit avec photos et avis",
+      "chargerNote": "La borne de recharge est en option et coûte {price} CHF de plus.",
+      "datasheet": "Fiche technique (PDF)",
+      "noSpecs": "Aucune donnée technique disponible pour ce composant."
     },
     "included": {
       "title": "Toujours inclus",
@@ -9831,6 +9834,45 @@
       "service": {
         "title": "Montage et service",
         "desc": "Professionnel, rapide et fiable, tout d'une seule main."
+      }
+    },
+    "gallery": {
+      "thumbnails": "Composants du forfait",
+      "optional": "en option",
+      "toDetails": "Données techniques"
+    },
+    "faq": {
+      "title": "Questions fréquentes sur le forfait",
+      "subtitle": "Des réponses courtes. Le reste, nous le clarifions lors du conseil.",
+      "items": {
+        "1": {
+          "question": "Que comprend ce forfait ?",
+          "answer": "Tous les composants visibles dans la galerie ci-dessus, ainsi que la planification, le montage, la mise en service et le suivi dans l'application. La borne de recharge est en option et indiquée séparément."
+        },
+        "2": {
+          "question": "Le forfait convient-il à mon toit ?",
+          "answer": "Le forfait couvre une plage de puissance. Le calculateur en ligne détermine à partir de votre adresse combien de modules tiennent sur votre toit et quelle puissance est judicieuse. Nous vérifions ensuite le dimensionnement en personne."
+        },
+        "3": {
+          "question": "Quelle différence entre SolarFree, SolarDirect et SolarAbo ?",
+          "answer": "Avec SolarFree, nous installons le système sans investissement de votre part et vous achetez le courant solaire à un prix fixe. Avec SolarDirect, vous achetez l'installation. Avec SolarAbo, vous payez l'installation achetée par mensualités. Les boutons de commande ci-dessus montrent les modèles proposés pour ce forfait."
+        },
+        "4": {
+          "question": "Puis-je remplacer certains composants ?",
+          "answer": "Les forfaits sont assortis pour que l'onduleur, la batterie et la gestion de l'énergie fonctionnent ensemble. Si vous souhaitez une autre taille de batterie ou une borne de recharge, nous en parlons lors du conseil."
+        },
+        "5": {
+          "question": "Quelle est la précision des modèles 3D ?",
+          "answer": "Les modèles sont construits à l'échelle d'après les manuels d'installation et les fiches techniques des fabricants. Les câbles, connecteurs et supports muraux sont en partie simplifiés."
+        },
+        "6": {
+          "question": "D'où viennent les données techniques ?",
+          "answer": "Des fiches techniques et des manuels des fabricants, état septembre 2026. Les documents du fabricant font toujours foi et s'ouvrent en PDF pour chaque composant."
+        },
+        "7": {
+          "question": "Combien de temps jusqu'à la mise en service ?",
+          "answer": "En général environ trois mois après la commande. Cela comprend le contrôle du toit, l'annonce auprès du gestionnaire de réseau, le montage et la mise en service."
+        }
       }
     }
   }

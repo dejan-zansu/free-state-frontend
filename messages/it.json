@@ -9808,15 +9808,18 @@
         "solar-free": "Ordina con SolarFree",
         "solar-direct": "Acquista come SolarDirect",
         "solar-abo": "Ordina come SolarAbo"
-      }
+      },
+      "consultation": "Oppure prenota una consulenza"
     },
     "components": {
-      "title": "Cosa contiene questo pacchetto",
-      "subtitle": "{count, plural, =1 {1 componente} other {# componenti}}, ciascuno come modello 3D secondo le quote del produttore.",
+      "title": "Componenti e dati tecnici",
+      "subtitle": "{count, plural, =1 {1 componente} other {# componenti}} in questo pacchetto, con i dati dei produttori.",
       "optional": "opzionale",
       "evCharger": "Stazione di ricarica",
-      "allSpecs": "Tutti i dati tecnici",
-      "chargerNote": "La stazione di ricarica è opzionale e costa {price} CHF in più."
+      "allSpecs": "Pagina prodotto con foto e recensioni",
+      "chargerNote": "La stazione di ricarica è opzionale e costa {price} CHF in più.",
+      "datasheet": "Scheda tecnica (PDF)",
+      "noSpecs": "Per questo componente non sono ancora disponibili dati tecnici."
     },
     "included": {
       "title": "Sempre incluso",
@@ -9831,6 +9834,45 @@
       "service": {
         "title": "Montaggio e assistenza",
         "desc": "Professionale, rapido e affidabile, tutto da un unico partner."
+      }
+    },
+    "gallery": {
+      "thumbnails": "Componenti del pacchetto",
+      "optional": "opzionale",
+      "toDetails": "Dati tecnici"
+    },
+    "faq": {
+      "title": "Domande frequenti sul pacchetto",
+      "subtitle": "Risposte brevi. Il resto lo chiariamo nella consulenza.",
+      "items": {
+        "1": {
+          "question": "Cosa comprende questo pacchetto?",
+          "answer": "Tutti i componenti che vedete nella galleria qui sopra, oltre a progettazione, montaggio, messa in servizio e monitoraggio nell'app. La stazione di ricarica è opzionale e indicata a parte."
+        },
+        "2": {
+          "question": "Il pacchetto è adatto al mio tetto?",
+          "answer": "Il pacchetto copre una fascia di potenza. Il calcolatore online determina dal vostro indirizzo quanti moduli entrano sul tetto e quale potenza ha senso. Poi verifichiamo il dimensionamento di persona."
+        },
+        "3": {
+          "question": "Che differenza c'è tra SolarFree, SolarDirect e SolarAbo?",
+          "answer": "Con SolarFree installiamo l'impianto senza un vostro investimento e acquistate la corrente solare a un prezzo fisso. Con SolarDirect acquistate l'impianto. Con SolarAbo pagate l'impianto acquistato a rate mensili. I pulsanti di ordine qui sopra mostrano i modelli disponibili per questo pacchetto."
+        },
+        "4": {
+          "question": "Posso sostituire singoli componenti?",
+          "answer": "I pacchetti sono abbinati perché inverter, accumulo e gestione dell'energia lavorino insieme. Se desiderate un accumulo di altra taglia o una stazione di ricarica, ne parliamo nella consulenza."
+        },
+        "5": {
+          "question": "Quanto sono precisi i modelli 3D?",
+          "answer": "I modelli sono costruiti in scala secondo i manuali di installazione e le schede tecniche dei produttori. Cavi, connettori e staffe a parete sono in parte semplificati."
+        },
+        "6": {
+          "question": "Da dove provengono i dati tecnici?",
+          "answer": "Dalle schede tecniche e dai manuali dei produttori, aggiornati a settembre 2026. Fanno sempre fede i documenti del produttore, apribili in PDF per ogni componente."
+        },
+        "7": {
+          "question": "Quanto tempo serve fino alla messa in servizio?",
+          "answer": "Di norma circa tre mesi dall'ordine. Sono compresi il controllo del tetto, la notifica al gestore di rete, il montaggio e la messa in servizio."
+        }
       }
     }
   }

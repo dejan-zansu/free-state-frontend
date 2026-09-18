@@ -3,14 +3,17 @@ import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
 import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
-import PackageComponents, { type PackageComponentView } from '@/components/packages/PackageComponents'
-import PackageHero from '@/components/packages/PackageHero'
+import PackageDetails from '@/components/packages/PackageDetails'
+import PackageFaq from '@/components/packages/PackageFaq'
+import PackageOverview from '@/components/packages/PackageOverview'
+import { PACKAGE_FAQ_KEYS, type PackageComponentView } from '@/components/packages/types'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { loadSpecs, slugForProduct, type SpecLocale } from '@/lib/products/catalog'
+import { cameraFor, loadSpecs, slugForProduct, type SpecLocale } from '@/lib/products/catalog'
 import { getFromPriceChf, getSystemSpecs } from '@/lib/products/package-math'
 import { packageCodeToSlug, packageSlugToCode } from '@/lib/products/package-slug'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
+import { buildFAQPageJsonLd } from '@/lib/seo/structured-data'
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
@@ -28,10 +31,10 @@ async function fetchPackages(lang: string): Promise<CalculatorPackage[]> {
   return json.data ?? []
 }
 
-function brandOf(code: string): 'HUAWEI' | 'SIGENERGY' | 'SOFAR' | null {
+function brandLabel(code: string): string | null {
   const c = code.toUpperCase()
-  if (c.endsWith('_HUAWEI')) return 'HUAWEI'
-  if (c.endsWith('_SIGENERGY')) return 'SIGENERGY'
+  if (c.endsWith('_HUAWEI')) return 'Huawei'
+  if (c.endsWith('_SIGENERGY')) return 'Sigenergy'
   if (c.endsWith('_SOFAR')) return 'SOFAR'
   return null
 }
@@ -96,19 +99,31 @@ export default async function PackagePage({ params }: { params: Params }) {
         modelPosterUrl: item.modelPosterUrl ?? null,
         slug: spec ? slug : null,
         spec,
+        ...cameraFor(slug ?? ''),
       }
     })
 
-  const charger = pkg.availableEvCharger
-    ? (() => {
-        const c = pkg.availableEvCharger
-        const slug = c.nameEn
-          ? slugForProduct({ nameEn: c.nameEn, manufacturerCode: c.manufacturerCode, modelNumber: c.modelNumber } as Parameters<typeof slugForProduct>[0])
-          : null
-        const spec = slug ? (specs[slug] ?? null) : null
-        return { ...c, slug: spec ? slug : null, spec }
-      })()
-    : null
+  const c = pkg.availableEvCharger
+  if (c) {
+    const slug = c.nameEn
+      ? slugForProduct({ nameEn: c.nameEn, manufacturerCode: c.manufacturerCode, modelNumber: c.modelNumber } as Parameters<typeof slugForProduct>[0])
+      : null
+    const spec = slug ? (specs[slug] ?? null) : null
+    components.push({
+      key: `EV_CHARGER:${c.id}`,
+      equipmentType: 'EV_CHARGER',
+      name: c.displayName,
+      quantity: 1,
+      isOptional: true,
+      imageUrl: c.imageUrl ?? null,
+      modelUrl: c.modelUrl ?? null,
+      modelPosterUrl: c.modelPosterUrl ?? null,
+      slug: spec ? slug : null,
+      spec,
+      ...cameraFor(slug ?? ''),
+    })
+  }
+  const chargerPrice = c?.priceChf != null ? c.priceChf.toLocaleString(locale === 'en' ? 'de-CH' : `${locale}-CH`) : null
 
   const system = getSystemSpecs(pkg)
   const fromPrice = getFromPriceChf(pkg)
@@ -127,8 +142,13 @@ export default async function PackagePage({ params }: { params: Params }) {
   return (
     <>
       <JsonLd data={jsonLd} />
-      <PackageHero pkg={pkg} brand={brandOf(pkg.code)} specs={system} fromPrice={fromPrice} models={models} locale={locale} />
-      <PackageComponents components={components} charger={charger} />
+      <JsonLd
+        data={buildFAQPageJsonLd(
+          PACKAGE_FAQ_KEYS.map((k) => ({ question: t(`faq.items.${k}.question`), answer: t(`faq.items.${k}.answer`) }))
+        )}
+      />
+      <PackageOverview pkg={pkg} brand={brandLabel(pkg.code)} specs={system} fromPrice={fromPrice} models={models} locale={locale} components={components} />
+      <PackageDetails components={components} chargerPrice={chargerPrice} />
       <section className="bg-[#F5F6F0]">
         <div className="container mx-auto max-w-[1290px] px-4 py-14 sm:py-20">
           <h2 className="text-3xl font-medium tracking-tight text-pine sm:text-[40px]">{t('included.title')}</h2>
@@ -142,6 +162,7 @@ export default async function PackagePage({ params }: { params: Params }) {
           </ul>
         </div>
       </section>
+      <PackageFaq />
       <CheckSolarPotentialCTA />
     </>
   )

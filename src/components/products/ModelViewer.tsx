@@ -41,7 +41,7 @@ export default function ModelViewer({
   orbit = '-30deg 78deg auto',
   fieldOfView = '24deg',
   reveal = 'auto',
-  autoRotate = false,
+  autoRotate = true,
   className,
   controls = true,
   onLoad,
@@ -91,12 +91,14 @@ export default function ModelViewer({
     el.addEventListener('load', handleLoad)
     el.addEventListener('progress', handleProgress)
     el.addEventListener('error', handleError)
+    // A cached model can finish before the listeners are attached
+    if (el.loaded) handleLoad()
     return () => {
       el.removeEventListener('load', handleLoad)
       el.removeEventListener('progress', handleProgress)
       el.removeEventListener('error', handleError)
     }
-  }, [ready, src, onLoad])
+  }, [ready, revealed, src, onLoad])
 
   const resetView = useCallback(() => {
     const el = ref.current
@@ -153,7 +155,7 @@ export default function ModelViewer({
           tone-mapping="neutral"
           environment-image="neutral"
           loading="eager"
-          {...(autoRotate ? { 'auto-rotate': '', 'auto-rotate-delay': 1500, 'rotation-per-second': '12deg' } : {})}
+          {...(autoRotate ? { 'auto-rotate': '', 'auto-rotate-delay': 2500, 'rotation-per-second': '9deg' } : {})}
           className="block h-full w-full"
           style={
             {

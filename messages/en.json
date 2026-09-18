@@ -9808,15 +9808,18 @@
         "solar-free": "Order with SolarFree",
         "solar-direct": "Buy as SolarDirect",
         "solar-abo": "Order as SolarAbo"
-      }
+      },
+      "consultation": "Or book a consultation"
     },
     "components": {
-      "title": "What is inside this package",
-      "subtitle": "{count, plural, =1 {1 component} other {# components}}, each as a 3D model built from the manufacturer dimensions.",
+      "title": "Components and technical data",
+      "subtitle": "{count, plural, =1 {1 component} other {# components}} in this package, with the manufacturer figures.",
       "optional": "optional",
       "evCharger": "EV charger",
-      "allSpecs": "All technical data",
-      "chargerNote": "The EV charger is optional and costs CHF {price} extra."
+      "allSpecs": "Product page with photos and reviews",
+      "chargerNote": "The EV charger is optional and costs CHF {price} extra.",
+      "datasheet": "Datasheet (PDF)",
+      "noSpecs": "No technical data is available for this component yet."
     },
     "included": {
       "title": "Always included",
@@ -9831,6 +9834,45 @@
       "service": {
         "title": "Installation & service",
         "desc": "Professional, fast and reliable, all from one partner."
+      }
+    },
+    "gallery": {
+      "thumbnails": "Components of the package",
+      "optional": "optional",
+      "toDetails": "Technical data"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Short answers. Everything else we clarify in a consultation.",
+      "items": {
+        "1": {
+          "question": "What does this package include?",
+          "answer": "Every component you see in the gallery above, plus planning, installation, commissioning and monitoring in the app. The EV charger is optional and listed separately."
+        },
+        "2": {
+          "question": "Does the package fit my roof?",
+          "answer": "The package covers a power range. The online calculator works out from your address how many modules fit your roof and which output makes sense. After that we check the design in person."
+        },
+        "3": {
+          "question": "How do SolarFree, SolarDirect and SolarAbo differ?",
+          "answer": "With SolarFree we install the system without an investment from you and you buy the solar power at a fixed price. With SolarDirect you buy the system. With SolarAbo you pay for the purchased system in monthly instalments. The order buttons above show which models this package offers."
+        },
+        "4": {
+          "question": "Can I swap individual components?",
+          "answer": "The packages are matched so that inverter, storage and energy management work together. If you want a different storage size or an EV charger, we discuss it in the consultation."
+        },
+        "5": {
+          "question": "How accurate are the 3D models?",
+          "answer": "The models are built to scale from the manufacturer installation manuals and datasheets. Cables, plugs and wall brackets are partly simplified."
+        },
+        "6": {
+          "question": "Where does the technical data come from?",
+          "answer": "From the manufacturer datasheets and manuals, as of September 2026. The manufacturer documents always prevail, and you can open them as a PDF for every component."
+        },
+        "7": {
+          "question": "How long does it take until commissioning?",
+          "answer": "Usually about three months from the order. That includes the roof check, registration with the grid operator, installation and commissioning."
+        }
       }
     }
   }

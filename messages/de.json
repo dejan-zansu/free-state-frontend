@@ -9809,15 +9809,18 @@
         "solar-free": "Mit SolarFree bestellen",
         "solar-direct": "Als SolarDirect kaufen",
         "solar-abo": "Als SolarAbo bestellen"
-      }
+      },
+      "consultation": "Oder Termin für Beratung buchen"
     },
     "components": {
-      "title": "Was in diesem Paket steckt",
-      "subtitle": "{count, plural, =1 {1 Komponente} other {# Komponenten}}, jede als 3D-Modell nach den Massen des Herstellers.",
+      "title": "Komponenten und technische Daten",
+      "subtitle": "{count, plural, =1 {1 Komponente} other {# Komponenten}} in diesem Paket, mit den Angaben der Hersteller.",
       "optional": "optional",
       "evCharger": "Ladestation",
-      "allSpecs": "Alle technischen Daten",
-      "chargerNote": "Die Ladestation ist optional und kostet {price} CHF zusätzlich."
+      "allSpecs": "Produktseite mit Fotos und Erfahrungen",
+      "chargerNote": "Die Ladestation ist optional und kostet {price} CHF zusätzlich.",
+      "datasheet": "Datenblatt (PDF)",
+      "noSpecs": "Für diese Komponente liegen noch keine technischen Daten vor."
     },
     "included": {
       "title": "Immer inbegriffen",
@@ -9832,6 +9835,45 @@
       "service": {
         "title": "Montage & Service",
         "desc": "Professionell, schnell und zuverlässig, alles aus einer Hand."
+      }
+    },
+    "gallery": {
+      "thumbnails": "Komponenten des Pakets",
+      "optional": "optional",
+      "toDetails": "Technische Daten"
+    },
+    "faq": {
+      "title": "Häufige Fragen zum Paket",
+      "subtitle": "Kurz beantwortet. Alles Weitere klären wir in der Beratung.",
+      "items": {
+        "1": {
+          "question": "Was ist in diesem Paket enthalten?",
+          "answer": "Alle Komponenten, die Sie oben in der Galerie sehen, dazu Planung, Montage, Inbetriebnahme und das Monitoring per App. Die Ladestation ist optional und wird separat ausgewiesen."
+        },
+        "2": {
+          "question": "Passt das Paket zu meinem Dach?",
+          "answer": "Das Paket deckt einen Leistungsbereich ab. Wie viele Module auf Ihr Dach passen und welche Leistung sinnvoll ist, berechnet der Onlinerechner anhand Ihrer Adresse. Danach prüfen wir die Auslegung persönlich."
+        },
+        "3": {
+          "question": "Worin unterscheiden sich SolarFree, SolarDirect und SolarAbo?",
+          "answer": "Mit SolarFree installieren wir die Anlage ohne Eigeninvestition und Sie beziehen den Solarstrom zu einem festen Preis. Mit SolarDirect kaufen Sie die Anlage. Mit SolarAbo bezahlen Sie die gekaufte Anlage in Monatsraten. Welche Modelle für dieses Paket verfügbar sind, zeigen die Bestellknöpfe oben."
+        },
+        "4": {
+          "question": "Kann ich einzelne Komponenten austauschen?",
+          "answer": "Die Pakete sind aufeinander abgestimmt, damit Wechselrichter, Speicher und Energiemanagement zusammenarbeiten. Wenn Sie eine andere Speichergrösse oder eine Ladestation wünschen, besprechen wir das in der Beratung."
+        },
+        "5": {
+          "question": "Wie genau sind die 3D-Modelle?",
+          "answer": "Die Modelle sind massstabsgetreu nach den Installationsanleitungen und Datenblättern der Hersteller gebaut. Kabel, Stecker und Wandhalterungen sind teilweise vereinfacht dargestellt."
+        },
+        "6": {
+          "question": "Woher stammen die technischen Daten?",
+          "answer": "Aus den Datenblättern und Handbüchern der Hersteller, Stand September 2026. Massgebend sind immer die Unterlagen des Herstellers, die Sie bei jeder Komponente als PDF öffnen können."
+        },
+        "7": {
+          "question": "Wie lange dauert es bis zur Inbetriebnahme?",
+          "answer": "In der Regel rund drei Monate ab Bestellung. Darin enthalten sind die Dachprüfung, die Anmeldung beim Netzbetreiber, die Montage und die Inbetriebnahme."
+        }
       }
     }
   }
