@@ -235,10 +235,14 @@ export interface CalculatorPackage {
   installerWarrantyYears: number | null
   equipment: {
     equipmentType: string
+    equipmentId?: string
     name: string
+    nameEn?: string
     quantity: number
     isOptional: boolean
     imageUrl?: string
+    modelUrl?: string
+    modelPosterUrl?: string
     panelWattageW?: number
     panelAreaM2?: number
     panelFirstYearDegradationPercent?: number

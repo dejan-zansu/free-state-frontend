@@ -217,6 +217,12 @@ function useNavGroups() {
           capability: 'users.manage',
         },
         {
+          label: t('productComments'),
+          href: `${prefix}/product-comments`,
+          icon: MessageSquareText,
+          capability: 'users.manage',
+        },
+        {
           label: t('newsletter'),
           href: `${prefix}/newsletter`,
           icon: Mail,

@@ -773,3 +773,20 @@ export interface AdminReference {
   createdAt: string
   updatedAt: string
 }
+
+export type ProductCommentStatus = 'PENDING' | 'APPROVED' | 'REJECTED'
+
+export interface AdminProductComment {
+  id: string
+  equipmentType: string
+  equipmentId: string
+  productName: string
+  authorName: string
+  authorEmail: string | null
+  body: string
+  rating: number | null
+  language: string
+  status: ProductCommentStatus
+  createdAt: string
+  updatedAt: string
+}

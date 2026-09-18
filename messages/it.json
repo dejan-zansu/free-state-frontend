@@ -82,6 +82,11 @@
       },
       "cta": {
         "orderFinal": "Ordina ora"
+      },
+      "models": {
+        "title": "Componenti in 3D",
+        "viewAll": "Vedi tutti i prodotti in 3D",
+        "load3d": "Vedi in 3D"
       }
     }
   },
@@ -307,6 +312,11 @@
     "commercialChargingCompany": {
       "title": "Stazioni di ricarica per aziende e flotte in Svizzera",
       "description": "Progettiamo, installiamo e manteniamo la ricarica per collaboratori, ospiti, clienti e flotte, con gestione dei carichi e fatturazione flessibile."
+    },
+    "products": {
+      "title": "Prodotti in 3D: moduli, inverter, accumuli, stazioni di ricarica",
+      "description": "Ogni dispositivo dei nostri pacchetti solari come modello 3D ruotabile, con i dati tecnici da scheda e manuale del produttore, foto ed esperienze dei nostri clienti.",
+      "productTitle": "{name} in 3D: dati tecnici, foto e recensioni"
     }
   },
   "apiErrors": {
@@ -375,7 +385,8 @@
       "heatPumps": "Pompe di calore",
       "chargingStations": "Stazioni di ricarica",
       "energyStorage": "Accumulo di energia",
-      "energyManagement": "Gestione dell'energia"
+      "energyManagement": "Gestione dell'energia",
+      "catalog3d": "Prodotti in 3D"
     },
     "company": {
       "title": "Azienda",
@@ -670,7 +681,8 @@
         "singleFamilyHome": "Casa unifamiliare",
         "promoTitle": "Soluzioni solari intelligenti per le abitazioni private",
         "promoTitleCommercial": "Soluzioni solari intelligenti per le aziende",
-        "promoCta": "Scopri ora"
+        "promoCta": "Scopri ora",
+        "productCatalog": "Prodotti in 3D"
       }
     },
     "stats": {
@@ -6459,7 +6471,8 @@
       "outreachQueues": "Code di prospezione",
       "outreachStats": "Statistiche di prospezione",
       "tasks": "Attività",
-      "workspaces": "Progetti"
+      "workspaces": "Progetti",
+      "productComments": "Commenti prodotti"
     },
     "outreach": {
       "title": "Prospezione",
@@ -7440,7 +7453,8 @@
       "CONVERTED": "Convertito",
       "NOT_INTERESTED": "Non interessato",
       "OPTED_OUT": "Opposizione",
-      "BOUNCED": "Non recapitabile"
+      "BOUNCED": "Non recapitabile",
+      "APPROVED": "Approvato"
     },
     "users": {
       "title": "Utenti",
@@ -8013,7 +8027,17 @@
       },
       "solarDirect": "SolarDirect",
       "solarAbo": "SolarAbo",
-      "solarFree": "SolarFree"
+      "solarFree": "SolarFree",
+      "form3d": {
+        "model": "Modello 3D (GLB)",
+        "poster": "Poster 3D (immagine prima del caricamento)",
+        "gallery": "Galleria prodotto",
+        "uploadModel": "Carica GLB",
+        "replaceModel": "Sostituisci",
+        "removeModel": "Rimuovi",
+        "modelHint": "glTF binario (.glb), preferibilmente compresso Draco e sotto 1 MB.",
+        "openModel": "Apri il file"
+      }
     },
     "blog": {
       "title": "Articoli del blog",
@@ -8438,6 +8462,25 @@
       "unsupported": "Questo browser non supporta le notifiche push.",
       "serverDisabled": "Le notifiche push non sono configurate sul server.",
       "iosInstall": "Su iPhone installa prima tramite Condividi e Aggiungi a Home, poi attiva qui."
+    },
+    "productComments": {
+      "title": "Commenti prodotti",
+      "subtitle": "Recensioni dalla pagina prodotti. Solo i commenti approvati sono pubblici.",
+      "status": "Stato",
+      "all": "Tutti",
+      "PENDING": "In attesa",
+      "APPROVED": "Approvato",
+      "REJECTED": "Rifiutato",
+      "product": "Prodotto",
+      "author": "Autore",
+      "comment": "Commento",
+      "rating": "Valutazione",
+      "created": "Creato",
+      "approve": "Approva",
+      "reject": "Rifiuta",
+      "delete": "Elimina",
+      "confirmDelete": "Eliminare definitivamente questo commento?",
+      "empty": "Nessun commento in questa vista."
     }
   },
   "register": {
@@ -9668,5 +9711,89 @@
     "failed": "Link non valido",
     "invalidLink": "Questo link non è valido o è scaduto. Riavvia il calcolo.",
     "goToLogin": "Accedi"
+  },
+  "products": {
+    "hero": {
+      "breadcrumb": "Prodotti",
+      "eyebrow": "Prodotti in 3D",
+      "title": "La tecnologia nei nostri pacchetti solari",
+      "subtitle": "Ruotate in 3D ogni dispositivo che installiamo e leggete i dati tecnici così come li dichiara il produttore.",
+      "trust": {
+        "count": "{count} prodotti da tutti i pacchetti attuali",
+        "scale": "Modelli in scala secondo i manuali di installazione dei produttori",
+        "sources": "Ogni valore con fonte nella scheda tecnica o nel manuale"
+      }
+    },
+    "explorer": {
+      "categories": "Categorie di prodotto",
+      "models": "Modelli",
+      "inPackages": "{count, plural, =1 {in 1 pacchetto} other {in # pacchetti}}",
+      "viewerAlt": "Modello 3D {name}",
+      "noModel": "Modello 3D in arrivo",
+      "dimensions": "L x A x P",
+      "weight": "Peso",
+      "modelNote": "Modello 3D secondo le quote del produttore",
+      "installedBadge": "Installato da Free State AG",
+      "summaryMore": "Leggi di più",
+      "summaryLess": "Mostra meno",
+      "includedIn": "Incluso in",
+      "comparePackages": "Confronta i pacchetti",
+      "bookConsultation": "Appuntamento di consulenza",
+      "datasheet": "Scheda tecnica (PDF)",
+      "empty": "Al momento non ci sono prodotti disponibili."
+    },
+    "viewer": {
+      "loading": "Caricamento del modello 3D",
+      "failed": "Il modello 3D non può essere caricato.",
+      "reset": "Ripristina la vista",
+      "fullscreen": "Schermo intero",
+      "hint": "Trascina per ruotare, scorri per ingrandire",
+      "load3d": "Vedi in 3D"
+    },
+    "specs": {
+      "title": "Dati tecnici",
+      "subtitle": "Tutti i valori del {name} da scheda tecnica e manuale del produttore",
+      "showMore": "Mostra altri {count}",
+      "showLess": "Mostra meno",
+      "datasheet": "Apri la scheda tecnica (PDF)",
+      "certifications": "Certificazioni:",
+      "source": "Fonte: scheda tecnica e manuale di installazione del produttore, aggiornato a settembre 2026. Salvo modifiche, fanno fede i documenti del produttore."
+    },
+    "gallery": {
+      "title": "Foto del prodotto",
+      "subtitle": "{name} come lo presenta il produttore",
+      "openImage": "Ingrandisci immagine {index}",
+      "imageAlt": "vista {index}",
+      "close": "Chiudi",
+      "previous": "Immagine precedente",
+      "next": "Immagine successiva",
+      "references": "In uso",
+      "referencesSubtitle": "Impianti di riferimento con dispositivi di questo produttore",
+      "viewReference": "Vedi la referenza"
+    },
+    "comments": {
+      "title": "Esperienze",
+      "subtitle": "Cosa dicono i clienti del {name}",
+      "loading": "Caricamento dei commenti",
+      "empty": "Ancora nessuna recensione. Condividete per primi la vostra esperienza con questo prodotto.",
+      "formTitle": "Condividere la vostra esperienza",
+      "formSubtitle": "Usate questo dispositivo? La vostra recensione aiuta altri a decidere.",
+      "name": "Nome",
+      "nameError": "Inserite almeno due caratteri.",
+      "email": "E-mail",
+      "emailHint": "Non viene pubblicata, serve solo per eventuali domande.",
+      "emailError": "Inserite un indirizzo e-mail valido.",
+      "optional": "facoltativo",
+      "rating": "Valutazione",
+      "ratingOf": "{value} stelle su 5",
+      "body": "La vostra esperienza",
+      "bodyPlaceholder": "Com'è la vostra esperienza con questo prodotto?",
+      "bodyError": "Scrivete almeno dieci caratteri.",
+      "submit": "Commenta",
+      "submitting": "Invio in corso",
+      "success": "Grazie. La vostra recensione sarà pubblicata dopo una breve verifica.",
+      "error": "La recensione non è stata inviata. Riprovate più tardi.",
+      "moderationNote": "Le recensioni vengono verificate prima della pubblicazione."
+    }
   }
 }

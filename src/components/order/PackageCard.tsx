@@ -15,11 +15,13 @@ import {
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 import WarrrentyIcon from '../icons/WarrrentyIcon'
 import ChceckIcon from '../icons/ChceckIcon'
 import { Button } from '../ui/button'
+import PackageModelStage, { ComponentThumb, type PackageComponent } from './PackageModelStage'
 
 export type SolarModelKey = 'solar-free' | 'solar-direct' | 'solar-abo'
 
@@ -108,6 +110,7 @@ export default function PackageCard(props: {
   recommendedLabel?: string
 }) {
   const t = useTranslations('packageCatalog.card')
+  const tModels = useTranslations('packageCatalog.card.models')
   const router = useRouter()
   const {
     pkg,
@@ -138,6 +141,14 @@ export default function PackageCard(props: {
 
   const { minKwp, maxKwp, minKwh, maxKwh } = getSystemSpecs(pkg)
   const fromPrice = getFromPriceChf(pkg)
+  const modelComponents = pkg.equipment.filter(
+    (item): item is PackageComponent & { modelUrl: string } => Boolean(item.modelUrl && item.name)
+  )
+  const [activeKey, setActiveKey] = useState<string | null>(null)
+  const activeComponent =
+    modelComponents.find(item => `${item.equipmentType}:${item.name}` === activeKey) ??
+    modelComponents[0] ??
+    null
 
   return (
     <div
@@ -253,23 +264,55 @@ export default function PackageCard(props: {
                   .filter(item => item.name)
                   .map(item => {
                     const Icon = EQUIPMENT_TYPE_ICONS[item.equipmentType] ?? Cpu
-                    return (
-                      <li
-                        key={`${item.equipmentType}:${item.name}`}
-                        className="flex items-start gap-3"
-                      >
-                        <span
-                          className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
-                          style={{ backgroundColor: 'rgba(3, 107, 83, 0.1)' }}
-                        >
-                          <Icon className="h-4 w-4 text-[#036B53]" />
-                        </span>
+                    const key = `${item.equipmentType}:${item.name}`
+                    const hasModel = Boolean(item.modelUrl)
+                    const isActive = activeComponent != null && key === `${activeComponent.equipmentType}:${activeComponent.name}`
+                    const thumb = item.modelPosterUrl ?? item.imageUrl
+                    const content = (
+                      <>
+                        {thumb ? (
+                          <ComponentThumb
+                            component={item}
+                            className="relative mt-0.5 block h-9 w-9 flex-shrink-0 overflow-hidden rounded-[10px] bg-[#F2F4E8]"
+                          />
+                        ) : (
+                          <span
+                            className="mt-0.5 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
+                            style={{ backgroundColor: 'rgba(3, 107, 83, 0.1)' }}
+                          >
+                            <Icon className="h-4 w-4 text-[#036B53]" />
+                          </span>
+                        )}
                         <div>
                           <div className="text-[13px] font-bold text-[#062E25]">
                             {item.quantity > 1 ? `${item.quantity}× ` : ''}
                             {item.name}
                           </div>
+                          {hasModel && (
+                            <div className="text-[11px] text-[#036B53]">{tModels('load3d')}</div>
+                          )}
                         </div>
+                      </>
+                    )
+                    return (
+                      <li key={key} className="flex items-start gap-3">
+                        {hasModel ? (
+                          <button
+                            type="button"
+                            onClick={e => {
+                              e.stopPropagation()
+                              setActiveKey(key)
+                            }}
+                            aria-pressed={isActive}
+                            className={`-m-1 flex w-full items-start gap-3 rounded-[12px] p-1 text-left transition-colors hover:bg-[#F2F4E8] ${
+                              isActive ? 'bg-[#F2F4E8]' : ''
+                            }`}
+                          >
+                            {content}
+                          </button>
+                        ) : (
+                          content
+                        )}
                       </li>
                     )
                   })}
@@ -298,7 +341,18 @@ export default function PackageCard(props: {
             </ul>
 
             <div className="flex flex-col gap-1">
-              {heroImage && (
+              {activeComponent ? (
+                <div className="mb-1">
+                  <div className="mb-1 text-[10px] uppercase tracking-wider text-[#062E25]/75">
+                    {tModels('title')}
+                  </div>
+                  <PackageModelStage
+                    component={activeComponent}
+                    components={modelComponents}
+                    onSelect={item => setActiveKey(`${item.equipmentType}:${item.name}`)}
+                  />
+                </div>
+              ) : heroImage ? (
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[12px]">
                   <Image
                     src={heroImage}
@@ -308,7 +362,7 @@ export default function PackageCard(props: {
                     className="object-contain"
                   />
                 </div>
-              )}
+              ) : null}
 
               <div
                 className="rounded-[14px] border p-4"

@@ -108,6 +108,10 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
           icon: Sun,
           subLinks: [
             {
+              label: t('hero.nav.productCatalog'),
+              href: '/products' as const,
+            },
+            {
               label: t('hero.nav.howItWorks'),
               href: '/how-it-works' as const,
             },

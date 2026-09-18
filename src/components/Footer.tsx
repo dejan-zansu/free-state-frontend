@@ -77,6 +77,10 @@ const Footer = () => {
       href: '/solar-systems' as const,
     },
     {
+      label: t('products.catalog3d'),
+      href: '/products' as const,
+    },
+    {
       label: t('products.batteryStorage'),
       href: '/battery-storage' as const,
     },

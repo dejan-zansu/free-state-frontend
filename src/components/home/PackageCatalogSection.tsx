@@ -51,7 +51,7 @@ export default function PackageCatalogSection() {
   } = results[PACKAGE_FILTERS.indexOf(MODEL_TO_FILTER[model])]
 
   return (
-    <section className="py-12 sm:py-20 px-4">
+    <section id="pakete" className="py-12 sm:py-20 px-4 scroll-mt-24">
       <div className="container mx-auto max-w-[1290px]">
         <div className="text-center mb-8 sm:mb-12">
           <RevealText

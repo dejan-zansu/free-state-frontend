@@ -6,6 +6,9 @@ import { adminEquipmentService } from '@/services/admin-equipment.service'
 
 const fields: FieldDef[] = [
   { name: 'imageUrl', label: 'Image', type: 'image', section: 'General' },
+  { name: 'modelUrl', label: '3D-Modell (GLB)', type: 'model', section: 'General' },
+  { name: 'modelPosterUrl', label: '3D-Poster', type: 'image', section: 'General' },
+  { name: 'galleryUrls', label: 'Produktgalerie', type: 'gallery', section: 'General' },
   { name: 'manufacturerId', label: 'Manufacturer ID', type: 'text', required: true, section: 'General' },
   { name: 'modelNumber', label: 'Model Number', type: 'text', required: true, section: 'General' },
   { name: 'sku', label: 'SKU', type: 'text', section: 'General' },

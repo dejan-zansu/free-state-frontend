@@ -47,6 +47,12 @@ const STATIC_ENTRIES: StaticEntry[] = [
   },
   { pathname: '/heat-pumps', lastModified: REFRESH_2026_02_01, priority: 0.8 },
   { pathname: '/heat-pumps/products', lastModified: REFRESH_2026_02_01 },
+  {
+    pathname: '/products',
+    lastModified: new Date('2026-09-18'),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  },
   { pathname: '/heat-pumps/cost', lastModified: REFRESH_2026_02_01 },
   { pathname: '/heat-pumps/how-it-works', lastModified: REFRESH_2026_02_01 },
   {

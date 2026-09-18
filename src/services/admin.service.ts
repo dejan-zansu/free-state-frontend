@@ -22,6 +22,8 @@ import type {
   PaginatedResponse,
   SalesRep,
   StaffAuditEntry,
+  AdminProductComment,
+  ProductCommentStatus,
 } from '@/types/admin'
 import type { Milestone, MilestoneStage, MilestoneStatus } from '@/types/milestone'
 import type { UserRole } from '@/types/auth'
@@ -310,6 +312,19 @@ class AdminService {
       data
     )
     return response.data.data.milestone
+  }
+
+  async listProductComments(query: ListQuery = {}): Promise<PaginatedResponse<AdminProductComment>> {
+    const response = await api.get<PaginatedResponse<AdminProductComment>>('/admin/product-comments', { params: query })
+    return response.data
+  }
+
+  async updateProductComment(id: string, status: ProductCommentStatus): Promise<void> {
+    await api.patch(`/admin/product-comments/${id}`, { status })
+  }
+
+  async deleteProductComment(id: string): Promise<void> {
+    await api.delete(`/admin/product-comments/${id}`)
   }
 }
 

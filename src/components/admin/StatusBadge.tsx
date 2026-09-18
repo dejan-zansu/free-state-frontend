@@ -36,6 +36,7 @@ const STATUS_COLORS: Record<string, string> = {
   REJECTED: 'bg-red-100 text-red-700',
   FAILED: 'bg-red-100 text-red-700',
   PENDING: 'bg-amber-100 text-amber-700',
+  APPROVED: 'bg-green-100 text-green-800',
 
   ADMIN: 'bg-purple-100 text-purple-700',
   CUSTOMER: 'bg-blue-100 text-blue-700',

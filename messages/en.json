@@ -82,6 +82,11 @@
       },
       "cta": {
         "orderFinal": "Order now"
+      },
+      "models": {
+        "title": "Components in 3D",
+        "viewAll": "View all products in 3D",
+        "load3d": "View in 3D"
       }
     }
   },
@@ -307,6 +312,11 @@
     "commercialChargingCompany": {
       "title": "EV Charging Stations for Companies and Fleets in Switzerland",
       "description": "We plan, install and maintain charging infrastructure for employees, guests, customers and company fleets, with load management and flexible billing."
+    },
+    "products": {
+      "title": "Products in 3D: modules, inverters, storage, EV chargers",
+      "description": "Every device in our solar packages as a rotatable 3D model, with the technical data from the manufacturer datasheet and manual, photos and customer experiences.",
+      "productTitle": "{name} in 3D: technical data, photos and reviews"
     }
   },
   "apiErrors": {
@@ -375,7 +385,8 @@
       "heatPumps": "Heat pumps",
       "chargingStations": "Charging stations",
       "energyStorage": "Energy storage",
-      "energyManagement": "Energy management"
+      "energyManagement": "Energy management",
+      "catalog3d": "Products in 3D"
     },
     "company": {
       "title": "Company",
@@ -670,7 +681,8 @@
         "singleFamilyHome": "Single family home",
         "promoTitle": "Smart solar solutions for private households",
         "promoTitleCommercial": "Smart solar solutions for businesses",
-        "promoCta": "Discover now"
+        "promoCta": "Discover now",
+        "productCatalog": "Products in 3D"
       }
     },
     "stats": {
@@ -6459,7 +6471,8 @@
       "outreachQueues": "Outreach Queues",
       "outreachStats": "Outreach stats",
       "tasks": "Tasks",
-      "workspaces": "Projects"
+      "workspaces": "Projects",
+      "productComments": "Product comments"
     },
     "outreach": {
       "title": "Outreach",
@@ -7440,7 +7453,8 @@
       "CONVERTED": "Converted",
       "NOT_INTERESTED": "Not interested",
       "OPTED_OUT": "Opted out",
-      "BOUNCED": "Bounced"
+      "BOUNCED": "Bounced",
+      "APPROVED": "Approved"
     },
     "users": {
       "title": "Users",
@@ -8013,7 +8027,17 @@
       },
       "solarDirect": "SolarDirect",
       "solarAbo": "SolarAbo",
-      "solarFree": "SolarFree"
+      "solarFree": "SolarFree",
+      "form3d": {
+        "model": "3D model (GLB)",
+        "poster": "3D poster (image before loading)",
+        "gallery": "Product gallery",
+        "uploadModel": "Upload GLB",
+        "replaceModel": "Replace",
+        "removeModel": "Remove",
+        "modelHint": "Binary glTF (.glb), ideally Draco compressed and under 1 MB.",
+        "openModel": "Open file"
+      }
     },
     "blog": {
       "title": "Blog Posts",
@@ -8438,6 +8462,25 @@
       "unsupported": "This browser does not support push notifications.",
       "serverDisabled": "Push notifications are not configured on the server.",
       "iosInstall": "On iPhone, install first via Share and Add to Home Screen, then enable here."
+    },
+    "productComments": {
+      "title": "Product comments",
+      "subtitle": "Reviews from the product page. Only approved comments are public.",
+      "status": "Status",
+      "all": "All",
+      "PENDING": "Pending",
+      "APPROVED": "Approved",
+      "REJECTED": "Rejected",
+      "product": "Product",
+      "author": "Author",
+      "comment": "Comment",
+      "rating": "Rating",
+      "created": "Created",
+      "approve": "Approve",
+      "reject": "Reject",
+      "delete": "Delete",
+      "confirmDelete": "Delete this comment permanently?",
+      "empty": "No comments in this view."
     }
   },
   "register": {
@@ -9668,5 +9711,89 @@
     "failed": "Invalid link",
     "invalidLink": "This link is invalid or has expired. Please start the calculation again.",
     "goToLogin": "Go to sign in"
+  },
+  "products": {
+    "hero": {
+      "breadcrumb": "Products",
+      "eyebrow": "Products in 3D",
+      "title": "The technology inside our solar packages",
+      "subtitle": "Rotate every device we install in 3D and read the technical data exactly as the manufacturer states it.",
+      "trust": {
+        "count": "{count} products from all current packages",
+        "scale": "Models built to scale from the manufacturer installation manuals",
+        "sources": "Every value sourced to a datasheet or manual"
+      }
+    },
+    "explorer": {
+      "categories": "Product categories",
+      "models": "Models",
+      "inPackages": "{count, plural, =1 {in 1 package} other {in # packages}}",
+      "viewerAlt": "3D model of {name}",
+      "noModel": "3D model coming soon",
+      "dimensions": "W x H x D",
+      "weight": "Weight",
+      "modelNote": "3D model from manufacturer dimensions",
+      "installedBadge": "Installed by Free State AG",
+      "summaryMore": "Read more",
+      "summaryLess": "Show less",
+      "includedIn": "Included in",
+      "comparePackages": "Compare packages",
+      "bookConsultation": "Book a consultation",
+      "datasheet": "Technical datasheet (PDF)",
+      "empty": "No products are available right now."
+    },
+    "viewer": {
+      "loading": "Loading 3D model",
+      "failed": "The 3D model could not be loaded.",
+      "reset": "Reset view",
+      "fullscreen": "Fullscreen",
+      "hint": "Drag to rotate, scroll to zoom",
+      "load3d": "View in 3D"
+    },
+    "specs": {
+      "title": "Technical data",
+      "subtitle": "All figures for the {name} from the manufacturer datasheet and manual",
+      "showMore": "Show {count} more",
+      "showLess": "Show less",
+      "datasheet": "Open datasheet (PDF)",
+      "certifications": "Certifications:",
+      "source": "Source: manufacturer datasheet and installation manual, as of September 2026. Subject to change, the manufacturer documents prevail."
+    },
+    "gallery": {
+      "title": "Product photos",
+      "subtitle": "{name} as shown by the manufacturer",
+      "openImage": "Enlarge image {index}",
+      "imageAlt": "view {index}",
+      "close": "Close",
+      "previous": "Previous image",
+      "next": "Next image",
+      "references": "In use",
+      "referencesSubtitle": "Reference installations with equipment from this manufacturer",
+      "viewReference": "View reference"
+    },
+    "comments": {
+      "title": "Experiences",
+      "subtitle": "What customers say about the {name}",
+      "loading": "Loading comments",
+      "empty": "No reviews yet. Be the first to share your experience with this product.",
+      "formTitle": "Share your experience",
+      "formSubtitle": "You use this device? Your review helps others decide.",
+      "name": "Name",
+      "nameError": "Please enter at least two characters.",
+      "email": "Email",
+      "emailHint": "Not published, only for follow-up questions.",
+      "emailError": "Please enter a valid email address.",
+      "optional": "optional",
+      "rating": "Rating",
+      "ratingOf": "{value} out of 5 stars",
+      "body": "Your experience",
+      "bodyPlaceholder": "How has this product worked for you?",
+      "bodyError": "Please write at least ten characters.",
+      "submit": "Post comment",
+      "submitting": "Sending",
+      "success": "Thank you. Your review will be published after a short check.",
+      "error": "The review could not be sent. Please try again later.",
+      "moderationNote": "Reviews are checked before they are published."
+    }
   }
 }

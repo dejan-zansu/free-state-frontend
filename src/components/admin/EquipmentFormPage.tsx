@@ -14,11 +14,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { ImageUpload } from '@/components/admin/ImageUpload'
+import { ModelUpload } from '@/components/admin/ModelUpload'
+import { PhotoGalleryUpload } from '@/components/admin/PhotoGalleryUpload'
 
 export interface FieldDef {
   name: string
   label: string
-  type: 'text' | 'number' | 'boolean' | 'select' | 'textarea' | 'json' | 'image'
+  type: 'text' | 'number' | 'boolean' | 'select' | 'textarea' | 'json' | 'image' | 'model' | 'gallery'
   required?: boolean
   options?: { value: string; label: string }[]
   placeholder?: string
@@ -199,7 +201,7 @@ export function EquipmentFormPage({
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {sectionFields.map((field) => (
-                  <div key={field.name} className={field.type === 'textarea' || field.type === 'json' || field.type === 'image' ? 'col-span-full' : ''}>
+                  <div key={field.name} className={field.type === 'textarea' || field.type === 'json' || field.type === 'image' || field.type === 'model' || field.type === 'gallery' ? 'col-span-full' : ''}>
                     <Label htmlFor={field.name} className="text-sm">
                       {field.label}
                       {field.required && <span className="text-destructive ml-1">*</span>}
@@ -209,6 +211,20 @@ export function EquipmentFormPage({
                         value={formData[field.name]}
                         onChange={(url) => setField(field.name, url)}
                       />
+                    ) : field.type === 'model' ? (
+                      <ModelUpload
+                        value={formData[field.name]}
+                        onChange={(url) => setField(field.name, url)}
+                      />
+                    ) : field.type === 'gallery' ? (
+                      <div className="mt-2">
+                        <PhotoGalleryUpload
+                          value={Array.isArray(formData[field.name]) ? formData[field.name] : []}
+                          onChange={(urls) => setField(field.name, urls)}
+                          folder="equipment-gallery"
+                          maxPhotos={12}
+                        />
+                      </div>
                     ) : field.type === 'boolean' ? (
                       <div className="flex items-center gap-2 mt-2">
                         <Checkbox
