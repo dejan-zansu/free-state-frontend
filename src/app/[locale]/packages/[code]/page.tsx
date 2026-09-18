@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 
 import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
 import PackageDetails from '@/components/packages/PackageDetails'
@@ -10,7 +10,8 @@ import { PACKAGE_FAQ_KEYS, type PackageComponentView } from '@/components/packag
 import { JsonLd } from '@/components/seo/JsonLd'
 import { cameraFor, loadSpecs, slugForProduct, type SpecLocale } from '@/lib/products/catalog'
 import { getFromPriceChf, getSystemSpecs } from '@/lib/products/package-math'
-import { packageCodeToSlug, packageSlugToCode } from '@/lib/products/package-slug'
+import { matchesPackageSlug, packageNameToSlug } from '@/lib/products/package-slug'
+import { getPathname } from '@/i18n/navigation'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
 import { buildFAQPageJsonLd } from '@/lib/seo/structured-data'
@@ -50,9 +51,8 @@ function modelsOf(pkg: CalculatorPackage): ('solar-free' | 'solar-direct' | 'sol
 
 async function loadPackage(locale: string, slug: string) {
   const lang = specLocale(locale)
-  const code = packageSlugToCode(slug)
   const [packages, specs] = await Promise.all([fetchPackages(lang), loadSpecs(lang)])
-  const pkg = packages.find((p) => p.code.toUpperCase() === code) ?? null
+  const pkg = packages.find((p) => matchesPackageSlug(p, slug)) ?? null
   return { pkg, specs }
 }
 
@@ -68,7 +68,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     : t('packages.description')
   return generateSEOMetadata({
     locale: locale as SiteLocale,
-    pathname: `/packages/${packageCodeToSlug(pkg.code)}`,
+    pathname: `/packages/${packageNameToSlug(pkg.name)}`,
     title: t('packages.title', { name: pkg.name }),
     description,
     ...(pkg.imageUrl && { ogImage: { url: pkg.imageUrl, width: 1200, height: 900, alt: pkg.name } }),
@@ -79,6 +79,12 @@ export default async function PackagePage({ params }: { params: Params }) {
   const { locale, code } = await params
   const { pkg, specs } = await loadPackage(locale, code)
   if (!pkg) notFound()
+  // The first version of the page used the internal code as the slug. Send those URLs to the
+  // name based one, which is what the card and the sitemap link.
+  const nameSlug = packageNameToSlug(pkg.name)
+  if (code.toLowerCase() !== nameSlug) {
+    permanentRedirect(getPathname({ locale: locale as SiteLocale, href: { pathname: '/packages/[code]', params: { code: nameSlug } } }))
+  }
   const t = await getTranslations('packagePage')
 
   const components: PackageComponentView[] = pkg.equipment

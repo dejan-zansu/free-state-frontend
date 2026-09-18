@@ -17,6 +17,7 @@ import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { packageNameToSlug } from '@/lib/products/package-slug'
 
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 import WarrrentyIcon from '../icons/WarrrentyIcon'
@@ -459,14 +460,18 @@ export default function PackageCard(props: {
               {t('cta.orderFinal')}
             </Button>
           )}
-          <Link
-            href={{ pathname: '/packages/[code]', params: { code: pkg.code.toLowerCase().replace(/_/g, '-') } }}
-            onClick={e => e.stopPropagation()}
-            className="mt-3 inline-flex w-full items-center justify-center gap-1.5 text-[13px] font-semibold text-[#036B53] hover:underline"
-          >
-            {t('cta.learnMore')}
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </Link>
+          {/* The package page shows the SolarDirect and SolarAbo equipment. SolarFree installs
+              different products, so the card does not link there in that mode. */}
+          {!isFree && (
+            <Link
+              href={{ pathname: '/packages/[code]', params: { code: packageNameToSlug(pkg.name) } }}
+              onClick={e => e.stopPropagation()}
+              className="mt-3 inline-flex w-full items-center justify-center gap-1.5 text-[13px] font-semibold text-[#036B53] hover:underline"
+            >
+              {t('cta.learnMore')}
+              <ArrowRight className="h-4 w-4" aria-hidden />
+            </Link>
+          )}
         </div>
       </article>
     </div>

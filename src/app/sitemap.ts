@@ -3,6 +3,7 @@ import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
 import { buildCanonicalUrl, buildHreflangAlternates } from '@/lib/seo/metadata'
 import { blogService } from '@/services/blog.service'
 import { referenceService } from '@/services/reference.service'
+import { packageNameToSlug } from '@/lib/products/package-slug'
 import {
   FOERDERUNG_CANTONS,
   isPlaceholderCanton,
@@ -241,9 +242,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })
   }
 
-  for (const code of await fetchPackageCodes()) {
+  for (const slug of await fetchPackageSlugs()) {
     entries.push({
-      url: `${siteConfig.url}/pakete/${code.toLowerCase().replace(/_/g, '-')}`,
+      url: `${siteConfig.url}/pakete/${slug}`,
       lastModified: new Date('2026-09-18'),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -254,13 +255,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 }
 
 // Package pages (/pakete/<code>): every active package of the public catalogue
-async function fetchPackageCodes(): Promise<string[]> {
+async function fetchPackageSlugs(): Promise<string[]> {
   try {
     const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
     const res = await fetch(`${base}/api/equipment/packages?lang=de`, { next: { revalidate: 3600 } })
     if (!res.ok) return []
-    const json = (await res.json()) as { data?: { code: string }[] }
-    return (json.data ?? []).map((p) => p.code)
+    const json = (await res.json()) as { data?: { name: string }[] }
+    return (json.data ?? []).map((p) => packageNameToSlug(p.name))
   } catch {
     return []
   }
