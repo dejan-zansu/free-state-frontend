@@ -81,12 +81,8 @@
         }
       },
       "cta": {
-        "orderFinal": "Ordina ora"
-      },
-      "models": {
-        "title": "Componenti in 3D",
-        "viewAll": "Vedi tutti i prodotti in 3D",
-        "load3d": "Vedi in 3D"
+        "orderFinal": "Ordina ora",
+        "learnMore": "Vedi il pacchetto nel dettaglio"
       }
     }
   },
@@ -317,6 +313,10 @@
       "title": "Prodotti in 3D: moduli, inverter, accumuli, stazioni di ricarica",
       "description": "Ogni dispositivo dei nostri pacchetti solari come modello 3D ruotabile, con i dati tecnici da scheda e manuale del produttore, foto ed esperienze dei nostri clienti.",
       "productTitle": "{name} in 3D: dati tecnici, foto e recensioni"
+    },
+    "packages": {
+      "title": "{name}: tutti i componenti in 3D",
+      "description": "Ogni dispositivo di questo pacchetto solare come modello 3D ruotabile con i dati tecnici del produttore."
     }
   },
   "apiErrors": {
@@ -9794,6 +9794,44 @@
       "success": "Grazie. La vostra recensione sarà pubblicata dopo una breve verifica.",
       "error": "La recensione non è stata inviata. Riprovate più tardi.",
       "moderationNote": "Le recensioni vengono verificate prima della pubblicazione."
+    }
+  },
+  "packagePage": {
+    "hero": {
+      "breadcrumb": "Pacchetti",
+      "eyebrow": "Pacchetto solare",
+      "freeLabel": "Con SolarFree",
+      "freeSuffix": "di investimento",
+      "orBuy": "oppure acquisto da {price} CHF IVA esclusa",
+      "installerWarranty": "{years} anni di garanzia dell'installatore",
+      "order": {
+        "solar-free": "Ordina con SolarFree",
+        "solar-direct": "Acquista come SolarDirect",
+        "solar-abo": "Ordina come SolarAbo"
+      }
+    },
+    "components": {
+      "title": "Cosa contiene questo pacchetto",
+      "subtitle": "{count, plural, =1 {1 componente} other {# componenti}}, ciascuno come modello 3D secondo le quote del produttore.",
+      "optional": "opzionale",
+      "evCharger": "Stazione di ricarica",
+      "allSpecs": "Tutti i dati tecnici",
+      "chargerNote": "La stazione di ricarica è opzionale e costa {price} CHF in più."
+    },
+    "included": {
+      "title": "Sempre incluso",
+      "quality": {
+        "title": "Componenti di qualità",
+        "desc": "Moduli, inverter e accumulo di marca con lunghe garanzie."
+      },
+      "app": {
+        "title": "App e monitoraggio",
+        "desc": "Tutto sotto controllo, sempre e ovunque."
+      },
+      "service": {
+        "title": "Montaggio e assistenza",
+        "desc": "Professionale, rapido e affidabile, tutto da un unico partner."
+      }
     }
   }
 }

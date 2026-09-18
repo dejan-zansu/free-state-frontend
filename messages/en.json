@@ -81,12 +81,8 @@
         }
       },
       "cta": {
-        "orderFinal": "Order now"
-      },
-      "models": {
-        "title": "Components in 3D",
-        "viewAll": "View all products in 3D",
-        "load3d": "View in 3D"
+        "orderFinal": "Order now",
+        "learnMore": "View package details"
       }
     }
   },
@@ -317,6 +313,10 @@
       "title": "Products in 3D: modules, inverters, storage, EV chargers",
       "description": "Every device in our solar packages as a rotatable 3D model, with the technical data from the manufacturer datasheet and manual, photos and customer experiences.",
       "productTitle": "{name} in 3D: technical data, photos and reviews"
+    },
+    "packages": {
+      "title": "{name}: every component in 3D",
+      "description": "Every device in this solar package as a rotatable 3D model with the manufacturer technical data."
     }
   },
   "apiErrors": {
@@ -9794,6 +9794,44 @@
       "success": "Thank you. Your review will be published after a short check.",
       "error": "The review could not be sent. Please try again later.",
       "moderationNote": "Reviews are checked before they are published."
+    }
+  },
+  "packagePage": {
+    "hero": {
+      "breadcrumb": "Packages",
+      "eyebrow": "Solar package",
+      "freeLabel": "With SolarFree",
+      "freeSuffix": "own investment",
+      "orBuy": "or purchase from CHF {price} excl. VAT",
+      "installerWarranty": "{years} years installer warranty",
+      "order": {
+        "solar-free": "Order with SolarFree",
+        "solar-direct": "Buy as SolarDirect",
+        "solar-abo": "Order as SolarAbo"
+      }
+    },
+    "components": {
+      "title": "What is inside this package",
+      "subtitle": "{count, plural, =1 {1 component} other {# components}}, each as a 3D model built from the manufacturer dimensions.",
+      "optional": "optional",
+      "evCharger": "EV charger",
+      "allSpecs": "All technical data",
+      "chargerNote": "The EV charger is optional and costs CHF {price} extra."
+    },
+    "included": {
+      "title": "Always included",
+      "quality": {
+        "title": "Quality components",
+        "desc": "Brand modules, inverter and storage with long warranties."
+      },
+      "app": {
+        "title": "App & monitoring",
+        "desc": "Everything in view, anytime and anywhere."
+      },
+      "service": {
+        "title": "Installation & service",
+        "desc": "Professional, fast and reliable, all from one partner."
+      }
     }
   }
 }

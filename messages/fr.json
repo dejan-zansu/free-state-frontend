@@ -81,12 +81,8 @@
         }
       },
       "cta": {
-        "orderFinal": "Commander"
-      },
-      "models": {
-        "title": "Composants en 3D",
-        "viewAll": "Voir tous les produits en 3D",
-        "load3d": "Voir en 3D"
+        "orderFinal": "Commander",
+        "learnMore": "Voir le forfait en détail"
       }
     }
   },
@@ -317,6 +313,10 @@
       "title": "Produits en 3D : modules, onduleurs, batteries, bornes de recharge",
       "description": "Chaque appareil de nos forfaits solaires en modèle 3D rotatif, avec les données techniques de la fiche et du manuel du fabricant, des photos et les retours de nos clients.",
       "productTitle": "{name} en 3D : données techniques, photos et avis"
+    },
+    "packages": {
+      "title": "{name} : tous les composants en 3D",
+      "description": "Chaque appareil de ce forfait solaire en modèle 3D rotatif avec les données techniques du fabricant."
     }
   },
   "apiErrors": {
@@ -9794,6 +9794,44 @@
       "success": "Merci. Votre avis sera publié après une brève vérification.",
       "error": "L'avis n'a pas pu être envoyé. Veuillez réessayer plus tard.",
       "moderationNote": "Les avis sont vérifiés avant publication."
+    }
+  },
+  "packagePage": {
+    "hero": {
+      "breadcrumb": "Forfaits",
+      "eyebrow": "Forfait solaire",
+      "freeLabel": "Avec SolarFree",
+      "freeSuffix": "d'investissement",
+      "orBuy": "ou achat dès {price} CHF hors TVA",
+      "installerWarranty": "{years} ans de garantie installateur",
+      "order": {
+        "solar-free": "Commander avec SolarFree",
+        "solar-direct": "Acheter en SolarDirect",
+        "solar-abo": "Commander en SolarAbo"
+      }
+    },
+    "components": {
+      "title": "Ce que contient ce forfait",
+      "subtitle": "{count, plural, =1 {1 composant} other {# composants}}, chacun en modèle 3D d'après les cotes du fabricant.",
+      "optional": "en option",
+      "evCharger": "Borne de recharge",
+      "allSpecs": "Toutes les données techniques",
+      "chargerNote": "La borne de recharge est en option et coûte {price} CHF de plus."
+    },
+    "included": {
+      "title": "Toujours inclus",
+      "quality": {
+        "title": "Composants de qualité",
+        "desc": "Modules, onduleur et batterie de marque avec de longues garanties."
+      },
+      "app": {
+        "title": "App et monitoring",
+        "desc": "Tout sous les yeux, partout et à tout moment."
+      },
+      "service": {
+        "title": "Montage et service",
+        "desc": "Professionnel, rapide et fiable, tout d'une seule main."
+      }
     }
   }
 }

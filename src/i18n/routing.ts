@@ -356,6 +356,12 @@ export const routing = defineRouting({
       fr: '/produits',
       it: '/prodotti',
     },
+    '/packages/[code]': {
+      en: '/packages/[code]',
+      de: '/pakete/[code]',
+      fr: '/forfaits/[code]',
+      it: '/pacchetti/[code]',
+    },
     '/learn-more': {
       en: '/learn-more',
       de: '/mehr-erfahren',

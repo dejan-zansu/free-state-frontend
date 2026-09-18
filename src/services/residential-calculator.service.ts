@@ -212,6 +212,9 @@ export interface PublicEvCharger {
   hasLoadBalancing: boolean
   warrantyYears: number | null
   priceChf: number
+  nameEn?: string
+  modelUrl?: string | null
+  modelPosterUrl?: string | null
   displayName: string
   description: string | null
   keyFeatures: string[] | null
@@ -233,6 +236,7 @@ export interface CalculatorPackage {
   electricitySavingsPercent: number
   purchasePriceChf: number | null
   installerWarrantyYears: number | null
+  supportedSolarModels?: ('SOLAR_FREE' | 'SOLAR_DIRECT' | 'SOLAR_ABO')[]
   equipment: {
     equipmentType: string
     equipmentId?: string

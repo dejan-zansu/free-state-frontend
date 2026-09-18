@@ -81,12 +81,8 @@
         }
       },
       "cta": {
-        "orderFinal": "Jetzt Bestellen"
-      },
-      "models": {
-        "title": "Komponenten in 3D",
-        "viewAll": "Alle Produkte in 3D ansehen",
-        "load3d": "In 3D ansehen"
+        "orderFinal": "Jetzt Bestellen",
+        "learnMore": "Paket im Detail ansehen"
       }
     }
   },
@@ -317,6 +313,10 @@
       "title": "Produkte in 3D: Module, Wechselrichter, Speicher, Ladestationen",
       "description": "Jedes Gerät aus unseren Solarpaketen als drehbares 3D-Modell, mit den technischen Daten aus Herstellerdatenblatt und Handbuch, Fotos und Erfahrungen unserer Kundinnen und Kunden.",
       "productTitle": "{name} in 3D: technische Daten, Fotos und Erfahrungen"
+    },
+    "packages": {
+      "title": "{name}: alle Komponenten in 3D",
+      "description": "Jedes Gerät dieses Solarpakets als drehbares 3D-Modell mit den technischen Daten des Herstellers."
     }
   },
   "apiErrors": {
@@ -9795,6 +9795,44 @@
       "success": "Vielen Dank. Ihr Beitrag wird nach einer kurzen Prüfung veröffentlicht.",
       "error": "Der Beitrag konnte nicht gesendet werden. Bitte versuchen Sie es später noch einmal.",
       "moderationNote": "Beiträge werden vor der Veröffentlichung geprüft."
+    }
+  },
+  "packagePage": {
+    "hero": {
+      "breadcrumb": "Pakete",
+      "eyebrow": "Solarpaket",
+      "freeLabel": "Mit SolarFree",
+      "freeSuffix": "Eigeninvestition",
+      "orBuy": "oder Kauf ab {price} CHF zzgl. MwSt.",
+      "installerWarranty": "{years} Jahre Installateurgarantie",
+      "order": {
+        "solar-free": "Mit SolarFree bestellen",
+        "solar-direct": "Als SolarDirect kaufen",
+        "solar-abo": "Als SolarAbo bestellen"
+      }
+    },
+    "components": {
+      "title": "Was in diesem Paket steckt",
+      "subtitle": "{count, plural, =1 {1 Komponente} other {# Komponenten}}, jede als 3D-Modell nach den Massen des Herstellers.",
+      "optional": "optional",
+      "evCharger": "Ladestation",
+      "allSpecs": "Alle technischen Daten",
+      "chargerNote": "Die Ladestation ist optional und kostet {price} CHF zusätzlich."
+    },
+    "included": {
+      "title": "Immer inbegriffen",
+      "quality": {
+        "title": "Hochwertige Komponenten",
+        "desc": "Markenmodule, Wechselrichter und Speicher mit langer Garantie."
+      },
+      "app": {
+        "title": "App & Monitoring",
+        "desc": "Jederzeit und überall alles im Blick."
+      },
+      "service": {
+        "title": "Montage & Service",
+        "desc": "Professionell, schnell und zuverlässig, alles aus einer Hand."
+      }
     }
   }
 }
