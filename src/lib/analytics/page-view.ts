@@ -25,6 +25,12 @@ export function postPageView(path: string): void {
     if (utmId) body.utmId = utmId
     const attribution = getStoredAttribution()
     if (attribution) body.attribution = attribution
+    // Region without an IP address: the browser timezone is enough to tell a
+    // Swiss visitor from one abroad, and it is not a stored identifier.
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      if (timezone) body.timezone = timezone
+    } catch {}
     void fetch(`${API_URL}/api/pageview`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

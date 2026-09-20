@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef } from 'react'
 
+import { startHeartbeat, stopHeartbeat } from '@/lib/analytics/heartbeat'
 import { postPageView } from '@/lib/analytics/page-view'
 
 const IGNORED_SEGMENTS = ['admin']
@@ -22,7 +23,12 @@ export default function PageViewTracker() {
     if (isIgnored(pathname)) return
     lastSentRef.current = pathname
     postPageView(pathname)
+    // Started after the first tracked view so the session row exists before
+    // the first ping tries to touch it.
+    startHeartbeat()
   }, [pathname])
+
+  useEffect(() => stopHeartbeat, [])
 
   return null
 }

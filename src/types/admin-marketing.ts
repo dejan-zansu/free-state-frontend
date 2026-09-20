@@ -575,3 +575,100 @@ export interface UpdateExperimentInput {
   decision?: string
   learnings?: string
 }
+
+// Live view: one snapshot of the last few minutes, polled by the live page.
+export interface MarketingLiveSnapshot {
+  generatedAt: string
+  windowMinutes: number
+  activeSessions: number
+  activeViews: number
+  calculatorSessions: number
+  timeline: { minute: string; views: number; sessions: number }[]
+  paths: { path: string; sessions: number }[]
+  channels: { channel: string; sessions: number }[]
+  devices: { device: string; sessions: number }[]
+  sessions: {
+    sessionKey: string
+    path: string
+    lastSeen: string
+    views: number
+    device: string | null
+    browser: string | null
+    os: string | null
+    timezone: string | null
+    channel: string
+    replayUrl: string | null
+    step: number | null
+  }[]
+  events: {
+    id: string
+    name: string
+    step: number | null
+    path: string | null
+    createdAt: string
+    sessionKey: string
+    channel: string
+  }[]
+}
+
+export type CalculatorFlowKey = 'residential' | 'commercial'
+
+export interface MarketingCalculatorFunnel {
+  range: { from: string; to: string }
+  flow: CalculatorFlowKey
+  steps: {
+    step: number
+    sessions: number
+    dropOff: number
+    dropOffRate: number
+    medianSeconds: number | null
+  }[]
+  outcomes: { name: string; sessions: number }[]
+  devices: { device: string; sessions: number; signups: number }[]
+  channels: { channel: string; sessions: number; signups: number }[]
+  sessions: {
+    sessionKey: string
+    startedAt: string
+    lastEventAt: string
+    maxStep: number | null
+    events: number
+    reachedResults: boolean
+    signedUp: boolean
+    device: string | null
+    browser: string | null
+    os: string | null
+    timezone: string | null
+    channel: string
+    landingPage: string | null
+    replayUrl: string | null
+    projectId: string | null
+  }[]
+}
+
+export interface MarketingSessionDetail {
+  sessionKey: string
+  attribution: {
+    channel: string
+    utmSource: string | null
+    utmMedium: string | null
+    utmCampaign: string | null
+    utmId: string | null
+    referrer: string | null
+    landingPage: string | null
+    device: string | null
+    browser: string | null
+    os: string | null
+    timezone: string | null
+    language: string | null
+    replayUrl: string | null
+    firstSeen: string | null
+  } | null
+  projectId: string | null
+  timeline: {
+    kind: 'pageview' | 'event'
+    at: string
+    label: string
+    step: number | null
+    meta: unknown
+  }[]
+}

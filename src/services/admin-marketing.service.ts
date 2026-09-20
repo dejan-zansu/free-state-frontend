@@ -1,5 +1,6 @@
 import api from '@/lib/api'
 import type {
+  CalculatorFlowKey,
   CampaignAdCreativePatch,
   CampaignBreakdowns,
   CampaignDetail,
@@ -17,10 +18,13 @@ import type {
   MarketingContentPosts,
   MarketingContentWinners,
   MarketingAnalyticsOverview,
+  MarketingCalculatorFunnel,
   MarketingEvent,
   MarketingEventCreate,
   MarketingExperiments,
+  MarketingLiveSnapshot,
   MarketingOverview,
+  MarketingSessionDetail,
   MarketingSettings,
   MarketingStudioDraft,
   MarketingStudioDrafts,
@@ -64,6 +68,21 @@ class AdminMarketingService {
 
   async getAnalyticsOverview(params?: { from?: string; to?: string }): Promise<MarketingAnalyticsOverview> {
     const response = await api.get<{ success: boolean; data: MarketingAnalyticsOverview }>('/admin/marketing/analytics/overview', { params })
+    return response.data.data
+  }
+
+  async getLiveAnalytics(): Promise<MarketingLiveSnapshot> {
+    const response = await api.get<{ success: boolean; data: MarketingLiveSnapshot }>('/admin/marketing/analytics/live')
+    return response.data.data
+  }
+
+  async getCalculatorFunnel(params?: { from?: string; to?: string; flow?: CalculatorFlowKey }): Promise<MarketingCalculatorFunnel> {
+    const response = await api.get<{ success: boolean; data: MarketingCalculatorFunnel }>('/admin/marketing/analytics/calculator', { params })
+    return response.data.data
+  }
+
+  async getSessionDetail(sessionKey: string): Promise<MarketingSessionDetail> {
+    const response = await api.get<{ success: boolean; data: MarketingSessionDetail }>(`/admin/marketing/analytics/sessions/${encodeURIComponent(sessionKey)}`)
     return response.data.data
   }
 

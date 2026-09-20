@@ -189,7 +189,12 @@ export default function ResultScreen({
         <h1 className="text-2xl sm:text-[34px] font-medium text-[#062E25]">
           {t(headlineKey)}
         </h1>
-        <p className="mt-2 sm:mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight">
+        {/* data-cs-mask keeps the customer address out of the Contentsquare
+            replay while the rest of the screen stays readable. */}
+        <p
+          data-cs-mask
+          className="mt-2 sm:mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight"
+        >
           {t('subline', { address: addressLabel })}
         </p>
         {estimate.isLowResult && (
@@ -210,7 +215,10 @@ export default function ResultScreen({
               unoptimized
               className="h-auto w-full rounded-[16px] border border-[#9CA9A6]/30 object-cover"
             />
-            <figcaption className="mt-2 text-base text-[#062E25]/70 tracking-tight">
+            <figcaption
+              data-cs-mask
+              className="mt-2 text-base text-[#062E25]/70 tracking-tight"
+            >
               {addressLabel}
             </figcaption>
           </figure>
