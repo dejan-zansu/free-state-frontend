@@ -189,8 +189,6 @@ export default function ResultScreen({
         <h1 className="text-2xl sm:text-[34px] font-medium text-[#062E25]">
           {t(headlineKey)}
         </h1>
-        {/* data-cs-mask keeps the customer address out of the Contentsquare
-            replay while the rest of the screen stays readable. */}
         <p
           data-cs-mask
           className="mt-2 sm:mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight"

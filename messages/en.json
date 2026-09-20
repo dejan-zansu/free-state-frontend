@@ -7324,6 +7324,19 @@
           "consultation_booked": "Consultation requested",
           "contract_signed": "Contract signed",
           "manual_check_requested": "Manual check requested"
+        },
+        "rangeToday": "Today",
+        "rangeLabel": "{from} to {to}, compared with {previousFrom} to {previousTo}",
+        "sessionsCount": "{count} sessions",
+        "previousPage": "Back",
+        "nextPage": "Next",
+        "pageOf": "Page {page} of {pages}",
+        "step": {
+          "address": "Address",
+          "roof": "Roof areas",
+          "consumption": "Consumption",
+          "business": "Business",
+          "contact": "Contact"
         }
       }
     },

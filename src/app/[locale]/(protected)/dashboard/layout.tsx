@@ -140,8 +140,6 @@ export default function DashboardLayout({
         </aside>
 
         <div className="flex-1 lg:ml-64 min-w-0 min-h-[calc(100vh-57px)] sm:min-h-[calc(100vh-69px)]">
-          {/* The whole customer area is personal data, so it is masked in the
-              Contentsquare replay. Layout and clicks still record. */}
           <div data-cs-mask className="p-4 sm:p-6 lg:p-8">
             {children}
           </div>

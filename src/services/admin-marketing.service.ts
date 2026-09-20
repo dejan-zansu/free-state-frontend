@@ -76,7 +76,7 @@ class AdminMarketingService {
     return response.data.data
   }
 
-  async getCalculatorFunnel(params?: { from?: string; to?: string; flow?: CalculatorFlowKey }): Promise<MarketingCalculatorFunnel> {
+  async getCalculatorFunnel(params?: { from?: string; to?: string; flow?: CalculatorFlowKey; page?: number; pageSize?: number }): Promise<MarketingCalculatorFunnel> {
     const response = await api.get<{ success: boolean; data: MarketingCalculatorFunnel }>('/admin/marketing/analytics/calculator', { params })
     return response.data.data
   }

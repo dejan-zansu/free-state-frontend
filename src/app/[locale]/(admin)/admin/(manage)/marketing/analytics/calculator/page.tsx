@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
@@ -25,11 +25,34 @@ import { cn } from '@/lib/utils'
 import { adminMarketingService } from '@/services/admin-marketing.service'
 import type { CalculatorFlowKey } from '@/types/admin-marketing'
 
-const RANGE_OPTIONS = [7, 30, 90]
+const RANGE_OPTIONS = [1, 7, 30, 90]
+const PAGE_SIZE = 25
 const FLOW_OPTIONS: CalculatorFlowKey[] = ['residential', 'commercial']
+
+const STEP_KEYS: Record<CalculatorFlowKey, string[]> = {
+  residential: ['address', 'roof', 'consumption', 'contact'],
+  commercial: ['address', 'roof', 'business', 'contact'],
+}
 
 function isoDay(date: Date): string {
   return date.toISOString().slice(0, 10)
+}
+
+function formatDateTime(iso: string): string {
+  const date = new Date(iso)
+  const pad = (value: number) => String(value).padStart(2, '0')
+  return `${pad(date.getDate())}.${pad(date.getMonth() + 1)}., ${pad(date.getHours())}:${pad(date.getMinutes())}`
+}
+
+function formatDay(iso: string): string {
+  const [year, month, day] = iso.split('-')
+  return `${day}.${month}.${year}`
+}
+
+function formatDelta(current: number, previous: number): string | null {
+  const diff = current - previous
+  if (diff === 0) return null
+  return diff > 0 ? `+${diff}` : `${diff}`
 }
 
 function formatDuration(seconds: number | null): string {
@@ -50,9 +73,9 @@ function clientLabel(
 
 export default function CalculatorFunnelPage() {
   const t = useTranslations('admin.marketing.calculatorFunnel')
-  const locale = useLocale()
   const [days, setDays] = useState(30)
   const [flow, setFlow] = useState<CalculatorFlowKey>('residential')
+  const [page, setPage] = useState(1)
   const [openSession, setOpenSession] = useState<string | null>(null)
 
   const to = new Date()
@@ -67,15 +90,28 @@ export default function CalculatorFunnelPage() {
       isoDay(from),
       isoDay(to),
       flow,
+      page,
     ],
     queryFn: () =>
       adminMarketingService.getCalculatorFunnel({
         from: isoDay(from),
         to: isoDay(to),
         flow,
+        page,
+        pageSize: PAGE_SIZE,
       }),
     placeholderData: keepPreviousData,
   })
+
+  const changeFlow = (next: CalculatorFlowKey) => {
+    setFlow(next)
+    setPage(1)
+  }
+
+  const changeDays = (next: number) => {
+    setDays(next)
+    setPage(1)
+  }
 
   const sessionQuery = useQuery({
     queryKey: ['admin', 'marketing', 'analytics', 'session', openSession],
@@ -100,13 +136,12 @@ export default function CalculatorFunnelPage() {
   }
 
   const firstStepSessions = data.steps[0]?.sessions ?? 0
-  const formatDateTime = (iso: string) =>
-    new Date(iso).toLocaleString(locale, {
-      day: '2-digit',
-      month: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-    })
+  const stepKeys = STEP_KEYS[data.flow] ?? []
+  const stepName = (step: number) => {
+    const key = stepKeys[step - 1]
+    return key ? t(`step.${key}`) : t('stepLabel', { step })
+  }
+  const lastPage = Math.max(1, Math.ceil(data.sessionsTotal / data.pageSize))
 
   return (
     <div className="space-y-6">
@@ -121,7 +156,7 @@ export default function CalculatorFunnelPage() {
             key={option}
             variant={flow === option ? 'default' : 'outline'}
             size="sm"
-            onClick={() => setFlow(option)}
+            onClick={() => changeFlow(option)}
           >
             {t(`flow.${option}`)}
           </Button>
@@ -132,12 +167,21 @@ export default function CalculatorFunnelPage() {
             key={option}
             variant={days === option ? 'default' : 'outline'}
             size="sm"
-            onClick={() => setDays(option)}
+            onClick={() => changeDays(option)}
           >
-            {t('rangeDays', { count: option })}
+            {option === 1 ? t('rangeToday') : t('rangeDays', { count: option })}
           </Button>
         ))}
       </div>
+
+      <p className="text-base text-[#062E25]/70">
+        {t('rangeLabel', {
+          from: formatDay(data.range.from),
+          to: formatDay(data.range.to),
+          previousFrom: formatDay(data.previousRange.from),
+          previousTo: formatDay(data.previousRange.to),
+        })}
+      </p>
 
       <Card>
         <CardContent className="py-5">
@@ -157,13 +201,25 @@ export default function CalculatorFunnelPage() {
                   <div key={step.step}>
                     <div className="flex flex-wrap items-baseline justify-between gap-2 text-base">
                       <span className="font-medium text-[#062E25]">
-                        {t('stepLabel', { step: step.step })}
+                        {t('stepLabel', { step: step.step })}:{' '}
+                        {stepName(step.step)}
                       </span>
                       <span className="text-[#062E25]/70">
                         {t('stepSummary', {
                           sessions: step.sessions,
                           median: formatDuration(step.medianSeconds),
                         })}
+                        {formatDelta(step.sessions, step.previousSessions) && (
+                          <span
+                            className={
+                              step.sessions >= step.previousSessions
+                                ? 'ml-2 text-emerald-700'
+                                : 'ml-2 text-[#B45309]'
+                            }
+                          >
+                            {formatDelta(step.sessions, step.previousSessions)}
+                          </span>
+                        )}
                       </span>
                     </div>
                     <div className="mt-1 h-7 w-full rounded bg-[#062E25]/8">
@@ -204,7 +260,20 @@ export default function CalculatorFunnelPage() {
                   <span className="truncate text-[#062E25]">
                     {t(`outcome.${row.name}`)}
                   </span>
-                  <span className="text-[#062E25]/70">{row.sessions}</span>
+                  <span className="text-[#062E25]/70">
+                    {row.sessions}
+                    {formatDelta(row.sessions, row.previousSessions) && (
+                      <span
+                        className={
+                          row.sessions >= row.previousSessions
+                            ? 'ml-2 text-emerald-700'
+                            : 'ml-2 text-[#B45309]'
+                        }
+                      >
+                        {formatDelta(row.sessions, row.previousSessions)}
+                      </span>
+                    )}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -265,6 +334,9 @@ export default function CalculatorFunnelPage() {
           <p className="text-base font-medium text-[#062E25]">
             {t('sessionsTitle')}
           </p>
+          <p className="text-base text-[#062E25]/70">
+            {t('sessionsCount', { count: data.sessionsTotal })}
+          </p>
           {data.sessions.length === 0 ? (
             <p className="mt-3 text-base text-[#062E25]/60">{t('empty')}</p>
           ) : (
@@ -292,7 +364,7 @@ export default function CalculatorFunnelPage() {
                       </TableCell>
                       <TableCell>{row.channel}</TableCell>
                       <TableCell className="text-right">
-                        {row.maxStep ?? '-'}
+                        {row.maxStep ? stepName(row.maxStep) : '-'}
                       </TableCell>
                       <TableCell
                         className={cn(
@@ -336,6 +408,27 @@ export default function CalculatorFunnelPage() {
                   ))}
                 </TableBody>
               </Table>
+              <div className="mt-3 flex items-center justify-between gap-3">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={data.page <= 1}
+                  onClick={() => setPage(current => Math.max(1, current - 1))}
+                >
+                  {t('previousPage')}
+                </Button>
+                <span className="text-base text-[#062E25]/70">
+                  {t('pageOf', { page: data.page, pages: lastPage })}
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={data.page >= lastPage}
+                  onClick={() => setPage(current => current + 1)}
+                >
+                  {t('nextPage')}
+                </Button>
+              </div>
             </div>
           )}
         </CardContent>

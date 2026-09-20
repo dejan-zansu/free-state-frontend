@@ -615,15 +615,20 @@ export type CalculatorFlowKey = 'residential' | 'commercial'
 
 export interface MarketingCalculatorFunnel {
   range: { from: string; to: string }
+  previousRange: { from: string; to: string }
   flow: CalculatorFlowKey
   steps: {
     step: number
     sessions: number
+    previousSessions: number
     dropOff: number
     dropOffRate: number
     medianSeconds: number | null
   }[]
-  outcomes: { name: string; sessions: number }[]
+  outcomes: { name: string; sessions: number; previousSessions: number }[]
+  sessionsTotal: number
+  page: number
+  pageSize: number
   devices: { device: string; sessions: number; signups: number }[]
   channels: { channel: string; sessions: number; signups: number }[]
   sessions: {

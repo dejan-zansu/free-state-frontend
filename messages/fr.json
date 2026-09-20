@@ -7324,6 +7324,19 @@
           "consultation_booked": "Conseil demandé",
           "contract_signed": "Contrat signé",
           "manual_check_requested": "Vérification manuelle demandée"
+        },
+        "rangeToday": "Aujourd'hui",
+        "rangeLabel": "du {from} au {to}, comparé au {previousFrom} au {previousTo}",
+        "sessionsCount": "{count} sessions",
+        "previousPage": "Retour",
+        "nextPage": "Suivant",
+        "pageOf": "Page {page} sur {pages}",
+        "step": {
+          "address": "Adresse",
+          "roof": "Surfaces de toit",
+          "consumption": "Consommation",
+          "business": "Entreprise",
+          "contact": "Contact"
         }
       }
     },

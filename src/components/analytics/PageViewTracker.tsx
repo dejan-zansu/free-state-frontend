@@ -23,8 +23,6 @@ export default function PageViewTracker() {
     if (isIgnored(pathname)) return
     lastSentRef.current = pathname
     postPageView(pathname)
-    // Started after the first tracked view so the session row exists before
-    // the first ping tries to touch it.
     startHeartbeat()
   }, [pathname])
 

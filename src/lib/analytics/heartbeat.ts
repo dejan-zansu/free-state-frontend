@@ -7,9 +7,6 @@ const HEARTBEAT_MS = 30_000
 let timer: ReturnType<typeof setInterval> | null = null
 let visibilityBound = false
 
-// Page views only tell us when someone navigated. Without this ping a visitor
-// reading one page for ten minutes disappears from the live view, which made
-// the "active now" number read lower than reality.
 function ping(): void {
   if (document.visibilityState !== 'visible') return
   try {
@@ -29,8 +26,6 @@ function onVisibilityChange(): void {
     ping()
     return
   }
-  // A hidden tab is not a visitor on the site, so the stamp stops moving and
-  // the session ages out of the live window on its own.
   if (timer) {
     clearInterval(timer)
     timer = null

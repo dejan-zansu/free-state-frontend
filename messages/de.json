@@ -7131,6 +7131,19 @@
           "consultation_booked": "Beratung angefragt",
           "contract_signed": "Vertrag unterschrieben",
           "manual_check_requested": "Manuelle Prüfung angefragt"
+        },
+        "rangeToday": "Heute",
+        "rangeLabel": "{from} bis {to}, Vergleich mit {previousFrom} bis {previousTo}",
+        "sessionsCount": "{count} Sitzungen",
+        "previousPage": "Zurueck",
+        "nextPage": "Weiter",
+        "pageOf": "Seite {page} von {pages}",
+        "step": {
+          "address": "Adresse",
+          "roof": "Dachflaechen",
+          "consumption": "Verbrauch",
+          "business": "Betrieb",
+          "contact": "Kontakt"
         }
       }
     },
