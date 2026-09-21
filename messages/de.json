@@ -110,8 +110,8 @@
       "description": "SolarAbo von Free State: Ihre Solaranlage mit fester Monatsrate, Monitoring, Garantie und Versicherung inklusive. Jetzt Monatsrate berechnen."
     },
     "batteryStorage": {
-      "title": "Batteriespeicher Schweiz: Stromspeicher für Ihre Solaranlage",
-      "description": "Speichern Sie Ihren Solarstrom für die Nacht. Batteriespeicher ab 5 kWh. Kompatibel mit BYD, Huawei, Viessmann. Planung und Installation in der Deutschschweiz."
+      "title": "Batteriespeicher als Einnahmequelle: Netzdienstleistungen | Free State AG",
+      "description": "Grosse Batteriespeicher senken nicht nur die Stromkosten, sie erwirtschaften mit Netzdienstleistungen Erträge. Speicherstrategie für Ihren Standort. Heimspeicher finden Sie unter Stromspeicher."
     },
     "heatPumps": {
       "title": "Wärmepumpen Schweiz: Luft/Wasser und Sole/Wasser | Free State AG",
@@ -4267,7 +4267,8 @@
   "solarCalculator": {
     "hero": {
       "title": "kostenlos\nberechnen",
-      "description": "Entdecken Sie in 4 Schritten die Energieleistung Ihres Daches, die Amortisationszeit und verfügbare Förderungen."
+      "description": "Entdecken Sie in 4 Schritten die Energieleistung Ihres Daches, die Amortisationszeit und verfügbare Förderungen.",
+      "cta": "Solarrechner starten"
     },
     "howItWorks": {
       "title": "Von der Beratung bis zur Installation",
@@ -4378,6 +4379,108 @@
       "title": "Jetzt starten!\nNutzen Sie den Solarrechner für ein Angebot.",
       "cta": "Solarrechner starten",
       "ctaLink": "/calculator"
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Was ein Solarrechner leisten kann und was nicht",
+      "intro": "Ein Online-Rechner ersetzt keine Planung, aber er beantwortet die erste Frage: Lohnt sich das auf meinem Dach überhaupt? Hier steht, welche Angaben das Ergebnis bestimmen, wie unser Rechner arbeitet und woran Sie ein Werkzeug erkennen, das nur Adressen sammeln will.",
+      "sections": [
+        {
+          "title": "Welche Eingaben das Ergebnis wirklich bestimmen",
+          "paragraphs": [
+            "Ein Ergebnis ist immer nur so gut wie die Angaben dahinter. Fünf Dinge entscheiden, ob die Zahl am Ende etwas mit Ihrem Haus zu tun hat."
+          ],
+          "bullets": [
+            "Dachfläche, Ausrichtung und Neigung. Für eine Südausrichtung im Mittelland liegt die beste Neigung bei 30 bis 35 Grad, also im Bereich der meisten Satteldächer.",
+            "Verschattung durch Bäume, Nachbargebäude, Kamine und Dachfenster. Kein Online-Rechner sieht sie, und sie erklärt, warum zwei gleiche Dächer in derselben Strasse unterschiedlich rentieren.",
+            "Ihr Stromverbrauch und wann er anfällt. Das ist der grösste Hebel im ganzen Modell.",
+            "Der Strompreis Ihres Netzbetreibers und die Vergütung, die er für eingespeisten Strom zahlt.",
+            "Der Preis der Anlage selbst, inklusive Gerüst, Elektroinstallation und Anschluss."
+          ],
+          "links": [
+            {
+              "label": "Was eine seriöse Berechnung zeigen muss",
+              "href": "/blog/solarrechner-schweiz-was-eine-seriose-berechnung-zeigt"
+            }
+          ]
+        },
+        {
+          "title": "Woher unsere Daten kommen",
+          "paragraphs": [
+            "Als Grundlage dient Sonnendach, der Solarkataster des Bundes. Er kennt die Geometrie und die Einstrahlung für praktisch jedes Schweizer Dach. Was er nicht kennt, ist Ihr Dach im Detail: den Zustand der Eindeckung, die Verschattung durch den Baum des Nachbarn, die Lage der Fenster und die vorhandene Elektroinstallation.",
+            "Deshalb rechnet unser Rechner mit den Werten Ihrer Adresse und nicht mit einem Schweizer Mittelwert, und deshalb steht am Ende trotzdem ein Besuch vor Ort. Zwischen Ergebnis und Offerte liegt immer eine Prüfung durch einen Menschen."
+          ]
+        },
+        {
+          "title": "Warum Ihr Verbrauchsprofil den Ausschlag gibt",
+          "paragraphs": [
+            "Jede Kilowattstunde, die Sie selbst verbrauchen, ersetzt Strom zum Netztarif. Jede Kilowattstunde, die ins Netz fliesst, bringt nur die Rückliefervergütung, und die ist ein Vielfaches tiefer. Ob sich eine Anlage rechnet, hängt deshalb weniger von der Dachgrösse ab als davon, wie viel Strom im Haus bleibt.",
+            "Eine Wärmepumpe, ein Elektroauto oder ein Batteriespeicher verschieben diesen Anteil deutlich nach oben. Wenn Sie so etwas planen, sagen Sie es im Rechner an, sonst rechnet er Ihr Haus von heute und nicht Ihr Haus von übermorgen."
+          ],
+          "links": [
+            {
+              "label": "Stromspeicher",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Wärmepumpen",
+              "href": "/heat-pumps"
+            }
+          ]
+        },
+        {
+          "title": "Woran Sie einen unseriösen Rechner erkennen",
+          "paragraphs": [
+            "Es gibt Rechner, die vor allem Adressen sammeln. Sie erkennen sie an ein paar Mustern."
+          ],
+          "bullets": [
+            "Das Ergebnis erscheint erst nach Eingabe von Name, Telefonnummer und E-Mail.",
+            "Es wird nur eine einzige Zahl gezeigt, ohne die Annahmen dahinter.",
+            "Amortisationszeiten von wenigen Jahren, ohne dass Verbrauch und Tarif abgefragt wurden.",
+            "Keine Angabe dazu, ob Förderung, Steuerabzug und Mehrwertsteuer enthalten sind.",
+            "Die Daten werden an mehrere Anbieter weitergegeben, die Sie danach alle anrufen."
+          ]
+        },
+        {
+          "title": "Was ein Rechner grundsätzlich nicht kann",
+          "paragraphs": [
+            "Kein Rechner sieht den Zustand Ihres Dachs, die Tragfähigkeit der Unterkonstruktion, den Platz für den Wechselrichter oder die Reserven Ihres Hausanschlusses. Er kennt auch die Auflagen Ihrer Gemeinde nicht und weiss nicht, ob Ihr Gebäude geschützt ist.",
+            "Er liefert eine belastbare Grössenordnung für den Entscheid, ob sich das Thema für Sie lohnt. Die verbindliche Zahl steht in der Offerte nach der Besichtigung."
+          ],
+          "links": [
+            {
+              "label": "Kosten einer Solaranlage",
+              "href": "/cost"
+            },
+            {
+              "label": "Offerten vergleichen: die Checkliste",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Was Sie bereitlegen sollten",
+          "paragraphs": [
+            "Mit drei Dingen kommen Sie in zwei Minuten zu einem brauchbaren Ergebnis: Ihre Adresse, Ihren Stromverbrauch des letzten Jahres in Kilowattstunden von der Stromrechnung, und eine Vorstellung davon, ob in den nächsten Jahren eine Wärmepumpe oder ein Elektroauto dazukommt."
+          ],
+          "links": [
+            {
+              "label": "Solarrechner starten",
+              "href": "/calculator"
+            },
+            {
+              "label": "Beratung anfragen",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "",
+        "description": "",
+        "items": []
+      }
     }
   },
   "energyStorage": {
@@ -5020,6 +5123,114 @@
           "description": "Starten Sie mit der Elektromobilität.",
           "link": "Ladelösungen"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Wärmepumpe Kosten: was die Rechnung wirklich bestimmt",
+      "intro": "Der Kaufpreis ist nur ein Teil der Antwort. Entscheidend ist, was die Heizung über zwanzig Jahre kostet, und dabei liegt die Wärmepumpe trotz höherer Anschaffung vorn.",
+      "sections": [
+        {
+          "title": "Anschaffung, Betrieb und Wartung im Vergleich",
+          "paragraphs": [
+            "Die Tabelle weiter oben zeigt die drei Systeme für ein Einfamilienhaus mit 150 m² Energiebezugsfläche und 22'000 kWh Wärmebedarf, was rund 2'600 Litern Heizöl entspricht. Die Ölheizung ist in der Anschaffung mit rund CHF 23'000 am günstigsten, kostet aber jedes Jahr rund CHF 2'640 für Energie und rund CHF 780 für Wartung.",
+            "Die Luft/Wasser-Wärmepumpe kostet rund CHF 36'500 und braucht Energie für rund CHF 1'210 pro Jahr, die Sole/Wasser-Wärmepumpe rund CHF 49'500 bei rund CHF 940. Beide liegen bei der Wartung deutlich tiefer. Über die Lebensdauer holt die Wärmepumpe den höheren Kaufpreis damit wieder herein."
+          ]
+        },
+        {
+          "title": "Was den Preis nach oben oder unten bewegt",
+          "paragraphs": [
+            "Zwei Häuser mit demselben Wärmebedarf können sehr unterschiedliche Offerten bekommen. Diese Punkte machen den Unterschied."
+          ],
+          "bullets": [
+            "Die Wärmequelle. Eine Erdsonde braucht eine Bohrung, und die Bohrkosten hängen von der Tiefe und vom Untergrund ab.",
+            "Die nötige Vorlauftemperatur. Ein Haus mit Bodenheizung kommt mit tieferen Temperaturen aus als eines mit alten Radiatoren, das senkt Leistung und Stromverbrauch.",
+            "Der Rückbau. Alte Ölheizung, Tank und Kamin müssen entfernt oder stillgelegt werden.",
+            "Die Aufstellung. Innen, aussen oder als Splitgerät, dazu Durchbrüche, Fundament und Schallschutzmassnahmen.",
+            "Die Elektroinstallation. Anschluss, Sicherungen und je nach Leistung eine Anpassung des Hausanschlusses."
+          ]
+        },
+        {
+          "title": "Betriebskosten richtig rechnen",
+          "paragraphs": [
+            "Die jährlichen Stromkosten ergeben sich aus dem Wärmebedarf geteilt durch die Jahresarbeitszahl, multipliziert mit Ihrem Stromtarif. Die Jahresarbeitszahl sagt, wie viele Kilowattstunden Wärme die Anlage aus einer Kilowattstunde Strom macht. Sie hängt von der Wärmequelle, der Vorlauftemperatur und der Einstellung ab, nicht nur vom Gerät.",
+            "Eine Solaranlage auf dem eigenen Dach senkt diese Rechnung, weil ein Teil des Stroms nicht mehr zum Netztarif bezogen wird. Im Einfamilienhaus braucht eine Wärmepumpe rund 3'000 bis 4'500 kWh Strom pro Jahr."
+          ],
+          "links": [
+            {
+              "label": "Wärmepumpe mit Solaranlage",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solar und Wärmepumpe: die Rechnung im Detail",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Was Sie am Ende selbst tragen",
+          "paragraphs": [
+            "Vom Offertbetrag gehen zwei Posten ab. Kantone und Gemeinden fördern den Umstieg über das Gebäudeprogramm, besonders beim Ersatz einer Öl-, Gas- oder Elektroheizung. Und der Heizungsersatz zählt als Liegenschaftsunterhalt, lässt sich also von den Steuern abziehen.",
+            "Wichtig ist die Reihenfolge. Das Fördergesuch muss eingereicht sein, bevor die Arbeiten beginnen, und einige Kantone verlangen zuerst die Zusage."
+          ],
+          "links": [
+            {
+              "label": "Förderung nach Kanton",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Heizungsersatz: Klimaprämie, Wärmepumpe und Solar",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "Worauf Sie in der Offerte achten",
+          "paragraphs": [
+            "Eine vollständige Offerte nennt Hersteller und Modell, die berechnete Heizlast des Gebäudes, die angenommene Jahresarbeitszahl, den Schallleistungspegel des Aussengeräts, alle Nebenarbeiten und den Zahlungsplan. Fehlt die Heizlastberechnung, ist die Anlage geraten und nicht ausgelegt."
+          ],
+          "links": [
+            {
+              "label": "Offerten vergleichen: die Checkliste",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            },
+            {
+              "label": "Beratung anfragen",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zu den Kosten",
+        "description": "Die Fragen, die vor dem Entscheid am häufigsten kommen.",
+        "items": [
+          {
+            "question": "Was kostet eine Wärmepumpe inklusive Installation?",
+            "answer": "Für ein Einfamilienhaus mit 150 m² rechnen wir mit rund CHF 36'500 für eine Luft/Wasser-Wärmepumpe und rund CHF 49'500 für eine Sole/Wasser-Wärmepumpe mit Erdsonde. Förderbeiträge und der Steuerabzug senken den Betrag, den Sie selbst tragen."
+          },
+          {
+            "question": "Wie hoch sind die jährlichen Betriebskosten?",
+            "answer": "In unserem Rechenbeispiel rund CHF 1'210 für die Luft/Wasser-Wärmepumpe und rund CHF 940 für die Erdsonden-Wärmepumpe, gegenüber rund CHF 2'640 für eine Ölheizung. Dazu kommt die Wartung, die bei der Wärmepumpe deutlich tiefer liegt."
+          },
+          {
+            "question": "Rechnet sich die teurere Erdsonde?",
+            "answer": "Sie kostet in der Anschaffung rund CHF 13'000 mehr und spart pro Jahr rund CHF 270 Energie. Über zwanzig Jahre gleicht sich das weitgehend aus, und die Erdsonde hält länger als die Wärmepumpe selbst. Ob eine Bohrung an Ihrem Standort erlaubt ist, entscheidet am Ende mit."
+          },
+          {
+            "question": "Wie viel Förderung bekomme ich?",
+            "answer": "Das hängt vom Kanton und von der Gemeinde ab und davon, welche Heizung Sie ersetzen. Wir klären vor der Offerte ab, was an Ihrer Adresse gilt, und bereiten das Gesuch vor."
+          },
+          {
+            "question": "Senkt eine Solaranlage die Heizkosten?",
+            "answer": "Ja. Die Wärmepumpe braucht rund 3'000 bis 4'500 kWh Strom pro Jahr, und Solarstrom vom eigenen Dach ist deutlich günstiger als Strom aus dem Netz. Am besten passt es im Frühling und im Herbst."
+          },
+          {
+            "question": "Kann ich die Kosten von den Steuern abziehen?",
+            "answer": "Der Ersatz einer bestehenden Heizung gilt als Liegenschaftsunterhalt und ist in fast allen Kantonen abziehbar, bei Bedarf über mehrere Jahre verteilt. Bei einem Neubau gilt der Abzug in der Regel nicht."
+          }
+        ]
       }
     }
   },

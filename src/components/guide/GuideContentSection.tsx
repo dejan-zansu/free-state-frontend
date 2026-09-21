@@ -25,11 +25,19 @@ const LINK_CLASS =
 // Long-form content for an overview page, read from `<namespace>.guide`.
 // A link whose href starts with /blog/ points at a post, anything else is a
 // pathname key from the routing table.
-const GuideContentSection = async ({ namespace }: { namespace: string }) => {
+// `withFaq` is false on pages that already carry their own FAQ section, so a
+// page never shows two.
+const GuideContentSection = async ({
+  namespace,
+  withFaq = true,
+}: {
+  namespace: string
+  withFaq?: boolean
+}) => {
   const t = await getTranslations(`${namespace}.guide`)
   const locale = (await getLocale()) as SiteLocale
   const blocks = t.raw('sections') as GuideBlock[]
-  const faqs = t.raw('faq.items') as GuideFaq[]
+  const faqs = withFaq ? (t.raw('faq.items') as GuideFaq[]) : []
 
   return (
     <>
@@ -101,15 +109,17 @@ const GuideContentSection = async ({ namespace }: { namespace: string }) => {
         </div>
       </section>
 
-      <div className="bg-[#FDFFF5]">
-        <JsonLd data={buildFAQPageJsonLd(faqs)} />
-        <FAQAccordionSection
-          eyebrow={t('faq.eyebrow')}
-          title={t('faq.title')}
-          description={t('faq.description')}
-          items={faqs}
-        />
-      </div>
+      {faqs.length > 0 && (
+        <div className="bg-[#FDFFF5]">
+          <JsonLd data={buildFAQPageJsonLd(faqs)} />
+          <FAQAccordionSection
+            eyebrow={t('faq.eyebrow')}
+            title={t('faq.title')}
+            description={t('faq.description')}
+            items={faqs}
+          />
+        </div>
+      )}
     </>
   )
 }

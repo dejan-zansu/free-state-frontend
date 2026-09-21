@@ -10,6 +10,9 @@ import {
   isPlaceholderCanton,
 } from '@/data/foerderung-cantons'
 
+// Bump a page's constant when its content actually changes. A stale lastmod
+// tells Google there is nothing new to fetch.
+const REFRESH_2026_09_21 = new Date('2026-09-21')
 const REFRESH_2026_09_07 = new Date('2026-09-07')
 const REFRESH_2026_05_16 = new Date('2026-05-16')
 const REFRESH_2026_04_12 = new Date('2026-04-12')
@@ -32,7 +35,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
   },
   {
     pathname: '/solar-systems',
-    lastModified: REFRESH_2026_04_12,
+    lastModified: REFRESH_2026_09_21,
     priority: 0.9,
   },
   { pathname: '/solar-free', lastModified: REFRESH_2026_04_12, priority: 0.9 },
@@ -47,7 +50,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
     lastModified: REFRESH_2026_02_01,
     priority: 0.8,
   },
-  { pathname: '/heat-pumps', lastModified: REFRESH_2026_02_01, priority: 0.8 },
+  { pathname: '/heat-pumps', lastModified: REFRESH_2026_09_21, priority: 0.8 },
   { pathname: '/heat-pumps/products', lastModified: REFRESH_2026_02_01 },
   {
     pathname: '/products',
@@ -55,7 +58,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
     changeFrequency: 'monthly',
     priority: 0.8,
   },
-  { pathname: '/heat-pumps/cost', lastModified: REFRESH_2026_02_01 },
+  { pathname: '/heat-pumps/cost', lastModified: REFRESH_2026_09_21 },
   { pathname: '/heat-pumps/how-it-works', lastModified: REFRESH_2026_02_01 },
   {
     pathname: '/heat-pumps/heat-pumps-with-solar-system',
@@ -64,7 +67,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
   { pathname: '/heat-pumps/service', lastModified: REFRESH_2026_02_01 },
   {
     pathname: '/charging-stations',
-    lastModified: REFRESH_2026_02_01,
+    lastModified: REFRESH_2026_09_21,
     priority: 0.8,
   },
   {
@@ -139,7 +142,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
   { pathname: '/amortization', lastModified: REFRESH_2026_02_01 },
   {
     pathname: '/solar-calculator',
-    lastModified: REFRESH_2026_04_12,
+    lastModified: REFRESH_2026_09_21,
     priority: 0.9,
   },
   { pathname: '/calculator', lastModified: REFRESH_2026_04_12, priority: 0.9 },
@@ -157,7 +160,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
     priority: 0.7,
   },
   { pathname: '/contact', lastModified: REFRESH_2026_02_01 },
-  { pathname: '/energy-storage', lastModified: REFRESH_2025_11_01 },
+  { pathname: '/energy-storage', lastModified: REFRESH_2026_09_21 },
   { pathname: '/repowering', lastModified: REFRESH_2025_11_01 },
   { pathname: '/solar-system-carport', lastModified: REFRESH_2025_11_01 },
   { pathname: '/how-it-works', lastModified: REFRESH_2026_02_01 },
@@ -168,7 +171,7 @@ const STATIC_ENTRIES: StaticEntry[] = [
   { pathname: '/privacy-policy', lastModified: REFRESH_2026_04_12 },
   {
     pathname: '/foerderung',
-    lastModified: REFRESH_2026_05_16,
+    lastModified: REFRESH_2026_09_21,
     changeFrequency: 'weekly',
     priority: 0.8,
   },

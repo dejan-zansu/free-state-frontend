@@ -383,4 +383,109 @@ export const FOERDERUNG_CANTONS: CantonalFoerderung[] = [
       ENFV_SOURCE,
     ],
   },
+  {
+    code: 'ZH',
+    name: 'Zürich',
+    nameSlug: 'zuerich',
+    pronovoEIVSummary: `${PRONOVO_EIV_2026} Im Kanton Zürich ist die Einmalvergütung die einzige Förderung für die Photovoltaikanlage selbst, das kantonale Förderprogramm Energie 2026 verweist dafür ausdrücklich auf Pronovo.`,
+    cantonalProgramSummary:
+      "Der Kanton zahlt keinen Beitrag pro kWp für Photovoltaik und keinen Beitrag für Batteriespeicher. Das Förderprogramm Energie 2026 (Version 01.01.2026) deckt den Heizungsersatz und die Gebäudehülle ab. Die Ansätze betragen für eine Luft-Wasser-Wärmepumpe CHF 2'900 bis 15 kWth und darüber CHF 2'900 plus CHF 160 pro zusätzlichem kWth, für eine Sole-Wasser- oder Wasser-Wasser-Wärmepumpe CHF 6'800 bis 15 kWth und darüber CHF 6'800 plus CHF 420 pro zusätzlichem kWth, für den Anschluss an ein Wärmenetz CHF 5'200 bis 15 kWth plus CHF 100 pro zusätzlichem kWth, für die Erstinstallation eines Wärmeverteilsystems CHF 15'000 bis 250 m² Energiebezugsfläche und darüber CHF 60 pro m² EBF, für die Wärmedämmung von Dach, Wand und Boden CHF 40 pro m² und für eine thermische Solaranlage CHF 2'400 plus CHF 1'000 pro kWth. Gefördert wird nur der Ersatz einer Öl-, Gas- oder Elektroheizung in einem bestehenden Gebäude. Für Photovoltaik gibt es einen einzigen kantonalen Ansatz. Wer gleichzeitig mit einer geförderten Dämmung eine Photovoltaikanlage auf der sanierten Dach- oder Fassadenfläche installiert, erhält zusätzlich CHF 20 pro m² Modulfläche. Jedes Gesuch muss vor Baubeginn über die kantonale Gesuchplattform eingereicht werden, der maximale Förderbeitrag beträgt CHF 500'000 pro Gesuch.",
+    cantonalProgramAmountChfPerKwp: null,
+    solarpflicht: {
+      inForce: true,
+      sinceYear: 2022,
+      summary:
+        "Seit 1. September 2022 gilt § 10 c des kantonalen Energiegesetzes (EnerG). Bei Neubauten wird ein Teil der benötigten Elektrizität selbst erzeugt, massgebende Berechnungsgrundlage ist die Energiebezugsfläche. Die Besondere Bauverordnung I verlangt in § 47 b eine Anlage mit mindestens 10 Watt pro m² Energiebezugsfläche, wobei für Photovoltaikanlagen höchstens eine Belegung von 70 Prozent der anrechenbaren Gebäudefläche verlangt wird. Angerechnet werden auch Anlagen auf dem Grundstück oder in einem Zusammenschluss zum Eigenverbrauch, sofern sie nicht älter als acht Jahre sind. Befreit sind Erweiterungen bestehender Gebäude mit weniger als 50 m² neuer Energiebezugsfläche oder mit höchstens 20 Prozent der bestehenden Energiebezugsfläche und nicht mehr als 1'000 m². Wer den Grenzwert für den gewichteten Energiebedarf nach § 47 a um 20 Prozent unterschreitet, kann auf die Eigenstromerzeugung verzichten. Eine Ersatzabgabe kennt der Kanton nicht. Für bestehende Gebäude besteht bisher keine Pflicht. Der Regierungsrat hat dem Kantonsrat am 6. Januar 2026 eine Vorlage beantragt, wonach geeignete Dächer über 300 m² bei einer Dachsanierung vollflächig mit einer Solaranlage belegt werden müssten.",
+    },
+    einspeiseTariffsByEvu: [
+      {
+        evu: 'EKZ Elektrizitätswerke des Kantons Zürich (Basisvergütung nach dem Referenz-Marktpreis des BFE, gesetzliche Mindestvergütung bis 30 kW, HKN bis zu 3.0)',
+        tariffRpKwh: 6.0,
+      },
+      {
+        evu: 'ewz Elektrizitätswerk der Stadt Zürich (Hochtarif Montag bis Samstag 06 bis 22 Uhr, Rücklieferung 8.50 plus Solarförderung 2.0, HKN plus 3.0)',
+        tariffRpKwh: 10.5,
+      },
+      {
+        evu: 'ewz Elektrizitätswerk der Stadt Zürich (Niedertarif übrige Zeit, Rücklieferung 4.45 plus Solarförderung 2.0, HKN plus 3.0)',
+        tariffRpKwh: 6.45,
+      },
+    ],
+    topGemeindeSubsidies: [
+      {
+        gemeinde: 'Stadt Zürich',
+        summary:
+          "Die Stadt fördert über das ewz und zahlt subsidiär, die Beiträge von Bund und Kanton werden vom städtischen Höchstsatz abgezogen. Seit 1. August 2026 gelten ein Grundbeitrag von CHF 5'000 ab 2 kWp und zusätzlich höchstens CHF 450 pro kW bis 30 kWp, CHF 350 pro kW ab 30 kWp und CHF 310 pro kW ab 100 kWp. Für bewilligungspflichtige Anlagen auf Bestandesbauten kommen pauschal CHF 3'000 dazu, bei einer Dachbegrünung CHF 250 pro kWp bis CHF 10'000 und für Module mit 60 bis 90 Grad Neigung CHF 300 pro kWp bis CHF 60'000. Stationäre Batteriespeicher ab 3 kWh Speicherkapazität erhalten CHF 1'000 plus CHF 100 pro kWh, bei wiederverwendeten Batteriezellen weitere CHF 100 pro kWh. Förderberechtigt sind höchstens 1.5 kWh pro installiertem kWp und höchstens 100 kWh pro Anlage. Der Speicher muss hinter demselben Hausanschlusskasten wie die Erzeugungsanlage betrieben werden, mindestens sechs Jahre laufen, in ein netzdienliches Energiemanagementsystem eingebunden sein und darf keine Bleibatterien enthalten. Das Gesuch muss vor Baubeginn eingereicht werden.",
+      },
+      {
+        gemeinde: 'Stadt Winterthur',
+        summary:
+          'Das Förderprogramm Energie Winterthur zahlt für neue Photovoltaikanlagen unter 30 kWp 50 Prozent der vom Bund ausbezahlten Einmalvergütung, das Auszahlungsgesuch ist innert sechs Monaten nach dem Bescheid von Pronovo einzureichen. Bei Anlagen ab 30 kWp wird nur der Anteil gefördert, dessen Produktion 40 Prozent des Stromverbrauchs am Standort übersteigt (50 Prozent bei Verwaltungsliegenschaften, Spitälern, Schulhäusern, Sportbauten und Altersheimen, 60 Prozent bei Industrie, Gewerbe und Lagerhäusern), gerechnet mit 950 kWh pro kWp. Der Ansatz beträgt CHF 200 pro kWp bis und mit der hundertsten kWp und CHF 100 pro kWp darüber, das Gesuch ist vor Baubeginn einzureichen. Ausgeschlossen sind Freiflächenanlagen, Anlagen mit hoher Einmalvergütung des Bundes und Vorhaben, die ohnehin gesetzlich vorgeschrieben sind. Einen eigenen Beitrag für Batteriespeicher zahlt Winterthur nicht.',
+      },
+      {
+        gemeinde: 'Uster',
+        summary:
+          "Der Ökofonds der Energie Uster AG zahlt seit 1. Januar 2026 CHF 100 pro kWp für Dachanlagen und CHF 100 pro kWp für Fassadenanlagen, zusammen höchstens CHF 10'000, sowie CHF 100 pro kWh Speicherkapazität für Batteriespeicher, höchstens CHF 2'500. Ein Speicher wird nur in Kombination mit einer bestehenden oder neuen Photovoltaikanlage gefördert. Dachanlagen müssen einen Jahresertrag von mindestens 900 kWh pro kWp erreichen, kristalline Module einen Wirkungsgrad von mindestens 20 Prozent. Das Gesuch muss vor der Installation eingereicht werden, gefördert werden nur Objekte im Versorgungsgebiet der Energie Uster AG. Bei Neubauten wird nur gefördert, wenn die Baubewilligung vor dem 1. Januar 2026 erteilt wurde.",
+      },
+    ],
+    steuerHinweis: STEUER_HINWEIS,
+    lastUpdated: '2026-09-21',
+    sources: [
+      {
+        label: 'Kanton Zürich, Förderprogramm Energie 2026 (PDF)',
+        url: 'https://www.zh.ch/content/dam/zhweb/bilder-dokumente/themen/umwelt-tiere/energie/energieberatung-und-energiefoerderung/ktzh_foerderprogramm_2026.pdf',
+      },
+      {
+        label: 'Kanton Zürich, Förderung und Beratung rund um Energie',
+        url: 'https://www.zh.ch/de/umwelt-tiere/energie/energiefoerderung.html',
+      },
+      {
+        label: 'Kanton Zürich, Energiegesetz EnerG (LS 730.1), § 10 c',
+        url: 'https://www.zh.ch/de/politik-staat/gesetze-beschluesse/gesetzessammlung/zhlex-ls/erlass-730_1-1983_06_19-1986_07_01-129.html',
+      },
+      {
+        label:
+          'Kanton Zürich, Besondere Bauverordnung I BBV I (LS 700.21), § 47 a und § 47 b',
+        url: 'https://www.zh.ch/de/politik-staat/gesetze-beschluesse/gesetzessammlung/zhlex-ls/erlass-700_21-1981_05_06-1982_01_01-133.html',
+      },
+      {
+        label:
+          'Kanton Zürich, Medienmitteilung vom 6. Januar 2026 zur Solarpflicht auf bestehenden Dächern',
+        url: 'https://www.zh.ch/de/news-uebersicht/medienmitteilungen/2026/01/regierungsrat-will-versorgungssicherheit-mit-solarstrom-und-energiespeichern-verbessern.html',
+      },
+      {
+        label: 'EKZ, Rückliefertarife 2026, Tarifblatt (PDF)',
+        url: 'https://www.ekz.ch/dam/ekz/privatkunden/strom/tarife-und-agb/Tarifdokumente/tarife-2026/ekz-rueckliefertarife-2026.pdf',
+      },
+      {
+        label: 'ewz, Tarife für die Stromrücklieferung ab 1. Januar 2026',
+        url: 'https://www.ewz.ch/de/private/solaranlagen/verrechnungsloesungen/stromruecklieferung.html',
+      },
+      {
+        label:
+          'Stadt Zürich, Ausführungsbestimmungen AB VGL (AS 732.361), Art. 16 bis 20d, in Kraft seit 1. August 2026 (PDF)',
+        url: 'https://www.stadt-zuerich.ch/dam/web/de/politik-verwaltung/politik-recht/amtliche-sammlung/732/361/732.361-ab-vgl-2026-v9.pdf',
+      },
+      {
+        label: 'ewz, Förderbeiträge für Energieprojekte',
+        url: 'https://www.ewz.ch/de/ueber-ewz/nachhaltigkeit/unser-beitrag/foerderbeitrag.html',
+      },
+      {
+        label: 'Stadtwerk Winterthur, Förderung Photovoltaik-Anlagen',
+        url: 'https://stadtwerk.winterthur.ch/Nachhaltigkeit/Foerdermassnahmen/Foerderprogramm-Energie-Winterthur/Foerderung-Photovoltaik-Anlagen',
+      },
+      {
+        label:
+          'Stadt Winterthur, Reglement Förderprogramm Energie (SRS 7.6-4), Art. 2, 16 und 17',
+        url: 'https://winterthur.tlex.ch/app/de/texts_of_law/7.6-4',
+      },
+      {
+        label:
+          'Energie Uster AG, Richtlinie Ökofonds Element A7, Photovoltaik-Anlagen und Batteriespeicher, gültig ab 1. Januar 2026 (PDF)',
+        url: 'https://energieuster.ch/wp-content/uploads/2025/12/EnU_Richtlinie_Oekofonds_A7_2025-09.pdf',
+      },
+      PRONOVO_SOURCE,
+      ENFV_SOURCE,
+    ],
+  },
 ]

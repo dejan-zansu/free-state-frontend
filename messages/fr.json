@@ -110,8 +110,8 @@
       "description": "SolarAbo de Free State : votre installation solaire avec une mensualité fixe, monitoring, garantie et assurance inclus. Calculez votre mensualité."
     },
     "batteryStorage": {
-      "title": "Stockage par batterie Suisse : stockez votre solaire",
-      "description": "Stockez votre électricité solaire pour la nuit. Batteries dès 5 kWh. Compatibles BYD, Huawei, Viessmann. Planification et installation en Suisse alémanique."
+      "title": "Batterie de stockage : services réseau | Free State AG",
+      "description": "Les grandes batteries de stockage réduisent les coûts et génèrent des revenus grâce aux services réseau. Une stratégie de stockage pour votre site. Pour le domicile, voir stockage d'énergie."
     },
     "heatPumps": {
       "title": "Pompes à chaleur Suisse : air/eau et sol/eau",
@@ -5134,7 +5134,8 @@
   "solarCalculator": {
     "hero": {
       "title": "calculez\ngratuitement",
-      "description": "Découvrez en 4 étapes la production énergétique de votre toit, le temps de retour et les subventions disponibles."
+      "description": "Découvrez en 4 étapes la production énergétique de votre toit, le temps de retour et les subventions disponibles.",
+      "cta": "Démarrer le calculateur solaire"
     },
     "howItWorks": {
       "title": "Du conseil à l'installation",
@@ -5245,6 +5246,108 @@
       "title": "Commencez maintenant !\nUtilisez le calculateur solaire pour obtenir un devis.",
       "cta": "Démarrer le calculateur solaire",
       "ctaLink": "/calculator"
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Ce qu'un calculateur solaire peut faire et ce qu'il ne peut pas faire",
+      "intro": "Un calculateur en ligne ne remplace pas une planification, mais il répond à la première question : est-ce que cela vaut la peine sur mon toit ? Vous trouvez ici quelles indications déterminent le résultat, comment travaille notre calculateur et à quoi vous reconnaissez un outil qui veut seulement collecter des adresses.",
+      "sections": [
+        {
+          "title": "Quelles indications déterminent vraiment le résultat",
+          "paragraphs": [
+            "Un résultat ne vaut jamais mieux que les indications qui le nourrissent. Cinq éléments décident si le chiffre final a un rapport avec votre maison."
+          ],
+          "bullets": [
+            "Surface du toit, orientation et inclinaison. Pour une orientation au sud sur le Plateau suisse, la meilleure inclinaison se situe entre 30 et 35 degrés, soit celle de la plupart des toits à deux pans.",
+            "Ombrage dû aux arbres, aux bâtiments voisins, aux cheminées et aux fenêtres de toit. Aucun calculateur en ligne ne le voit, et c'est lui qui explique pourquoi deux toits identiques dans la même rue ne rapportent pas la même chose.",
+            "Votre consommation d'électricité et le moment où elle a lieu. C'est le plus grand levier de tout le modèle.",
+            "Le prix de l'électricité de votre gestionnaire de réseau et la rétribution qu'il verse pour le courant injecté.",
+            "Le prix de l'installation elle-même, échafaudage, installation électrique et raccordement compris."
+          ],
+          "links": [
+            {
+              "label": "Ce qu'un calcul sérieux doit montrer",
+              "href": "/blog/solarrechner-schweiz-was-eine-seriose-berechnung-zeigt"
+            }
+          ]
+        },
+        {
+          "title": "D'où viennent nos données",
+          "paragraphs": [
+            "La base est Sonnendach, le cadastre solaire de la Confédération. Il connaît la géométrie et le rayonnement pour pratiquement chaque toit suisse. Ce qu'il ne connaît pas, c'est votre toit dans le détail : l'état de la couverture, l'ombre portée par l'arbre du voisin, la position des fenêtres et l'installation électrique existante.",
+            "C'est pourquoi notre calculateur travaille avec les valeurs de votre adresse et non avec une moyenne suisse, et c'est pourquoi une visite sur place reste nécessaire à la fin. Entre le résultat et l'offre, il y a toujours une vérification par un être humain."
+          ]
+        },
+        {
+          "title": "Pourquoi votre profil de consommation est déterminant",
+          "paragraphs": [
+            "Chaque kilowattheure que vous consommez vous-même remplace du courant au tarif du réseau. Chaque kilowattheure qui part dans le réseau ne rapporte que la rétribution de reprise, plusieurs fois plus basse. La rentabilité d'une installation dépend donc moins de la taille du toit que de la quantité de courant qui reste dans la maison.",
+            "Une pompe à chaleur, une voiture électrique ou une batterie de stockage font nettement monter cette part. Si vous prévoyez quelque chose de ce genre, indiquez-le dans le calculateur, sinon il calcule la maison que vous avez aujourd'hui et non celle que vous aurez dans quelques années."
+          ],
+          "links": [
+            {
+              "label": "Batteries de stockage",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Pompes à chaleur",
+              "href": "/heat-pumps"
+            }
+          ]
+        },
+        {
+          "title": "À quoi vous reconnaissez un calculateur peu sérieux",
+          "paragraphs": [
+            "Certains calculateurs servent surtout à collecter des adresses. Quelques signes les trahissent."
+          ],
+          "bullets": [
+            "Le résultat n'apparaît qu'après la saisie du nom, du numéro de téléphone et de l'adresse e-mail.",
+            "Un seul chiffre est affiché, sans les hypothèses qui le sous-tendent.",
+            "Des durées d'amortissement de quelques années, sans que la consommation et le tarif aient été demandés.",
+            "Aucune indication sur le fait que les subventions, la déduction fiscale et la TVA soient comprises ou non.",
+            "Les données sont transmises à plusieurs fournisseurs, qui vous appellent ensuite tous."
+          ]
+        },
+        {
+          "title": "Ce qu'un calculateur ne peut par principe pas faire",
+          "paragraphs": [
+            "Aucun calculateur ne voit l'état de votre toit, la capacité portante de la sous-construction, la place pour l'onduleur ou les réserves de votre raccordement du bâtiment. Il ne connaît pas non plus les exigences de votre commune et ne sait pas si votre bâtiment est protégé.",
+            "Il fournit un ordre de grandeur fiable pour décider si le sujet en vaut la peine pour vous. Le chiffre contraignant figure dans l'offre, après la visite."
+          ],
+          "links": [
+            {
+              "label": "Coûts d'une installation solaire",
+              "href": "/cost"
+            },
+            {
+              "label": "Comparer les offres : la liste de contrôle",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Ce que vous devriez préparer",
+          "paragraphs": [
+            "Avec trois choses, vous obtenez un résultat utilisable en deux minutes : votre adresse, votre consommation d'électricité de l'année écoulée en kilowattheures, telle qu'elle figure sur la facture, et une idée de ce qui viendra peut-être s'ajouter ces prochaines années, une pompe à chaleur ou une voiture électrique."
+          ],
+          "links": [
+            {
+              "label": "Démarrer le calculateur solaire",
+              "href": "/calculator"
+            },
+            {
+              "label": "Demander un conseil",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "",
+        "description": "",
+        "items": []
+      }
     }
   },
   "energyStorage": {
@@ -5886,6 +5989,114 @@
           "description": "Lancez-vous dans l'électromobilité.",
           "link": "Solutions de recharge"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Coûts d'une pompe à chaleur : ce qui détermine vraiment le calcul",
+      "intro": "Le prix d'achat n'est qu'une partie de la réponse. Ce qui compte, c'est ce que le chauffage coûte sur vingt ans, et sur ce point la pompe à chaleur arrive en tête malgré un achat plus élevé.",
+      "sections": [
+        {
+          "title": "Achat, exploitation et entretien en comparaison",
+          "paragraphs": [
+            "Le tableau ci-dessus montre les trois systèmes pour une maison individuelle de 150 m² de surface de référence énergétique et un besoin de chaleur de 22'000 kWh, ce qui correspond à environ 2'600 litres de mazout. Le chauffage au mazout est le moins cher à l'achat, avec environ CHF 23'000, mais il coûte chaque année environ CHF 2'640 d'énergie et environ CHF 780 d'entretien.",
+            "La pompe à chaleur air-eau coûte environ CHF 36'500 et consomme de l'énergie pour environ CHF 1'210 par an, la pompe à chaleur sol-eau environ CHF 49'500 pour environ CHF 940. Les deux se situent nettement plus bas pour l'entretien. Sur sa durée de vie, la pompe à chaleur récupère ainsi son prix d'achat plus élevé."
+          ]
+        },
+        {
+          "title": "Ce qui fait monter ou baisser le prix",
+          "paragraphs": [
+            "Deux maisons ayant le même besoin de chaleur peuvent recevoir des offres très différentes. Ces points font la différence."
+          ],
+          "bullets": [
+            "La source de chaleur. Une sonde géothermique demande un forage, et les coûts de forage dépendent de la profondeur et du sous-sol.",
+            "La température de départ nécessaire. Une maison avec chauffage au sol se contente de températures plus basses qu'une maison avec d'anciens radiateurs, ce qui abaisse la puissance et la consommation d'électricité.",
+            "La dépose. L'ancien chauffage au mazout, la citerne et la cheminée doivent être enlevés ou mis hors service.",
+            "L'emplacement. À l'intérieur, à l'extérieur ou en version split, avec les percements, le socle et les mesures de protection contre le bruit.",
+            "L'installation électrique. Raccordement, fusibles et, selon la puissance, une adaptation du raccordement du bâtiment."
+          ]
+        },
+        {
+          "title": "Calculer correctement les frais d'exploitation",
+          "paragraphs": [
+            "Les frais annuels d'électricité correspondent au besoin de chaleur divisé par le coefficient de performance annuel, multiplié par votre tarif d'électricité. Le coefficient de performance annuel indique combien de kilowattheures de chaleur l'installation tire d'un kilowattheure d'électricité. Il dépend de la source de chaleur, de la température de départ et du réglage, pas seulement de l'appareil.",
+            "Une installation solaire sur votre propre toit réduit cette facture, car une partie du courant n'est plus achetée au tarif du réseau. Dans une maison individuelle, une pompe à chaleur consomme environ 3'000 à 4'500 kWh d'électricité par an."
+          ],
+          "links": [
+            {
+              "label": "Pompe à chaleur avec installation solaire",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solaire et pompe à chaleur : le calcul en détail",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Ce qui reste finalement à votre charge",
+          "paragraphs": [
+            "Deux postes viennent en déduction du montant de l'offre. Les cantons et les communes soutiennent le changement par le Programme Bâtiments, surtout lors du remplacement d'un chauffage au mazout, au gaz ou électrique. Et le remplacement du chauffage compte parmi les frais d'entretien de l'immeuble, il peut donc être déduit des impôts.",
+            "L'ordre des étapes est important. La demande de subvention doit être déposée avant le début des travaux, et certains cantons exigent d'abord la décision d'octroi."
+          ],
+          "links": [
+            {
+              "label": "Subventions par canton",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Remplacement du chauffage : Prime Climat, pompe à chaleur et solaire",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "Ce à quoi veiller dans l'offre",
+          "paragraphs": [
+            "Une offre complète indique le fabricant et le modèle, la charge thermique calculée du bâtiment, le coefficient de performance annuel retenu, le niveau de puissance acoustique de l'unité extérieure, tous les travaux annexes et le plan de paiement. S'il manque le calcul de la charge thermique, l'installation a été estimée et non dimensionnée."
+          ],
+          "links": [
+            {
+              "label": "Comparer les offres : la liste de contrôle",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            },
+            {
+              "label": "Demander un conseil",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur les coûts",
+        "description": "Les questions qui reviennent le plus souvent avant la décision.",
+        "items": [
+          {
+            "question": "Combien coûte une pompe à chaleur, installation comprise ?",
+            "answer": "Pour une maison individuelle de 150 m², nous comptons environ CHF 36'500 pour une pompe à chaleur air-eau et environ CHF 49'500 pour une pompe à chaleur sol-eau avec sonde géothermique. Les subventions et la déduction fiscale réduisent le montant qui reste à votre charge."
+          },
+          {
+            "question": "À combien s'élèvent les frais d'exploitation annuels ?",
+            "answer": "Dans notre exemple de calcul, environ CHF 1'210 pour la pompe à chaleur air-eau et environ CHF 940 pour la pompe à chaleur avec sonde géothermique, contre environ CHF 2'640 pour un chauffage au mazout. S'y ajoute l'entretien, nettement plus bas pour la pompe à chaleur."
+          },
+          {
+            "question": "La sonde géothermique, plus chère, est-elle rentable ?",
+            "answer": "Elle coûte environ CHF 13'000 de plus à l'achat et fait économiser environ CHF 270 d'énergie par an. Sur vingt ans, cela s'équilibre largement, et la sonde géothermique dure plus longtemps que la pompe à chaleur elle-même. La question de savoir si un forage est autorisé sur votre site entre aussi dans la décision."
+          },
+          {
+            "question": "Quel montant de subvention vais-je recevoir ?",
+            "answer": "Cela dépend du canton et de la commune, ainsi que du chauffage que vous remplacez. Avant l'offre, nous clarifions ce qui s'applique à votre adresse et préparons la demande."
+          },
+          {
+            "question": "Une installation solaire réduit-elle les frais de chauffage ?",
+            "answer": "Oui. La pompe à chaleur consomme environ 3'000 à 4'500 kWh d'électricité par an, et le courant solaire de votre propre toit est nettement moins cher que le courant du réseau. C'est au printemps et en automne que cela fonctionne le mieux."
+          },
+          {
+            "question": "Puis-je déduire les coûts des impôts ?",
+            "answer": "Le remplacement d'un chauffage existant est considéré comme des frais d'entretien de l'immeuble et est déductible dans presque tous les cantons, au besoin réparti sur plusieurs années. Pour une construction neuve, la déduction ne s'applique en règle générale pas."
+          }
+        ]
       }
     }
   },

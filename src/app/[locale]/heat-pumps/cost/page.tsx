@@ -1,3 +1,4 @@
+import GuideContentSection from '@/components/guide/GuideContentSection'
 import PageHero from '@/components/PageHero'
 import CostIntroSection from '@/components/heat-pumps/cost/CostIntroSection'
 import CostComparisonSection from '@/components/heat-pumps/cost/CostComparisonSection'
@@ -43,6 +44,7 @@ const HeatPumpsCostPage = async () => {
       <SupportSection />
       <TaxDeductionSection />
       <QuoteCTASection />
+      <GuideContentSection namespace="heatPumpsCost" />
       <EnergySolutionsSection />
     </div>
   )

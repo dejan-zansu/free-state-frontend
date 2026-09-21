@@ -110,8 +110,8 @@
       "description": "SolarAbo di Free State: il vostro impianto solare con rata mensile fissa, monitoraggio, garanzia e assicurazione inclusi. Calcolate la rata."
     },
     "batteryStorage": {
-      "title": "Accumulo a batteria Svizzera: conserva il tuo solare",
-      "description": "Conserva la tua energia solare per la notte. Accumulatori da 5 kWh. Compatibili con BYD, Huawei, Viessmann. Installazione nella Svizzera tedesca."
+      "title": "Accumulo a batteria: servizi di rete | Free State AG",
+      "description": "I grandi accumuli a batteria riducono i costi e generano ricavi con i servizi di rete. Una strategia di accumulo per la tua sede. Per la casa vedi accumulo di energia."
     },
     "heatPumps": {
       "title": "Pompe di calore Svizzera: aria/acqua e geotermiche",
@@ -5134,7 +5134,8 @@
   "solarCalculator": {
     "hero": {
       "title": "calcola\ngratis",
-      "description": "Scopri in 4 passaggi la resa energetica del tuo tetto, il tempo di ammortamento e gli incentivi disponibili."
+      "description": "Scopri in 4 passaggi la resa energetica del tuo tetto, il tempo di ammortamento e gli incentivi disponibili.",
+      "cta": "Avvia il calcolatore solare"
     },
     "howItWorks": {
       "title": "Dalla consulenza all'installazione",
@@ -5245,6 +5246,108 @@
       "title": "Inizia ora!\nUsa il calcolatore solare per ricevere un preventivo.",
       "cta": "Avvia il calcolatore solare",
       "ctaLink": "/calculator"
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Che cosa può fare un calcolatore solare e che cosa no",
+      "intro": "Un calcolatore online non sostituisce la progettazione, ma risponde alla prima domanda: conviene davvero sul mio tetto? Qui trovi quali dati determinano il risultato, come lavora il nostro calcolatore e da che cosa riconosci uno strumento che vuole solo raccogliere indirizzi.",
+      "sections": [
+        {
+          "title": "Quali dati determinano davvero il risultato",
+          "paragraphs": [
+            "Un risultato vale sempre solo quanto i dati che stanno dietro. Cinque elementi decidono se la cifra finale ha davvero a che fare con la tua casa."
+          ],
+          "bullets": [
+            "Superficie del tetto, orientamento e inclinazione. Per un orientamento a sud sull'Altopiano svizzero l'inclinazione migliore va da 30 a 35 gradi, quella della maggior parte dei tetti a due falde.",
+            "Ombreggiamento da alberi, edifici vicini, camini e finestre da tetto. Nessun calcolatore online lo vede, ed è proprio questo a spiegare perché due tetti uguali nella stessa via rendono in modo diverso.",
+            "Il tuo consumo di elettricità e il momento in cui avviene. È la leva più grande di tutto il modello.",
+            "Il prezzo dell'elettricità del tuo gestore di rete e la rimunerazione che paga per l'elettricità immessa in rete.",
+            "Il prezzo dell'impianto stesso, compresi ponteggio, installazione elettrica e allacciamento."
+          ],
+          "links": [
+            {
+              "label": "Che cosa deve mostrare un calcolo serio",
+              "href": "/blog/solarrechner-schweiz-was-eine-seriose-berechnung-zeigt"
+            }
+          ]
+        },
+        {
+          "title": "Da dove vengono i nostri dati",
+          "paragraphs": [
+            "La base è Sonnendach, il catasto solare della Confederazione. Conosce la geometria e l'irraggiamento di praticamente ogni tetto svizzero. Quello che non conosce è il tuo tetto nel dettaglio: lo stato del manto di copertura, l'ombra dell'albero del vicino, la posizione delle finestre e l'installazione elettrica esistente.",
+            "Per questo il nostro calcolatore lavora con i valori del tuo indirizzo e non con una media svizzera, e per questo alla fine resta comunque una visita sul posto. Tra il risultato e l'offerta c'è sempre una verifica fatta da una persona."
+          ]
+        },
+        {
+          "title": "Perché il tuo profilo di consumo è decisivo",
+          "paragraphs": [
+            "Ogni chilowattora che consumi direttamente sostituisce elettricità alla tariffa di rete. Ogni chilowattora che finisce in rete rende solo la rimunerazione per l'immissione in rete, che è diverse volte più bassa. Se un impianto conviene dipende quindi meno dalla superficie del tetto che dalla quantità di elettricità che resta in casa.",
+            "Una pompa di calore, un'auto elettrica o un accumulo a batteria alzano nettamente questa quota. Se hai in programma qualcosa del genere, indicalo nel calcolatore, altrimenti calcola la casa che hai oggi e non quella che avrai tra qualche anno."
+          ],
+          "links": [
+            {
+              "label": "Accumulo di energia",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Pompe di calore",
+              "href": "/heat-pumps"
+            }
+          ]
+        },
+        {
+          "title": "Da che cosa riconosci un calcolatore poco serio",
+          "paragraphs": [
+            "Ci sono calcolatori che servono soprattutto a raccogliere indirizzi. Li riconosci da alcuni schemi ricorrenti."
+          ],
+          "bullets": [
+            "Il risultato compare solo dopo aver inserito nome, numero di telefono e indirizzo e-mail.",
+            "Viene mostrata una cifra sola, senza le ipotesi che stanno dietro.",
+            "Tempi di ammortamento di pochi anni, senza che siano stati chiesti consumo e tariffa.",
+            "Nessuna indicazione sul fatto che incentivi, deduzione fiscale e IVA siano compresi.",
+            "I dati vengono trasmessi a più fornitori, che poi ti chiamano tutti."
+          ]
+        },
+        {
+          "title": "Che cosa un calcolatore non può fare per principio",
+          "paragraphs": [
+            "Nessun calcolatore vede lo stato del tuo tetto, la portata della sottostruttura, lo spazio per l'inverter o le riserve del tuo allacciamento della casa. Non conosce nemmeno le prescrizioni del tuo comune e non sa se il tuo edificio è protetto.",
+            "Fornisce un ordine di grandezza affidabile per decidere se per te vale la pena occuparsene. La cifra vincolante sta nell'offerta, dopo il sopralluogo."
+          ],
+          "links": [
+            {
+              "label": "Costi di un impianto solare",
+              "href": "/cost"
+            },
+            {
+              "label": "Confrontare le offerte: la lista di controllo",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Che cosa conviene preparare",
+          "paragraphs": [
+            "Con tre cose arrivi in due minuti a un risultato utilizzabile: il tuo indirizzo, il tuo consumo di elettricità dell'ultimo anno in chilowattora, come risulta dalla fattura, e un'idea di massima su un'eventuale pompa di calore o auto elettrica nei prossimi anni."
+          ],
+          "links": [
+            {
+              "label": "Avvia il calcolatore solare",
+              "href": "/calculator"
+            },
+            {
+              "label": "Richiedi una consulenza",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "",
+        "description": "",
+        "items": []
+      }
     }
   },
   "energyStorage": {
@@ -5886,6 +5989,114 @@
           "description": "Inizia con la mobilità elettrica.",
           "link": "Soluzioni di ricarica"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Costi della pompa di calore: che cosa determina davvero il conto",
+      "intro": "Il prezzo d'acquisto è solo una parte della risposta. Decisivo è quanto costa il riscaldamento nell'arco di vent'anni, e qui la pompa di calore è in testa nonostante l'acquisto più caro.",
+      "sections": [
+        {
+          "title": "Acquisto, esercizio e manutenzione a confronto",
+          "paragraphs": [
+            "La tabella qui sopra mostra i tre sistemi per una casa unifamiliare con 150 m² di superficie di riferimento energetico e un fabbisogno termico di 22'000 kWh, che corrisponde a circa 2'600 litri di olio da riscaldamento. Il riscaldamento a olio è il più conveniente all'acquisto, con circa CHF 23'000, ma ogni anno costa circa CHF 2'640 di energia e circa CHF 780 di manutenzione.",
+            "La pompa di calore aria-acqua costa circa CHF 36'500 e consuma energia per circa CHF 1'210 all'anno, la pompa di calore salamoia-acqua circa CHF 49'500 con circa CHF 940. Entrambe hanno costi di manutenzione nettamente più bassi. Sull'arco della sua durata di vita la pompa di calore recupera così il prezzo d'acquisto più elevato."
+          ]
+        },
+        {
+          "title": "Che cosa fa salire o scendere il prezzo",
+          "paragraphs": [
+            "Due case con lo stesso fabbisogno termico possono ricevere offerte molto diverse. Sono questi punti a fare la differenza."
+          ],
+          "bullets": [
+            "La fonte di calore. Una sonda geotermica richiede una perforazione, e i costi di perforazione dipendono dalla profondità e dal sottosuolo.",
+            "La temperatura di mandata necessaria. Una casa con riscaldamento a pavimento si accontenta di temperature più basse di una con vecchi radiatori, e questo abbassa potenza e consumo di elettricità.",
+            "Lo smantellamento. Il vecchio riscaldamento a olio, la cisterna e il camino vanno rimossi o messi fuori servizio.",
+            "La collocazione. All'interno, all'esterno o come apparecchio split, con le aperture nei muri, il basamento e le misure di protezione fonica.",
+            "L'installazione elettrica. Allacciamento, fusibili e, a seconda della potenza, un adeguamento dell'allacciamento della casa."
+          ]
+        },
+        {
+          "title": "Calcolare bene i costi d'esercizio",
+          "paragraphs": [
+            "I costi annui di elettricità risultano dal fabbisogno termico diviso per il coefficiente di rendimento annuo, moltiplicato per la tua tariffa elettrica. Il coefficiente di rendimento annuo dice quanti chilowattora di calore l'impianto ricava da un chilowattora di elettricità. Dipende dalla fonte di calore, dalla temperatura di mandata e dalla regolazione, non solo dall'apparecchio.",
+            "Un impianto solare sul proprio tetto abbassa questo conto, perché una parte dell'elettricità non viene più prelevata alla tariffa di rete. Nella casa unifamiliare una pompa di calore consuma da 3'000 a 4'500 kWh circa di elettricità all'anno."
+          ],
+          "links": [
+            {
+              "label": "Pompa di calore con impianto solare",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solare e pompa di calore: il calcolo nel dettaglio",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Che cosa resta alla fine a tuo carico",
+          "paragraphs": [
+            "Dall'importo dell'offerta vanno tolte due voci. Cantoni e comuni sostengono il passaggio tramite il Programma Edifici, soprattutto quando si sostituisce un riscaldamento a olio, a gas o elettrico. E la sostituzione del riscaldamento conta come spese di manutenzione dell'immobile, quindi si può dedurre dalle imposte.",
+            "Conta l'ordine dei passi. La domanda di incentivo deve essere presentata prima dell'inizio dei lavori, e alcuni cantoni esigono che prima arrivi la decisione positiva."
+          ],
+          "links": [
+            {
+              "label": "Incentivi per cantone",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Sostituzione del riscaldamento: Premio clima, pompa di calore e solare",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "A che cosa fare attenzione nell'offerta",
+          "paragraphs": [
+            "Un'offerta completa indica produttore e modello, il carico termico calcolato dell'edificio, il coefficiente di rendimento annuo ipotizzato, il livello di potenza sonora dell'unità esterna, tutti i lavori accessori e il piano di pagamento. Se manca il calcolo del carico termico, l'impianto è stato stimato e non dimensionato."
+          ],
+          "links": [
+            {
+              "label": "Confrontare le offerte: la lista di controllo",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            },
+            {
+              "label": "Richiedi una consulenza",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti sui costi",
+        "description": "Le domande che arrivano più spesso prima della decisione.",
+        "items": [
+          {
+            "question": "Quanto costa una pompa di calore, installazione compresa?",
+            "answer": "Per una casa unifamiliare di 150 m² calcoliamo circa CHF 36'500 per una pompa di calore aria-acqua e circa CHF 49'500 per una pompa di calore salamoia-acqua con sonda geotermica. I contributi e la deduzione fiscale riducono l'importo che resta a tuo carico."
+          },
+          {
+            "question": "Quanto sono alti i costi d'esercizio annui?",
+            "answer": "Nel nostro esempio di calcolo circa CHF 1'210 per la pompa di calore aria-acqua e circa CHF 940 per la pompa di calore con sonda geotermica, contro circa CHF 2'640 per un riscaldamento a olio. A questo si aggiunge la manutenzione, che per la pompa di calore è nettamente più bassa."
+          },
+          {
+            "question": "Conviene la sonda geotermica, che costa di più?",
+            "answer": "All'acquisto costa circa CHF 13'000 in più e fa risparmiare circa CHF 270 di energia all'anno. Nell'arco di vent'anni la cosa si compensa in buona parte, e la sonda geotermica dura più a lungo della pompa di calore stessa. Alla fine conta anche se una perforazione è consentita al tuo indirizzo."
+          },
+          {
+            "question": "Quanti incentivi ricevo?",
+            "answer": "Dipende dal cantone e dal comune e dal riscaldamento che sostituisci. Prima dell'offerta chiariamo che cosa vale al tuo indirizzo e prepariamo la domanda."
+          },
+          {
+            "question": "Un impianto solare abbassa i costi di riscaldamento?",
+            "answer": "Sì. La pompa di calore consuma da 3'000 a 4'500 kWh circa di elettricità all'anno, e l'elettricità solare del proprio tetto costa nettamente meno di quella della rete. L'abbinamento funziona al meglio in primavera e in autunno."
+          },
+          {
+            "question": "Posso dedurre i costi dalle imposte?",
+            "answer": "La sostituzione di un riscaldamento esistente vale come spese di manutenzione dell'immobile ed è deducibile in quasi tutti i cantoni, se necessario ripartita su più anni. In una costruzione nuova di regola la deduzione non vale."
+          }
+        ]
       }
     }
   },

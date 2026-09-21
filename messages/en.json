@@ -110,8 +110,8 @@
       "description": "SolarAbo by Free State: your solar system with a fixed monthly rate, monitoring, warranty and insurance included. Calculate your monthly rate now."
     },
     "batteryStorage": {
-      "title": "Battery Storage Switzerland: Store Your Solar Power",
-      "description": "Store your solar power for the night. Battery storage from 5 kWh. Compatible with BYD, Huawei and Viessmann. Installation in German-speaking Switzerland."
+      "title": "Battery storage as a revenue source: grid services | Free State AG",
+      "description": "Large battery storage lowers energy costs and earns revenue through grid services. A storage strategy for your site. For home storage see our energy storage page."
     },
     "heatPumps": {
       "title": "Heat Pumps Switzerland: Air/Water and Brine/Water",
@@ -5134,7 +5134,8 @@
   "solarCalculator": {
     "hero": {
       "title": "calculate\nfor free",
-      "description": "Discover in 4 steps your roof's energy output, payback time, and available subsidies."
+      "description": "Discover in 4 steps your roof's energy output, payback time, and available subsidies.",
+      "cta": "Start the solar calculator"
     },
     "howItWorks": {
       "title": "From consultation to installation",
@@ -5245,6 +5246,108 @@
       "title": "Get started now!\nUse the solar calculator to get a quote.",
       "cta": "Start the Solar Calculator",
       "ctaLink": "/calculator"
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "What a solar calculator can and cannot do",
+      "intro": "An online calculator is no substitute for planning, but it answers the first question: is this worth doing on my roof at all? Here you will find which details determine the result, how our calculator works and how to spot a tool that only wants to collect addresses.",
+      "sections": [
+        {
+          "title": "Which inputs really determine the result",
+          "paragraphs": [
+            "A result is only ever as good as the details behind it. Five things decide whether the final figure has anything to do with your house."
+          ],
+          "bullets": [
+            "Roof area, orientation and tilt. For a south-facing roof on the Swiss Plateau, the best tilt is 30 to 35 degrees, which is where most gable roofs already sit.",
+            "Shading from trees, neighbouring buildings, chimneys and roof windows. No online calculator can see it, and it explains why two identical roofs on the same street pay off differently.",
+            "Your electricity consumption and when it occurs. That is the biggest lever in the whole model.",
+            "The electricity price charged by your grid operator and the payment it makes for the electricity you feed in.",
+            "The price of the system itself, including scaffolding, electrical installation and connection."
+          ],
+          "links": [
+            {
+              "label": "What a serious calculation has to show",
+              "href": "/blog/solarrechner-schweiz-was-eine-seriose-berechnung-zeigt"
+            }
+          ]
+        },
+        {
+          "title": "Where our data comes from",
+          "paragraphs": [
+            "The basis is Sonnendach, the federal solar cadastre. It knows the geometry and the solar irradiation for practically every Swiss roof. What it does not know is your roof in detail: the condition of the covering, the shading from the neighbour's tree, the position of the windows and the existing electrical installation.",
+            "That is why our calculator works with the values for your address and not with a Swiss average, and why an on-site visit still comes at the end. Between the result and the quote there is always a check by a person."
+          ]
+        },
+        {
+          "title": "Why your consumption profile tips the balance",
+          "paragraphs": [
+            "Every kilowatt hour you use yourself replaces electricity at the grid tariff. Every kilowatt hour that flows into the grid earns only the feed-in payment, which is several times lower. Whether a system pays off therefore depends less on the size of the roof than on how much electricity stays in the house.",
+            "A heat pump, an electric car or a battery moves that share up considerably. If you are planning something like that, say so in the calculator, otherwise it works out the house you have today and not the house you will have in a few years."
+          ],
+          "links": [
+            {
+              "label": "Battery storage",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Heat pumps",
+              "href": "/heat-pumps"
+            }
+          ]
+        },
+        {
+          "title": "How to spot a calculator you cannot trust",
+          "paragraphs": [
+            "Some calculators are there mainly to collect addresses. A few patterns give them away."
+          ],
+          "bullets": [
+            "The result only appears once you have entered your name, phone number and email address.",
+            "Only a single figure is shown, without the assumptions behind it.",
+            "Payback periods of just a few years, without consumption and tariff ever being asked for.",
+            "No statement of whether subsidies, the tax deduction and VAT are included.",
+            "The data is passed on to several providers, all of whom then call you."
+          ]
+        },
+        {
+          "title": "What a calculator cannot do at all",
+          "paragraphs": [
+            "No calculator can see the condition of your roof, the load-bearing capacity of the substructure, the space for the inverter or the headroom left in your house connection. It also does not know the requirements of your municipality, nor whether your building is protected.",
+            "It gives you a reliable order of magnitude for deciding whether the subject is worth pursuing. The binding figure comes in the quote after the site visit."
+          ],
+          "links": [
+            {
+              "label": "Cost of a solar system",
+              "href": "/cost"
+            },
+            {
+              "label": "Comparing quotes: the checklist",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "What to have ready",
+          "paragraphs": [
+            "Three things get you to a usable result in two minutes: your address, your electricity consumption for the past year in kilowatt hours from your electricity bill, and an idea of whether a heat pump or an electric car will be added in the next few years."
+          ],
+          "links": [
+            {
+              "label": "Start the solar calculator",
+              "href": "/calculator"
+            },
+            {
+              "label": "Request a consultation",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "",
+        "description": "",
+        "items": []
+      }
     }
   },
   "energyStorage": {
@@ -5886,6 +5989,114 @@
           "description": "Get started with electromobility.",
           "link": "Charging Solutions"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Heat pump costs: what really drives the figures",
+      "intro": "The purchase price is only part of the answer. What counts is what the heating system costs over twenty years, and on that measure the heat pump comes out ahead despite costing more to buy.",
+      "sections": [
+        {
+          "title": "Purchase, running costs and maintenance compared",
+          "paragraphs": [
+            "The table above shows the three systems for a single-family home with an energy reference area of 150 m² and a heat demand of 22'000 kWh, which corresponds to around 2'600 litres of heating oil. The oil heating system is the cheapest to buy at around CHF 23'000, but every year it costs around CHF 2'640 for energy and around CHF 780 for maintenance.",
+            "The air-to-water heat pump costs around CHF 36'500 and needs around CHF 1'210 of energy a year, the ground-source heat pump around CHF 49'500 at around CHF 940. Both are much lower on maintenance. Over its service life, this is how the heat pump earns back the higher purchase price."
+          ]
+        },
+        {
+          "title": "What moves the price up or down",
+          "paragraphs": [
+            "Two houses with the same heat demand can receive very different quotes. These points make the difference."
+          ],
+          "bullets": [
+            "The heat source. A borehole needs drilling, and the drilling costs depend on the depth and on the ground.",
+            "The flow temperature needed. A house with underfloor heating manages with lower temperatures than one with old radiators, which brings down both the output required and the electricity consumption.",
+            "The removal work. The old oil heating, the tank and the chimney have to be taken out or decommissioned.",
+            "Where the unit is placed. Indoors, outdoors or as a split unit, plus wall openings, the foundation and noise protection measures.",
+            "The electrical installation. Connection, fuses and, depending on the output, an adjustment to the house connection."
+          ]
+        },
+        {
+          "title": "Working out the running costs properly",
+          "paragraphs": [
+            "The annual electricity costs are the heat demand divided by the seasonal performance factor (Jahresarbeitszahl), multiplied by your electricity tariff. The seasonal performance factor says how many kilowatt hours of heat the system makes from one kilowatt hour of electricity. It depends on the heat source, the flow temperature and the settings, not just on the unit.",
+            "A solar system on your own roof lowers this bill, because part of the electricity is no longer bought at the grid tariff. In a single-family home, a heat pump uses around 3'000 to 4'500 kWh of electricity a year."
+          ],
+          "links": [
+            {
+              "label": "Heat pump with a solar system",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solar and heat pump: the numbers in detail",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "What you end up paying yourself",
+          "paragraphs": [
+            "Two items come off the quoted amount. Cantons and municipalities support the switch through the Buildings Programme (Gebäudeprogramm), especially when an oil, gas or electric heating system is replaced. And replacing a heating system counts as property maintenance, so it can be deducted from your taxes.",
+            "The order matters. The subsidy application must be submitted before the work begins, and some cantons require the approval first."
+          ],
+          "links": [
+            {
+              "label": "Subsidies by canton",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Heating replacement: climate premium (Klimaprämie), heat pump and solar",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "What to look for in the quote",
+          "paragraphs": [
+            "A complete quote names the manufacturer and model, the calculated heat load of the building, the assumed seasonal performance factor, the sound power level of the outdoor unit, all the additional work and the payment schedule. If the heat load calculation is missing, the system has been guessed at rather than sized."
+          ],
+          "links": [
+            {
+              "label": "Comparing quotes: the checklist",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            },
+            {
+              "label": "Request a consultation",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about costs",
+        "description": "The questions that come up most often before the decision.",
+        "items": [
+          {
+            "question": "What does a heat pump cost including installation?",
+            "answer": "For a single-family home of 150 m², we estimate around CHF 36'500 for an air-to-water heat pump and around CHF 49'500 for a ground-source heat pump with a borehole. Subsidies and the tax deduction reduce the amount you pay yourself."
+          },
+          {
+            "question": "How high are the annual running costs?",
+            "answer": "In our worked example, around CHF 1'210 for the air-to-water heat pump and around CHF 940 for the ground-source heat pump, compared with around CHF 2'640 for an oil heating system. On top of that comes maintenance, which is much lower for the heat pump."
+          },
+          {
+            "question": "Is the more expensive borehole worth it?",
+            "answer": "It costs around CHF 13'000 more to buy and saves around CHF 270 of energy a year. Over twenty years that largely evens out, and the borehole lasts longer than the heat pump itself. Whether drilling is allowed at your location also comes into the decision in the end."
+          },
+          {
+            "question": "How much subsidy do I get?",
+            "answer": "That depends on the canton and the municipality, and on which heating system you are replacing. Before the quote, we check what applies at your address and prepare the application."
+          },
+          {
+            "question": "Does a solar system lower the heating costs?",
+            "answer": "Yes. The heat pump uses around 3'000 to 4'500 kWh of electricity a year, and solar power from your own roof is much cheaper than electricity from the grid. The match is best in spring and autumn."
+          },
+          {
+            "question": "Can I deduct the costs from my taxes?",
+            "answer": "Replacing an existing heating system counts as property maintenance and is deductible in almost all cantons, spread over several years if needed. For a new build, the deduction usually does not apply."
+          }
+        ]
       }
     }
   },

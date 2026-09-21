@@ -1,3 +1,4 @@
+import GuideContentSection from '@/components/guide/GuideContentSection'
 import PageHero from '@/components/PageHero'
 import { LinkButton } from '@/components/ui/link-button'
 import HowItWorksSection from '@/components/solar-calculator/HowItWorksSection'
@@ -42,7 +43,7 @@ const SolarCalculatorPage = async () => {
         >
           <div className="mt-8">
             <LinkButton variant="primary" href="/calculator">
-              Start the Solar Calculator
+              {t('hero.cta')}
             </LinkButton>
           </div>
         </PageHero>
@@ -53,6 +54,7 @@ const SolarCalculatorPage = async () => {
       <WhyFreeStateSection />
       <SolarAboShowcaseSection />
       <SolarAboCardsSection />
+      <GuideContentSection namespace="solarCalculator" withFaq={false} />
       <FAQSection />
       <BottomCTASection />
     </div>
