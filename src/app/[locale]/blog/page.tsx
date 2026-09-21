@@ -72,8 +72,9 @@ const BlogPage = async ({
   const featuredTr = featured ? getTranslation(featured, locale) : undefined
   const rest = page === 1 ? posts.slice(1) : posts
 
+  const blogPath = locale === 'de' ? '/blog' : `/${locale}/blog`
   const pageHref = (n: number) =>
-    n === 1 ? `/${locale}/blog` : `/${locale}/blog?page=${n}`
+    n === 1 ? blogPath : `${blogPath}?page=${n}`
 
   return (
     <div
@@ -97,7 +98,11 @@ const BlogPage = async ({
           <div className="flex flex-col gap-10">
             {featured && featuredTr && (
               <Link
-                href={`/${locale}/blog/${featured.slug}`}
+                href={
+                  locale === 'de'
+                    ? `/blog/${featured.slug}`
+                    : `/${locale}/blog/${featured.slug}`
+                }
                 className="group block"
               >
                 <article className="relative grid grid-cols-1 lg:grid-cols-2 rounded-[20px] overflow-hidden border border-[#062E25]/10 bg-white min-h-[420px]">

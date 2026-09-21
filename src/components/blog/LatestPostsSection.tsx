@@ -8,7 +8,7 @@ import { blogService } from '@/services/blog.service'
 import type { AdminBlogPost } from '@/types/admin'
 
 const POST_COUNT = 3
-const FETCH_LIMIT = 12
+const FETCH_LIMIT = 100
 
 async function loadPosts(topic?: BlogTopic): Promise<AdminBlogPost[]> {
   try {
@@ -44,7 +44,7 @@ const LatestPostsSection = async ({
             {t('latestTitle')}
           </h2>
           <Link
-            href={`/${locale}/blog`}
+            href={locale === 'de' ? '/blog' : `/${locale}/blog`}
             className="group inline-flex items-center gap-2 text-[#062E25] text-base font-medium"
           >
             <span className="border-b border-[#062E25] pb-0.5">

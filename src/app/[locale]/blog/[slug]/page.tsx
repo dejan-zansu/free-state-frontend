@@ -17,6 +17,7 @@ import {
   readingTimeMinutes,
   splitIntro,
 } from '@/lib/blog/article'
+import { localizeArticleLinks, localizedHref } from '@/lib/blog/links'
 import { blogTopic, relatedPosts } from '@/lib/blog/topics'
 import BlogCalculatorTeaser from '@/components/blog/BlogCalculatorTeaser'
 import BlogCard from '@/components/blog/BlogCard'
@@ -92,7 +93,9 @@ const BlogPostPage = async ({ params }: Props) => {
     notFound()
   }
 
-  const { html, headings } = prepareArticle(tr.content)
+  const { html, headings } = prepareArticle(
+    localizeArticleLinks(tr.content, locale as SiteLocale)
+  )
   const { intro, rest } = splitIntro(html)
   const topic = blogTopic(post.slug)
   const minutes = readingTimeMinutes(tr.content)
@@ -129,7 +132,7 @@ const BlogPostPage = async ({ params }: Props) => {
       <div className="bg-[#062E25]">
         <div className="max-w-[1310px] mx-auto px-4 sm:px-6 pt-32 pb-16 lg:pb-20">
           <Link
-            href={`/${locale}/blog`}
+            href={localizedHref('/blog', locale as SiteLocale) ?? '/blog'}
             className="inline-flex items-center gap-2 text-base text-[#FDFFF5]/60 hover:text-[#FDFFF5] transition-colors mb-10"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -146,7 +149,10 @@ const BlogPostPage = async ({ params }: Props) => {
               <p className="text-[#B7FE1A] text-base font-medium tracking-wide uppercase mb-4">
                 Blog
               </p>
-              <h1 className="text-[#FDFFF5] text-3xl sm:text-4xl md:text-5xl font-medium max-w-[900px]">
+              <h1
+                lang={tr.language}
+                className="text-[#FDFFF5] text-3xl sm:text-4xl md:text-5xl font-medium max-w-[900px]"
+              >
                 {tr.title}
               </h1>
               <div className="flex flex-wrap items-center gap-3 mt-6 text-base text-[#FDFFF5]/60 font-light">
@@ -191,7 +197,7 @@ const BlogPostPage = async ({ params }: Props) => {
         <div className="max-w-[1310px] mx-auto px-4 sm:px-6 py-14 lg:py-20">
           <div className="lg:grid lg:grid-cols-[minmax(0,720px)_280px] lg:gap-16 lg:justify-center">
             <div className="max-w-[720px] mx-auto lg:mx-0">
-              <article id="article-content">
+              <article id="article-content" lang={tr.language}>
                 <div
                   className={`${ARTICLE_PROSE} ${INTRO_STYLE} ${rest ? '' : SOURCES_STYLE}`}
                   dangerouslySetInnerHTML={{ __html: intro }}
@@ -234,7 +240,7 @@ const BlogPostPage = async ({ params }: Props) => {
           <p className="mt-8 text-center text-[#062E25]/75 text-base font-light">
             {t('ctaText')}{' '}
             <Link
-              href={`/${locale}/contact`}
+              href={localizedHref('/contact', locale as SiteLocale) ?? '/contact'}
               className="font-medium text-[#036B53] underline underline-offset-4 decoration-[#036B53]/40 hover:decoration-[#B7FE1A]"
             >
               {t('ctaSecondary')}
