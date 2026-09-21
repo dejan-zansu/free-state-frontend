@@ -316,7 +316,8 @@
     },
     "packages": {
       "title": "{name}: alle Komponenten in 3D",
-      "description": "Jedes Gerät dieses Solarpakets als drehbares 3D-Modell mit den technischen Daten des Herstellers."
+      "description": "Jedes Gerät dieses Solarpakets als drehbares 3D-Modell mit den technischen Daten des Herstellers.",
+      "descriptionSuffix": "Alle Komponenten in 3D mit technischen Daten."
     }
   },
   "apiErrors": {
@@ -2629,6 +2630,177 @@
         "certifiedQuality": "Zertifizierte Qualität & Herstellergarantien",
         "expertSelected": "Von SolarFree-Experten ausgewählt"
       }
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Solaranlage in der Schweiz: Planung, Kosten, Förderung und Ertrag",
+      "intro": "Eine Photovoltaikanlage auf dem eigenen Dach produziert Strom für 25 bis 30 Jahre. Hier finden Sie, was vor dem Entscheid zählt: wie gross die Anlage sein soll, was sie kostet, welche Förderung es gibt und wie Sie sie bezahlen können.",
+      "sections": [
+        {
+          "title": "Eignet sich mein Dach?",
+          "paragraphs": [
+            "Fast jedes Dach ohne starke Verschattung eignet sich. Am meisten produziert eine Fläche nach Süden, aber Ost-West-Dächer liefern den Strom besser über den Tag verteilt und passen damit oft besser zum eigenen Verbrauch. Pro Kilowatt Peak Leistung braucht es rund 5 m² Dachfläche.",
+            "Eine Anlage mit 8 kWp produziert in der Schweiz typischerweise 7'000 bis 9'000 kWh pro Jahr. Was Ihr Dach leisten kann, zeigt unser Solarrechner mit den Daten von Sonnendach, dem Solarkataster des Bundes."
+          ],
+          "links": [
+            {
+              "label": "Solarrechner starten",
+              "href": "/solar-calculator"
+            },
+            {
+              "label": "Ost-West oder Süd: was mehr bringt",
+              "href": "/blog/pv-anlage-ost-west-vs-sued-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Wie gross soll die Anlage sein?",
+          "paragraphs": [
+            "Früher wurde die Anlage auf den heutigen Verbrauch ausgelegt. Das ist überholt, denn mit Wärmepumpe und Elektroauto steigt der Strombedarf, und die Fixkosten für Gerüst, Planung und Anschluss fallen bei jeder Grösse an. In den meisten Fällen lohnt es sich, das Dach gut auszunutzen.",
+            "Wir legen die Anlage anhand Ihres Verbrauchs, der geplanten Verbraucher und des Rückliefertarifs Ihres Netzbetreibers aus."
+          ],
+          "links": [
+            {
+              "label": "Anlagengrösse berechnen",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            }
+          ]
+        },
+        {
+          "title": "Was kostet eine Solaranlage?",
+          "paragraphs": [
+            "Der Preis pro Kilowatt Peak sinkt mit der Grösse der Anlage. Dach, Gerüst, Elektroinstallation und die Wahl des Wechselrichters beeinflussen ihn ebenso wie die Frage, ob ein Speicher dazukommt. Aktuelle Preise pro kWp und durchgerechnete Beispiele für 6, 10 und 15 kWp finden Sie auf unserer Kostenseite.",
+            "Wann die Anlage ihre Kosten eingespielt hat, hängt vor allem vom Anteil des Stroms ab, den Sie selbst verbrauchen. Jede selbst genutzte Kilowattstunde ersetzt Strom zum Netztarif, jede eingespeiste bringt nur die Rückliefervergütung."
+          ],
+          "links": [
+            {
+              "label": "Kosten einer Solaranlage",
+              "href": "/cost"
+            },
+            {
+              "label": "Amortisation",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "Förderung, Vergütung und Steuern",
+          "paragraphs": [
+            "Der Bund fördert Solaranlagen mit der Einmalvergütung, die über Pronovo ausbezahlt wird. Dazu kommen je nach Standort Beiträge von Kanton und Gemeinde. Die Investition lässt sich bei bestehenden Gebäuden in fast allen Kantonen als Liegenschaftsunterhalt von den Steuern abziehen.",
+            "Für Strom, den Sie ins Netz einspeisen, zahlt der Netzbetreiber eine Rückliefervergütung. Seit 2026 gilt für Anlagen bis 30 kW eine Minimalvergütung von 6 Rappen pro Kilowattstunde. Weil der Netzstrom ein Mehrfaches kostet, ist der Eigenverbrauch der wichtigste Hebel für die Wirtschaftlichkeit."
+          ],
+          "links": [
+            {
+              "label": "Förderung nach Kanton",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Einmalvergütung: KLEIV, GREIV und HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Solaranlage von den Steuern abziehen",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Kaufen, im Abo bezahlen oder ohne Eigeninvestition",
+          "paragraphs": [
+            "Bei Free State wählen Sie zwischen drei Modellen. Mit SolarDirect kaufen Sie die Anlage und sind von Anfang an Eigentümer. Mit SolarAbo bezahlen Sie in festen Monatsraten, Monitoring, Garantie und Versicherung sind enthalten. Mit SolarFree erhalten Sie Ihre Solaranlage ohne Eigeninvestition und können sie später erwerben."
+          ],
+          "links": [
+            {
+              "label": "SolarDirect",
+              "href": "/solar-direct"
+            },
+            {
+              "label": "SolarAbo",
+              "href": "/solar-abo"
+            },
+            {
+              "label": "SolarFree",
+              "href": "/solar-free"
+            },
+            {
+              "label": "Mieten oder kaufen: der Vergleich",
+              "href": "/blog/solar-mieten-oder-kaufen-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Bewilligung und Ablauf",
+          "paragraphs": [
+            "Genügend angepasste Solaranlagen auf Dächern in Bau- und Landwirtschaftszonen brauchen in der Schweiz keine Baubewilligung. Es genügt eine Meldung an die Gemeinde. Ausnahmen gelten für Kultur- und Naturdenkmäler und in manchen Kernzonen.",
+            "Wir übernehmen die Meldung, das Anschlussgesuch beim Netzbetreiber und das Fördergesuch. Nach der Montage nimmt ein unabhängiges Kontrollorgan die Anlage ab, danach geht sie ans Netz."
+          ],
+          "links": [
+            {
+              "label": "So funktioniert es",
+              "href": "/how-it-works"
+            },
+            {
+              "label": "Offerten vergleichen: die Checkliste",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Speicher, Wärmepumpe und Ladestation",
+          "paragraphs": [
+            "Eine Solaranlage wird wirtschaftlicher, je mehr Strom im Haus bleibt. Ein Batteriespeicher verschiebt den Mittagsstrom in den Abend, eine Wärmepumpe macht daraus Wärme, und eine Ladestation bringt ihn ins Elektroauto. Wer diese Schritte mitdenkt, spart sich spätere Umbauten an der Elektroinstallation."
+          ],
+          "links": [
+            {
+              "label": "Stromspeicher",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Wärmepumpen",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Ladestationen",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zur Solaranlage",
+        "description": "Kurz beantwortet, was vor dem Kauf am häufigsten gefragt wird.",
+        "items": [
+          {
+            "question": "Lohnt sich eine Solaranlage in der Schweiz?",
+            "answer": "In den meisten Fällen ja. Entscheidend ist, wie viel des produzierten Stroms Sie selbst verbrauchen, denn Netzstrom kostet ein Mehrfaches der Rückliefervergütung. Mit Wärmepumpe, Elektroauto oder Speicher steigt der Eigenverbrauch und damit die Wirtschaftlichkeit."
+          },
+          {
+            "question": "Wie viel Strom produziert eine Solaranlage?",
+            "answer": "Eine Anlage mit 8 kWp produziert in der Schweiz typischerweise 7'000 bis 9'000 kWh pro Jahr. Der Ertrag hängt von Ausrichtung, Neigung, Verschattung und Standort ab."
+          },
+          {
+            "question": "Brauche ich eine Baubewilligung?",
+            "answer": "In der Regel nicht. Für genügend angepasste Anlagen auf Dächern in Bau- und Landwirtschaftszonen genügt eine Meldung an die Gemeinde. Bei geschützten Gebäuden und in manchen Kernzonen ist ein Baugesuch nötig."
+          },
+          {
+            "question": "Welche Förderung gibt es?",
+            "answer": "Der Bund zahlt über Pronovo eine Einmalvergütung. Dazu kommen je nach Standort Beiträge von Kanton und Gemeinde sowie der Steuerabzug. Wir klären ab, was an Ihrer Adresse gilt, und bereiten die Gesuche vor."
+          },
+          {
+            "question": "Was passiert mit dem Strom, den ich nicht selbst brauche?",
+            "answer": "Er fliesst ins Netz, und Ihr Netzbetreiber vergütet ihn. Seit 2026 gilt für Anlagen bis 30 kW eine Minimalvergütung von 6 Rappen pro Kilowattstunde."
+          },
+          {
+            "question": "Kann ich eine Solaranlage auch ohne Eigenkapital bekommen?",
+            "answer": "Ja. Mit SolarFree erhalten Sie die Anlage ohne Eigeninvestition, mit SolarAbo bezahlen Sie sie in festen Monatsraten. Beide Modelle lassen einen späteren Kauf zu."
+          },
+          {
+            "question": "Wie lange hält eine Solaranlage?",
+            "answer": "Solarmodule produzieren 25 bis 30 Jahre lang Strom, die Leistung nimmt dabei langsam ab. Der Wechselrichter wird in dieser Zeit in der Regel einmal ersetzt."
+          }
+        ]
+      }
     }
   },
   "batteryStorage": {
@@ -2844,6 +3016,155 @@
       "title": "Finden Sie das richtige Wärmepumpen-Setup für Ihren Standort",
       "subtitle": "Finden Sie das richtige Wärmepumpen-Setup für Ihren Standort",
       "button": "Solarrechner starten"
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Wärmepumpe in der Schweiz: Arten, Kosten und Förderung",
+      "intro": "Eine Wärmepumpe holt den grössten Teil der Heizenergie aus der Umgebung und braucht dafür nur einen kleinen Anteil Strom. Hier finden Sie die Antworten auf die Fragen, die vor dem Entscheid am häufigsten gestellt werden.",
+      "sections": [
+        {
+          "title": "Welche Wärmepumpe passt zu Ihrem Haus?",
+          "paragraphs": [
+            "Wärmepumpen unterscheiden sich nach der Quelle, aus der sie die Wärme beziehen. Die Wahl hängt vom Grundstück, vom Gebäude und von den Vorschriften am Standort ab."
+          ],
+          "bullets": [
+            "Luft/Wasser-Wärmepumpe: nutzt die Aussenluft, braucht keine Bohrung und ist am schnellsten installiert. Sie ist die häufigste Lösung im Einfamilienhaus und lässt sich innen oder aussen aufstellen.",
+            "Sole/Wasser-Wärmepumpe mit Erdsonde: nutzt die gleichmässige Temperatur im Boden und arbeitet deshalb auch im Winter sehr effizient. Die Bohrung kostet mehr und braucht eine Bewilligung.",
+            "Wasser/Wasser-Wärmepumpe: nutzt Grundwasser und erreicht die höchste Effizienz. Sie setzt geeignete Wasserverhältnisse voraus und wird nur an wenigen Standorten bewilligt."
+          ],
+          "links": [
+            {
+              "label": "So funktioniert eine Wärmepumpe",
+              "href": "/heat-pumps/how-it-works"
+            },
+            {
+              "label": "Unsere Wärmepumpen im Überblick",
+              "href": "/heat-pumps/products"
+            }
+          ]
+        },
+        {
+          "title": "Was kostet eine Wärmepumpe?",
+          "paragraphs": [
+            "Für ein Einfamilienhaus mit 150 m² Energiebezugsfläche und 22'000 kWh Wärmebedarf rechnen wir mit rund CHF 36'500 für eine Luft/Wasser-Wärmepumpe und rund CHF 49'500 für eine Sole/Wasser-Wärmepumpe mit Erdsonde. Eine neue Ölheizung kostet in der Anschaffung rund CHF 23'000.",
+            "Entscheidend sind die laufenden Kosten. Die Luft/Wasser-Wärmepumpe braucht im gleichen Haus für rund CHF 1'210 Energie pro Jahr, die Erdsonden-Wärmepumpe für rund CHF 940. Die Ölheizung liegt bei rund CHF 2'640 und verursacht mit rund CHF 780 pro Jahr auch die höchsten Wartungskosten. Über die Lebensdauer gleicht die Wärmepumpe den höheren Kaufpreis damit aus."
+          ],
+          "links": [
+            {
+              "label": "Kostenvergleich der Heizsysteme",
+              "href": "/heat-pumps/cost"
+            }
+          ]
+        },
+        {
+          "title": "Öl- oder Gasheizung ersetzen",
+          "paragraphs": [
+            "In vielen Kantonen darf eine fossile Heizung nicht mehr ohne Weiteres durch eine gleiche ersetzt werden. Wer die alte Ölheizung tauscht, muss meist auf erneuerbare Energie wechseln oder den Energiebedarf des Gebäudes senken. Mehrere Kantone verlangen vor dem Ersatz zudem eine Energieberatung oder einen GEAK-Bericht.",
+            "Planen Sie den Ersatz, bevor die alte Heizung ausfällt. Dann bleibt Zeit für die Beratung, die Förderanträge und die Bewilligung, und Sie müssen nicht mitten im Winter eine Notlösung akzeptieren."
+          ],
+          "links": [
+            {
+              "label": "Heizungsersatz: Klimaprämie, Wärmepumpe und Solar",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "Förderung und Steuern",
+          "paragraphs": [
+            "Kantone und Gemeinden fördern den Umstieg auf eine Wärmepumpe über das Gebäudeprogramm, je nach Standort mit mehreren tausend Franken. Am meisten gibt es in der Regel beim Ersatz einer Öl-, Gas- oder Elektroheizung. Welche Programme an Ihrer Adresse gelten, zeigt energiefranken.ch nach Eingabe der Postleitzahl.",
+            "Wichtig ist die Reihenfolge: Das Fördergesuch muss eingereicht sein, bevor die Arbeiten beginnen, und einige Kantone verlangen zuerst die Zusage. Der Heizungsersatz zählt ausserdem zum Liegenschaftsunterhalt und lässt sich von den Steuern abziehen."
+          ],
+          "links": [
+            {
+              "label": "Förderung nach Kanton",
+              "href": "/foerderung"
+            }
+          ]
+        },
+        {
+          "title": "Wärmepumpe und Solaranlage kombinieren",
+          "paragraphs": [
+            "Eine Wärmepumpe verlagert den Energiebedarf vom Öltank auf den Stromzähler. In einem durchschnittlichen Einfamilienhaus braucht sie rund 3'000 bis 4'500 kWh Strom pro Jahr. Eine Solaranlage auf dem eigenen Dach liefert einen grossen Teil davon deutlich günstiger als das Netz.",
+            "Mit einer Wärmepumpe steigt der Anteil des Solarstroms, den Sie selbst verbrauchen, typischerweise von rund 30 auf 55 bis 70 Prozent. Am besten passt es im Frühling und im Herbst. Im Hochwinter liefert das Dach wenig, dann gleicht die Jahresbilanz aus, was der einzelne Tag nicht schafft."
+          ],
+          "links": [
+            {
+              "label": "Wärmepumpe mit Solaranlage",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solar und Wärmepumpe: die Rechnung im Detail",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Lärm und Bewilligung",
+          "paragraphs": [
+            "Eine aussen aufgestellte Luft/Wasser-Wärmepumpe muss die Vorgaben der Lärmschutz-Verordnung einhalten. Im Baugesuch wird dafür ein Lärmschutznachweis verlangt, der zeigt, dass die Planungswerte beim Nachbarn auch in der Nacht eingehalten sind. Der Standort des Aussengeräts und der Abstand zur Grundstücksgrenze entscheiden oft mehr als das Gerät selbst.",
+            "Für Erdsonden braucht es eine kantonale Bewilligung. In Grundwasserschutzzonen sind Bohrungen eingeschränkt oder nicht erlaubt. Die kantonalen Erdwärmekarten zeigen, was an Ihrer Adresse möglich ist. Wir klären beides ab, bevor wir Ihnen ein System empfehlen."
+          ]
+        },
+        {
+          "title": "So läuft Ihr Projekt ab",
+          "paragraphs": [
+            "Von der ersten Abklärung bis zur warmen Stube sind es fünf Schritte."
+          ],
+          "bullets": [
+            "Beratung vor Ort: Wärmebedarf, bestehende Heizverteilung und Platzverhältnisse aufnehmen.",
+            "Systemwahl und Offerte: Luft/Wasser oder Erdsonde, mit oder ohne Solaranlage.",
+            "Fördergesuch und Bewilligung: Wir bereiten die Unterlagen vor, Sie unterschreiben.",
+            "Installation: Rückbau der alten Heizung, Montage und Anschluss der Wärmepumpe.",
+            "Inbetriebnahme und Service: Einstellung der Anlage, Instruktion und Wartung."
+          ],
+          "links": [
+            {
+              "label": "Wartung und Service",
+              "href": "/heat-pumps/service"
+            },
+            {
+              "label": "Beratung anfragen",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zur Wärmepumpe",
+        "description": "Kurze Antworten auf das, was Hausbesitzer am häufigsten wissen wollen.",
+        "items": [
+          {
+            "question": "Was kostet eine Wärmepumpe in der Schweiz?",
+            "answer": "Für ein Einfamilienhaus mit 150 m² rechnen wir mit rund CHF 36'500 für eine Luft/Wasser-Wärmepumpe und rund CHF 49'500 für eine Sole/Wasser-Wärmepumpe mit Erdsonde, jeweils inklusive Installation. Förderbeiträge und der Steuerabzug senken den Betrag, den Sie am Ende selbst tragen."
+          },
+          {
+            "question": "Luft/Wasser-Wärmepumpe oder Erdsonde: Was ist besser?",
+            "answer": "Die Luft/Wasser-Wärmepumpe ist günstiger und schneller installiert. Die Erdsonden-Wärmepumpe kostet mehr, arbeitet aber effizienter und hat tiefere Betriebskosten, in unserem Rechenbeispiel rund CHF 940 statt CHF 1'210 Energie pro Jahr. Ob eine Bohrung an Ihrem Standort erlaubt ist, zeigt die Erdwärmekarte Ihres Kantons."
+          },
+          {
+            "question": "Funktioniert eine Wärmepumpe auch im Altbau mit Radiatoren?",
+            "answer": "In den meisten Fällen ja. Entscheidend ist die Vorlauftemperatur, die Ihr Haus an kalten Tagen braucht. Je tiefer sie ist, desto effizienter arbeitet die Wärmepumpe. Oft reicht es, einzelne Radiatoren zu vergrössern oder die Gebäudehülle an wenigen Stellen zu verbessern."
+          },
+          {
+            "question": "Wie laut ist eine Luft/Wasser-Wärmepumpe?",
+            "answer": "Moderne Geräte sind deutlich leiser als frühere Generationen. Massgebend ist, was beim Nachbarn ankommt. Deshalb gehört zu jeder aussen aufgestellten Anlage ein Lärmschutznachweis, und deshalb planen wir den Standort des Aussengeräts sorgfältig."
+          },
+          {
+            "question": "Brauche ich eine Bewilligung?",
+            "answer": "Für eine aussen aufgestellte Luft/Wasser-Wärmepumpe verlangen die meisten Gemeinden ein Baugesuch oder eine Meldung mit Lärmschutznachweis. Erdsonden brauchen immer eine kantonale Bewilligung. Wir übernehmen die Abklärung und bereiten die Unterlagen vor."
+          },
+          {
+            "question": "Lohnt sich eine Solaranlage zur Wärmepumpe?",
+            "answer": "Fast immer. Die Wärmepumpe erhöht Ihren Stromverbrauch um rund 3'000 bis 4'500 kWh pro Jahr, und Solarstrom vom eigenen Dach ist deutlich günstiger als Strom aus dem Netz. Der Eigenverbrauch steigt mit einer Wärmepumpe typischerweise von rund 30 auf 55 bis 70 Prozent."
+          },
+          {
+            "question": "Wie lange hält eine Wärmepumpe?",
+            "answer": "Bei regelmässiger Wartung rechnen wir mit rund 20 Jahren. Eine Erdsonde selbst hält deutlich länger und kann von der nächsten Wärmepumpe weitergenutzt werden."
+          }
+        ]
+      }
     }
   },
   "heatPumpsHowItWorks": {
@@ -3404,6 +3725,137 @@
           "href": "/charging-stations/bidirectional-charging-station"
         }
       ]
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Ladestation für das Elektroauto: Wallbox, Kosten und Laden mit Solarstrom",
+      "intro": "Wer zu Hause lädt, fährt am günstigsten, und mit einer Solaranlage wird der Strom vom eigenen Dach zum Treibstoff. Hier steht, welche Ladestation zu welchem Gebäude passt, was sie kostet und worauf es bei der Installation ankommt.",
+      "sections": [
+        {
+          "title": "Welche Ladestation brauche ich?",
+          "paragraphs": [
+            "Für das Einfamilienhaus reicht in aller Regel eine Wallbox mit 11 kW Wechselstrom. Sie lädt ein Elektroauto über Nacht vollständig und lässt sich ohne Verstärkung des Hausanschlusses betreiben.",
+            "Im Mehrfamilienhaus geht es zuerst um die gemeinsame Infrastruktur: Zuleitung, Lastmanagement und Abrechnung. Die einzelnen Ladepunkte kommen mit den Elektroautos der Bewohner über die Jahre dazu."
+          ],
+          "links": [
+            {
+              "label": "Ladestation im Einfamilienhaus",
+              "href": "/charging-stations/single-family-home"
+            },
+            {
+              "label": "Ladestation im Mehrfamilienhaus",
+              "href": "/charging-stations/apartment-building"
+            }
+          ]
+        },
+        {
+          "title": "Was kostet eine Wallbox?",
+          "paragraphs": [
+            "Eine Wallbox kostet in der Schweiz inklusive Installation typischerweise CHF 1'500 bis 5'000. Den grössten Unterschied macht der Weg vom Sicherungskasten zum Parkplatz: Je länger die Leitung und je aufwändiger die Durchführung, desto höher der Preis.",
+            "Eine bidirektionale Ladestation mit Gleichstrom kostet deutlich mehr, schnell das Doppelte. Sie kann dafür Strom aus der Fahrzeugbatterie zurück ins Haus liefern."
+          ],
+          "links": [
+            {
+              "label": "Wallbox-Förderung in der Schweiz",
+              "href": "/blog/wallbox-foerderung-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Laden mit Solarstrom",
+          "paragraphs": [
+            "Eine Wallbox mit Überschussladen erhöht die Ladeleistung, wenn das Dach mehr produziert, als das Haus gerade braucht. Jede Kilowattstunde, die so ins Auto fliesst statt ins Netz, spart die Differenz zwischen dem Bezugstarif und dem Rückliefertarif. Je nach Region sind das 15 bis 25 Rappen.",
+            "Am besten funktioniert das, wenn das Auto tagsüber zu Hause steht. Wer pendelt, lädt am Wochenende mit Solarstrom und unter der Woche in der Nacht. Ein Lastmanagement sorgt dafür, dass Wallbox, Wärmepumpe und Haushalt den Hausanschluss nie überlasten."
+          ],
+          "links": [
+            {
+              "label": "Solaranlagen",
+              "href": "/solar-systems"
+            },
+            {
+              "label": "Stromspeicher",
+              "href": "/energy-storage"
+            }
+          ]
+        },
+        {
+          "title": "Bidirektionales Laden: das Auto als Speicher",
+          "paragraphs": [
+            "Beim bidirektionalen Laden fliesst Strom in beide Richtungen. Die Batterie des Elektroautos ist um ein Mehrfaches grösser als ein Heimspeicher und kann das Haus am Abend mit dem Solarstrom vom Mittag versorgen. Voraussetzung sind ein Fahrzeug und eine Ladestation, die das unterstützen.",
+            "Die Technik ist verfügbar, die Auswahl an Fahrzeugen wächst. Ob sich der Aufpreis heute für Sie rechnet, hängt davon ab, wie oft das Auto tagsüber am Haus steht."
+          ],
+          "links": [
+            {
+              "label": "Bidirektionale Ladestation",
+              "href": "/charging-stations/bidirectional-charging-station"
+            },
+            {
+              "label": "Bidirektionales Laden in der Schweiz",
+              "href": "/blog/v2h-bidirektionales-laden-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Ladestationen im Mehrfamilienhaus",
+          "paragraphs": [
+            "Im Mehrfamilienhaus lohnt sich eine Grunderschliessung, die alle Parkplätze vorbereitet. Wer später ein Elektroauto kauft, lässt nur noch die Wallbox montieren. Ein Lastmanagement verteilt die verfügbare Leistung auf alle Fahrzeuge, und die Abrechnung erfolgt pro Ladepunkt.",
+            "Mit einer Solaranlage und einem Zusammenschluss zum Eigenverbrauch fliesst der Strom vom Dach auch in die Tiefgarage. Mehrere Kantone fördern die Grunderschliessung pro Parkplatz."
+          ],
+          "links": [
+            {
+              "label": "Ladestation im Mehrfamilienhaus: Planung und Kosten",
+              "href": "/blog/ladestation-mehrfamilienhaus-schweiz-planung-kosten"
+            },
+            {
+              "label": "ZEV, vZEV und LEG im Mehrfamilienhaus",
+              "href": "/blog/zev-vzev-leg-mehrfamilienhaus-2026"
+            }
+          ]
+        },
+        {
+          "title": "Installation und Meldung",
+          "paragraphs": [
+            "Eine Ladestation muss von einem konzessionierten Elektroinstallateur angeschlossen werden und ist dem Netzbetreiber zu melden, je nach Leistung ist auch ein Gesuch nötig. Wir prüfen den Hausanschluss, übernehmen die Meldung und nehmen die Station in Betrieb."
+          ],
+          "links": [
+            {
+              "label": "Beratung anfragen",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zur Ladestation",
+        "description": "Das Wichtigste zur Wallbox zu Hause.",
+        "items": [
+          {
+            "question": "Was kostet eine Wallbox mit Installation?",
+            "answer": "In der Schweiz typischerweise CHF 1'500 bis 5'000. Der Preis hängt vor allem davon ab, wie weit der Parkplatz vom Sicherungskasten entfernt ist und ob der Hausanschluss genügt."
+          },
+          {
+            "question": "Reichen 11 kW oder brauche ich 22 kW?",
+            "answer": "Für den Alltag zu Hause reichen 11 kW. Damit ist ein Elektroauto über Nacht geladen. Für 22 kW verlangt der Netzbetreiber in der Regel eine Bewilligung, und viele Fahrzeuge können mit Wechselstrom gar nicht so schnell laden."
+          },
+          {
+            "question": "Kann ich mein Elektroauto mit Solarstrom laden?",
+            "answer": "Ja. Eine Wallbox mit Überschussladen passt die Ladeleistung an die Produktion der Solaranlage an. Pro Kilowattstunde sparen Sie je nach Region 15 bis 25 Rappen gegenüber der Einspeisung ins Netz."
+          },
+          {
+            "question": "Gibt es Förderung für Ladestationen?",
+            "answer": "Auf Bundesebene nicht. Einzelne Kantone und Gemeinden fördern vor allem die Grunderschliessung in Mehrfamilienhäusern. Die Programme sind befristet und enden, wenn das Budget aufgebraucht ist."
+          },
+          {
+            "question": "Darf ich als Mieter oder Stockwerkeigentümer eine Ladestation installieren?",
+            "answer": "Sie brauchen die Zustimmung des Vermieters oder der Eigentümergemeinschaft. Am einfachsten ist es, wenn das Gebäude eine gemeinsame Grunderschliessung hat, an die sich jeder Parkplatz anschliessen lässt."
+          },
+          {
+            "question": "Was ist bidirektionales Laden?",
+            "answer": "Das Elektroauto gibt Strom aus seiner Batterie an das Haus zurück. So lässt sich Solarstrom vom Mittag am Abend nutzen. Fahrzeug und Ladestation müssen die Funktion beide unterstützen."
+          }
+        ]
+      }
     }
   },
   "cost": {
@@ -4039,6 +4491,123 @@
           "features": "Modular & erweiterbar|Kompatibel mit Huawei-Wechselrichtern (1- & 3-phasig)|Intelligente App-Integration|100 % Entladetiefe",
           "warranty": "10 Jahre Garantie (80 % nutzbare Energie)"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Batteriespeicher für die Solaranlage: Grösse, Kosten und wann er sich lohnt",
+      "intro": "Ein Stromspeicher verschiebt den Solarstrom vom Mittag in den Abend. Ob sich das rechnet, hängt weniger vom Gerät ab als von Ihrem Verbrauch, der Grösse des Speichers und den Tarifen Ihres Netzbetreibers.",
+      "sections": [
+        {
+          "title": "Was ein Batteriespeicher leistet",
+          "paragraphs": [
+            "Ohne Speicher verbraucht ein Haushalt typischerweise 30 bis 35 Prozent des eigenen Solarstroms selbst, der Rest fliesst ins Netz. Mit einem passend dimensionierten Speicher steigt dieser Anteil auf rund 70 Prozent. Der Strom vom Dach deckt dann auch den Abend, die Nacht und den frühen Morgen.",
+            "Jede Kilowattstunde aus dem Speicher ersetzt Strom aus dem Netz. Gleichzeitig entfällt die Vergütung, die Sie für die Einspeisung erhalten hätten. Der Vorteil des Speichers ist die Differenz zwischen beidem."
+          ]
+        },
+        {
+          "title": "Welche Grösse ist richtig?",
+          "paragraphs": [
+            "Ein zu grosser Speicher wird an vielen Tagen nicht voll und im Winter kaum genutzt. Ein zu kleiner ist am frühen Abend leer. Als Ausgangspunkt dient der Stromverbrauch zwischen Sonnenuntergang und Sonnenaufgang, nicht die Leistung der Solaranlage.",
+            "Wärmepumpe und Elektroauto verändern die Rechnung deutlich, weil sie den Verbrauch am Abend und in der Nacht erhöhen. Wir dimensionieren den Speicher deshalb anhand Ihres Lastprofils und nicht nach einer Faustregel."
+          ],
+          "links": [
+            {
+              "label": "Anlagengrösse berechnen",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            },
+            {
+              "label": "Solarrechner starten",
+              "href": "/solar-calculator"
+            }
+          ]
+        },
+        {
+          "title": "Was kostet ein Stromspeicher?",
+          "paragraphs": [
+            "Der Preis pro Kilowattstunde sinkt mit der Grösse, weil Wechselrichter, Verkabelung und Inbetriebnahme bei jedem Speicher anfallen. Ein Speicher, der zusammen mit der Solaranlage installiert wird, ist deshalb günstiger als eine spätere Nachrüstung.",
+            "Die Preise am Schweizer Markt sind zuletzt deutlich gefallen. Wie sie sich zusammensetzen und was eine Kilowattstunde aus der Batterie über die Lebensdauer kostet, rechnen wir in unserem Beitrag Schritt für Schritt vor."
+          ],
+          "links": [
+            {
+              "label": "Stromspeicher Kosten: die Rechnung im Detail",
+              "href": "/blog/stromspeicher-kosten-schweiz-2026-lohnt-sich"
+            },
+            {
+              "label": "Kosten einer Solaranlage",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Wann sich ein Speicher lohnt",
+          "paragraphs": [
+            "Ein Speicher rechnet sich, wenn die Kilowattstunde aus der Batterie weniger kostet als der Vorteil, den sie bringt. Dieser Vorteil liegt bei den heutigen Tarifen bei rund 15 bis 18 Rappen pro Kilowattstunde. Das ist die Differenz zwischen dem Netztarif und der entgangenen Einspeisevergütung, abzüglich der Verluste beim Laden und Entladen."
+          ],
+          "bullets": [
+            "Dafür spricht: hoher Verbrauch am Abend und in der Nacht, eine Wärmepumpe oder ein Elektroauto, ein tiefer Rückliefertarif, ein kantonaler Förderbeitrag.",
+            "Dagegen spricht: ein kleiner Haushalt, der tagsüber zu Hause ist, ein hoher Rückliefertarif, ein Speicher, der für das Dach zu gross gewählt ist."
+          ],
+          "links": [
+            {
+              "label": "Dynamische Stromtarife und Speicher",
+              "href": "/blog/dynamische-stromtarife-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Notstrom und Ersatzstrom",
+          "paragraphs": [
+            "Ein Batteriespeicher liefert bei einem Stromausfall nicht automatisch weiter. Dafür braucht es ein System mit Ersatzstromfunktion, das das Haus sicher vom Netz trennt. Wenn Ihnen das wichtig ist, sagen Sie es vor der Planung, denn es beeinflusst die Wahl des Speichers und die Elektroinstallation."
+          ]
+        },
+        {
+          "title": "Speicher, Wärmepumpe und Elektroauto zusammen planen",
+          "paragraphs": [
+            "Wärme ist günstiger zu speichern als Strom. Ein Warmwasser- oder Pufferspeicher nimmt den Mittagsüberschuss über die Wärmepumpe auf, und das Elektroauto lädt, wenn die Sonne scheint. Ein Energiemanagement verteilt den Solarstrom in dieser Reihenfolge, und der Batteriespeicher übernimmt, was danach übrig bleibt."
+          ],
+          "links": [
+            {
+              "label": "Wärmepumpen",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Ladestationen",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zum Batteriespeicher",
+        "description": "Was Hausbesitzer vor dem Kauf eines Stromspeichers wissen wollen.",
+        "items": [
+          {
+            "question": "Lohnt sich ein Batteriespeicher für meine Solaranlage?",
+            "answer": "Das hängt von Ihrem Verbrauch am Abend und in der Nacht, vom Rückliefertarif Ihres Netzbetreibers und vom Preis des Speichers ab. Mit Wärmepumpe oder Elektroauto geht die Rechnung deutlich häufiger auf als in einem kleinen Haushalt ohne diese Verbraucher. Wir rechnen es für Ihr Haus durch und sagen es Ihnen, wenn es sich nicht lohnt."
+          },
+          {
+            "question": "Wie gross sollte der Speicher sein?",
+            "answer": "Massgebend ist Ihr Stromverbrauch zwischen Abend und Morgen. Ein Speicher, der an den meisten Tagen voll wird und über Nacht wieder leer ist, arbeitet wirtschaftlich. Grösser ist nicht besser."
+          },
+          {
+            "question": "Kann ich einen Speicher später nachrüsten?",
+            "answer": "Ja. Günstiger ist es, den Speicher zusammen mit der Solaranlage zu installieren, weil Planung, Verkabelung und Inbetriebnahme dann nur einmal anfallen. Wer später nachrüsten will, sollte bei der Anlage einen Wechselrichter wählen, der dafür vorbereitet ist."
+          },
+          {
+            "question": "Habe ich mit einem Speicher Strom bei einem Stromausfall?",
+            "answer": "Nur mit einem System, das eine Ersatzstrom- oder Notstromfunktion hat. Ein gewöhnlicher Speicher schaltet bei einem Netzausfall aus Sicherheitsgründen ab."
+          },
+          {
+            "question": "Wie lange hält ein Batteriespeicher?",
+            "answer": "Die Hersteller der Speicher, die wir installieren, geben zehn Jahre Garantie. Die nutzbare Kapazität nimmt über die Jahre langsam ab, wie bei jeder Batterie."
+          },
+          {
+            "question": "Gibt es Förderung für Batteriespeicher?",
+            "answer": "Auf Bundesebene nicht. Einzelne Kantone und Gemeinden fördern Speicher zusammen mit einer Solaranlage. Was an Ihrer Adresse gilt, klären wir vor der Offerte ab."
+          }
+        ]
       }
     }
   },
@@ -9424,6 +9993,129 @@
       "steuer": "Steuerliche Aspekte",
       "sources": "Quellen",
       "faq": "Häufige Fragen"
+    },
+    "guide": {
+      "eyebrow": "Ratgeber",
+      "title": "Förderung für Solaranlagen in der Schweiz: Bund, Kanton, Gemeinde und Steuern",
+      "intro": "Die Förderung einer Solaranlage setzt sich in der Schweiz aus mehreren Töpfen zusammen. Der Bund zahlt überall gleich viel, Kantone und Gemeinden legen sehr unterschiedlich drauf, und der Steuerabzug kommt dazu. Wer die Reihenfolge der Gesuche kennt, verschenkt nichts.",
+      "sections": [
+        {
+          "title": "Die Einmalvergütung des Bundes",
+          "paragraphs": [
+            "Der Bund fördert Photovoltaikanlagen mit einer einmaligen Zahlung, der Einmalvergütung. Sie wird von Pronovo im Auftrag des Bundes ausbezahlt und richtet sich nach der Leistung der Anlage. Für Anlagen auf Einfamilien- und Mehrfamilienhäusern gilt in aller Regel die Einmalvergütung für kleine Anlagen, kurz KLEIV.",
+            "Für Anlagen ohne Eigenverbrauch gibt es die höhere HEIV, für grosse Anlagen die GREIV und Auktionen. Die Sätze werden regelmässig angepasst. Die aktuellen Beträge und durchgerechnete Beispiele finden Sie in unserem Beitrag zur Einmalvergütung und auf unserer Kostenseite."
+          ],
+          "links": [
+            {
+              "label": "Einmalvergütung: KLEIV, GREIV und HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Kosten einer Solaranlage",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Förderung von Kanton und Gemeinde",
+          "paragraphs": [
+            "Zusätzlich zur Einmalvergütung fördern einzelne Kantone und viele Gemeinden Solaranlagen, Batteriespeicher, Ladeinfrastruktur oder den Ersatz der Heizung. Die Unterschiede sind gross: Manche Gemeinden zahlen einen namhaften Beitrag pro Kilowatt, andere gar nichts. Die Programme sind oft befristet und enden, wenn das Budget aufgebraucht ist.",
+            "Auf dieser Seite finden Sie die Kantone, für die wir die aktuellen Programme zusammengestellt haben. Für alle anderen Adressen zeigt energiefranken.ch nach Eingabe der Postleitzahl, was gilt."
+          ],
+          "links": [
+            {
+              "label": "Überblick: welche Förderung zählt",
+              "href": "/blog/foerderdschungel-solar-schweiz-2026-welche-foerderung-zaehlt"
+            },
+            {
+              "label": "Photovoltaik-Förderung in Zürich",
+              "href": "/blog/photovoltaik-foerderung-zuerich-2026"
+            }
+          ]
+        },
+        {
+          "title": "Steuerabzug",
+          "paragraphs": [
+            "Die Investition in eine Solaranlage auf einem bestehenden Gebäude lässt sich in fast allen Kantonen als Liegenschaftsunterhalt vom steuerbaren Einkommen abziehen. Bei Neubauten gilt der Abzug in der Regel nicht.",
+            "Die Kantone behandeln die Einmalvergütung unterschiedlich. In den meisten gilt sie als steuerbares Einkommen, und die ganze Investition ist abziehbar. In einigen wird sie stattdessen von den abziehbaren Kosten abgezogen. Unter dem Strich ist der Effekt ähnlich, und er hängt von Ihrem Grenzsteuersatz ab."
+          ],
+          "links": [
+            {
+              "label": "Solaranlage von den Steuern abziehen",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Vergütung für eingespeisten Strom",
+          "paragraphs": [
+            "Keine Förderung im engeren Sinn, aber Teil der Rechnung: Für Strom, den Sie ins Netz einspeisen, zahlt Ihr Netzbetreiber eine Rückliefervergütung. Seit 2026 gilt für Anlagen bis 30 kW eine Minimalvergütung von 6 Rappen pro Kilowattstunde. Je nach Netzbetreiber kommt ein Betrag für den Herkunftsnachweis dazu."
+          ],
+          "links": [
+            {
+              "label": "Rückliefertarife 2026",
+              "href": "/blog/rueckliefertarif-2026-schock-schweiz"
+            },
+            {
+              "label": "Amortisation",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "Die richtige Reihenfolge",
+          "paragraphs": [
+            "Bei der Einmalvergütung des Bundes wird das Gesuch nach der Inbetriebnahme eingereicht. Bei kantonalen und kommunalen Programmen ist es meist umgekehrt: Das Gesuch muss eingereicht oder sogar bewilligt sein, bevor die Arbeiten beginnen. Wer zuerst baut und dann fragt, geht dort leer aus."
+          ],
+          "bullets": [
+            "Vor der Offerte: Programme von Kanton und Gemeinde an Ihrer Adresse abklären.",
+            "Vor dem Baubeginn: kantonale und kommunale Gesuche einreichen und die Zusage abwarten, wo sie verlangt wird.",
+            "Nach der Inbetriebnahme: Einmalvergütung bei Pronovo beantragen.",
+            "In der Steuererklärung: die Investition als Liegenschaftsunterhalt geltend machen."
+          ],
+          "links": [
+            {
+              "label": "Beratung anfragen",
+              "href": "/contact"
+            },
+            {
+              "label": "Solarrechner starten",
+              "href": "/solar-calculator"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zur Förderung",
+        "description": "Was Hausbesitzer zur Förderung am häufigsten wissen wollen.",
+        "items": [
+          {
+            "question": "Welche Förderung gibt es für Solaranlagen in der Schweiz?",
+            "answer": "Die Einmalvergütung des Bundes, die über Pronovo ausbezahlt wird, je nach Standort Beiträge von Kanton und Gemeinde sowie den Steuerabzug als Liegenschaftsunterhalt."
+          },
+          {
+            "question": "Wie hoch ist die Einmalvergütung?",
+            "answer": "Sie richtet sich nach der Leistung der Anlage und wird regelmässig angepasst. Die aktuellen Sätze und Beispiele für typische Anlagengrössen finden Sie auf unserer Kostenseite."
+          },
+          {
+            "question": "Wann muss ich das Fördergesuch einreichen?",
+            "answer": "Die Einmalvergütung des Bundes beantragen Sie nach der Inbetriebnahme. Kantonale und kommunale Gesuche müssen in der Regel vor dem Baubeginn eingereicht sein, manche Programme verlangen zuerst die Zusage."
+          },
+          {
+            "question": "Wird auch ein Batteriespeicher gefördert?",
+            "answer": "Vom Bund nicht. Einzelne Kantone und Gemeinden fördern Speicher zusammen mit einer Solaranlage."
+          },
+          {
+            "question": "Muss ich die Förderung versteuern?",
+            "answer": "In den meisten Kantonen ja, dort gilt die Einmalvergütung als Einkommen. Einige Kantone ziehen sie stattdessen von den abziehbaren Kosten ab. In beiden Fällen können Sie die Investition bei bestehenden Gebäuden in fast allen Kantonen als Liegenschaftsunterhalt geltend machen."
+          },
+          {
+            "question": "Wer kümmert sich um die Gesuche?",
+            "answer": "Wir klären ab, was an Ihrer Adresse gilt, und bereiten die Gesuche für Bund, Kanton und Gemeinde vor. Sie unterschreiben, und die Beiträge fliessen direkt an Sie."
+          }
+        ]
+      }
     }
   },
   "solarAboPlanHome": {

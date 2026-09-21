@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { getTranslations } from 'next-intl/server'
+import GuideContentSection from '@/components/guide/GuideContentSection'
 import { FOERDERUNG_CANTONS, type CantonCode } from '@/data/foerderung-cantons'
 import { siteConfig } from '@/lib/seo/site-config'
 
@@ -56,6 +57,7 @@ export default async function FoerderungHubPage() {
   )
 
   return (
+    <>
     <article className="max-w-[1200px] mx-auto px-6 py-16 md:py-24 text-[#062E25]">
       <header className="mb-12">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
@@ -106,5 +108,7 @@ export default async function FoerderungHubPage() {
         })}
       </ul>
     </article>
+    <GuideContentSection namespace="foerderung" />
+    </>
   )
 }

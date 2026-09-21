@@ -61,11 +61,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const t = await getTranslations({ locale, namespace: 'seo' })
   const { pkg } = await loadPackage(locale, code)
   if (!pkg) return generateSEOMetadata({ locale: locale as SiteLocale, pathname: '/products', title: t('products.title') || '', description: t('products.description') || '' })
-  const description = pkg.description
-    ? pkg.description.length > 155
-      ? `${pkg.description.slice(0, 152).trimEnd()}...`
-      : pkg.description
+  // The stored package description is one short line. Name and a closing
+  // sentence bring it to the length a search snippet can show.
+  const full = pkg.description
+    ? `${pkg.name}: ${pkg.description} ${t('packages.descriptionSuffix')}`
     : t('packages.description')
+  const description =
+    full.length > 160 ? `${full.slice(0, 157).trimEnd()}...` : full
   return generateSEOMetadata({
     locale: locale as SiteLocale,
     pathname: `/packages/${packageNameToSlug(pkg.name)}`,

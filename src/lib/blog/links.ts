@@ -1,6 +1,7 @@
 import { getPathname } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
+import { REPLACED_POSTS } from './replaced-posts'
 
 type PathnameKey = keyof typeof routing.pathnames
 
@@ -15,7 +16,10 @@ for (const [key, value] of Object.entries(routing.pathnames)) {
 
 export function localizedHref(path: string, locale: SiteLocale): string | null {
   const prefix = locale === siteConfig.defaultLocale ? '' : `/${locale}`
-  if (path.startsWith('/blog/')) return `${prefix}${path}`
+  if (path.startsWith('/blog/')) {
+    const slug = path.slice('/blog/'.length)
+    return `${prefix}/blog/${REPLACED_POSTS[slug] ?? slug}`
+  }
   const key =
     path in routing.pathnames
       ? (path as PathnameKey)

@@ -316,7 +316,8 @@
     },
     "packages": {
       "title": "{name}: tutti i componenti in 3D",
-      "description": "Ogni dispositivo di questo pacchetto solare come modello 3D ruotabile con i dati tecnici del produttore."
+      "description": "Ogni dispositivo di questo pacchetto solare come modello 3D ruotabile con i dati tecnici del produttore.",
+      "descriptionSuffix": "Tutti i componenti in 3D con i dati tecnici."
     }
   },
   "apiErrors": {
@@ -2580,6 +2581,177 @@
         "certifiedQuality": "Qualità certificata e garanzie del produttore",
         "expertSelected": "Selezionati dagli esperti SolarFree"
       }
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Impianto solare in Svizzera: pianificazione, costi, incentivi e resa",
+      "intro": "Un impianto fotovoltaico sul proprio tetto produce elettricità per un periodo da 25 a 30 anni. Qui trovi ciò che conta prima della decisione: quanto deve essere grande l'impianto, quanto costa, quali incentivi esistono e come puoi pagarlo.",
+      "sections": [
+        {
+          "title": "Il mio tetto è adatto?",
+          "paragraphs": [
+            "Quasi ogni tetto senza forte ombreggiamento è adatto. Una superficie orientata a sud produce di più, ma i tetti est-ovest distribuiscono meglio l'elettricità sull'arco della giornata e spesso si adattano quindi meglio al proprio consumo. Per ogni chilowatt di picco di potenza servono circa 5 m² di superficie del tetto.",
+            "Un impianto da 8 kWp produce in Svizzera in genere da 7'000 a 9'000 kWh all'anno. Il nostro calcolatore solare mostra quanto può rendere il tuo tetto, con i dati di Sonnendach, il catasto solare della Confederazione."
+          ],
+          "links": [
+            {
+              "label": "Avvia il calcolatore solare",
+              "href": "/solar-calculator"
+            },
+            {
+              "label": "Est-ovest o sud: che cosa rende di più",
+              "href": "/blog/pv-anlage-ost-west-vs-sued-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Quanto deve essere grande l'impianto?",
+          "paragraphs": [
+            "In passato l'impianto veniva dimensionato sul consumo del momento. Questo approccio è superato, perché con pompa di calore e auto elettrica il fabbisogno di elettricità aumenta, e i costi fissi per ponteggio, progettazione e allacciamento si presentano con qualsiasi taglia. Nella maggior parte dei casi conviene sfruttare bene il tetto.",
+            "Dimensioniamo l'impianto in base al tuo consumo, ai consumatori previsti e alla tariffa di immissione del tuo gestore di rete."
+          ],
+          "links": [
+            {
+              "label": "Calcolare la taglia dell'impianto",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            }
+          ]
+        },
+        {
+          "title": "Quanto costa un impianto solare?",
+          "paragraphs": [
+            "Il prezzo per chilowatt di picco diminuisce con la taglia dell'impianto. Tetto, ponteggio, installazione elettrica e scelta dell'inverter lo influenzano, così come l'eventuale aggiunta di un accumulo. Nella nostra pagina dei costi trovi i prezzi attuali per kWp ed esempi calcolati per 6, 10 e 15 kWp.",
+            "Il momento in cui l'impianto ha ripagato i propri costi dipende soprattutto dalla quota di elettricità che consumi direttamente. Ogni chilowattora usato in proprio sostituisce elettricità alla tariffa di rete, ogni chilowattora immesso rende solo la rimunerazione per l'immissione in rete."
+          ],
+          "links": [
+            {
+              "label": "Costi di un impianto solare",
+              "href": "/cost"
+            },
+            {
+              "label": "Ammortamento",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "Incentivi, rimunerazione e imposte",
+          "paragraphs": [
+            "La Confederazione sostiene gli impianti solari con la rimunerazione unica, versata tramite Pronovo. A seconda del luogo si aggiungono contributi del cantone e del comune. Per gli edifici esistenti l'investimento si può dedurre dalle imposte in quasi tutti i cantoni come spese di manutenzione dell'immobile.",
+            "Per l'elettricità che immetti in rete il gestore di rete paga una rimunerazione per l'immissione in rete. Dal 2026 per gli impianti fino a 30 kW vale una rimunerazione minima di 6 centesimi per chilowattora. Poiché l'elettricità di rete costa diverse volte tanto, l'autoconsumo è la leva più importante per la redditività."
+          ],
+          "links": [
+            {
+              "label": "Incentivi per cantone",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Rimunerazione unica: KLEIV, GREIV e HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Dedurre l'impianto solare dalle imposte",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Acquistare, pagare in abbonamento o senza investimento proprio",
+          "paragraphs": [
+            "Da Free State scegli tra tre modelli. Con SolarDirect acquisti l'impianto e sei proprietario fin dall'inizio. Con SolarAbo paghi in rate mensili fisse, e monitoraggio, garanzia e assicurazione sono inclusi. Con SolarFree ricevi il tuo impianto solare senza investimento proprio e puoi acquistarlo in seguito."
+          ],
+          "links": [
+            {
+              "label": "SolarDirect",
+              "href": "/solar-direct"
+            },
+            {
+              "label": "SolarAbo",
+              "href": "/solar-abo"
+            },
+            {
+              "label": "SolarFree",
+              "href": "/solar-free"
+            },
+            {
+              "label": "Noleggiare o acquistare: il confronto",
+              "href": "/blog/solar-mieten-oder-kaufen-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Autorizzazione e svolgimento",
+          "paragraphs": [
+            "In Svizzera gli impianti solari sufficientemente adattati sui tetti nelle zone edificabili e nelle zone agricole non necessitano di una licenza edilizia. Basta una notifica al comune. Le eccezioni riguardano i monumenti culturali e naturali e alcune zone del nucleo.",
+            "Ci occupiamo della notifica, della domanda di allacciamento presso il gestore di rete e della domanda di incentivo. Dopo il montaggio un organo di controllo indipendente collauda l'impianto, che viene poi allacciato alla rete."
+          ],
+          "links": [
+            {
+              "label": "Come funziona",
+              "href": "/how-it-works"
+            },
+            {
+              "label": "Confrontare le offerte: la lista di controllo",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Accumulo, pompa di calore e stazione di ricarica",
+          "paragraphs": [
+            "Un impianto solare diventa più redditizio quanto più elettricità rimane in casa. Un accumulo a batteria sposta l'elettricità di mezzogiorno alla sera, una pompa di calore la trasforma in calore e una stazione di ricarica la porta nell'auto elettrica. Chi considera questi passi fin dall'inizio si risparmia modifiche successive all'installazione elettrica."
+          ],
+          "links": [
+            {
+              "label": "Accumulo di energia",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Pompe di calore",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Stazioni di ricarica",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti sull'impianto solare",
+        "description": "Risposte brevi alle domande più frequenti prima dell'acquisto.",
+        "items": [
+          {
+            "question": "Conviene un impianto solare in Svizzera?",
+            "answer": "Nella maggior parte dei casi sì. Decisiva è la quota di elettricità prodotta che consumi direttamente, perché l'elettricità di rete costa diverse volte la rimunerazione per l'immissione in rete. Con pompa di calore, auto elettrica o accumulo aumenta l'autoconsumo e con esso la redditività."
+          },
+          {
+            "question": "Quanta elettricità produce un impianto solare?",
+            "answer": "Un impianto da 8 kWp produce in Svizzera in genere da 7'000 a 9'000 kWh all'anno. La resa dipende da orientamento, inclinazione, ombreggiamento e ubicazione."
+          },
+          {
+            "question": "Mi serve una licenza edilizia?",
+            "answer": "Di regola no. Per gli impianti sufficientemente adattati sui tetti nelle zone edificabili e nelle zone agricole basta una notifica al comune. Per gli edifici protetti e in alcune zone del nucleo è necessaria una domanda di costruzione."
+          },
+          {
+            "question": "Quali incentivi esistono?",
+            "answer": "La Confederazione versa tramite Pronovo una rimunerazione unica. A seconda del luogo si aggiungono contributi del cantone e del comune e la deduzione fiscale. Chiariamo che cosa vale al tuo indirizzo e prepariamo le domande."
+          },
+          {
+            "question": "Che cosa succede all'elettricità che non consumo direttamente?",
+            "answer": "Va in rete, e il tuo gestore di rete la rimunera. Dal 2026 per gli impianti fino a 30 kW vale una rimunerazione minima di 6 centesimi per chilowattora."
+          },
+          {
+            "question": "Posso avere un impianto solare anche senza capitale proprio?",
+            "answer": "Sì. Con SolarFree ricevi l'impianto senza investimento proprio, con SolarAbo lo paghi in rate mensili fisse. Entrambi i modelli consentono un acquisto successivo."
+          },
+          {
+            "question": "Quanto dura un impianto solare?",
+            "answer": "I moduli solari producono elettricità per un periodo da 25 a 30 anni, e nel frattempo la potenza diminuisce lentamente. In questo arco di tempo l'inverter viene di regola sostituito una volta."
+          }
+        ]
+      }
     }
   },
   "batteryStorage": {
@@ -2795,6 +2967,155 @@
       "title": "Trova la configurazione giusta di pompa di calore per il tuo sito",
       "subtitle": "Trova la configurazione giusta di pompa di calore per il tuo sito",
       "button": "Avvia il calcolatore solare"
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Pompa di calore in Svizzera: tipi, costi e incentivi",
+      "intro": "Una pompa di calore ricava la maggior parte dell'energia per il riscaldamento dall'ambiente e per farlo consuma solo una piccola quota di elettricità. Qui trovi le risposte alle domande poste più spesso prima della decisione.",
+      "sections": [
+        {
+          "title": "Quale pompa di calore è adatta alla tua casa?",
+          "paragraphs": [
+            "Le pompe di calore si distinguono in base alla fonte da cui ricavano il calore. La scelta dipende dal terreno, dall'edificio e dalle prescrizioni in vigore sul posto."
+          ],
+          "bullets": [
+            "Pompa di calore aria-acqua: sfrutta l'aria esterna, non richiede perforazioni ed è la più rapida da installare. È la soluzione più diffusa nella casa unifamiliare e può essere collocata all'interno o all'esterno.",
+            "Pompa di calore salamoia-acqua con sonda geotermica: sfrutta la temperatura costante del terreno e lavora quindi con grande efficienza anche in inverno. La perforazione costa di più e richiede un'autorizzazione.",
+            "Pompa di calore acqua-acqua: sfrutta l'acqua di falda e raggiunge l'efficienza più alta. Richiede condizioni idriche adatte e viene autorizzata solo in pochi luoghi."
+          ],
+          "links": [
+            {
+              "label": "Come funziona una pompa di calore",
+              "href": "/heat-pumps/how-it-works"
+            },
+            {
+              "label": "Panoramica delle nostre pompe di calore",
+              "href": "/heat-pumps/products"
+            }
+          ]
+        },
+        {
+          "title": "Quanto costa una pompa di calore?",
+          "paragraphs": [
+            "Per una casa unifamiliare con 150 m² di superficie di riferimento energetico e un fabbisogno termico di 22'000 kWh calcoliamo circa CHF 36'500 per una pompa di calore aria-acqua e circa CHF 49'500 per una pompa di calore salamoia-acqua con sonda geotermica. Un nuovo riscaldamento a olio costa circa CHF 23'000 all'acquisto.",
+            "Decisivi sono i costi correnti. Nella stessa casa la pompa di calore aria-acqua consuma energia per circa CHF 1'210 all'anno, la pompa di calore con sonda geotermica per circa CHF 940. Il riscaldamento a olio arriva a circa CHF 2'640 e, con circa CHF 780 all'anno, comporta anche i costi di manutenzione più alti. Sull'arco della sua durata di vita la pompa di calore compensa così il prezzo d'acquisto più elevato."
+          ],
+          "links": [
+            {
+              "label": "Confronto dei costi dei sistemi di riscaldamento",
+              "href": "/heat-pumps/cost"
+            }
+          ]
+        },
+        {
+          "title": "Sostituire il riscaldamento a olio o a gas",
+          "paragraphs": [
+            "In molti cantoni un riscaldamento fossile non può più essere sostituito senza condizioni con uno dello stesso tipo. Chi cambia il vecchio riscaldamento a olio deve di solito passare alle energie rinnovabili oppure ridurre il fabbisogno energetico dell'edificio. Diversi cantoni richiedono inoltre, prima della sostituzione, una consulenza energetica o un rapporto GEAK (CECE).",
+            "Pianifica la sostituzione prima che il vecchio riscaldamento si guasti. Così rimane tempo per la consulenza, le domande di incentivo e l'autorizzazione, e non dovrai accettare una soluzione d'emergenza in pieno inverno."
+          ],
+          "links": [
+            {
+              "label": "Sostituzione del riscaldamento: Premio clima, pompa di calore e solare",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "Incentivi e imposte",
+          "paragraphs": [
+            "Cantoni e comuni sostengono il passaggio a una pompa di calore tramite il Programma Edifici, a seconda del luogo con diverse migliaia di franchi. Di regola il contributo più alto è previsto per la sostituzione di un riscaldamento a olio, a gas o elettrico. Quali programmi valgono al tuo indirizzo lo mostra energiefranken.ch dopo l'inserimento del numero postale di avviamento.",
+            "Conta l'ordine dei passi: la domanda di incentivo deve essere presentata prima dell'inizio dei lavori, e alcuni cantoni esigono che prima arrivi la decisione positiva. La sostituzione del riscaldamento rientra inoltre nelle spese di manutenzione dell'immobile e si può dedurre dalle imposte."
+          ],
+          "links": [
+            {
+              "label": "Incentivi per cantone",
+              "href": "/foerderung"
+            }
+          ]
+        },
+        {
+          "title": "Combinare pompa di calore e impianto solare",
+          "paragraphs": [
+            "Una pompa di calore sposta il fabbisogno energetico dalla cisterna dell'olio al contatore elettrico. In una casa unifamiliare media consuma da 3'000 a 4'500 kWh circa di elettricità all'anno. Un impianto solare sul proprio tetto ne fornisce gran parte a un costo nettamente inferiore a quello della rete.",
+            "Con una pompa di calore la quota di elettricità solare che consumi direttamente sale in genere da circa il 30 per cento a una quota dal 55 al 70 per cento. L'abbinamento funziona al meglio in primavera e in autunno. In pieno inverno il tetto produce poco, e allora è il bilancio annuo a compensare ciò che il singolo giorno non riesce a coprire."
+          ],
+          "links": [
+            {
+              "label": "Pompa di calore con impianto solare",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solare e pompa di calore: il calcolo nel dettaglio",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Rumore e autorizzazione",
+          "paragraphs": [
+            "Una pompa di calore aria-acqua collocata all'esterno deve rispettare le prescrizioni dell'ordinanza contro l'inquinamento fonico (OIF). Nella domanda di costruzione viene perciò richiesto un attestato di protezione fonica, che dimostra che i valori di pianificazione presso il vicino sono rispettati anche di notte. La posizione dell'unità esterna e la distanza dal confine del fondo contano spesso più dell'apparecchio stesso.",
+            "Per le sonde geotermiche occorre un'autorizzazione cantonale. Nelle zone di protezione delle acque sotterranee le perforazioni sono limitate o vietate. Le carte cantonali della geotermia mostrano che cosa è possibile al tuo indirizzo. Chiariamo entrambi gli aspetti prima di consigliarti un sistema."
+          ]
+        },
+        {
+          "title": "Come si svolge il tuo progetto",
+          "paragraphs": [
+            "Dalla prima verifica al salotto caldo i passi sono cinque."
+          ],
+          "bullets": [
+            "Consulenza sul posto: rileviamo il fabbisogno termico, la distribuzione del calore esistente e gli spazi disponibili.",
+            "Scelta del sistema e offerta: aria-acqua o sonda geotermica, con o senza impianto solare.",
+            "Domanda di incentivo e autorizzazione: noi prepariamo i documenti, tu firmi.",
+            "Installazione: smantellamento del vecchio riscaldamento, montaggio e allacciamento della pompa di calore.",
+            "Messa in servizio e assistenza: regolazione dell'impianto, istruzione e manutenzione."
+          ],
+          "links": [
+            {
+              "label": "Manutenzione e assistenza",
+              "href": "/heat-pumps/service"
+            },
+            {
+              "label": "Richiedi una consulenza",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti sulla pompa di calore",
+        "description": "Risposte brevi a ciò che i proprietari di casa vogliono sapere più spesso.",
+        "items": [
+          {
+            "question": "Quanto costa una pompa di calore in Svizzera?",
+            "answer": "Per una casa unifamiliare di 150 m² calcoliamo circa CHF 36'500 per una pompa di calore aria-acqua e circa CHF 49'500 per una pompa di calore salamoia-acqua con sonda geotermica, in entrambi i casi installazione compresa. I contributi e la deduzione fiscale riducono l'importo che alla fine resta a tuo carico."
+          },
+          {
+            "question": "Pompa di calore aria-acqua o sonda geotermica: qual è la scelta migliore?",
+            "answer": "La pompa di calore aria-acqua costa meno ed è più rapida da installare. La pompa di calore con sonda geotermica costa di più, ma lavora in modo più efficiente e ha costi d'esercizio più bassi, nel nostro esempio di calcolo circa CHF 940 di energia all'anno invece di CHF 1'210. La carta della geotermia del tuo cantone mostra se al tuo indirizzo una perforazione è consentita."
+          },
+          {
+            "question": "Una pompa di calore funziona anche in un edificio vecchio con radiatori?",
+            "answer": "Nella maggior parte dei casi sì. Decisiva è la temperatura di mandata di cui la tua casa ha bisogno nei giorni freddi. Più è bassa, più la pompa di calore lavora in modo efficiente. Spesso basta ingrandire singoli radiatori o migliorare l'involucro dell'edificio in pochi punti."
+          },
+          {
+            "question": "Quanto è rumorosa una pompa di calore aria-acqua?",
+            "answer": "Gli apparecchi moderni sono nettamente più silenziosi delle generazioni precedenti. Determinante è il rumore che arriva al vicino. Per questo ogni impianto collocato all'esterno richiede un attestato di protezione fonica, e per questo pianifichiamo con cura la posizione dell'unità esterna."
+          },
+          {
+            "question": "Mi serve un'autorizzazione?",
+            "answer": "Per una pompa di calore aria-acqua collocata all'esterno la maggior parte dei comuni richiede una domanda di costruzione o una notifica con attestato di protezione fonica. Le sonde geotermiche richiedono sempre un'autorizzazione cantonale. Ci occupiamo noi delle verifiche e prepariamo i documenti."
+          },
+          {
+            "question": "Conviene un impianto solare abbinato alla pompa di calore?",
+            "answer": "Quasi sempre. La pompa di calore aggiunge al tuo consumo di elettricità da 3'000 a 4'500 kWh circa all'anno, e l'elettricità solare del proprio tetto costa nettamente meno di quella della rete. Con una pompa di calore l'autoconsumo sale in genere da circa il 30 per cento a una quota dal 55 al 70 per cento."
+          },
+          {
+            "question": "Quanto dura una pompa di calore?",
+            "answer": "Con una manutenzione regolare calcoliamo circa 20 anni. La sonda geotermica in sé dura molto più a lungo e può essere riutilizzata dalla pompa di calore successiva."
+          }
+        ]
+      }
     }
   },
   "heatPumpsHowItWorks": {
@@ -3658,6 +3979,137 @@
           "href": "/charging-stations/bidirectional-charging-station"
         }
       ]
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Stazione di ricarica per l'auto elettrica: wallbox, costi e ricarica con elettricità solare",
+      "intro": "Chi ricarica a casa viaggia al minor costo, e con un impianto solare l'elettricità del proprio tetto diventa carburante. Qui trovi quale stazione di ricarica è adatta a quale edificio, quanto costa e a che cosa prestare attenzione nell'installazione.",
+      "sections": [
+        {
+          "title": "Di quale stazione di ricarica ho bisogno?",
+          "paragraphs": [
+            "Per la casa unifamiliare basta di regola una wallbox da 11 kW in corrente alternata. Ricarica completamente un'auto elettrica durante la notte e funziona senza potenziare l'allacciamento della casa.",
+            "Nel condominio si parte dall'infrastruttura comune: linea di alimentazione, gestione del carico e fatturazione. I singoli punti di ricarica si aggiungono negli anni, insieme alle auto elettriche degli abitanti."
+          ],
+          "links": [
+            {
+              "label": "Stazione di ricarica nella casa unifamiliare",
+              "href": "/charging-stations/single-family-home"
+            },
+            {
+              "label": "Stazione di ricarica nel condominio",
+              "href": "/charging-stations/apartment-building"
+            }
+          ]
+        },
+        {
+          "title": "Quanto costa una wallbox?",
+          "paragraphs": [
+            "In Svizzera una wallbox costa, installazione compresa, in genere da CHF 1'500 a 5'000. La differenza maggiore la fa il percorso dal quadro elettrico al posteggio: più lunga è la linea e più complessa è la posa, più alto è il prezzo.",
+            "Una stazione di ricarica bidirezionale in corrente continua costa nettamente di più, facilmente il doppio. In compenso può restituire alla casa l'elettricità della batteria del veicolo."
+          ],
+          "links": [
+            {
+              "label": "Incentivi per la wallbox in Svizzera",
+              "href": "/blog/wallbox-foerderung-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Ricaricare con elettricità solare",
+          "paragraphs": [
+            "Una wallbox con ricarica da eccedenza solare aumenta la potenza di ricarica quando il tetto produce più di quanto la casa consuma in quel momento. Ogni chilowattora che finisce così nell'auto anziché in rete fa risparmiare la differenza tra la tariffa di prelievo e la tariffa di immissione. A seconda della regione sono da 15 a 25 centesimi.",
+            "Funziona al meglio quando di giorno l'auto è a casa. Chi fa il pendolare ricarica con elettricità solare nel fine settimana e di notte durante la settimana. Una gestione del carico fa sì che wallbox, pompa di calore ed economia domestica non sovraccarichino mai l'allacciamento della casa."
+          ],
+          "links": [
+            {
+              "label": "Impianti solari",
+              "href": "/solar-systems"
+            },
+            {
+              "label": "Accumulo di energia",
+              "href": "/energy-storage"
+            }
+          ]
+        },
+        {
+          "title": "Ricarica bidirezionale: l'auto come accumulo",
+          "paragraphs": [
+            "Nella ricarica bidirezionale l'elettricità scorre in entrambe le direzioni. La batteria dell'auto elettrica è diverse volte più grande di un accumulo domestico e la sera può alimentare la casa con l'elettricità solare del mezzogiorno. Servono un veicolo e una stazione di ricarica che supportino questa funzione.",
+            "La tecnologia è disponibile, la scelta di veicoli cresce. Se oggi il sovrapprezzo conviene per te dipende da quanto spesso l'auto si trova a casa di giorno."
+          ],
+          "links": [
+            {
+              "label": "Stazione di ricarica bidirezionale",
+              "href": "/charging-stations/bidirectional-charging-station"
+            },
+            {
+              "label": "Ricarica bidirezionale in Svizzera",
+              "href": "/blog/v2h-bidirektionales-laden-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Stazioni di ricarica nel condominio",
+          "paragraphs": [
+            "Nel condominio conviene un'infrastruttura di base che prepara tutti i posteggi. Chi più tardi acquista un'auto elettrica deve solo far montare la wallbox. Una gestione del carico distribuisce la potenza disponibile tra tutti i veicoli, e la fatturazione avviene per punto di ricarica.",
+            "Con un impianto solare e un raggruppamento ai fini del consumo proprio (RCP) l'elettricità del tetto arriva anche nell'autorimessa sotterranea. Diversi cantoni sostengono l'infrastruttura di base con un contributo per posteggio."
+          ],
+          "links": [
+            {
+              "label": "Stazione di ricarica nel condominio: pianificazione e costi",
+              "href": "/blog/ladestation-mehrfamilienhaus-schweiz-planung-kosten"
+            },
+            {
+              "label": "ZEV, vZEV e LEG nel condominio",
+              "href": "/blog/zev-vzev-leg-mehrfamilienhaus-2026"
+            }
+          ]
+        },
+        {
+          "title": "Installazione e notifica",
+          "paragraphs": [
+            "Una stazione di ricarica deve essere allacciata da un installatore elettricista autorizzato e va notificata al gestore di rete, e a seconda della potenza è necessaria anche una domanda. Verifichiamo l'allacciamento della casa, ci occupiamo della notifica e mettiamo in servizio la stazione."
+          ],
+          "links": [
+            {
+              "label": "Richiedi una consulenza",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti sulla stazione di ricarica",
+        "description": "L'essenziale sulla wallbox a casa.",
+        "items": [
+          {
+            "question": "Quanto costa una wallbox con l'installazione?",
+            "answer": "In Svizzera in genere da CHF 1'500 a 5'000. Il prezzo dipende soprattutto dalla distanza tra il posteggio e il quadro elettrico e dal fatto che l'allacciamento della casa sia sufficiente."
+          },
+          {
+            "question": "Bastano 11 kW o mi servono 22 kW?",
+            "answer": "Per l'uso quotidiano a casa bastano 11 kW. Così un'auto elettrica è carica nel giro di una notte. Per 22 kW il gestore di rete richiede di regola un'autorizzazione, e molti veicoli non riescono comunque a ricaricare così velocemente in corrente alternata."
+          },
+          {
+            "question": "Posso ricaricare la mia auto elettrica con elettricità solare?",
+            "answer": "Sì. Una wallbox con ricarica da eccedenza solare adegua la potenza di ricarica alla produzione dell'impianto solare. Per ogni chilowattora risparmi, a seconda della regione, da 15 a 25 centesimi rispetto all'immissione in rete."
+          },
+          {
+            "question": "Esistono incentivi per le stazioni di ricarica?",
+            "answer": "A livello federale no. Singoli cantoni e comuni sostengono soprattutto l'infrastruttura di base nei condomini. I programmi sono limitati nel tempo e terminano quando il budget è esaurito."
+          },
+          {
+            "question": "Come inquilino o proprietario per piani posso installare una stazione di ricarica?",
+            "answer": "Ti serve il consenso del locatore o della comunione dei comproprietari. La soluzione più semplice è un edificio con un'infrastruttura di base comune, a cui si può allacciare ogni posteggio."
+          },
+          {
+            "question": "Che cos'è la ricarica bidirezionale?",
+            "answer": "L'auto elettrica restituisce alla casa l'elettricità della propria batteria. Così l'elettricità solare del mezzogiorno si può usare la sera. Veicolo e stazione di ricarica devono entrambi supportare la funzione."
+          }
+        ]
+      }
     }
   },
   "calculatorV2": {
@@ -4905,6 +5357,123 @@
           "features": "Modulare ed espandibile|Compatibile con gli inverter Huawei (monofase e trifase)|Integrazione smart con app|100% di profondità di scarica",
           "warranty": "Garanzia 10 anni (80% energia utilizzabile)"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Accumulo per l'impianto solare: taglia, costi e quando conviene",
+      "intro": "Un accumulo sposta l'elettricità solare dal mezzogiorno alla sera. Se il conto torna dipende meno dall'apparecchio che dal tuo consumo, dalla taglia dell'accumulo e dalle tariffe del tuo gestore di rete.",
+      "sections": [
+        {
+          "title": "Che cosa fa un accumulo a batteria",
+          "paragraphs": [
+            "Senza accumulo un'economia domestica consuma direttamente in genere dal 30 al 35 per cento della propria elettricità solare, il resto va in rete. Con un accumulo dimensionato in modo adeguato questa quota sale a circa il 70 per cento. L'elettricità del tetto copre allora anche la sera, la notte e le prime ore del mattino.",
+            "Ogni chilowattora prelevato dall'accumulo sostituisce elettricità della rete. Allo stesso tempo viene meno la rimunerazione che avresti ricevuto per l'immissione in rete. Il vantaggio dell'accumulo è la differenza tra i due valori."
+          ]
+        },
+        {
+          "title": "Qual è la taglia giusta?",
+          "paragraphs": [
+            "Un accumulo troppo grande in molti giorni non si carica del tutto e in inverno viene usato pochissimo. Uno troppo piccolo è scarico già in prima serata. Il punto di partenza è il consumo di elettricità tra il tramonto e l'alba, non la potenza dell'impianto solare.",
+            "Pompa di calore e auto elettrica cambiano il calcolo in modo sensibile, perché aumentano il consumo di sera e di notte. Per questo dimensioniamo l'accumulo in base al tuo profilo di carico e non secondo una regola empirica."
+          ],
+          "links": [
+            {
+              "label": "Calcolare la taglia dell'impianto",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            },
+            {
+              "label": "Avvia il calcolatore solare",
+              "href": "/solar-calculator"
+            }
+          ]
+        },
+        {
+          "title": "Quanto costa un accumulo?",
+          "paragraphs": [
+            "Il prezzo per chilowattora diminuisce con la taglia, perché inverter, cablaggio e messa in servizio sono necessari per qualsiasi accumulo. Un accumulo installato insieme all'impianto solare costa quindi meno di un'aggiunta successiva.",
+            "Di recente i prezzi sul mercato svizzero sono scesi in modo marcato. Nel nostro articolo calcoliamo passo per passo come si compongono e quanto costa un chilowattora prelevato dalla batteria sull'arco della sua durata di vita."
+          ],
+          "links": [
+            {
+              "label": "Costi dell'accumulo: il calcolo nel dettaglio",
+              "href": "/blog/stromspeicher-kosten-schweiz-2026-lohnt-sich"
+            },
+            {
+              "label": "Costi di un impianto solare",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Quando conviene un accumulo",
+          "paragraphs": [
+            "Un accumulo conviene quando il chilowattora prelevato dalla batteria costa meno del vantaggio che porta. Con le tariffe attuali questo vantaggio va da circa 15 a 18 centesimi per chilowattora. È la differenza tra la tariffa dell'elettricità di rete e la rimunerazione per l'immissione in rete a cui si rinuncia, dedotte le perdite di carica e scarica."
+          ],
+          "bullets": [
+            "A favore: consumo elevato di sera e di notte, una pompa di calore o un'auto elettrica, una tariffa di immissione bassa, un contributo cantonale.",
+            "A sfavore: un'economia domestica piccola che di giorno è in casa, una tariffa di immissione alta, un accumulo scelto troppo grande per il tetto."
+          ],
+          "links": [
+            {
+              "label": "Tariffe elettriche dinamiche e accumulo",
+              "href": "/blog/dynamische-stromtarife-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Alimentazione di emergenza e alimentazione di riserva",
+          "paragraphs": [
+            "In caso di interruzione di corrente un accumulo a batteria non continua automaticamente a fornire elettricità. Serve un sistema con funzione di alimentazione di riserva, che separa la casa dalla rete in modo sicuro. Se per te è importante, dillo prima della progettazione, perché incide sulla scelta dell'accumulo e sull'installazione elettrica."
+          ]
+        },
+        {
+          "title": "Pianificare insieme accumulo, pompa di calore e auto elettrica",
+          "paragraphs": [
+            "Accumulare calore costa meno che accumulare elettricità. Un accumulatore di acqua calda o un accumulatore tampone assorbe l'eccedenza di mezzogiorno tramite la pompa di calore, e l'auto elettrica si ricarica quando splende il sole. Un sistema di gestione dell'energia distribuisce l'elettricità solare in quest'ordine, e l'accumulo a batteria si occupa di ciò che rimane."
+          ],
+          "links": [
+            {
+              "label": "Pompe di calore",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Stazioni di ricarica",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti sull'accumulo a batteria",
+        "description": "Ciò che i proprietari di casa vogliono sapere prima di acquistare un accumulo.",
+        "items": [
+          {
+            "question": "Un accumulo a batteria conviene per il mio impianto solare?",
+            "answer": "Dipende dal tuo consumo di sera e di notte, dalla tariffa di immissione del tuo gestore di rete e dal prezzo dell'accumulo. Con una pompa di calore o un'auto elettrica il conto torna molto più spesso che in una piccola economia domestica senza questi consumatori. Facciamo il calcolo per la tua casa e ti diciamo se non conviene."
+          },
+          {
+            "question": "Quanto dovrebbe essere grande l'accumulo?",
+            "answer": "Determinante è il tuo consumo di elettricità tra la sera e il mattino. Un accumulo che nella maggior parte dei giorni si carica completamente e durante la notte si scarica di nuovo lavora in modo economico. Più grande non significa migliore."
+          },
+          {
+            "question": "Posso aggiungere un accumulo in un secondo momento?",
+            "answer": "Sì. Costa meno installare l'accumulo insieme all'impianto solare, perché progettazione, cablaggio e messa in servizio avvengono una sola volta. Chi vuole aggiungerlo più tardi dovrebbe scegliere per l'impianto un inverter già predisposto."
+          },
+          {
+            "question": "Con un accumulo ho elettricità durante un'interruzione di corrente?",
+            "answer": "Solo con un sistema dotato di una funzione di alimentazione di riserva o di emergenza. Un accumulo normale si spegne per motivi di sicurezza quando la rete viene a mancare."
+          },
+          {
+            "question": "Quanto dura un accumulo a batteria?",
+            "answer": "I produttori degli accumuli che installiamo danno dieci anni di garanzia. La capacità utilizzabile diminuisce lentamente negli anni, come in ogni batteria."
+          },
+          {
+            "question": "Esistono incentivi per gli accumuli a batteria?",
+            "answer": "A livello federale no. Singoli cantoni e comuni sostengono gli accumuli installati insieme a un impianto solare. Prima dell'offerta chiariamo che cosa vale al tuo indirizzo."
+          }
+        ]
       }
     }
   },
@@ -9617,6 +10186,129 @@
       "steuer": "Aspetti fiscali",
       "sources": "Fonti",
       "faq": "Domande frequenti"
+    },
+    "guide": {
+      "eyebrow": "Guida",
+      "title": "Incentivi per impianti solari in Svizzera: Confederazione, cantone, comune e imposte",
+      "intro": "In Svizzera gli incentivi per un impianto solare provengono da più fonti. La Confederazione paga ovunque lo stesso importo, cantoni e comuni aggiungono contributi molto diversi, e a questo si somma la deduzione fiscale. Chi conosce l'ordine delle domande non perde nulla.",
+      "sections": [
+        {
+          "title": "La rimunerazione unica della Confederazione",
+          "paragraphs": [
+            "La Confederazione sostiene gli impianti fotovoltaici con un pagamento una tantum, la rimunerazione unica. Viene versata da Pronovo su incarico della Confederazione e dipende dalla potenza dell'impianto. Per gli impianti su case unifamiliari e condomini vale di regola la rimunerazione unica per piccoli impianti, in breve KLEIV.",
+            "Per gli impianti senza autoconsumo esiste la HEIV, più elevata, per i grandi impianti la GREIV e le aste. I tassi vengono adeguati regolarmente. Gli importi attuali ed esempi calcolati li trovi nel nostro articolo sulla rimunerazione unica e nella nostra pagina dei costi."
+          ],
+          "links": [
+            {
+              "label": "Rimunerazione unica: KLEIV, GREIV e HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Costi di un impianto solare",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Incentivi del cantone e del comune",
+          "paragraphs": [
+            "Oltre alla rimunerazione unica, singoli cantoni e molti comuni sostengono impianti solari, accumuli a batteria, infrastruttura di ricarica o la sostituzione del riscaldamento. Le differenze sono grandi: alcuni comuni pagano un contributo considerevole per chilowatt, altri nulla. I programmi sono spesso limitati nel tempo e terminano quando il budget è esaurito.",
+            "In questa pagina trovi i cantoni per i quali abbiamo raccolto i programmi attuali. Per tutti gli altri indirizzi energiefranken.ch mostra che cosa vale, dopo l'inserimento del numero postale di avviamento."
+          ],
+          "links": [
+            {
+              "label": "Panoramica: quali incentivi contano",
+              "href": "/blog/foerderdschungel-solar-schweiz-2026-welche-foerderung-zaehlt"
+            },
+            {
+              "label": "Incentivi per il fotovoltaico a Zurigo",
+              "href": "/blog/photovoltaik-foerderung-zuerich-2026"
+            }
+          ]
+        },
+        {
+          "title": "Deduzione fiscale",
+          "paragraphs": [
+            "L'investimento in un impianto solare su un edificio esistente si può dedurre dal reddito imponibile in quasi tutti i cantoni come spese di manutenzione dell'immobile. Per le nuove costruzioni la deduzione di regola non vale.",
+            "I cantoni trattano la rimunerazione unica in modo diverso. Nella maggior parte è considerata reddito imponibile, e l'intero investimento è deducibile. In alcuni viene invece sottratta dai costi deducibili. In definitiva l'effetto è simile, e dipende dalla tua aliquota marginale."
+          ],
+          "links": [
+            {
+              "label": "Dedurre l'impianto solare dalle imposte",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Rimunerazione per l'elettricità immessa in rete",
+          "paragraphs": [
+            "Non è un incentivo in senso stretto, ma fa parte del calcolo: per l'elettricità che immetti in rete il tuo gestore di rete paga una rimunerazione per l'immissione in rete. Dal 2026 per gli impianti fino a 30 kW vale una rimunerazione minima di 6 centesimi per chilowattora. A seconda del gestore di rete si aggiunge un importo per la garanzia di origine."
+          ],
+          "links": [
+            {
+              "label": "Tariffe di immissione 2026",
+              "href": "/blog/rueckliefertarif-2026-schock-schweiz"
+            },
+            {
+              "label": "Ammortamento",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "L'ordine giusto",
+          "paragraphs": [
+            "Per la rimunerazione unica della Confederazione la domanda si presenta dopo la messa in servizio. Per i programmi cantonali e comunali di solito è il contrario: la domanda deve essere presentata, o addirittura approvata, prima dell'inizio dei lavori. Chi prima costruisce e poi chiede, lì resta a mani vuote."
+          ],
+          "bullets": [
+            "Prima dell'offerta: chiarire i programmi del cantone e del comune al tuo indirizzo.",
+            "Prima dell'inizio dei lavori: presentare le domande cantonali e comunali e attendere la decisione positiva, dove è richiesta.",
+            "Dopo la messa in servizio: richiedere la rimunerazione unica a Pronovo.",
+            "Nella dichiarazione d'imposta: far valere l'investimento come spese di manutenzione dell'immobile."
+          ],
+          "links": [
+            {
+              "label": "Richiedi una consulenza",
+              "href": "/contact"
+            },
+            {
+              "label": "Avvia il calcolatore solare",
+              "href": "/solar-calculator"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti sugli incentivi",
+        "description": "Ciò che i proprietari di casa vogliono sapere più spesso sugli incentivi.",
+        "items": [
+          {
+            "question": "Quali incentivi esistono per gli impianti solari in Svizzera?",
+            "answer": "La rimunerazione unica della Confederazione, versata tramite Pronovo, a seconda del luogo i contributi del cantone e del comune, e la deduzione fiscale come spese di manutenzione dell'immobile."
+          },
+          {
+            "question": "A quanto ammonta la rimunerazione unica?",
+            "answer": "Dipende dalla potenza dell'impianto e viene adeguata regolarmente. I tassi attuali ed esempi per taglie di impianto tipiche li trovi nella nostra pagina dei costi."
+          },
+          {
+            "question": "Quando devo presentare la domanda di incentivo?",
+            "answer": "La rimunerazione unica della Confederazione la richiedi dopo la messa in servizio. Le domande cantonali e comunali devono di regola essere presentate prima dell'inizio dei lavori, e alcuni programmi esigono prima la decisione positiva."
+          },
+          {
+            "question": "Anche un accumulo a batteria riceve incentivi?",
+            "answer": "Dalla Confederazione no. Singoli cantoni e comuni sostengono gli accumuli installati insieme a un impianto solare."
+          },
+          {
+            "question": "Devo pagare le imposte sugli incentivi?",
+            "answer": "Nella maggior parte dei cantoni sì, lì la rimunerazione unica è considerata reddito. Alcuni cantoni la sottraggono invece dai costi deducibili. In entrambi i casi, per gli edifici esistenti puoi far valere l'investimento come spese di manutenzione dell'immobile in quasi tutti i cantoni."
+          },
+          {
+            "question": "Chi si occupa delle domande?",
+            "answer": "Chiariamo che cosa vale al tuo indirizzo e prepariamo le domande per Confederazione, cantone e comune. Tu firmi, e i contributi arrivano direttamente a te."
+          }
+        ]
+      }
     }
   },
   "solarAboPlanHome": {

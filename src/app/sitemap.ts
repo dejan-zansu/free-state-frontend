@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 import { siteConfig, type SiteLocale } from '@/lib/seo/site-config'
 import { buildCanonicalUrl, buildHreflangAlternates } from '@/lib/seo/metadata'
 import { blogService } from '@/services/blog.service'
+import { REPLACED_POSTS } from '@/lib/blog/replaced-posts'
 import { referenceService } from '@/services/reference.service'
 import { packageNameToSlug } from '@/lib/products/package-slug'
 import {
@@ -212,6 +213,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const blogPosts = await fetchAllBlogPosts()
   for (const post of blogPosts) {
+    if (post.slug in REPLACED_POSTS) continue
     const url = `${siteConfig.url}/blog/${post.slug}`
     const lastModified = post.updatedAt
       ? new Date(post.updatedAt)

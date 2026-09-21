@@ -316,7 +316,8 @@
     },
     "packages": {
       "title": "{name} : tous les composants en 3D",
-      "description": "Chaque appareil de ce forfait solaire en modèle 3D rotatif avec les données techniques du fabricant."
+      "description": "Chaque appareil de ce forfait solaire en modèle 3D rotatif avec les données techniques du fabricant.",
+      "descriptionSuffix": "Tous les composants en 3D avec les données techniques."
     }
   },
   "apiErrors": {
@@ -2580,6 +2581,177 @@
         "certifiedQuality": "Qualité certifiée & garanties constructeur",
         "expertSelected": "Sélectionné par les experts SolarFree"
       }
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Installation solaire en Suisse : planification, coûts, subventions et production",
+      "intro": "Une installation photovoltaïque sur votre propre toit produit du courant pendant 25 à 30 ans. Vous trouvez ici ce qui compte avant de décider : la taille de l'installation, son coût, les subventions existantes et les façons de la payer.",
+      "sections": [
+        {
+          "title": "Mon toit convient-il ?",
+          "paragraphs": [
+            "Presque tout toit sans fort ombrage convient. Une surface orientée au sud produit le plus, mais les toits est-ouest répartissent mieux le courant sur la journée et correspondent donc souvent mieux à votre propre consommation. Il faut environ 5 m² de toiture par kilowatt-crête (kWp) de puissance.",
+            "En Suisse, une installation de 8 kWp produit en général 7'000 à 9'000 kWh par an. Notre calculateur solaire montre ce que votre toit peut produire, avec les données de Sonnendach, le cadastre solaire de la Confédération."
+          ],
+          "links": [
+            {
+              "label": "Démarrer le calculateur solaire",
+              "href": "/solar-calculator"
+            },
+            {
+              "label": "Est-ouest ou sud : ce qui rapporte le plus",
+              "href": "/blog/pv-anlage-ost-west-vs-sued-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Quelle taille pour l'installation ?",
+          "paragraphs": [
+            "Autrefois, l'installation était dimensionnée selon la consommation du moment. Cette approche est dépassée, car la pompe à chaleur et la voiture électrique augmentent les besoins en électricité, et les frais fixes d'échafaudage, de planification et de raccordement sont dus quelle que soit la taille. Dans la plupart des cas, il vaut la peine de bien exploiter le toit.",
+            "Nous dimensionnons l'installation d'après votre consommation, les consommateurs prévus et le tarif de reprise de votre gestionnaire de réseau."
+          ],
+          "links": [
+            {
+              "label": "Calculer la taille de l'installation",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            }
+          ]
+        },
+        {
+          "title": "Combien coûte une installation solaire ?",
+          "paragraphs": [
+            "Le prix par kilowatt-crête baisse avec la taille de l'installation. Le toit, l'échafaudage, l'installation électrique et le choix de l'onduleur l'influencent, tout comme l'ajout éventuel d'une batterie. Vous trouvez sur notre page des coûts les prix actuels par kWp et des exemples chiffrés pour 6, 10 et 15 kWp.",
+            "Le moment où l'installation a remboursé ses coûts dépend surtout de la part du courant que vous consommez vous-même. Chaque kilowattheure autoconsommé remplace du courant au tarif du réseau, chaque kilowattheure injecté ne rapporte que la rétribution de reprise."
+          ],
+          "links": [
+            {
+              "label": "Coûts d'une installation solaire",
+              "href": "/cost"
+            },
+            {
+              "label": "Amortissement",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "Subventions, rétribution et impôts",
+          "paragraphs": [
+            "La Confédération soutient les installations solaires par la rétribution unique, versée par Pronovo. S'y ajoutent, selon le lieu, des contributions du canton et de la commune. Pour les bâtiments existants, l'investissement peut être déduit des impôts dans presque tous les cantons, au titre des frais d'entretien de l'immeuble.",
+            "Pour le courant que vous injectez dans le réseau, le gestionnaire de réseau verse une rétribution de reprise. Depuis 2026, une rétribution minimale de 6 centimes par kilowattheure s'applique aux installations jusqu'à 30 kW. Comme le courant du réseau coûte plusieurs fois plus cher, l'autoconsommation est le principal levier de la rentabilité."
+          ],
+          "links": [
+            {
+              "label": "Subventions par canton",
+              "href": "/foerderung"
+            },
+            {
+              "label": "Rétribution unique : KLEIV, GREIV et HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Déduire l'installation solaire des impôts",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Acheter, payer par abonnement ou sans investissement propre",
+          "paragraphs": [
+            "Chez Free State, vous choisissez entre trois modèles. Avec SolarDirect, vous achetez l'installation et en êtes propriétaire dès le début. Avec SolarAbo, vous payez en mensualités fixes, monitoring, garantie et assurance compris. Avec SolarFree, vous recevez votre installation solaire sans investissement propre et pouvez l'acquérir plus tard."
+          ],
+          "links": [
+            {
+              "label": "SolarDirect",
+              "href": "/solar-direct"
+            },
+            {
+              "label": "SolarAbo",
+              "href": "/solar-abo"
+            },
+            {
+              "label": "SolarFree",
+              "href": "/solar-free"
+            },
+            {
+              "label": "Louer ou acheter : la comparaison",
+              "href": "/blog/solar-mieten-oder-kaufen-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Autorisation et déroulement",
+          "paragraphs": [
+            "En Suisse, les installations solaires suffisamment adaptées aux toits, dans les zones à bâtir et les zones agricoles, ne nécessitent pas de permis de construire. Une annonce à la commune suffit. Des exceptions s'appliquent aux monuments culturels et naturels, ainsi que dans certaines zones centrales.",
+            "Nous nous chargeons de l'annonce, de la demande de raccordement auprès du gestionnaire de réseau et de la demande de subvention. Après le montage, un organe de contrôle indépendant réceptionne l'installation, puis elle est raccordée au réseau."
+          ],
+          "links": [
+            {
+              "label": "Comment ça marche",
+              "href": "/how-it-works"
+            },
+            {
+              "label": "Comparer les offres : la liste de contrôle",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Batterie, pompe à chaleur et borne de recharge",
+          "paragraphs": [
+            "Une installation solaire devient plus rentable à mesure que le courant reste dans la maison. Une batterie de stockage déplace le courant de midi vers le soir, une pompe à chaleur le transforme en chaleur, et une borne de recharge l'amène dans la voiture électrique. Penser à ces étapes dès le départ évite des transformations ultérieures de l'installation électrique."
+          ],
+          "links": [
+            {
+              "label": "Batteries de stockage",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Pompes à chaleur",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Bornes de recharge",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur l'installation solaire",
+        "description": "Des réponses courtes aux questions les plus fréquentes avant l'achat.",
+        "items": [
+          {
+            "question": "Une installation solaire vaut-elle la peine en Suisse ?",
+            "answer": "Dans la plupart des cas, oui. Ce qui compte, c'est la part du courant produit que vous consommez vous-même, car le courant du réseau coûte plusieurs fois la rétribution de reprise. Avec une pompe à chaleur, une voiture électrique ou une batterie, l'autoconsommation augmente, et la rentabilité avec elle."
+          },
+          {
+            "question": "Combien de courant une installation solaire produit-elle ?",
+            "answer": "En Suisse, une installation de 8 kWp produit en général 7'000 à 9'000 kWh par an. La production dépend de l'orientation, de l'inclinaison, de l'ombrage et du lieu."
+          },
+          {
+            "question": "Ai-je besoin d'un permis de construire ?",
+            "answer": "En règle générale, non. Pour les installations suffisamment adaptées aux toits dans les zones à bâtir et les zones agricoles, une annonce à la commune suffit. Pour les bâtiments protégés et dans certaines zones centrales, une demande de permis de construire est nécessaire."
+          },
+          {
+            "question": "Quelles subventions existe-t-il ?",
+            "answer": "La Confédération verse une rétribution unique par l'intermédiaire de Pronovo. S'y ajoutent, selon le lieu, des contributions du canton et de la commune, ainsi que la déduction fiscale. Nous clarifions ce qui s'applique à votre adresse et préparons les demandes."
+          },
+          {
+            "question": "Que devient le courant que je ne consomme pas moi-même ?",
+            "answer": "Il part dans le réseau, et votre gestionnaire de réseau le rétribue. Depuis 2026, une rétribution minimale de 6 centimes par kilowattheure s'applique aux installations jusqu'à 30 kW."
+          },
+          {
+            "question": "Puis-je obtenir une installation solaire sans fonds propres ?",
+            "answer": "Oui. Avec SolarFree, vous recevez l'installation sans investissement propre. Avec SolarAbo, vous la payez en mensualités fixes. Les deux modèles permettent un achat ultérieur."
+          },
+          {
+            "question": "Quelle est la durée de vie d'une installation solaire ?",
+            "answer": "Les modules solaires produisent du courant pendant 25 à 30 ans, et leur puissance diminue lentement. L'onduleur est en général remplacé une fois durant cette période."
+          }
+        ]
+      }
     }
   },
   "batteryStorage": {
@@ -2795,6 +2967,155 @@
       "title": "Trouvez la configuration de pompe à chaleur adaptée à votre site",
       "subtitle": "Trouvez la configuration de pompe à chaleur adaptée à votre site",
       "button": "Démarrer le calculateur solaire"
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Pompe à chaleur en Suisse : types, coûts et subventions",
+      "intro": "Une pompe à chaleur tire la plus grande partie de l'énergie de chauffage de l'environnement et n'a besoin pour cela que d'une petite part d'électricité. Vous trouvez ici les réponses aux questions qui reviennent le plus souvent avant la décision.",
+      "sections": [
+        {
+          "title": "Quelle pompe à chaleur convient à votre maison ?",
+          "paragraphs": [
+            "Les pompes à chaleur se distinguent par la source dont elles tirent la chaleur. Le choix dépend du terrain, du bâtiment et des prescriptions en vigueur sur place."
+          ],
+          "bullets": [
+            "Pompe à chaleur air-eau : elle utilise l'air extérieur, ne demande aucun forage et s'installe le plus rapidement. C'est la solution la plus courante dans la maison individuelle, et elle se pose à l'intérieur ou à l'extérieur.",
+            "Pompe à chaleur sol-eau avec sonde géothermique : elle utilise la température constante du sol et reste donc très efficace, même en hiver. Le forage coûte plus cher et nécessite une autorisation.",
+            "Pompe à chaleur eau-eau : elle utilise la nappe phréatique et atteint l'efficacité la plus élevée. Elle suppose des conditions hydrologiques adaptées et n'est autorisée que sur peu de sites."
+          ],
+          "links": [
+            {
+              "label": "Comment fonctionne une pompe à chaleur",
+              "href": "/heat-pumps/how-it-works"
+            },
+            {
+              "label": "Aperçu de nos pompes à chaleur",
+              "href": "/heat-pumps/products"
+            }
+          ]
+        },
+        {
+          "title": "Combien coûte une pompe à chaleur ?",
+          "paragraphs": [
+            "Pour une maison individuelle de 150 m² de surface de référence énergétique et un besoin de chaleur de 22'000 kWh, nous comptons environ CHF 36'500 pour une pompe à chaleur air-eau et environ CHF 49'500 pour une pompe à chaleur sol-eau avec sonde géothermique. Un nouveau chauffage au mazout coûte environ CHF 23'000 à l'achat.",
+            "Ce sont les frais courants qui font la différence. Dans la même maison, la pompe à chaleur air-eau consomme de l'énergie pour environ CHF 1'210 par an, la pompe à chaleur avec sonde géothermique pour environ CHF 940. Le chauffage au mazout se situe à environ CHF 2'640 et entraîne aussi les frais d'entretien les plus élevés, avec environ CHF 780 par an. Sur sa durée de vie, la pompe à chaleur compense ainsi son prix d'achat plus élevé."
+          ],
+          "links": [
+            {
+              "label": "Comparaison des coûts des systèmes de chauffage",
+              "href": "/heat-pumps/cost"
+            }
+          ]
+        },
+        {
+          "title": "Remplacer un chauffage au mazout ou au gaz",
+          "paragraphs": [
+            "Dans de nombreux cantons, un chauffage fossile ne peut plus être remplacé sans autre par un chauffage du même type. Si vous changez votre ancien chauffage au mazout, vous devez le plus souvent passer aux énergies renouvelables ou réduire les besoins en énergie du bâtiment. Plusieurs cantons exigent en outre, avant le remplacement, un conseil en énergie ou un rapport GEAK (CECB).",
+            "Planifiez le remplacement avant que l'ancien chauffage ne tombe en panne. Il reste alors du temps pour le conseil, les demandes de subvention et l'autorisation, et vous n'avez pas à accepter une solution de fortune en plein hiver."
+          ],
+          "links": [
+            {
+              "label": "Remplacement du chauffage : Prime Climat, pompe à chaleur et solaire",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "Subventions et impôts",
+          "paragraphs": [
+            "Les cantons et les communes soutiennent le passage à la pompe à chaleur par le Programme Bâtiments, avec plusieurs milliers de francs selon le lieu. Les montants les plus élevés sont en général accordés pour le remplacement d'un chauffage au mazout, au gaz ou électrique. Le site energiefranken.ch indique les programmes valables à votre adresse, une fois le code postal saisi.",
+            "L'ordre des étapes est important. La demande de subvention doit être déposée avant le début des travaux, et certains cantons exigent d'abord la décision d'octroi. Le remplacement du chauffage fait en outre partie des frais d'entretien de l'immeuble et peut être déduit des impôts."
+          ],
+          "links": [
+            {
+              "label": "Subventions par canton",
+              "href": "/foerderung"
+            }
+          ]
+        },
+        {
+          "title": "Combiner pompe à chaleur et installation solaire",
+          "paragraphs": [
+            "Une pompe à chaleur déplace les besoins en énergie de la citerne à mazout vers le compteur électrique. Dans une maison individuelle moyenne, elle consomme environ 3'000 à 4'500 kWh d'électricité par an. Une installation solaire sur votre propre toit en fournit une grande partie, nettement moins cher que le réseau.",
+            "Avec une pompe à chaleur, la part du courant solaire que vous consommez vous-même passe en général d'environ 30 pour cent à un niveau de 55 à 70 pour cent. C'est au printemps et en automne que la combinaison fonctionne le mieux. En plein hiver, le toit produit peu. Le bilan annuel compense alors ce qu'une seule journée ne peut pas couvrir."
+          ],
+          "links": [
+            {
+              "label": "Pompe à chaleur avec installation solaire",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solaire et pompe à chaleur : le calcul en détail",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Bruit et autorisation",
+          "paragraphs": [
+            "Une pompe à chaleur air-eau installée à l'extérieur doit respecter les exigences de l'ordonnance sur la protection contre le bruit (OPB). La demande de permis de construire doit donc comporter une attestation de protection contre le bruit. Elle montre que les valeurs de planification sont respectées chez le voisin, y compris la nuit. L'emplacement de l'unité extérieure et la distance à la limite de la parcelle comptent souvent plus que l'appareil lui-même.",
+            "Les sondes géothermiques nécessitent une autorisation cantonale. Dans les zones de protection des eaux souterraines, les forages sont limités ou interdits. Les cartes cantonales de géothermie montrent ce qui est possible à votre adresse. Nous clarifions ces deux points avant de vous recommander un système."
+          ]
+        },
+        {
+          "title": "Le déroulement de votre projet",
+          "paragraphs": [
+            "De la première évaluation à un salon bien chauffé, il y a cinq étapes."
+          ],
+          "bullets": [
+            "Conseil sur place : relevé du besoin de chaleur, de la distribution de chauffage existante et de la place disponible.",
+            "Choix du système et offre : air-eau ou sonde géothermique, avec ou sans installation solaire.",
+            "Demande de subvention et autorisation : nous préparons les documents, vous signez.",
+            "Installation : démontage de l'ancien chauffage, montage et raccordement de la pompe à chaleur.",
+            "Mise en service et service : réglage de l'installation, instruction et entretien."
+          ],
+          "links": [
+            {
+              "label": "Entretien et service",
+              "href": "/heat-pumps/service"
+            },
+            {
+              "label": "Demander un conseil",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur la pompe à chaleur",
+        "description": "Des réponses courtes à ce que les propriétaires veulent savoir le plus souvent.",
+        "items": [
+          {
+            "question": "Combien coûte une pompe à chaleur en Suisse ?",
+            "answer": "Pour une maison individuelle de 150 m², nous comptons environ CHF 36'500 pour une pompe à chaleur air-eau et environ CHF 49'500 pour une pompe à chaleur sol-eau avec sonde géothermique, installation comprise dans les deux cas. Les subventions et la déduction fiscale réduisent le montant qui reste finalement à votre charge."
+          },
+          {
+            "question": "Pompe à chaleur air-eau ou sonde géothermique : quelle est la meilleure solution ?",
+            "answer": "La pompe à chaleur air-eau est moins chère et s'installe plus vite. La pompe à chaleur avec sonde géothermique coûte plus cher, mais elle est plus efficace et ses frais d'exploitation sont plus bas. Dans notre exemple de calcul, cela représente environ CHF 940 d'énergie par an au lieu de CHF 1'210. La carte de géothermie de votre canton indique si un forage est autorisé sur votre site."
+          },
+          {
+            "question": "Une pompe à chaleur fonctionne-t-elle aussi dans un bâtiment ancien avec des radiateurs ?",
+            "answer": "Dans la plupart des cas, oui. Ce qui compte, c'est la température de départ dont votre maison a besoin les jours de froid. Plus elle est basse, plus la pompe à chaleur est efficace. Il suffit souvent d'agrandir quelques radiateurs ou d'améliorer l'enveloppe du bâtiment à quelques endroits."
+          },
+          {
+            "question": "Quel bruit fait une pompe à chaleur air-eau ?",
+            "answer": "Les appareils modernes sont nettement plus silencieux que les générations précédentes. Ce qui compte, c'est le bruit qui arrive chez le voisin. C'est pourquoi toute installation posée à l'extérieur s'accompagne d'une attestation de protection contre le bruit, et c'est pourquoi nous planifions avec soin l'emplacement de l'unité extérieure."
+          },
+          {
+            "question": "Ai-je besoin d'une autorisation ?",
+            "answer": "Pour une pompe à chaleur air-eau installée à l'extérieur, la plupart des communes exigent une demande de permis de construire ou une annonce, avec attestation de protection contre le bruit. Les sondes géothermiques nécessitent toujours une autorisation cantonale. Nous nous chargeons des clarifications et préparons les documents."
+          },
+          {
+            "question": "Une installation solaire vaut-elle la peine avec une pompe à chaleur ?",
+            "answer": "Presque toujours. La pompe à chaleur augmente votre consommation d'électricité d'environ 3'000 à 4'500 kWh par an, et le courant solaire de votre propre toit est nettement moins cher que le courant du réseau. Avec une pompe à chaleur, l'autoconsommation passe en général d'environ 30 pour cent à un niveau de 55 à 70 pour cent."
+          },
+          {
+            "question": "Quelle est la durée de vie d'une pompe à chaleur ?",
+            "answer": "Avec un entretien régulier, nous comptons environ 20 ans. La sonde géothermique elle-même dure nettement plus longtemps et peut être réutilisée par la pompe à chaleur suivante."
+          }
+        ]
+      }
     }
   },
   "heatPumpsHowItWorks": {
@@ -3658,6 +3979,137 @@
           "href": "/charging-stations/bidirectional-charging-station"
         }
       ]
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Borne de recharge pour voiture électrique : borne murale, coûts et recharge au courant solaire",
+      "intro": "C'est en rechargeant à la maison que vous roulez au meilleur prix, et avec une installation solaire, le courant de votre propre toit devient votre carburant. Vous trouvez ici quelle borne de recharge convient à quel bâtiment, ce qu'elle coûte et ce qui compte lors de l'installation.",
+      "sections": [
+        {
+          "title": "De quelle borne de recharge ai-je besoin ?",
+          "paragraphs": [
+            "Pour la maison individuelle, une borne de recharge de 11 kW en courant alternatif suffit en règle générale. Elle recharge entièrement une voiture électrique pendant la nuit et fonctionne sans renforcement du raccordement du bâtiment.",
+            "Dans l'immeuble collectif, il s'agit d'abord de l'infrastructure commune : ligne d'alimentation, gestion de charge et facturation. Les points de recharge individuels s'ajoutent au fil des ans, avec les voitures électriques des habitants."
+          ],
+          "links": [
+            {
+              "label": "Borne de recharge dans la maison individuelle",
+              "href": "/charging-stations/single-family-home"
+            },
+            {
+              "label": "Borne de recharge dans l'immeuble collectif",
+              "href": "/charging-stations/apartment-building"
+            }
+          ]
+        },
+        {
+          "title": "Combien coûte une borne de recharge ?",
+          "paragraphs": [
+            "En Suisse, une borne de recharge coûte en général CHF 1'500 à 5'000, installation comprise. La plus grande différence vient du trajet entre le tableau électrique et la place de parc. Plus la ligne est longue et plus son passage est complexe, plus le prix est élevé.",
+            "Une borne de recharge bidirectionnelle en courant continu coûte nettement plus, vite le double. En contrepartie, elle peut renvoyer dans la maison du courant tiré de la batterie du véhicule."
+          ],
+          "links": [
+            {
+              "label": "Subventions pour bornes de recharge en Suisse",
+              "href": "/blog/wallbox-foerderung-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Recharger au courant solaire",
+          "paragraphs": [
+            "Une borne de recharge avec recharge sur excédent augmente la puissance de charge lorsque le toit produit plus que ce que la maison consomme à cet instant. Chaque kilowattheure qui va ainsi dans la voiture plutôt que dans le réseau économise la différence entre le prix du courant du réseau et le tarif de reprise. Selon la région, cela représente 15 à 25 centimes.",
+            "Cela fonctionne le mieux quand la voiture reste à la maison en journée. Les pendulaires rechargent au courant solaire le week-end et pendant la nuit en semaine. Une gestion de charge veille à ce que la borne de recharge, la pompe à chaleur et le ménage ne surchargent jamais le raccordement du bâtiment."
+          ],
+          "links": [
+            {
+              "label": "Installations solaires",
+              "href": "/solar-systems"
+            },
+            {
+              "label": "Batteries de stockage",
+              "href": "/energy-storage"
+            }
+          ]
+        },
+        {
+          "title": "Recharge bidirectionnelle : la voiture comme batterie de stockage",
+          "paragraphs": [
+            "Avec la recharge bidirectionnelle, le courant circule dans les deux sens. La batterie de la voiture électrique est plusieurs fois plus grande qu'une batterie domestique et peut alimenter la maison le soir avec le courant solaire de midi. Il faut pour cela un véhicule et une borne de recharge compatibles.",
+            "La technique est disponible, et le choix de véhicules s'élargit. Le supplément de prix est-il rentable pour vous aujourd'hui ? Cela dépend de la fréquence à laquelle la voiture reste à la maison en journée."
+          ],
+          "links": [
+            {
+              "label": "Borne de recharge bidirectionnelle",
+              "href": "/charging-stations/bidirectional-charging-station"
+            },
+            {
+              "label": "La recharge bidirectionnelle en Suisse",
+              "href": "/blog/v2h-bidirektionales-laden-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Bornes de recharge dans l'immeuble collectif",
+          "paragraphs": [
+            "Dans l'immeuble collectif, un équipement de base qui prépare toutes les places de parc vaut la peine. Si vous achetez plus tard une voiture électrique, il ne reste qu'à faire poser la borne de recharge. Une gestion de charge répartit la puissance disponible entre tous les véhicules, et la facturation se fait par point de recharge.",
+            "Avec une installation solaire et un regroupement pour la consommation propre (RCP), le courant du toit arrive aussi dans le garage souterrain. Plusieurs cantons subventionnent l'équipement de base par place de parc."
+          ],
+          "links": [
+            {
+              "label": "Borne de recharge dans l'immeuble collectif : planification et coûts",
+              "href": "/blog/ladestation-mehrfamilienhaus-schweiz-planung-kosten"
+            },
+            {
+              "label": "ZEV, vZEV et LEG dans l'immeuble collectif",
+              "href": "/blog/zev-vzev-leg-mehrfamilienhaus-2026"
+            }
+          ]
+        },
+        {
+          "title": "Installation et annonce",
+          "paragraphs": [
+            "Une borne de recharge doit être raccordée par un installateur-électricien concessionnaire et annoncée au gestionnaire de réseau. Selon la puissance, une demande est aussi nécessaire. Nous vérifions le raccordement du bâtiment, nous nous chargeons de l'annonce et mettons la borne en service."
+          ],
+          "links": [
+            {
+              "label": "Demander un conseil",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur la borne de recharge",
+        "description": "L'essentiel sur la borne de recharge à domicile.",
+        "items": [
+          {
+            "question": "Combien coûte une borne de recharge avec installation ?",
+            "answer": "En Suisse, en général CHF 1'500 à 5'000. Le prix dépend surtout de la distance entre la place de parc et le tableau électrique, et du fait que le raccordement du bâtiment suffit ou non."
+          },
+          {
+            "question": "11 kW suffisent-ils ou me faut-il 22 kW ?",
+            "answer": "Pour le quotidien à la maison, 11 kW suffisent. Une voiture électrique est ainsi rechargée pendant la nuit. Pour 22 kW, le gestionnaire de réseau exige en général une autorisation, et beaucoup de véhicules ne peuvent de toute façon pas recharger aussi vite en courant alternatif."
+          },
+          {
+            "question": "Puis-je recharger ma voiture électrique au courant solaire ?",
+            "answer": "Oui. Une borne de recharge avec recharge sur excédent adapte la puissance de charge à la production de l'installation solaire. Par kilowattheure, vous économisez 15 à 25 centimes selon la région par rapport à l'injection dans le réseau."
+          },
+          {
+            "question": "Existe-t-il des subventions pour les bornes de recharge ?",
+            "answer": "Pas au niveau fédéral. Certains cantons et communes subventionnent surtout l'équipement de base dans les immeubles collectifs. Les programmes sont limités dans le temps et prennent fin quand le budget est épuisé."
+          },
+          {
+            "question": "Puis-je installer une borne de recharge en tant que locataire ou propriétaire par étages ?",
+            "answer": "Vous avez besoin de l'accord du bailleur ou de la communauté des propriétaires d'étages. Le plus simple est que le bâtiment dispose d'un équipement de base commun auquel chaque place de parc peut être raccordée."
+          },
+          {
+            "question": "Qu'est-ce que la recharge bidirectionnelle ?",
+            "answer": "La voiture électrique restitue à la maison du courant de sa batterie. Le courant solaire de midi peut ainsi être utilisé le soir. Le véhicule et la borne de recharge doivent tous deux prendre en charge cette fonction."
+          }
+        ]
+      }
     }
   },
   "calculatorV2": {
@@ -4905,6 +5357,123 @@
           "features": "Modulaire & évolutif|Compatible avec les onduleurs Huawei (mono- & triphasés)|Intégration app intelligente|100 % de profondeur de décharge",
           "warranty": "Garantie 10 ans (80 % d'énergie utilisable)"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Batterie de stockage pour l'installation solaire : taille, coûts et quand elle vaut la peine",
+      "intro": "Une batterie de stockage déplace le courant solaire de midi vers le soir. La rentabilité dépend moins de l'appareil que de votre consommation, de la taille de la batterie et des tarifs de votre gestionnaire de réseau.",
+      "sections": [
+        {
+          "title": "Ce qu'apporte une batterie de stockage",
+          "paragraphs": [
+            "Sans batterie, un ménage consomme en général lui-même 30 à 35 pour cent de son courant solaire, et le reste part dans le réseau. Avec une batterie bien dimensionnée, cette part monte à environ 70 pour cent. Le courant du toit couvre alors aussi la soirée, la nuit et le début de la matinée.",
+            "Chaque kilowattheure tiré de la batterie remplace du courant du réseau. En même temps, vous renoncez à la rétribution que vous auriez reçue pour l'injection. L'avantage de la batterie correspond à la différence entre les deux."
+          ]
+        },
+        {
+          "title": "Quelle est la bonne taille ?",
+          "paragraphs": [
+            "Une batterie trop grande ne se remplit pas entièrement bien des jours et ne sert presque pas en hiver. Une batterie trop petite est vide en début de soirée. Le point de départ est la consommation d'électricité entre le coucher et le lever du soleil, et non la puissance de l'installation solaire.",
+            "La pompe à chaleur et la voiture électrique changent nettement le calcul, car elles augmentent la consommation le soir et la nuit. Nous dimensionnons donc la batterie d'après votre profil de charge, et non selon une règle empirique."
+          ],
+          "links": [
+            {
+              "label": "Calculer la taille de l'installation",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            },
+            {
+              "label": "Démarrer le calculateur solaire",
+              "href": "/solar-calculator"
+            }
+          ]
+        },
+        {
+          "title": "Combien coûte une batterie de stockage ?",
+          "paragraphs": [
+            "Le prix par kilowattheure baisse avec la taille, car l'onduleur, le câblage et la mise en service sont nécessaires pour chaque batterie. Une batterie posée en même temps que l'installation solaire coûte donc moins cher qu'un ajout ultérieur.",
+            "Les prix sur le marché suisse ont nettement baissé ces derniers temps. Dans notre article, nous calculons pas à pas comment ils se composent et ce que coûte un kilowattheure tiré de la batterie sur sa durée de vie."
+          ],
+          "links": [
+            {
+              "label": "Coûts d'une batterie de stockage : le calcul en détail",
+              "href": "/blog/stromspeicher-kosten-schweiz-2026-lohnt-sich"
+            },
+            {
+              "label": "Coûts d'une installation solaire",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Quand une batterie vaut la peine",
+          "paragraphs": [
+            "Une batterie est rentable quand le kilowattheure tiré de la batterie coûte moins que l'avantage qu'il apporte. Aux tarifs actuels, cet avantage se situe autour de 15 à 18 centimes par kilowattheure. C'est la différence entre le tarif du réseau et la rétribution de reprise à laquelle vous renoncez, moins les pertes à la charge et à la décharge."
+          ],
+          "bullets": [
+            "Arguments pour : une consommation élevée le soir et la nuit, une pompe à chaleur ou une voiture électrique, un tarif de reprise bas, une subvention cantonale.",
+            "Arguments contre : un petit ménage présent à la maison en journée, un tarif de reprise élevé, une batterie trop grande pour le toit."
+          ],
+          "links": [
+            {
+              "label": "Tarifs d'électricité dynamiques et batterie",
+              "href": "/blog/dynamische-stromtarife-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Alimentation de secours et courant de substitution",
+          "paragraphs": [
+            "En cas de panne de courant, une batterie de stockage ne continue pas automatiquement à alimenter la maison. Il faut pour cela un système avec fonction de courant de substitution, qui sépare la maison du réseau en toute sécurité. Si ce point est important pour vous, dites-le avant la planification, car il influence le choix de la batterie et l'installation électrique."
+          ]
+        },
+        {
+          "title": "Planifier ensemble batterie, pompe à chaleur et voiture électrique",
+          "paragraphs": [
+            "La chaleur se stocke à moindre coût que l'électricité. Un chauffe-eau ou un accumulateur tampon absorbe l'excédent de midi par la pompe à chaleur, et la voiture électrique se recharge quand le soleil brille. Un système de gestion de l'énergie répartit le courant solaire dans cet ordre, et la batterie de stockage prend en charge ce qui reste ensuite."
+          ],
+          "links": [
+            {
+              "label": "Pompes à chaleur",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Bornes de recharge",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur la batterie de stockage",
+        "description": "Ce que les propriétaires veulent savoir avant d'acheter une batterie de stockage.",
+        "items": [
+          {
+            "question": "Une batterie de stockage vaut-elle la peine pour mon installation solaire ?",
+            "answer": "Cela dépend de votre consommation le soir et la nuit, du tarif de reprise de votre gestionnaire de réseau et du prix de la batterie. Avec une pompe à chaleur ou une voiture électrique, le calcul est bien plus souvent favorable que dans un petit ménage sans ces consommateurs. Nous faisons le calcul pour votre maison et nous vous le disons si la batterie ne vaut pas la peine."
+          },
+          {
+            "question": "Quelle taille la batterie doit-elle avoir ?",
+            "answer": "Ce qui compte, c'est votre consommation d'électricité entre le soir et le matin. Une batterie qui se remplit la plupart des jours et se vide pendant la nuit est rentable. Plus grand ne veut pas dire mieux."
+          },
+          {
+            "question": "Puis-je ajouter une batterie plus tard ?",
+            "answer": "Oui. Il revient moins cher de poser la batterie en même temps que l'installation solaire, car la planification, le câblage et la mise en service ne se font alors qu'une seule fois. Si vous souhaitez ajouter une batterie plus tard, choisissez pour l'installation un onduleur prévu pour cela."
+          },
+          {
+            "question": "Aurai-je du courant en cas de panne grâce à une batterie ?",
+            "answer": "Seulement avec un système doté d'une fonction de courant de substitution ou d'alimentation de secours. Une batterie ordinaire se coupe pour des raisons de sécurité en cas de panne du réseau."
+          },
+          {
+            "question": "Quelle est la durée de vie d'une batterie de stockage ?",
+            "answer": "Les fabricants des batteries que nous installons accordent dix ans de garantie. La capacité utile diminue lentement au fil des ans, comme pour toute batterie."
+          },
+          {
+            "question": "Existe-t-il des subventions pour les batteries de stockage ?",
+            "answer": "Pas au niveau fédéral. Certains cantons et communes subventionnent les batteries posées avec une installation solaire. Nous clarifions ce qui s'applique à votre adresse avant l'offre."
+          }
+        ]
       }
     }
   },
@@ -9617,6 +10186,129 @@
       "steuer": "Aspects fiscaux",
       "sources": "Sources",
       "faq": "Questions fréquentes"
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Subventions pour les installations solaires en Suisse : Confédération, canton, commune et impôts",
+      "intro": "En Suisse, les subventions pour une installation solaire proviennent de plusieurs sources. La Confédération verse partout le même montant, les cantons et les communes ajoutent des montants très variables, et la déduction fiscale vient en plus. Si vous connaissez l'ordre des demandes, vous ne perdez rien.",
+      "sections": [
+        {
+          "title": "La rétribution unique de la Confédération",
+          "paragraphs": [
+            "La Confédération soutient les installations photovoltaïques par un versement unique, la rétribution unique. Elle est versée par Pronovo sur mandat de la Confédération et dépend de la puissance de l'installation. Pour les installations sur des maisons individuelles et des immeubles collectifs, c'est en règle générale la rétribution unique pour petites installations qui s'applique, abrégée KLEIV (PRU).",
+            "Pour les installations sans autoconsommation, il existe la HEIV, plus élevée, et pour les grandes installations la GREIV et les mises aux enchères. Les taux sont adaptés régulièrement. Vous trouvez les montants actuels et des exemples chiffrés dans notre article sur la rétribution unique et sur notre page des coûts."
+          ],
+          "links": [
+            {
+              "label": "Rétribution unique : KLEIV, GREIV et HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Coûts d'une installation solaire",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Subventions du canton et de la commune",
+          "paragraphs": [
+            "En plus de la rétribution unique, certains cantons et de nombreuses communes subventionnent les installations solaires, les batteries de stockage, l'infrastructure de recharge ou le remplacement du chauffage. Les différences sont grandes. Certaines communes versent une contribution importante par kilowatt, d'autres rien du tout. Les programmes sont souvent limités dans le temps et prennent fin quand le budget est épuisé.",
+            "Vous trouvez sur cette page les cantons pour lesquels nous avons réuni les programmes actuels. Pour toutes les autres adresses, energiefranken.ch indique ce qui s'applique, une fois le code postal saisi."
+          ],
+          "links": [
+            {
+              "label": "Vue d'ensemble : quelles subventions comptent",
+              "href": "/blog/foerderdschungel-solar-schweiz-2026-welche-foerderung-zaehlt"
+            },
+            {
+              "label": "Subventions photovoltaïques à Zurich",
+              "href": "/blog/photovoltaik-foerderung-zuerich-2026"
+            }
+          ]
+        },
+        {
+          "title": "Déduction fiscale",
+          "paragraphs": [
+            "Dans presque tous les cantons, l'investissement dans une installation solaire sur un bâtiment existant peut être déduit du revenu imposable au titre des frais d'entretien de l'immeuble. Pour les constructions neuves, la déduction ne s'applique en général pas.",
+            "Les cantons traitent la rétribution unique de manière différente. Dans la plupart, elle est considérée comme un revenu imposable, et l'investissement entier est déductible. Dans quelques-uns, elle est à la place soustraite des coûts déductibles. Au final, l'effet est similaire, et il dépend de votre taux marginal d'imposition."
+          ],
+          "links": [
+            {
+              "label": "Déduire l'installation solaire des impôts",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Rétribution du courant injecté",
+          "paragraphs": [
+            "Ce n'est pas une subvention au sens strict, mais cela fait partie du calcul. Pour le courant que vous injectez dans le réseau, votre gestionnaire de réseau verse une rétribution de reprise. Depuis 2026, une rétribution minimale de 6 centimes par kilowattheure s'applique aux installations jusqu'à 30 kW. Selon le gestionnaire de réseau, un montant pour la garantie d'origine s'y ajoute."
+          ],
+          "links": [
+            {
+              "label": "Tarifs de reprise 2026",
+              "href": "/blog/rueckliefertarif-2026-schock-schweiz"
+            },
+            {
+              "label": "Amortissement",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "Le bon ordre",
+          "paragraphs": [
+            "Pour la rétribution unique de la Confédération, la demande est déposée après la mise en service. Pour les programmes cantonaux et communaux, c'est le plus souvent l'inverse. La demande doit être déposée, voire approuvée, avant le début des travaux. Si vous construisez d'abord et demandez ensuite, vous ne recevez rien de ces programmes."
+          ],
+          "bullets": [
+            "Avant l'offre : clarifier les programmes du canton et de la commune à votre adresse.",
+            "Avant le début des travaux : déposer les demandes cantonales et communales et attendre la décision positive là où elle est exigée.",
+            "Après la mise en service : demander la rétribution unique auprès de Pronovo.",
+            "Dans la déclaration d'impôt : faire valoir l'investissement comme frais d'entretien de l'immeuble."
+          ],
+          "links": [
+            {
+              "label": "Demander un conseil",
+              "href": "/contact"
+            },
+            {
+              "label": "Démarrer le calculateur solaire",
+              "href": "/solar-calculator"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur les subventions",
+        "description": "Ce que les propriétaires veulent savoir le plus souvent sur les subventions.",
+        "items": [
+          {
+            "question": "Quelles subventions existe-t-il pour les installations solaires en Suisse ?",
+            "answer": "La rétribution unique de la Confédération, versée par l'intermédiaire de Pronovo, des contributions du canton et de la commune selon le lieu, ainsi que la déduction fiscale au titre des frais d'entretien de l'immeuble."
+          },
+          {
+            "question": "À combien s'élève la rétribution unique ?",
+            "answer": "Elle dépend de la puissance de l'installation et est adaptée régulièrement. Vous trouvez les taux actuels et des exemples pour des tailles d'installation courantes sur notre page des coûts."
+          },
+          {
+            "question": "Quand dois-je déposer la demande de subvention ?",
+            "answer": "Vous demandez la rétribution unique de la Confédération après la mise en service. Les demandes cantonales et communales doivent en règle générale être déposées avant le début des travaux, et certains programmes exigent d'abord la décision positive."
+          },
+          {
+            "question": "Une batterie de stockage est-elle aussi subventionnée ?",
+            "answer": "Pas par la Confédération. Certains cantons et communes subventionnent les batteries posées avec une installation solaire."
+          },
+          {
+            "question": "Dois-je payer des impôts sur les subventions ?",
+            "answer": "Dans la plupart des cantons, oui. La rétribution unique y est considérée comme un revenu. Certains cantons la soustraient à la place des coûts déductibles. Dans les deux cas, vous pouvez faire valoir l'investissement comme frais d'entretien de l'immeuble dans presque tous les cantons, pour les bâtiments existants."
+          },
+          {
+            "question": "Qui s'occupe des demandes ?",
+            "answer": "Nous clarifions ce qui s'applique à votre adresse et préparons les demandes pour la Confédération, le canton et la commune. Vous signez, et les contributions vous sont versées directement."
+          }
+        ]
+      }
     }
   },
   "solarAboPlanHome": {

@@ -1,3 +1,4 @@
+import GuideContentSection from '@/components/guide/GuideContentSection'
 import LatestPostsSection from '@/components/blog/LatestPostsSection'
 import CheckSolarPotentialCTA from '@/components/CheckSolarPotentialCTA'
 import PageHero from '@/components/PageHero'
@@ -43,9 +44,10 @@ const ChargingStationsPage = async () => {
         title={t('hero.title')}
       />
       <TopicsGrid namespace="chargingStations.topics" columns={3} maxWidth="900px" />
+      <GuideContentSection namespace="chargingStations" />
       <LatestPostsSection
         topic="charging"
-        className="bg-[#DCE9E6] px-4 sm:px-6 pb-16 md:pb-24"
+        className="bg-[#FDFFF5] px-4 sm:px-6 pb-16 md:pb-24"
       />
       <CheckSolarPotentialCTA />
     </div>

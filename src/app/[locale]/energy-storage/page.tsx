@@ -1,3 +1,4 @@
+import GuideContentSection from '@/components/guide/GuideContentSection'
 import PageHero from '@/components/PageHero'
 import LatestPostsSection from '@/components/blog/LatestPostsSection'
 import BatteryInstallationSection from '@/components/energy-storage/BatteryInstallationSection'
@@ -48,6 +49,7 @@ const EnergyStoragePage = async () => {
       <WhenStorageMakesSenseSection />
       <HowItWorksSection />
       <BatteryInstallationSection />
+      <GuideContentSection namespace="energyStorage" />
       <LatestPostsSection
         topic="storage"
         className="bg-[#FDFFF5] px-4 sm:px-6 py-[50px]"

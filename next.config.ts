@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
+import { REPLACED_POSTS } from './src/lib/blog/replaced-posts'
 
 const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
@@ -30,6 +31,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...Object.entries(REPLACED_POSTS).flatMap(([from, to]) => [
+        {
+          source: `/blog/${from}`,
+          destination: `/blog/${to}`,
+          permanent: true,
+        },
+        {
+          source: `/:locale(en|fr|it)/blog/${from}`,
+          destination: `/:locale/blog/${to}`,
+          permanent: true,
+        },
+      ]),
       {
         source: '/unternehmen',
         destination: '/geschichte',

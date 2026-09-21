@@ -316,7 +316,8 @@
     },
     "packages": {
       "title": "{name}: every component in 3D",
-      "description": "Every device in this solar package as a rotatable 3D model with the manufacturer technical data."
+      "description": "Every device in this solar package as a rotatable 3D model with the manufacturer technical data.",
+      "descriptionSuffix": "Every component in 3D with technical data."
     }
   },
   "apiErrors": {
@@ -2580,6 +2581,177 @@
         "certifiedQuality": "Certified quality & manufacturer warranties",
         "expertSelected": "Selected by SolarFree experts"
       }
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Solar systems in Switzerland: planning, costs, subsidies and yield",
+      "intro": "A photovoltaic system on your own roof produces electricity for 25 to 30 years. Here you will find what counts before you decide: how large the system should be, what it costs, what subsidies there are and how you can pay for it.",
+      "sections": [
+        {
+          "title": "Is my roof suitable?",
+          "paragraphs": [
+            "Almost any roof without heavy shading is suitable. A south-facing surface produces the most, but east-west roofs spread the power more evenly across the day and so often match your own consumption better. Each kilowatt peak of output needs around 5 m² of roof area.",
+            "In Switzerland, a system with 8 kWp typically produces 7'000 to 9'000 kWh a year. Our solar calculator shows what your roof can deliver, using data from Sonnendach, the federal solar cadastre."
+          ],
+          "links": [
+            {
+              "label": "Start the solar calculator",
+              "href": "/solar-calculator"
+            },
+            {
+              "label": "East-west or south: which delivers more",
+              "href": "/blog/pv-anlage-ost-west-vs-sued-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "How large should the system be?",
+          "paragraphs": [
+            "In the past, a system was sized for current consumption. That is outdated, because a heat pump and an electric car increase electricity demand, and the fixed costs for scaffolding, planning and connection arise at any size. In most cases, it pays to make good use of the roof.",
+            "We size the system based on your consumption, the loads you plan to add and your grid operator's feed-in tariff."
+          ],
+          "links": [
+            {
+              "label": "Calculate your system size",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            }
+          ]
+        },
+        {
+          "title": "What does a solar system cost?",
+          "paragraphs": [
+            "The price per kilowatt peak falls as the system gets larger. The roof, scaffolding, electrical installation and choice of inverter affect it, as does the question of whether a battery is added. You will find current prices per kWp and worked examples for 6, 10 and 15 kWp on our cost page.",
+            "When the system has paid for itself depends above all on the share of the electricity you use yourself. Every kilowatt hour you use yourself replaces electricity at the grid tariff, while every kilowatt hour you feed in earns only the feed-in payment."
+          ],
+          "links": [
+            {
+              "label": "Cost of a solar system",
+              "href": "/cost"
+            },
+            {
+              "label": "Payback period",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "Subsidies, feed-in payment and taxes",
+          "paragraphs": [
+            "The federal government supports solar systems with a one-off subsidy (Einmalvergütung), which is paid out through Pronovo. Depending on the location, there are also contributions from the canton and the municipality. For existing buildings, the investment can be deducted from taxes as property maintenance in almost all cantons.",
+            "You receive a feed-in payment from the grid operator for the electricity you feed into the grid. Since 2026, a minimum feed-in payment of 6 Rappen per kilowatt hour has applied to systems of up to 30 kW. Because grid electricity costs several times as much, self-consumption is the most important lever for profitability."
+          ],
+          "links": [
+            {
+              "label": "Subsidies by canton",
+              "href": "/foerderung"
+            },
+            {
+              "label": "One-off federal subsidy (Einmalvergütung): KLEIV, GREIV and HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Deducting a solar system from your taxes",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Buying, paying by subscription or no investment of your own",
+          "paragraphs": [
+            "At Free State you choose between three models. With SolarDirect you buy the system and own it from the start. With SolarAbo you pay in fixed monthly instalments, and monitoring, warranty and insurance are included. With SolarFree you get your solar system without any investment of your own and can buy it later."
+          ],
+          "links": [
+            {
+              "label": "SolarDirect",
+              "href": "/solar-direct"
+            },
+            {
+              "label": "SolarAbo",
+              "href": "/solar-abo"
+            },
+            {
+              "label": "SolarFree",
+              "href": "/solar-free"
+            },
+            {
+              "label": "Rent or buy: the comparison",
+              "href": "/blog/solar-mieten-oder-kaufen-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Permit and process",
+          "paragraphs": [
+            "In Switzerland, sufficiently adapted solar systems on roofs in building and agricultural zones do not need a building permit. A notification to the municipality is enough. Exceptions apply to cultural and natural monuments and in some core zones.",
+            "We handle the notification, the connection application to the grid operator and the subsidy application. After installation, an independent inspection body approves the system, and then it is connected to the grid."
+          ],
+          "links": [
+            {
+              "label": "How it works",
+              "href": "/how-it-works"
+            },
+            {
+              "label": "Comparing quotes: the checklist",
+              "href": "/blog/solar-offerte-vergleichen-schweiz-checkliste"
+            }
+          ]
+        },
+        {
+          "title": "Battery storage, heat pump and charging station",
+          "paragraphs": [
+            "A solar system becomes more economical the more electricity stays in the house. A battery shifts midday power to the evening, a heat pump turns it into heat, and a charging station puts it into your electric car. If you think these steps through from the start, you save yourself later changes to the electrical installation."
+          ],
+          "links": [
+            {
+              "label": "Battery storage",
+              "href": "/energy-storage"
+            },
+            {
+              "label": "Heat pumps",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Charging stations",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about solar systems",
+        "description": "Short answers to the questions asked most often before buying.",
+        "items": [
+          {
+            "question": "Is a solar system worthwhile in Switzerland?",
+            "answer": "In most cases, yes. What matters is how much of the electricity produced you use yourself, because grid electricity costs several times the feed-in payment. With a heat pump, an electric car or a battery, self-consumption rises and so does profitability."
+          },
+          {
+            "question": "How much electricity does a solar system produce?",
+            "answer": "In Switzerland, a system with 8 kWp typically produces 7'000 to 9'000 kWh a year. The yield depends on orientation, tilt, shading and location."
+          },
+          {
+            "question": "Do I need a building permit?",
+            "answer": "As a rule, no. For sufficiently adapted systems on roofs in building and agricultural zones, a notification to the municipality is enough. For protected buildings and in some core zones, a building application is needed."
+          },
+          {
+            "question": "What subsidies are there?",
+            "answer": "The federal government pays a one-off subsidy (Einmalvergütung) through Pronovo. Depending on the location, there are also contributions from the canton and the municipality, plus the tax deduction. We check what applies at your address and prepare the applications."
+          },
+          {
+            "question": "What happens to the electricity I do not use myself?",
+            "answer": "It flows into the grid, and your grid operator pays you for it. Since 2026, a minimum feed-in payment of 6 Rappen per kilowatt hour has applied to systems of up to 30 kW."
+          },
+          {
+            "question": "Can I get a solar system without any capital of my own?",
+            "answer": "Yes. With SolarFree you get the system without any investment of your own, and with SolarAbo you pay for it in fixed monthly instalments. Both models allow you to buy it later."
+          },
+          {
+            "question": "How long does a solar system last?",
+            "answer": "Solar panels produce electricity for 25 to 30 years, and their output decreases slowly over that time. The inverter is usually replaced once during this period."
+          }
+        ]
+      }
     }
   },
   "batteryStorage": {
@@ -2795,6 +2967,155 @@
       "title": "Find the Right Heat Pump Setup for Your Site",
       "subtitle": "Find the Right Heat Pump Setup for Your Site",
       "button": "Start the Solar Calculator"
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Heat pumps in Switzerland: types, costs and subsidies",
+      "intro": "A heat pump draws most of its heating energy from the surroundings and needs only a small share of electricity to do so. Here you will find answers to the questions people ask most often before they decide.",
+      "sections": [
+        {
+          "title": "Which heat pump suits your house?",
+          "paragraphs": [
+            "Heat pumps differ in the source they take their heat from. The choice depends on the plot, the building and the local regulations."
+          ],
+          "bullets": [
+            "Air-to-water heat pump: uses the outside air, needs no drilling and is the quickest to install. It is the most common solution in single-family homes and can be placed indoors or outdoors.",
+            "Ground-source heat pump with a borehole: uses the steady temperature in the ground and therefore works very efficiently in winter too. The drilling costs more and needs a permit.",
+            "Water-to-water heat pump: uses groundwater and reaches the highest efficiency. It requires suitable water conditions and is approved at only a few locations."
+          ],
+          "links": [
+            {
+              "label": "How a heat pump works",
+              "href": "/heat-pumps/how-it-works"
+            },
+            {
+              "label": "Our heat pumps at a glance",
+              "href": "/heat-pumps/products"
+            }
+          ]
+        },
+        {
+          "title": "What does a heat pump cost?",
+          "paragraphs": [
+            "For a single-family home with an energy reference area of 150 m² and a heat demand of 22'000 kWh, we estimate around CHF 36'500 for an air-to-water heat pump and around CHF 49'500 for a ground-source heat pump with a borehole. A new oil heating system costs around CHF 23'000 to buy.",
+            "The running costs are what matter. In the same house, the air-to-water heat pump uses around CHF 1'210 of energy a year and the ground-source heat pump around CHF 940. The oil heating system comes to around CHF 2'640 and, at around CHF 780 a year, also has the highest maintenance costs. Over its service life, this is how the heat pump makes up for the higher purchase price."
+          ],
+          "links": [
+            {
+              "label": "Cost comparison of heating systems",
+              "href": "/heat-pumps/cost"
+            }
+          ]
+        },
+        {
+          "title": "Replacing oil or gas heating",
+          "paragraphs": [
+            "In many cantons, a fossil-fuel heating system can no longer simply be replaced with another of the same kind. Anyone replacing an old oil heating system usually has to switch to renewable energy or reduce the building's energy demand. Several cantons also require an energy consultation or a GEAK report before the replacement.",
+            "Plan the replacement before the old heating fails. That leaves time for the consultation, the subsidy applications and the permit, and you will not have to accept a stopgap in the middle of winter."
+          ],
+          "links": [
+            {
+              "label": "Heating replacement: climate premium (Klimaprämie), heat pump and solar",
+              "href": "/blog/heizungsersatz-2026-klimapraemie-waermepumpe-solar"
+            }
+          ]
+        },
+        {
+          "title": "Subsidies and taxes",
+          "paragraphs": [
+            "Cantons and municipalities support the switch to a heat pump through the Buildings Programme (Gebäudeprogramm), with several thousand francs depending on the location. As a rule, the most is paid for replacing an oil, gas or electric heating system. To see which programmes apply at your address, enter your postcode at energiefranken.ch.",
+            "The order matters. The subsidy application must be submitted before the work begins, and some cantons require the approval first. Replacing a heating system also counts as property maintenance and can be deducted from your taxes."
+          ],
+          "links": [
+            {
+              "label": "Subsidies by canton",
+              "href": "/foerderung"
+            }
+          ]
+        },
+        {
+          "title": "Combining a heat pump with a solar system",
+          "paragraphs": [
+            "A heat pump shifts your energy demand from the oil tank to the electricity meter. In an average single-family home, it uses around 3'000 to 4'500 kWh of electricity a year. A solar system on your own roof supplies a large part of that at a much lower price than the grid.",
+            "With a heat pump, the share of solar power you use yourself typically rises from around 30 per cent to 55 to 70 per cent. The match is best in spring and autumn. In midwinter the roof delivers little. The balance over the year then makes up for what a single day cannot."
+          ],
+          "links": [
+            {
+              "label": "Heat pump with a solar system",
+              "href": "/heat-pumps/heat-pumps-with-solar-system"
+            },
+            {
+              "label": "Solar and heat pump: the numbers in detail",
+              "href": "/blog/solar-waermepumpe-kombination-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Noise and permits",
+          "paragraphs": [
+            "An air-to-water heat pump installed outdoors must comply with the Noise Abatement Ordinance. The building application therefore has to include a noise protection certificate showing that the planning values at the neighbour's property are met at night as well. The position of the outdoor unit and its distance from the property boundary often matter more than the unit itself.",
+            "Boreholes need a cantonal permit. In groundwater protection zones, drilling is restricted or not allowed. The cantonal geothermal maps show what is possible at your address. We check both before we recommend a system."
+          ]
+        },
+        {
+          "title": "How your project runs",
+          "paragraphs": [
+            "It takes five steps from the first assessment to a warm living room."
+          ],
+          "bullets": [
+            "On-site consultation: recording the heat demand, the existing heat distribution and the space available.",
+            "System choice and quote: air-to-water or borehole, with or without a solar system.",
+            "Subsidy application and permit: we prepare the documents, you sign.",
+            "Installation: removal of the old heating, fitting and connection of the heat pump.",
+            "Commissioning and service: setting up the system, instruction and maintenance."
+          ],
+          "links": [
+            {
+              "label": "Maintenance and service",
+              "href": "/heat-pumps/service"
+            },
+            {
+              "label": "Request a consultation",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about heat pumps",
+        "description": "Short answers to what homeowners most often want to know.",
+        "items": [
+          {
+            "question": "What does a heat pump cost in Switzerland?",
+            "answer": "For a single-family home of 150 m², we estimate around CHF 36'500 for an air-to-water heat pump and around CHF 49'500 for a ground-source heat pump with a borehole, each including installation. Subsidies and the tax deduction reduce the amount you end up paying yourself."
+          },
+          {
+            "question": "Air-to-water heat pump or borehole: which is better?",
+            "answer": "The air-to-water heat pump is cheaper and quicker to install. The ground-source heat pump costs more but works more efficiently and has lower running costs, in our worked example around CHF 940 instead of CHF 1'210 of energy a year. Your canton's geothermal map shows whether drilling is allowed at your location."
+          },
+          {
+            "question": "Does a heat pump also work in an older building with radiators?",
+            "answer": "In most cases, yes. What matters is the flow temperature your house needs on cold days. The lower it is, the more efficiently the heat pump works. Often it is enough to enlarge individual radiators or to improve the building envelope in a few places."
+          },
+          {
+            "question": "How loud is an air-to-water heat pump?",
+            "answer": "Modern units are much quieter than earlier generations. What counts is the noise that reaches the neighbour. That is why every system installed outdoors comes with a noise protection certificate, and why we plan the position of the outdoor unit carefully."
+          },
+          {
+            "question": "Do I need a permit?",
+            "answer": "For an air-to-water heat pump installed outdoors, most municipalities require a building application or a notification with a noise protection certificate. Boreholes always need a cantonal permit. We take care of the checks and prepare the documents."
+          },
+          {
+            "question": "Is a solar system worthwhile alongside a heat pump?",
+            "answer": "Almost always. The heat pump increases your electricity consumption by around 3'000 to 4'500 kWh a year, and solar power from your own roof is much cheaper than electricity from the grid. With a heat pump, self-consumption typically rises from around 30 per cent to 55 to 70 per cent."
+          },
+          {
+            "question": "How long does a heat pump last?",
+            "answer": "With regular maintenance, we expect around 20 years. The borehole itself lasts much longer and can be reused by the next heat pump."
+          }
+        ]
+      }
     }
   },
   "heatPumpsHowItWorks": {
@@ -3658,6 +3979,137 @@
           "href": "/charging-stations/bidirectional-charging-station"
         }
       ]
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Charging station for your electric car: wallbox, costs and charging with solar power",
+      "intro": "Charging at home is the cheapest way to drive, and with a solar system the power from your own roof becomes your fuel. Here you can read which charging station suits which building, what it costs and what matters for the installation.",
+      "sections": [
+        {
+          "title": "Which charging station do I need?",
+          "paragraphs": [
+            "For a single-family home, a wallbox with 11 kW of alternating current is almost always enough. It fully charges an electric car overnight and can be run without upgrading the house connection.",
+            "In an apartment building, the shared infrastructure comes first: supply line, load management and billing. The individual charging points are added over the years as the residents get electric cars."
+          ],
+          "links": [
+            {
+              "label": "Charging station in a single-family home",
+              "href": "/charging-stations/single-family-home"
+            },
+            {
+              "label": "Charging station in an apartment building",
+              "href": "/charging-stations/apartment-building"
+            }
+          ]
+        },
+        {
+          "title": "What does a wallbox cost?",
+          "paragraphs": [
+            "In Switzerland, a wallbox typically costs CHF 1'500 to 5'000 including installation. The biggest difference comes from the route from the fuse box to the parking space. The longer the cable and the more work it takes to run it, the higher the price.",
+            "A bidirectional charging station with direct current costs considerably more, easily twice as much. In return, it can feed electricity from the car battery back into the house."
+          ],
+          "links": [
+            {
+              "label": "Wallbox subsidies in Switzerland",
+              "href": "/blog/wallbox-foerderung-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Charging with solar power",
+          "paragraphs": [
+            "A wallbox with surplus charging raises the charging power when the roof produces more than the house needs at that moment. Every kilowatt hour that flows into the car this way instead of into the grid saves the difference between the tariff you pay for grid electricity and the feed-in tariff. Depending on the region, that is 15 to 25 Rappen.",
+            "This works best when the car is at home during the day. If you commute, you charge with solar power at the weekend and at night during the week. Load management makes sure that the wallbox, heat pump and household never overload the house connection."
+          ],
+          "links": [
+            {
+              "label": "Solar systems",
+              "href": "/solar-systems"
+            },
+            {
+              "label": "Battery storage",
+              "href": "/energy-storage"
+            }
+          ]
+        },
+        {
+          "title": "Bidirectional charging: the car as a battery",
+          "paragraphs": [
+            "With bidirectional charging, electricity flows in both directions. The battery of an electric car is several times larger than a home battery and can supply the house in the evening with solar power from midday. This requires a vehicle and a charging station that support it.",
+            "The technology is available, and the choice of vehicles is growing. Whether the extra cost pays off for you today depends on how often the car is parked at home during the day."
+          ],
+          "links": [
+            {
+              "label": "Bidirectional charging station",
+              "href": "/charging-stations/bidirectional-charging-station"
+            },
+            {
+              "label": "Bidirectional charging in Switzerland",
+              "href": "/blog/v2h-bidirektionales-laden-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Charging stations in apartment buildings",
+          "paragraphs": [
+            "In an apartment building, base charging infrastructure that prepares every parking space is worthwhile. Anyone who buys an electric car later only needs to have the wallbox fitted. Load management shares the available power among all vehicles, and billing is per charging point.",
+            "With a solar system and a self-consumption community, the power from the roof also flows into the underground car park. Several cantons subsidise base charging infrastructure per parking space."
+          ],
+          "links": [
+            {
+              "label": "Charging station in an apartment building: planning and costs",
+              "href": "/blog/ladestation-mehrfamilienhaus-schweiz-planung-kosten"
+            },
+            {
+              "label": "ZEV, vZEV and LEG in apartment buildings",
+              "href": "/blog/zev-vzev-leg-mehrfamilienhaus-2026"
+            }
+          ]
+        },
+        {
+          "title": "Installation and notification",
+          "paragraphs": [
+            "A charging station must be connected by a licensed electrician and reported to the grid operator. Depending on the power, an application is also needed. We check the house connection, handle the notification and commission the station."
+          ],
+          "links": [
+            {
+              "label": "Request a consultation",
+              "href": "/contact"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about charging stations",
+        "description": "The essentials on a wallbox at home.",
+        "items": [
+          {
+            "question": "What does a wallbox cost with installation?",
+            "answer": "In Switzerland, typically CHF 1'500 to 5'000. The price depends mainly on how far the parking space is from the fuse box and whether the house connection is sufficient."
+          },
+          {
+            "question": "Is 11 kW enough or do I need 22 kW?",
+            "answer": "For everyday use at home, 11 kW is enough. It charges an electric car overnight. For 22 kW, the grid operator usually requires a permit, and many vehicles cannot charge that fast on alternating current anyway."
+          },
+          {
+            "question": "Can I charge my electric car with solar power?",
+            "answer": "Yes. A wallbox with surplus charging adjusts the charging power to the output of the solar system. Depending on the region, you save 15 to 25 Rappen per kilowatt hour compared with feeding the power into the grid."
+          },
+          {
+            "question": "Are there subsidies for charging stations?",
+            "answer": "Not at federal level. Some cantons and municipalities subsidise mainly the base charging infrastructure in apartment buildings. The programmes are time-limited and end when the budget is used up."
+          },
+          {
+            "question": "Can I install a charging station as a tenant or condominium owner?",
+            "answer": "You need the consent of your landlord or the owners' association. It is easiest when the building has shared base charging infrastructure that every parking space can be connected to."
+          },
+          {
+            "question": "What is bidirectional charging?",
+            "answer": "The electric car feeds electricity from its battery back to the house. This lets you use solar power from midday in the evening. The vehicle and the charging station must both support the function."
+          }
+        ]
+      }
     }
   },
   "calculatorV2": {
@@ -4905,6 +5357,123 @@
           "features": "Modular & expandable|Compatible with Huawei inverters (1- & 3-phase)|Smart app integration|100% depth of discharge",
           "warranty": "10-year warranty (80% usable energy)"
         }
+      }
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Battery storage for your solar system: size, costs and when it pays off",
+      "intro": "A battery shifts solar power from midday to the evening. Whether that pays off depends less on the device than on your consumption, the size of the battery and your grid operator's tariffs.",
+      "sections": [
+        {
+          "title": "What battery storage does",
+          "paragraphs": [
+            "Without a battery, a household typically uses 30 to 35 per cent of its own solar power itself, and the rest flows into the grid. With a suitably sized battery, this share rises to around 70 per cent. Power from the roof then also covers the evening, the night and the early morning.",
+            "Every kilowatt hour from the battery replaces electricity from the grid. At the same time, you lose the payment you would have received for feeding it in. The benefit of the battery is the difference between the two."
+          ]
+        },
+        {
+          "title": "What size is right?",
+          "paragraphs": [
+            "A battery that is too large does not fill up on many days and is hardly used in winter. One that is too small is empty by early evening. The starting point is your electricity consumption between sunset and sunrise, not the output of the solar system.",
+            "A heat pump and an electric car change the calculation considerably, because they increase consumption in the evening and at night. That is why we size the battery on the basis of your load profile and not by a rule of thumb."
+          ],
+          "links": [
+            {
+              "label": "Calculate your system size",
+              "href": "/blog/pv-anlage-groesse-berechnen-schweiz"
+            },
+            {
+              "label": "Start the solar calculator",
+              "href": "/solar-calculator"
+            }
+          ]
+        },
+        {
+          "title": "What does battery storage cost?",
+          "paragraphs": [
+            "The price per kilowatt hour falls as the size increases, because the inverter, cabling and commissioning have to be paid for with every battery. A battery installed together with the solar system is therefore cheaper than a later retrofit.",
+            "Prices on the Swiss market have fallen considerably of late. In our article, we work through step by step how they are made up and what a kilowatt hour from the battery costs over its service life."
+          ],
+          "links": [
+            {
+              "label": "Battery storage costs: the numbers in detail",
+              "href": "/blog/stromspeicher-kosten-schweiz-2026-lohnt-sich"
+            },
+            {
+              "label": "Cost of a solar system",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "When a battery pays off",
+          "paragraphs": [
+            "A battery pays off when a kilowatt hour from the battery costs less than the benefit it brings. At today's tariffs, this benefit is around 15 to 18 Rappen per kilowatt hour. That is the difference between the grid tariff and the feed-in payment you give up, minus the losses from charging and discharging."
+          ],
+          "bullets": [
+            "In favour: high consumption in the evening and at night, a heat pump or an electric car, a low feed-in tariff, a cantonal subsidy.",
+            "Against: a small household that is at home during the day, a high feed-in tariff, a battery chosen too large for the roof."
+          ],
+          "links": [
+            {
+              "label": "Dynamic electricity tariffs and battery storage",
+              "href": "/blog/dynamische-stromtarife-schweiz-2026"
+            }
+          ]
+        },
+        {
+          "title": "Emergency power and backup power",
+          "paragraphs": [
+            "A battery does not automatically keep supplying power during a power cut. That takes a system with a backup power function that safely disconnects the house from the grid. If this matters to you, say so before planning starts, because it affects the choice of battery and the electrical installation."
+          ]
+        },
+        {
+          "title": "Planning battery, heat pump and electric car together",
+          "paragraphs": [
+            "Heat is cheaper to store than electricity. A hot water tank or buffer tank takes up the midday surplus via the heat pump, and the electric car charges when the sun is shining. An energy management system distributes the solar power in this order, and the battery takes what is left after that."
+          ],
+          "links": [
+            {
+              "label": "Heat pumps",
+              "href": "/heat-pumps"
+            },
+            {
+              "label": "Charging stations",
+              "href": "/charging-stations"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about battery storage",
+        "description": "What homeowners want to know before buying a battery.",
+        "items": [
+          {
+            "question": "Is battery storage worthwhile for my solar system?",
+            "answer": "That depends on your consumption in the evening and at night, on your grid operator's feed-in tariff and on the price of the battery. With a heat pump or an electric car, the numbers work out much more often than in a small household without these loads. We run the calculation for your house and tell you if it does not pay off."
+          },
+          {
+            "question": "How large should the battery be?",
+            "answer": "What counts is your electricity consumption between evening and morning. A battery that fills up on most days and is empty again overnight works economically. Bigger is not better."
+          },
+          {
+            "question": "Can I add a battery later?",
+            "answer": "Yes. It is cheaper to install the battery together with the solar system, because planning, cabling and commissioning then only happen once. If you want to retrofit later, choose an inverter for your system that is prepared for it."
+          },
+          {
+            "question": "Will I have power during a power cut if I have a battery?",
+            "answer": "Only with a system that has a backup power or emergency power function. An ordinary battery switches off during a grid failure for safety reasons."
+          },
+          {
+            "question": "How long does a battery last?",
+            "answer": "The manufacturers of the batteries we install give a ten-year warranty. The usable capacity decreases slowly over the years, as with any battery."
+          },
+          {
+            "question": "Are there subsidies for battery storage?",
+            "answer": "Not at federal level. Some cantons and municipalities subsidise batteries together with a solar system. We check what applies at your address before we prepare the quote."
+          }
+        ]
       }
     }
   },
@@ -9617,6 +10186,129 @@
       "steuer": "Tax aspects",
       "sources": "Sources",
       "faq": "Frequently asked questions"
+    },
+    "guide": {
+      "eyebrow": "Guide",
+      "title": "Subsidies for solar systems in Switzerland: federal government, canton, municipality and taxes",
+      "intro": "In Switzerland, the funding for a solar system comes from several pots. The federal government pays the same everywhere, cantons and municipalities add very different amounts on top, and then there is the tax deduction. If you know the order of the applications, you do not miss out on anything.",
+      "sections": [
+        {
+          "title": "The one-off federal subsidy (Einmalvergütung)",
+          "paragraphs": [
+            "The federal government supports photovoltaic systems with a single payment, the one-off subsidy (Einmalvergütung). It is paid out by Pronovo on behalf of the federal government and is based on the output of the system. For systems on single-family homes and apartment buildings, the one-off subsidy for small systems, KLEIV for short, almost always applies.",
+            "For systems without self-consumption there is the higher HEIV, and for large systems there are the GREIV and auctions. The rates are adjusted regularly. You will find the current amounts and worked examples in our article on the one-off federal subsidy (Einmalvergütung) and on our cost page."
+          ],
+          "links": [
+            {
+              "label": "One-off federal subsidy (Einmalvergütung): KLEIV, GREIV and HEIV",
+              "href": "/blog/einmalverguetung-2026-kleiv-greiv-heiv"
+            },
+            {
+              "label": "Cost of a solar system",
+              "href": "/cost"
+            }
+          ]
+        },
+        {
+          "title": "Subsidies from canton and municipality",
+          "paragraphs": [
+            "In addition to the one-off federal subsidy (Einmalvergütung), some cantons and many municipalities subsidise solar systems, battery storage, charging infrastructure or the replacement of the heating system. The differences are large. Some municipalities pay a substantial contribution per kilowatt, others nothing at all. The programmes are often time-limited and end when the budget is used up.",
+            "On this page you will find the cantons for which we have compiled the current programmes. For all other addresses, enter your postcode at energiefranken.ch to see what applies."
+          ],
+          "links": [
+            {
+              "label": "Overview: which subsidies count",
+              "href": "/blog/foerderdschungel-solar-schweiz-2026-welche-foerderung-zaehlt"
+            },
+            {
+              "label": "Photovoltaic subsidies in Zurich",
+              "href": "/blog/photovoltaik-foerderung-zuerich-2026"
+            }
+          ]
+        },
+        {
+          "title": "Tax deduction",
+          "paragraphs": [
+            "The investment in a solar system on an existing building can be deducted from taxable income as property maintenance in almost all cantons. For new buildings, the deduction does not usually apply.",
+            "The cantons treat the one-off federal subsidy (Einmalvergütung) differently. In most, it counts as taxable income, and the whole investment is deductible. In some, it is instead subtracted from the deductible costs. On balance, the effect is similar, and it depends on your marginal tax rate."
+          ],
+          "links": [
+            {
+              "label": "Deducting a solar system from your taxes",
+              "href": "/blog/pv-anlage-steuer-abziehen-schweiz-2026-2028"
+            }
+          ]
+        },
+        {
+          "title": "Payment for electricity fed into the grid",
+          "paragraphs": [
+            "This is not a subsidy in the strict sense, but it is part of the calculation. Your grid operator pays you a feed-in payment for the electricity you feed into the grid. Since 2026, a minimum feed-in payment of 6 Rappen per kilowatt hour has applied to systems of up to 30 kW. Depending on the grid operator, an amount for the guarantee of origin is added."
+          ],
+          "links": [
+            {
+              "label": "Feed-in tariffs 2026",
+              "href": "/blog/rueckliefertarif-2026-schock-schweiz"
+            },
+            {
+              "label": "Payback period",
+              "href": "/amortization"
+            }
+          ]
+        },
+        {
+          "title": "The right order",
+          "paragraphs": [
+            "For the one-off federal subsidy (Einmalvergütung), the application is submitted after commissioning. With cantonal and municipal programmes, it is usually the other way round. The application must be submitted, or even approved, before the work begins. If you build first and ask later, you get nothing there."
+          ],
+          "bullets": [
+            "Before the quote: check the programmes of the canton and municipality at your address.",
+            "Before construction starts: submit the cantonal and municipal applications and wait for the approval where it is required.",
+            "After commissioning: apply to Pronovo for the one-off federal subsidy (Einmalvergütung).",
+            "In your tax return: claim the investment as property maintenance."
+          ],
+          "links": [
+            {
+              "label": "Request a consultation",
+              "href": "/contact"
+            },
+            {
+              "label": "Start the solar calculator",
+              "href": "/solar-calculator"
+            }
+          ]
+        }
+      ],
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about subsidies",
+        "description": "What homeowners most often want to know about subsidies.",
+        "items": [
+          {
+            "question": "What subsidies are there for solar systems in Switzerland?",
+            "answer": "The one-off federal subsidy (Einmalvergütung), which is paid out through Pronovo, contributions from the canton and the municipality depending on the location, and the tax deduction as property maintenance."
+          },
+          {
+            "question": "How much is the one-off federal subsidy (Einmalvergütung)?",
+            "answer": "It is based on the output of the system and is adjusted regularly. You will find the current rates and examples for typical system sizes on our cost page."
+          },
+          {
+            "question": "When do I have to submit the subsidy application?",
+            "answer": "You apply for the one-off federal subsidy (Einmalvergütung) after commissioning. Cantonal and municipal applications generally have to be submitted before construction starts, and some programmes require the approval first."
+          },
+          {
+            "question": "Is battery storage subsidised too?",
+            "answer": "Not by the federal government. Some cantons and municipalities subsidise batteries together with a solar system."
+          },
+          {
+            "question": "Do I have to pay tax on the subsidy?",
+            "answer": "In most cantons, yes. There, the one-off federal subsidy (Einmalvergütung) counts as income. Some cantons subtract it from the deductible costs instead. In both cases, for existing buildings you can claim the investment as property maintenance in almost all cantons."
+          },
+          {
+            "question": "Who takes care of the applications?",
+            "answer": "We check what applies at your address and prepare the applications for the federal government, canton and municipality. You sign, and the contributions are paid directly to you."
+          }
+        ]
+      }
     }
   },
   "solarAboPlanHome": {
