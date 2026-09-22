@@ -348,11 +348,12 @@ export default function CommunityScene({
           </button>
         )}
 
+      </div>
         {activeZone && (
           <aside
             className={cn(
-              'absolute z-10 max-h-[calc(100%-1.5rem)] overflow-y-auto rounded-[20px] border border-[#062E25]/10 bg-white/95 p-5 text-[#062E25] shadow-xl backdrop-blur',
-              'inset-x-3 bottom-3 md:inset-x-auto md:bottom-auto md:right-4 md:top-4 md:w-[340px]'
+              'z-10 rounded-[20px] border border-[#062E25]/10 bg-white/95 p-5 text-[#062E25] shadow-xl backdrop-blur',
+              'mt-3 md:mt-0 md:absolute md:right-4 md:top-4 md:w-[340px] md:max-h-[calc(100%-1.5rem)] md:overflow-y-auto'
             )}
             aria-live="polite"
           >
@@ -418,7 +419,6 @@ export default function CommunityScene({
             </a>
           </aside>
         )}
-      </div>
 
       <div
         className={cn(
