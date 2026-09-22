@@ -19,28 +19,37 @@ import { adminOutreachService } from '@/services/admin-outreach.service'
 import type {
   OutboundProspectListItem,
   OutboundProspectStatus,
+  OutreachSort,
 } from '@/types/admin-outreach'
 
 const QUEUE_LIMIT = 100
 
 type QueueTabKey = 'drafts' | 'followups' | 'replies' | 'calls'
 
-const QUEUE_TABS: {
+type QueueTab = {
   key: Exclude<QueueTabKey, 'calls'>
   labelKey: 'queue.tabDrafts' | 'queue.tabFollowUps' | 'queue.tabReplies'
   emptyKey: 'queue.emptyDrafts' | 'queue.emptyFollowUps' | 'queue.emptyReplies'
   statuses: OutboundProspectStatus[]
-}[] = [
-  { key: 'drafts',    labelKey: 'queue.tabDrafts',    emptyKey: 'queue.emptyDrafts',    statuses: ['DRAFTED', 'FOLLOW_UP_DUE'] },
-  { key: 'followups', labelKey: 'queue.tabFollowUps', emptyKey: 'queue.emptyFollowUps', statuses: ['FOLLOW_UP_DUE'] },
-  { key: 'replies',   labelKey: 'queue.tabReplies',   emptyKey: 'queue.emptyReplies',   statuses: ['REPLIED'] },
+  sort: OutreachSort
+  order: 'asc' | 'desc'
+}
+
+// Each tab sorts by the date that makes it a queue: drafts in the order
+// autosend takes them (referrals first, then roof yield), follow-ups by the
+// longest silence since the last touch, replies with the oldest unanswered
+// mail on top.
+const QUEUE_TABS: QueueTab[] = [
+  { key: 'drafts',    labelKey: 'queue.tabDrafts',    emptyKey: 'queue.emptyDrafts',    statuses: ['DRAFTED', 'FOLLOW_UP_DUE'], sort: 'sendOrder',   order: 'desc' },
+  { key: 'followups', labelKey: 'queue.tabFollowUps', emptyKey: 'queue.emptyFollowUps', statuses: ['FOLLOW_UP_DUE'],            sort: 'lastSentAt',  order: 'asc' },
+  { key: 'replies',   labelKey: 'queue.tabReplies',   emptyKey: 'queue.emptyReplies',   statuses: ['REPLIED'],                  sort: 'lastReplyAt', order: 'asc' },
 ]
 
-function useQueueList(key: QueueTabKey, statuses: OutboundProspectStatus[]) {
+function useQueueList(tab: QueueTab) {
   return useQuery({
-    queryKey: ['admin', 'outreach', 'queue', key],
+    queryKey: ['admin', 'outreach', 'queue', tab.key],
     queryFn: () => adminOutreachService.listProspects({
-      page: 1, limit: QUEUE_LIMIT, status: statuses, sort: 'createdAt', order: 'desc',
+      page: 1, limit: QUEUE_LIMIT, status: tab.statuses, sort: tab.sort, order: tab.order,
     }),
   })
 }
@@ -60,9 +69,9 @@ export default function AdminOutreachQueuePage() {
   const [activeTab, setActiveTab] = useState<QueueTabKey>('drafts')
   const [focusIndex, setFocusIndex] = useState(-1)
 
-  const drafts = useQueueList('drafts', QUEUE_TABS[0].statuses)
-  const followups = useQueueList('followups', QUEUE_TABS[1].statuses)
-  const replies = useQueueList('replies', QUEUE_TABS[2].statuses)
+  const drafts = useQueueList(QUEUE_TABS[0])
+  const followups = useQueueList(QUEUE_TABS[1])
+  const replies = useQueueList(QUEUE_TABS[2])
   const calls = useQuery({
     queryKey: ['admin', 'outreach', 'queue', 'calls'],
     queryFn: () => adminOutreachService.listCallQueue(),

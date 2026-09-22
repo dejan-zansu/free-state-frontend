@@ -159,7 +159,13 @@ export interface OutboundProspectDetail {
   emails: OutboundEmail[]
 }
 
-export type OutreachSort = 'createdAt' | 'roofAreaM2' | 'roofKwhYear'
+export type OutreachSort =
+  | 'createdAt'
+  | 'roofAreaM2'
+  | 'roofKwhYear'
+  | 'sendOrder'
+  | 'lastSentAt'
+  | 'lastReplyAt'
 
 export interface OutreachListQuery {
   page?: number
