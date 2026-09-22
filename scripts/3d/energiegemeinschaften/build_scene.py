@@ -569,9 +569,15 @@ def main():
     render(sc, os.path.join(img_dir, 'energiegemeinschaften.webp'), 2400, 1500)
     if preview:
         render(sc, preview, 1400, 875, fmt='PNG')
+    prefixes = {'zev': ('zev_', 'island_zev'), 'vzev': ('vzev_', 'island_vzev'), 'leg': ('leg_', 'island_leg', 'netz'), 'praxismodell': ('praxis_', 'island_praxismodell')}
+    meshes = [o for o in bpy.data.objects if o.type == 'MESH' and o.name != 'ground']
     for zid, (c, s) in ISLANDS.items():
-        aim(cam, (c[0], c[1], 5.0), max(s) * 1.45)
+        for o in meshes:
+            o.hide_render = not o.name.startswith(prefixes[zid]) or o.name.startswith(('leg_flow_to', 'leg_grid'))
+        aim(cam, (c[0], c[1], 3.0), max(s) * 1.4)
         render(sc, os.path.join(img_dir, zid + '.webp'), 1600, 1200)
+    for o in meshes:
+        o.hide_render = False
 
     size = os.path.getsize(os.path.join(glb_dir, 'energiegemeinschaften.glb'))
     print('GLB bytes:', size)
