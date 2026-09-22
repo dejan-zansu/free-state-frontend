@@ -454,7 +454,7 @@ def write_json(path):
             'labels': [{'id': lid, 'anchor': label_anchor(fn())} for lid, fn in ZONE_LABELS[zid]],
         }
     data = {
-        'overview': {'target': '0m 3m 0m', 'orbit': '-40deg 58deg 230m'},
+        'overview': {'target': '0m 3m 0m', 'orbit': '-40deg 58deg 330m'},
         'zones': zones,
     }
     with open(path, 'w') as f:

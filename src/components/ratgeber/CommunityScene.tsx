@@ -35,7 +35,6 @@ export interface SceneZoneContent {
 
 interface Props {
   zones: SceneZoneContent[]
-  poster: string
   alt: string
   overviewLabel: string
   loadingLabel: string
@@ -52,7 +51,6 @@ function prefersReducedMotion() {
 
 export default function CommunityScene({
   zones,
-  poster,
   alt,
   overviewLabel,
   loadingLabel,
@@ -127,7 +125,6 @@ export default function CommunityScene({
     const onError = () => setFailed(true)
     el.addEventListener('load', onLoad)
     el.addEventListener('error', onError)
-    if (parseZoneHash(window.location.hash)) el.dismissPoster()
     if (el.loaded) onLoad()
     return () => {
       el.removeEventListener('load', onLoad)
@@ -237,7 +234,6 @@ export default function CommunityScene({
           <model-viewer
             ref={ref as React.RefObject<HTMLElement>}
             src={SRC}
-            poster={poster}
             alt={alt}
             loading="lazy"
             reveal="auto"
@@ -321,13 +317,9 @@ export default function CommunityScene({
             <div slot="progress-bar" />
           </model-viewer>
         ) : (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={poster}
-            alt={alt}
-            className="absolute inset-0 h-full w-full object-cover"
-            draggable={false}
-          />
+          <p className="absolute inset-0 flex items-center justify-center px-6 text-center text-base text-[#062E25]/70">
+            {alt}
+          </p>
         )}
 
         {showViewer && !loaded && (

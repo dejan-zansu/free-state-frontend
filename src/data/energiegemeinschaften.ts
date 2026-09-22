@@ -116,9 +116,9 @@ const ZEV: CommunityModel = {
     title:
       'ZEV: Solarstrom im eigenen Gebäude an Mieter und Eigentümer verkaufen',
     lead: 'Der Zusammenschluss zum Eigenverbrauch (ZEV) erlaubt es, den Solarstrom vom Dach direkt an die Wohnungen und Gewerbeflächen im selben Gebäude zu liefern und intern abzurechnen. Der Netzbetreiber sieht den ZEV als einen einzigen Kunden. Das erhöht den Eigenverbrauch der Anlage und macht sie wirtschaftlicher, weil auf dem intern verbrauchten Strom keine Netzkosten anfallen.',
-    image: '/ratgeber/zev.webp',
+    image: '/ratgeber/photos/zev.webp',
     imageAlt:
-      'Drei Mehrfamilienhäuser mit Solaranlagen hinter einem gemeinsamen Netzanschluss',
+      'Mehrfamilienhaus, dessen Satteldach vollflächig mit Solarmodulen belegt ist, aufgenommen aus der Luft',
   },
   audience: [
     {
@@ -382,9 +382,9 @@ const VZEV: CommunityModel = {
     title:
       'vZEV: Solarstrom mit den Nachbargebäuden teilen, ohne eigene Zähler',
     lead: 'Der virtuelle Zusammenschluss zum Eigenverbrauch (vZEV) erweitert den Zusammenschluss zum Eigenverbrauch auf benachbarte Gebäude an derselben Verteilkabine oder Trafostation. Gemessen wird mit den Smart Metern des Netzbetreibers, die Elektroverteilung bleibt unangetastet. Auf dem intern verbrauchten Solarstrom fallen keine Netzkosten an.',
-    image: '/ratgeber/vzev.webp',
+    image: '/ratgeber/photos/vzev.webp',
     imageAlt:
-      'Drei Einfamilienhäuser auf benachbarten Parzellen, verbunden über eine gemeinsame Verteilkabine',
+      'Drei benachbarte Häuser, auf jedem Dach eine eigene Solaranlage',
   },
   audience: [
     {
@@ -664,9 +664,9 @@ const LEG: CommunityModel = {
   hero: {
     title: 'LEG: Solarstrom über das öffentliche Netz im Quartier verkaufen',
     lead: 'Die lokale Elektrizitätsgemeinschaft (LEG) ist seit 1. Januar 2026 möglich. Produzenten, Verbraucher und Speicher in derselben Gemeinde und beim selben Netzbetreiber handeln Solarstrom untereinander über das Verteilnetz. Für den intern gehandelten Strom sinkt der Netznutzungstarif um 40 Prozent. Wer bereits einen Zusammenschluss zum Eigenverbrauch betreibt, kann ihn als Ganzes einbringen.',
-    image: '/ratgeber/leg.webp',
+    image: '/ratgeber/photos/leg.webp',
     imageAlt:
-      'Industriehalle und Bürogebäude mit Solaranlagen, verbunden über das Quartiernetz mit den Nachbargebäuden',
+      'Industriehalle mit grossflächiger Solaranlage auf dem Dach, dahinter das Gewerbequartier und Felder',
   },
   audience: [
     {

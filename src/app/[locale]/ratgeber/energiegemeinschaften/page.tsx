@@ -80,7 +80,6 @@ export default async function HubPage({
       <Section title={HUB.sceneTitle} tone="sand" className="pt-0">
         <CommunityScene
           zones={zones}
-          poster={POSTER}
           alt="Isometrische Ansicht eines Quartiers mit vier Modellen, ZEV, vZEV, LEG und Praxismodell"
           overviewLabel="Übersicht"
           loadingLabel="3D-Ansicht wird geladen"

@@ -21,7 +21,12 @@ test('canton slugs are unique and lowercase', () => {
   }
 })
 
-test('initial seed has AG, LU, SG, SH', () => {
-  const codes = FOERDERUNG_CANTONS.map((c) => c.code).sort()
-  expect(codes).toEqual(['AG', 'LU', 'SG', 'SH'])
+test('canton codes are unique', () => {
+  const codes = FOERDERUNG_CANTONS.map((c) => c.code)
+  expect(new Set(codes).size).toBe(codes.length)
+})
+
+test('keeps the published cantons', () => {
+  const codes = FOERDERUNG_CANTONS.map((c) => c.code)
+  expect(codes).toEqual(expect.arrayContaining(['AG', 'LU', 'SG', 'SH', 'ZH']))
 })

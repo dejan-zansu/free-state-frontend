@@ -49,7 +49,9 @@ test('renders four experience milestones with DE content', () => {
   expect(screen.getByText(/erste Solaranlage/)).toBeInTheDocument()
   expect(screen.getByText(/Erfahrung in Solar und Energie/)).toBeInTheDocument()
   expect(screen.getByText(/gründet die Free State AG in Schaffhausen/)).toBeInTheDocument()
-  expect(screen.getByText(/19 Deutschschweizer Kantonen/)).toBeInTheDocument()
+  expect(
+    screen.getByText(deMessages.experienceTimeline.nodeTodayBody)
+  ).toBeInTheDocument()
 })
 
 test('renders EN content when locale is en', () => {
@@ -61,5 +63,7 @@ test('renders EN content when locale is en', () => {
   expect(screen.getAllByRole('listitem')).toHaveLength(4)
   expect(screen.getByText(/first solar system/i)).toBeInTheDocument()
   expect(screen.getByText(/founds Free State AG in Schaffhausen/i)).toBeInTheDocument()
-  expect(screen.getByText(/19 German-speaking Swiss cantons/i)).toBeInTheDocument()
+  expect(
+    screen.getByText(enMessages.experienceTimeline.nodeTodayBody)
+  ).toBeInTheDocument()
 })

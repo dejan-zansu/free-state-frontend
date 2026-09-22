@@ -15,7 +15,7 @@ export const PULSE_MATERIALS: Record<SceneStepId, string> = {
 }
 
 export const CAMERA_ORBIT_MIN = 'auto 20deg 80m'
-export const CAMERA_ORBIT_MAX = 'auto 70deg 320m'
+export const CAMERA_ORBIT_MAX = 'auto 70deg 360m'
 
 export const SCENE_ZONE_IDS: readonly SceneZoneId[] = [
   'zev',

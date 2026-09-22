@@ -25,12 +25,17 @@ test('renders an H1 with the canton name for each seeded canton', () => {
 
 test('suppresses FAQPage JSON-LD for placeholder cantons', () => {
   const ag = FOERDERUNG_CANTONS.find(c => c.code === 'AG')!
+  const placeholder: CantonalFoerderung = {
+    ...ag,
+    cantonalProgramSummary:
+      '[PLACEHOLDER kantonales Programm noch nicht geprüft]',
+  }
   render(
     <NextIntlClientProvider
       locale="de"
       messages={deMessages as unknown as AbstractIntlMessages}
     >
-      <CantonalFoerderungPage canton={ag} />
+      <CantonalFoerderungPage canton={placeholder} />
     </NextIntlClientProvider>
   )
   const ldScript = document.querySelector('script[type="application/ld+json"]')
@@ -39,15 +44,12 @@ test('suppresses FAQPage JSON-LD for placeholder cantons', () => {
 
 test('emits FAQPage JSON-LD with 3 questions for verified cantons', () => {
   const ag = FOERDERUNG_CANTONS.find(c => c.code === 'AG')!
-  const verified = JSON.parse(
-    JSON.stringify(ag).replace(/\[PLACEHOLDER[^\]]*\]\s*/g, '')
-  ) as CantonalFoerderung
   render(
     <NextIntlClientProvider
       locale="de"
       messages={deMessages as unknown as AbstractIntlMessages}
     >
-      <CantonalFoerderungPage canton={verified} />
+      <CantonalFoerderungPage canton={ag} />
     </NextIntlClientProvider>
   )
   const ldScript = document.querySelector('script[type="application/ld+json"]')

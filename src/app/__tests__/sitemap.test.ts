@@ -10,7 +10,27 @@ vi.mock('@/services/blog.service', () => ({
   },
 }))
 
+vi.mock('@/data/foerderung-cantons', async importOriginal => {
+  const actual =
+    await importOriginal<typeof import('@/data/foerderung-cantons')>()
+  const unverified = {
+    ...actual.FOERDERUNG_CANTONS[0],
+    code: 'BE' as const,
+    name: 'Bern',
+    nameSlug: 'bern',
+    cantonalProgramSummary: '[PLACEHOLDER Programm noch nicht geprüft]',
+  }
+  return {
+    ...actual,
+    FOERDERUNG_CANTONS: [...actual.FOERDERUNG_CANTONS, unverified],
+  }
+})
+
 import sitemap from '../sitemap'
+import {
+  FOERDERUNG_CANTONS,
+  isPlaceholderCanton,
+} from '@/data/foerderung-cantons'
 
 describe('sitemap', () => {
   it('includes the home page with all locale alternates', async () => {
@@ -76,12 +96,22 @@ describe('sitemap', () => {
     ])
   })
 
-  it('excludes cantonal Förderung pages with placeholder data', async () => {
+  it('lists verified cantonal Förderung pages and excludes placeholder ones', async () => {
     const entries = await sitemap()
     const urls = entries.map(e => e.url)
-    const placeholderSlugs = ['aargau', 'luzern', 'st-gallen', 'schaffhausen']
-    for (const slug of placeholderSlugs) {
-      expect(urls).not.toContain(`https://www.freestate.ch/foerderung/${slug}`)
+    const verified = FOERDERUNG_CANTONS.filter(c => !isPlaceholderCanton(c))
+    const placeholders = FOERDERUNG_CANTONS.filter(isPlaceholderCanton)
+    expect(verified.length).toBeGreaterThan(0)
+    expect(placeholders.length).toBeGreaterThan(0)
+    for (const c of verified) {
+      expect(urls).toContain(
+        `https://www.freestate.ch/foerderung/${c.nameSlug}`
+      )
+    }
+    for (const c of placeholders) {
+      expect(urls).not.toContain(
+        `https://www.freestate.ch/foerderung/${c.nameSlug}`
+      )
     }
   })
 
