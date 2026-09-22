@@ -40,6 +40,10 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
           label: t('hero.nav.solarAboPublic'),
           href: '/commercial/solar-free/public-buildings' as const,
         },
+        {
+          label: t('hero.nav.communities'),
+          href: '/ratgeber/energiegemeinschaften' as const,
+        },
       ]
     : [
         {
@@ -107,10 +111,6 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
           href: '/solar-systems' as const,
           icon: Sun,
           subLinks: [
-            {
-              label: t('hero.nav.productCatalog'),
-              href: '/products' as const,
-            },
             {
               label: t('hero.nav.howItWorks'),
               href: '/how-it-works' as const,

@@ -36,6 +36,8 @@ type ModelViewerAttributes = React.DetailedHTMLProps<
   'skybox-image'?: string
   ar?: boolean | ''
   'ar-modes'?: string
+  'animation-name'?: string
+  autoplay?: boolean | ''
 }
 
 declare module 'react' {
@@ -47,17 +49,44 @@ declare module 'react' {
 }
 
 declare global {
+  interface ModelViewerPbr {
+    baseColorFactor: [number, number, number, number]
+    setBaseColorFactor(rgba: [number, number, number, number] | string): void
+  }
+  interface ModelViewerMaterial {
+    name: string
+    pbrMetallicRoughness: ModelViewerPbr
+    setAlphaMode(alphaMode: 'OPAQUE' | 'MASK' | 'BLEND'): void
+  }
+  interface ModelViewerModel {
+    materials: ReadonlyArray<ModelViewerMaterial>
+    getMaterialByName(name: string): ModelViewerMaterial | null
+  }
   interface ModelViewerElement extends HTMLElement {
     src: string | null
     poster: string | null
     cameraOrbit: string
+    cameraTarget: string
     fieldOfView: string
+    minCameraOrbit: string
+    maxCameraOrbit: string
+    interpolationDecay: number
+    animationName: string | undefined
+    availableAnimations: string[]
+    autoplay: boolean
     loaded: boolean
+    model: ModelViewerModel | null
+    play(options?: { repetitions?: number; pingpong?: boolean }): void
+    pause(): void
     dismissPoster(): void
     resetTurntableRotation(theta?: number): void
     jumpCameraToGoal(): void
     getCameraOrbit(): { theta: number; phi: number; radius: number }
-    toBlob(options?: { idealAspect?: boolean; mimeType?: string; qualityArgument?: number }): Promise<Blob>
+    toBlob(options?: {
+      idealAspect?: boolean
+      mimeType?: string
+      qualityArgument?: number
+    }): Promise<Blob>
   }
 }
 

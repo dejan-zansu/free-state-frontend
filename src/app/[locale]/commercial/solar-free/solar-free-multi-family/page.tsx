@@ -10,6 +10,8 @@ import {
   SolarAboPricing,
   SolarAboRightForYou,
 } from '@/components/solar-abo'
+import { Link } from '@/i18n/navigation'
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
@@ -79,6 +81,25 @@ const SolarAboMultiFamilyPage = () => {
         items={items}
         isCommercial
       />
+      <section className="bg-[#EAEDDF] px-4 py-14 text-[#062E25] sm:px-6">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-4 rounded-[24px] border border-[#062E25]/10 bg-white p-6 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 className="text-2xl font-semibold">
+              {t('communitiesLink.title')}
+            </h2>
+            <p className="mt-2 max-w-2xl text-base text-[#062E25]/80">
+              {t('communitiesLink.text')}
+            </p>
+          </div>
+          <Link
+            href="/ratgeber/energiegemeinschaften"
+            className="inline-flex shrink-0 items-center gap-2 rounded-full bg-[#062E25] px-5 py-2.5 text-base font-medium text-white hover:bg-[#062E25]/90"
+          >
+            {t('communitiesLink.cta')}
+            <ArrowUpRight className="h-4 w-4" aria-hidden />
+          </Link>
+        </div>
+      </section>
       <HowPV
         translationNamespace="solarAboMulti"
         row1Image="/images/solar-free/multi-family-how-pv-1-5c41b2.webp"

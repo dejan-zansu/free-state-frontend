@@ -377,7 +377,8 @@
       "multiFamily": "Mehrfamilienhaus (ZEV)",
       "businesses": "Unternehmen",
       "agriculture": "Landwirtschaft",
-      "publicBuildings": "Öffentliche Gebäude"
+      "publicBuildings": "Öffentliche Gebäude",
+      "communities": "ZEV, vZEV und LEG erklärt"
     },
     "products": {
       "title": "Produkte",
@@ -732,7 +733,8 @@
         "promoTitle": "Intelligente Solarlösungen für Privathaushalte",
         "promoTitleCommercial": "Intelligente Solarlösungen für Unternehmen",
         "promoCta": "Jetzt entdecken",
-        "productCatalog": "Produkte in 3D"
+        "productCatalog": "Produkte in 3D",
+        "communities": "ZEV, vZEV und LEG erklärt"
       }
     },
     "stats": {
@@ -1389,7 +1391,7 @@
           "subtitle": "Optimierte Umwandlung"
         },
         "zevBillingPlatform": {
-          "title": "ZEV-Abrechnungsplattform",
+          "title": "ZEV-Abrechnung und Koordination",
           "subtitle": "Eigenverbrauch"
         },
         "monitoringApp": {
@@ -1482,6 +1484,11 @@
       "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
       "ctaText": "Solarrechner starten",
       "ctaLink": "/commercial/calculator"
+    },
+    "communitiesLink": {
+      "title": "ZEV, vZEV oder LEG?",
+      "text": "Welches Modell zu Ihrem Mehrfamilienhaus passt, wer misst und wer abrechnet, erklären wir im Ratgeber.",
+      "cta": "Zum Ratgeber Energiegemeinschaften"
     }
   },
   "solarAboBusiness": {

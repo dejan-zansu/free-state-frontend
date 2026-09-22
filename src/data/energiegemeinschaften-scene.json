@@ -1,0 +1,140 @@
+{
+  "overview": {
+    "target": "0m 3m 0m",
+    "orbit": "-40deg 58deg 230m"
+  },
+  "zones": {
+    "zev": {
+      "anchor": [
+        -38.0,
+        24.0,
+        -26.0
+      ],
+      "target": "-38.0m 4.0m -26.0m",
+      "orbit": "-40deg 58deg 96.6m",
+      "labels": [
+        {
+          "id": "hak",
+          "anchor": [
+            -19.0,
+            5.1,
+            -12.0
+          ]
+        },
+        {
+          "id": "pv",
+          "anchor": [
+            -33.0,
+            20.5,
+            -36.0
+          ]
+        }
+      ]
+    },
+    "vzev": {
+      "anchor": [
+        -40.0,
+        14.0,
+        26.0
+      ],
+      "target": "-40.0m 4.0m 26.0m",
+      "orbit": "-40deg 58deg 100.8m",
+      "labels": [
+        {
+          "id": "verteilkabine",
+          "anchor": [
+            -18.0,
+            4.9,
+            40.0
+          ]
+        },
+        {
+          "id": "meter",
+          "anchor": [
+            -54.0,
+            5.75,
+            23.0
+          ]
+        },
+        {
+          "id": "pv",
+          "anchor": [
+            -54.0,
+            12.0,
+            18.0
+          ]
+        }
+      ]
+    },
+    "leg": {
+      "anchor": [
+        34.0,
+        18.0,
+        -20.0
+      ],
+      "target": "34.0m 4.0m -20.0m",
+      "orbit": "-40deg 58deg 126.0m",
+      "labels": [
+        {
+          "id": "trafo",
+          "anchor": [
+            12.0,
+            6.1,
+            -44.0
+          ]
+        },
+        {
+          "id": "meter",
+          "anchor": [
+            52.0,
+            8.5,
+            -4.0
+          ]
+        },
+        {
+          "id": "pv",
+          "anchor": [
+            24.0,
+            11.5,
+            -26.0
+          ]
+        },
+        {
+          "id": "netz",
+          "anchor": [
+            62.0,
+            6.5,
+            -44.0
+          ]
+        }
+      ]
+    },
+    "praxismodell": {
+      "anchor": [
+        32.0,
+        21.0,
+        30.0
+      ],
+      "target": "32.0m 4.0m 30.0m",
+      "orbit": "-40deg 58deg 92.4m",
+      "labels": [
+        {
+          "id": "vnbmeter",
+          "anchor": [
+            22.0,
+            5.1,
+            20.0
+          ]
+        },
+        {
+          "id": "pv",
+          "anchor": [
+            34.0,
+            17.5,
+            30.0
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -202,3 +202,17 @@
     background-clip: text;
   }
 }
+
+@keyframes flow-dash {
+  to {
+    stroke-dashoffset: -8.8;
+  }
+}
+.flow-edge {
+  animation: flow-dash 1.2s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-edge {
+    animation: none;
+  }
+}

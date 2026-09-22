@@ -62,7 +62,9 @@ describe('sitemap', () => {
 
   it('includes the foerderung hub with hreflang alternates', async () => {
     const entries = await sitemap()
-    const hub = entries.find(e => e.url === 'https://www.freestate.ch/foerderung')
+    const hub = entries.find(
+      e => e.url === 'https://www.freestate.ch/foerderung'
+    )
     expect(hub).toBeDefined()
     expect(hub?.alternates?.languages).toBeDefined()
     expect(Object.keys(hub!.alternates!.languages!).sort()).toEqual([
@@ -81,5 +83,27 @@ describe('sitemap', () => {
     for (const slug of placeholderSlugs) {
       expect(urls).not.toContain(`https://www.freestate.ch/foerderung/${slug}`)
     }
+  })
+
+  it('lists the German-only Ratgeber pages with de and x-default alternates only', async () => {
+    const entries = await sitemap()
+    const urls = entries.map(e => e.url)
+    for (const path of [
+      '/ratgeber',
+      '/ratgeber/energiegemeinschaften',
+      '/ratgeber/zev',
+      '/ratgeber/vzev',
+      '/ratgeber/leg',
+    ]) {
+      expect(urls).toContain(`https://www.freestate.ch${path}`)
+    }
+    const zev = entries.find(
+      e => e.url === 'https://www.freestate.ch/ratgeber/zev'
+    )
+    expect(Object.keys(zev!.alternates!.languages!).sort()).toEqual([
+      'de',
+      'x-default',
+    ])
+    expect(urls.filter(u => u.includes('/ratgeber/zev'))).toHaveLength(1)
   })
 })

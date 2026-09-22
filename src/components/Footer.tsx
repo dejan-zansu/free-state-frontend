@@ -69,16 +69,16 @@ const Footer = () => {
       label: t('solarAbo.publicBuildings'),
       href: '/commercial/solar-free/public-buildings' as const,
     },
+    {
+      label: t('solarAbo.communities'),
+      href: '/ratgeber/energiegemeinschaften' as const,
+    },
   ]
 
   const productLinks = [
     {
       label: t('products.solarSystems'),
       href: '/solar-systems' as const,
-    },
-    {
-      label: t('products.catalog3d'),
-      href: '/products' as const,
     },
     {
       label: t('products.batteryStorage'),
@@ -178,7 +178,12 @@ const Footer = () => {
     extra?: ReactNode
   }) => (
     <div>
-      <h3 className={cn('font-semibold mb-4 text-sm', titleClassName || 'text-solar')}>
+      <h3
+        className={cn(
+          'font-semibold mb-4 text-sm',
+          titleClassName || 'text-solar'
+        )}
+      >
         {title}
       </h3>
       <ul className="space-y-3">
@@ -273,7 +278,9 @@ const Footer = () => {
                     onClick={() => setConsent(!consent)}
                     className={cn(
                       'w-3.5 h-3.5 mt-0.5 rounded-[3px] border shrink-0 flex items-center justify-center transition-colors cursor-pointer',
-                      consent ? 'border-solar bg-solar' : 'border-white/40 bg-transparent'
+                      consent
+                        ? 'border-solar bg-solar'
+                        : 'border-white/40 bg-transparent'
                     )}
                   >
                     {consent && (
@@ -307,7 +314,9 @@ const Footer = () => {
                 size="md"
                 className="h-9 text-sm"
                 onClick={handleSubscribe}
-                disabled={subscribeStatus === 'loading' || !email.trim() || !consent}
+                disabled={
+                  subscribeStatus === 'loading' || !email.trim() || !consent
+                }
               >
                 {subscribeStatus === 'success'
                   ? t('subscribed')

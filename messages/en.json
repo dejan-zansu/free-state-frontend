@@ -377,7 +377,8 @@
       "multiFamily": "Multi-family building (ZEV)",
       "businesses": "Businesses",
       "agriculture": "Agriculture",
-      "publicBuildings": "Public buildings"
+      "publicBuildings": "Public buildings",
+      "communities": "ZEV, vZEV and LEG explained"
     },
     "products": {
       "title": "Products",
@@ -683,7 +684,8 @@
         "promoTitle": "Smart solar solutions for private households",
         "promoTitleCommercial": "Smart solar solutions for businesses",
         "promoCta": "Discover now",
-        "productCatalog": "Products in 3D"
+        "productCatalog": "Products in 3D",
+        "communities": "ZEV, vZEV and LEG explained"
       }
     },
     "stats": {
@@ -1340,7 +1342,7 @@
           "subtitle": "Optimized conversion"
         },
         "zevBillingPlatform": {
-          "title": "ZEV billing platform",
+          "title": "ZEV billing and coordination",
           "subtitle": "Self-consumption"
         },
         "monitoringApp": {
@@ -1433,6 +1435,11 @@
       "heading": "See if SolarFree Multi-Family works for your roof",
       "ctaText": "Start the Solar Calculator",
       "ctaLink": "/commercial/calculator"
+    },
+    "communitiesLink": {
+      "title": "ZEV, vZEV or LEG?",
+      "text": "Which model fits your building, who meters and who bills, explained in our guide (in German).",
+      "cta": "Read the guide"
     }
   },
   "solarAboBusiness": {

@@ -81,6 +81,24 @@ export const routing = defineRouting({
       fr: '/foerderung/[kanton]',
       it: '/foerderung/[kanton]',
     },
+    '/ratgeber': {
+      en: '/ratgeber',
+      de: '/ratgeber',
+      fr: '/ratgeber',
+      it: '/ratgeber',
+    },
+    '/ratgeber/energiegemeinschaften': {
+      en: '/ratgeber/energiegemeinschaften',
+      de: '/ratgeber/energiegemeinschaften',
+      fr: '/ratgeber/energiegemeinschaften',
+      it: '/ratgeber/energiegemeinschaften',
+    },
+    '/ratgeber/[model]': {
+      en: '/ratgeber/[model]',
+      de: '/ratgeber/[model]',
+      fr: '/ratgeber/[model]',
+      it: '/ratgeber/[model]',
+    },
     '/battery-storage': {
       en: '/battery-storage',
       de: '/batteriespeicher',

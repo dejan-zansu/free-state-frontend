@@ -15,6 +15,6 @@ export const config = {
      * - r2 (same-origin proxy to the public R2 bucket for 3D model files, see next.config.ts)
      * - public files (images, etc.)
      */
-    '/((?!api|r2/|_next/static|_next/image|favicon.ico|sw.js|manifest.webmanifest|sitemap.xml|robots.txt|llms.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4|webm|ogg|xml|txt)$).*)',
+    '/((?!api|r2/|_next/static|_next/image|favicon.ico|sw.js|manifest.webmanifest|sitemap.xml|robots.txt|llms.txt|.*\\.(?:svg|png|jpg|jpeg|gif|webp|mp4|webm|ogg|xml|txt|glb|pdf)$).*)',
   ],
 }

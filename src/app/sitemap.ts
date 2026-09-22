@@ -9,21 +9,26 @@ import {
   FOERDERUNG_CANTONS,
   isPlaceholderCanton,
 } from '@/data/foerderung-cantons'
+import { COMMUNITY_MODEL_SLUGS } from '@/data/energiegemeinschaften'
 
 // Bump a page's constant when its content actually changes. A stale lastmod
 // tells Google there is nothing new to fetch.
 const REFRESH_2026_09_21 = new Date('2026-09-21')
+const REFRESH_2026_09_22 = new Date('2026-09-22')
 const REFRESH_2026_09_07 = new Date('2026-09-07')
 const REFRESH_2026_05_16 = new Date('2026-05-16')
 const REFRESH_2026_04_12 = new Date('2026-04-12')
 const REFRESH_2026_02_01 = new Date('2026-02-01')
 const REFRESH_2025_11_01 = new Date('2025-11-01')
 
+const DE_ONLY: readonly SiteLocale[] = ['de']
+
 type StaticEntry = {
   pathname: string
   lastModified: Date
   changeFrequency?: MetadataRoute.Sitemap[number]['changeFrequency']
   priority?: number
+  availableLocales?: readonly SiteLocale[]
 }
 
 const STATIC_ENTRIES: StaticEntry[] = [
@@ -175,6 +180,25 @@ const STATIC_ENTRIES: StaticEntry[] = [
     changeFrequency: 'weekly',
     priority: 0.8,
   },
+  {
+    pathname: '/ratgeber',
+    lastModified: REFRESH_2026_09_22,
+    priority: 0.7,
+    availableLocales: DE_ONLY,
+  },
+  {
+    pathname: '/ratgeber/energiegemeinschaften',
+    lastModified: REFRESH_2026_09_22,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+    availableLocales: DE_ONLY,
+  },
+  ...COMMUNITY_MODEL_SLUGS.map(slug => ({
+    pathname: `/ratgeber/${slug}`,
+    lastModified: REFRESH_2026_09_22,
+    priority: 0.8,
+    availableLocales: DE_ONLY,
+  })),
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -191,7 +215,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: entry.changeFrequency ?? 'monthly',
       priority: entry.priority ?? 0.7,
       alternates: {
-        languages: buildHreflangAlternates(entry.pathname),
+        languages: buildHreflangAlternates(
+          entry.pathname,
+          entry.availableLocales
+        ),
       },
     })
   }
@@ -263,10 +290,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 async function fetchPackageSlugs(): Promise<string[]> {
   try {
     const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
-    const res = await fetch(`${base}/api/equipment/packages?lang=de`, { next: { revalidate: 3600 } })
+    const res = await fetch(`${base}/api/equipment/packages?lang=de`, {
+      next: { revalidate: 3600 },
+    })
     if (!res.ok) return []
     const json = (await res.json()) as { data?: { name: string }[] }
-    return (json.data ?? []).map((p) => packageNameToSlug(p.name))
+    return (json.data ?? []).map(p => packageNameToSlug(p.name))
   } catch {
     return []
   }

@@ -6,16 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 import { toSameOriginAssetUrl } from '@/lib/products/asset-url'
-
-let registration: Promise<unknown> | null = null
-
-/** Loads @google/model-viewer once, client side only. */
-function registerModelViewer(): Promise<unknown> {
-  if (typeof window === 'undefined') return Promise.resolve()
-  if (window.customElements?.get('model-viewer')) return Promise.resolve()
-  if (!registration) registration = import('@google/model-viewer')
-  return registration
-}
+import { registerModelViewer } from '@/lib/model-viewer'
 
 export interface ModelViewerProps {
   src: string
@@ -155,7 +146,13 @@ export default function ModelViewer({
           tone-mapping="neutral"
           environment-image="neutral"
           loading="eager"
-          {...(autoRotate ? { 'auto-rotate': '', 'auto-rotate-delay': 2500, 'rotation-per-second': '9deg' } : {})}
+          {...(autoRotate
+            ? {
+                'auto-rotate': '',
+                'auto-rotate-delay': 2500,
+                'rotation-per-second': '9deg',
+              }
+            : {})}
           className="block h-full w-full"
           style={
             {
@@ -175,7 +172,12 @@ export default function ModelViewer({
         <div className="absolute inset-0 flex items-center justify-center p-6">
           {posterSrc ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={posterSrc} alt={alt} className="max-h-full max-w-full object-contain" draggable={false} />
+            <img
+              src={posterSrc}
+              alt={alt}
+              className="max-h-full max-w-full object-contain"
+              draggable={false}
+            />
           ) : null}
         </div>
       )}
@@ -195,7 +197,12 @@ export default function ModelViewer({
 
       {revealed && ready && !loaded && !failed && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-2 p-4">
-          <div className={cn('h-1 overflow-hidden rounded-full bg-pine/10', controls ? 'w-40' : 'w-24')}>
+          <div
+            className={cn(
+              'h-1 overflow-hidden rounded-full bg-pine/10',
+              controls ? 'w-40' : 'w-24'
+            )}
+          >
             <div
               className="h-full rounded-full bg-teal-deep transition-[width] duration-200"
               style={{ width: `${Math.max(8, Math.round(progress * 100))}%` }}

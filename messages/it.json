@@ -377,7 +377,8 @@
       "multiFamily": "Condominio (RCP)",
       "businesses": "Aziende",
       "agriculture": "Agricoltura",
-      "publicBuildings": "Edifici pubblici"
+      "publicBuildings": "Edifici pubblici",
+      "communities": "RCP, RCPv e CLE spiegati"
     },
     "products": {
       "title": "Prodotti",
@@ -683,7 +684,8 @@
         "promoTitle": "Soluzioni solari intelligenti per le abitazioni private",
         "promoTitleCommercial": "Soluzioni solari intelligenti per le aziende",
         "promoCta": "Scopri ora",
-        "productCatalog": "Prodotti in 3D"
+        "productCatalog": "Prodotti in 3D",
+        "communities": "RCP, RCPv e CLE spiegati"
       }
     },
     "stats": {
@@ -1340,7 +1342,7 @@
           "subtitle": "Conversione ottimizzata"
         },
         "zevBillingPlatform": {
-          "title": "Piattaforma di fatturazione RCP",
+          "title": "Fatturazione e coordinamento RCP",
           "subtitle": "Autoconsumo"
         },
         "monitoringApp": {
@@ -1433,6 +1435,11 @@
       "heading": "Scopri se SolarFree Multifamiliare è adatto al tuo tetto",
       "ctaText": "Avvia il calcolatore solare",
       "ctaLink": "/commercial/calculator"
+    },
+    "communitiesLink": {
+      "title": "RCP, RCPv o CLE?",
+      "text": "Quale modello si adatta al vostro condominio, chi misura e chi fattura, spiegato nella nostra guida (in tedesco).",
+      "cta": "Leggi la guida"
     }
   },
   "solarAboBusiness": {

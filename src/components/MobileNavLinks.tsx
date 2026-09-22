@@ -34,6 +34,10 @@ const MobileNavLinks = ({
           label: t('hero.nav.solarAboPublic'),
           href: '/commercial/solar-free/public-buildings' as const,
         },
+        {
+          label: t('hero.nav.communities'),
+          href: '/ratgeber/energiegemeinschaften' as const,
+        },
       ]
     : [
         {
@@ -98,10 +102,6 @@ const MobileNavLinks = ({
           label: tFooter('products.solarSystems'),
           href: '/solar-systems' as const,
           subLinks: [
-            {
-              label: t('hero.nav.productCatalog'),
-              href: '/products' as const,
-            },
             {
               label: t('hero.nav.howItWorks'),
               href: '/how-it-works' as const,
@@ -210,9 +210,7 @@ const MobileNavLinks = ({
               : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
           )}
         >
-          {isCommercial
-            ? t('hero.nav.solarAbo')
-            : t('hero.nav.plansPrices')}
+          {isCommercial ? t('hero.nav.solarAbo') : t('hero.nav.plansPrices')}
           <ChevronDown
             className={cn(
               'w-4 h-4 transition-transform duration-300',
