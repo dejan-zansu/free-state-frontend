@@ -78,6 +78,17 @@ const v2LabelBase = 'text-base text-[#062E25] tracking-tight'
 
 const V2_EMAIL_PATTERN = /^\S+@\S+\.\S+$/
 
+function emitContactSubmitBlocked(
+  formErrors: Record<string, unknown>,
+  extraMeta: Record<string, unknown> = {}
+) {
+  const fields = Object.keys(formErrors)
+  if (fields.length === 0) return
+  trackFunnelEvent('contact_submit_blocked', {
+    meta: { fields, count: fields.length, ...extraMeta },
+  })
+}
+
 export default function Step6ContactDetails() {
   if (calculatorFlowV2Enabled) {
     return <ContactScreenV2 />
@@ -254,7 +265,9 @@ function ContactScreenV1() {
             )}
           >
             <form
-              onSubmit={handleSubmit(onSubmit)}
+              onSubmit={handleSubmit(onSubmit, formErrors =>
+                emitContactSubmitBlocked(formErrors)
+              )}
               noValidate
               className={cn(
                 'rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-7 sm:p-8',
@@ -563,7 +576,9 @@ function ContactScreenV1() {
           </Button>
           <Button
             className="w-fit bg-[#062E25] text-white hover:bg-[#062E25]/90"
-            onClick={handleSubmit(onSubmit)}
+            onClick={handleSubmit(onSubmit, formErrors =>
+              emitContactSubmitBlocked(formErrors)
+            )}
             disabled={isSubmitting}
           >
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -1089,7 +1104,9 @@ function ContactScreenV2() {
         )}
 
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit, formErrors =>
+            emitContactSubmitBlocked(formErrors, flowVersionMeta)
+          )}
           noValidate
           className="mx-auto mt-8 flex w-full max-w-md flex-col gap-5 rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 text-left sm:p-8"
         >
