@@ -9,6 +9,7 @@ import { ChevronLeft, ExternalLink, Mail, MapPin, Sun } from 'lucide-react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { useGateReasonLabel } from '../prospect-table'
 import { PvVerdictBadge } from '@/components/admin/PvVerdictBadge'
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { Button } from '@/components/ui/button'
@@ -455,6 +456,7 @@ function DraftEditor({ prospect, draft }: { prospect: OutboundProspectDetail; dr
   const t = useTranslations('admin.outreach.detail')
   const tc = useTranslations('admin.common')
   const te = useTranslations('admin.outreach.sendErrors')
+  const gateReason = useGateReasonLabel()
   const queryClient = useQueryClient()
 
   const [subject, setSubject] = useState(draft.subject)
@@ -567,7 +569,15 @@ function DraftEditor({ prospect, draft }: { prospect: OutboundProspectDetail; dr
         <Textarea rows={14} value={body} onChange={(e) => setBody(e.target.value)} className="mt-1 text-base bg-white" />
       </div>
 
-      <p className="text-[#062E25]/60">{t('draftHint')}</p>
+      {prospect.status === 'REPLIED' || prospect.status === 'ANSWERED' ? (
+        <p className="text-[#062E25]/60">{t('draftHintReply')}</p>
+      ) : prospect.draftGate ? (
+        <p className="text-red-700">
+          {t('draftHintGated', { reason: gateReason(prospect.draftGate.reason), detail: prospect.draftGate.detail })}
+        </p>
+      ) : (
+        <p className="text-[#062E25]/60">{t('draftHintCold')}</p>
+      )}
 
       {saveMutation.isError && <p className="text-red-600">{t('saveFailed')}</p>}
 
@@ -762,7 +772,7 @@ function OutboundEmailRow({ email }: { email: OutboundEmail }) {
     <li className="p-3 rounded-lg bg-[#062E25]/5 ml-6 lg:ml-12">
       <div className="flex items-center justify-between gap-2">
         <p className="font-medium">{email.subject}</p>
-        <StatusBadge status={email.status} />
+        <StatusBadge status={email.status} namespace="admin.outreach.statusLabels" />
       </div>
       <p className="text-[#062E25]/75">
         {t('emailOutbound', { step: email.sequenceStep })} · {new Date(email.sentAt ?? email.createdAt).toLocaleString('de-CH')}
@@ -1405,7 +1415,7 @@ export default function AdminOutreachDetailPage() {
           </Link>
           <div className="flex flex-wrap items-center gap-3 mt-1">
             <h1 className="text-2xl font-bold text-[#062E25] truncate">{prospect.companyName}</h1>
-            <StatusBadge status={prospect.status} />
+            <StatusBadge status={prospect.status} namespace="admin.outreach.statusLabels" />
             <span className="font-mono text-[#062E25]/50">{prospect.reference}</span>
           </div>
         </div>

@@ -134,7 +134,7 @@ export default function AdminOutreachStatsPage() {
                 <TableBody>
                   {statusRows.map((r) => (
                     <TableRow key={r.status}>
-                      <TableCell><StatusBadge status={r.status} /></TableCell>
+                      <TableCell><StatusBadge status={r.status} namespace="admin.outreach.statusLabels" /></TableCell>
                       <TableCell className="text-right tabular-nums">{r.count.toLocaleString('de-CH')}</TableCell>
                     </TableRow>
                   ))}
@@ -227,7 +227,7 @@ export default function AdminOutreachStatsPage() {
           {stats.lastRuns.map((run) => (
             <span key={run.connector} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#062E25]/5">
               <span className="font-mono">{run.connector}</span>
-              <StatusBadge status={run.status} />
+              <StatusBadge status={run.status} namespace="admin.outreach.statusLabels" />
               {run.itemsUpserted != null && <span className="tabular-nums">{run.itemsUpserted}</span>}
               <span className="text-[#062E25]/75">
                 {run.finishedAt ? new Date(run.finishedAt).toLocaleString('de-CH') : '-'}

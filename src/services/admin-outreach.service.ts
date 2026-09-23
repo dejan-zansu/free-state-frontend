@@ -13,6 +13,7 @@ import type {
   OutboundManualReplyInput,
   OutboundPromoteInput,
   OutboundPromoteResult,
+  OutboundQueueStatus,
   OutboundSendResult,
   OutboundProspectCreateInput,
   OutboundProspectDetail,
@@ -48,6 +49,11 @@ class AdminOutreachService {
 
   async getRuns(): Promise<OutboundRunRow[]> {
     const response = await api.get<{ success: boolean; data: OutboundRunRow[] }>('/admin/outreach/runs')
+    return response.data.data
+  }
+
+  async getQueueStatus(): Promise<OutboundQueueStatus> {
+    const response = await api.get<{ success: boolean; data: OutboundQueueStatus }>('/admin/outreach/queue-status')
     return response.data.data
   }
 

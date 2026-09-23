@@ -62,6 +62,7 @@ const STATUS_COLORS: Record<string, string> = {
   DRAFTED: 'bg-amber-100 text-amber-700',
   FOLLOW_UP_DUE: 'bg-orange-100 text-orange-700',
   REPLIED: 'bg-purple-100 text-purple-700',
+  ANSWERED: 'bg-sky-100 text-sky-700',
   SNOOZED: 'bg-gray-100 text-gray-700',
   CONVERTED: 'bg-green-100 text-green-700',
   NOT_INTERESTED: 'bg-red-100 text-red-700',
@@ -72,10 +73,14 @@ const STATUS_COLORS: Record<string, string> = {
 interface StatusBadgeProps {
   status: string
   className?: string
+  // Label namespace. The outreach cockpit keeps its own labels under
+  // admin.outreach.statusLabels so its wording can differ from the shared
+  // lead and contract labels.
+  namespace?: string
 }
 
-export function StatusBadge({ status, className }: StatusBadgeProps) {
-  const t = useTranslations('admin.statusLabels')
+export function StatusBadge({ status, className, namespace = 'admin.statusLabels' }: StatusBadgeProps) {
+  const t = useTranslations(namespace)
   const colorClass = STATUS_COLORS[status] || 'bg-gray-100 text-gray-700'
   const label = t.has(status) ? t(status) : status.replace(/_/g, ' ')
 

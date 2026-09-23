@@ -24,7 +24,9 @@ const REPLY_TONE: Record<OutboundReplyClassification, string> = {
 }
 
 type NextStep =
-  | { key: 'draftReview'; tone: 'act' }
+  | { key: 'replyDraftReview'; tone: 'act' }
+  | { key: 'draftGated'; tone: 'wait'; reason: string }
+  | { key: 'draftQueued'; tone: 'wait' }
   | { key: 'readReply'; tone: 'act' }
   | { key: 'awaitContact'; tone: 'wait' }
   | { key: 'awaitDraft'; tone: 'wait' }
@@ -33,16 +35,25 @@ type NextStep =
   | { key: 'none'; tone: 'none' }
 
 export function deriveNextStep(p: OutboundProspectListItem): NextStep {
-  if (p.emailSummary.hasUnsentDraft) return { key: 'draftReview', tone: 'act' }
+  if (p.status === 'REPLIED' && p.emailSummary.hasUnsentDraft)
+    return { key: 'replyDraftReview', tone: 'act' }
+  if (p.emailSummary.hasUnsentDraft && p.draftGate)
+    return { key: 'draftGated', tone: 'wait', reason: p.draftGate.reason }
+  if (p.emailSummary.hasUnsentDraft) return { key: 'draftQueued', tone: 'wait' }
   if (p.status === 'REPLIED') return { key: 'readReply', tone: 'act' }
   if (p.status === 'SNOOZED' && p.nextActionAt)
     return { key: 'snoozedUntil', tone: 'wait', date: p.nextActionAt }
-  if (p.status === 'CONTACTED' || p.status === 'FOLLOW_UP_DUE')
+  if (p.status === 'CONTACTED' || p.status === 'FOLLOW_UP_DUE' || p.status === 'ANSWERED')
     return { key: 'awaitReply', tone: 'wait' }
   if (p.status === 'CONTACT_FOUND') return { key: 'awaitDraft', tone: 'wait' }
   if (p.status === 'ROOF_QUALIFIED' || p.status === 'DISCOVERED')
     return { key: 'awaitContact', tone: 'wait' }
   return { key: 'none', tone: 'none' }
+}
+
+export function useGateReasonLabel() {
+  const t = useTranslations('admin.outreach.draftGates')
+  return (reason: string) => (t.has(reason) ? t(reason) : reason)
 }
 
 export function ProspectTableHeadCells() {
@@ -94,10 +105,20 @@ function HistoryCell({ p }: { p: OutboundProspectListItem }) {
         </span>
       )}
       {s.hasUnsentDraft && (
-        <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-amber-800 whitespace-nowrap">
-          <Mail className="h-3.5 w-3.5" />
-          {t('draftReady')}
-        </span>
+        p.draftGate ? (
+          <span
+            className="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2 py-0.5 text-gray-600 whitespace-nowrap"
+            title={p.draftGate.detail}
+          >
+            <Mail className="h-3.5 w-3.5" />
+            {t('draftGated')}
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 text-amber-800 whitespace-nowrap">
+            <Mail className="h-3.5 w-3.5" />
+            {p.status === 'REPLIED' ? t('replyDraftReady') : t('draftReady')}
+          </span>
+        )
       )}
       {s.lastReplyClassification && (
         <span
@@ -116,6 +137,7 @@ function HistoryCell({ p }: { p: OutboundProspectListItem }) {
 
 export function ProspectRowCells({ p }: { p: OutboundProspectListItem }) {
   const t = useTranslations('admin.outreach.table')
+  const gateReason = useGateReasonLabel()
   const next = deriveNextStep(p)
   const place = [p.addressPostalCode, p.addressCity].filter(Boolean).join(' ')
 
@@ -169,7 +191,7 @@ export function ProspectRowCells({ p }: { p: OutboundProspectListItem }) {
         )}
       </TableCell>
       <TableCell className="align-top">
-        <StatusBadge status={p.status} />
+        <StatusBadge status={p.status} namespace="admin.outreach.statusLabels" />
         {p.status === 'SCREENED_OUT' && p.disqualifyReason && (
           <p className="text-[#062E25]/60 mt-1">{p.disqualifyReason}</p>
         )}
@@ -188,19 +210,23 @@ export function ProspectRowCells({ p }: { p: OutboundProspectListItem }) {
         >
           {next.key === 'snoozedUntil'
             ? t('nextSnoozedUntil', { date: new Date(next.date).toLocaleDateString('de-CH') })
-            : t(
-                next.key === 'draftReview'
-                  ? 'nextDraftReview'
-                  : next.key === 'readReply'
-                    ? 'nextReadReply'
-                    : next.key === 'awaitDraft'
-                      ? 'nextAwaitDraft'
-                      : next.key === 'awaitReply'
-                        ? 'nextAwaitReply'
-                        : next.key === 'awaitContact'
-                          ? 'nextAwaitContact'
-                          : 'nextNone',
-              )}
+            : next.key === 'draftGated'
+              ? t('nextDraftGated', { reason: gateReason(next.reason) })
+              : t(
+                  next.key === 'replyDraftReview'
+                    ? 'nextReplyDraftReview'
+                    : next.key === 'draftQueued'
+                      ? 'nextDraftQueued'
+                      : next.key === 'readReply'
+                        ? 'nextReadReply'
+                        : next.key === 'awaitDraft'
+                          ? 'nextAwaitDraft'
+                          : next.key === 'awaitReply'
+                            ? 'nextAwaitReply'
+                            : next.key === 'awaitContact'
+                              ? 'nextAwaitContact'
+                              : 'nextNone',
+                )}
         </span>
       </TableCell>
     </>

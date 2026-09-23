@@ -37,12 +37,12 @@ type QueueTab = {
 
 // Each tab sorts by the date that makes it a queue: drafts in the order
 // autosend takes them (referrals first, then roof yield), follow-ups by the
-// longest silence since the last touch, replies with the oldest unanswered
-// mail on top.
+// longest silence since the last touch, replies newest first (the owner
+// reads the tab like an inbox, 23.09.2026).
 const QUEUE_TABS: QueueTab[] = [
   { key: 'drafts',    labelKey: 'queue.tabDrafts',    emptyKey: 'queue.emptyDrafts',    statuses: ['DRAFTED', 'FOLLOW_UP_DUE'], sort: 'sendOrder',   order: 'desc' },
   { key: 'followups', labelKey: 'queue.tabFollowUps', emptyKey: 'queue.emptyFollowUps', statuses: ['FOLLOW_UP_DUE'],            sort: 'lastSentAt',  order: 'asc' },
-  { key: 'replies',   labelKey: 'queue.tabReplies',   emptyKey: 'queue.emptyReplies',   statuses: ['REPLIED'],                  sort: 'lastReplyAt', order: 'asc' },
+  { key: 'replies',   labelKey: 'queue.tabReplies',   emptyKey: 'queue.emptyReplies',   statuses: ['REPLIED'],                  sort: 'lastReplyAt', order: 'desc' },
 ]
 
 function useQueueList(tab: QueueTab) {
@@ -58,6 +58,19 @@ function tabCount(key: Exclude<QueueTabKey, 'calls'>, byStatus: Partial<Record<O
   if (key === 'drafts') return (byStatus.DRAFTED ?? 0) + (byStatus.FOLLOW_UP_DUE ?? 0)
   if (key === 'followups') return byStatus.FOLLOW_UP_DUE ?? 0
   return byStatus.REPLIED ?? 0
+}
+
+const RUN_STATE_KEY = {
+  OK: 'queue.statusRunOk',
+  ERROR: 'queue.statusRunError',
+  RUNNING: 'queue.statusRunRunning',
+} as const
+
+function formatRunTime(iso: string) {
+  const d = new Date(iso)
+  const day = d.toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  const time = d.toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' })
+  return `${day} ${time}`
 }
 
 export default function AdminOutreachQueuePage() {
@@ -76,6 +89,12 @@ export default function AdminOutreachQueuePage() {
     queryKey: ['admin', 'outreach', 'queue', 'calls'],
     queryFn: () => adminOutreachService.listCallQueue(),
   })
+  const queueStatus = useQuery({
+    queryKey: ['admin', 'outreach', 'queue', 'status'],
+    queryFn: () => adminOutreachService.getQueueStatus(),
+    refetchInterval: 60_000,
+  })
+  const overview = queueStatus.data
 
   const queries = { drafts, followups, replies }
   const byStatus =
@@ -208,6 +227,42 @@ export default function AdminOutreachQueuePage() {
       </div>
 
       <p className="mb-4 text-[#062E25]/75">{t('queue.keyboardHint')}</p>
+
+      {overview && (
+        <Card className="border-[#062E25]/10 mb-4">
+          <CardContent className="p-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <p className="text-[#062E25]/60">{t('queue.statusSentToday')}</p>
+              <p className="font-medium tabular-nums">{overview.sentToday} / {overview.dailyCap}</p>
+            </div>
+            <div>
+              <p className="text-[#062E25]/60">{t('queue.statusLastRun')}</p>
+              <p className="font-medium tabular-nums">
+                {overview.lastAutosend
+                  ? `${formatRunTime(overview.lastAutosend.startedAt)} (${t(RUN_STATE_KEY[overview.lastAutosend.status])})`
+                  : t('queue.statusNoRun')}
+              </p>
+              {overview.lastAutosend?.status === 'ERROR' && overview.lastAutosend.error && (
+                <p className="text-red-600 break-words">{overview.lastAutosend.error}</p>
+              )}
+            </div>
+            <div>
+              <p className="text-[#062E25]/60">{t('queue.statusDrafts')}</p>
+              <p className="font-medium tabular-nums">
+                {t('queue.statusDraftsValue', {
+                  waiting: overview.drafts.waiting,
+                  gated: overview.drafts.gated,
+                  replies: overview.drafts.replies,
+                })}
+              </p>
+            </div>
+            <div>
+              <p className="text-[#062E25]/60">{t('queue.statusRepliesOpen')}</p>
+              <p className="font-medium tabular-nums">{overview.repliesOpen}</p>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       <Tabs
         value={activeTab}

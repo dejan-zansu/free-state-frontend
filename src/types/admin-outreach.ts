@@ -1,11 +1,11 @@
 export type OutboundProspectStatus =
   | 'DISCOVERED' | 'SCREENED_OUT' | 'ROOF_QUALIFIED' | 'CONTACT_FOUND'
-  | 'DRAFTED' | 'CONTACTED' | 'FOLLOW_UP_DUE' | 'REPLIED' | 'SNOOZED'
+  | 'DRAFTED' | 'CONTACTED' | 'FOLLOW_UP_DUE' | 'REPLIED' | 'ANSWERED' | 'SNOOZED'
   | 'CONVERTED' | 'NOT_INTERESTED' | 'OPTED_OUT' | 'BOUNCED' | 'EXPIRED'
 
 export const OUTBOUND_PROSPECT_STATUSES: OutboundProspectStatus[] = [
   'DISCOVERED', 'SCREENED_OUT', 'ROOF_QUALIFIED', 'CONTACT_FOUND',
-  'DRAFTED', 'CONTACTED', 'FOLLOW_UP_DUE', 'REPLIED', 'SNOOZED',
+  'DRAFTED', 'CONTACTED', 'FOLLOW_UP_DUE', 'REPLIED', 'ANSWERED', 'SNOOZED',
   'CONVERTED', 'NOT_INTERESTED', 'OPTED_OUT', 'BOUNCED', 'EXPIRED',
 ]
 
@@ -50,6 +50,7 @@ export interface OutboundProspectListItem {
   contactIsRoleAddress: boolean
   fitScore: number | null
   emailSummary: OutboundEmailSummary
+  draftGate: { reason: string; detail: string } | null
 }
 
 export interface OutboundCallQueue {
@@ -157,6 +158,7 @@ export interface OutboundProspectDetail {
   updatedAt: string
   activities: OutboundActivity[]
   emails: OutboundEmail[]
+  draftGate: { reason: string; detail: string } | null
 }
 
 export type OutreachSort =
@@ -197,6 +199,24 @@ export interface OutboundLastRun {
 
 export interface OutboundRunRow extends OutboundLastRun {
   id: string
+}
+
+export interface OutboundQueueStatus {
+  sentToday: number
+  dailyCap: number
+  lastAutosend: {
+    startedAt: string
+    finishedAt: string | null
+    status: 'RUNNING' | 'OK' | 'ERROR'
+    itemsUpserted: number | null
+    error: string | null
+  } | null
+  drafts: {
+    waiting: number
+    gated: number
+    replies: number
+  }
+  repliesOpen: number
 }
 
 export interface OutreachSendsPerDayPoint {
