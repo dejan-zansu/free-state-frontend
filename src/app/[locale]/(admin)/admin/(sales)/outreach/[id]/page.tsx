@@ -29,6 +29,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { contactRoleLabel, industryLabel, timelineLabel } from '@/lib/commercial-lead-labels'
 import { cn } from '@/lib/utils'
+import { adminLinkedinService } from '@/services/admin-linkedin.service'
 import { adminOutreachService } from '@/services/admin-outreach.service'
 import type {
   OutboundActivity, OutboundEmail, OutboundPromoteDuplicateData, OutboundProspectDetail,
@@ -293,6 +294,106 @@ function CompanyCard({ prospect }: { prospect: OutboundProspectDetail }) {
         </div>
       )}
       <p className="text-[#062E25]/60">{t('attribution')}</p>
+    </CardContent></Card>
+  )
+}
+
+function LinkedinCard({ prospect }: { prospect: OutboundProspectDetail }) {
+  const t = useTranslations('admin.outreach.linkedin')
+  const queryClient = useQueryClient()
+  const [editing, setEditing] = useState(false)
+  const [url, setUrl] = useState(prospect.linkedinProfileUrl ?? '')
+  const [name, setName] = useState(prospect.linkedinPersonName ?? prospect.contactName ?? '')
+  const [role, setRole] = useState(prospect.linkedinPersonRole ?? prospect.contactRole ?? '')
+  const touch = prospect.linkedinTouch
+  const rejected = prospect.linkedinConfidence === 'rejected'
+  const hasProfile = Boolean(prospect.linkedinProfileUrl) && !rejected
+
+  const save = useMutation({
+    mutationFn: (profileUrl: string | null) => adminLinkedinService.setProfile(prospect.id, {
+      profileUrl,
+      ...(profileUrl && name.trim() ? { personName: name.trim() } : {}),
+      ...(profileUrl && role.trim() ? { personRole: role.trim() } : {}),
+    }),
+    onSuccess: () => {
+      setEditing(false)
+      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach', 'prospect', prospect.id] })
+    },
+  })
+  const saveError = save.error
+    ? (save.error as AxiosError<{ error?: { code?: string } }>)?.response?.data?.error?.code ?? 'generic'
+    : null
+
+  return (
+    <Card><CardContent className="p-4 space-y-2">
+      <SectionTitle>{t('cardTitle')}</SectionTitle>
+      {hasProfile ? (
+        <div className="space-y-1">
+          <p className="font-medium">{prospect.linkedinPersonName ?? prospect.contactName ?? '-'}</p>
+          {prospect.linkedinPersonRole && <p className="text-[#062E25]/75">{prospect.linkedinPersonRole}</p>}
+          <div className="flex flex-wrap gap-x-4">
+            <a href={prospect.linkedinProfileUrl!} target="_blank" rel="noreferrer"
+               className="text-blue-600 hover:underline inline-flex items-center gap-1">
+              {t('openProfile')}<ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            {prospect.linkedinCompanyUrl && (
+              <a href={prospect.linkedinCompanyUrl} target="_blank" rel="noreferrer"
+                 className="text-blue-600 hover:underline inline-flex items-center gap-1">
+                {t('openCompanyPage')}<ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+          </div>
+          <p className="text-[#062E25]/60">
+            {prospect.linkedinSource && t.has(`sources.${prospect.linkedinSource}`)
+              ? t(`sources.${prospect.linkedinSource}`) : prospect.linkedinSource}
+            {prospect.linkedinConfidence === 'review' ? ` · ${t('needsReview')}` : ''}
+          </p>
+        </div>
+      ) : (
+        <p className="text-[#062E25]/75">{rejected ? t('profileRejected') : t('noProfile')}</p>
+      )}
+
+      {touch && (
+        <div className="pt-2 border-t border-[#062E25]/10 space-y-1">
+          <p className="font-medium">{t(`touchStatus.${touch.status}`)}</p>
+          <p className="text-[#062E25]/75">
+            {t('touchBy', {
+              name: `${touch.sender.user.firstName} ${touch.sender.user.lastName}`.trim(),
+              date: new Date(touch.requestedAt).toLocaleDateString('de-CH'),
+            })}
+          </p>
+          {touch.replyOutcome && <p className="text-[#062E25]/75">{t(`outcomes.${touch.replyOutcome}`)}</p>}
+        </div>
+      )}
+
+      {!touch && !editing && (
+        <div className="flex flex-wrap gap-2 pt-1">
+          <Button size="sm" variant="outline" onClick={() => setEditing(true)}>
+            {hasProfile ? t('changeProfile') : t('addProfile')}
+          </Button>
+          {hasProfile && (
+            <Button size="sm" variant="ghost" disabled={save.isPending} onClick={() => save.mutate(null)}>
+              {t('removeProfile')}
+            </Button>
+          )}
+        </div>
+      )}
+      {!touch && editing && (
+        <div className="space-y-2 pt-1">
+          <Input value={url} onChange={(e) => setUrl(e.target.value)} placeholder="https://www.linkedin.com/in/..." />
+          <Input value={name} onChange={(e) => setName(e.target.value)} placeholder={t('personName')} />
+          <Input value={role} onChange={(e) => setRole(e.target.value)} placeholder={t('personRole')} />
+          {saveError && (
+            <p className="text-red-700">{t.has(`errors.${saveError}`) ? t(`errors.${saveError}`) : t('errors.generic')}</p>
+          )}
+          <div className="flex gap-2">
+            <Button size="sm" disabled={!url.trim() || save.isPending} onClick={() => save.mutate(url.trim())}>
+              {t('save')}
+            </Button>
+            <Button size="sm" variant="outline" onClick={() => setEditing(false)}>{t('cancel')}</Button>
+          </div>
+        </div>
+      )}
     </CardContent></Card>
   )
 }
@@ -1269,6 +1370,7 @@ function ActivityRow({ group }: { group: ActivityGroup }) {
   const ts = useTranslations('admin.outreach.activitySources')
   const trs = useTranslations('admin.outreach.activityReasons')
   const trc = useTranslations('admin.outreach.replyClassifications')
+  const tli = useTranslations('admin.outreach.linkedin')
   const [open, setOpen] = useState(false)
 
   const payload = group.payload ?? {}
@@ -1280,6 +1382,13 @@ function ActivityRow({ group }: { group: ActivityGroup }) {
 
   const reason = asText(payload.reason)
   if (reason) chips.push(trs.has(reason) ? trs(reason) : reason)
+
+  const linkedinAction = group.type === 'LINKEDIN' ? asText(payload.action) : null
+  if (linkedinAction) {
+    chips.push(tli.has(`actions.${linkedinAction}`) ? tli(`actions.${linkedinAction}`) : linkedinAction)
+  }
+  const linkedinOutcome = group.type === 'LINKEDIN' ? asText(payload.outcome) : null
+  if (linkedinOutcome && tli.has(`outcomes.${linkedinOutcome}`)) chips.push(tli(`outcomes.${linkedinOutcome}`))
 
   const classification = asText(payload.classification)
   if (classification) {
@@ -1457,6 +1566,7 @@ export default function AdminOutreachDetailPage() {
           <CompanyCard prospect={prospect} />
           <RoofCard prospect={prospect} />
         </div>
+        <LinkedinCard key={`${prospect.linkedinProfileUrl}-${prospect.linkedinConfidence}`} prospect={prospect} />
         <WebsiteTextCard prospect={prospect} />
         <ActivityCard prospect={prospect} />
       </div>

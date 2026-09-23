@@ -15,7 +15,7 @@ export type OutboundActivityType =
   | 'DISCOVERED' | 'SCREENED' | 'CONTACT_EDITED' | 'DRAFT_CREATED'
   | 'DRAFT_REJECTED' | 'EMAIL_SENT' | 'REPLY_RECEIVED' | 'CLASSIFIED'
   | 'STATUS_CHANGED' | 'ASSIGNED' | 'SNOOZED' | 'SUPPRESSED' | 'PROMOTED'
-  | 'CALL_LOGGED' | 'LETTER_SENT' | 'MEETING_BOOKED' | 'NOTE' | 'IMPORTED'
+  | 'CALL_LOGGED' | 'LETTER_SENT' | 'MEETING_BOOKED' | 'NOTE' | 'IMPORTED' | 'LINKEDIN'
 
 export type OutboundEmailDirection = 'OUTBOUND' | 'INBOUND'
 
@@ -150,6 +150,14 @@ export interface OutboundProspectDetail {
   websiteText: string | null
   extractedEmails: string[] | null
   openerSuggestion: string | null
+  linkedinProfileUrl: string | null
+  linkedinPersonName: string | null
+  linkedinPersonRole: string | null
+  linkedinCompanyUrl: string | null
+  linkedinSource: string | null
+  linkedinConfidence: string | null
+  linkedinFoundAt: string | null
+  linkedinTouch: LinkedinTouchSummary | null
   publicToken: string | null
   assignedToId: string | null
   commercialLeadId: string | null
@@ -360,3 +368,127 @@ export interface OutboundTemplateRow {
   active: boolean
   notes: string | null
 }
+
+export type LinkedinTouchStatus =
+  | 'REQUESTED' | 'ACCEPTED' | 'MESSAGED' | 'FOLLOWED_UP' | 'REPLIED' | 'WITHDRAWN' | 'CLOSED'
+
+export type LinkedinReplyOutcome = 'interested' | 'not_interested' | 'opt_out' | 'other'
+
+export interface LinkedinTouchSummary {
+  id: string
+  status: LinkedinTouchStatus
+  profileUrl: string
+  requestedAt: string
+  acceptedAt: string | null
+  messagedAt: string | null
+  followedUpAt: string | null
+  repliedAt: string | null
+  replyOutcome: LinkedinReplyOutcome | null
+  closedAt: string | null
+  closeReason: string | null
+  sender: { user: { firstName: string; lastName: string } }
+}
+
+export interface LinkedinProspectCard {
+  id: string
+  reference: string
+  status: OutboundProspectStatus
+  companyName: string
+  addressStreet: string | null
+  addressNumber: string | null
+  addressCity: string | null
+  addressCanton: string | null
+  website: string | null
+  contactEmail: string | null
+  contactName: string | null
+  roofKwhYear: number | null
+  imageryVerdict: string | null
+  fitScore: number | null
+  publicToken: string | null
+  linkedinProfileUrl: string | null
+  linkedinPersonName: string | null
+  linkedinPersonRole: string | null
+  linkedinCompanyUrl: string | null
+  linkedinSource: string | null
+  linkedinConfidence: string | null
+}
+
+export interface LinkedinRequestItem extends LinkedinProspectCard {
+  firstEmailAt: string | null
+  emailsSent: number
+}
+
+export interface LinkedinTouchItem {
+  id: string
+  status: LinkedinTouchStatus
+  profileUrl: string
+  requestedAt: string
+  acceptedAt: string | null
+  messagedAt: string | null
+  followedUpAt: string | null
+  prospect: LinkedinProspectCard
+  step?: 'message' | 'followup'
+  withdrawDue?: boolean
+}
+
+export interface LinkedinQueue {
+  sender: {
+    id: string
+    profileUrl: string | null
+    dailyLimit: number
+    effectiveLimit: number
+    warmupStartedAt: string
+  } | null
+  sentToday?: number
+  remaining?: number
+  pending?: number
+  pendingBlock?: number
+  blockedByPending?: boolean
+  withinBusinessHours?: boolean
+  requests?: LinkedinRequestItem[]
+  messages?: LinkedinTouchItem[]
+  pendingRequests?: LinkedinTouchItem[]
+  waiting?: LinkedinTouchItem[]
+}
+
+export interface LinkedinMessage {
+  step: 'message' | 'followup'
+  templateId: string
+  templateVersion: number
+  text: string
+}
+
+export interface LinkedinOverview {
+  withProfile: number
+  review: number
+  touched: number
+  eligibleNow: number
+}
+
+export interface LinkedinSenderRow {
+  id: string
+  user: { id: string; firstName: string; lastName: string; email: string }
+  profileUrl: string | null
+  dailyLimit: number
+  effectiveLimit: number
+  warmupStartedAt: string
+  active: boolean
+  today: number
+  stats: {
+    requested: number
+    pending: number
+    accepted: number
+    messaged: number
+    replied: number
+    withdrawn: number
+  }
+}
+
+export interface LinkedinSenderInput {
+  userId?: string
+  profileUrl?: string | null
+  dailyLimit?: number
+  active?: boolean
+  warmupStartedAt?: string
+}
+
