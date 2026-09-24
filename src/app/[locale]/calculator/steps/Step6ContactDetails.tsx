@@ -754,6 +754,9 @@ function ContactScreenV2() {
   const [correctedEmail, setCorrectedEmail] = useState(contact.email)
   const [resendError, setResendError] = useState<string | null>(null)
   const partialFiredRef = useRef(false)
+  const [contactPart, setContactPart] = useState<'identity' | 'phone'>(
+    'identity'
+  )
 
   const prevPendingRef = useRef(pendingVerification)
   useEffect(() => {
@@ -771,6 +774,9 @@ function ContactScreenV2() {
     control,
     handleSubmit,
     getValues,
+    getFieldState,
+    trigger,
+    setFocus,
     formState: { errors },
   } = useForm<V2FormData>({
     resolver: zodResolver(schema),
@@ -801,9 +807,12 @@ function ContactScreenV2() {
       if (!consentTicked || !V2_EMAIL_PATTERN.test(email)) return
       partialFiredRef.current = true
       const kwp = state.getSystemSizeKwp()
+      const { firstName, lastName } = splitName(getValues('name') ?? '')
       residentialCalculatorService
         .requestManualCheck({
           email,
+          firstName: firstName || undefined,
+          lastName: lastName || undefined,
           address: state.address,
           privacy: true,
           source: 'partial_contact',
@@ -877,6 +886,59 @@ function ContactScreenV2() {
       locale,
       needsAddressFallback,
     ]
+  )
+
+  const identityFields = useMemo<(keyof V2FormData)[]>(
+    () =>
+      needsAddressFallback
+        ? ['email', 'postalCode', 'city', 'consent', 'name']
+        : ['email', 'consent', 'name'],
+    [needsAddressFallback]
+  )
+
+  const handleIdentityNext = useCallback(async () => {
+    const valid = await trigger(identityFields)
+    if (!valid) {
+      const invalid = Object.fromEntries(
+        identityFields
+          .filter(field => getFieldState(field).invalid)
+          .map(field => [field, true])
+      )
+      emitContactSubmitBlocked(invalid, {
+        ...flowVersionMeta,
+        part: 'identity',
+      })
+      return
+    }
+    maybeCapturePartial(true)
+    trackFunnelEventOnce('contact_identity_completed', {
+      meta: { ...flowVersionMeta },
+    })
+    setContactPart('phone')
+  }, [trigger, identityFields, getFieldState, maybeCapturePartial])
+
+  useEffect(() => {
+    if (contactPart === 'phone') setFocus('phoneNumber')
+  }, [contactPart, setFocus])
+
+  const handleFormSubmit = useCallback(
+    (event: React.FormEvent<HTMLFormElement>) => {
+      if (contactPart === 'identity') {
+        event.preventDefault()
+        void handleIdentityNext()
+        return
+      }
+      return handleSubmit(onSubmit, formErrors => {
+        emitContactSubmitBlocked(formErrors, {
+          ...flowVersionMeta,
+          part: 'phone',
+        })
+        if (identityFields.some(field => field in formErrors)) {
+          setContactPart('identity')
+        }
+      })(event)
+    },
+    [contactPart, handleIdentityNext, handleSubmit, onSubmit, identityFields]
   )
 
   const handleResend = useCallback(async () => {
@@ -1104,202 +1166,223 @@ function ContactScreenV2() {
         )}
 
         <form
-          onSubmit={handleSubmit(onSubmit, formErrors =>
-            emitContactSubmitBlocked(formErrors, flowVersionMeta)
-          )}
+          onSubmit={handleFormSubmit}
           noValidate
           className="mx-auto mt-8 flex w-full max-w-md flex-col gap-5 rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 text-left sm:p-8"
         >
-          <div>
-            <label htmlFor="v2-email" className={v2LabelBase}>
-              {t('email')}
-            </label>
-            <input
-              id="v2-email"
-              type="email"
-              autoComplete="email"
-              inputMode="email"
-              onFocus={() => emitFieldFocus('email')}
-              {...register('email', { onBlur: () => maybeCapturePartial() })}
-              aria-invalid={!!errors.email}
-              aria-describedby={errors.email ? 'v2-email-error' : undefined}
-              className={cn(
-                v2InputBase,
-                'mt-1',
-                errors.email && 'border-destructive'
-              )}
-            />
-            <V2FieldError id="v2-email-error" message={errors.email?.message} />
-          </div>
-
-          {needsAddressFallback && (
-            <div>
-              <p className="text-base text-[#062E25] tracking-tight">
-                {t('addressFallbackHelper')}
-              </p>
-              <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div>
-                  <label htmlFor="v2-postal-code" className={v2LabelBase}>
-                    {t('postalCode')}
-                  </label>
-                  <input
-                    id="v2-postal-code"
-                    autoComplete="postal-code"
-                    {...register('postalCode')}
-                    aria-invalid={!!errors.postalCode}
-                    aria-describedby={
-                      errors.postalCode ? 'v2-postal-code-error' : undefined
-                    }
-                    className={cn(
-                      v2InputBase,
-                      'mt-1',
-                      errors.postalCode && 'border-destructive'
-                    )}
-                  />
-                  <V2FieldError
-                    id="v2-postal-code-error"
-                    message={errors.postalCode?.message}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="v2-city" className={v2LabelBase}>
-                    {t('city')}
-                  </label>
-                  <input
-                    id="v2-city"
-                    autoComplete="address-level2"
-                    {...register('city')}
-                    aria-invalid={!!errors.city}
-                    aria-describedby={errors.city ? 'v2-city-error' : undefined}
-                    className={cn(
-                      v2InputBase,
-                      'mt-1',
-                      errors.city && 'border-destructive'
-                    )}
-                  />
-                  <V2FieldError
-                    id="v2-city-error"
-                    message={errors.city?.message}
-                  />
-                </div>
+          {contactPart === 'identity' ? (
+            <>
+              <div>
+                <label htmlFor="v2-email" className={v2LabelBase}>
+                  {t('email')}
+                </label>
+                <input
+                  id="v2-email"
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  onFocus={() => emitFieldFocus('email')}
+                  {...register('email', {
+                    onBlur: () => maybeCapturePartial(),
+                  })}
+                  aria-invalid={!!errors.email}
+                  aria-describedby={errors.email ? 'v2-email-error' : undefined}
+                  className={cn(
+                    v2InputBase,
+                    'mt-1',
+                    errors.email && 'border-destructive'
+                  )}
+                />
+                <V2FieldError
+                  id="v2-email-error"
+                  message={errors.email?.message}
+                />
               </div>
-            </div>
-          )}
 
-          <div>
-            <Controller
-              name="consent"
-              control={control}
-              render={({ field }) => {
-                const checked = field.value === true
-                return (
-                  <button
-                    type="button"
-                    aria-pressed={checked}
-                    onFocus={() => emitFieldFocus('consent')}
-                    onClick={() => {
-                      const next = checked ? undefined : true
-                      field.onChange(next)
-                      if (next === true) maybeCapturePartial(true)
-                    }}
-                    className="flex items-start gap-2.5 text-left"
-                  >
-                    <span
-                      className={cn(
-                        'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px] border transition-colors',
-                        checked
-                          ? 'bg-[#B7FE1A] border-[#B7FE1A]'
-                          : 'border-[#062E25]/40'
-                      )}
-                    >
-                      {checked && (
-                        <svg
-                          width="13"
-                          height="10"
-                          viewBox="0 0 8 6"
-                          fill="none"
+              {needsAddressFallback && (
+                <div>
+                  <p className="text-base text-[#062E25] tracking-tight">
+                    {t('addressFallbackHelper')}
+                  </p>
+                  <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <div>
+                      <label htmlFor="v2-postal-code" className={v2LabelBase}>
+                        {t('postalCode')}
+                      </label>
+                      <input
+                        id="v2-postal-code"
+                        autoComplete="postal-code"
+                        {...register('postalCode')}
+                        aria-invalid={!!errors.postalCode}
+                        aria-describedby={
+                          errors.postalCode ? 'v2-postal-code-error' : undefined
+                        }
+                        className={cn(
+                          v2InputBase,
+                          'mt-1',
+                          errors.postalCode && 'border-destructive'
+                        )}
+                      />
+                      <V2FieldError
+                        id="v2-postal-code-error"
+                        message={errors.postalCode?.message}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="v2-city" className={v2LabelBase}>
+                        {t('city')}
+                      </label>
+                      <input
+                        id="v2-city"
+                        autoComplete="address-level2"
+                        {...register('city')}
+                        aria-invalid={!!errors.city}
+                        aria-describedby={
+                          errors.city ? 'v2-city-error' : undefined
+                        }
+                        className={cn(
+                          v2InputBase,
+                          'mt-1',
+                          errors.city && 'border-destructive'
+                        )}
+                      />
+                      <V2FieldError
+                        id="v2-city-error"
+                        message={errors.city?.message}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <Controller
+                  name="consent"
+                  control={control}
+                  render={({ field }) => {
+                    const checked = field.value === true
+                    return (
+                      <button
+                        type="button"
+                        aria-pressed={checked}
+                        onFocus={() => emitFieldFocus('consent')}
+                        onClick={() => {
+                          const next = checked ? undefined : true
+                          field.onChange(next)
+                          if (next === true) maybeCapturePartial(true)
+                        }}
+                        className="flex items-start gap-2.5 text-left"
+                      >
+                        <span
+                          className={cn(
+                            'mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px] border transition-colors',
+                            checked
+                              ? 'bg-[#B7FE1A] border-[#B7FE1A]'
+                              : 'border-[#062E25]/40'
+                          )}
                         >
-                          <path
-                            d="M1 3L3 5L7 1"
-                            stroke="#062E25"
-                            strokeWidth="1.5"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      )}
-                    </span>
-                    <span className="text-base text-[#062E25] tracking-tight">
-                      {t.rich('consent', {
-                        privacyLink: chunks => (
-                          <LocaleLink
-                            href="/privacy-policy"
-                            target="_blank"
-                            className="underline underline-offset-2 text-[#062E25] hover:text-[#062E25]"
-                            onClick={event => event.stopPropagation()}
-                          >
-                            {chunks}
-                          </LocaleLink>
-                        ),
-                      })}
-                    </span>
-                  </button>
-                )
-              }}
-            />
-            {errors.consent && (
-              <p role="alert" className="mt-2 text-base text-destructive">
-                {errors.consent.message}
+                          {checked && (
+                            <svg
+                              width="13"
+                              height="10"
+                              viewBox="0 0 8 6"
+                              fill="none"
+                            >
+                              <path
+                                d="M1 3L3 5L7 1"
+                                stroke="#062E25"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                          )}
+                        </span>
+                        <span className="text-base text-[#062E25] tracking-tight">
+                          {t.rich('consent', {
+                            privacyLink: chunks => (
+                              <LocaleLink
+                                href="/privacy-policy"
+                                target="_blank"
+                                className="underline underline-offset-2 text-[#062E25] hover:text-[#062E25]"
+                                onClick={event => event.stopPropagation()}
+                              >
+                                {chunks}
+                              </LocaleLink>
+                            ),
+                          })}
+                        </span>
+                      </button>
+                    )
+                  }}
+                />
+                {errors.consent && (
+                  <p role="alert" className="mt-2 text-base text-destructive">
+                    {errors.consent.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="v2-name" className={v2LabelBase}>
+                  {t('name')}
+                </label>
+                <input
+                  id="v2-name"
+                  autoComplete="name"
+                  onFocus={() => emitFieldFocus('name')}
+                  {...register('name')}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'v2-name-error' : undefined}
+                  className={cn(
+                    v2InputBase,
+                    'mt-1',
+                    errors.name && 'border-destructive'
+                  )}
+                />
+                <V2FieldError
+                  id="v2-name-error"
+                  message={errors.name?.message}
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <p className="text-base text-[#062E25] tracking-tight">
+                {t('phoneIntro')}
               </p>
-            )}
-          </div>
-
-          <div>
-            <label htmlFor="v2-name" className={v2LabelBase}>
-              {t('name')}
-            </label>
-            <input
-              id="v2-name"
-              autoComplete="name"
-              onFocus={() => emitFieldFocus('name')}
-              {...register('name')}
-              aria-invalid={!!errors.name}
-              aria-describedby={errors.name ? 'v2-name-error' : undefined}
-              className={cn(
-                v2InputBase,
-                'mt-1',
-                errors.name && 'border-destructive'
-              )}
-            />
-            <V2FieldError id="v2-name-error" message={errors.name?.message} />
-          </div>
-
-          <div>
-            <label htmlFor="v2-phone" className={v2LabelBase}>
-              {t('phoneNumber')}
-            </label>
-            <input
-              id="v2-phone"
-              type="tel"
-              autoComplete="tel"
-              inputMode="tel"
-              onFocus={() => emitFieldFocus('phone')}
-              {...register('phoneNumber')}
-              aria-invalid={!!errors.phoneNumber}
-              aria-describedby={
-                errors.phoneNumber ? 'v2-phone-error' : undefined
-              }
-              className={cn(
-                v2InputBase,
-                'mt-1',
-                errors.phoneNumber && 'border-destructive'
-              )}
-            />
-            <V2FieldError
-              id="v2-phone-error"
-              message={errors.phoneNumber?.message}
-            />
-          </div>
+              <div>
+                <label htmlFor="v2-phone" className={v2LabelBase}>
+                  {t('phoneNumber')}
+                </label>
+                <input
+                  id="v2-phone"
+                  type="tel"
+                  autoComplete="tel"
+                  inputMode="tel"
+                  placeholder={t('phonePlaceholder')}
+                  onFocus={() => emitFieldFocus('phone')}
+                  {...register('phoneNumber')}
+                  aria-invalid={!!errors.phoneNumber}
+                  aria-describedby={
+                    errors.phoneNumber ? 'v2-phone-error' : undefined
+                  }
+                  className={cn(
+                    v2InputBase,
+                    'mt-1',
+                    errors.phoneNumber && 'border-destructive'
+                  )}
+                />
+                <V2FieldError
+                  id="v2-phone-error"
+                  message={errors.phoneNumber?.message}
+                />
+                <p className="mt-2 text-base text-[#062E25]/70 tracking-tight">
+                  {t('phoneReason')}
+                </p>
+              </div>
+            </>
+          )}
 
           {submissionError && (
             <div
@@ -1316,7 +1399,7 @@ function ContactScreenV2() {
             className="h-12 w-full bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
           >
             {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            {t('button')}
+            {t(contactPart === 'identity' ? 'buttonNext' : 'button')}
           </Button>
 
           <div>
@@ -1332,7 +1415,11 @@ function ContactScreenV2() {
         <div className="mx-auto mt-6 w-full max-w-md text-center">
           <button
             type="button"
-            onClick={prevStep}
+            onClick={
+              contactPart === 'phone'
+                ? () => setContactPart('identity')
+                : prevStep
+            }
             disabled={isSubmitting}
             className="text-base text-[#062E25] underline underline-offset-2 hover:text-[#062E25]"
           >

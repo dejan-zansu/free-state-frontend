@@ -74,6 +74,8 @@ export type ManualCheckSource =
 
 interface ManualCheckPayload {
   email: string
+  firstName?: string
+  lastName?: string
   address: string
   privacy: true
   source?: ManualCheckSource
