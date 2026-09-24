@@ -1,3 +1,7 @@
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
+import { generateSEOMetadata } from '@/lib/seo/metadata'
+import type { SiteLocale } from '@/lib/seo/site-config'
 import Hero from '@/components/Hero'
 import EvCharging from '@/components/EvCharging'
 import OurPartners from '@/components/OurPartners'
@@ -16,6 +20,21 @@ import CustomerStories from '@/components/CustomerStories'
 import Reviews from '@/components/Reviews'
 import StackedPanels from '@/components/motion/StackedPanels'
 import LatestPostsSection from '@/components/blog/LatestPostsSection'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const t = await getTranslations({ locale, namespace: 'seo' })
+  return generateSEOMetadata({
+    locale: locale as SiteLocale,
+    pathname: '/',
+    title: t('home.title') || '',
+    description: t('home.description') || '',
+  })
+}
 
 export default async function HomePage() {
   return (

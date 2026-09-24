@@ -5,20 +5,25 @@ import { siteConfig, type SiteLocale } from './site-config'
 
 type PathnameKey = keyof typeof routing.pathnames
 
+type RouteParams = Record<string, string>
+
 type BuildCanonicalArgs = {
   pathname: PathnameKey | string
   locale: SiteLocale
+  // Values for a dynamic route key such as '/packages/[code]', whose slug differs per locale.
+  params?: RouteParams
 }
 
 function isStaticPathnameKey(pathname: string): pathname is PathnameKey {
   return pathname in routing.pathnames
 }
 
-export function buildCanonicalUrl({ pathname, locale }: BuildCanonicalArgs): string {
+export function buildCanonicalUrl({ pathname, locale, params }: BuildCanonicalArgs): string {
   let localizedPath: string
   if (isStaticPathnameKey(pathname)) {
+    const href = params ? { pathname, params } : pathname
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    localizedPath = getPathname({ locale, href: pathname } as any) as string
+    localizedPath = getPathname({ locale, href } as any) as string
   } else {
     const prefix =
       locale === siteConfig.defaultLocale ? '' : `/${locale}`
@@ -32,7 +37,8 @@ export function buildCanonicalUrl({ pathname, locale }: BuildCanonicalArgs): str
 
 export function buildHreflangAlternates(
   pathname: PathnameKey | string,
-  availableLocales?: readonly SiteLocale[]
+  availableLocales?: readonly SiteLocale[],
+  params?: RouteParams
 ): Record<string, string> {
   const locales =
     availableLocales && availableLocales.length > 0
@@ -40,7 +46,7 @@ export function buildHreflangAlternates(
       : siteConfig.locales
   const entries: Record<string, string> = {}
   for (const locale of locales) {
-    entries[locale] = buildCanonicalUrl({ pathname, locale })
+    entries[locale] = buildCanonicalUrl({ pathname, locale, params })
   }
   entries['x-default'] =
     entries[siteConfig.defaultLocale] ?? entries[locales[0]] ?? ''
@@ -55,6 +61,7 @@ type GenerateSEOMetadataArgs = {
   ogImage?: { url: string; width?: number; height?: number; alt?: string }
   noIndex?: boolean
   availableLocales?: readonly SiteLocale[]
+  params?: RouteParams
 }
 
 export async function generateSEOMetadata({
@@ -65,14 +72,15 @@ export async function generateSEOMetadata({
   ogImage,
   noIndex,
   availableLocales,
+  params,
 }: GenerateSEOMetadataArgs): Promise<Metadata> {
   const translated =
     !availableLocales ||
     availableLocales.length === 0 ||
     availableLocales.includes(locale)
   const canonicalLocale = translated ? locale : siteConfig.defaultLocale
-  const canonical = buildCanonicalUrl({ pathname, locale: canonicalLocale })
-  const languages = buildHreflangAlternates(pathname, availableLocales)
+  const canonical = buildCanonicalUrl({ pathname, locale: canonicalLocale, params })
+  const languages = buildHreflangAlternates(pathname, availableLocales, params)
   const resolvedTitle = title || siteConfig.name
   const resolvedDescription = description || siteConfig.description
   const image = ogImage ?? {

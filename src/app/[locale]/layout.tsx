@@ -57,6 +57,10 @@ export async function generateMetadata({
     title: t('home.title') || '',
     description: t('home.description') || '',
   })
+  // Every page without its own metadata inherits this object, so it must not claim the
+  // homepage URL. The homepage sets its canonical, hreflang and og:url in [locale]/page.tsx.
+  delete metadata.alternates
+  if (metadata.openGraph) metadata.openGraph = { ...metadata.openGraph, url: undefined }
   if (searchConsoleVerificationEnabled) {
     metadata.verification = { google: googleSiteVerification }
   }

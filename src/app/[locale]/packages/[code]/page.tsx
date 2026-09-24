@@ -70,7 +70,8 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     full.length > 160 ? `${full.slice(0, 157).trimEnd()}...` : full
   return generateSEOMetadata({
     locale: locale as SiteLocale,
-    pathname: `/packages/${packageNameToSlug(pkg.name)}`,
+    pathname: '/packages/[code]',
+    params: { code: packageNameToSlug(pkg.name) },
     title: t('packages.title', { name: pkg.name }),
     description,
     ...(pkg.imageUrl && { ogImage: { url: pkg.imageUrl, width: 1200, height: 900, alt: pkg.name } }),

@@ -4,6 +4,13 @@ import { REPLACED_POSTS } from './src/lib/blog/replaced-posts'
 
 const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
+  // Next streams metadata to bots that run JavaScript, Googlebot included, so the canonical
+  // and title reach <head> only when metadata resolves before the shell is flushed. Google
+  // crawled /solarrechner, /en and others without a canonical and folded them into /impressum
+  // (Search Console, September 2026). Setting this replaces the default list, so the first
+  // part repeats Next's HTML_LIMITED_BOT_UA_RE from 15.2 and the second part adds Google.
+  htmlLimitedBots:
+    /Mediapartners-Google|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Googlebot|Google-InspectionTool|GoogleOther|Storebot-Google|AdsBot-Google|Google-PageRenderer/i,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
