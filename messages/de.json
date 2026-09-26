@@ -339,7 +339,10 @@
   "header": {
     "logoAlt": "Free State AG Logo",
     "contact": "Kontakt",
-    "myHome": "Mein Zuhause"
+    "myHome": "Mein Zuhause",
+    "calculatorShort": "Rechner",
+    "propertyType": "Gebäudetyp",
+    "closeMenu": "Menü schliessen"
   },
   "newsletterConfirm": {
     "loadingTitle": "Anmeldung wird bestätigt …",

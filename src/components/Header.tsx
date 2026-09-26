@@ -2,13 +2,7 @@
 
 import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Building2,
-  ChevronDown,
-  Menu,
-} from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Building2, Menu } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useEffect, useState, type ComponentProps } from 'react'
@@ -16,8 +10,7 @@ import LogoDark from './icons/LogoDark'
 import LogoLight from './icons/LogoLight'
 import LogoutSquare from './icons/LogoutSquare'
 import LanguageSwitcher from './LanguageSwitcher'
-import MobileNavLinks from './MobileNavLinks'
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from './ui/sheet'
+import MobileMenu from './MobileMenu'
 
 const Header = () => {
   const pathname = usePathname()
@@ -28,7 +21,6 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isCompanyOpen, setIsCompanyOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobileCompanyOpen, setIsMobileCompanyOpen] = useState(false)
 
   const pagesWithDarkHeader = [
     '/calculator',
@@ -159,9 +151,9 @@ const Header = () => {
               className="flex items-start gap-2 shrink-0"
             >
               {showDarkHeader ? (
-                <LogoDark className="h-6 sm:h-7.25 w-auto" />
+                <LogoDark className="h-6 sm:h-7.25 w-auto max-[340px]:h-5" />
               ) : (
-                <LogoLight className="h-6 sm:h-7.25 w-auto" />
+                <LogoLight className="h-6 sm:h-7.25 w-auto max-[340px]:h-5" />
               )}
               <Image
                 src="/images/swiss-flag.png"
@@ -294,7 +286,7 @@ const Header = () => {
               ))}
             </nav>
 
-            <div className="flex items-center justify-end shrink-0 gap-3 sm:gap-4 md:gap-6">
+            <div className="flex items-center justify-end shrink-0 gap-2 sm:gap-4 md:gap-6">
               <Link
                 href={
                   (showCommercial
@@ -304,10 +296,15 @@ const Header = () => {
                   >['href']
                 }
                 className={cn(
-                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base flex justify-center items-center bg-solar text-solar-foreground'
+                  'px-3.75 py-1.25 rounded-[40px] font-medium whitespace-nowrap transition-all duration-200 hover:opacity-80 shrink-0 text-sm sm:text-base flex justify-center items-center bg-solar text-solar-foreground max-md:px-4 max-md:py-2 max-md:uppercase max-[375px]:px-3 max-[375px]:text-xs'
                 )}
               >
-                {tHome('hero.cta.primary')}
+                <span className="md:hidden">
+                  {tHeader('calculatorShort')}
+                </span>
+                <span className="hidden md:inline">
+                  {tHome('hero.cta.primary')}
+                </span>
               </Link>
               <Link
                 href="/login"
@@ -326,129 +323,24 @@ const Header = () => {
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className={cn(
-                  'md:hidden p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
+                  'md:hidden -mr-2 p-2 rounded-lg transition-all duration-200 hover:opacity-90 shrink-0',
                   showDarkHeader
                     ? 'text-[#062E25] hover:bg-[#E6EAE9]'
                     : 'text-white hover:bg-white/20'
                 )}
                 aria-label="Open menu"
               >
-                <Menu className="w-6 h-6" />
+                <Menu className="size-8" strokeWidth={1.5} />
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      <Sheet
+      <MobileMenu
         open={isMobileMenuOpen}
-        onOpenChange={open => {
-          setIsMobileMenuOpen(open)
-          if (!open) setIsMobileCompanyOpen(false)
-        }}
-      >
-        <SheetContent
-          side="right"
-          className="w-full max-w-none sm:max-w-none border-l-0 overflow-y-auto"
-        >
-          <SheetHeader>
-            <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-          </SheetHeader>
-          <nav className="flex flex-col gap-2 mt-8 px-4">
-            {leadingNavItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={cn(
-                  'px-4 py-3 rounded-lg font-medium transition-all duration-200 relative',
-                  isActive(item.href)
-                    ? 'bg-[#E6EAE9] text-[#062E25]'
-                    : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <div>
-              <button
-                onClick={() => setIsMobileCompanyOpen(prev => !prev)}
-                className={cn(
-                  'w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-all duration-200',
-                  isCompanyActive
-                    ? 'bg-[#E6EAE9] text-[#062E25]'
-                    : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
-                )}
-              >
-                {tFooter('company.title')}
-                <ChevronDown
-                  className={cn(
-                    'w-4 h-4 transition-transform duration-300',
-                    isMobileCompanyOpen && 'rotate-180'
-                  )}
-                />
-              </button>
-              <div
-                className={cn(
-                  'overflow-hidden transition-all duration-300 ease-out',
-                  isMobileCompanyOpen
-                    ? 'max-h-[400px] opacity-100'
-                    : 'max-h-0 opacity-0'
-                )}
-              >
-                <div className="flex flex-col gap-0.5 pt-1 pl-3">
-                  {companyLinks.map(link => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={cn(
-                        'px-4 py-2.5 rounded-lg text-sm font-light transition-all duration-200',
-                        pathname?.startsWith(link.href)
-                          ? 'bg-[#E6EAE9] text-[#062E25]'
-                          : 'text-[#062E25] hover:bg-[rgba(6,46,37,0.08)]'
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-            {trailingNavItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={cn(
-                  'px-4 py-3 rounded-lg font-medium transition-all duration-200 relative mt-2',
-                  isActive(item.href)
-                    ? 'bg-[#E6EAE9] text-[#062E25]'
-                    : 'bg-[rgba(6,46,37,0.1)] text-[#062E25] hover:bg-[rgba(6,46,37,0.15)]'
-                )}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <Link
-              href="/login"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="px-4 py-3 rounded-lg font-medium transition-all duration-200 mt-4 bg-[#E6EAE9] text-[#062E25]"
-            >
-              {tHeader('myHome')}
-            </Link>
-          </nav>
-          <div className="mt-4 pt-4 border-t border-[#E6EAE9] px-4">
-            <MobileNavLinks
-              isCommercial={pathname?.startsWith('/commercial')}
-              onNavigate={() => setIsMobileMenuOpen(false)}
-            />
-          </div>
-          <div className="mt-4 pt-4 border-t border-[#E6EAE9] px-4">
-            <LanguageSwitcher isScrolled={true} />
-          </div>
-        </SheetContent>
-      </Sheet>
+        onOpenChange={setIsMobileMenuOpen}
+      />
     </>
   )
 }
