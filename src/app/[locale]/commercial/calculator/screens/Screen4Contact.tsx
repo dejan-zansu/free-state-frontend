@@ -89,9 +89,6 @@ export default function Screen4Contact() {
   const locale = useLocale()
 
   const contact = useCommercialCalculatorStore(state => state.contact)
-  const roofFromRegister = useCommercialCalculatorStore(
-    state => !!state.building?.estimate
-  )
   const consent = useCommercialCalculatorStore(state => state.consent)
   const submission = useCommercialCalculatorStore(state => state.submission)
   const address = useCommercialCalculatorStore(state => state.address)
@@ -114,19 +111,7 @@ export default function Screen4Contact() {
   const prevStep = useCommercialCalculatorStore(state => state.prevStep)
   const getEstimate = useCommercialCalculatorStore(state => state.getEstimate)
 
-  const estimate = getEstimate()
-  const usableAreaM2 = Math.round(estimate.usableAreaM2)
-  const systemSizeKwp = estimate.systemSizeKwp
-  const productionKwh = Math.round(estimate.productionKwh)
-  const showTeaser =
-    estimate.usableAreaM2 > 0 &&
-    estimate.systemSizeKwp > 0 &&
-    estimate.productionKwh > 0
-  const swissNumber = (value: number, digits = 0) =>
-    value.toLocaleString('de-CH', {
-      minimumFractionDigits: digits,
-      maximumFractionDigits: digits,
-    })
+  const systemSizeKwp = getEstimate().systemSizeKwp
 
   const [needsAddressFallback] = useState(
     () => !storePostalCode || !storeCity
@@ -282,51 +267,6 @@ export default function Screen4Contact() {
             {t('helper')}
           </p>
         </div>
-
-        {showTeaser && (
-          <div className="mx-auto mt-8 w-full max-w-md rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 sm:p-8">
-            <p className="text-base font-medium text-[#062E25] tracking-tight">
-              {t('teaserTitle')}
-            </p>
-            <dl className="mt-4 grid grid-cols-3 gap-3">
-              <div>
-                <dt className="text-base text-[#062E25]/70 tracking-tight">
-                  {t('teaserArea')}
-                </dt>
-                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
-                  {swissNumber(usableAreaM2)}
-                  <span className="text-base font-normal"> m²</span>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-base text-[#062E25]/70 tracking-tight">
-                  {t('teaserKwp')}
-                </dt>
-                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
-                  {swissNumber(systemSizeKwp, 1)}
-                  <span className="text-base font-normal"> kWp</span>
-                </dd>
-              </div>
-              <div>
-                <dt className="text-base text-[#062E25]/70 tracking-tight">
-                  {t('teaserProduction')}
-                </dt>
-                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
-                  {swissNumber(productionKwh)}
-                  <span className="text-base font-normal"> kWh</span>
-                </dd>
-              </div>
-            </dl>
-            <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
-              {roofFromRegister
-                ? t('teaserSourceRegister')
-                : t('teaserSource')}
-            </p>
-            <p className="mt-3 text-base text-[#062E25] tracking-tight">
-              {t('teaserNext')}
-            </p>
-          </div>
-        )}
 
         <form
           onSubmit={handleSubmit(onSubmit)}
