@@ -25,7 +25,7 @@ type Screen1Error =
 
 type ResolvedPlace = google.maps.GeocoderResult | google.maps.places.PlaceResult
 
-type AddressSource = 'places' | 'houseNumberPrompt'
+type AddressSource = 'places' | 'houseNumberPrompt' | 'prefill'
 
 type PartialAddress = {
   street: string
@@ -38,6 +38,10 @@ const PLACES_SLOW_MS = 3000
 const PLACES_UNAVAILABLE_MS = 8000
 
 const TYPED_MIN_CHARS = 3
+
+// ?adresse= prefill, set by the homeowner roof report (/dach-check).
+const PREFILL_PARAM = 'adresse'
+const PREFILL_MAX_CHARS = 300
 
 const ERROR_CODE: Record<Screen1Error, number> = {
   empty: 1,
@@ -112,6 +116,7 @@ export default function Screen1Address() {
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
   const lastFailedTextRef = useRef<string | null>(null)
   const partialAddressRef = useRef<PartialAddress | null>(null)
+  const prefillRef = useRef<string | null>(null)
 
   const emitAddressError = useCallback((reason: Screen1Error) => {
     trackFunnelEventOnce('calculator_address_error', {
@@ -212,6 +217,25 @@ export default function Screen1Address() {
 
   const handlePlaceRef = useRef(handlePlace)
   handlePlaceRef.current = handlePlace
+
+  // An address handed over in the URL fills the field. It is resolved only
+  // when the visitor submits it unchanged (handlePrefillSubmit), so the
+  // visitor still sees and confirms the address first.
+  useEffect(() => {
+    let prefill: string | null = null
+    try {
+      prefill = new URLSearchParams(window.location.search).get(PREFILL_PARAM)
+    } catch {
+      return
+    }
+    const value = prefill?.trim().slice(0, PREFILL_MAX_CHARS) ?? ''
+    if (!value || value === address.trim()) return
+    prefillRef.current = value
+    setTypedAddress(value)
+    if (inputRef.current) inputRef.current.value = value
+    // Mount only: a later store change must not overwrite what the visitor typed.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
@@ -322,6 +346,30 @@ export default function Screen1Address() {
     }
   }
 
+  const handlePrefillSubmit = async (text: string) => {
+    if (geocoding) return
+    setGeocoding(true)
+    try {
+      let GeocoderClass = geocoderClassRef.current
+      if (!GeocoderClass) {
+        const loader = loaderRef.current
+        if (!loader) throw new Error('Maps loader not initialised')
+        ;({ Geocoder: GeocoderClass } = await loader.importLibrary('geocoding'))
+        geocoderClassRef.current = GeocoderClass
+      }
+      const { results } = await new GeocoderClass().geocode({
+        address: text,
+        componentRestrictions: { country: 'ch' },
+      })
+      handlePlace(results[0], 'prefill')
+    } catch {
+      setError('notFound')
+      emitAddressError('notFound')
+    } finally {
+      setGeocoding(false)
+    }
+  }
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const el = inputRef.current
@@ -344,6 +392,10 @@ export default function Screen1Address() {
     if (el && suggestions) {
       if (!suggestions.selected) dispatchKey(el, 'ArrowDown', 40)
       dispatchKey(el, 'Enter', 13)
+      return
+    }
+    if (prefillRef.current && value === prefillRef.current) {
+      void handlePrefillSubmit(value)
       return
     }
     if (value === lastFailedTextRef.current) {

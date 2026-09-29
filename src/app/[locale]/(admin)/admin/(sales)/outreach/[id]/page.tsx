@@ -31,6 +31,10 @@ import { contactRoleLabel, industryLabel, timelineLabel } from '@/lib/commercial
 import { cn } from '@/lib/utils'
 import { adminLinkedinService } from '@/services/admin-linkedin.service'
 import { adminOutreachService } from '@/services/admin-outreach.service'
+import { CallFlagControl } from '../_components/owner-first/CallFlagControl'
+import { LetterPanel } from '../_components/owner-first/LetterPanel'
+import { LogActivityControl } from '../_components/owner-first/LogActivityControl'
+import { OwnershipPanel } from '../_components/owner-first/OwnershipPanel'
 import type {
   OutboundActivity, OutboundEmail, OutboundPromoteDuplicateData, OutboundProspectDetail,
   OutboundProspectStatus,
@@ -1253,80 +1257,6 @@ function ThreadCard({ prospect }: { prospect: OutboundProspectDetail }) {
   )
 }
 
-function LogActivityButtons({ prospect }: { prospect: OutboundProspectDetail }) {
-  const t = useTranslations('admin.outreach.detail')
-  const tc = useTranslations('admin.common')
-  const locale = useLocale()
-  const queryClient = useQueryClient()
-  const [callOpen, setCallOpen] = useState(false)
-  const [callNote, setCallNote] = useState('')
-
-  const invalidate = () => queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
-
-  const meetingMutation = useMutation({
-    mutationFn: () => adminOutreachService.logActivity(prospect.id, { type: 'MEETING_BOOKED' }),
-    onSuccess: invalidate,
-  })
-  const callMutation = useMutation({
-    mutationFn: () => adminOutreachService.logActivity(prospect.id, {
-      type: 'CALL_LOGGED',
-      note: callNote.trim() || undefined,
-    }),
-    onSuccess: () => {
-      setCallOpen(false)
-      invalidate()
-    },
-  })
-  const letterMutation = useMutation({
-    mutationFn: () => adminOutreachService.logActivity(prospect.id, { type: 'LETTER_SENT' }),
-    onSuccess: invalidate,
-  })
-
-  return (
-    <>
-      <Button variant="outline" onClick={() => meetingMutation.mutate()} disabled={meetingMutation.isPending}>
-        {t('logMeeting')}
-      </Button>
-      <Button variant="outline"
-              onClick={() => { setCallNote(''); callMutation.reset(); setCallOpen(true) }}>
-        {t('logCall')}
-      </Button>
-      <Button variant="outline" asChild>
-        <Link href={`/${locale}/admin/outreach/${prospect.id}/letter`}>{t('letterLink')}</Link>
-      </Button>
-      <Button variant="outline" onClick={() => letterMutation.mutate()} disabled={letterMutation.isPending}>
-        {t('logLetter')}
-      </Button>
-      {(meetingMutation.isError || letterMutation.isError) && (
-        <span className="text-red-600">{t('logFailed')}</span>
-      )}
-
-      <Dialog open={callOpen} onOpenChange={setCallOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>{t('logCallTitle')}</DialogTitle>
-            <DialogDescription>{t('logCallDescription')}</DialogDescription>
-          </DialogHeader>
-          <div>
-            <Label>{t('logCallNote')}</Label>
-            <Textarea rows={3} value={callNote} onChange={(e) => setCallNote(e.target.value)}
-                      className="mt-1 text-base" />
-          </div>
-          {callMutation.isError && <p className="text-red-600">{t('logFailed')}</p>}
-          <DialogFooter>
-            <Button variant="outline" onClick={() => setCallOpen(false)} disabled={callMutation.isPending}>
-              {tc('cancel')}
-            </Button>
-            <Button onClick={() => callMutation.mutate()} disabled={callMutation.isPending}>
-              {callMutation.isPending ? t('saving') : t('logCallConfirm')}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
-  )
-}
-
 type ActivityGroup = {
   key: string
   type: OutboundActivity['type']
@@ -1529,7 +1459,7 @@ export default function AdminOutreachDetailPage() {
           </div>
         </div>
         <div className="flex flex-wrap items-center gap-2 pt-5">
-          <LogActivityButtons prospect={prospect} />
+          <LogActivityControl prospect={prospect} />
           <PromoteCard prospect={prospect} />
         </div>
       </div>
@@ -1566,6 +1496,9 @@ export default function AdminOutreachDetailPage() {
           <CompanyCard prospect={prospect} />
           <RoofCard prospect={prospect} />
         </div>
+        <OwnershipPanel prospect={prospect} />
+        <CallFlagControl prospect={prospect} />
+        <LetterPanel prospect={prospect} />
         <LinkedinCard key={`${prospect.linkedinProfileUrl}-${prospect.linkedinConfidence}`} prospect={prospect} />
         <WebsiteTextCard prospect={prospect} />
         <ActivityCard prospect={prospect} />

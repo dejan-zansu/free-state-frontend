@@ -13,6 +13,12 @@ export const REFERENCE_PANEL_M2 = 2.0
 export const SIZING_PRODUCTION_FACTOR = 1.5
 export const MIN_SYSTEM_KWP = 4
 
+export const REGISTER_SEGMENT_ID_PREFIX = 'gwr-'
+
+export function isRegisterEstimatedSegmentId(id: unknown): boolean {
+  return typeof id === 'string' && id.startsWith(REGISTER_SEGMENT_ID_PREFIX)
+}
+
 export function segmentCoverageFraction(
   tiltDeg: number,
   azimuthDeg: number

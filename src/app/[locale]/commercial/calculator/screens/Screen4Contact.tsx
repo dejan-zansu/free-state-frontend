@@ -89,6 +89,9 @@ export default function Screen4Contact() {
   const locale = useLocale()
 
   const contact = useCommercialCalculatorStore(state => state.contact)
+  const roofFromRegister = useCommercialCalculatorStore(
+    state => !!state.building?.estimate
+  )
   const consent = useCommercialCalculatorStore(state => state.consent)
   const submission = useCommercialCalculatorStore(state => state.submission)
   const address = useCommercialCalculatorStore(state => state.address)
@@ -315,7 +318,9 @@ export default function Screen4Contact() {
               </div>
             </dl>
             <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
-              {t('teaserSource')}
+              {roofFromRegister
+                ? t('teaserSourceRegister')
+                : t('teaserSource')}
             </p>
             <p className="mt-3 text-base text-[#062E25] tracking-tight">
               {t('teaserNext')}

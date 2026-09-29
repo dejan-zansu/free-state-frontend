@@ -2,21 +2,60 @@
 
 import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
-import { useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useEffect, useState } from 'react'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import { Textarea } from '@/components/ui/textarea'
 import { adminService } from '@/services/admin.service'
-import type { AdminContactSubmission } from '@/types/admin'
+import type {
+  AdminContactSubmission,
+  AdminContactSubmissionStatus,
+} from '@/types/admin'
 
 export default function AdminContactDetailPage() {
   const params = useParams()
   const t = useTranslations('admin.contacts')
   const tc = useTranslations('admin.common')
+  const queryClient = useQueryClient()
+  const id = params.id as string
 
   const { data: submission, isLoading } = useQuery<AdminContactSubmission>({
-    queryKey: ['admin', 'contact-submission', params.id],
-    queryFn: () => adminService.getContactSubmissionById(params.id as string),
+    queryKey: ['admin', 'contact-submission', id],
+    queryFn: () => adminService.getContactSubmissionById(id),
+  })
+
+  const [status, setStatus] = useState<AdminContactSubmissionStatus>('NEW')
+  const [adminNotes, setAdminNotes] = useState('')
+
+  useEffect(() => {
+    if (!submission) return
+    setStatus(submission.status ?? 'NEW')
+    setAdminNotes(submission.adminNotes ?? '')
+  }, [submission])
+
+  const updateMutation = useMutation({
+    mutationFn: (data: {
+      status: AdminContactSubmissionStatus
+      adminNotes: string | null
+    }) => adminService.updateContactSubmission(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ['admin', 'contact-submissions'],
+      })
+      queryClient.invalidateQueries({
+        queryKey: ['admin', 'contact-submission', id],
+      })
+    },
   })
 
   if (isLoading) {
@@ -25,6 +64,10 @@ export default function AdminContactDetailPage() {
 
   if (!submission) {
     return <p className="text-[#062E25]">{tc('notFound')}</p>
+  }
+
+  const handleSave = () => {
+    updateMutation.mutate({ status, adminNotes: adminNotes.trim() || null })
   }
 
   return (
@@ -41,12 +84,20 @@ export default function AdminContactDetailPage() {
             </h2>
             <div className="space-y-4">
               <div>
-                <label className="text-sm text-[#062E25]">{t('entityType')}</label>
-                <p className="font-medium text-[#062E25]">{submission.entityType || '-'}</p>
+                <label className="text-sm text-[#062E25]">
+                  {t('entityType')}
+                </label>
+                <p className="font-medium text-[#062E25]">
+                  {submission.entityType || '-'}
+                </p>
               </div>
               <div>
-                <label className="text-sm text-[#062E25]">{t('salutation')}</label>
-                <p className="font-medium text-[#062E25]">{submission.salutation || '-'}</p>
+                <label className="text-sm text-[#062E25]">
+                  {t('salutation')}
+                </label>
+                <p className="font-medium text-[#062E25]">
+                  {submission.salutation || '-'}
+                </p>
               </div>
               <div>
                 <label className="text-sm text-[#062E25]">{t('email')}</label>
@@ -86,6 +137,62 @@ export default function AdminContactDetailPage() {
             <p className="text-[#062E25] whitespace-pre-wrap">
               {submission.message || '-'}
             </p>
+          </CardContent>
+        </Card>
+
+        <Card className="border-[#062E25]/10">
+          <CardContent className="p-6 space-y-4">
+            <h2 className="text-lg font-semibold text-[#062E25]">
+              {t('manage')}
+            </h2>
+            <div>
+              <label className="text-sm text-[#062E25] mb-1 block">
+                {t('status')}
+              </label>
+              <Select
+                value={status}
+                onValueChange={value =>
+                  setStatus(value as AdminContactSubmissionStatus)
+                }
+              >
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="NEW">{t('statusNew')}</SelectItem>
+                  <SelectItem value="CONTACTED">
+                    {t('statusContacted')}
+                  </SelectItem>
+                  <SelectItem value="QUALIFIED">
+                    {t('statusQualified')}
+                  </SelectItem>
+                  <SelectItem value="CLOSED">{t('statusClosed')}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div>
+              <label className="text-sm text-[#062E25] mb-1 block">
+                {t('adminNotes')}
+              </label>
+              <Textarea
+                value={adminNotes}
+                onChange={e => setAdminNotes(e.target.value)}
+                className="min-h-[120px] text-base"
+              />
+            </div>
+            <Button onClick={handleSave} disabled={updateMutation.isPending}>
+              {t('save')}
+            </Button>
+            {updateMutation.isSuccess && (
+              <p className="text-green-700 text-base" role="status">
+                {t('saved')}
+              </p>
+            )}
+            {updateMutation.isError && (
+              <p className="text-red-700 text-base" role="alert">
+                {t('saveFailed')}
+              </p>
+            )}
           </CardContent>
         </Card>
       </div>

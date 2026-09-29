@@ -67,6 +67,13 @@ export interface SonnendachBuilding {
   totalPotentialKwh: number
   suitabilityClass: number
   suitabilityLabel: string
+  estimate?: {
+    source: 'gwr'
+    egid: number
+    footprintM2: number
+    buildYear: number | null
+    referenceBuildings: number
+  }
 }
 
 // API responses

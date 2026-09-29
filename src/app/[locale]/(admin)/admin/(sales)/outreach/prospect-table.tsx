@@ -6,6 +6,7 @@ import { Mail } from 'lucide-react'
 import { StatusBadge } from '@/components/admin/StatusBadge'
 import { TableCell, TableHead } from '@/components/ui/table'
 import { cn } from '@/lib/utils'
+import { OwnershipBadge } from './_components/owner-first/OwnershipBadge'
 import type {
   OutboundProspectListItem,
   OutboundReplyClassification,
@@ -158,6 +159,7 @@ export function ProspectRowCells({ p }: { p: OutboundProspectListItem }) {
             </span>
           )}
         </p>
+        <OwnershipBadge prospect={p} />
       </TableCell>
       <TableCell className="align-top">
         {p.contactEmail ? (

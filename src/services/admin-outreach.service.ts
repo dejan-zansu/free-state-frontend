@@ -3,6 +3,7 @@ import type {
   OutboundActivity,
   OutboundAssignee,
   OutboundCallQueue,
+  OutboundCallQueueQuery,
   OutboundConnectorName,
   OutboundContactPatch,
   OutboundEmail,
@@ -17,6 +18,7 @@ import type {
   OutboundSendResult,
   OutboundProspectCreateInput,
   OutboundProspectDetail,
+  OutboundProspectPatch,
   OutboundRunRow,
   OutboundTemplateRow,
   OutreachListQuery,
@@ -25,8 +27,16 @@ import type {
 } from '@/types/admin-outreach'
 
 class AdminOutreachService {
-  async listCallQueue(): Promise<OutboundCallQueue> {
-    const response = await api.get<{ success: boolean; data: OutboundCallQueue }>('/admin/outreach/call-queue')
+  async listCallQueue(q: OutboundCallQueueQuery = {}): Promise<OutboundCallQueue> {
+    const response = await api.get<{ success: boolean; data: OutboundCallQueue }>('/admin/outreach/call-queue', {
+      params: q.listedOnly ? { listedOnly: 'true' } : undefined,
+    })
+    return response.data.data
+  }
+
+  // W1-9b: records the phone directory check.
+  async updateProspect(id: string, patch: OutboundProspectPatch): Promise<OutboundProspectDetail> {
+    const response = await api.patch<{ success: boolean; data: OutboundProspectDetail }>(`/admin/outreach/prospects/${id}`, patch)
     return response.data.data
   }
 

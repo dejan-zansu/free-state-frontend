@@ -4,18 +4,21 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { ArrowLeft, Phone } from 'lucide-react'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { PROSPECT_TABLE_COLSPAN, ProspectRowCells, ProspectTableHeadCells } from '../prospect-table'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
 } from '@/components/ui/table'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { cn } from '@/lib/utils'
 import { adminOutreachService } from '@/services/admin-outreach.service'
+import { outreachKpiService } from '@/services/outreach/kpi.service'
+import { CallOutcomeDialog } from '../_components/owner-first/LogActivityControl'
 import type {
   OutboundProspectListItem,
   OutboundProspectStatus,
@@ -66,6 +69,10 @@ const RUN_STATE_KEY = {
   RUNNING: 'queue.statusRunRunning',
 } as const
 
+function formatDay(iso: string | null) {
+  return iso ? new Date(iso).toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '-'
+}
+
 function formatRunTime(iso: string) {
   const d = new Date(iso)
   const day = d.toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit', year: 'numeric' })
@@ -76,18 +83,26 @@ function formatRunTime(iso: string) {
 export default function AdminOutreachQueuePage() {
   const locale = useLocale()
   const router = useRouter()
-  const queryClient = useQueryClient()
   const t = useTranslations('admin.outreach')
+  const tf = useTranslations('admin.outreach.callFlag')
 
   const [activeTab, setActiveTab] = useState<QueueTabKey>('drafts')
   const [focusIndex, setFocusIndex] = useState(-1)
+  // W1-9b: cold calls only to numbers listed without the star.
+  const [listedOnly, setListedOnly] = useState(false)
+  const [callTarget, setCallTarget] = useState<{ id: string; companyName: string } | null>(null)
 
   const drafts = useQueueList(QUEUE_TABS[0])
   const followups = useQueueList(QUEUE_TABS[1])
   const replies = useQueueList(QUEUE_TABS[2])
   const calls = useQuery({
-    queryKey: ['admin', 'outreach', 'queue', 'calls'],
-    queryFn: () => adminOutreachService.listCallQueue(),
+    queryKey: ['admin', 'outreach', 'queue', 'calls', listedOnly],
+    queryFn: () => adminOutreachService.listCallQueue({ listedOnly }),
+  })
+  // Letters whose follow-up call is due (letter dispatch sets callDueAt).
+  const callDueLetters = useQuery({
+    queryKey: ['admin', 'outreach', 'queue', 'call-due-letters', listedOnly],
+    queryFn: () => outreachKpiService.listCallDueLetters({ listedOnly }),
   })
   const queueStatus = useQuery({
     queryKey: ['admin', 'outreach', 'queue', 'status'],
@@ -105,19 +120,7 @@ export default function AdminOutreachQueuePage() {
   const callItems = calls.data?.items ?? []
   const activeItems = activeTab === 'calls' ? callItems : (queries[activeTab].data?.items ?? [])
 
-  const logCallMutation = useMutation({
-    mutationFn: ({ id, note }: { id: string; note?: string }) =>
-      adminOutreachService.logActivity(id, { type: 'CALL_LOGGED', ...(note ? { note } : {}) }),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] })
-    },
-  })
-
-  const logCall = (id: string) => {
-    const note = window.prompt(t('queue.callNotePrompt'))
-    if (note === null) return
-    logCallMutation.mutate({ id, note: note.trim() || undefined })
-  }
+  const dueLetters = callDueLetters.data?.items ?? []
 
   const openProspect = (id: string) => {
     router.push(`/${locale}/admin/outreach/${id}`)
@@ -187,10 +190,9 @@ export default function AdminOutreachQueuePage() {
                   variant="outline"
                   size="sm"
                   className="gap-2 whitespace-nowrap"
-                  disabled={logCallMutation.isPending}
                   onClick={(e) => {
                     e.stopPropagation()
-                    logCall(p.id)
+                    setCallTarget({ id: p.id, companyName: p.companyName })
                   }}
                 >
                   <Phone className="w-4 h-4" />{t('queue.logCall')}
@@ -322,6 +324,10 @@ export default function AdminOutreachQueuePage() {
         <TabsContent value="calls">
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
+              <label className="flex items-center gap-2 mb-4">
+                <Checkbox checked={listedOnly} onCheckedChange={(v) => setListedOnly(v === true)} />
+                {tf('queueListedOnly')}
+              </label>
               {calls.isLoading ? <AdminPageLoader /> : (
                 <>
                   <div className="overflow-x-auto">
@@ -345,8 +351,88 @@ export default function AdminOutreachQueuePage() {
               )}
             </CardContent>
           </Card>
+
+          <Card className="border-[#062E25]/10 mt-4">
+            <CardContent className="p-6">
+              <h3 className="font-semibold text-[#062E25]/75 uppercase tracking-wide mb-3">{tf('lettersTitle')}</h3>
+              {callDueLetters.isLoading ? <AdminPageLoader /> : dueLetters.length === 0 ? (
+                <p className="text-[#062E25]/75">{tf('lettersEmpty')}</p>
+              ) : (
+                <div className="overflow-x-auto">
+                  <Table className="text-base min-w-[900px]">
+                    <TableHeader>
+                      <TableRow className="hover:bg-transparent">
+                        <TableHead>{tf('colCompany')}</TableHead>
+                        <TableHead>{tf('colLetter')}</TableHead>
+                        <TableHead className="whitespace-nowrap">{tf('colSent')}</TableHead>
+                        <TableHead className="whitespace-nowrap">{tf('colDue')}</TableHead>
+                        <TableHead className="whitespace-nowrap">{t('queue.phone')}</TableHead>
+                        <TableHead />
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {dueLetters.map((letter) => (
+                        <TableRow key={letter.id} className="cursor-pointer" onClick={() => openProspect(letter.prospect.id)}>
+                          <TableCell className="align-top">
+                            <p className="font-medium">{letter.prospect.companyName}</p>
+                            <p className="text-[#062E25]/75">
+                              {[letter.prospect.addressStreet, letter.prospect.addressNumber].filter(Boolean).join(' ')}
+                              {letter.prospect.addressCity ? `, ${letter.prospect.addressCity}` : ''}
+                            </p>
+                          </TableCell>
+                          <TableCell className="align-top">
+                            <p>{letter.recipientName}</p>
+                            <p className="font-mono text-[#062E25]/75">{letter.templateKey}</p>
+                          </TableCell>
+                          <TableCell className="align-top tabular-nums whitespace-nowrap">
+                            {formatDay(letter.sentAt ?? letter.submittedAt)}
+                          </TableCell>
+                          <TableCell className="align-top tabular-nums whitespace-nowrap">{formatDay(letter.callDueAt)}</TableCell>
+                          <TableCell className="align-top whitespace-nowrap">
+                            {letter.prospect.contactPhone ? (
+                              <a
+                                href={`tel:${letter.prospect.contactPhone.replace(/\s/g, '')}`}
+                                className="tabular-nums text-[#062E25] underline underline-offset-2"
+                                onClick={(e) => e.stopPropagation()}
+                              >
+                                {letter.prospect.contactPhone}
+                              </a>
+                            ) : (
+                              <span className="text-[#062E25]/40">-</span>
+                            )}
+                          </TableCell>
+                          <TableCell className="align-top">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="gap-2 whitespace-nowrap"
+                              onClick={(e) => {
+                                e.stopPropagation()
+                                setCallTarget({ id: letter.prospect.id, companyName: letter.prospect.companyName })
+                              }}
+                            >
+                              <Phone className="w-4 h-4" />{t('queue.logCall')}
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              )}
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
+
+      {callTarget && (
+        <CallOutcomeDialog
+          prospectId={callTarget.id}
+          companyName={callTarget.companyName}
+          open
+          onOpenChange={(open) => { if (!open) setCallTarget(null) }}
+        />
+      )}
     </div>
   )
 }

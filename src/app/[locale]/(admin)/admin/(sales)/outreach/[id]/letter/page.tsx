@@ -1,6 +1,12 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+// Manual print page of the letter track (doc 69 W2-11a and W2-12). The text,
+// the recipient block and the QR code come from the backend preview, built
+// from the same letter template and slots as the Pingen PDF: the body follows
+// the prospect's segment, the recipient block uses the owner's postal address
+// when one is stored, and neither the {chf} production-value sentence nor the
+// reference line is part of any letter template.
+
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
@@ -9,13 +15,19 @@ import { useQuery } from '@tanstack/react-query'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
-import api from '@/lib/api'
-import { adminOutreachService } from '@/services/admin-outreach.service'
+import { outreachLettersService } from '@/services/outreach/letters.service'
 
-type PublicRoofData = {
-  chfPerYear: string | null
-  roofKwhYear: number | null
-}
+const KNOWN_BLOCKERS = new Set([
+  'no_letter_template_for_segment',
+  'no_postal_address',
+  'prospect_closed',
+  'confirmed_tenant',
+  'suppressed',
+  'do_not_pitch',
+  'no_landing_url',
+  'template_inactive',
+  'missing_slot',
+])
 
 function formatSwissNumber(value: number): string {
   return Math.round(value)
@@ -23,49 +35,41 @@ function formatSwissNumber(value: number): string {
     .replace(/\B(?=(\d{3})+(?!\d))/g, "'")
 }
 
-function wmsCropUrl(e: number, n: number, half: number, px: number): string {
-  const bbox = `${e - half},${n - half},${e + half},${n + half}`
-  return `https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage&STYLES=&CRS=EPSG:2056&BBOX=${bbox}&WIDTH=${px}&HEIGHT=${px}&FORMAT=image/jpeg`
-}
-
 export default function OutreachLetterPage() {
   const params = useParams<{ id: string }>()
   const locale = useLocale()
   const t = useTranslations('admin.outreach.detail')
-  const [origin, setOrigin] = useState('')
+  const tl = useTranslations('admin.outreach.letters')
 
-  useEffect(() => {
-    setOrigin(window.location.origin)
-  }, [])
-
-  const { data: prospect, isLoading } = useQuery({
-    queryKey: ['admin', 'outreach', 'prospect', params.id],
-    queryFn: () => adminOutreachService.getProspect(params.id),
+  const {
+    data: letter,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ['admin', 'outreach', 'letter-preview', params.id],
+    queryFn: () => outreachLettersService.preview(params.id),
   })
 
-  const { data: roof } = useQuery({
-    queryKey: ['admin', 'outreach', 'public-roof', prospect?.publicToken],
-    queryFn: async () => {
-      const res = await api.get<{ success: boolean; data: PublicRoofData }>(
-        `/public/outreach/roof/${prospect!.publicToken}`,
-      )
-      return res.data.data
-    },
-    enabled: !!prospect?.publicToken,
-    retry: false,
+  // Known blocker codes have a label, anything else is shown as sent.
+  const blockerLabel = (blocker: string): string => {
+    const code = blocker.split(':')[0]
+    return KNOWN_BLOCKERS.has(code) ? tl(`blocker.${code}`) : blocker
+  }
+
+  if (isLoading) return <AdminPageLoader />
+  if (isError || !letter) {
+    return (
+      <p className="p-3 rounded bg-red-50 text-red-700">
+        {tl('previewFailed')}
+      </p>
+    )
+  }
+
+  const today = new Date(letter.date).toLocaleDateString('de-CH', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
   })
-
-  if (isLoading || !prospect) return <AdminPageLoader />
-
-  const street = `${prospect.addressStreet ?? ''} ${prospect.addressNumber ?? ''}`.trim()
-  const cityLine = `${prospect.addressPostalCode ?? ''} ${prospect.addressCity ?? ''}`.trim()
-  const anrede = prospect.contactName?.trim()
-    ? `Guten Tag ${prospect.contactName.trim()}`
-    : 'Sehr geehrte Damen und Herren'
-  const kwh = prospect.roofKwhYear != null ? formatSwissNumber(prospect.roofKwhYear) : null
-  const chf = roof?.chfPerYear ?? null
-  const onePagerUrl = origin && prospect.publicToken ? `${origin}/dach/${prospect.publicToken}` : null
-  const today = new Date().toLocaleDateString('de-CH', { day: 'numeric', month: 'long', year: 'numeric' })
 
   return (
     <div className="max-w-[820px]">
@@ -90,17 +94,33 @@ export default function OutreachLetterPage() {
 
       <div className="print-hide mb-4 flex flex-wrap items-center justify-between gap-3">
         <Link
-          href={`/${locale}/admin/outreach/${prospect.id}`}
+          href={`/${locale}/admin/outreach/${letter.prospectId}`}
           className="inline-flex items-center gap-1 text-[#062E25]/60 hover:text-[#062E25]"
         >
           <ChevronLeft className="w-4 h-4" />
           {t('back')}
         </Link>
-        <Button onClick={() => window.print()} className="bg-[#062E25] hover:bg-[#062E25]/90">
+        <Button
+          onClick={() => window.print()}
+          className="bg-[#062E25] hover:bg-[#062E25]/90"
+        >
           <Printer className="w-4 h-4" />
           Drucken
         </Button>
       </div>
+
+      {letter.blockers.length > 0 && (
+        <div className="print-hide mb-4 p-3 rounded bg-amber-50 text-amber-800">
+          <p className="font-medium">{tl('blockersTitle')}</p>
+          <ul className="list-disc pl-5">
+            {letter.blockers.map(blocker => (
+              <li key={blocker}>
+                {blockerLabel(blocker)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div
         id="outbound-letter"
@@ -111,76 +131,53 @@ export default function OutreachLetterPage() {
         </p>
 
         <div className="mt-8">
-          <p className="font-medium">{prospect.companyName}</p>
-          {street && <p>{street}</p>}
-          {cityLine && <p>{cityLine}</p>}
+          {letter.recipientLines.map((line, i) => (
+            <p key={i} className={i === 0 ? 'font-medium' : undefined}>
+              {line}
+            </p>
+          ))}
         </div>
 
         <p className="mt-8 text-right">Schaffhausen, {today}</p>
 
-        <p className="mt-8 font-bold">Nutzung Ihrer Dachfläche für Photovoltaik</p>
+        {letter.subject && <p className="mt-8 font-bold">{letter.subject}</p>}
 
-        <p className="mt-6">{anrede}</p>
-
-        <p className="mt-4">
-          Ihr Gebäude an der {street || 'Ihrer Adresse'} in {prospect.addressCity ?? ''} hat gemäss den Daten des
-          Bundes (sonnendach.ch) ein Solarpotenzial von rund {kwh ?? ''} kWh pro Jahr. Im Anlagenregister des Bundes
-          ist für dieses Gebäude aktuell keine Photovoltaikanlage erfasst.
-          {chf && (
-            <>
-              {' '}
-              Das entspricht beim üblichen Gewerbetarif einem Stromwert von rund CHF {chf} pro Jahr.
-            </>
-          )}
-        </p>
-
-        <p className="mt-4">Für die Nutzung dieser Dachfläche gibt es zwei Wege:</p>
-
-        <p className="mt-4">
-          1. Kauf: Sie investieren selbst, werden Eigentümerin oder Eigentümer der Anlage und profitieren direkt von
-          tieferen Stromkosten.
-        </p>
-
-        <p className="mt-4">
-          2. Contracting: Free State AG plant, baut und betreibt die Anlage auf eigene Kosten. Sie beziehen den
-          Solarstrom vom eigenen Dach, bis zu 30 Prozent unter dem Netztarif, ohne Investition und ohne
-          Betriebsrisiko.
-        </p>
-
-        <p className="mt-4">Referenzdächer: Diggelmann Bau AG, Stiftung Wetterbaum, Bowling Five.</p>
-
-        {prospect.lv95E != null && prospect.lv95N != null && (
-          <figure className="mt-6">
-            <img
-              src={wmsCropUrl(prospect.lv95E, prospect.lv95N, 60, 640)}
-              alt={`Luftbild ${street}`}
-              className="w-[70mm] aspect-square object-cover border border-[#062E25]/20"
-            />
-            <figcaption className="mt-1 text-base text-[#062E25]/60">
-              Luftbild Ihres Gebäudes (SWISSIMAGE, swisstopo)
-            </figcaption>
-          </figure>
-        )}
-
-        {onePagerUrl && (
-          <p className="mt-6">
-            Alle Zahlen und das Luftbild zu Ihrem Dach finden Sie online unter:
-            <br />
-            <span className="font-medium break-all">{onePagerUrl}</span>
+        {letter.paragraphs.map((paragraph, i) => (
+          <p key={i} className="mt-4 whitespace-pre-line">
+            {paragraph}
           </p>
-        )}
+        ))}
 
-        <p className="mt-4">
-          Für eine erste Einschätzung genügt ein Termin von 30 Minuten, gerne auch vor Ort. Sie erreichen mich unter
-          ivan.miric@freestate.ch.
-        </p>
-
-        <p className="mt-8">Freundliche Grüsse</p>
-
-        <div className="mt-12">
-          <p className="font-medium">Ivan Miric</p>
-          <p>Geschäftsführer</p>
-          <p>Free State AG</p>
+        <div className="mt-6 flex flex-wrap items-start gap-6">
+          {letter.imageUrl && (
+            <figure>
+              <img
+                src={letter.imageUrl}
+                alt="Luftbild des Gebäudes"
+                className="w-[60mm] aspect-square object-cover border border-[#062E25]/20"
+              />
+              <figcaption className="mt-1 text-base text-[#062E25]/60">
+                {letter.imageCredit}
+                {letter.roofKwhYear != null &&
+                  `, rund ${formatSwissNumber(letter.roofKwhYear)} kWh pro Jahr nach sonnendach.ch`}
+              </figcaption>
+            </figure>
+          )}
+          {letter.qrSvg && (
+            <div className="flex items-center gap-4">
+              <img
+                src={`data:image/svg+xml;utf8,${encodeURIComponent(letter.qrSvg)}`}
+                alt="QR-Code zur Dachseite"
+                className="w-[30mm] h-[30mm]"
+              />
+              <div>
+                <p className="font-bold">Ihr Dach online</p>
+                {letter.displayUrl && (
+                  <p className="break-all">{letter.displayUrl}</p>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

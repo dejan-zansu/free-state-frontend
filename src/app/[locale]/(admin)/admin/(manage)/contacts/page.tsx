@@ -9,6 +9,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
+import {
   Table,
   TableBody,
   TableCell,
@@ -19,6 +26,20 @@ import {
 import { useAdminQuery } from '@/hooks/use-admin-query'
 import { adminService } from '@/services/admin.service'
 import type { AdminContactSubmission } from '@/types/admin'
+
+const statusColors: Record<string, string> = {
+  NEW: 'bg-blue-100 text-blue-700',
+  CONTACTED: 'bg-yellow-100 text-yellow-700',
+  QUALIFIED: 'bg-green-100 text-green-700',
+  CLOSED: 'bg-gray-100 text-gray-600',
+}
+
+const statusLabelKeys = {
+  NEW: 'statusNew',
+  CONTACTED: 'statusContacted',
+  QUALIFIED: 'statusQualified',
+  CLOSED: 'statusClosed',
+} as const
 
 export default function AdminContactsPage() {
   const locale = useLocale()
@@ -32,6 +53,8 @@ export default function AdminContactsPage() {
     total,
     setPage,
     setSearch,
+    setFilter,
+    filters,
   } = useAdminQuery<AdminContactSubmission>('contact-submissions', adminService.listContactSubmissions.bind(adminService))
 
   return (
@@ -46,6 +69,23 @@ export default function AdminContactsPage() {
               className="max-w-xs"
               onChange={e => setSearch(e.target.value)}
             />
+            <Select
+              value={filters.status || 'all'}
+              onValueChange={v =>
+                setFilter('status', v === 'all' ? undefined : v)
+              }
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder={t('filterStatus')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all">{t('allStatuses')}</SelectItem>
+                <SelectItem value="NEW">{t('statusNew')}</SelectItem>
+                <SelectItem value="CONTACTED">{t('statusContacted')}</SelectItem>
+                <SelectItem value="QUALIFIED">{t('statusQualified')}</SelectItem>
+                <SelectItem value="CLOSED">{t('statusClosed')}</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
 
           {isLoading ? (
@@ -59,6 +99,7 @@ export default function AdminContactsPage() {
                     <TableHead>{t('email')}</TableHead>
                     <TableHead>{t('city')}</TableHead>
                     <TableHead>{t('message')}</TableHead>
+                    <TableHead>{t('status')}</TableHead>
                     <TableHead>{t('created')}</TableHead>
                     <TableHead />
                   </TableRow>
@@ -80,6 +121,13 @@ export default function AdminContactsPage() {
                       <TableCell className="text-sm text-[#062E25] max-w-48 truncate">
                         {submission.message}
                       </TableCell>
+                      <TableCell>
+                        <span
+                          className={`inline-flex px-2 py-0.5 rounded-full text-sm font-medium ${statusColors[submission.status ?? 'NEW'] || ''}`}
+                        >
+                          {t(statusLabelKeys[submission.status ?? 'NEW'])}
+                        </span>
+                      </TableCell>
                       <TableCell className="text-[#062E25] text-sm">
                         {new Date(submission.createdAt).toLocaleDateString('de-CH')}
                       </TableCell>
@@ -95,7 +143,7 @@ export default function AdminContactsPage() {
                   {data.length === 0 && (
                     <TableRow>
                       <TableCell
-                        colSpan={6}
+                        colSpan={7}
                         className="text-center py-8 text-[#062E25]/75"
                       >
                         {t('noSubmissions')}

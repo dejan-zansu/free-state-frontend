@@ -261,6 +261,7 @@ export default function Step4RoofAreas() {
                   0
                 )
               ),
+              estimated: !!buildingData.estimate,
               ...flowVersionMeta,
             },
           })
@@ -550,7 +551,9 @@ export default function Step4RoofAreas() {
         const size = map.getSize()
         const canvases = map
           .getViewport()
-          .querySelectorAll<HTMLCanvasElement>('.ol-layer canvas, canvas.ol-layer')
+          .querySelectorAll<HTMLCanvasElement>(
+            '.ol-layer canvas, canvas.ol-layer'
+          )
         if (size && canvases.length > 0) {
           const mapCanvas = document.createElement('canvas')
           mapCanvas.width = size[0]
@@ -563,7 +566,8 @@ export default function Step4RoofAreas() {
               if (c.width === 0 || c.height === 0) return
               const parent = c.parentNode as HTMLElement | null
               const opacity = parent?.style.opacity || c.style.opacity
-              ctx.globalAlpha = opacity === '' || opacity == null ? 1 : Number(opacity)
+              ctx.globalAlpha =
+                opacity === '' || opacity == null ? 1 : Number(opacity)
               const match = c.style.transform.match(/^matrix\(([^)]*)\)$/)
               if (match) {
                 const matrix = match[1].split(',').map(Number) as [
@@ -596,7 +600,10 @@ export default function Step4RoofAreas() {
     }
 
     map.on('rendercomplete', onRenderComplete)
-    deadlineId = window.setTimeout(() => finish(false), ROOF_CAPTURE_DEADLINE_MS)
+    deadlineId = window.setTimeout(
+      () => finish(false),
+      ROOF_CAPTURE_DEADLINE_MS
+    )
     map.renderSync()
   }
 
@@ -766,7 +773,7 @@ export default function Step4RoofAreas() {
                 {t2('headline')}
               </p>
               <p className="mt-1 text-base font-light text-[#EAEDDF]/80">
-                {t2('helper')}
+                {building?.estimate ? t2('registerNote') : t2('helper')}
               </p>
             </>
           ) : (
@@ -946,7 +953,7 @@ export default function Step4RoofAreas() {
                   {t2('headline')}
                 </p>
                 <p className="mt-1 text-base font-light text-[#EAEDDF]/80">
-                  {t2('helper')}
+                  {building?.estimate ? t2('registerNote') : t2('helper')}
                 </p>
                 <div className="mt-3">
                   <RoofSegmentList idPrefix="mobile" />

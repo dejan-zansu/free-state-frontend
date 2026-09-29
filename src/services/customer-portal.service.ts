@@ -129,6 +129,7 @@ export interface WorkspaceCalculation {
   carbonOffsetKg: number
   electricityTariffRpKwh: number | null
   feedInTariffRpKwh: number | null
+  roofFromRegister?: boolean
 }
 
 export interface WorkspaceEvCharger {

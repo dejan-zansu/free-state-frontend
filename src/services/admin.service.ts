@@ -3,6 +3,7 @@ import type {
   AdminBlogPost,
   AdminCareerSubscription,
   AdminContactSubmission,
+  AdminContactSubmissionStatus,
   AdminContract,
   AdminInquiry,
   AdminInvestorRequest,
@@ -183,6 +184,14 @@ class AdminService {
 
   async getContactSubmissionById(id: string): Promise<AdminContactSubmission> {
     const response = await api.get<{ success: boolean; data: AdminContactSubmission }>(`/admin/contact-submissions/${id}`)
+    return response.data.data
+  }
+
+  async updateContactSubmission(
+    id: string,
+    data: Partial<{ status: AdminContactSubmissionStatus; adminNotes: string | null }>
+  ): Promise<AdminContactSubmission> {
+    const response = await api.patch<{ success: boolean; data: AdminContactSubmission }>(`/admin/contact-submissions/${id}`, data)
     return response.data.data
   }
 

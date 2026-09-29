@@ -11,6 +11,7 @@ import {
   type BuildingUse,
 } from '@/lib/commercial-estimate'
 import { COMPANY_MAIN_PHONE_DISPLAY } from '@/lib/company-contact'
+import { isRegisterEstimatedSegmentId } from '@/lib/roof-estimate'
 import {
   commercialLeadService,
   type CommercialLeadPublicView,
@@ -249,6 +250,11 @@ function ConfirmationInner() {
         leadId={id ?? ''}
         uploadToken={uploadExpired ? null : state.token}
         source="confirmation"
+        roofFromRegister={
+          readSegments(snapshot)?.some(segment =>
+            isRegisterEstimatedSegmentId(segment.id)
+          ) ?? false
+        }
       />
     )
   }

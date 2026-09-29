@@ -199,6 +199,7 @@ export default function Screen2Roof() {
             step: SCREEN_STEP,
             meta: {
               ...commercialFlowMeta,
+              estimated: !!found.estimate,
               segmentCount: found.roofSegments.length,
               totalAreaM2: Math.round(
                 found.roofSegments.reduce(
@@ -434,7 +435,7 @@ export default function Screen2Roof() {
             {t('headline')}
           </h2>
           <p className="mt-2 text-base font-light text-[#EAEDDF]/80">
-            {t('helper')}
+            {building?.estimate ? t('registerNote') : t('helper')}
           </p>
           {isFetchingBuilding && (
             <p

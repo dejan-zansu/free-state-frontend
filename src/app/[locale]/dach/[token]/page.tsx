@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation'
 import { CalendarDays, Mail, Sun, Zap } from 'lucide-react'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 
+import LandingActions from './_components/LandingActions'
+
 export const metadata: Metadata = {
   title: 'Solarpotenzial Ihrer Dachfläche | Free State AG',
   robots: { index: false, follow: false },
@@ -25,11 +27,14 @@ type RoofData = {
   addressCity: string | null
   roofAreaM2: string | null
   roofKwhYear: number | null
-  chfPerYear: string | null
   lv95E: number | null
   lv95N: number | null
   segments: RoofSegment[]
   suitableAggregation: { segmentCount: number; areaM2: number; kwhYear: number }
+  // True only where the federal register was checked and had no hit.
+  registerNoHit: boolean
+  // OUTBOUND_LANDING_REFERENCES on the API, set once the claims-register rows exist.
+  showReferences: boolean
 }
 
 function formatSwissNumber(value: number): string {
@@ -101,7 +106,7 @@ export default async function DachPage({
           </figure>
         )}
 
-        <section className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {data.roofAreaM2 != null && (
             <div className="rounded-2xl bg-[#062E25]/5 p-5">
               <Sun className="w-5 h-5 text-amber-500" />
@@ -118,27 +123,25 @@ export default async function DachPage({
               <p className="text-base text-[#062E25]/70">Solarstrom pro Jahr gemäss sonnendach.ch</p>
             </div>
           )}
-          {data.chfPerYear != null && (
-            <div className="rounded-2xl bg-[#062E25] text-white p-5">
-              <CalendarDays className="w-5 h-5 text-amber-300" />
-              <p className="mt-2 text-2xl font-bold tabular-nums">CHF {data.chfPerYear}</p>
-              <p className="text-base text-white/80">
-                entspricht Stromkosten von rund CHF {data.chfPerYear} pro Jahr
-              </p>
-            </div>
-          )}
         </section>
 
-        {data.suitableAggregation.segmentCount > 0 && (
+        {(data.suitableAggregation.segmentCount > 0 || data.registerNoHit) && (
           <p className="text-base text-[#062E25]/75">
-            {data.suitableAggregation.segmentCount === 1
-              ? 'Eine gut geeignete Dachfläche'
-              : `${data.suitableAggregation.segmentCount} gut geeignete Dachflächen`}{' '}
-            mit zusammen rund {formatSwissNumber(data.suitableAggregation.areaM2)} m² und einem Potenzial von rund{' '}
-            {formatSwissNumber(data.suitableAggregation.kwhYear)} kWh pro Jahr. Im Anlagenregister des Bundes ist für
-            dieses Gebäude aktuell keine Photovoltaikanlage erfasst.
+            {data.suitableAggregation.segmentCount > 0 && (
+              <>
+                {data.suitableAggregation.segmentCount === 1
+                  ? 'Eine gut geeignete Dachfläche'
+                  : `${data.suitableAggregation.segmentCount} gut geeignete Dachflächen`}{' '}
+                mit zusammen rund {formatSwissNumber(data.suitableAggregation.areaM2)} m² und einem Potenzial von rund{' '}
+                {formatSwissNumber(data.suitableAggregation.kwhYear)} kWh pro Jahr.{' '}
+              </>
+            )}
+            {data.registerNoHit &&
+              'Im Anlagenregister des Bundes ist für dieses Gebäude aktuell keine Photovoltaikanlage erfasst.'}
           </p>
         )}
+
+        <LandingActions token={token} />
 
         <section className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">Zwei Wege zur Nutzung dieser Dachfläche</h2>
@@ -158,9 +161,11 @@ export default async function DachPage({
               </p>
             </div>
           </div>
-          <p className="text-base text-[#062E25]/75">
-            Referenzdächer: Diggelmann Bau AG, Stiftung Wetterbaum, Bowling Five.
-          </p>
+          {data.showReferences && (
+            <p className="text-base text-[#062E25]/75">
+              Referenzdächer: Diggelmann Bau AG, Stiftung Wetterbaum, Bowling Five.
+            </p>
+          )}
         </section>
 
         <section className="rounded-2xl bg-[#062E25]/5 p-6 sm:p-8 text-center space-y-4">

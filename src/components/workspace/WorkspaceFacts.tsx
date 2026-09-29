@@ -45,7 +45,9 @@ export function WorkspaceFacts({ data }: { data: WorkspacePayload }) {
         <p className="text-base font-light text-pine/75 tracking-tight">
           {t('tariff', { rate: rpPerKwh(data.rates.electricityChfPerKwh) })}
         </p>
-        <p className="text-base font-light text-pine/75 tracking-tight">{t('estimate')}</p>
+        <p className="text-base font-light text-pine/75 tracking-tight">
+          {calc.roofFromRegister ? t('estimateRegister') : t('estimate')}
+        </p>
       </div>
     </section>
   )

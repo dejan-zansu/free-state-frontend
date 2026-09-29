@@ -32,6 +32,7 @@ export interface ResultScreenProps {
   leadId: string
   uploadToken: string | null
   source: 'flow' | 'confirmation'
+  roofFromRegister?: boolean
   onRestart?: () => void
 }
 
@@ -68,6 +69,7 @@ export default function ResultScreen({
   leadId,
   uploadToken,
   source,
+  roofFromRegister = false,
   onRestart,
 }: ResultScreenProps) {
   const t = useTranslations('commercialCalculator.result')
@@ -193,7 +195,9 @@ export default function ResultScreen({
           data-cs-mask
           className="mt-2 sm:mt-3 text-base sm:text-lg text-[#062E25]/80 tracking-tight"
         >
-          {t('subline', { address: addressLabel })}
+          {t(roofFromRegister ? 'sublineRegister' : 'subline', {
+            address: addressLabel,
+          })}
         </p>
         {estimate.isLowResult && (
           <p className="mt-2 text-base text-[#062E25] tracking-tight">
@@ -322,7 +326,7 @@ export default function ResultScreen({
             </p>
           )}
           <p className="text-base text-[#062E25]/70 tracking-tight">
-            {t('estimateNote')}
+            {t(roofFromRegister ? 'estimateNoteRegister' : 'estimateNote')}
           </p>
         </div>
 

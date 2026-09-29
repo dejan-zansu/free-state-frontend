@@ -135,7 +135,8 @@ export default function CommercialCalculatorClient() {
 
   const renderStep = () => {
     if (showResult && submission.result) {
-      const estimate = useCommercialCalculatorStore.getState().getEstimate()
+      const state = useCommercialCalculatorStore.getState()
+      const estimate = state.getEstimate()
       return (
         <ResultScreen
           estimate={estimate}
@@ -148,6 +149,7 @@ export default function CommercialCalculatorClient() {
           leadId={submission.result.id}
           uploadToken={submission.result.uploadToken}
           source="flow"
+          roofFromRegister={!!state.building?.estimate}
           onRestart={() => {
             reset()
             setStepParam(1, { history: 'replace' })

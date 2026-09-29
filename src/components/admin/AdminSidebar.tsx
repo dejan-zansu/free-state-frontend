@@ -148,6 +148,38 @@ function useNavGroups() {
           icon: Linkedin,
           capability: 'sales.tools',
         },
+        // Owner-first build (doc 69). The pages come from M9, M10, M12, M14
+        // and M3.
+        {
+          label: t('outreachOwnerLookup'),
+          href: `${prefix}/outreach/owner-lookup`,
+          icon: Building2,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreachSignals'),
+          href: `${prefix}/outreach/signals`,
+          icon: Radio,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreachLetters'),
+          href: `${prefix}/outreach/letters`,
+          icon: FileText,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreachMailboxes'),
+          href: `${prefix}/outreach/mailboxes`,
+          icon: Mail,
+          capability: 'sales.tools',
+        },
+        {
+          label: t('outreachKpi'),
+          href: `${prefix}/outreach/kpi`,
+          icon: Gauge,
+          capability: 'sales.tools',
+        },
       ],
     },
     {

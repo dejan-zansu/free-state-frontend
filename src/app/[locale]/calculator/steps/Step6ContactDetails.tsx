@@ -691,6 +691,7 @@ function ContactScreenV2() {
     getAnnualProduction,
     getRoofCapacityKwp,
     fetchSavingsEstimate,
+    building,
   } = useSolarAboCalculatorStore()
 
   // Ungated teaser: the physical facts about the roof plus the yearly savings are
@@ -1152,7 +1153,9 @@ function ContactScreenV2() {
               </div>
             )}
             <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
-              {t('teaserSource')}
+              {building?.estimate
+                ? t('teaserSourceRegister')
+                : t('teaserSource')}
             </p>
             {showSizedNote && (
               <p className="mt-2 text-base text-[#062E25]/70 tracking-tight">

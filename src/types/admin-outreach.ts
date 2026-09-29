@@ -1,3 +1,20 @@
+import type {
+  CallOutcome,
+  OutboundChannel,
+  OutboundLeadCriterion,
+  OutboundLeadKind,
+  OutboundLetterKind,
+  OutboundLetterStatus,
+  OutboundSegment,
+  OwnerEntityClass,
+  OwnerLookupStatus,
+  OwnerPartyType,
+  OwnerResolution,
+  OwnershipConfidence,
+  ProspectPartyRole,
+  QrlCriterion,
+} from './outreach/owner-first'
+
 export type OutboundProspectStatus =
   | 'DISCOVERED' | 'SCREENED_OUT' | 'ROOF_QUALIFIED' | 'CONTACT_FOUND'
   | 'DRAFTED' | 'CONTACTED' | 'FOLLOW_UP_DUE' | 'REPLIED' | 'ANSWERED' | 'SNOOZED'
@@ -16,6 +33,9 @@ export type OutboundActivityType =
   | 'DRAFT_REJECTED' | 'EMAIL_SENT' | 'REPLY_RECEIVED' | 'CLASSIFIED'
   | 'STATUS_CHANGED' | 'ASSIGNED' | 'SNOOZED' | 'SUPPRESSED' | 'PROMOTED'
   | 'CALL_LOGGED' | 'LETTER_SENT' | 'MEETING_BOOKED' | 'NOTE' | 'IMPORTED' | 'LINKEDIN'
+  // Owner-first build (doc 69)
+  | 'OWNER_LOOKUP' | 'OWNERSHIP_CHANGED' | 'OWNER_SIGNAL' | 'QRL_RECORDED' | 'WARM_ALERT'
+  | 'LANDING_RESPONSE' | 'MAILBOX_EVENT' | 'DIRECTORY_CHECKED' | 'OFFER_SENT' | 'MEETING_HELD'
 
 export type OutboundEmailDirection = 'OUTBOUND' | 'INBOUND'
 
@@ -51,6 +71,24 @@ export interface OutboundProspectListItem {
   fitScore: number | null
   emailSummary: OutboundEmailSummary
   draftGate: { reason: string; detail: string } | null
+  // Owner-first build (doc 69 W2-2, W2-3, W1-9b)
+  partyRole: ProspectPartyRole
+  ownershipConfidence: OwnershipConfidence
+  ownerName: string | null
+  ownerUid: string | null
+  ownerPartyType: OwnerPartyType | null
+  entityClass: OwnerEntityClass | null
+  segment: OutboundSegment | null
+  segmentReason: string | null
+  egrid: string | null
+  parcelEgids: string[]
+  targetBuildingConfirmed: boolean
+  portfolioName: string | null
+  portfolioEgids: string[]
+  ownerProspectId: string | null
+  directoryListedNoStar: boolean | null
+  directoryCheckedAt: string | null
+  assignedMailboxId: string | null
 }
 
 export interface OutboundCallQueue {
@@ -167,6 +205,90 @@ export interface OutboundProspectDetail {
   activities: OutboundActivity[]
   emails: OutboundEmail[]
   draftGate: { reason: string; detail: string } | null
+  // Owner-first build (doc 69 W2-2 parcel, W2-3 ownership, W1-9b phone track)
+  egrid: string | null
+  parcelNumber: string | null
+  landRegistryDistrict: number | null
+  buildingCanton: string | null
+  buildingBfs: number | null
+  buildingCategory: number | null
+  floors: number | null
+  dwellings: number | null
+  energyRefAreaM2: number | null
+  parcelEgids: string[]
+  parcelCompanyCount: number | null
+  parcelResolvedAt: string | null
+  targetBuildingConfirmed: boolean
+  partyRole: ProspectPartyRole
+  ownershipConfidence: OwnershipConfidence
+  ownershipEvidence: OutboundOwnershipEvidence[] | null
+  ownershipUpdatedAt: string | null
+  ownerName: string | null
+  ownerUid: string | null
+  ownerPartyType: OwnerPartyType | null
+  ownerProspectId: string | null
+  entityClass: OwnerEntityClass | null
+  segment: OutboundSegment | null
+  segmentReason: string | null
+  ownerLookupId: string | null
+  postalName: string | null
+  postalStreet: string | null
+  postalNumber: string | null
+  postalPostalCode: string | null
+  postalCity: string | null
+  postalCountry: string | null
+  postalSource: string | null
+  portfolioName: string | null
+  portfolioEgids: string[]
+  directoryListedNoStar: boolean | null
+  directoryCheckedAt: string | null
+  assignedMailboxId: string | null
+  ownerLookup: OutboundProspectOwnerLookup | null
+  letters: OutboundProspectLetter[]
+  leads: OutboundProspectLead[]
+}
+
+// One entry of OutboundProspect.ownershipEvidence (backend ownership.ts).
+export interface OutboundOwnershipEvidence {
+  source: string
+  at: string
+  implies: OwnershipConfidence
+  weight: number
+  ownerName?: string | null
+  ownerUid?: string | null
+  ownerPartyType?: OwnerPartyType | null
+  ref?: { lookupId?: string; signalId?: string; emailId?: string; activityId?: string; url?: string }
+  detail?: string
+  by: 'system' | 'skill' | 'operator'
+}
+
+export interface OutboundProspectOwnerLookup {
+  id: string
+  status: OwnerLookupStatus
+  tier: string
+  canton: string
+  resolution: OwnerResolution | null
+  queriedAt: string | null
+}
+
+export interface OutboundProspectLetter {
+  id: string
+  kind: OutboundLetterKind
+  status: OutboundLetterStatus
+  templateKey: string
+  createdAt: string
+  sentAt: string | null
+  callDueAt: string | null
+}
+
+export interface OutboundProspectLead {
+  id: string
+  kind: OutboundLeadKind
+  criterion: OutboundLeadCriterion
+  channel: OutboundChannel
+  qualifiedAt: string
+  commercialLeadId: string | null
+  promotionNote: string | null
 }
 
 export type OutreachSort =
@@ -332,11 +454,37 @@ export interface OutboundManualReplyInput {
   subject?: string
 }
 
-export type OutboundManualActivityType = 'MEETING_BOOKED' | 'CALL_LOGGED' | 'LETTER_SENT' | 'NOTE'
+export type OutboundManualActivityType =
+  | 'MEETING_BOOKED' | 'CALL_LOGGED' | 'LETTER_SENT' | 'NOTE'
+  // Owner-first build (doc 69 W1-8)
+  | 'MEETING_HELD' | 'OFFER_SENT'
 
+// POST /prospects/:id/activities (backend outbound.schema.ts, contract 4.12).
+// A meeting names its evidence (an inbound mail or a logged call of the same
+// prospect), otherwise the backend answers 400 MEETING_NEEDS_EVIDENCE.
 export interface OutboundManualActivityInput {
   type: OutboundManualActivityType
   note?: string
+  sourceEmailId?: string
+  sourceActivityId?: string
+  callOutcome?: CallOutcome
+  ownerName?: string
+  ownerRole?: 'OWNER' | 'MANAGER' | 'UNKNOWN'
+  ownerEmail?: string
+  tenantConsent?: boolean
+  meetingAt?: string
+  notNowUntil?: string
+  qrlCriterion?: QrlCriterion
+}
+
+// PATCH /prospects/:id (W1-9b phone directory check).
+export interface OutboundProspectPatch {
+  directoryListedNoStar: boolean
+}
+
+// GET /call-queue?listedOnly=true keeps numbers listed without the star.
+export interface OutboundCallQueueQuery {
+  listedOnly?: boolean
 }
 
 export interface OutboundLeadThread {

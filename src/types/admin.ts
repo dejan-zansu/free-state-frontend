@@ -124,6 +124,7 @@ export interface AdminLead {
 }
 
 export interface AdminLeadRoofSegment {
+  id?: string | number | null
   area?: number | null
   tilt?: number | null
   azimuth?: number | null
@@ -441,9 +442,13 @@ export interface AdminContactSubmission {
   email: string
   message: string | null
   consentPrivacy: boolean
+  status?: AdminContactSubmissionStatus
+  adminNotes?: string | null
   createdAt: string
   updatedAt: string
 }
+
+export type AdminContactSubmissionStatus = 'NEW' | 'CONTACTED' | 'QUALIFIED' | 'CLOSED'
 
 export interface AdminNewsletterSubscription {
   id: string
