@@ -4,7 +4,10 @@ import { notFound } from 'next/navigation'
 import { CalendarDays, Mail, Sun, Zap } from 'lucide-react'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 
+import type { SonnendachBuilding } from '@/types/sonnendach'
+
 import LandingActions from './_components/LandingActions'
+import RoofMap from './_components/RoofMap'
 
 export const metadata: Metadata = {
   title: 'Solarpotenzial Ihrer Dachfläche | Free State AG',
@@ -62,6 +65,25 @@ async function fetchRoofData(token: string): Promise<RoofData | null> {
   }
 }
 
+// The Sonnendach building at the prospect's coordinates, the same lookup the
+// calculator makes when an address is picked. Server-side, so the map renders
+// without a browser round trip. The API reads x as northing and y as easting.
+async function fetchBuilding(lv95E: number, lv95N: number): Promise<SonnendachBuilding | null> {
+  const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+  const params = new URLSearchParams({ x: String(lv95N), y: String(lv95E) })
+  try {
+    const res = await fetch(`${base}/api/sonnendach/building-data?${params}`, {
+      cache: 'no-store',
+      signal: AbortSignal.timeout(8000),
+    })
+    if (!res.ok) return null
+    const json = (await res.json()) as { success: boolean; data?: SonnendachBuilding | null }
+    return json.success && json.data && json.data.roofSegments.length > 0 ? json.data : null
+  } catch {
+    return null
+  }
+}
+
 const CALENDLY_URL = process.env.NEXT_PUBLIC_OUTBOUND_CALENDLY_URL || COMPANY_CALENDLY_URL
 
 export default async function DachPage({
@@ -76,6 +98,8 @@ export default async function DachPage({
   const street = `${data.addressStreet ?? ''} ${data.addressNumber ?? ''}`.trim()
   const cityLine = `${data.addressPostalCode ?? ''} ${data.addressCity ?? ''}`.trim()
   const addressLine = [street, cityLine].filter(Boolean).join(', ')
+  const building =
+    data.lv95E != null && data.lv95N != null ? await fetchBuilding(data.lv95E, data.lv95N) : null
 
   return (
     <div className="min-h-screen bg-white text-[#062E25]">
@@ -95,13 +119,28 @@ export default async function DachPage({
 
         {data.lv95E != null && data.lv95N != null && (
           <figure>
-            <img
-              src={wmsCropUrl(data.lv95E, data.lv95N, 60, 800)}
-              alt={`Luftbild der Dachfläche ${addressLine}`}
-              className="w-full aspect-square sm:aspect-[4/3] object-cover rounded-2xl border border-[#062E25]/10"
-            />
+            <div className="relative w-full aspect-square sm:aspect-[4/3] overflow-hidden rounded-2xl border border-[#062E25]/10">
+              {building ? (
+                <RoofMap building={building} ariaLabel={`Luftbild der Dachfläche ${addressLine}`} />
+              ) : (
+                <>
+                  <img
+                    src={wmsCropUrl(data.lv95E, data.lv95N, 60, 800)}
+                    alt={`Luftbild der Dachfläche ${addressLine}`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                  {/* The crop is centred on the building's coordinates. */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute left-1/2 top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-[3px] border-[#F2C6CD] bg-[#3D3858]/40 shadow-[0_0_0_2px_rgba(0,0,0,0.35)]"
+                  />
+                </>
+              )}
+            </div>
             <figcaption className="mt-2 text-base text-[#062E25]/60">
-              Luftbild SWISSIMAGE, swisstopo
+              {building
+                ? 'Luftbild SWISSIMAGE, swisstopo. Die Dachflächen Ihres Gebäudes sind markiert, nach sonnendach.ch.'
+                : 'Luftbild SWISSIMAGE, swisstopo. Ihr Gebäude liegt in der Bildmitte.'}
             </figcaption>
           </figure>
         )}

@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import SonnendachRoofMap, {
   type SonnendachRoofMapCapture,
 } from '@/components/calculator/SonnendachRoofMap'
+import { autoSelectSegmentIds } from '@/components/calculator/roof-selection'
 import { Button } from '@/components/ui/button'
 import { trackFunnelEventOnce } from '@/lib/analytics/funnel-events'
 import { commercialFlowMeta } from '@/lib/commercial-calculator-flow'
@@ -26,8 +27,6 @@ import RoofSegmentList from './RoofSegmentList'
 const LOOKUP_TIMEOUT_MS = 8000
 const LOOKUP_SLOW_MS = 4000
 const TAP_NOTICE_MS = 4000
-const MIN_SEGMENT_AREA_M2 = 5
-const MIN_SUITABILITY_CLASS = 3
 const SCREEN_STEP = 2
 
 const PANEL_STYLE = {
@@ -55,21 +54,6 @@ async function lookupBuilding(
   } finally {
     window.clearTimeout(timer)
   }
-}
-
-function autoSelectSegmentIds(building: SonnendachBuilding): string[] {
-  const qualifying = building.roofSegments.filter(segment => {
-    const suitClass = segment.suitability?.class || MIN_SUITABILITY_CLASS
-    return (
-      segment.area >= MIN_SEGMENT_AREA_M2 && suitClass >= MIN_SUITABILITY_CLASS
-    )
-  })
-  if (qualifying.length > 0) return qualifying.map(segment => segment.id)
-  if (building.roofSegments.length === 0) return []
-  const largest = building.roofSegments.reduce((best, segment) =>
-    segment.area > best.area ? segment : best
-  )
-  return [largest.id]
 }
 
 export default function Screen2Roof() {
