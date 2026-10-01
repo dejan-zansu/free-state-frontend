@@ -169,9 +169,11 @@ function ProspectCells({ p }: { p: LinkedinProspectCard }) {
 function RequestsTab({
   items,
   canRequest,
+  senderId,
 }: {
   items: LinkedinRequestItem[]
   canRequest: boolean
+  senderId?: string
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -179,7 +181,8 @@ function RequestsTab({
   const [opened, setOpened] = useState<Set<string>>(new Set())
 
   const request = useMutation({
-    mutationFn: (id: string) => adminLinkedinService.recordRequest(id),
+    mutationFn: (id: string) =>
+      adminLinkedinService.recordRequest(id, senderId),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: QUEUE_KEY }),
     onError,
   })
@@ -276,9 +279,11 @@ function RequestsTab({
 function ReplyDialog({
   touch,
   onClose,
+  senderId,
 }: {
   touch: LinkedinTouchItem | null
   onClose: () => void
+  senderId?: string
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -291,7 +296,8 @@ function ReplyDialog({
       adminLinkedinService.markReplied(
         touch!.id,
         outcome,
-        note.trim() || undefined
+        note.trim() || undefined,
+        senderId
       ),
     onSuccess: () => {
       toast.success(t('replySaved'))
@@ -361,9 +367,11 @@ function ReplyDialog({
 function MessageRow({
   touch,
   onReply,
+  senderId,
 }: {
   touch: LinkedinTouchItem
   onReply: (t: LinkedinTouchItem) => void
+  senderId?: string
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -373,7 +381,7 @@ function MessageRow({
 
   const message = useQuery({
     queryKey: [...QUEUE_KEY, 'message', touch.id, touch.status],
-    queryFn: () => adminLinkedinService.getMessage(touch.id),
+    queryFn: () => adminLinkedinService.getMessage(touch.id, senderId),
     enabled: open,
   })
   const [text, setText] = useState<string | null>(null)
@@ -381,7 +389,11 @@ function MessageRow({
 
   const sent = useMutation({
     mutationFn: () =>
-      adminLinkedinService.markMessaged(touch.id, message.data?.templateId),
+      adminLinkedinService.markMessaged(
+        touch.id,
+        message.data?.templateId,
+        senderId
+      ),
     onSuccess: () => {
       setOpen(false)
       setText(null)
@@ -477,9 +489,11 @@ function MessageRow({
 function MessagesTab({
   items,
   onReply,
+  senderId,
 }: {
   items: LinkedinTouchItem[]
   onReply: (t: LinkedinTouchItem) => void
+  senderId?: string
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   return (
@@ -496,7 +510,12 @@ function MessagesTab({
         </TableHeader>
         <TableBody>
           {items.map(touch => (
-            <MessageRow key={touch.id} touch={touch} onReply={onReply} />
+            <MessageRow
+              key={touch.id}
+              touch={touch}
+              onReply={onReply}
+              senderId={senderId}
+            />
           ))}
           {items.length === 0 && (
             <TableRow>
@@ -518,21 +537,24 @@ function PendingTab({
   pending,
   waiting,
   onReply,
+  senderId,
 }: {
   pending: LinkedinTouchItem[]
   waiting: LinkedinTouchItem[]
   onReply: (t: LinkedinTouchItem) => void
+  senderId?: string
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
   const onError = useErrorToast()
   const accepted = useMutation({
-    mutationFn: (id: string) => adminLinkedinService.markAccepted(id),
+    mutationFn: (id: string) => adminLinkedinService.markAccepted(id, senderId),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: QUEUE_KEY }),
     onError,
   })
   const withdrawn = useMutation({
-    mutationFn: (id: string) => adminLinkedinService.markWithdrawn(id),
+    mutationFn: (id: string) =>
+      adminLinkedinService.markWithdrawn(id, senderId),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: QUEUE_KEY }),
     onError,
   })
@@ -955,14 +977,28 @@ function SendersTab({ isAdmin }: { isAdmin: boolean }) {
 export default function AdminOutreachLinkedinPage() {
   const t = useTranslations('admin.outreach.linkedin')
   const isAdmin = useAuthStore(state => state.user?.role === 'ADMIN')
+  const myUserId = useAuthStore(state => state.user?.id)
   const canUseSales = useHasCapability('sales.tools')
   const [tab, setTab] = useState<TabKey>('today')
   const [replyTouch, setReplyTouch] = useState<LinkedinTouchItem | null>(null)
+  const [pickedSenderId, setPickedSenderId] = useState<string>()
+
+  const senders = useQuery({
+    queryKey: [...QUEUE_KEY, 'senders'],
+    queryFn: () => adminLinkedinService.listSenders(),
+    enabled: canUseSales && isAdmin,
+  })
+  const activeSenders = (senders.data ?? []).filter(s => s.active)
+  const senderId = isAdmin
+    ? (activeSenders.find(s => s.id === pickedSenderId)?.id ??
+      activeSenders.find(s => s.user.id === myUserId)?.id ??
+      activeSenders[0]?.id)
+    : undefined
 
   const queue = useQuery({
-    queryKey: [...QUEUE_KEY, 'queue'],
-    queryFn: () => adminLinkedinService.getQueue(),
-    enabled: canUseSales,
+    queryKey: [...QUEUE_KEY, 'queue', senderId ?? 'self'],
+    queryFn: () => adminLinkedinService.getQueue(senderId),
+    enabled: canUseSales && !senders.isLoading,
   })
   const overview = useQuery({
     queryKey: [...QUEUE_KEY, 'overview'],
@@ -970,7 +1006,7 @@ export default function AdminOutreachLinkedinPage() {
     enabled: canUseSales,
   })
 
-  if (queue.isLoading) return <AdminPageLoader />
+  if (queue.isLoading || senders.isLoading) return <AdminPageLoader />
   const q = queue.data
   const hasSender = Boolean(q?.sender)
 
@@ -978,6 +1014,23 @@ export default function AdminOutreachLinkedinPage() {
     <div>
       <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
         <h1 className="text-2xl font-bold text-[#062E25]">{t('title')}</h1>
+        {isAdmin && activeSenders.length > 0 && (
+          <div className="flex items-center gap-2">
+            <Label htmlFor="linkedin-acting-sender">{t('colSender')}</Label>
+            <Select value={senderId} onValueChange={setPickedSenderId}>
+              <SelectTrigger id="linkedin-acting-sender" className="w-64">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                {activeSenders.map(s => (
+                  <SelectItem key={s.id} value={s.id}>
+                    {`${s.user.firstName} ${s.user.lastName}`.trim()}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+          </div>
+        )}
       </div>
       <p className="mb-4 text-[#062E25]/75 max-w-3xl">{t('intro')}</p>
 
@@ -1089,6 +1142,7 @@ export default function AdminOutreachLinkedinPage() {
                 <RequestsTab
                   items={q?.requests ?? []}
                   canRequest={(q?.remaining ?? 0) > 0 && !q?.blockedByPending}
+                  senderId={senderId}
                 />
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
@@ -1103,6 +1157,7 @@ export default function AdminOutreachLinkedinPage() {
                 <MessagesTab
                   items={q?.messages ?? []}
                   onReply={setReplyTouch}
+                  senderId={senderId}
                 />
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
@@ -1118,6 +1173,7 @@ export default function AdminOutreachLinkedinPage() {
                   pending={q?.pendingRequests ?? []}
                   waiting={q?.waiting ?? []}
                   onReply={setReplyTouch}
+                  senderId={senderId}
                 />
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
@@ -1141,7 +1197,11 @@ export default function AdminOutreachLinkedinPage() {
         </TabsContent>
       </Tabs>
 
-      <ReplyDialog touch={replyTouch} onClose={() => setReplyTouch(null)} />
+      <ReplyDialog
+        touch={replyTouch}
+        onClose={() => setReplyTouch(null)}
+        senderId={senderId}
+      />
     </div>
   )
 }

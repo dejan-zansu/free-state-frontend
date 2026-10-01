@@ -14,9 +14,15 @@ type Envelope<T> = { success: boolean; data: T }
 
 const BASE = '/admin/outreach/linkedin'
 
+const acting = (senderId?: string) =>
+  senderId ? { params: { senderId } } : undefined
+
 class AdminLinkedinService {
-  async getQueue(): Promise<LinkedinQueue> {
-    const response = await api.get<Envelope<LinkedinQueue>>(`${BASE}/queue`)
+  async getQueue(senderId?: string): Promise<LinkedinQueue> {
+    const response = await api.get<Envelope<LinkedinQueue>>(
+      `${BASE}/queue`,
+      acting(senderId)
+    )
     return response.data.data
   }
 
@@ -30,8 +36,12 @@ class AdminLinkedinService {
     return response.data.data
   }
 
-  async recordRequest(prospectId: string): Promise<void> {
-    await api.post(`${BASE}/prospects/${prospectId}/request`)
+  async recordRequest(prospectId: string, senderId?: string): Promise<void> {
+    await api.post(
+      `${BASE}/prospects/${prospectId}/request`,
+      undefined,
+      acting(senderId)
+    )
   }
 
   async review(prospectId: string, decision: 'confirm' | 'reject'): Promise<void> {
@@ -50,25 +60,56 @@ class AdminLinkedinService {
     return response.data.data
   }
 
-  async markAccepted(touchId: string): Promise<void> {
-    await api.post(`${BASE}/touches/${touchId}/accepted`)
+  async markAccepted(touchId: string, senderId?: string): Promise<void> {
+    await api.post(
+      `${BASE}/touches/${touchId}/accepted`,
+      undefined,
+      acting(senderId)
+    )
   }
 
-  async markWithdrawn(touchId: string): Promise<void> {
-    await api.post(`${BASE}/touches/${touchId}/withdrawn`)
+  async markWithdrawn(touchId: string, senderId?: string): Promise<void> {
+    await api.post(
+      `${BASE}/touches/${touchId}/withdrawn`,
+      undefined,
+      acting(senderId)
+    )
   }
 
-  async getMessage(touchId: string): Promise<LinkedinMessage> {
-    const response = await api.get<Envelope<LinkedinMessage>>(`${BASE}/touches/${touchId}/message`)
+  async getMessage(
+    touchId: string,
+    senderId?: string
+  ): Promise<LinkedinMessage> {
+    const response = await api.get<Envelope<LinkedinMessage>>(
+      `${BASE}/touches/${touchId}/message`,
+      acting(senderId)
+    )
     return response.data.data
   }
 
-  async markMessaged(touchId: string, templateId?: string): Promise<void> {
-    await api.post(`${BASE}/touches/${touchId}/messaged`, templateId ? { templateId } : {})
+  async markMessaged(
+    touchId: string,
+    templateId?: string,
+    senderId?: string
+  ): Promise<void> {
+    await api.post(
+      `${BASE}/touches/${touchId}/messaged`,
+      templateId ? { templateId } : {},
+      acting(senderId)
+    )
   }
 
-  async markReplied(touchId: string, outcome: LinkedinReplyOutcome, note?: string): Promise<void> {
-    await api.post(`${BASE}/touches/${touchId}/replied`, note ? { outcome, note } : { outcome })
+  async markReplied(
+    touchId: string,
+    outcome: LinkedinReplyOutcome,
+    note?: string,
+    senderId?: string
+  ): Promise<void> {
+    await api.post(
+      `${BASE}/touches/${touchId}/replied`,
+      note ? { outcome, note } : { outcome },
+      acting(senderId)
+    )
   }
 
   async listSenders(): Promise<LinkedinSenderRow[]> {
