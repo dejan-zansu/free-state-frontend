@@ -1,5 +1,6 @@
 import api from '@/lib/api'
 import type {
+  LinkedinAgentLogItem,
   LinkedinMessage,
   LinkedinOverview,
   LinkedinProspectCard,
@@ -123,6 +124,29 @@ class AdminLinkedinService {
 
   async updateSender(id: string, input: LinkedinSenderInput): Promise<void> {
     await api.patch(`${BASE}/senders/${id}`, input)
+  }
+
+  async createAgentKey(senderId: string): Promise<{ key: string }> {
+    const response = await api.post<Envelope<{ key: string }>>(
+      `${BASE}/senders/${senderId}/agent-key`
+    )
+    return response.data.data
+  }
+
+  async revokeAgentKey(senderId: string): Promise<void> {
+    await api.delete(`${BASE}/senders/${senderId}/agent-key`)
+  }
+
+  async resumeSender(senderId: string): Promise<void> {
+    await api.post(`${BASE}/senders/${senderId}/resume`)
+  }
+
+  async getAgentLog(senderId?: string): Promise<LinkedinAgentLogItem[]> {
+    const response = await api.get<Envelope<LinkedinAgentLogItem[]>>(
+      `${BASE}/agent-log`,
+      acting(senderId)
+    )
+    return response.data.data
   }
 }
 

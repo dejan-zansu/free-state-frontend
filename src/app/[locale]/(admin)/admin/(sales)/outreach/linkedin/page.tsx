@@ -49,6 +49,8 @@ import type {
   LinkedinReplyOutcome,
   LinkedinRequestItem,
   LinkedinSenderRow,
+  LinkedinAgentLogItem,
+  LinkedinSenderMode,
   LinkedinTouchItem,
 } from '@/types/admin-outreach'
 
@@ -62,6 +64,22 @@ function formatDate(iso: string | null) {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',
+  })
+}
+
+function formatDateTime(iso: string) {
+  return new Date(iso).toLocaleString('de-CH', {
+    day: '2-digit',
+    month: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  })
+}
+
+function formatTime(iso: string) {
+  return new Date(iso).toLocaleTimeString('de-CH', {
+    hour: '2-digit',
+    minute: '2-digit',
   })
 }
 
@@ -486,6 +504,116 @@ function MessageRow({
   )
 }
 
+function RepliesList({
+  items,
+  onClassify,
+}: {
+  items: LinkedinTouchItem[]
+  onClassify: (t: LinkedinTouchItem) => void
+}) {
+  const t = useTranslations('admin.outreach.linkedin.agent')
+  if (items.length === 0) return null
+  return (
+    <div className="space-y-3 mb-6">
+      <p className="font-medium">
+        {t('repliesTitle', { count: items.length })}
+      </p>
+      {items.map(touch => (
+        <div
+          key={touch.id}
+          className="rounded-md border border-[#062E25]/10 p-4 space-y-2"
+        >
+          <p className="font-medium">
+            {touch.prospect.companyName}
+            {touch.prospect.linkedinPersonName && (
+              <span className="text-[#062E25]/60">
+                {' '}
+                {touch.prospect.linkedinPersonName}
+              </span>
+            )}
+          </p>
+          <p className="whitespace-pre-wrap">{touch.replyText}</p>
+          <Button size="sm" onClick={() => onClassify(touch)}>
+            {t('classify')}
+          </Button>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function AgentLog({ senderId }: { senderId?: string }) {
+  const t = useTranslations('admin.outreach.linkedin.agent')
+  const locale = useLocale()
+  const log = useQuery({
+    queryKey: [...QUEUE_KEY, 'agent-log', senderId ?? 'self'],
+    queryFn: () => adminLinkedinService.getAgentLog(senderId),
+    refetchInterval: 60000,
+  })
+  if (log.isLoading) return <AdminPageLoader />
+  const items: LinkedinAgentLogItem[] = log.data ?? []
+  return (
+    <div className="overflow-x-auto">
+      <Table className="text-base min-w-[720px]">
+        <TableHeader>
+          <TableRow className="hover:bg-transparent">
+            <TableHead>{t('colTime')}</TableHead>
+            <TableHead>{t('colAction')}</TableHead>
+            <TableHead>{t('colCompany')}</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {items.map(item => (
+            <TableRow key={item.id}>
+              <TableCell className="whitespace-nowrap tabular-nums">
+                {formatTime(item.createdAt)}
+              </TableCell>
+              <TableCell>
+                {item.jobType && (
+                  <span className="mr-2 px-2 rounded bg-[#062E25]/10">
+                    {t.has(`jobTypes.${item.jobType}`)
+                      ? t(`jobTypes.${item.jobType}`)
+                      : item.jobType}
+                  </span>
+                )}
+                {t.has(`actions.${item.action}`)
+                  ? t(`actions.${item.action}`)
+                  : item.action}
+                {item.code && (
+                  <span className="text-[#062E25]/60"> ({item.code})</span>
+                )}
+                {item.rehearsal && (
+                  <span className="ml-2 px-2 rounded bg-amber-100 text-amber-900">
+                    {t('rehearsalBadge')}
+                  </span>
+                )}
+              </TableCell>
+              <TableCell>
+                <Link
+                  href={`/${locale}/admin/outreach/${item.prospect.id}`}
+                  className="hover:underline"
+                >
+                  {item.prospect.companyName}
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
+          {items.length === 0 && (
+            <TableRow>
+              <TableCell
+                colSpan={3}
+                className="text-center py-8 text-[#062E25]/75"
+              >
+                {t('emptyLog')}
+              </TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    </div>
+  )
+}
+
 function MessagesTab({
   items,
   onReply,
@@ -538,11 +666,13 @@ function PendingTab({
   waiting,
   onReply,
   senderId,
+  auto,
 }: {
   pending: LinkedinTouchItem[]
   waiting: LinkedinTouchItem[]
   onReply: (t: LinkedinTouchItem) => void
   senderId?: string
+  auto: boolean
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -561,7 +691,9 @@ function PendingTab({
 
   return (
     <div className="space-y-6">
-      <p className="text-[#062E25]/75">{t('pendingHint')}</p>
+      <p className="text-[#062E25]/75">
+        {auto ? t('agent.pendingAutoHint') : t('pendingHint')}
+      </p>
       <div className="overflow-x-auto">
         <Table className="text-base min-w-[960px]">
           <TableHeader>
@@ -592,25 +724,27 @@ function PendingTab({
                   )}
                 </TableCell>
                 <TableCell className="align-top">
-                  <div className="flex flex-col gap-2 items-stretch">
-                    <Button
-                      size="sm"
-                      className="gap-2"
-                      disabled={accepted.isPending}
-                      onClick={() => accepted.mutate(touch.id)}
-                    >
-                      <Check className="w-4 h-4" />
-                      {t('accepted')}
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      disabled={withdrawn.isPending}
-                      onClick={() => withdrawn.mutate(touch.id)}
-                    >
-                      {t('withdrawn')}
-                    </Button>
-                  </div>
+                  {!auto && (
+                    <div className="flex flex-col gap-2 items-stretch">
+                      <Button
+                        size="sm"
+                        className="gap-2"
+                        disabled={accepted.isPending}
+                        onClick={() => accepted.mutate(touch.id)}
+                      >
+                        <Check className="w-4 h-4" />
+                        {t('accepted')}
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        disabled={withdrawn.isPending}
+                        onClick={() => withdrawn.mutate(touch.id)}
+                      >
+                        {t('withdrawn')}
+                      </Button>
+                    </div>
+                  )}
                 </TableCell>
               </TableRow>
             ))}
@@ -853,6 +987,184 @@ function SenderRow({ s, isAdmin }: { s: LinkedinSenderRow; isAdmin: boolean }) {
   )
 }
 
+function AgentPanel({
+  s,
+  checkedAt,
+}: {
+  s: LinkedinSenderRow
+  checkedAt: number
+}) {
+  const t = useTranslations('admin.outreach.linkedin.agent')
+  const queryClient = useQueryClient()
+  const onError = useErrorToast()
+  const [key, setKey] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
+  const refresh = () => queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+  const update = useMutation({
+    mutationFn: (input: { mode?: LinkedinSenderMode; rehearsal?: boolean }) =>
+      adminLinkedinService.updateSender(s.id, input),
+    onSuccess: refresh,
+    onError,
+  })
+  const createKey = useMutation({
+    mutationFn: () => adminLinkedinService.createAgentKey(s.id),
+    onSuccess: data => {
+      setKey(data.key)
+      refresh()
+    },
+    onError,
+  })
+  const revokeKey = useMutation({
+    mutationFn: () => adminLinkedinService.revokeAgentKey(s.id),
+    onSuccess: refresh,
+    onError,
+  })
+  const resume = useMutation({
+    mutationFn: () => adminLinkedinService.resumeSender(s.id),
+    onSuccess: refresh,
+    onError,
+  })
+  const online =
+    s.agentLastSeenAt !== null &&
+    checkedAt - new Date(s.agentLastSeenAt).getTime() < 6 * 60 * 1000
+  const reason =
+    s.pauseReason && t.has(`reasons.${s.pauseReason}`)
+      ? t(`reasons.${s.pauseReason}`)
+      : (s.pauseReason ?? '')
+  const copy = async () => {
+    if (!key) return
+    await navigator.clipboard.writeText(key)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
+  return (
+    <Card className="border-[#062E25]/10">
+      <CardContent className="p-4 space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="font-medium">
+            {t('title', {
+              name: `${s.user.firstName} ${s.user.lastName}`.trim(),
+            })}
+          </p>
+          <p className="flex items-center gap-2">
+            <span
+              className={cn(
+                'inline-block w-2.5 h-2.5 rounded-full',
+                online ? 'bg-green-600' : 'bg-[#062E25]/30'
+              )}
+            />
+            {s.agentLastSeenAt
+              ? t('lastSeen', { time: formatDateTime(s.agentLastSeenAt) })
+              : t('neverSeen')}
+            {s.agentVersion && (
+              <span className="text-[#062E25]/60">v{s.agentVersion}</span>
+            )}
+          </p>
+        </div>
+        {s.pausedAt && (
+          <div className="px-4 py-3 rounded-md bg-red-100 text-red-800 space-y-2">
+            <p className="font-medium">{t('paused', { reason })}</p>
+            {s.pauseDetail?.message && <p>{s.pauseDetail.message}</p>}
+            {s.pauseDetail?.url && (
+              <p className="break-all">{s.pauseDetail.url}</p>
+            )}
+            {s.pauseDetail?.excerpt && <p>{s.pauseDetail.excerpt}</p>}
+            <Button
+              size="sm"
+              disabled={resume.isPending}
+              onClick={() => resume.mutate()}
+            >
+              {t('resume')}
+            </Button>
+          </div>
+        )}
+        <div className="flex flex-wrap gap-6">
+          <label className="flex items-center gap-2">
+            <Switch
+              checked={s.mode === 'AUTO'}
+              disabled={update.isPending}
+              onCheckedChange={auto =>
+                update.mutate({ mode: auto ? 'AUTO' : 'MANUAL' })
+              }
+            />
+            {t('auto')}
+          </label>
+          <label className="flex items-center gap-2">
+            <Switch
+              checked={s.rehearsal}
+              disabled={update.isPending}
+              onCheckedChange={rehearsal => update.mutate({ rehearsal })}
+            />
+            {t('rehearsal')}
+          </label>
+        </div>
+        <p className="text-[#062E25]/60">
+          {s.rehearsal ? t('rehearsalHint') : t('liveHint')}
+        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            disabled={createKey.isPending}
+            onClick={() => {
+              if (
+                !s.agentKeyCreatedAt ||
+                window.confirm(t('replaceKeyConfirm'))
+              )
+                createKey.mutate()
+            }}
+          >
+            {s.agentKeyCreatedAt ? t('replaceKey') : t('createKey')}
+          </Button>
+          {s.agentKeyCreatedAt && (
+            <>
+              <span className="text-[#062E25]/60">
+                {t('keyCreated', { date: formatDate(s.agentKeyCreatedAt) })}
+              </span>
+              <Button
+                size="sm"
+                variant="ghost"
+                disabled={revokeKey.isPending}
+                onClick={() => {
+                  if (window.confirm(t('revokeKeyConfirm'))) revokeKey.mutate()
+                }}
+              >
+                {t('revokeKey')}
+              </Button>
+            </>
+          )}
+        </div>
+        <Dialog
+          open={key !== null}
+          onOpenChange={open => {
+            if (!open) setKey(null)
+          }}
+        >
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>{t('keyTitle')}</DialogTitle>
+              <DialogDescription>{t('keyHint')}</DialogDescription>
+            </DialogHeader>
+            <Input readOnly value={key ?? ''} className="font-mono" />
+            <DialogFooter>
+              <Button variant="outline" className="gap-2" onClick={copy}>
+                {copied ? (
+                  <Check className="w-4 h-4" />
+                ) : (
+                  <Copy className="w-4 h-4" />
+                )}
+                {copied ? t('copied') : t('copy')}
+              </Button>
+              <Button onClick={() => setKey(null)}>{t('done')}</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </CardContent>
+    </Card>
+  )
+}
+
 function SendersTab({ isAdmin }: { isAdmin: boolean }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -860,6 +1172,7 @@ function SendersTab({ isAdmin }: { isAdmin: boolean }) {
   const senders = useQuery({
     queryKey: [...QUEUE_KEY, 'senders'],
     queryFn: () => adminLinkedinService.listSenders(),
+    refetchInterval: 60000,
   })
   const assignees = useQuery({
     queryKey: ['admin', 'outreach', 'assignees'],
@@ -923,6 +1236,13 @@ function SendersTab({ isAdmin }: { isAdmin: boolean }) {
           </TableBody>
         </Table>
       </div>
+
+      {isAdmin &&
+        rows
+          .filter(r => r.active)
+          .map(r => (
+            <AgentPanel key={r.id} s={r} checkedAt={senders.dataUpdatedAt} />
+          ))}
 
       {isAdmin && (
         <div className="grid gap-4 sm:grid-cols-4 items-end">
@@ -999,11 +1319,13 @@ export default function AdminOutreachLinkedinPage() {
     queryKey: [...QUEUE_KEY, 'queue', senderId ?? 'self'],
     queryFn: () => adminLinkedinService.getQueue(senderId),
     enabled: canUseSales && !senders.isLoading,
+    refetchInterval: 60000,
   })
   const overview = useQuery({
     queryKey: [...QUEUE_KEY, 'overview'],
     queryFn: () => adminLinkedinService.getOverview(),
     enabled: canUseSales,
+    refetchInterval: 60000,
   })
 
   if (queue.isLoading || senders.isLoading) return <AdminPageLoader />
@@ -1105,14 +1427,20 @@ export default function AdminOutreachLinkedinPage() {
         <TabsList className="h-auto flex-wrap">
           <TabsTrigger value="today" className="px-4 py-2 text-base">
             {t('tabToday')}
-            {hasSender && (
+            {hasSender && q?.sender?.mode !== 'AUTO' && (
               <span className="tabular-nums">({q?.requests?.length ?? 0})</span>
             )}
           </TabsTrigger>
           <TabsTrigger value="messages" className="px-4 py-2 text-base">
             {t('tabMessages')}
             {hasSender && (
-              <span className="tabular-nums">({q?.messages?.length ?? 0})</span>
+              <span className="tabular-nums">
+                (
+                {q?.sender?.mode === 'AUTO'
+                  ? (q?.replies?.length ?? 0)
+                  : (q?.messages?.length ?? 0) + (q?.replies?.length ?? 0)}
+                )
+              </span>
             )}
           </TabsTrigger>
           <TabsTrigger value="pending" className="px-4 py-2 text-base">
@@ -1137,15 +1465,28 @@ export default function AdminOutreachLinkedinPage() {
         <TabsContent value="today">
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6 space-y-4">
-              <p className="text-[#062E25]/75">{t('todayHint')}</p>
-              {hasSender ? (
-                <RequestsTab
-                  items={q?.requests ?? []}
-                  canRequest={(q?.remaining ?? 0) > 0 && !q?.blockedByPending}
-                  senderId={senderId}
-                />
+              {hasSender && q?.sender?.mode === 'AUTO' ? (
+                <>
+                  <p className="text-[#062E25]/75">
+                    {t('agent.todayAutoHint')}
+                  </p>
+                  <AgentLog senderId={senderId} />
+                </>
               ) : (
-                <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
+                <>
+                  <p className="text-[#062E25]/75">{t('todayHint')}</p>
+                  {hasSender ? (
+                    <RequestsTab
+                      items={q?.requests ?? []}
+                      canRequest={
+                        (q?.remaining ?? 0) > 0 && !q?.blockedByPending
+                      }
+                      senderId={senderId}
+                    />
+                  ) : (
+                    <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
+                  )}
+                </>
               )}
             </CardContent>
           </Card>
@@ -1154,11 +1495,23 @@ export default function AdminOutreachLinkedinPage() {
           <Card className="border-[#062E25]/10">
             <CardContent className="p-6">
               {hasSender ? (
-                <MessagesTab
-                  items={q?.messages ?? []}
-                  onReply={setReplyTouch}
-                  senderId={senderId}
-                />
+                <>
+                  <RepliesList
+                    items={q?.replies ?? []}
+                    onClassify={setReplyTouch}
+                  />
+                  {q?.sender?.mode === 'AUTO' ? (
+                    <p className="text-[#062E25]/75">
+                      {t('agent.messagesAutoHint')}
+                    </p>
+                  ) : (
+                    <MessagesTab
+                      items={q?.messages ?? []}
+                      onReply={setReplyTouch}
+                      senderId={senderId}
+                    />
+                  )}
+                </>
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
               )}
@@ -1174,6 +1527,7 @@ export default function AdminOutreachLinkedinPage() {
                   waiting={q?.waiting ?? []}
                   onReply={setReplyTouch}
                   senderId={senderId}
+                  auto={q?.sender?.mode === 'AUTO'}
                 />
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>

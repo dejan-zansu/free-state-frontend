@@ -566,6 +566,24 @@ export interface LinkedinRequestItem extends LinkedinProspectCard {
   emailsSent: number
 }
 
+export type LinkedinSenderMode = 'MANUAL' | 'AUTO'
+
+export interface LinkedinPauseDetail {
+  url?: string
+  excerpt?: string
+  message?: string
+}
+
+export interface LinkedinAgentLogItem {
+  id: string
+  createdAt: string
+  action: string
+  jobType: string | null
+  code: string | null
+  rehearsal: boolean
+  prospect: { id: string; companyName: string }
+}
+
 export interface LinkedinTouchItem {
   id: string
   status: LinkedinTouchStatus
@@ -577,6 +595,7 @@ export interface LinkedinTouchItem {
   prospect: LinkedinProspectCard
   step?: 'message' | 'followup'
   withdrawDue?: boolean
+  replyText?: string | null
 }
 
 export interface LinkedinQueue {
@@ -586,6 +605,11 @@ export interface LinkedinQueue {
     dailyLimit: number
     effectiveLimit: number
     warmupStartedAt: string
+    mode: LinkedinSenderMode
+    rehearsal: boolean
+    pausedAt: string | null
+    pauseReason: string | null
+    agentLastSeenAt: string | null
   } | null
   sentToday?: number
   remaining?: number
@@ -597,6 +621,7 @@ export interface LinkedinQueue {
   messages?: LinkedinTouchItem[]
   pendingRequests?: LinkedinTouchItem[]
   waiting?: LinkedinTouchItem[]
+  replies?: LinkedinTouchItem[]
 }
 
 export interface LinkedinMessage {
@@ -621,6 +646,14 @@ export interface LinkedinSenderRow {
   effectiveLimit: number
   warmupStartedAt: string
   active: boolean
+  mode: LinkedinSenderMode
+  rehearsal: boolean
+  agentKeyCreatedAt: string | null
+  agentLastSeenAt: string | null
+  agentVersion: string | null
+  pausedAt: string | null
+  pauseReason: string | null
+  pauseDetail: LinkedinPauseDetail | null
   today: number
   stats: {
     requested: number
@@ -638,5 +671,7 @@ export interface LinkedinSenderInput {
   dailyLimit?: number
   active?: boolean
   warmupStartedAt?: string
+  mode?: LinkedinSenderMode
+  rehearsal?: boolean
 }
 
