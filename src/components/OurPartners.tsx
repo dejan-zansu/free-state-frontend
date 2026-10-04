@@ -39,11 +39,42 @@ const OurPartners = async () => {
 
         <RevealStagger className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
           {[
-            { src: '/images/swisscom-logo.png', alt: 'Swisscom', width: 196, height: 53 },
-            { src: '/images/partners/partner-2.svg', alt: 'Axpo', width: 95, height: 37 },
-            { src: '/images/partners/partner-3.svg', alt: 'EnergieSchweiz', width: 225, height: 34 },
-            { src: '/images/partners/partner-4.svg', alt: 'Swissolar', width: 169, height: 21 },
-            { src: '/images/partners/partner-5.svg', alt: 'Schweizerische Eidgenossenschaft', width: 183, height: 45 },
+            {
+              src: '/images/swisscom-logo.png',
+              alt: 'Swisscom',
+              width: 196,
+              height: 53,
+            },
+            {
+              src: '/images/partners/partner-2.svg',
+              alt: 'Axpo',
+              width: 95,
+              height: 37,
+            },
+            {
+              src: '/images/partners/partner-3.svg',
+              alt: 'EnergieSchweiz',
+              width: 225,
+              height: 34,
+            },
+            {
+              src: '/images/partners/partner-4.svg',
+              alt: 'Swissolar',
+              width: 169,
+              height: 21,
+            },
+            {
+              src: '/images/partners/partner-5.svg',
+              alt: 'Schweizerische Eidgenossenschaft',
+              width: 183,
+              height: 45,
+            },
+            {
+              src: '/images/partners/partner-6.png',
+              alt: 'SSES',
+              width: 134,
+              height: 56,
+            },
           ].map((logo, i) => (
             <div key={logo.src} className="flex items-center">
               <Image
@@ -53,7 +84,7 @@ const OurPartners = async () => {
                 height={logo.height}
                 className="h-auto max-h-[56px] w-auto object-contain"
               />
-              {i < 4 && (
+              {i < 5 && (
                 <span
                   aria-hidden
                   className="hidden md:block ml-10 md:ml-14 w-px h-[89px] bg-[#062E25]/30"
