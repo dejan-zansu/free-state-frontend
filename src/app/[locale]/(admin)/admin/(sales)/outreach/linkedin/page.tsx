@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import type { AxiosError } from 'axios'
@@ -9,6 +10,7 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
+import { StatusBadge } from '@/components/admin/StatusBadge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -45,18 +47,40 @@ import { adminLinkedinService } from '@/services/admin-linkedin.service'
 import { adminOutreachService } from '@/services/admin-outreach.service'
 import { useAuthStore } from '@/stores/auth.store'
 import type {
+  LinkedinEngagementItem,
+  LinkedinFeatureMode,
   LinkedinProspectCard,
   LinkedinReplyOutcome,
   LinkedinRequestItem,
+  LinkedinSenderInput,
   LinkedinSenderRow,
   LinkedinAgentLogItem,
-  LinkedinSenderMode,
   LinkedinTouchItem,
 } from '@/types/admin-outreach'
 
-type TabKey = 'today' | 'messages' | 'pending' | 'review' | 'senders'
+type TabKey =
+  | 'today'
+  | 'messages'
+  | 'pending'
+  | 'posts'
+  | 'engagement'
+  | 'review'
+  | 'senders'
 
 const QUEUE_KEY = ['admin', 'outreach', 'linkedin']
+
+const FEATURE_MODES: LinkedinFeatureMode[] = ['OFF', 'REHEARSAL', 'LIVE']
+
+function effectiveMode(
+  mode: LinkedinFeatureMode | undefined,
+  rehearsal: boolean
+): LinkedinFeatureMode | undefined {
+  return mode === 'LIVE' && rehearsal ? 'REHEARSAL' : mode
+}
+
+function isLinkedinUrl(url: string | null): url is string {
+  return Boolean(url && url.startsWith('https://www.linkedin.com/'))
+}
 
 function formatDate(iso: string | null) {
   if (!iso) return '-'
@@ -589,12 +613,16 @@ function AgentLog({ senderId }: { senderId?: string }) {
                 )}
               </TableCell>
               <TableCell>
-                <Link
-                  href={`/${locale}/admin/outreach/${item.prospect.id}`}
-                  className="hover:underline"
-                >
-                  {item.prospect.companyName}
-                </Link>
+                {item.prospect ? (
+                  <Link
+                    href={`/${locale}/admin/outreach/${item.prospect.id}`}
+                    className="hover:underline"
+                  >
+                    {item.prospect.companyName}
+                  </Link>
+                ) : (
+                  <span className="text-[#062E25]/60">-</span>
+                )}
               </TableCell>
             </TableRow>
           ))}
@@ -894,6 +922,306 @@ function ReviewTab() {
   )
 }
 
+function PostsTab({
+  senderId,
+  mode,
+}: {
+  senderId?: string
+  mode?: LinkedinFeatureMode
+}) {
+  const t = useTranslations('admin.outreach.linkedin')
+  const queryClient = useQueryClient()
+  const onError = useErrorToast()
+  const posts = useQuery({
+    queryKey: [...QUEUE_KEY, 'posts', senderId ?? 'self'],
+    queryFn: () => adminLinkedinService.listPosts(senderId),
+    refetchInterval: 60000,
+  })
+  const cancel = useMutation({
+    mutationFn: (id: string) => adminLinkedinService.cancelPost(id, senderId),
+    onSuccess: () => {
+      toast.success(t('posts.cancelled'))
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+    onError: error => {
+      onError(error)
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+  })
+
+  if (posts.isLoading) return <AdminPageLoader />
+  if (posts.isError)
+    return <p className="text-red-700">{t('errors.generic')}</p>
+  const scheduled = posts.data?.scheduled ?? []
+  const recent = posts.data?.recent ?? []
+  const lastError = (code: string | null) =>
+    code
+      ? t.has(`posts.lastErrors.${code}`)
+        ? t(`posts.lastErrors.${code}`)
+        : code
+      : '-'
+
+  return (
+    <div className="space-y-6">
+      <div className="space-y-1">
+        <p className="text-[#062E25]/75">{t('posts.hint')}</p>
+        {mode && <p className="font-medium">{t(`posts.modeStatus.${mode}`)}</p>}
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-[#062E25] mb-2">
+          {t('posts.scheduledTitle')}
+        </h3>
+        {scheduled.length === 0 ? (
+          <p className="text-[#062E25]/75">{t('posts.emptyScheduled')}</p>
+        ) : (
+          <div className="space-y-3">
+            {scheduled.map(post => (
+              <div
+                key={post.id}
+                className="rounded-md border border-[#062E25]/10 p-4 flex flex-col gap-4 sm:flex-row"
+              >
+                {post.imageUrl && (
+                  <div className="relative w-40 h-40 shrink-0 rounded-md overflow-hidden bg-[#062E25]/5">
+                    <Image
+                      src={post.imageUrl}
+                      alt=""
+                      fill
+                      sizes="160px"
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </div>
+                )}
+                <div className="flex-1 min-w-0 space-y-2">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="font-medium tabular-nums">
+                      {formatDateTime(post.scheduledFor)}
+                    </p>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="gap-2 text-base"
+                      disabled={
+                        cancel.isPending || Boolean(post.publishClickedAt)
+                      }
+                      onClick={() => {
+                        if (window.confirm(t('posts.cancelConfirm')))
+                          cancel.mutate(post.id)
+                      }}
+                    >
+                      <X className="w-4 h-4" />
+                      {t('posts.cancel')}
+                    </Button>
+                  </div>
+                  {post.lastError && (
+                    <p className="text-[#062E25]/60">
+                      {t('posts.lastError', {
+                        error: lastError(post.lastError),
+                      })}
+                    </p>
+                  )}
+                  <p className="whitespace-pre-wrap break-words">{post.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-[#062E25] mb-2">
+          {t('posts.recentTitle')}
+        </h3>
+        <div className="overflow-x-auto">
+          <Table className="text-base min-w-[720px]">
+            <TableHeader>
+              <TableRow className="hover:bg-transparent">
+                <TableHead>{t('posts.colTime')}</TableHead>
+                <TableHead>{t('posts.colStatus')}</TableHead>
+                <TableHead>{t('posts.colLink')}</TableHead>
+                <TableHead>{t('posts.colLastError')}</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {recent.map(post => (
+                <TableRow key={post.id}>
+                  <TableCell className="tabular-nums">
+                    {formatDateTime(post.publishedAt ?? post.scheduledFor)}
+                  </TableCell>
+                  <TableCell>
+                    <StatusBadge
+                      status={post.status}
+                      namespace="admin.outreach.linkedin.postStatus"
+                      className="text-base"
+                    />
+                  </TableCell>
+                  <TableCell>
+                    {isLinkedinUrl(post.postUrl) ? (
+                      <ExternalAnchor href={post.postUrl}>
+                        {t('posts.openPost')}
+                      </ExternalAnchor>
+                    ) : (
+                      '-'
+                    )}
+                  </TableCell>
+                  <TableCell>{lastError(post.lastError)}</TableCell>
+                </TableRow>
+              ))}
+              {recent.length === 0 && (
+                <TableRow>
+                  <TableCell
+                    colSpan={4}
+                    className="text-center py-8 text-[#062E25]/75"
+                  >
+                    {t('posts.emptyRecent')}
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function engagementStateKey(item: LinkedinEngagementItem) {
+  if (item.closedAt) return `engagement.closeReasons.${item.closeReason}`
+  if (item.decision === 'PENDING') return 'engagement.states.waiting'
+  if (item.decision === 'COMMENT')
+    return item.commentSubmittedAt
+      ? 'engagement.states.verifying'
+      : 'engagement.states.commentPlanned'
+  if (item.decision === 'LIKE') return 'engagement.states.likePlanned'
+  return 'engagement.states.open'
+}
+
+function EngagementTab({
+  senderId,
+  mode,
+}: {
+  senderId?: string
+  mode?: LinkedinFeatureMode
+}) {
+  const t = useTranslations('admin.outreach.linkedin')
+  const locale = useLocale()
+  const engagement = useQuery({
+    queryKey: [...QUEUE_KEY, 'engagement', senderId ?? 'self'],
+    queryFn: () => adminLinkedinService.getEngagement(senderId),
+    refetchInterval: 60000,
+  })
+
+  if (engagement.isLoading) return <AdminPageLoader />
+  if (engagement.isError)
+    return <p className="text-red-700">{t('errors.generic')}</p>
+  const data = engagement.data
+  const items = data?.items ?? []
+  const label = (key: string, fallback: string | null) =>
+    t.has(key) ? t(key) : (fallback ?? '-')
+
+  return (
+    <div className="space-y-6">
+      <div className="space-y-1">
+        <p className="text-[#062E25]/75">{t('engagement.hint')}</p>
+        {mode && (
+          <p className="font-medium">{t(`engagement.modeStatus.${mode}`)}</p>
+        )}
+      </div>
+
+      {data && (
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div>
+            <p className="text-[#062E25]/60">{t('engagement.likesToday')}</p>
+            <p className="font-medium tabular-nums">
+              {data.likesToday} / {data.likeLimit}
+            </p>
+          </div>
+          <div>
+            <p className="text-[#062E25]/60">{t('engagement.commentsToday')}</p>
+            <p className="font-medium tabular-nums">
+              {data.commentsToday} / {data.commentLimit}
+            </p>
+          </div>
+          <div>
+            <p className="text-[#062E25]/60">
+              {t('engagement.pendingDecisions')}
+            </p>
+            <p className="font-medium tabular-nums">{data.pendingDecisions}</p>
+          </div>
+        </div>
+      )}
+
+      <div>
+        <h3 className="font-semibold text-[#062E25] mb-2">
+          {t('engagement.recentTitle')}
+        </h3>
+        <div className="overflow-x-auto">
+          <Table className="text-base min-w-[960px]">
+            <TableHeader>
+              <TableRow className="hover:bg-transparent">
+                <TableHead>{t('engagement.colCompany')}</TableHead>
+                <TableHead>{t('engagement.colPostedAt')}</TableHead>
+                <TableHead>{t('engagement.colDecision')}</TableHead>
+                <TableHead>{t('engagement.colReason')}</TableHead>
+                <TableHead>{t('engagement.colComment')}</TableHead>
+                <TableHead>{t('engagement.colState')}</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {items.map(item => (
+                <TableRow key={item.id}>
+                  <TableCell className="align-top">
+                    <Link
+                      href={`/${locale}/admin/outreach/${item.prospect.id}`}
+                      className="font-medium text-[#062E25] hover:underline"
+                    >
+                      {item.prospect.companyName}
+                    </Link>
+                  </TableCell>
+                  <TableCell className="align-top tabular-nums">
+                    {formatDate(item.postedAt)}
+                  </TableCell>
+                  <TableCell className="align-top">
+                    {label(
+                      `engagement.decisions.${item.decision}`,
+                      item.decision
+                    )}
+                  </TableCell>
+                  <TableCell className="align-top">
+                    {item.decisionReason
+                      ? label(
+                          `engagement.reasons.${item.decisionReason}`,
+                          item.decisionReason
+                        )
+                      : '-'}
+                  </TableCell>
+                  <TableCell className="align-top whitespace-pre-wrap min-w-[280px]">
+                    {item.commentText ?? '-'}
+                  </TableCell>
+                  <TableCell className="align-top">
+                    {label(engagementStateKey(item), item.closeReason)}
+                  </TableCell>
+                </TableRow>
+              ))}
+              {items.length === 0 && (
+                <TableRow>
+                  <TableCell
+                    colSpan={6}
+                    className="text-center py-8 text-[#062E25]/75"
+                  >
+                    {t('engagement.empty')}
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function SenderRow({ s, isAdmin }: { s: LinkedinSenderRow; isAdmin: boolean }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -987,6 +1315,45 @@ function SenderRow({ s, isAdmin }: { s: LinkedinSenderRow; isAdmin: boolean }) {
   )
 }
 
+function FeatureModeSelect({
+  id,
+  label,
+  value,
+  disabled,
+  onChange,
+}: {
+  id: string
+  label: string
+  value: LinkedinFeatureMode
+  disabled: boolean
+  onChange: (mode: LinkedinFeatureMode) => void
+}) {
+  const t = useTranslations('admin.outreach.linkedin.agent')
+  return (
+    <div className="space-y-2">
+      <Label htmlFor={id} className="text-base">
+        {label}
+      </Label>
+      <Select
+        value={value}
+        disabled={disabled}
+        onValueChange={v => onChange(v as LinkedinFeatureMode)}
+      >
+        <SelectTrigger id={id} className="w-48 text-base">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {FEATURE_MODES.map(mode => (
+            <SelectItem key={mode} value={mode} className="text-base">
+              {t(`featureMode.${mode}`)}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
+    </div>
+  )
+}
+
 function AgentPanel({
   s,
   checkedAt,
@@ -1001,8 +1368,12 @@ function AgentPanel({
   const [copied, setCopied] = useState(false)
   const refresh = () => queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
   const update = useMutation({
-    mutationFn: (input: { mode?: LinkedinSenderMode; rehearsal?: boolean }) =>
-      adminLinkedinService.updateSender(s.id, input),
+    mutationFn: (
+      input: Pick<
+        LinkedinSenderInput,
+        'mode' | 'rehearsal' | 'engagementMode' | 'postMode'
+      >
+    ) => adminLinkedinService.updateSender(s.id, input),
     onSuccess: refresh,
     onError,
   })
@@ -1031,6 +1402,10 @@ function AgentPanel({
     s.pauseReason && t.has(`reasons.${s.pauseReason}`)
       ? t(`reasons.${s.pauseReason}`)
       : (s.pauseReason ?? '')
+  const offReasons = [
+    { feature: t('engagementMode'), reason: s.engagementOffReason },
+    { feature: t('postMode'), reason: s.postOffReason },
+  ].filter((row): row is { feature: string; reason: string } => !!row.reason)
   const copy = async () => {
     if (!key) return
     await navigator.clipboard.writeText(key)
@@ -1102,6 +1477,37 @@ function AgentPanel({
         <p className="text-[#062E25]/60">
           {s.rehearsal ? t('rehearsalHint') : t('liveHint')}
         </p>
+        <div className="flex flex-wrap gap-6">
+          <FeatureModeSelect
+            id={`linkedin-engagement-mode-${s.id}`}
+            label={t('engagementMode')}
+            value={s.engagementMode}
+            disabled={update.isPending}
+            onChange={engagementMode => update.mutate({ engagementMode })}
+          />
+          <FeatureModeSelect
+            id={`linkedin-post-mode-${s.id}`}
+            label={t('postMode')}
+            value={s.postMode}
+            disabled={update.isPending}
+            onChange={postMode => update.mutate({ postMode })}
+          />
+        </div>
+        {offReasons.map(row => {
+          const code = row.reason.replace(/^auto_off:/, '')
+          return (
+            <p
+              key={row.feature}
+              className="px-4 py-3 rounded-md bg-amber-100 text-amber-900"
+            >
+              {t('offReason', {
+                feature: row.feature,
+                reason: t.has(`reasons.${code}`) ? t(`reasons.${code}`) : code,
+              })}
+            </p>
+          )
+        })}
+        <p className="text-[#062E25]/60">{t('featureModeHint')}</p>
         <div className="flex flex-wrap items-center gap-2">
           <Button
             size="sm"
@@ -1451,6 +1857,12 @@ export default function AdminOutreachLinkedinPage() {
               </span>
             )}
           </TabsTrigger>
+          <TabsTrigger value="posts" className="px-4 py-2 text-base">
+            {t('tabPosts')}
+          </TabsTrigger>
+          <TabsTrigger value="engagement" className="px-4 py-2 text-base">
+            {t('tabEngagement')}
+          </TabsTrigger>
           <TabsTrigger value="review" className="px-4 py-2 text-base">
             {t('tabReview')}
             {overview.data && (
@@ -1528,6 +1940,37 @@ export default function AdminOutreachLinkedinPage() {
                   onReply={setReplyTouch}
                   senderId={senderId}
                   auto={q?.sender?.mode === 'AUTO'}
+                />
+              ) : (
+                <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="posts">
+          <Card className="border-[#062E25]/10">
+            <CardContent className="p-6">
+              {hasSender && q?.sender ? (
+                <PostsTab
+                  senderId={senderId}
+                  mode={effectiveMode(q.sender.postMode, q.sender.rehearsal)}
+                />
+              ) : (
+                <p className="text-[#062E25]/75">{t('noSenderHint')}</p>
+              )}
+            </CardContent>
+          </Card>
+        </TabsContent>
+        <TabsContent value="engagement">
+          <Card className="border-[#062E25]/10">
+            <CardContent className="p-6">
+              {hasSender && q?.sender ? (
+                <EngagementTab
+                  senderId={senderId}
+                  mode={effectiveMode(
+                    q.sender.engagementMode,
+                    q.sender.rehearsal
+                  )}
                 />
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>

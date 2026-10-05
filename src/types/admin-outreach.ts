@@ -16,34 +16,93 @@ import type {
 } from './outreach/owner-first'
 
 export type OutboundProspectStatus =
-  | 'DISCOVERED' | 'SCREENED_OUT' | 'ROOF_QUALIFIED' | 'CONTACT_FOUND'
-  | 'DRAFTED' | 'CONTACTED' | 'FOLLOW_UP_DUE' | 'REPLIED' | 'ANSWERED' | 'SNOOZED'
-  | 'CONVERTED' | 'NOT_INTERESTED' | 'OPTED_OUT' | 'BOUNCED' | 'EXPIRED'
+  | 'DISCOVERED'
+  | 'SCREENED_OUT'
+  | 'ROOF_QUALIFIED'
+  | 'CONTACT_FOUND'
+  | 'DRAFTED'
+  | 'CONTACTED'
+  | 'FOLLOW_UP_DUE'
+  | 'REPLIED'
+  | 'ANSWERED'
+  | 'SNOOZED'
+  | 'CONVERTED'
+  | 'NOT_INTERESTED'
+  | 'OPTED_OUT'
+  | 'BOUNCED'
+  | 'EXPIRED'
 
 export const OUTBOUND_PROSPECT_STATUSES: OutboundProspectStatus[] = [
-  'DISCOVERED', 'SCREENED_OUT', 'ROOF_QUALIFIED', 'CONTACT_FOUND',
-  'DRAFTED', 'CONTACTED', 'FOLLOW_UP_DUE', 'REPLIED', 'ANSWERED', 'SNOOZED',
-  'CONVERTED', 'NOT_INTERESTED', 'OPTED_OUT', 'BOUNCED', 'EXPIRED',
+  'DISCOVERED',
+  'SCREENED_OUT',
+  'ROOF_QUALIFIED',
+  'CONTACT_FOUND',
+  'DRAFTED',
+  'CONTACTED',
+  'FOLLOW_UP_DUE',
+  'REPLIED',
+  'ANSWERED',
+  'SNOOZED',
+  'CONVERTED',
+  'NOT_INTERESTED',
+  'OPTED_OUT',
+  'BOUNCED',
+  'EXPIRED',
 ]
 
-export type PvVerdict = 'REGISTRY_HIT' | 'IMAGERY_HIT' | 'NO_PV' | 'UNCLEAR' | 'UNCHECKED'
+export type PvVerdict =
+  | 'REGISTRY_HIT'
+  | 'IMAGERY_HIT'
+  | 'NO_PV'
+  | 'UNCLEAR'
+  | 'UNCHECKED'
 
 export type OutboundActivityType =
-  | 'DISCOVERED' | 'SCREENED' | 'CONTACT_EDITED' | 'DRAFT_CREATED'
-  | 'DRAFT_REJECTED' | 'EMAIL_SENT' | 'REPLY_RECEIVED' | 'CLASSIFIED'
-  | 'STATUS_CHANGED' | 'ASSIGNED' | 'SNOOZED' | 'SUPPRESSED' | 'PROMOTED'
-  | 'CALL_LOGGED' | 'LETTER_SENT' | 'MEETING_BOOKED' | 'NOTE' | 'IMPORTED' | 'LINKEDIN'
+  | 'DISCOVERED'
+  | 'SCREENED'
+  | 'CONTACT_EDITED'
+  | 'DRAFT_CREATED'
+  | 'DRAFT_REJECTED'
+  | 'EMAIL_SENT'
+  | 'REPLY_RECEIVED'
+  | 'CLASSIFIED'
+  | 'STATUS_CHANGED'
+  | 'ASSIGNED'
+  | 'SNOOZED'
+  | 'SUPPRESSED'
+  | 'PROMOTED'
+  | 'CALL_LOGGED'
+  | 'LETTER_SENT'
+  | 'MEETING_BOOKED'
+  | 'NOTE'
+  | 'IMPORTED'
+  | 'LINKEDIN'
   // Owner-first build (doc 69)
-  | 'OWNER_LOOKUP' | 'OWNERSHIP_CHANGED' | 'OWNER_SIGNAL' | 'QRL_RECORDED' | 'WARM_ALERT'
-  | 'LANDING_RESPONSE' | 'MAILBOX_EVENT' | 'DIRECTORY_CHECKED' | 'OFFER_SENT' | 'MEETING_HELD'
+  | 'OWNER_LOOKUP'
+  | 'OWNERSHIP_CHANGED'
+  | 'OWNER_SIGNAL'
+  | 'QRL_RECORDED'
+  | 'WARM_ALERT'
+  | 'LANDING_RESPONSE'
+  | 'MAILBOX_EVENT'
+  | 'DIRECTORY_CHECKED'
+  | 'OFFER_SENT'
+  | 'MEETING_HELD'
 
 export type OutboundEmailDirection = 'OUTBOUND' | 'INBOUND'
 
 export type OutboundEmailStatus = 'DRAFT' | 'SENT' | 'BOUNCED' | 'FAILED'
 
 export type OutboundReplyClassification =
-  | 'INTERESTED' | 'QUESTION' | 'NOT_INTERESTED' | 'NOT_NOW'
-  | 'WRONG_PERSON' | 'OOO' | 'UNSUBSCRIBE' | 'BOUNCE' | 'UNCLASSIFIED'
+  | 'INTERESTED'
+  | 'QUESTION'
+  | 'NOT_INTERESTED'
+  | 'NOT_NOW'
+  | 'WRONG_PERSON'
+  | 'OOO'
+  | 'UNSUBSCRIBE'
+  | 'BOUNCE'
+  | 'UNCLASSIFIED'
 
 export interface OutboundProspectListItem {
   id: string
@@ -257,7 +316,13 @@ export interface OutboundOwnershipEvidence {
   ownerName?: string | null
   ownerUid?: string | null
   ownerPartyType?: OwnerPartyType | null
-  ref?: { lookupId?: string; signalId?: string; emailId?: string; activityId?: string; url?: string }
+  ref?: {
+    lookupId?: string
+    signalId?: string
+    emailId?: string
+    activityId?: string
+    url?: string
+  }
   detail?: string
   by: 'system' | 'skill' | 'operator'
 }
@@ -428,8 +493,13 @@ export interface OutboundSendResult {
 }
 
 export type OutboundSendErrorCode =
-  | 'SMTP_NOT_CONFIGURED' | 'SUPPRESSED' | 'EXISTING_RELATIONSHIP'
-  | 'DAILY_CAP_REACHED' | 'PV_DETECTED' | 'COMPOSED_INVALID' | 'SMTP_SEND_FAILED'
+  | 'SMTP_NOT_CONFIGURED'
+  | 'SUPPRESSED'
+  | 'EXISTING_RELATIONSHIP'
+  | 'DAILY_CAP_REACHED'
+  | 'PV_DETECTED'
+  | 'COMPOSED_INVALID'
+  | 'SMTP_SEND_FAILED'
 
 export interface OutboundPromoteInput {
   assignedToId: string
@@ -455,9 +525,13 @@ export interface OutboundManualReplyInput {
 }
 
 export type OutboundManualActivityType =
-  | 'MEETING_BOOKED' | 'CALL_LOGGED' | 'LETTER_SENT' | 'NOTE'
+  | 'MEETING_BOOKED'
+  | 'CALL_LOGGED'
+  | 'LETTER_SENT'
+  | 'NOTE'
   // Owner-first build (doc 69 W1-8)
-  | 'MEETING_HELD' | 'OFFER_SENT'
+  | 'MEETING_HELD'
+  | 'OFFER_SENT'
 
 // POST /prospects/:id/activities (backend outbound.schema.ts, contract 4.12).
 // A meeting names its evidence (an inbound mail or a logged call of the same
@@ -518,9 +592,19 @@ export interface OutboundTemplateRow {
 }
 
 export type LinkedinTouchStatus =
-  | 'REQUESTED' | 'ACCEPTED' | 'MESSAGED' | 'FOLLOWED_UP' | 'REPLIED' | 'WITHDRAWN' | 'CLOSED'
+  | 'REQUESTED'
+  | 'ACCEPTED'
+  | 'MESSAGED'
+  | 'FOLLOWED_UP'
+  | 'REPLIED'
+  | 'WITHDRAWN'
+  | 'CLOSED'
 
-export type LinkedinReplyOutcome = 'interested' | 'not_interested' | 'opt_out' | 'other'
+export type LinkedinReplyOutcome =
+  | 'interested'
+  | 'not_interested'
+  | 'opt_out'
+  | 'other'
 
 export interface LinkedinTouchSummary {
   id: string
@@ -568,6 +652,8 @@ export interface LinkedinRequestItem extends LinkedinProspectCard {
 
 export type LinkedinSenderMode = 'MANUAL' | 'AUTO'
 
+export type LinkedinFeatureMode = 'OFF' | 'REHEARSAL' | 'LIVE'
+
 export interface LinkedinPauseDetail {
   url?: string
   excerpt?: string
@@ -581,7 +667,7 @@ export interface LinkedinAgentLogItem {
   jobType: string | null
   code: string | null
   rehearsal: boolean
-  prospect: { id: string; companyName: string }
+  prospect: { id: string; companyName: string } | null
 }
 
 export interface LinkedinTouchItem {
@@ -607,6 +693,10 @@ export interface LinkedinQueue {
     warmupStartedAt: string
     mode: LinkedinSenderMode
     rehearsal: boolean
+    engagementMode: LinkedinFeatureMode
+    postMode: LinkedinFeatureMode
+    engagementOffReason: string | null
+    postOffReason: string | null
     pausedAt: string | null
     pauseReason: string | null
     agentLastSeenAt: string | null
@@ -648,6 +738,10 @@ export interface LinkedinSenderRow {
   active: boolean
   mode: LinkedinSenderMode
   rehearsal: boolean
+  engagementMode: LinkedinFeatureMode
+  postMode: LinkedinFeatureMode
+  engagementOffReason: string | null
+  postOffReason: string | null
   agentKeyCreatedAt: string | null
   agentLastSeenAt: string | null
   agentVersion: string | null
@@ -673,5 +767,54 @@ export interface LinkedinSenderInput {
   warmupStartedAt?: string
   mode?: LinkedinSenderMode
   rehearsal?: boolean
+  engagementMode?: LinkedinFeatureMode
+  postMode?: LinkedinFeatureMode
 }
 
+export type LinkedinPostStatus =
+  | 'SCHEDULED'
+  | 'PUBLISHED'
+  | 'CANCELLED'
+  | 'FAILED'
+
+export interface LinkedinPostItem {
+  id: string
+  status: LinkedinPostStatus
+  text: string
+  imageUrl: string | null
+  scheduledFor: string
+  publishClickedAt: string | null
+  publishedAt: string | null
+  postUrl: string | null
+  lastError: string | null
+}
+
+export interface LinkedinPostList {
+  scheduled: LinkedinPostItem[]
+  recent: LinkedinPostItem[]
+}
+
+export type LinkedinEngagementDecision = 'PENDING' | 'SKIP' | 'LIKE' | 'COMMENT'
+
+export interface LinkedinEngagementItem {
+  id: string
+  prospect: { id: string; companyName: string }
+  postedAt: string | null
+  decision: LinkedinEngagementDecision
+  decisionReason: string | null
+  commentText: string | null
+  likedAt: string | null
+  commentSubmittedAt: string | null
+  commentedAt: string | null
+  closedAt: string | null
+  closeReason: string | null
+}
+
+export interface LinkedinEngagementOverview {
+  likesToday: number
+  likeLimit: number
+  commentsToday: number
+  commentLimit: number
+  pendingDecisions: number
+  items: LinkedinEngagementItem[]
+}

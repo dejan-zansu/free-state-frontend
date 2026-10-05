@@ -1,8 +1,10 @@
 import api from '@/lib/api'
 import type {
   LinkedinAgentLogItem,
+  LinkedinEngagementOverview,
   LinkedinMessage,
   LinkedinOverview,
+  LinkedinPostList,
   LinkedinProspectCard,
   LinkedinQueue,
   LinkedinReplyOutcome,
@@ -28,12 +30,16 @@ class AdminLinkedinService {
   }
 
   async getOverview(): Promise<LinkedinOverview> {
-    const response = await api.get<Envelope<LinkedinOverview>>(`${BASE}/overview`)
+    const response = await api.get<Envelope<LinkedinOverview>>(
+      `${BASE}/overview`
+    )
     return response.data.data
   }
 
   async listReview(): Promise<LinkedinProspectCard[]> {
-    const response = await api.get<Envelope<LinkedinProspectCard[]>>(`${BASE}/review`)
+    const response = await api.get<Envelope<LinkedinProspectCard[]>>(
+      `${BASE}/review`
+    )
     return response.data.data
   }
 
@@ -45,19 +51,30 @@ class AdminLinkedinService {
     )
   }
 
-  async review(prospectId: string, decision: 'confirm' | 'reject'): Promise<void> {
+  async review(
+    prospectId: string,
+    decision: 'confirm' | 'reject'
+  ): Promise<void> {
     await api.post(`${BASE}/prospects/${prospectId}/review`, { decision })
   }
 
   async setProfile(
     prospectId: string,
-    input: { profileUrl: string | null; personName?: string; personRole?: string },
+    input: {
+      profileUrl: string | null
+      personName?: string
+      personRole?: string
+    }
   ): Promise<void> {
     await api.put(`${BASE}/prospects/${prospectId}/profile`, input)
   }
 
-  async getProspectTouch(prospectId: string): Promise<LinkedinTouchSummary | null> {
-    const response = await api.get<Envelope<LinkedinTouchSummary | null>>(`${BASE}/prospects/${prospectId}/touch`)
+  async getProspectTouch(
+    prospectId: string
+  ): Promise<LinkedinTouchSummary | null> {
+    const response = await api.get<Envelope<LinkedinTouchSummary | null>>(
+      `${BASE}/prospects/${prospectId}/touch`
+    )
     return response.data.data
   }
 
@@ -114,7 +131,9 @@ class AdminLinkedinService {
   }
 
   async listSenders(): Promise<LinkedinSenderRow[]> {
-    const response = await api.get<Envelope<LinkedinSenderRow[]>>(`${BASE}/senders`)
+    const response = await api.get<Envelope<LinkedinSenderRow[]>>(
+      `${BASE}/senders`
+    )
     return response.data.data
   }
 
@@ -144,6 +163,30 @@ class AdminLinkedinService {
   async getAgentLog(senderId?: string): Promise<LinkedinAgentLogItem[]> {
     const response = await api.get<Envelope<LinkedinAgentLogItem[]>>(
       `${BASE}/agent-log`,
+      acting(senderId)
+    )
+    return response.data.data
+  }
+
+  async listPosts(senderId?: string): Promise<LinkedinPostList> {
+    const response = await api.get<Envelope<LinkedinPostList>>(
+      `${BASE}/posts`,
+      acting(senderId)
+    )
+    return response.data.data
+  }
+
+  async cancelPost(postId: string, senderId?: string): Promise<void> {
+    await api.post(
+      `${BASE}/posts/${postId}/cancel`,
+      undefined,
+      acting(senderId)
+    )
+  }
+
+  async getEngagement(senderId?: string): Promise<LinkedinEngagementOverview> {
+    const response = await api.get<Envelope<LinkedinEngagementOverview>>(
+      `${BASE}/engagement`,
       acting(senderId)
     )
     return response.data.data

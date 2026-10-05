@@ -8430,6 +8430,8 @@
         "tabToday": "Today",
         "tabMessages": "Messages",
         "tabPending": "Pending",
+        "tabPosts": "Posts",
+        "tabEngagement": "Engagement",
         "tabReview": "Review",
         "tabSenders": "Senders",
         "todayHint": "Open the profile, check person and company, click «Connect» on LinkedIn without a note, then «Request sent» here. If the person is wrong, «Skip».",
@@ -8528,7 +8530,8 @@
           "LINKEDIN_TOUCH_EXISTS": "This person was already contacted on LinkedIn.",
           "LINKEDIN_SENDER_EXISTS": "This user is already a sender.",
           "LINKEDIN_AUTO_MODE": "The extension is working this sender. Switch it to manual in the Senders tab first.",
-          "VALIDATION_ERROR": "Please enter a valid linkedin.com/in/ address."
+          "VALIDATION_ERROR": "Please enter a valid linkedin.com/in/ address.",
+          "LINKEDIN_POST_NOT_CANCELLABLE": "This post is no longer scheduled or is being published right now. It can no longer be cancelled."
         },
         "cardTitle": "LinkedIn",
         "needsReview": "to review",
@@ -8559,7 +8562,10 @@
           "profile_confirmed": "Profile confirmed",
           "profile_rejected": "Profile rejected",
           "profile_set": "Profile entered",
-          "profile_cleared": "Profile removed"
+          "profile_cleared": "Profile removed",
+          "like": "Post liked",
+          "comment": "Commented on post",
+          "engagement_closed": "Engagement closed"
         },
         "agent": {
           "title": "Extension for {name}",
@@ -8572,7 +8578,8 @@
             "restricted": "account restricted",
             "limit_notice": "LinkedIn limit reached",
             "unknown_page": "unknown page",
-            "button_missing": "button not found"
+            "button_missing": "button not found",
+            "rate_limit": "LinkedIn reports too many actions"
           },
           "resume": "Resume",
           "auto": "Automatic",
@@ -8614,7 +8621,11 @@
             "agent_skipped": "Skipped",
             "agent_rehearsal": "Rehearsal",
             "agent_stop": "Stopped",
-            "agent_result_ignored": "Result discarded"
+            "agent_result_ignored": "Result discarded",
+            "like": "Liked",
+            "comment": "Comment posted",
+            "engagement_closed": "Engagement closed",
+            "post": "Post published"
           },
           "jobTypes": {
             "check": "Check",
@@ -8622,7 +8633,120 @@
             "connect": "Connection request",
             "message": "First message",
             "followup": "Follow-up",
-            "withdraw": "Withdraw"
+            "withdraw": "Withdraw",
+            "like": "Like",
+            "comment": "Comment",
+            "post": "Post"
+          },
+          "featureMode": {
+            "OFF": "Off",
+            "REHEARSAL": "Rehearsal",
+            "LIVE": "Live"
+          },
+          "engagementMode": "Likes and comments",
+          "postMode": "Posts",
+          "offReason": "{feature} were switched off after three failures in one day ({reason}).",
+          "featureModeHint": "In rehearsal the extension finds posts and buttons and types texts as a test, but never clicks «Like», «Comment» or «Post». When the rehearsal switch above is on, it applies here too."
+        },
+        "posts": {
+          "hint": "The extension publishes scheduled posts on the sender's profile on Tuesdays and Thursdays at 08:30. A post that is still unpublished three hours after its slot is cancelled.",
+          "modeStatus": {
+            "OFF": "Posts are switched off.",
+            "REHEARSAL": "Posts run in rehearsal. The extension types them as a test and discards them.",
+            "LIVE": "Posts are live."
+          },
+          "scheduledTitle": "Scheduled",
+          "emptyScheduled": "No posts scheduled.",
+          "recentTitle": "Recent posts",
+          "emptyRecent": "No posts yet.",
+          "cancel": "Cancel",
+          "cancelConfirm": "Cancel this post? It will not be published.",
+          "cancelled": "Post cancelled.",
+          "lastError": "Last attempt ({error})",
+          "colTime": "Time",
+          "colStatus": "Status",
+          "colLink": "Link",
+          "colLastError": "Last note",
+          "openPost": "Open post",
+          "lastErrors": {
+            "missed_slot": "Slot missed",
+            "rehearsal_ok": "Rehearsal passed",
+            "published_unverified": "Published but not found",
+            "published_after_cancel": "Published after cancelling",
+            "media_unavailable": "Image unavailable"
+          }
+        },
+        "postStatus": {
+          "SCHEDULED": "Scheduled",
+          "PUBLISHED": "Published",
+          "CANCELLED": "Cancelled",
+          "FAILED": "Failed"
+        },
+        "engagement": {
+          "hint": "Before the connection request, the extension likes or comments on the person's newest own post. The daily run decides for each post whether and how.",
+          "modeStatus": {
+            "OFF": "Likes and comments are switched off.",
+            "REHEARSAL": "Likes and comments run in rehearsal. The extension finds the buttons and types comments as a test, but sends nothing.",
+            "LIVE": "Likes and comments are live."
+          },
+          "likesToday": "Likes today",
+          "commentsToday": "Comments today",
+          "pendingDecisions": "Decisions waiting",
+          "recentTitle": "Last 7 days",
+          "empty": "No posts found in the last 7 days.",
+          "colCompany": "Company",
+          "colPostedAt": "Posted on",
+          "colDecision": "Decision",
+          "colReason": "Reason",
+          "colComment": "Comment",
+          "colState": "State",
+          "decisions": {
+            "PENDING": "Pending",
+            "SKIP": "Skip",
+            "LIKE": "Like",
+            "COMMENT": "Comment"
+          },
+          "reasons": {
+            "sensitive": "Personal or sensitive",
+            "off_topic": "Off topic",
+            "language": "Language",
+            "repost_or_old": "Repost or too old",
+            "job_ad_or_poll": "Job ad or poll",
+            "competitor": "Utility or competitor",
+            "own_pv": "In-house PV arm",
+            "unclear": "Unclear",
+            "like_only": "Like only",
+            "comment": "Comment fits"
+          },
+          "states": {
+            "waiting": "Waiting for decision",
+            "likePlanned": "Like planned",
+            "commentPlanned": "Comment planned",
+            "verifying": "Comment sent, being verified",
+            "open": "Open"
+          },
+          "closeReasons": {
+            "done": "Done",
+            "unverified": "Sent, not confirmed",
+            "like_unverified": "Like not confirmed",
+            "skip": "Skipped",
+            "undecided": "Expired without decision",
+            "expired": "Expired",
+            "rehearsed": "Checked in rehearsal",
+            "disabled": "Switched off",
+            "connected": "Already contacted on LinkedIn",
+            "stopped": "Contact stopped",
+            "suppressed": "On the suppression list",
+            "rejected": "Profile not confirmed",
+            "owner_handled": "Handled personally",
+            "prospect_changed": "Profile changed",
+            "post_not_found": "Post not found",
+            "post_changed": "Post changed",
+            "author_mismatch": "Different author",
+            "comments_disabled": "Comments turned off",
+            "like_state_unknown": "Like state unclear",
+            "profile_gone": "Profile gone",
+            "name_mismatch": "Name does not match"
           }
         }
       }

@@ -8430,6 +8430,8 @@
         "tabToday": "Heute",
         "tabMessages": "Nachrichten",
         "tabPending": "Offen",
+        "tabPosts": "Beiträge",
+        "tabEngagement": "Engagement",
         "tabReview": "Prüfen",
         "tabSenders": "Absender",
         "todayHint": "Profil öffnen, Person und Firma prüfen, auf LinkedIn «Vernetzen» ohne Notiz klicken, dann hier «Anfrage gesendet». Stimmt die Person nicht, «Überspringen».",
@@ -8528,7 +8530,8 @@
           "LINKEDIN_TOUCH_EXISTS": "Diese Person wurde bereits auf LinkedIn kontaktiert.",
           "LINKEDIN_SENDER_EXISTS": "Dieser Benutzer ist bereits Absender.",
           "LINKEDIN_AUTO_MODE": "Die Erweiterung arbeitet diesen Absender. Bitte im Absender-Tab auf manuell stellen.",
-          "VALIDATION_ERROR": "Bitte eine gültige linkedin.com/in/ Adresse eingeben."
+          "VALIDATION_ERROR": "Bitte eine gültige linkedin.com/in/ Adresse eingeben.",
+          "LINKEDIN_POST_NOT_CANCELLABLE": "Dieser Beitrag ist nicht mehr geplant oder wird gerade veröffentlicht. Er lässt sich nicht mehr abbrechen."
         },
         "cardTitle": "LinkedIn",
         "needsReview": "zu prüfen",
@@ -8559,7 +8562,10 @@
           "profile_confirmed": "Profil bestätigt",
           "profile_rejected": "Profil verworfen",
           "profile_set": "Profil erfasst",
-          "profile_cleared": "Profil entfernt"
+          "profile_cleared": "Profil entfernt",
+          "like": "Beitrag mit «Gefällt mir» markiert",
+          "comment": "Beitrag kommentiert",
+          "engagement_closed": "Engagement beendet"
         },
         "agent": {
           "title": "Erweiterung für {name}",
@@ -8572,7 +8578,8 @@
             "restricted": "Konto eingeschränkt",
             "limit_notice": "LinkedIn-Limit erreicht",
             "unknown_page": "unbekannte Seite",
-            "button_missing": "Schaltfläche nicht gefunden"
+            "button_missing": "Schaltfläche nicht gefunden",
+            "rate_limit": "LinkedIn meldet zu viele Aktionen"
           },
           "resume": "Fortsetzen",
           "auto": "Automatisch",
@@ -8614,7 +8621,11 @@
             "agent_skipped": "Übersprungen",
             "agent_rehearsal": "Probelauf",
             "agent_stop": "Angehalten",
-            "agent_result_ignored": "Ergebnis verworfen"
+            "agent_result_ignored": "Ergebnis verworfen",
+            "like": "«Gefällt mir» gesetzt",
+            "comment": "Kommentar gesendet",
+            "engagement_closed": "Engagement beendet",
+            "post": "Beitrag veröffentlicht"
           },
           "jobTypes": {
             "check": "Prüfung",
@@ -8622,7 +8633,120 @@
             "connect": "Kontaktanfrage",
             "message": "Erste Nachricht",
             "followup": "Nachfassen",
-            "withdraw": "Zurückziehen"
+            "withdraw": "Zurückziehen",
+            "like": "Gefällt mir",
+            "comment": "Kommentar",
+            "post": "Beitrag"
+          },
+          "featureMode": {
+            "OFF": "Aus",
+            "REHEARSAL": "Probelauf",
+            "LIVE": "Live"
+          },
+          "engagementMode": "Likes und Kommentare",
+          "postMode": "Beiträge",
+          "offReason": "{feature} wurden nach drei Fehlern an einem Tag ausgeschaltet ({reason}).",
+          "featureModeHint": "Im Probelauf sucht die Erweiterung Beiträge und Schaltflächen und tippt Texte zur Probe, klickt aber nie auf «Gefällt mir», «Kommentieren» oder «Posten». Ist der Probelauf oben eingeschaltet, gilt er auch hier."
+        },
+        "posts": {
+          "hint": "Die Erweiterung veröffentlicht geplante Beiträge dienstags und donnerstags um 08:30 auf dem Profil des Absenders. Ist ein Beitrag drei Stunden nach seinem Termin noch nicht veröffentlicht, wird er abgebrochen.",
+          "modeStatus": {
+            "OFF": "Beiträge sind ausgeschaltet.",
+            "REHEARSAL": "Beiträge laufen im Probelauf. Die Erweiterung tippt sie zur Probe und verwirft sie wieder.",
+            "LIVE": "Beiträge sind live."
+          },
+          "scheduledTitle": "Geplant",
+          "emptyScheduled": "Keine Beiträge geplant.",
+          "recentTitle": "Letzte Beiträge",
+          "emptyRecent": "Noch keine Beiträge.",
+          "cancel": "Abbrechen",
+          "cancelConfirm": "Diesen Beitrag abbrechen? Er wird dann nicht veröffentlicht.",
+          "cancelled": "Beitrag abgebrochen.",
+          "lastError": "Letzter Versuch ({error})",
+          "colTime": "Zeit",
+          "colStatus": "Status",
+          "colLink": "Link",
+          "colLastError": "Letzte Meldung",
+          "openPost": "Beitrag öffnen",
+          "lastErrors": {
+            "missed_slot": "Termin verpasst",
+            "rehearsal_ok": "Probelauf erfolgreich",
+            "published_unverified": "Veröffentlicht, aber nicht gefunden",
+            "published_after_cancel": "Nach dem Abbruch veröffentlicht",
+            "media_unavailable": "Bild nicht verfügbar"
+          }
+        },
+        "postStatus": {
+          "SCHEDULED": "Geplant",
+          "PUBLISHED": "Veröffentlicht",
+          "CANCELLED": "Abgebrochen",
+          "FAILED": "Fehlgeschlagen"
+        },
+        "engagement": {
+          "hint": "Vor der Kontaktanfrage reagiert die Erweiterung auf den neuesten eigenen Beitrag der Person mit «Gefällt mir» oder einem Kommentar. Der tägliche Lauf entscheidet pro Beitrag, ob und wie.",
+          "modeStatus": {
+            "OFF": "Likes und Kommentare sind ausgeschaltet.",
+            "REHEARSAL": "Likes und Kommentare laufen im Probelauf. Die Erweiterung sucht die Schaltflächen und tippt Kommentare zur Probe, sendet aber nichts.",
+            "LIVE": "Likes und Kommentare sind live."
+          },
+          "likesToday": "«Gefällt mir» heute",
+          "commentsToday": "Kommentare heute",
+          "pendingDecisions": "Offene Entscheide",
+          "recentTitle": "Letzte 7 Tage",
+          "empty": "In den letzten 7 Tagen keine Beiträge gefunden.",
+          "colCompany": "Firma",
+          "colPostedAt": "Beitrag vom",
+          "colDecision": "Entscheid",
+          "colReason": "Grund",
+          "colComment": "Kommentar",
+          "colState": "Stand",
+          "decisions": {
+            "PENDING": "Offen",
+            "SKIP": "Überspringen",
+            "LIKE": "Gefällt mir",
+            "COMMENT": "Kommentar"
+          },
+          "reasons": {
+            "sensitive": "Persönlich oder heikel",
+            "off_topic": "Anderes Thema",
+            "language": "Sprache",
+            "repost_or_old": "Repost oder zu alt",
+            "job_ad_or_poll": "Stelleninserat oder Umfrage",
+            "competitor": "Energieversorger oder Mitbewerber",
+            "own_pv": "Eigene PV-Sparte",
+            "unclear": "Unklar",
+            "like_only": "Nur «Gefällt mir»",
+            "comment": "Kommentar passt"
+          },
+          "states": {
+            "waiting": "Wartet auf Entscheid",
+            "likePlanned": "«Gefällt mir» geplant",
+            "commentPlanned": "Kommentar geplant",
+            "verifying": "Kommentar gesendet, wird geprüft",
+            "open": "Offen"
+          },
+          "closeReasons": {
+            "done": "Erledigt",
+            "unverified": "Gesendet, nicht bestätigt",
+            "like_unverified": "«Gefällt mir» nicht bestätigt",
+            "skip": "Übersprungen",
+            "undecided": "Ohne Entscheid abgelaufen",
+            "expired": "Abgelaufen",
+            "rehearsed": "Im Probelauf geprüft",
+            "disabled": "Ausgeschaltet",
+            "connected": "Bereits auf LinkedIn kontaktiert",
+            "stopped": "Kontakt gestoppt",
+            "suppressed": "Auf der Sperrliste",
+            "rejected": "Profil nicht bestätigt",
+            "owner_handled": "Persönlich betreut",
+            "prospect_changed": "Profil geändert",
+            "post_not_found": "Beitrag nicht gefunden",
+            "post_changed": "Beitrag geändert",
+            "author_mismatch": "Anderer Autor",
+            "comments_disabled": "Kommentare deaktiviert",
+            "like_state_unknown": "«Gefällt mir»-Stand unklar",
+            "profile_gone": "Profil nicht mehr vorhanden",
+            "name_mismatch": "Name passt nicht"
           }
         }
       }
