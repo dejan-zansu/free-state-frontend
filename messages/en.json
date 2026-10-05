@@ -8667,6 +8667,12 @@
           "colStatus": "Status",
           "colLink": "Link",
           "colLastError": "Last note",
+          "commentsHint": "Ivan should answer comments on his posts within the first hours after publishing.",
+          "colReactions": "Reactions",
+          "colComments": "Comments",
+          "colReposts": "Reposts",
+          "colImpressions": "Impressions",
+          "statsAt": "As of {time}",
           "openPost": "Open post",
           "lastErrors": {
             "missed_slot": "Slot missed",

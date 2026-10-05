@@ -8477,6 +8477,12 @@
           "colStatus": "Status",
           "colLink": "Link",
           "colLastError": "Letzte Meldung",
+          "commentsHint": "Ivan sollte Kommentare unter seinen Beiträgen in den ersten Stunden nach der Veröffentlichung beantworten.",
+          "colReactions": "Reaktionen",
+          "colComments": "Kommentare",
+          "colReposts": "Reposts",
+          "colImpressions": "Impressionen",
+          "statsAt": "Stand {time}",
           "openPost": "Beitrag öffnen",
           "lastErrors": {
             "missed_slot": "Termin verpasst",

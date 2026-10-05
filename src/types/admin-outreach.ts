@@ -787,6 +787,11 @@ export interface LinkedinPostItem {
   publishedAt: string | null
   postUrl: string | null
   lastError: string | null
+  reactions: number | null
+  comments: number | null
+  reposts: number | null
+  impressions: number | null
+  statsAt: string | null
 }
 
 export interface LinkedinPostList {

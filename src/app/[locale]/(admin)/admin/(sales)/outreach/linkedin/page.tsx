@@ -49,6 +49,7 @@ import { useAuthStore } from '@/stores/auth.store'
 import type {
   LinkedinEngagementItem,
   LinkedinFeatureMode,
+  LinkedinPostItem,
   LinkedinProspectCard,
   LinkedinReplyOutcome,
   LinkedinRequestItem,
@@ -960,6 +961,10 @@ function PostsTab({
         ? t(`posts.lastErrors.${code}`)
         : code
       : '-'
+  const stat = (post: LinkedinPostItem, value: number | null) =>
+    post.status === 'PUBLISHED' && value !== null
+      ? value.toLocaleString('de-CH')
+      : '-'
 
   return (
     <div className="space-y-6">
@@ -1033,12 +1038,25 @@ function PostsTab({
         <h3 className="font-semibold text-[#062E25] mb-2">
           {t('posts.recentTitle')}
         </h3>
+        <p className="text-[#062E25]/75 mb-2">{t('posts.commentsHint')}</p>
         <div className="overflow-x-auto">
-          <Table className="text-base min-w-[720px]">
+          <Table className="text-base min-w-[1120px]">
             <TableHeader>
               <TableRow className="hover:bg-transparent">
                 <TableHead>{t('posts.colTime')}</TableHead>
                 <TableHead>{t('posts.colStatus')}</TableHead>
+                <TableHead className="text-right">
+                  {t('posts.colReactions')}
+                </TableHead>
+                <TableHead className="text-right">
+                  {t('posts.colComments')}
+                </TableHead>
+                <TableHead className="text-right">
+                  {t('posts.colReposts')}
+                </TableHead>
+                <TableHead className="text-right">
+                  {t('posts.colImpressions')}
+                </TableHead>
                 <TableHead>{t('posts.colLink')}</TableHead>
                 <TableHead>{t('posts.colLastError')}</TableHead>
               </TableRow>
@@ -1056,14 +1074,35 @@ function PostsTab({
                       className="text-base"
                     />
                   </TableCell>
+                  <TableCell className="text-right tabular-nums">
+                    {stat(post, post.reactions)}
+                  </TableCell>
+                  <TableCell className="text-right tabular-nums">
+                    {stat(post, post.comments)}
+                  </TableCell>
+                  <TableCell className="text-right tabular-nums">
+                    {stat(post, post.reposts)}
+                  </TableCell>
+                  <TableCell className="text-right tabular-nums">
+                    {stat(post, post.impressions)}
+                  </TableCell>
                   <TableCell>
-                    {isLinkedinUrl(post.postUrl) ? (
-                      <ExternalAnchor href={post.postUrl}>
-                        {t('posts.openPost')}
-                      </ExternalAnchor>
-                    ) : (
-                      '-'
-                    )}
+                    <div className="flex flex-col gap-1">
+                      {isLinkedinUrl(post.postUrl) ? (
+                        <ExternalAnchor href={post.postUrl}>
+                          {t('posts.openPost')}
+                        </ExternalAnchor>
+                      ) : (
+                        '-'
+                      )}
+                      {post.status === 'PUBLISHED' && post.statsAt && (
+                        <span className="text-[#062E25]/60 tabular-nums">
+                          {t('posts.statsAt', {
+                            time: formatDateTime(post.statsAt),
+                          })}
+                        </span>
+                      )}
+                    </div>
                   </TableCell>
                   <TableCell>{lastError(post.lastError)}</TableCell>
                 </TableRow>
@@ -1071,7 +1110,7 @@ function PostsTab({
               {recent.length === 0 && (
                 <TableRow>
                   <TableCell
-                    colSpan={4}
+                    colSpan={8}
                     className="text-center py-8 text-[#062E25]/75"
                   >
                     {t('posts.emptyRecent')}
