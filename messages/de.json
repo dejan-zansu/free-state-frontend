@@ -12070,7 +12070,7 @@
         "kosten": "Preis für Ihr Dach? Offerte anfragen",
         "calculator": "Lieber direkt mit uns sprechen?"
       },
-      "intro": "Name, Telefon und Adresse genügen. Wir rufen Sie an.",
+      "intro": "Name, Telefon und Adresse genügen. Wir rufen Sie an, klären die Details zu Ihrem Dach und erstellen Ihre Offerte.",
       "name": "Name",
       "namePlaceholder": "Vorname Nachname",
       "phone": "Telefon",
@@ -12083,7 +12083,7 @@
       "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
       "submit": "Offerte anfragen",
       "successTitle": "Danke, Ihre Anfrage ist bei uns.",
-      "successBody": "Wir rufen Sie unter {phone} an.",
+      "successBody": "Wir rufen Sie unter {phone} an und erstellen danach Ihre Offerte.",
       "errors": {
         "required": "Bitte füllen Sie dieses Feld aus.",
         "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein, zum Beispiel 079 123 45 67.",

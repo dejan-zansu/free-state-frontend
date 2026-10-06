@@ -12069,7 +12069,7 @@
         "kosten": "Un prix pour votre toit ? Demandez une offre",
         "calculator": "Vous préférez nous parler directement ?"
       },
-      "intro": "Votre nom, votre téléphone et votre adresse suffisent. Nous vous appelons.",
+      "intro": "Votre nom, votre téléphone et votre adresse suffisent. Nous vous appelons, clarifions les détails de votre toit et établissons votre offre.",
       "name": "Nom",
       "namePlaceholder": "Prénom et nom",
       "phone": "Téléphone",
@@ -12082,7 +12082,7 @@
       "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
       "submit": "Demander une offre",
       "successTitle": "Merci, nous avons bien reçu votre demande.",
-      "successBody": "Nous vous appelons au {phone}.",
+      "successBody": "Nous vous appelons au {phone}, puis nous établissons votre offre.",
       "errors": {
         "required": "Veuillez remplir ce champ.",
         "phoneInvalid": "Veuillez saisir un numéro de téléphone valide, par exemple 079 123 45 67.",

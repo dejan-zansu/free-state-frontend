@@ -12069,7 +12069,7 @@
         "kosten": "A price for your roof? Request a quote",
         "calculator": "Would you rather talk to us directly?"
       },
-      "intro": "Your name, phone and address are all we need. We will call you.",
+      "intro": "Your name, phone and address are all we need. We will call you, go through the details of your roof and prepare your quote.",
       "name": "Name",
       "namePlaceholder": "First and last name",
       "phone": "Phone",
@@ -12082,7 +12082,7 @@
       "consent": "I agree that Free State AG may use my details to process my request. The <privacyLink>privacy policy</privacyLink> applies.",
       "submit": "Request a quote",
       "successTitle": "Thank you, we have received your request.",
-      "successBody": "We will call you on {phone}.",
+      "successBody": "We will call you on {phone} and then prepare your quote.",
       "errors": {
         "required": "Please fill in this field.",
         "phoneInvalid": "Please enter a valid phone number, for example 079 123 45 67.",
