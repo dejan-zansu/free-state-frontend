@@ -5,6 +5,7 @@ export type LeadForm =
   | 'commercial_calculator'
   | 'contact'
   | 'quote_request'
+  | 'offer_request'
 
 export type TrackLeadOptions = {
   form: LeadForm

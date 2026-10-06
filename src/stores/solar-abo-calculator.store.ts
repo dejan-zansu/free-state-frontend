@@ -33,6 +33,7 @@ import {
   type SavingsEstimate,
 } from '@/services/residential-calculator.service'
 import { getAttribution } from '@/lib/analytics/funnel-events'
+import type { AddressMatch } from '@/lib/address/address-match'
 import { setAccessToken } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth.store'
 import { electricityPriceService } from '@/services/electricity-price.service'
@@ -74,6 +75,8 @@ export type RoofType = 'flat' | 'pitched'
 export type Salutation = 'mr' | 'woman' | 'family'
 export type ContactCountry = 'CH' | 'LI'
 export type SubmissionErrorCode = 'rate_limited' | 'network' | 'server'
+
+export type LocationPrecision = 'address' | 'street'
 
 export interface ParsedAddressFields {
   street: string
@@ -196,6 +199,8 @@ interface SolarAboCalculatorState {
 
   address: string
   selectedLocation: { lat: number; lng: number } | null
+  addressMatch: AddressMatch | null
+  locationPrecision: LocationPrecision | null
   building: SonnendachBuilding | null
   selectedSegmentIds: string[]
   isSearching: boolean
@@ -267,6 +272,8 @@ interface SolarAboCalculatorActions {
   setHeatPumpInterest: (value: boolean) => void
   setAddress: (address: string) => void
   setSelectedLocation: (location: { lat: number; lng: number } | null) => void
+  setAddressMatch: (match: AddressMatch | null) => void
+  setLocationPrecision: (precision: LocationPrecision | null) => void
   setParsedAddress: (fields: ParsedAddressFields) => void
   setManualCheckRequested: (source: ManualCheckSource | false) => void
   setBuilding: (building: SonnendachBuilding | null) => void
@@ -357,6 +364,8 @@ const initialState: SolarAboCalculatorState = {
 
   address: '',
   selectedLocation: null,
+  addressMatch: null,
+  locationPrecision: null,
   building: null,
   selectedSegmentIds: [],
   isSearching: false,
@@ -531,10 +540,22 @@ export const useSolarAboCalculatorStore = create<
           current &&
           (location.lat !== current.lat || location.lng !== current.lng)
         if (moved || (location && !current && get().building)) {
-          set({ selectedLocation: location, building: null, selectedSegmentIds: [] })
+          set({ selectedLocation: location, addressMatch: null, building: null, selectedSegmentIds: [] })
+          return
+        }
+        if (!location) {
+          set({ selectedLocation: null, addressMatch: null })
           return
         }
         set({ selectedLocation: location })
+      },
+
+      setAddressMatch: (match: AddressMatch | null) => {
+        set({ addressMatch: match })
+      },
+
+      setLocationPrecision: (precision: LocationPrecision | null) => {
+        set({ locationPrecision: precision })
       },
 
       setParsedAddress: (fields: ParsedAddressFields) => {
@@ -973,6 +994,8 @@ export const useSolarAboCalculatorStore = create<
         hasExistingSolar: state.hasExistingSolar,
         address: state.address,
         selectedLocation: state.selectedLocation,
+        addressMatch: state.addressMatch,
+        locationPrecision: state.locationPrecision,
         building: state.building,
         selectedSegmentIds: state.selectedSegmentIds,
         roofCovering: state.roofCovering,

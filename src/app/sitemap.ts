@@ -13,9 +13,9 @@ import { COMMUNITY_MODEL_SLUGS } from '@/data/energiegemeinschaften'
 
 // Bump a page's constant when its content actually changes. A stale lastmod
 // tells Google there is nothing new to fetch.
+const REFRESH_2026_10_06 = new Date('2026-10-06')
 const REFRESH_2026_09_21 = new Date('2026-09-21')
 const REFRESH_2026_09_22 = new Date('2026-09-22')
-const REFRESH_2026_09_07 = new Date('2026-09-07')
 const REFRESH_2026_05_16 = new Date('2026-05-16')
 const REFRESH_2026_04_12 = new Date('2026-04-12')
 const REFRESH_2026_02_01 = new Date('2026-02-01')
@@ -143,7 +143,8 @@ const STATIC_ENTRIES: StaticEntry[] = [
     lastModified: REFRESH_2026_04_12,
   },
   { pathname: '/commercial/calculator', lastModified: REFRESH_2026_04_12 },
-  { pathname: '/cost', lastModified: REFRESH_2026_09_07 },
+  { pathname: '/cost', lastModified: REFRESH_2026_10_06 },
+  { pathname: '/offer-request', lastModified: REFRESH_2026_10_06 },
   { pathname: '/amortization', lastModified: REFRESH_2026_02_01 },
   {
     pathname: '/solar-calculator',

@@ -7,6 +7,8 @@ export const flowVersionMeta: Record<string, number> = calculatorFlowV2Enabled
   ? { flowVersion: 2 }
   : {}
 
+export const addressFlowMeta: Record<string, number> = { addressFlow: 2 }
+
 export const totalSteps = calculatorFlowV2Enabled ? 4 : 5
 
 export interface StepPrerequisiteState {

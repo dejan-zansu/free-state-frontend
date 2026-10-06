@@ -1,3 +1,4 @@
+import OfferRequestForm from '@/components/offer-request/OfferRequestForm'
 import PageHero from '@/components/PageHero'
 import { LinkButton } from '@/components/ui/link-button'
 import { chf, type CostFigures } from '@/lib/pricing/public-cost-figures'
@@ -63,6 +64,11 @@ const CostHero = async ({ figures }: CostHeroProps) => {
               </div>
             ))}
           </dl>
+
+          <OfferRequestForm
+            placement="kosten"
+            className="mx-auto mt-8 max-w-[640px]"
+          />
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <LinkButton variant="primary" href="/calculator">

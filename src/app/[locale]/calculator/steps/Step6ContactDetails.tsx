@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { Loader2 } from 'lucide-react'
+import { Check, Loader2 } from 'lucide-react'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -71,7 +71,7 @@ const labelBase = 'text-sm sm:text-base text-[#062E25] tracking-tight'
 const v2InputBase =
   'w-full h-12 rounded-[5px] border border-[#E5E5E5] bg-white/20 backdrop-blur-[65px] px-3 text-base text-[#062E25] placeholder:text-[#062E25]/50 focus:outline-none focus:border-[#062E25]/60'
 
-const v2LabelBase = 'text-base text-[#062E25] tracking-tight'
+const v2LabelBase = 'text-sm sm:text-base text-[#062E25] tracking-tight'
 
 const V2_EMAIL_PATTERN = /^\S+@\S+\.\S+$/
 
@@ -587,9 +587,14 @@ function ContactScreenV1() {
   )
 }
 
+interface AddressFallback {
+  street: boolean
+  place: boolean
+}
+
 function useV2Schema(
   tErr: (key: string) => string,
-  needsAddressFallback: boolean
+  addressFallback: AddressFallback
 ) {
   return useMemo(
     () =>
@@ -610,31 +615,35 @@ function useV2Schema(
             .regex(/^[+\d][\d\s\-().]{6,}$/, tErr('phoneInvalid')),
           postalCode: z.string(),
           city: z.string(),
+          street: z.string(),
+          streetNumber: z.string(),
         })
         .superRefine((data, ctx) => {
-          if (!needsAddressFallback) return
-          if (!data.postalCode.trim()) {
-            ctx.addIssue({
-              code: 'custom',
-              path: ['postalCode'],
-              message: tErr('required'),
-            })
-          }
-          if (!data.city.trim()) {
-            ctx.addIssue({
-              code: 'custom',
-              path: ['city'],
-              message: tErr('required'),
-            })
+          const required = [
+            ...(addressFallback.street
+              ? (['street', 'streetNumber'] as const)
+              : []),
+            ...(addressFallback.place ? (['postalCode', 'city'] as const) : []),
+          ]
+          for (const field of required) {
+            if (!data[field].trim()) {
+              ctx.addIssue({
+                code: 'custom',
+                path: [field],
+                message: tErr('required'),
+              })
+            }
           }
         }),
-    [tErr, needsAddressFallback]
+    [tErr, addressFallback]
   )
 }
 
 type V2FormData = z.infer<ReturnType<typeof useV2Schema>>
 
 const CONTACT_FIELD_CODE = { email: 1, consent: 2, name: 3, phone: 4 } as const
+
+const CONTACT_OPENS_ITEMS = ['price', 'savings', 'payback', 'pdf'] as const
 
 // The v2 contact step asks for one "Name" field. The rest of the system stores a
 // first and a last name, so split on the first space: everything before it is the
@@ -685,9 +694,11 @@ function ContactScreenV2() {
     createAccount,
   } = useSolarAboCalculatorStore()
 
-  const [needsAddressFallback] = useState(
-    () => !contact.postalCode || !contact.city
-  )
+  const [addressFallback] = useState<AddressFallback>(() => ({
+    street: !contact.street?.trim() || !contact.streetNumber?.trim(),
+    place: !contact.postalCode || !contact.city,
+  }))
+  const needsAddressFallback = addressFallback.street || addressFallback.place
   const emitFieldFocus = useCallback(
     (field: 'email' | 'consent' | 'name' | 'phone') => {
       trackFunnelEventOnce('contact_field_focused', {
@@ -712,7 +723,7 @@ function ContactScreenV2() {
     prevPendingRef.current = pendingVerification
   }, [pendingVerification])
 
-  const schema = useV2Schema(tErr, needsAddressFallback)
+  const schema = useV2Schema(tErr, addressFallback)
   const isLocalDev = process.env.NODE_ENV === 'development'
 
   const {
@@ -739,6 +750,8 @@ function ContactScreenV2() {
         (isLocalDev ? DEV_DEFAULT_CONTACT.phoneNumber : ''),
       postalCode: contact.postalCode,
       city: contact.city,
+      street: contact.street,
+      streetNumber: contact.streetNumber,
     },
   })
 
@@ -792,7 +805,13 @@ function ContactScreenV2() {
         lastName,
         email: data.email,
         phoneNumber: data.phoneNumber,
-        ...(needsAddressFallback
+        ...(addressFallback.street
+          ? {
+              street: data.street.trim(),
+              streetNumber: data.streetNumber.trim(),
+            }
+          : {}),
+        ...(addressFallback.place
           ? { postalCode: data.postalCode, city: data.city }
           : {}),
       })
@@ -824,22 +843,18 @@ function ContactScreenV2() {
         }
       }
     },
-    [
-      setContact,
-      setConsents,
-      createAccount,
-      router,
-      locale,
-      needsAddressFallback,
-    ]
+    [setContact, setConsents, createAccount, router, locale, addressFallback]
   )
 
   const identityFields = useMemo<(keyof V2FormData)[]>(
-    () =>
-      needsAddressFallback
-        ? ['email', 'postalCode', 'city', 'consent', 'name']
-        : ['email', 'consent', 'name'],
-    [needsAddressFallback]
+    () => [
+      'email',
+      ...(addressFallback.street ? (['street', 'streetNumber'] as const) : []),
+      ...(addressFallback.place ? (['postalCode', 'city'] as const) : []),
+      'consent',
+      'name',
+    ],
+    [addressFallback]
   )
 
   const handleIdentityNext = useCallback(async () => {
@@ -1033,23 +1048,35 @@ function ContactScreenV2() {
     <div className="h-full overflow-y-auto" data-hj-suppress data-cs-mask>
       <div
         className={cn(
-          'container mx-auto px-4 pt-8',
+          'container mx-auto px-4 pt-3 sm:pt-8',
           embedded ? 'pb-12' : 'pb-24'
         )}
       >
         <div className="mx-auto w-full max-w-xl text-center">
-          <Heading className="text-3xl sm:text-[45px] font-medium text-[#062E25]">
+          <Heading className="text-2xl sm:text-[34px] font-medium text-[#062E25]">
             {t('headline')}
           </Heading>
-          <p className="mt-4 text-base sm:text-[22px] text-[#062E25] tracking-tight">
+          <p className="mt-2 text-balance text-base sm:mt-4 sm:text-lg text-[#062E25] tracking-tight">
             {t('helper')}
           </p>
         </div>
 
+        <ul className="mx-auto mt-2 grid grid-cols-[auto_auto] justify-center gap-x-4 gap-y-1 sm:flex sm:flex-wrap sm:gap-x-6">
+          {CONTACT_OPENS_ITEMS.map(item => (
+            <li
+              key={item}
+              className="flex items-center gap-1.5 text-sm sm:text-base text-[#062E25] tracking-tight"
+            >
+              <Check className="h-4 w-4 shrink-0 text-[#036B53]" aria-hidden />
+              {t(`opens.${item}`)}
+            </li>
+          ))}
+        </ul>
+
         <form
           onSubmit={handleFormSubmit}
           noValidate
-          className="mx-auto mt-8 flex w-full max-w-md flex-col gap-5 rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-6 text-left sm:p-8"
+          className="mx-auto mt-4 flex w-full max-w-md flex-col gap-3 rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-4 text-left sm:mt-6 sm:gap-4 sm:p-8"
         >
           {contactPart === 'identity' ? (
             <>
@@ -1080,59 +1107,142 @@ function ContactScreenV2() {
                 />
               </div>
 
+              <div>
+                <label htmlFor="v2-name" className={v2LabelBase}>
+                  {t('name')}
+                </label>
+                <input
+                  id="v2-name"
+                  autoComplete="name"
+                  onFocus={() => emitFieldFocus('name')}
+                  {...register('name')}
+                  aria-invalid={!!errors.name}
+                  aria-describedby={errors.name ? 'v2-name-error' : undefined}
+                  className={cn(
+                    v2InputBase,
+                    'mt-1',
+                    errors.name && 'border-destructive'
+                  )}
+                />
+                <V2FieldError
+                  id="v2-name-error"
+                  message={errors.name?.message}
+                />
+              </div>
+
               {needsAddressFallback && (
                 <div>
                   <p className="text-base text-[#062E25] tracking-tight">
-                    {t('addressFallbackHelper')}
+                    {addressFallback.street && addressFallback.place
+                      ? t('addressFallbackHelperFull')
+                      : t('addressFallbackHelper')}
                   </p>
-                  <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                    <div>
-                      <label htmlFor="v2-postal-code" className={v2LabelBase}>
-                        {t('postalCode')}
-                      </label>
-                      <input
-                        id="v2-postal-code"
-                        autoComplete="postal-code"
-                        {...register('postalCode')}
-                        aria-invalid={!!errors.postalCode}
-                        aria-describedby={
-                          errors.postalCode ? 'v2-postal-code-error' : undefined
-                        }
-                        className={cn(
-                          v2InputBase,
-                          'mt-1',
-                          errors.postalCode && 'border-destructive'
-                        )}
-                      />
-                      <V2FieldError
-                        id="v2-postal-code-error"
-                        message={errors.postalCode?.message}
-                      />
+                  {addressFallback.street && (
+                    <div className="mt-3 grid grid-cols-[1fr_7rem] gap-4">
+                      <div className="min-w-0">
+                        <label htmlFor="v2-street" className={v2LabelBase}>
+                          {t('street')}
+                        </label>
+                        <input
+                          id="v2-street"
+                          autoComplete="address-line1"
+                          {...register('street')}
+                          aria-invalid={!!errors.street}
+                          aria-describedby={
+                            errors.street ? 'v2-street-error' : undefined
+                          }
+                          className={cn(
+                            v2InputBase,
+                            'mt-1',
+                            errors.street && 'border-destructive'
+                          )}
+                        />
+                        <V2FieldError
+                          id="v2-street-error"
+                          message={errors.street?.message}
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <label
+                          htmlFor="v2-street-number"
+                          className={v2LabelBase}
+                        >
+                          {t('streetNumber')}
+                        </label>
+                        <input
+                          id="v2-street-number"
+                          {...register('streetNumber')}
+                          aria-invalid={!!errors.streetNumber}
+                          aria-describedby={
+                            errors.streetNumber
+                              ? 'v2-street-number-error'
+                              : undefined
+                          }
+                          className={cn(
+                            v2InputBase,
+                            'mt-1',
+                            errors.streetNumber && 'border-destructive'
+                          )}
+                        />
+                        <V2FieldError
+                          id="v2-street-number-error"
+                          message={errors.streetNumber?.message}
+                        />
+                      </div>
                     </div>
-                    <div>
-                      <label htmlFor="v2-city" className={v2LabelBase}>
-                        {t('city')}
-                      </label>
-                      <input
-                        id="v2-city"
-                        autoComplete="address-level2"
-                        {...register('city')}
-                        aria-invalid={!!errors.city}
-                        aria-describedby={
-                          errors.city ? 'v2-city-error' : undefined
-                        }
-                        className={cn(
-                          v2InputBase,
-                          'mt-1',
-                          errors.city && 'border-destructive'
-                        )}
-                      />
-                      <V2FieldError
-                        id="v2-city-error"
-                        message={errors.city?.message}
-                      />
+                  )}
+                  {addressFallback.place && (
+                    <div className="mt-3 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="v2-postal-code" className={v2LabelBase}>
+                          {t('postalCode')}
+                        </label>
+                        <input
+                          id="v2-postal-code"
+                          autoComplete="postal-code"
+                          {...register('postalCode')}
+                          aria-invalid={!!errors.postalCode}
+                          aria-describedby={
+                            errors.postalCode
+                              ? 'v2-postal-code-error'
+                              : undefined
+                          }
+                          className={cn(
+                            v2InputBase,
+                            'mt-1',
+                            errors.postalCode && 'border-destructive'
+                          )}
+                        />
+                        <V2FieldError
+                          id="v2-postal-code-error"
+                          message={errors.postalCode?.message}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="v2-city" className={v2LabelBase}>
+                          {t('city')}
+                        </label>
+                        <input
+                          id="v2-city"
+                          autoComplete="address-level2"
+                          {...register('city')}
+                          aria-invalid={!!errors.city}
+                          aria-describedby={
+                            errors.city ? 'v2-city-error' : undefined
+                          }
+                          className={cn(
+                            v2InputBase,
+                            'mt-1',
+                            errors.city && 'border-destructive'
+                          )}
+                        />
+                        <V2FieldError
+                          id="v2-city-error"
+                          message={errors.city?.message}
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               )}
 
@@ -1179,7 +1289,7 @@ function ContactScreenV2() {
                             </svg>
                           )}
                         </span>
-                        <span className="text-base text-[#062E25] tracking-tight">
+                        <span className="text-sm sm:text-base text-[#062E25] tracking-tight">
                           {t.rich('consent', {
                             privacyLink: chunks => (
                               <LocaleLink
@@ -1202,29 +1312,6 @@ function ContactScreenV2() {
                     {errors.consent.message}
                   </p>
                 )}
-              </div>
-
-              <div>
-                <label htmlFor="v2-name" className={v2LabelBase}>
-                  {t('name')}
-                </label>
-                <input
-                  id="v2-name"
-                  autoComplete="name"
-                  onFocus={() => emitFieldFocus('name')}
-                  {...register('name')}
-                  aria-invalid={!!errors.name}
-                  aria-describedby={errors.name ? 'v2-name-error' : undefined}
-                  className={cn(
-                    v2InputBase,
-                    'mt-1',
-                    errors.name && 'border-destructive'
-                  )}
-                />
-                <V2FieldError
-                  id="v2-name-error"
-                  message={errors.name?.message}
-                />
               </div>
             </>
           ) : (

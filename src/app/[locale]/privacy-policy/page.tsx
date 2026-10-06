@@ -52,6 +52,10 @@ const PrivacyPolicyPage = async () => {
       content: t('googleMaps.content'),
     },
     {
+      title: t('swisstopo.title'),
+      content: t('swisstopo.content'),
+    },
+    {
       title: t('newsletter.title'),
       content: t('newsletter.content'),
     },

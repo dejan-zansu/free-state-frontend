@@ -83,10 +83,13 @@ export interface SonnendachSearchResponse {
   error?: string
 }
 
+export type BuildingMatch = 'point' | 'egid' | 'estimate'
+
 export interface SonnendachBuildingResponse {
   success: boolean
   data?: SonnendachBuilding
   error?: string
+  match?: BuildingMatch
 }
 
 export interface SonnendachConvertResponse {

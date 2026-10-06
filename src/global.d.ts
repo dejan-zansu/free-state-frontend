@@ -40,6 +40,7 @@ declare global {
       push?: unknown
     }
     _fbq?: unknown
+    gm_authFailure?: () => void
   }
 }
 

@@ -10,7 +10,7 @@ const translations: Record<string, CookieConsent.Translation> = {
     consentModal: {
       title: 'We use cookies',
       description:
-        'We use cookies to ensure the basic functionality of the website and to enhance your online experience. You can choose to opt in or out of each category whenever you want.',
+        'For core functions and a better experience. You can accept or reject each category at any time.',
       acceptAllBtn: 'Accept all',
       acceptNecessaryBtn: 'Reject all',
       showPreferencesBtn: 'Manage preferences',
@@ -47,7 +47,7 @@ const translations: Record<string, CookieConsent.Translation> = {
     consentModal: {
       title: 'Wir verwenden Cookies',
       description:
-        'Wir verwenden Cookies, um die grundlegende Funktionalität der Website sicherzustellen und Ihr Online-Erlebnis zu verbessern. Sie können jederzeit für jede Kategorie entscheiden, ob Sie diese zulassen oder ablehnen möchten.',
+        'Für die Grundfunktionen und ein besseres Erlebnis. Sie entscheiden jederzeit pro Kategorie.',
       acceptAllBtn: 'Alle akzeptieren',
       acceptNecessaryBtn: 'Alle ablehnen',
       showPreferencesBtn: 'Einstellungen verwalten',
@@ -84,7 +84,7 @@ const translations: Record<string, CookieConsent.Translation> = {
     consentModal: {
       title: 'Nous utilisons des cookies',
       description:
-        "Nous utilisons des cookies pour assurer le fonctionnement de base du site web et améliorer votre expérience en ligne. Vous pouvez choisir d'accepter ou de refuser chaque catégorie à tout moment.",
+        'Pour les fonctions de base et une meilleure expérience. Vous choisissez par catégorie, à tout moment.',
       acceptAllBtn: 'Tout accepter',
       acceptNecessaryBtn: 'Tout refuser',
       showPreferencesBtn: 'Gérer les préférences',
@@ -121,7 +121,7 @@ const translations: Record<string, CookieConsent.Translation> = {
     consentModal: {
       title: 'Utilizziamo i cookie',
       description:
-        'Utilizziamo i cookie per garantire le funzionalità di base del sito web e per migliorare la tua esperienza online. Puoi scegliere di accettare o rifiutare ogni categoria in qualsiasi momento.',
+        "Per le funzioni di base e un'esperienza migliore. Puoi decidere in ogni momento per ogni categoria.",
       acceptAllBtn: 'Accetta tutti',
       acceptNecessaryBtn: 'Rifiuta tutti',
       showPreferencesBtn: 'Gestisci preferenze',
@@ -187,7 +187,9 @@ export default function CookieConsentBanner() {
       guiOptions: {
         consentModal: {
           layout: 'box inline',
-          position: 'bottom left',
+          position: window.matchMedia('(max-width: 640px)').matches
+            ? 'top center'
+            : 'bottom left',
         },
       },
       categories: {

@@ -318,6 +318,10 @@
       "title": "{name} : tous les composants en 3D",
       "description": "Chaque appareil de ce forfait solaire en modèle 3D rotatif avec les données techniques du fabricant.",
       "descriptionSuffix": "Tous les composants en 3D avec les données techniques."
+    },
+    "offerRequest": {
+      "title": "Demander une offre solaire : prix par kWc | Free State AG",
+      "description": "Chez nous, une installation solaire avec batterie coûte CHF {min} à {max} par kWc, hors TVA. Demandez une offre avec votre nom, votre téléphone et votre adresse, nous vous appelons."
     }
   },
   "apiErrors": {
@@ -3809,6 +3813,10 @@
       "title": "Google Maps",
       "content": "Sur certaines pages (en particulier la page de contact et le calculateur solaire pour la saisie d'adresse et la sélection de la surface de toit), nous intégrons des cartes interactives Google Maps. Le fournisseur est Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irlande.\n\nPour que les cartes s'affichent correctement, votre navigateur transmet des données techniques de connexion (en particulier votre adresse IP) à Google lorsque vous utilisez ces fonctionnalités. Un traitement aux États-Unis ne peut être exclu. Ce traitement est nécessaire pour fournir la fonction que vous avez activement demandée (p. ex. saisie d'adresse dans le calculateur) et repose sur notre intérêt légitime à une application en ligne conviviale ainsi que, lorsqu'une étape de configuration explicite est requise, sur votre consentement.\n\nPour plus d'informations sur le traitement des données par Google : https://policies.google.com/privacy"
     },
+    "swisstopo": {
+      "title": "Géoservices de la Confédération (swisstopo)",
+      "content": "Pour la recherche d'adresse, les données de toit et les cartes du calculateur solaire, nous utilisons des services de l'Office fédéral de topographie swisstopo. Votre navigateur transmet alors à swisstopo l'adresse saisie ou sélectionnée, les coordonnées du bâtiment ou l'extrait de carte ainsi que votre adresse IP. La transmission s'effectue via le réseau de diffusion de contenu (CDN) Amazon CloudFront."
+    },
     "newsletter": {
       "title": "Newsletter",
       "content": "Si vous souhaitez vous abonner à notre newsletter, nous avons besoin d'une adresse e-mail valide ainsi que d'informations nous permettant de vérifier que vous êtes bien le titulaire de l'adresse e-mail fournie (procédure de double opt-in).\n\nLes données requises pour l'envoi sont traitées exclusivement sur la base de votre consentement (art. 31 al. 1 nLPD / art. 6 al. 1 let. a RGPD). Vous pouvez retirer l'abonnement et le consentement correspondant à tout moment pour l'avenir, par exemple via le lien de désinscription dans toute newsletter ou en envoyant un e-mail à info@freestate.ch. La licéité du traitement effectué jusqu'au retrait n'est pas affectée."
@@ -4137,17 +4145,41 @@
       "button": "Analyser le toit",
       "errors": {
         "empty": "Veuillez saisir votre adresse.",
-        "notChosen": "Veuillez sélectionner votre adresse dans la liste de suggestions.",
-        "noStreetNumber": "Veuillez sélectionner une adresse avec un numéro de maison. Sans numéro de maison, nous ne trouvons pas votre bâtiment.",
-        "notFound": "Nous ne trouvons pas cette adresse. Vérifiez l'orthographe ou <link>laissez-nous vérifier votre toit à la main</link>.",
         "outsideCh": "Nous ne lisons actuellement que les adresses suisses automatiquement. Si votre bâtiment se trouve à l'étranger, <link>envoyez-nous votre adresse</link> et nous la vérifierons à la main.",
-        "placesSlow": "La recherche d'adresse répond lentement en ce moment. Un instant s'il vous plaît."
+        "needLocality": "Veuillez encore ajouter le code postal ou la localité.",
+        "needStreet": "Veuillez encore ajouter la rue et le numéro de maison."
       },
       "badge": "Gratuit et sans engagement",
       "houseNumber": {
         "label": "Numéro de maison",
         "helper": "Presque terminé. Ajoutez le numéro de maison et nous trouverons votre bâtiment.",
-        "button": "Trouver le bâtiment"
+        "button": "Trouver le bâtiment",
+        "chips": "Numéros correspondants",
+        "required": "Veuillez ajouter le numéro de maison.",
+        "notFound": "Nous ne trouvons pas le numéro {number} dans cette rue. Vérifiez le numéro ou montrez-nous votre maison sur la carte.",
+        "notFoundNoMap": "Nous ne trouvons pas le numéro {number} dans cette rue. Veuillez vérifier le numéro.",
+        "noNumber": "Ma maison n'a pas de numéro"
+      },
+      "resolving": "Recherche de l'adresse",
+      "clearInput": "Effacer la saisie",
+      "backToAddress": "Retour à la saisie de l'adresse",
+      "callbackLink": "Vous préférez en parler directement? Demander un rappel",
+      "contactLine": {
+        "phone": "Téléphone {phone}",
+        "legalNotice": "Mentions légales"
+      },
+      "candidates": {
+        "title": "Vouliez-vous dire l'une de ces adresses?",
+        "titleOne": "Vouliez-vous dire cette adresse?",
+        "none": "Mon adresse n'y figure pas",
+        "attribution": "Adresses © swisstopo"
+      },
+      "notFound": {
+        "title": "Nous ne trouvons pas cette adresse.",
+        "body": "Cela arrive avec les nouvelles adresses et les fautes de frappe. Choisissez comment continuer.",
+        "edit": "Corriger l'adresse",
+        "map": "Montrer ma maison sur la carte",
+        "manual": "Faire vérifier à la main"
       }
     },
     "screen2": {
@@ -4178,7 +4210,14 @@
         "tapSwitchBuilding": "Voulez-vous passer à ce bâtiment ? Votre sélection actuelle sera perdue.",
         "tapSwitchConfirm": "Changer de bâtiment",
         "tapSwitchCancel": "Annuler"
-      }
+      },
+      "retry": "Réessayer",
+      "pin": {
+        "title": "Montrez-nous votre maison",
+        "helper": "Touchez votre toit sur la carte. Nous chargerons ensuite les données de toit de ce bâtiment.",
+        "action": "Montrer ma maison sur la carte"
+      },
+      "mapAttribution": "SWISSIMAGE © swisstopo, données des toits © OFEN"
     },
     "manualCheck": {
       "noRoofHeadline": "Nous vérifions votre toit à la main",
@@ -4195,7 +4234,11 @@
       "privacyLink": "Politique de confidentialité",
       "button": "Demander une évaluation",
       "reassurance": "Nous vous contacterons dès que nous aurons vérifié votre toit.",
-      "success": "Merci. Nous avons bien reçu votre demande et vérifions votre toit."
+      "success": "Merci. Nous avons bien reçu votre demande et vérifions votre toit.",
+      "addressHeadline": "Nous vérifions votre adresse manuellement",
+      "addressBody1": "Nous n'avons pas pu attribuer votre adresse automatiquement. Cela arrive avec les nouvelles rues, les adresses particulières et les bâtiments hors de Suisse.",
+      "addressBody2": "Envoyez-nous votre adresse et votre adresse e-mail. Nous vérifions votre toit manuellement et revenons vers vous avec une évaluation.",
+      "roofUnavailableBody": "Si un nouvel essai ne fonctionne pas, nous vérifions votre toit à la main. Laissez-nous votre adresse e-mail et nous vous recontactons avec une évaluation."
     },
     "screen3": {
       "headline": "Qu'est-ce qui consomme beaucoup d'électricité chez vous ?",
@@ -4238,13 +4281,19 @@
     },
     "screen5": {
       "headline": "Votre évaluation est prête",
-      "helper": "Nous avons déjà votre adresse. Il ne manque plus que votre nom, votre adresse e-mail et votre numéro de téléphone.",
+      "helper": "Elle s'ouvre ensuite dans votre compte. Nous vous appelons pour la parcourir avec vous.",
+      "opens": {
+        "price": "Prix après subvention",
+        "savings": "Économie par année",
+        "payback": "Amortissement",
+        "pdf": "Évaluation en PDF"
+      },
       "email": "Adresse e-mail",
       "name": "Nom",
       "phoneNumber": "Numéro de téléphone",
       "phonePlaceholder": "p. ex. 079 123 45 67",
       "phoneIntro": "Encore une étape. À quel numéro pouvons-nous vous joindre ?",
-      "phoneReason": "Nous vous appelons pour parcourir votre évaluation avec vous. Nous utilisons votre numéro uniquement pour votre demande.",
+      "phoneReason": "Nous utilisons votre numéro uniquement pour votre demande.",
       "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
       "privacyLink": "Politique de confidentialité",
       "button": "Ouvrir l'évaluation",
@@ -4265,7 +4314,10 @@
         "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
         "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer.",
         "rateLimited": "Nous n'avons pas pu enregistrer vos données à l'instant. Laissez-nous votre adresse e-mail et nous vous recontacterons avec votre évaluation."
-      }
+      },
+      "street": "Rue",
+      "streetNumber": "Numéro de maison",
+      "addressFallbackHelperFull": "Veuillez compléter votre adresse. Nous n'avons pas pu la lire entièrement."
     },
     "costAnchor": {
       "title": "Combien coûte une installation solaire en Suisse?",
@@ -11999,6 +12051,46 @@
           "question": "Combien de temps jusqu'à la mise en service ?",
           "answer": "En général environ trois mois après la commande. Cela comprend le contrôle du toit, l'annonce auprès du gestionnaire de réseau, le montage et la mise en service."
         }
+      }
+    }
+  },
+  "offerRequest": {
+    "page": {
+      "title": "Chez nous, une installation solaire coûte CHF {min} à {max} par kWc",
+      "priceLabel": "Valeur indicative issue de notre catalogue de paquets actuel, clé en main avec batterie, hors TVA.",
+      "example": "Une installation typique de 10 kWc coûte environ CHF {tenNetMin} à {tenNetMax} TVA comprise, après la rétribution unique de CHF {tenSubsidy}.",
+      "note": "Le prix exact dépend de votre toit et figure dans votre offre.",
+      "calculatorPrompt": "Vous préférez d'abord calculer vous-même votre toit ?",
+      "calculatorLink": "Vers le calculateur solaire"
+    },
+    "form": {
+      "heading": {
+        "page": "Demander une offre pour votre toit",
+        "kosten": "Un prix pour votre toit ? Demandez une offre",
+        "calculator": "Vous préférez nous parler directement ?"
+      },
+      "intro": "Votre nom, votre téléphone et votre adresse suffisent. Nous vous appelons.",
+      "name": "Nom",
+      "namePlaceholder": "Prénom et nom",
+      "phone": "Téléphone",
+      "phonePlaceholder": "079 123 45 67",
+      "phoneHint": "Nous utilisons votre numéro uniquement pour votre demande.",
+      "street": "Rue et numéro",
+      "postalCode": "NPA",
+      "city": "Localité",
+      "email": "E-mail (facultatif)",
+      "consent": "J'accepte que Free State AG utilise mes données pour traiter ma demande. La <privacyLink>politique de confidentialité</privacyLink> s'applique.",
+      "submit": "Demander une offre",
+      "successTitle": "Merci, nous avons bien reçu votre demande.",
+      "successBody": "Nous vous appelons au {phone}.",
+      "errors": {
+        "required": "Veuillez remplir ce champ.",
+        "phoneInvalid": "Veuillez saisir un numéro de téléphone valide, par exemple 079 123 45 67.",
+        "postalCodeInvalid": "Veuillez saisir un NPA à quatre chiffres.",
+        "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+        "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
+        "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer ou nous appeler au {phone}.",
+        "rateLimited": "Vous venez d'envoyer plusieurs demandes. Veuillez réessayer dans quelques minutes ou nous appeler au {phone}."
       }
     }
   }

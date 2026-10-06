@@ -7,6 +7,24 @@
   z-index: 9999 !important;
 }
 
+body.calc-address-busy .pac-container {
+  display: none !important;
+}
+
+@media screen and (max-width: 640px) {
+  #cc-main .cm--inline .cm__btn-group:first-child {
+    flex-direction: row !important;
+  }
+
+  #cc-main .cm--inline .cm__btn-group:first-child .cm__btn {
+    flex: 1 1 0 !important;
+  }
+
+  #cc-main .cm--inline .cm__btn-group:first-child .cm__btn + .cm__btn {
+    margin: 0 0 0 0.375rem !important;
+  }
+}
+
 @keyframes phone-ring-animation {
   0%,
   100% {

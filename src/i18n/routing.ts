@@ -454,6 +454,12 @@ export const routing = defineRouting({
       fr: '/couts',
       it: '/costi',
     },
+    '/offer-request': {
+      en: '/offer-request',
+      de: '/offerte-anfragen',
+      fr: '/demande-offre',
+      it: '/richiesta-offerta',
+    },
     '/amortization': {
       en: '/amortization',
       de: '/amortisation',

@@ -27,6 +27,11 @@ export default function ConsultationDock() {
     )
   const onProjectWorkspace = pathname?.includes('/dashboard/project/') ?? false
   const onRoofOnePager = pathname?.includes('/dach/') ?? false
+  const onOfferRequestPage =
+    /\/(offerte-anfragen|offer-request|demande-offre|richiesta-offerta)$/.test(
+      pathname ?? ''
+    )
+  const [offerFormInView, setOfferFormInView] = useState(false)
   // Der Dock ist ein Kunden-Widget. Im Mitarbeiterbereich verdeckt er das
   // Upload-Panel der Projektdateien und hat dort ohnehin keinen Zweck.
   const inStaffArea = pathname?.includes('/admin') ?? false
@@ -65,6 +70,30 @@ export default function ConsultationDock() {
   }, [pathname, inCalculatorFlow])
 
   useEffect(() => {
+    let observer: IntersectionObserver | null = null
+    let retryTimer: number | null = null
+    const attach = () => {
+      const formEls = document.querySelectorAll('[data-offer-request-form]')
+      if (formEls.length === 0) return false
+      observer = new IntersectionObserver(entries => {
+        setOfferFormInView(entries.some(entry => entry.isIntersecting))
+      })
+      formEls.forEach(el => observer?.observe(el))
+      return true
+    }
+    if (!attach()) {
+      retryTimer = window.setTimeout(() => {
+        attach()
+      }, 1000)
+    }
+    return () => {
+      observer?.disconnect()
+      if (retryTimer !== null) window.clearTimeout(retryTimer)
+      setOfferFormInView(false)
+    }
+  }, [pathname])
+
+  useEffect(() => {
     if (!open) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpen(false)
@@ -81,7 +110,15 @@ export default function ConsultationDock() {
     }
   }, [open])
 
-  if (hidden || onProjectWorkspace || onRoofOnePager || inStaffArea || !advisor)
+  if (
+    hidden ||
+    onProjectWorkspace ||
+    onRoofOnePager ||
+    inStaffArea ||
+    onOfferRequestPage ||
+    offerFormInView ||
+    !advisor
+  )
     return null
 
   const name = tTeam(`${advisor.key}.name`)

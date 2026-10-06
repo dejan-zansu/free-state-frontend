@@ -1,26 +1,51 @@
 'use client'
 
 import { Loader } from '@googlemaps/js-api-loader'
-import { ChevronDown, ChevronUp, Loader2, Search } from 'lucide-react'
+import { ChevronDown, ChevronUp, Loader2, MapPin, Search } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Feature, Map, View } from 'ol'
 import { defaults as defaultControls } from 'ol/control'
-import { Polygon } from 'ol/geom'
+import { Point, Polygon } from 'ol/geom'
 import TileLayer from 'ol/layer/Tile'
 import VectorLayer from 'ol/layer/Vector'
 import { fromLonLat, toLonLat } from 'ol/proj'
 import { getRenderPixel } from 'ol/render'
 import VectorSource from 'ol/source/Vector'
 import XYZ from 'ol/source/XYZ'
-import { Fill, Stroke, Style } from 'ol/style'
+import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import {
+  type RoofLookupOutcome,
+  type RoofPinFrom,
+  lastRoofPinFrom,
+  trackRoofLookupRetry,
+  trackRoofPinMode,
+} from '@/lib/address/address-events'
+import {
+  type AddressMatchVia,
+  awaitAddressMatch,
+  fromIdentifyRow,
+} from '@/lib/address/address-match'
+import { fold } from '@/lib/address/resolve-address'
+import {
+  type SwissIdentifyRow,
+  identifyAddresses,
+} from '@/lib/address/swiss-address'
 import { trackFunnelEventOnce } from '@/lib/analytics/funnel-events'
-import { calculatorFlowV2Enabled, flowVersionMeta } from '@/lib/calculator-flow'
+import {
+  addressFlowMeta,
+  calculatorFlowV2Enabled,
+  flowVersionMeta,
+} from '@/lib/calculator-flow'
 import { cn } from '@/lib/utils'
-import { sonnendachService } from '@/services/sonnendach.service'
+import {
+  type BuildingLookupResult,
+  SonnendachRequestError,
+  sonnendachService,
+} from '@/services/sonnendach.service'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
 import type { RoofSegment, SonnendachBuilding } from '@/types/sonnendach'
 import { SUITABILITY_CLASSES } from '@/types/sonnendach'
@@ -46,6 +71,54 @@ const selectedStyle = new Style({
   stroke: new Stroke({ color: SELECTED_STROKE, width: 3 }),
 })
 
+const estimateMarkerStyle = new Style({
+  image: new CircleStyle({
+    radius: 11,
+    fill: new Fill({ color: SELECTED_STROKE }),
+    stroke: new Stroke({ color: SELECTED_COLOR, width: 4 }),
+  }),
+})
+
+const MOBILE_QUERY = '(max-width: 639px)'
+const ESTIMATE_VIEW_SHIFT = 0.25
+const FAST_FAILURE_MS = 5000
+const AUTO_RETRY_DELAY_MS = 1500
+const PIN_ADDRESS_RADIUS_M = 30
+
+let latestBuildingFetch = 0
+
+type AddressMatchMeta = AddressMatchVia | 'none' | 'late'
+
+interface LookupPlan {
+  x: number
+  y: number
+  gwrId: string | null
+  addressMatch: AddressMatchMeta
+}
+
+type LookupAttempt =
+  | { ok: true; lookup: BuildingLookupResult; plan: LookupPlan }
+  | { ok: false; error: unknown; fast: boolean }
+
+const isFastFailure = (error: unknown, elapsedMs: number) => {
+  if (!(error instanceof SonnendachRequestError)) return false
+  if (error.kind === 'network') return true
+  if (error.kind === 'timeout') return false
+  return (
+    typeof error.status === 'number' &&
+    error.status >= 500 &&
+    elapsedMs <= FAST_FAILURE_MS
+  )
+}
+
+const delay = (ms: number) =>
+  new Promise<void>(resolve => window.setTimeout(resolve, ms))
+
+const sameLocation = (
+  a: { lat: number; lng: number } | null,
+  b: { lat: number; lng: number } | null
+) => (!a && !b) || (!!a && !!b && a.lat === b.lat && a.lng === b.lng)
+
 const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
   const y1 = (easting - 2600000) / 1000000
   const x1 = (northing - 1200000) / 1000000
@@ -63,6 +136,41 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
     0.1306 * y1 * x1 * x1 -
     0.0436 * y1 * y1 * y1
   return [(lng * 100) / 36, (lat * 100) / 36]
+}
+
+const buildingViewCenter = (map: Map, target: SonnendachBuilding) => {
+  const center = fromLonLat([target.center.lng, target.center.lat])
+  const size = map.getSize()
+  if (
+    !calculatorFlowV2Enabled ||
+    !target.estimate ||
+    !size ||
+    !window.matchMedia(MOBILE_QUERY).matches
+  ) {
+    return center
+  }
+  const resolution = map.getView().getResolutionForZoom(20)
+  return [center[0], center[1] - size[1] * ESTIMATE_VIEW_SHIFT * resolution]
+}
+
+const findPinAddress = async (
+  lat: number,
+  lng: number
+): Promise<SwissIdentifyRow | null> => {
+  const target = fold(useSolarAboCalculatorStore.getState().contact.street)
+  if (!target) return null
+  try {
+    const rows = await identifyAddresses(lat, lng, PIN_ADDRESS_RADIUS_M)
+    return (
+      rows.find(
+        row =>
+          !!row.number &&
+          row.streets.some(alternative => fold(alternative) === target)
+      ) ?? null
+    )
+  } catch {
+    return null
+  }
 }
 
 export default function Step4RoofAreas() {
@@ -105,6 +213,13 @@ export default function Step4RoofAreas() {
   const [isFetchSlow, setIsFetchSlow] = useState(false)
   const [isCapturing, setIsCapturing] = useState(false)
   const [isManualCheckOpen, setIsManualCheckOpen] = useState(false)
+  const [pinFrom, setPinFrom] = useState<RoofPinFrom | null>(() => {
+    if (!calculatorFlowV2Enabled) return null
+    const state = useSolarAboCalculatorStore.getState()
+    return state.locationPrecision === 'street' && !state.building
+      ? (lastRoofPinFrom() ?? 'screen1')
+      : null
+  })
 
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
@@ -116,10 +231,17 @@ export default function Step4RoofAreas() {
   const selectedSegmentsRef = useRef<string[]>([])
   const buildingRef = useRef(building)
   const isFetchingRef = useRef(false)
+  const pinFromRef = useRef(pinFrom)
+  const retryCountRef = useRef(0)
+  const aliveRef = useRef(true)
   selectedSegmentsRef.current = selectedSegmentIds
   buildingRef.current = building
+  pinFromRef.current = pinFrom
 
   const hasBuilding = !!(building || (focusedLat && focusedLng))
+  const pinMode = calculatorFlowV2Enabled && !!pinFrom && !building
+  const isEstimate = !!building?.estimate
+  const buildingId = building?.buildingId ?? null
 
   const drawSegmentOnMap = useCallback(
     (segment: RoofSegment, isSelected: boolean) => {
@@ -163,6 +285,16 @@ export default function Step4RoofAreas() {
       const isSelected = selectedSegmentsRef.current.includes(segment.id)
       drawSegmentOnMap(segment, isSelected)
     })
+    const current = buildingRef.current
+    if (current.estimate) {
+      const marker = new Feature({
+        geometry: new Point(
+          fromLonLat([current.center.lng, current.center.lat])
+        ),
+      })
+      marker.setStyle(estimateMarkerStyle)
+      vectorSourceRef.current.addFeature(marker)
+    }
   }, [drawSegmentOnMap])
 
   useEffect(() => {
@@ -172,9 +304,13 @@ export default function Step4RoofAreas() {
   useEffect(() => {
     const layer = sonnendachLayerRef.current
     if (!layer) return
-    layer.setVisible(!!building)
+    layer.setVisible(!!building || pinMode)
     layer.changed()
-  }, [building])
+  }, [building, pinMode])
+
+  useEffect(() => {
+    if (calculatorFlowV2Enabled && isEstimate) setIsMobilePanelOpen(true)
+  }, [isEstimate, buildingId])
 
   useEffect(() => {
     if (!isFetchingBuilding) {
@@ -186,7 +322,9 @@ export default function Step4RoofAreas() {
   }, [isFetchingBuilding])
 
   useEffect(() => {
+    aliveRef.current = true
     return () => {
+      aliveRef.current = false
       if (tapNoticeTimerRef.current) {
         window.clearTimeout(tapNoticeTimerRef.current)
       }
@@ -229,10 +367,7 @@ export default function Step4RoofAreas() {
         }
       }
       if (mapInstanceRef.current) {
-        const center = fromLonLat([
-          buildingData.center.lng,
-          buildingData.center.lat,
-        ])
+        const center = buildingViewCenter(mapInstanceRef.current, buildingData)
         mapInstanceRef.current
           .getView()
           .animate({ center, zoom: 20, duration: 500 })
@@ -241,17 +376,161 @@ export default function Step4RoofAreas() {
     [toggleSegment, setBuilding]
   )
 
+  const planLookup = useCallback(
+    async (
+      lat: number,
+      lng: number,
+      origin: 'address' | 'tap'
+    ): Promise<LookupPlan> => {
+      let addressMatchMeta: AddressMatchMeta = 'none'
+      if (origin === 'address') {
+        const start = useSolarAboCalculatorStore.getState()
+        let match = start.addressMatch
+        if (!match) {
+          const awaited = await awaitAddressMatch()
+          const current = useSolarAboCalculatorStore.getState()
+          if (
+            current.addressMatch &&
+            sameLocation(current.selectedLocation, start.selectedLocation)
+          ) {
+            match = current.addressMatch
+          } else if (awaited.state === 'pending') {
+            addressMatchMeta = 'late'
+          }
+        }
+        if (match) {
+          const current = useSolarAboCalculatorStore.getState()
+          if (!current.building) {
+            current.setSelectedLocation({ lat: match.lat, lng: match.lng })
+            current.setAddressMatch(match)
+          }
+          return {
+            x: match.n,
+            y: match.e,
+            gwrId: match.gwrId,
+            addressMatch: match.via,
+          }
+        }
+      }
+      const lv95 = await sonnendachService.convertToLV95(lat, lng)
+      return {
+        x: lv95.y,
+        y: lv95.x,
+        gwrId: null,
+        addressMatch: addressMatchMeta,
+      }
+    },
+    []
+  )
+
+  const attemptLookup = useCallback(
+    async (
+      lat: number,
+      lng: number,
+      origin: 'address' | 'tap'
+    ): Promise<LookupAttempt> => {
+      const startedAt = Date.now()
+      try {
+        const plan = await planLookup(lat, lng, origin)
+        const lookup = await sonnendachService.getBuildingData(plan.x, plan.y, {
+          gwrId: plan.gwrId,
+        })
+        return { ok: true, lookup, plan }
+      } catch (error) {
+        return {
+          ok: false,
+          error,
+          fast: isFastFailure(error, Date.now() - startedAt),
+        }
+      }
+    },
+    [planLookup]
+  )
+
+  const applyPinAddress = useCallback((row: SwissIdentifyRow) => {
+    const state = useSolarAboCalculatorStore.getState()
+    const target = fold(state.contact.street)
+    const street =
+      row.streets.find(alternative => fold(alternative) === target) ??
+      row.street
+    const postalCodeChanged = row.postalCode !== state.contact.postalCode
+    state.setParsedAddress({
+      street,
+      streetNumber: row.number,
+      postalCode: row.postalCode || state.contact.postalCode,
+      city: row.locality || state.contact.city,
+      canton: state.contact.canton,
+    })
+    state.setSelectedLocation({ lat: row.lat, lng: row.lng })
+    state.setAddressMatch(fromIdentifyRow(row))
+    state.setLocationPrecision('address')
+    state.setAddress(
+      `${street} ${row.number}, ${row.postalCode} ${row.locality}`.trim()
+    )
+    if (postalCodeChanged) void state.fetchElectricityPriceForAddress()
+    trackFunnelEventOnce('address_resolved', {
+      meta: {
+        hasPostalCode: !!row.postalCode,
+        hasCity: !!row.locality,
+        hasStreet: !!street,
+        hasStreetNumber: !!row.number,
+        hasCanton: !!state.contact.canton,
+        source: 'pin',
+        provider: 'federal',
+        pick: 'user',
+        trigger: 'pin',
+        ...flowVersionMeta,
+        ...addressFlowMeta,
+      },
+    })
+  }, [])
+
   const fetchBuildingAt = useCallback(
-    async (lat: number, lng: number, origin: 'address' | 'tap' = 'address') => {
+    async (
+      lat: number,
+      lng: number,
+      origin: 'address' | 'tap' = 'address',
+      manualRetry = false
+    ) => {
       if (isFetchingRef.current) return
       isFetchingRef.current = true
+      latestBuildingFetch += 1
+      const fetchToken = latestBuildingFetch
       setIsFetchingBuilding(true)
-      if (origin === 'address') setBuildingMissReason(null)
+      if (origin === 'address' && !manualRetry) setBuildingMissReason(null)
+      const pinOrigin =
+        origin === 'tap' && !buildingRef.current ? pinFromRef.current : null
+      const pinAddress =
+        pinOrigin &&
+        useSolarAboCalculatorStore.getState().locationPrecision === 'street'
+          ? findPinAddress(lat, lng)
+          : null
+      let retry: { attempt: number; auto: boolean } | null = null
+      if (manualRetry) {
+        retryCountRef.current += 1
+        retry = { attempt: retryCountRef.current, auto: false }
+      }
+      let lookupOutcome: RoofLookupOutcome = 'error'
       try {
-        const lv95 = await sonnendachService.convertToLV95(lat, lng)
-        const lookup = await sonnendachService.getBuildingData(lv95.y, lv95.x)
+        let attempt = await attemptLookup(lat, lng, origin)
+        if (
+          !attempt.ok &&
+          attempt.fast &&
+          origin === 'address' &&
+          !manualRetry
+        ) {
+          await delay(AUTO_RETRY_DELAY_MS)
+          if (!aliveRef.current) return
+          retryCountRef.current += 1
+          retry = { attempt: retryCountRef.current, auto: true }
+          attempt = await attemptLookup(lat, lng, origin)
+        }
+        if (!aliveRef.current) return
+        if (!attempt.ok) throw attempt.error
+        const { lookup, plan } = attempt
         const buildingData = lookup.building
         if (buildingData && buildingData.roofSegments.length > 0) {
+          lookupOutcome = 'found'
           trackFunnelEventOnce('building_found', {
             meta: {
               segmentCount: buildingData.roofSegments.length,
@@ -262,7 +541,10 @@ export default function Step4RoofAreas() {
                 )
               ),
               estimated: !!buildingData.estimate,
+              match: lookup.match ?? null,
+              addressMatch: plan.addressMatch,
               ...flowVersionMeta,
+              ...addressFlowMeta,
             },
           })
           const current = buildingRef.current
@@ -271,36 +553,82 @@ export default function Step4RoofAreas() {
               setPendingBuilding(buildingData)
             }
           } else {
+            if (pinAddress) {
+              const row = await pinAddress
+              if (!aliveRef.current) return
+              if (row) applyPinAddress(row)
+            }
+            if (origin === 'address') setBuildingMissReason(null)
             applyBuilding(buildingData)
+            if (pinOrigin) setPinFrom(null)
+          }
+          if (pinOrigin) {
+            trackRoofPinMode({
+              from: pinOrigin,
+              outcome: buildingData.estimate ? 'estimate' : 'buildingFound',
+            })
           }
         } else if (origin === 'address') {
+          lookupOutcome = 'miss'
           const missReason = lookup.reason ?? 'no_segments'
           trackFunnelEventOnce('building_not_found', {
-            meta: { reason: missReason, ...flowVersionMeta },
+            meta: {
+              reason: missReason,
+              ...flowVersionMeta,
+              ...addressFlowMeta,
+            },
           })
           setBuilding(null)
           setBuildingMissReason(missReason)
         } else if (calculatorFlowV2Enabled) {
+          lookupOutcome = 'miss'
+          if (pinOrigin) trackRoofPinMode({ from: pinOrigin, outcome: 'miss' })
           showTapNotice()
         }
       } catch (error) {
         console.error('No building data at this location:', error)
         if (origin === 'address') {
           trackFunnelEventOnce('building_not_found', {
-            meta: { reason: 'error', ...flowVersionMeta },
+            meta: { reason: 'error', ...flowVersionMeta, ...addressFlowMeta },
           })
           setBuilding(null)
           setBuildingMissReason('error')
         } else if (calculatorFlowV2Enabled) {
+          if (pinOrigin) trackRoofPinMode({ from: pinOrigin, outcome: 'miss' })
           showTapNotice()
         }
       } finally {
-        setIsFetchingBuilding(false)
+        if (retry && aliveRef.current) {
+          trackRoofLookupRetry({ ...retry, outcome: lookupOutcome })
+        }
+        if (fetchToken === latestBuildingFetch) setIsFetchingBuilding(false)
         isFetchingRef.current = false
       }
     },
-    [applyBuilding, setBuilding, setIsFetchingBuilding, showTapNotice]
+    [
+      applyBuilding,
+      applyPinAddress,
+      attemptLookup,
+      setBuilding,
+      setIsFetchingBuilding,
+      showTapNotice,
+    ]
   )
+
+  const openPinMode = useCallback(() => {
+    setPinFrom('roofMiss')
+    setBuildingMissReason(null)
+    setIsMobilePanelOpen(false)
+    trackRoofPinMode({ from: 'roofMiss', outcome: 'opened' })
+  }, [])
+
+  const retryLookup = useCallback(() => {
+    const location = useSolarAboCalculatorStore.getState().selectedLocation
+    const lat = location?.lat ?? focusedLat
+    const lng = location?.lng ?? focusedLng
+    if (lat === null || lng === null) return
+    void fetchBuildingAt(lat, lng, 'address', true)
+  }, [fetchBuildingAt, focusedLat, focusedLng])
 
   const handleMapClick = useCallback(
     async (coordinate: number[], pixel: number[]) => {
@@ -341,7 +669,7 @@ export default function Step4RoofAreas() {
         maxZoom: SONNENDACH_MAX_ZOOM,
       }),
       opacity: 0.7,
-      visible: !!buildingRef.current,
+      visible: !!buildingRef.current || !!pinFromRef.current,
     })
     sonnendachLayerRef.current = sonnendachLayer
 
@@ -405,7 +733,7 @@ export default function Step4RoofAreas() {
           focusedLng && focusedLat
             ? fromLonLat([focusedLng, focusedLat])
             : fromLonLat([8.2275, 46.8182]),
-        zoom: focusedLat ? 19 : 8,
+        zoom: focusedLat ? (pinFromRef.current ? 18 : 19) : 8,
         minZoom: 7,
       }),
     })
@@ -422,13 +750,10 @@ export default function Step4RoofAreas() {
     map.once('rendercomplete', () => setIsLoadingMap(false))
 
     if (buildingRef.current) {
-      const center = fromLonLat([
-        buildingRef.current.center.lng,
-        buildingRef.current.center.lat,
-      ])
+      const center = buildingViewCenter(map, buildingRef.current)
       map.getView().animate({ center, zoom: 20, duration: 500 })
       redrawAllSegments()
-    } else if (focusedLat && focusedLng) {
+    } else if (focusedLat && focusedLng && !pinFromRef.current) {
       fetchBuildingAt(focusedLat, focusedLng, 'address')
     }
 
@@ -438,6 +763,24 @@ export default function Step4RoofAreas() {
       sonnendachLayerRef.current = null
     }
   }, [hasBuilding, focusedLat, focusedLng, redrawAllSegments, fetchBuildingAt])
+
+  const mapLayoutShown =
+    hasBuilding && !(calculatorFlowV2Enabled && buildingMissReason)
+
+  useEffect(() => {
+    if (!mapLayoutShown) return
+    const map = mapInstanceRef.current
+    const element = mapRef.current
+    if (!map || !element || map.getTargetElement() === element) return
+    map.setTarget(element)
+    map.updateSize()
+    const current = buildingRef.current
+    if (current) {
+      const view = map.getView()
+      view.setCenter(buildingViewCenter(map, current))
+      view.setZoom(20)
+    }
+  }, [mapLayoutShown, pinMode])
 
   useEffect(() => {
     if (!calculatorFlowV2Enabled) return
@@ -618,24 +961,85 @@ export default function Step4RoofAreas() {
     lng: selectedLocation?.lng,
   }
 
+  const resolvedAddress = address.trim()
+  const renderAddressLine = (
+    tone: 'light' | 'dark',
+    className?: string,
+    singleLine = false
+  ) =>
+    resolvedAddress ? (
+      <p
+        data-hj-suppress
+        data-cs-mask
+        className={cn(
+          'flex items-start gap-2 text-base',
+          tone === 'dark' ? 'text-white' : 'text-[#062E25]',
+          className
+        )}
+      >
+        <MapPin
+          aria-hidden
+          className={cn(
+            'mt-0.5 h-5 w-5 shrink-0',
+            tone === 'dark' ? 'text-[#B7FE1A]' : 'text-[#062E25]/70'
+          )}
+        />
+        <span
+          className={cn('min-w-0', singleLine ? 'truncate' : 'break-words')}
+        >
+          {resolvedAddress}
+        </span>
+      </p>
+    ) : null
+
   if (calculatorFlowV2Enabled && buildingMissReason) {
+    const isRequestError = buildingMissReason === 'error'
     const missReasonMessage =
       buildingMissReason === 'no_segments'
         ? t2('errors.noSegments')
-        : buildingMissReason === 'error'
+        : isRequestError
           ? t2('errors.requestFailed')
           : t2('errors.noBuilding')
     return (
       <div className="h-full flex flex-col">
-        <div className="flex-1 flex flex-col items-center overflow-y-auto px-4 py-12 sm:py-16">
+        <div
+          className={cn(
+            'flex-1 flex flex-col items-center overflow-y-auto px-4 pt-24 sm:pt-28',
+            embedded ? 'pb-12 sm:pb-16' : 'pb-24'
+          )}
+        >
+          {renderAddressLine('light', 'w-full max-w-md mb-3')}
           <p
             role="status"
             className="w-full max-w-md text-base text-[#062E25]/80"
           >
             {missReasonMessage}
           </p>
-          <div className="mt-6 w-full flex flex-col items-center">
-            <ManualCheckCapture source="no_roof" prefill={manualCheckPrefill} />
+          {isRequestError ? (
+            <Button
+              onClick={retryLookup}
+              aria-disabled={isFetchingBuilding || undefined}
+              className="mt-4 h-12 w-full max-w-md bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+            >
+              {isFetchingBuilding && (
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              )}
+              {t2('retry')}
+            </Button>
+          ) : (
+            <Button
+              onClick={openPinMode}
+              className="mt-4 h-12 w-full max-w-md bg-[#062E25] text-base text-white hover:bg-[#062E25]/90"
+            >
+              <MapPin aria-hidden className="mr-2 h-5 w-5" />
+              {t2('pin.action')}
+            </Button>
+          )}
+          <div className="mt-8 w-full flex flex-col items-center">
+            <ManualCheckCapture
+              source={isRequestError ? 'roof_unavailable' : 'no_roof'}
+              prefill={manualCheckPrefill}
+            />
           </div>
         </div>
 
@@ -769,11 +1173,16 @@ export default function Step4RoofAreas() {
         >
           {calculatorFlowV2Enabled ? (
             <>
+              {renderAddressLine('dark', 'mb-3')}
               <p className="text-base font-medium text-white">
-                {t2('headline')}
+                {pinMode ? t2('pin.title') : t2('headline')}
               </p>
               <p className="mt-1 text-base font-light text-[#EAEDDF]/80">
-                {building?.estimate ? t2('registerNote') : t2('helper')}
+                {pinMode
+                  ? t2('pin.helper')
+                  : building?.estimate
+                    ? t2('registerNote')
+                    : t2('helper')}
               </p>
             </>
           ) : (
@@ -835,10 +1244,23 @@ export default function Step4RoofAreas() {
                 : t('loading')}
             </div>
           )}
+          {pinMode && (
+            <Button
+              variant="outline"
+              onClick={() => setIsManualCheckOpen(true)}
+              className="mt-4 h-12 w-full border-[#EAEDDF]/40 bg-transparent text-base text-[#EAEDDF] hover:bg-white/10 hover:text-white"
+            >
+              {t2('errors.noneSelectedAction')}
+            </Button>
+          )}
         </div>
 
         <div
-          className={cn('rounded-2xl', calculatorFlowV2Enabled ? 'p-4' : 'p-5')}
+          className={cn(
+            'rounded-2xl',
+            calculatorFlowV2Enabled ? 'p-4' : 'p-5',
+            pinMode && 'hidden'
+          )}
           style={{
             background: 'rgba(30, 42, 38, 0.85)',
             backdropFilter: 'blur(20px)',
@@ -909,15 +1331,37 @@ export default function Step4RoofAreas() {
             backdropFilter: 'blur(20px)',
           }}
         >
+          {calculatorFlowV2Enabled &&
+            renderAddressLine('dark', 'px-4 pt-3', true)}
           {calculatorFlowV2Enabled && isFetchingBuilding && (
             <p role="status" className="px-4 pt-3 text-base text-[#B7FE1A]">
               {isFetchSlow ? t2('loadingSlow') : t2('loading')}
             </p>
           )}
+          {pinMode && (
+            <div className="px-4 pb-4 pt-3">
+              <p className="text-base font-medium text-white">
+                {t2('pin.title')}
+              </p>
+              <p className="mt-1 text-base font-light text-[#EAEDDF]/80">
+                {t2('pin.helper')}
+              </p>
+              <Button
+                variant="outline"
+                onClick={() => setIsManualCheckOpen(true)}
+                className="mt-3 h-12 w-full border-[#EAEDDF]/40 bg-transparent text-base text-[#EAEDDF] hover:bg-white/10 hover:text-white"
+              >
+                {t2('errors.noneSelectedAction')}
+              </Button>
+            </div>
+          )}
           <button
             type="button"
             onClick={() => setIsMobilePanelOpen(open => !open)}
-            className="flex w-full items-center justify-between px-4 py-3 text-left text-white"
+            className={cn(
+              'flex w-full items-center justify-between px-4 py-3 text-left text-white',
+              pinMode && 'hidden'
+            )}
           >
             {calculatorFlowV2Enabled ? (
               <span className="text-base">
@@ -942,7 +1386,7 @@ export default function Step4RoofAreas() {
           <div
             className={cn(
               'transition-[max-height,opacity] duration-300',
-              isMobilePanelOpen
+              isMobilePanelOpen && !pinMode
                 ? 'max-h-[70vh] opacity-100'
                 : 'max-h-0 opacity-0'
             )}
@@ -981,6 +1425,12 @@ export default function Step4RoofAreas() {
           </div>
         </div>
       </div>
+
+      {calculatorFlowV2Enabled && (
+        <p className="pointer-events-none absolute right-2 top-[68px] z-10 rounded bg-[#062E25]/60 px-2 py-0.5 text-xs text-white/90 sm:top-auto sm:bottom-[80px] sm:text-base">
+          {t2('mapAttribution')}
+        </p>
+      )}
 
       {calculatorFlowV2Enabled && isTapNoticeVisible && (
         <div className="absolute left-1/2 top-16 z-30 w-[calc(100%-24px)] max-w-md -translate-x-1/2">
@@ -1027,6 +1477,7 @@ export default function Step4RoofAreas() {
               source="no_roof"
               prefill={manualCheckPrefill}
               compact
+              trigger="click"
             />
             <Button
               variant="outline"

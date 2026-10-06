@@ -9,36 +9,57 @@ import type {
   SonnendachConvertResponse,
   SonnendachLocation,
   SonnendachBuilding,
+  BuildingMatch,
 } from '@/types/sonnendach'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
 const REQUEST_TIMEOUT_MS = 8000
+const BUILDING_DATA_TIMEOUT_MS = 20000
 
 export type BuildingMissReason = 'no_building' | 'no_segments'
 
 export interface BuildingLookupResult {
   building: SonnendachBuilding | null
   reason: BuildingMissReason | null
+  match?: BuildingMatch | null
 }
+
+export interface BuildingDataOptions {
+  gwrId?: string | null
+}
+
+export type SonnendachErrorKind = 'timeout' | 'network' | 'http' | 'parse'
 
 export class SonnendachRequestError extends Error {
   readonly reason = 'error' as const
+  readonly kind: SonnendachErrorKind
+  readonly status?: number
 
-  constructor(message: string) {
+  constructor(
+    message: string,
+    kind: SonnendachErrorKind = 'http',
+    status?: number
+  ) {
     super(message)
     this.name = 'SonnendachRequestError'
+    this.kind = kind
+    this.status = status
   }
 }
 
-async function fetchWithTimeout(url: string): Promise<Response> {
+async function fetchWithTimeout(
+  url: string,
+  timeoutMs: number = REQUEST_TIMEOUT_MS
+): Promise<Response> {
   const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
   try {
     return await fetch(url, { signal: controller.signal })
   } catch (error) {
     throw new SonnendachRequestError(
-      error instanceof Error ? error.message : 'Request failed'
+      error instanceof Error ? error.message : 'Request failed',
+      controller.signal.aborted ? 'timeout' : 'network'
     )
   } finally {
     clearTimeout(timer)
@@ -68,36 +89,54 @@ class SonnendachService {
   /**
    * Get building data at a point (Swiss LV95 coordinates)
    */
-  async getBuildingData(x: number, y: number): Promise<BuildingLookupResult> {
+  async getBuildingData(
+    x: number,
+    y: number,
+    options: BuildingDataOptions = {}
+  ): Promise<BuildingLookupResult> {
     const params = new URLSearchParams({
       x: x.toString(),
       y: y.toString(),
     })
+    if (options.gwrId) params.set('gwrId', options.gwrId)
 
     const response = await fetchWithTimeout(
-      `${API_URL}/api/sonnendach/building-data?${params}`
+      `${API_URL}/api/sonnendach/building-data?${params}`,
+      BUILDING_DATA_TIMEOUT_MS
     )
 
     if (response.status === 404) {
-      return { building: null, reason: 'no_building' }
+      return { building: null, reason: 'no_building', match: null }
     }
 
     let data: SonnendachBuildingResponse & { reason?: BuildingMissReason }
     try {
       data = await response.json()
     } catch {
-      throw new SonnendachRequestError('Invalid building data response')
+      throw new SonnendachRequestError(
+        'Invalid building data response',
+        'parse',
+        response.status
+      )
     }
 
     if (data.success && !data.data) {
-      return { building: null, reason: data.reason ?? 'no_building' }
+      return {
+        building: null,
+        reason: data.reason ?? 'no_building',
+        match: null,
+      }
     }
 
     if (!data.success || !data.data) {
-      throw new SonnendachRequestError(data.error || 'Failed to get building data')
+      throw new SonnendachRequestError(
+        data.error || 'Failed to get building data',
+        'http',
+        response.status
+      )
     }
 
-    return { building: data.data, reason: null }
+    return { building: data.data, reason: null, match: data.match ?? null }
   }
 
   /**
@@ -110,10 +149,23 @@ class SonnendachService {
     })
 
     const response = await fetchWithTimeout(`${API_URL}/api/sonnendach/convert?${params}`)
-    const data: SonnendachConvertResponse = await response.json()
+    let data: SonnendachConvertResponse
+    try {
+      data = await response.json()
+    } catch {
+      throw new SonnendachRequestError(
+        'Invalid conversion response',
+        'parse',
+        response.status
+      )
+    }
 
     if (!data.success || !data.data) {
-      throw new SonnendachRequestError(data.error || 'Coordinate conversion failed')
+      throw new SonnendachRequestError(
+        data.error || 'Coordinate conversion failed',
+        'http',
+        response.status
+      )
     }
 
     return data.data

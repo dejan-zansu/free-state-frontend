@@ -2,11 +2,12 @@
 
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Link } from '@/i18n/navigation'
+import { trackManualCheckShown } from '@/lib/address/address-events'
 import { getAttribution, trackFunnelEvent } from '@/lib/analytics/funnel-events'
 import { flowVersionMeta } from '@/lib/calculator-flow'
 import { cn } from '@/lib/utils'
@@ -38,12 +39,19 @@ export default function ManualCheckCapture({
   source,
   prefill,
   compact = false,
+  trigger = 'auto',
+  reason,
+  focusHeading = false,
 }: {
   source: ManualCheckSource
   prefill?: ManualCheckPrefill
   compact?: boolean
+  trigger?: 'click' | 'auto'
+  reason?: string
+  focusHeading?: boolean
 }) {
   const t = useTranslations('calculatorV2.manualCheck')
+  const headingRef = useRef<HTMLHeadingElement | null>(null)
   const tErr = useTranslations('calculatorV2.screen5.errors')
 
   const manualCheckRequested = useSolarAboCalculatorStore(
@@ -65,20 +73,37 @@ export default function ManualCheckCapture({
   const consentId = `${idBase}-consent`
 
   const headline =
-    source === 'no_roof'
+    source === 'no_roof' || source === 'roof_unavailable'
       ? t('noRoofHeadline')
       : source === 'places_unavailable'
         ? t('placesHeadline')
-        : null
+        : source === 'address_not_found'
+          ? t('addressHeadline')
+          : null
 
   const bodies =
     source === 'no_roof'
       ? [t('noRoofBody1'), t('noRoofBody2')]
-      : source === 'places_unavailable'
-        ? [t('placesBody1'), t('placesBody2')]
-        : source === 'retry_blocked'
-          ? [t('retryBlockedBody')]
-          : [t('partialConsentNote')]
+      : source === 'roof_unavailable'
+        ? [t('roofUnavailableBody')]
+        : source === 'places_unavailable'
+          ? [t('placesBody1'), t('placesBody2')]
+          : source === 'address_not_found'
+            ? [t('addressBody1'), t('addressBody2')]
+            : source === 'retry_blocked'
+              ? [t('retryBlockedBody')]
+              : [t('partialConsentNote')]
+
+  const formShown = manualCheckRequested !== source
+
+  useEffect(() => {
+    if (!formShown) return
+    trackManualCheckShown({ source, trigger, reason })
+  }, [formShown, source, trigger, reason])
+
+  useEffect(() => {
+    if (focusHeading) headingRef.current?.focus()
+  }, [focusHeading])
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -136,8 +161,11 @@ export default function ManualCheckCapture({
     <div className="w-full max-w-md">
       {headline && (
         <h2
+          ref={headingRef}
+          tabIndex={focusHeading ? -1 : undefined}
           className={cn(
             'font-medium text-[#062E25]',
+            focusHeading && 'outline-none',
             compact ? 'text-xl' : 'text-2xl sm:text-3xl'
           )}
         >
@@ -153,7 +181,13 @@ export default function ManualCheckCapture({
         </p>
       ))}
 
-      <form onSubmit={handleSubmit} noValidate className="mt-6 flex flex-col gap-4">
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        data-hj-suppress
+        data-cs-mask
+        className="mt-6 flex flex-col gap-4"
+      >
         <div>
           <label
             htmlFor={addressId}

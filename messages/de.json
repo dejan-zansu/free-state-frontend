@@ -318,6 +318,10 @@
       "title": "{name}: alle Komponenten in 3D",
       "description": "Jedes Gerät dieses Solarpakets als drehbares 3D-Modell mit den technischen Daten des Herstellers.",
       "descriptionSuffix": "Alle Komponenten in 3D mit technischen Daten."
+    },
+    "offerRequest": {
+      "title": "Solaranlage Offerte anfragen: Preis pro kWp | Free State AG",
+      "description": "Eine Solaranlage mit Speicher kostet bei uns CHF {min} bis {max} pro kWp, exkl. MwSt. Fragen Sie mit Name, Telefon und Adresse eine Offerte an, wir rufen Sie an."
     }
   },
   "apiErrors": {
@@ -3555,6 +3559,10 @@
       "title": "Google Maps",
       "content": "Auf einigen Seiten (insbesondere auf der Kontaktseite und im Solarrechner zur Adresseingabe und Dachflächenauswahl) binden wir interaktive Karten von Google Maps ein. Anbieter ist Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland.\n\nDamit die Karten korrekt angezeigt werden, übermittelt Ihr Browser bei der Nutzung dieser Funktionen technische Verbindungsdaten (insbesondere Ihre IP-Adresse) an Google. Eine Verarbeitung in den USA kann nicht ausgeschlossen werden. Diese Verarbeitung ist erforderlich, um die von Ihnen aktiv aufgerufene Funktion (z. B. Adresseingabe im Solarrechner) bereitzustellen, und stützt sich auf unser berechtigtes Interesse an einer benutzerfreundlichen Online-Anwendung. Geht ein expliziter Konfigurationsschritt voraus, stützt sie sich zusätzlich auf Ihre Einwilligung.\n\nWeitere Informationen zur Datenverarbeitung durch Google finden Sie unter: https://policies.google.com/privacy"
     },
+    "swisstopo": {
+      "title": "Geodienste des Bundes (swisstopo)",
+      "content": "Für die Adresssuche, die Dachdaten und die Karten im Solarrechner nutzen wir Dienste des Bundesamts für Landestopografie swisstopo. Dabei übermittelt Ihr Browser die eingegebene oder ausgewählte Adresse, die Koordinaten des Gebäudes oder den Kartenausschnitt sowie Ihre IP-Adresse an swisstopo. Die Auslieferung erfolgt über das Content Delivery Network Amazon CloudFront."
+    },
     "newsletter": {
       "title": "Newsletter",
       "content": "Wenn Sie unseren Newsletter abonnieren möchten, benötigen wir von Ihnen eine gültige E-Mail-Adresse sowie Informationen, mit denen wir prüfen können, dass Sie tatsächlich Inhaber der angegebenen Adresse sind (Double-Opt-In-Verfahren).\n\nDie für den Versand erforderlichen Daten werden ausschliesslich auf Grundlage Ihrer Einwilligung (Art. 31 Abs. 1 revDSG / Art. 6 Abs. 1 lit. a DSGVO) verarbeitet. Sie können das Abonnement und die zugrundeliegende Einwilligung jederzeit für die Zukunft widerrufen, beispielsweise über den Abmeldelink in jedem Newsletter oder per E-Mail an info@freestate.ch. Die Rechtmässigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt."
@@ -6009,17 +6017,41 @@
       "button": "Dach analysieren",
       "errors": {
         "empty": "Bitte geben Sie Ihre Adresse ein.",
-        "notChosen": "Bitte wählen Sie Ihre Adresse aus der Vorschlagsliste.",
-        "noStreetNumber": "Bitte wählen Sie eine Adresse mit Hausnummer. Ohne Hausnummer finden wir Ihr Gebäude nicht.",
-        "notFound": "Wir finden diese Adresse nicht. Prüfen Sie die Schreibweise, oder <link>lassen Sie uns Ihr Dach von Hand prüfen</link>.",
         "outsideCh": "Wir lesen zurzeit nur Schweizer Adressen automatisch aus. Liegt Ihr Gebäude ausserhalb, <link>schreiben Sie uns Ihre Adresse</link> und wir prüfen sie von Hand.",
-        "placesSlow": "Die Adresssuche antwortet gerade langsam. Einen Moment bitte."
+        "needLocality": "Ergänzen Sie bitte noch die Postleitzahl oder den Ort.",
+        "needStreet": "Ergänzen Sie bitte noch die Strasse und die Hausnummer."
       },
       "badge": "Kostenlos und unverbindlich",
       "houseNumber": {
         "label": "Hausnummer",
         "helper": "Fast geschafft. Ergänzen Sie die Hausnummer, dann finden wir Ihr Gebäude.",
-        "button": "Gebäude suchen"
+        "button": "Gebäude suchen",
+        "chips": "Passende Hausnummern",
+        "required": "Bitte ergänzen Sie die Hausnummer.",
+        "notFound": "Die Nummer {number} finden wir an dieser Strasse nicht. Prüfen Sie die Nummer, oder zeigen Sie uns Ihr Haus auf der Karte.",
+        "notFoundNoMap": "Die Nummer {number} finden wir an dieser Strasse nicht. Bitte prüfen Sie die Nummer.",
+        "noNumber": "Mein Haus hat keine Hausnummer"
+      },
+      "resolving": "Adresse wird gesucht",
+      "clearInput": "Eingabe löschen",
+      "backToAddress": "Zurück zur Adresseingabe",
+      "callbackLink": "Lieber direkt? Rückruf anfordern",
+      "contactLine": {
+        "phone": "Telefon {phone}",
+        "legalNotice": "Impressum"
+      },
+      "candidates": {
+        "title": "Meinten Sie eine dieser Adressen?",
+        "titleOne": "Meinten Sie diese Adresse?",
+        "none": "Meine Adresse ist nicht dabei",
+        "attribution": "Adressen © swisstopo"
+      },
+      "notFound": {
+        "title": "Wir finden diese Adresse nicht.",
+        "body": "Das kommt bei neuen Adressen und bei Tippfehlern vor. Wählen Sie, wie es weitergeht.",
+        "edit": "Adresse korrigieren",
+        "map": "Haus auf der Karte zeigen",
+        "manual": "Von Hand prüfen lassen"
       }
     },
     "screen2": {
@@ -6050,7 +6082,14 @@
         "tapSwitchBuilding": "Möchten Sie zu diesem Gebäude wechseln? Ihre bisherige Auswahl geht dabei verloren.",
         "tapSwitchConfirm": "Gebäude wechseln",
         "tapSwitchCancel": "Abbrechen"
-      }
+      },
+      "retry": "Erneut versuchen",
+      "pin": {
+        "title": "Zeigen Sie uns Ihr Haus",
+        "helper": "Tippen Sie auf der Karte auf Ihr Dach. Wir laden dann die Dachdaten für dieses Gebäude.",
+        "action": "Haus auf der Karte zeigen"
+      },
+      "mapAttribution": "SWISSIMAGE © swisstopo, Dachdaten © BFE"
     },
     "manualCheck": {
       "noRoofHeadline": "Wir prüfen Ihr Dach von Hand",
@@ -6067,7 +6106,11 @@
       "privacyLink": "Datenschutzerklärung",
       "button": "Auswertung anfordern",
       "reassurance": "Wir melden uns bei Ihnen, sobald wir Ihr Dach geprüft haben.",
-      "success": "Danke. Wir haben Ihre Anfrage erhalten und prüfen Ihr Dach."
+      "success": "Danke. Wir haben Ihre Anfrage erhalten und prüfen Ihr Dach.",
+      "addressHeadline": "Wir prüfen Ihre Adresse von Hand",
+      "addressBody1": "Wir konnten Ihre Adresse nicht automatisch zuordnen. Das kommt bei neuen Strassen, Sonderadressen und Gebäuden ausserhalb der Schweiz vor.",
+      "addressBody2": "Schreiben Sie uns Ihre Adresse und Ihre E-Mail-Adresse. Wir prüfen Ihr Dach von Hand und melden uns mit einer Auswertung.",
+      "roofUnavailableBody": "Klappt der neue Versuch nicht, prüfen wir Ihr Dach von Hand. Hinterlassen Sie Ihre E-Mail-Adresse, dann melden wir uns mit einer Auswertung."
     },
     "screen3": {
       "headline": "Was verbraucht bei Ihnen viel Strom?",
@@ -6110,13 +6153,19 @@
     },
     "screen5": {
       "headline": "Ihre Auswertung ist fertig",
-      "helper": "Ihre Adresse haben wir bereits. Es fehlen nur noch Ihr Name, Ihre E-Mail-Adresse und Ihre Telefonnummer.",
+      "helper": "Danach öffnet sie sich in Ihrem Konto. Wir rufen Sie an, um sie mit Ihnen durchzugehen.",
+      "opens": {
+        "price": "Preis nach Förderung",
+        "savings": "Ersparnis pro Jahr",
+        "payback": "Amortisation",
+        "pdf": "Auswertung als PDF"
+      },
       "email": "E-Mail-Adresse",
       "name": "Name",
       "phoneNumber": "Telefonnummer",
       "phonePlaceholder": "z. B. 079 123 45 67",
       "phoneIntro": "Noch ein Schritt. Unter welcher Nummer erreichen wir Sie?",
-      "phoneReason": "Wir rufen Sie an, um Ihre Auswertung mit Ihnen durchzugehen. Ihre Nummer verwenden wir nur für Ihre Anfrage.",
+      "phoneReason": "Ihre Nummer verwenden wir nur für Ihre Anfrage.",
       "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
       "privacyLink": "Datenschutzerklärung",
       "button": "Auswertung öffnen",
@@ -6137,7 +6186,10 @@
         "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
         "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal.",
         "rateLimited": "Wir konnten Ihre Angaben gerade nicht speichern. Hinterlassen Sie uns Ihre E-Mail-Adresse, dann melden wir uns bei Ihnen mit Ihrer Auswertung."
-      }
+      },
+      "street": "Strasse",
+      "streetNumber": "Hausnummer",
+      "addressFallbackHelperFull": "Bitte ergänzen Sie Ihre Adresse. Wir konnten sie nicht vollständig auslesen."
     },
     "costAnchor": {
       "title": "Was kostet eine Solaranlage in der Schweiz?",
@@ -12000,6 +12052,46 @@
           "question": "Wie lange dauert es bis zur Inbetriebnahme?",
           "answer": "In der Regel rund drei Monate ab Bestellung. Darin enthalten sind die Dachprüfung, die Anmeldung beim Netzbetreiber, die Montage und die Inbetriebnahme."
         }
+      }
+    }
+  },
+  "offerRequest": {
+    "page": {
+      "title": "Eine Solaranlage kostet bei uns CHF {min} bis {max} pro kWp",
+      "priceLabel": "Richtwert aus unserem aktuellen Paketkatalog, schlüsselfertig mit Speicher, exkl. MwSt.",
+      "example": "Eine typische Anlage mit 10 kWp kostet nach Abzug der Einmalvergütung von CHF {tenSubsidy} rund CHF {tenNetMin} bis {tenNetMax} inkl. MwSt.",
+      "note": "Der genaue Preis hängt von Ihrem Dach ab und steht in Ihrer Offerte.",
+      "calculatorPrompt": "Sie möchten Ihr Dach zuerst selbst berechnen?",
+      "calculatorLink": "Zum Solarrechner"
+    },
+    "form": {
+      "heading": {
+        "page": "Offerte für Ihr Dach anfragen",
+        "kosten": "Preis für Ihr Dach? Offerte anfragen",
+        "calculator": "Lieber direkt mit uns sprechen?"
+      },
+      "intro": "Name, Telefon und Adresse genügen. Wir rufen Sie an.",
+      "name": "Name",
+      "namePlaceholder": "Vorname Nachname",
+      "phone": "Telefon",
+      "phonePlaceholder": "079 123 45 67",
+      "phoneHint": "Ihre Nummer verwenden wir nur für Ihre Anfrage.",
+      "street": "Strasse und Nr.",
+      "postalCode": "PLZ",
+      "city": "Ort",
+      "email": "E-Mail (optional)",
+      "consent": "Ich bin einverstanden, dass Free State AG meine Angaben zur Bearbeitung meiner Anfrage verwendet. Es gilt die <privacyLink>Datenschutzerklärung</privacyLink>.",
+      "submit": "Offerte anfragen",
+      "successTitle": "Danke, Ihre Anfrage ist bei uns.",
+      "successBody": "Wir rufen Sie unter {phone} an.",
+      "errors": {
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein, zum Beispiel 079 123 45 67.",
+        "postalCodeInvalid": "Bitte geben Sie eine vierstellige PLZ ein.",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
+        "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal oder rufen Sie uns unter {phone} an.",
+        "rateLimited": "Sie haben gerade mehrere Anfragen gesendet. Bitte versuchen Sie es in einigen Minuten noch einmal oder rufen Sie uns unter {phone} an."
       }
     }
   }

@@ -71,6 +71,8 @@ export type ManualCheckSource =
   | 'places_unavailable'
   | 'retry_blocked'
   | 'partial_contact'
+  | 'address_not_found'
+  | 'roof_unavailable'
 
 interface ManualCheckPayload {
   email: string
