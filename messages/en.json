@@ -8650,6 +8650,8 @@
           "copied": "Copied",
           "done": "Done",
           "repliesTitle": "New replies ({count})",
+          "existingContactsTitle": "Already connected, write personally ({count})",
+          "existingContactsHint": "These people were already contacts before the extension tried to connect. They get no automatic message. Write to them personally if needed.",
           "classify": "Classify",
           "todayAutoHint": "What the extension did today, newest first.",
           "messagesAutoHint": "The extension sends messages and follow-ups itself. Here you only classify new replies.",

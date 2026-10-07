@@ -678,6 +678,7 @@ export interface LinkedinTouchItem {
   acceptedAt: string | null
   messagedAt: string | null
   followedUpAt: string | null
+  closedAt?: string | null
   prospect: LinkedinProspectCard
   step?: 'message' | 'followup'
   withdrawDue?: boolean
@@ -712,6 +713,7 @@ export interface LinkedinQueue {
   pendingRequests?: LinkedinTouchItem[]
   waiting?: LinkedinTouchItem[]
   replies?: LinkedinTouchItem[]
+  existingContacts?: LinkedinTouchItem[]
 }
 
 export interface LinkedinMessage {

@@ -8460,6 +8460,8 @@
           "copied": "Kopiert",
           "done": "Fertig",
           "repliesTitle": "Neue Antworten ({count})",
+          "existingContactsTitle": "Schon vernetzt, persönlich schreiben ({count})",
+          "existingContactsHint": "Diese Personen waren schon Kontakte, bevor die Erweiterung sie anfragen wollte. Sie bekommen keine automatische Nachricht. Schreiben Sie ihnen bei Bedarf persönlich.",
           "classify": "Einordnen",
           "todayAutoHint": "Was die Erweiterung heute erledigt hat, neueste zuerst.",
           "messagesAutoHint": "Die Erweiterung sendet Nachrichten und Nachfassen selbst. Hier ordnen Sie nur neue Antworten ein.",

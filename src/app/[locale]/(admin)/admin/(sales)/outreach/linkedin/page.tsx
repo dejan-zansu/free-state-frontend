@@ -567,6 +567,48 @@ function RepliesList({
   )
 }
 
+function ExistingContactsList({ items }: { items: LinkedinTouchItem[] }) {
+  const t = useTranslations('admin.outreach.linkedin')
+  if (items.length === 0) return null
+  return (
+    <div className="space-y-3 mb-6">
+      <p className="font-medium">
+        {t('agent.existingContactsTitle', { count: items.length })}
+      </p>
+      <p className="text-[#062E25]/75">{t('agent.existingContactsHint')}</p>
+      {items.map(touch => (
+        <div
+          key={touch.id}
+          className="rounded-md border border-[#062E25]/10 p-4 space-y-1"
+        >
+          <p className="font-medium">
+            {touch.prospect.companyName}
+            {touch.prospect.linkedinPersonName && (
+              <span className="text-[#062E25]/60">
+                {' '}
+                {touch.prospect.linkedinPersonName}
+              </span>
+            )}
+          </p>
+          {touch.prospect.linkedinPersonRole && (
+            <p className="text-[#062E25]/60">
+              {touch.prospect.linkedinPersonRole}
+            </p>
+          )}
+          <div className="flex flex-wrap items-center gap-x-3">
+            <span className="tabular-nums text-[#062E25]/60">
+              {formatDate(touch.closedAt ?? touch.requestedAt)}
+            </span>
+            <ExternalAnchor href={touch.profileUrl}>
+              {t('openProfile')}
+            </ExternalAnchor>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function AgentLog({ senderId }: { senderId?: string }) {
   const t = useTranslations('admin.outreach.linkedin.agent')
   const locale = useLocale()
@@ -1951,6 +1993,7 @@ export default function AdminOutreachLinkedinPage() {
                     items={q?.replies ?? []}
                     onClassify={setReplyTouch}
                   />
+                  <ExistingContactsList items={q?.existingContacts ?? []} />
                   {q?.sender?.mode === 'AUTO' ? (
                     <p className="text-[#062E25]/75">
                       {t('agent.messagesAutoHint')}
