@@ -87,6 +87,17 @@ function useNavGroups() {
       ],
     },
     {
+      label: t('groupTeam'),
+      items: [
+        {
+          label: t('users'),
+          href: `${prefix}/users`,
+          icon: Users,
+          capability: 'users.manage',
+        },
+      ],
+    },
+    {
       label: t('groupResidential'),
       items: [
         {
@@ -105,12 +116,6 @@ function useNavGroups() {
           label: t('residentialProjects'),
           href: `${prefix}/projects`,
           icon: Calculator,
-          capability: 'users.manage',
-        },
-        {
-          label: t('users'),
-          href: `${prefix}/users`,
-          icon: Users,
           capability: 'users.manage',
         },
       ],

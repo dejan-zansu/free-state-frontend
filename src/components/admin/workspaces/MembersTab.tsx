@@ -22,6 +22,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import { InviteStaffDialog } from '@/components/admin/InviteStaffDialog'
+import { useHasCapability } from '@/lib/capabilities'
 import { adminWorkspaceService } from '@/services/admin-workspace.service'
 import type { WorkspaceDetail, WorkspaceLevel } from '@/types/workspace'
 
@@ -50,6 +52,8 @@ export function MembersTab({ workspace }: MembersTabProps) {
     undefined
   )
 
+  const canCreateAccounts = useHasCapability('users.manage')
+  const [inviteOpen, setInviteOpen] = useState(false)
   const [addUserId, setAddUserId] = useState('')
   const [addLevel, setAddLevel] = useState<WorkspaceLevel>('CONTRIBUTOR')
   const [busy, setBusy] = useState(false)
@@ -259,6 +263,37 @@ export function MembersTab({ workspace }: MembersTabProps) {
           </Button>
         </div>
       )}
+
+      {canManageMembers && !teamError && (
+        <div className="flex flex-wrap items-center gap-2 pt-3">
+          <p className="text-sm text-[#062E25]/75">{t('members.missing')}</p>
+          {canCreateAccounts ? (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setInviteOpen(true)}
+            >
+              {t('members.createAccount')}
+            </Button>
+          ) : (
+            <p className="text-sm text-[#062E25]/75">
+              {t('members.missingHint')}
+            </p>
+          )}
+        </div>
+      )}
+
+      <InviteStaffDialog
+        open={inviteOpen}
+        onOpenChange={open => {
+          setInviteOpen(open)
+          if (!open) {
+            queryClient.invalidateQueries({
+              queryKey: ['admin', 'workspaces', workspace.id, 'team'],
+            })
+          }
+        }}
+      />
     </div>
   )
 }

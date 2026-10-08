@@ -7125,6 +7125,9 @@
       "members": {
         "add": "Aggiungi membro",
         "selectUser": "Seleziona persona",
+        "missing": "Persona non in elenco?",
+        "createAccount": "Aggiungi un collaboratore",
+        "missingHint": "L'amministrazione crea l'account.",
         "level": "Accesso",
         "remove": "Rimuovi",
         "confirmRemove": "Rimuovere davvero?",
@@ -7282,6 +7285,7 @@
       "groupCrm": "CRM",
       "groupSubmissions": "Invii",
       "groupEquipment": "Attrezzatura",
+      "groupTeam": "Team",
       "groupResidential": "Residenziale",
       "groupCommercial": "Commerciale",
       "groupOperations": "Operazioni",

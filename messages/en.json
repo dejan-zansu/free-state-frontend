@@ -7125,6 +7125,9 @@
       "members": {
         "add": "Add member",
         "selectUser": "Select person",
+        "missing": "Person not in the list?",
+        "createAccount": "Add staff member",
+        "missingHint": "The administration creates the account.",
         "level": "Access",
         "remove": "Remove",
         "confirmRemove": "Really remove?",
@@ -7282,6 +7285,7 @@
       "groupCrm": "CRM",
       "groupSubmissions": "Submissions",
       "groupEquipment": "Equipment",
+      "groupTeam": "Team",
       "groupResidential": "Residential",
       "groupCommercial": "Commercial",
       "groupOperations": "Operations",

@@ -6935,6 +6935,9 @@
       "members": {
         "add": "Mitglied hinzufügen",
         "selectUser": "Person wählen",
+        "missing": "Person nicht in der Liste?",
+        "createAccount": "Mitarbeiter anlegen",
+        "missingHint": "Die Administration legt das Konto an.",
         "level": "Zugriff",
         "remove": "Entfernen",
         "confirmRemove": "Wirklich entfernen?",
@@ -7092,6 +7095,7 @@
       "groupCrm": "CRM",
       "groupSubmissions": "Anfragen",
       "groupEquipment": "Ausrüstung",
+      "groupTeam": "Team",
       "groupResidential": "Wohnen",
       "groupCommercial": "Gewerbe",
       "groupOperations": "Operationen",
