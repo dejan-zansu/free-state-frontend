@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CalendarDays, Mail, Sun, Zap } from 'lucide-react'
+import LogoDark from '@/components/icons/LogoDark'
 import { PARTNER_LOGOS } from '@/components/OurPartners'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 
@@ -107,7 +108,9 @@ export default async function DachPage({
     <div className="min-h-screen bg-white text-[#062E25]">
       <div className="border-b border-[#062E25]/10">
         <div className="mx-auto max-w-3xl px-5 py-4 flex items-center justify-between">
-          <span className="font-semibold tracking-tight text-lg">Free State AG</span>
+          <Link href="/" aria-label="Free State AG, zur Startseite">
+            <LogoDark className="h-6 sm:h-7.25 w-auto" />
+          </Link>
           <span className="text-base text-[#062E25]/60 hidden sm:block">Solarstrom vom eigenen Dach</span>
         </div>
       </div>
@@ -257,9 +260,17 @@ export default async function DachPage({
           <p className="font-semibold text-[#062E25]">Free State AG</p>
           <p>Stettemerstrasse 40, 8207 Schaffhausen, UID CHE-134.711.335</p>
           <p>Datengrundlage sonnendach.ch und Anlagenregister des Bundes, Luftbild ©swisstopo.</p>
-          <Link href="/datenschutz" className="inline-block underline hover:text-[#062E25]">
-            Datenschutzerklärung
-          </Link>
+          <div className="flex flex-wrap gap-x-5 gap-y-1">
+            <Link href="/" className="underline hover:text-[#062E25]">
+              www.freestate.ch
+            </Link>
+            <Link href="/portfolio" className="underline hover:text-[#062E25]">
+              Referenzen
+            </Link>
+            <Link href="/datenschutz" className="underline hover:text-[#062E25]">
+              Datenschutzerklärung
+            </Link>
+          </div>
         </div>
       </footer>
     </div>
