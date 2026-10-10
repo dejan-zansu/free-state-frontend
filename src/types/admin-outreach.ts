@@ -796,7 +796,7 @@ export interface LinkedinPostItem {
   statsAt: string | null
 }
 
-export interface LinkedinPostTest {
+export interface LinkedinRehearsal {
   requestedAt: string | null
   pending: boolean
   result: {
@@ -810,7 +810,7 @@ export interface LinkedinPostTest {
 export interface LinkedinPostList {
   scheduled: LinkedinPostItem[]
   recent: LinkedinPostItem[]
-  test?: LinkedinPostTest
+  test?: LinkedinRehearsal
 }
 
 export type LinkedinEngagementDecision = 'PENDING' | 'SKIP' | 'LIKE' | 'COMMENT'
@@ -836,4 +836,5 @@ export interface LinkedinEngagementOverview {
   commentLimit: number
   pendingDecisions: number
   items: LinkedinEngagementItem[]
+  test?: LinkedinRehearsal
 }

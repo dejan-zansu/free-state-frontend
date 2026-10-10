@@ -51,6 +51,7 @@ import type {
   LinkedinFeatureMode,
   LinkedinPostItem,
   LinkedinProspectCard,
+  LinkedinRehearsal,
   LinkedinReplyOutcome,
   LinkedinRequestItem,
   LinkedinSenderInput,
@@ -965,6 +966,54 @@ function ReviewTab() {
   )
 }
 
+function RehearsalBox({
+  area,
+  test,
+  starting,
+  onStart,
+}: {
+  area: 'posts' | 'engagement'
+  test?: LinkedinRehearsal
+  starting: boolean
+  onStart: () => void
+}) {
+  const t = useTranslations('admin.outreach.linkedin')
+  return (
+    <div className="rounded-md border border-[#062E25]/10 p-4 space-y-2">
+      <p className="font-medium">{t(`${area}.test.title`)}</p>
+      <p className="text-[#062E25]/75">{t(`${area}.test.hint`)}</p>
+      <Button
+        size="sm"
+        disabled={starting || Boolean(test?.pending)}
+        onClick={onStart}
+      >
+        {test?.pending ? t(`${area}.test.pending`) : t(`${area}.test.start`)}
+      </Button>
+      {test?.result && !test.pending && (
+        <div className="space-y-1">
+          <p
+            className={
+              test.result.outcome === 'done' ? 'text-green-800' : 'text-red-700'
+            }
+          >
+            {formatDateTime(test.result.at)}{' '}
+            {test.result.outcome === 'done'
+              ? t(`${area}.test.ok`)
+              : t(`${area}.test.failed`, {
+                  code: test.result.code ?? test.result.outcome,
+                })}
+          </p>
+          {test.result.message && (
+            <p className="text-[#062E25]/60 break-words">
+              {test.result.message}
+            </p>
+          )}
+        </div>
+      )}
+    </div>
+  )
+}
+
 function PostsTab({
   senderId,
   mode,
@@ -1027,40 +1076,12 @@ function PostsTab({
         {mode && <p className="font-medium">{t(`posts.modeStatus.${mode}`)}</p>}
       </div>
 
-      <div className="rounded-md border border-[#062E25]/10 p-4 space-y-2">
-        <p className="font-medium">{t('posts.test.title')}</p>
-        <p className="text-[#062E25]/75">{t('posts.test.hint')}</p>
-        <Button
-          size="sm"
-          disabled={runTest.isPending || Boolean(test?.pending)}
-          onClick={() => runTest.mutate()}
-        >
-          {test?.pending ? t('posts.test.pending') : t('posts.test.start')}
-        </Button>
-        {test?.result && !test.pending && (
-          <div className="space-y-1">
-            <p
-              className={
-                test.result.outcome === 'done'
-                  ? 'text-green-800'
-                  : 'text-red-700'
-              }
-            >
-              {formatDateTime(test.result.at)}{' '}
-              {test.result.outcome === 'done'
-                ? t('posts.test.ok')
-                : t('posts.test.failed', {
-                    code: test.result.code ?? test.result.outcome,
-                  })}
-            </p>
-            {test.result.message && (
-              <p className="text-[#062E25]/60 break-words">
-                {test.result.message}
-              </p>
-            )}
-          </div>
-        )}
-      </div>
+      <RehearsalBox
+        area="posts"
+        test={test}
+        starting={runTest.isPending}
+        onStart={() => runTest.mutate()}
+      />
 
       <div>
         <h3 className="font-semibold text-[#062E25] mb-2">
@@ -1234,10 +1255,23 @@ function EngagementTab({
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const locale = useLocale()
+  const queryClient = useQueryClient()
+  const onError = useErrorToast()
   const engagement = useQuery({
     queryKey: [...QUEUE_KEY, 'engagement', senderId ?? 'self'],
     queryFn: () => adminLinkedinService.getEngagement(senderId),
-    refetchInterval: 60000,
+    refetchInterval: query => (query.state.data?.test?.pending ? 10000 : 60000),
+  })
+  const runTest = useMutation({
+    mutationFn: () => adminLinkedinService.requestEngagementTest(senderId),
+    onSuccess: () => {
+      toast.success(t('engagement.test.requested'))
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+    onError: error => {
+      onError(error)
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
   })
 
   if (engagement.isLoading) return <AdminPageLoader />
@@ -1256,6 +1290,13 @@ function EngagementTab({
           <p className="font-medium">{t(`engagement.modeStatus.${mode}`)}</p>
         )}
       </div>
+
+      <RehearsalBox
+        area="engagement"
+        test={data?.test}
+        starting={runTest.isPending}
+        onStart={() => runTest.mutate()}
+      />
 
       {data && (
         <div className="grid gap-4 sm:grid-cols-3">

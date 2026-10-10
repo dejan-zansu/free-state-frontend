@@ -8768,6 +8768,15 @@
           },
           "likesToday": "Likes today",
           "commentsToday": "Comments today",
+          "test": {
+            "title": "Rehearse now",
+            "hint": "The extension opens the activity page of a person it visited lately, checks the like button, types a sample text into the comment box and deletes it again. Nothing is liked and nothing is sent. The rehearsal starts at any hour and whatever the switch says.",
+            "start": "Start rehearsal",
+            "pending": "Rehearsal running",
+            "requested": "Rehearsal requested.",
+            "ok": "Successful. Post found, sample text typed and deleted again.",
+            "failed": "Failed ({code})."
+          },
           "pendingDecisions": "Decisions waiting",
           "recentTitle": "Last 7 days",
           "empty": "No posts found in the last 7 days.",

@@ -8768,6 +8768,15 @@
           },
           "likesToday": "«Gefällt mir» heute",
           "commentsToday": "Kommentare heute",
+          "test": {
+            "title": "Probelauf jetzt",
+            "hint": "Die Erweiterung öffnet die Aktivitätsseite einer zuletzt besuchten Person, prüft den Knopf «Gefällt mir», tippt einen Beispieltext ins Kommentarfeld und löscht ihn wieder. Es wird kein «Gefällt mir» gesetzt und nichts gesendet. Der Probelauf startet zu jeder Uhrzeit und unabhängig vom Schalter.",
+            "start": "Probelauf starten",
+            "pending": "Probelauf läuft",
+            "requested": "Probelauf angefordert.",
+            "ok": "Erfolgreich. Beitrag gefunden, Beispieltext getippt und wieder gelöscht.",
+            "failed": "Fehlgeschlagen ({code})."
+          },
           "pendingDecisions": "Offene Entscheide",
           "recentTitle": "Letzte 7 Tage",
           "empty": "In den letzten 7 Tagen keine Beiträge gefunden.",
