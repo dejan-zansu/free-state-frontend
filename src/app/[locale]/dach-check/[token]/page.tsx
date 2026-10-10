@@ -122,7 +122,7 @@ export default async function DachCheckPage({
               className="w-full aspect-square sm:aspect-[4/3] object-cover rounded-2xl border border-[#062E25]/10"
             />
             <figcaption className="mt-2 text-base text-[#062E25]/60">
-              Luftbild SWISSIMAGE, swisstopo
+              Luftbild SWISSIMAGE, ©swisstopo
             </figcaption>
           </figure>
         )}
@@ -191,7 +191,7 @@ export default async function DachCheckPage({
 
         <p className="text-base text-[#062E25]/60">
           Datengrundlage sonnendach.ch und Anlagenregister des Bundes, Luftbild
-          swisstopo.
+          ©swisstopo.
         </p>
       </div>
     </main>

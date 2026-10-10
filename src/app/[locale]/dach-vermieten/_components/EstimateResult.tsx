@@ -60,7 +60,7 @@ function OkResult({ estimate }: { estimate: Ok }) {
             className="aspect-square w-full rounded-2xl border border-[#062E25]/10 object-cover"
           />
           <figcaption className="mt-2 text-base text-[#062E25]/60">
-            Luftbild SWISSIMAGE, swisstopo
+            Luftbild SWISSIMAGE, ©swisstopo
           </figcaption>
         </figure>
 
