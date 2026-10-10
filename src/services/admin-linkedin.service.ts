@@ -184,6 +184,10 @@ class AdminLinkedinService {
     )
   }
 
+  async requestPostTest(senderId?: string): Promise<void> {
+    await api.post(`${BASE}/posts/test`, undefined, acting(senderId))
+  }
+
   async getEngagement(senderId?: string): Promise<LinkedinEngagementOverview> {
     const response = await api.get<Envelope<LinkedinEngagementOverview>>(
       `${BASE}/engagement`,

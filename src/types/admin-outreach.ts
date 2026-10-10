@@ -796,9 +796,21 @@ export interface LinkedinPostItem {
   statsAt: string | null
 }
 
+export interface LinkedinPostTest {
+  requestedAt: string | null
+  pending: boolean
+  result: {
+    at: string
+    outcome: string
+    code: string | null
+    message: string | null
+  } | null
+}
+
 export interface LinkedinPostList {
   scheduled: LinkedinPostItem[]
   recent: LinkedinPostItem[]
+  test?: LinkedinPostTest
 }
 
 export type LinkedinEngagementDecision = 'PENDING' | 'SKIP' | 'LIKE' | 'COMMENT'

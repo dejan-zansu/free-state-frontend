@@ -8386,6 +8386,9 @@
         "errors": {
           "generic": "Das hat nicht geklappt. Bitte erneut versuchen.",
           "LINKEDIN_NO_SENDER": "Ihr Konto ist nicht als LinkedIn-Absender eingerichtet.",
+          "LINKEDIN_MANUAL_MODE": "Der Probelauf braucht die Erweiterung im automatischen Modus.",
+          "LINKEDIN_PAUSED": "Die Erweiterung ist angehalten. Bitte zuerst fortsetzen.",
+          "LINKEDIN_EXTENSION_OUTDATED": "Die Erweiterung ist zu alt. Bitte in chrome://extensions neu laden.",
           "LINKEDIN_NOT_ELIGIBLE": "Dieser Kontakt ist nicht mehr in der Liste. Die Seite wurde aktualisiert.",
           "LINKEDIN_SUPPRESSED": "Dieser Kontakt steht auf der Sperrliste.",
           "LINKEDIN_DAILY_LIMIT": "Tageslimit erreicht.",
@@ -8524,6 +8527,15 @@
             "LIVE": "Beiträge sind live."
           },
           "scheduledTitle": "Geplant",
+          "test": {
+            "title": "Probelauf jetzt",
+            "hint": "Die Erweiterung tippt den nächsten geplanten Beitrag samt Bild ein und verwirft ihn wieder. Es wird nichts veröffentlicht. Der Probelauf startet zu jeder Uhrzeit, sobald die Erweiterung online ist.",
+            "start": "Probelauf starten",
+            "pending": "Probelauf läuft",
+            "requested": "Probelauf angefordert.",
+            "ok": "Erfolgreich. Text und Bild wurden eingefügt und wieder verworfen.",
+            "failed": "Fehlgeschlagen ({code})."
+          },
           "emptyScheduled": "Keine Beiträge geplant.",
           "recentTitle": "Letzte Beiträge",
           "emptyRecent": "Noch keine Beiträge.",

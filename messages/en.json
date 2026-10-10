@@ -8576,6 +8576,9 @@
         "errors": {
           "generic": "That did not work. Please try again.",
           "LINKEDIN_NO_SENDER": "Your account is not set up as a LinkedIn sender.",
+          "LINKEDIN_MANUAL_MODE": "The rehearsal needs the extension in automatic mode.",
+          "LINKEDIN_PAUSED": "The extension is paused. Resume it first.",
+          "LINKEDIN_EXTENSION_OUTDATED": "The extension is outdated. Reload it in chrome://extensions.",
           "LINKEDIN_NOT_ELIGIBLE": "This contact is no longer in the list. The page was refreshed.",
           "LINKEDIN_SUPPRESSED": "This contact is on the suppression list.",
           "LINKEDIN_DAILY_LIMIT": "Daily limit reached.",
@@ -8714,6 +8717,15 @@
             "LIVE": "Posts are live."
           },
           "scheduledTitle": "Scheduled",
+          "test": {
+            "title": "Rehearse now",
+            "hint": "The extension types the next scheduled post with its image and discards it again. Nothing is published. The rehearsal starts at any hour, as soon as the extension is online.",
+            "start": "Start rehearsal",
+            "pending": "Rehearsal running",
+            "requested": "Rehearsal requested.",
+            "ok": "Successful. Text and image were added and discarded again.",
+            "failed": "Failed ({code})."
+          },
           "emptyScheduled": "No posts scheduled.",
           "recentTitle": "Recent posts",
           "emptyRecent": "No posts yet.",

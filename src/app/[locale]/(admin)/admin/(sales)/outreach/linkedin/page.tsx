@@ -978,12 +978,23 @@ function PostsTab({
   const posts = useQuery({
     queryKey: [...QUEUE_KEY, 'posts', senderId ?? 'self'],
     queryFn: () => adminLinkedinService.listPosts(senderId),
-    refetchInterval: 60000,
+    refetchInterval: query => (query.state.data?.test?.pending ? 10000 : 60000),
   })
   const cancel = useMutation({
     mutationFn: (id: string) => adminLinkedinService.cancelPost(id, senderId),
     onSuccess: () => {
       toast.success(t('posts.cancelled'))
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+    onError: error => {
+      onError(error)
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+  })
+  const runTest = useMutation({
+    mutationFn: () => adminLinkedinService.requestPostTest(senderId),
+    onSuccess: () => {
+      toast.success(t('posts.test.requested'))
       queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
     },
     onError: error => {
@@ -997,6 +1008,7 @@ function PostsTab({
     return <p className="text-red-700">{t('errors.generic')}</p>
   const scheduled = posts.data?.scheduled ?? []
   const recent = posts.data?.recent ?? []
+  const test = posts.data?.test
   const lastError = (code: string | null) =>
     code
       ? t.has(`posts.lastErrors.${code}`)
@@ -1013,6 +1025,41 @@ function PostsTab({
       <div className="space-y-1">
         <p className="text-[#062E25]/75">{t('posts.hint')}</p>
         {mode && <p className="font-medium">{t(`posts.modeStatus.${mode}`)}</p>}
+      </div>
+
+      <div className="rounded-md border border-[#062E25]/10 p-4 space-y-2">
+        <p className="font-medium">{t('posts.test.title')}</p>
+        <p className="text-[#062E25]/75">{t('posts.test.hint')}</p>
+        <Button
+          size="sm"
+          disabled={runTest.isPending || Boolean(test?.pending)}
+          onClick={() => runTest.mutate()}
+        >
+          {test?.pending ? t('posts.test.pending') : t('posts.test.start')}
+        </Button>
+        {test?.result && !test.pending && (
+          <div className="space-y-1">
+            <p
+              className={
+                test.result.outcome === 'done'
+                  ? 'text-green-800'
+                  : 'text-red-700'
+              }
+            >
+              {formatDateTime(test.result.at)}{' '}
+              {test.result.outcome === 'done'
+                ? t('posts.test.ok')
+                : t('posts.test.failed', {
+                    code: test.result.code ?? test.result.outcome,
+                  })}
+            </p>
+            {test.result.message && (
+              <p className="text-[#062E25]/60 break-words">
+                {test.result.message}
+              </p>
+            )}
+          </div>
+        )}
       </div>
 
       <div>
