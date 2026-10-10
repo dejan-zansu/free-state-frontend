@@ -8760,7 +8760,7 @@
           "FAILED": "Failed"
         },
         "engagement": {
-          "hint": "Before the connection request, the extension likes or comments on the person's newest own post. The daily run decides for each post whether and how.",
+          "hint": "Before the connection request, the extension likes or comments on the person's newest own post. The daily run decides for each post whether and how. Comments only go to posts about our field (solar power, electricity and energy for buildings). Likes also go to posts about the person's own business, never to random posts.",
           "modeStatus": {
             "OFF": "Likes and comments are switched off.",
             "REHEARSAL": "Likes and comments run in rehearsal. The extension finds the buttons and types comments as a test, but sends nothing.",

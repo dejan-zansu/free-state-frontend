@@ -8760,7 +8760,7 @@
           "FAILED": "Fehlgeschlagen"
         },
         "engagement": {
-          "hint": "Vor der Kontaktanfrage reagiert die Erweiterung auf den neuesten eigenen Beitrag der Person mit «Gefällt mir» oder einem Kommentar. Der tägliche Lauf entscheidet pro Beitrag, ob und wie.",
+          "hint": "Vor der Kontaktanfrage reagiert die Erweiterung auf den neuesten eigenen Beitrag der Person mit «Gefällt mir» oder einem Kommentar. Der tägliche Lauf entscheidet pro Beitrag, ob und wie. Kommentiert wird nur zu Beiträgen aus unserem Themenfeld (Solarstrom, Strom und Energie für Gebäude). «Gefällt mir» gibt es auch für Beiträge zum eigenen Geschäft der Person, nie für beliebige Beiträge.",
           "modeStatus": {
             "OFF": "Likes und Kommentare sind ausgeschaltet.",
             "REHEARSAL": "Likes und Kommentare laufen im Probelauf. Die Erweiterung sucht die Schaltflächen und tippt Kommentare zur Probe, sendet aber nichts.",
