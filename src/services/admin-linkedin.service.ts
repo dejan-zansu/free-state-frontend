@@ -188,6 +188,14 @@ class AdminLinkedinService {
     await api.post(`${BASE}/posts/test`, undefined, acting(senderId))
   }
 
+  async requestPagePostTest(senderId?: string): Promise<void> {
+    await api.post(`${BASE}/posts/page-test`, undefined, acting(senderId))
+  }
+
+  async requestRepostTest(senderId?: string): Promise<void> {
+    await api.post(`${BASE}/posts/repost-test`, undefined, acting(senderId))
+  }
+
   async requestEngagementTest(senderId?: string): Promise<void> {
     await api.post(`${BASE}/engagement/test`, undefined, acting(senderId))
   }

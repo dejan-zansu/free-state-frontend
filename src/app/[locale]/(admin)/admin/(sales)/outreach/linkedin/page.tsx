@@ -972,7 +972,7 @@ function RehearsalBox({
   starting,
   onStart,
 }: {
-  area: 'posts' | 'engagement'
+  area: 'posts' | 'pagePosts' | 'reposts' | 'engagement'
   test?: LinkedinRehearsal
   starting: boolean
   onStart: () => void
@@ -1017,9 +1017,13 @@ function RehearsalBox({
 function PostsTab({
   senderId,
   mode,
+  pagePostMode,
+  repostMode,
 }: {
   senderId?: string
   mode?: LinkedinFeatureMode
+  pagePostMode?: LinkedinFeatureMode
+  repostMode?: LinkedinFeatureMode
 }) {
   const t = useTranslations('admin.outreach.linkedin')
   const queryClient = useQueryClient()
@@ -1027,7 +1031,12 @@ function PostsTab({
   const posts = useQuery({
     queryKey: [...QUEUE_KEY, 'posts', senderId ?? 'self'],
     queryFn: () => adminLinkedinService.listPosts(senderId),
-    refetchInterval: query => (query.state.data?.test?.pending ? 10000 : 60000),
+    refetchInterval: query =>
+      query.state.data?.test?.pending ||
+      query.state.data?.pageTest?.pending ||
+      query.state.data?.repostTest?.pending
+        ? 10000
+        : 60000,
   })
   const cancel = useMutation({
     mutationFn: (id: string) => adminLinkedinService.cancelPost(id, senderId),
@@ -1044,6 +1053,28 @@ function PostsTab({
     mutationFn: () => adminLinkedinService.requestPostTest(senderId),
     onSuccess: () => {
       toast.success(t('posts.test.requested'))
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+    onError: error => {
+      onError(error)
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+  })
+  const runPageTest = useMutation({
+    mutationFn: () => adminLinkedinService.requestPagePostTest(senderId),
+    onSuccess: () => {
+      toast.success(t('pagePosts.test.requested'))
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+    onError: error => {
+      onError(error)
+      queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
+    },
+  })
+  const runRepostTest = useMutation({
+    mutationFn: () => adminLinkedinService.requestRepostTest(senderId),
+    onSuccess: () => {
+      toast.success(t('reposts.test.requested'))
       queryClient.invalidateQueries({ queryKey: QUEUE_KEY })
     },
     onError: error => {
@@ -1068,12 +1099,61 @@ function PostsTab({
     post.status === 'PUBLISHED' && value !== null
       ? value.toLocaleString('de-CH')
       : '-'
+  const targetLabel = (post: LinkedinPostItem) =>
+    t(`posts.targets.${post.target === 'PAGE' ? 'PAGE' : 'PROFILE'}`)
+  const repostError = (code: string) =>
+    t.has(`reposts.errors.${code}`) ? t(`reposts.errors.${code}`) : code
+  const pageRepost = (post: LinkedinPostItem) => {
+    if (post.target === 'PAGE' || post.status !== 'PUBLISHED') return '-'
+    if (post.repostedAt)
+      return (
+        <div className="flex flex-col gap-1">
+          <span className="tabular-nums">
+            {formatDateTime(post.repostedAt)}
+          </span>
+          {isLinkedinUrl(post.repostUrl) && (
+            <ExternalAnchor href={post.repostUrl}>
+              {t('reposts.openLink')}
+            </ExternalAnchor>
+          )}
+          {post.repostError === 'name_reset_failed' && (
+            <span className="min-w-[280px] whitespace-normal text-amber-800">
+              {repostError(post.repostError)}
+            </span>
+          )}
+        </div>
+      )
+    if (post.repostClosedAt)
+      return post.repostError ? repostError(post.repostError) : '-'
+    if (post.repostClickedAt) return t('reposts.states.verifying')
+    if (post.repostError === 'rehearsal_ok')
+      return repostError(post.repostError)
+    return (
+      <div className="flex flex-col gap-1">
+        <span>{t('reposts.states.open')}</span>
+        {post.repostError && (
+          <span className="text-[#062E25]/60">
+            {t('posts.lastError', { error: repostError(post.repostError) })}
+          </span>
+        )}
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6">
       <div className="space-y-1">
         <p className="text-[#062E25]/75">{t('posts.hint')}</p>
+        <p className="text-[#062E25]/75">{t('posts.pageHint')}</p>
         {mode && <p className="font-medium">{t(`posts.modeStatus.${mode}`)}</p>}
+        {pagePostMode && (
+          <p className="font-medium">
+            {t(`pagePosts.modeStatus.${pagePostMode}`)}
+          </p>
+        )}
+        {repostMode && (
+          <p className="font-medium">{t(`reposts.modeStatus.${repostMode}`)}</p>
+        )}
       </div>
 
       <RehearsalBox
@@ -1081,6 +1161,18 @@ function PostsTab({
         test={test}
         starting={runTest.isPending}
         onStart={() => runTest.mutate()}
+      />
+      <RehearsalBox
+        area="pagePosts"
+        test={posts.data?.pageTest}
+        starting={runPageTest.isPending}
+        onStart={() => runPageTest.mutate()}
+      />
+      <RehearsalBox
+        area="reposts"
+        test={posts.data?.repostTest}
+        starting={runRepostTest.isPending}
+        onStart={() => runRepostTest.mutate()}
       />
 
       <div>
@@ -1110,9 +1202,14 @@ function PostsTab({
                 )}
                 <div className="flex-1 min-w-0 space-y-2">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="font-medium tabular-nums">
-                      {formatDateTime(post.scheduledFor)}
-                    </p>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <p className="font-medium tabular-nums">
+                        {formatDateTime(post.scheduledFor)}
+                      </p>
+                      <span className="px-2 rounded bg-[#062E25]/10">
+                        {targetLabel(post)}
+                      </span>
+                    </div>
                     <Button
                       size="sm"
                       variant="outline"
@@ -1150,10 +1247,11 @@ function PostsTab({
         </h3>
         <p className="text-[#062E25]/75 mb-2">{t('posts.commentsHint')}</p>
         <div className="overflow-x-auto">
-          <Table className="text-base min-w-[1120px]">
+          <Table className="text-base min-w-[1400px]">
             <TableHeader>
               <TableRow className="hover:bg-transparent">
                 <TableHead>{t('posts.colTime')}</TableHead>
+                <TableHead>{t('posts.colTarget')}</TableHead>
                 <TableHead>{t('posts.colStatus')}</TableHead>
                 <TableHead className="text-right">
                   {t('posts.colReactions')}
@@ -1168,6 +1266,7 @@ function PostsTab({
                   {t('posts.colImpressions')}
                 </TableHead>
                 <TableHead>{t('posts.colLink')}</TableHead>
+                <TableHead>{t('posts.colPageRepost')}</TableHead>
                 <TableHead>{t('posts.colLastError')}</TableHead>
               </TableRow>
             </TableHeader>
@@ -1177,6 +1276,7 @@ function PostsTab({
                   <TableCell className="tabular-nums">
                     {formatDateTime(post.publishedAt ?? post.scheduledFor)}
                   </TableCell>
+                  <TableCell>{targetLabel(post)}</TableCell>
                   <TableCell>
                     <StatusBadge
                       status={post.status}
@@ -1214,13 +1314,21 @@ function PostsTab({
                       )}
                     </div>
                   </TableCell>
-                  <TableCell>{lastError(post.lastError)}</TableCell>
+                  <TableCell>{pageRepost(post)}</TableCell>
+                  <TableCell
+                    className={cn(
+                      post.lastError === 'name_reset_failed' &&
+                        'min-w-[280px] whitespace-normal text-amber-800'
+                    )}
+                  >
+                    {lastError(post.lastError)}
+                  </TableCell>
                 </TableRow>
               ))}
               {recent.length === 0 && (
                 <TableRow>
                   <TableCell
-                    colSpan={8}
+                    colSpan={10}
                     className="text-center py-8 text-[#062E25]/75"
                   >
                     {t('posts.emptyRecent')}
@@ -1540,7 +1648,12 @@ function AgentPanel({
     mutationFn: (
       input: Pick<
         LinkedinSenderInput,
-        'mode' | 'rehearsal' | 'engagementMode' | 'postMode'
+        | 'mode'
+        | 'rehearsal'
+        | 'engagementMode'
+        | 'postMode'
+        | 'pagePostMode'
+        | 'repostMode'
       >
     ) => adminLinkedinService.updateSender(s.id, input),
     onSuccess: refresh,
@@ -1574,6 +1687,8 @@ function AgentPanel({
   const offReasons = [
     { feature: t('engagementMode'), reason: s.engagementOffReason },
     { feature: t('postMode'), reason: s.postOffReason },
+    { feature: t('pagePostMode'), reason: s.pagePostOffReason },
+    { feature: t('repostMode'), reason: s.repostOffReason },
   ].filter((row): row is { feature: string; reason: string } => !!row.reason)
   const copy = async () => {
     if (!key) return
@@ -1660,6 +1775,20 @@ function AgentPanel({
             value={s.postMode}
             disabled={update.isPending}
             onChange={postMode => update.mutate({ postMode })}
+          />
+          <FeatureModeSelect
+            id={`linkedin-page-post-mode-${s.id}`}
+            label={t('pagePostMode')}
+            value={s.pagePostMode}
+            disabled={update.isPending}
+            onChange={pagePostMode => update.mutate({ pagePostMode })}
+          />
+          <FeatureModeSelect
+            id={`linkedin-repost-mode-${s.id}`}
+            label={t('repostMode')}
+            value={s.repostMode}
+            disabled={update.isPending}
+            onChange={repostMode => update.mutate({ repostMode })}
           />
         </div>
         {offReasons.map(row => {
@@ -2124,6 +2253,14 @@ export default function AdminOutreachLinkedinPage() {
                 <PostsTab
                   senderId={senderId}
                   mode={effectiveMode(q.sender.postMode, q.sender.rehearsal)}
+                  pagePostMode={effectiveMode(
+                    q.sender.pagePostMode,
+                    q.sender.rehearsal
+                  )}
+                  repostMode={effectiveMode(
+                    q.sender.repostMode,
+                    q.sender.rehearsal
+                  )}
                 />
               ) : (
                 <p className="text-[#062E25]/75">{t('noSenderHint')}</p>

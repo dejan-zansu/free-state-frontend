@@ -8690,7 +8690,8 @@
             "like": "Liked",
             "comment": "Comment posted",
             "engagement_closed": "Engagement closed",
-            "post": "Post published"
+            "post": "Post published",
+            "repost": "Post reposted"
           },
           "jobTypes": {
             "check": "Check",
@@ -8701,7 +8702,9 @@
             "withdraw": "Withdraw",
             "like": "Like",
             "comment": "Comment",
-            "post": "Post"
+            "post": "Post",
+            "page_post": "Page post",
+            "repost": "Repost as the page"
           },
           "featureMode": {
             "OFF": "Off",
@@ -8710,11 +8713,14 @@
           },
           "engagementMode": "Likes and comments",
           "postMode": "Posts",
+          "pagePostMode": "Page posts",
+          "repostMode": "Reposts as the page",
           "offReason": "{feature} were switched off after three failures in one day ({reason}).",
-          "featureModeHint": "In rehearsal the extension finds posts and buttons and types texts as a test, but never clicks «Like», «Comment» or «Post». When the rehearsal switch above is on, it applies here too."
+          "featureModeHint": "In rehearsal the extension finds posts and buttons and types texts as a test, but never clicks «Like», «Comment», «Post» or «Repost». When the rehearsal switch above is on, it applies here too."
         },
         "posts": {
           "hint": "The extension publishes scheduled posts on the sender's profile on Tuesdays and Thursdays at 08:30. A post that is still unpublished three hours after its slot is cancelled.",
+          "pageHint": "The extension publishes page posts on the company page on Wednesdays at 08:30, with a window of eight hours instead of three. It reposts profile posts in the name of the company page, three hours after publishing at the earliest and seven days at the latest, at most one a day.",
           "modeStatus": {
             "OFF": "Posts are switched off.",
             "REHEARSAL": "Posts run in rehearsal. The extension types them as a test and discards them.",
@@ -8722,7 +8728,7 @@
           },
           "scheduledTitle": "Scheduled",
           "test": {
-            "title": "Rehearse now",
+            "title": "Rehearse a profile post",
             "hint": "The extension types the next scheduled post with its image and discards it again. Nothing is published. The rehearsal starts at any hour, as soon as the extension is online.",
             "start": "Start rehearsal",
             "pending": "Rehearsal running",
@@ -8741,6 +8747,8 @@
           "colStatus": "Status",
           "colLink": "Link",
           "colLastError": "Last note",
+          "colTarget": "Target",
+          "colPageRepost": "Page repost",
           "commentsHint": "Ivan should answer comments on his posts within the first hours after publishing.",
           "colReactions": "Reactions",
           "colComments": "Comments",
@@ -8753,8 +8761,56 @@
             "rehearsal_ok": "Rehearsal passed",
             "published_unverified": "Published but not found",
             "published_after_cancel": "Published after cancelling",
-            "media_unavailable": "Image unavailable"
+            "media_unavailable": "Image unavailable",
+            "name_reset_failed": "Name in the post window not set back, check by hand before the next post"
+          },
+          "targets": {
+            "PROFILE": "Profile",
+            "PAGE": "Page"
           }
+        },
+        "pagePosts": {
+          "modeStatus": {
+            "OFF": "Page posts are switched off.",
+            "REHEARSAL": "Page posts run in rehearsal. The extension types them under the company page's name as a test and discards them.",
+            "LIVE": "Page posts are live."
+          },
+          "test": {
+            "title": "Rehearse a page post",
+            "hint": "The extension types the next scheduled page post under the company page's name and discards it again. If none is scheduled, it uses a sample text. Nothing is published.",
+            "start": "Start rehearsal",
+            "pending": "Rehearsal running",
+            "requested": "Page post rehearsal requested.",
+            "ok": "Successful. The text was added under the company page's name and discarded again.",
+            "failed": "Failed ({code})."
+          }
+        },
+        "reposts": {
+          "modeStatus": {
+            "OFF": "Reposts as the page are switched off.",
+            "REHEARSAL": "Reposts as the page run in rehearsal. The extension opens the share window, switches the name to the company page and closes it again without reposting.",
+            "LIVE": "Reposts as the page are live."
+          },
+          "test": {
+            "title": "Rehearse a repost as the page",
+            "hint": "The extension opens the share window for the newest published post, switches the name to the company page and closes the window again. Nothing is reposted.",
+            "start": "Start rehearsal",
+            "pending": "Rehearsal running",
+            "requested": "Repost rehearsal requested.",
+            "ok": "Successful. Share window opened, name switched to the company page and window closed again.",
+            "failed": "Failed ({code})."
+          },
+          "states": {
+            "open": "Open",
+            "verifying": "Clicked, being verified"
+          },
+          "errors": {
+            "rehearsal_ok": "Rehearsal passed",
+            "expired": "Expired",
+            "reposted_unverified": "Reposted but not found",
+            "name_reset_failed": "Name in the post window not set back, check by hand before the next post"
+          },
+          "openLink": "Open repost"
         },
         "postStatus": {
           "SCHEDULED": "Scheduled",

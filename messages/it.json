@@ -8690,7 +8690,8 @@
             "like": "«Gefällt mir» gesetzt",
             "comment": "Kommentar gesendet",
             "engagement_closed": "Engagement beendet",
-            "post": "Beitrag veröffentlicht"
+            "post": "Beitrag veröffentlicht",
+            "repost": "Beitrag repostet"
           },
           "jobTypes": {
             "check": "Prüfung",
@@ -8701,7 +8702,9 @@
             "withdraw": "Zurückziehen",
             "like": "Gefällt mir",
             "comment": "Kommentar",
-            "post": "Beitrag"
+            "post": "Beitrag",
+            "page_post": "Seitenbeitrag",
+            "repost": "Repost als Seite"
           },
           "featureMode": {
             "OFF": "Aus",
@@ -8710,11 +8713,14 @@
           },
           "engagementMode": "Likes und Kommentare",
           "postMode": "Beiträge",
+          "pagePostMode": "Seitenbeiträge",
+          "repostMode": "Reposts als Seite",
           "offReason": "{feature} wurden nach drei Fehlern an einem Tag ausgeschaltet ({reason}).",
-          "featureModeHint": "Im Probelauf sucht die Erweiterung Beiträge und Schaltflächen und tippt Texte zur Probe, klickt aber nie auf «Gefällt mir», «Kommentieren» oder «Posten». Ist der Probelauf oben eingeschaltet, gilt er auch hier."
+          "featureModeHint": "Im Probelauf sucht die Erweiterung Beiträge und Schaltflächen und tippt Texte zur Probe, klickt aber nie auf «Gefällt mir», «Kommentieren», «Posten» oder «Reposten». Ist der Probelauf oben eingeschaltet, gilt er auch hier."
         },
         "posts": {
           "hint": "Die Erweiterung veröffentlicht geplante Beiträge dienstags und donnerstags um 08:30 auf dem Profil des Absenders. Ist ein Beitrag drei Stunden nach seinem Termin noch nicht veröffentlicht, wird er abgebrochen.",
+          "pageHint": "Seitenbeiträge veröffentlicht die Erweiterung mittwochs um 08:30 auf der Firmenseite, mit acht Stunden Frist statt drei. Beiträge vom Profil repostet sie im Namen der Firmenseite, frühestens drei Stunden und spätestens sieben Tage nach der Veröffentlichung, höchstens einen pro Tag.",
           "modeStatus": {
             "OFF": "Beiträge sind ausgeschaltet.",
             "REHEARSAL": "Beiträge laufen im Probelauf. Die Erweiterung tippt sie zur Probe und verwirft sie wieder.",
@@ -8722,7 +8728,7 @@
           },
           "scheduledTitle": "Geplant",
           "test": {
-            "title": "Probelauf jetzt",
+            "title": "Probelauf Profilbeitrag",
             "hint": "Die Erweiterung tippt den nächsten geplanten Beitrag samt Bild ein und verwirft ihn wieder. Es wird nichts veröffentlicht. Der Probelauf startet zu jeder Uhrzeit, sobald die Erweiterung online ist.",
             "start": "Probelauf starten",
             "pending": "Probelauf läuft",
@@ -8741,6 +8747,8 @@
           "colStatus": "Status",
           "colLink": "Link",
           "colLastError": "Letzte Meldung",
+          "colTarget": "Ziel",
+          "colPageRepost": "Repost der Seite",
           "commentsHint": "Ivan sollte Kommentare unter seinen Beiträgen in den ersten Stunden nach der Veröffentlichung beantworten.",
           "colReactions": "Reaktionen",
           "colComments": "Kommentare",
@@ -8753,8 +8761,56 @@
             "rehearsal_ok": "Probelauf erfolgreich",
             "published_unverified": "Veröffentlicht, aber nicht gefunden",
             "published_after_cancel": "Nach dem Abbruch veröffentlicht",
-            "media_unavailable": "Bild nicht verfügbar"
+            "media_unavailable": "Bild nicht verfügbar",
+            "name_reset_failed": "Name im Beitragsfenster nicht zurückgestellt, vor dem nächsten Beitrag von Hand prüfen"
+          },
+          "targets": {
+            "PROFILE": "Profil",
+            "PAGE": "Seite"
           }
+        },
+        "pagePosts": {
+          "modeStatus": {
+            "OFF": "Seitenbeiträge sind ausgeschaltet.",
+            "REHEARSAL": "Seitenbeiträge laufen im Probelauf. Die Erweiterung tippt sie unter dem Namen der Firmenseite zur Probe und verwirft sie wieder.",
+            "LIVE": "Seitenbeiträge sind live."
+          },
+          "test": {
+            "title": "Probelauf Seitenbeitrag",
+            "hint": "Die Erweiterung tippt den nächsten geplanten Seitenbeitrag unter dem Namen der Firmenseite ein und verwirft ihn wieder. Ist keiner geplant, nimmt sie einen Beispieltext. Es wird nichts veröffentlicht.",
+            "start": "Probelauf starten",
+            "pending": "Probelauf läuft",
+            "requested": "Probelauf für den Seitenbeitrag angefordert.",
+            "ok": "Erfolgreich. Der Text wurde unter dem Namen der Firmenseite eingefügt und wieder verworfen.",
+            "failed": "Fehlgeschlagen ({code})."
+          }
+        },
+        "reposts": {
+          "modeStatus": {
+            "OFF": "Reposts als Seite sind ausgeschaltet.",
+            "REHEARSAL": "Reposts als Seite laufen im Probelauf. Die Erweiterung öffnet das Fenster «Mit Kommentar teilen», stellt den Namen auf die Firmenseite um und schliesst es wieder, ohne zu reposten.",
+            "LIVE": "Reposts als Seite sind live."
+          },
+          "test": {
+            "title": "Probelauf Repost als Seite",
+            "hint": "Die Erweiterung öffnet für den neuesten veröffentlichten Beitrag das Fenster «Mit Kommentar teilen», stellt den Namen auf die Firmenseite um und schliesst das Fenster wieder. Es wird nichts repostet.",
+            "start": "Probelauf starten",
+            "pending": "Probelauf läuft",
+            "requested": "Probelauf für den Repost angefordert.",
+            "ok": "Erfolgreich. Fenster «Mit Kommentar teilen» geöffnet, Name auf die Firmenseite umgestellt und Fenster wieder geschlossen.",
+            "failed": "Fehlgeschlagen ({code})."
+          },
+          "states": {
+            "open": "Offen",
+            "verifying": "Geklickt, wird geprüft"
+          },
+          "errors": {
+            "rehearsal_ok": "Probelauf erfolgreich",
+            "expired": "Abgelaufen",
+            "reposted_unverified": "Repostet, aber nicht gefunden",
+            "name_reset_failed": "Name im Beitragsfenster nicht zurückgestellt, vor dem nächsten Beitrag von Hand prüfen"
+          },
+          "openLink": "Repost öffnen"
         },
         "postStatus": {
           "SCHEDULED": "Geplant",

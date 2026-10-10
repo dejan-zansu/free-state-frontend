@@ -704,8 +704,12 @@ export interface LinkedinQueue {
     rehearsal: boolean
     engagementMode: LinkedinFeatureMode
     postMode: LinkedinFeatureMode
+    pagePostMode: LinkedinFeatureMode
+    repostMode: LinkedinFeatureMode
     engagementOffReason: string | null
     postOffReason: string | null
+    pagePostOffReason: string | null
+    repostOffReason: string | null
     pausedAt: string | null
     pauseReason: string | null
     agentLastSeenAt: string | null
@@ -750,8 +754,12 @@ export interface LinkedinSenderRow {
   rehearsal: boolean
   engagementMode: LinkedinFeatureMode
   postMode: LinkedinFeatureMode
+  pagePostMode: LinkedinFeatureMode
+  repostMode: LinkedinFeatureMode
   engagementOffReason: string | null
   postOffReason: string | null
+  pagePostOffReason: string | null
+  repostOffReason: string | null
   agentKeyCreatedAt: string | null
   agentLastSeenAt: string | null
   agentVersion: string | null
@@ -779,6 +787,8 @@ export interface LinkedinSenderInput {
   rehearsal?: boolean
   engagementMode?: LinkedinFeatureMode
   postMode?: LinkedinFeatureMode
+  pagePostMode?: LinkedinFeatureMode
+  repostMode?: LinkedinFeatureMode
 }
 
 export type LinkedinPostStatus =
@@ -787,9 +797,12 @@ export type LinkedinPostStatus =
   | 'CANCELLED'
   | 'FAILED'
 
+export type LinkedinPostTarget = 'PROFILE' | 'PAGE'
+
 export interface LinkedinPostItem {
   id: string
   status: LinkedinPostStatus
+  target: LinkedinPostTarget
   text: string
   imageUrl: string | null
   scheduledFor: string
@@ -802,6 +815,13 @@ export interface LinkedinPostItem {
   reposts: number | null
   impressions: number | null
   statsAt: string | null
+  repostClickedAt: string | null
+  repostedAt: string | null
+  repostUrl: string | null
+  repostAttempts: number
+  repostLastAttemptAt: string | null
+  repostError: string | null
+  repostClosedAt: string | null
 }
 
 export interface LinkedinRehearsal {
@@ -819,6 +839,8 @@ export interface LinkedinPostList {
   scheduled: LinkedinPostItem[]
   recent: LinkedinPostItem[]
   test?: LinkedinRehearsal
+  pageTest?: LinkedinRehearsal
+  repostTest?: LinkedinRehearsal
 }
 
 export type LinkedinEngagementDecision = 'PENDING' | 'SKIP' | 'LIKE' | 'COMMENT'
