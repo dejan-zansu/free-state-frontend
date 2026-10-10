@@ -6944,7 +6944,8 @@
         "empty": "Noch keine Mitglieder.",
         "columns": {
           "name": "Name",
-          "email": "E-Mail"
+          "email": "E-Mail",
+          "role": "Rolle"
         }
       },
       "activity": {

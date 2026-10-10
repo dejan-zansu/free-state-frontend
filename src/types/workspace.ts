@@ -9,7 +9,7 @@ export interface WorkspaceMember {
   userId: string
   level: WorkspaceLevel
   addedAt: string
-  user: UserLite & { email: string }
+  user: UserLite & { email: string; role?: UserRole }
 }
 
 export interface WorkspaceListItem {

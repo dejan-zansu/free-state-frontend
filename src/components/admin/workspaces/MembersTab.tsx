@@ -41,6 +41,7 @@ function extractErrorCode(e: unknown): string | undefined {
 export function MembersTab({ workspace }: MembersTabProps) {
   const t = useTranslations('admin.workspaces')
   const tc = useTranslations('admin.common')
+  const tr = useTranslations('admin.statusLabels')
   const queryClient = useQueryClient()
   const isManager = workspace.myLevel === 'MANAGER'
   const isArchived = workspace.status === 'ARCHIVED'
@@ -143,6 +144,7 @@ export function MembersTab({ workspace }: MembersTabProps) {
           <TableRow>
             <TableHead>{t('members.columns.name')}</TableHead>
             <TableHead>{t('members.columns.email')}</TableHead>
+            <TableHead>{t('members.columns.role')}</TableHead>
             <TableHead>{t('members.level')}</TableHead>
             <TableHead />
           </TableRow>
@@ -155,6 +157,9 @@ export function MembersTab({ workspace }: MembersTabProps) {
               </TableCell>
               <TableCell className="text-sm text-[#062E25]/75">
                 {member.user.email}
+              </TableCell>
+              <TableCell className="text-sm text-[#062E25]/75">
+                {member.user.role ? tr(member.user.role) : '-'}
               </TableCell>
               <TableCell>
                 {canManageMembers ? (
@@ -203,7 +208,7 @@ export function MembersTab({ workspace }: MembersTabProps) {
           {workspace.members.length === 0 && (
             <TableRow>
               <TableCell
-                colSpan={4}
+                colSpan={5}
                 className="text-center py-8 text-[#062E25]/75"
               >
                 {t('members.empty')}
@@ -230,7 +235,8 @@ export function MembersTab({ workspace }: MembersTabProps) {
               <SelectContent>
                 {availableUsers.map(u => (
                   <SelectItem key={u.id} value={u.id}>
-                    {u.firstName} {u.lastName} ({u.email})
+                    {u.firstName} {u.lastName}
+                    {u.role ? `, ${tr(u.role)}` : ''} ({u.email})
                   </SelectItem>
                 ))}
               </SelectContent>

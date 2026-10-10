@@ -7134,7 +7134,8 @@
         "empty": "No members yet.",
         "columns": {
           "name": "Name",
-          "email": "Email"
+          "email": "Email",
+          "role": "Role"
         }
       },
       "activity": {
