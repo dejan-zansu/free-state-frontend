@@ -469,6 +469,19 @@ function RoofCard({ prospect }: { prospect: OutboundProspectDetail }) {
         <Row label={t('pvCheckedAt')}>
           {prospect.pvCheckedAt ? new Date(prospect.pvCheckedAt).toLocaleDateString('de-CH') : '-'}
         </Row>
+        {prospect.linkOpens.map((open) => (
+          <Row key={open.kind} label={t(open.kind === 'roof' ? 'linkOpenedRoof' : 'linkOpenedReference')}>
+            {t('linkOpenedValue', {
+              views: open.views,
+              last: new Date(open.lastAt).toLocaleString('de-CH', {
+                day: '2-digit',
+                month: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+              }),
+            })}
+          </Row>
+        ))}
       </div>
 
       {prospect.pvVerdict === 'REGISTRY_HIT' && registry && (

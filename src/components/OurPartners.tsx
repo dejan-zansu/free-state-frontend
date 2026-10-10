@@ -4,6 +4,46 @@ import Image from 'next/image'
 import { Reveal, RevealStagger } from '@/components/motion/Reveal'
 import RevealText from '@/components/motion/RevealText'
 
+// Shown on the homepage and on the outreach roof page (/dach/[token]).
+export const PARTNER_LOGOS = [
+  {
+    src: '/images/swisscom-logo.png',
+    alt: 'Swisscom',
+    width: 196,
+    height: 53,
+  },
+  {
+    src: '/images/partners/partner-2.svg',
+    alt: 'Axpo',
+    width: 95,
+    height: 37,
+  },
+  {
+    src: '/images/partners/partner-3.svg',
+    alt: 'EnergieSchweiz',
+    width: 225,
+    height: 34,
+  },
+  {
+    src: '/images/partners/partner-4.svg',
+    alt: 'Swissolar',
+    width: 169,
+    height: 21,
+  },
+  {
+    src: '/images/partners/partner-5.svg',
+    alt: 'Schweizerische Eidgenossenschaft',
+    width: 183,
+    height: 45,
+  },
+  {
+    src: '/images/partners/partner-6.png',
+    alt: 'SSES',
+    width: 134,
+    height: 56,
+  },
+]
+
 const OurPartners = async () => {
   const t = await getTranslations('home.ourPartners')
 
@@ -38,44 +78,7 @@ const OurPartners = async () => {
         </div>
 
         <RevealStagger className="w-full flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14">
-          {[
-            {
-              src: '/images/swisscom-logo.png',
-              alt: 'Swisscom',
-              width: 196,
-              height: 53,
-            },
-            {
-              src: '/images/partners/partner-2.svg',
-              alt: 'Axpo',
-              width: 95,
-              height: 37,
-            },
-            {
-              src: '/images/partners/partner-3.svg',
-              alt: 'EnergieSchweiz',
-              width: 225,
-              height: 34,
-            },
-            {
-              src: '/images/partners/partner-4.svg',
-              alt: 'Swissolar',
-              width: 169,
-              height: 21,
-            },
-            {
-              src: '/images/partners/partner-5.svg',
-              alt: 'Schweizerische Eidgenossenschaft',
-              width: 183,
-              height: 45,
-            },
-            {
-              src: '/images/partners/partner-6.png',
-              alt: 'SSES',
-              width: 134,
-              height: 56,
-            },
-          ].map((logo, i) => (
+          {PARTNER_LOGOS.map((logo, i) => (
             <div key={logo.src} className="flex items-center">
               <Image
                 src={logo.src}

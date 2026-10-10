@@ -264,6 +264,14 @@ export interface OutboundProspectDetail {
   activities: OutboundActivity[]
   emails: OutboundEmail[]
   draftGate: { reason: string; detail: string } | null
+  // Views of the mailed link (roof page or reference page), newest first.
+  linkOpens: {
+    kind: 'roof' | 'reference'
+    views: number
+    sessions: number
+    firstAt: string
+    lastAt: string
+  }[]
   // Owner-first build (doc 69 W2-2 parcel, W2-3 ownership, W1-9b phone track)
   egrid: string | null
   parcelNumber: string | null

@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CalendarDays, Mail, Sun, Zap } from 'lucide-react'
+import { PARTNER_LOGOS } from '@/components/OurPartners'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 
 import type { SonnendachBuilding } from '@/types/sonnendach'
@@ -139,8 +141,8 @@ export default async function DachPage({
             </div>
             <figcaption className="mt-2 text-base text-[#062E25]/60">
               {building
-                ? 'Luftbild SWISSIMAGE, swisstopo. Die Dachflächen Ihres Gebäudes sind markiert, nach sonnendach.ch.'
-                : 'Luftbild SWISSIMAGE, swisstopo. Ihr Gebäude liegt in der Bildmitte.'}
+                ? 'Luftbild SWISSIMAGE, ©swisstopo. Die Dachflächen Ihres Gebäudes sind markiert, nach sonnendach.ch.'
+                : 'Luftbild SWISSIMAGE, ©swisstopo. Ihr Gebäude liegt in der Bildmitte.'}
             </figcaption>
           </figure>
         )}
@@ -207,6 +209,22 @@ export default async function DachPage({
           )}
         </section>
 
+        <section className="space-y-5">
+          <h2 className="text-2xl font-bold tracking-tight">Unsere Partner</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 items-center justify-items-center gap-x-8 gap-y-7">
+            {PARTNER_LOGOS.map((logo) => (
+              <Image
+                key={logo.src}
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width}
+                height={logo.height}
+                className="h-auto max-h-11 w-auto max-w-full object-contain"
+              />
+            ))}
+          </div>
+        </section>
+
         <section className="rounded-2xl bg-[#062E25]/5 p-6 sm:p-8 text-center space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">Erste Einschätzung in 30 Minuten</h2>
           <p className="text-base text-[#062E25]/75">
@@ -238,7 +256,7 @@ export default async function DachPage({
         <div className="mx-auto max-w-3xl px-5 py-8 space-y-2 text-base text-[#062E25]/70">
           <p className="font-semibold text-[#062E25]">Free State AG</p>
           <p>Stettemerstrasse 40, 8207 Schaffhausen, UID CHE-134.711.335</p>
-          <p>Datengrundlage sonnendach.ch und Anlagenregister des Bundes, Luftbild swisstopo.</p>
+          <p>Datengrundlage sonnendach.ch und Anlagenregister des Bundes, Luftbild ©swisstopo.</p>
           <Link href="/datenschutz" className="inline-block underline hover:text-[#062E25]">
             Datenschutzerklärung
           </Link>
