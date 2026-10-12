@@ -7718,7 +7718,8 @@
         "bad_contact_email": "ungültige E-Mail-Adresse",
         "imagery_not_clear": "Luftbild unklar",
         "domain_mismatch": "Domain passt nicht zur Firma",
-        "tenancy_suspected": "mehrere Firmen im Gebäude"
+        "tenancy_suspected": "mehrere Firmen im Gebäude",
+        "not_target": "kein Zielkunde (keine Halle, kein Grossverbraucher)"
       },
       "activityFields": {
         "egid": "EGID {value}",

@@ -7718,7 +7718,8 @@
         "bad_contact_email": "neispravna mejl adresa",
         "imagery_not_clear": "snimak nejasan",
         "domain_mismatch": "domen ne odgovara firmi",
-        "tenancy_suspected": "više firmi u zgradi"
+        "tenancy_suspected": "više firmi u zgradi",
+        "not_target": "not a target (no hall, no big consumer)"
       },
       "activityFields": {
         "egid": "EGID {value}",
