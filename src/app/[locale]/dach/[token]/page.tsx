@@ -10,7 +10,8 @@ import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import type { SonnendachBuilding } from '@/types/sonnendach'
 
 import LandingActions from './_components/LandingActions'
-import RoofMap from './_components/RoofMap'
+import RoofView from './_components/RoofView'
+import type { RoofPagePanels } from './_components/roof-panels'
 
 export const metadata: Metadata = {
   title: 'Solarpotenzial Ihrer Dachfläche | Free State AG',
@@ -68,6 +69,21 @@ async function fetchRoofData(token: string): Promise<RoofData | null> {
   }
 }
 
+async function fetchPanels(token: string): Promise<RoofPagePanels | null> {
+  const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+  try {
+    const res = await fetch(`${base}/api/public/outreach/roof/${encodeURIComponent(token)}/panels`, {
+      cache: 'no-store',
+      signal: AbortSignal.timeout(5000),
+    })
+    if (!res.ok) return null
+    const json = (await res.json()) as { success: boolean; data: RoofPagePanels | null }
+    return json.success && json.data && json.data.modules.length > 0 ? json.data : null
+  } catch {
+    return null
+  }
+}
+
 // The Sonnendach building at the prospect's coordinates, the same lookup the
 // calculator makes when an address is picked. Server-side, so the map renders
 // without a browser round trip. The API reads x as northing and y as easting.
@@ -101,8 +117,10 @@ export default async function DachPage({
   const street = `${data.addressStreet ?? ''} ${data.addressNumber ?? ''}`.trim()
   const cityLine = `${data.addressPostalCode ?? ''} ${data.addressCity ?? ''}`.trim()
   const addressLine = [street, cityLine].filter(Boolean).join(', ')
-  const building =
-    data.lv95E != null && data.lv95N != null ? await fetchBuilding(data.lv95E, data.lv95N) : null
+  const [building, panels] = await Promise.all([
+    data.lv95E != null && data.lv95N != null ? fetchBuilding(data.lv95E, data.lv95N) : null,
+    fetchPanels(token),
+  ])
 
   return (
     <div className="min-h-screen bg-white text-[#062E25]">
@@ -126,7 +144,7 @@ export default async function DachPage({
           <figure>
             <div className="relative w-full aspect-square sm:aspect-[4/3] overflow-hidden rounded-2xl border border-[#062E25]/10">
               {building ? (
-                <RoofMap building={building} ariaLabel={`Luftbild der Dachfläche ${addressLine}`} />
+                <RoofView building={building} panels={panels} ariaLabel={`Luftbild der Dachfläche ${addressLine}`} />
               ) : (
                 <>
                   <img
@@ -144,7 +162,9 @@ export default async function DachPage({
             </div>
             <figcaption className="mt-2 text-base text-[#062E25]/60">
               {building
-                ? 'Luftbild SWISSIMAGE, ©swisstopo. Die Dachflächen Ihres Gebäudes sind markiert, nach sonnendach.ch.'
+                ? panels
+                  ? `Luftbild SWISSIMAGE, ©swisstopo${panels.groundAltitudeM !== null ? ', 3D-Ansicht ©Google' : ''}, Dachflächen nach sonnendach.ch. Die Solarmodule sind eine schematische Darstellung und keine Planung.`
+                  : 'Luftbild SWISSIMAGE, ©swisstopo. Die Dachflächen Ihres Gebäudes sind markiert, nach sonnendach.ch.'
                 : 'Luftbild SWISSIMAGE, ©swisstopo. Ihr Gebäude liegt in der Bildmitte.'}
             </figcaption>
           </figure>
@@ -164,7 +184,9 @@ export default async function DachPage({
             <div className="rounded-2xl bg-[#062E25]/5 p-5">
               <Zap className="w-5 h-5 text-amber-500" />
               <p className="mt-2 text-2xl font-bold tabular-nums">{formatSwissNumber(data.roofKwhYear)} kWh</p>
-              <p className="text-base text-[#062E25]/70">Solarstrom pro Jahr gemäss sonnendach.ch</p>
+              <p className="text-base text-[#062E25]/70">
+                Theoretisches Potenzial pro Jahr bei vollständiger Belegung der Dachfläche, gemäss sonnendach.ch
+              </p>
             </div>
           )}
         </section>
@@ -176,8 +198,9 @@ export default async function DachPage({
                 {data.suitableAggregation.segmentCount === 1
                   ? 'Eine gut geeignete Dachfläche'
                   : `${data.suitableAggregation.segmentCount} gut geeignete Dachflächen`}{' '}
-                mit zusammen rund {formatSwissNumber(data.suitableAggregation.areaM2)} m² und einem Potenzial von rund{' '}
-                {formatSwissNumber(data.suitableAggregation.kwhYear)} kWh pro Jahr.{' '}
+                mit zusammen rund {formatSwissNumber(data.suitableAggregation.areaM2)} m². Bei vollständiger Belegung liegt
+                das theoretische Potenzial laut sonnendach.ch bei rund {formatSwissNumber(data.suitableAggregation.kwhYear)}{' '}
+                kWh pro Jahr. Eine reale Anlage ist kleiner, das hängt von Aufbau, Reihenabständen und Hindernissen ab.{' '}
               </>
             )}
             {data.registerNoHit &&

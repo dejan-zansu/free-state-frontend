@@ -11,11 +11,20 @@ import type { SonnendachBuilding } from '@/types/sonnendach'
 const noop = () => {}
 const noopAsync = async () => {}
 
-export default function RoofMap({ building, ariaLabel }: { building: SonnendachBuilding; ariaLabel: string }) {
+export default function RoofMap({
+  building,
+  panelModules,
+  ariaLabel,
+}: {
+  building: SonnendachBuilding
+  panelModules?: Array<Array<[number, number]>> | null
+  ariaLabel: string
+}) {
   return (
     <SonnendachRoofMap
       building={building}
       selectedSegmentIds={autoSelectSegmentIds(building)}
+      panelModules={panelModules}
       center={null}
       onToggleSegment={noop}
       onTapBuildingAt={noopAsync}

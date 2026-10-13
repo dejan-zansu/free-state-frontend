@@ -39,6 +39,11 @@ const selectedStyle = new Style({
   stroke: new Stroke({ color: SELECTED_STROKE, width: 3 }),
 })
 
+const panelStyle = new Style({
+  fill: new Fill({ color: '#16315CE6' }),
+  stroke: new Stroke({ color: '#E8EEF7CC', width: 1 }),
+})
+
 export interface SonnendachRoofMapCapture {
   capture: () => Promise<string | null>
 }
@@ -51,6 +56,7 @@ export interface SonnendachRoofMapProps {
   onTapBuildingAt: (lat: number, lng: number) => Promise<void>
   onTapMiss: () => void
   captureRef?: React.MutableRefObject<SonnendachRoofMapCapture | null>
+  panelModules?: Array<Array<[number, number]>> | null
   className?: string
   ariaLabel?: string
   zoomInLabel?: string
@@ -139,6 +145,7 @@ export default function SonnendachRoofMap({
   onTapBuildingAt,
   onTapMiss,
   captureRef,
+  panelModules,
   className,
   ariaLabel,
   zoomInLabel,
@@ -151,10 +158,12 @@ export default function SonnendachRoofMap({
   const mapRef = useRef<HTMLDivElement>(null)
   const mapInstanceRef = useRef<Map | null>(null)
   const vectorSourceRef = useRef<VectorSource | null>(null)
+  const panelSourceRef = useRef<VectorSource | null>(null)
   const sonnendachLayerRef = useRef<TileLayer<XYZ> | null>(null)
   const buildingRef = useRef(building)
   const selectedIdsRef = useRef(selectedSegmentIds)
   const centerRef = useRef(center)
+  const panelModulesRef = useRef(panelModules)
   const onToggleSegmentRef = useRef(onToggleSegment)
   const onTapBuildingAtRef = useRef(onTapBuildingAt)
   const onTapMissRef = useRef(onTapMiss)
@@ -162,6 +171,7 @@ export default function SonnendachRoofMap({
   buildingRef.current = building
   selectedIdsRef.current = selectedSegmentIds
   centerRef.current = center
+  panelModulesRef.current = panelModules
   onToggleSegmentRef.current = onToggleSegment
   onTapBuildingAtRef.current = onTapBuildingAt
   onTapMissRef.current = onTapMiss
@@ -197,6 +207,7 @@ export default function SonnendachRoofMap({
     const source = vectorSourceRef.current
     if (!source) return
     source.clear()
+    if (panelModulesRef.current && panelModulesRef.current.length > 0) return
     const segments = buildingRef.current?.roofSegments
     if (!segments) return
     segments.forEach(segment => {
@@ -236,6 +247,8 @@ export default function SonnendachRoofMap({
 
     const vectorSource = new VectorSource()
     vectorSourceRef.current = vectorSource
+    const panelSource = new VectorSource()
+    panelSourceRef.current = panelSource
 
     const sonnendachLayer = new TileLayer({
       source: new XYZ({
@@ -244,7 +257,9 @@ export default function SonnendachRoofMap({
         maxZoom: SONNENDACH_MAX_ZOOM,
       }),
       opacity: 0.7,
-      visible: !!buildingRef.current,
+      visible:
+        !!buildingRef.current &&
+        !(panelModulesRef.current && panelModulesRef.current.length > 0),
     })
     sonnendachLayerRef.current = sonnendachLayer
     const clipSaved = { current: false }
@@ -303,6 +318,7 @@ export default function SonnendachRoofMap({
         }),
         sonnendachLayer,
         new VectorLayer({ source: vectorSource }),
+        new VectorLayer({ source: panelSource, style: panelStyle }),
       ],
       view: new View({
         center: initialCenter
@@ -329,20 +345,32 @@ export default function SonnendachRoofMap({
       map.setTarget(undefined)
       mapInstanceRef.current = null
       vectorSourceRef.current = null
+      panelSourceRef.current = null
       sonnendachLayerRef.current = null
     }
   }, [handleMapClick, redrawAllSegments])
 
   useEffect(() => {
     redrawAllSegments()
-  }, [building, selectedSegmentIds, redrawAllSegments])
+  }, [building, selectedSegmentIds, panelModules, redrawAllSegments])
+
+  useEffect(() => {
+    const source = panelSourceRef.current
+    if (!source) return
+    source.clear()
+    if (!panelModules) return
+    panelModules.forEach(corners => {
+      const ring = [...corners, corners[0]].map(coord => fromLonLat(coord))
+      source.addFeature(new Feature({ geometry: new Polygon([ring]) }))
+    })
+  }, [panelModules])
 
   useEffect(() => {
     const layer = sonnendachLayerRef.current
     if (!layer) return
-    layer.setVisible(!!building)
+    layer.setVisible(!!building && !(panelModules && panelModules.length > 0))
     layer.changed()
-  }, [building])
+  }, [building, panelModules])
 
   const buildingId = building?.buildingId ?? null
   const buildingCenterLat = building?.center.lat ?? null
