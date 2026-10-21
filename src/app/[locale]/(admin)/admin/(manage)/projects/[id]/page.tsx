@@ -198,11 +198,6 @@ export default function AdminProjectDetailPage() {
         </Card>
       )}
 
-      <JourneyCard
-        attribution={project.attribution}
-        journey={project.journey}
-      />
-
       {hasCalculation && calc && (
         <CalculationSnapshotCard
           calc={calc}
@@ -440,6 +435,11 @@ export default function AdminProjectDetailPage() {
       )}
 
       <ContractsCard contracts={project.contracts} />
+
+      <JourneyCard
+        attribution={project.attribution}
+        journey={project.journey}
+      />
 
       <Dialog open={offerDialogOpen} onOpenChange={setOfferDialogOpen}>
         <DialogContent>
