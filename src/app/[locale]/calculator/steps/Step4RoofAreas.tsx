@@ -15,6 +15,7 @@ import XYZ from 'ol/source/XYZ'
 import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+import { autoSelectSegmentIds } from '@/components/calculator/roof-selection'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -94,6 +95,13 @@ interface LookupPlan {
   y: number
   gwrId: string | null
   addressMatch: AddressMatchMeta
+}
+
+type SharedRoof = NonNullable<SonnendachBuilding['sharedRoof']>
+
+interface SharedRoofRequest {
+  wholeRoof: boolean
+  sharedRoof: SharedRoof
 }
 
 type LookupAttempt =
@@ -187,6 +195,7 @@ export default function Step4RoofAreas() {
     contact,
     selectedSegmentIds,
     toggleSegment,
+    setSelectedSegmentIds,
     isFetchingBuilding,
     setIsFetchingBuilding,
     getSelectedArea,
@@ -234,6 +243,7 @@ export default function Step4RoofAreas() {
   const pinFromRef = useRef(pinFrom)
   const retryCountRef = useRef(0)
   const aliveRef = useRef(true)
+  const sharedRoofRequestRef = useRef<SharedRoofRequest | null>(null)
   selectedSegmentsRef.current = selectedSegmentIds
   buildingRef.current = building
   pinFromRef.current = pinFrom
@@ -345,27 +355,7 @@ export default function Step4RoofAreas() {
   const applyBuilding = useCallback(
     (buildingData: SonnendachBuilding) => {
       setBuilding(buildingData)
-      const MIN_SEGMENT_AREA = 5
-
-      let selectedCount = 0
-      buildingData.roofSegments.forEach(segment => {
-        const suitClass = segment.suitability?.class || 3
-        const willSelect = segment.area >= MIN_SEGMENT_AREA && suitClass >= 3
-        if (willSelect) {
-          selectedCount += 1
-          if (!selectedSegmentsRef.current.includes(segment.id)) {
-            toggleSegment(segment.id)
-          }
-        }
-      })
-      if (selectedCount === 0) {
-        const largest = buildingData.roofSegments.reduce((best, seg) =>
-          seg.area > best.area ? seg : best
-        )
-        if (!selectedSegmentsRef.current.includes(largest.id)) {
-          toggleSegment(largest.id)
-        }
-      }
+      setSelectedSegmentIds(autoSelectSegmentIds(buildingData))
       if (mapInstanceRef.current) {
         const center = buildingViewCenter(mapInstanceRef.current, buildingData)
         mapInstanceRef.current
@@ -373,7 +363,7 @@ export default function Step4RoofAreas() {
           .animate({ center, zoom: 20, duration: 500 })
       }
     },
-    [toggleSegment, setBuilding]
+    [setBuilding, setSelectedSegmentIds]
   )
 
   const planLookup = useCallback(
@@ -434,6 +424,7 @@ export default function Step4RoofAreas() {
         const plan = await planLookup(lat, lng, origin)
         const lookup = await sonnendachService.getBuildingData(plan.x, plan.y, {
           gwrId: plan.gwrId,
+          wholeRoof: sharedRoofRequestRef.current?.wholeRoof ?? false,
         })
         return { ok: true, lookup, plan }
       } catch (error) {
@@ -511,6 +502,7 @@ export default function Step4RoofAreas() {
         retry = { attempt: retryCountRef.current, auto: false }
       }
       let lookupOutcome: RoofLookupOutcome = 'error'
+      const sharedRoofRequest = sharedRoofRequestRef.current
       try {
         let attempt = await attemptLookup(lat, lng, origin)
         if (
@@ -528,8 +520,22 @@ export default function Step4RoofAreas() {
         if (!aliveRef.current) return
         if (!attempt.ok) throw attempt.error
         const { lookup, plan } = attempt
-        const buildingData = lookup.building
-        if (buildingData && buildingData.roofSegments.length > 0) {
+        const buildingData =
+          lookup.building && sharedRoofRequest?.wholeRoof
+            ? {
+                ...lookup.building,
+                sharedRoof: { ...sharedRoofRequest.sharedRoof, wholeRoof: true },
+              }
+            : lookup.building
+        const ownPartLost =
+          !!sharedRoofRequest &&
+          !sharedRoofRequest.wholeRoof &&
+          !buildingData?.sharedRoof
+        if (
+          !ownPartLost &&
+          buildingData &&
+          buildingData.roofSegments.length > 0
+        ) {
           lookupOutcome = 'found'
           trackFunnelEventOnce('building_found', {
             meta: {
@@ -541,6 +547,7 @@ export default function Step4RoofAreas() {
                 )
               ),
               estimated: !!buildingData.estimate,
+              sharedRoofUnits: buildingData.sharedRoof?.units ?? null,
               match: lookup.match ?? null,
               addressMatch: plan.addressMatch,
               ...flowVersionMeta,
@@ -568,6 +575,8 @@ export default function Step4RoofAreas() {
               outcome: buildingData.estimate ? 'estimate' : 'buildingFound',
             })
           }
+        } else if (sharedRoofRequest) {
+          lookupOutcome = 'miss'
         } else if (origin === 'address') {
           lookupOutcome = 'miss'
           const missReason = lookup.reason ?? 'no_segments'
@@ -587,6 +596,7 @@ export default function Step4RoofAreas() {
         }
       } catch (error) {
         console.error('No building data at this location:', error)
+        if (sharedRoofRequest) return
         if (origin === 'address') {
           trackFunnelEventOnce('building_not_found', {
             meta: { reason: 'error', ...flowVersionMeta, ...addressFlowMeta },
@@ -603,6 +613,7 @@ export default function Step4RoofAreas() {
         }
         if (fetchToken === latestBuildingFetch) setIsFetchingBuilding(false)
         isFetchingRef.current = false
+        sharedRoofRequestRef.current = null
       }
     },
     [
@@ -629,6 +640,17 @@ export default function Step4RoofAreas() {
     if (lat === null || lng === null) return
     void fetchBuildingAt(lat, lng, 'address', true)
   }, [fetchBuildingAt, focusedLat, focusedLng])
+
+  const switchSharedRoofView = useCallback(
+    (wholeRoof: boolean) => {
+      const sharedRoof = buildingRef.current?.sharedRoof
+      const location = useSolarAboCalculatorStore.getState().selectedLocation
+      if (!sharedRoof || !location || isFetchingRef.current) return
+      sharedRoofRequestRef.current = { wholeRoof, sharedRoof }
+      void fetchBuildingAt(location.lat, location.lng, 'address')
+    },
+    [fetchBuildingAt]
+  )
 
   const handleMapClick = useCallback(
     async (coordinate: number[], pixel: number[]) => {
@@ -992,6 +1014,28 @@ export default function Step4RoofAreas() {
       </p>
     ) : null
 
+  const sharedRoof = building?.sharedRoof
+  const renderSharedRoofNote = (className?: string) =>
+    sharedRoof ? (
+      <div className={cn('text-base text-[#EAEDDF]/80', className)}>
+        <p>
+          {sharedRoof.wholeRoof
+            ? t2('sharedRoof.wholeNote', { units: sharedRoof.units })
+            : t2('sharedRoof.note', { units: sharedRoof.units })}
+        </p>
+        <button
+          type="button"
+          onClick={() => switchSharedRoofView(!sharedRoof.wholeRoof)}
+          disabled={isFetchingBuilding}
+          className="mt-1 text-base text-[#B7FE1A] underline underline-offset-4 disabled:opacity-60"
+        >
+          {sharedRoof.wholeRoof
+            ? t2('sharedRoof.showOwn')
+            : t2('sharedRoof.showWhole')}
+        </button>
+      </div>
+    ) : null
+
   if (calculatorFlowV2Enabled && buildingMissReason) {
     const isRequestError = buildingMissReason === 'error'
     const missReasonMessage =
@@ -1244,6 +1288,7 @@ export default function Step4RoofAreas() {
                 : t('loading')}
             </div>
           )}
+          {renderSharedRoofNote('mt-3')}
           {pinMode && (
             <Button
               variant="outline"
@@ -1338,6 +1383,7 @@ export default function Step4RoofAreas() {
               {isFetchSlow ? t2('loadingSlow') : t2('loading')}
             </p>
           )}
+          {renderSharedRoofNote('px-4 pt-3')}
           {pinMode && (
             <div className="px-4 pb-4 pt-3">
               <p className="text-base font-medium text-white">
@@ -1428,7 +1474,9 @@ export default function Step4RoofAreas() {
 
       {calculatorFlowV2Enabled && (
         <p className="pointer-events-none absolute right-2 top-[68px] z-10 rounded bg-[#062E25]/60 px-2 py-0.5 text-xs text-white/90 sm:top-auto sm:bottom-[80px] sm:text-base">
-          {t2('mapAttribution')}
+          {building?.sharedRoof
+            ? t2('mapAttributionAv')
+            : t2('mapAttribution')}
         </p>
       )}
 

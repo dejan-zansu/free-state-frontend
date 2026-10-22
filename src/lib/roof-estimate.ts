@@ -19,6 +19,12 @@ export function isRegisterEstimatedSegmentId(id: unknown): boolean {
   return typeof id === 'string' && id.startsWith(REGISTER_SEGMENT_ID_PREFIX)
 }
 
+export const SHARED_ROOF_PART_ID_PREFIX = 'part-'
+
+export function isSharedRoofPartSegmentId(id: unknown): boolean {
+  return typeof id === 'string' && id.startsWith(SHARED_ROOF_PART_ID_PREFIX)
+}
+
 export function segmentCoverageFraction(
   tiltDeg: number,
   azimuthDeg: number

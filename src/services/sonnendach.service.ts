@@ -27,6 +27,7 @@ export interface BuildingLookupResult {
 
 export interface BuildingDataOptions {
   gwrId?: string | null
+  wholeRoof?: boolean
 }
 
 export type SonnendachErrorKind = 'timeout' | 'network' | 'http' | 'parse'
@@ -99,6 +100,7 @@ class SonnendachService {
       y: y.toString(),
     })
     if (options.gwrId) params.set('gwrId', options.gwrId)
+    if (options.wholeRoof) params.set('wholeRoof', '1')
 
     const response = await fetchWithTimeout(
       `${API_URL}/api/sonnendach/building-data?${params}`,

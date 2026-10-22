@@ -4186,6 +4186,12 @@
       "headline": "This is your roof",
       "helper": "We have already marked the suitable areas. Tap an area to add or remove it.",
       "registerNote": "Your house is not in the federal roof data yet, which happens with new buildings. So we estimated the roof area from the building register, and you can keep calculating right away. We check the exact area during the site visit.",
+      "sharedRoof": {
+        "note": "This roof covers {units} houses. We only show the part above your house.",
+        "wholeNote": "You are seeing the whole roof of the {units} houses.",
+        "showWhole": "Show the whole roof",
+        "showOwn": "Show only my part"
+      },
       "areaReadout": "You have selected {n} m² of roof area.",
       "button": "Continue",
       "otherAddress": "Enter a different address",
@@ -4217,7 +4223,8 @@
         "helper": "Tap your roof on the map. We will then load the roof data for that building.",
         "action": "Show my house on the map"
       },
-      "mapAttribution": "SWISSIMAGE © swisstopo, roof data © SFOE"
+      "mapAttribution": "SWISSIMAGE © swisstopo, roof data © SFOE",
+      "mapAttributionAv": "SWISSIMAGE © swisstopo, roof data © SFOE, building footprints © official cadastral survey"
     },
     "manualCheck": {
       "noRoofHeadline": "We will check your roof by hand",
@@ -9737,6 +9744,7 @@
       },
       "roofDetails": "Roof details",
       "roofFromRegister": "Roof area estimated from the building register because the building is missing from Sonnendach. Check the roof before the offer.",
+      "roofSharedPart": "Roof shared with neighbouring houses (row or semi-detached house). Area and yield cover only the part above this house.",
       "totalRoofArea": "Total roof area",
       "roofSegments": "Roof segments",
       "averageTilt": "Avg. tilt",

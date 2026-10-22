@@ -4186,6 +4186,12 @@
       "headline": "Voici votre toit",
       "helper": "Nous avons déjà marqué les surfaces appropriées. Touchez une surface pour l'ajouter ou la retirer.",
       "registerNote": "Votre maison ne figure pas encore dans les données fédérales de toiture, ce qui arrive avec les nouvelles constructions. Nous avons donc estimé la surface du toit à partir du registre des bâtiments pour que vous puissiez poursuivre le calcul tout de suite. Nous vérifions la surface exacte lors de la visite sur place.",
+      "sharedRoof": {
+        "note": "Ce toit couvre {units} maisons. Nous n'affichons que la partie au-dessus de votre maison.",
+        "wholeNote": "Vous voyez le toit entier des {units} maisons.",
+        "showWhole": "Afficher tout le toit",
+        "showOwn": "Afficher seulement ma partie"
+      },
       "areaReadout": "Vous avez sélectionné {n} m² de surface de toit.",
       "button": "Continuer",
       "otherAddress": "Saisir une autre adresse",
@@ -4217,7 +4223,8 @@
         "helper": "Touchez votre toit sur la carte. Nous chargerons ensuite les données de toit de ce bâtiment.",
         "action": "Montrer ma maison sur la carte"
       },
-      "mapAttribution": "SWISSIMAGE © swisstopo, données des toits © OFEN"
+      "mapAttribution": "SWISSIMAGE © swisstopo, données des toits © OFEN",
+      "mapAttributionAv": "SWISSIMAGE © swisstopo, données des toits © OFEN, emprises des bâtiments © mensuration officielle"
     },
     "manualCheck": {
       "noRoofHeadline": "Nous vérifions votre toit à la main",
@@ -9737,6 +9744,7 @@
       },
       "roofDetails": "Détails du toit",
       "roofFromRegister": "Dachfläche aus dem Gebäuderegister geschätzt, weil das Gebäude in Sonnendach fehlt. Dach vor dem Angebot prüfen.",
+      "roofSharedPart": "Gemeinsames Dach mit Nachbarhäusern (Reihen- oder Doppelhaus). Fläche und Ertrag gelten nur für den Teil über diesem Haus.",
       "totalRoofArea": "Surface totale",
       "roofSegments": "Segments de toit",
       "averageTilt": "Inclinaison moy.",

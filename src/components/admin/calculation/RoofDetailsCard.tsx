@@ -3,7 +3,10 @@
 import { useTranslations } from 'next-intl'
 
 import { Card, CardContent } from '@/components/ui/card'
-import { isRegisterEstimatedSegmentId } from '@/lib/roof-estimate'
+import {
+  isRegisterEstimatedSegmentId,
+  isSharedRoofPartSegmentId,
+} from '@/lib/roof-estimate'
 import type { AdminLeadSolarCalculation } from '@/types/admin'
 
 import { fmtNumber } from './format'
@@ -24,6 +27,9 @@ export function RoofDetailsCard({ calc, project }: Props) {
   const roofSegments = calc.roofSegments ?? []
   const roofFromRegister = roofSegments.some(s =>
     isRegisterEstimatedSegmentId(s.id),
+  )
+  const roofSharedPart = roofSegments.some(s =>
+    isSharedRoofPartSegmentId(s.id),
   )
   const totalRoofArea = roofSegments.reduce(
     (sum, s) => sum + (typeof s.area === 'number' ? s.area : 0),
@@ -53,6 +59,11 @@ export function RoofDetailsCard({ calc, project }: Props) {
         {roofFromRegister && (
           <p className="mb-4 rounded-md bg-amber-50 px-3 py-2 text-base text-amber-900">
             {t('roofFromRegister')}
+          </p>
+        )}
+        {roofSharedPart && (
+          <p className="mb-4 rounded-md bg-amber-50 px-3 py-2 text-base text-amber-900">
+            {t('roofSharedPart')}
           </p>
         )}
         <div className="grid grid-cols-2 gap-4">

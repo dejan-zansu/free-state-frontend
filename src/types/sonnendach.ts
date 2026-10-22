@@ -74,6 +74,11 @@ export interface SonnendachBuilding {
     buildYear: number | null
     referenceBuildings: number
   }
+  sharedRoof?: {
+    units: number
+    wholeRoofAreaM2: number
+    wholeRoof?: boolean
+  }
 }
 
 // API responses

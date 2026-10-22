@@ -4186,6 +4186,12 @@
       "headline": "Questo è il tuo tetto",
       "helper": "Abbiamo già contrassegnato le superfici adatte. Tocca una superficie per aggiungerla o rimuoverla.",
       "registerNote": "La tua casa non figura ancora nei dati federali dei tetti, succede con gli edifici nuovi. Abbiamo quindi stimato la superficie del tetto dal registro degli edifici, così puoi continuare subito il calcolo. La superficie esatta la verifichiamo durante il sopralluogo.",
+      "sharedRoof": {
+        "note": "Questo tetto copre {units} case. Mostriamo solo la parte sopra la tua casa.",
+        "wholeNote": "Stai vedendo il tetto intero delle {units} case.",
+        "showWhole": "Mostra tutto il tetto",
+        "showOwn": "Mostra solo la mia parte"
+      },
       "areaReadout": "Hai selezionato {n} m² di superficie del tetto.",
       "button": "Avanti",
       "otherAddress": "Inserisci un altro indirizzo",
@@ -4217,7 +4223,8 @@
         "helper": "Tocca il tuo tetto sulla mappa. Caricheremo poi i dati del tetto di questo edificio.",
         "action": "Mostra la casa sulla mappa"
       },
-      "mapAttribution": "SWISSIMAGE © swisstopo, dati dei tetti © UFE"
+      "mapAttribution": "SWISSIMAGE © swisstopo, dati dei tetti © UFE",
+      "mapAttributionAv": "SWISSIMAGE © swisstopo, dati dei tetti © UFE, impronte degli edifici © misurazione ufficiale"
     },
     "manualCheck": {
       "noRoofHeadline": "Verifichiamo il tuo tetto a mano",
@@ -9737,6 +9744,7 @@
       },
       "roofDetails": "Dettagli tetto",
       "roofFromRegister": "Dachfläche aus dem Gebäuderegister geschätzt, weil das Gebäude in Sonnendach fehlt. Dach vor dem Angebot prüfen.",
+      "roofSharedPart": "Gemeinsames Dach mit Nachbarhäusern (Reihen- oder Doppelhaus). Fläche und Ertrag gelten nur für den Teil über diesem Haus.",
       "totalRoofArea": "Superficie totale",
       "roofSegments": "Segmenti tetto",
       "averageTilt": "Inclinazione media",

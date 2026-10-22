@@ -6058,6 +6058,12 @@
       "headline": "Das ist Ihr Dach",
       "helper": "Wir haben die geeigneten Flächen bereits markiert. Tippen Sie auf eine Fläche, um sie hinzuzufügen oder zu entfernen.",
       "registerNote": "Ihr Haus fehlt noch in den Dachdaten des Bundes, das kommt bei Neubauten vor. Wir haben die Dachfläche deshalb aus dem Gebäuderegister geschätzt, damit Sie gleich weiterrechnen können. Die genaue Fläche prüfen wir bei der Besichtigung.",
+      "sharedRoof": {
+        "note": "Dieses Dach gehört zu {units} Häusern. Wir zeigen nur den Teil über Ihrem Haus.",
+        "wholeNote": "Sie sehen das ganze Dach der {units} Häuser.",
+        "showWhole": "Ganzes Dach anzeigen",
+        "showOwn": "Nur meinen Teil anzeigen"
+      },
       "areaReadout": "Sie haben {n} m² Dachfläche ausgewählt.",
       "button": "Weiter",
       "otherAddress": "Andere Adresse eingeben",
@@ -6089,7 +6095,8 @@
         "helper": "Tippen Sie auf der Karte auf Ihr Dach. Wir laden dann die Dachdaten für dieses Gebäude.",
         "action": "Haus auf der Karte zeigen"
       },
-      "mapAttribution": "SWISSIMAGE © swisstopo, Dachdaten © BFE"
+      "mapAttribution": "SWISSIMAGE © swisstopo, Dachdaten © BFE",
+      "mapAttributionAv": "SWISSIMAGE © swisstopo, Dachdaten © BFE, Gebäudegrundrisse © Amtliche Vermessung"
     },
     "manualCheck": {
       "noRoofHeadline": "Wir prüfen Ihr Dach von Hand",
@@ -9547,6 +9554,7 @@
       },
       "roofDetails": "Dachdetails",
       "roofFromRegister": "Dachfläche aus dem Gebäuderegister geschätzt, weil das Gebäude in Sonnendach fehlt. Dach vor dem Angebot prüfen.",
+      "roofSharedPart": "Gemeinsames Dach mit Nachbarhäusern (Reihen- oder Doppelhaus). Fläche und Ertrag gelten nur für den Teil über diesem Haus.",
       "totalRoofArea": "Gesamte Dachfläche",
       "roofSegments": "Dachsegmente",
       "averageTilt": "Ø Neigung",
