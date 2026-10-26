@@ -7299,6 +7299,7 @@
       "groupOperations": "Operazioni",
       "residentialContracts": "Contratti",
       "residentialLeads": "Lead residenziali",
+      "leadPipeline": "Lead-Pipeline",
       "residentialProjects": "Progetti del calcolatore",
       "commercialLeads": "Richieste commerciali",
       "groupMarketing": "Marketing",
@@ -10498,6 +10499,335 @@
       "notFound": "Non trovato.",
       "cancel": "Annulla",
       "page": "Pagina {page} di {totalPages}"
+    },
+    "salesLeads": {
+      "list": {
+        "title": "Lead-Pipeline",
+        "subtitle": "Alle Leads aus dem Solarrechner mit Status, Zuständigkeit und Wiedervorlage an einem Ort.",
+        "loadingLabel": "Leads werden geladen",
+        "statusFilterLabel": "Nach Status filtern",
+        "statusChips": {
+          "active": "Aktiv",
+          "all": "Alle"
+        },
+        "focusFilterLabel": "Schnellfilter",
+        "focus": {
+          "mine": "Meine Leads",
+          "unassigned": "Nicht zugewiesen",
+          "followUpDue": "Wiedervorlage fällig",
+          "offerRequested": "Angebot angefordert"
+        },
+        "searchPlaceholder": "Suche nach Name, E-Mail, Telefon oder Adresse",
+        "searchLabel": "Leads durchsuchen",
+        "clearSearch": "Suche leeren",
+        "sourceLabel": "Nach Herkunft filtern",
+        "allSources": "Alle Herkünfte",
+        "sortLabel": "Sortierung",
+        "sort": {
+          "newest": "Neueste",
+          "oldest": "Älteste",
+          "followUp": "Wiedervorlage",
+          "updated": "Zuletzt geändert"
+        },
+        "showInternal": "Interne Leads anzeigen",
+        "columns": {
+          "customer": "Kunde",
+          "property": "Objekt",
+          "status": "Status",
+          "responsible": "Zuständig",
+          "lastActivity": "Letzte Aktivität",
+          "followUp": "Wiedervorlage",
+          "created": "Erstellt"
+        },
+        "unnamed": "Ohne Namen",
+        "badges": {
+          "notOwner": "Nicht Eigentümer:in",
+          "offerRequested": "Angebot angefordert",
+          "consultationBooked": "Beratung gebucht"
+        },
+        "systemSummary": {
+          "full": "{kwp} kWp, CHF {savings} Ersparnis pro Jahr",
+          "kwp": "{kwp} kWp",
+          "savings": "CHF {savings} Ersparnis pro Jahr"
+        },
+        "assignToMe": "Mir zuweisen",
+        "assignedToast": "Lead zugewiesen",
+        "activity": {
+          "none": "Noch keine Aktivität",
+          "by": "{what} von {name}",
+          "call": "Anruf",
+          "email": "E-Mail",
+          "meeting": "Treffen",
+          "note": "Notiz",
+          "statusChanged": "Status auf {status} gesetzt",
+          "won": "Lead gewonnen",
+          "lost": "Lead verloren",
+          "consultBooked": "Beratung gebucht",
+          "offerSent": "Angebot gesendet"
+        },
+        "followUp": {
+          "overdue": "überfällig",
+          "today": "heute fällig"
+        },
+        "pagination": {
+          "total": "{count, plural, one {# Lead} other {# Leads}}",
+          "previous": "Zurück",
+          "next": "Weiter",
+          "page": "Seite {page} von {totalPages}"
+        },
+        "empty": {
+          "filteredTitle": "Keine passenden Leads",
+          "filteredText": "Mit diesen Filtern gibt es keine Treffer. Andere Filter wählen oder zurücksetzen.",
+          "noActiveTitle": "Keine aktiven Leads",
+          "noActiveText": "Aktuell ist kein Lead in Bearbeitung. Gewonnene, verlorene und pausierte Leads sind unter Alle zu finden.",
+          "noneTitle": "Noch keine Leads",
+          "noneText": "Neue Leads aus dem Solarrechner erscheinen hier automatisch.",
+          "resetFilters": "Filter zurücksetzen",
+          "showAll": "Alle Leads anzeigen"
+        },
+        "error": {
+          "title": "Leads konnten nicht geladen werden",
+          "text": "Das hat nicht geklappt. Bitte erneut versuchen.",
+          "retry": "Erneut versuchen"
+        },
+        "createdInfo": "Erstellt {when}, {source}"
+      },
+      "detail": {
+        "back": "Alle Leads",
+        "notFound": {
+          "title": "Lead nicht gefunden",
+          "text": "Dieser Lead existiert nicht mehr oder wurde entfernt."
+        },
+        "loadFailed": {
+          "title": "Lead konnte nicht geladen werden",
+          "text": "Das hat nicht geklappt. Bitte erneut versuchen.",
+          "retry": "Erneut versuchen"
+        },
+        "header": {
+          "openMap": "Adresse in der Karte öffnen",
+          "notOwner": "Nicht Eigentümer:in",
+          "offerRequested": "{count, plural, one {Angebot angefordert} other {Angebot angefordert ({count}x)}}",
+          "consultationBooked": "Beratung gebucht",
+          "consultationHint": "Beratungstermin als gebucht markieren. Neue Leads wechseln dabei auf Kontaktiert.",
+          "call": "Anrufen",
+          "callMissing": "Keine Telefonnummer vorhanden",
+          "email": "E-Mail schreiben",
+          "report": "Kundenreport herunterladen",
+          "reportNoCalculation": "Für diesen Lead gibt es keine Berechnung, darum kann kein Report erstellt werden.",
+          "markConsultationBooked": "Beratung als gebucht markieren"
+        },
+        "pipeline": {
+          "title": "Status",
+          "stepsLabel": "Verkaufsphasen",
+          "moveTo": "Status ändern auf {status}",
+          "since": "{days, plural, =0 {seit heute} one {seit 1 Tag} other {seit # Tagen}}",
+          "sinceDate": "seit {date}",
+          "putOnHold": "Pausieren",
+          "markLost": "Als verloren markieren",
+          "resume": "Wieder aufnehmen",
+          "holdBanner": "Pausiert",
+          "lostBanner": "Verloren",
+          "lostReason": "Grund"
+        },
+        "statusDialog": {
+          "title": "Status ändern",
+          "description": "Die Änderung wird in der Aktivität des Leads festgehalten.",
+          "from": "Bisheriger Status",
+          "to": "Neuer Status",
+          "required": "Pflichtfeld",
+          "wonAmount": "Auftragssumme in CHF",
+          "wonAmountHint": "Vorschlag aus der Berechnung. Bitte prüfen.",
+          "wonAmountInvalid": "Bitte einen gültigen Betrag eingeben, zum Beispiel 24500 oder 24500.50.",
+          "lostReason": "Grund für den Verlust",
+          "lostReasonPlaceholder": "Warum wurde der Lead verloren?",
+          "quickPicks": "Schnellauswahl für den Grund",
+          "note": "Notiz (optional)",
+          "notePlaceholder": "Weitere Informationen zur Statusänderung",
+          "cancel": "Abbrechen",
+          "confirm": "Status ändern",
+          "saving": "Wird gespeichert..."
+        },
+        "lostReasons": {
+          "tooExpensive": "Zu teuer",
+          "noInterest": "Kein Interesse mehr",
+          "notOwner": "Nicht Eigentümer:in",
+          "roofUnsuitable": "Dach nicht geeignet",
+          "competitor": "Konkurrenz gewählt",
+          "unreachable": "Nicht erreichbar",
+          "other": "Sonstiges"
+        },
+        "work": {
+          "assignee": "Zuständig",
+          "unassigned": "Nicht zugewiesen",
+          "assignToMe": "Mir zuweisen",
+          "teamFailed": "Das Team konnte nicht geladen werden.",
+          "followUp": "Wiedervorlage am",
+          "tomorrow": "Morgen",
+          "inThreeDays": "In 3 Tagen",
+          "inOneWeek": "In 1 Woche",
+          "clear": "Entfernen",
+          "overdue": "überfällig",
+          "dueToday": "heute fällig"
+        },
+        "tabs": {
+          "activity": "Aktivität",
+          "calculation": "Berechnung",
+          "project": "Projekt"
+        },
+        "composer": {
+          "label": "Neue Notiz",
+          "kindLabel": "Art der Notiz",
+          "kinds": {
+            "NOTE": "Notiz",
+            "CALL": "Anruf",
+            "EMAIL": "E-Mail",
+            "MEETING": "Treffen"
+          },
+          "placeholders": {
+            "NOTE": "Notiz zum Lead schreiben",
+            "CALL": "Was wurde im Anruf besprochen?",
+            "EMAIL": "Worum ging es in der E-Mail?",
+            "MEETING": "Was wurde im Treffen besprochen?"
+          },
+          "shortcut": "Cmd oder Ctrl + Enter zum Speichern",
+          "save": "Speichern",
+          "saving": "Wird gespeichert..."
+        },
+        "timeline": {
+          "title": "Verlauf",
+          "empty": "Noch keine Notizen oder Statusänderungen.",
+          "legacyNote": "Ältere Notiz",
+          "legacyNoteHint": "Nur lesbar",
+          "statusChanged": "Status geändert",
+          "won": "Lead gewonnen",
+          "lost": "Lead verloren",
+          "wonAmount": "Auftragssumme {amount}",
+          "lostReason": "Grund",
+          "consultBooked": "Beratung gebucht",
+          "offerSent": "Angebot gesendet",
+          "created": "Lead aus dem Rechner erstellt",
+          "offerRequested": "Angebot per E-Mail angefordert",
+          "offerCount": "{count, plural, one {1 Anfrage} other {# Anfragen}}",
+          "offerLast": "zuletzt am {date}",
+          "system": "System"
+        },
+        "calculation": {
+          "empty": "Für diesen Lead gibt es noch keine gespeicherte Berechnung. Sobald der Rechner abgeschlossen ist, erscheinen die Ergebnisse hier."
+        },
+        "project": {
+          "empty": "Für diesen Lead gibt es noch kein Projekt.",
+          "summaryTitle": "Projekt",
+          "status": "Projektstatus",
+          "created": "Erstellt am",
+          "milestones": {
+            "title": "Projektstand",
+            "subtitle": "Beratung, Besichtigung, Angebot und Installation. Termine und Notizen sind für den Kunden im Portal sichtbar.",
+            "empty": "Für dieses Projekt sind noch keine Meilensteine vorhanden.",
+            "status": {
+              "PENDING": "Ausstehend",
+              "ACTIVE": "Aktuell",
+              "DONE": "Erledigt"
+            },
+            "edit": "Bearbeiten",
+            "statusLabel": "Status",
+            "dateLabel": "Geplantes Datum",
+            "noteLabel": "Notiz",
+            "notePlaceholder": "Notiz für den Kunden",
+            "noteVisible": "Für den Kunden sichtbar",
+            "noteWarning": "Diese Notiz sieht der Kunde in seinem Portal. Keine internen Informationen eintragen.",
+            "noDate": "Kein Termin geplant",
+            "scheduled": "Termin am {date}",
+            "completed": "erledigt am {date}",
+            "save": "Speichern",
+            "saving": "Wird gespeichert...",
+            "cancel": "Abbrechen",
+            "editStage": "{stage} bearbeiten"
+          },
+          "inspection": {
+            "title": "Technische Besichtigung",
+            "status": "Status",
+            "scheduled": "Termin",
+            "completed": "Abgeschlossen am"
+          }
+        },
+        "contact": {
+          "title": "Kontakt",
+          "noPhone": "Keine Telefonnummer",
+          "alternatePhone": "Alternative Telefonnummer",
+          "alternateEmail": "Alternative E-Mail",
+          "language": "Sprache",
+          "lastLogin": "Letzter Login",
+          "copyPhone": "Telefonnummer kopieren",
+          "copyEmail": "E-Mail-Adresse kopieren"
+        },
+        "customer": {
+          "title": "Kunde"
+        },
+        "property": {
+          "title": "Objekt",
+          "address": "Adresse",
+          "package": "Gewünschtes Paket",
+          "selectedPackage": "Gewähltes Paket",
+          "budget": "Geschätztes Budget",
+          "ownership": "Eigentum",
+          "owner": "Eigentümer:in",
+          "notOwner": "Nicht Eigentümer:in",
+          "ownerContact": "Kontakt der Eigentümer:in",
+          "ownerContactMissing": "Es sind keine Kontaktdaten der Eigentümer:in erfasst."
+        },
+        "source": {
+          "title": "Herkunft",
+          "channel": "Kanal",
+          "source": "Quelle",
+          "campaign": "Kampagne",
+          "landingPage": "Landingpage",
+          "referrer": "Verweisende Seite",
+          "created": "Erstellt",
+          "channels": {
+            "google_ads": "Google Ads",
+            "meta_ads": "Meta Ads",
+            "paid_other": "Andere bezahlte Werbung",
+            "organic_search": "Organische Suche",
+            "ai_assistant": "KI-Assistent",
+            "social": "Social Media",
+            "referral": "Verweis",
+            "direct": "Direkt"
+          }
+        },
+        "remarks": {
+          "title": "Bemerkungen des Kunden",
+          "notes": "Bemerkungen",
+          "addressAdditional": "Adresszusatz"
+        },
+        "toast": {
+          "statusChanged": "Status geändert",
+          "assigned": "Lead zugewiesen",
+          "unassigned": "Zuweisung entfernt",
+          "followUpSaved": "Wiedervorlage gespeichert",
+          "followUpCleared": "Wiedervorlage entfernt",
+          "noteSaved": "Notiz gespeichert",
+          "consultationBooked": "Beratung als gebucht markiert",
+          "milestoneSaved": "Meilenstein gespeichert",
+          "copied": "Kopiert",
+          "copyFailed": "Kopieren war nicht möglich",
+          "reportFailed": "Der Report konnte nicht erstellt werden."
+        }
+      },
+      "errors": {
+        "generic": "Das hat nicht geklappt. Bitte erneut versuchen.",
+        "INVALID_ASSIGNEE": "Diese Person kann nicht zugewiesen werden.",
+        "NOT_FOUND": "Lead nicht gefunden.",
+        "RECORD_NOT_FOUND": "Eintrag nicht gefunden.",
+        "NO_PROJECT": "Zu diesem Lead gibt es noch kein Projekt.",
+        "MILESTONE_NOT_FOUND": "Meilenstein nicht gefunden.",
+        "WON_AMOUNT_REQUIRED": "Für Gewonnen ist eine Auftragssumme nötig.",
+        "LOST_REASON_REQUIRED": "Für Verloren ist ein Grund nötig.",
+        "OUTCOME_REQUIRES_STATUS_CHANGE": "Auftragssumme und Verlustgrund lassen sich nur zusammen mit einer Statusänderung speichern.",
+        "VALIDATION_ERROR": "Die Eingabe ist nicht gültig.",
+        "CALCULATION_NOT_FOUND": "Für diesen Lead gibt es keine Berechnung.",
+        "FORBIDDEN": "Dafür fehlt die Berechtigung.",
+        "UNAUTHORIZED": "Bitte erneut anmelden."
+      }
     },
     "commercialLeads": {
       "title": "Gewerbliche Anfragen",

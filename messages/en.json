@@ -7299,6 +7299,7 @@
       "groupOperations": "Operations",
       "residentialContracts": "Contracts",
       "residentialLeads": "Residential Leads",
+      "leadPipeline": "Lead pipeline",
       "residentialProjects": "Calculator Projects",
       "commercialLeads": "Commercial Inquiries",
       "groupMarketing": "Marketing",
@@ -10498,6 +10499,335 @@
       "notFound": "Not found.",
       "cancel": "Cancel",
       "page": "Page {page} of {totalPages}"
+    },
+    "salesLeads": {
+      "list": {
+        "title": "Lead pipeline",
+        "subtitle": "All leads from the solar calculator with status, assignee and follow-up in one place.",
+        "loadingLabel": "Loading leads",
+        "statusFilterLabel": "Filter by status",
+        "statusChips": {
+          "active": "Active",
+          "all": "All"
+        },
+        "focusFilterLabel": "Quick filters",
+        "focus": {
+          "mine": "My leads",
+          "unassigned": "Unassigned",
+          "followUpDue": "Follow-up due",
+          "offerRequested": "Offer requested"
+        },
+        "searchPlaceholder": "Search by name, email, phone or address",
+        "searchLabel": "Search leads",
+        "clearSearch": "Clear search",
+        "sourceLabel": "Filter by source",
+        "allSources": "All sources",
+        "sortLabel": "Sort order",
+        "sort": {
+          "newest": "Newest",
+          "oldest": "Oldest",
+          "followUp": "Follow-up",
+          "updated": "Recently updated"
+        },
+        "showInternal": "Show internal leads",
+        "columns": {
+          "customer": "Customer",
+          "property": "Property",
+          "status": "Status",
+          "responsible": "Assigned to",
+          "lastActivity": "Last activity",
+          "followUp": "Follow-up",
+          "created": "Created"
+        },
+        "unnamed": "No name",
+        "badges": {
+          "notOwner": "Not the owner",
+          "offerRequested": "Offer requested",
+          "consultationBooked": "Consultation booked"
+        },
+        "systemSummary": {
+          "full": "{kwp} kWp, CHF {savings} savings per year",
+          "kwp": "{kwp} kWp",
+          "savings": "CHF {savings} savings per year"
+        },
+        "assignToMe": "Assign to me",
+        "assignedToast": "Lead assigned",
+        "activity": {
+          "none": "No activity yet",
+          "by": "{what} by {name}",
+          "call": "Call",
+          "email": "Email",
+          "meeting": "Meeting",
+          "note": "Note",
+          "statusChanged": "Status set to {status}",
+          "won": "Lead won",
+          "lost": "Lead lost",
+          "consultBooked": "Consultation booked",
+          "offerSent": "Offer sent"
+        },
+        "followUp": {
+          "overdue": "overdue",
+          "today": "due today"
+        },
+        "pagination": {
+          "total": "{count, plural, one {# lead} other {# leads}}",
+          "previous": "Previous",
+          "next": "Next",
+          "page": "Page {page} of {totalPages}"
+        },
+        "empty": {
+          "filteredTitle": "No matching leads",
+          "filteredText": "Nothing matches these filters. Choose different filters or reset them.",
+          "noActiveTitle": "No active leads",
+          "noActiveText": "No lead is in progress right now. Won, lost and paused leads are listed under All.",
+          "noneTitle": "No leads yet",
+          "noneText": "New leads from the solar calculator appear here automatically.",
+          "resetFilters": "Reset filters",
+          "showAll": "Show all leads"
+        },
+        "error": {
+          "title": "Leads could not be loaded",
+          "text": "Something went wrong. Please try again.",
+          "retry": "Try again"
+        },
+        "createdInfo": "Created {when}, {source}"
+      },
+      "detail": {
+        "back": "All leads",
+        "notFound": {
+          "title": "Lead not found",
+          "text": "This lead no longer exists or has been removed."
+        },
+        "loadFailed": {
+          "title": "Lead could not be loaded",
+          "text": "Something went wrong. Please try again.",
+          "retry": "Try again"
+        },
+        "header": {
+          "openMap": "Open address in maps",
+          "notOwner": "Not the owner",
+          "offerRequested": "{count, plural, one {Offer requested} other {Offer requested ({count}x)}}",
+          "consultationBooked": "Consultation booked",
+          "consultationHint": "Mark the consultation as booked. New leads move to Contacted at the same time.",
+          "call": "Call",
+          "callMissing": "No phone number available",
+          "email": "Write email",
+          "report": "Download customer report",
+          "reportNoCalculation": "This lead has no calculation, so no report can be created.",
+          "markConsultationBooked": "Mark consultation as booked"
+        },
+        "pipeline": {
+          "title": "Status",
+          "stepsLabel": "Sales stages",
+          "moveTo": "Change status to {status}",
+          "since": "{days, plural, =0 {since today} one {for 1 day} other {for # days}}",
+          "sinceDate": "since {date}",
+          "putOnHold": "Put on hold",
+          "markLost": "Mark as lost",
+          "resume": "Resume",
+          "holdBanner": "On hold",
+          "lostBanner": "Lost",
+          "lostReason": "Reason"
+        },
+        "statusDialog": {
+          "title": "Change status",
+          "description": "The change is recorded in the lead's activity history.",
+          "from": "Current status",
+          "to": "New status",
+          "required": "Required",
+          "wonAmount": "Order value in CHF",
+          "wonAmountHint": "Suggestion from the calculation. Please check.",
+          "wonAmountInvalid": "Please enter a valid amount, for example 24500 or 24500.50.",
+          "lostReason": "Reason for losing the lead",
+          "lostReasonPlaceholder": "Why was the lead lost?",
+          "quickPicks": "Quick picks for the reason",
+          "note": "Note (optional)",
+          "notePlaceholder": "More information about the status change",
+          "cancel": "Cancel",
+          "confirm": "Change status",
+          "saving": "Saving..."
+        },
+        "lostReasons": {
+          "tooExpensive": "Too expensive",
+          "noInterest": "No longer interested",
+          "notOwner": "Not the owner",
+          "roofUnsuitable": "Roof not suitable",
+          "competitor": "Chose a competitor",
+          "unreachable": "Not reachable",
+          "other": "Other"
+        },
+        "work": {
+          "assignee": "Assigned to",
+          "unassigned": "Unassigned",
+          "assignToMe": "Assign to me",
+          "teamFailed": "The team could not be loaded.",
+          "followUp": "Follow-up on",
+          "tomorrow": "Tomorrow",
+          "inThreeDays": "In 3 days",
+          "inOneWeek": "In 1 week",
+          "clear": "Remove",
+          "overdue": "overdue",
+          "dueToday": "due today"
+        },
+        "tabs": {
+          "activity": "Activity",
+          "calculation": "Calculation",
+          "project": "Project"
+        },
+        "composer": {
+          "label": "New note",
+          "kindLabel": "Type of note",
+          "kinds": {
+            "NOTE": "Note",
+            "CALL": "Call",
+            "EMAIL": "Email",
+            "MEETING": "Meeting"
+          },
+          "placeholders": {
+            "NOTE": "Write a note about the lead",
+            "CALL": "What was discussed in the call?",
+            "EMAIL": "What was the email about?",
+            "MEETING": "What was discussed in the meeting?"
+          },
+          "shortcut": "Cmd or Ctrl + Enter to save",
+          "save": "Save",
+          "saving": "Saving..."
+        },
+        "timeline": {
+          "title": "History",
+          "empty": "No notes or status changes yet.",
+          "legacyNote": "Older note",
+          "legacyNoteHint": "Read only",
+          "statusChanged": "Status changed",
+          "won": "Lead won",
+          "lost": "Lead lost",
+          "wonAmount": "Order value {amount}",
+          "lostReason": "Reason",
+          "consultBooked": "Consultation booked",
+          "offerSent": "Offer sent",
+          "created": "Lead created from the calculator",
+          "offerRequested": "Offer requested by email",
+          "offerCount": "{count, plural, one {1 request} other {# requests}}",
+          "offerLast": "last on {date}",
+          "system": "System"
+        },
+        "calculation": {
+          "empty": "This lead has no saved calculation yet. Once the calculator is completed, the results appear here."
+        },
+        "project": {
+          "empty": "This lead has no project yet.",
+          "summaryTitle": "Project",
+          "status": "Project status",
+          "created": "Created on",
+          "milestones": {
+            "title": "Project progress",
+            "subtitle": "Consultation, site visit, offer and installation. Dates and notes are visible to the customer in the portal.",
+            "empty": "No milestones exist for this project yet.",
+            "status": {
+              "PENDING": "Pending",
+              "ACTIVE": "Current",
+              "DONE": "Done"
+            },
+            "edit": "Edit",
+            "statusLabel": "Status",
+            "dateLabel": "Scheduled date",
+            "noteLabel": "Note",
+            "notePlaceholder": "Note for the customer",
+            "noteVisible": "Visible to the customer",
+            "noteWarning": "The customer sees this note in their portal. Do not enter internal information.",
+            "noDate": "No date scheduled",
+            "scheduled": "Scheduled for {date}",
+            "completed": "done on {date}",
+            "save": "Save",
+            "saving": "Saving...",
+            "cancel": "Cancel",
+            "editStage": "Edit {stage}"
+          },
+          "inspection": {
+            "title": "Technical inspection",
+            "status": "Status",
+            "scheduled": "Appointment",
+            "completed": "Completed on"
+          }
+        },
+        "contact": {
+          "title": "Contact",
+          "noPhone": "No phone number",
+          "alternatePhone": "Alternative phone number",
+          "alternateEmail": "Alternative email",
+          "language": "Language",
+          "lastLogin": "Last login",
+          "copyPhone": "Copy phone number",
+          "copyEmail": "Copy email address"
+        },
+        "customer": {
+          "title": "Customer"
+        },
+        "property": {
+          "title": "Property",
+          "address": "Address",
+          "package": "Package of interest",
+          "selectedPackage": "Selected package",
+          "budget": "Estimated budget",
+          "ownership": "Ownership",
+          "owner": "Owner",
+          "notOwner": "Not the owner",
+          "ownerContact": "Owner contact",
+          "ownerContactMissing": "No contact details of the owner have been recorded."
+        },
+        "source": {
+          "title": "Origin",
+          "channel": "Channel",
+          "source": "Source",
+          "campaign": "Campaign",
+          "landingPage": "Landing page",
+          "referrer": "Referrer",
+          "created": "Created",
+          "channels": {
+            "google_ads": "Google Ads",
+            "meta_ads": "Meta Ads",
+            "paid_other": "Other paid advertising",
+            "organic_search": "Organic search",
+            "ai_assistant": "AI assistant",
+            "social": "Social media",
+            "referral": "Referral",
+            "direct": "Direct"
+          }
+        },
+        "remarks": {
+          "title": "Customer remarks",
+          "notes": "Remarks",
+          "addressAdditional": "Address addition"
+        },
+        "toast": {
+          "statusChanged": "Status changed",
+          "assigned": "Lead assigned",
+          "unassigned": "Assignment removed",
+          "followUpSaved": "Follow-up saved",
+          "followUpCleared": "Follow-up removed",
+          "noteSaved": "Note saved",
+          "consultationBooked": "Consultation marked as booked",
+          "milestoneSaved": "Milestone saved",
+          "copied": "Copied",
+          "copyFailed": "Copying was not possible",
+          "reportFailed": "The report could not be created."
+        }
+      },
+      "errors": {
+        "generic": "Something went wrong. Please try again.",
+        "INVALID_ASSIGNEE": "This person cannot be assigned.",
+        "NOT_FOUND": "Lead not found.",
+        "RECORD_NOT_FOUND": "Record not found.",
+        "NO_PROJECT": "This lead has no project yet.",
+        "MILESTONE_NOT_FOUND": "Milestone not found.",
+        "WON_AMOUNT_REQUIRED": "An order value is required for Won.",
+        "LOST_REASON_REQUIRED": "A reason is required for Lost.",
+        "OUTCOME_REQUIRES_STATUS_CHANGE": "An order value or lost reason can only be saved together with a status change.",
+        "VALIDATION_ERROR": "The input is not valid.",
+        "CALCULATION_NOT_FOUND": "This lead has no calculation.",
+        "FORBIDDEN": "You do not have permission for this.",
+        "UNAUTHORIZED": "Please sign in again."
+      }
     },
     "commercialLeads": {
       "title": "Gewerbliche Anfragen",

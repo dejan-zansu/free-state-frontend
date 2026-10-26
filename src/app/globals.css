@@ -234,3 +234,16 @@ body.calc-address-busy .pac-container {
     animation: none;
   }
 }
+
+.sales-type-scale {
+  --text-sm: 1rem;
+  --text-sm--line-height: calc(1.5 / 1);
+  --text-base: 1.125rem;
+  --text-base--line-height: calc(1.625 / 1.125);
+  --text-lg: 1.375rem;
+  --text-lg--line-height: calc(1.75 / 1.375);
+  --text-xl: 1.625rem;
+  --text-xl--line-height: calc(2 / 1.625);
+  --text-2xl: 2rem;
+  --text-2xl--line-height: calc(2.25 / 2);
+}

@@ -569,13 +569,27 @@ export interface OutboundCallQueueQuery {
   listedOnly?: boolean
 }
 
+export type OutboundThreadEmail = Pick<
+  OutboundEmail,
+  | 'id'
+  | 'direction'
+  | 'status'
+  | 'sequenceStep'
+  | 'subject'
+  | 'bodyText'
+  | 'sentAt'
+  | 'receivedAt'
+  | 'fromAddress'
+  | 'createdAt'
+>
+
 export interface OutboundLeadThread {
   id: string
   reference: string
   status: OutboundProspectStatus
   companyName: string
   contactEmail: string | null
-  emails: OutboundEmail[]
+  emails: OutboundThreadEmail[]
 }
 
 export interface OutboundPromoteResult {

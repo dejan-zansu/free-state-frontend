@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
-const STATUS_COLORS: Record<string, string> = {
+export const STATUS_COLORS: Record<string, string> = {
   NEW: 'bg-blue-100 text-blue-700',
   CONTACTED: 'bg-cyan-100 text-cyan-700',
   QUALIFIED: 'bg-indigo-100 text-indigo-700',

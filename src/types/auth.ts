@@ -12,6 +12,7 @@ export type Capability =
   | 'projects.viewAll'
   | 'projects.access'
   | 'sales.tools'
+  | 'outreach.manage'
 
 export type UserStatus =
   | 'ACTIVE'

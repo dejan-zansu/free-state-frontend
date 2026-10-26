@@ -6,10 +6,11 @@ import { useLocale, useTranslations } from 'next-intl'
 import { ExternalLink } from 'lucide-react'
 
 import { Card, CardContent } from '@/components/ui/card'
+import { useHasCapability } from '@/lib/capabilities'
 import { cn } from '@/lib/utils'
-import type { OutboundEmail, OutboundLeadThread } from '@/types/admin-outreach'
+import type { OutboundLeadThread, OutboundThreadEmail } from '@/types/admin-outreach'
 
-function ThreadEmail({ email }: { email: OutboundEmail }) {
+function ThreadEmail({ email }: { email: OutboundThreadEmail }) {
   const t = useTranslations('admin.commercialLeads.outbound')
   const [expanded, setExpanded] = useState(false)
   const inbound = email.direction === 'INBOUND'
@@ -48,16 +49,19 @@ function ThreadEmail({ email }: { email: OutboundEmail }) {
 export default function OutboundTab({ thread }: { thread: OutboundLeadThread }) {
   const t = useTranslations('admin.commercialLeads.outbound')
   const locale = useLocale()
+  const canOpenProspect = useHasCapability('outreach.manage')
   const emails = thread.emails.filter((e) => !(e.direction === 'OUTBOUND' && e.status === 'DRAFT'))
 
   return (
     <Card><CardContent className="p-4">
       <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
         <p className="font-mono text-[#062E25]/75">{thread.reference}</p>
-        <Link href={`/${locale}/admin/outreach/${thread.id}`}
-              className="text-blue-600 hover:underline inline-flex items-center gap-1">
-          {t('openProspect')}<ExternalLink className="w-3.5 h-3.5" />
-        </Link>
+        {canOpenProspect && (
+          <Link href={`/${locale}/admin/outreach/${thread.id}`}
+                className="text-blue-600 hover:underline inline-flex items-center gap-1">
+            {t('openProspect')}<ExternalLink className="w-3.5 h-3.5" />
+          </Link>
+        )}
       </div>
       {emails.length === 0 ? (
         <p className="text-[#062E25]/75">{t('noEmails')}</p>
