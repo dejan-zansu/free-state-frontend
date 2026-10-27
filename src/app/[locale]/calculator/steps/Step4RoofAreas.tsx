@@ -146,6 +146,30 @@ const lv95ToWgs84 = (easting: number, northing: number): [number, number] => {
   return [(lng * 100) / 36, (lat * 100) / 36]
 }
 
+const tapOnRoof = (
+  target: SonnendachBuilding | null | undefined,
+  lat: number,
+  lng: number
+) => {
+  if (!target) return false
+  const point = fromLonLat([lng, lat])
+  return target.roofSegments.some(segment => {
+    let wgs84 = segment.geometry.coordinatesWGS84
+    if (!wgs84 || wgs84.length === 0) {
+      const lv95 = segment.geometry.coordinates
+      if (!lv95 || lv95.length === 0) return false
+      wgs84 = lv95.map(ring =>
+        ring.map(coord => lv95ToWgs84(coord[0], coord[1]))
+      )
+    }
+    const ring = wgs84[0]
+    if (!ring || ring.length < 3) return false
+    return new Polygon([
+      ring.map(coord => fromLonLat(coord)),
+    ]).intersectsCoordinate(point)
+  })
+}
+
 const buildingViewCenter = (map: Map, target: SonnendachBuilding) => {
   const center = fromLonLat([target.center.lng, target.center.lat])
   const size = map.getSize()
@@ -417,11 +441,12 @@ export default function Step4RoofAreas() {
     async (
       lat: number,
       lng: number,
-      origin: 'address' | 'tap'
+      origin: 'address' | 'tap',
+      planOverride: LookupPlan | null = null
     ): Promise<LookupAttempt> => {
       const startedAt = Date.now()
       try {
-        const plan = await planLookup(lat, lng, origin)
+        const plan = planOverride ?? (await planLookup(lat, lng, origin))
         const lookup = await sonnendachService.getBuildingData(plan.x, plan.y, {
           gwrId: plan.gwrId,
           wholeRoof: sharedRoofRequestRef.current?.wholeRoof ?? false,
@@ -504,7 +529,28 @@ export default function Step4RoofAreas() {
       let lookupOutcome: RoofLookupOutcome = 'error'
       const sharedRoofRequest = sharedRoofRequestRef.current
       try {
-        let attempt = await attemptLookup(lat, lng, origin)
+        let pinPlan: LookupPlan | null = null
+        if (pinAddress) {
+          const row = await pinAddress
+          if (!aliveRef.current) return
+          if (row?.egid && row.gwrId) {
+            const match = fromIdentifyRow(row)
+            pinPlan = {
+              x: match.n,
+              y: match.e,
+              gwrId: match.gwrId,
+              addressMatch: match.via,
+            }
+          }
+        }
+        let attempt = await attemptLookup(lat, lng, origin, pinPlan)
+        if (
+          pinPlan &&
+          !(attempt.ok && tapOnRoof(attempt.lookup.building, lat, lng))
+        ) {
+          pinPlan = null
+          attempt = await attemptLookup(lat, lng, origin)
+        }
         if (
           !attempt.ok &&
           attempt.fast &&
@@ -515,7 +561,7 @@ export default function Step4RoofAreas() {
           if (!aliveRef.current) return
           retryCountRef.current += 1
           retry = { attempt: retryCountRef.current, auto: true }
-          attempt = await attemptLookup(lat, lng, origin)
+          attempt = await attemptLookup(lat, lng, origin, pinPlan)
         }
         if (!aliveRef.current) return
         if (!attempt.ok) throw attempt.error
