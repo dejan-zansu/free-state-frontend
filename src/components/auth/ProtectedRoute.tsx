@@ -11,6 +11,7 @@ interface ProtectedRouteProps {
   allowedRoles?: UserRole[]
   requiredCapability?: Capability
   redirectTo?: string
+  deniedRedirect?: string
   adminRedirect?: string
 }
 
@@ -19,6 +20,7 @@ export function ProtectedRoute({
   allowedRoles,
   requiredCapability,
   redirectTo = '/login',
+  deniedRedirect = '/login',
   adminRedirect,
 }: ProtectedRouteProps) {
   const router = useRouter()
@@ -52,12 +54,12 @@ export function ProtectedRoute({
       }
       if (allowedRoles && !allowedRoles.includes(user.role)) {
         hasRedirected.current = true
-        router.replace('/login' as any)
+        router.replace(deniedRedirect as any)
         return
       }
       if (requiredCapability && !capabilities.includes(requiredCapability)) {
         hasRedirected.current = true
-        router.replace('/login' as any)
+        router.replace(deniedRedirect as any)
       }
     }
   }, [
@@ -68,6 +70,7 @@ export function ProtectedRoute({
     requiredCapability,
     adminRedirect,
     redirectTo,
+    deniedRedirect,
     router,
   ])
 

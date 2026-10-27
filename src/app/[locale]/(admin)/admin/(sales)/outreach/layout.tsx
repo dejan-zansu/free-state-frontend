@@ -6,7 +6,10 @@ export default function OutreachLayout({
   children: React.ReactNode
 }) {
   return (
-    <ProtectedRoute requiredCapability="outreach.manage">
+    <ProtectedRoute
+      requiredCapability="outreach.manage"
+      deniedRedirect="/admin/residential-leads"
+    >
       {children}
     </ProtectedRoute>
   )
