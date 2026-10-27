@@ -4289,6 +4289,18 @@
     "screen5": {
       "headline": "La tua valutazione è pronta",
       "helper": "Poi si apre nel tuo account. Ti chiameremo per esaminarla insieme a te.",
+      "teaserTitle": "Cosa può produrre il tuo tetto",
+      "teaserArea": "Superficie del tetto",
+      "teaserKwp": "Potenza",
+      "teaserProduction": "Elettricità all’anno",
+      "teaserSource": "Stima basata sui dati federali dei tetti (Sonnendach.ch) per le superfici che hai scelto.",
+      "teaserSourceRegister": "Stima basata sul registro federale degli edifici e sui dati dei tetti delle case vicine.",
+      "teaserSized": "Dimensionato sul tuo consumo di elettricità. Il tuo tetto avrebbe spazio per {kwp} kWp.",
+      "teaserSavings": "Risparmio all'anno",
+      "teaserSavingsValue": "circa CHF {amount}",
+      "teaserSavingsNoteDirect": "Stima per l'acquisto dell'impianto, con la tariffa elettrica attuale.",
+      "teaserSavingsNoteAbo": "Stima per SolarAbo, con la tariffa elettrica attuale.",
+      "teaserSavingsNoteFree": "Stima per SolarFree senza alcun tuo investimento, con la tariffa elettrica attuale.",
       "opens": {
         "price": "Prezzo dopo l'incentivo",
         "savings": "Risparmio all'anno",

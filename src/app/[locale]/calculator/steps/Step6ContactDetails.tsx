@@ -18,7 +18,10 @@ import {
   trackFunnelEventOnce,
 } from '@/lib/analytics/funnel-events'
 import { trackLead } from '@/lib/analytics/track-lead'
-import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import {
+  residentialCalculatorService,
+  type SavingsEstimate,
+} from '@/services/residential-calculator.service'
 import { Link as LocaleLink } from '@/i18n/navigation'
 import { useRouter } from 'next/navigation'
 import { useCalculatorEmbed } from '../CalculatorEmbedContext'
@@ -677,6 +680,7 @@ function ContactScreenV2() {
   const router = useRouter()
   const embedded = useCalculatorEmbed()
   const Heading = embedded ? 'h3' : 'h1'
+  const SubHeading = embedded ? 'h4' : 'h2'
 
   const {
     contact,
@@ -692,7 +696,70 @@ function ContactScreenV2() {
     createdProjectId,
     address,
     createAccount,
+    getSelectedArea,
+    getSystemSizeKwp,
+    getAnnualProduction,
+    getRoofCapacityKwp,
+    fetchSavingsEstimate,
+    building,
   } = useSolarAboCalculatorStore()
+
+  const roofAreaM2 = Math.round(getSelectedArea())
+  const clientSystemSizeKwp = getSystemSizeKwp()
+  const clientAnnualProductionKwh = Math.round(getAnnualProduction())
+  const showTeaser =
+    roofAreaM2 > 0 && clientSystemSizeKwp > 0 && clientAnnualProductionKwh > 0
+  const swissNumber = (value: number, digits = 0) =>
+    value.toLocaleString('de-CH', {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+    })
+
+  const [savingsEstimate, setSavingsEstimate] =
+    useState<SavingsEstimate | null>(null)
+  useEffect(() => {
+    if (!showTeaser) return
+    let cancelled = false
+    fetchSavingsEstimate()
+      .then(result => {
+        if (cancelled) return
+        setSavingsEstimate(result)
+        trackFunnelEventOnce('contact_result_shown', {
+          meta: {
+            savings: !!result && result.annualSavingsChf > 0,
+            ...flowVersionMeta,
+          },
+        })
+      })
+      .catch(() => {
+        if (cancelled) return
+        trackFunnelEventOnce('contact_result_shown', {
+          meta: { savings: false, ...flowVersionMeta },
+        })
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [showTeaser, fetchSavingsEstimate])
+  const systemSizeKwp = savingsEstimate?.systemSizeKwp ?? clientSystemSizeKwp
+  const annualProductionKwh =
+    savingsEstimate?.annualProductionKwh ?? clientAnnualProductionKwh
+  const roofCapacityKwp =
+    savingsEstimate?.roofSystemSizeKwp ?? getRoofCapacityKwp()
+  const showSizedNote = roofCapacityKwp > systemSizeKwp + 0.5
+  const showSavings =
+    showTeaser &&
+    savingsEstimate != null &&
+    savingsEstimate.annualSavingsChf > 0
+  const savingsNoteKey =
+    savingsEstimate?.solarModel === 'solar-free'
+      ? 'teaserSavingsNoteFree'
+      : savingsEstimate?.solarModel === 'solar-abo'
+        ? 'teaserSavingsNoteAbo'
+        : 'teaserSavingsNoteDirect'
+  const opensItems = CONTACT_OPENS_ITEMS.filter(
+    item => !(showSavings && item === 'savings')
+  )
 
   const [addressFallback] = useState<AddressFallback>(() => ({
     street: !contact.street?.trim() || !contact.streetNumber?.trim(),
@@ -1052,17 +1119,92 @@ function ContactScreenV2() {
           embedded ? 'pb-12' : 'pb-24'
         )}
       >
-        <div className="mx-auto w-full max-w-xl text-center">
-          <Heading className="text-2xl sm:text-[34px] font-medium text-[#062E25]">
-            {t('headline')}
-          </Heading>
+        {showTeaser && (
+          <div className="mx-auto w-full max-w-md rounded-[16px] border border-[#9CA9A6]/30 bg-white/40 backdrop-blur-[20px] p-5 text-left sm:p-8">
+            <Heading className="text-2xl sm:text-[34px] font-medium text-[#062E25]">
+              {t('teaserTitle')}
+            </Heading>
+            <dl className="mt-4 grid grid-cols-3 gap-3">
+              <div>
+                <dt className="text-base text-[#062E25]/70 tracking-tight">
+                  {t('teaserArea')}
+                </dt>
+                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
+                  {swissNumber(roofAreaM2)}
+                  <span className="text-base font-normal"> m²</span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-base text-[#062E25]/70 tracking-tight">
+                  {t('teaserKwp')}
+                </dt>
+                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
+                  {swissNumber(systemSizeKwp, 1)}
+                  <span className="text-base font-normal"> kWp</span>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-base text-[#062E25]/70 tracking-tight">
+                  {t('teaserProduction')}
+                </dt>
+                <dd className="mt-0.5 text-xl font-medium text-[#062E25] tabular-nums">
+                  {swissNumber(annualProductionKwh)}
+                  <span className="text-base font-normal"> kWh</span>
+                </dd>
+              </div>
+            </dl>
+            {showSavings && (
+              <div className="mt-4 border-t border-[#9CA9A6]/30 pt-4">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="text-base text-[#062E25]/70 tracking-tight">
+                    {t('teaserSavings')}
+                  </span>
+                  <span className="shrink-0 whitespace-nowrap text-2xl font-medium text-[#062E25] tabular-nums">
+                    {t('teaserSavingsValue', {
+                      amount: swissNumber(savingsEstimate.annualSavingsChf),
+                    })}
+                  </span>
+                </div>
+                <p className="mt-1 text-base text-[#062E25]/70 tracking-tight">
+                  {t(savingsNoteKey)}
+                </p>
+              </div>
+            )}
+            <p className="mt-4 text-base text-[#062E25]/70 tracking-tight">
+              {building?.estimate
+                ? t('teaserSourceRegister')
+                : t('teaserSource')}
+            </p>
+            {showSizedNote && (
+              <p className="mt-2 text-base text-[#062E25]/70 tracking-tight">
+                {t('teaserSized', { kwp: swissNumber(roofCapacityKwp, 1) })}
+              </p>
+            )}
+          </div>
+        )}
+
+        <div
+          className={cn(
+            'mx-auto w-full max-w-xl text-center',
+            showTeaser && 'mt-6 sm:mt-10'
+          )}
+        >
+          {showTeaser ? (
+            <SubHeading className="text-xl sm:text-2xl font-medium text-[#062E25]">
+              {t('headline')}
+            </SubHeading>
+          ) : (
+            <Heading className="text-2xl sm:text-[34px] font-medium text-[#062E25]">
+              {t('headline')}
+            </Heading>
+          )}
           <p className="mt-2 text-balance text-base sm:mt-4 sm:text-lg text-[#062E25] tracking-tight">
             {t('helper')}
           </p>
         </div>
 
         <ul className="mx-auto mt-2 grid grid-cols-[auto_auto] justify-center gap-x-4 gap-y-1 sm:flex sm:flex-wrap sm:gap-x-6">
-          {CONTACT_OPENS_ITEMS.map(item => (
+          {opensItems.map(item => (
             <li
               key={item}
               className="flex items-center gap-1.5 text-sm sm:text-base text-[#062E25] tracking-tight"

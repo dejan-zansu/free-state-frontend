@@ -4289,6 +4289,18 @@
     "screen5": {
       "headline": "Your report is ready",
       "helper": "It then opens in your account. We will call you to go through it with you.",
+      "teaserTitle": "What your roof can do",
+      "teaserArea": "Roof area",
+      "teaserKwp": "System size",
+      "teaserProduction": "Electricity per year",
+      "teaserSource": "Estimated from the federal roof data (Sonnendach.ch) for the areas you selected.",
+      "teaserSourceRegister": "Estimated from the federal building register and the roof data of neighbouring houses.",
+      "teaserSized": "Sized for your electricity consumption. Your roof has room for {kwp} kWp.",
+      "teaserSavings": "Savings per year",
+      "teaserSavingsValue": "approx. CHF {amount}",
+      "teaserSavingsNoteDirect": "Estimated for buying the system, at today's electricity tariff.",
+      "teaserSavingsNoteAbo": "Estimated for SolarAbo, at today's electricity tariff.",
+      "teaserSavingsNoteFree": "Estimated for SolarFree with no investment of your own, at today's electricity tariff.",
       "opens": {
         "price": "Price after subsidy",
         "savings": "Savings per year",

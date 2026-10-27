@@ -6161,6 +6161,18 @@
     "screen5": {
       "headline": "Ihre Auswertung ist fertig",
       "helper": "Danach öffnet sie sich in Ihrem Konto. Wir rufen Sie an, um sie mit Ihnen durchzugehen.",
+      "teaserTitle": "Das kann Ihr Dach",
+      "teaserArea": "Dachfläche",
+      "teaserKwp": "Anlagengrösse",
+      "teaserProduction": "Strom pro Jahr",
+      "teaserSource": "Geschätzt aus den Dachdaten des Bundes (Sonnendach.ch) für die von Ihnen gewählten Flächen.",
+      "teaserSourceRegister": "Geschätzt aus dem Gebäuderegister des Bundes und den Dachdaten der Nachbarhäuser.",
+      "teaserSized": "Auf Ihren Stromverbrauch ausgelegt. Ihr Dach hätte Platz für {kwp} kWp.",
+      "teaserSavings": "Ersparnis pro Jahr",
+      "teaserSavingsValue": "ca. CHF {amount}",
+      "teaserSavingsNoteDirect": "Geschätzt für den Kauf der Anlage, zum heutigen Stromtarif.",
+      "teaserSavingsNoteAbo": "Geschätzt für SolarAbo, zum heutigen Stromtarif.",
+      "teaserSavingsNoteFree": "Geschätzt für SolarFree ohne eigene Investition, zum heutigen Stromtarif.",
       "opens": {
         "price": "Preis nach Förderung",
         "savings": "Ersparnis pro Jahr",
