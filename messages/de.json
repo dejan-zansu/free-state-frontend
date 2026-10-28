@@ -9617,8 +9617,7 @@
       "electricitySupplier": "Stromversorger",
       "yearsValue": "{years} Jahre",
       "financialsEstimated": "Geschätzt anhand der Paketpreise (nicht vom Rechner gespeichert)",
-      "offerRequested": "Angebot angefordert",
-      "hideInternal": "Interne Konten ausblenden"
+      "offerRequested": "Angebot angefordert"
     },
     "projects": {
       "title": "Rechner-Projekte",

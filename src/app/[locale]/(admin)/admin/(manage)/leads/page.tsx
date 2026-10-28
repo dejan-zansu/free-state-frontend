@@ -94,15 +94,6 @@ export default function AdminLeadsPage() {
                 <SelectItem value="OTHER">{tl('OTHER')}</SelectItem>
               </SelectContent>
             </Select>
-            <label className="flex items-center gap-2 text-sm text-[#062E25]">
-              <input
-                type="checkbox"
-                className="h-4 w-4 accent-[#062E25]"
-                checked={filters.hideInternal === 'true'}
-                onChange={e => setFilter('hideInternal', e.target.checked ? 'true' : undefined)}
-              />
-              {t('hideInternal')}
-            </label>
           </div>
 
           {isLoading ? (

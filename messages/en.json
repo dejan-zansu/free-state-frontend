@@ -9807,8 +9807,7 @@
       "electricitySupplier": "Electricity supplier",
       "yearsValue": "{years} years",
       "financialsEstimated": "Estimated from package pricing (not stored by the calculator)",
-      "offerRequested": "Offer requested",
-      "hideInternal": "Hide internal accounts"
+      "offerRequested": "Offer requested"
     },
     "projects": {
       "title": "Calculator Projects",

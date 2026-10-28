@@ -9807,8 +9807,7 @@
       "electricitySupplier": "Fornitore di elettricità",
       "yearsValue": "{years} anni",
       "financialsEstimated": "Stima basata sui prezzi dei pacchetti (non salvata dal calcolatore)",
-      "offerRequested": "Offerta richiesta",
-      "hideInternal": "Nascondi account interni"
+      "offerRequested": "Offerta richiesta"
     },
     "projects": {
       "title": "Progetti del calcolatore",
