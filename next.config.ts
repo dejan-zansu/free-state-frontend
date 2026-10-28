@@ -26,6 +26,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: '(?:www\\.)?freestate-(?:solar|energie|photovoltaik)\\.ch',
+          },
+        ],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+    ]
+  },
   async rewrites() {
     // model-viewer fetches GLB files with fetch(), which needs CORS on a cross-origin
     // bucket. The public R2 bucket has no CORS rule, so /r2/* proxies it same-origin.
