@@ -9,6 +9,7 @@ import {
 } from '@/components/analytics/AnalyticsScripts'
 import PageViewTracker from '@/components/analytics/PageViewTracker'
 import UtmCapture from '@/components/analytics/UtmCapture'
+import OutreachLinkHandler from '@/components/OutreachLinkHandler'
 import ConditionalFooter from '@/components/ConditionalFooter'
 import ConditionalHeader from '@/components/ConditionalHeader'
 import CookieConsentBanner from '@/components/CookieConsent'
@@ -33,7 +34,10 @@ import {
 } from '@/lib/analytics-env'
 
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+})
 const figtree = Figtree({
   variable: '--font-figtree',
   subsets: ['latin'],
@@ -60,7 +64,8 @@ export async function generateMetadata({
   // Every page without its own metadata inherits this object, so it must not claim the
   // homepage URL. The homepage sets its canonical, hreflang and og:url in [locale]/page.tsx.
   delete metadata.alternates
-  if (metadata.openGraph) metadata.openGraph = { ...metadata.openGraph, url: undefined }
+  if (metadata.openGraph)
+    metadata.openGraph = { ...metadata.openGraph, url: undefined }
   if (searchConsoleVerificationEnabled) {
     metadata.verification = { google: googleSiteVerification }
   }
@@ -83,7 +88,12 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale })
 
   return (
-    <html lang={locale} className="light notranslate" translate="no" suppressHydrationWarning>
+    <html
+      lang={locale}
+      className="light notranslate"
+      translate="no"
+      suppressHydrationWarning
+    >
       <head>
         <meta name="google" content="notranslate" />
         <meta name="yandex" content="notranslate" />
@@ -118,6 +128,7 @@ export default async function LocaleLayout({
                   <CookieConsentBanner />
                   <ContentsquareScript />
                   <UtmCapture />
+                  <OutreachLinkHandler />
                   <PageViewTracker />
                   <ConsultationDock />
                 </div>

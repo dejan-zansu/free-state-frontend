@@ -1,6 +1,11 @@
 import createMiddleware from 'next-intl/middleware'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import { routing } from './i18n/routing'
+import {
+  MAIN_SITE_ORIGIN,
+  isOutreachHost,
+  isOutreachMailPath,
+} from './lib/outreach-hosts'
 
 const intlMiddleware = createMiddleware(routing)
 
@@ -43,6 +48,14 @@ function isNoindexPath(pathname: string): boolean {
 }
 
 export default function middleware(request: NextRequest) {
+  const { pathname, search } = request.nextUrl
+  if (
+    isOutreachHost(request.headers.get('host')) &&
+    !pathname.startsWith('/_') &&
+    !isOutreachMailPath(pathname)
+  ) {
+    return NextResponse.redirect(`${MAIN_SITE_ORIGIN}${pathname}${search}`, 307)
+  }
   const response = intlMiddleware(request)
   if (isNoindexPath(request.nextUrl.pathname)) {
     response.headers.set('X-Robots-Tag', 'noindex, nofollow')
