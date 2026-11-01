@@ -7222,6 +7222,7 @@
         "renamed": "Renommé",
         "moved": "Déplacé",
         "movePartial": "{moved} von {total} verschoben.",
+        "selectAll": "Alle auswählen",
         "folderCreated": "Dossier créé",
         "restrictedBadge": "Restreint",
         "noResults": "Aucun résultat."

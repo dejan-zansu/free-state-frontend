@@ -19,7 +19,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { formatBytes } from '@/lib/format-bytes'
-import { cn } from '@/lib/utils'
 import { adminWorkspaceService } from '@/services/admin-workspace.service'
 import type {
   WorkspaceFile,
@@ -209,14 +208,7 @@ function FileCard({
         else if (file) onOpenFile(file)
       }}
     >
-      <div
-        className={cn(
-          'absolute left-2 top-2 z-10',
-          selected
-            ? 'opacity-100'
-            : 'opacity-100 md:opacity-0 md:group-hover:opacity-100'
-        )}
-      >
+      <div className="absolute left-2 top-2 z-10">
         <Checkbox
           checked={selected}
           className="bg-white"

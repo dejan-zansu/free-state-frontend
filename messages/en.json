@@ -7222,6 +7222,7 @@
         "renamed": "Renamed",
         "moved": "Moved",
         "movePartial": "{moved} of {total} moved.",
+        "selectAll": "Select all",
         "folderCreated": "Folder created",
         "restrictedBadge": "Restricted",
         "noResults": "No results."

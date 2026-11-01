@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Archive,
@@ -191,6 +191,12 @@ export default function AdminWorkspaceDetailPage() {
 
   const currentFolderId = searchParams.get('folder')
 
+  useEffect(() => {
+    setPreviewOpen(false)
+    setRestrictTarget(null)
+    if (!movingRef.current) setMoveRequest(null)
+  }, [currentFolderId])
+
   const { data: browseData } = useQuery<BrowseResult>({
     queryKey: ['admin', 'workspaces', params.id, 'browse', currentFolderId],
     queryFn: () => adminWorkspaceService.browse(params.id, currentFolderId),
@@ -300,20 +306,23 @@ export default function AdminWorkspaceDetailPage() {
 
   return (
     <div>
-      <Button
-        variant="ghost"
-        onClick={() => router.back()}
-        className="gap-2 mb-4"
-      >
-        <ChevronLeft className="h-4 w-4" />
-        {t('detail.back')}
-      </Button>
-
       <div className="flex flex-wrap items-start justify-between gap-3 mb-6">
         <div>
-          <p className="font-mono text-sm text-[#062E25]/75">
-            {workspace.number}
-          </p>
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              aria-label={t('detail.back')}
+              title={t('detail.back')}
+              className="-ml-2"
+              onClick={() => router.back()}
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            <p className="font-mono text-sm text-[#062E25]/75">
+              {workspace.number}
+            </p>
+          </div>
           <h1 className="text-2xl font-bold text-[#062E25]">
             {workspace.name}
           </h1>

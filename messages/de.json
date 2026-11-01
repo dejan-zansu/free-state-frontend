@@ -7032,6 +7032,7 @@
         "renamed": "Umbenannt",
         "moved": "Verschoben",
         "movePartial": "{moved} von {total} verschoben.",
+        "selectAll": "Alle auswählen",
         "folderCreated": "Ordner erstellt",
         "restrictedBadge": "Eingeschränkt",
         "noResults": "Keine Treffer."

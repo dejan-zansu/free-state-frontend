@@ -72,6 +72,8 @@ export interface WorkspaceFolder {
   name: string
   isRestricted: boolean
   createdById: string | null
+  createdBy?: UserLite | null
+  sizeBytes?: number
   createdAt: string
   deletedAt: string | null
   _count?: { files: number; children: number }

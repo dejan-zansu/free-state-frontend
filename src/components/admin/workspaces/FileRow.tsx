@@ -123,9 +123,9 @@ export function FileRow({
   }
 
   const dateValue = file ? file.updatedAt : (folder?.createdAt ?? '')
-  const uploaderLabel = file?.uploadedBy
-    ? `${file.uploadedBy.firstName} ${file.uploadedBy.lastName}`
-    : '-'
+  const owner = file ? file.uploadedBy : folder?.createdBy
+  const ownerLabel = owner ? `${owner.firstName} ${owner.lastName}` : '-'
+  const sizeBytes = file ? file.sizeBytes : folder?.sizeBytes
 
   return (
     <ContextMenu onOpenChange={setCtxOpen}>
@@ -211,10 +211,10 @@ export function FileRow({
             </div>
           </TableCell>
           <TableCell className="text-sm text-[#062E25]/75">
-            {file ? formatBytes(file.sizeBytes) : '-'}
+            {sizeBytes === undefined ? '-' : formatBytes(sizeBytes)}
           </TableCell>
           <TableCell className="text-sm text-[#062E25]/75">
-            {uploaderLabel}
+            {ownerLabel}
           </TableCell>
           <TableCell className="text-sm text-[#062E25]/75">
             {dateValue ? new Date(dateValue).toLocaleDateString('de-CH') : '-'}

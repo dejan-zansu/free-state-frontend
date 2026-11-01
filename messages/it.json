@@ -7222,6 +7222,7 @@
         "renamed": "Rinominato",
         "moved": "Spostato",
         "movePartial": "{moved} von {total} verschoben.",
+        "selectAll": "Alle auswählen",
         "folderCreated": "Cartella creata",
         "restrictedBadge": "Limitato",
         "noResults": "Nessun risultato."

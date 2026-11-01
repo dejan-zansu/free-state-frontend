@@ -1,7 +1,7 @@
 'use client'
 
 import type { ChangeEvent, DragEvent } from 'react'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Download,
@@ -30,6 +30,7 @@ import {
   AlertDialogTitle,
 } from '@/components/ui/alert-dialog'
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -258,7 +259,7 @@ export function FilesTab({
     } catch {}
   }
 
-  const navigate = (nextFolderId: string | null) => {
+  useEffect(() => {
     setSelected(new Set())
     setLastIndex(null)
     setRenamingKey(null)
@@ -266,11 +267,15 @@ export function FilesTab({
     setNewFolderName('')
     setSearchInput('')
     setDebouncedSearch('')
+    setTrashRequest(null)
+  }, [folderId])
+
+  const navigate = (nextFolderId: string | null) => {
     const params = new URLSearchParams(searchParams.toString())
     if (nextFolderId) params.set('folder', nextFolderId)
     else params.delete('folder')
     const query = params.toString()
-    router.replace(query ? `${pathname}?${query}` : pathname)
+    router.push(query ? `${pathname}?${query}` : pathname)
   }
 
   const handleSearchChange = (value: string) => {
@@ -524,6 +529,22 @@ export function FilesTab({
 
   const allSelectedEditable =
     selectedEntries.length > 0 && selectedEntries.every(canEditEntry)
+
+  const selectableKeys = useMemo(
+    () =>
+      entries
+        .filter(
+          entry => entry.kind === 'folder' || entry.item.status !== 'UPLOADING'
+        )
+        .map(entry => `${entry.kind}:${entry.item.id}`),
+    [entries]
+  )
+  const allSelected =
+    selectableKeys.length > 0 && selectableKeys.every(key => selected.has(key))
+  const toggleSelectAll = () => {
+    setSelected(allSelected ? new Set() : new Set(selectableKeys))
+    setLastIndex(null)
+  }
 
   const handleBulkDownload = async () => {
     const fileIds = selectedEntries
@@ -799,30 +820,45 @@ export function FilesTab({
             {t('files.empty')}
           </p>
         ) : view === 'grid' || isMobile ? (
-          <FileGrid
-            workspaceId={workspace.id}
-            entries={entries}
-            selected={selected}
-            selectionMode={selected.size > 0}
-            level={effectiveLevel}
-            userId={userId}
-            archived={archived}
-            renamingKey={renamingKey}
-            renameValue={renameValue}
-            onRenameValueChange={setRenameValue}
-            onRenameSubmit={submitRename}
-            onRenameCancel={cancelRename}
-            onToggleSelect={toggleSelect}
-            onOpenFolder={onOpenFolder}
-            onOpenFile={onOpenFile}
-            onAction={handleAction}
-            onRemoveIncomplete={onRemoveIncomplete}
-          />
+          <>
+            <label className="mb-3 flex w-fit cursor-pointer items-center gap-2 text-sm text-[#062E25]">
+              <Checkbox
+                checked={allSelected}
+                onCheckedChange={toggleSelectAll}
+              />
+              {t('files.selectAll')}
+            </label>
+            <FileGrid
+              workspaceId={workspace.id}
+              entries={entries}
+              selected={selected}
+              selectionMode={selected.size > 0}
+              level={effectiveLevel}
+              userId={userId}
+              archived={archived}
+              renamingKey={renamingKey}
+              renameValue={renameValue}
+              onRenameValueChange={setRenameValue}
+              onRenameSubmit={submitRename}
+              onRenameCancel={cancelRename}
+              onToggleSelect={toggleSelect}
+              onOpenFolder={onOpenFolder}
+              onOpenFile={onOpenFile}
+              onAction={handleAction}
+              onRemoveIncomplete={onRemoveIncomplete}
+            />
+          </>
         ) : (
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead />
+                <TableHead>
+                  <Checkbox
+                    aria-label={t('files.selectAll')}
+                    checked={allSelected}
+                    onCheckedChange={toggleSelectAll}
+                  />
+                </TableHead>
                 <TableHead>{t('files.columns.name')}</TableHead>
                 <TableHead>{t('files.columns.size')}</TableHead>
                 <TableHead>{t('files.columns.uploader')}</TableHead>
