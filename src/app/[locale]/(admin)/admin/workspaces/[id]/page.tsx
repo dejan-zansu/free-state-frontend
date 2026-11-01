@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Archive,
@@ -164,7 +164,15 @@ export default function AdminWorkspaceDetailPage() {
   const [editOpen, setEditOpen] = useState(false)
   const [archiving, setArchiving] = useState(false)
   const [archiveError, setArchiveError] = useState<string | null>(null)
-  const [moveTarget, setMoveTarget] = useState<MoveTarget | null>(null)
+  const [moveRequest, setMoveRequest] = useState<{
+    targets: MoveTarget[]
+    onDone: () => void
+  } | null>(null)
+  const [moveProgress, setMoveProgress] = useState<{
+    done: number
+    total: number
+  } | null>(null)
+  const movingRef = useRef(false)
   const [restrictTarget, setRestrictTarget] = useState<WorkspaceFolder | null>(
     null
   )
@@ -203,33 +211,54 @@ export default function AdminWorkspaceDetailPage() {
   }
 
   const handleMovePick = async (folderId: string | null) => {
-    if (!moveTarget || !workspace) return
-    try {
-      if (moveTarget.kind === 'folder') {
-        await adminWorkspaceService.moveFolder(
-          workspace.id,
-          moveTarget.item.id,
-          folderId
-        )
-      } else {
-        await adminWorkspaceService.moveFile(
-          workspace.id,
-          moveTarget.item.id,
-          folderId
-        )
+    if (!moveRequest || !workspace || movingRef.current) return
+    movingRef.current = true
+    const { targets, onDone } = moveRequest
+    setMoveProgress({ done: 0, total: targets.length })
+    let failed = 0
+    let failedCode: string | undefined
+    for (const [index, target] of targets.entries()) {
+      try {
+        if (target.kind === 'folder') {
+          await adminWorkspaceService.moveFolder(
+            workspace.id,
+            target.item.id,
+            folderId
+          )
+        } else {
+          await adminWorkspaceService.moveFile(
+            workspace.id,
+            target.item.id,
+            folderId
+          )
+        }
+      } catch (error) {
+        failed += 1
+        failedCode ??= (
+          error as { response?: { data?: { error?: { code?: string } } } }
+        )?.response?.data?.error?.code
       }
-      toast.success(t('files.moved'))
-      queryClient.invalidateQueries({
-        queryKey: ['admin', 'workspaces', workspace.id, 'browse'],
-      })
-    } catch (error) {
-      const code = (
-        error as { response?: { data?: { error?: { code?: string } } } }
-      )?.response?.data?.error?.code
-      toast.error(errorMessage(code))
-    } finally {
-      setMoveTarget(null)
+      setMoveProgress({ done: index + 1, total: targets.length })
     }
+    if (failed === 0) {
+      toast.success(t('files.moved'))
+    } else if (targets.length === 1) {
+      toast.error(errorMessage(failedCode))
+    } else {
+      toast.error(
+        `${t('files.movePartial', {
+          moved: targets.length - failed,
+          total: targets.length,
+        })} ${errorMessage(failedCode)}`
+      )
+    }
+    queryClient.invalidateQueries({
+      queryKey: ['admin', 'workspaces', workspace.id, 'browse'],
+    })
+    onDone()
+    movingRef.current = false
+    setMoveProgress(null)
+    setMoveRequest(null)
   }
 
   const refetch = () => {
@@ -362,7 +391,7 @@ export default function AdminWorkspaceDetailPage() {
           <FilesTab
             workspace={workspace}
             onPreview={handlePreview}
-            onMove={setMoveTarget}
+            onMove={(targets, onDone) => setMoveRequest({ targets, onDone })}
             onRestrict={setRestrictTarget}
           />
         </TabsContent>
@@ -386,12 +415,14 @@ export default function AdminWorkspaceDetailPage() {
 
       <MoveDialog
         workspaceId={workspace.id}
-        open={!!moveTarget}
-        onOpenChange={open => !open && setMoveTarget(null)}
+        open={!!moveRequest}
+        onOpenChange={open => !open && !moveProgress && setMoveRequest(null)}
         onPick={handleMovePick}
-        excludeFolderId={
-          moveTarget?.kind === 'folder' ? moveTarget.item.id : null
-        }
+        excludeFolderIds={(moveRequest?.targets ?? [])
+          .filter(target => target.kind === 'folder')
+          .map(target => target.item.id)}
+        currentFolderId={currentFolderId}
+        progress={moveProgress}
       />
 
       <RestrictDialog

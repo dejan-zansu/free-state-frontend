@@ -5,6 +5,7 @@ import { useMemo, useRef, useState } from 'react'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   Download,
+  FolderInput,
   FolderPlus,
   LayoutGrid,
   List,
@@ -73,7 +74,7 @@ type SortKey = 'name' | 'date' | 'size'
 interface FilesTabProps {
   workspace: WorkspaceDetail
   onPreview?: (file: WorkspaceFile) => void
-  onMove?: (target: Entry) => void
+  onMove?: (targets: Entry[], onDone: () => void) => void
   onRestrict?: (folder: WorkspaceFolder) => void
 }
 
@@ -430,6 +431,18 @@ export function FilesTab({
     }
   }
 
+  const requestMove = (targets: Entry[]) => {
+    onMove?.(targets, () =>
+      setSelected(prev => {
+        const next = new Set(prev)
+        for (const target of targets) {
+          next.delete(`${target.kind}:${target.item.id}`)
+        }
+        return next
+      })
+    )
+  }
+
   const handleAction = async (
     action: FileActionId,
     kind: 'folder' | 'file',
@@ -442,7 +455,7 @@ export function FilesTab({
       } else if (action === 'rename') {
         startRename('folder', folder)
       } else if (action === 'move') {
-        onMove?.({ kind: 'folder', item: folder })
+        requestMove([{ kind: 'folder', item: folder }])
       } else if (action === 'restrict') {
         onRestrict?.(folder)
       } else if (action === 'trash') {
@@ -462,7 +475,7 @@ export function FilesTab({
     } else if (action === 'rename') {
       startRename('file', file)
     } else if (action === 'move') {
-      onMove?.({ kind: 'file', item: file })
+      requestMove([{ kind: 'file', item: file }])
     } else if (action === 'trash') {
       setTrashRequest([{ kind: 'file', item: file }])
     }
@@ -541,23 +554,25 @@ export function FilesTab({
   const confirmTrash = async () => {
     if (!trashRequest) return
     setTrashing(true)
-    try {
-      await Promise.all(
-        trashRequest.map(entry =>
-          entry.kind === 'folder'
-            ? adminWorkspaceService.trashFolder(workspace.id, entry.item.id)
-            : adminWorkspaceService.trashFile(workspace.id, entry.item.id)
-        )
+    const results = await Promise.allSettled(
+      trashRequest.map(entry =>
+        entry.kind === 'folder'
+          ? adminWorkspaceService.trashFolder(workspace.id, entry.item.id)
+          : adminWorkspaceService.trashFile(workspace.id, entry.item.id)
       )
+    )
+    const failure = results.find(result => result.status === 'rejected')
+    if (failure) {
+      toast.error(
+        errorMessage(extractErrorCode((failure as PromiseRejectedResult).reason))
+      )
+    } else {
       toast.success(t('files.trashed'))
-      setSelected(new Set())
-      invalidateBrowse()
-    } catch (error) {
-      toast.error(errorMessage(extractErrorCode(error)))
-    } finally {
-      setTrashing(false)
-      setTrashRequest(null)
     }
+    setSelected(new Set())
+    invalidateBrowse()
+    setTrashing(false)
+    setTrashRequest(null)
   }
 
   return (
@@ -672,6 +687,17 @@ export function FilesTab({
                 <Download className="h-4 w-4" />
                 {t('files.downloadZip')}
               </Button>
+              {allSelectedEditable && (
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => requestMove(selectedEntries)}
+                >
+                  <FolderInput className="h-4 w-4" />
+                  {t('files.actions.move')}
+                </Button>
+              )}
               {allSelectedEditable && (
                 <Button
                   type="button"
@@ -808,6 +834,7 @@ export function FilesTab({
               {entries.map((entry, index) => (
                 <FileRow
                   key={`${entry.kind}:${entry.item.id}`}
+                  workspaceId={workspace.id}
                   kind={entry.kind}
                   item={entry.item}
                   index={index}

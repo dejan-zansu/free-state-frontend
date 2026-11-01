@@ -65,7 +65,7 @@ export function PreviewDialog({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-5xl">
+      <DialogContent className="h-[calc(100dvh-2rem)] grid-rows-[auto_minmax(0,1fr)] sm:max-w-[calc(100%-2rem)]">
         <DialogHeader>
           <div className="flex items-center justify-between gap-3 pr-8">
             <DialogTitle className="truncate">{file.name}</DialogTitle>
@@ -80,29 +80,30 @@ export function PreviewDialog({
             </Button>
           </div>
         </DialogHeader>
-        <div className="relative flex min-h-[40vh] items-center justify-center">
+        <div className="relative flex min-h-0 items-center justify-center overflow-hidden rounded-md bg-[#062E25]/5">
           {index > 0 && (
             <Button
               type="button"
               variant="ghost"
               size="icon"
               aria-label={t('previous')}
-              className="absolute left-0 z-10"
+              className="absolute left-2 z-10 bg-white"
               onClick={() => onIndexChange(index - 1)}
             >
               <ChevronLeft className="h-5 w-5" />
             </Button>
           )}
           {isLoading || !url ? (
-            <AdminPageLoader className="h-[60vh]" />
+            <AdminPageLoader className="h-full" />
           ) : file.mimeType.startsWith('image/') ? (
             <img
+              key={file.id}
               src={url}
               alt={file.name}
-              className="max-h-[80vh] max-w-full object-contain"
+              className="max-h-full max-w-full object-contain"
             />
           ) : file.mimeType === 'application/pdf' ? (
-            <iframe src={url} title={file.name} className="h-[80vh] w-full" />
+            <iframe src={url} title={file.name} className="h-full w-full" />
           ) : (
             <p className="py-12 text-sm text-[#062E25]/75">{t('noPreview')}</p>
           )}
@@ -112,7 +113,7 @@ export function PreviewDialog({
               variant="ghost"
               size="icon"
               aria-label={t('next')}
-              className="absolute right-0 z-10"
+              className="absolute right-2 z-10 bg-white"
               onClick={() => onIndexChange(index + 1)}
             >
               <ChevronRight className="h-5 w-5" />

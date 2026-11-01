@@ -164,11 +164,7 @@ function FileCard({
     return () => clearTimeout(timer)
   }, [renaming])
 
-  const showThumb =
-    !!file &&
-    file.hasThumbnail &&
-    !incomplete &&
-    file.mimeType.startsWith('image/')
+  const showThumb = !!file && file.hasThumbnail && !incomplete
   const { data: thumbUrl } = useQuery({
     queryKey: ['admin', 'workspaces', workspaceId, 'thumb', file?.id],
     queryFn: () => adminWorkspaceService.thumbnailUrl(workspaceId, file!.id),

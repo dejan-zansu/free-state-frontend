@@ -7221,6 +7221,7 @@
         "trashed": "Moved to trash",
         "renamed": "Renamed",
         "moved": "Moved",
+        "movePartial": "{moved} of {total} moved.",
         "folderCreated": "Folder created",
         "restrictedBadge": "Restricted",
         "noResults": "No results."

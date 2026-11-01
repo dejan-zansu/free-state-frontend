@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { MoreVertical } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
@@ -19,6 +20,7 @@ import { Input } from '@/components/ui/input'
 import { TableCell, TableRow } from '@/components/ui/table'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { formatBytes } from '@/lib/format-bytes'
+import { adminWorkspaceService } from '@/services/admin-workspace.service'
 import type {
   WorkspaceFile,
   WorkspaceFolder,
@@ -29,6 +31,7 @@ import { FileActionsMenu, type FileActionId } from './FileActionsMenu'
 import { FileIcon } from './FileIcon'
 
 interface FileRowProps {
+  workspaceId: string
   kind: 'folder' | 'file'
   item: WorkspaceFolder | WorkspaceFile
   index: number
@@ -50,6 +53,7 @@ interface FileRowProps {
 }
 
 export function FileRow({
+  workspaceId,
   kind,
   item,
   index,
@@ -85,6 +89,14 @@ export function FileRow({
     const timer = setTimeout(() => renameRef.current?.focus(), 60)
     return () => clearTimeout(timer)
   }, [renaming])
+
+  const showThumb = !!file && file.hasThumbnail && !incomplete
+  const { data: thumbUrl } = useQuery({
+    queryKey: ['admin', 'workspaces', workspaceId, 'thumb', file?.id],
+    queryFn: () => adminWorkspaceService.thumbnailUrl(workspaceId, file!.id),
+    enabled: showThumb,
+    staleTime: 4 * 60 * 1000,
+  })
 
   if (file && incomplete) {
     return (
@@ -144,12 +156,22 @@ export function FileRow({
           </TableCell>
           <TableCell>
             <div className="flex items-center gap-2">
-              <FileIcon
-                mimeType={file?.mimeType}
-                folder={!!folder}
-                restricted={folder?.isRestricted}
-                className="h-4 w-4 shrink-0"
-              />
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-md bg-[#062E25]/5">
+                {showThumb && thumbUrl ? (
+                  <img
+                    src={thumbUrl}
+                    alt={file?.name ?? ''}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <FileIcon
+                    mimeType={file?.mimeType}
+                    folder={!!folder}
+                    restricted={folder?.isRestricted}
+                    className="h-4 w-4"
+                  />
+                )}
+              </div>
               {renaming ? (
                 <Input
                   ref={renameRef}

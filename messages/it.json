@@ -7221,6 +7221,7 @@
         "trashed": "Spostato nel cestino",
         "renamed": "Rinominato",
         "moved": "Spostato",
+        "movePartial": "{moved} von {total} verschoben.",
         "folderCreated": "Cartella creata",
         "restrictedBadge": "Limitato",
         "noResults": "Nessun risultato."

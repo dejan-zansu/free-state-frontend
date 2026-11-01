@@ -138,7 +138,7 @@ export function NewDataRequestDialog({ contractId, open, onClose }: Props) {
 
   return (
     <Dialog open={open} onOpenChange={(v) => !v && onClose()}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold text-[#062E25]">
             {t('dialogTitle')}

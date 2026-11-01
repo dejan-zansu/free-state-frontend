@@ -397,7 +397,7 @@ function NewTaskDialog({
 
   return (
     <Dialog open={open} onOpenChange={v => !v && onClose()}>
-      <DialogContent className="max-w-lg">
+      <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-lg font-semibold text-[#062E25]">
             {t('dialog.title')}

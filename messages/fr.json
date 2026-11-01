@@ -7221,6 +7221,7 @@
         "trashed": "Mis à la corbeille",
         "renamed": "Renommé",
         "moved": "Déplacé",
+        "movePartial": "{moved} von {total} verschoben.",
         "folderCreated": "Dossier créé",
         "restrictedBadge": "Restreint",
         "noResults": "Aucun résultat."

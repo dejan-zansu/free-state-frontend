@@ -20,19 +20,21 @@ import type { WorkspaceFolder } from '@/types/workspace'
 interface FolderNodeProps {
   folder: WorkspaceFolder
   depth: number
-  excludeFolderId: string | null | undefined
+  excludeFolderIds: string[]
+  currentFolderId: string | null
   expanded: Set<string>
   onToggleExpand: (folderId: string) => void
   childrenMap: Record<string, WorkspaceFolder[]>
   loadingIds: Set<string>
-  selected: string | null
+  selected: string | null | undefined
   onSelect: (folderId: string) => void
 }
 
 function FolderNode({
   folder,
   depth,
-  excludeFolderId,
+  excludeFolderIds,
+  currentFolderId,
   expanded,
   onToggleExpand,
   childrenMap,
@@ -40,7 +42,8 @@ function FolderNode({
   selected,
   onSelect,
 }: FolderNodeProps) {
-  const isExcluded = folder.id === excludeFolderId
+  const isExcluded = excludeFolderIds.includes(folder.id)
+  const isBlocked = isExcluded || folder.id === currentFolderId
   const isExpanded = expanded.has(folder.id)
   const children = childrenMap[folder.id]
   const isLoading = loadingIds.has(folder.id)
@@ -70,11 +73,11 @@ function FolderNode({
         <Folder className="h-4 w-4 shrink-0 text-[#062E25]/75" />
         <button
           type="button"
-          disabled={isExcluded}
+          disabled={isBlocked}
           onClick={() => onSelect(folder.id)}
           className={cn(
             'flex-1 truncate rounded px-2 py-1 text-left text-sm',
-            isExcluded
+            isBlocked
               ? 'cursor-not-allowed text-[#062E25]/40'
               : 'text-[#062E25] hover:bg-[#062E25]/5',
             selected === folder.id && 'bg-[#062E25]/10 font-medium'
@@ -98,7 +101,8 @@ function FolderNode({
                 key={child.id}
                 folder={child}
                 depth={depth + 1}
-                excludeFolderId={excludeFolderId}
+                excludeFolderIds={excludeFolderIds}
+                currentFolderId={currentFolderId}
                 expanded={expanded}
                 onToggleExpand={onToggleExpand}
                 childrenMap={childrenMap}
@@ -119,7 +123,9 @@ interface MoveDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
   onPick: (folderId: string | null) => void
-  excludeFolderId?: string | null
+  excludeFolderIds: string[]
+  currentFolderId: string | null
+  progress: { done: number; total: number } | null
 }
 
 export function MoveDialog({
@@ -127,12 +133,15 @@ export function MoveDialog({
   open,
   onOpenChange,
   onPick,
-  excludeFolderId,
+  excludeFolderIds,
+  currentFolderId,
+  progress,
 }: MoveDialogProps) {
+  const busy = progress !== null
   const t = useTranslations('admin.workspaces.move')
   const tc = useTranslations('admin.common')
   const [rootFolders, setRootFolders] = useState<WorkspaceFolder[] | null>(null)
-  const [selected, setSelected] = useState<string | null>(null)
+  const [selected, setSelected] = useState<string | null | undefined>(undefined)
   const [expanded, setExpanded] = useState<Set<string>>(new Set())
   const [childrenMap, setChildrenMap] = useState<
     Record<string, WorkspaceFolder[]>
@@ -141,7 +150,7 @@ export function MoveDialog({
 
   useEffect(() => {
     if (!open) return
-    setSelected(null)
+    setSelected(undefined)
     setExpanded(new Set())
     setChildrenMap({})
     setLoadingIds(new Set())
@@ -176,6 +185,7 @@ export function MoveDialog({
   }
 
   const confirm = () => {
+    if (selected === undefined) return
     onPick(selected)
   }
 
@@ -195,9 +205,13 @@ export function MoveDialog({
                 <Folder className="h-4 w-4 shrink-0 text-[#062E25]/75" />
                 <button
                   type="button"
+                  disabled={currentFolderId === null}
                   onClick={() => setSelected(null)}
                   className={cn(
-                    'flex-1 truncate rounded px-2 py-1 text-left text-sm text-[#062E25] hover:bg-[#062E25]/5',
+                    'flex-1 truncate rounded px-2 py-1 text-left text-sm',
+                    currentFolderId === null
+                      ? 'cursor-not-allowed text-[#062E25]/40'
+                      : 'text-[#062E25] hover:bg-[#062E25]/5',
                     selected === null && 'bg-[#062E25]/10 font-medium'
                   )}
                 >
@@ -209,7 +223,8 @@ export function MoveDialog({
                   key={folder.id}
                   folder={folder}
                   depth={1}
-                  excludeFolderId={excludeFolderId}
+                  excludeFolderIds={excludeFolderIds}
+                  currentFolderId={currentFolderId}
                   expanded={expanded}
                   onToggleExpand={onToggleExpand}
                   childrenMap={childrenMap}
@@ -222,14 +237,21 @@ export function MoveDialog({
           )}
         </div>
         <DialogFooter>
-          <Button variant="outline" onClick={() => onOpenChange(false)}>
+          <Button
+            variant="outline"
+            disabled={busy}
+            onClick={() => onOpenChange(false)}
+          >
             {tc('cancel')}
           </Button>
           <Button
             className="bg-[#062E25] text-white hover:bg-[#062E25]/90"
+            disabled={busy || selected === undefined}
             onClick={confirm}
           >
-            {t('confirm')}
+            {progress && progress.total > 1
+              ? `${progress.done} / ${progress.total}`
+              : t('confirm')}
           </Button>
         </DialogFooter>
       </DialogContent>
