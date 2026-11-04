@@ -7,6 +7,8 @@ import type {
   KpiDailyQuery,
   KpiDailyResponse,
   LeadsResponse,
+  OutboundLeadListQuery,
+  OutboundLeadListResponse,
   RecordLeadRequest,
   RecordLeadResponse,
   WarmOpenResponse,
@@ -38,6 +40,26 @@ class OutreachKpiService {
         params: { from: q.from || undefined, to: q.to || undefined },
       }
     )
+    return response.data.data
+  }
+
+  async listLeadsPage(
+    q: OutboundLeadListQuery = {}
+  ): Promise<OutboundLeadListResponse> {
+    const response = await api.get<{
+      success: boolean
+      data: OutboundLeadListResponse
+    }>('/admin/outreach/leads/list', {
+      params: {
+        page: q.page,
+        limit: q.limit,
+        search: q.search || undefined,
+        kind: q.kind,
+        criterion: q.criterion,
+        channel: q.channel,
+        state: q.state,
+      },
+    })
     return response.data.data
   }
 

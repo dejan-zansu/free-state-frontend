@@ -40,6 +40,7 @@ import {
   Sparkles,
   Target,
   Ticket,
+  UserCheck,
   UserPlus,
   Users,
   Wrench,
@@ -140,6 +141,12 @@ function useNavGroups() {
           label: t('outreach'),
           href: `${prefix}/outreach`,
           icon: Radar,
+          capability: 'outreach.manage',
+        },
+        {
+          label: t('outreachLeads'),
+          href: `${prefix}/outreach/leads`,
+          icon: UserCheck,
           capability: 'outreach.manage',
         },
         {

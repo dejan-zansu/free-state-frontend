@@ -39,6 +39,9 @@ import type {
   OutboundActivity, OutboundEmail, OutboundPromoteDuplicateData, OutboundProspectDetail,
   OutboundProspectStatus,
 } from '@/types/admin-outreach'
+import {
+  OUTBOUND_CHANNELS, QRL_CRITERIA, type OutboundChannel, type QrlCriterion,
+} from '@/types/outreach/owner-first'
 
 const REPLY_CLASSIFICATION_COLORS: Record<string, string> = {
   INTERESTED: 'bg-green-100 text-green-700',
@@ -925,11 +928,14 @@ function defaultFollowUpDate(): string {
 
 function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const t = useTranslations('admin.outreach.promote')
+  const tl = useTranslations('admin.outreach.leads')
   const tc = useTranslations('admin.common')
   const locale = useLocale()
   const queryClient = useQueryClient()
 
   const [open, setOpen] = useState(false)
+  const [leadCriterion, setLeadCriterion] = useState<QrlCriterion>('OFFER_REQUEST')
+  const [leadChannel, setLeadChannel] = useState<OutboundChannel>('EMAIL')
   const [assignedToId, setAssignedToId] = useState('')
   const [nextFollowUpAt, setNextFollowUpAt] = useState('')
   const [firstName, setFirstName] = useState('')
@@ -959,6 +965,8 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
       industry: industry === '__none__' ? undefined : industry,
       timeline: timeline === '__none__' ? undefined : timeline,
       note: note.trim() || undefined,
+      leadCriterion,
+      leadChannel,
     }),
   })
 
@@ -968,6 +976,8 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
     setFirstName(spaceIdx > 0 ? name.slice(0, spaceIdx) : '')
     setLastName(spaceIdx > 0 ? name.slice(spaceIdx + 1).trim() : '')
     setPhone(prospect.contactPhone ?? '')
+    setLeadCriterion('OFFER_REQUEST')
+    setLeadChannel('EMAIL')
     setAssignedToId('')
     setNextFollowUpAt(defaultFollowUpDate())
     setRole('__none__')
@@ -994,7 +1004,11 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
   const attachMutation = useMutation({
     mutationFn: () => {
       if (!duplicate) throw new Error('no duplicate lead to attach')
-      return adminOutreachService.attachLead(prospect.id, duplicate.existingLeadId)
+      return adminOutreachService.attachLead(prospect.id, duplicate.existingLeadId, {
+        leadCriterion,
+        leadChannel,
+        note: note.trim() || undefined,
+      })
     },
   })
 
@@ -1005,7 +1019,7 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
     }
   }
 
-  if (prospect.status === 'CONVERTED') {
+  if (prospect.status === 'CONVERTED' || prospect.commercialLeadId) {
     return (
       <Card className="border-green-200 bg-green-50/40"><CardContent className="p-4 space-y-2">
         <p className="text-[#062E25]">{t('convertedHint')}</p>
@@ -1102,6 +1116,32 @@ function PromoteCard({ prospect }: { prospect: OutboundProspectDetail }) {
                 <Input type="date" value={nextFollowUpAt}
                        onChange={(e) => setNextFollowUpAt(e.target.value)} className="mt-1 text-base" />
               </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <Label>{t('leadCriterion')}</Label>
+                  <Select value={leadCriterion} onValueChange={(v) => setLeadCriterion(v as QrlCriterion)}>
+                    <SelectTrigger className="mt-1 text-base"><SelectValue /></SelectTrigger>
+                    <SelectContent>
+                      {QRL_CRITERIA.map((value) => (
+                        <SelectItem key={value} value={value}>{tl(`criterion.${value}`)}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+                <div>
+                  <Label>{t('leadChannel')}</Label>
+                  <Select value={leadChannel} onValueChange={(v) => setLeadChannel(v as OutboundChannel)}>
+                    <SelectTrigger className="mt-1 text-base"><SelectValue /></SelectTrigger>
+                    <SelectContent>
+                      {OUTBOUND_CHANNELS.map((value) => (
+                        <SelectItem key={value} value={value}>{tl(`channel.${value}`)}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <p className="text-[#062E25]/75">{t('leadHint')}</p>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>

@@ -127,8 +127,12 @@ class AdminOutreachService {
     return response.data.data
   }
 
-  async attachLead(prospectId: string, leadId: string): Promise<OutboundPromoteResult> {
-    const response = await api.post<{ success: boolean; data: OutboundPromoteResult }>(`/admin/outreach/prospects/${prospectId}/attach-lead`, { leadId })
+  async attachLead(
+    prospectId: string,
+    leadId: string,
+    lead: Pick<OutboundPromoteInput, 'leadCriterion' | 'leadChannel' | 'note'> = {},
+  ): Promise<OutboundPromoteResult> {
+    const response = await api.post<{ success: boolean; data: OutboundPromoteResult }>(`/admin/outreach/prospects/${prospectId}/attach-lead`, { leadId, ...lead })
     return response.data.data
   }
 

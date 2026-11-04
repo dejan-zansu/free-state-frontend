@@ -519,6 +519,8 @@ export interface OutboundPromoteInput {
   industry?: string
   timeline?: string
   note?: string
+  leadCriterion?: QrlCriterion
+  leadChannel?: OutboundChannel
 }
 
 export interface OutboundAssignee {

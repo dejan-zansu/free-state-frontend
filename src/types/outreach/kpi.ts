@@ -117,6 +117,90 @@ export interface LeadsResponse {
   }
 }
 
+export type OutboundLeadState = 'open' | 'in_crm' | 'closed'
+
+export interface OutboundLeadListQuery {
+  page?: number
+  limit?: number
+  search?: string
+  kind?: OutboundLeadKind
+  criterion?: OutboundLeadCriterion
+  channel?: OutboundChannel
+  state?: OutboundLeadState
+}
+
+export interface OutboundLeadAssignee {
+  id: string
+  firstName: string
+  lastName: string
+}
+
+export interface OutboundLeadListItem {
+  id: string
+  kind: OutboundLeadKind
+  criterion: OutboundLeadCriterion
+  channel: OutboundChannel
+  segment: OutboundSegment | null
+  buildingKey: string
+  qualifiedAt: string
+  recordedBy: string
+  note: string | null
+  promotionNote: string | null
+  state: OutboundLeadState
+  prospect: {
+    id: string
+    reference: string
+    companyName: string
+    status: OutboundProspectStatus
+    addressPostalCode: string | null
+    addressCity: string | null
+    contactName: string | null
+    contactEmail: string | null
+    contactPhone: string | null
+    nextActionAt: string | null
+    assignedTo: OutboundLeadAssignee | null
+  } | null
+  commercialLead: {
+    id: string
+    reference: string
+    status: string
+    nextFollowUpAt: string | null
+    assignedTo: OutboundLeadAssignee | null
+  } | null
+  residentialLead: {
+    id: string
+    status: string
+    nextFollowUp: string | null
+    assignedTo: OutboundLeadAssignee | null
+    contactName: string | null
+    contactEmail: string | null
+    contactPhone: string | null
+  } | null
+  letterTarget: {
+    id: string
+    addressStreet: string | null
+    addressNumber: string | null
+    addressPostalCode: string | null
+    addressCity: string | null
+  } | null
+}
+
+export interface OutboundLeadListResponse {
+  qrlPromotionConfigured: boolean
+  items: OutboundLeadListItem[]
+  meta: {
+    page: number
+    limit: number
+    total: number
+    totalPages: number
+  }
+  summary: {
+    total: number
+    byKind: Partial<Record<OutboundLeadKind, number>>
+    byState: Record<OutboundLeadState, number>
+  }
+}
+
 // POST /prospects/:id/leads
 export interface RecordLeadRequest {
   kind?: 'QRL' | 'EIGENTUEMER_HINWEIS'
