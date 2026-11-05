@@ -14,6 +14,12 @@ import type {
   ProspectPartyRole,
   QrlCriterion,
 } from './outreach/owner-first'
+import type {
+  LeadCrmLink,
+  LeadOwnerInfo,
+  LeadWork,
+  OutboundLeadAssignee,
+} from './outreach/kpi'
 
 export type OutboundProspectStatus =
   | 'DISCOVERED'
@@ -196,8 +202,29 @@ export interface OutboundEmail {
   replyClassification: OutboundReplyClassification | null
   classificationConfidence: number | null
   rawMimeKey: string | null
+  autoReplyKey: string | null
+  autoSendApproved: boolean
+  humanRequired: boolean
+  headersJson: OutboundEmailHeaders | null
   createdAt: string
   updatedAt: string
+}
+
+export interface OutboundEmailHeaders {
+  offThread?: boolean
+  to?: string | string[]
+  [key: string]: unknown
+}
+
+export interface OutboundEmailMailbox {
+  id: string
+  address: string
+  displayName: string
+}
+
+export interface OutboundProspectEmail extends OutboundEmail {
+  mailbox: OutboundEmailMailbox | null
+  template?: { key: string; version: number } | null
 }
 
 export interface OutboundProspectDetail {
@@ -262,8 +289,14 @@ export interface OutboundProspectDetail {
   createdAt: string
   updatedAt: string
   activities: OutboundActivity[]
-  emails: OutboundEmail[]
+  emails: OutboundProspectEmail[]
   draftGate: { reason: string; detail: string } | null
+  work: LeadWork
+  owner: LeadOwnerInfo | null
+  assignedTo: OutboundLeadAssignee | null
+  crmLead: LeadCrmLink | null
+  followUpAt: string | null
+  assignedMailbox: OutboundEmailMailbox | null
   // Views of the mailed link (roof page or reference page), newest first.
   linkOpens: {
     kind: 'roof' | 'reference'
@@ -342,6 +375,7 @@ export interface OutboundProspectOwnerLookup {
   canton: string
   resolution: OwnerResolution | null
   queriedAt: string | null
+  createdAt: string
 }
 
 export interface OutboundProspectLetter {
@@ -361,6 +395,7 @@ export interface OutboundProspectLead {
   channel: OutboundChannel
   qualifiedAt: string
   commercialLeadId: string | null
+  residentialLeadId: string | null
   promotionNote: string | null
 }
 
@@ -510,7 +545,7 @@ export type OutboundSendErrorCode =
   | 'SMTP_SEND_FAILED'
 
 export interface OutboundPromoteInput {
-  assignedToId: string
+  assignedToId?: string
   nextFollowUpAt?: string
   contactFirstName?: string
   contactLastName?: string
@@ -603,16 +638,6 @@ export interface OutboundPromoteDuplicateData {
   existingLeadId: string
   existingReference: string
   matchedOn: string
-}
-
-export interface OutboundTemplateRow {
-  id: string
-  key: string
-  version: number
-  subject: string
-  bodyText: string
-  active: boolean
-  notes: string | null
 }
 
 export type LinkedinTouchStatus =

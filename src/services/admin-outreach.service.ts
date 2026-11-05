@@ -20,11 +20,18 @@ import type {
   OutboundProspectDetail,
   OutboundProspectPatch,
   OutboundRunRow,
-  OutboundTemplateRow,
   OutreachListQuery,
   OutreachProspectList,
   OutreachStats,
 } from '@/types/admin-outreach'
+import type {
+  LeadDecisionInput,
+  LeadDecisionResult,
+  LeadNamedOwnerInput,
+  LeadNamedOwnerResult,
+  LeadWorkPatch,
+  LeadWorkSnapshot,
+} from '@/types/outreach/kpi'
 
 class AdminOutreachService {
   async listCallQueue(q: OutboundCallQueueQuery = {}): Promise<OutboundCallQueue> {
@@ -107,11 +114,6 @@ class AdminOutreachService {
     return response.data.data
   }
 
-  async listTemplates(): Promise<OutboundTemplateRow[]> {
-    const response = await api.get<{ success: boolean; data: OutboundTemplateRow[] }>('/admin/outreach/templates')
-    return response.data.data
-  }
-
   async createManualReply(prospectId: string, input: OutboundManualReplyInput): Promise<OutboundEmail> {
     const response = await api.post<{ success: boolean; data: OutboundEmail }>(`/admin/outreach/prospects/${prospectId}/emails`, input)
     return response.data.data
@@ -133,6 +135,21 @@ class AdminOutreachService {
     lead: Pick<OutboundPromoteInput, 'leadCriterion' | 'leadChannel' | 'note'> = {},
   ): Promise<OutboundPromoteResult> {
     const response = await api.post<{ success: boolean; data: OutboundPromoteResult }>(`/admin/outreach/prospects/${prospectId}/attach-lead`, { leadId, ...lead })
+    return response.data.data
+  }
+
+  async updateWork(prospectId: string, patch: LeadWorkPatch): Promise<LeadWorkSnapshot> {
+    const response = await api.patch<{ success: boolean; data: LeadWorkSnapshot }>(`/admin/outreach/prospects/${prospectId}/work`, patch)
+    return response.data.data
+  }
+
+  async recordDecision(prospectId: string, input: LeadDecisionInput): Promise<LeadDecisionResult> {
+    const response = await api.post<{ success: boolean; data: LeadDecisionResult }>(`/admin/outreach/prospects/${prospectId}/decision`, input)
+    return response.data.data
+  }
+
+  async recordNamedOwner(prospectId: string, input: LeadNamedOwnerInput): Promise<LeadNamedOwnerResult> {
+    const response = await api.post<{ success: boolean; data: LeadNamedOwnerResult }>(`/admin/outreach/prospects/${prospectId}/named-owner`, input)
     return response.data.data
   }
 

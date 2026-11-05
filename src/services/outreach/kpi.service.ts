@@ -58,6 +58,10 @@ class OutreachKpiService {
         criterion: q.criterion,
         channel: q.channel,
         state: q.state,
+        tab: q.tab,
+        assignee: q.assignee,
+        draftWaiting: q.draftWaiting ? 'true' : undefined,
+        followUpDue: q.followUpDue ? 'true' : undefined,
       },
     })
     return response.data.data

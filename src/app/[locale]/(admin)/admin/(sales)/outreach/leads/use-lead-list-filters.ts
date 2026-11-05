@@ -2,9 +2,11 @@
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+import { LEAD_LIST_TABS } from '@/lib/outbound-lead-work'
 import type {
+  LeadAssigneeFilter,
+  LeadWorkTabFilter,
   OutboundLeadListQuery,
-  OutboundLeadState,
 } from '@/types/outreach/kpi'
 import {
   OUTBOUND_CHANNELS,
@@ -15,29 +17,33 @@ import {
   type OutboundLeadKind,
 } from '@/types/outreach/owner-first'
 
-export type LeadListState = OutboundLeadState | 'all'
-
 export interface LeadListFilters {
-  state: LeadListState
+  tab: LeadWorkTabFilter
   kind: OutboundLeadKind | null
   criterion: OutboundLeadCriterion | null
   channel: OutboundChannel | null
+  assignee: LeadAssigneeFilter | null
+  draftWaiting: boolean
+  followUpDue: boolean
   search: string
   page: number
 }
 
-export const LEAD_LIST_STATES = ['open', 'in_crm', 'closed', 'all'] as const
 export const SEARCH_MAX_LENGTH = 200
 
 const PAGE_SIZE = 25
 const STORAGE_KEY = 'outreach-leads:list-filters'
 const SEARCH_DEBOUNCE_MS = 300
+const ASSIGNEE_FILTERS: readonly LeadAssigneeFilter[] = ['me', 'unassigned']
 
 const DEFAULT_FILTERS: LeadListFilters = {
-  state: 'open',
+  tab: 'us',
   kind: null,
   criterion: null,
   channel: null,
+  assignee: null,
+  draftWaiting: false,
+  followUpDue: false,
   search: '',
   page: 1,
 }
@@ -57,10 +63,13 @@ function parseStoredFilters(raw: unknown): LeadListFilters | null {
   const value = raw as Record<string, unknown>
 
   return {
-    state: oneOf(value.state, LEAD_LIST_STATES) ?? DEFAULT_FILTERS.state,
+    tab: oneOf(value.tab, LEAD_LIST_TABS) ?? DEFAULT_FILTERS.tab,
     kind: oneOf(value.kind, OUTBOUND_LEAD_KINDS),
     criterion: oneOf(value.criterion, OUTBOUND_LEAD_CRITERIA),
     channel: oneOf(value.channel, OUTBOUND_CHANNELS),
+    assignee: oneOf(value.assignee, ASSIGNEE_FILTERS),
+    draftWaiting: value.draftWaiting === true,
+    followUpDue: value.followUpDue === true,
     search:
       typeof value.search === 'string'
         ? value.search.slice(0, SEARCH_MAX_LENGTH).trim()
@@ -95,12 +104,18 @@ function writeStoredFilters(filters: LeadListFilters): void {
 export function buildLeadListQuery(
   filters: LeadListFilters
 ): OutboundLeadListQuery {
-  const query: OutboundLeadListQuery = { page: filters.page, limit: PAGE_SIZE }
-  if (filters.state !== 'all') query.state = filters.state
+  const query: OutboundLeadListQuery = {
+    page: filters.page,
+    limit: PAGE_SIZE,
+    tab: filters.tab,
+  }
   if (filters.search) query.search = filters.search
   if (filters.kind) query.kind = filters.kind
   if (filters.criterion) query.criterion = filters.criterion
   if (filters.channel) query.channel = filters.channel
+  if (filters.assignee) query.assignee = filters.assignee
+  if (filters.draftWaiting) query.draftWaiting = true
+  if (filters.followUpDue) query.followUpDue = true
   return query
 }
 
@@ -108,12 +123,14 @@ export function useLeadListFilters() {
   const [filters, setFilters] = useState<LeadListFilters>(DEFAULT_FILTERS)
   const [searchInput, setSearchInput] = useState('')
   const [hydrated, setHydrated] = useState(false)
+  const [moreOpen, setMoreOpen] = useState(false)
 
   useEffect(() => {
     const stored = readStoredFilters()
     if (stored) {
       setFilters(stored)
       setSearchInput(stored.search)
+      if (stored.criterion || stored.channel) setMoreOpen(true)
     }
     setHydrated(true)
   }, [])
@@ -133,16 +150,12 @@ export function useLeadListFilters() {
     return () => clearTimeout(handle)
   }, [searchInput, hydrated])
 
-  const setState = useCallback((state: LeadListState) => {
-    setFilters(prev => ({ ...prev, state, page: 1 }))
+  const setTab = useCallback((tab: LeadWorkTabFilter) => {
+    setFilters(prev => ({ ...prev, tab, page: 1 }))
   }, [])
 
-  const toggleKind = useCallback((kind: OutboundLeadKind) => {
-    setFilters(prev => ({
-      ...prev,
-      kind: prev.kind === kind ? null : kind,
-      page: 1,
-    }))
+  const setKind = useCallback((kind: OutboundLeadKind | null) => {
+    setFilters(prev => ({ ...prev, kind, page: 1 }))
   }, [])
 
   const setCriterion = useCallback(
@@ -156,22 +169,44 @@ export function useLeadListFilters() {
     setFilters(prev => ({ ...prev, channel, page: 1 }))
   }, [])
 
+  const toggleAssignee = useCallback((assignee: LeadAssigneeFilter) => {
+    setFilters(prev => ({
+      ...prev,
+      assignee: prev.assignee === assignee ? null : assignee,
+      page: 1,
+    }))
+  }, [])
+
+  const toggleDraftWaiting = useCallback(() => {
+    setFilters(prev => ({ ...prev, draftWaiting: !prev.draftWaiting, page: 1 }))
+  }, [])
+
+  const toggleFollowUpDue = useCallback(() => {
+    setFilters(prev => ({ ...prev, followUpDue: !prev.followUpDue, page: 1 }))
+  }, [])
+
   const setPage = useCallback((page: number) => {
     const next = Math.max(1, page)
     setFilters(prev => (prev.page === next ? prev : { ...prev, page: next }))
   }, [])
 
+  const toggleMore = useCallback(() => {
+    setMoreOpen(prev => !prev)
+  }, [])
+
   const reset = useCallback(() => {
     setSearchInput('')
-    setFilters(DEFAULT_FILTERS)
+    setFilters(prev => ({ ...DEFAULT_FILTERS, tab: prev.tab }))
   }, [])
 
   const hasActiveFilters = useMemo(
     () =>
-      filters.state !== DEFAULT_FILTERS.state ||
       filters.kind !== null ||
       filters.criterion !== null ||
       filters.channel !== null ||
+      filters.assignee !== null ||
+      filters.draftWaiting ||
+      filters.followUpDue ||
       filters.search !== '' ||
       searchInput.trim() !== '',
     [filters, searchInput]
@@ -182,10 +217,15 @@ export function useLeadListFilters() {
     hydrated,
     searchInput,
     setSearchInput,
-    setState,
-    toggleKind,
+    moreOpen,
+    toggleMore,
+    setTab,
+    setKind,
     setCriterion,
     setChannel,
+    toggleAssignee,
+    toggleDraftWaiting,
+    toggleFollowUpDue,
     setPage,
     reset,
     hasActiveFilters,

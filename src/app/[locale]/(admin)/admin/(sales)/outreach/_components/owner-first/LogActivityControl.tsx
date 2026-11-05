@@ -9,10 +9,8 @@
 // queue page.
 
 import { useMemo, useState } from 'react'
-import Link from 'next/link'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import type { AxiosError } from 'axios'
-import { ChevronDown } from 'lucide-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { Button } from '@/components/ui/button'
@@ -25,12 +23,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
@@ -347,7 +339,7 @@ export function CallOutcomeDialog({
 // Meetings, offers and QRL
 // ---------------------------------------------------------------------------
 
-type ActivityKind = 'MEETING_BOOKED' | 'MEETING_HELD' | 'OFFER_SENT' | 'QRL'
+export type ActivityKind = 'MEETING_BOOKED' | 'MEETING_HELD' | 'OFFER_SENT' | 'QRL'
 
 type EvidenceOption = { value: string; label: string; channel: OutboundChannel }
 
@@ -401,7 +393,7 @@ function evidenceIds(value: string): {
   return {}
 }
 
-function ActivityDialog({
+export function ActivityDialog({
   prospect,
   kind,
   onClose,
@@ -510,7 +502,7 @@ function ActivityDialog({
         if (!o) close()
       }}
     >
-      <DialogContent className="sm:max-w-lg max-h-[90vh] overflow-y-auto">
+      <DialogContent className="sales-type-scale sm:max-w-lg max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>
@@ -650,81 +642,5 @@ function ActivityDialog({
         )}
       </DialogContent>
     </Dialog>
-  )
-}
-
-export function LogActivityControl({
-  prospect,
-}: {
-  prospect: OutboundProspectDetail
-}) {
-  const t = useTranslations('admin.outreach.detail')
-  const tl = useTranslations('admin.outreach.callOutcome.log')
-  const locale = useLocale()
-  const queryClient = useQueryClient()
-  const [callOpen, setCallOpen] = useState(false)
-  const [kind, setKind] = useState<ActivityKind | null>(null)
-
-  const letterMutation = useMutation({
-    mutationFn: () =>
-      adminOutreachService.logActivity(prospect.id, { type: 'LETTER_SENT' }),
-    onSuccess: () =>
-      queryClient.invalidateQueries({ queryKey: ['admin', 'outreach'] }),
-  })
-
-  return (
-    <>
-      <Button variant="outline" onClick={() => setCallOpen(true)}>
-        {t('logCall')}
-      </Button>
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="outline" className="gap-1">
-            {tl('menu')}
-            <ChevronDown className="w-4 h-4" />
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end">
-          <DropdownMenuItem onSelect={() => setKind('MEETING_BOOKED')}>
-            {tl('meetingBooked')}
-          </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setKind('MEETING_HELD')}>
-            {tl('meetingHeld')}
-          </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setKind('OFFER_SENT')}>
-            {tl('offerSent')}
-          </DropdownMenuItem>
-          <DropdownMenuItem onSelect={() => setKind('QRL')}>
-            {tl('qrl')}
-          </DropdownMenuItem>
-          <DropdownMenuItem
-            onSelect={() => letterMutation.mutate()}
-            disabled={letterMutation.isPending}
-          >
-            {t('logLetter')}
-          </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <Button variant="outline" asChild>
-        <Link href={`/${locale}/admin/outreach/${prospect.id}/letter`}>
-          {t('letterLink')}
-        </Link>
-      </Button>
-      {letterMutation.isError && (
-        <span className="text-red-600">{t('logFailed')}</span>
-      )}
-
-      <CallOutcomeDialog
-        prospectId={prospect.id}
-        companyName={prospect.companyName}
-        open={callOpen}
-        onOpenChange={setCallOpen}
-      />
-      <ActivityDialog
-        prospect={prospect}
-        kind={kind}
-        onClose={() => setKind(null)}
-      />
-    </>
   )
 }
