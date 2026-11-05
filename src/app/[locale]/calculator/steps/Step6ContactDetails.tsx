@@ -1198,12 +1198,9 @@ function ContactScreenV2() {
               {t('headline')}
             </Heading>
           )}
-          <p className="mt-2 text-balance text-base sm:mt-4 sm:text-lg text-[#062E25] tracking-tight">
-            {t('helper')}
-          </p>
         </div>
 
-        <ul className="mx-auto mt-2 grid grid-cols-[auto_auto] justify-center gap-x-4 gap-y-1 sm:flex sm:flex-wrap sm:gap-x-6">
+        <ul className="mx-auto mt-2 grid grid-cols-[auto_auto] justify-center gap-x-4 gap-y-1 sm:mt-4 sm:flex sm:flex-wrap sm:gap-x-6">
           {opensItems.map(item => (
             <li
               key={item}
