@@ -3,6 +3,8 @@
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
+import { Suspense, useEffect } from 'react'
 
 import { AdminPageLoader } from '@/components/admin/AdminPageLoader'
 import { Button } from '@/components/ui/button'
@@ -27,6 +29,8 @@ import { useAdminQuery } from '@/hooks/use-admin-query'
 import { adminService } from '@/services/admin.service'
 import type { AdminContactSubmission } from '@/types/admin'
 
+import { CONTACT_ENTITY_TYPES, contactEntityTypeLabel } from './entity-type'
+
 const statusColors: Record<string, string> = {
   NEW: 'bg-blue-100 text-blue-700',
   CONTACTED: 'bg-yellow-100 text-yellow-700',
@@ -41,10 +45,11 @@ const statusLabelKeys = {
   CLOSED: 'statusClosed',
 } as const
 
-export default function AdminContactsPage() {
+function AdminContactsList() {
   const locale = useLocale()
   const t = useTranslations('admin.contacts')
   const tc = useTranslations('admin.common')
+  const entityTypeParam = useSearchParams().get('entityType') ?? undefined
   const {
     data,
     isLoading,
@@ -55,7 +60,15 @@ export default function AdminContactsPage() {
     setSearch,
     setFilter,
     filters,
-  } = useAdminQuery<AdminContactSubmission>('contact-submissions', adminService.listContactSubmissions.bind(adminService))
+  } = useAdminQuery<AdminContactSubmission>(
+    'contact-submissions',
+    adminService.listContactSubmissions.bind(adminService),
+    { initialFilters: { entityType: entityTypeParam } }
+  )
+
+  useEffect(() => {
+    setFilter('entityType', entityTypeParam)
+  }, [entityTypeParam, setFilter])
 
   return (
     <div>
@@ -86,6 +99,33 @@ export default function AdminContactsPage() {
                 <SelectItem value="CLOSED">{t('statusClosed')}</SelectItem>
               </SelectContent>
             </Select>
+            <Select
+              value={filters.entityType || 'all'}
+              onValueChange={v =>
+                setFilter('entityType', v === 'all' ? undefined : v)
+              }
+            >
+              <SelectTrigger
+                aria-label={t('filterType')}
+                className="w-[220px] text-base"
+              >
+                <SelectValue placeholder={t('filterType')} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="all" className="text-base">
+                  {t('allTypes')}
+                </SelectItem>
+                {CONTACT_ENTITY_TYPES.map(entityType => (
+                  <SelectItem
+                    key={entityType}
+                    value={entityType}
+                    className="text-base"
+                  >
+                    {contactEntityTypeLabel(t, entityType)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
 
           {isLoading ? (
@@ -96,6 +136,7 @@ export default function AdminContactsPage() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>{t('name')}</TableHead>
+                    <TableHead className="text-base">{t('entityType')}</TableHead>
                     <TableHead>{t('email')}</TableHead>
                     <TableHead>{t('city')}</TableHead>
                     <TableHead>{t('message')}</TableHead>
@@ -111,6 +152,9 @@ export default function AdminContactsPage() {
                         <p className="font-medium">
                           {submission.firstName} {submission.lastName}
                         </p>
+                      </TableCell>
+                      <TableCell className="text-base text-[#062E25]">
+                        {contactEntityTypeLabel(t, submission.entityType)}
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]">
                         {submission.email}
@@ -143,7 +187,7 @@ export default function AdminContactsPage() {
                   {data.length === 0 && (
                     <TableRow>
                       <TableCell
-                        colSpan={7}
+                        colSpan={8}
                         className="text-center py-8 text-[#062E25]/75"
                       >
                         {t('noSubmissions')}
@@ -184,5 +228,13 @@ export default function AdminContactsPage() {
         </CardContent>
       </Card>
     </div>
+  )
+}
+
+export default function AdminContactsPage() {
+  return (
+    <Suspense fallback={<AdminPageLoader />}>
+      <AdminContactsList />
+    </Suspense>
   )
 }

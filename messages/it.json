@@ -319,6 +319,14 @@
       "description": "Ogni dispositivo di questo pacchetto solare come modello 3D ruotabile con i dati tecnici del produttore.",
       "descriptionSuffix": "Tutti i componenti in 3D con i dati tecnici."
     },
+    "roofRenovation": {
+      "title": "Risanamento del tetto in Svizzera: costi e incentivi",
+      "description": "Risanamento del tetto in tutta la Svizzera con squadre proprie. Valori di confronto online, offerta scritta, prezzo fisso dopo il sopralluogo."
+    },
+    "roofRenovationSolar": {
+      "title": "Risanamento del tetto e fotovoltaico: progettarli insieme",
+      "description": "Tetto e impianto solare progettati insieme, con un solo ponteggio. Regole cantonali, impianto sopra tetto o integrato, voci separate nell'offerta."
+    },
     "offerRequest": {
       "title": "Richiedi un'offerta solare: prezzo per kWp | Free State AG",
       "description": "Da noi un impianto solare con batteria costa CHF {min} a {max} per kWp, IVA esclusa. Richiedi un'offerta con nome, telefono e indirizzo, ti chiamiamo noi."
@@ -395,6 +403,8 @@
       "chargingStations": "Stazioni di ricarica",
       "energyStorage": "Accumulo di energia",
       "energyManagement": "Gestione dell'energia",
+      "roofRenovation": "Risanamento del tetto",
+      "roofRenovationSolar": "Tetto e solare",
       "catalog3d": "Prodotti in 3D"
     },
     "company": {
@@ -741,7 +751,6 @@
           "Protezione dall'aumento dei costi energetici",
           "Garanzie del produttore incluse",
           "Garanzia di 10 anni sui lavori",
-          "Garanzia di 10 anni sul tetto",
           "Trasferibile in caso di vendita"
         ],
         "advantagesTitle": "I tuoi vantaggi con SolarDirect",
@@ -6355,7 +6364,7 @@
     },
     "inRoofOnRoof": {
       "title": "Integrato nel tetto o sopra il tetto",
-      "description": "Un impianto fotovoltaico dura oltre 30 anni, quindi il tetto deve essere in buone condizioni e non richiedere una sostituzione a breve. Se il tetto ha più di 40 anni, è consigliata una ristrutturazione.\n\nNella sostituzione di un tetto a falde, un sistema PV integrato riduce i costi di copertura e offre un modo economicamente efficiente per combinare un nuovo tetto con l'energia solare."
+      "description": "Un impianto fotovoltaico dura oltre 30 anni, quindi il tetto deve essere in buone condizioni e non richiedere una sostituzione a breve. Se il tetto è già datato, è consigliabile farlo controllare prima del montaggio.\n\nNella sostituzione di un tetto a falde, un sistema PV integrato riduce i costi di copertura e offre un modo economicamente efficiente per combinare un nuovo tetto con l'energia solare."
     },
     "storageSelfConsumption": {
       "title": "Accumulo per un maggiore\nautoconsumo",
@@ -6369,7 +6378,7 @@
     },
     "installation": {
       "title": "Installazione di grandi\nimpianti solari",
-      "description": "Collaboriamo con elettricisti e copritetto esperti. Affinché possiate beneficiare del vostro impianto il prima possibile, i nostri specialisti lo installano dall'inizio alla fine. I costi di installazione sono interamente inclusi nel prezzo d'acquisto."
+      "description": "Affinché possiate beneficiare del vostro impianto il prima possibile, i nostri specialisti lo installano dall'inizio alla fine. I costi di installazione sono interamente inclusi nel prezzo d'acquisto."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -7338,6 +7347,8 @@
       "outreachLetters": "Briefe",
       "outreachMailboxes": "Postfächer",
       "outreachKpi": "Outreach-Kennzahlen",
+      "groupRoofRenovation": "Dachsanierung",
+      "roofLeads": "Dach-Leads",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -11055,6 +11066,14 @@
       "adminNotes": "Admin-Notizen",
       "save": "Speichern",
       "saved": "Erfolgreich gespeichert",
+      "filterType": "Nach Typ filtern",
+      "allTypes": "Alle Typen",
+      "entityTypes": {
+        "roof_renovation": "Dachsanierung",
+        "offer_request": "Offertanfrage",
+        "company": "Firma",
+        "private": "Privatperson"
+      },
       "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen."
     },
     "newsletter": {
@@ -11527,6 +11546,166 @@
       "unsupported": "Questo browser non supporta le notifiche push.",
       "serverDisabled": "Le notifiche push non sono configurate sul server.",
       "iosInstall": "Su iPhone installa prima tramite Condividi e Aggiungi a Home, poi attiva qui."
+    },
+    "roofLeads": {
+      "title": "Dach-Leads",
+      "contactRequests": "Dachsanierung-Anfragen",
+      "exportCsv": "CSV exportieren",
+      "exportFailed": "Export fehlgeschlagen. Bitte erneut versuchen.",
+      "exportCapped": "Der Export enthält die ersten {max} von {total} Zeilen. Filtern Sie enger, um alle zu erhalten.",
+      "searchPlaceholder": "Suchen nach Adresse, Firma, Kontakt…",
+      "allStatuses": "Alle Status",
+      "allSegments": "Alle Segmente",
+      "allCantons": "Alle Kantone",
+      "allRoofForms": "Alle Dachformen",
+      "allPvStates": "Alle PV-Stände",
+      "minScore": "Mindest-Score",
+      "sortScoreAsc": "Score aufsteigend sortieren",
+      "sortScoreDesc": "Score absteigend sortieren",
+      "colScore": "Score",
+      "colSegment": "Segment",
+      "colAddress": "Adresse",
+      "colYear": "Baujahr",
+      "colRoof": "Dach",
+      "colPv": "PV",
+      "colImagery": "Luftbild",
+      "colContact": "Kontakt",
+      "colStatus": "Status",
+      "total": "{count} Einträge",
+      "empty": "Keine Dach-Leads gefunden",
+      "previousPage": "Vorherige Seite",
+      "nextPage": "Nächste Seite",
+      "statusLabels": {
+        "NEW": "Neu",
+        "QUALIFIED": "Qualifiziert",
+        "CONTACTED": "Kontaktiert",
+        "REPLIED": "Geantwortet",
+        "LEAD": "Lead",
+        "WON": "Gewonnen",
+        "LOST": "Verloren",
+        "EXCLUDED": "Ausgeschlossen"
+      },
+      "segment": {
+        "HOUSE": "Haus",
+        "MULTI_FAMILY": "Mehrfamilienhaus",
+        "COMMERCIAL": "Gewerbe",
+        "HALL": "Halle",
+        "FARM": "Landwirtschaft",
+        "MANAGER": "Verwaltung",
+        "COOPERATIVE": "Genossenschaft",
+        "OWNER_PORTFOLIO": "Eigentümer mit Portfolio"
+      },
+      "form": {
+        "FLAT": "Flachdach",
+        "STEEP": "Schrägdach",
+        "MIXED": "Gemischt",
+        "SHED": "Sheddach",
+        "UNKNOWN": "Unbekannt"
+      },
+      "pv": {
+        "NONE": "Keine Anlage",
+        "OLD": "Alt (vor 2010)",
+        "MID": "2010 bis 2014",
+        "RECENT": "Neu (ab 2015)",
+        "UNKNOWN": "Unbekannt"
+      },
+      "imagery": {
+        "NOT_REPLACED": "Nicht erneuert",
+        "WORN": "Verwittert",
+        "REPLACED": "Erneuert",
+        "UNCLEAR": "Unklar"
+      },
+      "contactBlock": {
+        "never": "Nie kontaktieren",
+        "open_thread": "Offener Austausch",
+        "sales_only": "Nur Vertrieb",
+        "owner_decision": "Entscheid Inhaber"
+      },
+      "contactBlockNotice": {
+        "never": "Nicht kontaktieren. Im PV-Outbound ist dieser Kontakt gesperrt, abgemeldet, unzustellbar, mit Werbeverbot vermerkt oder von Ivan betreut.",
+        "open_thread": "Nicht kontaktieren, solange der Austausch im PV-Outbound offen ist.",
+        "sales_only": "Nur über den Vertrieb ansprechen. Im PV-Outbound ist bereits eine gewerbliche Anfrage oder eine Umwandlung erfasst.",
+        "owner_decision": "Hat das PV-Angebot abgelehnt. Über eine erneute Ansprache entscheidet der Inhaber."
+      },
+      "exclusionReason": {
+        "roof_permit_recent": "Dachbewilligung ab 2024",
+        "imagery_replaced": "Luftbild zeigt ein neues Dach"
+      },
+      "exclusionNotice": "Ausgeschlossen, Grund: {reason}.",
+      "pictureAlt": "Luftbild von {address}",
+      "pictureCaption": "Luftbild SWISSIMAGE, Bundesamt für Landestopografie swisstopo",
+      "noPicture": "Für diesen Eintrag gibt es keine Koordinaten und daher kein Luftbild.",
+      "sectionScore": "Score",
+      "sectionManage": "Bearbeiten",
+      "sectionBuilding": "Gebäude",
+      "sectionContact": "Kontakt",
+      "sectionActivity": "Verlauf",
+      "scoreTotal": "Total",
+      "scoreVersion": "Score-Version {version}",
+      "scorePart": {
+        "buildYear": "Baujahr",
+        "buildPeriod": "Bauperiode",
+        "pvState": "PV-Anlage",
+        "footprint": "Grundfläche",
+        "dwellings": "Wohnungen",
+        "roofForm": "Dachform",
+        "imagery": "Luftbild",
+        "contact": "Kontakt bekannt"
+      },
+      "wonAmount": "Auftragswert in CHF",
+      "wonAmountInvalid": "Bitte einen Betrag von 0 oder mehr eingeben.",
+      "notes": "Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+      "municipality": "Gemeinde",
+      "buildingRef": "EGID",
+      "buildingClass": "Gebäudeklasse",
+      "footprint": "Grundfläche",
+      "roofArea": "Dachfläche",
+      "roofForm": "Dachform",
+      "dwellings": "Wohnungen",
+      "floors": "Geschosse",
+      "roofPermit": "Dachbewilligung",
+      "company": "Firma",
+      "owner": "Eigentümer",
+      "ownerSource": "Quelle Eigentümer",
+      "contactName": "Kontaktperson",
+      "contactEmail": "E-Mail",
+      "contactPhone": "Telefon",
+      "contactSource": "Quelle Kontakt",
+      "contactedAt": "Kontaktiert am",
+      "noActivity": "Noch kein Verlauf",
+      "statusChange": "{from} zu {to}",
+      "activity": {
+        "STATUS_CHANGED": "Status geändert",
+        "UPDATED": "Aktualisiert",
+        "IMAGERY_VERDICT": "Luftbild beurteilt",
+        "EXCLUDED": "Ausgeschlossen",
+        "ROOF_ENRICHED": "Dachdaten ergänzt",
+        "IMPORTED_FROM_OUTBOUND": "Aus Outbound übernommen",
+        "CONTACT_BLOCK": "Kontaktsperre geändert",
+        "REQUEST_PROMOTED": "Aus Anfrage übernommen"
+      },
+      "tabs": {
+        "leads": "Dach-Leads",
+        "requests": "Anfragen"
+      },
+      "requests": {
+        "colDate": "Eingang",
+        "colName": "Name",
+        "colPlace": "Ort",
+        "colMessage": "Angaben",
+        "colStatus": "Status",
+        "colLead": "Dach-Lead",
+        "promote": "Als Lead übernehmen",
+        "openLead": "Lead öffnen",
+        "promoteFailed": "Die Anfrage konnte nicht übernommen werden.",
+        "empty": "Keine Anfragen gefunden",
+        "noMessage": "Keine Angaben",
+        "searchPlaceholder": "Suchen nach Name, Ort, Telefon, E-Mail…"
+      },
+      "contactSourceRequest": "Dachsanierung-Anfrage"
     },
     "productComments": {
       "title": "Commenti prodotti",
@@ -13061,6 +13240,708 @@
         "7": {
           "question": "Quanto tempo serve fino alla messa in servizio?",
           "answer": "Di norma circa tre mesi dall'ordine. Sono compresi il controllo del tetto, la notifica al gestore di rete, il montaggio e la messa in servizio."
+        }
+      }
+    }
+  },
+  "roofRenovation": {
+    "breadcrumb": {
+      "home": "Home",
+      "main": "Risanamento del tetto",
+      "solar": "Tetto e solare"
+    },
+    "jsonLd": {
+      "name": "Risanamento del tetto",
+      "description": "Risanamento del tetto in tutta la Svizzera con un solo fornitore, dal primo controllo al collaudo, alle riparazioni e alla manutenzione, per tetti a falde, tetti piani e tetti di capannoni, con lattoneria, isolamento e cemento-amianto."
+    },
+    "hero": {
+      "title": "Il Suo tetto, dal primo controllo al collaudo",
+      "subtitle": "Ha un solo partner contrattuale, anche per le riparazioni e la manutenzione successive. Free State AG si occupa del risanamento del Suo tetto in tutta la Svizzera con squadre proprie.",
+      "points": {
+        "offer": "Offerta scritta",
+        "fixedPrice": "Prezzo fisso dopo il sopralluogo",
+        "onePartner": "Un solo contratto"
+      }
+    },
+    "estimatorSection": {
+      "title": "Quanto costa un tetto come il Suo?",
+      "intro": "Inserisca il Suo indirizzo. Leggiamo superficie, forma del tetto e anno di costruzione dai dati della Confederazione e Le mostriamo il risultato. Per questo non ci servono i Suoi dati di contatto."
+    },
+    "due": {
+      "title": "Questi segnali richiedono un controllo",
+      "intro": "Molti può riconoscerli anche Lei, dal solaio o dalla strada.",
+      "signs": {
+        "leak": "Macchie d'acqua sul soffitto o umidità nel solaio.",
+        "tiles": "Tegole rotte, spostate o mancanti.",
+        "sealing": "Crepe o bolle nell'impermeabilizzazione di un tetto piano, acqua stagnante dopo la pioggia.",
+        "flashing": "Ruggine o punti aperti su grondaie, lamiere e raccordi.",
+        "climate": "Locali sotto il tetto che d'inverno si raffreddano e d'estate si surriscaldano."
+      },
+      "ageTitle": "E l'età del tetto?",
+      "age": "La tabella paritetica della durata di vita indica come valore di riferimento 50 anni per i tetti in tegole e in fibrocemento e 30 anni per i tetti piani. L'età da sola non basta per decidere.",
+      "flatRoof": "Di solito un tetto piano dura meno di un tetto a falde. In un articolo dell'8 agosto 2024 pubblicato dall'associazione dei proprietari HEV Schweiz, l'organizzazione di categoria Involucro edilizio Svizzera consiglia di far controllare un tetto piano con più di dieci anni prima di montare un impianto solare.",
+      "imageAlt": "Vecchi tetti in tegole consumate in un centro storico",
+      "lifeTitle": "Durata di vita indicativa",
+      "lifeSteep": "Tegole e fibrocemento",
+      "lifeFlat": "Tetto piano",
+      "years": "{years} anni"
+    },
+    "services": {
+      "title": "Tutto il tetto, un solo contratto",
+      "intro": "Il Suo interlocutore resta Free State AG, dal primo controllo fino a dopo il collaudo. I lavori sono eseguiti dalle nostre squadre.",
+      "items": {
+        "check": {
+          "title": "Controllo",
+          "body": "Esaminiamo sul posto copertura, sottocopertura, isolamento e raccordi e Le diciamo che cosa serve."
+        },
+        "offer": {
+          "title": "Offerta",
+          "body": "Riceve un'offerta scritta con superficie, composizione e prezzo, da presentare alla Sua banca o alla Sua amministrazione."
+        },
+        "permit": {
+          "title": "Licenza e incentivi",
+          "body": "Verifichiamo se serve una licenza edilizia e ci occupiamo della domanda di incentivo, da inoltrare prima dell'inizio dei lavori."
+        },
+        "scaffold": {
+          "title": "Ponteggio",
+          "body": "Montiamo il ponteggio e le protezioni anticaduta e allestiamo il cantiere."
+        },
+        "steep": {
+          "title": "Tetto a falde",
+          "body": "Rifacciamo la copertura del Suo tetto a falde, sottocopertura compresa."
+        },
+        "flat": {
+          "title": "Tetto piano",
+          "body": "Rinnoviamo impermeabilizzazione e isolamento, raccordi e scarichi compresi."
+        },
+        "hall": {
+          "title": "Tetto di capannone",
+          "body": "Risaniamo le grandi coperture di capannoni artigianali e industriali e pianifichiamo le tappe con la Sua azienda."
+        },
+        "spengler": {
+          "title": "Lattoneria",
+          "body": "Nello stesso intervento rinnoviamo grondaie, pluviali, bordi del tetto e raccordi."
+        },
+        "insulation": {
+          "title": "Isolamento",
+          "body": "Dimensioniamo l'isolamento per raggiungere un valore U (misura della dispersione di calore) massimo di 0,20 W/m²K, di norma richiesto dai programmi cantonali di incentivazione."
+        },
+        "asbestos": {
+          "title": "Cemento-amianto",
+          "body": "In presenza di fibrocemento verifichiamo se contiene amianto prima dell'offerta e indichiamo la rimozione a parte."
+        },
+        "solar": {
+          "title": "Solare",
+          "body": "Prepariamo il tetto per un impianto solare, lo montiamo nello stesso intervento oppure smontiamo e rimontiamo un impianto esistente."
+        },
+        "handover": {
+          "title": "Collaudo",
+          "body": "Alla fine collaudiamo il tetto insieme a Lei. Da quel giorno decorre il periodo di garanzia."
+        },
+        "repair": {
+          "title": "Riparazioni e manutenzione",
+          "body": "Anche dopo il collaudo restiamo il Suo interlocutore per riparazioni e manutenzione."
+        }
+      },
+      "layersLabel": "Scegliere il tipo di tetto",
+      "phases": {
+        "before": "Prima del cantiere",
+        "site": "In cantiere",
+        "after": "Collaudo e dopo"
+      },
+      "layers": {
+        "solar": {
+          "title": "Impianto solare"
+        },
+        "cover": {
+          "title": "Copertura"
+        },
+        "flashing": {
+          "title": "Lattoneria"
+        },
+        "battens": {
+          "title": "Listelli",
+          "body": "Sostengono le tegole e lasciano circolare l'aria sotto la copertura."
+        },
+        "underlay": {
+          "title": "Sottocopertura",
+          "body": "Smaltisce l'acqua che passa sotto la copertura."
+        },
+        "insulation": {
+          "title": "Isolamento"
+        },
+        "structure": {
+          "title": "Struttura del tetto",
+          "body": "Sostiene l'intero pacchetto del tetto. I danni alla struttura li indichiamo separatamente."
+        },
+        "protection": {
+          "title": "Strato di protezione",
+          "body": "Ghiaia o verde pensile proteggono l'impermeabilizzazione da sole e intemperie."
+        },
+        "sealing": {
+          "title": "Impermeabilizzazione"
+        },
+        "vapour": {
+          "title": "Barriera al vapore",
+          "body": "Tiene l'umidità dell'edificio lontana dall'isolamento."
+        },
+        "deck": {
+          "title": "Soletta portante",
+          "body": "Calcestruzzo o lamiera grecata. Sostiene l'intero pacchetto del tetto."
+        }
+      }
+    },
+    "cost": {
+      "title": "Quanto costa risanare un tetto",
+      "intro": "Il prezzo dipende da pochi elementi. Glieli mostriamo apertamente, insieme a dati pubblici della Confederazione.",
+      "driversTitle": "Che cosa determina il prezzo",
+      "drivers": {
+        "fixed": {
+          "title": "Costi fissi",
+          "body": "Ponteggio e cantiere servono anche per un tetto piccolo. Per questo un tetto piccolo costa di più al m² di uno grande."
+        },
+        "size": {
+          "title": "Superficie",
+          "body": "Materiale e lavoro crescono con la superficie del tetto."
+        },
+        "buildup": {
+          "title": "Composizione",
+          "body": "Una nuova copertura con sottocopertura e isolamento costa di più della sola sostituzione della copertura."
+        },
+        "access": {
+          "title": "Accesso",
+          "body": "Edifici alti, accessi stretti e tetti complessi richiedono più ponteggio e più tempo."
+        }
+      },
+      "stagesTitle": "Tre tappe fino al prezzo fisso",
+      "stages": {
+        "orientation": {
+          "title": "Orientamento",
+          "body": "Il calcolatore mostra valori pubblici per il Suo edificio, a partire dal Suo indirizzo. Non è un'offerta."
+        },
+        "draft": {
+          "title": "Offerta indicativa",
+          "body": "Se il tetto lo consente, dopo la nostra telefonata riceve un'offerta indicativa scritta e dettagliata per voci, con superficie, composizione e prezzo. Amianto e stato del tetto non sono ancora stati controllati."
+        },
+        "fixed": {
+          "title": "Prezzo fisso",
+          "body": "Dopo il sopralluogo riceve un prezzo fisso, che viene ripreso tale e quale nel contratto. Amianto e danni alla struttura del tetto figurano a parte."
+        }
+      },
+      "table": {
+        "heading": "Quanto sono costati in Svizzera i risanamenti del tetto incentivati con isolamento",
+        "period": "Dal 2023 al 2025",
+        "building": "Edificio",
+        "low": "Quartile inferiore",
+        "median": "Mediana",
+        "high": "Quartile superiore",
+        "cases": "Casi",
+        "rows": {
+          "house": "Casa unifamiliare",
+          "multi": "Casa plurifamiliare",
+          "industry": "Industria"
+        },
+        "footnote": "Fonte: Ufficio federale dell'energia, Il Programma Edifici, dati grezzi. Investimento totale per caso, che può comprendere altri lavori. IVA non indicata nella fonte.",
+        "legendRange": "Metà centrale dei progetti",
+        "casesCount": "{count} casi"
+      },
+      "ownPrice": {
+        "heading": "Il nostro prezzo per i grandi tetti piani",
+        "onTop": "A questo si aggiungono ponteggio e protezioni anticaduta secondo l'oggetto, progettazione e direzione dei lavori e il vecchio rivestimento contenente catrame. Non è un'offerta.",
+        "recover": "Una nuova copertura senza isolamento viene offerta solo dopo il sopralluogo. Il calcolatore non mostra un prezzo per questo caso.",
+        "value": "Da CHF 260 a 415",
+        "unit": "per m², IVA 8.1 % inclusa",
+        "scope": "Rifacimento completo di un tetto piano da 1'000 a 2'999 m²"
+      }
+    },
+    "subsidy": {
+      "title": "Che cosa pagano i Cantoni e che cosa cambia per le imposte",
+      "intro": "I contributi variano da Cantone a Cantone. La tabella riporta cinque esempi, stato 2026. Verifichiamo l'importo per il Suo Cantone nell'offerta.",
+      "table": {
+        "canton": "Cantone",
+        "rate": "Isolamento",
+        "addOn": "Supplemento solare",
+        "perM2": "CHF {value} per m²",
+        "requiresPv": "Contributo solo con impianto solare",
+        "addOnAg": "Da CHF 20 a 100 per m², secondo il tetto e l'impianto",
+        "cantons": {
+          "ZH": "Zurigo",
+          "SH": "Sciaffusa",
+          "TG": "Turgovia",
+          "SG": "San Gallo",
+          "AG": "Argovia"
+        },
+        "note": "L'importo per l'isolamento vale per m² di tetto isolato. Il supplemento solare vale per m² di moduli a Zurigo e per m² di isolamento a Sciaffusa e in Turgovia, dove è limitato a CHF 50'000. In Argovia il bonus ha condizioni proprie, ad esempio l'inverdimento del tetto piano.",
+        "value": "CHF {value}",
+        "unit": "per m² di superficie isolata"
+      },
+      "conditions": "Il contributo presuppone un isolamento con un valore U massimo di 0,20 W/m²K. La domanda va inoltrata prima dell'inizio dei lavori. In questi cinque Cantoni la licenza edilizia dell'edificio deve essere anteriore al 2000. I programmi pongono altre condizioni, ad esempio un tetto massimo del 50% dei costi o, da CHF 10'000 di contributo, un certificato energetico con rapporto di consulenza (CECE Plus).",
+      "taxTitle": "Imposte dal 2029",
+      "tax1": "Dal 1° gennaio 2029 la deduzione per la manutenzione degli immobili viene meno per le abitazioni occupate dal proprietario, a livello federale, cantonale e comunale. Nello stesso momento viene meno il valore locativo.",
+      "tax2": "La deduzione resta per le abitazioni locate o affittate.",
+      "tax3": "La cosa migliore è chiedere al Suo ufficio di tassazione quale data conta per i Suoi lavori.",
+      "taxSource": "Fonte: Consiglio federale, comunicato stampa del 1° aprile 2026.",
+      "taxDate": "01.01.2029"
+    },
+    "solarTeaser": {
+      "title": "Prevedere subito anche il solare",
+      "body": "Quando si rinnova il tetto, un impianto solare può sfruttare lo stesso ponteggio e la stessa fase di cantiere. Se e quando volere il solare lo decide Lei.",
+      "link": "Progettare insieme tetto e solare",
+      "imageAlt": "Installatore al lavoro su un impianto solare su un tetto in tegole"
+    },
+    "financing": {
+      "title": "Finanziare il risanamento del tetto",
+      "blocks": {
+        "owners": {
+          "title": "Proprietari di casa",
+          "body": "Un risanamento del tetto si può finanziare aumentando l'ipoteca, se mezzi propri e reddito sono sufficienti. Alcune banche concedono un tasso agevolato per misure energetiche come l'isolamento del tetto. Se il Suo progetto ne ha diritto e che cosa è sostenibile lo chiarisce la Sua banca."
+        },
+        "condominium": {
+          "title": "Proprietà per piani",
+          "body": "Di norma i proprietari sostengono i costi secondo le quote di valore, attingendo al fondo di rinnovazione e, se necessario, a contributi supplementari. La decisione spetta all'assemblea."
+        },
+        "companies": {
+          "title": "Aziende",
+          "body": "Ne parli presto con la Sua banca. Anche per le aziende esistono tassi agevolati per le misure energetiche."
+        },
+        "offer": {
+          "title": "Che cosa riceve da noi",
+          "body": "Un'offerta scritta con superficie, composizione e prezzo, da presentare alla Sua banca, alla Sua amministrazione o all'assemblea."
+        },
+        "subsidies": {
+          "title": "Incentivi",
+          "body": "La domanda va inoltrata prima dell'inizio dei lavori. Le indichiamo quale programma vale nel Suo Cantone e ci occupiamo della domanda."
+        }
+      },
+      "closing": "Free State AG non concede né procura crediti."
+    },
+    "process": {
+      "title": "Sei passi verso il nuovo tetto",
+      "steps": {
+        "request": {
+          "title": "Richiesta",
+          "body": "Ci invii nome, telefono e indirizzo, con o senza calcolatore."
+        },
+        "callback": {
+          "title": "Telefonata",
+          "body": "La chiamiamo e chiariamo di che cosa ha bisogno il Suo tetto. Se il tetto lo consente, Le inviamo poi un'offerta indicativa scritta."
+        },
+        "visit": {
+          "title": "Sopralluogo",
+          "body": "Esaminiamo il tetto sul posto e controlliamo copertura, sottocopertura e isolamento."
+        },
+        "offer": {
+          "title": "Offerta a prezzo fisso",
+          "body": "Riceve un'offerta scritta con superficie, composizione e prezzo fisso."
+        },
+        "subsidy": {
+          "title": "Incentivi e licenza",
+          "body": "Le indichiamo quale programma vale nel Suo Cantone, ci occupiamo della domanda di incentivo prima dell'inizio dei lavori e verifichiamo se serve una licenza edilizia."
+        },
+        "execution": {
+          "title": "Lavori e collaudo",
+          "body": "Le nostre squadre eseguono i lavori. Alla fine collaudiamo il tetto insieme a Lei."
+        }
+      },
+      "imageAlt": "Edificio con squadre sul tetto, rappresentazione schematica"
+    },
+    "contract": {
+      "title": "Che cosa prevede il contratto",
+      "items": {
+        "contract": {
+          "title": "Un solo contratto",
+          "body": "Il Suo contratto è con Free State AG, per tutti i lavori sul tetto."
+        },
+        "safety": {
+          "title": "Sicurezza in cantiere",
+          "body": "Scriviamo le misure di sicurezza nel contratto, come prevede l'ordinanza sui lavori di costruzione (OLCostr art. 3)."
+        },
+        "warranty": {
+          "title": "Garanzia",
+          "body": "La garanzia per i difetti dura cinque anni dal collaudo, come prevede la legge per le opere immobiliari. Ha 60 giorni di tempo per segnalare un difetto, dalla scoperta se si tratta di un difetto occulto (CO art. 367, 370 e 371)."
+        },
+        "asbestos": {
+          "title": "Cemento-amianto",
+          "body": "Per il fibrocemento su edifici costruiti fino al 1990 verifichiamo la presenza di amianto prima dell'offerta. La rimozione figura a parte nell'offerta."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Domande frequenti",
+      "title": "Domande sul risanamento del tetto",
+      "description": "Quando qualcosa si può valutare solo sul posto, lo diciamo.",
+      "items": {
+        "1": {
+          "question": "Quanto costa risanare un tetto?",
+          "answer": "Secondo i dati grezzi del Programma Edifici (Ufficio federale dell'energia), in Svizzera dal 2023 al 2025 i risanamenti del tetto incentivati con isolamento sono costati in mediana CHF 69'400 per caso per una casa unifamiliare. Il quartile inferiore era di CHF 45'800, quello superiore di CHF 102'000. Questi importi possono comprendere altri lavori e la fonte non indica l'IVA. Il nostro calcolatore Le mostra questi valori pubblici per il Suo edificio. Il prezzo fisso lo riceve dopo il sopralluogo."
+        },
+        "2": {
+          "question": "Quando va rifatto un tetto?",
+          "answer": "I segnali sono macchie d'acqua, tegole rotte o spostate e un'impermeabilizzazione danneggiata. La tabella paritetica della durata di vita indica come valore di riferimento 50 anni per i tetti in tegole e in fibrocemento e 30 anni per i tetti piani. L'età da sola non basta per decidere, per questo esaminiamo il tetto."
+        },
+        "3": {
+          "question": "Basta una riparazione o serve un risanamento?",
+          "answer": "Dipende dallo stato di copertura, sottocopertura e isolamento. Secondo Involucro edilizio Svizzera le tegole stesse possono durare fino a 100 anni, quindi un risanamento riguarda spesso gli strati sottostanti. Dopo il sopralluogo Le diciamo se basta una riparazione."
+        },
+        "4": {
+          "question": "Quanto dura un risanamento del tetto?",
+          "answer": "Dipende da superficie, composizione e meteo. Chiariamo la durata durante il sopralluogo."
+        },
+        "5": {
+          "question": "Posso restare in casa durante i lavori?",
+          "answer": "Lo chiariamo durante il sopralluogo, perché dipende dalla composizione e dallo stato del tetto."
+        },
+        "6": {
+          "question": "Per risanare il tetto serve una licenza edilizia?",
+          "answer": "Dipende dal Cantone, dalla zona e dall'entità dei lavori. Lo verifichiamo per il Suo tetto e ci occupiamo della domanda, se serve."
+        },
+        "7": {
+          "question": "Esistono incentivi?",
+          "answer": "I programmi cantonali versano un contributo per m² per l'isolamento, ad esempio CHF 40 a Zurigo e CHF 50 a Sciaffusa, stato 2026. La domanda va inoltrata prima dell'inizio dei lavori. Chiariamo l'importo per il Suo Cantone nell'offerta."
+        },
+        "8": {
+          "question": "Che cosa cambia per le imposte?",
+          "answer": "Dal 1° gennaio 2029 la deduzione per la manutenzione degli immobili viene meno per le abitazioni occupate dal proprietario, e nello stesso momento viene meno il valore locativo. La deduzione resta per le abitazioni locate o affittate. La cosa migliore è chiedere al Suo ufficio di tassazione quale data conta per i Suoi lavori."
+        },
+        "9": {
+          "question": "Che cosa succede se nel tetto c'è amianto?",
+          "answer": "In Svizzera l'amianto è vietato dal 1990 e le lastre in fibrocemento contenenti amianto hanno potuto essere immesse sul mercato fino al 1° gennaio 1991. Per il fibrocemento su edifici costruiti fino al 1990 verifichiamo quindi la presenza di amianto prima dell'offerta. Le lastre non vanno né segate né rotte e non si possono riutilizzare. La rimozione figura a parte."
+        },
+        "10": {
+          "question": "Che cosa succede a un impianto solare esistente?",
+          "answer": "Lo smontiamo per i lavori e lo rimontiamo in seguito. Questa prestazione è oggetto di un'offerta separata. Durante il sopralluogo verifichiamo se l'impianto si può rimontare così com'è."
+        }
+      }
+    },
+    "form": {
+      "heading": {
+        "estimator": "Richieda un'offerta per il Suo tetto",
+        "final": "Parliamo del Suo tetto",
+        "solar": "Richieda un'offerta per tetto e solare",
+        "fallback": "Richiesta per il Suo tetto"
+      },
+      "intro": "Bastano nome, telefono e indirizzo. La chiamiamo e chiariamo i dettagli del Suo tetto.",
+      "moreDetails": "Altre informazioni (facoltativo)",
+      "choose": "Selezioni",
+      "objectType": {
+        "label": "Edificio",
+        "options": {
+          "house": "Casa unifamiliare",
+          "multi_family": "Casa plurifamiliare",
+          "commercial": "Artigianato o industria",
+          "farm": "Agricoltura"
+        }
+      },
+      "reason": {
+        "label": "Motivo",
+        "options": {
+          "leak": "Tetto che perde",
+          "age": "Età del tetto",
+          "storm_hail": "Tempesta o grandine",
+          "insulation": "Isolamento",
+          "solar_planned": "Impianto solare previsto",
+          "other": "Altro"
+        }
+      },
+      "timing": {
+        "label": "Tempistica",
+        "options": {
+          "within_6_months": "Entro 6 mesi",
+          "within_12_months": "Entro 12 mesi",
+          "later": "Più avanti",
+          "unsure": "Ancora da decidere"
+        }
+      },
+      "pvInterest": {
+        "label": "Impianto solare",
+        "options": {
+          "yes": "Mi interessa",
+          "no": "Non mi interessa",
+          "has_pv": "Ne ho già uno"
+        }
+      },
+      "submit": "Invii la richiesta",
+      "successTitle": "Grazie, abbiamo ricevuto la Sua richiesta.",
+      "successBody": "La chiamiamo al numero {phone} per parlare del Suo tetto.",
+      "errors": {
+        "required": "Compili questo campo.",
+        "phoneInvalid": "Inserisca un numero di telefono valido, ad esempio 079 123 45 67.",
+        "postalCodeInvalid": "Inserisca un NPA di quattro cifre.",
+        "emailInvalid": "Inserisca un indirizzo e-mail valido.",
+        "consentRequired": "Confermi il Suo consenso affinché possiamo elaborare la Sua richiesta.",
+        "submitFailed": "Non ha funzionato. Riprovi oppure ci chiami al numero {phone}.",
+        "rateLimited": "Ha appena inviato diverse richieste. Riprovi tra qualche minuto oppure ci chiami al numero {phone}."
+      },
+      "call": "Preferisce chiamare?"
+    },
+    "estimator": {
+      "loading": "Stiamo leggendo i dati della Confederazione. Ci vuole qualche secondo.",
+      "restart": "Inserisca un altro indirizzo",
+      "address": {
+        "title": "Qual è l'indirizzo dell'edificio?",
+        "placeholder": "Via n., NPA località",
+        "hint": "Scelga il Suo indirizzo dall'elenco.",
+        "noResults": "Non troviamo questo indirizzo. Controlli come è scritto o ci invii la Sua richiesta più in basso nella pagina.",
+        "searchFailed": "La ricerca dell'indirizzo non risponde in questo momento. Riprovi tra poco.",
+        "rateLimited": "Ha appena cercato molti indirizzi. Riprovi tra qualche minuto.",
+        "cta": "Vedere il risultato",
+        "direct": "Preferisce contattarci direttamente?"
+      },
+      "chooser": {
+        "title": "Di quale edificio si tratta?",
+        "body": "Il registro indica più edifici a questo indirizzo.",
+        "option": "Edificio {number}",
+        "imageAlt": "Immagine aerea dell'edificio {number}"
+      },
+      "roof": {
+        "title": "Il Suo tetto",
+        "area": "Superficie del tetto",
+        "areaValue": "{area} m²",
+        "form": "Forma del tetto",
+        "forms": {
+          "steep": "Tetto a falde",
+          "flat": "Tetto piano",
+          "mixed": "In parte a falde, in parte piano",
+          "shed": "Tetto a shed"
+        },
+        "year": "Anno di costruzione",
+        "imageAlt": "Immagine aerea del Suo edificio",
+        "imageCredit": "Immagine aerea: swisstopo, SWISSIMAGE",
+        "splitNote": "Il Suo tetto è collegato a un edificio vicino. La superficie indica la Sua parte.",
+        "coverQuestion": "Qual è oggi la copertura del Suo tetto?",
+        "coverAnswers": {
+          "tile": "Tegole",
+          "fibre_cement": "Fibrocemento",
+          "metal": "Metallo",
+          "unknown": "Non lo so"
+        },
+        "wholeRoofQuestion": "Secondo Tettosolare.ch la superficie del tetto è molto maggiore della superficie dell'edificio nel registro. Tutto il tetto fa parte del Suo indirizzo?",
+        "wholeRoofYes": "Sì",
+        "wholeRoofNo": "No",
+        "next": "Al risultato"
+      },
+      "result": {
+        "title": "Il Suo risultato",
+        "marketReference": {
+          "heading": "Ecco quanto sono costati risanamenti del tetto comparabili con isolamento",
+          "chfJob": {
+            "value": "Da CHF {low} a {high}",
+            "label": "metà centrale dei progetti incentivati in Svizzera, mediana CHF {median}"
+          },
+          "chfM2": {
+            "value": "Da CHF {low} a {high} per m² di superficie isolata",
+            "label": "metà centrale dei progetti incentivati in Svizzera, mediana CHF {median} per m²"
+          },
+          "note": "Sono valori del Programma Edifici della Confederazione e dei Cantoni, dal 2023 al 2025, non un'offerta nostra. Possono comprendere altri lavori. Il Suo prezzo lo indichiamo nell'offerta, il prezzo fisso dopo il sopralluogo."
+        },
+        "perM2": {
+          "label": "Il nostro prezzo per m² per il rifacimento completo del Suo tetto piano",
+          "inclVat": "Da CHF {low} a {high} per m², IVA 8.1 % inclusa",
+          "exclVat": "Da CHF {low} a {high} per m², IVA esclusa",
+          "includedTitle": "Compreso",
+          "included": "Demolizione, isolamento, impermeabilizzazione, lattoneria.",
+          "onTopTitle": "In aggiunta",
+          "exclusions": {
+            "scaffold_scope": "Ponteggio e protezioni anticaduta secondo l'oggetto",
+            "planning": "Progettazione e direzione dei lavori",
+            "pah_bitumen": "Vecchio rivestimento contenente catrame"
+          },
+          "disclaimer": "Non è un'offerta. Il prezzo fisso lo riceve dopo il sopralluogo."
+        },
+        "visit": {
+          "title": "Per il Suo tetto indichiamo il prezzo dopo il sopralluogo",
+          "reasons": {
+            "shared_roof": "Il Suo tetto è collegato a un edificio vicino. Chiariamo sul posto quale parte è Sua e come si svolgerebbero i lavori.",
+            "flat_small": "Per i tetti piani sotto i 400 m² non abbiamo dati sufficienti per un valore indicativo.",
+            "farm": "Per gli edifici agricoli il prezzo dipende molto dalla costruzione e dall'uso.",
+            "shed": "Per i tetti a shed il prezzo dipende molto dalla struttura.",
+            "mixed": "Il Suo tetto è in parte a falde e in parte piano. La cosa migliore è esaminarlo sul posto.",
+            "oversized_unanswered": "Secondo Tettosolare.ch la superficie del tetto è molto maggiore della superficie dell'edificio nel registro. Chiariamo sul posto se tutto il tetto fa parte del Suo indirizzo.",
+            "no_roof_data": "La Confederazione non ha dati sul tetto di questo edificio. Esamineremo il tetto sul posto.",
+            "other": "Per questo tipo di edificio non abbiamo un valore indicativo.",
+            "high_rise": "Negli edifici con molti piani, accesso, gru e sicurezza determinano il prezzo. Lo valutiamo sul posto."
+          }
+        },
+        "young": {
+          "body": "Secondo il registro la Sua casa è nuova. Il tetto è probabilmente recente.",
+          "link": "Al calcolatore solare"
+        },
+        "subsidy": {
+          "title": "Possibile incentivo",
+          "range": "Da CHF {low} a {high}",
+          "upTo": "Fino a CHF {high}",
+          "rate": "CHF {rate} per m² di tetto isolato. Sui tetti molto grandi l'importo per m² può essere più basso.",
+          "belowMinimum": "Con questa superficie l'importo resta sotto il contributo minimo del Cantone.",
+          "notChecked": "Chiariamo l'incentivo del Suo Cantone nell'offerta.",
+          "notEligible": "Il programma del Suo Cantone richiede una licenza edilizia anteriore al 2000. Secondo il registro il Suo edificio è più recente.",
+          "conditionsTitle": "Condizioni",
+          "conditions": {
+            "u_value": "Isolamento con un valore U massimo di 0,20 W/m²K",
+            "apply_before_start": "Domanda prima dell'inizio dei lavori",
+            "built_before_2000": "Licenza edilizia dell'edificio anteriore al 2000",
+            "requires_pv": "Prova di un impianto solare"
+          },
+          "notSubtracted": "L'incentivo non è dedotto dal prezzo. Il programma cantonale può porre altre condizioni."
+        },
+        "existingPv": {
+          "withYear": "Impianto solare secondo il registro, {kw} kW dal {year}. Smontaggio e rimontaggio sono oggetto di un'offerta separata.",
+          "withoutYear": "Impianto solare secondo il registro, {kw} kW. Smontaggio e rimontaggio sono oggetto di un'offerta separata.",
+          "noFigureWithYear": "Impianto solare secondo il registro, dal {year}. Smontaggio e rimontaggio sono oggetto di un'offerta separata.",
+          "noFigure": "Impianto solare secondo il registro. Smontaggio e rimontaggio sono oggetto di un'offerta separata."
+        },
+        "pvPotential": {
+          "body": "Spazio per circa {kwp} kWp e una produzione di circa {kwh} kWh all'anno.",
+          "link": "Progettare insieme tetto e solare"
+        },
+        "asbestos": "Secondo il registro il Suo edificio risale al 1990 o prima. In presenza di fibrocemento verifichiamo se contiene amianto prima dell'offerta e indichiamo la rimozione a parte.",
+        "request": "Richieda un'offerta",
+        "sources": "Fonti: Tettosolare.ch (Ufficio federale dell'energia), Registro federale degli edifici e delle abitazioni (Ufficio federale di statistica), registro Pronovo.",
+        "wrongData": "Dati non corretti?"
+      },
+      "failure": {
+        "retry": "Riprovi",
+        "not_found": {
+          "title": "Non troviamo questo edificio",
+          "body": "Il registro non contiene una voce corrispondente a questo indirizzo. Ci invii la Sua richiesta, lo chiariremo di persona."
+        },
+        "lookup_failed": {
+          "title": "I registri non rispondono in questo momento",
+          "body": "Riprovi oppure ci invii direttamente la Sua richiesta."
+        },
+        "rate_limited": {
+          "title": "Troppe richieste",
+          "body": "Riprovi tra qualche minuto, ci invii direttamente la Sua richiesta oppure ci chiami al numero {phone}."
+        }
+      },
+      "example": {
+        "badge": "Esempio",
+        "alt": "Foto aerea di un tetto piano su un edificio commerciale, contorno evidenziato",
+        "year": "Costruito nel {year}",
+        "priceLabel": "Il nostro prezzo per m² per il rifacimento completo"
+      }
+    },
+    "solarPage": {
+      "hero": {
+        "title": "Progettare insieme tetto e impianto solare",
+        "subtitle": "Se il Suo tetto viene rinnovato, può decidere ora anche sul solare. Free State AG progetta entrambi in tutta la Svizzera e resta il Suo unico partner contrattuale.",
+        "cta": "Richieda un'offerta per tetto e solare"
+      },
+      "why": {
+        "title": "Perché insieme e non più tardi",
+        "intro": "Tetto e impianto solare sono legati dal punto di vista costruttivo. Conviene quindi guardare entrambi prima di montare il ponteggio.",
+        "items": {
+          "scaffold": {
+            "title": "Un ponteggio, una fase di cantiere",
+            "body": "Tetto e impianto solare condividono ponteggio e fase di cantiere. SvizzeraEnergia cita questo vantaggio della progettazione comune."
+          },
+          "dismantling": {
+            "title": "Un tetto nuovo sotto l'impianto",
+            "body": "Un impianto posato su un tetto nuovo di regola non deve essere smontato e rimontato più avanti per un rifacimento del tetto."
+          },
+          "asbestos": {
+            "title": "Prima il cemento-amianto",
+            "body": "La Suva raccomanda di principio di sostituire completamente un tetto in cemento-amianto prima di montare un impianto solare (scheda 33068)."
+          }
+        },
+        "imageAlt": "Installatore al lavoro su un impianto solare su un tetto in tegole"
+      },
+      "cantons": {
+        "title": "Che cosa regolano alcuni Cantoni",
+        "intro": "Le regole sono cantonali. Ecco quattro esempi, stato 2026.",
+        "items": {
+          "SH": {
+            "title": "Sciaffusa",
+            "body": "Dal 1° gennaio 2026 un risanamento completo del tetto comporta l'obbligo di produrre elettricità se la superficie determinante raggiunge 300 m² e se il tetto riceve almeno l'85% dell'irraggiamento globale. Servono almeno 30 W per m² di superficie di riferimento energetico (EnerV § 16a, § 26h)."
+          },
+          "LU": {
+            "title": "Lucerna",
+            "body": "Dal 1° marzo 2025 un risanamento del tetto deve sfruttare in modo adeguato il potenziale di produzione di elettricità. Altrimenti si applica una tassa sostitutiva di al massimo CHF 1'000 per kW non realizzato (KEnG § 15)."
+          },
+          "BE": {
+            "title": "Berna",
+            "body": "Dal 1° gennaio 2026 un rinnovo completo delle superfici del tetto comporta un obbligo di notifica (KEnG art. 39d)."
+          },
+          "SG": {
+            "title": "San Gallo",
+            "body": "Il Cantone versa il contributo per il tetto solo con la prova di un impianto solare."
+          }
+        },
+        "note": "Chiariamo nell'offerta che cosa vale nel Suo Cantone."
+      },
+      "mounting": {
+        "title": "Impianto sopra tetto o integrato?",
+        "body1": "Per gli impianti sotto i 30 kW la rimunerazione unica è, stato 2026, di CHF 400 per kW per un impianto integrato e di CHF 360 per kW per un impianto sopra tetto. Questa differenza non copre il costo aggiuntivo di un impianto integrato.",
+        "body2": "La decisione dipende quindi dal tetto stesso, dalla sua forma, dal suo stato e dal suo aspetto. Alcuni Cantoni pagano di più per un impianto integrato, l'Argovia ad esempio un bonus di CHF 100 invece di CHF 30 per m² di tetto a falde. Ne parliamo durante il sopralluogo.",
+        "imageAlt": "Casa con impianto solare sul tetto, rappresentazione schematica",
+        "inRoof": "Integrato nel tetto",
+        "onRoof": "Sopra il tetto",
+        "perKw": "CHF {value} per kW"
+      },
+      "offer": {
+        "title": "Tre voci, offerte separatamente",
+        "intro": "In ogni offerta tetto, isolamento e solare figurano separatamente. Così vede quanto costa ogni parte.",
+        "items": {
+          "roof": {
+            "title": "Tetto",
+            "body": "Nuova copertura o impermeabilizzazione, sottocopertura, lattoneria, ponteggio e cantiere."
+          },
+          "insulation": {
+            "title": "Isolamento",
+            "body": "L'isolamento richiesto dall'incentivo cantonale."
+          },
+          "solar": {
+            "title": "Solare",
+            "body": "Moduli, inverter, montaggio e allacciamento."
+          }
+        },
+        "existingTitle": "Impianto solare esistente",
+        "existingBody": "Se sul tetto c'è già un impianto, il registro ci indica la potenza e l'anno di messa in esercizio. Smontaggio e rimontaggio sono oggetto di un'offerta separata.",
+        "imageAlt": "Tetto in tegole con moduli solari, rappresentazione schematica"
+      },
+      "models": {
+        "title": "Due modelli per il Suo impianto solare",
+        "intro": "Per l'impianto solare sul Suo nuovo tetto Le presentiamo qui SolarFree e SolarDirect. Ogni modello ha un proprio contratto con Free State AG.",
+        "solarFree": {
+          "title": "SolarFree",
+          "body": "Senza anticipo (CHF 0). Paga la corrente solare che consuma direttamente, fino al 30% sotto la tariffa di rete.",
+          "clause": "Il contratto SolarFree contiene alla cifra 6.2 una disposizione sui lavori di rinnovo del tetto. Con un tetto nuovo sotto l'impianto, di regola questo caso non si presenta.",
+          "link": "Scopra SolarFree"
+        },
+        "solarDirect": {
+          "title": "SolarDirect",
+          "body": "Acquista l'impianto solare e consuma direttamente la corrente. Diventa Suo una volta pagato per intero.",
+          "link": "Scopra SolarDirect"
+        }
+      },
+      "faq": {
+        "eyebrow": "Domande frequenti",
+        "title": "Domande su tetto e solare",
+        "description": "Quando qualcosa si può valutare solo sul posto, lo diciamo.",
+        "items": {
+          "1": {
+            "question": "Devo realizzare tetto e impianto solare contemporaneamente?",
+            "answer": "No. Possiamo progettare il tetto in modo che l'impianto possa seguire più avanti. Ponteggio e fase di cantiere li condividi però solo se realizzi tutto insieme."
+          },
+          "2": {
+            "question": "Nel mio Cantone esiste un obbligo?",
+            "answer": "Dipende da ciascun Cantone. Sciaffusa, Lucerna e Berna hanno regole per il risanamento del tetto, che citiamo più in alto. Chiariamo nell'offerta che cosa vale nel Suo Cantone."
+          },
+          "3": {
+            "question": "Sopra tetto o integrato, che cosa scegliere?",
+            "answer": "Dipende dal tetto stesso. Sotto i 30 kW la rimunerazione unica è, stato 2026, di CHF 400 per kW per un impianto integrato e di CHF 360 per un impianto sopra tetto, il che non risolve la questione. Ne parliamo durante il sopralluogo."
+          },
+          "4": {
+            "question": "Ho già un impianto. Che cosa ne sarà?",
+            "answer": "Lo smontiamo per i lavori e lo rimontiamo in seguito. Questa prestazione è oggetto di un'offerta separata. Durante il sopralluogo verifichiamo se l'impianto si può rimontare così com'è."
+          },
+          "5": {
+            "question": "Nell'offerta è tutto insieme?",
+            "answer": "No. Tetto, isolamento e solare figurano separatamente, così può vedere ogni parte e decidere."
+          },
+          "6": {
+            "question": "SolarFree è adatto a un risanamento del tetto?",
+            "answer": "Con SolarFree non paga alcun anticipo (CHF 0). Durante il sopralluogo chiariamo se è adatto al Suo tetto."
+          }
         }
       }
     }

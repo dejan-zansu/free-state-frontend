@@ -22,6 +22,8 @@ import type {
   AdminContactSubmissionStatus,
 } from '@/types/admin'
 
+import { contactEntityTypeLabel } from '../entity-type'
+
 export default function AdminContactDetailPage() {
   const params = useParams()
   const t = useTranslations('admin.contacts')
@@ -88,7 +90,7 @@ export default function AdminContactDetailPage() {
                   {t('entityType')}
                 </label>
                 <p className="font-medium text-[#062E25]">
-                  {submission.entityType || '-'}
+                  {contactEntityTypeLabel(t, submission.entityType)}
                 </p>
               </div>
               <div>

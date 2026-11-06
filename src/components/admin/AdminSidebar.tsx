@@ -21,6 +21,7 @@ import {
   FolderOpen,
   Gauge,
   HandCoins,
+  House,
   Images,
   Inbox,
   LayoutDashboard,
@@ -198,6 +199,17 @@ function useNavGroups() {
           href: `${prefix}/outreach/kpi`,
           icon: Gauge,
           capability: 'outreach.manage',
+        },
+      ],
+    },
+    {
+      label: t('groupRoofRenovation'),
+      items: [
+        {
+          label: t('roofLeads'),
+          href: `${prefix}/roof-leads`,
+          icon: House,
+          capability: 'sales.tools',
         },
       ],
     },

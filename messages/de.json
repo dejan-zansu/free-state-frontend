@@ -91,7 +91,7 @@
     "titleTemplate": "%s | Free State AG",
     "home": {
       "title": "Solaranlage Schweiz: kaufen oder mit SolarFree ab CHF 0",
-      "description": "Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen von Free State AG. Kauf oder SolarFree ohne Eigeninvestition. 19 Kantone in der Deutschschweiz."
+      "description": "Photovoltaikanlagen, Batteriespeicher, Wärmepumpen und Ladestationen von Free State AG. Kauf oder SolarFree ohne Eigeninvestition."
     },
     "solarSystems": {
       "title": "Solaranlagen Schweiz: Photovoltaik für Ihr Zuhause",
@@ -319,6 +319,14 @@
       "description": "Jedes Gerät dieses Solarpakets als drehbares 3D-Modell mit den technischen Daten des Herstellers.",
       "descriptionSuffix": "Alle Komponenten in 3D mit technischen Daten."
     },
+    "roofRenovation": {
+      "title": "Dachsanierung Schweiz: Kosten, Förderung, Festpreis",
+      "description": "Free State AG übernimmt Ihre Dachsanierung in der ganzen Schweiz mit eigenen Teams. Vergleichswerte online, schriftliche Offerte, Festpreis nach der Besichtigung."
+    },
+    "roofRenovationSolar": {
+      "title": "Dachsanierung mit Photovoltaik: Dach und Solar zusammen",
+      "description": "Dach und Solaranlage zusammen planen, mit einem Gerüst und einer Bauphase. Kantonale Regeln, Aufdach oder Indach und getrennte Posten in der Offerte."
+    },
     "offerRequest": {
       "title": "Solaranlage Offerte anfragen: Preis pro kWp | Free State AG",
       "description": "Eine Solaranlage mit Speicher kostet bei uns CHF {min} bis {max} pro kWp, exkl. MwSt. Fragen Sie mit Name, Telefon und Adresse eine Offerte an, wir rufen Sie an."
@@ -395,6 +403,8 @@
       "chargingStations": "Ladestationen",
       "energyStorage": "Energiespeicher",
       "energyManagement": "Energiemanagement",
+      "roofRenovation": "Dachsanierung",
+      "roofRenovationSolar": "Dach und Solar",
       "catalog3d": "Produkte in 3D"
     },
     "company": {
@@ -790,7 +800,6 @@
           "Schutz vor steigenden Energiekosten",
           "Herstellergarantien inklusive",
           "10 Jahre Handwerksgarantie",
-          "10 Jahre Dachgarantie",
           "Übertragbar beim Hausverkauf"
         ],
         "advantagesTitle": "Ihre Vorteile mit SolarDirekt",
@@ -5438,7 +5447,7 @@
     },
     "inRoofOnRoof": {
       "title": "Indach oder Aufdach",
-      "description": "Eine Photovoltaikanlage hält über 30 Jahre, daher muss das Dach in gutem Zustand sein und nicht bald ersetzt werden müssen. Wenn das Dach über 40 Jahre alt ist, wird eine Sanierung empfohlen.\n\nBeim Austausch eines Schrägdachs reduziert eine integrierte PV-Anlage die Dachkosten und bietet eine kosteneffiziente Möglichkeit, ein neues Dach mit Solarstrom zu kombinieren."
+      "description": "Eine Photovoltaikanlage hält über 30 Jahre, daher muss das Dach in gutem Zustand sein und nicht bald ersetzt werden müssen. Ist das Dach schon älter, sollte es vor der Montage geprüft werden.\n\nBeim Austausch eines Schrägdachs reduziert eine integrierte PV-Anlage die Dachkosten und bietet eine kosteneffiziente Möglichkeit, ein neues Dach mit Solarstrom zu kombinieren."
     },
     "storageSelfConsumption": {
       "title": "Speicher für höheren\nEigenverbrauch",
@@ -5452,7 +5461,7 @@
     },
     "installation": {
       "title": "Installation von grossen\nSolaranlagen",
-      "description": "Wir arbeiten mit erfahrenen Elektrikern und Dachdeckern zusammen. Damit Sie so schnell wie möglich von Ihrer Anlage profitieren können, installieren unsere Fachleute sie von Anfang bis Ende. Die Installationskosten sind vollständig im Kaufpreis enthalten."
+      "description": "Damit Sie so schnell wie möglich von Ihrer Anlage profitieren können, installieren unsere Fachleute sie von Anfang bis Ende. Die Installationskosten sind vollständig im Kaufpreis enthalten."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -7148,6 +7157,8 @@
       "outreachLetters": "Briefe",
       "outreachMailboxes": "Postfächer",
       "outreachKpi": "Outreach-Kennzahlen",
+      "groupRoofRenovation": "Dachsanierung",
+      "roofLeads": "Dach-Leads",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -10865,6 +10876,14 @@
       "adminNotes": "Admin-Notizen",
       "save": "Speichern",
       "saved": "Erfolgreich gespeichert",
+      "filterType": "Nach Typ filtern",
+      "allTypes": "Alle Typen",
+      "entityTypes": {
+        "roof_renovation": "Dachsanierung",
+        "offer_request": "Offertanfrage",
+        "company": "Firma",
+        "private": "Privatperson"
+      },
       "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen."
     },
     "newsletter": {
@@ -11337,6 +11356,166 @@
       "unsupported": "Dieser Browser unterstützt keine Push-Benachrichtigungen.",
       "serverDisabled": "Push-Benachrichtigungen sind auf dem Server nicht konfiguriert.",
       "iosInstall": "Auf dem iPhone zuerst über Teilen und Zum Home-Bildschirm hinzufügen installieren, danach hier aktivieren."
+    },
+    "roofLeads": {
+      "title": "Dach-Leads",
+      "contactRequests": "Dachsanierung-Anfragen",
+      "exportCsv": "CSV exportieren",
+      "exportFailed": "Export fehlgeschlagen. Bitte erneut versuchen.",
+      "exportCapped": "Der Export enthält die ersten {max} von {total} Zeilen. Filtern Sie enger, um alle zu erhalten.",
+      "searchPlaceholder": "Suchen nach Adresse, Firma, Kontakt…",
+      "allStatuses": "Alle Status",
+      "allSegments": "Alle Segmente",
+      "allCantons": "Alle Kantone",
+      "allRoofForms": "Alle Dachformen",
+      "allPvStates": "Alle PV-Stände",
+      "minScore": "Mindest-Score",
+      "sortScoreAsc": "Score aufsteigend sortieren",
+      "sortScoreDesc": "Score absteigend sortieren",
+      "colScore": "Score",
+      "colSegment": "Segment",
+      "colAddress": "Adresse",
+      "colYear": "Baujahr",
+      "colRoof": "Dach",
+      "colPv": "PV",
+      "colImagery": "Luftbild",
+      "colContact": "Kontakt",
+      "colStatus": "Status",
+      "total": "{count} Einträge",
+      "empty": "Keine Dach-Leads gefunden",
+      "previousPage": "Vorherige Seite",
+      "nextPage": "Nächste Seite",
+      "statusLabels": {
+        "NEW": "Neu",
+        "QUALIFIED": "Qualifiziert",
+        "CONTACTED": "Kontaktiert",
+        "REPLIED": "Geantwortet",
+        "LEAD": "Lead",
+        "WON": "Gewonnen",
+        "LOST": "Verloren",
+        "EXCLUDED": "Ausgeschlossen"
+      },
+      "segment": {
+        "HOUSE": "Haus",
+        "MULTI_FAMILY": "Mehrfamilienhaus",
+        "COMMERCIAL": "Gewerbe",
+        "HALL": "Halle",
+        "FARM": "Landwirtschaft",
+        "MANAGER": "Verwaltung",
+        "COOPERATIVE": "Genossenschaft",
+        "OWNER_PORTFOLIO": "Eigentümer mit Portfolio"
+      },
+      "form": {
+        "FLAT": "Flachdach",
+        "STEEP": "Schrägdach",
+        "MIXED": "Gemischt",
+        "SHED": "Sheddach",
+        "UNKNOWN": "Unbekannt"
+      },
+      "pv": {
+        "NONE": "Keine Anlage",
+        "OLD": "Alt (vor 2010)",
+        "MID": "2010 bis 2014",
+        "RECENT": "Neu (ab 2015)",
+        "UNKNOWN": "Unbekannt"
+      },
+      "imagery": {
+        "NOT_REPLACED": "Nicht erneuert",
+        "WORN": "Verwittert",
+        "REPLACED": "Erneuert",
+        "UNCLEAR": "Unklar"
+      },
+      "contactBlock": {
+        "never": "Nie kontaktieren",
+        "open_thread": "Offener Austausch",
+        "sales_only": "Nur Vertrieb",
+        "owner_decision": "Entscheid Inhaber"
+      },
+      "contactBlockNotice": {
+        "never": "Nicht kontaktieren. Im PV-Outbound ist dieser Kontakt gesperrt, abgemeldet, unzustellbar, mit Werbeverbot vermerkt oder von Ivan betreut.",
+        "open_thread": "Nicht kontaktieren, solange der Austausch im PV-Outbound offen ist.",
+        "sales_only": "Nur über den Vertrieb ansprechen. Im PV-Outbound ist bereits eine gewerbliche Anfrage oder eine Umwandlung erfasst.",
+        "owner_decision": "Hat das PV-Angebot abgelehnt. Über eine erneute Ansprache entscheidet der Inhaber."
+      },
+      "exclusionReason": {
+        "roof_permit_recent": "Dachbewilligung ab 2024",
+        "imagery_replaced": "Luftbild zeigt ein neues Dach"
+      },
+      "exclusionNotice": "Ausgeschlossen, Grund: {reason}.",
+      "pictureAlt": "Luftbild von {address}",
+      "pictureCaption": "Luftbild SWISSIMAGE, Bundesamt für Landestopografie swisstopo",
+      "noPicture": "Für diesen Eintrag gibt es keine Koordinaten und daher kein Luftbild.",
+      "sectionScore": "Score",
+      "sectionManage": "Bearbeiten",
+      "sectionBuilding": "Gebäude",
+      "sectionContact": "Kontakt",
+      "sectionActivity": "Verlauf",
+      "scoreTotal": "Total",
+      "scoreVersion": "Score-Version {version}",
+      "scorePart": {
+        "buildYear": "Baujahr",
+        "buildPeriod": "Bauperiode",
+        "pvState": "PV-Anlage",
+        "footprint": "Grundfläche",
+        "dwellings": "Wohnungen",
+        "roofForm": "Dachform",
+        "imagery": "Luftbild",
+        "contact": "Kontakt bekannt"
+      },
+      "wonAmount": "Auftragswert in CHF",
+      "wonAmountInvalid": "Bitte einen Betrag von 0 oder mehr eingeben.",
+      "notes": "Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+      "municipality": "Gemeinde",
+      "buildingRef": "EGID",
+      "buildingClass": "Gebäudeklasse",
+      "footprint": "Grundfläche",
+      "roofArea": "Dachfläche",
+      "roofForm": "Dachform",
+      "dwellings": "Wohnungen",
+      "floors": "Geschosse",
+      "roofPermit": "Dachbewilligung",
+      "company": "Firma",
+      "owner": "Eigentümer",
+      "ownerSource": "Quelle Eigentümer",
+      "contactName": "Kontaktperson",
+      "contactEmail": "E-Mail",
+      "contactPhone": "Telefon",
+      "contactSource": "Quelle Kontakt",
+      "contactedAt": "Kontaktiert am",
+      "noActivity": "Noch kein Verlauf",
+      "statusChange": "{from} zu {to}",
+      "activity": {
+        "STATUS_CHANGED": "Status geändert",
+        "UPDATED": "Aktualisiert",
+        "IMAGERY_VERDICT": "Luftbild beurteilt",
+        "EXCLUDED": "Ausgeschlossen",
+        "ROOF_ENRICHED": "Dachdaten ergänzt",
+        "IMPORTED_FROM_OUTBOUND": "Aus Outbound übernommen",
+        "CONTACT_BLOCK": "Kontaktsperre geändert",
+        "REQUEST_PROMOTED": "Aus Anfrage übernommen"
+      },
+      "tabs": {
+        "leads": "Dach-Leads",
+        "requests": "Anfragen"
+      },
+      "requests": {
+        "colDate": "Eingang",
+        "colName": "Name",
+        "colPlace": "Ort",
+        "colMessage": "Angaben",
+        "colStatus": "Status",
+        "colLead": "Dach-Lead",
+        "promote": "Als Lead übernehmen",
+        "openLead": "Lead öffnen",
+        "promoteFailed": "Die Anfrage konnte nicht übernommen werden.",
+        "empty": "Keine Anfragen gefunden",
+        "noMessage": "Keine Angaben",
+        "searchPlaceholder": "Suchen nach Name, Ort, Telefon, E-Mail…"
+      },
+      "contactSourceRequest": "Dachsanierung-Anfrage"
     },
     "productComments": {
       "title": "Produktkommentare",
@@ -13062,6 +13241,708 @@
         "7": {
           "question": "Wie lange dauert es bis zur Inbetriebnahme?",
           "answer": "In der Regel rund drei Monate ab Bestellung. Darin enthalten sind die Dachprüfung, die Anmeldung beim Netzbetreiber, die Montage und die Inbetriebnahme."
+        }
+      }
+    }
+  },
+  "roofRenovation": {
+    "breadcrumb": {
+      "home": "Startseite",
+      "main": "Dachsanierung",
+      "solar": "Dach und Solar"
+    },
+    "jsonLd": {
+      "name": "Dachsanierung",
+      "description": "Dachsanierung in der ganzen Schweiz aus einer Hand, von der Prüfung über Schrägdach, Flachdach, Hallendach, Spengler, Dämmung und Asbestzement bis zur Abnahme, zu Reparaturen und zur Wartung."
+    },
+    "hero": {
+      "title": "Ihr Dach, von der ersten Prüfung bis zur Abnahme",
+      "subtitle": "Sie haben einen einzigen Vertragspartner, auch für Reparaturen und Wartung danach. Free State AG übernimmt Ihre Dachsanierung in der ganzen Schweiz mit eigenen Teams.",
+      "points": {
+        "offer": "Schriftliche Offerte",
+        "fixedPrice": "Festpreis nach der Besichtigung",
+        "onePartner": "Ein Vertrag"
+      }
+    },
+    "estimatorSection": {
+      "title": "Was kostet ein Dach wie Ihres?",
+      "intro": "Geben Sie Ihre Adresse ein. Wir lesen Fläche, Dachform und Baujahr aus Daten des Bundes und zeigen Ihnen das Ergebnis. Kontaktdaten brauchen wir dafür keine."
+    },
+    "due": {
+      "title": "Diese Zeichen sprechen für eine Prüfung",
+      "intro": "Vieles sehen Sie selbst, vom Estrich aus oder von der Strasse.",
+      "signs": {
+        "leak": "Wasserflecken an der Decke oder Feuchtigkeit im Estrich.",
+        "tiles": "Gebrochene, verschobene oder fehlende Ziegel.",
+        "sealing": "Risse oder Blasen in der Abdichtung eines Flachdachs, stehendes Wasser nach dem Regen.",
+        "flashing": "Rost oder offene Stellen an Rinnen, Blechen und Anschlüssen.",
+        "climate": "Räume unter dem Dach, die im Winter auskühlen und im Sommer überhitzen."
+      },
+      "ageTitle": "Und das Alter?",
+      "age": "Die paritätische Lebensdauertabelle nennt als Richtwert 50 Jahre für Ziegel- und Faserzementdächer und 30 Jahre für Flachdächer. Das Alter allein entscheidet nicht.",
+      "flatRoof": "Flachdächer halten in der Regel weniger lang als Schrägdächer. Gebäudehülle Schweiz rät in einem Beitrag des HEV Schweiz vom 08.08.2024, ein Flachdach, das älter als zehn Jahre ist, vor der Montage einer Solaranlage prüfen zu lassen.",
+      "imageAlt": "Alte, verwitterte Ziegeldächer in einer Altstadt",
+      "lifeTitle": "Richtwert Lebensdauer",
+      "lifeSteep": "Ziegel und Faserzement",
+      "lifeFlat": "Flachdach",
+      "years": "{years} Jahre"
+    },
+    "services": {
+      "title": "Das ganze Dach, ein Vertrag",
+      "intro": "Sie sprechen mit Free State AG, von der ersten Prüfung bis nach der Abnahme. Die Arbeiten führen unsere eigenen Teams aus.",
+      "items": {
+        "check": {
+          "title": "Prüfung",
+          "body": "Wir sehen uns Eindeckung, Unterdach, Dämmung und Anschlüsse vor Ort an und sagen Ihnen, was nötig ist."
+        },
+        "offer": {
+          "title": "Offerte",
+          "body": "Sie erhalten eine schriftliche Offerte mit Fläche, Aufbau und Preis, die Sie Ihrer Bank oder Verwaltung vorlegen können."
+        },
+        "permit": {
+          "title": "Bewilligung und Förderung",
+          "body": "Wir klären, ob es eine Baubewilligung braucht, und erledigen das Fördergesuch, das vor Baubeginn eingereicht sein muss."
+        },
+        "scaffold": {
+          "title": "Gerüst",
+          "body": "Wir stellen das Gerüst und die Absturzsicherung und richten die Baustelle ein."
+        },
+        "steep": {
+          "title": "Schrägdach",
+          "body": "Wir decken Ihr Schrägdach neu ein, samt Unterdach."
+        },
+        "flat": {
+          "title": "Flachdach",
+          "body": "Wir erneuern Abdichtung und Dämmung, samt Anschlüssen und Abläufen."
+        },
+        "hall": {
+          "title": "Hallendach",
+          "body": "Wir sanieren grosse Dachflächen auf Gewerbe- und Industriehallen und planen die Etappen mit Ihrem Betrieb."
+        },
+        "spengler": {
+          "title": "Spengler",
+          "body": "Rinnen, Fallrohre, Dachränder und Anschlüsse erneuern wir im gleichen Zug."
+        },
+        "insulation": {
+          "title": "Dämmung",
+          "body": "Wir planen die Dämmung auf einen U-Wert (Mass für den Wärmeverlust) von höchstens 0.20 W/m²K, den kantonale Förderprogramme in der Regel verlangen."
+        },
+        "asbestos": {
+          "title": "Asbestzement",
+          "body": "Bei Faserzement prüfen wir vor der Offerte auf Asbest und weisen die Entfernung separat aus."
+        },
+        "solar": {
+          "title": "Solar",
+          "body": "Wir planen das Dach für eine Solaranlage vor, montieren sie im gleichen Zug oder bauen eine bestehende Anlage ab und wieder auf."
+        },
+        "handover": {
+          "title": "Abnahme",
+          "body": "Am Schluss nehmen wir das Dach gemeinsam mit Ihnen ab. Ab diesem Tag läuft die Gewährleistung."
+        },
+        "repair": {
+          "title": "Reparatur und Wartung",
+          "body": "Auch nach der Abnahme bleiben wir für Reparaturen und Wartung Ihr Ansprechpartner."
+        }
+      },
+      "layersLabel": "Dachtyp wählen",
+      "phases": {
+        "before": "Vor dem Baustart",
+        "site": "Auf der Baustelle",
+        "after": "Abnahme und danach"
+      },
+      "layers": {
+        "solar": {
+          "title": "Solaranlage"
+        },
+        "cover": {
+          "title": "Eindeckung"
+        },
+        "flashing": {
+          "title": "Spenglerarbeiten"
+        },
+        "battens": {
+          "title": "Lattung",
+          "body": "Trägt die Ziegel und lässt Luft unter der Eindeckung zirkulieren."
+        },
+        "underlay": {
+          "title": "Unterdach",
+          "body": "Führt Wasser ab, das unter die Eindeckung gelangt."
+        },
+        "insulation": {
+          "title": "Dämmung"
+        },
+        "structure": {
+          "title": "Dachstuhl",
+          "body": "Trägt den ganzen Aufbau. Schäden am Dachstuhl weisen wir separat aus."
+        },
+        "protection": {
+          "title": "Schutzschicht",
+          "body": "Kies oder Begrünung schützt die Abdichtung vor Sonne und Wetter."
+        },
+        "sealing": {
+          "title": "Abdichtung"
+        },
+        "vapour": {
+          "title": "Dampfbremse",
+          "body": "Hält Feuchtigkeit aus dem Gebäude von der Dämmung fern."
+        },
+        "deck": {
+          "title": "Tragende Decke",
+          "body": "Beton oder Trapezblech. Sie trägt den ganzen Aufbau."
+        }
+      }
+    },
+    "cost": {
+      "title": "Was eine Dachsanierung kostet",
+      "intro": "Der Preis hängt vor allem von vier Dingen ab. Wir zeigen sie Ihnen zusammen mit öffentlichen Zahlen des Bundes.",
+      "driversTitle": "Was den Preis bestimmt",
+      "drivers": {
+        "fixed": {
+          "title": "Fixkosten",
+          "body": "Gerüst und Baustelle fallen auch bei einem kleinen Dach an. Darum kostet ein kleines Dach pro m² mehr als ein grosses."
+        },
+        "size": {
+          "title": "Grösse",
+          "body": "Mit der Dachfläche wachsen Material und Arbeit."
+        },
+        "buildup": {
+          "title": "Aufbau",
+          "body": "Eine neue Eindeckung mit Unterdach und Dämmung kostet mehr als der Ersatz der Eindeckung allein."
+        },
+        "access": {
+          "title": "Zugang",
+          "body": "Hohe Gebäude, enge Zufahrten und verwinkelte Dächer brauchen mehr Gerüst und mehr Zeit."
+        }
+      },
+      "stagesTitle": "In drei Stufen zum festen Preis",
+      "stages": {
+        "orientation": {
+          "title": "Orientierung",
+          "body": "Der Rechner zeigt öffentliche Werte für Ihr Gebäude, ausgehend von Ihrer Adresse. Das ist keine Offerte."
+        },
+        "draft": {
+          "title": "Richtofferte",
+          "body": "Wo es das Dach zulässt, erhalten Sie nach unserem Rückruf eine schriftliche Richtofferte, nach Positionen aufgeschlüsselt mit Fläche, Aufbau und Preis. Asbest und Zustand des Dachs sind darin noch nicht geprüft."
+        },
+        "fixed": {
+          "title": "Festpreis",
+          "body": "Nach der Besichtigung erhalten Sie einen Festpreis, der so im Vertrag steht. Asbest und Schäden am Dachstuhl weisen wir separat aus."
+        }
+      },
+      "table": {
+        "heading": "So viel haben geförderte Dachsanierungen mit Dämmung in der Schweiz gekostet",
+        "period": "2023 bis 2025",
+        "building": "Gebäude",
+        "low": "Unteres Quartil",
+        "median": "Median",
+        "high": "Oberes Quartil",
+        "cases": "Fälle",
+        "rows": {
+          "house": "Einfamilienhaus",
+          "multi": "Mehrfamilienhaus",
+          "industry": "Industrie"
+        },
+        "footnote": "Quelle: Bundesamt für Energie, Das Gebäudeprogramm, Rohdaten. Gesamtinvestition pro Fall, sie kann weitere Arbeiten enthalten. Mehrwertsteuer in der Quelle nicht ausgewiesen.",
+        "legendRange": "Mittlere Hälfte der Projekte",
+        "casesCount": "{count} Fälle"
+      },
+      "ownPrice": {
+        "heading": "Unser Preis für grosse Flachdächer",
+        "onTop": "Dazu kommen Gerüst und Absturzsicherung je nach Objekt, Planung und Bauleitung sowie teerhaltiger Altbelag. Das ist keine Offerte.",
+        "recover": "Eine neue Eindeckung ohne Dämmung offerieren wir erst nach der Besichtigung. Dafür zeigt der Rechner keinen Preis.",
+        "value": "CHF 260 bis 415",
+        "unit": "pro m² inkl. 8.1 % MWST",
+        "scope": "Kompletter Neuaufbau eines Flachdachs von 1'000 bis 2'999 m²"
+      }
+    },
+    "subsidy": {
+      "title": "Was die Kantone zahlen und was sich bei den Steuern ändert",
+      "intro": "Die Ansätze unterscheiden sich von Kanton zu Kanton. Die Tabelle zeigt fünf Beispiele, Stand 2026. Den Beitrag in Ihrem Kanton prüfen wir in der Offerte.",
+      "table": {
+        "canton": "Kanton",
+        "rate": "Dämmung",
+        "addOn": "Zuschlag für Solar",
+        "perM2": "CHF {value} pro m²",
+        "requiresPv": "Beitrag nur mit Solaranlage",
+        "addOnAg": "CHF 20 bis 100 pro m², je nach Dach und Anlage",
+        "cantons": {
+          "ZH": "Zürich",
+          "SH": "Schaffhausen",
+          "TG": "Thurgau",
+          "SG": "St. Gallen",
+          "AG": "Aargau"
+        },
+        "note": "Der Beitrag für die Dämmung gilt pro m² gedämmte Dachfläche. Der Zuschlag für Solar gilt in Zürich pro m² Modulfläche, in Schaffhausen und Thurgau pro m² Dämmung, dort bis höchstens CHF 50'000. Im Aargau gelten für den Bonus eigene Bedingungen, zum Beispiel eine Begrünung auf dem Flachdach.",
+        "value": "CHF {value}",
+        "unit": "pro m² gedämmte Fläche"
+      },
+      "conditions": "Der Beitrag gilt nur mit Dämmung und einem U-Wert von höchstens 0.20 W/m²K. Das Gesuch muss vor Baubeginn eingereicht sein. In diesen fünf Kantonen muss die Baubewilligung des Gebäudes vor dem Jahr 2000 liegen. Die Programme stellen weitere Bedingungen, zum Beispiel eine Obergrenze von 50 Prozent der Kosten oder ab CHF 10'000 Beitrag einen Gebäudeenergieausweis mit Beratungsbericht (GEAK Plus).",
+      "taxTitle": "Steuern ab 2029",
+      "tax1": "Ab dem 01.01.2029 entfällt bei selbst bewohntem Wohneigentum der Abzug für Liegenschaftsunterhalt, beim Bund, im Kanton und in der Gemeinde. Zum selben Zeitpunkt entfällt der Eigenmietwert.",
+      "tax2": "Bei vermietetem oder verpachtetem Wohneigentum bleibt der Abzug bestehen.",
+      "tax3": "Welches Datum für Ihre Arbeiten zählt, klären Sie am besten mit Ihrem Steueramt.",
+      "taxSource": "Quelle: Bundesrat, Medienmitteilung vom 01.04.2026.",
+      "taxDate": "01.01.2029"
+    },
+    "solarTeaser": {
+      "title": "Solar gleich mitplanen",
+      "body": "Wird das Dach erneuert, können Sie Gerüst und Bauphase für eine Solaranlage mitnutzen. Ob und wann Sie Solar wollen, entscheiden Sie.",
+      "link": "Dach und Solar zusammen planen",
+      "imageAlt": "Monteur auf einem Ziegeldach bei der Arbeit an einer Solaranlage"
+    },
+    "financing": {
+      "title": "Dachsanierung finanzieren",
+      "blocks": {
+        "owners": {
+          "title": "Hauseigentümer",
+          "body": "Eine Dachsanierung lässt sich über eine Erhöhung der Hypothek finanzieren, wenn Eigenmittel und Einkommen dafür reichen. Einzelne Banken geben für energetische Massnahmen wie eine Dachdämmung eine Zinsvergünstigung. Ob Ihr Projekt dafür zählt und was tragbar ist, klärt Ihre Bank."
+        },
+        "condominium": {
+          "title": "Stockwerkeigentum",
+          "body": "Die Kosten tragen die Eigentümer grundsätzlich nach Wertquoten, aus dem Erneuerungsfonds und wenn nötig aus zusätzlichen Beiträgen. Den Entscheid fällt die Versammlung."
+        },
+        "companies": {
+          "title": "Firmen",
+          "body": "Sprechen Sie früh mit Ihrer Bank. Auch für Unternehmen gibt es Zinsvergünstigungen für energetische Massnahmen."
+        },
+        "offer": {
+          "title": "Was Sie von uns erhalten",
+          "body": "Eine schriftliche Offerte mit Fläche, Aufbau und Preis, die Sie Ihrer Bank, Ihrer Verwaltung oder der Versammlung vorlegen können."
+        },
+        "subsidies": {
+          "title": "Förderbeiträge",
+          "body": "Das Gesuch muss vor Baubeginn eingereicht sein. Wir zeigen Ihnen, welches Programm in Ihrem Kanton gilt, und erledigen das Gesuch."
+        }
+      },
+      "closing": "Free State AG vergibt und vermittelt keine Kredite."
+    },
+    "process": {
+      "title": "In sechs Schritten zum neuen Dach",
+      "steps": {
+        "request": {
+          "title": "Anfrage",
+          "body": "Sie senden uns Name, Telefon und Adresse, mit oder ohne Rechner."
+        },
+        "callback": {
+          "title": "Rückruf",
+          "body": "Wir rufen Sie an und klären, worum es bei Ihrem Dach geht. Wo es das Dach zulässt, senden wir Ihnen danach eine schriftliche Richtofferte."
+        },
+        "visit": {
+          "title": "Besichtigung",
+          "body": "Wir sehen uns das Dach vor Ort an und prüfen Eindeckung, Unterdach und Dämmung."
+        },
+        "offer": {
+          "title": "Offerte mit Festpreis",
+          "body": "Sie erhalten eine schriftliche Offerte mit Fläche, Aufbau und Festpreis."
+        },
+        "subsidy": {
+          "title": "Förderung und Bewilligung klären",
+          "body": "Wir zeigen Ihnen, welches Programm in Ihrem Kanton gilt, erledigen das Fördergesuch vor Baubeginn und klären, ob es eine Baubewilligung braucht."
+        },
+        "execution": {
+          "title": "Ausführung und Abnahme",
+          "body": "Unsere Teams führen die Arbeiten aus. Am Schluss nehmen wir das Dach gemeinsam ab."
+        }
+      },
+      "imageAlt": "Gebäude mit Teams auf dem Dach, schematische Darstellung"
+    },
+    "contract": {
+      "title": "Was im Vertrag steht",
+      "items": {
+        "contract": {
+          "title": "Ein Vertrag",
+          "body": "Ihr Vertragspartner für alle Arbeiten am Dach ist Free State AG."
+        },
+        "safety": {
+          "title": "Sicherheit auf der Baustelle",
+          "body": "Die Sicherheitsmassnahmen schreiben wir in den Vertrag, wie es die Bauarbeitenverordnung vorsieht (BauAV Art. 3)."
+        },
+        "warranty": {
+          "title": "Gewährleistung",
+          "body": "Für Mängel gilt eine Gewährleistung von fünf Jahren ab Abnahme, wie sie das Gesetz für Bauwerke vorsieht. Für die Mängelrüge haben Sie 60 Tage Zeit, bei verdeckten Mängeln ab deren Entdeckung (OR Art. 367, 370 und 371)."
+        },
+        "asbestos": {
+          "title": "Asbestzement",
+          "body": "Bei Faserzement auf Gebäuden bis Baujahr 1990 prüfen wir vor der Offerte auf Asbest. Die Entfernung weisen wir in der Offerte separat aus."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Häufige Fragen",
+      "title": "Fragen zur Dachsanierung",
+      "description": "Wo wir etwas erst vor Ort beurteilen können, sagen wir das.",
+      "items": {
+        "1": {
+          "question": "Was kostet eine Dachsanierung?",
+          "answer": "Laut den Rohdaten des Gebäudeprogramms (Bundesamt für Energie) kosteten geförderte Dachsanierungen mit Dämmung bei Einfamilienhäusern in der Schweiz von 2023 bis 2025 im Median CHF 69'400 pro Fall. Das untere Quartil lag bei CHF 45'800, das obere bei CHF 102'000. Diese Summen können weitere Arbeiten enthalten, die Mehrwertsteuer weist die Quelle nicht aus. Unser Rechner zeigt Ihnen diese öffentlichen Werte passend zu Ihrem Gebäude. Den Festpreis erhalten Sie nach der Besichtigung."
+        },
+        "2": {
+          "question": "Wann ist ein Dach fällig?",
+          "answer": "Zeichen sind Wasserflecken, gebrochene oder verschobene Ziegel und eine beschädigte Abdichtung. Die paritätische Lebensdauertabelle nennt als Richtwert 50 Jahre für Ziegel- und Faserzementdächer und 30 Jahre für Flachdächer. Das Alter allein entscheidet nicht, darum sehen wir uns das Dach an."
+        },
+        "3": {
+          "question": "Reicht eine Reparatur oder braucht es eine Sanierung?",
+          "answer": "Das entscheidet der Zustand von Eindeckung, Unterdach und Dämmung. Die Ziegel selbst können laut Gebäudehülle Schweiz bis zu 100 Jahre halten, eine Sanierung betrifft darum oft die Schichten darunter. Ob eine Reparatur reicht, sagen wir Ihnen nach der Besichtigung."
+        },
+        "4": {
+          "question": "Wie lange dauert eine Dachsanierung?",
+          "answer": "Das hängt von Fläche, Aufbau und Wetter ab. Die Dauer klären wir bei der Besichtigung."
+        },
+        "5": {
+          "question": "Kann ich während der Arbeiten im Haus wohnen bleiben?",
+          "answer": "Das klären wir bei der Besichtigung, weil es vom Aufbau und vom Zustand des Dachs abhängt."
+        },
+        "6": {
+          "question": "Braucht eine Dachsanierung eine Baubewilligung?",
+          "answer": "Das hängt von Kanton, Zone und Umfang der Arbeiten ab. Wir klären es für Ihr Dach und erledigen das Gesuch, wenn es eines braucht."
+        },
+        "7": {
+          "question": "Gibt es Förderbeiträge?",
+          "answer": "Kantonale Programme zahlen für die Dämmung einen Beitrag pro m², zum Beispiel CHF 40 in Zürich und CHF 50 in Schaffhausen, Stand 2026. Das Gesuch muss vor Baubeginn eingereicht sein. Den Beitrag in Ihrem Kanton klären wir in der Offerte."
+        },
+        "8": {
+          "question": "Was ändert sich bei den Steuern?",
+          "answer": "Ab dem 01.01.2029 entfällt bei selbst bewohntem Wohneigentum der Abzug für Liegenschaftsunterhalt, zum selben Zeitpunkt entfällt der Eigenmietwert. Bei vermietetem oder verpachtetem Wohneigentum bleibt der Abzug bestehen. Welches Datum für Ihre Arbeiten zählt, klären Sie am besten mit Ihrem Steueramt."
+        },
+        "9": {
+          "question": "Was gilt bei Asbest im Dach?",
+          "answer": "Asbest ist in der Schweiz seit 1990 verboten, asbesthaltige Faserzementplatten durften noch bis zum 01.01.1991 in Verkehr gebracht werden. Bei Faserzement auf Gebäuden bis Baujahr 1990 prüfen wir darum vor der Offerte auf Asbest. Die Platten dürfen nicht zersägt oder gebrochen und nicht wiederverwendet werden. Die Entfernung weisen wir separat aus."
+        },
+        "10": {
+          "question": "Was geschieht mit einer bestehenden Solaranlage?",
+          "answer": "Wir bauen sie für die Arbeiten ab und danach wieder auf. Das offerieren wir separat. Ob sich die Anlage unverändert wieder aufbauen lässt, klären wir bei der Besichtigung."
+        }
+      }
+    },
+    "form": {
+      "heading": {
+        "estimator": "Offerte für Ihr Dach anfragen",
+        "final": "Sprechen wir über Ihr Dach",
+        "solar": "Offerte für Dach und Solar anfragen",
+        "fallback": "Anfrage für Ihr Dach"
+      },
+      "intro": "Name, Telefon und Adresse genügen. Wir rufen Sie an und klären die Details zu Ihrem Dach.",
+      "moreDetails": "Weitere Angaben (optional)",
+      "choose": "Bitte wählen",
+      "objectType": {
+        "label": "Gebäude",
+        "options": {
+          "house": "Einfamilienhaus",
+          "multi_family": "Mehrfamilienhaus",
+          "commercial": "Gewerbe oder Industrie",
+          "farm": "Landwirtschaft"
+        }
+      },
+      "reason": {
+        "label": "Anlass",
+        "options": {
+          "leak": "Undichtes Dach",
+          "age": "Alter des Dachs",
+          "storm_hail": "Sturm oder Hagel",
+          "insulation": "Dämmung",
+          "solar_planned": "Solaranlage geplant",
+          "other": "Anderes"
+        }
+      },
+      "timing": {
+        "label": "Zeitpunkt",
+        "options": {
+          "within_6_months": "Innert 6 Monaten",
+          "within_12_months": "Innert 12 Monaten",
+          "later": "Später",
+          "unsure": "Noch offen"
+        }
+      },
+      "pvInterest": {
+        "label": "Solaranlage",
+        "options": {
+          "yes": "Interessiert mich",
+          "no": "Interessiert mich nicht",
+          "has_pv": "Habe ich bereits"
+        }
+      },
+      "submit": "Anfrage senden",
+      "successTitle": "Danke, Ihre Anfrage ist bei uns.",
+      "successBody": "Wir rufen Sie unter {phone} an und besprechen Ihr Dach.",
+      "errors": {
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein, zum Beispiel 079 123 45 67.",
+        "postalCodeInvalid": "Bitte geben Sie eine vierstellige PLZ ein.",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
+        "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal oder rufen Sie uns unter {phone} an.",
+        "rateLimited": "Sie haben gerade mehrere Anfragen gesendet. Bitte versuchen Sie es in einigen Minuten noch einmal oder rufen Sie uns unter {phone} an."
+      },
+      "call": "Lieber direkt anrufen?"
+    },
+    "estimator": {
+      "loading": "Wir lesen die Daten des Bundes. Das dauert einige Sekunden.",
+      "restart": "Andere Adresse eingeben",
+      "address": {
+        "title": "Wie lautet die Adresse des Gebäudes?",
+        "placeholder": "Strasse Nr., PLZ Ort",
+        "hint": "Wählen Sie Ihre Adresse aus der Liste.",
+        "noResults": "Wir finden diese Adresse nicht. Prüfen Sie die Schreibweise oder senden Sie uns weiter unten Ihre Anfrage.",
+        "searchFailed": "Die Adresssuche antwortet gerade nicht. Versuchen Sie es in einem Moment noch einmal.",
+        "rateLimited": "Sie haben gerade viele Adressen gesucht. Versuchen Sie es in einigen Minuten noch einmal.",
+        "cta": "Ergebnis ansehen",
+        "direct": "Lieber direkt anfragen"
+      },
+      "chooser": {
+        "title": "Welches Gebäude meinen Sie?",
+        "body": "Unter dieser Adresse stehen im Register mehrere Gebäude.",
+        "option": "Gebäude {number}",
+        "imageAlt": "Luftbild von Gebäude {number}"
+      },
+      "roof": {
+        "title": "Ihr Dach",
+        "area": "Dachfläche",
+        "areaValue": "{area} m²",
+        "form": "Dachform",
+        "forms": {
+          "steep": "Schrägdach",
+          "flat": "Flachdach",
+          "mixed": "Teils schräg, teils flach",
+          "shed": "Sheddach"
+        },
+        "year": "Baujahr",
+        "imageAlt": "Luftbild Ihres Gebäudes",
+        "imageCredit": "Luftbild: swisstopo, SWISSIMAGE",
+        "splitNote": "Ihr Dach ist mit einem Nachbargebäude verbunden. Die Fläche zeigt Ihren Teil.",
+        "coverQuestion": "Womit ist Ihr Dach heute gedeckt?",
+        "coverAnswers": {
+          "tile": "Ziegel",
+          "fibre_cement": "Faserzement",
+          "metal": "Metall",
+          "unknown": "Weiss ich nicht"
+        },
+        "wholeRoofQuestion": "Die Dachfläche laut Sonnendach.ch ist deutlich grösser als die Gebäudefläche im Register. Gehört das ganze Dach zu Ihrer Adresse?",
+        "wholeRoofYes": "Ja",
+        "wholeRoofNo": "Nein",
+        "next": "Weiter zum Ergebnis"
+      },
+      "result": {
+        "title": "Ihr Ergebnis",
+        "marketReference": {
+          "heading": "So viel kosteten vergleichbare Dachsanierungen mit Dämmung",
+          "chfJob": {
+            "value": "CHF {low} bis {high}",
+            "label": "mittlere Hälfte geförderter Projekte in der Schweiz, Median CHF {median}"
+          },
+          "chfM2": {
+            "value": "CHF {low} bis {high} pro m² gedämmte Fläche",
+            "label": "mittlere Hälfte geförderter Projekte in der Schweiz, Median CHF {median} pro m²"
+          },
+          "note": "Das sind Werte aus dem Gebäudeprogramm von Bund und Kantonen, 2023 bis 2025, keine Offerte von uns. Sie können weitere Arbeiten enthalten. Ihren Preis nennen wir in der Offerte, den Festpreis nach der Besichtigung."
+        },
+        "perM2": {
+          "label": "Unser Preis pro m² für den kompletten Neuaufbau Ihres Flachdachs",
+          "inclVat": "CHF {low} bis {high} pro m² inkl. 8.1 % MWST",
+          "exclVat": "CHF {low} bis {high} pro m² exkl. MWST",
+          "includedTitle": "Enthalten",
+          "included": "Abbruch, Dämmung, Abdichtung, Spengler.",
+          "onTopTitle": "Kommt dazu",
+          "exclusions": {
+            "scaffold_scope": "Gerüst und Absturzsicherung je nach Objekt",
+            "planning": "Planung und Bauleitung",
+            "pah_bitumen": "Teerhaltiger Altbelag"
+          },
+          "disclaimer": "Das ist keine Offerte. Den Festpreis erhalten Sie nach der Besichtigung."
+        },
+        "visit": {
+          "title": "Für Ihr Dach nennen wir den Preis nach der Besichtigung",
+          "reasons": {
+            "shared_roof": "Ihr Dach ist mit einem Nachbargebäude verbunden. Welcher Teil zu Ihnen gehört und wie die Arbeiten ablaufen, klären wir vor Ort.",
+            "flat_small": "Für Flachdächer unter 400 m² haben wir keine Zahlen, die für einen Richtwert reichen.",
+            "farm": "Bei landwirtschaftlichen Gebäuden hängt der Preis stark von Bauweise und Nutzung ab.",
+            "shed": "Bei Sheddächern hängt der Preis stark von der Konstruktion ab.",
+            "mixed": "Ihr Dach ist teils schräg und teils flach. Das sehen wir uns am besten vor Ort an.",
+            "oversized_unanswered": "Die Dachfläche laut Sonnendach.ch ist deutlich grösser als die Gebäudefläche im Register. Ob das ganze Dach zu Ihrer Adresse gehört, klären wir vor Ort.",
+            "no_roof_data": "Für dieses Gebäude hat der Bund keine Dachdaten. Wir sehen uns das Dach vor Ort an.",
+            "other": "Für diesen Gebäudetyp haben wir keinen Richtwert.",
+            "high_rise": "Bei Gebäuden mit vielen Geschossen bestimmen Zugang, Kran und Sicherheit den Preis. Das sehen wir uns vor Ort an."
+          }
+        },
+        "young": {
+          "body": "Ihr Haus ist laut Register neu. Das Dach ist vermutlich jung.",
+          "link": "Zum Solarrechner"
+        },
+        "subsidy": {
+          "title": "Mögliche Förderung",
+          "range": "CHF {low} bis {high}",
+          "upTo": "Bis CHF {high}",
+          "rate": "CHF {rate} pro m² gedämmte Dachfläche. Bei sehr grossen Dächern kann der Beitrag pro m² tiefer liegen.",
+          "belowMinimum": "Bei dieser Fläche liegt der Betrag unter dem Mindestbeitrag des Kantons.",
+          "notChecked": "Den Förderbeitrag Ihres Kantons klären wir in der Offerte.",
+          "notEligible": "Das Programm Ihres Kantons verlangt eine Baubewilligung vor dem Jahr 2000. Laut Register ist Ihr Gebäude jünger.",
+          "conditionsTitle": "Bedingungen",
+          "conditions": {
+            "u_value": "Dämmung mit einem U-Wert von höchstens 0.20 W/m²K",
+            "apply_before_start": "Gesuch vor Baubeginn",
+            "built_before_2000": "Baubewilligung des Gebäudes vor dem Jahr 2000",
+            "requires_pv": "Nachweis einer Solaranlage"
+          },
+          "notSubtracted": "Die Förderung ist nicht vom Preis abgezogen. Das kantonale Programm kann weitere Bedingungen stellen."
+        },
+        "existingPv": {
+          "withYear": "Solaranlage laut Register, {kw} kW seit {year}. Ab- und Wiederaufbau offerieren wir separat.",
+          "withoutYear": "Solaranlage laut Register, {kw} kW. Ab- und Wiederaufbau offerieren wir separat.",
+          "noFigureWithYear": "Solaranlage laut Register, seit {year}. Ab- und Wiederaufbau offerieren wir separat.",
+          "noFigure": "Solaranlage laut Register. Ab- und Wiederaufbau offerieren wir separat."
+        },
+        "pvPotential": {
+          "body": "Platz für rund {kwp} kWp, rund {kwh} kWh pro Jahr.",
+          "link": "Dach und Solar zusammen planen"
+        },
+        "asbestos": "Ihr Gebäude ist laut Register bis 1990 gebaut. Bei Faserzement prüfen wir vor der Offerte auf Asbest, die Entfernung weisen wir separat aus.",
+        "request": "Offerte anfragen",
+        "sources": "Quellen: Sonnendach.ch (Bundesamt für Energie), Eidg. Gebäude- und Wohnungsregister (Bundesamt für Statistik), Pronovo-Register.",
+        "wrongData": "Angaben stimmen nicht?"
+      },
+      "failure": {
+        "retry": "Noch einmal versuchen",
+        "not_found": {
+          "title": "Dieses Gebäude finden wir nicht",
+          "body": "Zu dieser Adresse gibt es im Register keinen passenden Eintrag. Senden Sie uns Ihre Anfrage, wir klären es persönlich."
+        },
+        "lookup_failed": {
+          "title": "Die Register antworten gerade nicht",
+          "body": "Versuchen Sie es noch einmal oder senden Sie uns direkt Ihre Anfrage."
+        },
+        "rate_limited": {
+          "title": "Zu viele Abfragen",
+          "body": "Versuchen Sie es in einigen Minuten noch einmal, senden Sie uns direkt Ihre Anfrage oder rufen Sie uns an unter {phone}."
+        }
+      },
+      "example": {
+        "badge": "Beispiel",
+        "alt": "Luftbild eines Flachdachs auf einem Gewerbegebäude, Umriss markiert",
+        "year": "Baujahr {year}",
+        "priceLabel": "Unser Preis pro m² für den kompletten Neuaufbau"
+      }
+    },
+    "solarPage": {
+      "hero": {
+        "title": "Dach und Solaranlage zusammen planen",
+        "subtitle": "Wird Ihr Dach erneuert, können Sie jetzt auch über Solar entscheiden. Free State AG plant beides in der ganzen Schweiz und bleibt Ihr einziger Vertragspartner.",
+        "cta": "Offerte für Dach und Solar anfragen"
+      },
+      "why": {
+        "title": "Warum zusammen und nicht später",
+        "intro": "Dach und Solaranlage hängen baulich zusammen. Darum lohnt sich der Blick auf beides, bevor das Gerüst steht.",
+        "items": {
+          "scaffold": {
+            "title": "Ein Gerüst, eine Bauphase",
+            "body": "Dach und Solaranlage teilen sich Gerüst und Bauphase. EnergieSchweiz nennt das als Vorteil der gemeinsamen Planung."
+          },
+          "dismantling": {
+            "title": "Neues Dach unter der Anlage",
+            "body": "Liegt die Anlage auf einem neuen Dach, entfällt in der Regel der spätere Ab- und Wiederaufbau wegen einer Dacherneuerung."
+          },
+          "asbestos": {
+            "title": "Asbestzement zuerst",
+            "body": "Die Suva empfiehlt grundsätzlich, ein Asbestzementdach vor der Montage einer Solaranlage vollständig zu ersetzen (Factsheet 33068)."
+          }
+        },
+        "imageAlt": "Monteur auf einem Ziegeldach bei der Arbeit an einer Solaranlage"
+      },
+      "cantons": {
+        "title": "Was einzelne Kantone regeln",
+        "intro": "Die Regeln sind kantonal. Hier vier Beispiele, Stand 2026.",
+        "items": {
+          "SH": {
+            "title": "Schaffhausen",
+            "body": "Seit dem 01.01.2026 gilt bei einer umfassenden Dachsanierung eine Pflicht zur Stromerzeugung, wenn die anrechenbare Gebäudefläche mindestens 300 m² beträgt und die Dachfläche eine Globalstrahlung von mindestens 85 Prozent erreicht. Gefordert sind mindestens 30 W pro m² Energiebezugsfläche (EnerV § 16a, § 26h)."
+          },
+          "LU": {
+            "title": "Luzern",
+            "body": "Seit dem 01.03.2025 muss bei einer Dachsanierung das Stromerzeugungspotenzial angemessen genutzt werden. Sonst fällt eine Ersatzabgabe von höchstens CHF 1'000 pro kW nicht realisierte Leistung an (KEnG § 15)."
+          },
+          "BE": {
+            "title": "Bern",
+            "body": "Seit dem 01.01.2026 gilt bei der umfassenden Erneuerung von Dachflächen eine Meldepflicht (KEnG Art. 39d)."
+          },
+          "SG": {
+            "title": "St. Gallen",
+            "body": "Der Kanton zahlt den Förderbeitrag für das Dach nur mit Nachweis einer Solaranlage."
+          }
+        },
+        "note": "Was in Ihrem Kanton gilt, klären wir in der Offerte."
+      },
+      "mounting": {
+        "title": "Aufdach oder Indach?",
+        "body1": "Die Einmalvergütung für Anlagen unter 30 kW beträgt, Stand 2026, CHF 400 pro kW für Indach und CHF 360 pro kW für Aufdach. Dieser Unterschied deckt die Mehrkosten einer Indach-Anlage nicht.",
+        "body2": "Die Entscheidung hängt darum vom Dach selbst ab, von Dachform, Zustand und Aussehen. Einzelne Kantone zahlen für Indach mehr, der Aargau zum Beispiel einen Bonus von CHF 100 statt CHF 30 pro m² Schrägdach. Wir besprechen beides bei der Besichtigung.",
+        "imageAlt": "Haus mit Solaranlage auf dem Dach, schematische Darstellung",
+        "inRoof": "Indach",
+        "onRoof": "Aufdach",
+        "perKw": "CHF {value} pro kW"
+      },
+      "offer": {
+        "title": "Drei Posten, getrennt offeriert",
+        "intro": "In jeder Offerte stehen Dach, Dämmung und Solar getrennt. So sehen Sie, was jeder Teil kostet.",
+        "items": {
+          "roof": {
+            "title": "Dach",
+            "body": "Neue Eindeckung oder Abdichtung, Unterdach, Spengler, Gerüst und Baustelle."
+          },
+          "insulation": {
+            "title": "Dämmung",
+            "body": "Die Dämmung, die der kantonale Förderbeitrag voraussetzt."
+          },
+          "solar": {
+            "title": "Solar",
+            "body": "Module, Wechselrichter, Montage und Anschluss."
+          }
+        },
+        "existingTitle": "Bestehende Solaranlage",
+        "existingBody": "Steht schon eine Anlage auf dem Dach, zeigt uns das Register in der Regel Leistung und Startjahr. Ab- und Wiederaufbau offerieren wir separat.",
+        "imageAlt": "Ziegeldach mit Solarmodulen, schematische Darstellung"
+      },
+      "models": {
+        "title": "Zwei Modelle für Ihre Solaranlage",
+        "intro": "Für die Solaranlage auf dem neuen Dach zeigen wir Ihnen hier SolarFree und SolarDirect. Für jedes Modell gilt ein eigener Vertrag mit Free State AG.",
+        "solarFree": {
+          "title": "SolarFree",
+          "body": "CHF 0 Anzahlung. Sie zahlen den Solarstrom, den Sie selbst verbrauchen, bis zu 30% unter dem Netztarif.",
+          "clause": "Der SolarFree-Vertrag enthält in Ziffer 6.2 eine Regelung für Erneuerungsarbeiten am Dach. Mit einem neuen Dach unter der Anlage tritt dieser Fall in der Regel nicht ein.",
+          "link": "Mehr zu SolarFree"
+        },
+        "solarDirect": {
+          "title": "SolarDirect",
+          "body": "Sie kaufen die Solaranlage und nutzen den Strom selbst. Nach der vollständigen Zahlung gehört sie Ihnen.",
+          "link": "Mehr zu SolarDirect"
+        }
+      },
+      "faq": {
+        "eyebrow": "Häufige Fragen",
+        "title": "Fragen zu Dach und Solar",
+        "description": "Wo wir etwas erst vor Ort beurteilen können, sagen wir das.",
+        "items": {
+          "1": {
+            "question": "Muss ich Dach und Solaranlage gleichzeitig bauen?",
+            "answer": "Nein. Wir können das Dach so planen, dass die Anlage später folgen kann. Gerüst und Bauphase teilen Sie aber nur, wenn beides zusammen gebaut wird."
+          },
+          "2": {
+            "question": "Besteht in meinem Kanton eine Pflicht?",
+            "answer": "Das ist kantonal geregelt. Schaffhausen, Luzern und Bern haben Regeln für die Dachsanierung, die wir weiter oben nennen. Was in Ihrem Kanton gilt, klären wir in der Offerte."
+          },
+          "3": {
+            "question": "Aufdach oder Indach, was passt?",
+            "answer": "Das hängt vom Dach selbst ab. Die Einmalvergütung unter 30 kW beträgt, Stand 2026, CHF 400 pro kW für Indach und CHF 360 für Aufdach und entscheidet die Frage nicht. Wir besprechen beides bei der Besichtigung."
+          },
+          "4": {
+            "question": "Ich habe schon eine Anlage. Was geschieht damit?",
+            "answer": "Wir bauen sie für die Arbeiten ab und danach wieder auf. Das offerieren wir separat. Ob sich die Anlage unverändert wieder aufbauen lässt, klären wir bei der Besichtigung."
+          },
+          "5": {
+            "question": "Steht in der Offerte alles zusammen?",
+            "answer": "Nein. Dach, Dämmung und Solar stehen getrennt, damit Sie jeden Teil einzeln sehen und entscheiden können."
+          },
+          "6": {
+            "question": "Passt SolarFree zu einer Dachsanierung?",
+            "answer": "Bei SolarFree beträgt die Anzahlung CHF 0. Ob das Modell zu Ihrem Dach passt, klären wir bei der Besichtigung."
+          }
         }
       }
     }

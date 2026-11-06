@@ -15,6 +15,7 @@ interface PageHeroProps {
   titleClassName?: string
   /** Darkens the background image so white text stays readable on bright photos. */
   dimBackground?: boolean
+  overlayClassName?: string
 }
 
 const PageHero = ({
@@ -28,6 +29,7 @@ const PageHero = ({
   descriptionClassName,
   titleClassName,
   dimBackground = false,
+  overlayClassName,
 }: PageHeroProps) => {
   return (
     <section
@@ -47,6 +49,10 @@ const PageHero = ({
 
       {dimBackground && (
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,46,37,0.55)_0%,rgba(6,46,37,0.75)_100%)]" />
+      )}
+
+      {overlayClassName && (
+        <div className={cn('absolute inset-0', overlayClassName)} />
       )}
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[30px] pt-[230px] w-full">

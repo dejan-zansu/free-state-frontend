@@ -4,6 +4,7 @@ import {
   COMPANY_MAIN_PHONE_DISPLAY,
   COMPANY_MAIN_PHONE_TEL_HREF,
 } from '@/lib/company-contact'
+import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import { cn } from '@/lib/utils'
 import { Phone } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
@@ -93,6 +94,18 @@ const Footer = () => {
       label: t('products.energyStorage'),
       href: '/energy-storage' as const,
     },
+    ...(roofRenovationVisible
+      ? [
+          {
+            label: t('products.roofRenovation'),
+            href: '/roof-renovation' as const,
+          },
+          {
+            label: t('products.roofRenovationSolar'),
+            href: '/roof-renovation/solar' as const,
+          },
+        ]
+      : []),
   ]
 
   const companyLinks = [

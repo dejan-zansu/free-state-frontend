@@ -91,7 +91,7 @@
     "titleTemplate": "%s | Free State AG",
     "home": {
       "title": "Solar Systems Switzerland: Buy or Subscribe from CHF 0",
-      "description": "Photovoltaic systems, battery storage, heat pumps and charging stations from Free State AG. Buy or subscribe with no upfront investment. 19 Swiss cantons."
+      "description": "Photovoltaic systems, battery storage, heat pumps and charging stations from Free State AG. Buy or subscribe with no upfront investment."
     },
     "solarSystems": {
       "title": "Solar Systems Switzerland: Photovoltaics for Your Home",
@@ -319,6 +319,14 @@
       "description": "Every device in this solar package as a rotatable 3D model with the manufacturer technical data.",
       "descriptionSuffix": "Every component in 3D with technical data."
     },
+    "roofRenovation": {
+      "title": "Roof Renovation Switzerland: Costs, Subsidies, Fixed Price",
+      "description": "Free State AG handles your roof renovation across Switzerland with its own teams. Comparison values online, written quote, fixed price after the site visit."
+    },
+    "roofRenovationSolar": {
+      "title": "Roof Renovation with Solar: Planning Both Together",
+      "description": "Plan your roof and solar system together, with one scaffold and one building phase. Cantonal rules, on-roof or in-roof, and separate items in the quote."
+    },
     "offerRequest": {
       "title": "Request a Solar Quote: Price per kWp | Free State AG",
       "description": "A solar system with battery costs CHF {min} to {max} per kWp with us, excl. VAT. Request a quote with your name, phone and address and we will call you."
@@ -395,6 +403,8 @@
       "chargingStations": "Charging stations",
       "energyStorage": "Energy storage",
       "energyManagement": "Energy management",
+      "roofRenovation": "Roof renovation",
+      "roofRenovationSolar": "Roof and solar",
       "catalog3d": "Products in 3D"
     },
     "company": {
@@ -741,7 +751,6 @@
           "Protection against rising energy costs",
           "Manufacturer warranties included",
           "10-year workmanship guarantee",
-          "10-year roof guarantee",
           "Transferable on house sale"
         ],
         "advantagesTitle": "Your advantages with SolarDirect",
@@ -6355,7 +6364,7 @@
     },
     "inRoofOnRoof": {
       "title": "In-roof or on-roof",
-      "description": "A photovoltaic system lasts 30+ years, so the roof must be in good condition and not require replacement soon. If the roof is over 40 years old, renovation is recommended.\n\nWhen replacing a pitched roof, an integrated PV system reduces roofing costs and offers a cost-efficient way to combine a new roof with solar power."
+      "description": "A photovoltaic system lasts 30+ years, so the roof must be in good condition and not require replacement soon. If the roof is already older, it should be checked before installation.\n\nWhen replacing a pitched roof, an integrated PV system reduces roofing costs and offers a cost-efficient way to combine a new roof with solar power."
     },
     "storageSelfConsumption": {
       "title": "Storage for higher\nself-consumption",
@@ -6369,7 +6378,7 @@
     },
     "installation": {
       "title": "Installation of large\nsolar power plants",
-      "description": "We work with experienced electricians and roofers. So that you can benefit from your system as quickly as possible, our specialists install it from start to finish. Installation costs are fully included in the purchase price."
+      "description": "So that you can benefit from your system as quickly as possible, our specialists install it from start to finish. Installation costs are fully included in the purchase price."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -7338,6 +7347,8 @@
       "outreachLetters": "Letters",
       "outreachMailboxes": "Mailboxes",
       "outreachKpi": "Outreach KPIs",
+      "groupRoofRenovation": "Roof renovation",
+      "roofLeads": "Roof leads",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -11055,6 +11066,14 @@
       "adminNotes": "Admin Notes",
       "save": "Save",
       "saved": "Successfully saved",
+      "filterType": "Filter by type",
+      "allTypes": "All types",
+      "entityTypes": {
+        "roof_renovation": "Roof renovation",
+        "offer_request": "Offer request",
+        "company": "Company",
+        "private": "Private person"
+      },
       "saveFailed": "Saving failed. Please try again."
     },
     "newsletter": {
@@ -11527,6 +11546,166 @@
       "unsupported": "This browser does not support push notifications.",
       "serverDisabled": "Push notifications are not configured on the server.",
       "iosInstall": "On iPhone, install first via Share and Add to Home Screen, then enable here."
+    },
+    "roofLeads": {
+      "title": "Roof leads",
+      "contactRequests": "Roof renovation requests",
+      "exportCsv": "Export CSV",
+      "exportFailed": "Export failed. Please try again.",
+      "exportCapped": "The export holds the first {max} of {total} rows. Narrow the filters to get all of them.",
+      "searchPlaceholder": "Search by address, company, contact…",
+      "allStatuses": "All statuses",
+      "allSegments": "All segments",
+      "allCantons": "All cantons",
+      "allRoofForms": "All roof forms",
+      "allPvStates": "All PV states",
+      "minScore": "Minimum score",
+      "sortScoreAsc": "Sort score ascending",
+      "sortScoreDesc": "Sort score descending",
+      "colScore": "Score",
+      "colSegment": "Segment",
+      "colAddress": "Address",
+      "colYear": "Year built",
+      "colRoof": "Roof",
+      "colPv": "PV",
+      "colImagery": "Aerial image",
+      "colContact": "Contact",
+      "colStatus": "Status",
+      "total": "{count} entries",
+      "empty": "No roof leads found",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "statusLabels": {
+        "NEW": "New",
+        "QUALIFIED": "Qualified",
+        "CONTACTED": "Contacted",
+        "REPLIED": "Replied",
+        "LEAD": "Lead",
+        "WON": "Won",
+        "LOST": "Lost",
+        "EXCLUDED": "Excluded"
+      },
+      "segment": {
+        "HOUSE": "House",
+        "MULTI_FAMILY": "Multi-family",
+        "COMMERCIAL": "Commercial",
+        "HALL": "Hall",
+        "FARM": "Farm",
+        "MANAGER": "Property manager",
+        "COOPERATIVE": "Cooperative",
+        "OWNER_PORTFOLIO": "Portfolio owner"
+      },
+      "form": {
+        "FLAT": "Flat roof",
+        "STEEP": "Pitched roof",
+        "MIXED": "Mixed",
+        "SHED": "Shed roof",
+        "UNKNOWN": "Unknown"
+      },
+      "pv": {
+        "NONE": "No plant",
+        "OLD": "Old (before 2010)",
+        "MID": "2010 to 2014",
+        "RECENT": "Recent (from 2015)",
+        "UNKNOWN": "Unknown"
+      },
+      "imagery": {
+        "NOT_REPLACED": "Not replaced",
+        "WORN": "Worn",
+        "REPLACED": "Replaced",
+        "UNCLEAR": "Unclear"
+      },
+      "contactBlock": {
+        "never": "Never contact",
+        "open_thread": "Open thread",
+        "sales_only": "Sales only",
+        "owner_decision": "Owner decision"
+      },
+      "contactBlockNotice": {
+        "never": "Do not contact. In PV outbound this contact is suppressed, opted out, bounced, marked no advertising, or handled by Ivan.",
+        "open_thread": "Do not contact while the PV outbound thread is open.",
+        "sales_only": "Contact through sales only. PV outbound already has a commercial lead or a conversion for this contact.",
+        "owner_decision": "Declined the PV offer. The owner decides whether to approach again."
+      },
+      "exclusionReason": {
+        "roof_permit_recent": "Roof permit from 2024 on",
+        "imagery_replaced": "Aerial image shows a new roof"
+      },
+      "exclusionNotice": "Excluded, reason: {reason}.",
+      "pictureAlt": "Aerial image of {address}",
+      "pictureCaption": "SWISSIMAGE aerial image, Federal Office of Topography swisstopo",
+      "noPicture": "This entry has no coordinates, so there is no aerial image.",
+      "sectionScore": "Score",
+      "sectionManage": "Edit",
+      "sectionBuilding": "Building",
+      "sectionContact": "Contact",
+      "sectionActivity": "History",
+      "scoreTotal": "Total",
+      "scoreVersion": "Score version {version}",
+      "scorePart": {
+        "buildYear": "Year built",
+        "buildPeriod": "Building period",
+        "pvState": "PV plant",
+        "footprint": "Footprint",
+        "dwellings": "Dwellings",
+        "roofForm": "Roof form",
+        "imagery": "Aerial image",
+        "contact": "Contact known"
+      },
+      "wonAmount": "Job value in CHF",
+      "wonAmountInvalid": "Please enter an amount of 0 or more.",
+      "notes": "Notes",
+      "save": "Save",
+      "saved": "Successfully saved",
+      "saveFailed": "Saving failed. Please try again.",
+      "municipality": "Municipality",
+      "buildingRef": "EGID",
+      "buildingClass": "Building class",
+      "footprint": "Footprint",
+      "roofArea": "Roof area",
+      "roofForm": "Roof form",
+      "dwellings": "Dwellings",
+      "floors": "Floors",
+      "roofPermit": "Roof permit",
+      "company": "Company",
+      "owner": "Owner",
+      "ownerSource": "Owner source",
+      "contactName": "Contact person",
+      "contactEmail": "Email",
+      "contactPhone": "Phone",
+      "contactSource": "Contact source",
+      "contactedAt": "Contacted on",
+      "noActivity": "No history yet",
+      "statusChange": "{from} to {to}",
+      "activity": {
+        "STATUS_CHANGED": "Status changed",
+        "UPDATED": "Updated",
+        "IMAGERY_VERDICT": "Aerial image judged",
+        "EXCLUDED": "Excluded",
+        "ROOF_ENRICHED": "Roof data added",
+        "IMPORTED_FROM_OUTBOUND": "Imported from outbound",
+        "CONTACT_BLOCK": "Contact block changed",
+        "REQUEST_PROMOTED": "Taken over from a request"
+      },
+      "tabs": {
+        "leads": "Roof leads",
+        "requests": "Requests"
+      },
+      "requests": {
+        "colDate": "Received",
+        "colName": "Name",
+        "colPlace": "Place",
+        "colMessage": "Details",
+        "colStatus": "Status",
+        "colLead": "Roof lead",
+        "promote": "Make lead",
+        "openLead": "Open lead",
+        "promoteFailed": "The request could not be promoted.",
+        "empty": "No requests found",
+        "noMessage": "No details",
+        "searchPlaceholder": "Search by name, place, phone, e-mail…"
+      },
+      "contactSourceRequest": "Roof renovation request"
     },
     "productComments": {
       "title": "Product comments",
@@ -13061,6 +13240,708 @@
         "7": {
           "question": "How long does it take until commissioning?",
           "answer": "Usually about three months from the order. That includes the roof check, registration with the grid operator, installation and commissioning."
+        }
+      }
+    }
+  },
+  "roofRenovation": {
+    "breadcrumb": {
+      "home": "Home",
+      "main": "Roof renovation",
+      "solar": "Roof and solar"
+    },
+    "jsonLd": {
+      "name": "Roof renovation",
+      "description": "Roof renovation across Switzerland from one provider, from the first check through pitched roofs, flat roofs, hall roofs, sheet metal work, insulation and asbestos cement to handover, repairs and maintenance."
+    },
+    "hero": {
+      "title": "Your roof, from the first check to the handover",
+      "subtitle": "You have one contract partner, including for repairs and maintenance afterwards. Free State AG handles your roof renovation across Switzerland with its own teams.",
+      "points": {
+        "offer": "Written quote",
+        "fixedPrice": "Fixed price after the site visit",
+        "onePartner": "One contract"
+      }
+    },
+    "estimatorSection": {
+      "title": "What does a roof like yours cost?",
+      "intro": "Enter your address. We read the area, roof shape and building year from federal data and show you the result. We do not need your contact details for this."
+    },
+    "due": {
+      "title": "These signs call for a check",
+      "intro": "You can see many of them yourself, from the attic or from the street.",
+      "signs": {
+        "leak": "Water stains on the ceiling or damp in the attic.",
+        "tiles": "Broken, shifted or missing tiles.",
+        "sealing": "Cracks or blisters in a flat roof's waterproofing, or standing water after rain.",
+        "flashing": "Rust or open spots on gutters, flashings and joints.",
+        "climate": "Rooms under the roof that get cold in winter and overheat in summer."
+      },
+      "ageTitle": "What about age?",
+      "age": "The Swiss joint lifespan table (paritätische Lebensdauertabelle) gives a guide value of 50 years for tile and fibre cement roofs and 30 years for flat roofs. Age alone does not decide.",
+      "flatRoof": "Flat roofs usually do not last as long as pitched roofs. In an article of 8 August 2024 for the homeowners' association HEV Schweiz, the trade body Gebäudehülle Schweiz advises having a flat roof older than ten years checked before a solar system is mounted.",
+      "imageAlt": "Old, weathered tile roofs in a historic town centre",
+      "lifeTitle": "Typical service life",
+      "lifeSteep": "Tile and fibre cement",
+      "lifeFlat": "Flat roof",
+      "years": "{years} years"
+    },
+    "services": {
+      "title": "The whole roof, one contract",
+      "intro": "You deal with Free State AG, from the first check until after the handover. Our own teams carry out the work.",
+      "items": {
+        "check": {
+          "title": "Check",
+          "body": "We inspect the covering, underlay, insulation and joints on site and tell you what is needed."
+        },
+        "offer": {
+          "title": "Quote",
+          "body": "You receive a written quote with area, build-up and price that you can show your bank or property manager."
+        },
+        "permit": {
+          "title": "Permit and subsidy",
+          "body": "We clarify whether a building permit is needed and handle the subsidy application, which must be filed before work starts."
+        },
+        "scaffold": {
+          "title": "Scaffold",
+          "body": "We put up the scaffold and fall protection and set up the site."
+        },
+        "steep": {
+          "title": "Pitched roof",
+          "body": "We put a new covering on your pitched roof, including the underlay."
+        },
+        "flat": {
+          "title": "Flat roof",
+          "body": "We renew the waterproofing and insulation, including joints and drains."
+        },
+        "hall": {
+          "title": "Hall roof",
+          "body": "We renovate large roofs on commercial and industrial halls and plan the stages with your operations."
+        },
+        "spengler": {
+          "title": "Sheet metal work",
+          "body": "We renew gutters, downpipes, roof edges and joints as part of the same job."
+        },
+        "insulation": {
+          "title": "Insulation",
+          "body": "We plan the insulation to a U-value (a measure of heat loss) of at most 0.20 W/m²K, which cantonal subsidy programmes usually require."
+        },
+        "asbestos": {
+          "title": "Asbestos cement",
+          "body": "With fibre cement we check for asbestos before the quote and list the removal separately."
+        },
+        "solar": {
+          "title": "Solar",
+          "body": "We prepare the roof for a solar system, mount it as part of the same job, or take an existing system off and put it back on."
+        },
+        "handover": {
+          "title": "Handover",
+          "body": "At the end we inspect and hand over the roof together with you. The warranty period starts on that day."
+        },
+        "repair": {
+          "title": "Repairs and maintenance",
+          "body": "After the handover we remain your point of contact for repairs and maintenance."
+        }
+      },
+      "layersLabel": "Choose roof type",
+      "phases": {
+        "before": "Before work starts",
+        "site": "On site",
+        "after": "Handover and after"
+      },
+      "layers": {
+        "solar": {
+          "title": "Solar system"
+        },
+        "cover": {
+          "title": "Roof covering"
+        },
+        "flashing": {
+          "title": "Sheet metal work"
+        },
+        "battens": {
+          "title": "Battens",
+          "body": "Carry the tiles and let air circulate under the covering."
+        },
+        "underlay": {
+          "title": "Underlay",
+          "body": "Drains any water that gets under the covering."
+        },
+        "insulation": {
+          "title": "Insulation"
+        },
+        "structure": {
+          "title": "Roof structure",
+          "body": "Carries the whole build-up. We list damage to the roof structure separately."
+        },
+        "protection": {
+          "title": "Protective layer",
+          "body": "Gravel or greening protects the waterproofing from sun and weather."
+        },
+        "sealing": {
+          "title": "Waterproofing"
+        },
+        "vapour": {
+          "title": "Vapour barrier",
+          "body": "Keeps moisture from the building out of the insulation."
+        },
+        "deck": {
+          "title": "Load-bearing deck",
+          "body": "Concrete or profiled sheet metal. It carries the whole build-up."
+        }
+      }
+    },
+    "cost": {
+      "title": "What a roof renovation costs",
+      "intro": "The price depends on a few things. We show them openly, together with public federal figures.",
+      "driversTitle": "What sets the price",
+      "drivers": {
+        "fixed": {
+          "title": "Fixed costs",
+          "body": "Scaffold and site costs apply even to a small roof. That is why a small roof costs more per m² than a large one."
+        },
+        "size": {
+          "title": "Size",
+          "body": "Materials and labour grow with the roof area."
+        },
+        "buildup": {
+          "title": "Build-up",
+          "body": "A new covering with underlay and insulation costs more than replacing the covering alone."
+        },
+        "access": {
+          "title": "Access",
+          "body": "Tall buildings, narrow access and complex roofs need more scaffold and more time."
+        }
+      },
+      "stagesTitle": "Three stages to a fixed price",
+      "stages": {
+        "orientation": {
+          "title": "Orientation",
+          "body": "The calculator shows public values for your building, starting from your address. This is not a quote."
+        },
+        "draft": {
+          "title": "Indicative quote",
+          "body": "Where the roof allows it, you receive a written indicative quote after our call, itemised with area, build-up and price. Asbestos and the condition of the roof have not been checked at that point."
+        },
+        "fixed": {
+          "title": "Fixed price",
+          "body": "After the site visit you receive a fixed price, which goes into the contract as it stands. Asbestos and damage to the roof structure are listed separately."
+        }
+      },
+      "table": {
+        "heading": "What subsidised roof renovations with insulation have cost in Switzerland",
+        "period": "2023 to 2025",
+        "building": "Building",
+        "low": "Lower quartile",
+        "median": "Median",
+        "high": "Upper quartile",
+        "cases": "Cases",
+        "rows": {
+          "house": "Single-family home",
+          "multi": "Multi-family building",
+          "industry": "Industry"
+        },
+        "footnote": "Source: Swiss Federal Office of Energy, Buildings Programme (Das Gebäudeprogramm), raw data. Total investment per case, which may include other work. VAT not stated in the source.",
+        "legendRange": "Middle half of projects",
+        "casesCount": "{count} cases"
+      },
+      "ownPrice": {
+        "heading": "Our price for large flat roofs",
+        "onTop": "Scaffold and fall protection depending on the building, planning and site management, and old roofing containing tar come on top. This is not a quote.",
+        "recover": "We only quote a new covering without insulation after the site visit. The calculator shows no price for it.",
+        "value": "CHF 260 to 415",
+        "unit": "per m² incl. 8.1 % VAT",
+        "scope": "Complete rebuild of a flat roof of 1'000 to 2'999 m²"
+      }
+    },
+    "subsidy": {
+      "title": "What the cantons pay and what changes for tax",
+      "intro": "Rates differ from canton to canton. The table shows five examples, as of 2026. We check the amount for your canton in the quote.",
+      "table": {
+        "canton": "Canton",
+        "rate": "Insulation",
+        "addOn": "Solar add-on",
+        "perM2": "CHF {value} per m²",
+        "requiresPv": "Grant only with a solar system",
+        "addOnAg": "CHF 20 to 100 per m², depending on roof and system",
+        "cantons": {
+          "ZH": "Zurich",
+          "SH": "Schaffhausen",
+          "TG": "Thurgau",
+          "SG": "St. Gallen",
+          "AG": "Aargau"
+        },
+        "note": "The insulation amount applies per m² of insulated roof. The solar add-on applies per m² of module area in Zurich and per m² of insulation in Schaffhausen and Thurgau, where it is capped at CHF 50'000. In Aargau the bonus has its own conditions, for example greening on a flat roof.",
+        "value": "CHF {value}",
+        "unit": "per m² of insulated area"
+      },
+      "conditions": "The grant applies only with insulation and a U-value of at most 0.20 W/m²K. The application must be filed before work starts. In these five cantons the building permit must date from before 2000. The programmes set further conditions, for example a cap of 50 percent of the cost or, from a grant of CHF 10'000, a building energy certificate with advisory report (GEAK Plus).",
+      "taxTitle": "Tax from 2029",
+      "tax1": "From 1 January 2029 the deduction for property maintenance ends for owner-occupied homes, at federal, cantonal and municipal level. The imputed rental value ends at the same time.",
+      "tax2": "The deduction remains for rented or leased residential property.",
+      "tax3": "It is best to ask your tax office which date counts for your work.",
+      "taxSource": "Source: Swiss Federal Council, press release of 1 April 2026.",
+      "taxDate": "01.01.2029"
+    },
+    "solarTeaser": {
+      "title": "Plan solar at the same time",
+      "body": "When the roof is renewed, a solar system can share the scaffold and the building phase. Whether and when you want solar is up to you.",
+      "link": "Plan roof and solar together",
+      "imageAlt": "Installer working on a solar system on a tile roof"
+    },
+    "financing": {
+      "title": "Financing a roof renovation",
+      "blocks": {
+        "owners": {
+          "title": "Homeowners",
+          "body": "A roof renovation can be financed by increasing the mortgage if equity and income are sufficient. Some banks offer a lower rate for energy measures such as roof insulation. Your bank will clarify whether your project qualifies and what is affordable."
+        },
+        "condominium": {
+          "title": "Condominium owners",
+          "body": "As a rule, the owners bear the costs according to their ownership shares, from the renewal fund and, if necessary, from additional contributions. The owners' meeting decides."
+        },
+        "companies": {
+          "title": "Companies",
+          "body": "Talk to your bank early. Companies can also get lower rates for energy measures."
+        },
+        "offer": {
+          "title": "What you get from us",
+          "body": "A written quote with area, build-up and price that you can present to your bank, your property manager or the owners' meeting."
+        },
+        "subsidies": {
+          "title": "Subsidies",
+          "body": "The application must be filed before work starts. We show you which programme applies in your canton and handle the application."
+        }
+      },
+      "closing": "Free State AG neither grants nor arranges loans."
+    },
+    "process": {
+      "title": "Six steps to a new roof",
+      "steps": {
+        "request": {
+          "title": "Request",
+          "body": "You send us your name, phone number and address, with or without the calculator."
+        },
+        "callback": {
+          "title": "Callback",
+          "body": "We call you and clarify what your roof needs. Where the roof allows it, we then send you a written indicative quote."
+        },
+        "visit": {
+          "title": "Site visit",
+          "body": "We look at the roof on site and check the covering, underlay and insulation."
+        },
+        "offer": {
+          "title": "Quote with fixed price",
+          "body": "You receive a written quote with area, build-up and fixed price."
+        },
+        "subsidy": {
+          "title": "Subsidy and permit",
+          "body": "We show you which programme applies in your canton, handle the subsidy application before work starts and clarify whether a building permit is needed."
+        },
+        "execution": {
+          "title": "Work and handover",
+          "body": "Our teams carry out the work. At the end we hand over the roof together with you."
+        }
+      },
+      "imageAlt": "Building with teams on the roof, schematic illustration"
+    },
+    "contract": {
+      "title": "What the contract says",
+      "items": {
+        "contract": {
+          "title": "One contract",
+          "body": "Your contract is with Free State AG, for all work on the roof."
+        },
+        "safety": {
+          "title": "Safety on site",
+          "body": "We write the safety measures into the contract, as the Construction Work Ordinance provides (BauAV Art. 3)."
+        },
+        "warranty": {
+          "title": "Warranty",
+          "body": "A warranty of five years from handover applies to defects, as the law provides for buildings. You have 60 days to notify a defect, and for hidden defects the 60 days run from discovery (Swiss Code of Obligations, Art. 367, 370 and 371)."
+        },
+        "asbestos": {
+          "title": "Asbestos cement",
+          "body": "For fibre cement on buildings up to construction year 1990 we check for asbestos before the quote. We list the removal separately in the quote."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "title": "Questions about roof renovation",
+      "description": "Where we can only judge something on site, we say so.",
+      "items": {
+        "1": {
+          "question": "What does a roof renovation cost?",
+          "answer": "According to the raw data of the Buildings Programme (Swiss Federal Office of Energy), subsidised roof renovations with insulation on single-family homes in Switzerland had a median cost of CHF 69'400 per case from 2023 to 2025. The lower quartile was CHF 45'800, the upper quartile CHF 102'000. These totals may include other work, and the source does not state VAT. Our calculator shows you these public values for your building. You receive the fixed price after the site visit."
+        },
+        "2": {
+          "question": "When is a roof due?",
+          "answer": "Signs include water stains, broken or shifted tiles and damaged waterproofing. The Swiss joint lifespan table gives a guide value of 50 years for tile and fibre cement roofs and 30 years for flat roofs. Age alone does not decide, which is why we look at the roof."
+        },
+        "3": {
+          "question": "Is a repair enough or does it need a renovation?",
+          "answer": "That depends on the condition of the covering, underlay and insulation. According to the trade body Gebäudehülle Schweiz, the tiles themselves can last up to 100 years, so a renovation often concerns the layers beneath them. We tell you whether a repair is enough after the site visit."
+        },
+        "4": {
+          "question": "How long does a roof renovation take?",
+          "answer": "That depends on the area, the build-up and the weather. We clarify the duration at the site visit."
+        },
+        "5": {
+          "question": "Can I stay in the house during the work?",
+          "answer": "We clarify this at the site visit, because it depends on the build-up and the condition of the roof."
+        },
+        "6": {
+          "question": "Does a roof renovation need a building permit?",
+          "answer": "That depends on the canton, the zone and the scope of the work. We clarify it for your roof and handle the application if one is needed."
+        },
+        "7": {
+          "question": "Are subsidies available?",
+          "answer": "Cantonal programmes pay an amount per m² for insulation, for example CHF 40 in Zurich and CHF 50 in Schaffhausen, as of 2026. The application must be filed before work starts. We clarify the amount for your canton in the quote."
+        },
+        "8": {
+          "question": "What changes for tax?",
+          "answer": "From 1 January 2029 the deduction for property maintenance ends for owner-occupied homes, and the imputed rental value ends at the same time. The deduction remains for rented or leased residential property. It is best to ask your tax office which date counts for your work."
+        },
+        "9": {
+          "question": "What applies if there is asbestos in the roof?",
+          "answer": "Asbestos has been banned in Switzerland since 1990, and asbestos fibre cement sheets could still be placed on the market until 1 January 1991. So for fibre cement on buildings up to construction year 1990 we check for asbestos before the quote. The sheets must not be sawn or broken and must not be reused. We list the removal separately."
+        },
+        "10": {
+          "question": "What happens to an existing solar system?",
+          "answer": "We take it off for the work and put it back on afterwards. We quote this separately. We clarify at the site visit whether the system can go back on unchanged."
+        }
+      }
+    },
+    "form": {
+      "heading": {
+        "estimator": "Request a quote for your roof",
+        "final": "Let us talk about your roof",
+        "solar": "Request a quote for roof and solar",
+        "fallback": "Request for your roof"
+      },
+      "intro": "Your name, phone number and address are enough. We call you and clarify the details of your roof.",
+      "moreDetails": "More details (optional)",
+      "choose": "Please choose",
+      "objectType": {
+        "label": "Building",
+        "options": {
+          "house": "Single-family home",
+          "multi_family": "Multi-family building",
+          "commercial": "Commercial or industrial",
+          "farm": "Farm"
+        }
+      },
+      "reason": {
+        "label": "Reason",
+        "options": {
+          "leak": "Leaking roof",
+          "age": "Age of the roof",
+          "storm_hail": "Storm or hail",
+          "insulation": "Insulation",
+          "solar_planned": "Solar system planned",
+          "other": "Other"
+        }
+      },
+      "timing": {
+        "label": "Timing",
+        "options": {
+          "within_6_months": "Within 6 months",
+          "within_12_months": "Within 12 months",
+          "later": "Later",
+          "unsure": "Not decided yet"
+        }
+      },
+      "pvInterest": {
+        "label": "Solar system",
+        "options": {
+          "yes": "I am interested",
+          "no": "I am not interested",
+          "has_pv": "I already have one"
+        }
+      },
+      "submit": "Send request",
+      "successTitle": "Thank you, we have your request.",
+      "successBody": "We will call you on {phone} to talk about your roof.",
+      "errors": {
+        "required": "Please fill in this field.",
+        "phoneInvalid": "Please enter a valid phone number, for example 079 123 45 67.",
+        "postalCodeInvalid": "Please enter a four-digit postcode.",
+        "emailInvalid": "Please enter a valid email address.",
+        "consentRequired": "Please confirm your consent so that we may process your request.",
+        "submitFailed": "That did not work. Please try again or call us on {phone}.",
+        "rateLimited": "You have just sent several requests. Please try again in a few minutes or call us on {phone}."
+      },
+      "call": "Prefer to call?"
+    },
+    "estimator": {
+      "loading": "We are reading the federal data. This takes a few seconds.",
+      "restart": "Enter a different address",
+      "address": {
+        "title": "What is the address of the building?",
+        "placeholder": "Street no., postcode, town",
+        "hint": "Choose your address from the list.",
+        "noResults": "We cannot find this address. Check the spelling or send us your request further down the page.",
+        "searchFailed": "The address search is not responding right now. Please try again in a moment.",
+        "rateLimited": "You have just searched many addresses. Please try again in a few minutes.",
+        "cta": "See result",
+        "direct": "Prefer to ask us directly"
+      },
+      "chooser": {
+        "title": "Which building do you mean?",
+        "body": "The register lists several buildings at this address.",
+        "option": "Building {number}",
+        "imageAlt": "Aerial image of building {number}"
+      },
+      "roof": {
+        "title": "Your roof",
+        "area": "Roof area",
+        "areaValue": "{area} m²",
+        "form": "Roof shape",
+        "forms": {
+          "steep": "Pitched roof",
+          "flat": "Flat roof",
+          "mixed": "Partly pitched, partly flat",
+          "shed": "Sawtooth roof"
+        },
+        "year": "Building year",
+        "imageAlt": "Aerial image of your building",
+        "imageCredit": "Aerial image: swisstopo, SWISSIMAGE",
+        "splitNote": "Your roof is connected to a neighbouring building. The area shows your part.",
+        "coverQuestion": "What covers your roof today?",
+        "coverAnswers": {
+          "tile": "Tiles",
+          "fibre_cement": "Fibre cement",
+          "metal": "Metal",
+          "unknown": "I do not know"
+        },
+        "wholeRoofQuestion": "The roof area according to Sonnendach.ch is much larger than the building area in the register. Does the whole roof belong to your address?",
+        "wholeRoofYes": "Yes",
+        "wholeRoofNo": "No",
+        "next": "See the result"
+      },
+      "result": {
+        "title": "Your result",
+        "marketReference": {
+          "heading": "What comparable roof renovations with insulation cost",
+          "chfJob": {
+            "value": "CHF {low} to {high}",
+            "label": "middle half of subsidised projects in Switzerland, median CHF {median}"
+          },
+          "chfM2": {
+            "value": "CHF {low} to {high} per m² of insulated area",
+            "label": "middle half of subsidised projects in Switzerland, median CHF {median} per m²"
+          },
+          "note": "These are values from the Buildings Programme of the federal government and the cantons, 2023 to 2025, not a quote from us. They may include other work. We state your price in the quote, and the fixed price after the site visit."
+        },
+        "perM2": {
+          "label": "Our price per m² for the complete rebuild of your flat roof",
+          "inclVat": "CHF {low} to {high} per m² incl. 8.1 % VAT",
+          "exclVat": "CHF {low} to {high} per m² excl. VAT",
+          "includedTitle": "Included",
+          "included": "Demolition, insulation, waterproofing, sheet metal work.",
+          "onTopTitle": "On top",
+          "exclusions": {
+            "scaffold_scope": "Scaffold and fall protection depending on the building",
+            "planning": "Planning and site management",
+            "pah_bitumen": "Old roofing containing tar"
+          },
+          "disclaimer": "This is not a quote. You receive the fixed price after the site visit."
+        },
+        "visit": {
+          "title": "For your roof we give the price after the site visit",
+          "reasons": {
+            "shared_roof": "Your roof is connected to a neighbouring building. We clarify on site which part is yours and how the work would run.",
+            "flat_small": "For flat roofs under 400 m² we do not have enough figures for a guide value.",
+            "farm": "On farm buildings the price depends heavily on construction and use.",
+            "shed": "On sawtooth roofs the price depends heavily on the structure.",
+            "mixed": "Your roof is partly pitched and partly flat. This is best looked at on site.",
+            "oversized_unanswered": "The roof area according to Sonnendach.ch is much larger than the building area in the register. We clarify on site whether the whole roof belongs to your address.",
+            "no_roof_data": "The federal government has no roof data for this building. We will look at the roof on site.",
+            "other": "We have no guide value for this type of building.",
+            "high_rise": "On buildings with many storeys, access, crane and safety decide the price. We look at that on site."
+          }
+        },
+        "young": {
+          "body": "According to the register your house is new. The roof is probably young.",
+          "link": "Go to the solar calculator"
+        },
+        "subsidy": {
+          "title": "Possible subsidy",
+          "range": "CHF {low} to {high}",
+          "upTo": "Up to CHF {high}",
+          "rate": "CHF {rate} per m² of insulated roof. On very large roofs the amount per m² can be lower.",
+          "belowMinimum": "At this area the amount falls below the canton's minimum grant.",
+          "notChecked": "We clarify the subsidy for your canton in the quote.",
+          "notEligible": "Your canton's programme requires a building permit from before 2000. According to the register your building is newer.",
+          "conditionsTitle": "Conditions",
+          "conditions": {
+            "u_value": "Insulation with a U-value of at most 0.20 W/m²K",
+            "apply_before_start": "Application before work starts",
+            "built_before_2000": "Building permit from before 2000",
+            "requires_pv": "Proof of a solar system"
+          },
+          "notSubtracted": "The subsidy is not deducted from the price. The cantonal programme may set further conditions."
+        },
+        "existingPv": {
+          "withYear": "Solar system according to the register, {kw} kW since {year}. We quote taking it off and putting it back on separately.",
+          "withoutYear": "Solar system according to the register, {kw} kW. We quote taking it off and putting it back on separately.",
+          "noFigureWithYear": "Solar system according to the register, since {year}. We quote taking it off and putting it back on separately.",
+          "noFigure": "Solar system according to the register. We quote taking it off and putting it back on separately."
+        },
+        "pvPotential": {
+          "body": "Room for about {kwp} kWp, about {kwh} kWh per year.",
+          "link": "Plan roof and solar together"
+        },
+        "asbestos": "According to the register your building dates from 1990 or earlier. With fibre cement we check for asbestos before the quote and list the removal separately.",
+        "request": "Request a quote",
+        "sources": "Sources: Sonnendach.ch (Swiss Federal Office of Energy), Federal Register of Buildings and Dwellings (Federal Statistical Office), Pronovo register.",
+        "wrongData": "Details not correct?"
+      },
+      "failure": {
+        "retry": "Try again",
+        "not_found": {
+          "title": "We cannot find this building",
+          "body": "The register has no matching entry for this address. Send us your request and we will clarify it personally."
+        },
+        "lookup_failed": {
+          "title": "The registers are not responding right now",
+          "body": "Please try again or send us your request directly."
+        },
+        "rate_limited": {
+          "title": "Too many lookups",
+          "body": "Please try again in a few minutes, send us your request directly or call us on {phone}."
+        }
+      },
+      "example": {
+        "badge": "Example",
+        "alt": "Aerial photo of a flat roof on a commercial building, outline marked",
+        "year": "Built {year}",
+        "priceLabel": "Our price per m² for the complete rebuild"
+      }
+    },
+    "solarPage": {
+      "hero": {
+        "title": "Plan your roof and solar system together",
+        "subtitle": "If your roof is being renewed, you can decide on solar now too. Free State AG plans both across Switzerland and remains your one contract partner.",
+        "cta": "Request a quote for roof and solar"
+      },
+      "why": {
+        "title": "Why together and not later",
+        "intro": "Roof and solar system are linked structurally, so it makes sense to look at both before the scaffold goes up.",
+        "items": {
+          "scaffold": {
+            "title": "One scaffold, one building phase",
+            "body": "Roof and solar system share the scaffold and the building phase. The federal programme EnergieSchweiz names this as an advantage of planning both together."
+          },
+          "dismantling": {
+            "title": "A new roof under the system",
+            "body": "If the system sits on a new roof, there is normally no need to take it off and put it back on later for a roof renewal."
+          },
+          "asbestos": {
+            "title": "Asbestos cement first",
+            "body": "Suva, the Swiss accident insurer, generally recommends fully replacing an asbestos cement roof before mounting a solar system (factsheet 33068)."
+          }
+        },
+        "imageAlt": "Installer working on a solar system on a tile roof"
+      },
+      "cantons": {
+        "title": "What individual cantons regulate",
+        "intro": "The rules are cantonal. Here are four examples, as of 2026.",
+        "items": {
+          "SH": {
+            "title": "Schaffhausen",
+            "body": "Since 1 January 2026 a comprehensive roof renovation carries a duty to generate electricity if the chargeable building area is at least 300 m² and the roof surface reaches at least 85 percent global radiation. At least 30 W per m² of energy reference area is required (EnerV § 16a, § 26h)."
+          },
+          "LU": {
+            "title": "Lucerne",
+            "body": "Since 1 March 2025 a roof renovation must make appropriate use of the potential to generate electricity. Otherwise a replacement levy of at most CHF 1'000 per kW not installed applies (KEnG § 15)."
+          },
+          "BE": {
+            "title": "Bern",
+            "body": "Since 1 January 2026 a comprehensive renewal of roof surfaces carries a reporting duty (KEnG Art. 39d)."
+          },
+          "SG": {
+            "title": "St. Gallen",
+            "body": "The canton pays the roof grant only with proof of a solar system."
+          }
+        },
+        "note": "We clarify what applies in your canton in the quote."
+      },
+      "mounting": {
+        "title": "On-roof or in-roof?",
+        "body1": "As of 2026, the federal one-off payment (Einmalvergütung) for systems under 30 kW is CHF 400 per kW for in-roof and CHF 360 per kW for on-roof. That difference does not cover the extra cost of an in-roof system.",
+        "body2": "So the decision rests on the roof itself, on its shape, condition and appearance. Individual cantons pay more for in-roof, Aargau for example a bonus of CHF 100 instead of CHF 30 per m² of pitched roof. We discuss both at the site visit.",
+        "imageAlt": "House with a solar system on the roof, schematic illustration",
+        "inRoof": "In-roof",
+        "onRoof": "On-roof",
+        "perKw": "CHF {value} per kW"
+      },
+      "offer": {
+        "title": "Three items, quoted separately",
+        "intro": "In every quote, roof, insulation and solar are listed separately. That way you see what each part costs.",
+        "items": {
+          "roof": {
+            "title": "Roof",
+            "body": "New covering or waterproofing, underlay, sheet metal work, scaffold and site."
+          },
+          "insulation": {
+            "title": "Insulation",
+            "body": "The insulation that the cantonal subsidy requires."
+          },
+          "solar": {
+            "title": "Solar",
+            "body": "Modules, inverter, mounting and connection."
+          }
+        },
+        "existingTitle": "Existing solar system",
+        "existingBody": "If there is already a system on the roof, the register usually shows us its output and start year. We quote taking it off and putting it back on separately.",
+        "imageAlt": "Tile roof with solar modules, schematic illustration"
+      },
+      "models": {
+        "title": "Two models for your solar system",
+        "intro": "For the solar system on your new roof, we show SolarFree and SolarDirect here. Each model has its own contract with Free State AG.",
+        "solarFree": {
+          "title": "SolarFree",
+          "body": "CHF 0 down payment. You pay for the solar power you use yourself, up to 30% below the grid tariff.",
+          "clause": "The SolarFree contract has a provision in clause 6.2 for renewal work on the roof. With a new roof under the system, that case does not normally arise.",
+          "link": "More about SolarFree"
+        },
+        "solarDirect": {
+          "title": "SolarDirect",
+          "body": "You buy the solar system and use the power yourself. It is yours once fully paid.",
+          "link": "More about SolarDirect"
+        }
+      },
+      "faq": {
+        "eyebrow": "Frequently asked questions",
+        "title": "Questions about roof and solar",
+        "description": "Where we can only judge something on site, we say so.",
+        "items": {
+          "1": {
+            "question": "Do I have to build the roof and solar system at the same time?",
+            "answer": "No. We can plan the roof so that the system can follow later. You only share the scaffold and building phase if both are built together."
+          },
+          "2": {
+            "question": "Is there a duty in my canton?",
+            "answer": "That is regulated by each canton. Schaffhausen, Lucerne and Bern have rules for roof renovations, which we list further up. We clarify what applies in your canton in the quote."
+          },
+          "3": {
+            "question": "On-roof or in-roof, which fits?",
+            "answer": "That rests on the roof itself. As of 2026, the federal one-off payment under 30 kW is CHF 400 per kW for in-roof and CHF 360 for on-roof, which does not settle the question. We discuss both at the site visit."
+          },
+          "4": {
+            "question": "I already have a system. What happens to it?",
+            "answer": "We take it off for the work and put it back on afterwards. We quote this separately. We clarify at the site visit whether the system can go back on unchanged."
+          },
+          "5": {
+            "question": "Is everything listed together in the quote?",
+            "answer": "No. Roof, insulation and solar are listed separately, so you can see and decide on each part."
+          },
+          "6": {
+            "question": "Does SolarFree fit with a roof renovation?",
+            "answer": "SolarFree comes with a CHF 0 down payment. We clarify at the site visit whether it fits your roof."
+          }
         }
       }
     }

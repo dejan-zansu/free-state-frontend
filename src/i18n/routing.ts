@@ -454,6 +454,18 @@ export const routing = defineRouting({
       fr: '/couts',
       it: '/costi',
     },
+    '/roof-renovation': {
+      en: '/roof-renovation',
+      de: '/dachsanierung',
+      fr: '/renovation-toiture',
+      it: '/risanamento-tetto',
+    },
+    '/roof-renovation/solar': {
+      en: '/roof-renovation/solar',
+      de: '/dachsanierung/photovoltaik',
+      fr: '/renovation-toiture/solaire',
+      it: '/risanamento-tetto/fotovoltaico',
+    },
     '/offer-request': {
       en: '/offer-request',
       de: '/offerte-anfragen',

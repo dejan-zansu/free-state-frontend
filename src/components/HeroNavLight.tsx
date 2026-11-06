@@ -2,9 +2,10 @@
 
 import { LinkButton, linkButtonVariants } from '@/components/ui/link-button'
 import { Link } from '@/i18n/navigation'
+import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import { cn } from '@/lib/utils'
 import { type VariantProps } from 'class-variance-authority'
-import { ArrowUpRight, Flame, Plug2, Sun } from 'lucide-react'
+import { ArrowUpRight, Flame, House, Plug2, Sun } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import { useRef, useState } from 'react'
@@ -61,6 +62,22 @@ const HeroNavLight = ({
         },
       ]
 
+  const roofRenovationLinks = roofRenovationVisible
+    ? [
+        {
+          label: tFooter('products.roofRenovation'),
+          href: '/roof-renovation' as const,
+          icon: House,
+          subLinks: [
+            {
+              label: tFooter('products.roofRenovationSolar'),
+              href: '/roof-renovation/solar' as const,
+            },
+          ],
+        },
+      ]
+    : []
+
   const productLinks = isCommercial
     ? [
         {
@@ -109,6 +126,7 @@ const HeroNavLight = ({
             },
           ],
         },
+        ...roofRenovationLinks,
       ]
     : [
         {
@@ -199,6 +217,7 @@ const HeroNavLight = ({
         //   icon: Zap,
         //   subLinks: [],
         // },
+        ...roofRenovationLinks,
       ]
 
   const hasDropdown = hoveredItem === 'solarAbo' || hoveredItem === 'products'
@@ -380,7 +399,10 @@ const HeroNavLight = ({
                   </div>
                   <Link
                     href={promoHref}
-                    className="relative hidden lg:block w-[291px] h-[301px] rounded-[10px] overflow-hidden group shrink-0"
+                    className={cn(
+                      'relative hidden w-[291px] h-[301px] rounded-[10px] overflow-hidden group shrink-0',
+                      productLinks.length > 3 ? 'xl:block' : 'lg:block'
+                    )}
                   >
                     <Image
                       src="/images/nav/nav-promo.webp"

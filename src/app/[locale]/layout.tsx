@@ -28,6 +28,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { JsonLdOrganization } from '@/components/seo/JsonLdOrganization'
 import { JsonLdLocalBusiness } from '@/components/seo/JsonLdLocalBusiness'
 import { buildWebSiteJsonLd } from '@/lib/seo/structured-data'
+import { publicRoofMessages } from '@/lib/roof-renovation-messages'
 import {
   googleSiteVerification,
   searchConsoleVerificationEnabled,
@@ -85,7 +86,7 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  const messages = await getMessages({ locale })
+  const messages = publicRoofMessages(await getMessages({ locale }))
 
   return (
     <html

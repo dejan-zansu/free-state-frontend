@@ -6,6 +6,7 @@ import {
   isOutreachHost,
   isOutreachMailPath,
 } from './lib/outreach-hosts'
+import { ROOF_RENOVATION_LIVE } from './lib/roof-renovation-gate'
 
 const intlMiddleware = createMiddleware(routing)
 
@@ -24,6 +25,7 @@ const NOINDEX_ROUTES = [
   '/newsletter/confirm',
   '/newsletter/unsubscribe',
   '/calculator/signing-complete',
+  ...(ROOF_RENOVATION_LIVE ? [] : ['/roof-renovation', '/roof-renovation/solar']),
 ]
 
 const pathnames = routing.pathnames as Record<

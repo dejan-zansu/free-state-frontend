@@ -10,9 +10,11 @@ import {
   isPlaceholderCanton,
 } from '@/data/foerderung-cantons'
 import { COMMUNITY_MODEL_SLUGS } from '@/data/energiegemeinschaften'
+import { ROOF_RENOVATION_LIVE } from '@/lib/roof-renovation-gate'
 
 // Bump a page's constant when its content actually changes. A stale lastmod
 // tells Google there is nothing new to fetch.
+const REFRESH_2026_11_05 = new Date('2026-11-05')
 const REFRESH_2026_10_06 = new Date('2026-10-06')
 const REFRESH_2026_09_21 = new Date('2026-09-21')
 const REFRESH_2026_09_22 = new Date('2026-09-22')
@@ -200,6 +202,20 @@ const STATIC_ENTRIES: StaticEntry[] = [
     priority: 0.8,
     availableLocales: DE_ONLY,
   })),
+  ...(ROOF_RENOVATION_LIVE
+    ? [
+        {
+          pathname: '/roof-renovation',
+          lastModified: REFRESH_2026_11_05,
+          priority: 0.8,
+        },
+        {
+          pathname: '/roof-renovation/solar',
+          lastModified: REFRESH_2026_11_05,
+          priority: 0.7,
+        },
+      ]
+    : []),
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

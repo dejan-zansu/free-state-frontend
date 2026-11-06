@@ -1,6 +1,7 @@
 'use client'
 
 import { Link, usePathname } from '@/i18n/navigation'
+import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, ArrowRight, ChevronDown, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -120,6 +121,21 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
         { label: t('hero.nav.solarDirect'), href: '/solar-direct' as const },
       ]
 
+  const roofRenovationGroups = roofRenovationVisible
+    ? [
+        {
+          label: tFooter('products.roofRenovation'),
+          href: '/roof-renovation' as const,
+          subLinks: [
+            {
+              label: tFooter('products.roofRenovationSolar'),
+              href: '/roof-renovation/solar' as const,
+            },
+          ],
+        },
+      ]
+    : []
+
   const productGroups = isCommercial
     ? [
         {
@@ -166,6 +182,7 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
             },
           ],
         },
+        ...roofRenovationGroups,
       ]
     : [
         {
@@ -238,6 +255,7 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
             },
           ],
         },
+        ...roofRenovationGroups,
       ]
 
   const companyLinks = [

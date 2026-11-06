@@ -319,6 +319,14 @@
       "description": "Chaque appareil de ce forfait solaire en modèle 3D rotatif avec les données techniques du fabricant.",
       "descriptionSuffix": "Tous les composants en 3D avec les données techniques."
     },
+    "roofRenovation": {
+      "title": "Rénovation de toiture en Suisse : coûts et subventions",
+      "description": "Rénovation de toiture dans toute la Suisse avec nos propres équipes. Valeurs de comparaison en ligne, offre écrite, prix fixe après la visite."
+    },
+    "roofRenovationSolar": {
+      "title": "Toiture et photovoltaïque : tout planifier ensemble",
+      "description": "Planifiez le toit et l'installation solaire ensemble, avec un seul échafaudage. Règles cantonales, surimposition ou intégration, postes séparés dans l'offre."
+    },
     "offerRequest": {
       "title": "Demander une offre solaire : prix par kWc | Free State AG",
       "description": "Chez nous, une installation solaire avec batterie coûte CHF {min} à {max} par kWc, hors TVA. Demandez une offre avec votre nom, votre téléphone et votre adresse, nous vous appelons."
@@ -395,6 +403,8 @@
       "chargingStations": "Bornes de recharge",
       "energyStorage": "Stockage d'énergie",
       "energyManagement": "Gestion de l'énergie",
+      "roofRenovation": "Rénovation de toiture",
+      "roofRenovationSolar": "Toit et solaire",
       "catalog3d": "Produits en 3D"
     },
     "company": {
@@ -741,7 +751,6 @@
           "Protection contre la hausse des coûts énergétiques",
           "Garanties constructeur incluses",
           "Garantie de travaux de 10 ans",
-          "Garantie toiture de 10 ans",
           "Transférable en cas de vente"
         ],
         "advantagesTitle": "Vos avantages avec SolarDirect",
@@ -6355,7 +6364,7 @@
     },
     "inRoofOnRoof": {
       "title": "Intégré ou en surimposition",
-      "description": "Une installation photovoltaïque dure plus de 30 ans, le toit doit donc être en bon état et ne pas nécessiter de remplacement rapide. Si le toit a plus de 40 ans, une rénovation est recommandée.\n\nLors du remplacement d'un toit en pente, une installation PV intégrée réduit les coûts de couverture et constitue une façon économique de combiner un nouveau toit avec une installation solaire."
+      "description": "Une installation photovoltaïque dure plus de 30 ans, le toit doit donc être en bon état et ne pas nécessiter de remplacement rapide. Si le toit est déjà ancien, il est conseillé de le faire contrôler avant le montage.\n\nLors du remplacement d'un toit en pente, une installation PV intégrée réduit les coûts de couverture et constitue une façon économique de combiner un nouveau toit avec une installation solaire."
     },
     "storageSelfConsumption": {
       "title": "Stockage pour plus\nd'autoconsommation",
@@ -6369,7 +6378,7 @@
     },
     "installation": {
       "title": "Installation de grandes\ncentrales solaires",
-      "description": "Nous travaillons avec des électriciens et des couvreurs expérimentés. Pour que vous puissiez profiter de votre installation le plus rapidement possible, nos spécialistes la réalisent du début à la fin. Les coûts d'installation sont entièrement inclus dans le prix d'achat."
+      "description": "Pour que vous puissiez profiter de votre installation le plus rapidement possible, nos spécialistes la réalisent du début à la fin. Les coûts d'installation sont entièrement inclus dans le prix d'achat."
     },
     "monitoring": {
       "eyebrow": "Monitoring",
@@ -7338,6 +7347,8 @@
       "outreachLetters": "Briefe",
       "outreachMailboxes": "Postfächer",
       "outreachKpi": "Outreach-Kennzahlen",
+      "groupRoofRenovation": "Dachsanierung",
+      "roofLeads": "Dach-Leads",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -11055,6 +11066,14 @@
       "adminNotes": "Admin-Notizen",
       "save": "Speichern",
       "saved": "Erfolgreich gespeichert",
+      "filterType": "Nach Typ filtern",
+      "allTypes": "Alle Typen",
+      "entityTypes": {
+        "roof_renovation": "Dachsanierung",
+        "offer_request": "Offertanfrage",
+        "company": "Firma",
+        "private": "Privatperson"
+      },
       "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen."
     },
     "newsletter": {
@@ -11527,6 +11546,166 @@
       "unsupported": "Ce navigateur ne prend pas en charge les notifications push.",
       "serverDisabled": "Les notifications push ne sont pas configurées sur le serveur.",
       "iosInstall": "Sur iPhone, installez d'abord via Partager puis Sur l'écran d'accueil, ensuite activez ici."
+    },
+    "roofLeads": {
+      "title": "Dach-Leads",
+      "contactRequests": "Dachsanierung-Anfragen",
+      "exportCsv": "CSV exportieren",
+      "exportFailed": "Export fehlgeschlagen. Bitte erneut versuchen.",
+      "exportCapped": "Der Export enthält die ersten {max} von {total} Zeilen. Filtern Sie enger, um alle zu erhalten.",
+      "searchPlaceholder": "Suchen nach Adresse, Firma, Kontakt…",
+      "allStatuses": "Alle Status",
+      "allSegments": "Alle Segmente",
+      "allCantons": "Alle Kantone",
+      "allRoofForms": "Alle Dachformen",
+      "allPvStates": "Alle PV-Stände",
+      "minScore": "Mindest-Score",
+      "sortScoreAsc": "Score aufsteigend sortieren",
+      "sortScoreDesc": "Score absteigend sortieren",
+      "colScore": "Score",
+      "colSegment": "Segment",
+      "colAddress": "Adresse",
+      "colYear": "Baujahr",
+      "colRoof": "Dach",
+      "colPv": "PV",
+      "colImagery": "Luftbild",
+      "colContact": "Kontakt",
+      "colStatus": "Status",
+      "total": "{count} Einträge",
+      "empty": "Keine Dach-Leads gefunden",
+      "previousPage": "Vorherige Seite",
+      "nextPage": "Nächste Seite",
+      "statusLabels": {
+        "NEW": "Neu",
+        "QUALIFIED": "Qualifiziert",
+        "CONTACTED": "Kontaktiert",
+        "REPLIED": "Geantwortet",
+        "LEAD": "Lead",
+        "WON": "Gewonnen",
+        "LOST": "Verloren",
+        "EXCLUDED": "Ausgeschlossen"
+      },
+      "segment": {
+        "HOUSE": "Haus",
+        "MULTI_FAMILY": "Mehrfamilienhaus",
+        "COMMERCIAL": "Gewerbe",
+        "HALL": "Halle",
+        "FARM": "Landwirtschaft",
+        "MANAGER": "Verwaltung",
+        "COOPERATIVE": "Genossenschaft",
+        "OWNER_PORTFOLIO": "Eigentümer mit Portfolio"
+      },
+      "form": {
+        "FLAT": "Flachdach",
+        "STEEP": "Schrägdach",
+        "MIXED": "Gemischt",
+        "SHED": "Sheddach",
+        "UNKNOWN": "Unbekannt"
+      },
+      "pv": {
+        "NONE": "Keine Anlage",
+        "OLD": "Alt (vor 2010)",
+        "MID": "2010 bis 2014",
+        "RECENT": "Neu (ab 2015)",
+        "UNKNOWN": "Unbekannt"
+      },
+      "imagery": {
+        "NOT_REPLACED": "Nicht erneuert",
+        "WORN": "Verwittert",
+        "REPLACED": "Erneuert",
+        "UNCLEAR": "Unklar"
+      },
+      "contactBlock": {
+        "never": "Nie kontaktieren",
+        "open_thread": "Offener Austausch",
+        "sales_only": "Nur Vertrieb",
+        "owner_decision": "Entscheid Inhaber"
+      },
+      "contactBlockNotice": {
+        "never": "Nicht kontaktieren. Im PV-Outbound ist dieser Kontakt gesperrt, abgemeldet, unzustellbar, mit Werbeverbot vermerkt oder von Ivan betreut.",
+        "open_thread": "Nicht kontaktieren, solange der Austausch im PV-Outbound offen ist.",
+        "sales_only": "Nur über den Vertrieb ansprechen. Im PV-Outbound ist bereits eine gewerbliche Anfrage oder eine Umwandlung erfasst.",
+        "owner_decision": "Hat das PV-Angebot abgelehnt. Über eine erneute Ansprache entscheidet der Inhaber."
+      },
+      "exclusionReason": {
+        "roof_permit_recent": "Dachbewilligung ab 2024",
+        "imagery_replaced": "Luftbild zeigt ein neues Dach"
+      },
+      "exclusionNotice": "Ausgeschlossen, Grund: {reason}.",
+      "pictureAlt": "Luftbild von {address}",
+      "pictureCaption": "Luftbild SWISSIMAGE, Bundesamt für Landestopografie swisstopo",
+      "noPicture": "Für diesen Eintrag gibt es keine Koordinaten und daher kein Luftbild.",
+      "sectionScore": "Score",
+      "sectionManage": "Bearbeiten",
+      "sectionBuilding": "Gebäude",
+      "sectionContact": "Kontakt",
+      "sectionActivity": "Verlauf",
+      "scoreTotal": "Total",
+      "scoreVersion": "Score-Version {version}",
+      "scorePart": {
+        "buildYear": "Baujahr",
+        "buildPeriod": "Bauperiode",
+        "pvState": "PV-Anlage",
+        "footprint": "Grundfläche",
+        "dwellings": "Wohnungen",
+        "roofForm": "Dachform",
+        "imagery": "Luftbild",
+        "contact": "Kontakt bekannt"
+      },
+      "wonAmount": "Auftragswert in CHF",
+      "wonAmountInvalid": "Bitte einen Betrag von 0 oder mehr eingeben.",
+      "notes": "Notizen",
+      "save": "Speichern",
+      "saved": "Erfolgreich gespeichert",
+      "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+      "municipality": "Gemeinde",
+      "buildingRef": "EGID",
+      "buildingClass": "Gebäudeklasse",
+      "footprint": "Grundfläche",
+      "roofArea": "Dachfläche",
+      "roofForm": "Dachform",
+      "dwellings": "Wohnungen",
+      "floors": "Geschosse",
+      "roofPermit": "Dachbewilligung",
+      "company": "Firma",
+      "owner": "Eigentümer",
+      "ownerSource": "Quelle Eigentümer",
+      "contactName": "Kontaktperson",
+      "contactEmail": "E-Mail",
+      "contactPhone": "Telefon",
+      "contactSource": "Quelle Kontakt",
+      "contactedAt": "Kontaktiert am",
+      "noActivity": "Noch kein Verlauf",
+      "statusChange": "{from} zu {to}",
+      "activity": {
+        "STATUS_CHANGED": "Status geändert",
+        "UPDATED": "Aktualisiert",
+        "IMAGERY_VERDICT": "Luftbild beurteilt",
+        "EXCLUDED": "Ausgeschlossen",
+        "ROOF_ENRICHED": "Dachdaten ergänzt",
+        "IMPORTED_FROM_OUTBOUND": "Aus Outbound übernommen",
+        "CONTACT_BLOCK": "Kontaktsperre geändert",
+        "REQUEST_PROMOTED": "Aus Anfrage übernommen"
+      },
+      "tabs": {
+        "leads": "Dach-Leads",
+        "requests": "Anfragen"
+      },
+      "requests": {
+        "colDate": "Eingang",
+        "colName": "Name",
+        "colPlace": "Ort",
+        "colMessage": "Angaben",
+        "colStatus": "Status",
+        "colLead": "Dach-Lead",
+        "promote": "Als Lead übernehmen",
+        "openLead": "Lead öffnen",
+        "promoteFailed": "Die Anfrage konnte nicht übernommen werden.",
+        "empty": "Keine Anfragen gefunden",
+        "noMessage": "Keine Angaben",
+        "searchPlaceholder": "Suchen nach Name, Ort, Telefon, E-Mail…"
+      },
+      "contactSourceRequest": "Dachsanierung-Anfrage"
     },
     "productComments": {
       "title": "Commentaires produits",
@@ -13061,6 +13240,708 @@
         "7": {
           "question": "Combien de temps jusqu'à la mise en service ?",
           "answer": "En général environ trois mois après la commande. Cela comprend le contrôle du toit, l'annonce auprès du gestionnaire de réseau, le montage et la mise en service."
+        }
+      }
+    }
+  },
+  "roofRenovation": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "main": "Rénovation de toiture",
+      "solar": "Toit et solaire"
+    },
+    "jsonLd": {
+      "name": "Rénovation de toiture",
+      "description": "Rénovation de toiture dans toute la Suisse par un seul prestataire, du premier contrôle à la réception, aux réparations et à l'entretien, pour les toits en pente, les toits plats et les toitures de halles, avec ferblanterie, isolation et amiante-ciment."
+    },
+    "hero": {
+      "title": "Votre toit, du premier contrôle à la réception",
+      "subtitle": "Vous n'avez qu'un seul partenaire contractuel, y compris pour les réparations et l'entretien par la suite. Free State AG prend en charge la rénovation de votre toit dans toute la Suisse avec ses propres équipes.",
+      "points": {
+        "offer": "Offre écrite",
+        "fixedPrice": "Prix fixe après la visite",
+        "onePartner": "Un seul contrat"
+      }
+    },
+    "estimatorSection": {
+      "title": "Combien coûte un toit comme le vôtre ?",
+      "intro": "Saisissez votre adresse. Nous relevons la surface, la forme du toit et l'année de construction dans les données de la Confédération et vous montrons le résultat. Nous n'avons pas besoin de vos coordonnées pour cela."
+    },
+    "due": {
+      "title": "Ces signes justifient un contrôle",
+      "intro": "Vous pouvez en repérer beaucoup vous-même, depuis les combles ou depuis la rue.",
+      "signs": {
+        "leak": "Taches d'eau au plafond ou humidité dans les combles.",
+        "tiles": "Tuiles cassées, déplacées ou manquantes.",
+        "sealing": "Fissures ou cloques dans l'étanchéité d'un toit plat, eau stagnante après la pluie.",
+        "flashing": "Rouille ou fissures sur les chéneaux, les tôles et les raccords.",
+        "climate": "Pièces sous le toit qui se refroidissent en hiver et surchauffent en été."
+      },
+      "ageTitle": "Et l'âge du toit ?",
+      "age": "Le tableau paritaire des durées de vie donne comme valeur indicative 50 ans pour les toits en tuiles et en fibrociment et 30 ans pour les toits plats. L'âge ne suffit pas à lui seul pour décider.",
+      "flatRoof": "Un toit plat dure en général moins longtemps qu'un toit en pente. Dans un article du 8 août 2024 publié par l'association de propriétaires HEV Schweiz, l'organisation professionnelle Enveloppe des bâtiments Suisse conseille de faire contrôler un toit plat de plus de dix ans avant de monter une installation solaire.",
+      "imageAlt": "Vieux toits de tuiles patinés dans une vieille ville",
+      "lifeTitle": "Durée de vie indicative",
+      "lifeSteep": "Tuiles et fibrociment",
+      "lifeFlat": "Toit plat",
+      "years": "{years} ans"
+    },
+    "services": {
+      "title": "Tout le toit, un seul contrat",
+      "intro": "Votre interlocuteur reste Free State AG, du premier contrôle jusqu'après la réception. Nos propres équipes réalisent les travaux.",
+      "items": {
+        "check": {
+          "title": "Contrôle",
+          "body": "Nous examinons sur place la couverture, la sous-toiture, l'isolation et les raccords, puis nous vous disons ce qui est nécessaire."
+        },
+        "offer": {
+          "title": "Offre",
+          "body": "Vous recevez une offre écrite indiquant la surface, la composition et le prix, à présenter à votre banque ou à votre gérance."
+        },
+        "permit": {
+          "title": "Permis et subventions",
+          "body": "Nous vérifions si un permis de construire est nécessaire et nous nous chargeons de la demande de subvention, à déposer avant le début des travaux."
+        },
+        "scaffold": {
+          "title": "Échafaudage",
+          "body": "Nous montons l'échafaudage et les protections antichute et nous installons le chantier."
+        },
+        "steep": {
+          "title": "Toit en pente",
+          "body": "Nous refaisons la couverture de votre toit en pente, sous-toiture comprise."
+        },
+        "flat": {
+          "title": "Toit plat",
+          "body": "Nous renouvelons l'étanchéité et l'isolation, raccords et écoulements compris."
+        },
+        "hall": {
+          "title": "Toiture de halle",
+          "body": "Nous rénovons les grandes toitures de halles artisanales et industrielles et planifions les étapes avec votre entreprise."
+        },
+        "spengler": {
+          "title": "Ferblanterie",
+          "body": "Nous renouvelons dans la foulée les chéneaux, les descentes d'eau, les rives et les raccords."
+        },
+        "insulation": {
+          "title": "Isolation",
+          "body": "Nous dimensionnons l'isolation pour atteindre une valeur U (mesure de la déperdition de chaleur) de 0,20 W/m²K au maximum, généralement exigée par les programmes cantonaux de subvention."
+        },
+        "asbestos": {
+          "title": "Amiante-ciment",
+          "body": "Si votre toit est en fibrociment, nous recherchons l'amiante avant l'offre et indiquons le retrait séparément."
+        },
+        "solar": {
+          "title": "Solaire",
+          "body": "Nous préparons le toit pour une installation solaire, nous la montons dans la foulée ou nous démontons et remontons une installation existante."
+        },
+        "handover": {
+          "title": "Réception",
+          "body": "À la fin, nous procédons avec vous à la réception du toit. Le délai de garantie court à partir de ce jour."
+        },
+        "repair": {
+          "title": "Réparations et entretien",
+          "body": "Après la réception, nous restons votre interlocuteur pour les réparations et l'entretien."
+        }
+      },
+      "layersLabel": "Choisir le type de toit",
+      "phases": {
+        "before": "Avant le chantier",
+        "site": "Sur le chantier",
+        "after": "Réception et après"
+      },
+      "layers": {
+        "solar": {
+          "title": "Installation solaire"
+        },
+        "cover": {
+          "title": "Couverture"
+        },
+        "flashing": {
+          "title": "Ferblanterie"
+        },
+        "battens": {
+          "title": "Lattage",
+          "body": "Porte les tuiles et laisse l'air circuler sous la couverture."
+        },
+        "underlay": {
+          "title": "Sous-toiture",
+          "body": "Évacue l'eau qui passe sous la couverture."
+        },
+        "insulation": {
+          "title": "Isolation"
+        },
+        "structure": {
+          "title": "Charpente",
+          "body": "Porte l'ensemble de la toiture. Nous indiquons séparément les dégâts à la charpente."
+        },
+        "protection": {
+          "title": "Couche de protection",
+          "body": "Le gravier ou la végétalisation protège l'étanchéité du soleil et des intempéries."
+        },
+        "sealing": {
+          "title": "Étanchéité"
+        },
+        "vapour": {
+          "title": "Pare-vapeur",
+          "body": "Empêche l'humidité du bâtiment d'atteindre l'isolation."
+        },
+        "deck": {
+          "title": "Dalle porteuse",
+          "body": "Béton ou tôle profilée. Elle porte l'ensemble de la toiture."
+        }
+      }
+    },
+    "cost": {
+      "title": "Combien coûte une rénovation de toiture",
+      "intro": "Le prix dépend de quelques éléments. Nous vous les présentons ouvertement, avec des chiffres publics de la Confédération.",
+      "driversTitle": "Ce qui détermine le prix",
+      "drivers": {
+        "fixed": {
+          "title": "Coûts fixes",
+          "body": "L'échafaudage et le chantier sont nécessaires même pour un petit toit. C'est pourquoi un petit toit coûte plus cher au m² qu'un grand."
+        },
+        "size": {
+          "title": "Surface",
+          "body": "Le matériel et le travail augmentent avec la surface du toit."
+        },
+        "buildup": {
+          "title": "Composition",
+          "body": "Une nouvelle couverture avec sous-toiture et isolation coûte plus cher que le seul remplacement de la couverture."
+        },
+        "access": {
+          "title": "Accès",
+          "body": "Les bâtiments hauts, les accès étroits et les toits complexes demandent plus d'échafaudage et plus de temps."
+        }
+      },
+      "stagesTitle": "Trois étapes jusqu'au prix fixe",
+      "stages": {
+        "orientation": {
+          "title": "Orientation",
+          "body": "Le calculateur affiche des valeurs publiques pour votre bâtiment, à partir de votre adresse. Ce n'est pas une offre."
+        },
+        "draft": {
+          "title": "Offre indicative",
+          "body": "Si le toit s'y prête, vous recevez après notre appel une offre indicative écrite et détaillée par poste, avec la surface, la composition et le prix. L'amiante et l'état du toit n'y sont pas encore contrôlés."
+        },
+        "fixed": {
+          "title": "Prix fixe",
+          "body": "Après la visite, vous recevez un prix fixe, repris tel quel dans le contrat. L'amiante et les dégâts à la charpente figurent séparément."
+        }
+      },
+      "table": {
+        "heading": "Ce qu'ont coûté en Suisse les rénovations de toiture subventionnées avec isolation",
+        "period": "2023 à 2025",
+        "building": "Bâtiment",
+        "low": "Quartile inférieur",
+        "median": "Médiane",
+        "high": "Quartile supérieur",
+        "cases": "Cas",
+        "rows": {
+          "house": "Maison individuelle",
+          "multi": "Immeuble collectif",
+          "industry": "Industrie"
+        },
+        "footnote": "Source : Office fédéral de l'énergie, Le Programme Bâtiments, données brutes. Investissement total par cas, pouvant inclure d'autres travaux. TVA non indiquée dans la source.",
+        "legendRange": "Moitié centrale des projets",
+        "casesCount": "{count} cas"
+      },
+      "ownPrice": {
+        "heading": "Notre prix pour les grands toits plats",
+        "onTop": "S'y ajoutent l'échafaudage et la protection antichute selon l'objet, la planification et la direction des travaux, ainsi que l'ancien revêtement contenant du goudron. Ce n'est pas une offre.",
+        "recover": "Une nouvelle couverture sans isolation fait l'objet d'une offre seulement après la visite. Le calculateur n'affiche pas de prix pour ce cas.",
+        "value": "CHF 260 à 415",
+        "unit": "par m², TVA 8.1 % incluse",
+        "scope": "Réfection complète d'un toit plat de 1'000 à 2'999 m²"
+      }
+    },
+    "subsidy": {
+      "title": "Ce que versent les cantons et ce qui change pour les impôts",
+      "intro": "Les taux varient d'un canton à l'autre. Le tableau donne cinq exemples, état 2026. Nous vérifions le montant pour votre canton dans l'offre.",
+      "table": {
+        "canton": "Canton",
+        "rate": "Isolation",
+        "addOn": "Supplément solaire",
+        "perM2": "CHF {value} par m²",
+        "requiresPv": "Contribution uniquement avec installation solaire",
+        "addOnAg": "CHF 20 à 100 par m², selon le toit et l'installation",
+        "cantons": {
+          "ZH": "Zurich",
+          "SH": "Schaffhouse",
+          "TG": "Thurgovie",
+          "SG": "Saint-Gall",
+          "AG": "Argovie"
+        },
+        "note": "Le montant pour l'isolation s'entend par m² de toit isolé. Le supplément solaire s'entend par m² de modules à Zurich et par m² d'isolation à Schaffhouse et en Thurgovie, où il est plafonné à CHF 50'000. En Argovie, le bonus a ses propres conditions, par exemple une végétalisation sur le toit plat.",
+        "value": "CHF {value}",
+        "unit": "par m² de surface isolée"
+      },
+      "conditions": "La contribution suppose une isolation et une valeur U de 0,20 W/m²K au maximum. La demande doit être déposée avant le début des travaux. Dans ces cinq cantons, le permis de construire du bâtiment doit dater d'avant 2000. Les programmes posent d'autres conditions, par exemple un plafond de 50 % des coûts ou, dès CHF 10'000 de contribution, un certificat énergétique avec rapport de conseil (CECB Plus).",
+      "taxTitle": "Impôts dès 2029",
+      "tax1": "Dès le 1er janvier 2029, la déduction des frais d'entretien d'immeubles disparaît pour les logements occupés par leur propriétaire, au niveau de la Confédération, du canton et de la commune. La valeur locative disparaît au même moment.",
+      "tax2": "La déduction reste possible pour les logements loués ou affermés.",
+      "tax3": "Le mieux est de demander à votre administration fiscale quelle date compte pour vos travaux.",
+      "taxSource": "Source : Conseil fédéral, communiqué de presse du 1er avril 2026.",
+      "taxDate": "01.01.2029"
+    },
+    "solarTeaser": {
+      "title": "Prévoir le solaire en même temps",
+      "body": "Quand le toit est rénové, une installation solaire peut profiter du même échafaudage et de la même phase de chantier. C'est vous qui décidez si vous voulez du solaire, et quand.",
+      "link": "Planifier le toit et le solaire ensemble",
+      "imageAlt": "Monteur au travail sur une installation solaire, sur un toit de tuiles"
+    },
+    "financing": {
+      "title": "Financer une rénovation de toiture",
+      "blocks": {
+        "owners": {
+          "title": "Propriétaires de maison",
+          "body": "Une rénovation de toiture peut se financer par une augmentation de l'hypothèque, si les fonds propres et le revenu le permettent. Certaines banques accordent un taux réduit pour les mesures énergétiques comme l'isolation du toit. Votre banque vous dira si votre projet y donne droit et ce qui reste supportable."
+        },
+        "condominium": {
+          "title": "Propriété par étages",
+          "body": "En principe, les propriétaires supportent les coûts selon leurs quotes-parts, à partir du fonds de rénovation et, si nécessaire, de contributions supplémentaires. La décision revient à l'assemblée."
+        },
+        "companies": {
+          "title": "Entreprises",
+          "body": "Parlez-en tôt à votre banque. Les entreprises peuvent elles aussi obtenir des taux réduits pour les mesures énergétiques."
+        },
+        "offer": {
+          "title": "Ce que vous recevez de notre part",
+          "body": "Une offre écrite indiquant la surface, la composition et le prix, à présenter à votre banque, à votre gérance ou à l'assemblée."
+        },
+        "subsidies": {
+          "title": "Subventions",
+          "body": "La demande doit être déposée avant le début des travaux. Nous vous indiquons quel programme s'applique dans votre canton et nous nous chargeons de la demande."
+        }
+      },
+      "closing": "Free State AG n'accorde pas de crédits et n'en négocie pas."
+    },
+    "process": {
+      "title": "Six étapes jusqu'au nouveau toit",
+      "steps": {
+        "request": {
+          "title": "Demande",
+          "body": "Vous nous envoyez votre nom, votre téléphone et votre adresse, avec ou sans le calculateur."
+        },
+        "callback": {
+          "title": "Appel",
+          "body": "Nous vous appelons et clarifions ce dont votre toit a besoin. Si le toit s'y prête, nous vous envoyons ensuite une offre indicative écrite."
+        },
+        "visit": {
+          "title": "Visite",
+          "body": "Nous examinons le toit sur place et contrôlons la couverture, la sous-toiture et l'isolation."
+        },
+        "offer": {
+          "title": "Offre à prix fixe",
+          "body": "Vous recevez une offre écrite indiquant la surface, la composition et le prix fixe."
+        },
+        "subsidy": {
+          "title": "Subventions et permis",
+          "body": "Nous vous indiquons quel programme s'applique dans votre canton, nous nous chargeons de la demande de subvention avant le début des travaux et nous vérifions si un permis de construire est nécessaire."
+        },
+        "execution": {
+          "title": "Travaux et réception",
+          "body": "Nos équipes réalisent les travaux. À la fin, nous procédons avec vous à la réception du toit."
+        }
+      },
+      "imageAlt": "Bâtiment avec des équipes sur le toit, représentation schématique"
+    },
+    "contract": {
+      "title": "Ce que prévoit le contrat",
+      "items": {
+        "contract": {
+          "title": "Un seul contrat",
+          "body": "Votre contrat est conclu avec Free State AG, pour tous les travaux sur le toit."
+        },
+        "safety": {
+          "title": "Sécurité sur le chantier",
+          "body": "Nous inscrivons les mesures de sécurité dans le contrat, comme le prévoit l'ordonnance sur les travaux de construction (OTConst art. 3)."
+        },
+        "warranty": {
+          "title": "Garantie",
+          "body": "La garantie pour les défauts dure cinq ans à compter de la réception, comme le prévoit la loi pour les ouvrages immobiliers. Vous disposez de 60 jours pour signaler un défaut, à compter de sa découverte s'il s'agit d'un défaut caché (CO art. 367, 370 et 371)."
+        },
+        "asbestos": {
+          "title": "Amiante-ciment",
+          "body": "Pour le fibrociment sur les bâtiments construits jusqu'en 1990, nous recherchons l'amiante avant l'offre. Le retrait figure séparément dans l'offre."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Questions sur la rénovation de toiture",
+      "description": "Quand un point ne peut être jugé que sur place, nous le disons.",
+      "items": {
+        "1": {
+          "question": "Combien coûte une rénovation de toiture ?",
+          "answer": "Selon les données brutes du Programme Bâtiments (Office fédéral de l'énergie), les rénovations de toiture subventionnées avec isolation ont coûté en Suisse, de 2023 à 2025, CHF 69'400 en médiane par cas pour une maison individuelle. Le quartile inférieur était de CHF 45'800, le quartile supérieur de CHF 102'000. Ces montants peuvent inclure d'autres travaux et la source n'indique pas la TVA. Notre calculateur vous montre ces valeurs publiques pour votre bâtiment. Vous recevez le prix fixe après la visite."
+        },
+        "2": {
+          "question": "Quand un toit doit-il être refait ?",
+          "answer": "Les signes sont les taches d'eau, les tuiles cassées ou déplacées et une étanchéité endommagée. Le tableau paritaire des durées de vie donne comme valeur indicative 50 ans pour les toits en tuiles et en fibrociment et 30 ans pour les toits plats. L'âge ne suffit pas à lui seul pour décider, c'est pourquoi nous examinons le toit."
+        },
+        "3": {
+          "question": "Une réparation suffit-elle ou faut-il rénover ?",
+          "answer": "Tout dépend de l'état de la couverture, de la sous-toiture et de l'isolation. Selon Enveloppe des bâtiments Suisse, les tuiles elles-mêmes peuvent durer jusqu'à 100 ans, de sorte qu'une rénovation concerne souvent les couches situées dessous. Après la visite, nous vous disons si une réparation suffit."
+        },
+        "4": {
+          "question": "Combien de temps dure une rénovation de toiture ?",
+          "answer": "Cela dépend de la surface, de la composition et de la météo. Nous clarifions la durée lors de la visite."
+        },
+        "5": {
+          "question": "Puis-je rester dans la maison pendant les travaux ?",
+          "answer": "Nous le clarifions lors de la visite, car cela dépend de la composition et de l'état du toit."
+        },
+        "6": {
+          "question": "Une rénovation de toiture nécessite-t-elle un permis de construire ?",
+          "answer": "Cela dépend du canton, de la zone et de l'ampleur des travaux. Nous le vérifions pour votre toit et nous nous chargeons de la demande s'il en faut une."
+        },
+        "7": {
+          "question": "Existe-t-il des subventions ?",
+          "answer": "Les programmes cantonaux versent une contribution par m² pour l'isolation, par exemple CHF 40 à Zurich et CHF 50 à Schaffhouse, état 2026. La demande doit être déposée avant le début des travaux. Nous clarifions le montant pour votre canton dans l'offre."
+        },
+        "8": {
+          "question": "Qu'est-ce qui change pour les impôts ?",
+          "answer": "Dès le 1er janvier 2029, la déduction des frais d'entretien d'immeubles disparaît pour les logements occupés par leur propriétaire, et la valeur locative disparaît au même moment. La déduction reste possible pour les logements loués ou affermés. Le mieux est de demander à votre administration fiscale quelle date compte pour vos travaux."
+        },
+        "9": {
+          "question": "Que se passe-t-il s'il y a de l'amiante dans le toit ?",
+          "answer": "L'amiante est interdit en Suisse depuis 1990, et les plaques de fibrociment contenant de l'amiante ont encore pu être mises sur le marché jusqu'au 1er janvier 1991. Pour le fibrociment sur les bâtiments construits jusqu'en 1990, nous recherchons donc l'amiante avant l'offre. Les plaques ne doivent être ni sciées ni cassées, ni réutilisées. Le retrait figure séparément."
+        },
+        "10": {
+          "question": "Que devient une installation solaire existante ?",
+          "answer": "Nous la démontons pour les travaux et la remontons ensuite. Cette prestation fait l'objet d'une offre séparée. Nous vérifions lors de la visite si l'installation peut être remontée telle quelle."
+        }
+      }
+    },
+    "form": {
+      "heading": {
+        "estimator": "Demander une offre pour votre toit",
+        "final": "Parlons de votre toit",
+        "solar": "Demander une offre toit et solaire",
+        "fallback": "Demande pour votre toit"
+      },
+      "intro": "Votre nom, votre téléphone et votre adresse suffisent. Nous vous appelons et clarifions les détails de votre toit.",
+      "moreDetails": "Autres informations (facultatif)",
+      "choose": "Veuillez choisir",
+      "objectType": {
+        "label": "Bâtiment",
+        "options": {
+          "house": "Maison individuelle",
+          "multi_family": "Immeuble collectif",
+          "commercial": "Artisanat ou industrie",
+          "farm": "Agriculture"
+        }
+      },
+      "reason": {
+        "label": "Motif",
+        "options": {
+          "leak": "Toit qui fuit",
+          "age": "Âge du toit",
+          "storm_hail": "Tempête ou grêle",
+          "insulation": "Isolation",
+          "solar_planned": "Installation solaire prévue",
+          "other": "Autre"
+        }
+      },
+      "timing": {
+        "label": "Échéance",
+        "options": {
+          "within_6_months": "Dans les 6 mois",
+          "within_12_months": "Dans les 12 mois",
+          "later": "Plus tard",
+          "unsure": "Pas encore décidé"
+        }
+      },
+      "pvInterest": {
+        "label": "Installation solaire",
+        "options": {
+          "yes": "Cela m'intéresse",
+          "no": "Cela ne m'intéresse pas",
+          "has_pv": "J'en ai déjà une"
+        }
+      },
+      "submit": "Envoyer la demande",
+      "successTitle": "Merci, nous avons bien reçu votre demande.",
+      "successBody": "Nous vous appelons au {phone} pour parler de votre toit.",
+      "errors": {
+        "required": "Veuillez remplir ce champ.",
+        "phoneInvalid": "Veuillez saisir un numéro de téléphone valide, par exemple 079 123 45 67.",
+        "postalCodeInvalid": "Veuillez saisir un NPA à quatre chiffres.",
+        "emailInvalid": "Veuillez saisir une adresse e-mail valide.",
+        "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
+        "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer ou nous appeler au {phone}.",
+        "rateLimited": "Vous venez d'envoyer plusieurs demandes. Veuillez réessayer dans quelques minutes ou nous appeler au {phone}."
+      },
+      "call": "Vous préférez appeler ?"
+    },
+    "estimator": {
+      "loading": "Nous consultons les données de la Confédération. Cela prend quelques secondes.",
+      "restart": "Saisir une autre adresse",
+      "address": {
+        "title": "Quelle est l'adresse du bâtiment ?",
+        "placeholder": "Rue n°, NPA localité",
+        "hint": "Choisissez votre adresse dans la liste.",
+        "noResults": "Nous ne trouvons pas cette adresse. Vérifiez l'orthographe ou envoyez-nous votre demande plus bas sur la page.",
+        "searchFailed": "La recherche d'adresse ne répond pas pour le moment. Veuillez réessayer dans un instant.",
+        "rateLimited": "Vous venez de chercher beaucoup d'adresses. Veuillez réessayer dans quelques minutes.",
+        "cta": "Voir le résultat",
+        "direct": "Nous écrire directement"
+      },
+      "chooser": {
+        "title": "De quel bâtiment s'agit-il ?",
+        "body": "Le registre indique plusieurs bâtiments à cette adresse.",
+        "option": "Bâtiment {number}",
+        "imageAlt": "Image aérienne du bâtiment {number}"
+      },
+      "roof": {
+        "title": "Votre toit",
+        "area": "Surface du toit",
+        "areaValue": "{area} m²",
+        "form": "Forme du toit",
+        "forms": {
+          "steep": "Toit en pente",
+          "flat": "Toit plat",
+          "mixed": "En partie en pente, en partie plat",
+          "shed": "Toit en sheds"
+        },
+        "year": "Année de construction",
+        "imageAlt": "Image aérienne de votre bâtiment",
+        "imageCredit": "Image aérienne : swisstopo, SWISSIMAGE",
+        "splitNote": "Votre toit est relié à un bâtiment voisin. La surface indique votre partie.",
+        "coverQuestion": "Quelle est la couverture actuelle de votre toit ?",
+        "coverAnswers": {
+          "tile": "Tuiles",
+          "fibre_cement": "Fibrociment",
+          "metal": "Métal",
+          "unknown": "Je ne sais pas"
+        },
+        "wholeRoofQuestion": "Selon Toitsolaire.ch, la surface du toit dépasse nettement la surface du bâtiment inscrite au registre. L'ensemble du toit fait-il partie de votre adresse ?",
+        "wholeRoofYes": "Oui",
+        "wholeRoofNo": "Non",
+        "next": "Voir le résultat"
+      },
+      "result": {
+        "title": "Votre résultat",
+        "marketReference": {
+          "heading": "Voici ce qu'ont coûté des rénovations de toiture comparables avec isolation",
+          "chfJob": {
+            "value": "CHF {low} à {high}",
+            "label": "moitié centrale des projets subventionnés en Suisse, médiane CHF {median}"
+          },
+          "chfM2": {
+            "value": "CHF {low} à {high} par m² de surface isolée",
+            "label": "moitié centrale des projets subventionnés en Suisse, médiane CHF {median} par m²"
+          },
+          "note": "Ces valeurs proviennent du Programme Bâtiments de la Confédération et des cantons, de 2023 à 2025, et ne sont pas une offre de notre part. Elles peuvent inclure d'autres travaux. Nous indiquons votre prix dans l'offre, et le prix fixe après la visite."
+        },
+        "perM2": {
+          "label": "Notre prix par m² pour la réfection complète de votre toit plat",
+          "inclVat": "CHF {low} à {high} par m², TVA 8.1 % incluse",
+          "exclVat": "CHF {low} à {high} par m², hors TVA",
+          "includedTitle": "Compris",
+          "included": "Démolition, isolation, étanchéité, ferblanterie.",
+          "onTopTitle": "En sus",
+          "exclusions": {
+            "scaffold_scope": "Échafaudage et protection antichute selon l'objet",
+            "planning": "Planification et direction des travaux",
+            "pah_bitumen": "Ancien revêtement contenant du goudron"
+          },
+          "disclaimer": "Ce n'est pas une offre. Vous recevez le prix fixe après la visite."
+        },
+        "visit": {
+          "title": "Pour votre toit, nous indiquons le prix après la visite",
+          "reasons": {
+            "shared_roof": "Votre toit est relié à un bâtiment voisin. Nous clarifions sur place quelle partie vous appartient et comment les travaux se dérouleraient.",
+            "flat_small": "Pour les toits plats de moins de 400 m², nous n'avons pas assez de chiffres pour donner une valeur indicative.",
+            "farm": "Pour les bâtiments agricoles, le prix dépend fortement de la construction et de l'usage.",
+            "shed": "Pour les toits en sheds, le prix dépend fortement de la structure.",
+            "mixed": "Votre toit est en partie en pente et en partie plat. Le mieux est de l'examiner sur place.",
+            "oversized_unanswered": "Selon Toitsolaire.ch, la surface du toit dépasse nettement la surface du bâtiment inscrite au registre. Nous clarifions sur place si l'ensemble du toit fait partie de votre adresse.",
+            "no_roof_data": "La Confédération n'a pas de données de toit pour ce bâtiment. Nous examinerons le toit sur place.",
+            "other": "Nous n'avons pas de valeur indicative pour ce type de bâtiment.",
+            "high_rise": "Sur les bâtiments de nombreux étages, l'accès, la grue et la sécurité déterminent le prix. Nous l'examinons sur place."
+          }
+        },
+        "young": {
+          "body": "Selon le registre, votre maison est neuve. Le toit est probablement récent.",
+          "link": "Vers le calculateur solaire"
+        },
+        "subsidy": {
+          "title": "Subvention possible",
+          "range": "CHF {low} à {high}",
+          "upTo": "Jusqu'à CHF {high}",
+          "rate": "CHF {rate} par m² de toit isolé. Sur les très grands toits, le montant par m² peut être plus bas.",
+          "belowMinimum": "Pour cette surface, le montant reste sous la contribution minimale du canton.",
+          "notChecked": "Nous clarifions la subvention de votre canton dans l'offre.",
+          "notEligible": "Le programme de votre canton exige un permis de construire antérieur à 2000. Selon le registre, votre bâtiment est plus récent.",
+          "conditionsTitle": "Conditions",
+          "conditions": {
+            "u_value": "Isolation avec une valeur U de 0,20 W/m²K au maximum",
+            "apply_before_start": "Demande avant le début des travaux",
+            "built_before_2000": "Permis de construire du bâtiment antérieur à 2000",
+            "requires_pv": "Preuve d'une installation solaire"
+          },
+          "notSubtracted": "La subvention n'est pas déduite du prix. Le programme cantonal peut poser d'autres conditions."
+        },
+        "existingPv": {
+          "withYear": "Installation solaire selon le registre, {kw} kW depuis {year}. Le démontage et le remontage font l'objet d'une offre séparée.",
+          "withoutYear": "Installation solaire selon le registre, {kw} kW. Le démontage et le remontage font l'objet d'une offre séparée.",
+          "noFigureWithYear": "Installation solaire selon le registre, depuis {year}. Le démontage et le remontage font l'objet d'une offre séparée.",
+          "noFigure": "Installation solaire selon le registre. Le démontage et le remontage font l'objet d'une offre séparée."
+        },
+        "pvPotential": {
+          "body": "De la place pour environ {kwp} kWc et une production d'environ {kwh} kWh par an.",
+          "link": "Planifier le toit et le solaire ensemble"
+        },
+        "asbestos": "Selon le registre, votre bâtiment date de 1990 ou d'avant. Si votre toit est en fibrociment, nous recherchons l'amiante avant l'offre et indiquons le retrait séparément.",
+        "request": "Demander une offre",
+        "sources": "Sources : Toitsolaire.ch (Office fédéral de l'énergie), Registre fédéral des bâtiments et des logements (Office fédéral de la statistique), registre Pronovo.",
+        "wrongData": "Des informations sont inexactes ?"
+      },
+      "failure": {
+        "retry": "Réessayer",
+        "not_found": {
+          "title": "Nous ne trouvons pas ce bâtiment",
+          "body": "Le registre ne contient aucune inscription correspondant à cette adresse. Envoyez-nous votre demande, nous clarifierons cela personnellement."
+        },
+        "lookup_failed": {
+          "title": "Les registres ne répondent pas pour le moment",
+          "body": "Veuillez réessayer ou nous envoyer directement votre demande."
+        },
+        "rate_limited": {
+          "title": "Trop de requêtes",
+          "body": "Veuillez réessayer dans quelques minutes, nous envoyer directement votre demande ou nous appeler au {phone}."
+        }
+      },
+      "example": {
+        "badge": "Exemple",
+        "alt": "Vue aérienne d'un toit plat sur un bâtiment commercial, contour marqué",
+        "year": "Construit en {year}",
+        "priceLabel": "Notre prix par m² pour la réfection complète"
+      }
+    },
+    "solarPage": {
+      "hero": {
+        "title": "Planifier ensemble le toit et l'installation solaire",
+        "subtitle": "Si votre toit est rénové, vous pouvez aussi trancher dès maintenant la question du solaire. Free State AG planifie les deux dans toute la Suisse et reste votre seul partenaire contractuel.",
+        "cta": "Demander une offre toit et solaire"
+      },
+      "why": {
+        "title": "Pourquoi ensemble plutôt que plus tard",
+        "intro": "Le toit et l'installation solaire sont liés sur le plan constructif. Mieux vaut donc regarder les deux avant de monter l'échafaudage.",
+        "items": {
+          "scaffold": {
+            "title": "Un échafaudage, une phase de chantier",
+            "body": "Le toit et l'installation solaire partagent l'échafaudage et la phase de chantier. SuisseEnergie cite cet avantage d'une planification commune."
+          },
+          "dismantling": {
+            "title": "Un toit neuf sous l'installation",
+            "body": "Une installation posée sur un toit neuf n'a en principe pas à être démontée et remontée plus tard pour une réfection du toit."
+          },
+          "asbestos": {
+            "title": "L'amiante-ciment d'abord",
+            "body": "La Suva recommande en principe de remplacer entièrement un toit en amiante-ciment avant de monter une installation solaire (fiche 33068)."
+          }
+        },
+        "imageAlt": "Monteur au travail sur une installation solaire, sur un toit de tuiles"
+      },
+      "cantons": {
+        "title": "Ce que règlent certains cantons",
+        "intro": "Les règles sont cantonales. Voici quatre exemples, état 2026.",
+        "items": {
+          "SH": {
+            "title": "Schaffhouse",
+            "body": "Depuis le 1er janvier 2026, une rénovation complète de toiture entraîne l'obligation de produire de l'électricité si la surface déterminante de construction atteint 300 m² et si le toit reçoit au moins 85 % du rayonnement global. Il faut au moins 30 W par m² de surface de référence énergétique (EnerV § 16a, § 26h)."
+          },
+          "LU": {
+            "title": "Lucerne",
+            "body": "Depuis le 1er mars 2025, une rénovation de toiture doit exploiter de manière appropriée le potentiel de production d'électricité. Sinon, une taxe de remplacement de CHF 1'000 au maximum s'applique par kW non réalisé (KEnG § 15)."
+          },
+          "BE": {
+            "title": "Berne",
+            "body": "Depuis le 1er janvier 2026, la rénovation intégrale d'une toiture doit être annoncée (LCEn art. 39d)."
+          },
+          "SG": {
+            "title": "Saint-Gall",
+            "body": "Le canton ne verse la contribution pour le toit que sur preuve d'une installation solaire."
+          }
+        },
+        "note": "Nous clarifions ce qui s'applique dans votre canton dans l'offre."
+      },
+      "mounting": {
+        "title": "Surimposition ou installation intégrée ?",
+        "body1": "Pour les installations de moins de 30 kW, la rétribution unique s'élève, état 2026, à CHF 400 par kW pour une installation intégrée et à CHF 360 par kW pour une installation en surimposition. Cet écart ne couvre pas le surcoût d'une installation intégrée.",
+        "body2": "La décision dépend donc du toit lui-même, de sa forme, de son état et de son aspect. Certains cantons paient davantage pour une installation intégrée, l'Argovie par exemple un bonus de CHF 100 au lieu de CHF 30 par m² de toit en pente. Nous en parlons lors de la visite.",
+        "imageAlt": "Maison avec installation solaire sur le toit, représentation schématique",
+        "inRoof": "Intégré au toit",
+        "onRoof": "Surimposition",
+        "perKw": "CHF {value} par kW"
+      },
+      "offer": {
+        "title": "Trois postes, chiffrés séparément",
+        "intro": "Dans chaque offre, le toit, l'isolation et le solaire figurent séparément. Vous voyez ainsi ce que coûte chaque partie.",
+        "items": {
+          "roof": {
+            "title": "Toit",
+            "body": "Nouvelle couverture ou étanchéité, sous-toiture, ferblanterie, échafaudage et chantier."
+          },
+          "insulation": {
+            "title": "Isolation",
+            "body": "L'isolation qu'exige la subvention cantonale."
+          },
+          "solar": {
+            "title": "Solaire",
+            "body": "Modules, onduleur, montage et raccordement."
+          }
+        },
+        "existingTitle": "Installation solaire existante",
+        "existingBody": "Si une installation se trouve déjà sur le toit, le registre nous indique sa puissance et son année de mise en service. Le démontage et le remontage font l'objet d'une offre séparée.",
+        "imageAlt": "Toit de tuiles avec modules solaires, représentation schématique"
+      },
+      "models": {
+        "title": "Deux modèles pour votre installation solaire",
+        "intro": "Pour l'installation solaire sur votre nouveau toit, nous vous présentons ici SolarFree et SolarDirect. Chaque modèle a son propre contrat avec Free State AG.",
+        "solarFree": {
+          "title": "SolarFree",
+          "body": "Sans acompte (CHF 0). Vous payez le courant solaire que vous consommez vous-même, jusqu'à 30 % sous le tarif du réseau.",
+          "clause": "Le contrat SolarFree contient au chiffre 6.2 une disposition sur les travaux de réfection du toit. Avec un toit neuf sous l'installation, ce cas ne se présente en principe pas.",
+          "link": "En savoir plus sur SolarFree"
+        },
+        "solarDirect": {
+          "title": "SolarDirect",
+          "body": "Vous achetez l'installation solaire et consommez vous-même le courant. Elle vous appartient une fois entièrement payée.",
+          "link": "En savoir plus sur SolarDirect"
+        }
+      },
+      "faq": {
+        "eyebrow": "Questions fréquentes",
+        "title": "Questions sur le toit et le solaire",
+        "description": "Quand un point ne peut être jugé que sur place, nous le disons.",
+        "items": {
+          "1": {
+            "question": "Dois-je réaliser le toit et l'installation solaire en même temps ?",
+            "answer": "Non. Nous pouvons planifier le toit de sorte que l'installation suive plus tard. Vous ne partagez toutefois l'échafaudage et la phase de chantier que si les deux sont réalisés ensemble."
+          },
+          "2": {
+            "question": "Existe-t-il une obligation dans mon canton ?",
+            "answer": "Cela relève de chaque canton. Schaffhouse, Lucerne et Berne ont des règles pour les rénovations de toiture, que nous citons plus haut. Nous clarifions ce qui s'applique dans votre canton dans l'offre."
+          },
+          "3": {
+            "question": "Surimposition ou installation intégrée, que choisir ?",
+            "answer": "Cela dépend du toit lui-même. Sous 30 kW, la rétribution unique s'élève, état 2026, à CHF 400 par kW pour une installation intégrée et à CHF 360 pour une installation en surimposition, ce qui ne tranche pas la question. Nous en parlons lors de la visite."
+          },
+          "4": {
+            "question": "J'ai déjà une installation. Que devient-elle ?",
+            "answer": "Nous la démontons pour les travaux et la remontons ensuite. Cette prestation fait l'objet d'une offre séparée. Nous vérifions lors de la visite si l'installation peut être remontée telle quelle."
+          },
+          "5": {
+            "question": "Tout figure-t-il ensemble dans l'offre ?",
+            "answer": "Non. Le toit, l'isolation et le solaire figurent séparément, pour que vous puissiez voir chaque partie et décider."
+          },
+          "6": {
+            "question": "SolarFree convient-il à une rénovation de toiture ?",
+            "answer": "Avec SolarFree, il n'y a pas d'acompte (CHF 0). Nous clarifions lors de la visite s'il convient à votre toit."
+          }
         }
       }
     }

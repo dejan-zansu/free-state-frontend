@@ -157,6 +157,7 @@ type ServiceArgs = {
   description: string
   url: string
   serviceType: string
+  areaServed?: { '@type': string; name: string }[]
 }
 
 export function buildServiceJsonLd(s: ServiceArgs) {
@@ -172,9 +173,11 @@ export function buildServiceJsonLd(s: ServiceArgs) {
       name: siteConfig.name,
       url: siteConfig.url,
     },
-    areaServed: siteConfig.areaServed.map(name => ({
-      '@type': 'AdministrativeArea',
-      name,
-    })),
+    areaServed:
+      s.areaServed ??
+      siteConfig.areaServed.map(name => ({
+        '@type': 'AdministrativeArea',
+        name,
+      })),
   }
 }
