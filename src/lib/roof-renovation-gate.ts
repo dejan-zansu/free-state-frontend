@@ -1,4 +1,4 @@
-export const ROOF_RENOVATION_LIVE = false
+export const ROOF_RENOVATION_LIVE = true
 export const ROOF_FINANCING_APPROVED = false
 export const roofFinancingVisible =
   ROOF_FINANCING_APPROVED || !ROOF_RENOVATION_LIVE
