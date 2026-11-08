@@ -404,6 +404,7 @@
       "energyStorage": "Accumulo di energia",
       "energyManagement": "Gestione dell'energia",
       "roofRenovation": "Risanamento del tetto",
+      "roofRenovationService": "Servizi e costi",
       "roofRenovationSolar": "Tetto e solare",
       "catalog3d": "Prodotti in 3D"
     },
@@ -935,6 +936,13 @@
       "step3": "Soluzioni di ricarica affidabili con Huawei",
       "cta": "Scopri le soluzioni di ricarica VE",
       "exploreHuawei": "Scopri Huawei"
+    },
+    "roofRenovation": {
+      "title": "Risanamento del tetto",
+      "subtitle": "Risaniamo il Suo tetto in tutta la Svizzera con squadre proprie, dal primo controllo al collaudo. Ha un solo partner contrattuale.",
+      "subtitleCommercial": "Risaniamo i tetti di edifici commerciali, capannoni e condomini in tutta la Svizzera con squadre proprie. Ha un solo partner contrattuale.",
+      "cta": "Scopri il risanamento del tetto",
+      "imageAlt": "Tetti in tegole del centro storico di Berna"
     },
     "fusionSolarApp": {
       "eyebrow": "App FusionSolar",
@@ -13843,7 +13851,16 @@
             "body": "La Suva raccomanda di principio di sostituire completamente un tetto in cemento-amianto prima di montare un impianto solare (scheda 33068)."
           }
         },
-        "imageAlt": "Installatore al lavoro su un impianto solare su un tetto in tegole"
+        "diagram": {
+          "together": "Insieme",
+          "later": "Uno dopo l'altro",
+          "onePhase": "Una fase di cantiere",
+          "twoPhases": "Due fasi di cantiere",
+          "roof": "Tetto",
+          "solar": "Solare",
+          "scaffold": "Ponteggio",
+          "gap": "più tardi"
+        }
       },
       "cantons": {
         "title": "Che cosa regolano alcuni Cantoni",
@@ -13897,6 +13914,12 @@
         "existingTitle": "Impianto solare esistente",
         "existingBody": "Se sul tetto c'è già un impianto, il registro ci indica la potenza e l'anno di messa in esercizio. Smontaggio e rimontaggio sono oggetto di un'offerta separata.",
         "imageAlt": "Tetto in tegole con moduli solari, rappresentazione schematica"
+      },
+      "cost": {
+        "intro": "Il grafico mostra dati pubblici della Confederazione sui risanamenti di tetti. L'impianto solare si aggiunge come voce separata.",
+        "solarTitle": "Impianto solare",
+        "solarBody": "Offriamo l'impianto solare come voce separata. Il prezzo dipende dalla dimensione e dal tetto. La nostra pagina dei costi mostra i prezzi attuali.",
+        "solarLink": "Costi di un impianto solare"
       },
       "models": {
         "title": "Due modelli per il Suo impianto solare",

@@ -28,8 +28,11 @@ export function publicRoofMessages(
   const products = { ...(footer.products as AbstractIntlMessages) }
   delete products.roofRenovation
   delete products.roofRenovationSolar
+  delete products.roofRenovationService
+  const home = { ...(messages.home as AbstractIntlMessages) }
+  delete home.roofRenovation
   delete result.roofRenovation
-  return { ...result, seo, footer: { ...footer, products } }
+  return { ...result, seo, home, footer: { ...footer, products } }
 }
 
 export function adminAreaMessages(

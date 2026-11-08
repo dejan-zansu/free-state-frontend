@@ -20,6 +20,8 @@ import CustomerStories from '@/components/CustomerStories'
 import Reviews from '@/components/Reviews'
 import StackedPanels from '@/components/motion/StackedPanels'
 import LatestPostsSection from '@/components/blog/LatestPostsSection'
+import RoofRenovationHomePanel from '@/components/home/RoofRenovationHomePanel'
+import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 
 export async function generateMetadata({
   params,
@@ -51,6 +53,7 @@ export default async function HomePage() {
         <Battery />
         <HeatPumpsViessmann />
         <EvCharging />
+        {roofRenovationVisible && <RoofRenovationHomePanel />}
       </StackedPanels>
       <YourBenefits />
       <CustomerStories isCommercial />

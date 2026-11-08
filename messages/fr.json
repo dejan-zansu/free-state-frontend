@@ -404,6 +404,7 @@
       "energyStorage": "Stockage d'énergie",
       "energyManagement": "Gestion de l'énergie",
       "roofRenovation": "Rénovation de toiture",
+      "roofRenovationService": "Prestations et coûts",
       "roofRenovationSolar": "Toit et solaire",
       "catalog3d": "Produits en 3D"
     },
@@ -935,6 +936,13 @@
       "step3": "Solutions de recharge fiables avec Huawei",
       "cta": "Découvrir les solutions de recharge VE",
       "exploreHuawei": "Découvrir Huawei"
+    },
+    "roofRenovation": {
+      "title": "Rénovation de toiture",
+      "subtitle": "Nous rénovons votre toit dans toute la Suisse avec nos propres équipes, du premier contrôle à la réception. Vous n'avez qu'un seul partenaire contractuel.",
+      "subtitleCommercial": "Nous rénovons les toits de bâtiments commerciaux, de halles et d'immeubles locatifs dans toute la Suisse avec nos propres équipes. Vous n'avez qu'un seul partenaire contractuel.",
+      "cta": "Découvrir la rénovation de toiture",
+      "imageAlt": "Toits en tuiles de la vieille ville de Berne"
     },
     "fusionSolarApp": {
       "eyebrow": "App FusionSolar",
@@ -13843,7 +13851,16 @@
             "body": "La Suva recommande en principe de remplacer entièrement un toit en amiante-ciment avant de monter une installation solaire (fiche 33068)."
           }
         },
-        "imageAlt": "Monteur au travail sur une installation solaire, sur un toit de tuiles"
+        "diagram": {
+          "together": "Ensemble",
+          "later": "L'un après l'autre",
+          "onePhase": "Une seule phase de chantier",
+          "twoPhases": "Deux phases de chantier",
+          "roof": "Toit",
+          "solar": "Solaire",
+          "scaffold": "Échafaudage",
+          "gap": "plus tard"
+        }
       },
       "cantons": {
         "title": "Ce que règlent certains cantons",
@@ -13897,6 +13914,12 @@
         "existingTitle": "Installation solaire existante",
         "existingBody": "Si une installation se trouve déjà sur le toit, le registre nous indique sa puissance et son année de mise en service. Le démontage et le remontage font l'objet d'une offre séparée.",
         "imageAlt": "Toit de tuiles avec modules solaires, représentation schématique"
+      },
+      "cost": {
+        "intro": "Le graphique montre des chiffres publics de la Confédération sur les rénovations de toiture. L'installation solaire s'y ajoute comme poste à part.",
+        "solarTitle": "Installation solaire",
+        "solarBody": "Nous chiffrons l'installation solaire comme un poste à part. Son prix dépend de la taille et du toit. Notre page des coûts montre les prix actuels.",
+        "solarLink": "Coûts d'une installation solaire"
       },
       "models": {
         "title": "Deux modèles pour votre installation solaire",

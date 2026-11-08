@@ -67,3 +67,13 @@ export const RoofIconBadge = ({
     {children}
   </span>
 )
+
+export const RoofDarkPanel = ({ children }: { children: ReactNode }) => (
+  <section className="relative z-10 -mt-[40px] bg-[linear-gradient(180deg,transparent_50%,#FDFFF5_50%)]">
+    <div className="rounded-[40px] bg-[linear-gradient(200deg,#0C5443_0%,#062E25_55%)] text-white">
+      <div className="mx-auto max-w-[1214px] px-4 py-16 sm:px-6 md:py-24">
+        {children}
+      </div>
+    </div>
+  </section>
+)

@@ -404,6 +404,7 @@
       "energyStorage": "Energiespeicher",
       "energyManagement": "Energiemanagement",
       "roofRenovation": "Dachsanierung",
+      "roofRenovationService": "Leistung und Kosten",
       "roofRenovationSolar": "Dach und Solar",
       "catalog3d": "Produkte in 3D"
     },
@@ -984,6 +985,13 @@
       "step3": "Zuverlässige Ladelösungen mit Huawei",
       "cta": "EV-Ladelösungen entdecken",
       "exploreHuawei": "Huawei entdecken"
+    },
+    "roofRenovation": {
+      "title": "Dachsanierung",
+      "subtitle": "Wir sanieren Ihr Dach in der ganzen Schweiz mit eigenen Teams, von der ersten Prüfung bis zur Abnahme. Sie haben einen einzigen Vertragspartner.",
+      "subtitleCommercial": "Wir sanieren die Dächer von Gewerbebauten, Hallen und Mehrfamilienhäusern in der ganzen Schweiz mit eigenen Teams. Sie haben einen einzigen Vertragspartner.",
+      "cta": "Dachsanierung entdecken",
+      "imageAlt": "Ziegeldächer der Berner Altstadt"
     },
     "fusionSolarApp": {
       "eyebrow": "FusionSolar App",
@@ -13844,7 +13852,16 @@
             "body": "Die Suva empfiehlt grundsätzlich, ein Asbestzementdach vor der Montage einer Solaranlage vollständig zu ersetzen (Factsheet 33068)."
           }
         },
-        "imageAlt": "Monteur auf einem Ziegeldach bei der Arbeit an einer Solaranlage"
+        "diagram": {
+          "together": "Zusammen",
+          "later": "Nacheinander",
+          "onePhase": "Eine Bauphase",
+          "twoPhases": "Zwei Bauphasen",
+          "roof": "Dach",
+          "solar": "Solar",
+          "scaffold": "Gerüst",
+          "gap": "später"
+        }
       },
       "cantons": {
         "title": "Was einzelne Kantone regeln",
@@ -13898,6 +13915,12 @@
         "existingTitle": "Bestehende Solaranlage",
         "existingBody": "Steht schon eine Anlage auf dem Dach, zeigt uns das Register in der Regel Leistung und Startjahr. Ab- und Wiederaufbau offerieren wir separat.",
         "imageAlt": "Ziegeldach mit Solarmodulen, schematische Darstellung"
+      },
+      "cost": {
+        "intro": "Die Grafik zeigt öffentliche Zahlen des Bundes zu Dachsanierungen. Die Solaranlage kommt als eigener Posten dazu.",
+        "solarTitle": "Solaranlage",
+        "solarBody": "Die Solaranlage offerieren wir als eigenen Posten. Ihr Preis hängt von Grösse und Dach ab. Aktuelle Preise zeigt unsere Kostenseite.",
+        "solarLink": "Kosten einer Solaranlage"
       },
       "models": {
         "title": "Zwei Modelle für Ihre Solaranlage",

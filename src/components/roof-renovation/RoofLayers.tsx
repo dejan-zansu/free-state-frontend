@@ -470,18 +470,31 @@ const SHAPES: Record<RoofKind, LayerShape[]> = {
   flat: buildFlat(),
 }
 
+const HIGHLIGHT = {
+  dark: {
+    stroke: '#B7FE1A',
+    glow: '[filter:drop-shadow(0_0_6px_rgba(183,254,26,0.75))]',
+  },
+  light: {
+    stroke: '#036B53',
+    glow: '[filter:drop-shadow(0_0_8px_rgba(3,107,83,0.45))]',
+  },
+} as const
+
 const RoofDiagram = ({
   kind,
   active,
   onSelect,
   open,
   label,
+  tone = 'dark',
 }: {
   kind: RoofKind
   active: LayerKey
   onSelect: (layer: LayerKey) => void
   open: boolean
   label: string
+  tone?: keyof typeof HIGHLIGHT
 }) => (
   <svg
     viewBox={VIEW_BOX[kind]}
@@ -499,9 +512,7 @@ const RoofDiagram = ({
           style={{ transform: `translateY(${-offset}px)` }}
           className={cn(
             'cursor-pointer transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none',
-            isActive
-              ? '[filter:drop-shadow(0_0_6px_rgba(183,254,26,0.75))]'
-              : 'opacity-85 hover:opacity-100'
+            isActive ? HIGHLIGHT[tone].glow : 'opacity-85 hover:opacity-100'
           )}
         >
           {shape.parts}
@@ -514,7 +525,7 @@ const RoofDiagram = ({
                 project(shape.x0, DEPTH, shape.top + PITCH[kind] * DEPTH),
               ])}
               fill="none"
-              stroke="#B7FE1A"
+              stroke={HIGHLIGHT[tone].stroke}
               strokeWidth={2.5}
               strokeLinejoin="round"
             />
@@ -525,10 +536,7 @@ const RoofDiagram = ({
   </svg>
 )
 
-const RoofLayers = () => {
-  const t = useTranslations('roofRenovation.services')
-  const [kind, setKind] = useState<RoofKind>('steep')
-  const [active, setActive] = useState<LayerKey>(DEFAULT_LAYER.steep)
+const useOpenOnView = () => {
   const [open, setOpen] = useState(false)
   const rootRef = useRef<HTMLDivElement | null>(null)
 
@@ -550,6 +558,15 @@ const RoofLayers = () => {
     observer.observe(element)
     return () => observer.disconnect()
   }, [])
+
+  return { open, rootRef }
+}
+
+const RoofLayers = () => {
+  const t = useTranslations('roofRenovation.services')
+  const [kind, setKind] = useState<RoofKind>('steep')
+  const [active, setActive] = useState<LayerKey>(DEFAULT_LAYER.steep)
+  const { open, rootRef } = useOpenOnView()
 
   const chooseKind = (next: RoofKind) => {
     setKind(next)
@@ -644,6 +661,88 @@ const RoofLayers = () => {
             )
           })}
         </ul>
+      </div>
+    </div>
+  )
+}
+
+type OfferKey = 'roof' | 'insulation' | 'solar'
+
+const OFFER_LAYER: Record<OfferKey, LayerKey> = {
+  roof: 'cover',
+  insulation: 'insulation',
+  solar: 'solar',
+}
+
+export const RoofOfferLayers = ({
+  label,
+  items,
+  children,
+}: {
+  label: string
+  items: readonly { key: OfferKey; title: string; body: string }[]
+  children?: ReactNode
+}) => {
+  const [active, setActive] = useState<OfferKey>('solar')
+  const { open, rootRef } = useOpenOnView()
+
+  const selectLayer = (layer: LayerKey) => {
+    const match = items.find(item => OFFER_LAYER[item.key] === layer)
+    if (match) setActive(match.key)
+  }
+
+  return (
+    <div
+      ref={rootRef}
+      className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]"
+    >
+      <div className="mx-auto w-full max-w-[520px]">
+        <RoofDiagram
+          kind="steep"
+          active={OFFER_LAYER[active]}
+          onSelect={selectLayer}
+          open={open}
+          label={label}
+          tone="light"
+        />
+      </div>
+      <div>
+        <ul className="flex flex-col gap-3">
+          {items.map(item => {
+            const isActive = item.key === active
+            return (
+              <li key={item.key}>
+                <button
+                  type="button"
+                  aria-pressed={isActive}
+                  onClick={() => setActive(item.key)}
+                  onMouseEnter={() => setActive(item.key)}
+                  className={cn(
+                    'flex w-full items-start gap-4 rounded-[20px] border p-5 text-left transition-colors md:p-6',
+                    isActive
+                      ? 'border-[#036B53] bg-white shadow-[0_8px_24px_rgba(6,46,37,0.08)]'
+                      : 'border-transparent bg-white/60 hover:bg-white'
+                  )}
+                >
+                  <span
+                    aria-hidden
+                    className="mt-1 size-5 shrink-0 rounded-[5px]"
+                    style={{ backgroundColor: SWATCH[OFFER_LAYER[item.key]] }}
+                  />
+                  <span>
+                    <span className="block text-xl font-medium tracking-tight">
+                      {item.title}
+                    </span>
+                    <span className="mt-1 block text-base text-[#062E25]/80">
+                      {item.body}
+                    </span>
+                  </span>
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+        {children}
       </div>
     </div>
   )

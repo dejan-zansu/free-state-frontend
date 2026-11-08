@@ -13,6 +13,7 @@ import RoofEstimateResult from './RoofEstimateResult'
 import RoofRenovationForm, {
   type RoofEstimateEcho,
   type RoofObjectType,
+  type RoofPvInterest,
 } from './RoofRenovationForm'
 import {
   aerialImageUrl,
@@ -68,9 +69,14 @@ function dedupeRows(rows: RoofSuggestion[]): RoofSuggestion[] {
 interface RoofEstimatorProps {
   title: string
   intro: string
+  pvInterest?: RoofPvInterest
 }
 
-export default function RoofEstimator({ title, intro }: RoofEstimatorProps) {
+export default function RoofEstimator({
+  title,
+  intro,
+  pvInterest,
+}: RoofEstimatorProps) {
   const [enabled, setEnabled] = useState(true)
   const disable = useCallback(() => setEnabled(false), [])
 
@@ -81,11 +87,17 @@ export default function RoofEstimator({ title, intro }: RoofEstimatorProps) {
     >
       <div className="mx-auto max-w-[1214px]">
         {enabled ? (
-          <RoofEstimatorFlow onDisabled={disable} title={title} intro={intro} />
+          <RoofEstimatorFlow
+            onDisabled={disable}
+            title={title}
+            intro={intro}
+            pvInterest={pvInterest}
+          />
         ) : (
           <RoofRenovationForm
             placement="fallback"
             className="mx-auto max-w-[720px]"
+            defaultPvInterest={pvInterest}
           />
         )}
       </div>
@@ -155,10 +167,12 @@ function RoofEstimatorFlow({
   onDisabled,
   title,
   intro,
+  pvInterest,
 }: {
   onDisabled: () => void
   title: string
   intro: string
+  pvInterest?: RoofPvInterest
 }) {
   const t = useTranslations('roofRenovation.estimator')
   const listId = useId()
@@ -598,7 +612,11 @@ function RoofEstimatorFlow({
           </div>
           {loadingLine}
         </div>
-        <RoofRenovationForm placement="estimator" prefill={prefill} />
+        <RoofRenovationForm
+          placement="estimator"
+          prefill={prefill}
+          defaultPvInterest={pvInterest}
+        />
       </div>
     )
   }
@@ -737,7 +755,7 @@ function RoofEstimatorFlow({
     )
   }
 
-  const defaultPvInterest = estimate.existingPv ? 'has_pv' : undefined
+  const defaultPvInterest = estimate.existingPv ? 'has_pv' : pvInterest
   const defaultObjectType = OBJECT_TYPE_BY_SEGMENT[estimate.building.segment]
 
   return (

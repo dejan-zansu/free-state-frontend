@@ -10,12 +10,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react'
 import LogoDark from './icons/LogoDark'
 import LanguageSwitcher from './LanguageSwitcher'
 import { LinkButton } from './ui/link-button'
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTitle,
-} from './ui/sheet'
+import { Sheet, SheetClose, SheetContent, SheetTitle } from './ui/sheet'
 
 type SubPanel = 'products' | 'plans' | 'company'
 type PropertyType = 'single' | 'multi' | 'business'
@@ -127,6 +122,10 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
           label: tFooter('products.roofRenovation'),
           href: '/roof-renovation' as const,
           subLinks: [
+            {
+              label: tFooter('products.roofRenovationService'),
+              href: '/roof-renovation' as const,
+            },
             {
               label: tFooter('products.roofRenovationSolar'),
               href: '/roof-renovation/solar' as const,
@@ -307,11 +306,7 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
       isCurrent(link.href) && 'font-medium'
     )
 
-  const renderSubPanel = (
-    key: SubPanel,
-    title: string,
-    body: ReactNode
-  ) => (
+  const renderSubPanel = (key: SubPanel, title: string, body: ReactNode) => (
     <div
       key={key}
       inert={panel !== key}
@@ -334,9 +329,7 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
         <ArrowLeft className="size-5" strokeWidth={1.5} />
         {tCommon('back')}
       </button>
-      <h2 className="mt-2 mb-4 text-2xl font-medium text-[#062E25]">
-        {title}
-      </h2>
+      <h2 className="mt-2 mb-4 text-2xl font-medium text-[#062E25]">{title}</h2>
       {body}
     </div>
   )

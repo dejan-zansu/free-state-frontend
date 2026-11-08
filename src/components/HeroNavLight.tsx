@@ -70,6 +70,10 @@ const HeroNavLight = ({
           icon: House,
           subLinks: [
             {
+              label: tFooter('products.roofRenovationService'),
+              href: '/roof-renovation' as const,
+            },
+            {
               label: tFooter('products.roofRenovationSolar'),
               href: '/roof-renovation/solar' as const,
             },

@@ -29,9 +29,9 @@ import type { ReactNode } from 'react'
 import RoofCostChart from './RoofCostChart'
 import RoofEstimator from './RoofEstimator'
 import RoofLayers from './RoofLayers'
-import RoofRenovationForm from './RoofRenovationForm'
+import RoofRenovationForm, { type RoofPvInterest } from './RoofRenovationForm'
 import { formatChf } from './roof-renovation-api'
-import { RoofIconBadge, RoofSection } from './RoofSection'
+import { RoofDarkPanel, RoofIconBadge, RoofSection } from './RoofSection'
 
 const SUBSIDY_ROWS = [
   { canton: 'ZH', rate: 40, addOn: 20 },
@@ -112,22 +112,38 @@ const CONTRACT_ITEMS: readonly { key: string; icon: ReactNode }[] = [
 const HERO_POINTS = ['offer', 'fixedPrice', 'onePartner'] as const
 const SOLAR_REASONS = ['scaffold', 'dismantling', 'asbestos'] as const
 
-export const RoofRenovationHero = async () => {
+export const RoofEstimatorHero = async ({
+  image,
+  title,
+  subtitle,
+  directLabel,
+  pvInterest,
+}: {
+  image: string
+  title: string
+  subtitle: string
+  directLabel?: string
+  pvInterest?: RoofPvInterest
+}) => {
   const t = await getTranslations('roofRenovation.hero')
   const tSection = await getTranslations('roofRenovation.estimatorSection')
   const tAddress = await getTranslations('roofRenovation.estimator.address')
   return (
     <div className="bg-[#EAEDDF]">
       <PageHero
-        backgroundImage="/images/roof-renovation/hero-bern-roofs.webp"
+        backgroundImage={image}
         overlayClassName="bg-[linear-gradient(180deg,rgba(6,46,37,0.8)_0%,rgba(6,46,37,0.58)_60%,rgba(6,46,37,0.42)_100%)]"
-        title={t('title')}
+        title={title}
         titleClassName="normal-case max-w-[1040px]"
-        description={t('subtitle')}
+        description={subtitle}
         descriptionClassName="max-w-[980px] text-lg text-white/90 md:text-[22px]"
         className="min-h-[560px] pb-[140px] md:min-h-[620px] md:pb-[190px]"
       />
-      <RoofEstimator title={tSection('title')} intro={tSection('intro')} />
+      <RoofEstimator
+        title={tSection('title')}
+        intro={tSection('intro')}
+        pvInterest={pvInterest}
+      />
       <div className="mx-auto flex max-w-[1214px] flex-col gap-4 px-4 pb-14 pt-8 text-[#062E25] sm:px-6 md:flex-row md:items-center md:justify-between md:pb-20">
         <ul className="flex flex-col gap-x-8 gap-y-3 sm:flex-row sm:flex-wrap">
           {HERO_POINTS.map(point => (
@@ -147,10 +163,21 @@ export const RoofRenovationHero = async () => {
           href="#anfrage"
           className="w-fit shrink-0 text-base font-medium underline underline-offset-4 md:text-lg"
         >
-          {tAddress('direct')}
+          {directLabel ?? tAddress('direct')}
         </a>
       </div>
     </div>
+  )
+}
+
+export const RoofRenovationHero = async () => {
+  const t = await getTranslations('roofRenovation.hero')
+  return (
+    <RoofEstimatorHero
+      image="/images/roof-renovation/hero-bern-roofs.webp"
+      title={t('title')}
+      subtitle={t('subtitle')}
+    />
   )
 }
 
@@ -166,7 +193,7 @@ export const RoofDueSection = async () => {
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover"
         />
-        <div className="absolute inset-x-4 bottom-4 rounded-[24px] border border-white/25 bg-[#062E25]/75 p-6 text-white backdrop-blur-[20px] sm:inset-x-8 sm:bottom-8 md:p-8">
+        <div className="absolute inset-x-4 bottom-4 rounded-[24px] border border-white/25 bg-[#062E25]/75 p-6 text-white backdrop-blur-[20px] sm:inset-x-8 sm:bottom-8 md:p-8 lg:bottom-16">
           <h3 className="text-xl font-medium tracking-tight">
             {t('lifeTitle')}
           </h3>
@@ -224,44 +251,40 @@ export const RoofDueSection = async () => {
 export const RoofServicesSection = async () => {
   const t = await getTranslations('roofRenovation.services')
   return (
-    <section className="bg-[#FDFFF5]">
-      <div className="rounded-[40px] bg-[linear-gradient(200deg,#0C5443_0%,#062E25_55%)] text-white">
-        <div className="mx-auto max-w-[1214px] px-4 py-16 sm:px-6 md:py-24">
-          <div className="max-w-[820px]">
-            <h2 className="text-3xl font-medium sm:text-4xl md:text-[45px]">
-              {t('title')}
-            </h2>
-            <p className="mt-5 text-lg tracking-[-0.02em] text-white/80 md:text-[22px]">
-              {t('intro')}
-            </p>
-          </div>
-          <div className="mt-10 md:mt-12">
-            <RoofLayers />
-          </div>
-          <div className="mt-14 grid gap-10 border-t border-white/15 pt-10 md:grid-cols-3">
-            {SERVICE_PHASES.map(phase => (
-              <div key={phase.key}>
-                <h3 className="text-lg font-medium text-solar">
-                  {t(`phases.${phase.key}`)}
-                </h3>
-                <dl className="mt-5 flex flex-col gap-5">
-                  {phase.items.map(item => (
-                    <div key={item}>
-                      <dt className="text-lg font-medium tracking-tight">
-                        {t(`items.${item}.title`)}
-                      </dt>
-                      <dd className="mt-1 text-base text-white/75">
-                        {t(`items.${item}.body`)}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            ))}
-          </div>
-        </div>
+    <RoofDarkPanel>
+      <div className="max-w-[820px]">
+        <h2 className="text-3xl font-medium sm:text-4xl md:text-[45px]">
+          {t('title')}
+        </h2>
+        <p className="mt-5 text-lg tracking-[-0.02em] text-white/80 md:text-[22px]">
+          {t('intro')}
+        </p>
       </div>
-    </section>
+      <div className="mt-10 md:mt-12">
+        <RoofLayers />
+      </div>
+      <div className="mt-14 grid gap-10 border-t border-white/15 pt-10 md:grid-cols-3">
+        {SERVICE_PHASES.map(phase => (
+          <div key={phase.key}>
+            <h3 className="text-lg font-medium text-solar">
+              {t(`phases.${phase.key}`)}
+            </h3>
+            <dl className="mt-5 flex flex-col gap-5">
+              {phase.items.map(item => (
+                <div key={item}>
+                  <dt className="text-lg font-medium tracking-tight">
+                    {t(`items.${item}.title`)}
+                  </dt>
+                  <dd className="mt-1 text-base text-white/75">
+                    {t(`items.${item}.body`)}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        ))}
+      </div>
+    </RoofDarkPanel>
   )
 }
 

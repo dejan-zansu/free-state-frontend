@@ -404,6 +404,7 @@
       "energyStorage": "Energy storage",
       "energyManagement": "Energy management",
       "roofRenovation": "Roof renovation",
+      "roofRenovationService": "Service and costs",
       "roofRenovationSolar": "Roof and solar",
       "catalog3d": "Products in 3D"
     },
@@ -935,6 +936,13 @@
       "step3": "Reliable charging solutions with Huawei",
       "cta": "Explore EV Charging Solutions",
       "exploreHuawei": "Explore Huawei"
+    },
+    "roofRenovation": {
+      "title": "Roof renovation",
+      "subtitle": "We renew your roof across Switzerland with our own teams, from the first check to the handover. You have one contract partner.",
+      "subtitleCommercial": "We renew the roofs of commercial buildings, halls and apartment blocks across Switzerland with our own teams. You have one contract partner.",
+      "cta": "Explore roof renovation",
+      "imageAlt": "Tiled roofs of the old town of Bern"
     },
     "fusionSolarApp": {
       "eyebrow": "FusionSolar App",
@@ -13843,7 +13851,16 @@
             "body": "Suva, the Swiss accident insurer, generally recommends fully replacing an asbestos cement roof before mounting a solar system (factsheet 33068)."
           }
         },
-        "imageAlt": "Installer working on a solar system on a tile roof"
+        "diagram": {
+          "together": "Together",
+          "later": "One after the other",
+          "onePhase": "One building phase",
+          "twoPhases": "Two building phases",
+          "roof": "Roof",
+          "solar": "Solar",
+          "scaffold": "Scaffold",
+          "gap": "later"
+        }
       },
       "cantons": {
         "title": "What individual cantons regulate",
@@ -13897,6 +13914,12 @@
         "existingTitle": "Existing solar system",
         "existingBody": "If there is already a system on the roof, the register usually shows us its output and start year. We quote taking it off and putting it back on separately.",
         "imageAlt": "Tile roof with solar modules, schematic illustration"
+      },
+      "cost": {
+        "intro": "The chart shows public federal figures for roof renovations. Solar comes on top as its own item.",
+        "solarTitle": "Solar system",
+        "solarBody": "We quote the solar system as its own item. Its price depends on size and roof. Our cost page shows current prices.",
+        "solarLink": "Solar system costs"
       },
       "models": {
         "title": "Two models for your solar system",

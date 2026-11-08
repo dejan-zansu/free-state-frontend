@@ -1,6 +1,7 @@
 import RoofFaq from '@/components/roof-renovation/RoofFaq'
 import {
   RoofSolarCantonsSection,
+  RoofSolarCostSection,
   RoofSolarHero,
   RoofSolarModelsSection,
   RoofSolarMountingSection,
@@ -79,6 +80,7 @@ const RoofRenovationSolarPage = async ({
       <RoofSolarCantonsSection />
       <RoofSolarMountingSection />
       <RoofSolarOfferSection />
+      <RoofSolarCostSection />
       <RoofSolarModelsSection />
       <RoofFaq namespace="roofRenovation.solarPage.faq" keys={FAQ_KEYS} />
       <RoofRequestSection placement="solar" defaultPvInterest="yes" />
