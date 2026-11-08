@@ -25,12 +25,12 @@ const SOLAR_MODELS = [
   {
     key: 'solarFree',
     href: '/solar-free',
-    image: '/images/about-us-solution-1-d14fce.webp',
+    image: '/images/roof-renovation/chalet-solar-hillside.webp',
   },
   {
     key: 'solarDirect',
     href: '/solar-direct',
-    image: '/images/about-us-solution-2-12d056.webp',
+    image: '/images/roof-renovation/alpine-hut-solar.webp',
   },
 ] as const
 
@@ -209,7 +209,7 @@ export const RoofSolarMountingSection = async () => {
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[24px]">
           <Image
-            src="/images/commercial/how-large-plants-works/in-roof-on-roof-illustration.webp"
+            src="/images/roof-renovation/on-roof-mounting-hooks.webp"
             alt={t('imageAlt')}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
@@ -260,13 +260,13 @@ export const RoofSolarCostSection = async () => {
           <p className="mt-4 text-base text-white/80 md:text-lg">
             {tSolar('solarBody')}
           </p>
-          <div className="relative mx-auto my-8 aspect-[530/429] w-full max-w-[300px] flex-1">
+          <div className="relative my-8 aspect-[16/10] w-full overflow-hidden rounded-[16px]">
             <Image
-              src="/images/two-solar-panels-on-roof.png"
+              src="/images/roof-renovation/solar-tile-roof-rainbow.webp"
               alt=""
               fill
-              sizes="300px"
-              className="object-contain"
+              sizes="(min-width: 1024px) 420px, 100vw"
+              className="object-cover"
             />
           </div>
           <LinkButton variant="primary" href="/cost" className="w-fit">
@@ -288,13 +288,13 @@ export const RoofSolarModelsSection = async () => {
             key={model.key}
             className="flex flex-col items-start gap-3 rounded-[24px] bg-white p-6 md:p-8"
           >
-            <div className="relative aspect-[16/9] w-full">
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[16px]">
               <Image
                 src={model.image}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-contain"
+                className="object-cover"
               />
             </div>
             <h3 className="mt-2 text-2xl font-medium tracking-tight">

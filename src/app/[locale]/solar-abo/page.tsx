@@ -56,8 +56,9 @@ const SolarAboPage = async ({ params }: SolarAboPageProps) => {
       <div className="w-full overflow-x-hidden">
         <SolarAboHero
           translationNamespace="solarAboPlanHome"
-          imageSrc="/images/solar-abo-home.png"
+          imageSrc="/images/roof-renovation/village-solar-roofs.webp"
           imageAlt="SolarAbo"
+          isPhoto
         />
         <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Solar%20Direct.mp4" />
         <YourBenefits isCommercial={false} />

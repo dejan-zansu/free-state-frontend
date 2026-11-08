@@ -67,8 +67,9 @@ const IndustryCommercialPage = () => {
     <div className="w-full overflow-x-hidden">
       <SolarAboHero
         translationNamespace="solarAboBusiness"
-        imageSrc="/images/solar-abo-business.png"
+        imageSrc="/images/roof-renovation/flat-roof-solar-hall.webp"
         imageAlt="Industry / Commercial"
+        isPhoto
         isCommercial
       />
       <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Industrial.mp4" />

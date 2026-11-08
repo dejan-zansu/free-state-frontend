@@ -54,8 +54,9 @@ const SolarFreePage = async ({ params }: SolarFreePageProps) => {
       <div className="w-full overflow-x-hidden">
       <SolarAboHero
         translationNamespace="solarFreeHome"
-        imageSrc="/images/solar-abo-home.png"
+        imageSrc="/images/roof-renovation/chalet-solar-hillside.webp"
         imageAlt="SolarAbo Home"
+        isPhoto
         ctaVariant="solar-dark"
         statIconBgClassName="bg-[#036B53]"
         statIconClassName="text-white"

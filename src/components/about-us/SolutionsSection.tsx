@@ -2,10 +2,10 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 const solutions = [
-  { image: '/images/about-us-solution-1-d14fce.webp', key: 'solarAbo' },
-  { image: '/images/about-us-solution-2-12d056.webp', key: 'contracting' },
-  { image: '/images/about-us-solution-3-626ae4.webp', key: 'roofRental' },
-  { image: '/images/about-us-solution-4-50b545.png', key: 'purchase' },
+  { image: '/images/roof-renovation/chalet-solar-hillside.webp', key: 'solarAbo' },
+  { image: '/images/roof-renovation/on-roof-mounting-hooks.webp', key: 'contracting' },
+  { image: '/images/roof-renovation/flat-roof-solar-hall.webp', key: 'roofRental' },
+  { image: '/images/roof-renovation/solar-tile-roof-rainbow.webp', key: 'purchase' },
 ]
 
 const SolutionsSection = () => {
@@ -32,12 +32,13 @@ const SolutionsSection = () => {
           {solutions.map((solution, index) => (
             <div key={solution.key} className="flex">
               <div className="flex flex-col flex-1">
-                <div className="relative w-full aspect-[180/115] mb-5">
+                <div className="relative w-full aspect-[180/115] mb-5 overflow-hidden rounded-[16px]">
                   <Image
                     src={solution.image}
                     alt={t(`${solution.key}.title`)}
                     fill
-                    className="object-contain"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 </div>
                 <h3 className="text-foreground text-[22px] font-bold capitalize px-4">

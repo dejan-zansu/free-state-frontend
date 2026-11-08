@@ -20,6 +20,7 @@ export interface SolarAboHeroProps {
   translationNamespace: string
   imageSrc: string
   imageAlt?: string
+  isPhoto?: boolean
   isCommercial?: boolean
   elipseClassNames?: string
   ctaVariant?: LinkButtonVariant
@@ -95,6 +96,7 @@ const SolarAboHero = async ({
   translationNamespace,
   imageSrc,
   imageAlt = 'SolarAbo',
+  isPhoto = false,
   isCommercial = false,
   elipseClassNames,
   ctaVariant,
@@ -188,18 +190,26 @@ const SolarAboHero = async ({
             </p>
           </div>
 
-          <div className="relative w-full max-w-[666px] aspect-666/498 mx-auto">
-            <div
-              className={cn(
-                'bg-solar/30 absolute top-0 left-[45%] -translate-x-1/2 w-[50%] h-[30%] rounded-full blur-[60px]',
-                elipseClassNames
-              )}
-            />
+          <div
+            className={cn(
+              'relative w-full max-w-[666px] aspect-666/498 mx-auto',
+              isPhoto && 'mb-12 overflow-hidden rounded-[24px] lg:mb-20'
+            )}
+          >
+            {!isPhoto && (
+              <div
+                className={cn(
+                  'bg-solar/30 absolute top-0 left-[45%] -translate-x-1/2 w-[50%] h-[30%] rounded-full blur-[60px]',
+                  elipseClassNames
+                )}
+              />
+            )}
             <Image
               src={imageSrc}
               alt={imageAlt}
               fill
-              className="object-contain"
+              sizes="(min-width: 768px) 666px, 100vw"
+              className={isPhoto ? 'object-cover' : 'object-contain'}
               priority
             />
           </div>

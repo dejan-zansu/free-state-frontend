@@ -13496,7 +13496,7 @@
       "title": "Solar gleich mitplanen",
       "body": "Wird das Dach erneuert, können Sie Gerüst und Bauphase für eine Solaranlage mitnutzen. Ob und wann Sie Solar wollen, entscheiden Sie.",
       "link": "Dach und Solar zusammen planen",
-      "imageAlt": "Monteur auf einem Ziegeldach bei der Arbeit an einer Solaranlage"
+      "imageAlt": "Dorf mit Solaranlagen auf Ziegeldächern"
     },
     "financing": {
       "title": "Dachsanierung finanzieren",
@@ -13552,7 +13552,7 @@
           "body": "Unsere Teams führen die Arbeiten aus. Am Schluss nehmen wir das Dach gemeinsam ab."
         }
       },
-      "imageAlt": "Gebäude mit Teams auf dem Dach, schematische Darstellung"
+      "imageAlt": "Dachdecker auf einem Ziegeldach hinter einem Gerüst mit Fangnetz"
     },
     "contract": {
       "title": "Was im Vertrag steht",
@@ -13890,7 +13890,7 @@
         "title": "Aufdach oder Indach?",
         "body1": "Die Einmalvergütung für Anlagen unter 30 kW beträgt, Stand 2026, CHF 400 pro kW für Indach und CHF 360 pro kW für Aufdach. Dieser Unterschied deckt die Mehrkosten einer Indach-Anlage nicht.",
         "body2": "Die Entscheidung hängt darum vom Dach selbst ab, von Dachform, Zustand und Aussehen. Einzelne Kantone zahlen für Indach mehr, der Aargau zum Beispiel einen Bonus von CHF 100 statt CHF 30 pro m² Schrägdach. Wir besprechen beides bei der Besichtigung.",
-        "imageAlt": "Haus mit Solaranlage auf dem Dach, schematische Darstellung",
+        "imageAlt": "Monteur befestigt eine Montageschiene auf einem Ziegeldach",
         "inRoof": "Indach",
         "onRoof": "Aufdach",
         "perKw": "CHF {value} pro kW"

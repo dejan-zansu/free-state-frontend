@@ -76,15 +76,15 @@ const PRICE_STAGES = [
 const FINANCING_AUDIENCES = [
   {
     key: 'owners',
-    image: '/images/about-us-solution-1-d14fce.webp',
+    image: '/images/roof-renovation/chalet-solar-hillside.webp',
   },
   {
     key: 'condominium',
-    image: '/images/about-us-solution-2-12d056.webp',
+    image: '/images/roof-renovation/apartment-buildings-street.webp',
   },
   {
     key: 'companies',
-    image: '/images/about-us-solution-4-50b545.png',
+    image: '/images/roof-renovation/flat-roof-solar-hall.webp',
   },
 ] as const
 
@@ -303,13 +303,13 @@ export const RoofCostSection = async () => {
           </p>
           <p className="mt-1 text-lg">{t('ownPrice.unit')}</p>
           <p className="mt-6 text-base md:text-lg">{t('ownPrice.scope')}</p>
-          <div className="relative mx-auto my-6 aspect-[413/226] w-full max-w-[360px] flex-1">
+          <div className="relative my-6 aspect-[16/10] w-full overflow-hidden rounded-[16px]">
             <Image
-              src="/images/optimize-roof-space.png"
+              src="/images/roof-renovation/flat-roof-membrane.webp"
               alt=""
               fill
-              sizes="360px"
-              className="object-contain"
+              sizes="(min-width: 1024px) 420px, 100vw"
+              className="object-cover"
             />
           </div>
           <div className="flex flex-col gap-3 border-t border-[#062E25]/25 pt-6">
@@ -467,7 +467,7 @@ export const RoofSolarTeaserSection = async () => {
       </div>
       <div className="relative order-1 min-h-[420px] lg:order-2 lg:min-h-[680px]">
         <Image
-          src="/images/history/timeline-firstProjects-422f69.webp"
+          src="/images/roof-renovation/village-solar-roofs.webp"
           alt={t('imageAlt')}
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
@@ -485,13 +485,13 @@ export const RoofFinancingSection = async () => {
       <div className="grid gap-6 md:grid-cols-3">
         {FINANCING_AUDIENCES.map(audience => (
           <div key={audience.key} className="flex flex-col">
-            <div className="relative aspect-[2/1] overflow-hidden rounded-[24px] bg-[#EAEDDF] md:aspect-[4/3]">
+            <div className="relative aspect-[2/1] overflow-hidden rounded-[24px] md:aspect-[4/3]">
               <Image
                 src={audience.image}
                 alt=""
                 fill
                 sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-contain p-4"
+                className="object-cover"
               />
             </div>
             <h3 className="mt-5 text-xl font-medium tracking-tight">
@@ -532,13 +532,13 @@ export const RoofProcessSection = async () => {
           <h2 className="text-3xl font-medium sm:text-4xl md:text-[45px]">
             {t('title')}
           </h2>
-          <div className="relative mx-auto mt-8 aspect-[487/462] w-full max-w-[260px] lg:max-w-[520px]">
+          <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden rounded-[24px]">
             <Image
-              src="/images/solar-system-installation.png"
+              src="/images/roof-renovation/roofer-scaffold-red-tiles.webp"
               alt={t('imageAlt')}
               fill
               sizes="(min-width: 1024px) 520px, 100vw"
-              className="object-contain"
+              className="object-cover"
             />
           </div>
         </div>

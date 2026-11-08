@@ -13495,7 +13495,7 @@
       "title": "Prévoir le solaire en même temps",
       "body": "Quand le toit est rénové, une installation solaire peut profiter du même échafaudage et de la même phase de chantier. C'est vous qui décidez si vous voulez du solaire, et quand.",
       "link": "Planifier le toit et le solaire ensemble",
-      "imageAlt": "Monteur au travail sur une installation solaire, sur un toit de tuiles"
+      "imageAlt": "Village avec des installations solaires sur des toits en tuiles"
     },
     "financing": {
       "title": "Financer une rénovation de toiture",
@@ -13551,7 +13551,7 @@
           "body": "Nos équipes réalisent les travaux. À la fin, nous procédons avec vous à la réception du toit."
         }
       },
-      "imageAlt": "Bâtiment avec des équipes sur le toit, représentation schématique"
+      "imageAlt": "Couvreur sur un toit en tuiles derrière un échafaudage avec filet de sécurité"
     },
     "contract": {
       "title": "Ce que prévoit le contrat",
@@ -13889,7 +13889,7 @@
         "title": "Surimposition ou installation intégrée ?",
         "body1": "Pour les installations de moins de 30 kW, la rétribution unique s'élève, état 2026, à CHF 400 par kW pour une installation intégrée et à CHF 360 par kW pour une installation en surimposition. Cet écart ne couvre pas le surcoût d'une installation intégrée.",
         "body2": "La décision dépend donc du toit lui-même, de sa forme, de son état et de son aspect. Certains cantons paient davantage pour une installation intégrée, l'Argovie par exemple un bonus de CHF 100 au lieu de CHF 30 par m² de toit en pente. Nous en parlons lors de la visite.",
-        "imageAlt": "Maison avec installation solaire sur le toit, représentation schématique",
+        "imageAlt": "Monteur fixant un rail de montage sur un toit en tuiles",
         "inRoof": "Intégré au toit",
         "onRoof": "Surimposition",
         "perKw": "CHF {value} par kW"
