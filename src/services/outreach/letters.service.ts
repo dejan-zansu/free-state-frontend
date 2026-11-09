@@ -50,6 +50,14 @@ class OutreachLettersService {
     return URL.createObjectURL(response.data)
   }
 
+  async previewPdfUrl(prospectId: string): Promise<string> {
+    const response = await api.get<Blob>(
+      '/admin/outreach/letters/preview/pdf',
+      { params: { prospectId }, responseType: 'blob' }
+    )
+    return URL.createObjectURL(response.data)
+  }
+
   async cancel(letterId: string): Promise<CancelLetterResponse> {
     const response = await api.post<{
       success: boolean

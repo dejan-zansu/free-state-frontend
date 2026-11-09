@@ -8268,6 +8268,7 @@
         "sentOn": "sent {date}",
         "callDueOn": "call due {date}",
         "previewFailed": "The letter could not be loaded.",
+        "previewTitle": "Letter preview",
         "blockersTitle": "This letter does not go out automatically as it is:",
         "blocker": {
           "no_letter_template_for_segment": "There is no letter template for this segment.",

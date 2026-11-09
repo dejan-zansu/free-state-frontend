@@ -8078,6 +8078,7 @@
         "sentOn": "versendet {date}",
         "callDueOn": "Anruf fällig {date}",
         "previewFailed": "Der Brief konnte nicht geladen werden.",
+        "previewTitle": "Briefvorschau",
         "blockersTitle": "Dieser Brief geht so nicht automatisch hinaus:",
         "blocker": {
           "no_letter_template_for_segment": "Für dieses Segment gibt es keine Briefvorlage.",
