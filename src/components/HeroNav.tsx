@@ -12,9 +12,13 @@ import { useRef, useState } from 'react'
 
 interface HeroNavProps {
   isCommercial?: boolean
+  dropdownOverContent?: boolean
 }
 
-const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
+const HeroNav = ({
+  isCommercial = false,
+  dropdownOverContent = false,
+}: HeroNavProps) => {
   const t = useTranslations('home')
   const tFooter = useTranslations('footer')
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
@@ -242,7 +246,8 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
           'inline-flex flex-col items-center bg-white/20 backdrop-blur-[30px] border border-white/22 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] max-w-[calc(100vw-2rem)]',
           hasDropdown
             ? 'rounded-[20px] sm:rounded-[24px] md:rounded-[30px]'
-            : 'rounded-full sm:rounded-[24px] md:rounded-[30px]'
+            : 'rounded-full sm:rounded-[24px] md:rounded-[30px]',
+          hasDropdown && dropdownOverContent && 'bg-[#062E25]/55'
         )}
         onMouseLeave={() => setHoveredItem(null)}
       >

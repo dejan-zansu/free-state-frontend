@@ -83,7 +83,7 @@ export default function RoofEstimator({
   return (
     <section
       id="rechner"
-      className="relative z-30 -mt-[110px] scroll-mt-28 px-4 sm:px-6 md:-mt-[130px]"
+      className="relative z-10 -mt-[110px] scroll-mt-28 px-4 sm:px-6 md:-mt-[130px]"
     >
       <div className="mx-auto max-w-[1214px]">
         {enabled ? (

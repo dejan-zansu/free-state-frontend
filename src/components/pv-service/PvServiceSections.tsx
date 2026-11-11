@@ -130,6 +130,7 @@ export const PvServiceHero = async () => {
         description={t('subtitle')}
         descriptionClassName="max-w-[980px] text-lg text-white/90 md:text-[22px]"
         className="min-h-[560px] pb-[140px] md:min-h-[620px] md:pb-[190px]"
+        overlappedBelow
       />
       <PvServiceEstimator />
       <div className="mx-auto flex max-w-[1214px] flex-col gap-4 px-4 pb-14 pt-8 text-[#062E25] sm:px-6 md:flex-row md:items-center md:justify-between md:pb-20">

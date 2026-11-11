@@ -138,6 +138,7 @@ export const RoofEstimatorHero = async ({
         description={subtitle}
         descriptionClassName="max-w-[980px] text-lg text-white/90 md:text-[22px]"
         className="min-h-[560px] pb-[140px] md:min-h-[620px] md:pb-[190px]"
+        overlappedBelow
       />
       <RoofEstimator
         title={tSection('title')}

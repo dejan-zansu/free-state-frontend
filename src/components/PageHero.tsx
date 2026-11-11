@@ -16,6 +16,7 @@ interface PageHeroProps {
   /** Darkens the background image so white text stays readable on bright photos. */
   dimBackground?: boolean
   overlayClassName?: string
+  overlappedBelow?: boolean
 }
 
 const PageHero = ({
@@ -30,15 +31,20 @@ const PageHero = ({
   titleClassName,
   dimBackground = false,
   overlayClassName,
+  overlappedBelow = false,
 }: PageHeroProps) => {
   return (
     <section
       className={cn(
-        'relative z-20 min-h-[590px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]',
+        'relative min-h-[590px] flex justify-center overflow-hidden rounded-b-[40px] bg-[#4A9A99]',
+        overlappedBelow ? 'z-auto' : 'z-20',
         className
       )}
     >
-      <HeroNav isCommercial={isCommercial} />
+      <HeroNav
+        isCommercial={isCommercial}
+        dropdownOverContent={overlappedBelow}
+      />
 
       {backgroundImage && (
         <div
