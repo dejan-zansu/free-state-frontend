@@ -327,6 +327,10 @@
       "title": "Dachsanierung mit Photovoltaik: Dach und Solar zusammen",
       "description": "Dach und Solaranlage zusammen planen, mit einem Gerüst und einer Bauphase. Kantonale Regeln, Aufdach oder Indach und getrennte Posten in der Offerte."
     },
+    "pvService": {
+      "title": "PV-Wartung und Service für Solaranlagen in der Schweiz",
+      "description": "Fernüberwachung, Wartung vor Ort und Reinigung für Photovoltaikanlagen auf Einfamilienhäusern und Gewerbebauten, auch für Anlagen anderer Installateure. Richtpreise online, Erstanalyse kostenlos."
+    },
     "offerRequest": {
       "title": "Solaranlage Offerte anfragen: Preis pro kWp | Free State AG",
       "description": "Eine Solaranlage mit Speicher kostet bei uns CHF {min} bis {max} pro kWp, exkl. MwSt. Fragen Sie mit Name, Telefon und Adresse eine Offerte an, wir rufen Sie an."
@@ -406,6 +410,7 @@
       "roofRenovation": "Dachsanierung",
       "roofRenovationService": "Leistung und Kosten",
       "roofRenovationSolar": "Dach und Solar",
+      "pvService": "PV-Service und Wartung",
       "catalog3d": "Produkte in 3D"
     },
     "company": {
@@ -742,6 +747,7 @@
         "projectDevelopment": "Projektentwicklung",
         "solarCarport": "Solar Carport",
         "contracting": "Contracting",
+        "pvService": "Service und Wartung",
         "apartmentBuilding": "Mehrfamilienhaus",
         "fastChargingStations": "Schnellladestationen",
         "bidirectionalCharging": "Bidirektionales Laden",
@@ -991,7 +997,16 @@
       "subtitle": "Wir sanieren Ihr Dach in der ganzen Schweiz mit eigenen Teams, von der ersten Prüfung bis zur Abnahme. Sie haben einen einzigen Vertragspartner.",
       "subtitleCommercial": "Wir sanieren die Dächer von Gewerbebauten, Hallen und Mehrfamilienhäusern in der ganzen Schweiz mit eigenen Teams. Sie haben einen einzigen Vertragspartner.",
       "cta": "Dachsanierung entdecken",
-      "imageAlt": "Ziegeldächer der Berner Altstadt"
+      "imageAlt": "Bauernhaus mit Ziegeldach und Gerüst, zwei Handwerker bei der Arbeit"
+    },
+    "pvService": {
+      "title": "PV-Service und Wartung",
+      "subtitle": "Wir überwachen, warten und reinigen Solaranlagen auf Gewerbebauten in der ganzen Schweiz, auch wenn ein anderer Installateur sie gebaut hat.",
+      "toolLink": "Richtpreise für Ihre Anlage",
+      "pricesTitle": "Richtpreise pro Jahr, ab",
+      "pricesNote": "Für Anlagen bis 30 kWp, exkl. MwSt. Grössere Anlagen nach Leistung.",
+      "cta": "PV-Service entdecken",
+      "imageAlt": "Steildach mit Solaranlage, Montageschienen und Absturzsicherung"
     },
     "fusionSolarApp": {
       "eyebrow": "FusionSolar App",
@@ -7167,6 +7182,8 @@
       "outreachKpi": "Outreach-Kennzahlen",
       "groupRoofRenovation": "Dachsanierung",
       "roofLeads": "Dach-Leads",
+      "groupPvService": "PV-Service",
+      "pvServiceRequests": "Service-Anfragen",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -7466,6 +7483,7 @@
         "notInterestedReasons": {
           "PREIS": "Preis",
           "EIGENE_PLAENE": "Eigene Pläne",
+          "PV_VORHANDEN": "PV-Anlage vorhanden",
           "MIETER_OHNE_DACHRECHT": "Mieter ohne Dachrecht",
           "KEIN_BEDARF": "Kein Bedarf",
           "TIMING": "Timing",
@@ -11526,6 +11544,99 @@
       },
       "contactSourceRequest": "Dachsanierung-Anfrage"
     },
+    "pvService": {
+      "title": "PV-Service-Anfragen",
+      "searchPlaceholder": "Suchen nach Firma, Person, E-Mail oder Ort",
+      "allStatuses": "Alle Status",
+      "empty": "Keine Anfragen gefunden",
+      "total": "{count} Einträge",
+      "previousPage": "Vorherige Seite",
+      "nextPage": "Nächste Seite",
+      "colReceived": "Eingang",
+      "colCompany": "Firma und Kontakt",
+      "colPlace": "Ort",
+      "colPlant": "Anlage",
+      "colInterests": "Interessen",
+      "colAnnualFee": "Jahresgebühr",
+      "colStatus": "Status",
+      "sinceYear": "seit {year}",
+      "yes": "Ja",
+      "no": "Nein",
+      "statusLabels": {
+        "NEW": "Neu",
+        "CONTACTED": "Kontaktiert",
+        "OFFER_SENT": "Offerte gesendet",
+        "WON": "Gewonnen",
+        "LOST": "Verloren"
+      },
+      "interests": {
+        "monitoring": "Fernüberwachung",
+        "maintenance": "Wartung vor Ort",
+        "cleaning": "Reinigung der Module",
+        "thermography": "Thermografie",
+        "fault": "Störung beheben",
+        "sina": "SiNa-Management"
+      },
+      "installerStatus": {
+        "active": "Installateur ist noch tätig",
+        "gone": "Installateur gibt es nicht mehr",
+        "unknown": "Unbekannt"
+      },
+      "inverterBrand": {
+        "other": "Andere Marke",
+        "unknown": "Unbekannt"
+      },
+      "placement": {
+        "estimator": "Formular nach der Schätzung",
+        "final": "Formular am Seitenende"
+      },
+      "detail": {
+        "back": "Zurück zur Liste",
+        "received": "Eingegangen am {date}",
+        "sectionContact": "Kontakt",
+        "sectionManage": "Bearbeiten",
+        "sectionPlant": "Anlage",
+        "sectionSource": "Herkunft",
+        "companyName": "Firma",
+        "contactName": "Ansprechperson",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "address": "Adresse der Anlage",
+        "locale": "Sprache",
+        "assignedTo": "Zugewiesen an",
+        "updatedAt": "Zuletzt geändert",
+        "status": "Status",
+        "annualFee": "Jahresgebühr in CHF",
+        "annualFeeHint": "Vereinbarter Betrag pro Jahr, exkl. MwSt.",
+        "annualFeeInvalid": "Bitte einen Betrag von 0 oder mehr eingeben.",
+        "adminNotes": "Notizen",
+        "save": "Speichern",
+        "saved": "Erfolgreich gespeichert",
+        "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+        "plantKw": "Leistung",
+        "commissioningYear": "Jahr der Inbetriebnahme",
+        "inverterBrand": "Wechselrichter",
+        "installerStatus": "Installateur",
+        "interests": "Interessen",
+        "noInterests": "Keine angegeben",
+        "message": "Nachricht",
+        "placement": "Formular",
+        "consentPrivacy": "Datenschutz-Einwilligung",
+        "outboundProspect": "Outbound-Prospect",
+        "openProspect": "Im Outreach öffnen",
+        "utmSource": "UTM Source",
+        "utmMedium": "UTM Medium",
+        "utmCampaign": "UTM Campaign",
+        "utmId": "UTM ID",
+        "utmTerm": "UTM Term",
+        "utmContent": "UTM Content",
+        "referrer": "Referrer",
+        "landingPage": "Landingpage",
+        "gclid": "Google Click-ID (gclid)",
+        "fbclid": "Facebook Click-ID (fbclid)",
+        "sessionKey": "Sitzungsschlüssel"
+      }
+    },
     "productComments": {
       "title": "Produktkommentare",
       "subtitle": "Erfahrungsberichte von der Produktseite. Erst freigegebene Beiträge sind öffentlich.",
@@ -13497,7 +13608,7 @@
       "title": "Solar gleich mitplanen",
       "body": "Wird das Dach erneuert, können Sie Gerüst und Bauphase für eine Solaranlage mitnutzen. Ob und wann Sie Solar wollen, entscheiden Sie.",
       "link": "Dach und Solar zusammen planen",
-      "imageAlt": "Dorf mit Solaranlagen auf Ziegeldächern"
+      "imageAlt": "Monteur trägt ein Solarmodul über den First eines Ziegeldachs mit Gerüst"
     },
     "financing": {
       "title": "Dachsanierung finanzieren",
@@ -13891,7 +14002,7 @@
         "title": "Aufdach oder Indach?",
         "body1": "Die Einmalvergütung für Anlagen unter 30 kW beträgt, Stand 2026, CHF 400 pro kW für Indach und CHF 360 pro kW für Aufdach. Dieser Unterschied deckt die Mehrkosten einer Indach-Anlage nicht.",
         "body2": "Die Entscheidung hängt darum vom Dach selbst ab, von Dachform, Zustand und Aussehen. Einzelne Kantone zahlen für Indach mehr, der Aargau zum Beispiel einen Bonus von CHF 100 statt CHF 30 pro m² Schrägdach. Wir besprechen beides bei der Besichtigung.",
-        "imageAlt": "Monteur befestigt eine Montageschiene auf einem Ziegeldach",
+        "imageAlt": "Monteur verschraubt eine Schienenklemme mit dem Akkuschrauber auf einem Ziegeldach",
         "inRoof": "Indach",
         "onRoof": "Aufdach",
         "perKw": "CHF {value} pro kW"
@@ -13968,6 +14079,394 @@
             "answer": "Bei SolarFree beträgt die Anzahlung CHF 0. Ob das Modell zu Ihrem Dach passt, klären wir bei der Besichtigung."
           }
         }
+      }
+    }
+  },
+  "pvService": {
+    "breadcrumb": {
+      "home": "Startseite",
+      "main": "PV-Service und Wartung"
+    },
+    "jsonLd": {
+      "name": "PV-Service und Wartung",
+      "description": "Fernüberwachung, Wartung, Strangmessung, Thermografie, Reinigung und SiNa-Management für bestehende Photovoltaikanlagen auf Einfamilienhäusern und Gewerbebauten in der ganzen Schweiz, auch für Anlagen anderer Installateure."
+    },
+    "hero": {
+      "title": "Service und Wartung für Ihre Solaranlage",
+      "subtitle": "Fernüberwachung, Wartung vor Ort und Reinigung bei Bedarf. Für Photovoltaikanlagen auf Einfamilienhäusern und Gewerbebauten in der ganzen Schweiz, auch wenn ein anderer Installateur sie gebaut hat.",
+      "points": {
+        "free": "Erstanalyse kostenlos",
+        "anyInstaller": "Anlagen jedes Installateurs",
+        "wholeSwitzerland": "Ganze Schweiz"
+      },
+      "direct": "Direkt anfragen"
+    },
+    "estimator": {
+      "title": "Ihre Anlage",
+      "intro": "Suchen Sie Ihr Gebäude oder geben Sie Leistung und Jahr der Inbetriebnahme ein. Sie sehen die Richtpreise für Ihre Anlagengrösse und was nach dem Alter der Anlage ansteht.",
+      "loading": "Wir lesen das Register",
+      "restart": "Andere Anlage prüfen",
+      "address": {
+        "title": "Adresse des Gebäudes",
+        "placeholder": "Strasse Nr., PLZ Ort",
+        "cta": "Anlage suchen",
+        "hint": "Wir suchen die Anlage im Register der Produktionsanlagen des Bundes.",
+        "rateLimited": "Zu viele Suchen in kurzer Zeit. Bitte versuchen Sie es in einer Minute noch einmal.",
+        "searchFailed": "Die Adresssuche ist gerade nicht erreichbar. Geben Sie Leistung und Jahr direkt ein.",
+        "noResults": "Keine Adresse gefunden. Prüfen Sie die Schreibweise oder geben Sie Leistung und Jahr direkt ein."
+      },
+      "manual": {
+        "divider": "oder ohne Adresse",
+        "kw": "Leistung in kWp",
+        "kwPlaceholder": "zum Beispiel 120",
+        "year": "Jahr der Inbetriebnahme",
+        "yearPlaceholder": "zum Beispiel 2014",
+        "cta": "Richtpreise zeigen",
+        "kwInvalid": "Bitte geben Sie die Leistung in kWp ein, zum Beispiel 120.",
+        "yearInvalid": "Bitte geben Sie ein Jahr ab {from} ein."
+      },
+      "idle": {
+        "eyebrow": "Richtpreise pro Jahr",
+        "title": "Drei Pakete für Ihre Anlage",
+        "from": "ab CHF {value}",
+        "note": "Für Anlagen bis 30 kWp, exkl. MwSt. Nach Ihrer Eingabe sehen Sie die Preise für Ihre Grösse.",
+        "points": {
+          "register": "Daten aus dem Register des Bundes",
+          "free": "Erstanalyse kostenlos",
+          "anyInstaller": "Auch für Anlagen anderer Installateure"
+        }
+      },
+      "bands": {
+        "up_to_30": "bis 30 kWp",
+        "30_to_100": "30 bis 100 kWp",
+        "100_to_300": "100 bis 300 kWp",
+        "300_to_600": "300 bis 600 kWp",
+        "600_to_1000": "600 bis 1'000 kWp",
+        "over_1000": "über 1'000 kWp"
+      },
+      "result": {
+        "registerEyebrow": "Laut Register",
+        "manualEyebrow": "Ihre Angaben",
+        "addressEyebrow": "Registersuche",
+        "registerTitle": "Ihre Anlage laut Register",
+        "manualTitle": "Ihre Anlage",
+        "noPlantTitle": "Keine Anlage gefunden",
+        "noPlant": "Wir haben zu diesem Gebäude im Register keine Anlage gefunden. Geben Sie Leistung und Jahr direkt ein, dann sehen Sie die Richtpreise.",
+        "facts": {
+          "kw": "Leistung",
+          "since": "In Betrieb seit",
+          "registerAddress": "Adresse im Register"
+        },
+        "kwValue": "{value} kW",
+        "registerNote": "Angaben laut Register der Produktionsanlagen des Bundes. Weicht etwas ab, geben Sie Leistung und Jahr direkt ein.",
+        "registerNearbyNote": "Der Registereintrag liegt bei Ihrer Adresse und kann zu einem Nachbargebäude gehören. Prüfen Sie die Adresse im Register.",
+        "pricesTitle": "Richtpreise für {band}",
+        "chf": "CHF {value}",
+        "perYear": "pro Jahr",
+        "onRequest": "auf Anfrage",
+        "onboarding": "Bestandsaufnahme vor Ort, einmalig",
+        "priceNote": "Exkl. MwSt. Die Bestandsaufnahme gilt für Anlagen anderer Installateure und wird an das erste Vertragsjahr angerechnet. Verbindlich ist die Offerte nach der Erstanalyse.",
+        "needKw": "Für Richtpreise brauchen wir die Leistung Ihrer Anlage. Geben Sie sie direkt ein.",
+        "cta": "Erstanalyse anfragen",
+        "ctaNote": "Die Erstanalyse ist unverbindlich und kostet nichts."
+      },
+      "due": {
+        "title": "Was jetzt ansteht",
+        "age": "{years, plural, =0 {Ihre Anlage ist seit weniger als einem Jahr in Betrieb.} one {Ihre Anlage ist seit # Jahr in Betrieb.} other {Ihre Anlage ist seit # Jahren in Betrieb.}}",
+        "liabilityEnded": "Die Gewährleistung des Installateurs dauert 2 bis 5 Jahre und ist abgelaufen. Garantiefälle klären Sie jetzt direkt mit den Herstellern.",
+        "liabilityRunning": "Die Gewährleistung des Installateurs dauert 2 bis 5 Jahre und läuft möglicherweise noch. Der Leitfaden des BFE empfiehlt, die Anlage vor ihrem Ablauf von einer unabhängigen Firma prüfen zu lassen.",
+        "liabilityOpen": "Die Gewährleistung des Installateurs dauert 2 bis 5 Jahre. Bei Ihrer Anlage ist sie abgelaufen oder läuft in diesen Monaten aus. Der Leitfaden des BFE empfiehlt, die Anlage vor ihrem Ablauf von einer unabhängigen Firma prüfen zu lassen.",
+        "inverterEnded": "Die Produktgarantie der Wechselrichter dauert meist 5 bis 10 Jahre und ist wahrscheinlich abgelaufen, sofern sie nicht verlängert oder die Geräte ersetzt wurden.",
+        "inverterRunning": "Die Produktgarantie der Wechselrichter dauert meist 5 bis 10 Jahre und läuft möglicherweise noch.",
+        "inverterOpen": "Die Produktgarantie der Wechselrichter dauert meist 5 bis 10 Jahre. Bei Ihrer Anlage ist sie abgelaufen oder läuft in diesen Monaten aus, sofern sie nicht verlängert oder die Geräte ersetzt wurden."
+      },
+      "failure": {
+        "rate_limited": {
+          "title": "Zu viele Abfragen",
+          "body": "Bitte versuchen Sie es in einigen Minuten noch einmal oder rufen Sie uns unter {phone} an."
+        },
+        "failed": {
+          "title": "Die Abfrage hat nicht geklappt",
+          "body": "Das Register ist gerade nicht erreichbar. Versuchen Sie es später noch einmal, schicken Sie uns direkt eine Anfrage oder rufen Sie uns unter {phone} an."
+        },
+        "invalid": {
+          "title": "Bitte Angaben prüfen",
+          "body": "Leistung oder Jahr konnten wir nicht verarbeiten. Prüfen Sie die Eingabe oder schicken Sie uns direkt eine Anfrage."
+        }
+      }
+    },
+    "stats": {
+      "title": "Viele Anlagen laufen ohne Gewährleistung",
+      "intro": "Bei den meisten Gewerbeanlagen, die vor 2021 gebaut wurden, ist die Gewährleistung des Installateurs abgelaufen. Ihre Wechselrichter erreichen das Alter, in dem erste ertragsrelevante Fehler auftreten.",
+      "items": {
+        "plants": {
+          "value": "13'587",
+          "label": "Anlagen von 30 kW bis 1 MW, vor 2021 gebaut",
+          "source": "BFE-Register der Produktionsanlagen, Stand 14.09.2026"
+        },
+        "inverters": {
+          "value": "23%",
+          "label": "der Wechselrichter mit Fehler innert 10 Jahren",
+          "source": "Berner Fachhochschule (BFH), 2022, erster ertragsrelevanter Fehler bei Wechselrichtern ohne Optimierer"
+        },
+        "liability": {
+          "value": "2 bis 5",
+          "label": "Jahre dauert die Gewährleistung des Installateurs",
+          "source": "Leitfaden Betriebsführung Photovoltaik, BFE und Swissolar, 2019"
+        }
+      }
+    },
+    "packages": {
+      "title": "Drei Pakete für den laufenden Betrieb",
+      "intro": "Alle Pakete gelten für Anlagen jedes Installateurs. Ist ein Batteriespeicher an die Anlage angeschlossen, betreuen wir ihn mit. Der Preis richtet sich nach der Leistung der Anlage. Es sind Richtpreise pro Jahr, verbindlich ist die Offerte nach der Erstanalyse.",
+      "fromLabel": "Richtpreis ab",
+      "price": "CHF {value}",
+      "priceUnit": "pro Jahr, exkl. MwSt",
+      "onRequest": "auf Anfrage",
+      "notIncluded": "(nicht enthalten)",
+      "monitoring": {
+        "name": "Monitoring",
+        "tagline": "Wir überwachen die Anlage aus der Ferne und melden uns, wenn etwas nicht stimmt."
+      },
+      "wartung": {
+        "name": "Wartung",
+        "tagline": "Monitoring plus Begehung vor Ort jedes Jahr und Strangmessung alle 3 Jahre."
+      },
+      "wartung_plus": {
+        "name": "Wartung Plus",
+        "tagline": "Wartung plus Strangmessung jedes Jahr, Drohnen-Thermografie und SiNa-Management."
+      },
+      "rows": {
+        "monitoring": {
+          "title": "Fernüberwachung und Alarm-Triage",
+          "detail": "Alarme prüfen wir an Werktagen. Sie erhalten ein Fehlerprotokoll mit Empfehlung."
+        },
+        "report": {
+          "title": "Jahresbericht zum Ertrag",
+          "detail": "Ist und Soll im Vergleich, dazu der Vergleich mit dem Vorjahr."
+        },
+        "visit": {
+          "title": "Begehung vor Ort, einmal pro Jahr",
+          "detail": "In der Saison. Sichtprüfung, Befestigung, Kabel, Stecker, Überspannungsschutz und Reinigung der Wechselrichter, mit Protokoll."
+        },
+        "strings": {
+          "title": "Strangmessung nach SN EN 62446-1",
+          "detail": "Leerlaufspannung, Strom und Isolation jedes Strangs."
+        },
+        "thermography": {
+          "title": "Drohnen-Thermografie",
+          "detail": "Wärmebild der ganzen Anlage aus der Luft."
+        },
+        "cleaning": {
+          "title": "Reinigung der Module",
+          "detail": "Mit demineralisiertem Wasser, ohne die Module zu betreten. Nach Aufwand."
+        },
+        "sina": {
+          "title": "SiNa-Management",
+          "detail": "Fristen führen, unabhängiges Kontrollorgan organisieren, Mängel beheben."
+        }
+      },
+      "coverage": {
+        "every3": "alle 3 Jahre",
+        "yearly": "jedes Jahr",
+        "onRequest": "auf Anfrage",
+        "onRequestRecommended": "auf Anfrage, wir empfehlen sie anhand der Ertragsdaten"
+      },
+      "table": {
+        "title": "Richtpreise nach Anlagengrösse",
+        "intro": "CHF pro Jahr, exkl. MwSt, nach installierter Leistung.",
+        "service": "Paket",
+        "onboarding": "Bestandsaufnahme vor Ort, einmalig",
+        "note": "Die Bestandsaufnahme gilt für Anlagen anderer Installateure. Wir rechnen sie an das erste Vertragsjahr an. Verbindlich ist die Offerte nach der Erstanalyse.",
+        "extra": "Reinigung, Thermografie ausserhalb des Pakets, Reparaturen und das Nachrüsten eines Datenloggers verrechnen wir nach Aufwand."
+      }
+    },
+    "otherInstallers": {
+      "title": "Auch für Anlagen anderer Installateure",
+      "intro": "Wer Ihre Anlage gebaut hat, spielt für uns keine Rolle. Für das Monitoring brauchen wir Zugriff auf die Daten der Anlage. Dafür gibt es drei Wege.",
+      "imageAlt": "Ziegeldach mit Solaranlage",
+      "brandsTitle": "Zugang über das Herstellerportal, zum Beispiel bei",
+      "routes": {
+        "portal": {
+          "title": "Zugang im Herstellerportal",
+          "body": "Sie geben uns im Portal Ihres Wechselrichters eine Rolle, etwa bei SMA, Fronius, Huawei oder SolarEdge. Das ist der einfachste Weg."
+        },
+        "transfer": {
+          "title": "Anlage übertragen",
+          "body": "Liegt die Anlage noch im Konto des früheren Installateurs, lassen Sie sie auf Ihr Konto oder auf uns übertragen. Wir sagen Ihnen, was der Hersteller dafür verlangt."
+        },
+        "logger": {
+          "title": "Datenlogger nachrüsten",
+          "body": "Gibt es keinen Zugang oder mehrere Marken auf dem Dach, rüsten wir einen unabhängigen Datenlogger nach. Das verrechnen wir nach Aufwand."
+        }
+      },
+      "goneTitle": "Ihr Installateur ist nicht mehr am Markt",
+      "gone": "Wir übernehmen die Anlage mit einer Bestandsaufnahme vor Ort. Wir prüfen Zustand, Dokumentation und Zugang zum Monitoring und sagen Ihnen danach, welches Paket passt."
+    },
+    "process": {
+      "title": "So übernehmen wir Ihre Anlage",
+      "intro": "Vom ersten Blick auf die Daten bis zum laufenden Betrieb in vier Schritten.",
+      "imageAlt": "Techniker in Arbeitskleidung an Solarmodulen auf einem Dach",
+      "steps": {
+        "check": {
+          "title": "Unverbindliche Erstanalyse",
+          "body": "Wir lesen die Registerdaten und, wenn Sie uns Zugang geben, die Monitoring-Daten. Danach sagen wir Ihnen, welches Paket passt. Die Erstanalyse kostet nichts."
+        },
+        "survey": {
+          "title": "Bestandsaufnahme vor Ort",
+          "body": "Bei Anlagen anderer Installateure prüfen wir Anlage, Dokumentation und Zugang vor Ort. Den Betrag rechnen wir an das erste Vertragsjahr an."
+        },
+        "contract": {
+          "title": "Vertrag",
+          "body": "Sie erhalten eine schriftliche Offerte mit Leistungsumfang, Jahrespreis und Laufzeit."
+        },
+        "operation": {
+          "title": "Laufender Betrieb",
+          "body": "Wir überwachen die Anlage, prüfen Alarme an Werktagen, kommen je nach Paket vor Ort und schicken Ihnen jedes Jahr den Ertragsbericht."
+        }
+      }
+    },
+    "care": {
+      "title": "Reinigung, Thermografie und SiNa",
+      "intro": "Diese Leistungen bestellen Sie einzeln oder im Paket. Wir empfehlen sie, wenn die Daten der Anlage oder eine Frist es verlangen.",
+      "imageAlt": "Wechselrichter einer Solaranlage auf dem Dach eines Gewerbegebäudes",
+      "items": {
+        "cleaning": {
+          "title": "Reinigung der Module",
+          "body": "Regen reinigt die meisten Anlagen ausreichend. Stärker verschmutzen flache Anlagen unter 10 Grad Neigung, Dächer von Tierställen und Betriebe mit Staub in der Umgebung. Wir reinigen mit demineralisiertem Wasser, ohne Reinigungsmittel und ohne die Module zu betreten.",
+          "price": "Nach Aufwand, in allen Paketen auf Anfrage"
+        },
+        "thermography": {
+          "title": "Drohnen-Thermografie",
+          "body": "Ein Wärmebild aus der Luft zeigt überhitzte Zellen, defekte Bypass-Dioden und ausgefallene Stränge, ohne dass jemand die Module betritt.",
+          "price": "In Wartung Plus alle 3 Jahre enthalten, sonst nach Aufwand"
+        },
+        "sina": {
+          "title": "SiNa-Management",
+          "body": "Ihre Anlage hat dieselbe Kontrollperiode wie das Gebäude, je nach Nutzung zwischen 1 und 20 Jahren, bei den meisten Gewerbebauten 5, 10 oder 20 Jahre. Den periodischen Sicherheitsnachweis muss ein unabhängiges Kontrollorgan ausstellen. Wir führen die Fristen, organisieren das Kontrollorgan und beheben die Mängel aus seinem Bericht. Den Sicherheitsnachweis selbst stellen wir nicht aus.",
+          "price": "In Wartung Plus enthalten"
+        }
+      }
+    },
+    "roof": {
+      "title": "Dach sanieren, Anlage behalten",
+      "intro": "Muss das Dach unter der Anlage saniert werden, bauen wir die Module ab und danach wieder auf.",
+      "imageAlt": "Wohnhaus mit Solaranlage auf dem Ziegeldach",
+      "cardTitle": "Ab- und Wiederaufbau bei Dachsanierung",
+      "cardBody": "Dach und Solaranlage kommen von uns, mit eigenen Teams und einem Vertragspartner für beides.",
+      "link": "Zur Dachsanierung"
+    },
+    "faq": {
+      "eyebrow": "Häufige Fragen",
+      "title": "Fragen zu Service und Wartung",
+      "description": "Was Betreiber von Solaranlagen vor einem Wartungsvertrag wissen wollen.",
+      "items": {
+        "1": {
+          "question": "Ist die Wartung einer Photovoltaikanlage Pflicht?",
+          "answer": "Nein, in der Schweiz gibt es keine gesetzliche Wartungspflicht. Als Eigentümer müssen Sie die Anlage aber sicher betreiben und den periodischen Sicherheitsnachweis nach der Niederspannungs-Installationsverordnung (NIV) einreichen. Die Anlage hat dieselbe Kontrollperiode wie das Gebäude, je nach Nutzung zwischen 1 und 20 Jahren, bei den meisten Gewerbebauten 5, 10 oder 20 Jahre."
+        },
+        "2": {
+          "question": "Wie oft sollten die Module gereinigt werden?",
+          "answer": "Das hängt vom Standort ab. Meist reinigt der Regen die Module ausreichend. Bei flachen Anlagen unter 10 Grad Neigung, auf Tierställen und in staubiger Umgebung kann sich eine Reinigung lohnen. Wir empfehlen sie, wenn die Ertragsdaten einen Verlust zeigen, und nicht nach einem festen Rhythmus."
+        },
+        "3": {
+          "question": "Betreuen Sie alle Wechselrichter-Marken?",
+          "answer": "Wir arbeiten im Portal Ihres Herstellers, zum Beispiel bei SMA, Fronius, Huawei oder SolarEdge, sobald Sie uns dort Zugang geben. Gibt es keinen Zugang oder kein passendes Portal, rüsten wir einen unabhängigen Datenlogger nach."
+        },
+        "4": {
+          "question": "Unser Installateur ist nicht mehr am Markt. Übernehmen Sie die Anlage?",
+          "answer": "Ja. Wir beginnen mit einer Bestandsaufnahme vor Ort und prüfen Zustand, Dokumentation und Zugang zum Monitoring. Liegt die Anlage noch im Portal-Konto des früheren Installateurs, klären wir mit Ihnen und dem Hersteller, wie der Zugang übertragen wird."
+        },
+        "5": {
+          "question": "Wie lange läuft der Vertrag, und was kostet er?",
+          "answer": "Die Richtpreise auf dieser Seite gelten pro Jahr, exklusive MwSt, und richten sich nach der Leistung der Anlage. Laufzeit und Kündigungsfrist stehen in der Offerte. Verbindlich ist der Preis in der Offerte nach der Erstanalyse."
+        },
+        "6": {
+          "question": "Was kostet die Erstanalyse?",
+          "answer": "Nichts. Wir lesen die Registerdaten und, wenn Sie uns Zugang geben, die Monitoring-Daten Ihrer Anlage und sagen Ihnen, welches Paket passt. Bei Anlagen anderer Installateure folgt vor dem Vertrag eine Bestandsaufnahme vor Ort, die wir an das erste Vertragsjahr anrechnen."
+        },
+        "7": {
+          "question": "Stellen Sie den Sicherheitsnachweis selbst aus?",
+          "answer": "Nein. Den periodischen Sicherheitsnachweis muss ein unabhängiges Kontrollorgan ausstellen, das die Anlage weder gebaut noch repariert hat. Wir führen die Fristen, beauftragen ein Kontrollorgan und beheben die Mängel aus seinem Bericht."
+        }
+      }
+    },
+    "request": {
+      "nextTitle": "So geht es weiter",
+      "next": {
+        "call": "Wir rufen Sie an und klären die Eckdaten Ihrer Anlage.",
+        "check": "Wir machen die Erstanalyse mit Register- und Monitoring-Daten.",
+        "offer": "Sie erhalten eine Offerte mit Jahrespreis."
+      },
+      "call": "Lieber direkt anrufen?"
+    },
+    "form": {
+      "heading": {
+        "estimator": "Erstanalyse für Ihre Anlage anfragen",
+        "final": "Erstanalyse anfragen"
+      },
+      "intro": "Die Erstanalyse ist unverbindlich und kostet nichts. Wir melden uns und klären die Details zu Ihrer Anlage.",
+      "choose": "Bitte wählen",
+      "plantTitle": "Ihre Anlage",
+      "fields": {
+        "companyName": "Firma",
+        "contactName": "Ansprechperson",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "street": "Strasse und Nr. der Anlage",
+        "postalCode": "PLZ",
+        "city": "Ort",
+        "plantKw": "Leistung in kWp (optional)",
+        "commissioningYear": "Jahr der Inbetriebnahme (optional)",
+        "message": "Nachricht (optional)"
+      },
+      "messagePlaceholder": "Zum Beispiel Fehlermeldungen, weniger Ertrag oder Fragen zum Zugang.",
+      "inverterBrand": {
+        "label": "Marke der Wechselrichter",
+        "options": {
+          "SMA": "SMA",
+          "Fronius": "Fronius",
+          "Huawei": "Huawei",
+          "SolarEdge": "SolarEdge",
+          "Kostal": "Kostal",
+          "Sungrow": "Sungrow",
+          "other": "Andere",
+          "unknown": "Weiss nicht"
+        }
+      },
+      "installerStatus": {
+        "label": "Installateur der Anlage",
+        "options": {
+          "active": "Ist noch tätig",
+          "gone": "Gibt es nicht mehr",
+          "unknown": "Weiss nicht"
+        }
+      },
+      "interests": {
+        "label": "Was interessiert Sie? (optional)",
+        "options": {
+          "monitoring": "Fernüberwachung",
+          "maintenance": "Wartung vor Ort",
+          "cleaning": "Reinigung der Module",
+          "thermography": "Thermografie",
+          "fault": "Störung beheben",
+          "sina": "SiNa-Management"
+        }
+      },
+      "submit": "Erstanalyse anfragen",
+      "successTitle": "Danke, Ihre Anfrage ist bei uns.",
+      "successBody": "Wir rufen Sie unter {phone} an und besprechen die Erstanalyse Ihrer Anlage.",
+      "errors": {
+        "required": "Bitte füllen Sie dieses Feld aus.",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "phoneInvalid": "Bitte geben Sie eine gültige Telefonnummer ein, zum Beispiel 079 123 45 67.",
+        "postalCodeInvalid": "Bitte geben Sie eine vierstellige PLZ ein.",
+        "kwInvalid": "Bitte geben Sie die Leistung als Zahl ein, zum Beispiel 120.",
+        "yearInvalid": "Bitte geben Sie ein Jahr ab {from} ein.",
+        "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
+        "invalid": "Einige Angaben konnten wir nicht verarbeiten. Bitte prüfen Sie das Formular oder rufen Sie uns unter {phone} an.",
+        "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal oder rufen Sie uns unter {phone} an.",
+        "rateLimited": "Sie haben gerade mehrere Anfragen gesendet. Bitte versuchen Sie es in einigen Minuten noch einmal oder rufen Sie uns unter {phone} an."
       }
     }
   },

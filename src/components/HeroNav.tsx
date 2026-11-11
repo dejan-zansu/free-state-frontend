@@ -2,6 +2,7 @@
 
 import { LinkButton } from '@/components/ui/link-button'
 import { Link } from '@/i18n/navigation'
+import { pvServiceVisible } from '@/lib/pv-service-gate'
 import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import { cn } from '@/lib/utils'
 import { ArrowUpRight, Flame, House, Plug2, Sun } from 'lucide-react'
@@ -100,6 +101,14 @@ const HeroNav = ({ isCommercial = false }: HeroNavProps) => {
               label: t('hero.nav.contracting'),
               href: '/commercial/solar-systems/contracting' as const,
             },
+            ...(pvServiceVisible
+              ? [
+                  {
+                    label: t('hero.nav.pvService'),
+                    href: '/service' as const,
+                  },
+                ]
+              : []),
           ],
         },
         {

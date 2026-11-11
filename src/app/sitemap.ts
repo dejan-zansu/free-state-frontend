@@ -10,10 +10,12 @@ import {
   isPlaceholderCanton,
 } from '@/data/foerderung-cantons'
 import { COMMUNITY_MODEL_SLUGS } from '@/data/energiegemeinschaften'
+import { PV_SERVICE_LIVE } from '@/lib/pv-service-gate'
 import { ROOF_RENOVATION_LIVE } from '@/lib/roof-renovation-gate'
 
 // Bump a page's constant when its content actually changes. A stale lastmod
 // tells Google there is nothing new to fetch.
+const REFRESH_2026_11_11 = new Date('2026-11-11')
 const REFRESH_2026_11_05 = new Date('2026-11-05')
 const REFRESH_2026_10_06 = new Date('2026-10-06')
 const REFRESH_2026_09_21 = new Date('2026-09-21')
@@ -160,7 +162,10 @@ const STATIC_ENTRIES: StaticEntry[] = [
   { pathname: '/careers', lastModified: REFRESH_2025_11_01 },
   { pathname: '/faq', lastModified: REFRESH_2026_02_01 },
   { pathname: '/portfolio', lastModified: REFRESH_2026_02_01 },
-  { pathname: '/service', lastModified: REFRESH_2025_11_01 },
+  {
+    pathname: '/service',
+    lastModified: PV_SERVICE_LIVE ? REFRESH_2026_11_11 : REFRESH_2025_11_01,
+  },
   {
     pathname: '/blog',
     lastModified: REFRESH_2026_05_16,

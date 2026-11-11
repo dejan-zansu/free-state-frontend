@@ -327,6 +327,10 @@
       "title": "Roof Renovation with Solar: Planning Both Together",
       "description": "Plan your roof and solar system together, with one scaffold and one building phase. Cantonal rules, on-roof or in-roof, and separate items in the quote."
     },
+    "pvService": {
+      "title": "Solar maintenance and service for PV plants in Switzerland",
+      "description": "Remote monitoring, on-site maintenance and cleaning for PV plants on homes and commercial buildings, including plants built by other installers. Guide prices online, initial review free of charge."
+    },
     "offerRequest": {
       "title": "Request a Solar Quote: Price per kWp | Free State AG",
       "description": "A solar system with battery costs CHF {min} to {max} per kWp with us, excl. VAT. Request a quote with your name, phone and address and we will call you."
@@ -406,6 +410,7 @@
       "roofRenovation": "Roof renovation",
       "roofRenovationService": "Service and costs",
       "roofRenovationSolar": "Roof and solar",
+      "pvService": "Solar service and maintenance",
       "catalog3d": "Products in 3D"
     },
     "company": {
@@ -693,6 +698,7 @@
         "projectDevelopment": "Project development",
         "solarCarport": "Solar carport",
         "contracting": "Contracting",
+        "pvService": "Service and maintenance",
         "apartmentBuilding": "Apartment building",
         "fastChargingStations": "Fast charging stations",
         "bidirectionalCharging": "Bidirectional charging",
@@ -942,7 +948,16 @@
       "subtitle": "We renew your roof across Switzerland with our own teams, from the first check to the handover. You have one contract partner.",
       "subtitleCommercial": "We renew the roofs of commercial buildings, halls and apartment blocks across Switzerland with our own teams. You have one contract partner.",
       "cta": "Explore roof renovation",
-      "imageAlt": "Tiled roofs of the old town of Bern"
+      "imageAlt": "Farmhouse with a tile roof and scaffolding, two workers on the job"
+    },
+    "pvService": {
+      "title": "Solar service and maintenance",
+      "subtitle": "We monitor, maintain and clean solar plants on commercial buildings across Switzerland, including plants built by another installer.",
+      "toolLink": "Guide prices for your plant",
+      "pricesTitle": "Guide prices per year, from",
+      "pricesNote": "For plants up to 30 kWp, excl. VAT. Larger plants by output.",
+      "cta": "Explore solar service",
+      "imageAlt": "Pitched roof with a solar plant, mounting rails and fall protection"
     },
     "fusionSolarApp": {
       "eyebrow": "FusionSolar App",
@@ -7357,6 +7372,8 @@
       "outreachKpi": "Outreach KPIs",
       "groupRoofRenovation": "Roof renovation",
       "roofLeads": "Roof leads",
+      "groupPvService": "PV service",
+      "pvServiceRequests": "Service requests",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -7656,6 +7673,7 @@
         "notInterestedReasons": {
           "PREIS": "Cena",
           "EIGENE_PLAENE": "Sopstveni planovi",
+          "PV_VORHANDEN": "Već ima solarnu elektranu",
           "MIETER_OHNE_DACHRECHT": "Zakupac bez prava na krov",
           "KEIN_BEDARF": "Nema potrebe",
           "TIMING": "Loš trenutak",
@@ -11716,6 +11734,99 @@
       },
       "contactSourceRequest": "Roof renovation request"
     },
+    "pvService": {
+      "title": "PV service requests",
+      "searchPlaceholder": "Search by company, person, e-mail or town",
+      "allStatuses": "All statuses",
+      "empty": "No requests found",
+      "total": "{count} entries",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "colReceived": "Received",
+      "colCompany": "Company and contact",
+      "colPlace": "Town",
+      "colPlant": "Plant",
+      "colInterests": "Interests",
+      "colAnnualFee": "Annual fee",
+      "colStatus": "Status",
+      "sinceYear": "since {year}",
+      "yes": "Yes",
+      "no": "No",
+      "statusLabels": {
+        "NEW": "New",
+        "CONTACTED": "Contacted",
+        "OFFER_SENT": "Offer sent",
+        "WON": "Won",
+        "LOST": "Lost"
+      },
+      "interests": {
+        "monitoring": "Remote monitoring",
+        "maintenance": "On-site maintenance",
+        "cleaning": "Module cleaning",
+        "thermography": "Thermography",
+        "fault": "Fix a fault",
+        "sina": "SiNa management"
+      },
+      "installerStatus": {
+        "active": "Installer still in business",
+        "gone": "Installer no longer exists",
+        "unknown": "Unknown"
+      },
+      "inverterBrand": {
+        "other": "Other brand",
+        "unknown": "Unknown"
+      },
+      "placement": {
+        "estimator": "Form after the estimate",
+        "final": "Form at the end of the page"
+      },
+      "detail": {
+        "back": "Back to the list",
+        "received": "Received on {date}",
+        "sectionContact": "Contact",
+        "sectionManage": "Manage",
+        "sectionPlant": "Plant",
+        "sectionSource": "Source",
+        "companyName": "Company",
+        "contactName": "Contact person",
+        "email": "E-mail",
+        "phone": "Phone",
+        "address": "Plant address",
+        "locale": "Language",
+        "assignedTo": "Assigned to",
+        "updatedAt": "Last changed",
+        "status": "Status",
+        "annualFee": "Annual fee in CHF",
+        "annualFeeHint": "Agreed amount per year, excl. VAT.",
+        "annualFeeInvalid": "Please enter an amount of 0 or more.",
+        "adminNotes": "Notes",
+        "save": "Save",
+        "saved": "Saved",
+        "saveFailed": "Saving failed. Please try again.",
+        "plantKw": "Capacity",
+        "commissioningYear": "Year of commissioning",
+        "inverterBrand": "Inverter",
+        "installerStatus": "Installer",
+        "interests": "Interests",
+        "noInterests": "None given",
+        "message": "Message",
+        "placement": "Form",
+        "consentPrivacy": "Privacy consent",
+        "outboundProspect": "Outbound prospect",
+        "openProspect": "Open in outreach",
+        "utmSource": "UTM source",
+        "utmMedium": "UTM medium",
+        "utmCampaign": "UTM campaign",
+        "utmId": "UTM ID",
+        "utmTerm": "UTM term",
+        "utmContent": "UTM content",
+        "referrer": "Referrer",
+        "landingPage": "Landing page",
+        "gclid": "Google click ID (gclid)",
+        "fbclid": "Facebook click ID (fbclid)",
+        "sessionKey": "Session key"
+      }
+    },
     "productComments": {
       "title": "Product comments",
       "subtitle": "Reviews from the product page. Only approved comments are public.",
@@ -13496,7 +13607,7 @@
       "title": "Plan solar at the same time",
       "body": "When the roof is renewed, a solar system can share the scaffold and the building phase. Whether and when you want solar is up to you.",
       "link": "Plan roof and solar together",
-      "imageAlt": "Village with solar systems on tile roofs"
+      "imageAlt": "Installer carrying a solar module along the ridge of a tile roof with scaffolding"
     },
     "financing": {
       "title": "Financing a roof renovation",
@@ -13890,7 +14001,7 @@
         "title": "On-roof or in-roof?",
         "body1": "As of 2026, the federal one-off payment (Einmalvergütung) for systems under 30 kW is CHF 400 per kW for in-roof and CHF 360 per kW for on-roof. That difference does not cover the extra cost of an in-roof system.",
         "body2": "So the decision rests on the roof itself, on its shape, condition and appearance. Individual cantons pay more for in-roof, Aargau for example a bonus of CHF 100 instead of CHF 30 per m² of pitched roof. We discuss both at the site visit.",
-        "imageAlt": "Installer fixing a mounting rail on a tile roof",
+        "imageAlt": "Installer fastening a rail clamp with a cordless drill on a tile roof",
         "inRoof": "In-roof",
         "onRoof": "On-roof",
         "perKw": "CHF {value} per kW"
@@ -13967,6 +14078,394 @@
             "answer": "SolarFree comes with a CHF 0 down payment. We clarify at the site visit whether it fits your roof."
           }
         }
+      }
+    }
+  },
+  "pvService": {
+    "breadcrumb": {
+      "home": "Home",
+      "main": "Solar service and maintenance"
+    },
+    "jsonLd": {
+      "name": "Solar service and maintenance",
+      "description": "Remote monitoring, maintenance, string measurement, thermography, cleaning and safety certificate management for existing PV plants on homes and commercial buildings across Switzerland, including plants built by other installers."
+    },
+    "hero": {
+      "title": "Service and maintenance for your solar plant",
+      "subtitle": "Remote monitoring, on-site maintenance and cleaning when needed. For PV plants on single-family homes and commercial buildings across Switzerland, even if another installer built them.",
+      "points": {
+        "free": "Initial review free of charge",
+        "anyInstaller": "Plants from any installer",
+        "wholeSwitzerland": "All of Switzerland"
+      },
+      "direct": "Send a request directly"
+    },
+    "estimator": {
+      "title": "Your plant",
+      "intro": "Search for your building or enter the output and the year of commissioning. You will see the guide prices for your plant size and what is due at your plant's age.",
+      "loading": "Reading the register",
+      "restart": "Check another plant",
+      "address": {
+        "title": "Building address",
+        "placeholder": "Street no., postcode town",
+        "cta": "Find plant",
+        "hint": "We look up the plant in the federal register of production plants.",
+        "rateLimited": "Too many searches in a short time. Please try again in a minute.",
+        "searchFailed": "The address search is not available right now. Enter the output and year directly.",
+        "noResults": "No address found. Check the spelling or enter the output and year directly."
+      },
+      "manual": {
+        "divider": "or without an address",
+        "kw": "Output in kWp",
+        "kwPlaceholder": "for example 120",
+        "year": "Year of commissioning",
+        "yearPlaceholder": "for example 2014",
+        "cta": "Show guide prices",
+        "kwInvalid": "Please enter the output in kWp, for example 120.",
+        "yearInvalid": "Please enter a year from {from} onwards."
+      },
+      "idle": {
+        "eyebrow": "Guide prices per year",
+        "title": "Three packages for your plant",
+        "from": "from CHF {value}",
+        "note": "For plants up to 30 kWp, excl. VAT. Once you enter your plant, you will see the prices for its size.",
+        "points": {
+          "register": "Data from the federal register",
+          "free": "Initial review free of charge",
+          "anyInstaller": "Also for plants from other installers"
+        }
+      },
+      "bands": {
+        "up_to_30": "up to 30 kWp",
+        "30_to_100": "30 to 100 kWp",
+        "100_to_300": "100 to 300 kWp",
+        "300_to_600": "300 to 600 kWp",
+        "600_to_1000": "600 to 1'000 kWp",
+        "over_1000": "over 1'000 kWp"
+      },
+      "result": {
+        "registerEyebrow": "According to the register",
+        "manualEyebrow": "Your details",
+        "addressEyebrow": "Register search",
+        "registerTitle": "Your plant according to the register",
+        "manualTitle": "Your plant",
+        "noPlantTitle": "No plant found",
+        "noPlant": "We found no plant in the register for this building. Enter the output and year directly to see the guide prices.",
+        "facts": {
+          "kw": "Output",
+          "since": "In operation since",
+          "registerAddress": "Address in the register"
+        },
+        "kwValue": "{value} kW",
+        "registerNote": "Details according to the federal register of production plants. If something differs, enter the output and year directly.",
+        "registerNearbyNote": "The register entry lies close to your address and may belong to a neighbouring building. Check the address in the register.",
+        "pricesTitle": "Guide prices for {band}",
+        "chf": "CHF {value}",
+        "perYear": "per year",
+        "onRequest": "on request",
+        "onboarding": "On-site survey, one-off",
+        "priceNote": "Excl. VAT. The on-site survey applies to plants from other installers and is credited to the first contract year. The offer after the initial review is binding.",
+        "needKw": "For guide prices we need the output of your plant. Please enter it directly.",
+        "cta": "Request an initial review",
+        "ctaNote": "The initial review is non-binding and free of charge."
+      },
+      "due": {
+        "title": "What is due now",
+        "age": "{years, plural, =0 {Your plant has been in operation for less than a year.} one {Your plant has been in operation for # year.} other {Your plant has been in operation for # years.}}",
+        "liabilityEnded": "The installer's liability for defects lasts 2 to 5 years and has ended. Warranty claims now go directly to the manufacturers.",
+        "liabilityRunning": "The installer's liability for defects lasts 2 to 5 years and may still be running. The SFOE guide recommends having the plant checked by an independent company before it ends.",
+        "liabilityOpen": "The installer's liability for defects lasts 2 to 5 years. For your plant it has ended or is ending around now. The SFOE guide recommends having the plant checked by an independent company before it ends.",
+        "inverterEnded": "The inverter product warranty usually lasts 5 to 10 years and has probably ended, unless it was extended or the devices were replaced.",
+        "inverterRunning": "The inverter product warranty usually lasts 5 to 10 years and may still be running.",
+        "inverterOpen": "The inverter product warranty usually lasts 5 to 10 years. For your plant it has ended or is ending around now, unless it was extended or the devices were replaced."
+      },
+      "failure": {
+        "rate_limited": {
+          "title": "Too many requests",
+          "body": "Please try again in a few minutes or call us on {phone}."
+        },
+        "failed": {
+          "title": "The lookup did not work",
+          "body": "The register is not available right now. Try again later, send us a request directly or call us on {phone}."
+        },
+        "invalid": {
+          "title": "Please check your details",
+          "body": "We could not process the output or year. Check your entry or send us a request directly."
+        }
+      }
+    },
+    "stats": {
+      "title": "Many plants run without installer liability",
+      "intro": "For most commercial plants built before 2021, the installer's liability for defects has ended. Their inverters are reaching the age at which the first yield-relevant faults occur.",
+      "items": {
+        "plants": {
+          "value": "13'587",
+          "label": "plants from 30 kW to 1 MW, built before 2021",
+          "source": "SFOE register of production plants, as of 14.09.2026"
+        },
+        "inverters": {
+          "value": "23%",
+          "label": "of inverters with a fault within 10 years",
+          "source": "Bern University of Applied Sciences (BFH), 2022, first yield-relevant fault in inverters without optimisers"
+        },
+        "liability": {
+          "value": "2 to 5",
+          "label": "years of liability for defects by the installer",
+          "source": "Guide to PV plant operation, SFOE and Swissolar, 2019"
+        }
+      }
+    },
+    "packages": {
+      "title": "Three packages for ongoing operation",
+      "intro": "All packages apply to plants from any installer. If a battery storage system is connected to the plant, we service it too. The price depends on the plant's output. These are guide prices per year, the offer after the initial review is binding.",
+      "fromLabel": "Guide price from",
+      "price": "CHF {value}",
+      "priceUnit": "per year, excl. VAT",
+      "onRequest": "on request",
+      "notIncluded": "(not included)",
+      "monitoring": {
+        "name": "Monitoring",
+        "tagline": "We monitor the plant remotely and get in touch when something is wrong."
+      },
+      "wartung": {
+        "name": "Maintenance",
+        "tagline": "Monitoring plus an on-site inspection every year and a string measurement every 3 years."
+      },
+      "wartung_plus": {
+        "name": "Maintenance Plus",
+        "tagline": "Maintenance plus a string measurement every year, drone thermography and safety certificate management."
+      },
+      "rows": {
+        "monitoring": {
+          "title": "Remote monitoring and alarm triage",
+          "detail": "We check alarms on working days. You receive a fault report with a recommendation."
+        },
+        "report": {
+          "title": "Annual yield report",
+          "detail": "Actual against expected yield, plus a comparison with the previous year."
+        },
+        "visit": {
+          "title": "On-site inspection, once a year",
+          "detail": "During the season. Visual check, mounting, cables, connectors, surge protection and cleaning of the inverters, with a report."
+        },
+        "strings": {
+          "title": "String measurement to SN EN 62446-1",
+          "detail": "Open-circuit voltage, current and insulation of every string."
+        },
+        "thermography": {
+          "title": "Drone thermography",
+          "detail": "A thermal image of the whole plant from the air."
+        },
+        "cleaning": {
+          "title": "Module cleaning",
+          "detail": "With demineralised water, without stepping on the modules. Billed on a time and materials basis."
+        },
+        "sina": {
+          "title": "Safety certificate management (SiNa)",
+          "detail": "Tracking deadlines, organising an independent inspection body, fixing defects."
+        }
+      },
+      "coverage": {
+        "every3": "every 3 years",
+        "yearly": "every year",
+        "onRequest": "on request",
+        "onRequestRecommended": "on request, we recommend it based on the yield data"
+      },
+      "table": {
+        "title": "Guide prices by plant size",
+        "intro": "CHF per year, excl. VAT, by installed output.",
+        "service": "Package",
+        "onboarding": "On-site survey, one-off",
+        "note": "The on-site survey applies to plants from other installers. We credit it to the first contract year. The offer after the initial review is binding.",
+        "extra": "Cleaning, thermography outside the package, repairs and retrofitting a data logger are billed on a time and materials basis."
+      }
+    },
+    "otherInstallers": {
+      "title": "Also for plants from other installers",
+      "intro": "It makes no difference to us who built your plant. For monitoring we need access to the plant's data. There are three ways to get it.",
+      "imageAlt": "Tiled roof with a solar plant",
+      "brandsTitle": "Access through the manufacturer portal, for example with",
+      "routes": {
+        "portal": {
+          "title": "Access in the manufacturer portal",
+          "body": "You give us a role in your inverter's portal, for example with SMA, Fronius, Huawei or SolarEdge. This is the simplest way."
+        },
+        "transfer": {
+          "title": "Transfer the plant",
+          "body": "If the plant still sits in the former installer's account, have it transferred to your account or to us. We tell you what the manufacturer requires for this."
+        },
+        "logger": {
+          "title": "Retrofit a data logger",
+          "body": "If there is no access or there are several brands on the roof, we retrofit an independent data logger. This is billed on a time and materials basis."
+        }
+      },
+      "goneTitle": "Your installer is no longer in business",
+      "gone": "We take over the plant with an on-site survey. We check its condition, documentation and access to monitoring and then tell you which package fits."
+    },
+    "process": {
+      "title": "How we take over your plant",
+      "intro": "From the first look at the data to ongoing operation in four steps.",
+      "imageAlt": "Technician in workwear at solar modules on a roof",
+      "steps": {
+        "check": {
+          "title": "Non-binding initial review",
+          "body": "We read the register data and, if you give us access, the monitoring data. Then we tell you which package fits. The initial review is free of charge."
+        },
+        "survey": {
+          "title": "On-site survey",
+          "body": "For plants from other installers we check the plant, documentation and access on site. We credit the amount to the first contract year."
+        },
+        "contract": {
+          "title": "Contract",
+          "body": "You receive a written offer with the scope of services, the annual price and the term."
+        },
+        "operation": {
+          "title": "Ongoing operation",
+          "body": "We monitor the plant, check alarms on working days, come on site depending on the package and send you the yield report every year."
+        }
+      }
+    },
+    "care": {
+      "title": "Cleaning, thermography and safety certificates",
+      "intro": "You can order these services individually or as part of a package. We recommend them when the plant's data or a deadline calls for it.",
+      "imageAlt": "Inverter of a solar plant on the roof of a commercial building",
+      "items": {
+        "cleaning": {
+          "title": "Module cleaning",
+          "body": "Rain cleans most plants well enough. Flat plants tilted less than 10 degrees, roofs of livestock buildings and sites with dust nearby get dirtier. We clean with demineralised water, without cleaning agents and without stepping on the modules.",
+          "price": "Billed on a time and materials basis, on request in every package"
+        },
+        "thermography": {
+          "title": "Drone thermography",
+          "body": "A thermal image from the air shows overheated cells, faulty bypass diodes and failed strings without anyone stepping on the modules.",
+          "price": "Included every 3 years in Maintenance Plus, otherwise billed on a time and materials basis"
+        },
+        "sina": {
+          "title": "Safety certificate management (SiNa)",
+          "body": "Your plant has the same inspection period as the building, between 1 and 20 years depending on its use, and 5, 10 or 20 years for most commercial buildings. The periodic safety certificate must come from an independent inspection body. We track the deadlines, organise the inspection body and fix the defects in its report. We do not issue the safety certificate ourselves.",
+          "price": "Included in Maintenance Plus"
+        }
+      }
+    },
+    "roof": {
+      "title": "Renovate the roof, keep the plant",
+      "intro": "If the roof under the plant needs renovating, we take the modules down and put them back up afterwards.",
+      "imageAlt": "House with a solar plant on its tiled roof",
+      "cardTitle": "Removal and reinstallation during roof renovation",
+      "cardBody": "Roof and solar plant both come from us, with our own teams and one contract partner for both.",
+      "link": "Go to roof renovation"
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "title": "Questions about service and maintenance",
+      "description": "What solar plant operators want to know before signing a maintenance contract.",
+      "items": {
+        "1": {
+          "question": "Is maintaining a PV plant mandatory?",
+          "answer": "No, there is no legal maintenance duty in Switzerland. As the owner you must, however, operate the plant safely and submit the periodic safety certificate under the Low-Voltage Installation Ordinance (NIV). The plant has the same inspection period as the building, between 1 and 20 years depending on its use, and 5, 10 or 20 years for most commercial buildings."
+        },
+        "2": {
+          "question": "How often should the modules be cleaned?",
+          "answer": "That depends on the site. Rain usually cleans the modules well enough. Cleaning can pay off for flat plants tilted less than 10 degrees, on livestock buildings and in dusty surroundings. We recommend it when the yield data shows a loss, not on a fixed schedule."
+        },
+        "3": {
+          "question": "Do you look after all inverter brands?",
+          "answer": "We work in your manufacturer's portal, for example with SMA, Fronius, Huawei or SolarEdge, as soon as you give us access there. If there is no access or no suitable portal, we retrofit an independent data logger."
+        },
+        "4": {
+          "question": "Our installer is no longer in business. Will you take over the plant?",
+          "answer": "Yes. We start with an on-site survey and check the condition, documentation and access to monitoring. If the plant still sits in the former installer's portal account, we work out with you and the manufacturer how the access is transferred."
+        },
+        "5": {
+          "question": "How long does the contract run, and what does it cost?",
+          "answer": "The guide prices on this page are per year, excluding VAT, and depend on the plant's output. The term and notice period are set out in the offer. The price in the offer after the initial review is binding."
+        },
+        "6": {
+          "question": "What does the initial review cost?",
+          "answer": "Nothing. We read the register data and, if you give us access, your plant's monitoring data and tell you which package fits. For plants from other installers, an on-site survey follows before the contract, which we credit to the first contract year."
+        },
+        "7": {
+          "question": "Do you issue the safety certificate yourselves?",
+          "answer": "No. The periodic safety certificate must be issued by an independent inspection body that neither built nor repaired the plant. We track the deadlines, commission an inspection body and fix the defects in its report."
+        }
+      }
+    },
+    "request": {
+      "nextTitle": "What happens next",
+      "next": {
+        "call": "We call you and go through the key data of your plant.",
+        "check": "We carry out the initial review with register and monitoring data.",
+        "offer": "You receive an offer with an annual price."
+      },
+      "call": "Prefer to call?"
+    },
+    "form": {
+      "heading": {
+        "estimator": "Request an initial review for your plant",
+        "final": "Request an initial review"
+      },
+      "intro": "The initial review is non-binding and free of charge. We get in touch and clarify the details of your plant.",
+      "choose": "Please choose",
+      "plantTitle": "Your plant",
+      "fields": {
+        "companyName": "Company",
+        "contactName": "Contact person",
+        "email": "Email",
+        "phone": "Phone",
+        "street": "Street and no. of the plant",
+        "postalCode": "Postcode",
+        "city": "Town",
+        "plantKw": "Output in kWp (optional)",
+        "commissioningYear": "Year of commissioning (optional)",
+        "message": "Message (optional)"
+      },
+      "messagePlaceholder": "For example error messages, lower yield or questions about access.",
+      "inverterBrand": {
+        "label": "Inverter brand",
+        "options": {
+          "SMA": "SMA",
+          "Fronius": "Fronius",
+          "Huawei": "Huawei",
+          "SolarEdge": "SolarEdge",
+          "Kostal": "Kostal",
+          "Sungrow": "Sungrow",
+          "other": "Other",
+          "unknown": "Don't know"
+        }
+      },
+      "installerStatus": {
+        "label": "Installer of the plant",
+        "options": {
+          "active": "Still in business",
+          "gone": "No longer exists",
+          "unknown": "Don't know"
+        }
+      },
+      "interests": {
+        "label": "What are you interested in? (optional)",
+        "options": {
+          "monitoring": "Remote monitoring",
+          "maintenance": "On-site maintenance",
+          "cleaning": "Module cleaning",
+          "thermography": "Thermography",
+          "fault": "Fixing a fault",
+          "sina": "Safety certificate management"
+        }
+      },
+      "submit": "Request an initial review",
+      "successTitle": "Thank you, we have received your request.",
+      "successBody": "We will call you on {phone} to discuss the initial review of your plant.",
+      "errors": {
+        "required": "Please fill in this field.",
+        "emailInvalid": "Please enter a valid email address.",
+        "phoneInvalid": "Please enter a valid phone number, for example 079 123 45 67.",
+        "postalCodeInvalid": "Please enter a four-digit postcode.",
+        "kwInvalid": "Please enter the output as a number, for example 120.",
+        "yearInvalid": "Please enter a year from {from} onwards.",
+        "consentRequired": "Please confirm your consent so that we may process your request.",
+        "invalid": "We could not process some of your details. Please check the form or call us on {phone}.",
+        "submitFailed": "That did not work. Please try again or call us on {phone}.",
+        "rateLimited": "You have just sent several requests. Please try again in a few minutes or call us on {phone}."
       }
     }
   },

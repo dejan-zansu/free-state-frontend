@@ -31,7 +31,7 @@ const RoofRenovationHomePanel = async ({
         <div className="relative flex flex-1 flex-col">
           <div className="relative min-h-[300px] flex-1 lg:min-h-0">
             <Image
-              src="/images/roof-renovation/hero-bern-roofs.webp"
+              src="/images/photography/farmhouse-roof-rails-scaffold-wide-0678.webp"
               alt={t('imageAlt')}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

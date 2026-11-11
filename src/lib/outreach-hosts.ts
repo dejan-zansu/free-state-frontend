@@ -17,7 +17,12 @@ export function isOutreachHost(host: string | null | undefined): boolean {
   return OUTREACH_HOSTS.includes(name)
 }
 
-const MAIL_PATHS = ['/', '/datenschutz', '/portfolio/bowling-five-thayngen']
+const MAIL_PATHS = [
+  '/',
+  '/datenschutz',
+  '/portfolio/bowling-five-thayngen',
+  '/service',
+]
 const ROOF_PAGE_PATH = /^\/dach\/[^/]+$/
 
 export function isOutreachMailPath(pathname: string): boolean {

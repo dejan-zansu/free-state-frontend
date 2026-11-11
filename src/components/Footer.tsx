@@ -4,6 +4,7 @@ import {
   COMPANY_MAIN_PHONE_DISPLAY,
   COMPANY_MAIN_PHONE_TEL_HREF,
 } from '@/lib/company-contact'
+import { pvServiceVisible } from '@/lib/pv-service-gate'
 import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import { cn } from '@/lib/utils'
 import { Phone } from 'lucide-react'
@@ -103,6 +104,14 @@ const Footer = () => {
           {
             label: t('products.roofRenovationSolar'),
             href: '/roof-renovation/solar' as const,
+          },
+        ]
+      : []),
+    ...(pvServiceVisible
+      ? [
+          {
+            label: t('products.pvService'),
+            href: '/service' as const,
           },
         ]
       : []),

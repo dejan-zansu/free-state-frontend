@@ -1,10 +1,12 @@
 import type { AbstractIntlMessages } from 'next-intl'
 
+import { publicPvServiceMessages } from '@/lib/pv-service-messages'
 import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 
 export function publicRoofMessages(
-  messages: AbstractIntlMessages
+  input: AbstractIntlMessages
 ): AbstractIntlMessages {
+  const messages = publicPvServiceMessages(input)
   const source = messages.admin as AbstractIntlMessages
   const sidebar = { ...(source.sidebar as AbstractIntlMessages) }
   delete sidebar.groupRoofRenovation

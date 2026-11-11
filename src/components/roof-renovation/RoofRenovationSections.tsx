@@ -76,7 +76,7 @@ const PRICE_STAGES = [
 const FINANCING_AUDIENCES = [
   {
     key: 'owners',
-    image: '/images/roof-renovation/chalet-solar-hillside.webp',
+    image: '/images/photography/swiss-house-pv-two-roof-faces-fir-trees-0717.webp',
   },
   {
     key: 'condominium',
@@ -174,7 +174,7 @@ export const RoofRenovationHero = async () => {
   const t = await getTranslations('roofRenovation.hero')
   return (
     <RoofEstimatorHero
-      image="/images/roof-renovation/hero-bern-roofs.webp"
+      image="/images/photography/farmhouse-roof-rails-scaffold-wide-0678.webp"
       title={t('title')}
       subtitle={t('subtitle')}
     />
@@ -467,11 +467,11 @@ export const RoofSolarTeaserSection = async () => {
       </div>
       <div className="relative order-1 min-h-[420px] lg:order-2 lg:min-h-[680px]">
         <Image
-          src="/images/roof-renovation/village-solar-roofs.webp"
+          src="/images/photography/installer-carrying-module-roof-ridge-scaffold-1219.webp"
           alt={t('imageAlt')}
           fill
           sizes="(min-width: 1024px) 50vw, 100vw"
-          className="object-cover"
+          className="object-cover object-[35%_50%]"
         />
       </div>
     </section>
@@ -612,7 +612,7 @@ export const RoofRequestSection = async ({
       <div className="mx-auto grid max-w-[1214px] items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
         <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[24px] lg:sticky lg:top-28 lg:block">
           <Image
-            src="/images/roof-renovation/hero-tile-roofs.webp"
+            src="/images/photography/mounting-rails-tiled-roof-village-view-0591.webp"
             alt=""
             fill
             sizes="500px"

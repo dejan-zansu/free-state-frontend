@@ -327,6 +327,10 @@
       "title": "Risanamento del tetto e fotovoltaico: progettarli insieme",
       "description": "Tetto e impianto solare progettati insieme, con un solo ponteggio. Regole cantonali, impianto sopra tetto o integrato, voci separate nell'offerta."
     },
+    "pvService": {
+      "title": "Manutenzione fotovoltaica in Svizzera",
+      "description": "Monitoraggio a distanza, manutenzione sul posto e pulizia per impianti fotovoltaici su case unifamiliari ed edifici commerciali, anche per impianti installati da altri installatori. Prezzi indicativi online, analisi iniziale gratuita."
+    },
     "offerRequest": {
       "title": "Richiedi un'offerta solare: prezzo per kWp | Free State AG",
       "description": "Da noi un impianto solare con batteria costa CHF {min} a {max} per kWp, IVA esclusa. Richiedi un'offerta con nome, telefono e indirizzo, ti chiamiamo noi."
@@ -406,6 +410,7 @@
       "roofRenovation": "Risanamento del tetto",
       "roofRenovationService": "Servizi e costi",
       "roofRenovationSolar": "Tetto e solare",
+      "pvService": "Servizio e manutenzione FV",
       "catalog3d": "Prodotti in 3D"
     },
     "company": {
@@ -693,6 +698,7 @@
         "projectDevelopment": "Sviluppo di progetto",
         "solarCarport": "Carport solare",
         "contracting": "Contracting",
+        "pvService": "Servizio e manutenzione",
         "apartmentBuilding": "Condominio",
         "fastChargingStations": "Stazioni di ricarica rapida",
         "bidirectionalCharging": "Ricarica bidirezionale",
@@ -942,7 +948,16 @@
       "subtitle": "Risaniamo il Suo tetto in tutta la Svizzera con squadre proprie, dal primo controllo al collaudo. Ha un solo partner contrattuale.",
       "subtitleCommercial": "Risaniamo i tetti di edifici commerciali, capannoni e condomini in tutta la Svizzera con squadre proprie. Ha un solo partner contrattuale.",
       "cta": "Scopri il risanamento del tetto",
-      "imageAlt": "Tetti in tegole del centro storico di Berna"
+      "imageAlt": "Casa colonica con tetto in tegole e ponteggio, due operai al lavoro"
+    },
+    "pvService": {
+      "title": "Servizio e manutenzione FV",
+      "subtitle": "Monitoriamo, manuteniamo e puliamo impianti solari su edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
+      "toolLink": "Prezzi indicativi per il Suo impianto",
+      "pricesTitle": "Prezzi indicativi all'anno, da",
+      "pricesNote": "Per impianti fino a 30 kWp, IVA esclusa. Impianti più grandi in base alla potenza.",
+      "cta": "Scopri il servizio FV",
+      "imageAlt": "Tetto a falde con impianto solare, binari di montaggio e protezione anticaduta"
     },
     "fusionSolarApp": {
       "eyebrow": "App FusionSolar",
@@ -7357,6 +7372,8 @@
       "outreachKpi": "Outreach-Kennzahlen",
       "groupRoofRenovation": "Dachsanierung",
       "roofLeads": "Dach-Leads",
+      "groupPvService": "PV-Service",
+      "pvServiceRequests": "Service-Anfragen",
       "outreachLinkedin": "LinkedIn"
     },
     "outreach": {
@@ -7656,6 +7673,7 @@
         "notInterestedReasons": {
           "PREIS": "Prezzo",
           "EIGENE_PLAENE": "Piani propri",
+          "PV_VORHANDEN": "PV-Anlage vorhanden",
           "MIETER_OHNE_DACHRECHT": "Inquilino senza diritti sul tetto",
           "KEIN_BEDARF": "Nessuna necessità",
           "TIMING": "Tempistica",
@@ -11716,6 +11734,99 @@
       },
       "contactSourceRequest": "Dachsanierung-Anfrage"
     },
+    "pvService": {
+      "title": "PV-Service-Anfragen",
+      "searchPlaceholder": "Suchen nach Firma, Person, E-Mail oder Ort",
+      "allStatuses": "Alle Status",
+      "empty": "Keine Anfragen gefunden",
+      "total": "{count} Einträge",
+      "previousPage": "Vorherige Seite",
+      "nextPage": "Nächste Seite",
+      "colReceived": "Eingang",
+      "colCompany": "Firma und Kontakt",
+      "colPlace": "Ort",
+      "colPlant": "Anlage",
+      "colInterests": "Interessen",
+      "colAnnualFee": "Jahresgebühr",
+      "colStatus": "Status",
+      "sinceYear": "seit {year}",
+      "yes": "Ja",
+      "no": "Nein",
+      "statusLabels": {
+        "NEW": "Neu",
+        "CONTACTED": "Kontaktiert",
+        "OFFER_SENT": "Offerte gesendet",
+        "WON": "Gewonnen",
+        "LOST": "Verloren"
+      },
+      "interests": {
+        "monitoring": "Fernüberwachung",
+        "maintenance": "Wartung vor Ort",
+        "cleaning": "Reinigung der Module",
+        "thermography": "Thermografie",
+        "fault": "Störung beheben",
+        "sina": "SiNa-Management"
+      },
+      "installerStatus": {
+        "active": "Installateur ist noch tätig",
+        "gone": "Installateur gibt es nicht mehr",
+        "unknown": "Unbekannt"
+      },
+      "inverterBrand": {
+        "other": "Andere Marke",
+        "unknown": "Unbekannt"
+      },
+      "placement": {
+        "estimator": "Formular nach der Schätzung",
+        "final": "Formular am Seitenende"
+      },
+      "detail": {
+        "back": "Zurück zur Liste",
+        "received": "Eingegangen am {date}",
+        "sectionContact": "Kontakt",
+        "sectionManage": "Bearbeiten",
+        "sectionPlant": "Anlage",
+        "sectionSource": "Herkunft",
+        "companyName": "Firma",
+        "contactName": "Ansprechperson",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "address": "Adresse der Anlage",
+        "locale": "Sprache",
+        "assignedTo": "Zugewiesen an",
+        "updatedAt": "Zuletzt geändert",
+        "status": "Status",
+        "annualFee": "Jahresgebühr in CHF",
+        "annualFeeHint": "Vereinbarter Betrag pro Jahr, exkl. MwSt.",
+        "annualFeeInvalid": "Bitte einen Betrag von 0 oder mehr eingeben.",
+        "adminNotes": "Notizen",
+        "save": "Speichern",
+        "saved": "Erfolgreich gespeichert",
+        "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+        "plantKw": "Leistung",
+        "commissioningYear": "Jahr der Inbetriebnahme",
+        "inverterBrand": "Wechselrichter",
+        "installerStatus": "Installateur",
+        "interests": "Interessen",
+        "noInterests": "Keine angegeben",
+        "message": "Nachricht",
+        "placement": "Formular",
+        "consentPrivacy": "Datenschutz-Einwilligung",
+        "outboundProspect": "Outbound-Prospect",
+        "openProspect": "Im Outreach öffnen",
+        "utmSource": "UTM Source",
+        "utmMedium": "UTM Medium",
+        "utmCampaign": "UTM Campaign",
+        "utmId": "UTM ID",
+        "utmTerm": "UTM Term",
+        "utmContent": "UTM Content",
+        "referrer": "Referrer",
+        "landingPage": "Landingpage",
+        "gclid": "Google Click-ID (gclid)",
+        "fbclid": "Facebook Click-ID (fbclid)",
+        "sessionKey": "Sitzungsschlüssel"
+      }
+    },
     "productComments": {
       "title": "Commenti prodotti",
       "subtitle": "Recensioni dalla pagina prodotti. Solo i commenti approvati sono pubblici.",
@@ -13496,7 +13607,7 @@
       "title": "Prevedere subito anche il solare",
       "body": "Quando si rinnova il tetto, un impianto solare può sfruttare lo stesso ponteggio e la stessa fase di cantiere. Se e quando volere il solare lo decide Lei.",
       "link": "Progettare insieme tetto e solare",
-      "imageAlt": "Paese con impianti solari su tetti in tegole"
+      "imageAlt": "Installatore che porta un modulo solare lungo il colmo di un tetto in tegole con ponteggio"
     },
     "financing": {
       "title": "Finanziare il risanamento del tetto",
@@ -13890,7 +14001,7 @@
         "title": "Impianto sopra tetto o integrato?",
         "body1": "Per gli impianti sotto i 30 kW la rimunerazione unica è, stato 2026, di CHF 400 per kW per un impianto integrato e di CHF 360 per kW per un impianto sopra tetto. Questa differenza non copre il costo aggiuntivo di un impianto integrato.",
         "body2": "La decisione dipende quindi dal tetto stesso, dalla sua forma, dal suo stato e dal suo aspetto. Alcuni Cantoni pagano di più per un impianto integrato, l'Argovia ad esempio un bonus di CHF 100 invece di CHF 30 per m² di tetto a falde. Ne parliamo durante il sopralluogo.",
-        "imageAlt": "Installatore che fissa un binario di montaggio su un tetto in tegole",
+        "imageAlt": "Installatore che avvita un morsetto del binario con un avvitatore a batteria su un tetto in tegole",
         "inRoof": "Integrato nel tetto",
         "onRoof": "Sopra il tetto",
         "perKw": "CHF {value} per kW"
@@ -13967,6 +14078,394 @@
             "answer": "Con SolarFree non paga alcun anticipo (CHF 0). Durante il sopralluogo chiariamo se è adatto al Suo tetto."
           }
         }
+      }
+    }
+  },
+  "pvService": {
+    "breadcrumb": {
+      "home": "Home",
+      "main": "Servizio e manutenzione FV"
+    },
+    "jsonLd": {
+      "name": "Servizio e manutenzione FV",
+      "description": "Monitoraggio a distanza, manutenzione, misura delle stringhe, termografia, pulizia e gestione del rapporto di sicurezza per impianti fotovoltaici esistenti su case unifamiliari ed edifici commerciali in tutta la Svizzera, anche per impianti installati da altri installatori."
+    },
+    "hero": {
+      "title": "Servizio e manutenzione per il Suo impianto solare",
+      "subtitle": "Monitoraggio a distanza, manutenzione sul posto e pulizia quando serve. Per impianti fotovoltaici su case unifamiliari ed edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
+      "points": {
+        "free": "Analisi iniziale gratuita",
+        "anyInstaller": "Impianti di qualsiasi installatore",
+        "wholeSwitzerland": "Tutta la Svizzera"
+      },
+      "direct": "Richiedere direttamente"
+    },
+    "estimator": {
+      "title": "Il Suo impianto",
+      "intro": "Cerchi il Suo edificio oppure inserisca la potenza e l'anno di messa in servizio. Vedrà i prezzi indicativi per la dimensione del Suo impianto e cosa è previsto in base alla sua età.",
+      "loading": "Stiamo consultando il registro",
+      "restart": "Verificare un altro impianto",
+      "address": {
+        "title": "Indirizzo dell'edificio",
+        "placeholder": "Via n., NPA località",
+        "cta": "Cerca impianto",
+        "hint": "Cerchiamo l'impianto nel registro federale degli impianti di produzione.",
+        "rateLimited": "Troppe ricerche in poco tempo. Riprovi tra un minuto.",
+        "searchFailed": "La ricerca degli indirizzi non è disponibile al momento. Inserisca direttamente potenza e anno.",
+        "noResults": "Nessun indirizzo trovato. Controlli l'ortografia oppure inserisca direttamente potenza e anno."
+      },
+      "manual": {
+        "divider": "oppure senza indirizzo",
+        "kw": "Potenza in kWp",
+        "kwPlaceholder": "per esempio 120",
+        "year": "Anno di messa in servizio",
+        "yearPlaceholder": "per esempio 2014",
+        "cta": "Mostra i prezzi indicativi",
+        "kwInvalid": "Inserisca la potenza in kWp, per esempio 120.",
+        "yearInvalid": "Inserisca un anno a partire dal {from}."
+      },
+      "idle": {
+        "eyebrow": "Prezzi indicativi all'anno",
+        "title": "Tre pacchetti per il Suo impianto",
+        "from": "da CHF {value}",
+        "note": "Per impianti fino a 30 kWp, IVA esclusa. Dopo l'inserimento vedrà i prezzi per la Sua dimensione.",
+        "points": {
+          "register": "Dati dal registro federale",
+          "free": "Analisi iniziale gratuita",
+          "anyInstaller": "Anche per impianti di altri installatori"
+        }
+      },
+      "bands": {
+        "up_to_30": "fino a 30 kWp",
+        "30_to_100": "da 30 a 100 kWp",
+        "100_to_300": "da 100 a 300 kWp",
+        "300_to_600": "da 300 a 600 kWp",
+        "600_to_1000": "da 600 a 1'000 kWp",
+        "over_1000": "oltre 1'000 kWp"
+      },
+      "result": {
+        "registerEyebrow": "Secondo il registro",
+        "manualEyebrow": "I Suoi dati",
+        "addressEyebrow": "Ricerca nel registro",
+        "registerTitle": "Il Suo impianto secondo il registro",
+        "manualTitle": "Il Suo impianto",
+        "noPlantTitle": "Nessun impianto trovato",
+        "noPlant": "Per questo edificio non abbiamo trovato alcun impianto nel registro. Inserisca direttamente potenza e anno per vedere i prezzi indicativi.",
+        "facts": {
+          "kw": "Potenza",
+          "since": "In servizio dal",
+          "registerAddress": "Indirizzo nel registro"
+        },
+        "kwValue": "{value} kW",
+        "registerNote": "Dati secondo il registro federale degli impianti di produzione. Se qualcosa non corrisponde, inserisca direttamente potenza e anno.",
+        "registerNearbyNote": "L'iscrizione nel registro si trova vicino al Suo indirizzo e può riguardare un edificio vicino. Controlli l'indirizzo nel registro.",
+        "pricesTitle": "Prezzi indicativi {band}",
+        "chf": "CHF {value}",
+        "perYear": "all'anno",
+        "onRequest": "su richiesta",
+        "onboarding": "Rilievo sul posto, una tantum",
+        "priceNote": "IVA esclusa. Il rilievo vale per impianti di altri installatori e viene computato nel primo anno di contratto. Fa fede l'offerta dopo l'analisi iniziale.",
+        "needKw": "Per i prezzi indicativi ci serve la potenza del Suo impianto. La inserisca direttamente.",
+        "cta": "Richiedere l'analisi iniziale",
+        "ctaNote": "L'analisi iniziale è senza impegno e gratuita."
+      },
+      "due": {
+        "title": "Cosa è previsto ora",
+        "age": "{years, plural, =0 {Il Suo impianto è in servizio da meno di un anno.} one {Il Suo impianto è in servizio da # anno.} other {Il Suo impianto è in servizio da # anni.}}",
+        "liabilityEnded": "La garanzia per difetti dell'installatore dura da 2 a 5 anni ed è scaduta. I casi di garanzia si regolano ora direttamente con i produttori.",
+        "liabilityRunning": "La garanzia per difetti dell'installatore dura da 2 a 5 anni e forse è ancora in corso. La guida dell'UFE raccomanda di far verificare l'impianto da una ditta indipendente prima della scadenza.",
+        "liabilityOpen": "La garanzia per difetti dell'installatore dura da 2 a 5 anni. Per il Suo impianto è scaduta o scade in questi mesi. La guida dell'UFE raccomanda di far verificare l'impianto da una ditta indipendente prima della scadenza.",
+        "inverterEnded": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni ed è probabilmente scaduta, a meno che non sia stata prolungata o gli apparecchi siano stati sostituiti.",
+        "inverterRunning": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni e forse è ancora in corso.",
+        "inverterOpen": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni. Per il Suo impianto è scaduta o scade in questi mesi, a meno che non sia stata prolungata o gli apparecchi siano stati sostituiti."
+      },
+      "failure": {
+        "rate_limited": {
+          "title": "Troppe richieste",
+          "body": "Riprovi tra qualche minuto oppure ci chiami al numero {phone}."
+        },
+        "failed": {
+          "title": "La ricerca non è riuscita",
+          "body": "Il registro non è raggiungibile al momento. Riprovi più tardi, ci invii direttamente una richiesta oppure ci chiami al numero {phone}."
+        },
+        "invalid": {
+          "title": "Controlli i dati",
+          "body": "Non abbiamo potuto elaborare la potenza o l'anno. Controlli l'inserimento oppure ci invii direttamente una richiesta."
+        }
+      }
+    },
+    "stats": {
+      "title": "Molti impianti non sono più coperti dall'installatore",
+      "intro": "Per la maggior parte degli impianti commerciali costruiti prima del 2021 la garanzia per difetti dell'installatore è scaduta. I loro inverter raggiungono l'età in cui compaiono i primi guasti rilevanti per la resa.",
+      "items": {
+        "plants": {
+          "value": "13'587",
+          "label": "impianti da 30 kW a 1 MW costruiti prima del 2021",
+          "source": "Registro degli impianti di produzione dell'UFE, stato al 14.09.2026"
+        },
+        "inverters": {
+          "value": "23%",
+          "label": "degli inverter con un guasto entro 10 anni",
+          "source": "Scuola universitaria professionale di Berna (BFH), 2022, primo guasto rilevante per la resa, inverter senza ottimizzatori"
+        },
+        "liability": {
+          "value": "da 2 a 5",
+          "label": "anni di garanzia per difetti dell'installatore",
+          "source": "Guida alla gestione degli impianti fotovoltaici, UFE e Swissolar, 2019"
+        }
+      }
+    },
+    "packages": {
+      "title": "Tre pacchetti per l'esercizio corrente",
+      "intro": "Tutti i pacchetti valgono per impianti di qualsiasi installatore. Se all'impianto è collegata una batteria di accumulo, ce ne occupiamo anche noi. Il prezzo dipende dalla potenza dell'impianto. Sono prezzi indicativi all'anno, fa fede l'offerta dopo l'analisi iniziale.",
+      "fromLabel": "Prezzo indicativo da",
+      "price": "CHF {value}",
+      "priceUnit": "all'anno, IVA esclusa",
+      "onRequest": "su richiesta",
+      "notIncluded": "(non incluso)",
+      "monitoring": {
+        "name": "Monitoraggio",
+        "tagline": "Sorvegliamo l'impianto a distanza e La contattiamo quando qualcosa non va."
+      },
+      "wartung": {
+        "name": "Manutenzione",
+        "tagline": "Monitoraggio più un sopralluogo ogni anno e una misura delle stringhe ogni 3 anni."
+      },
+      "wartung_plus": {
+        "name": "Manutenzione Plus",
+        "tagline": "Manutenzione più una misura delle stringhe ogni anno, termografia con drone e gestione del rapporto di sicurezza."
+      },
+      "rows": {
+        "monitoring": {
+          "title": "Monitoraggio a distanza e triage degli allarmi",
+          "detail": "Verifichiamo gli allarmi nei giorni feriali. Riceve un protocollo del guasto con una raccomandazione."
+        },
+        "report": {
+          "title": "Rapporto annuale sulla resa",
+          "detail": "Resa effettiva e attesa a confronto, più il confronto con l'anno precedente."
+        },
+        "visit": {
+          "title": "Sopralluogo sul posto, una volta all'anno",
+          "detail": "Durante la stagione. Controllo visivo, fissaggi, cavi, connettori, protezione contro le sovratensioni e pulizia degli inverter, con protocollo."
+        },
+        "strings": {
+          "title": "Misura delle stringhe secondo SN EN 62446-1",
+          "detail": "Tensione a vuoto, corrente e isolamento di ogni stringa."
+        },
+        "thermography": {
+          "title": "Termografia con drone",
+          "detail": "Immagine termica dell'intero impianto dall'alto."
+        },
+        "cleaning": {
+          "title": "Pulizia dei moduli",
+          "detail": "Con acqua demineralizzata, senza calpestare i moduli. A consuntivo."
+        },
+        "sina": {
+          "title": "Gestione del rapporto di sicurezza (RaSi)",
+          "detail": "Gestione delle scadenze, organizzazione di un organo di controllo indipendente, eliminazione dei difetti."
+        }
+      },
+      "coverage": {
+        "every3": "ogni 3 anni",
+        "yearly": "ogni anno",
+        "onRequest": "su richiesta",
+        "onRequestRecommended": "su richiesta, la raccomandiamo in base ai dati di resa"
+      },
+      "table": {
+        "title": "Prezzi indicativi per dimensione dell'impianto",
+        "intro": "CHF all'anno, IVA esclusa, in base alla potenza installata.",
+        "service": "Pacchetto",
+        "onboarding": "Rilievo sul posto, una tantum",
+        "note": "Il rilievo vale per impianti di altri installatori. Lo computiamo nel primo anno di contratto. Fa fede l'offerta dopo l'analisi iniziale.",
+        "extra": "Pulizia, termografia fuori pacchetto, riparazioni e installazione successiva di un data logger sono fatturate a consuntivo."
+      }
+    },
+    "otherInstallers": {
+      "title": "Anche per impianti di altri installatori",
+      "intro": "Per noi non conta chi ha installato il Suo impianto. Per il monitoraggio ci serve l'accesso ai dati dell'impianto. Ci sono tre modi per ottenerlo.",
+      "imageAlt": "Tetto in tegole con impianto solare",
+      "brandsTitle": "Accesso tramite il portale del produttore, per esempio con",
+      "routes": {
+        "portal": {
+          "title": "Accesso nel portale del produttore",
+          "body": "Ci assegna un ruolo nel portale del Suo inverter, per esempio con SMA, Fronius, Huawei o SolarEdge. È la via più semplice."
+        },
+        "transfer": {
+          "title": "Trasferire l'impianto",
+          "body": "Se l'impianto si trova ancora nel conto dell'installatore precedente, lo faccia trasferire sul Suo conto o a noi. Le diciamo cosa richiede il produttore."
+        },
+        "logger": {
+          "title": "Installare un data logger",
+          "body": "Se non c'è accesso o ci sono più marche sul tetto, installiamo un data logger indipendente. Viene fatturato a consuntivo."
+        }
+      },
+      "goneTitle": "Il Suo installatore non è più sul mercato",
+      "gone": "Riprendiamo l'impianto con un rilievo sul posto. Verifichiamo lo stato, la documentazione e l'accesso al monitoraggio e poi Le diciamo quale pacchetto è adatto."
+    },
+    "process": {
+      "title": "Come riprendiamo il Suo impianto",
+      "intro": "Dal primo sguardo ai dati all'esercizio corrente, in quattro passi.",
+      "imageAlt": "Tecnico in abiti da lavoro su moduli solari su un tetto",
+      "steps": {
+        "check": {
+          "title": "Analisi iniziale senza impegno",
+          "body": "Leggiamo i dati del registro e, se ci dà accesso, i dati del monitoraggio. Poi Le diciamo quale pacchetto è adatto. L'analisi iniziale è gratuita."
+        },
+        "survey": {
+          "title": "Rilievo sul posto",
+          "body": "Per impianti di altri installatori verifichiamo sul posto impianto, documentazione e accesso. L'importo viene computato nel primo anno di contratto."
+        },
+        "contract": {
+          "title": "Contratto",
+          "body": "Riceve un'offerta scritta con l'entità delle prestazioni, il prezzo annuo e la durata."
+        },
+        "operation": {
+          "title": "Esercizio corrente",
+          "body": "Sorvegliamo l'impianto, verifichiamo gli allarmi nei giorni feriali, veniamo sul posto secondo il pacchetto e Le inviamo ogni anno il rapporto sulla resa."
+        }
+      }
+    },
+    "care": {
+      "title": "Pulizia, termografia e rapporto di sicurezza",
+      "intro": "Può ordinare queste prestazioni singolarmente o nel pacchetto. Le raccomandiamo quando i dati dell'impianto o una scadenza lo richiedono.",
+      "imageAlt": "Inverter di un impianto solare sul tetto di un edificio commerciale",
+      "items": {
+        "cleaning": {
+          "title": "Pulizia dei moduli",
+          "body": "La pioggia pulisce a sufficienza la maggior parte degli impianti. Si sporcano di più gli impianti piani con inclinazione inferiore a 10 gradi, i tetti delle stalle e i siti vicini a fonti di polvere. Puliamo con acqua demineralizzata, senza detergenti e senza calpestare i moduli.",
+          "price": "A consuntivo, su richiesta in tutti i pacchetti"
+        },
+        "thermography": {
+          "title": "Termografia con drone",
+          "body": "Un'immagine termica dall'alto mostra celle surriscaldate, diodi di bypass difettosi e stringhe guaste, senza che nessuno calpesti i moduli.",
+          "price": "Inclusa ogni 3 anni in Manutenzione Plus, altrimenti a consuntivo"
+        },
+        "sina": {
+          "title": "Gestione del rapporto di sicurezza (RaSi)",
+          "body": "Il Suo impianto ha la stessa periodicità di controllo dell'edificio, tra 1 e 20 anni secondo l'utilizzo, e 5, 10 o 20 anni per la maggior parte degli edifici commerciali. Il rapporto di sicurezza periodico deve essere rilasciato da un organo di controllo indipendente. Gestiamo le scadenze, organizziamo l'organo di controllo ed eliminiamo i difetti del suo rapporto. Non rilasciamo noi stessi il rapporto di sicurezza.",
+          "price": "Inclusa in Manutenzione Plus"
+        }
+      }
+    },
+    "roof": {
+      "title": "Risanare il tetto, mantenere l'impianto",
+      "intro": "Se il tetto sotto l'impianto va risanato, smontiamo i moduli e poi li rimontiamo.",
+      "imageAlt": "Casa con impianto solare sul tetto in tegole",
+      "cardTitle": "Smontaggio e rimontaggio durante il risanamento del tetto",
+      "cardBody": "Tetto e impianto solare vengono da noi, con squadre proprie e un solo partner contrattuale per entrambi.",
+      "link": "Al risanamento del tetto"
+    },
+    "faq": {
+      "eyebrow": "Domande frequenti",
+      "title": "Domande su servizio e manutenzione",
+      "description": "Cosa vogliono sapere i gestori di impianti solari prima di un contratto di manutenzione.",
+      "items": {
+        "1": {
+          "question": "La manutenzione di un impianto fotovoltaico è obbligatoria?",
+          "answer": "No, in Svizzera non esiste un obbligo legale di manutenzione. In quanto proprietario deve però gestire l'impianto in modo sicuro e presentare il rapporto di sicurezza periodico secondo l'ordinanza sugli impianti elettrici a bassa tensione (OIBT). L'impianto ha la stessa periodicità di controllo dell'edificio, tra 1 e 20 anni secondo l'utilizzo, e 5, 10 o 20 anni per la maggior parte degli edifici commerciali."
+        },
+        "2": {
+          "question": "Con quale frequenza vanno puliti i moduli?",
+          "answer": "Dipende dal sito. Di solito la pioggia pulisce i moduli a sufficienza. Una pulizia può convenire per impianti piani con inclinazione inferiore a 10 gradi, sulle stalle e in ambienti polverosi. La raccomandiamo quando i dati di resa mostrano una perdita, e non secondo un ritmo fisso."
+        },
+        "3": {
+          "question": "Seguite tutte le marche di inverter?",
+          "answer": "Lavoriamo nel portale del Suo produttore, per esempio con SMA, Fronius, Huawei o SolarEdge, non appena ci dà accesso. Se non c'è accesso o non c'è un portale adatto, installiamo un data logger indipendente."
+        },
+        "4": {
+          "question": "Il nostro installatore non è più sul mercato. Riprendete l'impianto?",
+          "answer": "Sì. Iniziamo con un rilievo sul posto e verifichiamo lo stato, la documentazione e l'accesso al monitoraggio. Se l'impianto si trova ancora nel conto portale dell'installatore precedente, chiariamo con Lei e con il produttore come trasferire l'accesso."
+        },
+        "5": {
+          "question": "Quanto dura il contratto e quanto costa?",
+          "answer": "I prezzi indicativi di questa pagina valgono all'anno, IVA esclusa, e dipendono dalla potenza dell'impianto. Durata e termine di disdetta sono indicati nell'offerta. Fa fede il prezzo dell'offerta dopo l'analisi iniziale."
+        },
+        "6": {
+          "question": "Quanto costa l'analisi iniziale?",
+          "answer": "Niente. Leggiamo i dati del registro e, se ci dà accesso, i dati di monitoraggio del Suo impianto e Le diciamo quale pacchetto è adatto. Per impianti di altri installatori segue, prima del contratto, un rilievo sul posto che computiamo nel primo anno di contratto."
+        },
+        "7": {
+          "question": "Rilasciate voi stessi il rapporto di sicurezza?",
+          "answer": "No. Il rapporto di sicurezza periodico deve essere rilasciato da un organo di controllo indipendente che non ha né costruito né riparato l'impianto. Gestiamo le scadenze, incarichiamo un organo di controllo ed eliminiamo i difetti del suo rapporto."
+        }
+      }
+    },
+    "request": {
+      "nextTitle": "Come procediamo",
+      "next": {
+        "call": "La chiamiamo e chiariamo i dati principali del Suo impianto.",
+        "check": "Eseguiamo l'analisi iniziale con i dati del registro e del monitoraggio.",
+        "offer": "Riceve un'offerta con prezzo annuo."
+      },
+      "call": "Preferisce chiamare?"
+    },
+    "form": {
+      "heading": {
+        "estimator": "Richiedere l'analisi iniziale per il Suo impianto",
+        "final": "Richiedere l'analisi iniziale"
+      },
+      "intro": "L'analisi iniziale è senza impegno e gratuita. La contattiamo e chiariamo i dettagli del Suo impianto.",
+      "choose": "Selezioni",
+      "plantTitle": "Il Suo impianto",
+      "fields": {
+        "companyName": "Azienda",
+        "contactName": "Persona di contatto",
+        "email": "E-mail",
+        "phone": "Telefono",
+        "street": "Via e n. dell'impianto",
+        "postalCode": "NPA",
+        "city": "Località",
+        "plantKw": "Potenza in kWp (facoltativo)",
+        "commissioningYear": "Anno di messa in servizio (facoltativo)",
+        "message": "Messaggio (facoltativo)"
+      },
+      "messagePlaceholder": "Per esempio messaggi di errore, calo della resa o domande sull'accesso.",
+      "inverterBrand": {
+        "label": "Marca degli inverter",
+        "options": {
+          "SMA": "SMA",
+          "Fronius": "Fronius",
+          "Huawei": "Huawei",
+          "SolarEdge": "SolarEdge",
+          "Kostal": "Kostal",
+          "Sungrow": "Sungrow",
+          "other": "Altra",
+          "unknown": "Non lo so"
+        }
+      },
+      "installerStatus": {
+        "label": "Installatore dell'impianto",
+        "options": {
+          "active": "Ancora attivo",
+          "gone": "Non esiste più",
+          "unknown": "Non lo so"
+        }
+      },
+      "interests": {
+        "label": "Cosa Le interessa? (facoltativo)",
+        "options": {
+          "monitoring": "Monitoraggio a distanza",
+          "maintenance": "Manutenzione sul posto",
+          "cleaning": "Pulizia dei moduli",
+          "thermography": "Termografia",
+          "fault": "Risolvere un guasto",
+          "sina": "Gestione del rapporto di sicurezza"
+        }
+      },
+      "submit": "Richiedere l'analisi iniziale",
+      "successTitle": "Grazie, abbiamo ricevuto la Sua richiesta.",
+      "successBody": "La chiamiamo al numero {phone} per discutere l'analisi iniziale del Suo impianto.",
+      "errors": {
+        "required": "Compili questo campo.",
+        "emailInvalid": "Inserisca un indirizzo e-mail valido.",
+        "phoneInvalid": "Inserisca un numero di telefono valido, per esempio 079 123 45 67.",
+        "postalCodeInvalid": "Inserisca un NPA di quattro cifre.",
+        "kwInvalid": "Inserisca la potenza come numero, per esempio 120.",
+        "yearInvalid": "Inserisca un anno a partire dal {from}.",
+        "consentRequired": "Confermi il Suo consenso affinché possiamo elaborare la Sua richiesta.",
+        "invalid": "Non abbiamo potuto elaborare alcuni dati. Controlli il modulo oppure ci chiami al numero {phone}.",
+        "submitFailed": "Non ha funzionato. Riprovi oppure ci chiami al numero {phone}.",
+        "rateLimited": "Ha appena inviato diverse richieste. Riprovi tra qualche minuto oppure ci chiami al numero {phone}."
       }
     }
   },

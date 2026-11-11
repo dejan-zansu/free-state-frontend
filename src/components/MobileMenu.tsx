@@ -1,6 +1,7 @@
 'use client'
 
 import { Link, usePathname } from '@/i18n/navigation'
+import { pvServiceVisible } from '@/lib/pv-service-gate'
 import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, ArrowRight, ChevronDown, X } from 'lucide-react'
@@ -157,6 +158,14 @@ const MobileMenuBody = ({ onNavigate }: { onNavigate: () => void }) => {
               label: t('hero.nav.contracting'),
               href: '/commercial/solar-systems/contracting' as const,
             },
+            ...(pvServiceVisible
+              ? [
+                  {
+                    label: t('hero.nav.pvService'),
+                    href: '/service' as const,
+                  },
+                ]
+              : []),
           ],
         },
         {

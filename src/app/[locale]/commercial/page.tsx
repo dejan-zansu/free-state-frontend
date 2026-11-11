@@ -11,7 +11,9 @@ import CustomerStories from '@/components/CustomerStories'
 import ReferenceRoofs from '@/components/ReferenceRoofs'
 import SolarModels from '@/components/SolarModels'
 import StackedPanels from '@/components/motion/StackedPanels'
+import PvServiceHomePanel from '@/components/home/PvServiceHomePanel'
 import RoofRenovationHomePanel from '@/components/home/RoofRenovationHomePanel'
+import { pvServiceVisible } from '@/lib/pv-service-gate'
 import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
@@ -46,6 +48,7 @@ const CommercialPage = async () => {
         <HeatPumpsViessmann isCommercial />
         <EvCharging isCommercial />
         {roofRenovationVisible && <RoofRenovationHomePanel isCommercial />}
+        {pvServiceVisible && <PvServiceHomePanel />}
       </StackedPanels>
       <CustomerStories isCommercial />
       <ReferenceRoofs />

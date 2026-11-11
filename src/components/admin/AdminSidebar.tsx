@@ -214,6 +214,17 @@ function useNavGroups() {
       ],
     },
     {
+      label: t('groupPvService'),
+      items: [
+        {
+          label: t('pvServiceRequests'),
+          href: `${prefix}/pv-service`,
+          icon: Wrench,
+          capability: 'sales.tools',
+        },
+      ],
+    },
+    {
       label: t('groupOperations'),
       items: [
         {

@@ -25,12 +25,12 @@ const SOLAR_MODELS = [
   {
     key: 'solarFree',
     href: '/solar-free',
-    image: '/images/roof-renovation/chalet-solar-hillside.webp',
+    image: '/images/photography/swiss-house-pv-two-roof-faces-fir-trees-0717.webp',
   },
   {
     key: 'solarDirect',
     href: '/solar-direct',
-    image: '/images/roof-renovation/alpine-hut-solar.webp',
+    image: '/images/photography/pv-roof-white-house-trees-skylights-1153.webp',
   },
 ] as const
 
@@ -38,7 +38,7 @@ export const RoofSolarHero = async () => {
   const t = await getTranslations('roofRenovation.solarPage.hero')
   return (
     <RoofEstimatorHero
-      image="/images/roof-renovation/hero-tile-roofs.webp"
+      image="/images/photography/tiled-roof-valley-black-modules-two-faces-0715.webp"
       title={t('title')}
       subtitle={t('subtitle')}
       directLabel={t('cta')}
@@ -209,7 +209,7 @@ export const RoofSolarMountingSection = async () => {
         </div>
         <div className="relative aspect-[4/3] overflow-hidden rounded-[24px]">
           <Image
-            src="/images/roof-renovation/on-roof-mounting-hooks.webp"
+            src="/images/photography/installer-screwing-rail-clamp-cordless-drill-0667.webp"
             alt={t('imageAlt')}
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
@@ -262,7 +262,7 @@ export const RoofSolarCostSection = async () => {
           </p>
           <div className="relative my-8 aspect-[16/10] w-full overflow-hidden rounded-[16px]">
             <Image
-              src="/images/roof-renovation/solar-tile-roof-rainbow.webp"
+              src="/images/photography/pv-modules-around-roof-dormer-1177.webp"
               alt=""
               fill
               sizes="(min-width: 1024px) 420px, 100vw"
