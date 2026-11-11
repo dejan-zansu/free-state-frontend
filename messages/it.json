@@ -953,6 +953,7 @@
     "pvService": {
       "title": "Servizio e manutenzione FV",
       "subtitle": "Monitoriamo, manuteniamo e puliamo impianti solari su edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
+      "subtitleHome": "Monitoriamo, manuteniamo e puliamo impianti solari su case unifamiliari ed edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
       "toolLink": "Prezzi indicativi per il Suo impianto",
       "pricesTitle": "Prezzi indicativi all'anno, da",
       "pricesNote": "Per impianti fino a 30 kWp, IVA esclusa. Impianti più grandi in base alla potenza.",

@@ -953,6 +953,7 @@
     "pvService": {
       "title": "Solar service and maintenance",
       "subtitle": "We monitor, maintain and clean solar plants on commercial buildings across Switzerland, including plants built by another installer.",
+      "subtitleHome": "We monitor, maintain and clean solar plants on single-family homes and commercial buildings across Switzerland, including plants built by another installer.",
       "toolLink": "Guide prices for your plant",
       "pricesTitle": "Guide prices per year, from",
       "pricesNote": "For plants up to 30 kWp, excl. VAT. Larger plants by output.",

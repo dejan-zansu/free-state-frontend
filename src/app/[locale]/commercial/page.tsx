@@ -48,7 +48,7 @@ const CommercialPage = async () => {
         <HeatPumpsViessmann isCommercial />
         <EvCharging isCommercial />
         {roofRenovationVisible && <RoofRenovationHomePanel isCommercial />}
-        {pvServiceVisible && <PvServiceHomePanel />}
+        {pvServiceVisible && <PvServiceHomePanel isCommercial />}
       </StackedPanels>
       <CustomerStories isCommercial />
       <ReferenceRoofs />

@@ -953,6 +953,7 @@
     "pvService": {
       "title": "Service et maintenance PV",
       "subtitle": "Nous surveillons, entretenons et nettoyons les installations solaires des bâtiments commerciaux dans toute la Suisse, même lorsqu'un autre installateur les a posées.",
+      "subtitleHome": "Nous surveillons, entretenons et nettoyons les installations solaires des maisons individuelles et des bâtiments commerciaux dans toute la Suisse, même lorsqu'un autre installateur les a posées.",
       "toolLink": "Prix indicatifs pour votre installation",
       "pricesTitle": "Prix indicatifs par an, dès",
       "pricesNote": "Pour les installations jusqu'à 30 kWp, hors TVA. Les installations plus grandes selon leur puissance.",

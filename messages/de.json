@@ -1002,6 +1002,7 @@
     "pvService": {
       "title": "PV-Service und Wartung",
       "subtitle": "Wir überwachen, warten und reinigen Solaranlagen auf Gewerbebauten in der ganzen Schweiz, auch wenn ein anderer Installateur sie gebaut hat.",
+      "subtitleHome": "Wir überwachen, warten und reinigen Solaranlagen auf Einfamilienhäusern und Gewerbebauten in der ganzen Schweiz, auch wenn ein anderer Installateur sie gebaut hat.",
       "toolLink": "Richtpreise für Ihre Anlage",
       "pricesTitle": "Richtpreise pro Jahr, ab",
       "pricesNote": "Für Anlagen bis 30 kWp, exkl. MwSt. Grössere Anlagen nach Leistung.",

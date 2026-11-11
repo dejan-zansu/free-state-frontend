@@ -7,13 +7,18 @@ import {
 import { formatChf } from '@/components/roof-renovation/roof-renovation-api'
 import { LinkButton } from '@/components/ui/link-button'
 import { Link } from '@/i18n/navigation'
+import { cn } from '@/lib/utils'
 import { ArrowRight, CircleCheck } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
 
 const POINTS = ['free', 'anyInstaller', 'wholeSwitzerland'] as const
 
-const PvServiceHomePanel = async () => {
+const PvServiceHomePanel = async ({
+  isCommercial = false,
+}: {
+  isCommercial?: boolean
+}) => {
   const t = await getTranslations('home.pvService')
   const tPoints = await getTranslations('pvService.hero.points')
   const tPackages = await getTranslations('pvService.packages')
@@ -39,11 +44,27 @@ const PvServiceHomePanel = async () => {
           </div>
           <Link
             href={{ pathname: '/service', hash: 'rechner' }}
-            className="group flex items-center justify-between gap-4 bg-[#3D3858] px-6 py-4 text-base font-medium text-white sm:px-8 md:text-lg"
+            className={cn(
+              'group flex items-center justify-between gap-4 px-6 py-4 text-base font-medium sm:px-8 md:text-lg',
+              isCommercial
+                ? 'bg-[#3D3858] text-white'
+                : 'bg-solar text-[#062E25]'
+            )}
           >
             {t('toolLink')}
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white transition-transform group-hover:translate-x-1">
-              <ArrowRight aria-hidden className="size-5 text-[#3D3858]" />
+            <span
+              className={cn(
+                'flex size-10 shrink-0 items-center justify-center rounded-full transition-transform group-hover:translate-x-1',
+                isCommercial ? 'bg-white' : 'bg-[#062E25]'
+              )}
+            >
+              <ArrowRight
+                aria-hidden
+                className={cn(
+                  'size-5',
+                  isCommercial ? 'text-[#3D3858]' : 'text-white'
+                )}
+              />
             </span>
           </Link>
         </div>
@@ -59,7 +80,7 @@ const PvServiceHomePanel = async () => {
             <RevealStagger as="div" className="flex flex-col gap-[30px]">
               <div className="flex flex-col gap-5">
                 <p className="text-lg tracking-tight text-foreground/80">
-                  {t('subtitle')}
+                  {isCommercial ? t('subtitle') : t('subtitleHome')}
                 </p>
                 <ul className="flex flex-col gap-2.5">
                   {POINTS.map(point => (
@@ -69,7 +90,10 @@ const PvServiceHomePanel = async () => {
                     >
                       <CircleCheck
                         aria-hidden
-                        className="size-5 shrink-0 text-[#3D3858]"
+                        className={cn(
+                          'size-5 shrink-0',
+                          isCommercial ? 'text-[#3D3858]' : 'text-[#036B53]'
+                        )}
                       />
                       {tPoints(point)}
                     </li>
@@ -103,7 +127,7 @@ const PvServiceHomePanel = async () => {
               </div>
               <LinkButton
                 href="/service"
-                variant="quaternary"
+                variant={isCommercial ? 'quaternary' : 'primary'}
                 className="w-fit"
               >
                 {t('cta')}

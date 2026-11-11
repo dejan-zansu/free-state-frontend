@@ -21,6 +21,8 @@ import Reviews from '@/components/Reviews'
 import StackedPanels from '@/components/motion/StackedPanels'
 import LatestPostsSection from '@/components/blog/LatestPostsSection'
 import RoofRenovationHomePanel from '@/components/home/RoofRenovationHomePanel'
+import PvServiceHomePanel from '@/components/home/PvServiceHomePanel'
+import { pvServiceVisible } from '@/lib/pv-service-gate'
 import { roofRenovationVisible } from '@/lib/roof-renovation-gate'
 
 export async function generateMetadata({
@@ -54,6 +56,7 @@ export default async function HomePage() {
         <HeatPumpsViessmann />
         <EvCharging />
         {roofRenovationVisible && <RoofRenovationHomePanel />}
+        {pvServiceVisible && <PvServiceHomePanel />}
       </StackedPanels>
       <YourBenefits />
       <CustomerStories isCommercial />
