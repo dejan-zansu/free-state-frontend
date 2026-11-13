@@ -4,6 +4,7 @@ import { Loader } from '@googlemaps/js-api-loader'
 import { Loader2, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import * as CookieConsent from 'vanilla-cookieconsent'
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -41,8 +42,6 @@ import {
   searchOnce,
 } from '@/lib/address/swiss-address'
 import {
-  getOrCreateSessionKey,
-  getStoredAttribution,
   trackFunnelEvent,
   trackFunnelEventOnce,
 } from '@/lib/analytics/funnel-events'
@@ -156,6 +155,7 @@ const SYNTHETIC_INPUT_DELAY_MS = 400
 const BLUR_GRACE_MS = 1500
 
 const TYPED_MIN_CHARS = 3
+const FIRST_SCREEN_LEFT_MAX_SENDS = 5
 
 const FEDERAL_LIST_MIN_CHARS = 3
 const FEDERAL_LIST_DEBOUNCE_MS = 250
@@ -210,31 +210,6 @@ const focusAtEnd = (el: HTMLInputElement | null) => {
   } catch {}
 }
 
-const hashSeed = (value: string) => {
-  let hash = 0x811c9dc5
-  for (let index = 0; index < value.length; index += 1) {
-    hash ^= value.charCodeAt(index)
-    hash = Math.imul(hash, 0x01000193)
-  }
-  hash ^= hash >>> 16
-  hash = Math.imul(hash, 0x85ebca6b)
-  hash ^= hash >>> 13
-  hash = Math.imul(hash, 0xc2b2ae35)
-  hash ^= hash >>> 16
-  return hash >>> 0
-}
-
-const callbackLinkVariant = (): 'shown' | 'hidden' => {
-  let seed = ''
-  try {
-    seed = new URLSearchParams(window.location.search).get('gclid') ?? ''
-  } catch {}
-  if (!seed) seed = getStoredAttribution()?.gclid ?? ''
-  if (!seed) seed = getOrCreateSessionKey() ?? ''
-  if (!seed) return 'hidden'
-  return hashSeed(seed) % 2 === 0 ? 'shown' : 'hidden'
-}
-
 const notFoundCause = (trigger: ResolveTrigger): NotFoundCause =>
   trigger === 'textEntered'
     ? 'textEntered'
@@ -265,9 +240,6 @@ export default function Screen1Address() {
   const [federalOptions, setFederalOptions] = useState<AddressCandidate[]>([])
   const [federalActive, setFederalActive] = useState(-1)
   const [federalOpen, setFederalOpen] = useState(false)
-  const [callbackLink, setCallbackLink] = useState<'shown' | 'hidden' | null>(
-    null
-  )
 
   const mountedAtRef = useRef<number>(Date.now())
   const initialAddressRef = useRef(address)
@@ -297,16 +269,8 @@ export default function Screen1Address() {
   const lastTriggerRef = useRef<ResolveTrigger | null>(null)
   const restoreFocusRef = useRef(false)
   const focusAfterManualRef = useRef(false)
-  const callbackVariantRef = useRef<'shown' | 'hidden' | null>(null)
   const blurTimerRef = useRef<number | null>(null)
   const blurredAtRef = useRef(0)
-
-  const ensureCallbackVariant = useCallback(() => {
-    if (!callbackVariantRef.current) {
-      callbackVariantRef.current = callbackLinkVariant()
-    }
-    return callbackVariantRef.current
-  }, [])
 
   const getResolver = useCallback(() => {
     if (!resolverRef.current) resolverRef.current = createAddressResolver()
@@ -799,7 +763,6 @@ export default function Screen1Address() {
 
   useEffect(() => {
     setHydrated(true)
-    setCallbackLink(ensureCallbackVariant())
     const el = inputRef.current
     if (!el) return
     const value = el.value
@@ -818,7 +781,70 @@ export default function Screen1Address() {
         meta: { ...flowVersionMeta, preHydration: true },
       })
     }
-  }, [ensureCallbackVariant])
+  }, [])
+
+  useEffect(() => {
+    if (embedded) return
+    let sends = 0
+    let scrollPx = 0
+    let visibleMs = 0
+    let unreported = true
+    let visibleSince: number | null =
+      document.visibilityState === 'visible' ? performance.now() : null
+
+    const onScroll = (event: Event) => {
+      const target = event.target
+      const top = target instanceof Element ? target.scrollTop : window.scrollY
+      if (top > scrollPx) scrollPx = Math.round(top)
+    }
+
+    const report = () => {
+      if (visibleSince !== null) {
+        visibleMs += performance.now() - visibleSince
+        visibleSince = null
+      }
+      if (!unreported) return
+      unreported = false
+      if (stepOneViewedRef.current || resolvedRef.current) return
+      if (sends >= FIRST_SCREEN_LEFT_MAX_SENDS) return
+      sends += 1
+      let cookieBox: 'open' | 'answered' | null = null
+      try {
+        cookieBox = CookieConsent.validConsent() ? 'answered' : 'open'
+      } catch {}
+      trackFunnelEvent('calculator_first_screen_left', {
+        meta: {
+          visibleMs: Math.round(visibleMs),
+          scrollPx,
+          viewportW: window.innerWidth,
+          viewportH: window.innerHeight,
+          cookieBox,
+          ...flowVersionMeta,
+        },
+      })
+    }
+
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        visibleSince = performance.now()
+        unreported = true
+        return
+      }
+      report()
+    }
+
+    document.addEventListener('scroll', onScroll, {
+      capture: true,
+      passive: true,
+    })
+    document.addEventListener('visibilitychange', onVisibility)
+    window.addEventListener('pagehide', report)
+    return () => {
+      document.removeEventListener('scroll', onScroll, { capture: true })
+      document.removeEventListener('visibilitychange', onVisibility)
+      window.removeEventListener('pagehide', report)
+    }
+  }, [embedded])
 
   // An address handed over in the URL fills the field. It is resolved only
   // when the visitor submits it unchanged, so the visitor still sees and
@@ -878,7 +904,6 @@ export default function Screen1Address() {
         trackFunnelEventOnce('calculator_ready', {
           meta: {
             msToPlacesReady: Date.now() - mountedAtRef.current,
-            callbackLink: embedded ? null : ensureCallbackVariant(),
             ...flowVersionMeta,
           },
         })
@@ -894,7 +919,7 @@ export default function Screen1Address() {
       window.clearTimeout(slowTimer)
       restoreAuthFailure()
     }
-  }, [embedded, ensureCallbackVariant])
+  }, [])
 
   useEffect(() => {
     if (mode !== 'google' || !placesReady) return
@@ -1501,21 +1526,6 @@ export default function Screen1Address() {
             {busy ? t('resolving') : t('button')}
           </Button>
 
-          {!embedded && callbackLink === 'shown' && (
-            <div className="mt-2 flex justify-center md:hidden">
-              <Link
-                href="/offer-request"
-                onClick={() =>
-                  trackFunnelEvent('callback_link_clicked', {
-                    meta: { ...flowVersionMeta },
-                  })
-                }
-                className="inline-flex min-h-[44px] items-center text-base text-[#062E25] underline underline-offset-2"
-              >
-                {t('callbackLink')}
-              </Link>
-            </div>
-          )}
 
           {!embedded && (
             <p className="mt-4 flex flex-wrap items-center justify-center gap-x-6 text-base text-[#062E25]/80">

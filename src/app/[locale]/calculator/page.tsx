@@ -3,8 +3,10 @@ import { getTranslations } from 'next-intl/server'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
 import CostAnchor from '@/components/calculator/CostAnchor'
+import Footer from '@/components/Footer'
 
 import CalculatorClient from './CalculatorClient'
+import CalculatorFirstStepOnly from './CalculatorFirstStepOnly'
 
 export async function generateMetadata({
   params,
@@ -26,6 +28,9 @@ export default function SolarAboCalculatorPage() {
     <>
       <CalculatorClient />
       <CostAnchor />
+      <CalculatorFirstStepOnly>
+        <Footer />
+      </CalculatorFirstStepOnly>
     </>
   )
 }

@@ -4171,8 +4171,8 @@
       "screen4": "Contact"
     },
     "screen1": {
-      "headline": "Calculate your savings in 2 minutes",
-      "subline": "What does a solar system cost in Switzerland? Enter your address, check your roof, see your savings.",
+      "headline": "Solar calculator for your roof",
+      "subline": "Enter your address, choose your roof, see your savings. Roof area, kWp and yearly yield as an estimate based on Sonnendach.ch. You see your result without leaving contact details.",
       "fieldLabel": "Address with house number",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Analyze roof",
@@ -4196,7 +4196,6 @@
       "resolving": "Looking up the address",
       "clearInput": "Clear input",
       "backToAddress": "Back to the address field",
-      "callbackLink": "Prefer to talk directly? Request a callback",
       "contactLine": {
         "phone": "Phone {phone}",
         "legalNotice": "Legal notice"
@@ -5327,7 +5326,7 @@
         },
         "isFree": {
           "question": "Is the solar calculator free?",
-          "answer": "Yes, our solar calculator is completely free to use. You receive a non-binding indicative offer with no registration required."
+          "answer": "Yes, our solar calculator is completely free to use. You see your result without leaving contact details. For the non-binding indicative offer you then enter your name, email and phone number."
         },
         "howQuickly": {
           "question": "How quickly will I receive a quote?",

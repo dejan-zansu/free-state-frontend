@@ -4409,7 +4409,7 @@
         },
         "isFree": {
           "question": "Ist der Solarrechner kostenlos?",
-          "answer": "Ja, unser Solarrechner ist völlig kostenlos. Sie erhalten ein unverbindliches Richtangebot ohne Registrierung."
+          "answer": "Ja, unser Solarrechner ist völlig kostenlos. Ihr Ergebnis sehen Sie ohne Kontaktangaben. Für das unverbindliche Richtangebot geben Sie danach Name, E-Mail und Telefonnummer an."
         },
         "howQuickly": {
           "question": "Wie schnell erhalte ich ein Angebot?",
@@ -6043,8 +6043,8 @@
       "screen4": "Kontakt"
     },
     "screen1": {
-      "headline": "Ihre Ersparnis in 2 Minuten berechnen",
-      "subline": "Was kostet eine Solaranlage in der Schweiz? Adresse eingeben, Dach prüfen, Ersparnis sehen.",
+      "headline": "Solarrechner für Ihr Dach",
+      "subline": "Adresse eingeben, Dach wählen, Ersparnis sehen. Dachfläche, kWp und Jahresertrag als Schätzung nach Sonnendach.ch. Ihr Ergebnis sehen Sie ohne Kontaktangaben.",
       "fieldLabel": "Adresse mit Hausnummer",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Dach analysieren",
@@ -6068,7 +6068,6 @@
       "resolving": "Adresse wird gesucht",
       "clearInput": "Eingabe löschen",
       "backToAddress": "Zurück zur Adresseingabe",
-      "callbackLink": "Lieber direkt? Rückruf anfordern",
       "contactLine": {
         "phone": "Telefon {phone}",
         "legalNotice": "Impressum"

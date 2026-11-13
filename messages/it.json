@@ -4171,8 +4171,8 @@
       "screen4": "Contatto"
     },
     "screen1": {
-      "headline": "Calcola il tuo risparmio in 2 minuti",
-      "subline": "Quanto costa un impianto solare in Svizzera? Inserite il vostro indirizzo, verificate il tetto, vedete il risparmio.",
+      "headline": "Calcolatore solare per il vostro tetto",
+      "subline": "Inserite il vostro indirizzo, scegliete il tetto, vedete il risparmio. Superficie del tetto, kWp e produzione annua stimati secondo Sonnendach.ch. Vedete il risultato senza lasciare i vostri dati di contatto.",
       "fieldLabel": "Indirizzo con numero civico",
       "placeholder": "Musterstrasse 12, 8200 Schaffhausen",
       "button": "Analizza il tetto",
@@ -4196,7 +4196,6 @@
       "resolving": "Ricerca dell'indirizzo",
       "clearInput": "Cancella il testo",
       "backToAddress": "Torna all'inserimento dell'indirizzo",
-      "callbackLink": "Preferisci parlarne direttamente? Richiedi una richiamata",
       "contactLine": {
         "phone": "Telefono {phone}",
         "legalNotice": "Note legali"
@@ -5327,7 +5326,7 @@
         },
         "isFree": {
           "question": "Il calcolatore solare è gratuito?",
-          "answer": "Sì, il nostro calcolatore solare è completamente gratuito. Ricevi un'offerta indicativa non vincolante senza necessità di registrazione."
+          "answer": "Sì, il nostro calcolatore solare è completamente gratuito. Vedi il risultato senza lasciare i tuoi dati di contatto. Per l'offerta indicativa non vincolante inserisci poi nome, email e numero di telefono."
         },
         "howQuickly": {
           "question": "Quanto rapidamente riceverò un preventivo?",
