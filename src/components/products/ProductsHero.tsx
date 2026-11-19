@@ -1,7 +1,6 @@
 import { Box } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 
-import HeroNavLight from '@/components/HeroNavLight'
 import { EyebrowPill } from '@/components/ui/eyebrow-pill'
 
 /** Light page header for the product catalogue, same shell as ProductHeroLight. */
@@ -10,7 +9,6 @@ export default async function ProductsHero({ productCount }: { productCount: num
 
   return (
     <section className="relative overflow-hidden bg-[#EBEDDF]">
-      <HeroNavLight />
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-14 pt-32 sm:px-6 sm:pt-44 lg:px-8 lg:pb-20 lg:pt-56">
         <div
           className="pointer-events-none absolute -top-24 right-0 h-72 w-72 rounded-full"

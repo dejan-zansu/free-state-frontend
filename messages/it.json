@@ -622,52 +622,8 @@
       "subtitle": "Senza costi di investimento, ottieni energia pulita, costi prevedibili e servizio completo.",
       "commercialTitle": "Soluzioni energetiche intelligenti\nper le aziende",
       "commercialSubtitle": "Riduci i tuoi costi energetici senza alti investimenti iniziali grazie a soluzioni solari e di accumulo scalabili, modelli prevedibili e servizio completo.",
-      "pill": [
-        {
-          "icon": "/images/hero-pill-investition.svg",
-          "title": "0 CHF DI INVESTIMENTO",
-          "subtitle": "Non paghi nulla in anticipo"
-        },
-        {
-          "icon": "/images/hero-pill-fixpreis.svg",
-          "title": "PREZZO FISSO GARANTITO",
-          "subtitle": "35 anni di costi prevedibili"
-        },
-        {
-          "icon": "/images/hero-pill-service.svg",
-          "title": "SERVIZIO COMPLETO",
-          "subtitle": "Manutenzione & assicurazione incluse"
-        },
-        {
-          "icon": "/images/hero-pill-schweizer.svg",
-          "title": "QUALITÀ SVIZZERA",
-          "subtitle": "Tutto da un'unica fonte"
-        }
-      ],
-      "pillCommercial": [
-        {
-          "icon": "/images/hero-pill-commercial-investition.svg",
-          "title": "0 CHF DI INVESTIMENTO",
-          "subtitle": "Non paghi nulla in anticipo"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-fixpreis.svg",
-          "title": "PREZZO FISSO GARANTITO",
-          "subtitle": "35 anni di costi prevedibili"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-service.svg",
-          "title": "SERVIZIO COMPLETO",
-          "subtitle": "Manutenzione & assicurazione incluse"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-schweizer.svg",
-          "title": "QUALITÀ SVIZZERA",
-          "subtitle": "Tutto da un'unica fonte"
-        }
-      ],
       "cta": {
-        "primary": "Inizia",
+        "primary": "Avvia il calcolatore solare",
         "secondary": "Calcolatore",
         "schedule": "Fissa un appuntamento"
       },

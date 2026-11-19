@@ -1,4 +1,3 @@
-import HeroNav from '@/components/HeroNav'
 import { getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
@@ -81,7 +80,6 @@ const ImpressumPage = async () => {
         />
 
         <div className="relative z-10 max-w-[1310px] mx-auto px-6 h-full">
-          <HeroNav />
           <div className="flex flex-col gap-5 pt-[400px] pb-12">
             <h1 className="text-white text-4xl sm:text-5xl lg:text-[55px] font-medium leading-[1.1em]">
               {t('title')}

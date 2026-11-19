@@ -671,52 +671,8 @@
       "subtitle": "Saubere Energie, planbare Kosten und umfassender Service, ganz ohne Investitionskosten.",
       "commercialTitle": "Intelligente Energielösungen\nfür Unternehmen",
       "commercialSubtitle": "Senken Sie Ihre Energiekosten ohne hohe Anfangsinvestition mit skalierbaren Solar- und Speicherlösungen, planbaren Modellen und umfassendem Service.",
-      "pill": [
-        {
-          "icon": "/images/hero-pill-investition.svg",
-          "title": "0 CHF INVESTITION",
-          "subtitle": "Sie zahlen nichts im Voraus"
-        },
-        {
-          "icon": "/images/hero-pill-fixpreis.svg",
-          "title": "FIXPREIS-GARANTIE",
-          "subtitle": "35 Jahre planbare Kosten"
-        },
-        {
-          "icon": "/images/hero-pill-service.svg",
-          "title": "RUNDUM-SERVICE",
-          "subtitle": "Wartung & Versicherung inklusive"
-        },
-        {
-          "icon": "/images/hero-pill-schweizer.svg",
-          "title": "SCHWEIZER QUALITÄT",
-          "subtitle": "Alles aus einer Hand"
-        }
-      ],
-      "pillCommercial": [
-        {
-          "icon": "/images/hero-pill-commercial-investition.svg",
-          "title": "0 CHF INVESTITION",
-          "subtitle": "Sie zahlen nichts im Voraus"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-fixpreis.svg",
-          "title": "FIXPREIS-GARANTIE",
-          "subtitle": "35 Jahre planbare Kosten"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-service.svg",
-          "title": "RUNDUM-SERVICE",
-          "subtitle": "Wartung & Versicherung inklusive"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-schweizer.svg",
-          "title": "SCHWEIZER QUALITÄT",
-          "subtitle": "Alles aus einer Hand"
-        }
-      ],
       "cta": {
-        "primary": "Jetzt starten",
+        "primary": "Solarrechner starten",
         "secondary": "Kalkulator",
         "schedule": "Termin vereinbaren"
       },

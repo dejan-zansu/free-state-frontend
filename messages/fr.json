@@ -622,52 +622,8 @@
       "subtitle": "Énergie propre, coûts prévisibles et service complet, le tout sans aucun investissement.",
       "commercialTitle": "Solutions énergétiques intelligentes\npour les entreprises",
       "commercialSubtitle": "Réduisez vos coûts énergétiques, sans investissement initial élevé, grâce à des solutions solaires et de stockage évolutives, des modèles prévisibles et un service complet.",
-      "pill": [
-        {
-          "icon": "/images/hero-pill-investition.svg",
-          "title": "0 CHF D'INVESTISSEMENT",
-          "subtitle": "Vous ne payez rien à l'avance"
-        },
-        {
-          "icon": "/images/hero-pill-fixpreis.svg",
-          "title": "PRIX FIXE GARANTI",
-          "subtitle": "35 ans de coûts prévisibles"
-        },
-        {
-          "icon": "/images/hero-pill-service.svg",
-          "title": "SERVICE COMPLET",
-          "subtitle": "Entretien & assurance inclus"
-        },
-        {
-          "icon": "/images/hero-pill-schweizer.svg",
-          "title": "QUALITÉ SUISSE",
-          "subtitle": "Tout d'une seule source"
-        }
-      ],
-      "pillCommercial": [
-        {
-          "icon": "/images/hero-pill-commercial-investition.svg",
-          "title": "0 CHF D'INVESTISSEMENT",
-          "subtitle": "Vous ne payez rien à l'avance"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-fixpreis.svg",
-          "title": "PRIX FIXE GARANTI",
-          "subtitle": "35 ans de coûts prévisibles"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-service.svg",
-          "title": "SERVICE COMPLET",
-          "subtitle": "Entretien & assurance inclus"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-schweizer.svg",
-          "title": "QUALITÉ SUISSE",
-          "subtitle": "Tout d'une seule source"
-        }
-      ],
       "cta": {
-        "primary": "Commencer",
+        "primary": "Lancer le calculateur solaire",
         "secondary": "Calculateur",
         "schedule": "Planifier un rendez-vous"
       },

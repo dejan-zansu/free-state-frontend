@@ -1,4 +1,3 @@
-import HeroNav from '@/components/HeroNav'
 import { cn } from '@/lib/utils'
 import { ReactNode } from 'react'
 
@@ -26,7 +25,6 @@ const PageHero = ({
   children,
   className,
   contentClassName,
-  isCommercial = false,
   descriptionClassName,
   titleClassName,
   dimBackground = false,
@@ -41,11 +39,6 @@ const PageHero = ({
         className
       )}
     >
-      <HeroNav
-        isCommercial={isCommercial}
-        dropdownOverContent={overlappedBelow}
-      />
-
       {backgroundImage && (
         <div
           className="absolute inset-0 bg-cover bg-center"

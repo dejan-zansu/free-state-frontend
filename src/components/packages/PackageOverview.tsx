@@ -1,7 +1,6 @@
 import { BadgeCheck, Check, Smartphone, Wrench } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 
-import HeroNavLight from '@/components/HeroNavLight'
 import { LinkButton } from '@/components/ui/link-button'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
@@ -35,9 +34,7 @@ export default async function PackageOverview({ pkg, brand, specs, fromPrice, mo
 
   return (
     <section className="relative bg-white">
-      <div className="relative bg-[#EBEDDF] pb-6 pt-28 sm:pt-40 lg:pt-52">
-        <HeroNavLight />
-      </div>
+      <div className="relative bg-[#EBEDDF] pb-6 pt-28 sm:pt-40 lg:pt-52" />
       <div className="container mx-auto max-w-[1290px] px-4 pb-14 pt-8 sm:pb-20 sm:pt-10">
         <nav aria-label={t('breadcrumb')} className="mb-4 text-sm uppercase tracking-[0.08em] text-pine/60 sm:text-base">
           freestate.ch / {t('breadcrumb')} / {pkg.name}

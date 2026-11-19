@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server'
-import HeroNav from './HeroNav'
 import Stats from './Stats'
 
 const PortfolioHero = async () => {
@@ -17,7 +16,6 @@ const PortfolioHero = async () => {
       </div>
 
       <div className="relative z-10 max-w-360 mx-auto px-4 sm:px-6 pt-[120px] sm:pt-[160px] md:pt-[230px] pb-16 w-full">
-        <HeroNav />
         <div className="flex flex-col items-center text-center">
           <h1 className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-medium leading-[1em] mb-4 whitespace-pre-line">
             {t('hero.title')}

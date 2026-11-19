@@ -622,52 +622,8 @@
       "subtitle": "Clean energy, predictable costs and comprehensive service – with zero investment costs.",
       "commercialTitle": "Intelligent energy solutions\nfor businesses",
       "commercialSubtitle": "Lower your energy costs with scalable solar and storage solutions, predictable models and comprehensive service – without a high upfront investment.",
-      "pill": [
-        {
-          "icon": "/images/hero-pill-investition.svg",
-          "title": "0 CHF INVESTMENT",
-          "subtitle": "You pay nothing upfront"
-        },
-        {
-          "icon": "/images/hero-pill-fixpreis.svg",
-          "title": "FIXED-PRICE GUARANTEE",
-          "subtitle": "35 years of predictable costs"
-        },
-        {
-          "icon": "/images/hero-pill-service.svg",
-          "title": "ALL-ROUND SERVICE",
-          "subtitle": "Maintenance & insurance included"
-        },
-        {
-          "icon": "/images/hero-pill-schweizer.svg",
-          "title": "SWISS QUALITY",
-          "subtitle": "Everything from one source"
-        }
-      ],
-      "pillCommercial": [
-        {
-          "icon": "/images/hero-pill-commercial-investition.svg",
-          "title": "0 CHF INVESTMENT",
-          "subtitle": "You pay nothing upfront"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-fixpreis.svg",
-          "title": "FIXED-PRICE GUARANTEE",
-          "subtitle": "35 years of predictable costs"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-service.svg",
-          "title": "ALL-ROUND SERVICE",
-          "subtitle": "Maintenance & insurance included"
-        },
-        {
-          "icon": "/images/hero-pill-commercial-schweizer.svg",
-          "title": "SWISS QUALITY",
-          "subtitle": "Everything from one source"
-        }
-      ],
       "cta": {
-        "primary": "Get started",
+        "primary": "Start solar calculator",
         "secondary": "Calculator",
         "schedule": "Schedule a meeting"
       },

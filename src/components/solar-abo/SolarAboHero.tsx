@@ -1,5 +1,4 @@
 import { LinkButton, linkButtonVariants } from '@/components/ui/link-button'
-import HeroNavLight from '@/components/HeroNavLight'
 import { cn } from '@/lib/utils'
 import { type VariantProps } from 'class-variance-authority'
 import { getTranslations } from 'next-intl/server'
@@ -149,7 +148,6 @@ const SolarAboHero = async ({
 
   return (
     <section className="relative flex flex-col items-center justify-center overflow-hidden bg-[#FDFFF5]">
-      <HeroNavLight isCommercial={isCommercial} ctaVariant={ctaVariant} />
       <div className="relative z-10 max-w-[1440px] mx-auto w-full px-4 sm:px-6 pt-[160px] sm:pt-[180px] md:pt-[200px] pb-1">
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center gap-5 mb-12 sm:mb-16 lg:mb-20 w-full">

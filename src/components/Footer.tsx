@@ -1,6 +1,7 @@
 'use client'
 import { Link, usePathname } from '@/i18n/navigation'
 import {
+  COMPANY_LOCATIONS,
   COMPANY_MAIN_PHONE_DISPLAY,
   COMPANY_MAIN_PHONE_TEL_HREF,
 } from '@/lib/company-contact'
@@ -380,7 +381,7 @@ const Footer = () => {
 
         <div className="relative max-w-[1380px] mx-auto px-6 pt-8 pb-8 z-20">
           <div className="flex flex-col lg:flex-row lg:justify-between gap-12 lg:gap-8">
-            <div className="w-fit">
+            <div className="w-fit flex flex-col gap-8">
               <Link
                 href="/"
                 aria-label="Free State AG, Startseite"
@@ -388,6 +389,23 @@ const Footer = () => {
               >
                 <LogoLight className="h-10 w-auto" />
               </Link>
+              <div className="flex flex-col gap-4">
+                {COMPANY_LOCATIONS.map(loc => (
+                  <address
+                    key={loc.key}
+                    className="not-italic text-sm font-normal text-muted-text-light"
+                  >
+                    <span className="block font-medium text-white">
+                      {loc.city}
+                    </span>
+                    {loc.address.split(', ').map(line => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </address>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-8 lg:gap-[60px]">
