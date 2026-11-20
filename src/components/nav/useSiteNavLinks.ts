@@ -34,6 +34,7 @@ export const useSiteNavLinks = (isCommercial: boolean) => {
       ]
     : [
         { label: t('hero.nav.solarFree'), href: '/solar-free' as const },
+        { label: t('hero.nav.solarAboPlan'), href: '/solar-abo' as const },
         { label: t('hero.nav.solarDirect'), href: '/solar-direct' as const },
       ]
 

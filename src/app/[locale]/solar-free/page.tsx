@@ -1,22 +1,10 @@
-import {
-  FullWidthVideo,
-  QuoteRequestForm,
-  SolarAboCTA,
-  SolarAboDetails,
-  SolarAboFAQ,
-  SolarAboHero,
-} from '@/components/solar-abo'
-import YourBenefits from '@/components/YourBenefits'
-import SolarModels from '@/components/SolarModels'
-import CustomerStories from '@/components/CustomerStories'
-import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import SolarModelPage from '@/components/solar-model-page/SolarModelPage'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
-
-import { JsonLd } from '@/components/seo/JsonLd'
-import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { buildServiceJsonLd } from '@/lib/seo/structured-data'
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -33,11 +21,11 @@ export async function generateMetadata({
   })
 }
 
-interface SolarFreePageProps {
+const SolarFreePage = async ({
+  params,
+}: {
   params: Promise<{ locale: string }>
-}
-
-const SolarFreePage = async ({ params }: SolarFreePageProps) => {
+}) => {
   const { locale } = await params
 
   return (
@@ -45,31 +33,13 @@ const SolarFreePage = async ({ params }: SolarFreePageProps) => {
       <JsonLd
         data={buildServiceJsonLd({
           name: 'SolarFree',
-          description: 'SolarFree: Solaranlage ohne Eigeninvestition (PPA-Modell). Monatliche Rate statt Kauf.',
+          description:
+            'SolarFree: Free State AG baut und betreibt die Solaranlage auf Ihrem Dach. Sie zahlen keine Investition und nur den Solarstrom, den Sie verbrauchen.',
           url: 'https://www.freestate.ch/solar-free',
           serviceType: 'Solar Power Purchase Agreement',
         })}
       />
-      <JsonLdFaqFromNamespace namespace="solarAboHome" />
-      <div className="w-full overflow-x-hidden">
-      <SolarAboHero
-        translationNamespace="solarFreeHome"
-        imageSrc="/images/roof-renovation/chalet-solar-hillside.webp"
-        imageAlt="SolarAbo Home"
-        isPhoto
-        ctaVariant="solar-dark"
-        statIconBgClassName="bg-[#036B53]"
-        statIconClassName="text-white"
-      />
-      <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Solar%20Free.mp4" />
-      <YourBenefits isCommercial={false} />
-      <SolarAboDetails translationNamespace="solarAboHome" />
-      <QuoteRequestForm source="SOLAR_FREE" locale={locale} />
-      <SolarModels />
-      <CustomerStories />
-      <SolarAboFAQ translationNamespace="solarAboHome" />
-      <SolarAboCTA translationNamespace="solarAboHome" />
-    </div>
+      <SolarModelPage model="solar-free" locale={locale} />
     </>
   )
 }

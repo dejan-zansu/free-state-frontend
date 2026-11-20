@@ -14,11 +14,15 @@ import { Link } from '@/i18n/navigation'
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
-export type QuoteRequestSource = 'SOLAR_FREE' | 'SOLAR_DIRECT'
+export type QuoteRequestSource = 'SOLAR_FREE' | 'SOLAR_ABO' | 'SOLAR_DIRECT'
 
 export interface QuoteRequestFormProps {
   source: QuoteRequestSource
   locale?: string
+  id?: string
+  eyebrow?: string
+  title?: string
+  subtitle?: string
 }
 
 type FormValues = {
@@ -64,7 +68,14 @@ const RadioPill = ({
   </button>
 )
 
-const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
+const QuoteRequestForm = ({
+  source,
+  locale,
+  id,
+  eyebrow,
+  title,
+  subtitle,
+}: QuoteRequestFormProps) => {
   const t = useTranslations('quoteRequestForm')
 
   const {
@@ -122,7 +133,8 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
 
   return (
     <section
-      className="relative w-full overflow-hidden"
+      id={id}
+      className="relative w-full scroll-mt-24 overflow-hidden"
       style={{
         background:
           'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
@@ -149,15 +161,27 @@ const QuoteRequestForm = ({ source, locale }: QuoteRequestFormProps) => {
                   }}
                 >
                   <span className="text-[#E4EDE7] text-base font-light tracking-[-0.02em]">
-                    {t('eyebrow')}
+                    {eyebrow ?? t('eyebrow')}
                   </span>
                 </div>
-                <h2 className="text-[#E3EDE7] text-4xl sm:text-5xl lg:text-[70px] font-medium tracking-tight">
-                  {t('title')}
+                <h2
+                  className={cn(
+                    'text-[#E3EDE7] font-medium tracking-tight',
+                    title
+                      ? 'text-4xl sm:text-5xl lg:text-[56px]'
+                      : 'text-4xl sm:text-5xl lg:text-[70px]'
+                  )}
+                >
+                  {title ?? t('title')}
                 </h2>
               </div>
-              <p className="text-white/80 text-lg sm:text-xl lg:text-[22px] tracking-[-0.02em] max-w-[330px]">
-                {t('subtitle')}
+              <p
+                className={cn(
+                  'text-white/80 text-lg sm:text-xl lg:text-[22px] tracking-[-0.02em]',
+                  subtitle ? 'max-w-[420px]' : 'max-w-[330px]'
+                )}
+              >
+                {subtitle ?? t('subtitle')}
               </p>
             </div>
           </div>

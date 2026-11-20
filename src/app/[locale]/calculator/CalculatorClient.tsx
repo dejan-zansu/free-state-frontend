@@ -10,10 +10,13 @@ import {
   flowVersionMeta,
   mapStep,
 } from '@/lib/calculator-flow'
+import { packageDisplayName } from '@/lib/products/package-groups'
+import { SOLAR_MODELS, isPackageCode } from '@/lib/solar-models'
 import { cn } from '@/lib/utils'
 import { activeLenis } from '@/providers/SmoothScrollProvider'
 import { useSolarAboCalculatorStore } from '@/stores/solar-abo-calculator.store'
-import { useTranslations } from 'next-intl'
+import { residentialCalculatorService } from '@/services/residential-calculator.service'
+import { useLocale, useTranslations } from 'next-intl'
 import { parseAsInteger, useQueryState } from 'nuqs'
 import { useEffect, useRef, useState } from 'react'
 
@@ -41,11 +44,21 @@ export default function CalculatorClient({
   embedded?: boolean
 }) {
   const t = useTranslations('solarAboCalculator')
-  const { solarModel, currentStep, goToStep, setSolarModel } =
-    useSolarAboCalculatorStore()
+  const tModels = useTranslations('solarModels')
+  const locale = useLocale()
+  const {
+    solarModel,
+    currentStep,
+    goToStep,
+    setSolarModel,
+    setSelectedPackage,
+    clearSelectedPackage,
+    selectedPackageCode,
+  } = useSolarAboCalculatorStore()
 
   const [stepParam, setStepParam] = useQueryState('step', parseAsInteger)
   const [modelParam, setModelParam] = useQueryState('model')
+  const [packageParam, setPackageParam] = useQueryState('package')
   const [resetReady, setResetReady] = useState(false)
 
   useEffect(() => {
@@ -57,6 +70,7 @@ export default function CalculatorClient({
   }, [])
 
   const modelSelectedFiredRef = useRef(false)
+  const packageRequestedRef = useRef<string | null>(null)
   useEffect(() => {
     if (!resetReady) return
     if (!modelParam) return
@@ -65,18 +79,53 @@ export default function CalculatorClient({
       modelParam === 'solar-direct' ||
       modelParam === 'solar-abo'
     ) {
-      if (solarModel !== modelParam) {
-        setSolarModel(modelParam as SolarModel)
+      const model = modelParam as SolarModel
+      const packageCode = isPackageCode(packageParam) ? packageParam : null
+      if (solarModel !== model) {
+        setSolarModel(model)
+      }
+      if (packageCode && packageRequestedRef.current !== packageCode) {
+        packageRequestedRef.current = packageCode
+        const language = (
+          ['en', 'de', 'fr', 'it'].includes(locale) ? locale : 'de'
+        ) as 'en' | 'de' | 'fr' | 'it'
+        residentialCalculatorService
+          .getPackages(language, SOLAR_MODELS[model].packageFilter)
+          .then(packages => {
+            if (useSolarAboCalculatorStore.getState().solarModel !== model) {
+              return
+            }
+            const match = packages.find(pkg => pkg.code === packageCode)
+            if (match) setSelectedPackage(match)
+            else clearSelectedPackage()
+          })
+          .catch(() => {})
       }
       if (!modelSelectedFiredRef.current) {
         modelSelectedFiredRef.current = true
         trackFunnelEvent('model_selected', {
-          meta: { model: modelParam, preselected: true },
+          meta: {
+            model: modelParam,
+            preselected: true,
+            ...(packageCode ? { package: packageCode } : {}),
+          },
         })
       }
     }
     setModelParam(null, { history: 'replace' })
-  }, [resetReady, modelParam, solarModel, setSolarModel, setModelParam])
+    if (packageParam) setPackageParam(null, { history: 'replace' })
+  }, [
+    resetReady,
+    modelParam,
+    packageParam,
+    locale,
+    solarModel,
+    setSolarModel,
+    setSelectedPackage,
+    clearSelectedPackage,
+    setModelParam,
+    setPackageParam,
+  ])
   const initRef = useRef(false)
   const fromUrlRef = useRef(false)
   const lastPushedRef = useRef<number | null>(null)
@@ -285,6 +334,15 @@ export default function CalculatorClient({
       }}
     >
       <Steps />
+
+      {selectedPackageCode && solarModel && !isMapStep && (
+        <p className="mx-auto mt-4 w-fit rounded-full border border-[#062E25]/20 bg-white/70 px-4 py-1.5 text-sm font-medium text-[#062E25]">
+          {t('preselectedPackage', {
+            name: packageDisplayName(selectedPackageCode),
+            model: tModels(`${SOLAR_MODELS[solarModel].messageKey}.name`),
+          })}
+        </p>
+      )}
 
       <div className={cn(isMapStep && 'h-full')}>{renderStep()}</div>
     </div>

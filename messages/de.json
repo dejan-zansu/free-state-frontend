@@ -1,8 +1,8 @@
 {
   "title": "Free State AG",
   "packageCatalog": {
-    "title": "Wählen Sie Ihr Solarpaket",
-    "subtitle": "Vorkonfigurierte Anlagen auswählen und in Minuten bestellen.",
+    "title": "Welches Paket passt zu Ihrem Dach?",
+    "subtitle": "Das Paket bestimmt die Grösse der Anlage und des Speichers. Der Solarrechner prüft, welche Grösse zu Ihrem Dach und Ihrem Verbrauch passt.",
     "errorLoading": "Pakete konnten nicht geladen werden.",
     "retry": "Erneut versuchen",
     "empty": "Aktuell keine Pakete verfügbar.",
@@ -17,73 +17,48 @@
       "kwpUnit": "kWp",
       "kwhPerYearUnit": "kWh/Jahr",
       "recommended": "Empfohlen",
-      "tag": {
-        "specialOffer": "Spezialangebot"
-      },
-      "hero": {
-        "swissBadgeLine1": "Entwickelt für",
-        "swissBadgeLine2": "die Schweiz",
-        "heading": "Komplettpaket für Ihr Zuhause: Solar, Speicher und E-Mobilität",
-        "tagline": "Intelligent. Effizient. Zukunftssicher. Alles aus einer Hand."
-      },
       "priceLabels": {
         "from": "ab",
-        "alternative": "oder ab",
-        "solarFreePill": "SolarFree",
-        "electricityFrom": "Strompreis ab {rate} CHF/kWh",
         "exclVat": "zzgl. MwSt."
-      },
-      "details": {
-        "label": "Standard Paket",
-        "tagline": {
-          "HUAWEI": "In der Schweiz weit verbreitet. Sicher. Bewährt. Effizient.",
-          "SIGENERGY": "Premium-Technologie. Innovativ. Zuverlässig."
-        }
-      },
-      "equipment": {
-        "quality": {
-          "name": "Hochwertige Komponenten",
-          "desc": "Markenmodule, Wechselrichter und Speicher mit langer Garantie"
-        },
-        "app": {
-          "name": "App & Monitoring",
-          "desc": "Jederzeit & überall alles im Blick"
-        },
-        "service": {
-          "name": "Montage & Service",
-          "desc": "Professionell, schnell & zuverlässig"
-        }
-      },
-      "selling": {
-        "bullets": [
-          "Keine Investition (SolarFree möglich)",
-          "Fixer Strompreis statt steigender Kosten",
-          "Alles aus einer Hand",
-          "Installation in ~3 Monaten"
-        ]
-      },
-      "trust": {
-        "warranty": {
-          "title": "25 Jahre Produktgarantie",
-          "desc": "Entwickelt für die Schweiz und höchste Ansprüche"
-        },
-        "reliable": {
-          "title": "Zuverlässig",
-          "desc": "Bewährte Technologie für maximale Sicherheit"
-        },
-        "efficient": {
-          "title": "Effizient",
-          "desc": "Mehr Ertrag durch intelligentes Energiemanagement"
-        },
-        "sustainable": {
-          "title": "Nachhaltig",
-          "desc": "Für eine grüne Zukunft und tiefere Kosten"
-        }
-      },
-      "cta": {
-        "orderFinal": "Jetzt Bestellen",
-        "learnMore": "Paket im Detail ansehen"
       }
+    },
+    "priceFor": "Preise anzeigen für",
+    "includedTitle": "In jedem Paket inbegriffen",
+    "included": [
+      "Planung",
+      "Montage und Inbetriebnahme",
+      "Monitoring per App"
+    ],
+    "swiss": "Entwickelt für die Schweiz",
+    "catalogCard": {
+      "sizeLabel": "Paket {size}",
+      "storage": "Speicher",
+      "brand": "Hersteller",
+      "fit": {
+        "S": "Kleines Einfamilienhaus",
+        "M": "Durchschnittlicher Haushalt",
+        "L": "Grosses Haus",
+        "XL": "Gewerbe und grosse Dächer"
+      },
+      "price": {
+        "free": {
+          "value": "CHF 0",
+          "label": "Investition",
+          "note": "Solarstrom bis zu {percent} % unter dem Netztarif"
+        },
+        "direct": {
+          "label": "Kaufpreis ab",
+          "value": "CHF {price}",
+          "note": "zzgl. MwSt."
+        },
+        "abo": {
+          "value": "Feste Monatsrate",
+          "label": "Kauf in Raten",
+          "note": "25 Jahre, keine Anzahlung. Ihre Rate zeigt der Solarrechner."
+        }
+      },
+      "calculate": "Mit diesem Paket rechnen",
+      "details": "Paket im Detail ansehen"
     }
   },
   "seo": {
@@ -99,7 +74,7 @@
     },
     "solarFree": {
       "title": "SolarFree: Solaranlage ohne Eigeninvestition | Free State AG",
-      "description": "Mit SolarFree bekommen Sie Ihre eigene Solaranlage mit CHF 0 Anzahlung. Monatliche Rate statt Kauf, jederzeit mit Option zum Erwerb. Jetzt Ersparnis berechnen."
+      "description": "Mit SolarFree bauen und betreiben wir die Solaranlage auf Ihrem Dach. CHF 0 Investition, Solarstrom bis zu 30 % unter dem Netztarif. Jetzt Ersparnis berechnen."
     },
     "solarDirect": {
       "title": "SolarDirect: Solaranlage kaufen mit vollem Eigentum",
@@ -107,7 +82,7 @@
     },
     "solarAbo": {
       "title": "SolarAbo: Solaranlage im monatlichen Abo | Free State",
-      "description": "SolarAbo von Free State: Ihre Solaranlage mit fester Monatsrate, Monitoring, Garantie und Versicherung inklusive. Jetzt Monatsrate berechnen."
+      "description": "SolarAbo von Free State: Ihre eigene Solaranlage ohne Anzahlung, bezahlt in festen Monatsraten über 25 Jahre. Jetzt Monatsrate berechnen."
     },
     "batteryStorage": {
       "title": "Batteriespeicher als Einnahmequelle: Netzdienstleistungen | Free State AG",
@@ -714,7 +689,8 @@
         "promoTitleCommercial": "Intelligente Solarlösungen für Unternehmen",
         "promoCta": "Jetzt entdecken",
         "productCatalog": "Produkte in 3D",
-        "communities": "ZEV, vZEV und LEG erklärt"
+        "communities": "ZEV, vZEV und LEG erklärt",
+        "solarAboPlan": "SolarAbo"
       }
     },
     "stats": {
@@ -722,79 +698,6 @@
       "solarPrice": "Solarstrom-Preis mit SolarFree",
       "experienceSince": "Erfahrung seit",
       "locations": "Standorte"
-    },
-    "solarModels": {
-      "eyebrow": "Solarmodelle",
-      "title": "SolarFree, SolarAbo oder SolarDirect: Was passt zu Ihnen?",
-      "subtitle": "Vergleichen Sie alle drei Modelle und finden Sie die passende Lösung für Ihr Zuhause.",
-      "onlineBadge": "0 Investition",
-      "cta": "Jetzt starten",
-      "learnMore": "Mehr erfahren",
-      "solarFree": {
-        "title": "SolarFree",
-        "description": "Solarsystem, Speicher und Ladestation im flexiblen Abo-Modell für Ihr Zuhause",
-        "includedTitle": "Was ist enthalten?",
-        "included": [
-          "Planbare Stromkosten",
-          "Bis zu 30 % günstigere Stromtarife",
-          "Schutz vor steigenden Energiepreisen",
-          "24/7 Überwachung & Monitoring",
-          "Versicherung der gesamten Anlage",
-          "Freie Rückkaufoption jederzeit"
-        ],
-        "highlight": "Mit 0 CHF Startinvestition zahlen Sie nur für Strom",
-        "advantagesTitle": "Ihre Vorteile mit SolarFree",
-        "advantages": [
-          "Keine Anfangsinvestition",
-          "Fester, planbarer Stromtarif",
-          "Betrieb, Wartung und Service inklusive",
-          "Vertragsübernahme bei Immobilienverkauf möglich",
-          "Rückkauf der Anlage jederzeit möglich"
-        ]
-      },
-      "solarDirect": {
-        "title": "SolarDirect",
-        "description": "Solarsystem, Speicher und Ladestation zum direkten Kauf für Ihr Zuhause",
-        "badge": "Volles Eigentum",
-        "highlight": "Mit einer Einmalzahlung gehört Ihr System Ihnen",
-        "includedTitle": "Was ist enthalten?",
-        "included": [
-          "Vollständiger Systembesitz",
-          "Schutz vor steigenden Energiekosten",
-          "Herstellergarantien inklusive",
-          "10 Jahre Handwerksgarantie",
-          "Übertragbar beim Hausverkauf"
-        ],
-        "advantagesTitle": "Ihre Vorteile mit SolarDirekt",
-        "advantages": [
-          "Vollständiger Besitz der Anlage",
-          "Keine laufenden Modellkosten",
-          "Betreuung und Wartung selbst steuerbar",
-          "Übertragbar beim Immobilienverkauf",
-          "CHF 1'500.– Online-Rabatt möglich"
-        ]
-      },
-      "solarAbo": {
-        "title": "SolarAbo",
-        "description": "Solarsystem, Speicher und Ladestation zum Kauf, bequem in festen Monatsraten für Ihr Zuhause",
-        "badge": "Monatlich",
-        "highlight": "Feste Monatsrate statt Einmalzahlung",
-        "includedTitle": "Was ist enthalten?",
-        "included": [
-          "Monitoring & Systemüberwachung",
-          "Garantie & Garantieabwicklung",
-          "Ersatz defekter Komponenten im Garantiezeitraum",
-          "Versicherung der gesamten Anlage"
-        ],
-        "advantagesTitle": "Ihre Vorteile mit SolarAbo",
-        "advantages": [
-          "Die Anlage gehört Ihnen",
-          "Keine Einmalzahlung",
-          "Feste, planbare Monatsrate über 25 Jahre",
-          "Rundum-Service inklusive",
-          "Übertragbar beim Immobilienverkauf"
-        ]
-      }
     },
     "whyFreeState": {
       "title": "Warum FreeState?",
@@ -985,7 +888,7 @@
         },
         {
           "title": "Garantie und Versicherung inklusive",
-          "description": "Bei SolarFree und SolarAbo sind Garantie und Versicherung der gesamten Anlage inklusive"
+          "description": "Bei SolarFree sind Garantie und Versicherung der gesamten Anlage inklusive"
         },
         {
           "title": "Wartung und Service",
@@ -1165,25 +1068,6 @@
       "video": {
         "play": "Video abspielen",
         "pause": "Video pausieren"
-      }
-    }
-  },
-  "solarFreeHome": {
-    "hero": {
-      "eyebrow": "Solarmodule kaufen",
-      "title": "SolarFree",
-      "subtitle": "Modernste Solar- und Batteriespeichertechnik ohne Anschaffungskosten, ermöglicht durch das Solarleasing von FreeState AG.",
-      "cta": "Solarrechner starten",
-      "tag": "Keine Registrierung nötig · Unverbindlich",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % tiefere\nStromkosten"
-        },
-        "right": {
-          "maintenance": "Mehr Eigenverbrauch\nmit Batteriespeicher",
-          "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
-        }
       }
     }
   },
@@ -4019,7 +3903,7 @@
         "tagline": "Dieselbe Anlage wie bei SolarDirect, verteilt auf 25 Jahre.",
         "points": {
           "1": "Eigentum ab Tag 1",
-          "2": "Versicherung und Garantie inbegriffen",
+          "2": "Garantien der Hersteller und Garantie auf die Installation",
           "3": "Nach 25 Jahren vollständig abbezahlt"
         },
         "cta": "SolarAbo ansehen"
@@ -6201,7 +6085,7 @@
       "title": "Was kostet eine Solaranlage in der Schweiz?",
       "perKwp": "Bei uns CHF {min} bis {max} pro kWp exkl. MwSt., schlüsselfertig mit Speicher.",
       "example": "Eine typische Anlage mit 10 kWp kostet nach Abzug der Einmalvergütung von CHF {tenSubsidy} rund CHF {tenNetMin} bis {tenNetMax} inkl. MwSt.",
-      "solarFree": "Mit SolarFree zahlen Sie CHF 0 Anzahlung und beziehen Ihren Solarstrom ab 18 Rp./kWh.",
+      "solarFree": "Mit SolarFree zahlen Sie CHF 0 Anzahlung und beziehen Ihren Solarstrom bis zu 30 % unter dem Netztarif.",
       "note": "Richtwerte, der genaue Preis hängt von Dach und Verbrauch ab.",
       "linkLabel": "Alle Kosten im Detail"
     }
@@ -6230,7 +6114,7 @@
         "tag": "Monatlich",
         "title": "SolarAbo",
         "bullet1": "Feste Monatsrate.",
-        "bullet2": "Rundum-Service inklusive."
+        "bullet2": "Keine Anzahlung."
       },
       "learnMoreSolarAboPlan": "SolarAbo"
     },
@@ -6575,10 +6459,11 @@
         "included": [
           "Monitoring & Systemüberwachung",
           "Garantie & Garantieabwicklung",
-          "Ersatz defekter Komponenten im Garantiezeitraum",
-          "Versicherung der gesamten Anlage"
+          "Ersatz defekter Komponenten im Garantiezeitraum"
         ],
         "excluded": [
+          "Wartung und Service",
+          "Versicherung der Anlage",
           "Modulreinigung"
         ],
         "requestOfferTitle": "Persönliches SolarAbo-Angebot",
@@ -6764,7 +6649,8 @@
       "dataProcessingLink": "Datenschutzerklärung",
       "dataProcessingSuffix": "beschrieben verarbeitet und für die Angebotserstellung, Vertragsanbahnung und Kundenbetreuung verwendet werden dürfen.",
       "marketing": "Ich möchte zusätzlich Neuigkeiten und Angebote von Free State AG per E-Mail erhalten (optional)."
-    }
+    },
+    "preselectedPackage": "Ihr Paket: {name} mit {model}"
   },
   "admin": {
     "tasks": {
@@ -10599,6 +10485,7 @@
       "allStatuses": "Alle Status",
       "sourceSolarFree": "SolarFree",
       "sourceSolarDirect": "SolarDirect",
+      "sourceSolarAbo": "SolarAbo",
       "name": "Name",
       "email": "E-Mail",
       "phone": "Telefon",
@@ -12787,175 +12674,6 @@
       }
     }
   },
-  "solarAboPlanHome": {
-    "hero": {
-      "eyebrow": "SolarAbo",
-      "title": "SolarAbo: Ihre eigene Solaranlage in festen Monatsraten",
-      "subtitle": "Feste Monatsrate, Rundum-Service inklusive, die Anlage gehört Ihnen.",
-      "cta": "Solarrechner starten",
-      "tag": "Keine Registrierung nötig · Unverbindlich",
-      "stats": {
-        "left": {
-          "investment": "Einmalige Investition\nab 10'000 CHF",
-          "electricity": "Bis zu 60–80 % tiefere\nStromkosten"
-        },
-        "right": {
-          "maintenance": "Amortisation ab\n5 Jahren möglich",
-          "reduction": "25+ Jahre garantierte\nStromproduktion"
-        }
-      }
-    },
-    "details": {
-      "eyebrow": "Details",
-      "title": "Was im SolarFree enthalten ist",
-      "subtitle": "Alle Leistungen und Komponenten für eine zuverlässige Energieversorgung ohne Anschaffungskosten.",
-      "solarModules": {
-        "title": "Hochwertige Solarmodule",
-        "description": "Hocheffiziente, langlebige und widerstandsfähige Solarmodule für maximale Energiegewinnung."
-      },
-      "batteryStorage": {
-        "title": "Leistungsstarker Batteriespeicher",
-        "description": "Zuverlässige Energie als Backup oder zur Optimierung des Eigenverbrauchs, immer dann, wenn Sie sie brauchen."
-      }
-    },
-    "includes": {
-      "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Home",
-      "items": {
-        "solarModules": {
-          "title": "Solarmodule",
-          "subtitle": "450 Wp"
-        },
-        "inverter": {
-          "title": "Wechselrichter",
-          "subtitle": "Umwandlung"
-        },
-        "monitoringApp": {
-          "title": "Monitoring-App",
-          "subtitle": "Live-Daten"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Schlüsselfertig"
-        },
-        "serviceInsurance": {
-          "title": "Service & Versicherung",
-          "subtitle": "Abgedeckt"
-        },
-        "batteryStorage": {
-          "title": "Batteriespeicher",
-          "subtitle": "Eigenverbrauch"
-        }
-      }
-    },
-    "service": {
-      "title": "Service für Solaranlagen",
-      "subtitle": "Kompletter Service für einen sicheren und effizienten Betrieb Ihrer Solaranlage.",
-      "warranty": {
-        "title": "35 Jahre\nGarantie",
-        "description": "Vollständige Abdeckung für Reparatur & Austausch."
-      },
-      "installation": {
-        "title": "Erfahrene Installation",
-        "description": "Erfahrung seit 2008."
-      },
-      "support": {
-        "title": "Monitoring &\nSupport",
-        "description": "Systemüberwachung und Support zu Bürozeiten."
-      }
-    },
-    "faq": {
-      "title": "Häufige Fragen",
-      "items": {
-        "1": {
-          "question": "Wie funktioniert der Besitz einer Solaranlage?",
-          "answer": "Sie kaufen die Anlage und profitieren zu 100 % vom erzeugten Strom. Alle Ersparnisse und Einspeisevergütungen gehören Ihnen, und die Anlage ist von Tag eins Ihr Eigentum."
-        },
-        "2": {
-          "question": "Vorteile beim Kauf einer Solaranlage?",
-          "answer": "Langfristige Kostenersparnis, Energieunabhängigkeit, höherer Immobilienwert und volle Kontrolle bei einer Amortisation meist in 5–10 Jahren."
-        },
-        "3": {
-          "question": "Kann ich Solarmodule selbst kaufen?",
-          "answer": "Ja, aber professionelle Installation, Netzanschluss und Bewilligungen sind weiterhin nötig. Unser schlüsselfertiges SolarDirect-Paket übernimmt das alles für Sie."
-        },
-        "4": {
-          "question": "Leasing oder Kauf: Was ist besser?",
-          "answer": "Der Kauf bietet die niedrigsten Gesamtkosten und vollen Besitz. Beim Leasing (wie SolarFree) entfällt die Anfangsinvestition. Die richtige Wahl hängt von Ihrer Liquidität und Ihren langfristigen Zielen ab."
-        },
-        "5": {
-          "question": "Was passiert bei einem Defekt der Anlage?",
-          "answer": "Solarmodule haben eine Leistungsgarantie von 25+ Jahren, Wechselrichter sind meist 10+ Jahre abgedeckt. Reparaturen und Austausch innerhalb der Garantiezeit übernehmen wir."
-        },
-        "6": {
-          "question": "Vor- und Nachteile der Eigeninstallation?",
-          "answer": "Eigeninstallation kann Anschaffungskosten senken, erfordert jedoch Bewilligungen, Sicherheitskenntnisse und einen zertifizierten Netzanschluss. Ohne professionelle Installation riskieren Sie Garantieverlust und Sicherheitsprobleme."
-        },
-        "7": {
-          "question": "Bleiben Stromkosten mit Solaranlage?",
-          "answer": "Eine Grundgebühr für den Netzanschluss bleibt, ebenso der Strombezug bei Nacht oder Bewölkung. Die Gesamtkosten sinken jedoch deutlich."
-        },
-        "8": {
-          "question": "Was passiert bei Stromüberschuss?",
-          "answer": "Überschüssiger Strom wird ins Netz eingespeist und vergütet. Optional kann ein Batteriespeicher den Überschuss für den späteren Eigenverbrauch speichern."
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "So funktioniert SolarFree Home",
-      "subtitle": "So einfach, transparent und sorgenfrei wie ein Handy-Abo.",
-      "steps": {
-        "step1": "Sie stellen das Dach",
-        "step2": "Wir investieren",
-        "step3": "Sie nutzen den Solarstrom",
-        "step4": "Sie zahlen\nmonatlich",
-        "step5": "Die Anlage wird Ihr Eigentum"
-      }
-    },
-    "pricing": {
-      "title": "Preis & Vertrag",
-      "subtitle": "Einfach, transparent und sorgenfrei, mit zusätzlicher Energieunabhängigkeit.",
-      "costLabel": "Kosten für Solaranlage in CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dachfläche",
-        "value": "ca. 25 m²"
-      },
-      "residents": {
-        "label": "Bewohner",
-        "value": "Zwei-Personen-Haushalt"
-      },
-      "costPerM2": {
-        "label": "Kosten pro\nm² in CHF",
-        "value": "ca. CHF 780.00"
-      },
-      "solarAboPrice": "Mit SolarFree CHF 0",
-      "orderNow": "JETZT BESTELLEN",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Passt dieses Paket zu Ihnen?",
-      "idealForTitle": "Ideal für Sie",
-      "notIdealForTitle": "Nicht ideal für Sie",
-      "idealFor": {
-        "singleFamily": "Einfamilienhaus",
-        "predictableCosts": "Kalkulierbare Kosten",
-        "noUpfront": "Kein Anschaffungsinvestment",
-        "noMaintenance": "Keine Wartung"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Batteriespeicher benötigt",
-        "commercial": "Gewerbegebäude"
-      }
-    },
-    "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Home Storage zu Ihrem Dach passt",
-      "heading": "Bereit für SolarAbo?",
-      "ctaText": "Solarrechner starten",
-      "ctaLink": "/calculator?model=solar-abo"
-    }
-  },
   "claimCalculation": {
     "verifying": "Berechnung wird geöffnet",
     "verifyingHint": "Einen Moment bitte, wir verknüpfen Ihre Berechnung mit Ihrem Konto.",
@@ -14463,6 +14181,430 @@
         "consentRequired": "Bitte bestätigen Sie Ihre Einwilligung, damit wir Ihre Anfrage bearbeiten dürfen.",
         "submitFailed": "Das hat nicht geklappt. Bitte versuchen Sie es noch einmal oder rufen Sie uns unter {phone} an.",
         "rateLimited": "Sie haben gerade mehrere Anfragen gesendet. Bitte versuchen Sie es in einigen Minuten noch einmal oder rufen Sie uns unter {phone} an."
+      }
+    }
+  },
+  "solarModels": {
+    "eyebrow": "Solarmodelle",
+    "title": "Drei Wege zu Ihrer Solaranlage",
+    "subtitle": "Das Modell bestimmt, wie Sie bezahlen und wem die Anlage gehört. Planung und Montage übernehmen wir in jedem Modell.",
+    "titleCurrent": "{model} im Vergleich",
+    "subtitleCurrent": "Alle drei Modelle Zeile für Zeile, damit Sie sicher entscheiden.",
+    "business": {
+      "title": "Drei Wege zur Solaranlage auf Ihrem Betriebsdach",
+      "subtitle": "Für die meisten Unternehmen ist SolarFree der einfachste Weg, weil kein Kapital gebunden wird.",
+      "cta": "Solarrechner starten",
+      "learnMore": "SolarFree für Unternehmen"
+    },
+    "recommended": "Unsere Empfehlung",
+    "current": "Diese Seite",
+    "learnMore": "So funktioniert {model}",
+    "serviceLink": "Servicepakete ab CHF {price} pro Jahr",
+    "rows": {
+      "investment": "Investition",
+      "payment": "Sie zahlen",
+      "ownership": "Eigentum",
+      "service": "Wartung und Versicherung",
+      "term": "Laufzeit"
+    },
+    "free": {
+      "name": "SolarFree",
+      "tagline": "Wir bauen und betreiben die Solaranlage auf Ihrem Dach. Sie zahlen nur den Solarstrom, den Sie verbrauchen.",
+      "taglineBusiness": "Wir bauen und betreiben die Solaranlage auf Ihrem Betriebsdach. Sie binden kein Kapital und zahlen nur den Solarstrom, den Sie verbrauchen.",
+      "cta": "Ersparnis berechnen",
+      "values": {
+        "investment": "CHF 0",
+        "payment": "Nur den verbrauchten Solarstrom, bis zu 30 % unter dem Netztarif",
+        "ownership": "Free State AG. Nach 35 Jahren geht die Anlage kostenlos an Sie.",
+        "service": "Inbegriffen. Wir tragen Wartung, Reparaturen und Versicherung.",
+        "term": "35 Jahre. Kauf zum Restwert möglich, frühestens nach einem Betriebsjahr."
+      }
+    },
+    "abo": {
+      "name": "SolarAbo",
+      "tagline": "Sie kaufen die Anlage und bezahlen sie in festen Monatsraten statt auf einmal.",
+      "taglineBusiness": "Sie kaufen die Anlage für Ihren Betrieb und bezahlen sie in festen Monatsraten statt auf einmal.",
+      "cta": "Monatsrate berechnen",
+      "values": {
+        "investment": "CHF 0 Anzahlung",
+        "payment": "Eine feste Monatsrate. Die erste Rate ist nach der Inbetriebnahme fällig.",
+        "ownership": "Die Anlage gehört Ihnen.",
+        "service": "Nicht inbegriffen. Servicepaket auf Wunsch.",
+        "term": "25 Jahre, 300 Monatsraten"
+      }
+    },
+    "direct": {
+      "name": "SolarDirect",
+      "tagline": "Sie kaufen die Anlage zum Festpreis. Die ganze Ersparnis und die Förderung gehören Ihnen.",
+      "taglineBusiness": "Sie kaufen die Anlage für Ihren Betrieb zum Festpreis. Die ganze Ersparnis und die Förderung gehören Ihnen.",
+      "cta": "Preis berechnen",
+      "values": {
+        "investment": "Ab CHF {price} zzgl. MwSt.",
+        "investmentNoPrice": "Kauf zum Festpreis",
+        "payment": "Einmalig, in drei Teilzahlungen rund um die Montage",
+        "ownership": "Die Anlage gehört Ihnen.",
+        "service": "Nicht inbegriffen. Servicepaket auf Wunsch.",
+        "term": "Keine Vertragslaufzeit"
+      }
+    }
+  },
+  "solarModelPage": {
+    "shared": {
+      "secondaryCta": "Angebot anfordern",
+      "factsTitle": "{model} in Kürze",
+      "stepsImageAlt": "Monteure setzen ein Solarmodul auf ein Dach",
+      "includedTitle": "Was inbegriffen ist",
+      "notIncludedTitle": "Was nicht inbegriffen ist",
+      "fitYesTitle": "{model} passt, wenn",
+      "fitNoTitle": "Ein anderes Modell passt besser, wenn",
+      "seeModel": "{model} ansehen",
+      "seeRoof": "Dach und Solar ansehen",
+      "seeService": "Servicepakete ansehen",
+      "videoTitle": "{model} im Video"
+    },
+    "free": {
+      "hero": {
+        "title": "SolarFree: Solaranlage ohne Investition",
+        "subtitle": "Wir bauen und betreiben die Solaranlage auf Ihrem Dach. Sie zahlen nur den Solarstrom, den Sie verbrauchen, bis zu 30 % unter dem Netztarif.",
+        "points": {
+          "1": "CHF 0 Investition",
+          "2": "Wartung und Versicherung inbegriffen",
+          "3": "Nach 35 Jahren gehört die Anlage Ihnen"
+        },
+        "imageAlt": "Haus mit Solaranlage am Hang"
+      },
+      "steps": {
+        "title": "So funktioniert SolarFree",
+        "intro": "Vom ersten Blick auf Ihr Dach bis zum eigenen Solarstrom in vier Schritten.",
+        "items": {
+          "1": {
+            "title": "Dach prüfen",
+            "body": "Im Solarrechner geben Sie Ihre Adresse ein. Sie sehen, wie viel Strom Ihr Dach liefert und was Sie pro Jahr sparen."
+          },
+          "2": {
+            "title": "Vertrag abschliessen",
+            "body": "Sie überlassen uns die Dachfläche für 35 Jahre. Sie investieren nichts und zahlen keine Monatsrate."
+          },
+          "3": {
+            "title": "Wir bauen und betreiben",
+            "body": "Wir planen, montieren und versichern die Anlage. Wartung und Reparaturen gehen auf unsere Kosten."
+          },
+          "4": {
+            "title": "Sie beziehen Solarstrom",
+            "body": "Sie verbrauchen den Strom vom eigenen Dach und zahlen dafür bis zu 30 % weniger als für Netzstrom. Nach 35 Jahren gehört die Anlage Ihnen."
+          }
+        }
+      },
+      "costs": {
+        "title": "Was Sie zahlen",
+        "intro": "Sie zahlen keine Anlage und keine Monatsrate. Sie zahlen den Solarstrom, den Sie selbst verbrauchen.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investition",
+            "body": "Planung, Material und Montage bezahlen wir."
+          },
+          "2": {
+            "value": "Bis zu 30 %",
+            "label": "unter dem Netztarif",
+            "body": "So viel günstiger ist der Solarstrom vom eigenen Dach im Vergleich zum Strom Ihres Elektrizitätswerks."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "für Wartung und Versicherung",
+            "body": "Betrieb, Reparaturen und Versicherung der Anlage tragen wir."
+          }
+        },
+        "note": "Den Strom, den Sie zusätzlich aus dem Netz beziehen, bezahlen Sie wie bisher Ihrem Elektrizitätswerk."
+      },
+      "included": [
+        "Solaranlage mit Batteriespeicher",
+        "Planung und Montage",
+        "Betrieb, Wartung und Reparaturen",
+        "Versicherung der Anlage",
+        "Monitoring per App"
+      ],
+      "notIncluded": [
+        "Strom, den Sie aus dem Netz beziehen",
+        "Unterhalt des Dachs. Dafür bleiben Sie als Eigentümerin oder Eigentümer zuständig."
+      ],
+      "fit": {
+        "yes": [
+          "Sie kein Kapital binden wollen",
+          "Sie sich nicht um Wartung, Reparaturen und Versicherung kümmern wollen",
+          "Sie tagsüber viel Strom verbrauchen, zum Beispiel mit Wärmepumpe, Elektroauto oder einem Betrieb"
+        ],
+        "no": [
+          "Sie die Anlage von Anfang an besitzen und die Förderung selbst erhalten wollen",
+          "Ihr Dach in den nächsten Jahren saniert werden muss. Dann planen Sie Dach und Solaranlage am besten zusammen."
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zu SolarFree",
+        "description": "Die wichtigsten Punkte aus dem Vertrag, kurz erklärt.",
+        "items": {
+          "1": {
+            "question": "Wem gehört die Anlage?",
+            "answer": "Während der Vertragsdauer von 35 Jahren gehört die Anlage der Free State AG. Danach geht sie ohne Zahlung an Sie über, wenn Sie das möchten. Andernfalls bauen wir sie zurück."
+          },
+          "2": {
+            "question": "Kann ich die Anlage vor Ablauf der 35 Jahre kaufen?",
+            "answer": "Ja. Frühestens nach einem Betriebsjahr können Sie die Anlage jeweils auf das Ende eines Kalenderjahres kaufen. Sie melden den Kauf zwölf Monate im Voraus schriftlich an. Der Preis steht in der Restwerttabelle Ihres Vertrags und enthält eine Bearbeitungsgebühr von 5 %."
+          },
+          "3": {
+            "question": "Was kostet mich der Solarstrom?",
+            "answer": "Sie zahlen den Solarstrom, den Sie im Gebäude verbrauchen. Der Preis liegt bis zu 30 % unter dem Tarif Ihres Elektrizitätswerks. Ihre Ersparnis pro Jahr zeigt der Solarrechner."
+          },
+          "4": {
+            "question": "Wer bezahlt Wartung, Reparaturen und Versicherung?",
+            "answer": "Die Free State AG. Alle Kosten, die die Anlage verursacht, tragen wir."
+          },
+          "5": {
+            "question": "Was passiert, wenn ich das Haus verkaufe?",
+            "answer": "Der Vertrag geht mit allen Rechten und Pflichten auf die neue Eigentümerschaft über. Sie informieren uns vorher schriftlich. Sie können die Anlage auch zum Restwert kaufen."
+          },
+          "6": {
+            "question": "Wird der Vertrag im Grundbuch eingetragen?",
+            "answer": "Die Free State AG kann das Nutzungsrecht für die Dauer von 35 Jahren im Grundbuch vormerken lassen. Die Kosten dafür tragen wir."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarFree",
+        "title": "Angebot für SolarFree",
+        "subtitle": "Wir prüfen Ihr Dach und melden uns mit einem unverbindlichen Angebot."
+      }
+    },
+    "abo": {
+      "hero": {
+        "title": "SolarAbo: Ihre eigene Solaranlage in festen Monatsraten",
+        "subtitle": "Sie kaufen die Anlage und bezahlen sie über 25 Jahre in gleich hohen Monatsraten. Eine Anzahlung brauchen Sie nicht.",
+        "points": {
+          "1": "Keine Anzahlung",
+          "2": "Feste Rate über 25 Jahre",
+          "3": "Die Anlage gehört Ihnen"
+        },
+        "imageAlt": "Dorf mit Solaranlagen auf den Dächern"
+      },
+      "steps": {
+        "title": "So funktioniert SolarAbo",
+        "intro": "Vom ersten Blick auf Ihr Dach bis zur ersten Monatsrate in vier Schritten.",
+        "items": {
+          "1": {
+            "title": "Dach prüfen",
+            "body": "Im Solarrechner geben Sie Ihre Adresse ein. Sie sehen, welche Anlage auf Ihr Dach passt und wie viel Strom sie liefert."
+          },
+          "2": {
+            "title": "Persönliches Angebot",
+            "body": "Wir erstellen Ihnen ein Angebot mit Ihrer Monatsrate und dem Gesamtbetrag über die ganze Laufzeit."
+          },
+          "3": {
+            "title": "Montage",
+            "body": "Wir planen und montieren die Anlage und nehmen sie in Betrieb. Bis dahin zahlen Sie nichts."
+          },
+          "4": {
+            "title": "Monatsrate",
+            "body": "Die erste von 300 gleich hohen Monatsraten ist im Monat nach der Inbetriebnahme fällig."
+          }
+        }
+      },
+      "costs": {
+        "title": "Was Sie zahlen",
+        "intro": "Sie bezahlen den Kaufpreis nicht auf einmal. Er wird auf 300 Monatsraten verteilt.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Anzahlung",
+            "body": "Sie zahlen erst nach der Inbetriebnahme."
+          },
+          "2": {
+            "value": "300",
+            "label": "gleich hohe Monatsraten",
+            "body": "Die Rate bleibt über 25 Jahre gleich. Ihre persönliche Rate steht im Angebot."
+          },
+          "3": {
+            "value": "Förderung",
+            "label": "wird abgezogen",
+            "body": "Die geschätzte Einmalvergütung des Bundes wird vom Kaufpreis abgezogen, bevor wir die Rate berechnen."
+          }
+        },
+        "note": "Der Gesamtbetrag aller Raten ist höher als der Preis beim Direktkauf, weil der Kaufpreis über 25 Jahre verteilt wird. Den Gesamtbetrag weisen wir im Angebot aus."
+      },
+      "included": [
+        "Solarmodule, Wechselrichter, Speicher und Energiemanager gemäss Paket",
+        "Planung, Montage und Inbetriebnahme",
+        "Antrag für die Einmalvergütung",
+        "Garantien der Hersteller und Garantie auf die Installation",
+        "Monitoring per App"
+      ],
+      "notIncluded": [
+        "Wartung und Service. Dafür gibt es unsere Servicepakete.",
+        "Versicherung der Anlage",
+        "Reinigung der Module"
+      ],
+      "fit": {
+        "yes": [
+          "Sie Eigentümerin oder Eigentümer der Anlage sein wollen",
+          "Sie keine grosse Einmalzahlung leisten wollen",
+          "Sie eine Rate wollen, die sich über die ganze Laufzeit nicht ändert"
+        ],
+        "no": [
+          "Sie das Kapital haben und die tiefsten Gesamtkosten wollen",
+          "wir Betrieb, Wartung und Versicherung übernehmen sollen"
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zu SolarAbo",
+        "description": "Die wichtigsten Punkte zu Rate, Laufzeit und Leistungen.",
+        "items": {
+          "1": {
+            "question": "Wie hoch ist meine Monatsrate?",
+            "answer": "Die Rate hängt von der Grösse der Anlage ab. Sie erhalten sie mit Ihrem persönlichen Angebot, zusammen mit dem Gesamtbetrag über die ganze Laufzeit."
+          },
+          "2": {
+            "question": "Wann zahle ich die erste Rate?",
+            "answer": "Im Monat nach der Inbetriebnahme der Anlage. Die weiteren Raten sind jeweils am Monatsende fällig."
+          },
+          "3": {
+            "question": "Kann ich früher zurückzahlen?",
+            "answer": "Ja. Eine vollständige oder teilweise vorzeitige Rückzahlung ist nach schriftlicher Vereinbarung mit der Free State AG möglich."
+          },
+          "4": {
+            "question": "Sind Wartung und Versicherung inbegriffen?",
+            "answer": "Nein. Inbegriffen sind die Garantien der Hersteller und unsere Garantie auf die Installation. Wartung können Sie mit einem Servicepaket dazubuchen. Die Anlage versichern Sie selbst."
+          },
+          "5": {
+            "question": "Wer erhält die Förderung?",
+            "answer": "Sie. Wir bereiten den Antrag für die Einmalvergütung vor. Der geschätzte Betrag wird bei der Berechnung der Rate bereits abgezogen."
+          },
+          "6": {
+            "question": "Worin unterscheidet sich SolarAbo von SolarFree?",
+            "answer": "Bei SolarAbo kaufen Sie die Anlage und zahlen sie in Raten. Bei SolarFree gehört die Anlage 35 Jahre lang der Free State AG. Wir tragen dort Wartung und Versicherung, und Sie zahlen nur den Solarstrom."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarAbo",
+        "title": "Angebot für SolarAbo",
+        "subtitle": "Wir prüfen Ihr Dach und melden uns mit Ihrer persönlichen Monatsrate."
+      }
+    },
+    "direct": {
+      "hero": {
+        "title": "SolarDirect: Solaranlage kaufen zum Festpreis",
+        "subtitle": "Sie kaufen die Anlage schlüsselfertig. Die ganze Ersparnis, die Einspeisevergütung und die Förderung gehören Ihnen.",
+        "points": {
+          "1": "Festpreis",
+          "2": "Wir stellen den Förderantrag",
+          "3": "Keine laufenden Raten"
+        },
+        "imageAlt": "Ziegeldach mit Solaranlage"
+      },
+      "steps": {
+        "title": "So funktioniert SolarDirect",
+        "intro": "Vom ersten Blick auf Ihr Dach bis zur eigenen Anlage in vier Schritten.",
+        "items": {
+          "1": {
+            "title": "Dach prüfen",
+            "body": "Im Solarrechner geben Sie Ihre Adresse ein. Sie sehen Grösse, Ertrag und Ersparnis für Ihr Dach."
+          },
+          "2": {
+            "title": "Angebot mit Festpreis",
+            "body": "Sie erhalten ein Angebot mit dem Festpreis und der geschätzten Förderung."
+          },
+          "3": {
+            "title": "Montage",
+            "body": "Wir planen und montieren die Anlage und nehmen sie in Betrieb."
+          },
+          "4": {
+            "title": "Übergabe",
+            "body": "Nach der vollständigen Zahlung gehört die Anlage Ihnen. Wir reichen den Antrag für die Einmalvergütung ein."
+          }
+        }
+      },
+      "costs": {
+        "title": "Was Sie zahlen",
+        "intro": "Sie zahlen den Festpreis aus Ihrem Angebot. Danach fallen für die Anlage keine Raten an.",
+        "items": {
+          "1": {
+            "value": "Ab CHF {price}",
+            "valueNoPrice": "Festpreis",
+            "label": "zzgl. MwSt.",
+            "body": "Preis für die schlüsselfertige Anlage, je nach Paket und Dachgrösse."
+          },
+          "2": {
+            "value": "30 / 60 / 10 %",
+            "label": "Zahlung in drei Teilen",
+            "body": "30 % bei Vertragsunterzeichnung, 60 % vor Beginn der Montage, 10 % nach der Übergabe."
+          },
+          "3": {
+            "value": "Förderung",
+            "label": "senkt Ihren Preis",
+            "body": "Die Einmalvergütung des Bundes erhalten Sie. Wir bereiten den Antrag vor und reichen ihn ein."
+          }
+        },
+        "note": "Im Angebot weisen wir den Preis, die geschätzte Förderung und den Nettopreis getrennt aus."
+      },
+      "included": [
+        "Solarmodule, Wechselrichter, Speicher und Energiemanager gemäss Paket",
+        "Planung, Montage und Inbetriebnahme",
+        "Antrag für die Einmalvergütung",
+        "Garantien der Hersteller und Garantie auf die Installation",
+        "Monitoring per App"
+      ],
+      "notIncluded": [
+        "Wartung und Service. Dafür gibt es unsere Servicepakete.",
+        "Versicherung der Anlage",
+        "Reinigung der Module"
+      ],
+      "fit": {
+        "yes": [
+          "Sie das Kapital haben und die tiefsten Gesamtkosten wollen",
+          "Sie Förderung, Ersparnis und Einspeisevergütung vollständig selbst erhalten wollen",
+          "Sie keine laufenden Raten wollen"
+        ],
+        "no": [
+          "Sie kein Kapital binden wollen",
+          "Sie die Anlage kaufen, aber in Monatsraten bezahlen wollen"
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zu SolarDirect",
+        "description": "Die wichtigsten Punkte zu Preis, Zahlung und Garantien.",
+        "items": {
+          "1": {
+            "question": "Was kostet eine Solaranlage mit SolarDirect?",
+            "answer": "Der Preis hängt von der Grösse der Anlage und vom Paket ab. Der Solarrechner zeigt, welche Grösse auf Ihr Dach passt. Danach erhalten Sie ein Angebot mit Festpreis."
+          },
+          "2": {
+            "question": "Wie bezahle ich?",
+            "answer": "In drei Teilen. 30 % bei Vertragsunterzeichnung, 60 % vor Beginn der Montage und 10 % nach der Übergabe."
+          },
+          "3": {
+            "question": "Wer erhält die Förderung?",
+            "answer": "Sie. Wir bereiten den Antrag für die Einmalvergütung des Bundes vor und reichen ihn ein. Über die Bewilligung entscheidet die zuständige Stelle."
+          },
+          "4": {
+            "question": "Welche Garantien habe ich?",
+            "answer": "Sie erhalten die Produktgarantien der Hersteller und unsere Garantie auf die Installation. Die Garantien der einzelnen Komponenten stehen in Ihrem Angebot."
+          },
+          "5": {
+            "question": "Sind Wartung und Versicherung inbegriffen?",
+            "answer": "Nein. Wartung können Sie mit einem Servicepaket dazubuchen. Die Anlage versichern Sie selbst."
+          },
+          "6": {
+            "question": "Was passiert mit überschüssigem Strom?",
+            "answer": "Überschüssiger Strom wird ins Netz eingespeist und vergütet. Ein Batteriespeicher speichert den Überschuss für den späteren Eigenverbrauch."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarDirect",
+        "title": "Angebot für SolarDirect",
+        "subtitle": "Wir prüfen Ihr Dach und melden uns mit einem Festpreis."
       }
     }
   }

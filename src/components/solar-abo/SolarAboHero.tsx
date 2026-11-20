@@ -10,8 +10,6 @@ type LinkButtonVariant = NonNullable<
 >
 
 const CALCULATOR_MODEL_BY_NAMESPACE: Record<string, string> = {
-  solarFreeHome: 'solar-free',
-  solarAboPlanHome: 'solar-abo',
   solarAboHome: 'solar-direct',
 }
 

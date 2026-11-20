@@ -1,411 +1,255 @@
-import { getTranslations } from 'next-intl/server'
 import { Reveal, RevealStagger } from '@/components/motion/Reveal'
 import RevealText from '@/components/motion/RevealText'
+import { PV_SERVICE_PRICE_ROWS } from '@/components/pv-service/pv-service-api'
+import { formatChf } from '@/components/roof-renovation/roof-renovation-api'
+import { Link } from '@/i18n/navigation'
+import { getSolarDirectFromPriceChf } from '@/lib/pricing/solar-direct-from-price'
+import { pvServiceVisible } from '@/lib/pv-service-gate'
+import {
+  SOLAR_MODELS,
+  SOLAR_MODEL_KEYS,
+  SOLAR_MODEL_ROWS,
+  calculatorHref,
+  type SolarModelKey,
+} from '@/lib/solar-models'
+import { cn } from '@/lib/utils'
+import { ArrowRight } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 import { Badge } from './ui/badge'
 import { LinkButton } from './ui/link-button'
-import CheckBulletIcon from './icons/CheckBulletIcon'
-import Link from 'next/link'
-import Image from 'next/image'
-import SmallWalletIcon from './icons/SmallWalletIcon'
 
-const LearnMoreCta = ({ href, label }: { href: string; label: string }) => (
-  <Link
-    href={href}
-    className="group/learn inline-flex items-center gap-1 text-[#062E25] hover:opacity-80 transition-opacity self-start"
-  >
-    <span className="text-sm font-medium underline underline-offset-[3px] decoration-[0.8px]">
-      {label}
-    </span>
-    <svg
-      width="8"
-      height="8"
-      viewBox="0 0 8 8"
-      fill="none"
-      aria-hidden="true"
-      focusable="false"
-      className="transition-transform duration-300 group-hover/learn:translate-x-0.5"
-    >
-      <path
-        d="M1 4h6m0 0L4 1m3 3L4 7"
-        stroke="#062E25"
-        strokeWidth="0.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  </Link>
-)
-
-const AdvantageList = ({
-  items,
-  isCommercial = false,
-}: {
-  items: string[]
+interface SolarModelsProps {
   isCommercial?: boolean
-}) => (
-  <div className="flex flex-col gap-2.5">
-    {items.map(item => (
-      <div key={item} className="flex items-center gap-1">
-        {isCommercial ? (
-          <CommercialCheckIcon />
-        ) : (
-          <CheckBulletIcon className="w-3.5 h-3.5 shrink-0" />
-        )}
-        <span className="text-sm italic text-foreground/80 tracking-tight">
-          {item}
-        </span>
-      </div>
-    ))}
-  </div>
-)
-
-const CommercialCheckIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="13"
-    height="13"
-    fill="none"
-    className="shrink-0"
-  >
-    <path
-      fill="#9f3e4f"
-      d="M4.753.751c.383-.326.575-.49.775-.585a1.7 1.7 0 0 1 1.465 0c.2.096.391.259.774.585.153.13.229.195.31.25.187.125.397.212.617.255.096.02.196.027.396.043.501.04.752.06.962.134.484.171.864.552 1.035 1.036.074.21.094.46.134.962.016.2.024.3.043.395.044.22.13.43.256.617.054.081.119.158.249.31.326.383.49.575.585.775a1.7 1.7 0 0 1 0 1.465c-.095.2-.259.391-.585.774-.13.153-.195.229-.25.31a1.7 1.7 0 0 0-.255.617 4 4 0 0 0-.043.396c-.04.501-.06.752-.134.962-.17.484-.551.864-1.035 1.035-.21.074-.46.094-.962.134-.2.016-.3.024-.396.043-.22.044-.43.13-.617.256-.081.054-.157.119-.31.249-.383.326-.574.49-.774.585a1.7 1.7 0 0 1-1.465 0c-.2-.095-.392-.259-.775-.585a4 4 0 0 0-.31-.25 1.7 1.7 0 0 0-.617-.255 4 4 0 0 0-.395-.043c-.502-.04-.753-.06-.962-.134a1.7 1.7 0 0 1-1.036-1.035c-.074-.21-.094-.46-.134-.962-.016-.2-.024-.3-.043-.396-.043-.22-.13-.43-.255-.617a4 4 0 0 0-.25-.31c-.326-.383-.49-.574-.585-.774a1.7 1.7 0 0 1 0-1.465c.096-.2.259-.392.585-.775.13-.152.195-.229.25-.31.125-.187.212-.396.255-.617.02-.096.027-.196.043-.395.04-.502.06-.753.134-.962A1.7 1.7 0 0 1 2.47 1.433c.21-.074.46-.094.962-.134.2-.016.3-.024.395-.043.22-.043.43-.13.617-.255.081-.055.158-.12.31-.25"
-    />
-    <path
-      stroke="#fff"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth=".894"
-      d="m3.882 6.6 1.36 1.358 3.396-3.396"
-    />
-  </svg>
-)
-
-const IncludedList = ({ items }: { items: string[] }) => (
-  <div className="flex flex-col gap-2.5">
-    {items.map(item => (
-      <div key={item} className="flex items-center gap-1">
-        <span className="w-1 h-1 rounded-full shrink-0 bg-[#295823]" />
-        <span className="text-sm italic font-bold text-foreground/80 tracking-tight">
-          {item}
-        </span>
-      </div>
-    ))}
-  </div>
-)
+  current?: SolarModelKey
+  flush?: boolean
+}
 
 const SolarModels = async ({
   isCommercial = false,
-}: { isCommercial?: boolean } = {}) => {
-  const t = await getTranslations('home.solarModels')
+  current,
+  flush = false,
+}: SolarModelsProps = {}) => {
+  const t = await getTranslations('solarModels')
+  const directFromPrice = isCommercial
+    ? null
+    : await getSolarDirectFromPriceChf()
+  const servicePrice = PV_SERVICE_PRICE_ROWS[0].annualChf?.monitoring ?? null
 
-  const solarFreeIncluded = t.raw('solarFree.included') as string[]
-  const solarFreeAdvantages = t.raw('solarFree.advantages') as string[]
-  const solarDirectIncluded = t.raw('solarDirect.included') as string[]
-  const solarDirectAdvantages = t.raw('solarDirect.advantages') as string[]
-  const solarAboIncluded = t.raw('solarAbo.included') as string[]
-  const solarAboAdvantages = t.raw('solarAbo.advantages') as string[]
-
-  const solarFreeImage = isCommercial
-    ? '/images/commercial-solar-free.png'
-    : '/images/solar-free-card-11b71d.webp'
-  const solarDirectImage = isCommercial
-    ? '/images/commercial-solar-direct.png'
-    : '/images/solar-direct.png'
-  const solarAboImage = isCommercial
-    ? '/images/commercial-solar-direct.png'
-    : '/images/solar-direct.png'
+  const title = current
+    ? t('titleCurrent', { model: t(`${SOLAR_MODELS[current].messageKey}.name`) })
+    : isCommercial
+      ? t('business.title')
+      : t('title')
+  const subtitle = current
+    ? t('subtitleCurrent')
+    : isCommercial
+      ? t('business.subtitle')
+      : t('subtitle')
 
   return (
     <section
-      className="relative w-full flex flex-col items-center px-4 sm:px-6 py-16 md:py-24 overflow-hidden -mt-[40px]"
+      id="modelle"
+      className={cn(
+        'relative w-full scroll-mt-28 overflow-hidden px-4 py-16 sm:px-6 md:py-24',
+        !flush && '-mt-[40px]'
+      )}
       style={{
         backgroundImage: 'linear-gradient(180deg, #F2F4E8 0%, #DCE9E6 79%)',
       }}
     >
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 w-[289px] h-[419px] -translate-x-1/2 -translate-y-1/3 rounded-full"
-        style={{
-          background: 'rgba(183, 254, 26, 0.2)',
-          filter: 'blur(180px)',
-        }}
-      />
-      <div className="relative max-w-[1320px] w-full flex flex-col items-center gap-10">
-        <div className="flex flex-col items-center gap-5 w-full">
+      <div className="relative mx-auto flex w-full max-w-[1320px] flex-col gap-12 md:gap-14">
+        <div className="flex flex-col items-center gap-5 text-center">
           <Badge
             variant="outline"
-            className="border-foreground text-foreground font-light text-base backdrop-blur-[65px]"
+            className="border-foreground text-base font-light text-foreground"
           >
             {t('eyebrow')}
           </Badge>
-          <div className="flex flex-col items-center gap-5 w-full">
-            <RevealText
-              as="h3"
-              className="text-3xl md:text-[45px] font-medium text-center text-foreground"
-            >
-              {t('title')}
-            </RevealText>
-            <Reveal
-              as="p"
-              delay={0.2}
-              className="text-lg md:text-[22px] text-center text-foreground/80 tracking-tight"
-            >
-              {t('subtitle')}
-            </Reveal>
-          </div>
+          <RevealText
+            as="h2"
+            className="text-3xl font-medium text-foreground md:text-[45px]"
+          >
+            {title}
+          </RevealText>
+          <Reveal
+            as="p"
+            delay={0.2}
+            className="max-w-[820px] text-lg tracking-tight text-foreground/80 md:text-[22px]"
+          >
+            {subtitle}
+          </Reveal>
         </div>
 
-        <RevealStagger as="div" className="flex flex-col lg:flex-row lg:items-end gap-[60px] md:gap-[30px] w-full pt-12">
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <Badge
-              className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
-            >
-              {t('onlineBadge')}
-            </Badge>
+        <RevealStagger
+          as="div"
+          className="grid gap-8 lg:grid-cols-[1.12fr_1fr_1fr] lg:gap-x-6 lg:gap-y-0"
+        >
+          {SOLAR_MODEL_KEYS.map(model => {
+            const definition = SOLAR_MODELS[model]
+            const key = definition.messageKey
+            const featured = definition.featured
+            const isCurrent = current === model
+            const name = t(`${key}.name`)
 
-            <div className="absolute -top-12 right-0 w-[150px] h-[120px] sm:w-[200px] sm:h-[160px] lg:w-[232px] lg:h-[190px] pointer-events-none z-10">
-              <div
-                className="pointer-events-none absolute -bottom-6 -right-6 w-[60%] h-[60%] rounded-full"
-                style={{
-                  background: 'rgba(183, 254, 26, 0.18)',
-                  filter: 'blur(50px)',
-                }}
-              />
-              <Image
-                src={solarFreeImage}
-                alt={t('solarFree.title')}
-                width={232}
-                height={190}
-                className="relative object-contain w-full h-full"
-              />
-            </div>
+            const investment =
+              model === 'solar-direct'
+                ? directFromPrice != null
+                  ? t('direct.values.investment', {
+                      price: formatChf(directFromPrice),
+                    })
+                  : t('direct.values.investmentNoPrice')
+                : t(`${key}.values.investment`)
 
-            <div className="relative flex flex-col h-full p-5 pt-8">
-              <div className="flex flex-col gap-2 mb-6 max-w-[165px]">
-                <h4 className="text-[22px] font-medium text-foreground">
-                  {t('solarFree.title')}
-                </h4>
-                <p className="text-sm text-foreground/80 tracking-tight">
-                  {t('solarFree.description')}
-                </p>
-              </div>
+            const ctaHref = isCommercial
+              ? '/commercial/calculator'
+              : calculatorHref(model)
+            const ctaLabel = isCommercial ? t('business.cta') : t(`${key}.cta`)
 
-              <div className="border-t border-[#1F433B]/20 my-1" />
+            const learnMore = isCommercial
+              ? model === 'solar-free'
+                ? {
+                    href: '/commercial/solar-free' as const,
+                    label: t('business.learnMore'),
+                  }
+                : null
+              : isCurrent
+                ? null
+                : {
+                    href: definition.href,
+                    label: t('learnMore', { model: name }),
+                  }
 
-              <div className="flex flex-col gap-2.5 my-4">
-                <span className="text-sm font-bold text-foreground">
-                  {t('solarFree.advantagesTitle')}
-                </span>
-                <AdvantageList
-                  items={solarFreeAdvantages}
-                  isCommercial={isCommercial}
-                />
-              </div>
-
-              <div className="border-t border-[#1F433B]/20 my-1" />
-
-              <div className="flex items-center gap-2 my-4">
-                <SmallWalletIcon
-                  bgColor={isCommercial ? '#9F3E4F' : '#b7fe1a'}
-                  fgColor={isCommercial ? '#FFFFFF' : '#062e25'}
-                />
-                <span className="text-sm font-medium text-foreground/80 tracking-tight">
-                  {t('solarFree.highlight')}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-2.5 my-4">
-                <p className="font-bold text-foreground">
-                  {t('solarFree.includedTitle')}
-                </p>
-                <IncludedList items={solarFreeIncluded} />
-              </div>
-              <div className="border-t border-[#1F433B]/20 my-5" />
-              {!isCommercial && (
-                <Image
-                  src="/images/swisscom-logo.png"
-                  alt="Swisscom"
-                  width={87}
-                  height={24}
-                  className="h-6 w-auto object-contain self-start"
-                />
-              )}
-
-              <div className="mt-auto flex flex-col items-center gap-4 pt-6">
-                {!isCommercial && (
-                  <LinkButton
-                    href="/calculator?model=solar-free"
-                    variant="solar-gradient"
-                    className="w-full uppercase"
-                  >
-                    {t('cta')}
-                  </LinkButton>
+            return (
+              <article
+                key={model}
+                className={cn(
+                  'relative flex flex-col rounded-[24px] border px-6 pb-6 pt-9 md:px-8 md:pb-8 lg:row-span-7 lg:grid lg:grid-rows-subgrid',
+                  featured
+                    ? 'border-transparent bg-[linear-gradient(200deg,#0C5443_0%,#062E25_55%)] text-white shadow-[0_24px_60px_-24px_rgba(6,46,37,0.55)]'
+                    : 'border-[#546963]/40 bg-[#FDFEFA] text-[#062E25]',
+                  isCurrent && !featured && 'ring-2 ring-[#062E25]',
+                  isCurrent && featured && 'ring-2 ring-solar'
                 )}
-                <LearnMoreCta href="/solar-free" label={t('learnMore')} />
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <Badge
-              className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
-            >
-              {t('solarAbo.badge')}
-            </Badge>
-
-            <div className="absolute -top-16 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">
-              <div
-                className="pointer-events-none absolute -bottom-6 -right-6 w-[60%] h-[60%] rounded-full"
-                style={{
-                  background: 'rgba(183, 254, 26, 0.18)',
-                  filter: 'blur(50px)',
-                }}
-              />
-              <Image
-                src={solarAboImage}
-                alt={t('solarAbo.title')}
-                width={251}
-                height={220}
-                className="relative object-contain w-full h-full"
-              />
-            </div>
-
-            <div className="relative flex flex-col h-full p-5 pt-8">
-              <div className="flex flex-col gap-2 mb-6 max-w-[165px]">
-                <h4 className="text-[22px] font-medium text-foreground">
-                  {t('solarAbo.title')}
-                </h4>
-                <p className="text-sm text-foreground/80 tracking-tight">
-                  {t('solarAbo.description')}
-                </p>
-              </div>
-
-              <div className="border-t border-[#1F433B]/20 my-1" />
-
-              <div className="flex flex-col gap-2.5 my-4">
-                <span className="text-sm font-bold text-foreground">
-                  {t('solarAbo.advantagesTitle')}
-                </span>
-                <AdvantageList
-                  items={solarAboAdvantages}
-                  isCommercial={isCommercial}
-                />
-              </div>
-
-              <div className="border-t border-[#1F433B]/20 my-1" />
-
-              <div className="flex items-center gap-2 my-4">
-                <SmallWalletIcon
-                  bgColor={isCommercial ? '#9F3E4F' : '#b7fe1a'}
-                  fgColor={isCommercial ? '#FFFFFF' : '#062e25'}
-                />
-                <span className="text-sm font-medium text-foreground/80 tracking-tight">
-                  {t('solarAbo.highlight')}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-2.5 my-4">
-                <p className="font-bold text-foreground">
-                  {t('solarAbo.includedTitle')}
-                </p>
-                <IncludedList items={solarAboIncluded} />
-              </div>
-
-              <div className="mt-auto flex flex-col items-center gap-4 pt-6">
-                {!isCommercial && (
-                  <LinkButton
-                    href="/calculator?model=solar-abo"
-                    variant="solar-gradient"
-                    className="w-full uppercase"
-                  >
-                    {t('cta')}
-                  </LinkButton>
+              >
+                {(featured || isCurrent) && (
+                  <div className="absolute left-6 top-0 flex -translate-y-1/2 gap-2 md:left-8">
+                    {featured && (
+                      <span
+                        className={cn(
+                          'rounded-full px-4 py-1.5 text-sm font-medium',
+                          isCommercial
+                            ? 'bg-[#9F3E4F] text-white'
+                            : 'bg-solar text-[#062E25]'
+                        )}
+                      >
+                        {t('recommended')}
+                      </span>
+                    )}
+                    {isCurrent && (
+                      <span
+                        className={cn(
+                          'rounded-full border px-4 py-1.5 text-sm font-medium',
+                          featured
+                            ? 'border-white/40 bg-[#062E25] text-white'
+                            : 'border-[#062E25] bg-white text-[#062E25]'
+                        )}
+                      >
+                        {t('current')}
+                      </span>
+                    )}
+                  </div>
                 )}
-                <LearnMoreCta href="/solar-abo" label={t('learnMore')} />
-              </div>
-            </div>
-          </div>
 
-          <div className="w-full lg:flex-1 relative bg-[#FDFEFA] border border-[#546963]/50 rounded-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_-12px_rgba(6,46,37,0.18)] hover:border-[#062E25]/60 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <Badge
-              className={`absolute top-0 left-5 -translate-y-1/2 z-10 border-0 font-light text-base ${isCommercial ? 'bg-[#9F3E4F] text-white' : 'bg-solar text-foreground'}`}
-            >
-              {t('solarDirect.badge')}
-            </Badge>
-
-            <div className="absolute -top-16 right-0 w-[150px] h-[130px] sm:w-[200px] sm:h-[180px] lg:w-[251px] lg:h-[220px] pointer-events-none z-10">
-              <div
-                className="pointer-events-none absolute -bottom-6 -right-6 w-[60%] h-[60%] rounded-full"
-                style={{
-                  background: 'rgba(183, 254, 26, 0.18)',
-                  filter: 'blur(50px)',
-                }}
-              />
-              <Image
-                src={solarDirectImage}
-                alt={t('solarDirect.title')}
-                width={251}
-                height={220}
-                className="relative object-contain w-full h-full"
-              />
-            </div>
-
-            <div className="relative flex flex-col h-full p-5 pt-8">
-              <div className="flex flex-col gap-2 mb-6 max-w-[165px]">
-                <h4 className="text-[22px] font-medium text-foreground">
-                  {t('solarDirect.title')}
-                </h4>
-                <p className="text-sm text-foreground/80 tracking-tight">
-                  {t('solarDirect.description')}
-                </p>
-              </div>
-
-              <div className="border-t border-[#1F433B]/20 my-1" />
-
-              <div className="flex flex-col gap-2.5 my-4">
-                <span className="text-sm font-bold text-foreground">
-                  {t('solarDirect.advantagesTitle')}
-                </span>
-                <AdvantageList
-                  items={solarDirectAdvantages}
-                  isCommercial={isCommercial}
-                />
-              </div>
-
-              <div className="border-t border-[#1F433B]/20 my-1" />
-
-              <div className="flex items-center gap-2 my-4">
-                <SmallWalletIcon
-                  bgColor={isCommercial ? '#9F3E4F' : '#b7fe1a'}
-                  fgColor={isCommercial ? '#FFFFFF' : '#062e25'}
-                />
-                <span className="text-sm font-medium text-foreground/80 tracking-tight">
-                  {t('solarDirect.highlight')}
-                </span>
-              </div>
-
-              <div className="flex flex-col gap-2.5 my-4">
-                <p className="font-bold text-foreground">
-                  {t('solarDirect.includedTitle')}
-                </p>
-                <IncludedList items={solarDirectIncluded} />
-              </div>
-
-              <div className="mt-auto flex flex-col items-center gap-4 pt-6">
-                {!isCommercial && (
-                  <LinkButton
-                    href="/calculator?model=solar-direct"
-                    variant="solar-gradient"
-                    className="w-full uppercase"
-                    tabIndex={-1}
+                <header className="pb-6">
+                  <h3 className="text-[28px] font-medium tracking-tight">
+                    {name}
+                  </h3>
+                  <p
+                    className={cn(
+                      'mt-2 text-base',
+                      featured ? 'text-white/80' : 'text-[#062E25]/80'
+                    )}
                   >
-                    {t('cta')}
+                    {t(isCommercial ? `${key}.taglineBusiness` : `${key}.tagline`)}
+                  </p>
+                </header>
+
+                <dl className="flex flex-col lg:row-span-5 lg:grid lg:grid-rows-subgrid">
+                  {SOLAR_MODEL_ROWS.map(row => (
+                    <div
+                      key={row}
+                      className={cn(
+                        'border-t py-4',
+                        featured ? 'border-white/15' : 'border-[#062E25]/12'
+                      )}
+                    >
+                      <dt
+                        className={cn(
+                          'text-sm',
+                          featured ? 'text-white/65' : 'text-[#062E25]/60'
+                        )}
+                      >
+                        {t(`rows.${row}`)}
+                      </dt>
+                      <dd
+                        className={cn(
+                          'mt-1 font-medium',
+                          row === 'investment'
+                            ? 'text-2xl tracking-tight md:text-[28px]'
+                            : 'text-base',
+                          row === 'investment' && featured && 'text-solar'
+                        )}
+                      >
+                        {row === 'investment'
+                          ? investment
+                          : t(`${key}.values.${row}`)}
+                      </dd>
+                      {row === 'service' &&
+                        !definition.serviceIncluded &&
+                        pvServiceVisible &&
+                        servicePrice != null && (
+                          <Link
+                            href="/service"
+                            className="mt-1 inline-block text-sm underline underline-offset-4 hover:opacity-80"
+                          >
+                            {t('serviceLink', {
+                              price: formatChf(servicePrice),
+                            })}
+                          </Link>
+                        )}
+                    </div>
+                  ))}
+                </dl>
+
+                <footer
+                  className={cn(
+                    'flex flex-col gap-4 border-t pt-6',
+                    featured ? 'border-white/15' : 'border-[#062E25]/12'
+                  )}
+                >
+                  <LinkButton
+                    href={ctaHref}
+                    variant={featured ? 'primary' : 'outline-primary'}
+                    className="w-full"
+                  >
+                    {ctaLabel}
                   </LinkButton>
-                )}
-                <LearnMoreCta href="/solar-direct" label={t('learnMore')} />
-              </div>
-            </div>
-          </div>
+                  {learnMore && (
+                    <Link
+                      href={learnMore.href}
+                      className="group/learn inline-flex items-center gap-1.5 self-start text-base font-medium underline underline-offset-4 hover:opacity-80"
+                    >
+                      {learnMore.label}
+                      <ArrowRight
+                        aria-hidden
+                        className="size-4 transition-transform duration-300 group-hover/learn:translate-x-0.5"
+                      />
+                    </Link>
+                  )}
+                </footer>
+              </article>
+            )
+          })}
         </RevealStagger>
       </div>
     </section>

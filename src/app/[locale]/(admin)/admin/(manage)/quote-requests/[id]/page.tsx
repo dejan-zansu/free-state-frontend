@@ -75,7 +75,13 @@ export default function AdminQuoteRequestDetailPage() {
               <div>
                 <p className="text-[#062E25]">{t('source')}</p>
                 <p className="text-[#062E25]">
-                  {t(request.source === 'SOLAR_FREE' ? 'sourceSolarFree' : 'sourceSolarDirect')}
+                  {t(
+                    request.source === 'SOLAR_FREE'
+                      ? 'sourceSolarFree'
+                      : request.source === 'SOLAR_ABO'
+                        ? 'sourceSolarAbo'
+                        : 'sourceSolarDirect'
+                  )}
                 </p>
               </div>
               <div>

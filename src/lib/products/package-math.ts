@@ -3,7 +3,6 @@ import type { CalculatorPackage } from '@/services/residential-calculator.servic
 // Shared package figures for the catalogue card and the package page. Plain module so
 // server components can use it too.
 
-export const STROMPREIS_CHF_PER_KWH = 0.18
 export const SWISS_AVG_YIELD_KWH_PER_KWP = 950
 
 export function getSystemSpecs(pkg: CalculatorPackage) {

@@ -257,8 +257,30 @@ interface SolarAboCalculatorState {
   feedInTariffLoading: boolean
 }
 
+export interface SelectedPackageInput {
+  id: string
+  code: string
+  pricePerKwp: number | null
+  purchasePriceChf: number | null
+  installerWarrantyYears: number | null
+  electricitySavingsPercent: number | null
+  contractTermYears: number | null
+}
+
+const CLEARED_PACKAGE = {
+  selectedPackageId: null,
+  selectedPackageCode: null,
+  selectedPackagePricePerKwp: null,
+  selectedPackagePurchasePriceChf: null,
+  selectedPackageInstallerWarrantyYears: null,
+  selectedPackageElectricitySavingsPercent: null,
+  selectedPackageContractTermYears: null,
+} as const
+
 interface SolarAboCalculatorActions {
   setSolarModel: (model: SolarModel | null) => void
+  setSelectedPackage: (pkg: SelectedPackageInput) => void
+  clearSelectedPackage: () => void
   nextStep: () => void
   prevStep: () => void
   goToStep: (step: number) => void
@@ -430,7 +452,25 @@ export const useSolarAboCalculatorStore = create<
       ...initialState,
 
       setSolarModel: (model: SolarModel | null) => {
-        set({ solarModel: model })
+        if (get().solarModel === model) return
+        set({ solarModel: model, ...CLEARED_PACKAGE })
+      },
+
+      setSelectedPackage: (pkg: SelectedPackageInput) => {
+        set({
+          selectedPackageId: pkg.id,
+          selectedPackageCode: pkg.code,
+          selectedPackagePricePerKwp: pkg.pricePerKwp,
+          selectedPackagePurchasePriceChf: pkg.purchasePriceChf,
+          selectedPackageInstallerWarrantyYears: pkg.installerWarrantyYears,
+          selectedPackageElectricitySavingsPercent:
+            pkg.electricitySavingsPercent,
+          selectedPackageContractTermYears: pkg.contractTermYears,
+        })
+      },
+
+      clearSelectedPackage: () => {
+        set({ ...CLEARED_PACKAGE })
       },
 
       nextStep: () => {

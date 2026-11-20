@@ -1,23 +1,10 @@
-import {
-  QuoteRequestForm,
-  SolarAboCTA,
-  SolarAboDetails,
-  SolarAboFAQ,
-  SolarAboHero,
-  SolarAboService,
-  FullWidthVideo,
-} from '@/components/solar-abo'
-import YourBenefits from '@/components/YourBenefits'
-import SolarModels from '@/components/SolarModels'
-import CustomerStories from '@/components/CustomerStories'
-import type { Metadata } from 'next'
-import { getTranslations } from 'next-intl/server'
+import SolarModelPage from '@/components/solar-model-page/SolarModelPage'
+import { JsonLd } from '@/components/seo/JsonLd'
 import { generateSEOMetadata } from '@/lib/seo/metadata'
 import type { SiteLocale } from '@/lib/seo/site-config'
-
-import { JsonLd } from '@/components/seo/JsonLd'
-import { JsonLdFaqFromNamespace } from '@/components/seo/JsonLdFaqFromNamespace'
 import { buildServiceJsonLd } from '@/lib/seo/structured-data'
+import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
 export async function generateMetadata({
   params,
@@ -34,41 +21,25 @@ export async function generateMetadata({
   })
 }
 
-interface SolarDirectPageProps {
+const SolarDirectPage = async ({
+  params,
+}: {
   params: Promise<{ locale: string }>
-}
-
-const SolarDirectPage = async ({ params }: SolarDirectPageProps) => {
+}) => {
   const { locale } = await params
 
   return (
     <>
       <JsonLd
         data={buildServiceJsonLd({
-          name: 'Solar-Direct',
-          description: 'Direkter Kauf einer Solaranlage mit transparentem Festpreis.',
+          name: 'SolarDirect',
+          description:
+            'SolarDirect: Direkter Kauf einer schlüsselfertigen Solaranlage zum Festpreis.',
           url: 'https://www.freestate.ch/solar-direct',
           serviceType: 'Solar Direct Purchase',
         })}
       />
-      <JsonLdFaqFromNamespace namespace="solarAboHome" />
-      <div className="w-full overflow-x-hidden">
-      <SolarAboHero
-        translationNamespace="solarAboHome"
-        imageSrc="/images/roof-renovation/solar-tile-roof-rainbow.webp"
-        imageAlt="SolarAbo Home"
-        isPhoto
-      />
-      <FullWidthVideo src="https://pub-4c6192458b6640b4882edb8106c3751f.r2.dev/videos/FreeState%20-%20Solar%20Direct.mp4" />
-      <YourBenefits isCommercial={false} />
-      <SolarAboDetails translationNamespace="solarAboHome" />
-      <SolarAboService translationNamespace="solarAboHome" />
-      <QuoteRequestForm source="SOLAR_DIRECT" locale={locale} />
-      <SolarModels />
-      <CustomerStories />
-      <SolarAboFAQ translationNamespace="solarAboHome" />
-      <SolarAboCTA translationNamespace="solarAboHome" />
-    </div>
+      <SolarModelPage model="solar-direct" locale={locale} />
     </>
   )
 }

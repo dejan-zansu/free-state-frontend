@@ -472,7 +472,7 @@ export interface AdminCareerSubscription {
   updatedAt: string
 }
 
-export type QuoteRequestSource = 'SOLAR_FREE' | 'SOLAR_DIRECT'
+export type QuoteRequestSource = 'SOLAR_FREE' | 'SOLAR_DIRECT' | 'SOLAR_ABO'
 export type QuoteRequestStatus = 'NEW' | 'CONTACTED' | 'QUALIFIED' | 'CLOSED'
 
 export interface AdminQuoteRequest {

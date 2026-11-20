@@ -1,8 +1,8 @@
 {
   "title": "Free State AG",
   "packageCatalog": {
-    "title": "Choose your solar package",
-    "subtitle": "Pre-configured systems. Pick one and order in minutes.",
+    "title": "Which package fits your roof?",
+    "subtitle": "The package determines the size of the system and of the storage. The solar calculator checks which size fits your roof and your consumption.",
     "errorLoading": "Could not load packages.",
     "retry": "Retry",
     "empty": "No packages available right now.",
@@ -17,73 +17,48 @@
       "kwpUnit": "kWp",
       "kwhPerYearUnit": "kWh/year",
       "recommended": "Recommended",
-      "tag": {
-        "specialOffer": "Special offer"
-      },
-      "hero": {
-        "swissBadgeLine1": "Designed for",
-        "swissBadgeLine2": "Switzerland",
-        "heading": "Complete package for your home: solar, storage and e-mobility",
-        "tagline": "Smart. Efficient. Future-proof. All from one source."
-      },
       "priceLabels": {
         "from": "from",
-        "alternative": "or from",
-        "solarFreePill": "SolarFree",
-        "electricityFrom": "Electricity from {rate} CHF/kWh",
         "exclVat": "excl. VAT"
-      },
-      "details": {
-        "label": "Standard package",
-        "tagline": {
-          "HUAWEI": "Widely used in Switzerland. Safe. Proven. Efficient.",
-          "SIGENERGY": "Premium technology. Innovative. Reliable."
-        }
-      },
-      "equipment": {
-        "quality": {
-          "name": "High-quality components",
-          "desc": "Brand-name panels, inverters and storage with long warranties"
-        },
-        "app": {
-          "name": "App & monitoring",
-          "desc": "Always in view, anytime, anywhere"
-        },
-        "service": {
-          "name": "Installation & service",
-          "desc": "Professional, fast and reliable"
-        }
-      },
-      "selling": {
-        "bullets": [
-          "No investment (SolarFree available)",
-          "Fixed electricity price instead of rising costs",
-          "Everything from one source",
-          "Installation in ~3 months"
-        ]
-      },
-      "trust": {
-        "warranty": {
-          "title": "25-year product warranty",
-          "desc": "Designed for Switzerland and the highest standards"
-        },
-        "reliable": {
-          "title": "Reliable",
-          "desc": "Proven technology for maximum safety"
-        },
-        "efficient": {
-          "title": "Efficient",
-          "desc": "More yield through smart energy management"
-        },
-        "sustainable": {
-          "title": "Sustainable",
-          "desc": "For a greener future and lower costs"
-        }
-      },
-      "cta": {
-        "orderFinal": "Order now",
-        "learnMore": "View package details"
       }
+    },
+    "priceFor": "Show prices for",
+    "includedTitle": "Included in every package",
+    "included": [
+      "Planning",
+      "Installation and commissioning",
+      "Monitoring in the app"
+    ],
+    "swiss": "Designed for Switzerland",
+    "catalogCard": {
+      "sizeLabel": "Package {size}",
+      "storage": "Storage",
+      "brand": "Manufacturer",
+      "fit": {
+        "S": "Small single-family home",
+        "M": "Average household",
+        "L": "Large house",
+        "XL": "Commercial and large roofs"
+      },
+      "price": {
+        "free": {
+          "value": "CHF 0",
+          "label": "Investment",
+          "note": "Solar power up to {percent} % below the grid tariff"
+        },
+        "direct": {
+          "label": "Purchase price from",
+          "value": "CHF {price}",
+          "note": "excl. VAT"
+        },
+        "abo": {
+          "value": "Fixed monthly rate",
+          "label": "Purchase in instalments",
+          "note": "25 years, no down payment. The solar calculator shows your rate."
+        }
+      },
+      "calculate": "Calculate with this package",
+      "details": "View the package in detail"
     }
   },
   "seo": {
@@ -99,7 +74,7 @@
     },
     "solarFree": {
       "title": "SolarFree: Solar System with CHF 0 Down | Free State AG",
-      "description": "With SolarFree you get your own solar system with CHF 0 down payment. Monthly rate instead of purchase, with a buy-out option at any time. Calculate your savings."
+      "description": "With SolarFree, we build and operate the solar system on your roof. CHF 0 investment, solar power up to 30 % below the grid tariff. Calculate your savings now."
     },
     "solarDirect": {
       "title": "SolarDirect: Buy Your Solar System, Full Ownership",
@@ -107,7 +82,7 @@
     },
     "solarAbo": {
       "title": "SolarAbo: solar system as a monthly subscription | Free State",
-      "description": "SolarAbo by Free State: your solar system with a fixed monthly rate, monitoring, warranty and insurance included. Calculate your monthly rate now."
+      "description": "SolarAbo by Free State: your own solar system with no down payment, paid in fixed monthly instalments over 25 years. Calculate your monthly rate now."
     },
     "batteryStorage": {
       "title": "Battery storage as a revenue source: grid services | Free State AG",
@@ -665,7 +640,8 @@
         "promoTitleCommercial": "Smart solar solutions for businesses",
         "promoCta": "Discover now",
         "productCatalog": "Products in 3D",
-        "communities": "ZEV, vZEV and LEG explained"
+        "communities": "ZEV, vZEV and LEG explained",
+        "solarAboPlan": "SolarAbo"
       }
     },
     "stats": {
@@ -673,79 +649,6 @@
       "solarPrice": "Solar power price with SolarFree",
       "experienceSince": "Experience since",
       "locations": "Locations"
-    },
-    "solarModels": {
-      "eyebrow": "Solar Models",
-      "title": "SolarFree, SolarAbo or SolarDirect: which fits you?",
-      "subtitle": "Compare all three models and find the right solution for your home.",
-      "onlineBadge": "0 investment",
-      "cta": "Get started",
-      "learnMore": "Learn more",
-      "solarFree": {
-        "title": "SolarFree",
-        "description": "Solar system, storage and charging station in a flexible subscription model for your home",
-        "includedTitle": "What's included?",
-        "included": [
-          "Predictable electricity costs",
-          "Up to 30% cheaper electricity rates",
-          "Protection against rising energy prices",
-          "24/7 monitoring & surveillance",
-          "Insurance for the entire system",
-          "Free buyback option at any time"
-        ],
-        "highlight": "0 CHF initial investment – only pay for electricity",
-        "advantagesTitle": "Your advantages with SolarFree",
-        "advantages": [
-          "No initial investment",
-          "Fixed, predictable electricity rate",
-          "Operation, maintenance and service included",
-          "Contract transfer possible on property sale",
-          "Buyback of the system possible at any time"
-        ]
-      },
-      "solarDirect": {
-        "title": "SolarDirect",
-        "description": "Solar system, storage and charging station for direct purchase for your home",
-        "badge": "Full ownership",
-        "highlight": "One-time payment – the system is yours",
-        "includedTitle": "What's included?",
-        "included": [
-          "Complete system ownership",
-          "Protection against rising energy costs",
-          "Manufacturer warranties included",
-          "10-year workmanship guarantee",
-          "Transferable on house sale"
-        ],
-        "advantagesTitle": "Your advantages with SolarDirect",
-        "advantages": [
-          "Complete ownership of the system",
-          "No ongoing model costs",
-          "Care and maintenance self-manageable",
-          "Transferable on property sale",
-          "CHF 1,500 online discount possible"
-        ]
-      },
-      "solarAbo": {
-        "title": "SolarAbo",
-        "description": "Solar system, storage and charging station to buy, conveniently in fixed monthly instalments for your home",
-        "badge": "Monthly",
-        "highlight": "Fixed monthly rate instead of a one-time payment",
-        "includedTitle": "What's included?",
-        "included": [
-          "Monitoring & system supervision",
-          "Warranty & warranty handling",
-          "Replacement of defective components during the warranty period",
-          "Insurance for the entire system"
-        ],
-        "advantagesTitle": "Your advantages with SolarAbo",
-        "advantages": [
-          "The system is yours",
-          "No one-time payment",
-          "Fixed, predictable monthly rate over 25 years",
-          "All-round service included",
-          "Transferable when selling the property"
-        ]
-      }
     },
     "whyFreeState": {
       "title": "Why FreeState?",
@@ -936,7 +839,7 @@
         },
         {
           "title": "Warranty and insurance included",
-          "description": "With SolarFree and SolarAbo, warranty and insurance for the entire system are included"
+          "description": "With SolarFree, warranty and insurance for the entire system are included"
         },
         {
           "title": "Maintenance and service",
@@ -1116,25 +1019,6 @@
       "video": {
         "play": "Play video",
         "pause": "Pause video"
-      }
-    }
-  },
-  "solarFreeHome": {
-    "hero": {
-      "eyebrow": "Buy solar modules",
-      "title": "SolarFree",
-      "subtitle": "State-of-the-art solar and battery storage with FreeState AG's solar leasing, with no upfront cost.",
-      "cta": "Start the Solar Calculator",
-      "tag": "No registration required · No obligation",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 30% lower\nelectricity costs"
-        },
-        "right": {
-          "maintenance": "Higher self-consumption\nwith battery",
-          "reduction": "CO₂ reduction\nup to 2 t/year"
-        }
       }
     }
   },
@@ -3621,7 +3505,7 @@
         "tagline": "The same system as SolarDirect, spread over 25 years.",
         "points": {
           "1": "Ownership from day 1",
-          "2": "Insurance and warranty included",
+          "2": "Manufacturers' warranties and warranty on the installation",
           "3": "Fully paid off after 25 years"
         },
         "cta": "See SolarAbo"
@@ -4329,7 +4213,7 @@
       "title": "What does a solar system cost in Switzerland?",
       "perKwp": "With us CHF {min} to {max} per kWp excl. VAT, turnkey with storage.",
       "example": "A typical 10 kWp system costs around CHF {tenNetMin} to {tenNetMax} incl. VAT after the one-off subsidy of CHF {tenSubsidy}.",
-      "solarFree": "With SolarFree you pay CHF 0 down and buy your solar power from 18 Rp./kWh.",
+      "solarFree": "With SolarFree you pay CHF 0 down and buy your solar power at up to 30 % below the grid tariff.",
       "note": "Guide values, the exact price depends on your roof and consumption.",
       "linkLabel": "All costs in detail"
     }
@@ -4549,7 +4433,7 @@
         "tag": "Monthly",
         "title": "SolarAbo",
         "bullet1": "Fixed monthly rate.",
-        "bullet2": "All-round service included."
+        "bullet2": "No down payment."
       },
       "learnMoreSolarAboPlan": "SolarAbo"
     },
@@ -4909,10 +4793,11 @@
         "included": [
           "Monitoring & system supervision",
           "Warranty & warranty handling",
-          "Replacement of defective components during the warranty period",
-          "Insurance for the entire system"
+          "Replacement of defective components during the warranty period"
         ],
         "excluded": [
+          "Maintenance and service",
+          "Insurance of the system",
           "Module cleaning"
         ],
         "requestOfferTitle": "Personal SolarAbo offer",
@@ -5083,7 +4968,8 @@
       "dataProcessingLink": "privacy policy",
       "dataProcessingSuffix": "and used for the preparation of an offer, for contract preparation and customer support.",
       "marketing": "I would also like to receive news and offers from Free State AG by email (optional)."
-    }
+    },
+    "preselectedPackage": "Your package: {name} with {model}"
   },
   "solarSystemCarport": {
     "hero": {
@@ -10910,6 +10796,7 @@
       "allStatuses": "All Statuses",
       "sourceSolarFree": "SolarFree",
       "sourceSolarDirect": "SolarDirect",
+      "sourceSolarAbo": "SolarAbo",
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
@@ -12977,175 +12864,6 @@
       }
     }
   },
-  "solarAboPlanHome": {
-    "hero": {
-      "eyebrow": "SolarAbo",
-      "title": "SolarAbo: your own solar system in fixed monthly instalments",
-      "subtitle": "Fixed monthly rate, all-round service included, the system is yours.",
-      "cta": "Start the Solar Calculator",
-      "tag": "No registration required · No obligation",
-      "stats": {
-        "left": {
-          "investment": "One-time investment\nfrom 10,000 CHF",
-          "electricity": "Up to 60–80% lower\nelectricity costs"
-        },
-        "right": {
-          "maintenance": "Amortization possible\nfrom 5 years",
-          "reduction": "25+ years of guaranteed\npower production"
-        }
-      }
-    },
-    "details": {
-      "eyebrow": "Details",
-      "title": "What's included in SolarFree",
-      "subtitle": "All services and components for a reliable energy supply, with no upfront costs.",
-      "solarModules": {
-        "title": "High-quality solar modules",
-        "description": "Highly efficient solar modules for maximum energy generation, durable and resilient."
-      },
-      "batteryStorage": {
-        "title": "Powerful battery storage",
-        "description": "Reliable energy when you need it, as backup or to optimize self-consumption."
-      }
-    },
-    "includes": {
-      "title": "What's included",
-      "subtitle": "In SolarFree Home",
-      "items": {
-        "solarModules": {
-          "title": "Solar modules",
-          "subtitle": "450 Wp"
-        },
-        "inverter": {
-          "title": "Inverter",
-          "subtitle": "Conversion"
-        },
-        "monitoringApp": {
-          "title": "Monitoring app",
-          "subtitle": "Live data"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Turnkey"
-        },
-        "serviceInsurance": {
-          "title": "Service & insurance",
-          "subtitle": "Covered"
-        },
-        "batteryStorage": {
-          "title": "Battery storage",
-          "subtitle": "Self-consumption"
-        }
-      }
-    },
-    "service": {
-      "title": "Service for solar systems",
-      "subtitle": "Complete service for the safe and efficient operation of your solar system.",
-      "warranty": {
-        "title": "35-year\nwarranty",
-        "description": "Full coverage for repair and replacement."
-      },
-      "installation": {
-        "title": "Experienced installation",
-        "description": "Experience since 2008."
-      },
-      "support": {
-        "title": "Monitoring &\nSupport",
-        "description": "System monitoring and support during office hours."
-      }
-    },
-    "faq": {
-      "title": "Frequently asked questions",
-      "items": {
-        "1": {
-          "question": "How does owning a solar system work?",
-          "answer": "You purchase the system outright and benefit from 100% of the electricity it produces. All savings and feed-in revenue are yours, and the system is your property from day one."
-        },
-        "2": {
-          "question": "What are the advantages of buying a solar system?",
-          "answer": "Long-term cost savings, energy independence, higher property value, and full control, with amortization typically achieved in 5–10 years."
-        },
-        "3": {
-          "question": "Can I buy solar modules myself?",
-          "answer": "Yes, but professional installation, grid connection, and permits are still required. Our turnkey SolarDirect package handles all of that for you."
-        },
-        "4": {
-          "question": "Leasing or buying, which is better?",
-          "answer": "Buying offers the lowest total cost and full ownership. Leasing (like SolarFree) removes the upfront investment. The right choice depends on your cash flow and long-term goals."
-        },
-        "5": {
-          "question": "What happens if the system breaks down?",
-          "answer": "Solar modules come with a 25+ year performance warranty, and inverters are typically covered 10+ years. We handle repairs and replacements within the warranty period."
-        },
-        "6": {
-          "question": "Pros and cons of DIY installation?",
-          "answer": "DIY can lower upfront cost but requires permits, safety expertise, and certified grid connection. Without professional installation, you risk warranty loss and safety issues."
-        },
-        "7": {
-          "question": "Do electricity costs remain with a solar system?",
-          "answer": "You still pay a basic grid connection fee and pay for electricity drawn from the grid at night or on cloudy days, but your overall bill drops significantly."
-        },
-        "8": {
-          "question": "What happens with surplus electricity?",
-          "answer": "Excess electricity is fed into the grid, and your utility pays a feed-in tariff. Optionally, a battery can store the surplus for later self-consumption."
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "How SolarFree Home works",
-      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
-      "steps": {
-        "step1": "You provide the roof",
-        "step2": "We invest",
-        "step3": "You use the solar energy",
-        "step4": "You pay\nmonthly",
-        "step5": "The system becomes yours"
-      }
-    },
-    "pricing": {
-      "title": "Pricing & Contract",
-      "subtitle": "Simple, transparent, and worry-free, with added energy independence.",
-      "costLabel": "Cost for Solar System in CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Roof Size",
-        "value": "approx. 25 m²"
-      },
-      "residents": {
-        "label": "Residents",
-        "value": "two-person household"
-      },
-      "costPerM2": {
-        "label": "Cost per\nm² in CHF",
-        "value": "approx. CHF 780.00"
-      },
-      "solarAboPrice": "With SolarFree CHF 0",
-      "orderNow": "ORDER NOW",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Is this package right for you?",
-      "idealForTitle": "Ideal for you",
-      "notIdealForTitle": "Not ideal for you",
-      "idealFor": {
-        "singleFamily": "Single-family home",
-        "predictableCosts": "Predictable costs",
-        "noUpfront": "No upfront investment",
-        "noMaintenance": "No maintenance"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Need battery storage",
-        "commercial": "Commercial building"
-      }
-    },
-    "cta": {
-      "topButton": "See if SolarFree Home Storage works for your roof",
-      "heading": "Ready for SolarAbo?",
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/calculator?model=solar-abo"
-    }
-  },
   "claimCalculation": {
     "verifying": "Opening your calculation",
     "verifyingHint": "One moment please, we are linking your calculation to your account.",
@@ -14462,6 +14180,430 @@
         "consentRequired": "Please confirm your consent so that we may process your request.",
         "submitFailed": "That did not work. Please try again or call us on {phone}.",
         "rateLimited": "You have just sent several requests. Please try again in a few minutes or call us on {phone}."
+      }
+    }
+  },
+  "solarModels": {
+    "eyebrow": "Solar models",
+    "title": "Three ways to your solar system",
+    "subtitle": "The model determines how you pay and who owns the system. We handle planning and installation in every model.",
+    "titleCurrent": "{model} compared",
+    "subtitleCurrent": "All three models row by row, so that you can decide with confidence.",
+    "business": {
+      "title": "Three ways to a solar system on your company roof",
+      "subtitle": "For most companies, SolarFree is the simplest way, because no capital is tied up.",
+      "cta": "Start solar calculator",
+      "learnMore": "SolarFree for businesses"
+    },
+    "recommended": "Our recommendation",
+    "current": "This page",
+    "learnMore": "How {model} works",
+    "serviceLink": "Service packages from CHF {price} per year",
+    "rows": {
+      "investment": "Investment",
+      "payment": "You pay",
+      "ownership": "Ownership",
+      "service": "Maintenance and insurance",
+      "term": "Term"
+    },
+    "free": {
+      "name": "SolarFree",
+      "tagline": "We build and operate the solar system on your roof. You pay only for the solar power you use.",
+      "taglineBusiness": "We build and operate the solar system on your company roof. You tie up no capital and pay only for the solar power you use.",
+      "cta": "Calculate savings",
+      "values": {
+        "investment": "CHF 0",
+        "payment": "Only the solar power you use, up to 30 % below the grid tariff",
+        "ownership": "Free State AG. After 35 years, the system passes to you free of charge.",
+        "service": "Included. We cover maintenance, repairs and insurance.",
+        "term": "35 years. Purchase at residual value is possible, at the earliest after one year of operation."
+      }
+    },
+    "abo": {
+      "name": "SolarAbo",
+      "tagline": "You buy the system and pay for it in fixed monthly instalments instead of all at once.",
+      "taglineBusiness": "You buy the system for your business and pay for it in fixed monthly instalments instead of all at once.",
+      "cta": "Calculate monthly rate",
+      "values": {
+        "investment": "CHF 0 down payment",
+        "payment": "A fixed monthly rate. The first instalment is due after commissioning.",
+        "ownership": "The system belongs to you.",
+        "service": "Not included. Service package on request.",
+        "term": "25 years, 300 monthly instalments"
+      }
+    },
+    "direct": {
+      "name": "SolarDirect",
+      "tagline": "You buy the system at a fixed price. All the savings and the subsidy are yours.",
+      "taglineBusiness": "You buy the system for your business at a fixed price. All the savings and the subsidy are yours.",
+      "cta": "Calculate price",
+      "values": {
+        "investment": "From CHF {price} excl. VAT",
+        "investmentNoPrice": "Fixed-price purchase",
+        "payment": "One-off, in three part payments around the installation",
+        "ownership": "The system belongs to you.",
+        "service": "Not included. Service package on request.",
+        "term": "No contract term"
+      }
+    }
+  },
+  "solarModelPage": {
+    "shared": {
+      "secondaryCta": "Request a quote",
+      "factsTitle": "{model} in brief",
+      "stepsImageAlt": "Installers placing a solar module on a roof",
+      "includedTitle": "What is included",
+      "notIncludedTitle": "What is not included",
+      "fitYesTitle": "{model} fits if",
+      "fitNoTitle": "Another model fits better if",
+      "seeModel": "View {model}",
+      "seeRoof": "View roof and solar",
+      "seeService": "View service packages",
+      "videoTitle": "{model} in the video"
+    },
+    "free": {
+      "hero": {
+        "title": "SolarFree: Solar system without investment",
+        "subtitle": "We build and operate the solar system on your roof. You pay only for the solar power you use, up to 30 % below the grid tariff.",
+        "points": {
+          "1": "CHF 0 investment",
+          "2": "Maintenance and insurance included",
+          "3": "After 35 years, the system belongs to you"
+        },
+        "imageAlt": "House with a solar system on a hillside"
+      },
+      "steps": {
+        "title": "How SolarFree works",
+        "intro": "From the first look at your roof to your own solar power in four steps.",
+        "items": {
+          "1": {
+            "title": "Check the roof",
+            "body": "You enter your address in the solar calculator. You see how much electricity your roof delivers and what you save per year."
+          },
+          "2": {
+            "title": "Conclude the contract",
+            "body": "You make the roof area available to us for 35 years. You invest nothing and pay no monthly rate."
+          },
+          "3": {
+            "title": "We build and operate",
+            "body": "We plan, install and insure the system. Maintenance and repairs are at our expense."
+          },
+          "4": {
+            "title": "You get solar power",
+            "body": "You use the electricity from your own roof and pay up to 30 % less for it than for grid electricity. After 35 years, the system belongs to you."
+          }
+        }
+      },
+      "costs": {
+        "title": "What you pay",
+        "intro": "You do not pay for a system and you pay no monthly rate. You pay for the solar power that you use yourself.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investment",
+            "body": "We pay for planning, materials and installation."
+          },
+          "2": {
+            "value": "Up to 30 %",
+            "label": "below the grid tariff",
+            "body": "That is how much cheaper the solar power from your own roof is compared with the electricity from your electricity utility."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "for maintenance and insurance",
+            "body": "We cover operation, repairs and insurance of the system."
+          }
+        },
+        "note": "You pay your electricity utility as before for the electricity that you additionally draw from the grid."
+      },
+      "included": [
+        "Solar system with battery storage",
+        "Planning and installation",
+        "Operation, maintenance and repairs",
+        "Insurance of the system",
+        "Monitoring in the app"
+      ],
+      "notIncluded": [
+        "Electricity that you draw from the grid",
+        "Upkeep of the roof. As the owner, you remain responsible for it."
+      ],
+      "fit": {
+        "yes": [
+          "you do not want to tie up capital",
+          "you do not want to deal with maintenance, repairs and insurance",
+          "you use a lot of electricity during the day, for example with a heat pump, an electric car or a business"
+        ],
+        "no": [
+          "you want to own the system from the start and receive the subsidy yourself",
+          "your roof needs to be renovated in the next few years. In that case, it is best to plan the roof and the solar system together."
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about SolarFree",
+        "description": "The most important points from the contract, briefly explained.",
+        "items": {
+          "1": {
+            "question": "Who owns the system?",
+            "answer": "During the contract term of 35 years, the system belongs to Free State AG. After that, it passes to you without payment if you wish. Otherwise, we dismantle it."
+          },
+          "2": {
+            "question": "Can I buy the system before the 35 years end?",
+            "answer": "Yes. At the earliest after one year of operation, you can buy the system with effect from the end of a calendar year. You give written notice of the purchase twelve months in advance. The price is in the residual value table of your contract and includes a processing fee of 5 %."
+          },
+          "3": {
+            "question": "What does the solar power cost me?",
+            "answer": "You pay for the solar power that you use in the building. The price is up to 30 % below the tariff of your electricity utility. The solar calculator shows your savings per year."
+          },
+          "4": {
+            "question": "Who pays for maintenance, repairs and insurance?",
+            "answer": "Free State AG. We bear all costs that the system causes."
+          },
+          "5": {
+            "question": "What happens if I sell the house?",
+            "answer": "The contract passes to the new owner with all rights and obligations. You inform us in writing beforehand. You can also buy the system at residual value."
+          },
+          "6": {
+            "question": "Is the contract entered in the land register?",
+            "answer": "Free State AG can have the right of use noted in the land register for the duration of 35 years. We bear the costs for this."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarFree",
+        "title": "Quote for SolarFree",
+        "subtitle": "We check your roof and get back to you with a non-binding quote."
+      }
+    },
+    "abo": {
+      "hero": {
+        "title": "SolarAbo: Your own solar system in fixed monthly instalments",
+        "subtitle": "You buy the system and pay for it over 25 years in equal monthly instalments. You do not need a down payment.",
+        "points": {
+          "1": "No down payment",
+          "2": "Fixed rate over 25 years",
+          "3": "The system belongs to you"
+        },
+        "imageAlt": "Village with solar systems on the roofs"
+      },
+      "steps": {
+        "title": "How SolarAbo works",
+        "intro": "From the first look at your roof to the first monthly instalment in four steps.",
+        "items": {
+          "1": {
+            "title": "Check the roof",
+            "body": "You enter your address in the solar calculator. You see which system fits your roof and how much electricity it delivers."
+          },
+          "2": {
+            "title": "Personal quote",
+            "body": "We prepare a quote for you with your monthly rate and the total amount over the whole term."
+          },
+          "3": {
+            "title": "Installation",
+            "body": "We plan and install the system and commission it. Until then, you pay nothing."
+          },
+          "4": {
+            "title": "Monthly rate",
+            "body": "The first of 300 equal monthly instalments is due in the month after commissioning."
+          }
+        }
+      },
+      "costs": {
+        "title": "What you pay",
+        "intro": "You do not pay the purchase price all at once. It is spread over 300 monthly instalments.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Down payment",
+            "body": "You pay only after commissioning."
+          },
+          "2": {
+            "value": "300",
+            "label": "equal monthly instalments",
+            "body": "The rate stays the same over 25 years. Your personal rate is in the quote."
+          },
+          "3": {
+            "value": "Subsidy",
+            "label": "is deducted",
+            "body": "The estimated federal one-off subsidy is deducted from the purchase price before we calculate the rate."
+          }
+        },
+        "note": "The total amount of all instalments is higher than the price of a direct purchase, because the purchase price is spread over 25 years. We state the total amount in the quote."
+      },
+      "included": [
+        "Solar modules, inverter, storage and energy manager according to the package",
+        "Planning, installation and commissioning",
+        "Application for the one-off subsidy",
+        "Manufacturers' warranties and warranty on the installation",
+        "Monitoring in the app"
+      ],
+      "notIncluded": [
+        "Maintenance and service. We offer our service packages for this.",
+        "Insurance of the system",
+        "Cleaning of the modules"
+      ],
+      "fit": {
+        "yes": [
+          "you want to be the owner of the system",
+          "you do not want to make a large one-off payment",
+          "you want a rate that does not change over the whole term"
+        ],
+        "no": [
+          "you have the capital and want the lowest total cost",
+          "you want us to take on operation, maintenance and insurance"
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about SolarAbo",
+        "description": "The most important points about the rate, the term and the services.",
+        "items": {
+          "1": {
+            "question": "How high is my monthly rate?",
+            "answer": "The rate depends on the size of the system. You receive it with your personal quote, together with the total amount over the whole term."
+          },
+          "2": {
+            "question": "When do I pay the first instalment?",
+            "answer": "In the month after the system is commissioned. Each further instalment is due at the end of the month."
+          },
+          "3": {
+            "question": "Can I repay earlier?",
+            "answer": "Yes. Full or partial early repayment is possible by written agreement with Free State AG."
+          },
+          "4": {
+            "question": "Are maintenance and insurance included?",
+            "answer": "No. The manufacturers' warranties and our warranty on the installation are included. You can add maintenance with a service package. You insure the system yourself."
+          },
+          "5": {
+            "question": "Who receives the subsidy?",
+            "answer": "You do. We prepare the application for the one-off subsidy. The estimated amount is already deducted when the rate is calculated."
+          },
+          "6": {
+            "question": "How does SolarAbo differ from SolarFree?",
+            "answer": "With SolarAbo, you buy the system and pay for it in instalments. With SolarFree, the system belongs to Free State AG for 35 years. There, we cover maintenance and insurance, and you pay only for the solar power."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarAbo",
+        "title": "Quote for SolarAbo",
+        "subtitle": "We check your roof and get back to you with your personal monthly rate."
+      }
+    },
+    "direct": {
+      "hero": {
+        "title": "SolarDirect: Buy a solar system at a fixed price",
+        "subtitle": "You buy the system turnkey. All the savings, the feed-in revenue and the subsidy are yours.",
+        "points": {
+          "1": "Fixed price",
+          "2": "We submit the subsidy application",
+          "3": "No ongoing instalments"
+        },
+        "imageAlt": "Tiled roof with a solar system"
+      },
+      "steps": {
+        "title": "How SolarDirect works",
+        "intro": "From the first look at your roof to your own system in four steps.",
+        "items": {
+          "1": {
+            "title": "Check the roof",
+            "body": "You enter your address in the solar calculator. You see the size, yield and savings for your roof."
+          },
+          "2": {
+            "title": "Quote with fixed price",
+            "body": "You receive a quote with the fixed price and the estimated subsidy."
+          },
+          "3": {
+            "title": "Installation",
+            "body": "We plan and install the system and commission it."
+          },
+          "4": {
+            "title": "Handover",
+            "body": "After full payment, the system belongs to you. We submit the application for the one-off subsidy."
+          }
+        }
+      },
+      "costs": {
+        "title": "What you pay",
+        "intro": "You pay the fixed price from your quote. After that, there are no instalments for the system.",
+        "items": {
+          "1": {
+            "value": "From CHF {price}",
+            "valueNoPrice": "Fixed price",
+            "label": "excl. VAT",
+            "body": "Price for the turnkey system, depending on the package and roof size."
+          },
+          "2": {
+            "value": "30 / 60 / 10 %",
+            "label": "Payment in three parts",
+            "body": "30 % on signing the contract, 60 % before installation begins, 10 % after handover."
+          },
+          "3": {
+            "value": "Subsidy",
+            "label": "lowers your price",
+            "body": "You receive the federal one-off subsidy. We prepare the application and submit it."
+          }
+        },
+        "note": "In the quote, we show the price, the estimated subsidy and the net price separately."
+      },
+      "included": [
+        "Solar modules, inverter, storage and energy manager according to the package",
+        "Planning, installation and commissioning",
+        "Application for the one-off subsidy",
+        "Manufacturers' warranties and warranty on the installation",
+        "Monitoring in the app"
+      ],
+      "notIncluded": [
+        "Maintenance and service. We offer our service packages for this.",
+        "Insurance of the system",
+        "Cleaning of the modules"
+      ],
+      "fit": {
+        "yes": [
+          "you have the capital and want the lowest total cost",
+          "you want to receive the subsidy, the savings and the feed-in revenue in full yourself",
+          "you do not want ongoing instalments"
+        ],
+        "no": [
+          "you do not want to tie up capital",
+          "you want to buy the system but pay for it in monthly instalments"
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about SolarDirect",
+        "description": "The most important points about price, payment and warranties.",
+        "items": {
+          "1": {
+            "question": "What does a solar system cost with SolarDirect?",
+            "answer": "The price depends on the size of the system and on the package. The solar calculator shows which size fits your roof. After that, you receive a quote with a fixed price."
+          },
+          "2": {
+            "question": "How do I pay?",
+            "answer": "In three parts. 30 % on signing the contract, 60 % before installation begins and 10 % after handover."
+          },
+          "3": {
+            "question": "Who receives the subsidy?",
+            "answer": "You do. We prepare the application for the federal one-off subsidy and submit it. The responsible body decides on the approval."
+          },
+          "4": {
+            "question": "Which warranties do I have?",
+            "answer": "You receive the manufacturers' product warranties and our warranty on the installation. The warranties of the individual components are listed in your quote."
+          },
+          "5": {
+            "question": "Are maintenance and insurance included?",
+            "answer": "No. You can add maintenance with a service package. You insure the system yourself."
+          },
+          "6": {
+            "question": "What happens to surplus electricity?",
+            "answer": "Surplus electricity is fed into the grid and remunerated. A battery storage system stores the surplus for later self-consumption."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarDirect",
+        "title": "Quote for SolarDirect",
+        "subtitle": "We check your roof and get back to you with a fixed price."
       }
     }
   }

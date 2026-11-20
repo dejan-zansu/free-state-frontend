@@ -41,7 +41,6 @@ const Header = () => {
     '/calculator',
     '/ratgeber',
     '/commercial/calculator',
-    '/solar-free',
     '/commercial/solar-free',
     '/about-us',
     '/battery-storage',
@@ -55,8 +54,6 @@ const Header = () => {
     '/team',
     '/investors',
     '/careers',
-    '/solar-direct',
-    '/solar-abo',
   ]
 
   const isBlogPost = /^\/blog\/[^/]+/.test(pathname ?? '')

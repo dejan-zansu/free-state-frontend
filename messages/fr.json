@@ -1,8 +1,8 @@
 {
   "title": "Free State AG",
   "packageCatalog": {
-    "title": "Choisissez votre forfait solaire",
-    "subtitle": "Choisissez une installation préconfigurée et commandez-la en quelques minutes.",
+    "title": "Quel forfait convient à votre toit ?",
+    "subtitle": "Le forfait détermine la taille de l'installation et de la batterie. Le calculateur solaire vérifie quelle taille convient à votre toit et à votre consommation.",
     "errorLoading": "Impossible de charger les forfaits.",
     "retry": "Réessayer",
     "empty": "Aucun forfait disponible pour le moment.",
@@ -17,73 +17,48 @@
       "kwpUnit": "kWc",
       "kwhPerYearUnit": "kWh/an",
       "recommended": "Recommandé",
-      "tag": {
-        "specialOffer": "Offre spéciale"
-      },
-      "hero": {
-        "swissBadgeLine1": "Conçu pour",
-        "swissBadgeLine2": "la Suisse",
-        "heading": "Forfait complet pour votre maison : solaire, stockage et e-mobilité",
-        "tagline": "Intelligent. Efficace. Pérenne. Tout d'une seule main."
-      },
       "priceLabels": {
         "from": "dès",
-        "alternative": "ou dès",
-        "solarFreePill": "SolarFree",
-        "electricityFrom": "Électricité dès {rate} CHF/kWh",
         "exclVat": "hors TVA"
-      },
-      "details": {
-        "label": "Forfait standard",
-        "tagline": {
-          "HUAWEI": "Largement répandu en Suisse. Sûr. Éprouvé. Efficace.",
-          "SIGENERGY": "Technologie premium. Innovante. Fiable."
-        }
-      },
-      "equipment": {
-        "quality": {
-          "name": "Composants haut de gamme",
-          "desc": "Modules, onduleurs et stockage de marque avec longues garanties"
-        },
-        "app": {
-          "name": "App & monitoring",
-          "desc": "Gardez tout sous contrôle à tout moment"
-        },
-        "service": {
-          "name": "Installation & service",
-          "desc": "Professionnel, rapide et fiable"
-        }
-      },
-      "selling": {
-        "bullets": [
-          "Aucun investissement (SolarFree possible)",
-          "Prix de l'électricité fixe au lieu de coûts croissants",
-          "Tout d'une seule main",
-          "Installation en ~3 mois"
-        ]
-      },
-      "trust": {
-        "warranty": {
-          "title": "Garantie produit 25 ans",
-          "desc": "Conçu pour la Suisse et les plus hautes exigences"
-        },
-        "reliable": {
-          "title": "Fiable",
-          "desc": "Technologie éprouvée pour une sécurité maximale"
-        },
-        "efficient": {
-          "title": "Efficace",
-          "desc": "Plus de rendement grâce à la gestion intelligente"
-        },
-        "sustainable": {
-          "title": "Durable",
-          "desc": "Pour un avenir plus vert et des coûts réduits"
-        }
-      },
-      "cta": {
-        "orderFinal": "Commander",
-        "learnMore": "Voir le forfait en détail"
       }
+    },
+    "priceFor": "Afficher les prix pour",
+    "includedTitle": "Inclus dans chaque forfait",
+    "included": [
+      "Planification",
+      "Montage et mise en service",
+      "Suivi dans l'application"
+    ],
+    "swiss": "Conçu pour la Suisse",
+    "catalogCard": {
+      "sizeLabel": "Forfait {size}",
+      "storage": "Batterie",
+      "brand": "Fabricant",
+      "fit": {
+        "S": "Petite maison individuelle",
+        "M": "Ménage moyen",
+        "L": "Grande maison",
+        "XL": "Bâtiments commerciaux et grands toits"
+      },
+      "price": {
+        "free": {
+          "value": "CHF 0",
+          "label": "Investissement",
+          "note": "Électricité solaire jusqu'à {percent} % sous le tarif du réseau"
+        },
+        "direct": {
+          "label": "Prix d'achat dès",
+          "value": "CHF {price}",
+          "note": "hors TVA"
+        },
+        "abo": {
+          "value": "Mensualité fixe",
+          "label": "Achat par mensualités",
+          "note": "25 ans, pas d'acompte. Le calculateur solaire indique votre mensualité."
+        }
+      },
+      "calculate": "Calculer avec ce forfait",
+      "details": "Voir le forfait en détail"
     }
   },
   "seo": {
@@ -99,7 +74,7 @@
     },
     "solarFree": {
       "title": "SolarFree : installation solaire sans investissement",
-      "description": "Avec SolarFree, obtenez votre installation solaire sans acompte (CHF 0). Mensualité au lieu d'un achat, avec option de rachat à tout moment. Calculez vos économies."
+      "description": "Avec SolarFree, nous construisons et exploitons l'installation solaire sur votre toit. CHF 0 d'investissement, électricité solaire jusqu'à 30 % sous le tarif du réseau. Calculez vos économies dès maintenant."
     },
     "solarDirect": {
       "title": "SolarDirect : acheter son installation solaire",
@@ -107,7 +82,7 @@
     },
     "solarAbo": {
       "title": "SolarAbo : installation solaire en abonnement mensuel | Free State",
-      "description": "SolarAbo de Free State : votre installation solaire avec une mensualité fixe, monitoring, garantie et assurance inclus. Calculez votre mensualité."
+      "description": "SolarAbo de Free State : votre propre installation solaire sans acompte, payée en mensualités fixes sur 25 ans. Calculez votre mensualité dès maintenant."
     },
     "batteryStorage": {
       "title": "Batterie de stockage : services réseau | Free State AG",
@@ -665,7 +640,8 @@
         "promoTitleCommercial": "Solutions solaires intelligentes pour les entreprises",
         "promoCta": "Découvrir maintenant",
         "productCatalog": "Produits en 3D",
-        "communities": "RCP, RCPv et CEL expliqués"
+        "communities": "RCP, RCPv et CEL expliqués",
+        "solarAboPlan": "SolarAbo"
       }
     },
     "stats": {
@@ -673,79 +649,6 @@
       "solarPrice": "Prix du courant solaire avec SolarFree",
       "experienceSince": "Expérience depuis",
       "locations": "Sites"
-    },
-    "solarModels": {
-      "eyebrow": "Modèles solaires",
-      "title": "SolarFree, SolarAbo ou SolarDirect : que vous convient ?",
-      "subtitle": "Comparez les trois modèles et trouvez la solution adaptée à votre maison.",
-      "onlineBadge": "0 investissement",
-      "cta": "Commencer",
-      "learnMore": "En savoir plus",
-      "solarFree": {
-        "title": "SolarFree",
-        "description": "Installation solaire, stockage et borne de recharge dans un modèle d'abonnement flexible pour votre maison",
-        "includedTitle": "Qu'est-ce qui est inclus ?",
-        "included": [
-          "Coûts d'électricité prévisibles",
-          "Tarifs jusqu'à 30 % moins chers",
-          "Protection contre la hausse des prix de l'énergie",
-          "Surveillance et monitoring 24h/24",
-          "Assurance de l'ensemble de l'installation",
-          "Option de rachat gratuite à tout moment"
-        ],
-        "highlight": "0 CHF d'investissement initial, uniquement le prix de l'électricité",
-        "advantagesTitle": "Vos avantages avec SolarFree",
-        "advantages": [
-          "Aucun investissement initial",
-          "Tarif d'électricité fixe et prévisible",
-          "Exploitation, entretien et service inclus",
-          "Transfert de contrat possible en cas de vente du bien",
-          "Rachat de l'installation possible à tout moment"
-        ]
-      },
-      "solarDirect": {
-        "title": "SolarDirect",
-        "description": "Installation solaire, stockage et borne de recharge à l'achat direct pour votre maison",
-        "badge": "Pleine propriété",
-        "highlight": "Payez une seule fois et l'installation vous appartient",
-        "includedTitle": "Qu'est-ce qui est inclus ?",
-        "included": [
-          "Propriété complète de l'installation",
-          "Protection contre la hausse des coûts énergétiques",
-          "Garanties constructeur incluses",
-          "Garantie de travaux de 10 ans",
-          "Transférable en cas de vente"
-        ],
-        "advantagesTitle": "Vos avantages avec SolarDirect",
-        "advantages": [
-          "Propriété complète de l'installation",
-          "Pas de coûts de modèle récurrents",
-          "Entretien autogérable",
-          "Transférable en cas de vente",
-          "Jusqu'à 1 500 CHF de remise en ligne"
-        ]
-      },
-      "solarAbo": {
-        "title": "SolarAbo",
-        "description": "Système solaire, stockage, pompe à chaleur et borne de recharge à l'achat, en mensualités fixes pour votre maison",
-        "badge": "Mensuel",
-        "highlight": "Mensualité fixe au lieu d'un paiement unique",
-        "includedTitle": "Qu'est-ce qui est inclus ?",
-        "included": [
-          "Surveillance et monitoring du système",
-          "Garantie et gestion des cas de garantie",
-          "Remplacement des composants défectueux pendant la garantie",
-          "Assurance de toute l'installation"
-        ],
-        "advantagesTitle": "Vos avantages avec SolarAbo",
-        "advantages": [
-          "L'installation vous appartient",
-          "Aucun paiement unique",
-          "Mensualité fixe et prévisible sur 25 ans",
-          "Service complet inclus",
-          "Transférable en cas de vente du bien"
-        ]
-      }
     },
     "whyFreeState": {
       "title": "Pourquoi FreeState ?",
@@ -936,7 +839,7 @@
         },
         {
           "title": "Garantie et assurance incluses",
-          "description": "Avec SolarFree et SolarAbo, la garantie et l'assurance de l'ensemble de l'installation sont incluses"
+          "description": "Avec SolarFree, la garantie et l'assurance de l'ensemble de l'installation sont incluses"
         },
         {
           "title": "Entretien et service",
@@ -1116,25 +1019,6 @@
       "video": {
         "play": "Lire la vidéo",
         "pause": "Mettre en pause"
-      }
-    }
-  },
-  "solarFreeHome": {
-    "hero": {
-      "eyebrow": "Acheter des modules solaires",
-      "title": "SolarFree",
-      "subtitle": "Technologie solaire et batteries de pointe sans frais d'acquisition grâce au leasing solaire de FreeState AG.",
-      "cta": "Démarrer le calculateur solaire",
-      "tag": "Sans inscription · Sans engagement",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nd'investissement",
-          "electricity": "Jusqu'à 30 % de coûts\nd'électricité en moins"
-        },
-        "right": {
-          "maintenance": "Plus d'autoconsommation\navec batterie",
-          "reduction": "Réduction CO₂\njusqu'à 2 t/an"
-        }
       }
     }
   },
@@ -3621,7 +3505,7 @@
         "tagline": "La même installation que SolarDirect, répartie sur 25 ans.",
         "points": {
           "1": "Propriété dès le premier jour",
-          "2": "Assurance et garantie comprises",
+          "2": "Garanties des fabricants et garantie sur l'installation",
           "3": "Entièrement remboursée après 25 ans"
         },
         "cta": "Voir SolarAbo"
@@ -4329,7 +4213,7 @@
       "title": "Combien coûte une installation solaire en Suisse?",
       "perKwp": "Chez nous CHF {min} à {max} par kWp hors TVA, clé en main avec accumulateur.",
       "example": "Une installation typique de 10 kWp coûte environ CHF {tenNetMin} à {tenNetMax} TVA comprise, après la rétribution unique de CHF {tenSubsidy}.",
-      "solarFree": "Avec SolarFree, vous payez CHF 0 d’acompte et achetez votre courant solaire dès 18 ct./kWh.",
+      "solarFree": "Avec SolarFree, vous payez CHF 0 d’acompte et achetez votre courant solaire jusqu’à 30 % sous le tarif du réseau.",
       "note": "Valeurs indicatives, le prix exact dépend de votre toit et de votre consommation.",
       "linkLabel": "Tous les coûts en détail"
     }
@@ -4549,7 +4433,7 @@
         "tag": "Mensuel",
         "title": "SolarAbo",
         "bullet1": "Mensualité fixe.",
-        "bullet2": "Service complet inclus."
+        "bullet2": "Pas d'acompte."
       },
       "learnMoreSolarAboPlan": "SolarAbo"
     },
@@ -4894,10 +4778,11 @@
         "included": [
           "Surveillance et monitoring du système",
           "Garantie et gestion des cas de garantie",
-          "Remplacement des composants défectueux pendant la garantie",
-          "Assurance de toute l'installation"
+          "Remplacement des composants défectueux pendant la garantie"
         ],
         "excluded": [
+          "Entretien et service",
+          "Assurance de l'installation",
           "Nettoyage des modules"
         ],
         "requestOfferTitle": "Offre SolarAbo personnalisée",
@@ -5083,7 +4968,8 @@
       "dataProcessingLink": "politique de confidentialité",
       "dataProcessingSuffix": "et utilisées pour la préparation d'une offre, la préparation du contrat et le support client.",
       "marketing": "Je souhaite également recevoir des actualités et des offres de Free State AG par e-mail (facultatif)."
-    }
+    },
+    "preselectedPackage": "Votre forfait : {name} avec {model}"
   },
   "solarSystemCarport": {
     "hero": {
@@ -10910,6 +10796,7 @@
       "allStatuses": "Tous les statuts",
       "sourceSolarFree": "SolarFree",
       "sourceSolarDirect": "SolarDirect",
+      "sourceSolarAbo": "SolarAbo",
       "name": "Nom",
       "email": "E-mail",
       "phone": "Téléphone",
@@ -12977,175 +12864,6 @@
       }
     }
   },
-  "solarAboPlanHome": {
-    "hero": {
-      "eyebrow": "SolarAbo",
-      "title": "SolarAbo : votre propre installation solaire en mensualités fixes",
-      "subtitle": "Mensualité fixe, service complet inclus, l'installation vous appartient.",
-      "cta": "Démarrer le calculateur solaire",
-      "tag": "Sans inscription · Sans engagement",
-      "stats": {
-        "left": {
-          "investment": "Investissement unique\ndès 10'000 CHF",
-          "electricity": "Jusqu'à 60–80 % de coûts\nd'électricité en moins"
-        },
-        "right": {
-          "maintenance": "Amortissement possible\ndès 5 ans",
-          "reduction": "25+ ans de production\nd'électricité garantie"
-        }
-      }
-    },
-    "details": {
-      "eyebrow": "Détails",
-      "title": "Ce qui est inclus dans SolarFree",
-      "subtitle": "Toutes les prestations et composants pour un approvisionnement énergétique fiable, fournis sans aucun frais d'acquisition.",
-      "solarModules": {
-        "title": "Modules solaires haut de gamme",
-        "description": "Des modules solaires très performants, durables et résistants, conçus pour une production d'énergie maximale."
-      },
-      "batteryStorage": {
-        "title": "Stockage par batterie performant",
-        "description": "Une énergie fiable quand vous en avez besoin, que ce soit en secours ou pour optimiser l'autoconsommation."
-      }
-    },
-    "includes": {
-      "title": "Ce qui est inclus",
-      "subtitle": "Dans SolarFree Home",
-      "items": {
-        "solarModules": {
-          "title": "Modules solaires",
-          "subtitle": "450 Wp"
-        },
-        "inverter": {
-          "title": "Onduleur",
-          "subtitle": "Conversion"
-        },
-        "monitoringApp": {
-          "title": "App de monitoring",
-          "subtitle": "Données en direct"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Clé en main"
-        },
-        "serviceInsurance": {
-          "title": "Service & assurance",
-          "subtitle": "Couverts"
-        },
-        "batteryStorage": {
-          "title": "Stockage batterie",
-          "subtitle": "Autoconsommation"
-        }
-      }
-    },
-    "service": {
-      "title": "Service pour installations solaires",
-      "subtitle": "Service complet pour un fonctionnement sûr et efficace de votre installation solaire.",
-      "warranty": {
-        "title": "35 ans\nde garantie",
-        "description": "Couverture complète pour réparation et remplacement."
-      },
-      "installation": {
-        "title": "Installation expérimentée",
-        "description": "Expérience depuis 2008."
-      },
-      "support": {
-        "title": "Monitoring &\nSupport",
-        "description": "Surveillance du système et support aux heures de bureau."
-      }
-    },
-    "faq": {
-      "title": "Questions fréquentes",
-      "items": {
-        "1": {
-          "question": "Comment fonctionne la possession d'une installation solaire ?",
-          "answer": "Vous achetez l'installation et profitez à 100 % de l'électricité produite. Toutes les économies et la rémunération de réinjection vous reviennent, et l'installation est votre propriété dès le premier jour."
-        },
-        "2": {
-          "question": "Quels sont les avantages d'acheter une installation solaire ?",
-          "answer": "Vous profitez d'économies à long terme, d'indépendance énergétique, de la valorisation du bien et d'un contrôle total, l'investissement étant généralement amorti en 5 à 10 ans."
-        },
-        "3": {
-          "question": "Puis-je acheter les modules solaires moi-même ?",
-          "answer": "Oui, mais l'installation professionnelle, le raccordement au réseau et les autorisations restent nécessaires. Notre pack clé-en-main SolarDirect s'occupe de tout pour vous."
-        },
-        "4": {
-          "question": "Leasing ou achat : que choisir ?",
-          "answer": "L'achat offre le coût total le plus bas et la pleine propriété. Le leasing (comme SolarFree) supprime l'investissement initial. Le bon choix dépend de votre trésorerie et de vos objectifs à long terme."
-        },
-        "5": {
-          "question": "Que se passe-t-il en cas de panne ?",
-          "answer": "Les modules solaires bénéficient d'une garantie de performance de 25 ans et plus, les onduleurs sont généralement couverts plus de 10 ans. Nous gérons les réparations et les remplacements sous garantie."
-        },
-        "6": {
-          "question": "Avantages et inconvénients de l'installation soi-même ?",
-          "answer": "L'auto-installation peut réduire le coût initial mais nécessite des autorisations, des compétences en sécurité et un raccordement certifié. Sans installation professionnelle, vous risquez la perte de garantie et des problèmes de sécurité."
-        },
-        "7": {
-          "question": "Y a-t-il encore des coûts d'électricité avec une installation solaire ?",
-          "answer": "Vous payez toujours une redevance de base pour le raccordement au réseau, ainsi que l'électricité prélevée du réseau la nuit ou par temps nuageux, mais votre facture globale baisse fortement."
-        },
-        "8": {
-          "question": "Que se passe-t-il en cas d'excédent d'électricité ?",
-          "answer": "L'électricité excédentaire est injectée dans le réseau et rémunérée. En option, une batterie peut stocker le surplus pour une autoconsommation ultérieure."
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Fonctionnement de SolarFree Home",
-      "subtitle": "Simple, transparent et sans souci, comme un abonnement mobile.",
-      "steps": {
-        "step1": "Vous fournissez le toit",
-        "step2": "Nous investissons",
-        "step3": "Vous utilisez l'énergie solaire",
-        "step4": "Vous payez\nmensuellement",
-        "step5": "L'installation devient vôtre"
-      }
-    },
-    "pricing": {
-      "title": "Tarification & contrat",
-      "subtitle": "Simple, transparent et sans souci, avec en plus l'indépendance énergétique.",
-      "costLabel": "Coût de l'installation solaire en CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Surface de toit",
-        "value": "env. 25 m²"
-      },
-      "residents": {
-        "label": "Habitants",
-        "value": "ménage de deux personnes"
-      },
-      "costPerM2": {
-        "label": "Coût par\nm² en CHF",
-        "value": "env. 780,00 CHF"
-      },
-      "solarAboPrice": "Avec SolarFree CHF 0",
-      "orderNow": "COMMANDER",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Cette offre vous convient-elle ?",
-      "idealForTitle": "Idéal pour vous",
-      "notIdealForTitle": "Pas idéal pour vous",
-      "idealFor": {
-        "singleFamily": "Maison individuelle",
-        "predictableCosts": "Coûts prévisibles",
-        "noUpfront": "Aucun investissement initial",
-        "noMaintenance": "Aucun entretien à gérer"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Besoin d'un stockage batterie",
-        "commercial": "Bâtiment commercial"
-      }
-    },
-    "cta": {
-      "topButton": "Voir si SolarFree Home Storage convient à votre toit",
-      "heading": "Prêt pour SolarAbo ?",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/calculator?model=solar-abo"
-    }
-  },
   "claimCalculation": {
     "verifying": "Ouverture de votre calcul",
     "verifyingHint": "Un instant, nous associons votre calcul à votre compte.",
@@ -14462,6 +14180,430 @@
         "consentRequired": "Veuillez confirmer votre consentement afin que nous puissions traiter votre demande.",
         "submitFailed": "Cela n'a pas fonctionné. Veuillez réessayer ou nous appeler au {phone}.",
         "rateLimited": "Vous venez d'envoyer plusieurs demandes. Veuillez réessayer dans quelques minutes ou nous appeler au {phone}."
+      }
+    }
+  },
+  "solarModels": {
+    "eyebrow": "Modèles solaires",
+    "title": "Trois voies vers votre installation solaire",
+    "subtitle": "Le modèle détermine comment vous payez et à qui appartient l'installation. Nous nous chargeons de la planification et du montage dans chaque modèle.",
+    "titleCurrent": "{model} en comparaison",
+    "subtitleCurrent": "Les trois modèles ligne par ligne, pour que vous décidiez en toute confiance.",
+    "business": {
+      "title": "Trois voies vers l'installation solaire sur le toit de votre entreprise",
+      "subtitle": "Pour la plupart des entreprises, SolarFree est la voie la plus simple, car aucun capital n'est immobilisé.",
+      "cta": "Démarrer le calculateur solaire",
+      "learnMore": "SolarFree pour les entreprises"
+    },
+    "recommended": "Notre recommandation",
+    "current": "Cette page",
+    "learnMore": "Comment fonctionne {model}",
+    "serviceLink": "Forfaits de service dès CHF {price} par an",
+    "rows": {
+      "investment": "Investissement",
+      "payment": "Vous payez",
+      "ownership": "Propriété",
+      "service": "Entretien et assurance",
+      "term": "Durée"
+    },
+    "free": {
+      "name": "SolarFree",
+      "tagline": "Nous construisons et exploitons l'installation solaire sur votre toit. Vous ne payez que l'électricité solaire que vous consommez.",
+      "taglineBusiness": "Nous construisons et exploitons l'installation solaire sur le toit de votre entreprise. Vous n'immobilisez aucun capital et ne payez que l'électricité solaire que vous consommez.",
+      "cta": "Calculer mes économies",
+      "values": {
+        "investment": "CHF 0",
+        "payment": "Uniquement l'électricité solaire consommée, jusqu'à 30 % sous le tarif du réseau",
+        "ownership": "Free State AG. Après 35 ans, l'installation vous revient gratuitement.",
+        "service": "Inclus. Nous prenons en charge l'entretien, les réparations et l'assurance.",
+        "term": "35 ans. Achat possible à la valeur résiduelle, au plus tôt après une année d'exploitation."
+      }
+    },
+    "abo": {
+      "name": "SolarAbo",
+      "tagline": "Vous achetez l'installation et la payez en mensualités fixes plutôt qu'en une fois.",
+      "taglineBusiness": "Vous achetez l'installation pour votre entreprise et la payez en mensualités fixes plutôt qu'en une fois.",
+      "cta": "Calculer ma mensualité",
+      "values": {
+        "investment": "CHF 0 d'acompte",
+        "payment": "Une mensualité fixe. La première mensualité est due après la mise en service.",
+        "ownership": "L'installation vous appartient.",
+        "service": "Non inclus. Forfait de service sur demande.",
+        "term": "25 ans, 300 mensualités"
+      }
+    },
+    "direct": {
+      "name": "SolarDirect",
+      "tagline": "Vous achetez l'installation à prix fixe. Toutes les économies et la subvention vous reviennent.",
+      "taglineBusiness": "Vous achetez l'installation pour votre entreprise à prix fixe. Toutes les économies et la subvention vous reviennent.",
+      "cta": "Calculer mon prix",
+      "values": {
+        "investment": "Dès CHF {price} hors TVA",
+        "investmentNoPrice": "Achat à prix fixe",
+        "payment": "Une seule fois, en trois tranches autour du montage",
+        "ownership": "L'installation vous appartient.",
+        "service": "Non inclus. Forfait de service sur demande.",
+        "term": "Pas de durée contractuelle"
+      }
+    }
+  },
+  "solarModelPage": {
+    "shared": {
+      "secondaryCta": "Demander une offre",
+      "factsTitle": "{model} en bref",
+      "stepsImageAlt": "Des monteurs posent un module solaire sur un toit",
+      "includedTitle": "Ce qui est inclus",
+      "notIncludedTitle": "Ce qui n'est pas inclus",
+      "fitYesTitle": "{model} convient si",
+      "fitNoTitle": "Un autre modèle convient mieux si",
+      "seeModel": "Voir {model}",
+      "seeRoof": "Voir toit et solaire",
+      "seeService": "Voir les forfaits de service",
+      "videoTitle": "{model} en vidéo"
+    },
+    "free": {
+      "hero": {
+        "title": "SolarFree : installation solaire sans investissement",
+        "subtitle": "Nous construisons et exploitons l'installation solaire sur votre toit. Vous ne payez que l'électricité solaire que vous consommez, jusqu'à 30 % sous le tarif du réseau.",
+        "points": {
+          "1": "CHF 0 d'investissement",
+          "2": "Entretien et assurance inclus",
+          "3": "Après 35 ans, l'installation vous appartient"
+        },
+        "imageAlt": "Maison avec installation solaire sur un terrain en pente"
+      },
+      "steps": {
+        "title": "Comment fonctionne SolarFree",
+        "intro": "Du premier coup d'œil sur votre toit à votre propre électricité solaire, en quatre étapes.",
+        "items": {
+          "1": {
+            "title": "Vérifier le toit",
+            "body": "Vous saisissez votre adresse dans le calculateur solaire. Vous voyez combien d'électricité votre toit produit et ce que vous économisez par an."
+          },
+          "2": {
+            "title": "Conclure le contrat",
+            "body": "Vous mettez la surface de toit à notre disposition pour 35 ans. Vous n'investissez rien et ne payez aucune mensualité."
+          },
+          "3": {
+            "title": "Nous construisons et exploitons",
+            "body": "Nous planifions, montons et assurons l'installation. L'entretien et les réparations sont à notre charge."
+          },
+          "4": {
+            "title": "Vous consommez l'électricité solaire",
+            "body": "Vous consommez l'électricité de votre propre toit et la payez jusqu'à 30 % moins cher que l'électricité du réseau. Après 35 ans, l'installation vous appartient."
+          }
+        }
+      },
+      "costs": {
+        "title": "Ce que vous payez",
+        "intro": "Vous ne payez ni installation ni mensualité. Vous payez l'électricité solaire que vous consommez vous-même.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investissement",
+            "body": "Nous payons la planification, le matériel et le montage."
+          },
+          "2": {
+            "value": "Jusqu'à 30 %",
+            "label": "sous le tarif du réseau",
+            "body": "C'est ce que l'électricité solaire de votre propre toit coûte en moins par rapport à l'électricité de votre fournisseur d'électricité."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "pour l'entretien et l'assurance",
+            "body": "Nous prenons en charge l'exploitation, les réparations et l'assurance de l'installation."
+          }
+        },
+        "note": "Vous payez comme jusqu'ici à votre fournisseur d'électricité l'électricité que vous prélevez en plus sur le réseau."
+      },
+      "included": [
+        "Installation solaire avec batterie de stockage",
+        "Planification et montage",
+        "Exploitation, entretien et réparations",
+        "Assurance de l'installation",
+        "Suivi dans l'application"
+      ],
+      "notIncluded": [
+        "L'électricité que vous prélevez sur le réseau",
+        "L'entretien du toit. Vous en restez responsable en tant que propriétaire."
+      ],
+      "fit": {
+        "yes": [
+          "vous ne voulez pas immobiliser de capital",
+          "vous ne voulez pas vous occuper de l'entretien, des réparations et de l'assurance",
+          "vous consommez beaucoup d'électricité en journée, par exemple avec une pompe à chaleur, une voiture électrique ou une entreprise"
+        ],
+        "no": [
+          "vous voulez posséder l'installation dès le début et recevoir vous-même la subvention",
+          "votre toit doit être rénové ces prochaines années. Dans ce cas, le mieux est de planifier ensemble le toit et l'installation solaire."
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur SolarFree",
+        "description": "Les points essentiels du contrat, expliqués en bref.",
+        "items": {
+          "1": {
+            "question": "À qui appartient l'installation ?",
+            "answer": "Pendant la durée du contrat de 35 ans, l'installation appartient à Free State AG. Ensuite, elle vous est transférée sans paiement si vous le souhaitez. Sinon, nous la démontons."
+          },
+          "2": {
+            "question": "Puis-je acheter l'installation avant la fin des 35 ans ?",
+            "answer": "Oui. Au plus tôt après une année d'exploitation, vous pouvez acheter l'installation, toujours pour la fin d'une année civile. Vous annoncez l'achat par écrit douze mois à l'avance. Le prix figure dans le tableau des valeurs résiduelles de votre contrat et comprend des frais de traitement de 5 %."
+          },
+          "3": {
+            "question": "Combien me coûte l'électricité solaire ?",
+            "answer": "Vous payez l'électricité solaire que vous consommez dans le bâtiment. Le prix est jusqu'à 30 % inférieur au tarif de votre fournisseur d'électricité. Le calculateur solaire indique vos économies par an."
+          },
+          "4": {
+            "question": "Qui paie l'entretien, les réparations et l'assurance ?",
+            "answer": "Free State AG. Nous prenons en charge tous les coûts occasionnés par l'installation."
+          },
+          "5": {
+            "question": "Que se passe-t-il si je vends la maison ?",
+            "answer": "Le contrat passe aux nouveaux propriétaires avec tous les droits et obligations. Vous nous en informez au préalable par écrit. Vous pouvez aussi acheter l'installation à la valeur résiduelle."
+          },
+          "6": {
+            "question": "Le contrat est-il inscrit au registre foncier ?",
+            "answer": "Free State AG peut faire annoter le droit d'utilisation au registre foncier pour une durée de 35 ans. Les frais sont à notre charge."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarFree",
+        "title": "Offre pour SolarFree",
+        "subtitle": "Nous vérifions votre toit et vous contactons avec une offre sans engagement."
+      }
+    },
+    "abo": {
+      "hero": {
+        "title": "SolarAbo : votre propre installation solaire en mensualités fixes",
+        "subtitle": "Vous achetez l'installation et la payez sur 25 ans en mensualités de même montant. Aucun acompte n'est nécessaire.",
+        "points": {
+          "1": "Pas d'acompte",
+          "2": "Mensualité fixe sur 25 ans",
+          "3": "L'installation vous appartient"
+        },
+        "imageAlt": "Village avec des installations solaires sur les toits"
+      },
+      "steps": {
+        "title": "Comment fonctionne SolarAbo",
+        "intro": "Du premier coup d'œil sur votre toit à la première mensualité, en quatre étapes.",
+        "items": {
+          "1": {
+            "title": "Vérifier le toit",
+            "body": "Vous saisissez votre adresse dans le calculateur solaire. Vous voyez quelle installation convient à votre toit et combien d'électricité elle produit."
+          },
+          "2": {
+            "title": "Offre personnelle",
+            "body": "Nous établissons pour vous une offre avec votre mensualité et le montant total sur toute la durée."
+          },
+          "3": {
+            "title": "Montage",
+            "body": "Nous planifions et montons l'installation, puis nous la mettons en service. Jusque-là, vous ne payez rien."
+          },
+          "4": {
+            "title": "Mensualité",
+            "body": "La première des 300 mensualités de même montant est due le mois qui suit la mise en service."
+          }
+        }
+      },
+      "costs": {
+        "title": "Ce que vous payez",
+        "intro": "Vous ne payez pas le prix d'achat en une fois. Il est réparti sur 300 mensualités.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Acompte",
+            "body": "Vous ne payez qu'après la mise en service."
+          },
+          "2": {
+            "value": "300",
+            "label": "mensualités de même montant",
+            "body": "La mensualité reste la même pendant 25 ans. Votre mensualité personnelle figure dans l'offre."
+          },
+          "3": {
+            "value": "Subvention",
+            "label": "est déduite",
+            "body": "La rétribution unique estimée de la Confédération est déduite du prix d'achat avant que nous calculions la mensualité."
+          }
+        },
+        "note": "Le montant total de toutes les mensualités est plus élevé que le prix en cas d'achat direct, car le prix d'achat est réparti sur 25 ans. Nous indiquons le montant total dans l'offre."
+      },
+      "included": [
+        "Modules solaires, onduleur, batterie et gestionnaire d'énergie selon le forfait",
+        "Planification, montage et mise en service",
+        "Demande de rétribution unique",
+        "Garanties des fabricants et garantie sur l'installation",
+        "Suivi dans l'application"
+      ],
+      "notIncluded": [
+        "Entretien et service. Nos forfaits de service sont prévus pour cela.",
+        "Assurance de l'installation",
+        "Nettoyage des modules"
+      ],
+      "fit": {
+        "yes": [
+          "vous voulez être propriétaire de l'installation",
+          "vous ne voulez pas effectuer un paiement unique important",
+          "vous voulez une mensualité qui ne change pas pendant toute la durée"
+        ],
+        "no": [
+          "vous disposez du capital et voulez le coût total le plus bas",
+          "nous devons nous charger de l'exploitation, de l'entretien et de l'assurance"
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur SolarAbo",
+        "description": "Les points essentiels sur la mensualité, la durée et les prestations.",
+        "items": {
+          "1": {
+            "question": "Quel est le montant de ma mensualité ?",
+            "answer": "La mensualité dépend de la taille de l'installation. Vous la recevez avec votre offre personnelle, accompagnée du montant total sur toute la durée."
+          },
+          "2": {
+            "question": "Quand est-ce que je paie la première mensualité ?",
+            "answer": "Le mois qui suit la mise en service de l'installation. Les mensualités suivantes sont dues à la fin de chaque mois."
+          },
+          "3": {
+            "question": "Puis-je rembourser plus tôt ?",
+            "answer": "Oui. Un remboursement anticipé, total ou partiel, est possible après accord écrit avec Free State AG."
+          },
+          "4": {
+            "question": "L'entretien et l'assurance sont-ils inclus ?",
+            "answer": "Non. Sont inclus les garanties des fabricants et notre garantie sur l'installation. Vous pouvez ajouter l'entretien avec un forfait de service. Vous assurez vous-même l'installation."
+          },
+          "5": {
+            "question": "Qui reçoit la subvention ?",
+            "answer": "Vous. Nous préparons la demande de rétribution unique. Le montant estimé est déjà déduit lors du calcul de la mensualité."
+          },
+          "6": {
+            "question": "En quoi SolarAbo se distingue-t-il de SolarFree ?",
+            "answer": "Avec SolarAbo, vous achetez l'installation et la payez par mensualités. Avec SolarFree, l'installation appartient à Free State AG pendant 35 ans. Dans ce modèle, nous prenons en charge l'entretien et l'assurance, et vous ne payez que l'électricité solaire."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarAbo",
+        "title": "Offre pour SolarAbo",
+        "subtitle": "Nous vérifions votre toit et vous contactons avec votre mensualité personnelle."
+      }
+    },
+    "direct": {
+      "hero": {
+        "title": "SolarDirect : acheter une installation solaire à prix fixe",
+        "subtitle": "Vous achetez l'installation clé en main. Toutes les économies, la rémunération de réinjection et la subvention vous reviennent.",
+        "points": {
+          "1": "Prix fixe",
+          "2": "Nous déposons la demande de subvention",
+          "3": "Pas de paiements récurrents"
+        },
+        "imageAlt": "Toit en tuiles avec installation solaire"
+      },
+      "steps": {
+        "title": "Comment fonctionne SolarDirect",
+        "intro": "Du premier coup d'œil sur votre toit à votre propre installation, en quatre étapes.",
+        "items": {
+          "1": {
+            "title": "Vérifier le toit",
+            "body": "Vous saisissez votre adresse dans le calculateur solaire. Vous voyez la taille, le rendement et les économies pour votre toit."
+          },
+          "2": {
+            "title": "Offre à prix fixe",
+            "body": "Vous recevez une offre avec le prix fixe et la subvention estimée."
+          },
+          "3": {
+            "title": "Montage",
+            "body": "Nous planifions et montons l'installation, puis nous la mettons en service."
+          },
+          "4": {
+            "title": "Remise",
+            "body": "Après le paiement complet, l'installation vous appartient. Nous déposons la demande de rétribution unique."
+          }
+        }
+      },
+      "costs": {
+        "title": "Ce que vous payez",
+        "intro": "Vous payez le prix fixe de votre offre. Ensuite, aucun paiement échelonné n'est dû pour l'installation.",
+        "items": {
+          "1": {
+            "value": "Dès CHF {price}",
+            "valueNoPrice": "Prix fixe",
+            "label": "hors TVA",
+            "body": "Prix de l'installation clé en main, selon le forfait et la taille du toit."
+          },
+          "2": {
+            "value": "30 / 60 / 10 %",
+            "label": "Paiement en trois tranches",
+            "body": "30 % à la signature du contrat, 60 % avant le début du montage, 10 % après la remise."
+          },
+          "3": {
+            "value": "Subvention",
+            "label": "réduit votre prix",
+            "body": "Vous recevez la rétribution unique de la Confédération. Nous préparons la demande et la déposons."
+          }
+        },
+        "note": "Dans l'offre, nous indiquons séparément le prix, la subvention estimée et le prix net."
+      },
+      "included": [
+        "Modules solaires, onduleur, batterie et gestionnaire d'énergie selon le forfait",
+        "Planification, montage et mise en service",
+        "Demande de rétribution unique",
+        "Garanties des fabricants et garantie sur l'installation",
+        "Suivi dans l'application"
+      ],
+      "notIncluded": [
+        "Entretien et service. Nos forfaits de service sont prévus pour cela.",
+        "Assurance de l'installation",
+        "Nettoyage des modules"
+      ],
+      "fit": {
+        "yes": [
+          "vous disposez du capital et voulez le coût total le plus bas",
+          "vous voulez recevoir vous-même l'intégralité de la subvention, des économies et de la rémunération de réinjection",
+          "vous ne voulez pas de paiements récurrents"
+        ],
+        "no": [
+          "vous ne voulez pas immobiliser de capital",
+          "vous voulez acheter l'installation, mais la payer en mensualités"
+        ]
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur SolarDirect",
+        "description": "Les points essentiels sur le prix, le paiement et les garanties.",
+        "items": {
+          "1": {
+            "question": "Combien coûte une installation solaire avec SolarDirect ?",
+            "answer": "Le prix dépend de la taille de l'installation et du forfait. Le calculateur solaire indique quelle taille convient à votre toit. Vous recevez ensuite une offre à prix fixe."
+          },
+          "2": {
+            "question": "Comment est-ce que je paie ?",
+            "answer": "En trois tranches. 30 % à la signature du contrat, 60 % avant le début du montage et 10 % après la remise."
+          },
+          "3": {
+            "question": "Qui reçoit la subvention ?",
+            "answer": "Vous. Nous préparons la demande de rétribution unique de la Confédération et la déposons. L'organe compétent décide de l'octroi."
+          },
+          "4": {
+            "question": "De quelles garanties est-ce que je bénéficie ?",
+            "answer": "Vous recevez les garanties produit des fabricants et notre garantie sur l'installation. Les garanties des différents composants figurent dans votre offre."
+          },
+          "5": {
+            "question": "L'entretien et l'assurance sont-ils inclus ?",
+            "answer": "Non. Vous pouvez ajouter l'entretien avec un forfait de service. Vous assurez vous-même l'installation."
+          },
+          "6": {
+            "question": "Qu'advient-il de l'électricité excédentaire ?",
+            "answer": "L'électricité excédentaire est injectée dans le réseau et rémunérée. Une batterie de stockage conserve le surplus pour une autoconsommation ultérieure."
+          }
+        }
+      },
+      "form": {
+        "eyebrow": "SolarDirect",
+        "title": "Offre pour SolarDirect",
+        "subtitle": "Nous vérifions votre toit et vous contactons avec un prix fixe."
       }
     }
   }

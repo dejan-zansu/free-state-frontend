@@ -34,9 +34,16 @@ const statusColors: Record<string, string> = {
   CLOSED: 'bg-gray-100 text-gray-600',
 }
 
+const sourceLabelKeys = {
+  SOLAR_FREE: 'sourceSolarFree',
+  SOLAR_ABO: 'sourceSolarAbo',
+  SOLAR_DIRECT: 'sourceSolarDirect',
+} as const
+
 const sourceColors: Record<string, string> = {
   SOLAR_FREE: 'bg-[#E0FF9C] text-[#062E25]',
   SOLAR_DIRECT: 'bg-[#D0E9E2] text-[#062E25]',
+  SOLAR_ABO: 'bg-[#E4E0F5] text-[#062E25]',
 }
 
 export default function AdminQuoteRequestsPage() {
@@ -86,6 +93,9 @@ export default function AdminQuoteRequestsPage() {
                 </SelectItem>
                 <SelectItem value="SOLAR_DIRECT">
                   {t('sourceSolarDirect')}
+                </SelectItem>
+                <SelectItem value="SOLAR_ABO">
+                  {t('sourceSolarAbo')}
                 </SelectItem>
               </SelectContent>
             </Select>
@@ -151,11 +161,7 @@ export default function AdminQuoteRequestsPage() {
                         <span
                           className={`inline-flex px-2 py-0.5 rounded-full text-sm font-medium ${sourceColors[request.source] || ''}`}
                         >
-                          {t(
-                            request.source === 'SOLAR_FREE'
-                              ? 'sourceSolarFree'
-                              : 'sourceSolarDirect'
-                          )}
+                          {t(sourceLabelKeys[request.source])}
                         </span>
                       </TableCell>
                       <TableCell className="text-sm text-[#062E25]">

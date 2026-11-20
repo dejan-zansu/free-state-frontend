@@ -2,6 +2,7 @@ import { BadgeCheck, Check, Smartphone, Wrench } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
 
 import { LinkButton } from '@/components/ui/link-button'
+import { calculatorHref } from '@/lib/solar-models'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import type { CalculatorPackage } from '@/services/residential-calculator.service'
 
@@ -30,7 +31,6 @@ export default async function PackageOverview({ pkg, brand, specs, fromPrice, mo
   const isFree = models.includes('solar-free')
   const kwp = specs.minKwp === specs.maxKwp ? fmt1(specs.minKwp, locale) : `${fmt1(specs.minKwp, locale)}–${fmt1(specs.maxKwp, locale)}`
   const kwh = specs.minKwh === specs.maxKwh ? fmt0(specs.minKwh, locale) : `${fmt0(specs.minKwh, locale)}–${fmt0(specs.maxKwh, locale)}`
-  const prefix = locale === 'de' ? '' : `/${locale}`
 
   return (
     <section className="relative bg-white">
@@ -119,7 +119,7 @@ export default async function PackageOverview({ pkg, brand, specs, fromPrice, mo
 
             <div className="mt-6 flex flex-col gap-3">
               {models.map((m) => (
-                <LinkButton key={m} href={`${prefix}/calculator?model=${m}`} variant={m === models[0] ? 'tertiary' : 'outline-primary'} className="w-full justify-between">
+                <LinkButton key={m} href={calculatorHref(m, pkg.code)} variant={m === models[0] ? 'tertiary' : 'outline-primary'} className="w-full justify-between">
                   {t(`order.${m}`)}
                 </LinkButton>
               ))}
