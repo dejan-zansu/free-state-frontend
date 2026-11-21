@@ -1,7 +1,6 @@
 'use client'
 
 import { useQueries } from '@tanstack/react-query'
-import { CircleCheck } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
@@ -52,7 +51,6 @@ export default function PackageCatalogSection() {
   } = results[PACKAGE_FILTERS.indexOf(SOLAR_MODELS[model].packageFilter)]
 
   const groups = groupPackages(packages)
-  const included = t.raw('included') as string[]
 
   return (
     <section
@@ -139,32 +137,16 @@ export default function PackageCatalogSection() {
           </div>
         )}
 
-        <div className="mt-10 flex flex-col gap-4 rounded-[24px] bg-[#EAEDDF] px-6 py-5 text-[#062E25] md:flex-row md:items-center md:justify-between md:px-8">
-          <div className="flex flex-col gap-3 md:flex-row md:flex-wrap md:items-center md:gap-x-8">
-            <p className="text-base font-medium">{t('includedTitle')}</p>
-            <ul className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6">
-              {included.map(item => (
-                <li key={item} className="flex items-center gap-2 text-base">
-                  <CircleCheck
-                    aria-hidden
-                    className="size-5 shrink-0 text-[#036B53]"
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p className="flex shrink-0 items-center gap-2 text-base">
-            <span
-              aria-hidden
-              className="relative flex size-5 items-center justify-center rounded-[3px] bg-[#D8232A]"
-            >
-              <span className="absolute h-[2px] w-[10px] rounded-[1px] bg-white" />
-              <span className="absolute h-[10px] w-[2px] rounded-[1px] bg-white" />
-            </span>
-            {t('swiss')}
-          </p>
-        </div>
+        <p className="mt-10 flex items-center justify-center gap-2 text-base text-[#062E25]">
+          <span
+            aria-hidden
+            className="relative flex size-5 items-center justify-center rounded-[3px] bg-[#D8232A]"
+          >
+            <span className="absolute h-[2px] w-[10px] rounded-[1px] bg-white" />
+            <span className="absolute h-[10px] w-[2px] rounded-[1px] bg-white" />
+          </span>
+          {t('swiss')}
+        </p>
       </div>
     </section>
   )

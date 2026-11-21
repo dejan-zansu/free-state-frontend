@@ -1,8 +1,8 @@
 {
   "title": "Free State AG",
   "packageCatalog": {
-    "title": "Quale pacchetto è adatto al Suo tetto?",
-    "subtitle": "Il pacchetto determina le dimensioni dell'impianto e dell'accumulo. Il calcolatore solare verifica quali dimensioni sono adatte al Suo tetto e al Suo consumo.",
+    "title": "Quale pacchetto è adatto al tuo tetto?",
+    "subtitle": "Il pacchetto determina le dimensioni dell'impianto e dell'accumulo. Il calcolatore solare verifica quali dimensioni sono adatte al tuo tetto e al tuo consumo.",
     "errorLoading": "Impossibile caricare i pacchetti.",
     "retry": "Riprova",
     "empty": "Nessun pacchetto disponibile al momento.",
@@ -23,12 +23,6 @@
       }
     },
     "priceFor": "Mostrare i prezzi per",
-    "includedTitle": "Incluso in ogni pacchetto",
-    "included": [
-      "Progettazione",
-      "Montaggio e messa in servizio",
-      "Monitoraggio tramite app"
-    ],
     "swiss": "Progettato per la Svizzera",
     "catalogCard": {
       "sizeLabel": "Pacchetto {size}",
@@ -54,7 +48,7 @@
         "abo": {
           "value": "Rata mensile fissa",
           "label": "Acquisto a rate",
-          "note": "25 anni, nessun anticipo. Il calcolatore solare Le mostra la Sua rata."
+          "note": "25 anni, nessun anticipo. Il calcolatore solare ti mostra la tua rata."
         }
       },
       "calculate": "Calcolare con questo pacchetto",
@@ -74,7 +68,7 @@
     },
     "solarFree": {
       "title": "SolarFree: impianto solare senza investimento",
-      "description": "Con SolarFree costruiamo e gestiamo l'impianto solare sul Suo tetto. CHF 0 di investimento, elettricità solare fino al 30 % sotto la tariffa di rete. Calcoli ora il Suo risparmio."
+      "description": "Con SolarFree costruiamo e gestiamo l'impianto solare sul tuo tetto. CHF 0 di investimento, elettricità solare fino al 30 % sotto la tariffa di rete. Calcola ora il tuo risparmio."
     },
     "solarDirect": {
       "title": "SolarDirect: acquista il tuo impianto solare",
@@ -82,7 +76,7 @@
     },
     "solarAbo": {
       "title": "SolarAbo: impianto solare in abbonamento mensile | Free State",
-      "description": "SolarAbo di Free State: il Suo impianto solare senza anticipo, pagato in rate mensili fisse su 25 anni. Calcoli ora la Sua rata mensile."
+      "description": "SolarAbo di Free State: il tuo impianto solare senza anticipo, pagato in rate mensili fisse su 25 anni. Calcola ora la tua rata mensile."
     },
     "batteryStorage": {
       "title": "Accumulo a batteria: servizi di rete | Free State AG",
@@ -169,7 +163,7 @@
       "description": "Contatto stampa, temi di competenza e materiale visivo per i media. Free State AG progetta, finanzia e realizza impianti fotovoltaici in Svizzera."
     },
     "investors": {
-      "title": "Investitori: richieda la documentazione di Free State AG",
+      "title": "Investitori: richiedi la documentazione di Free State AG",
       "description": "Free State AG sviluppa con gli investitori soluzioni energetiche decentralizzate. Richiedi gratuitamente la documentazione, come privato o come azienda."
     },
     "impressum": {
@@ -222,7 +216,7 @@
     },
     "commercialCalculator": {
       "title": "Calcolatore solare per le aziende | Free State AG",
-      "description": "Inserisca il tetto e veda la potenza dell'impianto e la produzione di elettricità dai dati Sonnendach della Confederazione. Gratuito e senza impegno per aziende, agricoltura e settore pubblico."
+      "description": "Inserisci il tetto e vedi la potenza dell'impianto e la produzione di elettricità dai dati Sonnendach della Confederazione. Gratuito e senza impegno per aziende, agricoltura e settore pubblico."
     },
     "commercialSolarSystems": {
       "title": "Impianti solari per aziende e industria in Svizzera",
@@ -804,8 +798,8 @@
     },
     "roofRenovation": {
       "title": "Risanamento del tetto",
-      "subtitle": "Risaniamo il Suo tetto in tutta la Svizzera con squadre proprie, dal primo controllo al collaudo. Ha un solo partner contrattuale.",
-      "subtitleCommercial": "Risaniamo i tetti di edifici commerciali, capannoni e condomini in tutta la Svizzera con squadre proprie. Ha un solo partner contrattuale.",
+      "subtitle": "Risaniamo il tuo tetto in tutta la Svizzera con squadre proprie, dal primo controllo al collaudo. Hai un solo partner contrattuale.",
+      "subtitleCommercial": "Risaniamo i tetti di edifici commerciali, capannoni e condomini in tutta la Svizzera con squadre proprie. Hai un solo partner contrattuale.",
       "cta": "Scopri il risanamento del tetto",
       "imageAlt": "Casa colonica con tetto in tegole e ponteggio, due operai al lavoro"
     },
@@ -813,7 +807,7 @@
       "title": "Servizio e manutenzione FV",
       "subtitle": "Monitoriamo, manuteniamo e puliamo impianti solari su edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
       "subtitleHome": "Monitoriamo, manuteniamo e puliamo impianti solari su case unifamiliari ed edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
-      "toolLink": "Prezzi indicativi per il Suo impianto",
+      "toolLink": "Prezzi indicativi per il tuo impianto",
       "pricesTitle": "Prezzi indicativi all'anno, da",
       "pricesNote": "Per impianti fino a 30 kWp, IVA esclusa. Impianti più grandi in base alla potenza.",
       "cta": "Scopri il servizio FV",
@@ -890,7 +884,7 @@
           "title": "Industria / Commercio",
           "subtitle": "Per il settore commerciale e industriale",
           "feature1": "Potenza 100–1'000 kWp su tetto o facciata",
-          "feature2": "Prezzo fisso 0,18 CHF/kWh (inclusi manutenzione e assicurazione)",
+          "feature2": "Energia solare fino al 30 % sotto la tariffa di rete (inclusi manutenzione e assicurazione)",
           "feature3": "Opzione: accumulo a batteria e infrastruttura di ricarica",
           "feature4": "Stabilità dei prezzi dell'energia a lungo termine e vantaggi ESG",
           "term": "Durata del contratto 35 anni con opzione di riacquisto",
@@ -1191,560 +1185,308 @@
       "ctaLink": "/calculator"
     }
   },
-  "solarAboMulti": {
-    "hero": {
-      "eyebrow": "Zero investimento. Bollette più basse. Zero preoccupazioni.",
-      "title": "SolarFree Multifamiliare",
-      "subtitle": "Per case plurifamiliari e comunità energetiche condivise (RCP / CEL)",
-      "cta": "Avvia il calcolatore solare",
-      "tag": "Senza registrazione · Senza impegno",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ndi investimento",
-          "electricity": "Fino al 30% in meno\nsul prezzo dell'elettricità"
-        },
-        "right": {
-          "maintenance": "Manutenzione\ninclusa",
-          "reduction": "Riduzione CO₂\nfino a 2 t/anno"
-        }
-      }
-    },
-    "includes": {
-      "title": "Cosa è incluso",
-      "subtitle": "In SolarFree Multifamiliare",
-      "items": {
-        "solarModules": {
-          "title": "Impianto solare condiviso",
-          "subtitle": "Impianto solare condiviso"
-        },
-        "inverter": {
-          "title": "Sistema inverter centralizzato",
-          "subtitle": "Conversione ottimizzata"
-        },
-        "zevBillingPlatform": {
-          "title": "Fatturazione e coordinamento RCP",
-          "subtitle": "Autoconsumo"
-        },
-        "monitoringApp": {
-          "title": "Monitoraggio",
-          "subtitle": "Per appartamento"
-        },
-        "installation": {
-          "title": "Installazione",
-          "subtitle": "Chiavi in mano"
-        },
-        "batteryStorage": {
-          "title": "Accumulo a batteria",
-          "subtitle": "Autoconsumo"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Come funziona SolarFree Multifamiliare",
-      "subtitle": "Semplice, trasparente e senza preoccupazioni, proprio come un abbonamento mobile.",
-      "steps": {
-        "step1": "Tu metti a disposizione il tetto",
-        "step2": "Noi investiamo",
-        "step3": "Tu utilizzi l'energia solare",
-        "step4": "Paghi\nmensilmente",
-        "step5": "L'impianto diventa tuo"
-      }
-    },
-    "howPV": {
-      "row1": {
-        "title": "Come funziona il FV",
-        "description": "Solare senza investimento per il tuo stabile plurifamiliare\n\nRiduci i costi energetici dell'edificio, senza alcun investimento da parte tua. Realizziamo l'impianto fotovoltaico sul tuo tetto, interamente finanziato, installato e gestito da noi.\n\nPer te e per tutti gli inquilini significa:\ncosti dell'elettricità più bassi\nprezzi dell'energia stabili\naumento di valore sostenibile dell'immobile"
+  "commercialSolarFree": {
+    "shared": {
+      "primaryCta": "Avvia il calcolatore solare",
+      "secondaryCta": "Richiedi una consulenza",
+      "points": {
+        "1": "CHF 0 di investimento",
+        "2": "Manutenzione e assicurazione incluse",
+        "3": "Elettricità solare fino al 30 % sotto la tariffa di rete"
       },
-      "row2": {
-        "title": "Come funziona",
-        "description": "Come funziona\nTu prendi contatto. Verifichiamo gratuitamente e ci occupiamo di realizzazione e gestione. L'elettricità resta nell'edificio.\n\nI tuoi vantaggi\nNessun investimento, elettricità più conveniente, più valore.\n\nPerché conviene\nTetti inutilizzati + prezzi in aumento\n→ Il tuo edificio diventa produttore."
+      "factsTitle": "SolarFree in breve",
+      "videoLabel": "SolarFree in video",
+      "steps": {
+        "title": "Come si svolge un progetto SolarFree",
+        "intro": "Dalla prima verifica all'elettricità solare del tuo tetto in quattro passi.",
+        "imageAlt": "Montatori posano un modulo solare su un tetto",
+        "items": {
+          "1": {
+            "title": "Verificare tetto e consumo",
+            "body": "Avvii il calcolatore solare o ci chiami. Verifichiamo gratuitamente tetto, consumo di elettricità e redditività."
+          },
+          "2": {
+            "title": "Offerta e contratto",
+            "body": "Ricevi un'offerta con il tuo prezzo dell'elettricità solare o un canone per il tetto. Ci metti a disposizione la superficie del tetto per 35 anni e non investi nulla."
+          },
+          "3": {
+            "title": "Costruiamo e gestiamo",
+            "body": "Progettiamo, finanziamo e montiamo l'impianto. Gestione, manutenzione, monitoraggio e assicurazione sono a nostro carico."
+          },
+          "4": {
+            "title": "Usi l'elettricità solare",
+            "body": "Il tuo edificio consuma l'elettricità del proprio tetto, fino al 30 % sotto la tariffa di rete. Dopo 35 anni l'impianto passa gratuitamente a te."
+          }
+        }
+      },
+      "costs": {
+        "title": "Che cosa paghi",
+        "intro": "Non paghi né l'impianto né una rata mensile. Paghi l'elettricità solare che il tuo edificio consuma.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investimento",
+            "body": "Progettazione, materiale e montaggio li paghiamo noi. Il tuo capitale resta disponibile."
+          },
+          "2": {
+            "value": "Fino al 30 %",
+            "label": "sotto la tariffa di rete",
+            "body": "Di tanto l'elettricità solare del tuo tetto costa meno rispetto all'elettricità della tua azienda elettrica. Il prezzo esatto è indicato nella tua offerta."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "per manutenzione e assicurazione",
+            "body": "Gestione, riparazioni e assicurazione dell'impianto sono a nostro carico."
+          }
+        },
+        "note": "L'elettricità che prelevi in più dalla rete la paghi come finora alla tua azienda elettrica."
+      },
+      "includedTitle": "Cosa è incluso",
+      "notIncludedTitle": "Cosa non è incluso",
+      "notIncluded": [
+        "Elettricità che prelevi dalla rete",
+        "Manutenzione del tetto. Ne rimane responsabile la proprietà."
+      ],
+      "fitYesTitle": "SolarFree è adatto se",
+      "fitNoTitle": "Un'altra soluzione è più adatta se",
+      "fitNo": {
+        "own": "vuoi possedere direttamente l'impianto fin dall'inizio",
+        "roof": "il tuo tetto deve essere risanato nei prossimi anni. In tal caso è meglio pianificare insieme tetto e impianto solare."
+      },
+      "seePurchase": "Vedi gli impianti solari da acquistare",
+      "seeRoof": "Vedi tetto e solare",
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Domande frequenti su SolarFree",
+        "description": "I punti più importanti, spiegati in breve.",
+        "items": {
+          "1": {
+            "question": "A chi appartiene l'impianto?",
+            "answer": "Durante i 35 anni di durata del contratto l'impianto appartiene a Free State AG. In seguito passa gratuitamente a te."
+          },
+          "2": {
+            "question": "Quanto ci costa l'elettricità solare?",
+            "answer": "Paghi l'elettricità solare che il tuo edificio consuma. Il prezzo è fino al 30 % più basso della tariffa della tua azienda elettrica. Il prezzo esatto è indicato nella tua offerta."
+          },
+          "3": {
+            "question": "Chi paga manutenzione, riparazioni e assicurazione?",
+            "answer": "Free State AG. Tutti i costi causati dall'impianto sono a nostro carico."
+          },
+          "4": {
+            "question": "Possiamo rilevare l'impianto prima della scadenza dei 35 anni?",
+            "answer": "Sì. L'acquisto al valore residuo è possibile, al più presto dopo un anno di esercizio. Le condizioni figurano nel tuo contratto."
+          },
+          "5": {
+            "question": "Cosa succede se il nostro edificio ha bisogno di meno elettricità di quanta ne fornisce il tetto?",
+            "answer": "In tal caso è possibile anche un canone per il tetto. Metti a disposizione il tetto e ricevi in cambio un pagamento annuo. La tua offerta mostra quale soluzione è adatta."
+          },
+          "6": {
+            "question": "Come iniziamo?",
+            "answer": "Avvii il calcolatore solare o ci chiami. Verifichiamo gratuitamente tetto e consumo e ti contattiamo con un'offerta."
+          }
+        }
+      },
+      "closing": {
+        "title": "Verifica se SolarFree è adatto al tuo edificio",
+        "body": "Il calcolatore solare mostra in pochi minuti quanto fornisce il tuo tetto. Oppure parli direttamente con noi.",
+        "contactTitle": "La tua persona di contatto",
+        "contactCta": "Mettiti in contatto"
       }
     },
-    "publicSpaces": {
-      "title": "Energia per il vostro condominio",
-      "subtitle": "Con energia pulita e affidabile",
-      "body": "Richiedi ora una valutazione senza impegno\n\nTrasforma il tuo stabile plurifamiliare in un moderno progetto energetico senza alcun rischio finanziario. Ti basta raccomandarci alla tua amministrazione o alla comunità dei proprietari: verifichiamo tutto e ci occupiamo dell'intera realizzazione.\n\nAnalizziamo l'edificio e il potenziale del tetto, calcoliamo la redditività e sviluppiamo un concetto di realizzazione concreto, inclusi tutti gli aspetti tecnici e legali (ZEV). Finanziamento, pianificazione e realizzazione sono interamente a nostro carico.\n\nIl tuo impegno resta minimo: tu prendi il primo contatto, noi coordiniamo tutto il resto. Beneficerai di energia solare conveniente, costi energetici stabili e un aumento di valore sostenibile del tuo immobile. Inizia ora, gratuitamente e senza impegno. Richiedi la tua analisi gratuita e ricevi una valutazione solida del potenziale."
+    "hub": {
+      "hero": {
+        "title": "SolarFree per le aziende: impianto solare senza investimento",
+        "subtitle": "Finanziamo, costruiamo e gestiamo l'impianto solare sul tuo tetto. Per commercio e industria, agricoltura, edifici pubblici e case plurifamiliari.",
+        "imageAlt": "Capannone commerciale con impianto solare sul tetto piano"
+      },
+      "segments": {
+        "title": "Quale SolarFree è adatto al tuo edificio?",
+        "intro": "Il modello è ovunque lo stesso. L'impianto lo progettiamo per il tuo tipo di edificio.",
+        "cta": "Scopri di più"
+      },
+      "included": [
+        "Impianto solare dimensionato per il tuo edificio e il tuo consumo",
+        "Progettazione, finanziamento e montaggio chiavi in mano",
+        "Gestione, manutenzione e riparazioni",
+        "Assicurazione dell'impianto",
+        "Monitoraggio dell'impianto"
+      ],
+      "fitYes": [
+        "non vuoi immobilizzare capitale in un impianto solare",
+        "vuoi rendere prevedibili a lungo termine i tuoi costi dell'elettricità",
+        "non vuoi occuparti di gestione, manutenzione e assicurazione"
+      ]
+    },
+    "segments": {
+      "multiFamily": {
+        "name": "Case plurifamiliari",
+        "card": "Elettricità solare per tutti gli appartamenti, con fatturazione nel RCP o nella CEL.",
+        "hero": {
+          "title": "SolarFree per le case plurifamiliari",
+          "subtitle": "Elettricità solare per tutti gli appartamenti, senza investimento. Costruiamo e gestiamo l'impianto e ci occupiamo della fatturazione nel raggruppamento ai fini del consumo proprio (RCP).",
+          "imageAlt": "Casa plurifamiliare con impianto solare sul tetto"
+        },
+        "benefits": {
+          "title": "Perché SolarFree per le case plurifamiliari",
+          "items": {
+            "1": {
+              "title": "Elettricità conveniente per tutti gli abitanti",
+              "body": "Le abitanti e gli abitanti ricevono elettricità solare dal proprio tetto, fino al 30 % sotto la tariffa di rete."
+            },
+            "2": {
+              "title": "Fatturazione inclusa",
+              "body": "Ci occupiamo della fatturazione RCP e del coordinamento. L'amministrazione non ha così alcun lavoro supplementare."
+            },
+            "3": {
+              "title": "Più valore per l'immobile",
+              "body": "L'impianto solare valorizza l'edificio senza che la proprietà investa."
+            }
+          }
+        },
+        "included": [
+          "Impianto solare condiviso per tutto l'edificio",
+          "Sistema inverter centralizzato",
+          "Fatturazione e coordinamento RCP",
+          "Monitoraggio per appartamento",
+          "Progettazione e montaggio chiavi in mano",
+          "Gestione, manutenzione e assicurazione",
+          "Accumulo a batteria per più autoconsumo"
+        ],
+        "fitYes": [
+          "possiedi o amministri una casa plurifamiliare",
+          "vuoi offrire alle abitanti e agli abitanti elettricità solare conveniente",
+          "non vuoi né investire né gestire direttamente la fatturazione"
+        ]
+      },
+      "industry": {
+        "name": "Industria e commercio",
+        "card": "Per edifici commerciali e industriali con una grande superficie del tetto.",
+        "hero": {
+          "title": "SolarFree per l'industria e il commercio",
+          "subtitle": "Costruiamo e gestiamo l'impianto solare sul tetto della tua azienda. Non immobilizzi capitale e paghi solo l'elettricità solare che la tua azienda consuma.",
+          "imageAlt": "Capannone commerciale con impianto solare sul tetto piano"
+        },
+        "benefits": {
+          "title": "Perché SolarFree per l'industria e il commercio",
+          "items": {
+            "1": {
+              "title": "Nessun capitale immobilizzato",
+              "body": "Di progettazione, finanziamento, costruzione e gestione ci occupiamo noi. La tua liquidità resta in azienda."
+            },
+            "2": {
+              "title": "Costi dell'elettricità prevedibili",
+              "body": "L'elettricità solare del tuo tetto costa fino al 30 % in meno dell'elettricità di rete. Questo rende prevedibili a lungo termine i tuoi costi energetici."
+            },
+            "3": {
+              "title": "Contributo ai tuoi obiettivi ESG",
+              "body": "Riduci in modo misurabile le emissioni di CO₂ della tua azienda, senza alcun carico operativo per il tuo team."
+            }
+          }
+        },
+        "included": [
+          "Impianto solare da 100 a 1000 kWp su tetto o facciata",
+          "Inverter e gestione energetica con dati in tempo reale",
+          "Progettazione e montaggio chiavi in mano",
+          "Gestione, manutenzione e assicurazione",
+          "Su richiesta, accumulo a batteria e infrastruttura di ricarica"
+        ],
+        "fitYes": [
+          "possiedi un edificio commerciale o industriale con una grande superficie del tetto",
+          "vuoi pianificare a lungo termine i tuoi costi dell'elettricità",
+          "non vuoi immobilizzare capitale in un impianto"
+        ]
+      },
+      "farm": {
+        "name": "Agricoltura",
+        "card": "Per fattorie e aziende agricole con tetto di fienile o di stalla.",
+        "hero": {
+          "title": "SolarFree per le aziende agricole",
+          "subtitle": "I tetti di fienili e stalle sono spesso tra le più grandi superfici di tetto inutilizzate della regione. Vi costruiamo e gestiamo l'impianto solare, senza alcun investimento da parte tua.",
+          "imageAlt": "Grandi tetti di capannoni con moduli solari"
+        },
+        "benefits": {
+          "title": "Perché SolarFree per la tua fattoria",
+          "items": {
+            "1": {
+              "title": "Sfruttare i grandi tetti",
+              "body": "Verifichiamo gratuitamente quanta elettricità può fornire il tetto del tuo fienile o della tua stalla."
+            },
+            "2": {
+              "title": "Elettricità conveniente per fattoria e azienda",
+              "body": "Ricevi elettricità solare dal tuo tetto, fino al 30 % sotto la tariffa di rete."
+            },
+            "3": {
+              "title": "Una fonte di reddito in più",
+              "body": "Se il tetto fornisce più elettricità di quanta ne serve alla fattoria, è possibile anche un canone annuo per il tetto."
+            }
+          }
+        },
+        "included": [
+          "Impianto solare fino a 500 kWp",
+          "Sistema inverter adattato alla fattoria",
+          "Monitoraggio con dati in tempo reale",
+          "Progettazione e montaggio chiavi in mano",
+          "Gestione, manutenzione e assicurazione",
+          "Su richiesta, collegamento di una pompa di calore"
+        ],
+        "fitYes": [
+          "gestisci una fattoria o un'azienda agricola",
+          "hai una grande superficie di tetto su capannone, fienile o stalla",
+          "vuoi ridurre i tuoi costi dell'elettricità senza investire"
+        ],
+        "factsImageAlt": "Vista aerea di un impianto solare in un'azienda agricola"
+      },
+      "public": {
+        "name": "Edifici pubblici",
+        "card": "Per scuole, ospedali ed edifici comunali.",
+        "hero": {
+          "title": "SolarFree per gli edifici pubblici",
+          "subtitle": "Per scuole, ospedali ed edifici comunali. Progettiamo, finanziamo, costruiamo e gestiamo l'impianto solare. Il tuo budget non viene gravato.",
+          "imageAlt": "Moduli solari su un edificio pubblico"
+        },
+        "benefits": {
+          "title": "Perché SolarFree per gli edifici pubblici",
+          "items": {
+            "1": {
+              "title": "Nessun budget necessario",
+              "body": "Il comune non anticipa un solo franco. Di progettazione, finanziamento, costruzione e gestione ci occupiamo noi."
+            },
+            "2": {
+              "title": "Costi energetici stabili",
+              "body": "L'elettricità solare del proprio tetto costa fino al 30 % in meno dell'elettricità di rete e rende prevedibili i costi energetici."
+            },
+            "3": {
+              "title": "Esempio visibile",
+              "body": "L'impianto è un contributo visibile alla transizione energetica. Una dashboard di monitoraggio mostra la produzione in modo trasparente."
+            }
+          }
+        },
+        "included": [
+          "Impianto solare delle dimensioni adatte al tuo edificio",
+          "Sistema inverter",
+          "Dashboard di monitoraggio con dati di produzione trasparenti",
+          "Progettazione e montaggio chiavi in mano",
+          "Gestione, manutenzione e assicurazione",
+          "Su richiesta, accumulo a batteria"
+        ],
+        "fitYes": [
+          "gestisci una scuola o un altro istituto educativo",
+          "gestisci un ospedale o una struttura di cura",
+          "sei responsabile di edifici comunali o amministrativi"
+        ]
+      }
     },
     "contactPerson": {
       "name": "Peter Aragai",
       "role": "Executive Manager / Direttore vendite",
       "phone": "078 608 88 50",
       "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contatto"
-    },
-    "pricing": {
-      "title": "Prezzi e contratto",
-      "subtitle": "Semplice, trasparente e senza preoccupazioni, con indipendenza energetica in più.",
-      "costLabel": "Costo dell'impianto solare in CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dimensione del tetto",
-        "value": "circa 50 m²"
-      },
-      "residents": {
-        "label": "Abitanti",
-        "value": "edificio plurifamiliare"
-      },
-      "costPerM2": {
-        "label": "Costo per\nm² in CHF",
-        "value": "circa CHF 780.00"
-      },
-      "solarAboPrice": "Con SolarFree CHF 0",
-      "orderNow": "ORDINA ORA",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Questo pacchetto fa per te?",
-      "idealForTitle": "Ideale per te",
-      "notIdealForTitle": "Non ideale per te",
-      "idealFor": {
-        "singleFamily": "Casa unifamiliare",
-        "predictableCosts": "Costi prevedibili",
-        "noUpfront": "Nessun investimento iniziale",
-        "noMaintenance": "Nessuna manutenzione"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Necessità di accumulo a batteria",
-        "commercial": "Edificio commerciale"
-      }
-    },
-    "cta": {
-      "topButton": "Scopri se SolarFree Multifamiliare è adatto al tuo tetto",
-      "heading": "Scopri se SolarFree Multifamiliare è adatto al tuo tetto",
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaLink": "/commercial/calculator"
+      "email": "peter.aragai@freestate.ch"
     },
     "communitiesLink": {
       "title": "RCP, RCPv o CLE?",
       "text": "Quale modello si adatta al vostro condominio, chi misura e chi fattura, spiegato nella nostra guida (in tedesco).",
       "cta": "Leggi la guida"
-    }
-  },
-  "solarAboBusiness": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Direttore vendite",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contatto"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Come funziona il FV",
-        "description": "Il contracting fotovoltaico sembra complicato, ma funziona in modo molto semplice: avete un grande tetto e desiderate un impianto solare, ma non volete investire. Per questo Free State AG finanzia, costruisce e gestisce l'impianto per voi. E voi beneficiate di un canone annuo per il tetto e/o di prezzi dell'elettricità vantaggiosi."
-      },
-      "row2": {
-        "title": "Il processo",
-        "description": "Il processo è semplice. Valutiamo il vostro tetto e il vostro consumo di elettricità, prepariamo un'offerta con canone per il tetto o prezzo dell'elettricità, progettiamo e costruiamo l'impianto e poi ci occupiamo di gestione, manutenzione e monitoraggio. Voi mettete a disposizione solo il tetto."
-      }
-    },
-    "publicSpaces": {
-      "title": "Energia per la tua attività",
-      "subtitle": "Pulita, prevedibile, senza investimento",
-      "body": "Fai lavorare le superfici di tetto inutilizzate della tua azienda industriale o commerciale senza alcun esborso di capitale. Analizziamo gratuitamente l'edificio, il profilo di consumo e la redditività, e ci occupiamo di progettazione, finanziamento, installazione e gestione. Beneficerai di prezzi dell'elettricità stabili, di vantaggi ESG e di una riduzione misurabile di CO₂, il tutto senza carichi operativi per il tuo team. Richiedi ora un'analisi gratuita."
-    },
-    "hero": {
-      "eyebrow": "Zero investimento. Bollette più basse. Vantaggi ESG.",
-      "title": "Industria / Commercio",
-      "subtitle": "Per edifici commerciali e industriali",
-      "cta": "Avvia il calcolatore solare",
-      "tag": "Senza registrazione · Senza impegno",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ndi investimento",
-          "electricity": "Prezzo fisso\n0,18 CHF/kWh"
-        },
-        "right": {
-          "maintenance": "Manutenzione\ninclusa",
-          "reduction": "Riduzione CO₂\nfino a 50 t/anno"
-        }
-      }
-    },
-    "includes": {
-      "title": "Cosa è incluso",
-      "subtitle": "In Industria / Commercio",
-      "items": {
-        "solarModules": {
-          "title": "Impianto FV commerciale",
-          "subtitle": "100–1'000 kWp"
-        },
-        "inverter": {
-          "title": "Inverter industriale",
-          "subtitle": "Alte prestazioni"
-        },
-        "monitoringApp": {
-          "title": "Gestione energetica",
-          "subtitle": "Analisi in tempo reale"
-        },
-        "installation": {
-          "title": "Installazione",
-          "subtitle": "Chiavi in mano"
-        },
-        "serviceInsurance": {
-          "title": "Servizio e assicurazione",
-          "subtitle": "Coperti"
-        },
-        "batteryStorage": {
-          "title": "Accumulo a batteria",
-          "subtitle": "Opzionale"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Come funziona Industria / Commercio",
-      "subtitle": "Riduci i costi energetici della tua azienda in modo semplice, trasparente e senza preoccupazioni.",
-      "steps": {
-        "step1": "Tu metti a disposizione il tetto",
-        "step2": "Noi investiamo",
-        "step3": "Tu utilizzi l'energia solare",
-        "step4": "Paghi un\nprezzo fisso per kWh",
-        "step5": "L'impianto diventa tuo"
-      }
-    },
-    "pricing": {
-      "title": "Prezzi e contratto",
-      "subtitle": "Prezzo dell'energia fisso per una sicurezza di pianificazione a lungo termine.",
-      "costLabel": "Costo dell'impianto solare in CHF",
-      "amount": "Personalizzato",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dimensione del tetto",
-        "value": "variabile"
-      },
-      "residents": {
-        "label": "Utilizzo",
-        "value": "edificio commerciale"
-      },
-      "costPerM2": {
-        "label": "Prezzo per\nkWh in CHF",
-        "value": "da CHF 0,18"
-      },
-      "solarAboPrice": "Con Industria / Commercio",
-      "orderNow": "ORDINA ORA",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Questo pacchetto fa per te?",
-      "idealForTitle": "Ideale per te",
-      "notIdealForTitle": "Non ideale per te",
-      "idealFor": {
-        "singleFamily": "Edificio commerciale",
-        "predictableCosts": "Pianificazione dei costi a lungo termine",
-        "noUpfront": "Nessun investimento iniziale",
-        "noMaintenance": "Obiettivi ESG"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Immobile residenziale",
-        "commercial": "Superficie del tetto ridotta"
-      }
-    },
-    "cta": {
-      "topButton": "Scopri se Industria / Commercio è adatto al tuo edificio",
-      "heading": "Scopri se Industria / Commercio è adatto al tuo edificio",
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboAgro": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Direttore vendite",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contatto"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Come funziona il FV",
-        "description": "Il contracting fotovoltaico sembra complicato, ma funziona in modo molto semplice: avete un grande tetto e desiderate un impianto solare, ma non volete investire. Per questo Free State AG finanzia, costruisce e gestisce l'impianto per voi. E voi beneficiate di un canone annuo per il tetto e/o di prezzi dell'elettricità vantaggiosi."
-      },
-      "row2": {
-        "title": "Il processo",
-        "description": "Il processo è semplice. Valutiamo il vostro tetto e il vostro consumo di elettricità, prepariamo un'offerta con canone per il tetto o prezzo dell'elettricità, progettiamo e costruiamo l'impianto e poi ci occupiamo di gestione, manutenzione e monitoraggio. Voi mettete a disposizione solo il tetto."
-      }
-    },
-    "publicSpaces": {
-      "title": "Energia per la tua azienda agricola",
-      "subtitle": "Grandi tetti, grande potenziale",
-      "body": "Le aziende agricole hanno spesso le superfici di tetto inutilizzate più grandi della regione. Valutiamo gratuitamente e senza alcun investimento da parte tua come trasformare il tuo tetto di fienile o stalla in un impianto FV. Ci occupiamo di finanziamento, costruzione e gestione. Ricevi elettricità conveniente per l'azienda, un affitto annuale per il tetto e una nuova fonte di reddito. Richiedi ora una verifica del potenziale senza impegno."
-    },
-    "hero": {
-      "eyebrow": "Zero investimento. Bollette più basse. Servizio affidabile.",
-      "title": "Fattorie",
-      "subtitle": "Per aziende agricole e allevamenti",
-      "cta": "Avvia il calcolatore solare",
-      "tag": "Senza registrazione · Senza impegno",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ndi investimento",
-          "electricity": "Fino al 40% in meno\nsui costi dell'elettricità"
-        },
-        "right": {
-          "maintenance": "Garanzia di servizio\ninclusa",
-          "reduction": "Riduzione CO₂\nfino a 20 t/anno"
-        }
-      }
-    },
-    "includes": {
-      "title": "Cosa è incluso",
-      "subtitle": "In Fattorie",
-      "items": {
-        "solarModules": {
-          "title": "Impianto FV agricolo",
-          "subtitle": "Fino a 500 kWp"
-        },
-        "inverter": {
-          "title": "Sistema inverter",
-          "subtitle": "Ottimizzato per fattorie"
-        },
-        "monitoringApp": {
-          "title": "App di monitoraggio",
-          "subtitle": "Dati in tempo reale"
-        },
-        "installation": {
-          "title": "Installazione",
-          "subtitle": "Chiavi in mano"
-        },
-        "serviceInsurance": {
-          "title": "Garanzia di servizio",
-          "subtitle": "Coperta"
-        },
-        "heatPump": {
-          "title": "Collegamento pompa di calore",
-          "subtitle": "Opzionale"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Come funziona Fattorie",
-      "subtitle": "Una soluzione semplice, trasparente e senza preoccupazioni, su misura per le aziende agricole.",
-      "steps": {
-        "step1": "Tu metti a disposizione il tetto",
-        "step2": "Noi investiamo",
-        "step3": "Tu utilizzi l'energia solare",
-        "step4": "Paghi\nmensilmente",
-        "step5": "L'impianto diventa tuo"
-      }
-    },
-    "pricing": {
-      "title": "Prezzi e contratto",
-      "subtitle": "Termini contrattuali flessibili, adatti alle esigenze della tua azienda agricola.",
-      "costLabel": "Costo dell'impianto solare in CHF",
-      "amount": "Personalizzato",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dimensione del tetto",
-        "value": "variabile"
-      },
-      "residents": {
-        "label": "Utilizzo",
-        "value": "azienda agricola"
-      },
-      "costPerM2": {
-        "label": "Prezzo per\nm² in CHF",
-        "value": "prezzi personalizzati"
-      },
-      "solarAboPrice": "Con Fattorie",
-      "orderNow": "ORDINA ORA",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Questo pacchetto fa per te?",
-      "idealForTitle": "Ideale per te",
-      "notIdealForTitle": "Non ideale per te",
-      "idealFor": {
-        "singleFamily": "Azienda agricola o allevamento",
-        "predictableCosts": "Grande capannone o tetto della stalla",
-        "noUpfront": "Riduzione dei costi dell'elettricità",
-        "noMaintenance": "Garanzia di servizio inclusa"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Immobile residenziale",
-        "commercial": "Piccola azienda"
-      }
-    },
-    "cta": {
-      "topButton": "Scopri se Fattorie è adatto alla tua azienda",
-      "heading": "Scopri se Fattorie è adatto alla tua azienda",
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboPublic": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Direttore vendite",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contatto"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Come funziona il FV",
-        "description": "Il contracting fotovoltaico sembra complicato, ma funziona in modo molto semplice: avete un grande tetto e desiderate un impianto solare, ma non volete investire. Per questo Free State AG finanzia, costruisce e gestisce l'impianto per voi. E voi beneficiate di un canone annuo per il tetto e/o di prezzi dell'elettricità vantaggiosi."
-      }
-    },
-    "publicSpaces": {
-      "title": "Elettricità per gli edifici pubblici",
-      "subtitle": "Con energia pulita e affidabile",
-      "body": "Scuole, edifici amministrativi e immobili pubblici hanno una responsabilità nella transizione energetica, senza per questo gravare sui bilanci. Analizziamo gratuitamente potenziale e redditività e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Senza anticipare un solo franco, il comune beneficia di costi energetici stabili, di un contributo visibile alla sostenibilità e di una funzione esemplare. Richiedi ora un'analisi senza impegno."
-    },
-    "hero": {
-      "eyebrow": "Zero investimento. Bollette più basse. Esempio di sostenibilità.",
-      "title": "Edifici pubblici",
-      "subtitle": "Per scuole, ospedali ed edifici comunali",
-      "cta": "Avvia il calcolatore solare",
-      "tag": "Senza registrazione · Senza impegno",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ndi investimento",
-          "electricity": "Fino al 30% in meno\nsui costi dell'elettricità"
-        },
-        "right": {
-          "maintenance": "Manutenzione\ninclusa",
-          "reduction": "Riduzione CO₂\nfino a 30 t/anno"
-        }
-      }
-    },
-    "includes": {
-      "title": "Cosa è incluso",
-      "subtitle": "In Edifici pubblici",
-      "items": {
-        "solarModules": {
-          "title": "Impianto FV per edifici pubblici",
-          "subtitle": "Capacità personalizzata"
-        },
-        "inverter": {
-          "title": "Inverter professionale",
-          "subtitle": "Alta efficienza"
-        },
-        "monitoringApp": {
-          "title": "Dashboard di monitoraggio",
-          "subtitle": "Trasparenza per i cittadini"
-        },
-        "installation": {
-          "title": "Installazione",
-          "subtitle": "Chiavi in mano"
-        },
-        "serviceInsurance": {
-          "title": "Servizio e assicurazione",
-          "subtitle": "Coperti"
-        },
-        "batteryStorage": {
-          "title": "Accumulo a batteria",
-          "subtitle": "Opzionale"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Come funziona Edifici pubblici",
-      "subtitle": "In modo semplice, trasparente e senza preoccupazioni dai l'esempio di sostenibilità alla tua comunità.",
-      "steps": {
-        "step1": "Tu metti a disposizione il tetto",
-        "step2": "Noi investiamo",
-        "step3": "Tu utilizzi l'energia solare",
-        "step4": "Paghi\nmensilmente",
-        "step5": "L'impianto diventa tuo"
-      }
-    },
-    "pricing": {
-      "title": "Prezzi e contratto",
-      "subtitle": "Costi prevedibili per i bilanci pubblici.",
-      "costLabel": "Costo dell'impianto solare in CHF",
-      "amount": "Personalizzato",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dimensione del tetto",
-        "value": "variabile"
-      },
-      "residents": {
-        "label": "Utilizzo",
-        "value": "edificio pubblico"
-      },
-      "costPerM2": {
-        "label": "Prezzo per\nm² in CHF",
-        "value": "prezzi personalizzati"
-      },
-      "solarAboPrice": "Con Edifici pubblici",
-      "orderNow": "ORDINA ORA",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Questo pacchetto fa per te?",
-      "idealForTitle": "Ideale per te",
-      "notIdealForTitle": "Non ideale per te",
-      "idealFor": {
-        "singleFamily": "Edificio pubblico",
-        "predictableCosts": "Scuola o istituto educativo",
-        "noUpfront": "Ospedale o struttura sanitaria",
-        "noMaintenance": "Proprietà comunale"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Immobile residenziale",
-        "commercial": "Attività commerciale"
-      }
-    },
-    "cta": {
-      "topButton": "Scopri se Edifici pubblici è adatto al tuo edificio",
-      "heading": "Scopri se Edifici pubblici è adatto al tuo edificio",
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "commercialSolarFreeHub": {
-    "hero": {
-      "title": "SolarFree",
-      "description": "Impianti solari senza investimento per edifici commerciali e industriali, aziende agricole, edifici pubblici e case plurifamiliari"
-    },
-    "topics": {
-      "title": "Quale SolarFree è adatto al tuo edificio?",
-      "items": [
-        {
-          "title": "Case plurifamiliari",
-          "description": "Per case plurifamiliari (RCP / CEL)",
-          "linkLabel": "Case plurifamiliari",
-          "image": "/images/solar-abo-multi.png",
-          "href": "/commercial/solar-free/solar-free-multi-family"
-        },
-        {
-          "title": "Industria / Commercio",
-          "description": "Per edifici commerciali e industriali",
-          "linkLabel": "Industria / Commercio",
-          "image": "/images/solar-abo-business.png",
-          "href": "/commercial/solar-free/industry-commercial"
-        },
-        {
-          "title": "Fattorie",
-          "description": "Per aziende agricole e allevamenti",
-          "linkLabel": "Fattorie",
-          "image": "/images/solar-abo-agro.png",
-          "href": "/commercial/solar-free/farmhouses"
-        },
-        {
-          "title": "Edifici pubblici",
-          "description": "Per scuole, ospedali ed edifici comunali",
-          "linkLabel": "Edifici pubblici",
-          "image": "/images/solar-abo-public.png",
-          "href": "/commercial/solar-free/public-buildings"
-        }
-      ]
-    },
-    "howPV": {
-      "row1": {
-        "title": "Come funziona SolarFree",
-        "description": "Desideri un impianto solare, ma non vuoi investire. Analizziamo gratuitamente il tuo edificio e ci occupiamo di progettazione, finanziamento, costruzione e gestione dell'impianto. Tu metti a disposizione il tetto e benefici di prezzi dell'elettricità vantaggiosi."
-      }
-    },
-    "cta": {
-      "topButton": "Zero investimento. Bollette più basse.",
-      "heading": "Scopri se SolarFree è adatto al tuo edificio",
-      "ctaText": "Avvia il calcolatore solare",
-      "ctaLink": "/commercial/calculator"
     }
   },
   "contact": {
@@ -3512,11 +3254,11 @@
       },
       "free": {
         "name": "SolarFree",
-        "headline": "CHF 0 di investimento, energia solare da 18 ct./kWh",
+        "headline": "CHF 0 di investimento, paghi solo l'energia solare",
         "tagline": "Costruiamo e gestiamo l'impianto sul tuo tetto, tu acquisti solo l'elettricità.",
         "points": {
           "1": "Nessun anticipo, nessun investimento",
-          "2": "Fino al 30 % sotto la tariffa di rete (ad es. 18 invece di 32 ct./kWh)",
+          "2": "Fino al 30 % sotto la tariffa di rete",
           "3": "Dopo 35 anni l'impianto è tuo"
         },
         "cta": "Vedi SolarFree"
@@ -3550,7 +3292,7 @@
         },
         "5": {
           "question": "È possibile senza investimento?",
-          "answer": "Sì. Con SolarFree costruiamo l'impianto sul tuo tetto e tu paghi solo l'energia solare, da 18 ct. per kWh. Dopo 35 anni l'impianto è tuo. Con SolarAbo paghi rate mensili fisse per 25 anni e sei proprietario dal primo giorno."
+          "answer": "Sì. Con SolarFree costruiamo l'impianto sul tuo tetto e tu paghi solo l'energia solare, fino al 30 % sotto la tariffa di rete. Dopo 35 anni l'impianto è tuo. Con SolarAbo paghi rate mensili fisse per 25 anni e sei proprietario dal primo giorno."
         },
         "6": {
           "question": "Quando si ripaga l'impianto?",
@@ -4227,48 +3969,48 @@
     },
     "screen1": {
       "badge": "Calcolatore solare per le aziende",
-      "headline": "Quanto produce il tetto della Sua azienda",
-      "helper": "Inserisca l'indirizzo del Suo edificio. Leggiamo i dati ufficiali dei tetti della Confederazione e calcoliamo il Suo impianto.",
+      "headline": "Quanto produce il tetto della tua azienda",
+      "helper": "Inserisci l'indirizzo del tuo edificio. Leggiamo i dati ufficiali dei tetti della Confederazione e calcoliamo il tuo impianto.",
       "fieldLabel": "Indirizzo con numero civico",
       "placeholder": "Industriestrasse 12, 8207 Schaffhausen",
       "button": "Analizzare il tetto",
-      "reassurance": "Gratuito e senza impegno. Verifichiamo il Suo tetto con i dati di Sonnendach.ch.",
+      "reassurance": "Gratuito e senza impegno. Verifichiamo il tuo tetto con i dati di Sonnendach.ch.",
       "errors": {
-        "empty": "Inserisca l'indirizzo del Suo edificio.",
-        "notChosen": "Selezioni l'indirizzo dall'elenco dei suggerimenti.",
-        "noStreetNumber": "Selezioni un indirizzo con numero civico. Senza numero civico non troviamo il Suo edificio.",
-        "notFound": "Non troviamo questo indirizzo. Controlli l'ortografia oppure <link>ci faccia verificare il tetto a mano</link>.",
-        "outsideCh": "Al momento leggiamo automaticamente solo indirizzi svizzeri. Se il Suo edificio si trova all'estero, <link>ci scriva il Suo indirizzo</link> e lo verificheremo a mano.",
+        "empty": "Inserisci l'indirizzo del tuo edificio.",
+        "notChosen": "Seleziona l'indirizzo dall'elenco dei suggerimenti.",
+        "noStreetNumber": "Seleziona un indirizzo con numero civico. Senza numero civico non troviamo il tuo edificio.",
+        "notFound": "Non troviamo questo indirizzo. Controlla l'ortografia oppure <link>facci verificare il tetto a mano</link>.",
+        "outsideCh": "Al momento leggiamo automaticamente solo indirizzi svizzeri. Se il tuo edificio si trova all'estero, <link>scrivici il tuo indirizzo</link> e lo verificheremo a mano.",
         "placesSlow": "La ricerca dell'indirizzo sta rispondendo lentamente. Un attimo per favore."
       },
       "backToAddress": "Torna all'inserimento dell'indirizzo"
     },
     "screen2": {
-      "headline": "Questo è il Suo tetto",
-      "helper": "Abbiamo già contrassegnato le superfici adatte. Tocchi una superficie per aggiungerla o rimuoverla.",
-      "registerNote": "Il Suo edificio non figura ancora nei dati federali dei tetti, succede con gli edifici nuovi. Abbiamo quindi stimato la superficie del tetto dal registro degli edifici, così può continuare subito il calcolo. La superficie esatta la verifichiamo durante il sopralluogo.",
-      "areaReadout": "Ha selezionato {n} m² di superficie del tetto.",
+      "headline": "Questo è il tuo tetto",
+      "helper": "Abbiamo già contrassegnato le superfici adatte. Tocca una superficie per aggiungerla o rimuoverla.",
+      "registerNote": "Il tuo edificio non figura ancora nei dati federali dei tetti, succede con gli edifici nuovi. Abbiamo quindi stimato la superficie del tetto dal registro degli edifici, così puoi continuare subito il calcolo. La superficie esatta la verifichiamo durante il sopralluogo.",
+      "areaReadout": "Hai selezionato {n} m² di superficie del tetto.",
       "button": "Avanti",
       "otherAddress": "Inserire un altro indirizzo",
-      "loading": "Stiamo caricando i dati dei tetti della Confederazione per il Suo indirizzo. Ci vuole un attimo.",
+      "loading": "Stiamo caricando i dati dei tetti della Confederazione per il tuo indirizzo. Ci vuole un attimo.",
       "loadingSlow": "I dati dei tetti stanno impiegando più tempo del solito. Continuiamo a provare.",
-      "segmentListTitle": "Le Sue superfici del tetto",
-      "segmentListHelper": "Selezioni le superfici che dobbiamo includere nel calcolo.",
+      "segmentListTitle": "Le tue superfici del tetto",
+      "segmentListHelper": "Seleziona le superfici che dobbiamo includere nel calcolo.",
       "segmentRow": "Superficie {n} di {m} m², idoneità {eignung}",
-      "mapAriaLabel": "Mappa del Suo tetto. Può selezionare le superfici anche nell'elenco qui sotto.",
+      "mapAriaLabel": "Mappa del tuo tetto. Puoi selezionare le superfici anche nell'elenco qui sotto.",
       "gering": "bassa",
       "mittel": "media",
       "gut": "buona",
       "sehrGut": "molto buona",
       "hervorragend": "eccellente",
       "errors": {
-        "noneSelected": "Non ha selezionato nessuna superficie. Tocchi il Suo tetto, oppure ci faccia verificare il tetto a mano.",
+        "noneSelected": "Non hai selezionato nessuna superficie. Tocca il tuo tetto, oppure facci verificare il tetto a mano.",
         "noneSelectedAction": "Far verificare a mano",
         "noSegments": "Per questo edificio non sono disponibili dati del tetto.",
         "requestFailed": "In questo momento non raggiungiamo i dati dei tetti della Confederazione.",
         "noBuilding": "Non abbiamo trovato nessun edificio a questo indirizzo.",
-        "tapNoData": "In questo punto non sono disponibili dati del tetto. Tocchi una superficie contrassegnata.",
-        "tapSwitchBuilding": "Vuole passare a questo edificio? La Sua selezione attuale andrà persa.",
+        "tapNoData": "In questo punto non sono disponibili dati del tetto. Tocca una superficie contrassegnata.",
+        "tapSwitchBuilding": "Vuoi passare a questo edificio? La tua selezione attuale andrà persa.",
         "tapSwitchConfirm": "Cambiare edificio",
         "tapSwitchCancel": "Annulla"
       },
@@ -4276,33 +4018,33 @@
       "zoomOut": "Ridurre la mappa"
     },
     "manualCheck": {
-      "noRoofHeadline": "Verifichiamo a mano il tetto della Sua azienda",
-      "noRoofBody1": "Per il Suo indirizzo non sono disponibili dati automatici del tetto. Succede con gli edifici nuovi e in singoli comuni e non dice nulla sull'idoneità del Suo tetto.",
-      "noRoofBody2": "Ci lasci il Suo indirizzo e-mail. Verifichiamo il Suo tetto manualmente e La ricontattiamo con una valutazione.",
-      "placesHeadline": "Verifichiamo a mano il Suo indirizzo",
-      "placesBody1": "La ricerca dell'indirizzo non risponde in questo momento. Dipende dal nostro servizio cartografico e non dal Suo indirizzo.",
-      "placesBody2": "Ci scriva il Suo indirizzo e il Suo indirizzo e-mail. Verifichiamo il Suo tetto a mano e La ricontattiamo con una valutazione.",
-      "retryBlockedBody": "Non siamo riusciti a salvare i Suoi dati in questo momento. Ci lasci il Suo indirizzo e-mail e La ricontatteremo con il Suo risultato.",
+      "noRoofHeadline": "Verifichiamo a mano il tetto della tua azienda",
+      "noRoofBody1": "Per il tuo indirizzo non sono disponibili dati automatici del tetto. Succede con gli edifici nuovi e in singoli comuni e non dice nulla sull'idoneità del tuo tetto.",
+      "noRoofBody2": "Lasciaci il tuo indirizzo e-mail. Verifichiamo il tuo tetto manualmente e ti ricontattiamo con una valutazione.",
+      "placesHeadline": "Verifichiamo a mano il tuo indirizzo",
+      "placesBody1": "La ricerca dell'indirizzo non risponde in questo momento. Dipende dal nostro servizio cartografico e non dal tuo indirizzo.",
+      "placesBody2": "Scrivici il tuo indirizzo e il tuo indirizzo e-mail. Verifichiamo il tuo tetto a mano e ti ricontattiamo con una valutazione.",
+      "retryBlockedBody": "Non siamo riusciti a salvare i tuoi dati in questo momento. Lasciaci il tuo indirizzo e-mail e ti ricontatteremo con il tuo risultato.",
       "addressLabel": "Indirizzo con numero civico",
       "emailLabel": "Indirizzo e-mail",
       "companyLabel": "Azienda",
       "consent": "Acconsento che Free State AG utilizzi i miei dati per elaborare la mia richiesta. Si applica l'<privacyLink>informativa sulla privacy</privacyLink>.",
       "button": "Richiedere la valutazione",
-      "reassurance": "La ricontatteremo non appena avremo verificato il Suo tetto.",
-      "success": "Grazie. Abbiamo ricevuto la Sua richiesta e stiamo verificando il Suo tetto.",
+      "reassurance": "Ti ricontatteremo non appena avremo verificato il tuo tetto.",
+      "success": "Grazie. Abbiamo ricevuto la tua richiesta e stiamo verificando il tuo tetto.",
       "errors": {
-        "addressRequired": "Inserisca l'indirizzo del Suo edificio.",
-        "emailInvalid": "Inserisca un indirizzo e-mail valido.",
-        "consentRequired": "Confermi il Suo consenso affinché possiamo elaborare la Sua richiesta.",
-        "submitFailed": "Non ha funzionato. Riprovi per favore."
+        "addressRequired": "Inserisci l'indirizzo del tuo edificio.",
+        "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+        "consentRequired": "Conferma il tuo consenso affinché possiamo elaborare la tua richiesta.",
+        "submitFailed": "Non ha funzionato. Riprova per favore."
       },
-      "addressHeadline": "Verifichiamo il Suo indirizzo manualmente",
-      "addressBody1": "Non siamo riusciti ad attribuire il Suo indirizzo automaticamente. Succede con strade nuove, indirizzi particolari ed edifici fuori dalla Svizzera.",
-      "addressBody2": "Ci scriva il Suo indirizzo e il Suo indirizzo e-mail. Verifichiamo il Suo tetto manualmente e La ricontattiamo con una valutazione."
+      "addressHeadline": "Verifichiamo il tuo indirizzo manualmente",
+      "addressBody1": "Non siamo riusciti ad attribuire il tuo indirizzo automaticamente. Succede con strade nuove, indirizzi particolari ed edifici fuori dalla Svizzera.",
+      "addressBody2": "Scrivici il tuo indirizzo e il tuo indirizzo e-mail. Verifichiamo il tuo tetto manualmente e ti ricontattiamo con una valutazione."
     },
     "screen3": {
-      "headline": "Per che cosa utilizza l'edificio?",
-      "helper": "Così stimiamo quanta elettricità solare consuma direttamente. Può anche saltare queste indicazioni.",
+      "headline": "Per che cosa utilizzi l'edificio?",
+      "helper": "Così stimiamo quanta elettricità solare consumi direttamente. Puoi anche saltare queste indicazioni.",
       "uses": {
         "office_trade": "Artigianato e ufficio",
         "industry": "Industria e produzione",
@@ -4312,8 +4054,8 @@
         "multi_family": "Casa plurifamiliare",
         "other": "Altro"
       },
-      "consumptionLabel": "Il Suo consumo di elettricità all'anno",
-      "consumptionHelper": "Lo trova sulla bolletta elettrica. Senza indicazione calcoliamo con un'azienda tipica del Suo settore.",
+      "consumptionLabel": "Il tuo consumo di elettricità all'anno",
+      "consumptionHelper": "Lo trovi sulla bolletta elettrica. Senza indicazione calcoliamo con un'azienda tipica del tuo settore.",
       "modeKwh": "in kWh",
       "modeChf": "in CHF",
       "kwhLabel": "Consumo annuo",
@@ -4324,89 +4066,89 @@
       "periodYear": "all'anno",
       "echoFromChf": "Corrisponde a circa {kwh} kWh all'anno.",
       "echoFromKwh": "Corrisponde a circa CHF {chf} all'anno.",
-      "echoNoTariff": "Non appena avremo caricato la tariffa elettrica del Suo comune, convertiremo l'importo in kWh.",
-      "kwhOutOfRange": "Per un'azienda ci aspettiamo da 2'000 a 5'000'000 kWh all'anno. Controlli il valore. Fino ad allora calcoliamo senza la Sua indicazione.",
-      "chfOutOfRange": "Questo importo non corrisponde a un'azienda per il periodo scelto. Controlli l'importo e il periodo. Fino ad allora calcoliamo senza la Sua indicazione.",
-      "tariffBasis": "La base è la tariffa commerciale del Suo comune {municipality} per il {year}.",
-      "tariffBasisFallback": "Per il Suo codice postale non disponiamo di una tariffa comunale per le aziende. Calcoliamo con una tariffa di riferimento svizzera.",
+      "echoNoTariff": "Non appena avremo caricato la tariffa elettrica del tuo comune, convertiremo l'importo in kWh.",
+      "kwhOutOfRange": "Per un'azienda ci aspettiamo da 2'000 a 5'000'000 kWh all'anno. Controlla il valore. Fino ad allora calcoliamo senza la tua indicazione.",
+      "chfOutOfRange": "Questo importo non corrisponde a un'azienda per il periodo scelto. Controlla l'importo e il periodo. Fino ad allora calcoliamo senza la tua indicazione.",
+      "tariffBasis": "La base è la tariffa commerciale del tuo comune {municipality} per il {year}.",
+      "tariffBasisFallback": "Per il tuo codice postale non disponiamo di una tariffa comunale per le aziende. Calcoliamo con una tariffa di riferimento svizzera.",
       "existingPv": "Sul tetto è già presente un impianto solare.",
       "button": "Visualizzare il risultato",
       "back": "Indietro"
     },
     "screen4": {
-      "headline": "La Sua valutazione è pronta",
-      "helper": "Mancano ancora la Sua azienda e i Suoi dati di contatto. Poi vedrà il Suo risultato completo.",
+      "headline": "La tua valutazione è pronta",
+      "helper": "Mancano ancora la tua azienda e i tuoi dati di contatto. Poi vedrai il tuo risultato completo.",
       "email": "Indirizzo e-mail",
       "company": "Azienda",
-      "name": "Il Suo nome",
+      "name": "Il tuo nome",
       "phone": "Numero di telefono",
-      "phoneHelper": "Il nostro team La chiama per esaminare il risultato insieme a Lei.",
+      "phoneHelper": "Il nostro team ti chiama per esaminare il risultato insieme a te.",
       "consent": "Acconsento che Free State AG utilizzi i miei dati per elaborare la mia richiesta. Si applica l'<privacyLink>informativa sulla privacy</privacyLink>.",
       "button": "Visualizzare il risultato",
       "reassurance": "Gratuito e senza impegno. Fornitore di Sciaffusa.",
-      "addressFallbackHelper": "Completi queste due informazioni. Non siamo riusciti a leggerle dal Suo indirizzo.",
+      "addressFallbackHelper": "Completa queste due informazioni. Non siamo riusciti a leggerle dal tuo indirizzo.",
       "postalCode": "Codice postale",
       "city": "Località",
       "back": "Indietro",
       "errors": {
-        "required": "Compili questo campo.",
-        "emailInvalid": "Inserisca un indirizzo e-mail valido.",
-        "phoneInvalid": "Inserisca un numero di telefono valido.",
-        "consentRequired": "Confermi il Suo consenso affinché possiamo elaborare la Sua richiesta.",
-        "submitFailed": "Non ha funzionato. Riprovi per favore.",
-        "serverFailed": "Non siamo riusciti a salvare i Suoi dati in questo momento. Riprovi tra un minuto."
+        "required": "Compila questo campo.",
+        "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+        "phoneInvalid": "Inserisci un numero di telefono valido.",
+        "consentRequired": "Conferma il tuo consenso affinché possiamo elaborare la tua richiesta.",
+        "submitFailed": "Non ha funzionato. Riprova per favore.",
+        "serverFailed": "Non siamo riusciti a salvare i tuoi dati in questo momento. Riprova tra un minuto."
       }
     },
     "result": {
-      "headline": "Ecco cosa può fare il tetto della Sua azienda",
-      "headlineLow": "Il Suo tetto è adatto a un impianto piccolo",
-      "headlineExistingPv": "Ecco il potenziale aggiuntivo del Suo tetto",
+      "headline": "Ecco cosa può fare il tetto della tua azienda",
+      "headlineLow": "Il tuo tetto è adatto a un impianto piccolo",
+      "headlineExistingPv": "Ecco il potenziale aggiuntivo del tuo tetto",
       "subline": "Calcolato con i dati ufficiali dei tetti della Confederazione per {address}.",
       "sublineRegister": "Stimato dal registro federale degli edifici per {address}.",
-      "lowBody": "La Sua superficie di tetto è limitata. La rimunerazione unica della Confederazione viene versata anche per gli impianti piccoli. Il nostro team verifica insieme a Lei se un impianto è conveniente per la Sua azienda.",
+      "lowBody": "La tua superficie di tetto è limitata. La rimunerazione unica della Confederazione viene versata anche per gli impianti piccoli. Il nostro team verifica insieme a te se un impianto è conveniente per la tua azienda.",
       "area": "Superficie del tetto utilizzabile",
       "kwp": "Potenza dell'impianto",
       "production": "Produzione di elettricità all'anno",
       "co2": "CO₂ evitato all'anno",
-      "moneyA": "Valore del Suo autoconsumo all'anno",
-      "moneyAFootnote": "È l'elettricità che non deve più acquistare dalla rete, calcolata con la tariffa di {municipality}.",
-      "moneyAFootnoteFallback": "È l'elettricità che non deve più acquistare dalla rete, calcolata con una tariffa di riferimento svizzera.",
+      "moneyA": "Valore del tuo autoconsumo all'anno",
+      "moneyAFootnote": "È l'elettricità che non devi più acquistare dalla rete, calcolata con la tariffa di {municipality}.",
+      "moneyAFootnoteFallback": "È l'elettricità che non devi più acquistare dalla rete, calcolata con una tariffa di riferimento svizzera.",
       "moneyB": "Risparmio con SolarFree all'anno, fino a",
-      "moneyBFootnote": "Con SolarFree costruiamo e gestiamo noi l'impianto. Lei non investe nulla e acquista l'elettricità solare fino al 30 per cento sotto la Sua tariffa di rete.",
-      "moneyUnavailable": "Non appena avremo caricato la tariffa elettrica del Suo comune, Le mostreremo il valore del Suo autoconsumo.",
+      "moneyBFootnote": "Con SolarFree costruiamo e gestiamo noi l'impianto. Tu non investi nulla e acquisti l'elettricità solare fino al 30 per cento sotto la tua tariffa di rete.",
+      "moneyUnavailable": "Non appena avremo caricato la tariffa elettrica del tuo comune, ti mostreremo il valore del tuo autoconsumo.",
       "subsidy": "Rimunerazione unica della Confederazione",
       "subsidyAboveTiers": "Per impianti oltre {kwp} kWp calcoliamo il contributo della Confederazione individualmente.",
       "subsidyExistingPv": "La rimunerazione unica della Confederazione vale per gli ampliamenti con riserva. Lo chiariamo durante il colloquio.",
-      "subsidyUnavailable": "Le calcoliamo la rimunerazione unica della Confederazione durante il colloquio.",
+      "subsidyUnavailable": "Ti calcoliamo la rimunerazione unica della Confederazione durante il colloquio.",
       "assumptionKnown": "Partiamo dal presupposto che consumi direttamente il {pct} per cento dell'elettricità solare, calcolato con {kwh} kWh di consumo annuo.",
-      "assumptionUnknown": "Partiamo dal presupposto che Lei consumi in proprio circa il {pct} per cento dell'energia solare, come un'azienda tipica del Suo settore. Con il Suo consumo effettivo il risultato diventa più preciso.",
+      "assumptionUnknown": "Partiamo dal presupposto che tu consumi in proprio circa il {pct} per cento dell'energia solare, come un'azienda tipica del tuo settore. Con il tuo consumo effettivo il risultato diventa più preciso.",
       "tariffLocal": "Tariffa elettrica {rp} Rp/kWh, categoria {cat}, {municipality} {year}.",
-      "tariffFallback": "Calcolato con una tariffa di riferimento svizzera di {rp} Rp/kWh. Terremo conto della Sua tariffa locale durante il colloquio.",
+      "tariffFallback": "Calcolato con una tariffa di riferimento svizzera di {rp} Rp/kWh. Terremo conto della tua tariffa locale durante il colloquio.",
       "estimateNote": "Tutte le cifre sono stime basate sui dati Sonnendach della Confederazione. L'offerta vincolante la elaboriamo dopo un sopralluogo.",
-      "estimateNoteRegister": "Tutte le cifre sono stime basate sul registro federale degli edifici, perché il Suo edificio non figura ancora nei dati Sonnendach. L'offerta vincolante la elaboriamo dopo un sopralluogo.",
-      "roofImageAlt": "Immagine aerea del Suo tetto con le superfici selezionate",
-      "reference": "Il Suo numero di riferimento è {reference}.",
+      "estimateNoteRegister": "Tutte le cifre sono stime basate sul registro federale degli edifici, perché il tuo edificio non figura ancora nei dati Sonnendach. L'offerta vincolante la elaboriamo dopo un sopralluogo.",
+      "roofImageAlt": "Immagine aerea del tuo tetto con le superfici selezionate",
+      "reference": "Il tuo numero di riferimento è {reference}.",
       "copyReference": "Copiare il riferimento",
       "copied": "Copiato",
-      "nextStep": "Il nostro team La chiama nei prossimi giorni lavorativi ed esamina il risultato insieme a Lei.",
-      "uploadTitle": "Carichi la bolletta dell'elettricità, se desidera",
-      "uploadHelper": "Con la Sua bolletta dell'elettricità calcoliamo con il Suo consumo e la Sua tariffa reali. PDF, JPG o PNG fino a 10 MB.",
+      "nextStep": "Il nostro team ti chiama nei prossimi giorni lavorativi ed esamina il risultato insieme a te.",
+      "uploadTitle": "Carica la bolletta dell'elettricità, se desideri",
+      "uploadHelper": "Con la tua bolletta dell'elettricità calcoliamo con il tuo consumo e la tua tariffa reali. PDF, JPG o PNG fino a 10 MB.",
       "uploadButton": "Selezionare il file",
       "uploadUploading": "Caricamento in corso, {pct} per cento.",
-      "uploadDone": "Grazie, abbiamo ricevuto la Sua bolletta dell'elettricità.",
-      "uploadError": "Il caricamento non ha funzionato. Riprovi per favore.",
-      "uploadTooLarge": "Il file supera i 10 MB. Selezioni un file più piccolo.",
-      "uploadUnsupported": "Carichi un file PDF, JPG o PNG.",
-      "phoneLine": "Preferisce parlarne direttamente? Ci chiami al {phone}.",
+      "uploadDone": "Grazie, abbiamo ricevuto la tua bolletta dell'elettricità.",
+      "uploadError": "Il caricamento non ha funzionato. Riprova per favore.",
+      "uploadTooLarge": "Il file supera i 10 MB. Seleziona un file più piccolo.",
+      "uploadUnsupported": "Carica un file PDF, JPG o PNG.",
+      "phoneLine": "Preferisci parlarne direttamente? Chiamaci al {phone}.",
       "restart": "Calcolare un altro edificio"
     },
     "confirmation": {
-      "loading": "Stiamo caricando il Suo risultato.",
+      "loading": "Stiamo caricando il tuo risultato.",
       "expiredHeadline": "Questo link è scaduto",
-      "expiredBody": "I link a un risultato sono validi 30 giorni. Ricalcoli il Suo tetto, oppure ci chiami al {phone}.",
+      "expiredBody": "I link a un risultato sono validi 30 giorni. Ricalcola il tuo tetto, oppure chiamaci al {phone}.",
       "expiredCta": "Al calcolatore solare",
       "notFoundHeadline": "Non troviamo questo risultato",
-      "notFoundBody": "Controlli il link della Sua e-mail, oppure ricalcoli il Suo tetto."
+      "notFoundBody": "Controlla il link della tua e-mail, oppure ricalcola il tuo tetto."
     }
   },
   "solarAboCalculator": {
@@ -4752,8 +4494,8 @@
         }
       },
       "solarDirect": {
-        "title": "La sua configurazione Solar-Direct",
-        "subtitle": "Esamini l'attrezzatura e scelga un pacchetto per acquistare il suo impianto fotovoltaico.",
+        "title": "La tua configurazione Solar-Direct",
+        "subtitle": "Esamina l'attrezzatura e scegli un pacchetto per acquistare il tuo impianto fotovoltaico.",
         "chooseYourPackage": "Scegli il pacchetto",
         "whatsIncluded": "Cosa è incluso",
         "requestOfferTitle": "Offerta d'acquisto personalizzata",
@@ -4825,7 +4567,7 @@
       },
       "subsidyAssistance": {
         "title": "Assistenza per sussidi inclusa",
-        "body": "Free State AG gestisce la domanda di sussidio a suo nome dopo il completamento dell'installazione."
+        "body": "Free State AG gestisce la domanda di sussidio a tuo nome dopo il completamento dell'installazione."
       },
       "warranty": {
         "title": "Panoramica delle garanzie",
@@ -4834,7 +4576,7 @@
         "maintenance": "Assistenza alla manutenzione disponibile per tutta la durata dell'impianto"
       },
       "purchaseFinancial": {
-        "title": "Il suo investimento",
+        "title": "Il tuo investimento",
         "grossPrice": "Prezzo lordo",
         "estimatedSubsidy": "Sussidio stimato",
         "subsidyUnavailable": "Stima del sussidio non disponibile; la calcoleremo durante l'integrazione.",
@@ -4844,7 +4586,7 @@
         "annualSavings": "Risparmi annuali",
         "paybackPeriod": "Periodo di ammortamento",
         "lifetime25y": "Risparmi in 25 anni",
-        "projectionNote": "Calcolato con un aumento del prezzo dell'elettricità del {escalation}% all'anno su 25 anni. Il risparmio fiscale dipende dalla Sua aliquota.",
+        "projectionNote": "Calcolato con un aumento del prezzo dell'elettricità del {escalation}% all'anno su 25 anni. Il risparmio fiscale dipende dalla tua aliquota.",
         "year": "anno",
         "yearsShort": "anni"
       },
@@ -4969,7 +4711,7 @@
       "dataProcessingSuffix": "e utilizzati per la preparazione di un'offerta, per la predisposizione del contratto e per il supporto clienti.",
       "marketing": "Desidero inoltre ricevere novità e offerte da Free State AG via e-mail (facoltativo)."
     },
-    "preselectedPackage": "Il suo pacchetto: {name} con {model}"
+    "preselectedPackage": "Il tuo pacchetto: {name} con {model}"
   },
   "solarSystemCarport": {
     "hero": {
@@ -11776,7 +11518,7 @@
   },
   "dashboard": {
     "workspace": {
-      "metaTitle": "La Sua valutazione",
+      "metaTitle": "La tua valutazione",
       "notFound": "Questo progetto non è stato trovato.",
       "backToProjects": "Torna alla panoramica dei progetti",
       "contractStatus": {
@@ -11810,20 +11552,20 @@
         "payTodayDirect": "Prezzo di acquisto in tre rate, 30 / 60 / 10",
         "ownerQuestion": "A chi appartiene l'impianto?",
         "ownerFree": "A Free State AG, per la durata del contratto",
-        "ownerDirect": "A Lei, dopo il pagamento finale",
+        "ownerDirect": "A te, dopo il pagamento finale",
         "whenMineQuestion": "Quando diventa mio?",
         "whenMineFree": "Dopo 35 anni, senza alcun pagamento",
         "whenMineDirect": "Dopo il pagamento finale",
         "headerSolarAbo": "SolarAbo",
         "payTodayAbo": "Nessun pagamento unico, rate mensili fisse",
-        "ownerAbo": "Sua, dal primo giorno",
+        "ownerAbo": "Tua, dal primo giorno",
         "whenMineAbo": "Dal primo giorno. Pagata dopo 25 anni."
       },
       "ownership": {
-        "question": "L'edificio Le appartiene?",
+        "question": "L'edificio ti appartiene?",
         "yes": "Sì",
         "no": "No, sono in affitto",
-        "helper": "Per l'installazione serve il consenso della proprietà. La aiutiamo volentieri."
+        "helper": "Per l'installazione serve il consenso della proprietà. Ti aiutiamo volentieri."
       },
       "actionsTitle": "Prossimi passi",
       "actions": {
@@ -11878,20 +11620,20 @@
           "uplift": "Supplemento di finanziamento +{percent}%",
           "total": "Importo totale"
         },
-        "modelChangedNotice": "Il Suo contratto è stato creato per un altro modello. Lo ricreiamo prima della firma.",
+        "modelChangedNotice": "Il tuo contratto è stato creato per un altro modello. Lo ricreiamo prima della firma.",
         "errors": {
           "disabled": "La firma digitale è temporaneamente disattivata. Riprova più tardi.",
           "cancelled": "Questo contratto è stato annullato. Ricarica la pagina.",
           "alreadySigned": "Questo contratto è già stato firmato.",
           "aboUnavailable": "I contratti SolarAbo non sono ancora disponibili. Richiedi un'offerta.",
-          "detailsMissing": "I dati del Suo indirizzo sono ancora incompleti. Il nostro team li completerà e La contatterà.",
+          "detailsMissing": "I dati del tuo indirizzo sono ancora incompleti. Il nostro team li completerà e ti contatterà.",
           "notOwner": "Solo la proprietà registrata può firmare il contratto.",
           "expired": "La richiesta di firma è scaduta. Ricomincia.",
           "generic": "Non è stato possibile avviare la firma. Riprova."
         }
       },
       "hero": {
-        "eyebrow": "La Sua valutazione",
+        "eyebrow": "La tua valutazione",
         "header": {
           "download": "Valutazione in PDF",
           "downloadPending": "In preparazione..."
@@ -11900,59 +11642,59 @@
       },
       "cta": {
         "primary": "Ricevi la tua offerta gratuita",
-        "primaryHelper": "Riceve la Sua valutazione in PDF e discutiamo con Lei il passo successivo. Non ci sono costi per Lei.",
+        "primaryHelper": "Ricevi la tua valutazione in PDF e discutiamo con te il passo successivo. Non ci sono costi per te.",
         "primaryPending": "Richiesta in corso...",
         "trustFree": "Gratuito e senza impegno.",
-        "trustSubsidy": "Ci occupiamo noi per Lei della domanda di rimunerazione unica.",
-        "trustPhone": "Preferisce parlare direttamente? Ci chiami al {phone}.",
-        "requestedTitle": "Abbiamo ricevuto la Sua richiesta.",
-        "requestedBody": "La Sua valutazione è in arrivo in PDF al Suo indirizzo e-mail. Per l'offerta vincolante ci serve un breve sopralluogo del Suo tetto.",
+        "trustSubsidy": "Ci occupiamo noi per te della domanda di rimunerazione unica.",
+        "trustPhone": "Preferisci parlare direttamente? Chiamaci al {phone}.",
+        "requestedTitle": "Abbiamo ricevuto la tua richiesta.",
+        "requestedBody": "La tua valutazione è in arrivo in PDF al tuo indirizzo e-mail. Per l'offerta vincolante ci serve un breve sopralluogo del tuo tetto.",
         "requestedOn": "Richiesta il {date}.",
-        "bookSlot": "Prenoti il sopralluogo",
-        "bookSlotHelper": "30 minuti, per telefono o sul posto. Sceglie Lei il momento.",
-        "updateTitle": "La Sua configurazione è cambiata.",
+        "bookSlot": "Prenota il sopralluogo",
+        "bookSlotHelper": "30 minuti, per telefono o sul posto. Scegli tu il momento.",
+        "updateTitle": "La tua configurazione è cambiata.",
         "updateButton": "Aggiorna l'offerta",
         "cooldown": "Aggiornamento possibile dal {date}.",
-        "notOwnerNote": "Lei affitta l'edificio. Richiediamo comunque l'offerta e chiariamo insieme a Lei il consenso della proprietà.",
-        "aboNote": "Per Solar-Abo prepariamo prima un'offerta personale per Lei."
+        "notOwnerNote": "Affitti l'edificio. Richiediamo comunque l'offerta e chiariamo insieme a te il consenso della proprietà.",
+        "aboNote": "Per Solar-Abo prepariamo prima un'offerta personale per te."
       },
       "sections": {
-        "numbers": "Le Sue cifre in dettaglio",
+        "numbers": "Le tue cifre in dettaglio",
         "numbersHelper": "Prezzo, incentivo e ammortamento.",
-        "energy": "Il Suo bilancio energetico",
+        "energy": "Il tuo bilancio energetico",
         "energyHelper": "Produzione e consumo nell'arco dell'anno.",
-        "equipment": "Cosa installiamo presso di Lei",
+        "equipment": "Cosa installiamo presso di te",
         "config": "Modifica la configurazione",
-        "configHelper": "Se modifica qualcosa qui, ricomponiamo la Sua offerta.",
+        "configHelper": "Se modifichi qualcosa qui, ricomponiamo la tua offerta.",
         "toggleAria": "Apri o chiudi la sezione {title}"
       },
       "numbers": {
-        "electricityPrice": "Il Suo prezzo dell'elettricità",
+        "electricityPrice": "Il tuo prezzo dell'elettricità",
         "feedInTariff": "Tariffa di ripresa",
         "rpPerKwh": "{rate} ct./kWh",
         "subsidyTier1": "Rimunerazione unica fino a {kwp} kWp",
         "subsidyTier2": "Rimunerazione unica oltre {kwp} kWp",
         "chfPerKwp": "CHF {amount} per kWp",
-        "costSourceEstimated": "Il prezzo è stimato dal nostro catalogo. Riceverà il prezzo vincolante dopo il sopralluogo.",
-        "costSourceSnapshot": "Il prezzo deriva dalla Sua configurazione salvata."
+        "costSourceEstimated": "Il prezzo è stimato dal nostro catalogo. Riceverai il prezzo vincolante dopo il sopralluogo.",
+        "costSourceSnapshot": "Il prezzo deriva dalla tua configurazione salvata."
       },
       "equipment": {
         "warrantyInstaller": "{years} anni di garanzia sull'installazione."
       },
       "money": {
-        "question": "Come desidera pagare?",
-        "helper": "Può cambiare in qualsiasi momento. Ricalcoliamo le Sue cifre e ricomponiamo la Sua offerta.",
-        "switchError": "Non è stato possibile cambiare modello. La preghiamo di riprovare.",
-        "unavailable": "Il Suo prezzo lo calcoliamo insieme a Lei durante il colloquio.",
+        "question": "Come desideri pagare?",
+        "helper": "Puoi cambiare in qualsiasi momento. Ricalcoliamo le tue cifre e ricomponiamo la tua offerta.",
+        "switchError": "Non è stato possibile cambiare modello. Ti preghiamo di riprovare.",
+        "unavailable": "Il tuo prezzo lo calcoliamo insieme a te durante il colloquio.",
         "direct": {
-          "priceLabel": "Il Suo prezzo dopo l'incentivo",
-          "priceLabelNoSubsidy": "Il Suo prezzo d'acquisto",
+          "priceLabel": "Il tuo prezzo dopo l'incentivo",
+          "priceLabelNoSubsidy": "Il tuo prezzo d'acquisto",
           "grossPrice": "Prezzo lordo",
           "subsidy": "Rimunerazione unica della Confederazione",
           "taxSaving": "Risparmio fiscale atteso (15%)",
           "effectiveCost": "Costo effettivo",
           "subsidyFootnote": "Incentivo unico secondo l'ordinanza sulla promozione dell'energia, versato tramite Pronovo.",
-          "subsidyUnavailable": "Al momento non riusciamo a recuperare l'importo della rimunerazione unica della Confederazione. Lo calcoleremo per Lei nella Sua analisi.",
+          "subsidyUnavailable": "Al momento non riusciamo a recuperare l'importo della rimunerazione unica della Confederazione. Lo calcoleremo per te nella tua analisi.",
           "projectionNote": "Ammortamento calcolato con un aumento del prezzo dell'elettricità del {escalation}% all'anno e un risparmio fiscale del {tax}% sull'investimento.",
           "savings": "Risparmio all'anno",
           "payback": "Ammortamento",
@@ -11960,53 +11702,53 @@
           "instalments": "Prezzo d'acquisto in tre rate, 30 / 60 / 10."
         },
         "free": {
-          "priceLabel": "Quello che paga oggi",
-          "discount": "Sconto sul Suo prezzo dell'elettricità",
+          "priceLabel": "Quello che paghi oggi",
+          "discount": "Sconto sul tuo prezzo dell'elettricità",
           "discountValue": "fino al {percent} %",
-          "tariff": "La Sua tariffa di rete",
+          "tariff": "La tua tariffa di rete",
           "tariffValue": "{rate} ct./kWh",
           "term": "Durata del contratto",
           "termYears": "{years} anni",
-          "savings": "Sconto sui Suoi acquisti di elettricità",
-          "ownership": "Dopo {years} anni l'impianto è Suo.",
-          "tariffFootnote": "Acquista da noi l'elettricità solare, a un prezzo inferiore alla Sua tariffa di rete. Durante la durata del contratto l'impianto appartiene a Free State AG."
+          "savings": "Sconto sui tuoi acquisti di elettricità",
+          "ownership": "Dopo {years} anni l'impianto è tuo.",
+          "tariffFootnote": "Acquisti da noi l'elettricità solare, a un prezzo inferiore alla tua tariffa di rete. Durante la durata del contratto l'impianto appartiene a Free State AG."
         },
         "abo": {
-          "priceLabel": "La Sua rata mensile",
-          "pending": "Finanziamo l'impianto anche in rate mensili su 25 anni. Ce ne parli.",
+          "priceLabel": "La tua rata mensile",
+          "pending": "Finanziamo l'impianto anche in rate mensili su 25 anni. Parlacene.",
           "points": {
-            "owner": "L'impianto è Suo.",
+            "owner": "L'impianto è tuo.",
             "fixed": "Rate mensili fisse su 25 anni.",
             "noUpfront": "Nessun pagamento unico."
           },
-          "subsidyNote": "La rimunerazione unica della Confederazione spetta a Lei e riduce l'importo finanziato.",
-          "next": "Richieda la Sua offerta gratuita. Poi calcoleremo insieme la Sua rata."
+          "subsidyNote": "La rimunerazione unica della Confederazione spetta a te e riduce l'importo finanziato.",
+          "next": "Richiedi la tua offerta gratuita. Poi calcoleremo insieme la tua rata."
         }
       },
       "facts": {
-        "title": "Che cosa riceve",
+        "title": "Che cosa ricevi",
         "system": "{kwp} kWp con {panels} moduli, {production} kWh di elettricità all'anno, {selfConsumption} per cento di autoconsumo.",
         "systemNoPanels": "{kwp} kWp, {production} kWh di elettricità all'anno, {selfConsumption} per cento di autoconsumo.",
         "co2": "Sono {co2} kg di CO2 in meno all'anno.",
-        "tariff": "Calcolato con {rate} ct./kWh per il Suo prezzo dell'elettricità.",
+        "tariff": "Calcolato con {rate} ct./kWh per il tuo prezzo dell'elettricità.",
         "estimate": "Queste cifre sono una stima basata sui dati federali ufficiali dei tetti. Il prezzo esatto lo fissiamo dopo il sopralluogo.",
-        "estimateRegister": "Queste cifre sono una stima basata sul registro federale degli edifici, perché la Sua casa non figura ancora nei dati dei tetti. Il prezzo esatto lo fissiamo dopo il sopralluogo."
+        "estimateRegister": "Queste cifre sono una stima basata sul registro federale degli edifici, perché la tua casa non figura ancora nei dati dei tetti. Il prezzo esatto lo fissiamo dopo il sopralluogo."
       },
       "phoneAsk": {
-        "title": "Come possiamo raggiungerLa al meglio?",
-        "helper": "Un numero di telefono ci aiuta in caso di domande sul Suo tetto. È facoltativo.",
+        "title": "Come possiamo raggiungerti al meglio?",
+        "helper": "Un numero di telefono ci aiuta in caso di domande sul tuo tetto. È facoltativo.",
         "label": "Numero di telefono",
         "button": "Salva",
         "saved": "Numero di telefono salvato. Grazie.",
-        "errorInvalid": "Inserisca un numero di telefono valido.",
-        "errorFailed": "Non ha funzionato. La preghiamo di riprovare."
+        "errorInvalid": "Inserisci un numero di telefono valido.",
+        "errorFailed": "Non ha funzionato. Ti preghiamo di riprovare."
       }
     },
     "status": {
-      "calculation_complete": "La Sua valutazione è pronta. Richieda la Sua offerta gratuita.",
-      "offer_requested": "Offerta richiesta. La contatteremo per il sopralluogo.",
-      "contract_pending": "Il Suo contratto è pronto per la firma.",
-      "contract_signed": "Il Suo contratto è firmato. Adesso pianifichiamo la Sua installazione.",
+      "calculation_complete": "La tua valutazione è pronta. Richiedi la tua offerta gratuita.",
+      "offer_requested": "Offerta richiesta. Ti contatteremo per il sopralluogo.",
+      "contract_pending": "Il tuo contratto è pronto per la firma.",
+      "contract_signed": "Il tuo contratto è firmato. Adesso pianifichiamo la tua installazione.",
       "contractNumber": "Contratto {number}."
     },
     "settings": {
@@ -12066,14 +11808,14 @@
       "signingDisabled": "La firma digitale è temporaneamente disattivata. Riprova più tardi.",
       "signingError": "Non è stato possibile avviare la firma. Riprova.",
       "signatureExpired": "La richiesta di firma è scaduta. Ricomincia.",
-      "modelChanged": "Il Suo contratto è stato creato per un altro modello. Lo ricreiamo prima della firma.",
-      "detailsMissing": "I dati del Suo indirizzo sono ancora incompleti. Il nostro team li completerà e La contatterà.",
+      "modelChanged": "Il tuo contratto è stato creato per un altro modello. Lo ricreiamo prima della firma.",
+      "detailsMissing": "I dati del tuo indirizzo sono ancora incompleti. Il nostro team li completerà e ti contatterà.",
       "checkBackLater": "La firma è ancora in corso. Ti preghiamo di ricontrollare più tardi.",
       "contractCancelled": "Questo contratto è stato annullato. Ricarica la pagina.",
       "alreadySigned": "Questo contratto è già stato firmato."
     },
     "project": {
-      "title": "La Sua valutazione",
+      "title": "La tua valutazione",
       "viewContract": "Vedi contratto",
       "models": {
         "solarFree": "SolarFree",
@@ -12086,15 +11828,15 @@
         "lifetimeLine": "Circa CHF {amount} in 25 anni.",
         "systemLine": "{kwp} kWp, {production} kWh all'anno, {co2} kg di CO2 in meno.",
         "open": "Apri la valutazione",
-        "savingsUnavailable": "Calcoleremo il Suo risparmio insieme a Lei durante il colloquio."
+        "savingsUnavailable": "Calcoleremo il tuo risparmio insieme a te durante il colloquio."
       },
       "empty": {
         "title": "Nessuna valutazione",
-        "body": "Calcoli in due minuti quanto produce il Suo tetto e quanto paga la Confederazione.",
+        "body": "Calcola in due minuti quanto produce il tuo tetto e quanto paga la Confederazione.",
         "cta": "Avvia il calcolatore"
       },
       "error": {
-        "title": "Non è stato possibile caricare la Sua valutazione.",
+        "title": "Non è stato possibile caricare la tua valutazione.",
         "retry": "Riprova"
       }
     },
@@ -13049,8 +12791,8 @@
       "description": "Risanamento del tetto in tutta la Svizzera con un solo fornitore, dal primo controllo al collaudo, alle riparazioni e alla manutenzione, per tetti a falde, tetti piani e tetti di capannoni, con lattoneria, isolamento e cemento-amianto."
     },
     "hero": {
-      "title": "Il Suo tetto, dal primo controllo al collaudo",
-      "subtitle": "Ha un solo partner contrattuale, anche per le riparazioni e la manutenzione successive. Free State AG si occupa del risanamento del Suo tetto in tutta la Svizzera con squadre proprie.",
+      "title": "Il tuo tetto, dal primo controllo al collaudo",
+      "subtitle": "Hai un solo partner contrattuale, anche per le riparazioni e la manutenzione successive. Free State AG si occupa del risanamento del tuo tetto in tutta la Svizzera con squadre proprie.",
       "points": {
         "offer": "Offerta scritta",
         "fixedPrice": "Prezzo fisso dopo il sopralluogo",
@@ -13058,12 +12800,12 @@
       }
     },
     "estimatorSection": {
-      "title": "Quanto costa un tetto come il Suo?",
-      "intro": "Inserisca il Suo indirizzo. Leggiamo superficie, forma del tetto e anno di costruzione dai dati della Confederazione e Le mostriamo il risultato. Per questo non ci servono i Suoi dati di contatto."
+      "title": "Quanto costa un tetto come il tuo?",
+      "intro": "Inserisci il tuo indirizzo. Leggiamo superficie, forma del tetto e anno di costruzione dai dati della Confederazione e ti mostriamo il risultato. Per questo non ci servono i tuoi dati di contatto."
     },
     "due": {
       "title": "Questi segnali richiedono un controllo",
-      "intro": "Molti può riconoscerli anche Lei, dal solaio o dalla strada.",
+      "intro": "Molti puoi riconoscerli anche tu, dal solaio o dalla strada.",
       "signs": {
         "leak": "Macchie d'acqua sul soffitto o umidità nel solaio.",
         "tiles": "Tegole rotte, spostate o mancanti.",
@@ -13082,15 +12824,15 @@
     },
     "services": {
       "title": "Tutto il tetto, un solo contratto",
-      "intro": "Il Suo interlocutore resta Free State AG, dal primo controllo fino a dopo il collaudo. I lavori sono eseguiti dalle nostre squadre.",
+      "intro": "Il tuo interlocutore resta Free State AG, dal primo controllo fino a dopo il collaudo. I lavori sono eseguiti dalle nostre squadre.",
       "items": {
         "check": {
           "title": "Controllo",
-          "body": "Esaminiamo sul posto copertura, sottocopertura, isolamento e raccordi e Le diciamo che cosa serve."
+          "body": "Esaminiamo sul posto copertura, sottocopertura, isolamento e raccordi e ti diciamo che cosa serve."
         },
         "offer": {
           "title": "Offerta",
-          "body": "Riceve un'offerta scritta con superficie, composizione e prezzo, da presentare alla Sua banca o alla Sua amministrazione."
+          "body": "Ricevi un'offerta scritta con superficie, composizione e prezzo, da presentare alla tua banca o alla tua amministrazione."
         },
         "permit": {
           "title": "Licenza e incentivi",
@@ -13102,7 +12844,7 @@
         },
         "steep": {
           "title": "Tetto a falde",
-          "body": "Rifacciamo la copertura del Suo tetto a falde, sottocopertura compresa."
+          "body": "Rifacciamo la copertura del tuo tetto a falde, sottocopertura compresa."
         },
         "flat": {
           "title": "Tetto piano",
@@ -13110,7 +12852,7 @@
         },
         "hall": {
           "title": "Tetto di capannone",
-          "body": "Risaniamo le grandi coperture di capannoni artigianali e industriali e pianifichiamo le tappe con la Sua azienda."
+          "body": "Risaniamo le grandi coperture di capannoni artigianali e industriali e pianifichiamo le tappe con la tua azienda."
         },
         "spengler": {
           "title": "Lattoneria",
@@ -13130,11 +12872,11 @@
         },
         "handover": {
           "title": "Collaudo",
-          "body": "Alla fine collaudiamo il tetto insieme a Lei. Da quel giorno decorre il periodo di garanzia."
+          "body": "Alla fine collaudiamo il tetto insieme a te. Da quel giorno decorre il periodo di garanzia."
         },
         "repair": {
           "title": "Riparazioni e manutenzione",
-          "body": "Anche dopo il collaudo restiamo il Suo interlocutore per riparazioni e manutenzione."
+          "body": "Anche dopo il collaudo restiamo il tuo interlocutore per riparazioni e manutenzione."
         }
       },
       "layersLabel": "Scegliere il tipo di tetto",
@@ -13187,7 +12929,7 @@
     },
     "cost": {
       "title": "Quanto costa risanare un tetto",
-      "intro": "Il prezzo dipende da pochi elementi. Glieli mostriamo apertamente, insieme a dati pubblici della Confederazione.",
+      "intro": "Il prezzo dipende da pochi elementi. Te li mostriamo apertamente, insieme a dati pubblici della Confederazione.",
       "driversTitle": "Che cosa determina il prezzo",
       "drivers": {
         "fixed": {
@@ -13211,15 +12953,15 @@
       "stages": {
         "orientation": {
           "title": "Orientamento",
-          "body": "Il calcolatore mostra valori pubblici per il Suo edificio, a partire dal Suo indirizzo. Non è un'offerta."
+          "body": "Il calcolatore mostra valori pubblici per il tuo edificio, a partire dal tuo indirizzo. Non è un'offerta."
         },
         "draft": {
           "title": "Offerta indicativa",
-          "body": "Se il tetto lo consente, dopo la nostra telefonata riceve un'offerta indicativa scritta e dettagliata per voci, con superficie, composizione e prezzo. Amianto e stato del tetto non sono ancora stati controllati."
+          "body": "Se il tetto lo consente, dopo la nostra telefonata ricevi un'offerta indicativa scritta e dettagliata per voci, con superficie, composizione e prezzo. Amianto e stato del tetto non sono ancora stati controllati."
         },
         "fixed": {
           "title": "Prezzo fisso",
-          "body": "Dopo il sopralluogo riceve un prezzo fisso, che viene ripreso tale e quale nel contratto. Amianto e danni alla struttura del tetto figurano a parte."
+          "body": "Dopo il sopralluogo ricevi un prezzo fisso, che viene ripreso tale e quale nel contratto. Amianto e danni alla struttura del tetto figurano a parte."
         }
       },
       "table": {
@@ -13250,7 +12992,7 @@
     },
     "subsidy": {
       "title": "Che cosa pagano i Cantoni e che cosa cambia per le imposte",
-      "intro": "I contributi variano da Cantone a Cantone. La tabella riporta cinque esempi, stato 2026. Verifichiamo l'importo per il Suo Cantone nell'offerta.",
+      "intro": "I contributi variano da Cantone a Cantone. La tabella riporta cinque esempi, stato 2026. Verifichiamo l'importo per il tuo Cantone nell'offerta.",
       "table": {
         "canton": "Cantone",
         "rate": "Isolamento",
@@ -13273,13 +13015,13 @@
       "taxTitle": "Imposte dal 2029",
       "tax1": "Dal 1° gennaio 2029 la deduzione per la manutenzione degli immobili viene meno per le abitazioni occupate dal proprietario, a livello federale, cantonale e comunale. Nello stesso momento viene meno il valore locativo.",
       "tax2": "La deduzione resta per le abitazioni locate o affittate.",
-      "tax3": "La cosa migliore è chiedere al Suo ufficio di tassazione quale data conta per i Suoi lavori.",
+      "tax3": "La cosa migliore è chiedere al tuo ufficio di tassazione quale data conta per i tuoi lavori.",
       "taxSource": "Fonte: Consiglio federale, comunicato stampa del 1° aprile 2026.",
       "taxDate": "01.01.2029"
     },
     "solarTeaser": {
       "title": "Prevedere subito anche il solare",
-      "body": "Quando si rinnova il tetto, un impianto solare può sfruttare lo stesso ponteggio e la stessa fase di cantiere. Se e quando volere il solare lo decide Lei.",
+      "body": "Quando si rinnova il tetto, un impianto solare può sfruttare lo stesso ponteggio e la stessa fase di cantiere. Se e quando volere il solare lo decidi tu.",
       "link": "Progettare insieme tetto e solare",
       "imageAlt": "Installatore che porta un modulo solare lungo il colmo di un tetto in tegole con ponteggio"
     },
@@ -13288,7 +13030,7 @@
       "blocks": {
         "owners": {
           "title": "Proprietari di casa",
-          "body": "Un risanamento del tetto si può finanziare aumentando l'ipoteca, se mezzi propri e reddito sono sufficienti. Alcune banche concedono un tasso agevolato per misure energetiche come l'isolamento del tetto. Se il Suo progetto ne ha diritto e che cosa è sostenibile lo chiarisce la Sua banca."
+          "body": "Un risanamento del tetto si può finanziare aumentando l'ipoteca, se mezzi propri e reddito sono sufficienti. Alcune banche concedono un tasso agevolato per misure energetiche come l'isolamento del tetto. Se il tuo progetto ne ha diritto e che cosa è sostenibile lo chiarisce la tua banca."
         },
         "condominium": {
           "title": "Proprietà per piani",
@@ -13296,15 +13038,15 @@
         },
         "companies": {
           "title": "Aziende",
-          "body": "Ne parli presto con la Sua banca. Anche per le aziende esistono tassi agevolati per le misure energetiche."
+          "body": "Parlane presto con la tua banca. Anche per le aziende esistono tassi agevolati per le misure energetiche."
         },
         "offer": {
-          "title": "Che cosa riceve da noi",
-          "body": "Un'offerta scritta con superficie, composizione e prezzo, da presentare alla Sua banca, alla Sua amministrazione o all'assemblea."
+          "title": "Che cosa ricevi da noi",
+          "body": "Un'offerta scritta con superficie, composizione e prezzo, da presentare alla tua banca, alla tua amministrazione o all'assemblea."
         },
         "subsidies": {
           "title": "Incentivi",
-          "body": "La domanda va inoltrata prima dell'inizio dei lavori. Le indichiamo quale programma vale nel Suo Cantone e ci occupiamo della domanda."
+          "body": "La domanda va inoltrata prima dell'inizio dei lavori. Ti indichiamo quale programma vale nel tuo Cantone e ci occupiamo della domanda."
         }
       },
       "closing": "Free State AG non concede né procura crediti."
@@ -13314,11 +13056,11 @@
       "steps": {
         "request": {
           "title": "Richiesta",
-          "body": "Ci invii nome, telefono e indirizzo, con o senza calcolatore."
+          "body": "Inviaci nome, telefono e indirizzo, con o senza calcolatore."
         },
         "callback": {
           "title": "Telefonata",
-          "body": "La chiamiamo e chiariamo di che cosa ha bisogno il Suo tetto. Se il tetto lo consente, Le inviamo poi un'offerta indicativa scritta."
+          "body": "Ti chiamiamo e chiariamo di che cosa ha bisogno il tuo tetto. Se il tetto lo consente, ti inviamo poi un'offerta indicativa scritta."
         },
         "visit": {
           "title": "Sopralluogo",
@@ -13326,15 +13068,15 @@
         },
         "offer": {
           "title": "Offerta a prezzo fisso",
-          "body": "Riceve un'offerta scritta con superficie, composizione e prezzo fisso."
+          "body": "Ricevi un'offerta scritta con superficie, composizione e prezzo fisso."
         },
         "subsidy": {
           "title": "Incentivi e licenza",
-          "body": "Le indichiamo quale programma vale nel Suo Cantone, ci occupiamo della domanda di incentivo prima dell'inizio dei lavori e verifichiamo se serve una licenza edilizia."
+          "body": "Ti indichiamo quale programma vale nel tuo Cantone, ci occupiamo della domanda di incentivo prima dell'inizio dei lavori e verifichiamo se serve una licenza edilizia."
         },
         "execution": {
           "title": "Lavori e collaudo",
-          "body": "Le nostre squadre eseguono i lavori. Alla fine collaudiamo il tetto insieme a Lei."
+          "body": "Le nostre squadre eseguono i lavori. Alla fine collaudiamo il tetto insieme a te."
         }
       },
       "imageAlt": "Copritetto su un tetto in tegole dietro un ponteggio con rete di sicurezza"
@@ -13344,7 +13086,7 @@
       "items": {
         "contract": {
           "title": "Un solo contratto",
-          "body": "Il Suo contratto è con Free State AG, per tutti i lavori sul tetto."
+          "body": "Il tuo contratto è con Free State AG, per tutti i lavori sul tetto."
         },
         "safety": {
           "title": "Sicurezza in cantiere",
@@ -13352,7 +13094,7 @@
         },
         "warranty": {
           "title": "Garanzia",
-          "body": "La garanzia per i difetti dura cinque anni dal collaudo, come prevede la legge per le opere immobiliari. Ha 60 giorni di tempo per segnalare un difetto, dalla scoperta se si tratta di un difetto occulto (CO art. 367, 370 e 371)."
+          "body": "La garanzia per i difetti dura cinque anni dal collaudo, come prevede la legge per le opere immobiliari. Hai 60 giorni di tempo per segnalare un difetto, dalla scoperta se si tratta di un difetto occulto (CO art. 367, 370 e 371)."
         },
         "asbestos": {
           "title": "Cemento-amianto",
@@ -13367,7 +13109,7 @@
       "items": {
         "1": {
           "question": "Quanto costa risanare un tetto?",
-          "answer": "Secondo i dati grezzi del Programma Edifici (Ufficio federale dell'energia), in Svizzera dal 2023 al 2025 i risanamenti del tetto incentivati con isolamento sono costati in mediana CHF 69'400 per caso per una casa unifamiliare. Il quartile inferiore era di CHF 45'800, quello superiore di CHF 102'000. Questi importi possono comprendere altri lavori e la fonte non indica l'IVA. Il nostro calcolatore Le mostra questi valori pubblici per il Suo edificio. Il prezzo fisso lo riceve dopo il sopralluogo."
+          "answer": "Secondo i dati grezzi del Programma Edifici (Ufficio federale dell'energia), in Svizzera dal 2023 al 2025 i risanamenti del tetto incentivati con isolamento sono costati in mediana CHF 69'400 per caso per una casa unifamiliare. Il quartile inferiore era di CHF 45'800, quello superiore di CHF 102'000. Questi importi possono comprendere altri lavori e la fonte non indica l'IVA. Il nostro calcolatore ti mostra questi valori pubblici per il tuo edificio. Il prezzo fisso lo ricevi dopo il sopralluogo."
         },
         "2": {
           "question": "Quando va rifatto un tetto?",
@@ -13375,7 +13117,7 @@
         },
         "3": {
           "question": "Basta una riparazione o serve un risanamento?",
-          "answer": "Dipende dallo stato di copertura, sottocopertura e isolamento. Secondo Involucro edilizio Svizzera le tegole stesse possono durare fino a 100 anni, quindi un risanamento riguarda spesso gli strati sottostanti. Dopo il sopralluogo Le diciamo se basta una riparazione."
+          "answer": "Dipende dallo stato di copertura, sottocopertura e isolamento. Secondo Involucro edilizio Svizzera le tegole stesse possono durare fino a 100 anni, quindi un risanamento riguarda spesso gli strati sottostanti. Dopo il sopralluogo ti diciamo se basta una riparazione."
         },
         "4": {
           "question": "Quanto dura un risanamento del tetto?",
@@ -13387,15 +13129,15 @@
         },
         "6": {
           "question": "Per risanare il tetto serve una licenza edilizia?",
-          "answer": "Dipende dal Cantone, dalla zona e dall'entità dei lavori. Lo verifichiamo per il Suo tetto e ci occupiamo della domanda, se serve."
+          "answer": "Dipende dal Cantone, dalla zona e dall'entità dei lavori. Lo verifichiamo per il tuo tetto e ci occupiamo della domanda, se serve."
         },
         "7": {
           "question": "Esistono incentivi?",
-          "answer": "I programmi cantonali versano un contributo per m² per l'isolamento, ad esempio CHF 40 a Zurigo e CHF 50 a Sciaffusa, stato 2026. La domanda va inoltrata prima dell'inizio dei lavori. Chiariamo l'importo per il Suo Cantone nell'offerta."
+          "answer": "I programmi cantonali versano un contributo per m² per l'isolamento, ad esempio CHF 40 a Zurigo e CHF 50 a Sciaffusa, stato 2026. La domanda va inoltrata prima dell'inizio dei lavori. Chiariamo l'importo per il tuo Cantone nell'offerta."
         },
         "8": {
           "question": "Che cosa cambia per le imposte?",
-          "answer": "Dal 1° gennaio 2029 la deduzione per la manutenzione degli immobili viene meno per le abitazioni occupate dal proprietario, e nello stesso momento viene meno il valore locativo. La deduzione resta per le abitazioni locate o affittate. La cosa migliore è chiedere al Suo ufficio di tassazione quale data conta per i Suoi lavori."
+          "answer": "Dal 1° gennaio 2029 la deduzione per la manutenzione degli immobili viene meno per le abitazioni occupate dal proprietario, e nello stesso momento viene meno il valore locativo. La deduzione resta per le abitazioni locate o affittate. La cosa migliore è chiedere al tuo ufficio di tassazione quale data conta per i tuoi lavori."
         },
         "9": {
           "question": "Che cosa succede se nel tetto c'è amianto?",
@@ -13409,14 +13151,14 @@
     },
     "form": {
       "heading": {
-        "estimator": "Richieda un'offerta per il Suo tetto",
-        "final": "Parliamo del Suo tetto",
-        "solar": "Richieda un'offerta per tetto e solare",
-        "fallback": "Richiesta per il Suo tetto"
+        "estimator": "Richiedi un'offerta per il tuo tetto",
+        "final": "Parliamo del tuo tetto",
+        "solar": "Richiedi un'offerta per tetto e solare",
+        "fallback": "Richiesta per il tuo tetto"
       },
-      "intro": "Bastano nome, telefono e indirizzo. La chiamiamo e chiariamo i dettagli del Suo tetto.",
+      "intro": "Bastano nome, telefono e indirizzo. Ti chiamiamo e chiariamo i dettagli del tuo tetto.",
       "moreDetails": "Altre informazioni (facoltativo)",
-      "choose": "Selezioni",
+      "choose": "Seleziona",
       "objectType": {
         "label": "Edificio",
         "options": {
@@ -13454,32 +13196,32 @@
           "has_pv": "Ne ho già uno"
         }
       },
-      "submit": "Invii la richiesta",
-      "successTitle": "Grazie, abbiamo ricevuto la Sua richiesta.",
-      "successBody": "La chiamiamo al numero {phone} per parlare del Suo tetto.",
+      "submit": "Invia la richiesta",
+      "successTitle": "Grazie, abbiamo ricevuto la tua richiesta.",
+      "successBody": "Ti chiamiamo al numero {phone} per parlare del tuo tetto.",
       "errors": {
-        "required": "Compili questo campo.",
-        "phoneInvalid": "Inserisca un numero di telefono valido, ad esempio 079 123 45 67.",
-        "postalCodeInvalid": "Inserisca un NPA di quattro cifre.",
-        "emailInvalid": "Inserisca un indirizzo e-mail valido.",
-        "consentRequired": "Confermi il Suo consenso affinché possiamo elaborare la Sua richiesta.",
-        "submitFailed": "Non ha funzionato. Riprovi oppure ci chiami al numero {phone}.",
-        "rateLimited": "Ha appena inviato diverse richieste. Riprovi tra qualche minuto oppure ci chiami al numero {phone}."
+        "required": "Compila questo campo.",
+        "phoneInvalid": "Inserisci un numero di telefono valido, ad esempio 079 123 45 67.",
+        "postalCodeInvalid": "Inserisci un NPA di quattro cifre.",
+        "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+        "consentRequired": "Conferma il tuo consenso affinché possiamo elaborare la tua richiesta.",
+        "submitFailed": "Non ha funzionato. Riprova oppure chiamaci al numero {phone}.",
+        "rateLimited": "Hai appena inviato diverse richieste. Riprova tra qualche minuto oppure chiamaci al numero {phone}."
       },
-      "call": "Preferisce chiamare?"
+      "call": "Preferisci chiamare?"
     },
     "estimator": {
       "loading": "Stiamo leggendo i dati della Confederazione. Ci vuole qualche secondo.",
-      "restart": "Inserisca un altro indirizzo",
+      "restart": "Inserisci un altro indirizzo",
       "address": {
         "title": "Qual è l'indirizzo dell'edificio?",
         "placeholder": "Via n., NPA località",
-        "hint": "Scelga il Suo indirizzo dall'elenco.",
-        "noResults": "Non troviamo questo indirizzo. Controlli come è scritto o ci invii la Sua richiesta più in basso nella pagina.",
-        "searchFailed": "La ricerca dell'indirizzo non risponde in questo momento. Riprovi tra poco.",
-        "rateLimited": "Ha appena cercato molti indirizzi. Riprovi tra qualche minuto.",
+        "hint": "Scegli il tuo indirizzo dall'elenco.",
+        "noResults": "Non troviamo questo indirizzo. Controlla come è scritto o inviaci la tua richiesta più in basso nella pagina.",
+        "searchFailed": "La ricerca dell'indirizzo non risponde in questo momento. Riprova tra poco.",
+        "rateLimited": "Hai appena cercato molti indirizzi. Riprova tra qualche minuto.",
         "cta": "Vedere il risultato",
-        "direct": "Preferisce contattarci direttamente?"
+        "direct": "Preferisci contattarci direttamente?"
       },
       "chooser": {
         "title": "Di quale edificio si tratta?",
@@ -13488,7 +13230,7 @@
         "imageAlt": "Immagine aerea dell'edificio {number}"
       },
       "roof": {
-        "title": "Il Suo tetto",
+        "title": "Il tuo tetto",
         "area": "Superficie del tetto",
         "areaValue": "{area} m²",
         "form": "Forma del tetto",
@@ -13499,23 +13241,23 @@
           "shed": "Tetto a shed"
         },
         "year": "Anno di costruzione",
-        "imageAlt": "Immagine aerea del Suo edificio",
+        "imageAlt": "Immagine aerea del tuo edificio",
         "imageCredit": "Immagine aerea: swisstopo, SWISSIMAGE",
-        "splitNote": "Il Suo tetto è collegato a un edificio vicino. La superficie indica la Sua parte.",
-        "coverQuestion": "Qual è oggi la copertura del Suo tetto?",
+        "splitNote": "Il tuo tetto è collegato a un edificio vicino. La superficie indica la tua parte.",
+        "coverQuestion": "Qual è oggi la copertura del tuo tetto?",
         "coverAnswers": {
           "tile": "Tegole",
           "fibre_cement": "Fibrocemento",
           "metal": "Metallo",
           "unknown": "Non lo so"
         },
-        "wholeRoofQuestion": "Secondo Tettosolare.ch la superficie del tetto è molto maggiore della superficie dell'edificio nel registro. Tutto il tetto fa parte del Suo indirizzo?",
+        "wholeRoofQuestion": "Secondo Tettosolare.ch la superficie del tetto è molto maggiore della superficie dell'edificio nel registro. Tutto il tetto fa parte del tuo indirizzo?",
         "wholeRoofYes": "Sì",
         "wholeRoofNo": "No",
         "next": "Al risultato"
       },
       "result": {
-        "title": "Il Suo risultato",
+        "title": "Il tuo risultato",
         "marketReference": {
           "heading": "Ecco quanto sono costati risanamenti del tetto comparabili con isolamento",
           "chfJob": {
@@ -13526,10 +13268,10 @@
             "value": "Da CHF {low} a {high} per m² di superficie isolata",
             "label": "metà centrale dei progetti incentivati in Svizzera, mediana CHF {median} per m²"
           },
-          "note": "Sono valori del Programma Edifici della Confederazione e dei Cantoni, dal 2023 al 2025, non un'offerta nostra. Possono comprendere altri lavori. Il Suo prezzo lo indichiamo nell'offerta, il prezzo fisso dopo il sopralluogo."
+          "note": "Sono valori del Programma Edifici della Confederazione e dei Cantoni, dal 2023 al 2025, non un'offerta nostra. Possono comprendere altri lavori. Il tuo prezzo lo indichiamo nell'offerta, il prezzo fisso dopo il sopralluogo."
         },
         "perM2": {
-          "label": "Il nostro prezzo per m² per il rifacimento completo del Suo tetto piano",
+          "label": "Il nostro prezzo per m² per il rifacimento completo del tuo tetto piano",
           "inclVat": "Da CHF {low} a {high} per m², IVA 8.1 % inclusa",
           "exclVat": "Da CHF {low} a {high} per m², IVA esclusa",
           "includedTitle": "Compreso",
@@ -13540,24 +13282,24 @@
             "planning": "Progettazione e direzione dei lavori",
             "pah_bitumen": "Vecchio rivestimento contenente catrame"
           },
-          "disclaimer": "Non è un'offerta. Il prezzo fisso lo riceve dopo il sopralluogo."
+          "disclaimer": "Non è un'offerta. Il prezzo fisso lo ricevi dopo il sopralluogo."
         },
         "visit": {
-          "title": "Per il Suo tetto indichiamo il prezzo dopo il sopralluogo",
+          "title": "Per il tuo tetto indichiamo il prezzo dopo il sopralluogo",
           "reasons": {
-            "shared_roof": "Il Suo tetto è collegato a un edificio vicino. Chiariamo sul posto quale parte è Sua e come si svolgerebbero i lavori.",
+            "shared_roof": "Il tuo tetto è collegato a un edificio vicino. Chiariamo sul posto quale parte è tua e come si svolgerebbero i lavori.",
             "flat_small": "Per i tetti piani sotto i 400 m² non abbiamo dati sufficienti per un valore indicativo.",
             "farm": "Per gli edifici agricoli il prezzo dipende molto dalla costruzione e dall'uso.",
             "shed": "Per i tetti a shed il prezzo dipende molto dalla struttura.",
-            "mixed": "Il Suo tetto è in parte a falde e in parte piano. La cosa migliore è esaminarlo sul posto.",
-            "oversized_unanswered": "Secondo Tettosolare.ch la superficie del tetto è molto maggiore della superficie dell'edificio nel registro. Chiariamo sul posto se tutto il tetto fa parte del Suo indirizzo.",
+            "mixed": "Il tuo tetto è in parte a falde e in parte piano. La cosa migliore è esaminarlo sul posto.",
+            "oversized_unanswered": "Secondo Tettosolare.ch la superficie del tetto è molto maggiore della superficie dell'edificio nel registro. Chiariamo sul posto se tutto il tetto fa parte del tuo indirizzo.",
             "no_roof_data": "La Confederazione non ha dati sul tetto di questo edificio. Esamineremo il tetto sul posto.",
             "other": "Per questo tipo di edificio non abbiamo un valore indicativo.",
             "high_rise": "Negli edifici con molti piani, accesso, gru e sicurezza determinano il prezzo. Lo valutiamo sul posto."
           }
         },
         "young": {
-          "body": "Secondo il registro la Sua casa è nuova. Il tetto è probabilmente recente.",
+          "body": "Secondo il registro la tua casa è nuova. Il tetto è probabilmente recente.",
           "link": "Al calcolatore solare"
         },
         "subsidy": {
@@ -13566,8 +13308,8 @@
           "upTo": "Fino a CHF {high}",
           "rate": "CHF {rate} per m² di tetto isolato. Sui tetti molto grandi l'importo per m² può essere più basso.",
           "belowMinimum": "Con questa superficie l'importo resta sotto il contributo minimo del Cantone.",
-          "notChecked": "Chiariamo l'incentivo del Suo Cantone nell'offerta.",
-          "notEligible": "Il programma del Suo Cantone richiede una licenza edilizia anteriore al 2000. Secondo il registro il Suo edificio è più recente.",
+          "notChecked": "Chiariamo l'incentivo del tuo Cantone nell'offerta.",
+          "notEligible": "Il programma del tuo Cantone richiede una licenza edilizia anteriore al 2000. Secondo il registro il tuo edificio è più recente.",
           "conditionsTitle": "Condizioni",
           "conditions": {
             "u_value": "Isolamento con un valore U massimo di 0,20 W/m²K",
@@ -13587,24 +13329,24 @@
           "body": "Spazio per circa {kwp} kWp e una produzione di circa {kwh} kWh all'anno.",
           "link": "Progettare insieme tetto e solare"
         },
-        "asbestos": "Secondo il registro il Suo edificio risale al 1990 o prima. In presenza di fibrocemento verifichiamo se contiene amianto prima dell'offerta e indichiamo la rimozione a parte.",
-        "request": "Richieda un'offerta",
+        "asbestos": "Secondo il registro il tuo edificio risale al 1990 o prima. In presenza di fibrocemento verifichiamo se contiene amianto prima dell'offerta e indichiamo la rimozione a parte.",
+        "request": "Richiedi un'offerta",
         "sources": "Fonti: Tettosolare.ch (Ufficio federale dell'energia), Registro federale degli edifici e delle abitazioni (Ufficio federale di statistica), registro Pronovo.",
         "wrongData": "Dati non corretti?"
       },
       "failure": {
-        "retry": "Riprovi",
+        "retry": "Riprova",
         "not_found": {
           "title": "Non troviamo questo edificio",
-          "body": "Il registro non contiene una voce corrispondente a questo indirizzo. Ci invii la Sua richiesta, lo chiariremo di persona."
+          "body": "Il registro non contiene una voce corrispondente a questo indirizzo. Inviaci la tua richiesta, lo chiariremo di persona."
         },
         "lookup_failed": {
           "title": "I registri non rispondono in questo momento",
-          "body": "Riprovi oppure ci invii direttamente la Sua richiesta."
+          "body": "Riprova oppure inviaci direttamente la tua richiesta."
         },
         "rate_limited": {
           "title": "Troppe richieste",
-          "body": "Riprovi tra qualche minuto, ci invii direttamente la Sua richiesta oppure ci chiami al numero {phone}."
+          "body": "Riprova tra qualche minuto, inviaci direttamente la tua richiesta oppure chiamaci al numero {phone}."
         }
       },
       "example": {
@@ -13617,8 +13359,8 @@
     "solarPage": {
       "hero": {
         "title": "Progettare insieme tetto e impianto solare",
-        "subtitle": "Se il Suo tetto viene rinnovato, può decidere ora anche sul solare. Free State AG progetta entrambi in tutta la Svizzera e resta il Suo unico partner contrattuale.",
-        "cta": "Richieda un'offerta per tetto e solare"
+        "subtitle": "Se il tuo tetto viene rinnovato, puoi decidere ora anche sul solare. Free State AG progetta entrambi in tutta la Svizzera e resta il tuo unico partner contrattuale.",
+        "cta": "Richiedi un'offerta per tetto e solare"
       },
       "why": {
         "title": "Perché insieme e non più tardi",
@@ -13669,7 +13411,7 @@
             "body": "Il Cantone versa il contributo per il tetto solo con la prova di un impianto solare."
           }
         },
-        "note": "Chiariamo nell'offerta che cosa vale nel Suo Cantone."
+        "note": "Chiariamo nell'offerta che cosa vale nel tuo Cantone."
       },
       "mounting": {
         "title": "Impianto sopra tetto o integrato?",
@@ -13682,7 +13424,7 @@
       },
       "offer": {
         "title": "Tre voci, offerte separatamente",
-        "intro": "In ogni offerta tetto, isolamento e solare figurano separatamente. Così vede quanto costa ogni parte.",
+        "intro": "In ogni offerta tetto, isolamento e solare figurano separatamente. Così vedi quanto costa ogni parte.",
         "items": {
           "roof": {
             "title": "Tetto",
@@ -13708,18 +13450,18 @@
         "solarLink": "Costi di un impianto solare"
       },
       "models": {
-        "title": "Due modelli per il Suo impianto solare",
-        "intro": "Per l'impianto solare sul Suo nuovo tetto Le presentiamo qui SolarFree e SolarDirect. Ogni modello ha un proprio contratto con Free State AG.",
+        "title": "Due modelli per il tuo impianto solare",
+        "intro": "Per l'impianto solare sul tuo nuovo tetto ti presentiamo qui SolarFree e SolarDirect. Ogni modello ha un proprio contratto con Free State AG.",
         "solarFree": {
           "title": "SolarFree",
-          "body": "Senza anticipo (CHF 0). Paga la corrente solare che consuma direttamente, fino al 30% sotto la tariffa di rete.",
+          "body": "Senza anticipo (CHF 0). Paghi la corrente solare che consumi direttamente, fino al 30% sotto la tariffa di rete.",
           "clause": "Il contratto SolarFree contiene alla cifra 6.2 una disposizione sui lavori di rinnovo del tetto. Con un tetto nuovo sotto l'impianto, di regola questo caso non si presenta.",
-          "link": "Scopra SolarFree"
+          "link": "Scopri SolarFree"
         },
         "solarDirect": {
           "title": "SolarDirect",
-          "body": "Acquista l'impianto solare e consuma direttamente la corrente. Diventa Suo una volta pagato per intero.",
-          "link": "Scopra SolarDirect"
+          "body": "Acquisti l'impianto solare e consumi direttamente la corrente. Diventa tuo una volta pagato per intero.",
+          "link": "Scopri SolarDirect"
         }
       },
       "faq": {
@@ -13733,7 +13475,7 @@
           },
           "2": {
             "question": "Nel mio Cantone esiste un obbligo?",
-            "answer": "Dipende da ciascun Cantone. Sciaffusa, Lucerna e Berna hanno regole per il risanamento del tetto, che citiamo più in alto. Chiariamo nell'offerta che cosa vale nel Suo Cantone."
+            "answer": "Dipende da ciascun Cantone. Sciaffusa, Lucerna e Berna hanno regole per il risanamento del tetto, che citiamo più in alto. Chiariamo nell'offerta che cosa vale nel tuo Cantone."
           },
           "3": {
             "question": "Sopra tetto o integrato, che cosa scegliere?",
@@ -13745,11 +13487,11 @@
           },
           "5": {
             "question": "Nell'offerta è tutto insieme?",
-            "answer": "No. Tetto, isolamento e solare figurano separatamente, così può vedere ogni parte e decidere."
+            "answer": "No. Tetto, isolamento e solare figurano separatamente, così puoi vedere ogni parte e decidere."
           },
           "6": {
             "question": "SolarFree è adatto a un risanamento del tetto?",
-            "answer": "Con SolarFree non paga alcun anticipo (CHF 0). Durante il sopralluogo chiariamo se è adatto al Suo tetto."
+            "answer": "Con SolarFree non paghi alcun anticipo (CHF 0). Durante il sopralluogo chiariamo se è adatto al tuo tetto."
           }
         }
       }
@@ -13765,7 +13507,7 @@
       "description": "Monitoraggio a distanza, manutenzione, misura delle stringhe, termografia, pulizia e gestione del rapporto di sicurezza per impianti fotovoltaici esistenti su case unifamiliari ed edifici commerciali in tutta la Svizzera, anche per impianti installati da altri installatori."
     },
     "hero": {
-      "title": "Servizio e manutenzione per il Suo impianto solare",
+      "title": "Servizio e manutenzione per il tuo impianto solare",
       "subtitle": "Monitoraggio a distanza, manutenzione sul posto e pulizia quando serve. Per impianti fotovoltaici su case unifamiliari ed edifici commerciali in tutta la Svizzera, anche se li ha installati un altro installatore.",
       "points": {
         "free": "Analisi iniziale gratuita",
@@ -13775,8 +13517,8 @@
       "direct": "Richiedere direttamente"
     },
     "estimator": {
-      "title": "Il Suo impianto",
-      "intro": "Cerchi il Suo edificio oppure inserisca la potenza e l'anno di messa in servizio. Vedrà i prezzi indicativi per la dimensione del Suo impianto e cosa è previsto in base alla sua età.",
+      "title": "Il tuo impianto",
+      "intro": "Cerca il tuo edificio oppure inserisci la potenza e l'anno di messa in servizio. Vedrai i prezzi indicativi per la dimensione del tuo impianto e cosa è previsto in base alla sua età.",
       "loading": "Stiamo consultando il registro",
       "restart": "Verificare un altro impianto",
       "address": {
@@ -13784,9 +13526,9 @@
         "placeholder": "Via n., NPA località",
         "cta": "Cerca impianto",
         "hint": "Cerchiamo l'impianto nel registro federale degli impianti di produzione.",
-        "rateLimited": "Troppe ricerche in poco tempo. Riprovi tra un minuto.",
-        "searchFailed": "La ricerca degli indirizzi non è disponibile al momento. Inserisca direttamente potenza e anno.",
-        "noResults": "Nessun indirizzo trovato. Controlli l'ortografia oppure inserisca direttamente potenza e anno."
+        "rateLimited": "Troppe ricerche in poco tempo. Riprova tra un minuto.",
+        "searchFailed": "La ricerca degli indirizzi non è disponibile al momento. Inserisci direttamente potenza e anno.",
+        "noResults": "Nessun indirizzo trovato. Controlla l'ortografia oppure inserisci direttamente potenza e anno."
       },
       "manual": {
         "divider": "oppure senza indirizzo",
@@ -13795,14 +13537,14 @@
         "year": "Anno di messa in servizio",
         "yearPlaceholder": "per esempio 2014",
         "cta": "Mostra i prezzi indicativi",
-        "kwInvalid": "Inserisca la potenza in kWp, per esempio 120.",
-        "yearInvalid": "Inserisca un anno a partire dal {from}."
+        "kwInvalid": "Inserisci la potenza in kWp, per esempio 120.",
+        "yearInvalid": "Inserisci un anno a partire dal {from}."
       },
       "idle": {
         "eyebrow": "Prezzi indicativi all'anno",
-        "title": "Tre pacchetti per il Suo impianto",
+        "title": "Tre pacchetti per il tuo impianto",
         "from": "da CHF {value}",
-        "note": "Per impianti fino a 30 kWp, IVA esclusa. Dopo l'inserimento vedrà i prezzi per la Sua dimensione.",
+        "note": "Per impianti fino a 30 kWp, IVA esclusa. Dopo l'inserimento vedrai i prezzi per la tua dimensione.",
         "points": {
           "register": "Dati dal registro federale",
           "free": "Analisi iniziale gratuita",
@@ -13819,52 +13561,52 @@
       },
       "result": {
         "registerEyebrow": "Secondo il registro",
-        "manualEyebrow": "I Suoi dati",
+        "manualEyebrow": "I tuoi dati",
         "addressEyebrow": "Ricerca nel registro",
-        "registerTitle": "Il Suo impianto secondo il registro",
-        "manualTitle": "Il Suo impianto",
+        "registerTitle": "Il tuo impianto secondo il registro",
+        "manualTitle": "Il tuo impianto",
         "noPlantTitle": "Nessun impianto trovato",
-        "noPlant": "Per questo edificio non abbiamo trovato alcun impianto nel registro. Inserisca direttamente potenza e anno per vedere i prezzi indicativi.",
+        "noPlant": "Per questo edificio non abbiamo trovato alcun impianto nel registro. Inserisci direttamente potenza e anno per vedere i prezzi indicativi.",
         "facts": {
           "kw": "Potenza",
           "since": "In servizio dal",
           "registerAddress": "Indirizzo nel registro"
         },
         "kwValue": "{value} kW",
-        "registerNote": "Dati secondo il registro federale degli impianti di produzione. Se qualcosa non corrisponde, inserisca direttamente potenza e anno.",
-        "registerNearbyNote": "L'iscrizione nel registro si trova vicino al Suo indirizzo e può riguardare un edificio vicino. Controlli l'indirizzo nel registro.",
+        "registerNote": "Dati secondo il registro federale degli impianti di produzione. Se qualcosa non corrisponde, inserisci direttamente potenza e anno.",
+        "registerNearbyNote": "L'iscrizione nel registro si trova vicino al tuo indirizzo e può riguardare un edificio vicino. Controlla l'indirizzo nel registro.",
         "pricesTitle": "Prezzi indicativi {band}",
         "chf": "CHF {value}",
         "perYear": "all'anno",
         "onRequest": "su richiesta",
         "onboarding": "Rilievo sul posto, una tantum",
         "priceNote": "IVA esclusa. Il rilievo vale per impianti di altri installatori e viene computato nel primo anno di contratto. Fa fede l'offerta dopo l'analisi iniziale.",
-        "needKw": "Per i prezzi indicativi ci serve la potenza del Suo impianto. La inserisca direttamente.",
+        "needKw": "Per i prezzi indicativi ci serve la potenza del tuo impianto. Inseriscila direttamente.",
         "cta": "Richiedere l'analisi iniziale",
         "ctaNote": "L'analisi iniziale è senza impegno e gratuita."
       },
       "due": {
         "title": "Cosa è previsto ora",
-        "age": "{years, plural, =0 {Il Suo impianto è in servizio da meno di un anno.} one {Il Suo impianto è in servizio da # anno.} other {Il Suo impianto è in servizio da # anni.}}",
+        "age": "{years, plural, =0 {Il tuo impianto è in servizio da meno di un anno.} one {Il tuo impianto è in servizio da # anno.} other {Il tuo impianto è in servizio da # anni.}}",
         "liabilityEnded": "La garanzia per difetti dell'installatore dura da 2 a 5 anni ed è scaduta. I casi di garanzia si regolano ora direttamente con i produttori.",
         "liabilityRunning": "La garanzia per difetti dell'installatore dura da 2 a 5 anni e forse è ancora in corso. La guida dell'UFE raccomanda di far verificare l'impianto da una ditta indipendente prima della scadenza.",
-        "liabilityOpen": "La garanzia per difetti dell'installatore dura da 2 a 5 anni. Per il Suo impianto è scaduta o scade in questi mesi. La guida dell'UFE raccomanda di far verificare l'impianto da una ditta indipendente prima della scadenza.",
+        "liabilityOpen": "La garanzia per difetti dell'installatore dura da 2 a 5 anni. Per il tuo impianto è scaduta o scade in questi mesi. La guida dell'UFE raccomanda di far verificare l'impianto da una ditta indipendente prima della scadenza.",
         "inverterEnded": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni ed è probabilmente scaduta, a meno che non sia stata prolungata o gli apparecchi siano stati sostituiti.",
         "inverterRunning": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni e forse è ancora in corso.",
-        "inverterOpen": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni. Per il Suo impianto è scaduta o scade in questi mesi, a meno che non sia stata prolungata o gli apparecchi siano stati sostituiti."
+        "inverterOpen": "La garanzia di prodotto degli inverter dura di solito da 5 a 10 anni. Per il tuo impianto è scaduta o scade in questi mesi, a meno che non sia stata prolungata o gli apparecchi siano stati sostituiti."
       },
       "failure": {
         "rate_limited": {
           "title": "Troppe richieste",
-          "body": "Riprovi tra qualche minuto oppure ci chiami al numero {phone}."
+          "body": "Riprova tra qualche minuto oppure chiamaci al numero {phone}."
         },
         "failed": {
           "title": "La ricerca non è riuscita",
-          "body": "Il registro non è raggiungibile al momento. Riprovi più tardi, ci invii direttamente una richiesta oppure ci chiami al numero {phone}."
+          "body": "Il registro non è raggiungibile al momento. Riprova più tardi, inviaci direttamente una richiesta oppure chiamaci al numero {phone}."
         },
         "invalid": {
-          "title": "Controlli i dati",
-          "body": "Non abbiamo potuto elaborare la potenza o l'anno. Controlli l'inserimento oppure ci invii direttamente una richiesta."
+          "title": "Controlla i dati",
+          "body": "Non abbiamo potuto elaborare la potenza o l'anno. Controlla l'inserimento oppure inviaci direttamente una richiesta."
         }
       }
     },
@@ -13899,7 +13641,7 @@
       "notIncluded": "(non incluso)",
       "monitoring": {
         "name": "Monitoraggio",
-        "tagline": "Sorvegliamo l'impianto a distanza e La contattiamo quando qualcosa non va."
+        "tagline": "Sorvegliamo l'impianto a distanza e ti contattiamo quando qualcosa non va."
       },
       "wartung": {
         "name": "Manutenzione",
@@ -13912,7 +13654,7 @@
       "rows": {
         "monitoring": {
           "title": "Monitoraggio a distanza e triage degli allarmi",
-          "detail": "Verifichiamo gli allarmi nei giorni feriali. Riceve un protocollo del guasto con una raccomandazione."
+          "detail": "Verifichiamo gli allarmi nei giorni feriali. Ricevi un protocollo del guasto con una raccomandazione."
         },
         "report": {
           "title": "Rapporto annuale sulla resa",
@@ -13956,34 +13698,34 @@
     },
     "otherInstallers": {
       "title": "Anche per impianti di altri installatori",
-      "intro": "Per noi non conta chi ha installato il Suo impianto. Per il monitoraggio ci serve l'accesso ai dati dell'impianto. Ci sono tre modi per ottenerlo.",
+      "intro": "Per noi non conta chi ha installato il tuo impianto. Per il monitoraggio ci serve l'accesso ai dati dell'impianto. Ci sono tre modi per ottenerlo.",
       "imageAlt": "Tetto in tegole con impianto solare",
       "brandsTitle": "Accesso tramite il portale del produttore, per esempio con",
       "routes": {
         "portal": {
           "title": "Accesso nel portale del produttore",
-          "body": "Ci assegna un ruolo nel portale del Suo inverter, per esempio con SMA, Fronius, Huawei o SolarEdge. È la via più semplice."
+          "body": "Ci assegni un ruolo nel portale del tuo inverter, per esempio con SMA, Fronius, Huawei o SolarEdge. È la via più semplice."
         },
         "transfer": {
           "title": "Trasferire l'impianto",
-          "body": "Se l'impianto si trova ancora nel conto dell'installatore precedente, lo faccia trasferire sul Suo conto o a noi. Le diciamo cosa richiede il produttore."
+          "body": "Se l'impianto si trova ancora nel conto dell'installatore precedente, fallo trasferire sul tuo conto o a noi. Ti diciamo cosa richiede il produttore."
         },
         "logger": {
           "title": "Installare un data logger",
           "body": "Se non c'è accesso o ci sono più marche sul tetto, installiamo un data logger indipendente. Viene fatturato a consuntivo."
         }
       },
-      "goneTitle": "Il Suo installatore non è più sul mercato",
-      "gone": "Riprendiamo l'impianto con un rilievo sul posto. Verifichiamo lo stato, la documentazione e l'accesso al monitoraggio e poi Le diciamo quale pacchetto è adatto."
+      "goneTitle": "Il tuo installatore non è più sul mercato",
+      "gone": "Riprendiamo l'impianto con un rilievo sul posto. Verifichiamo lo stato, la documentazione e l'accesso al monitoraggio e poi ti diciamo quale pacchetto è adatto."
     },
     "process": {
-      "title": "Come riprendiamo il Suo impianto",
+      "title": "Come riprendiamo il tuo impianto",
       "intro": "Dal primo sguardo ai dati all'esercizio corrente, in quattro passi.",
       "imageAlt": "Tecnico in abiti da lavoro su moduli solari su un tetto",
       "steps": {
         "check": {
           "title": "Analisi iniziale senza impegno",
-          "body": "Leggiamo i dati del registro e, se ci dà accesso, i dati del monitoraggio. Poi Le diciamo quale pacchetto è adatto. L'analisi iniziale è gratuita."
+          "body": "Leggiamo i dati del registro e, se ci dai accesso, i dati del monitoraggio. Poi ti diciamo quale pacchetto è adatto. L'analisi iniziale è gratuita."
         },
         "survey": {
           "title": "Rilievo sul posto",
@@ -13991,17 +13733,17 @@
         },
         "contract": {
           "title": "Contratto",
-          "body": "Riceve un'offerta scritta con l'entità delle prestazioni, il prezzo annuo e la durata."
+          "body": "Ricevi un'offerta scritta con l'entità delle prestazioni, il prezzo annuo e la durata."
         },
         "operation": {
           "title": "Esercizio corrente",
-          "body": "Sorvegliamo l'impianto, verifichiamo gli allarmi nei giorni feriali, veniamo sul posto secondo il pacchetto e Le inviamo ogni anno il rapporto sulla resa."
+          "body": "Sorvegliamo l'impianto, verifichiamo gli allarmi nei giorni feriali, veniamo sul posto secondo il pacchetto e ti inviamo ogni anno il rapporto sulla resa."
         }
       }
     },
     "care": {
       "title": "Pulizia, termografia e rapporto di sicurezza",
-      "intro": "Può ordinare queste prestazioni singolarmente o nel pacchetto. Le raccomandiamo quando i dati dell'impianto o una scadenza lo richiedono.",
+      "intro": "Puoi ordinare queste prestazioni singolarmente o nel pacchetto. Le raccomandiamo quando i dati dell'impianto o una scadenza lo richiedono.",
       "imageAlt": "Inverter di un impianto solare sul tetto di un edificio commerciale",
       "items": {
         "cleaning": {
@@ -14016,7 +13758,7 @@
         },
         "sina": {
           "title": "Gestione del rapporto di sicurezza (RaSi)",
-          "body": "Il Suo impianto ha la stessa periodicità di controllo dell'edificio, tra 1 e 20 anni secondo l'utilizzo, e 5, 10 o 20 anni per la maggior parte degli edifici commerciali. Il rapporto di sicurezza periodico deve essere rilasciato da un organo di controllo indipendente. Gestiamo le scadenze, organizziamo l'organo di controllo ed eliminiamo i difetti del suo rapporto. Non rilasciamo noi stessi il rapporto di sicurezza.",
+          "body": "Il tuo impianto ha la stessa periodicità di controllo dell'edificio, tra 1 e 20 anni secondo l'utilizzo, e 5, 10 o 20 anni per la maggior parte degli edifici commerciali. Il rapporto di sicurezza periodico deve essere rilasciato da un organo di controllo indipendente. Gestiamo le scadenze, organizziamo l'organo di controllo ed eliminiamo i difetti del suo rapporto. Non rilasciamo noi stessi il rapporto di sicurezza.",
           "price": "Inclusa in Manutenzione Plus"
         }
       }
@@ -14036,7 +13778,7 @@
       "items": {
         "1": {
           "question": "La manutenzione di un impianto fotovoltaico è obbligatoria?",
-          "answer": "No, in Svizzera non esiste un obbligo legale di manutenzione. In quanto proprietario deve però gestire l'impianto in modo sicuro e presentare il rapporto di sicurezza periodico secondo l'ordinanza sugli impianti elettrici a bassa tensione (OIBT). L'impianto ha la stessa periodicità di controllo dell'edificio, tra 1 e 20 anni secondo l'utilizzo, e 5, 10 o 20 anni per la maggior parte degli edifici commerciali."
+          "answer": "No, in Svizzera non esiste un obbligo legale di manutenzione. In quanto proprietario devi però gestire l'impianto in modo sicuro e presentare il rapporto di sicurezza periodico secondo l'ordinanza sugli impianti elettrici a bassa tensione (OIBT). L'impianto ha la stessa periodicità di controllo dell'edificio, tra 1 e 20 anni secondo l'utilizzo, e 5, 10 o 20 anni per la maggior parte degli edifici commerciali."
         },
         "2": {
           "question": "Con quale frequenza vanno puliti i moduli?",
@@ -14044,11 +13786,11 @@
         },
         "3": {
           "question": "Seguite tutte le marche di inverter?",
-          "answer": "Lavoriamo nel portale del Suo produttore, per esempio con SMA, Fronius, Huawei o SolarEdge, non appena ci dà accesso. Se non c'è accesso o non c'è un portale adatto, installiamo un data logger indipendente."
+          "answer": "Lavoriamo nel portale del tuo produttore, per esempio con SMA, Fronius, Huawei o SolarEdge, non appena ci dai accesso. Se non c'è accesso o non c'è un portale adatto, installiamo un data logger indipendente."
         },
         "4": {
           "question": "Il nostro installatore non è più sul mercato. Riprendete l'impianto?",
-          "answer": "Sì. Iniziamo con un rilievo sul posto e verifichiamo lo stato, la documentazione e l'accesso al monitoraggio. Se l'impianto si trova ancora nel conto portale dell'installatore precedente, chiariamo con Lei e con il produttore come trasferire l'accesso."
+          "answer": "Sì. Iniziamo con un rilievo sul posto e verifichiamo lo stato, la documentazione e l'accesso al monitoraggio. Se l'impianto si trova ancora nel conto portale dell'installatore precedente, chiariamo con te e con il produttore come trasferire l'accesso."
         },
         "5": {
           "question": "Quanto dura il contratto e quanto costa?",
@@ -14056,7 +13798,7 @@
         },
         "6": {
           "question": "Quanto costa l'analisi iniziale?",
-          "answer": "Niente. Leggiamo i dati del registro e, se ci dà accesso, i dati di monitoraggio del Suo impianto e Le diciamo quale pacchetto è adatto. Per impianti di altri installatori segue, prima del contratto, un rilievo sul posto che computiamo nel primo anno di contratto."
+          "answer": "Niente. Leggiamo i dati del registro e, se ci dai accesso, i dati di monitoraggio del tuo impianto e ti diciamo quale pacchetto è adatto. Per impianti di altri installatori segue, prima del contratto, un rilievo sul posto che computiamo nel primo anno di contratto."
         },
         "7": {
           "question": "Rilasciate voi stessi il rapporto di sicurezza?",
@@ -14067,20 +13809,20 @@
     "request": {
       "nextTitle": "Come procediamo",
       "next": {
-        "call": "La chiamiamo e chiariamo i dati principali del Suo impianto.",
+        "call": "Ti chiamiamo e chiariamo i dati principali del tuo impianto.",
         "check": "Eseguiamo l'analisi iniziale con i dati del registro e del monitoraggio.",
-        "offer": "Riceve un'offerta con prezzo annuo."
+        "offer": "Ricevi un'offerta con prezzo annuo."
       },
-      "call": "Preferisce chiamare?"
+      "call": "Preferisci chiamare?"
     },
     "form": {
       "heading": {
-        "estimator": "Richiedere l'analisi iniziale per il Suo impianto",
+        "estimator": "Richiedere l'analisi iniziale per il tuo impianto",
         "final": "Richiedere l'analisi iniziale"
       },
-      "intro": "L'analisi iniziale è senza impegno e gratuita. La contattiamo e chiariamo i dettagli del Suo impianto.",
-      "choose": "Selezioni",
-      "plantTitle": "Il Suo impianto",
+      "intro": "L'analisi iniziale è senza impegno e gratuita. Ti contattiamo e chiariamo i dettagli del tuo impianto.",
+      "choose": "Seleziona",
+      "plantTitle": "Il tuo impianto",
       "fields": {
         "companyName": "Azienda",
         "contactName": "Persona di contatto",
@@ -14116,7 +13858,7 @@
         }
       },
       "interests": {
-        "label": "Cosa Le interessa? (facoltativo)",
+        "label": "Cosa ti interessa? (facoltativo)",
         "options": {
           "monitoring": "Monitoraggio a distanza",
           "maintenance": "Manutenzione sul posto",
@@ -14127,19 +13869,19 @@
         }
       },
       "submit": "Richiedere l'analisi iniziale",
-      "successTitle": "Grazie, abbiamo ricevuto la Sua richiesta.",
-      "successBody": "La chiamiamo al numero {phone} per discutere l'analisi iniziale del Suo impianto.",
+      "successTitle": "Grazie, abbiamo ricevuto la tua richiesta.",
+      "successBody": "Ti chiamiamo al numero {phone} per discutere l'analisi iniziale del tuo impianto.",
       "errors": {
-        "required": "Compili questo campo.",
-        "emailInvalid": "Inserisca un indirizzo e-mail valido.",
-        "phoneInvalid": "Inserisca un numero di telefono valido, per esempio 079 123 45 67.",
-        "postalCodeInvalid": "Inserisca un NPA di quattro cifre.",
-        "kwInvalid": "Inserisca la potenza come numero, per esempio 120.",
-        "yearInvalid": "Inserisca un anno a partire dal {from}.",
-        "consentRequired": "Confermi il Suo consenso affinché possiamo elaborare la Sua richiesta.",
-        "invalid": "Non abbiamo potuto elaborare alcuni dati. Controlli il modulo oppure ci chiami al numero {phone}.",
-        "submitFailed": "Non ha funzionato. Riprovi oppure ci chiami al numero {phone}.",
-        "rateLimited": "Ha appena inviato diverse richieste. Riprovi tra qualche minuto oppure ci chiami al numero {phone}."
+        "required": "Compila questo campo.",
+        "emailInvalid": "Inserisci un indirizzo e-mail valido.",
+        "phoneInvalid": "Inserisci un numero di telefono valido, per esempio 079 123 45 67.",
+        "postalCodeInvalid": "Inserisci un NPA di quattro cifre.",
+        "kwInvalid": "Inserisci la potenza come numero, per esempio 120.",
+        "yearInvalid": "Inserisci un anno a partire dal {from}.",
+        "consentRequired": "Conferma il tuo consenso affinché possiamo elaborare la tua richiesta.",
+        "invalid": "Non abbiamo potuto elaborare alcuni dati. Controlla il modulo oppure chiamaci al numero {phone}.",
+        "submitFailed": "Non ha funzionato. Riprova oppure chiamaci al numero {phone}.",
+        "rateLimited": "Hai appena inviato diverse richieste. Riprova tra qualche minuto oppure chiamaci al numero {phone}."
       }
     }
   },
@@ -14185,12 +13927,12 @@
   },
   "solarModels": {
     "eyebrow": "Modelli solari",
-    "title": "Tre strade verso il Suo impianto solare",
-    "subtitle": "Il modello determina come paga e a chi appartiene l'impianto. Della progettazione e del montaggio ci occupiamo noi in ogni modello.",
+    "title": "Tre strade verso il tuo impianto solare",
+    "subtitle": "Il modello determina come paghi e a chi appartiene l'impianto. Della progettazione e del montaggio ci occupiamo noi in ogni modello.",
     "titleCurrent": "{model} a confronto",
-    "subtitleCurrent": "Tutti e tre i modelli riga per riga, così può decidere con sicurezza.",
+    "subtitleCurrent": "Tutti e tre i modelli riga per riga, così puoi decidere con sicurezza.",
     "business": {
-      "title": "Tre strade verso l'impianto solare sul tetto della Sua azienda",
+      "title": "Tre strade verso l'impianto solare sul tetto della tua azienda",
       "subtitle": "Per la maggior parte delle aziende SolarFree è la strada più semplice, perché non si immobilizza capitale.",
       "cta": "Avviare il calcolatore solare",
       "learnMore": "SolarFree per le aziende"
@@ -14201,47 +13943,47 @@
     "serviceLink": "Pacchetti di assistenza da CHF {price} all'anno",
     "rows": {
       "investment": "Investimento",
-      "payment": "Lei paga",
+      "payment": "Tu paghi",
       "ownership": "Proprietà",
       "service": "Manutenzione e assicurazione",
       "term": "Durata"
     },
     "free": {
       "name": "SolarFree",
-      "tagline": "Costruiamo e gestiamo l'impianto solare sul Suo tetto. Lei paga solo l'elettricità solare che consuma.",
-      "taglineBusiness": "Costruiamo e gestiamo l'impianto solare sul tetto della Sua azienda. Lei non immobilizza capitale e paga solo l'elettricità solare che consuma.",
+      "tagline": "Costruiamo e gestiamo l'impianto solare sul tuo tetto. Tu paghi solo l'elettricità solare che consumi.",
+      "taglineBusiness": "Costruiamo e gestiamo l'impianto solare sul tetto della tua azienda. Tu non immobilizzi capitale e paghi solo l'elettricità solare che consumi.",
       "cta": "Calcolare il risparmio",
       "values": {
         "investment": "CHF 0",
         "payment": "Solo l'elettricità solare consumata, fino al 30 % sotto la tariffa di rete",
-        "ownership": "Free State AG. Dopo 35 anni l'impianto passa gratuitamente a Lei.",
+        "ownership": "Free State AG. Dopo 35 anni l'impianto passa gratuitamente a te.",
         "service": "Incluse. Manutenzione, riparazioni e assicurazione sono a nostro carico.",
         "term": "35 anni. Acquisto al valore residuo possibile, al più presto dopo un anno di esercizio."
       }
     },
     "abo": {
       "name": "SolarAbo",
-      "tagline": "Acquista l'impianto e lo paga in rate mensili fisse invece che in una sola volta.",
-      "taglineBusiness": "Acquista l'impianto per la Sua azienda e lo paga in rate mensili fisse invece che in una sola volta.",
+      "tagline": "Acquisti l'impianto e lo paghi in rate mensili fisse invece che in una sola volta.",
+      "taglineBusiness": "Acquisti l'impianto per la tua azienda e lo paghi in rate mensili fisse invece che in una sola volta.",
       "cta": "Calcolare la rata mensile",
       "values": {
         "investment": "CHF 0 di anticipo",
         "payment": "Una rata mensile fissa. La prima rata è dovuta dopo la messa in servizio.",
-        "ownership": "L'impianto è Suo.",
+        "ownership": "L'impianto è tuo.",
         "service": "Non incluse. Pacchetto di assistenza su richiesta.",
         "term": "25 anni, 300 rate mensili"
       }
     },
     "direct": {
       "name": "SolarDirect",
-      "tagline": "Acquista l'impianto a prezzo fisso. Tutto il risparmio e l'incentivo sono Suoi.",
-      "taglineBusiness": "Acquista l'impianto per la Sua azienda a prezzo fisso. Tutto il risparmio e l'incentivo sono Suoi.",
+      "tagline": "Acquisti l'impianto a prezzo fisso. Tutto il risparmio e l'incentivo sono tuoi.",
+      "taglineBusiness": "Acquisti l'impianto per la tua azienda a prezzo fisso. Tutto il risparmio e l'incentivo sono tuoi.",
       "cta": "Calcolare il prezzo",
       "values": {
         "investment": "Da CHF {price}, IVA esclusa",
         "investmentNoPrice": "Acquisto a prezzo fisso",
         "payment": "Una tantum, in tre pagamenti parziali nel periodo del montaggio",
-        "ownership": "L'impianto è Suo.",
+        "ownership": "L'impianto è tuo.",
         "service": "Non incluse. Pacchetto di assistenza su richiesta.",
         "term": "Nessuna durata contrattuale"
       }
@@ -14264,39 +14006,39 @@
     "free": {
       "hero": {
         "title": "SolarFree: impianto solare senza investimento",
-        "subtitle": "Costruiamo e gestiamo l'impianto solare sul Suo tetto. Lei paga solo l'elettricità solare che consuma, fino al 30 % sotto la tariffa di rete.",
+        "subtitle": "Costruiamo e gestiamo l'impianto solare sul tuo tetto. Tu paghi solo l'elettricità solare che consumi, fino al 30 % sotto la tariffa di rete.",
         "points": {
           "1": "CHF 0 di investimento",
           "2": "Manutenzione e assicurazione incluse",
-          "3": "Dopo 35 anni l'impianto è Suo"
+          "3": "Dopo 35 anni l'impianto è tuo"
         },
         "imageAlt": "Casa con impianto solare su un pendio"
       },
       "steps": {
         "title": "Come funziona SolarFree",
-        "intro": "Dal primo sguardo al Suo tetto alla Sua elettricità solare in quattro passi.",
+        "intro": "Dal primo sguardo al tuo tetto alla tua elettricità solare in quattro passi.",
         "items": {
           "1": {
             "title": "Verificare il tetto",
-            "body": "Nel calcolatore solare inserisce il Suo indirizzo. Vede quanta elettricità fornisce il Suo tetto e quanto risparmia all'anno."
+            "body": "Nel calcolatore solare inserisci il tuo indirizzo. Vedi quanta elettricità fornisce il tuo tetto e quanto risparmi all'anno."
           },
           "2": {
             "title": "Concludere il contratto",
-            "body": "Ci mette a disposizione la superficie del tetto per 35 anni. Non investe nulla e non paga alcuna rata mensile."
+            "body": "Ci metti a disposizione la superficie del tetto per 35 anni. Non investi nulla e non paghi alcuna rata mensile."
           },
           "3": {
             "title": "Costruiamo e gestiamo",
             "body": "Progettiamo, montiamo e assicuriamo l'impianto. Manutenzione e riparazioni sono a nostro carico."
           },
           "4": {
-            "title": "Lei riceve elettricità solare",
-            "body": "Consuma l'elettricità del Suo tetto e la paga fino al 30 % in meno dell'elettricità di rete. Dopo 35 anni l'impianto è Suo."
+            "title": "Tu ricevi elettricità solare",
+            "body": "Consumi l'elettricità del tuo tetto e la paghi fino al 30 % in meno dell'elettricità di rete. Dopo 35 anni l'impianto è tuo."
           }
         }
       },
       "costs": {
-        "title": "Che cosa paga",
-        "intro": "Non paga né l'impianto né una rata mensile. Paga l'elettricità solare che consuma direttamente.",
+        "title": "Che cosa paghi",
+        "intro": "Non paghi né l'impianto né una rata mensile. Paghi l'elettricità solare che consumi direttamente.",
         "items": {
           "1": {
             "value": "CHF 0",
@@ -14306,7 +14048,7 @@
           "2": {
             "value": "Fino al 30 %",
             "label": "sotto la tariffa di rete",
-            "body": "Di tanto l'elettricità solare del Suo tetto costa meno rispetto all'elettricità della Sua azienda elettrica."
+            "body": "Di tanto l'elettricità solare del tuo tetto costa meno rispetto all'elettricità della tua azienda elettrica."
           },
           "3": {
             "value": "CHF 0",
@@ -14314,7 +14056,7 @@
             "body": "Gestione, riparazioni e assicurazione dell'impianto sono a nostro carico."
           }
         },
-        "note": "L'elettricità che preleva in più dalla rete la paga come finora alla Sua azienda elettrica."
+        "note": "L'elettricità che prelevi in più dalla rete la paghi come finora alla tua azienda elettrica."
       },
       "included": [
         "Impianto solare con accumulo a batteria",
@@ -14324,18 +14066,18 @@
         "Monitoraggio tramite app"
       ],
       "notIncluded": [
-        "Elettricità che preleva dalla rete",
-        "Manutenzione del tetto. Ne rimane responsabile Lei, in qualità di proprietaria o proprietario."
+        "Elettricità che prelevi dalla rete",
+        "Manutenzione del tetto. Ne rimani responsabile tu, in qualità di proprietaria o proprietario."
       ],
       "fit": {
         "yes": [
-          "non vuole immobilizzare capitale",
-          "non vuole occuparsi di manutenzione, riparazioni e assicurazione",
-          "consuma molta elettricità di giorno, ad esempio con una pompa di calore, un'auto elettrica o un'azienda"
+          "non vuoi immobilizzare capitale",
+          "non vuoi occuparti di manutenzione, riparazioni e assicurazione",
+          "consumi molta elettricità di giorno, ad esempio con una pompa di calore, un'auto elettrica o un'azienda"
         ],
         "no": [
-          "vuole possedere l'impianto fin dall'inizio e ricevere direttamente l'incentivo",
-          "il Suo tetto deve essere risanato nei prossimi anni. In tal caso è meglio pianificare insieme tetto e impianto solare."
+          "vuoi possedere l'impianto fin dall'inizio e ricevere direttamente l'incentivo",
+          "il tuo tetto deve essere risanato nei prossimi anni. In tal caso è meglio pianificare insieme tetto e impianto solare."
         ]
       },
       "faq": {
@@ -14345,15 +14087,15 @@
         "items": {
           "1": {
             "question": "A chi appartiene l'impianto?",
-            "answer": "Durante i 35 anni di durata del contratto l'impianto appartiene a Free State AG. In seguito passa a Lei senza alcun pagamento, se lo desidera. In caso contrario lo smantelliamo."
+            "answer": "Durante i 35 anni di durata del contratto l'impianto appartiene a Free State AG. In seguito passa a te senza alcun pagamento, se lo desideri. In caso contrario lo smantelliamo."
           },
           "2": {
             "question": "Posso acquistare l'impianto prima della scadenza dei 35 anni?",
-            "answer": "Sì. Al più presto dopo un anno di esercizio può acquistare l'impianto, sempre per la fine di un anno civile. Comunica l'acquisto per iscritto con dodici mesi di anticipo. Il prezzo figura nella tabella dei valori residui del Suo contratto e comprende una tassa amministrativa del 5 %."
+            "answer": "Sì. Al più presto dopo un anno di esercizio puoi acquistare l'impianto, sempre per la fine di un anno civile. Comunichi l'acquisto per iscritto con dodici mesi di anticipo. Il prezzo figura nella tabella dei valori residui del tuo contratto e comprende una tassa amministrativa del 5 %."
           },
           "3": {
             "question": "Quanto mi costa l'elettricità solare?",
-            "answer": "Paga l'elettricità solare che consuma nell'edificio. Il prezzo è fino al 30 % più basso della tariffa della Sua azienda elettrica. Il calcolatore solare mostra il Suo risparmio annuo."
+            "answer": "Paghi l'elettricità solare che consumi nell'edificio. Il prezzo è fino al 30 % più basso della tariffa della tua azienda elettrica. Il calcolatore solare mostra il tuo risparmio annuo."
           },
           "4": {
             "question": "Chi paga manutenzione, riparazioni e assicurazione?",
@@ -14361,7 +14103,7 @@
           },
           "5": {
             "question": "Cosa succede se vendo la casa?",
-            "answer": "Il contratto passa alla nuova proprietà con tutti i diritti e gli obblighi. Ci informa prima per iscritto. Può anche acquistare l'impianto al valore residuo."
+            "answer": "Il contratto passa alla nuova proprietà con tutti i diritti e gli obblighi. Ci informi prima per iscritto. Puoi anche acquistare l'impianto al valore residuo."
           },
           "6": {
             "question": "Il contratto viene iscritto nel registro fondiario?",
@@ -14372,35 +14114,35 @@
       "form": {
         "eyebrow": "SolarFree",
         "title": "Offerta per SolarFree",
-        "subtitle": "Verifichiamo il Suo tetto e La contattiamo con un'offerta senza impegno."
+        "subtitle": "Verifichiamo il tuo tetto e ti contattiamo con un'offerta senza impegno."
       }
     },
     "abo": {
       "hero": {
-        "title": "SolarAbo: il Suo impianto solare in rate mensili fisse",
-        "subtitle": "Acquista l'impianto e lo paga su 25 anni in rate mensili di pari importo. Non Le serve alcun anticipo.",
+        "title": "SolarAbo: il tuo impianto solare in rate mensili fisse",
+        "subtitle": "Acquisti l'impianto e lo paghi su 25 anni in rate mensili di pari importo. Non ti serve alcun anticipo.",
         "points": {
           "1": "Nessun anticipo",
           "2": "Rata fissa per 25 anni",
-          "3": "L'impianto è Suo"
+          "3": "L'impianto è tuo"
         },
         "imageAlt": "Villaggio con impianti solari sui tetti"
       },
       "steps": {
         "title": "Come funziona SolarAbo",
-        "intro": "Dal primo sguardo al Suo tetto alla prima rata mensile in quattro passi.",
+        "intro": "Dal primo sguardo al tuo tetto alla prima rata mensile in quattro passi.",
         "items": {
           "1": {
             "title": "Verificare il tetto",
-            "body": "Nel calcolatore solare inserisce il Suo indirizzo. Vede quale impianto è adatto al Suo tetto e quanta elettricità fornisce."
+            "body": "Nel calcolatore solare inserisci il tuo indirizzo. Vedi quale impianto è adatto al tuo tetto e quanta elettricità fornisce."
           },
           "2": {
             "title": "Offerta personale",
-            "body": "Le prepariamo un'offerta con la Sua rata mensile e l'importo totale sull'intera durata."
+            "body": "Ti prepariamo un'offerta con la tua rata mensile e l'importo totale sull'intera durata."
           },
           "3": {
             "title": "Montaggio",
-            "body": "Progettiamo e montiamo l'impianto e lo mettiamo in servizio. Fino ad allora non paga nulla."
+            "body": "Progettiamo e montiamo l'impianto e lo mettiamo in servizio. Fino ad allora non paghi nulla."
           },
           "4": {
             "title": "Rata mensile",
@@ -14409,18 +14151,18 @@
         }
       },
       "costs": {
-        "title": "Che cosa paga",
-        "intro": "Non paga il prezzo d'acquisto in una sola volta. Viene ripartito su 300 rate mensili.",
+        "title": "Che cosa paghi",
+        "intro": "Non paghi il prezzo d'acquisto in una sola volta. Viene ripartito su 300 rate mensili.",
         "items": {
           "1": {
             "value": "CHF 0",
             "label": "Anticipo",
-            "body": "Paga solo dopo la messa in servizio."
+            "body": "Paghi solo dopo la messa in servizio."
           },
           "2": {
             "value": "300",
             "label": "rate mensili di pari importo",
-            "body": "La rata resta invariata per 25 anni. La Sua rata personale figura nell'offerta."
+            "body": "La rata resta invariata per 25 anni. La tua rata personale figura nell'offerta."
           },
           "3": {
             "value": "Incentivo",
@@ -14444,13 +14186,13 @@
       ],
       "fit": {
         "yes": [
-          "vuole essere proprietaria o proprietario dell'impianto",
-          "non vuole effettuare un grosso pagamento unico",
-          "vuole una rata che non cambia per tutta la durata"
+          "vuoi essere proprietaria o proprietario dell'impianto",
+          "non vuoi effettuare un grosso pagamento unico",
+          "vuoi una rata che non cambia per tutta la durata"
         ],
         "no": [
-          "dispone del capitale e vuole i costi complessivi più bassi",
-          "vuole che siamo noi a occuparci di gestione, manutenzione e assicurazione"
+          "disponi del capitale e vuoi i costi complessivi più bassi",
+          "vuoi che siamo noi a occuparci di gestione, manutenzione e assicurazione"
         ]
       },
       "faq": {
@@ -14460,7 +14202,7 @@
         "items": {
           "1": {
             "question": "A quanto ammonta la mia rata mensile?",
-            "answer": "La rata dipende dalle dimensioni dell'impianto. La riceve con la Sua offerta personale, insieme all'importo totale sull'intera durata."
+            "answer": "La rata dipende dalle dimensioni dell'impianto. La ricevi con la tua offerta personale, insieme all'importo totale sull'intera durata."
           },
           "2": {
             "question": "Quando pago la prima rata?",
@@ -14472,28 +14214,28 @@
           },
           "4": {
             "question": "Manutenzione e assicurazione sono incluse?",
-            "answer": "No. Sono incluse le garanzie dei produttori e la nostra garanzia sull'installazione. Può aggiungere la manutenzione con un pacchetto di assistenza. L'impianto lo assicura Lei."
+            "answer": "No. Sono incluse le garanzie dei produttori e la nostra garanzia sull'installazione. Puoi aggiungere la manutenzione con un pacchetto di assistenza. L'impianto lo assicuri tu."
           },
           "5": {
             "question": "Chi riceve l'incentivo?",
-            "answer": "Lei. Prepariamo noi la domanda per la rimunerazione unica. L'importo stimato è già dedotto nel calcolo della rata."
+            "answer": "Tu. Prepariamo noi la domanda per la rimunerazione unica. L'importo stimato è già dedotto nel calcolo della rata."
           },
           "6": {
             "question": "In che cosa SolarAbo si differenzia da SolarFree?",
-            "answer": "Con SolarAbo acquista l'impianto e lo paga a rate. Con SolarFree l'impianto appartiene per 35 anni a Free State AG. In quel caso manutenzione e assicurazione sono a nostro carico, e Lei paga solo l'elettricità solare."
+            "answer": "Con SolarAbo acquisti l'impianto e lo paghi a rate. Con SolarFree l'impianto appartiene per 35 anni a Free State AG. In quel caso manutenzione e assicurazione sono a nostro carico, e tu paghi solo l'elettricità solare."
           }
         }
       },
       "form": {
         "eyebrow": "SolarAbo",
         "title": "Offerta per SolarAbo",
-        "subtitle": "Verifichiamo il Suo tetto e La contattiamo con la Sua rata mensile personale."
+        "subtitle": "Verifichiamo il tuo tetto e ti contattiamo con la tua rata mensile personale."
       }
     },
     "direct": {
       "hero": {
         "title": "SolarDirect: acquistare l'impianto solare a prezzo fisso",
-        "subtitle": "Acquista l'impianto chiavi in mano. Tutto il risparmio, la rimunerazione per l'immissione in rete e l'incentivo sono Suoi.",
+        "subtitle": "Acquisti l'impianto chiavi in mano. Tutto il risparmio, la rimunerazione per l'immissione in rete e l'incentivo sono tuoi.",
         "points": {
           "1": "Prezzo fisso",
           "2": "Presentiamo noi la domanda di incentivo",
@@ -14503,15 +14245,15 @@
       },
       "steps": {
         "title": "Come funziona SolarDirect",
-        "intro": "Dal primo sguardo al Suo tetto al Suo impianto in quattro passi.",
+        "intro": "Dal primo sguardo al tuo tetto al tuo impianto in quattro passi.",
         "items": {
           "1": {
             "title": "Verificare il tetto",
-            "body": "Nel calcolatore solare inserisce il Suo indirizzo. Vede dimensioni, resa e risparmio per il Suo tetto."
+            "body": "Nel calcolatore solare inserisci il tuo indirizzo. Vedi dimensioni, resa e risparmio per il tuo tetto."
           },
           "2": {
             "title": "Offerta a prezzo fisso",
-            "body": "Riceve un'offerta con il prezzo fisso e l'incentivo stimato."
+            "body": "Ricevi un'offerta con il prezzo fisso e l'incentivo stimato."
           },
           "3": {
             "title": "Montaggio",
@@ -14519,13 +14261,13 @@
           },
           "4": {
             "title": "Consegna",
-            "body": "Dopo il pagamento completo l'impianto è Suo. Presentiamo noi la domanda per la rimunerazione unica."
+            "body": "Dopo il pagamento completo l'impianto è tuo. Presentiamo noi la domanda per la rimunerazione unica."
           }
         }
       },
       "costs": {
-        "title": "Che cosa paga",
-        "intro": "Paga il prezzo fisso indicato nella Sua offerta. In seguito per l'impianto non ci sono rate.",
+        "title": "Che cosa paghi",
+        "intro": "Paghi il prezzo fisso indicato nella tua offerta. In seguito per l'impianto non ci sono rate.",
         "items": {
           "1": {
             "value": "Da CHF {price}",
@@ -14540,8 +14282,8 @@
           },
           "3": {
             "value": "Incentivo",
-            "label": "riduce il Suo prezzo",
-            "body": "La rimunerazione unica della Confederazione la riceve Lei. Prepariamo e presentiamo noi la domanda."
+            "label": "riduce il tuo prezzo",
+            "body": "La rimunerazione unica della Confederazione la ricevi tu. Prepariamo e presentiamo noi la domanda."
           }
         },
         "note": "Nell'offerta indichiamo separatamente il prezzo, l'incentivo stimato e il prezzo netto."
@@ -14560,13 +14302,13 @@
       ],
       "fit": {
         "yes": [
-          "dispone del capitale e vuole i costi complessivi più bassi",
-          "vuole ricevere per intero e direttamente incentivo, risparmio e rimunerazione per l'immissione in rete",
-          "non vuole rate ricorrenti"
+          "disponi del capitale e vuoi i costi complessivi più bassi",
+          "vuoi ricevere per intero e direttamente incentivo, risparmio e rimunerazione per l'immissione in rete",
+          "non vuoi rate ricorrenti"
         ],
         "no": [
-          "non vuole immobilizzare capitale",
-          "vuole acquistare l'impianto, ma pagarlo in rate mensili"
+          "non vuoi immobilizzare capitale",
+          "vuoi acquistare l'impianto, ma pagarlo in rate mensili"
         ]
       },
       "faq": {
@@ -14576,7 +14318,7 @@
         "items": {
           "1": {
             "question": "Quanto costa un impianto solare con SolarDirect?",
-            "answer": "Il prezzo dipende dalle dimensioni dell'impianto e dal pacchetto. Il calcolatore solare mostra quali dimensioni sono adatte al Suo tetto. In seguito riceve un'offerta a prezzo fisso."
+            "answer": "Il prezzo dipende dalle dimensioni dell'impianto e dal pacchetto. Il calcolatore solare mostra quali dimensioni sono adatte al tuo tetto. In seguito ricevi un'offerta a prezzo fisso."
           },
           "2": {
             "question": "Come pago?",
@@ -14584,15 +14326,15 @@
           },
           "3": {
             "question": "Chi riceve l'incentivo?",
-            "answer": "Lei. Prepariamo e presentiamo noi la domanda per la rimunerazione unica della Confederazione. Sull'approvazione decide l'organo competente."
+            "answer": "Tu. Prepariamo e presentiamo noi la domanda per la rimunerazione unica della Confederazione. Sull'approvazione decide l'organo competente."
           },
           "4": {
             "question": "Quali garanzie ho?",
-            "answer": "Riceve le garanzie di prodotto dei produttori e la nostra garanzia sull'installazione. Le garanzie dei singoli componenti figurano nella Sua offerta."
+            "answer": "Ricevi le garanzie di prodotto dei produttori e la nostra garanzia sull'installazione. Le garanzie dei singoli componenti figurano nella tua offerta."
           },
           "5": {
             "question": "Manutenzione e assicurazione sono incluse?",
-            "answer": "No. Può aggiungere la manutenzione con un pacchetto di assistenza. L'impianto lo assicura Lei."
+            "answer": "No. Puoi aggiungere la manutenzione con un pacchetto di assistenza. L'impianto lo assicuri tu."
           },
           "6": {
             "question": "Cosa succede con l'elettricità in eccedenza?",
@@ -14603,7 +14345,7 @@
       "form": {
         "eyebrow": "SolarDirect",
         "title": "Offerta per SolarDirect",
-        "subtitle": "Verifichiamo il Suo tetto e La contattiamo con un prezzo fisso."
+        "subtitle": "Verifichiamo il tuo tetto e ti contattiamo con un prezzo fisso."
       }
     }
   }

@@ -131,6 +131,21 @@ describe('PackageCard', () => {
     ).not.toBeInTheDocument()
   })
 
+  it('shows a default picture when the package has no photo', () => {
+    const noPhoto = groupPackages([pkg({ imageUrl: null })])[0]
+    render(
+      <NextIntlClientProvider
+        locale="de"
+        messages={deMessages as unknown as AbstractIntlMessages}
+      >
+        <PackageCard group={noPhoto} model="solar-direct" />
+      </NextIntlClientProvider>
+    )
+    expect(
+      screen.getByRole('img', { name: 'SolarDirect M Huawei' })
+    ).toBeInTheDocument()
+  })
+
   it('shows no monthly figure for SolarAbo', () => {
     renderCard('solar-abo')
     expect(screen.getByText('Feste Monatsrate')).toBeInTheDocument()
@@ -165,7 +180,11 @@ const flatten = (value: unknown, path = ''): Record<string, string> => {
 
 describe('model and package copy', () => {
   const locales = { de: deMessages, en: enMessages, fr: frMessages, it: itMessages }
-  const namespaces = ['solarModels', 'solarModelPage'] as const
+  const namespaces = [
+    'solarModels',
+    'solarModelPage',
+    'commercialSolarFree',
+  ] as const
 
   it('has the same keys in every language', () => {
     for (const namespace of namespaces) {
@@ -188,8 +207,11 @@ describe('model and package copy', () => {
         typed.solarModels,
         typed.solarModelPage,
         typed.packageCatalog,
+        typed.commercialSolarFree,
+        typed.cost.models,
+        typed.cost.faq,
       ])
-      expect(text, locale).not.toMatch(/0[.,]18|18 Rp|18 ct/)
+      expect(text, locale).not.toMatch(/0[.,]18|18 Rp|18 ct|18 rappen/i)
       expect(text, locale).not.toMatch(/Rundum-Service inklusive/)
     }
     expect(deMessages.solarModels.abo.values.service).toMatch(

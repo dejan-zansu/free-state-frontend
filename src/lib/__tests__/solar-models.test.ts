@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import {
+  DEFAULT_SOLAR_MODEL,
   SOLAR_MODELS,
   SOLAR_MODEL_KEYS,
   calculatorHref,
@@ -14,6 +15,10 @@ describe('solar models', () => {
     expect(
       SOLAR_MODEL_KEYS.filter(model => SOLAR_MODELS[model].featured)
     ).toEqual(['solar-free'])
+  })
+
+  it('uses SolarFree when the visitor has not chosen a model', () => {
+    expect(DEFAULT_SOLAR_MODEL).toBe('solar-free')
   })
 
   it('includes service and insurance only in SolarFree', () => {

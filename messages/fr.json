@@ -23,12 +23,6 @@
       }
     },
     "priceFor": "Afficher les prix pour",
-    "includedTitle": "Inclus dans chaque forfait",
-    "included": [
-      "Planification",
-      "Montage et mise en service",
-      "Suivi dans l'application"
-    ],
     "swiss": "Conçu pour la Suisse",
     "catalogCard": {
       "sizeLabel": "Forfait {size}",
@@ -890,7 +884,7 @@
           "title": "Industrie / Commerce",
           "subtitle": "Pour le commercial et l'industriel",
           "feature1": "Puissance 100–1 000 kWp sur toit ou façade",
-          "feature2": "Prix fixe 0,18 CHF/kWh (entretien et assurance inclus)",
+          "feature2": "Électricité solaire jusqu'à 30 % sous le tarif du réseau (entretien et assurance inclus)",
           "feature3": "En option : stockage & infrastructure de recharge",
           "feature4": "Stabilité des prix de l'énergie à long terme & avantages ESG",
           "term": "Durée de contrat 35 ans avec option de rachat",
@@ -1191,560 +1185,308 @@
       "ctaLink": "/calculator"
     }
   },
-  "solarAboMulti": {
-    "hero": {
-      "eyebrow": "Zéro investissement. Coûts d'électricité réduits. Sans souci.",
-      "title": "SolarFree Multifamilial",
-      "subtitle": "Pour immeubles collectifs et communautés énergétiques (RCP / CEL)",
-      "cta": "Démarrer le calculateur solaire",
-      "tag": "Sans inscription · Sans engagement",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nd'investissement",
-          "electricity": "Jusqu'à 30 % moins\ncher l'électricité"
-        },
-        "right": {
-          "maintenance": "Entretien\ninclus",
-          "reduction": "Réduction CO₂\njusqu'à 2 t/an"
-        }
-      }
-    },
-    "includes": {
-      "title": "Ce qui est inclus",
-      "subtitle": "Dans SolarFree Multifamilial",
-      "items": {
-        "solarModules": {
-          "title": "Installation solaire partagée",
-          "subtitle": "Installation solaire partagée"
-        },
-        "inverter": {
-          "title": "Système d'onduleur central",
-          "subtitle": "Conversion optimisée"
-        },
-        "zevBillingPlatform": {
-          "title": "Facturation et coordination RCP",
-          "subtitle": "Autoconsommation"
-        },
-        "monitoringApp": {
-          "title": "Monitoring",
-          "subtitle": "Par appartement"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Clé en main"
-        },
-        "batteryStorage": {
-          "title": "Stockage batterie",
-          "subtitle": "Autoconsommation"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Fonctionnement de SolarFree Multifamilial",
-      "subtitle": "Simple, transparent et sans souci, comme un abonnement mobile.",
-      "steps": {
-        "step1": "Vous fournissez le toit",
-        "step2": "Nous investissons",
-        "step3": "Vous utilisez l'énergie solaire",
-        "step4": "Vous payez\nmensuellement",
-        "step5": "L'installation devient vôtre"
-      }
-    },
-    "howPV": {
-      "row1": {
-        "title": "Comment fonctionne le PV",
-        "description": "Solaire sans investissement pour votre immeuble\n\nRéduisez les coûts énergétiques du bâtiment, sans aucun investissement de votre part. Nous réalisons l'installation photovoltaïque sur votre toit, entièrement financée, installée et exploitée par nos soins.\n\nPour vous et tous les résidents, cela signifie :\ndes coûts d'électricité réduits\ndes prix de l'énergie stables\nune plus-value durable du bien immobilier"
+  "commercialSolarFree": {
+    "shared": {
+      "primaryCta": "Démarrer le calculateur solaire",
+      "secondaryCta": "Demander un conseil",
+      "points": {
+        "1": "CHF 0 d'investissement",
+        "2": "Entretien et assurance inclus",
+        "3": "Électricité solaire jusqu'à 30 % sous le tarif du réseau"
       },
-      "row2": {
-        "title": "Comment ça marche",
-        "description": "Comment ça marche\nVous prenez contact. Nous évaluons gratuitement et prenons en charge la mise en œuvre & l'exploitation. L'électricité reste dans le bâtiment.\n\nVos avantages\nAucun investissement, électricité moins chère, plus de valeur.\n\nPourquoi c'est rentable\nToits inutilisés + prix en hausse\n→ Votre bâtiment devient producteur."
+      "factsTitle": "SolarFree en bref",
+      "videoLabel": "SolarFree en vidéo",
+      "steps": {
+        "title": "Comment se déroule un projet SolarFree",
+        "intro": "Du premier contrôle à l'électricité solaire de votre propre toit, en quatre étapes.",
+        "imageAlt": "Des monteurs posent un module solaire sur un toit",
+        "items": {
+          "1": {
+            "title": "Vérifier le toit et la consommation",
+            "body": "Vous démarrez le calculateur solaire ou vous nous appelez. Nous vérifions gratuitement le toit, la consommation d'électricité et la rentabilité."
+          },
+          "2": {
+            "title": "Offre et contrat",
+            "body": "Vous recevez une offre avec votre prix de l'électricité solaire ou un loyer de toiture. Vous mettez la surface de toit à notre disposition pour 35 ans et n'investissez rien."
+          },
+          "3": {
+            "title": "Nous construisons et exploitons",
+            "body": "Nous planifions, finançons et montons l'installation. L'exploitation, l'entretien, le suivi et l'assurance sont à notre charge."
+          },
+          "4": {
+            "title": "Vous utilisez l'électricité solaire",
+            "body": "Votre bâtiment consomme l'électricité de son propre toit, jusqu'à 30 % sous le tarif du réseau. Après 35 ans, l'installation vous revient gratuitement."
+          }
+        }
+      },
+      "costs": {
+        "title": "Ce que vous payez",
+        "intro": "Vous ne payez ni installation ni mensualité. Vous payez l'électricité solaire que votre bâtiment consomme.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investissement",
+            "body": "Nous payons la planification, le matériel et le montage. Votre capital reste disponible."
+          },
+          "2": {
+            "value": "Jusqu'à 30 %",
+            "label": "sous le tarif du réseau",
+            "body": "C'est ce que l'électricité solaire de votre propre toit coûte en moins par rapport à l'électricité de votre fournisseur d'électricité. Votre offre indique le prix exact."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "pour l'entretien et l'assurance",
+            "body": "Nous prenons en charge l'exploitation, les réparations et l'assurance de l'installation."
+          }
+        },
+        "note": "Vous payez comme jusqu'ici à votre fournisseur d'électricité l'électricité que vous prélevez en plus sur le réseau."
+      },
+      "includedTitle": "Ce qui est inclus",
+      "notIncludedTitle": "Ce qui n'est pas inclus",
+      "notIncluded": [
+        "L'électricité que vous prélevez sur le réseau",
+        "L'entretien du toit. Les propriétaires en restent responsables."
+      ],
+      "fitYesTitle": "SolarFree convient si",
+      "fitNoTitle": "Une autre solution convient mieux si",
+      "fitNo": {
+        "own": "vous voulez posséder vous-même l'installation dès le début",
+        "roof": "votre toit doit être rénové ces prochaines années. Dans ce cas, le mieux est de planifier ensemble le toit et l'installation solaire."
+      },
+      "seePurchase": "Voir les installations solaires à l'achat",
+      "seeRoof": "Voir toit et solaire",
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Questions fréquentes sur SolarFree",
+        "description": "Les points essentiels, expliqués en bref.",
+        "items": {
+          "1": {
+            "question": "À qui appartient l'installation ?",
+            "answer": "Pendant la durée du contrat de 35 ans, l'installation appartient à Free State AG. Ensuite, elle vous est transférée gratuitement."
+          },
+          "2": {
+            "question": "Combien nous coûte l'électricité solaire ?",
+            "answer": "Vous payez l'électricité solaire que votre bâtiment consomme. Le prix est jusqu'à 30 % inférieur au tarif de votre fournisseur d'électricité. Votre offre indique le prix exact."
+          },
+          "3": {
+            "question": "Qui paie l'entretien, les réparations et l'assurance ?",
+            "answer": "Free State AG. Nous prenons en charge tous les coûts occasionnés par l'installation."
+          },
+          "4": {
+            "question": "Pouvons-nous reprendre l'installation avant la fin des 35 ans ?",
+            "answer": "Oui. Un achat à la valeur résiduelle est possible, au plus tôt après une année d'exploitation. Les conditions figurent dans votre contrat."
+          },
+          "5": {
+            "question": "Qu'en est-il si notre bâtiment a besoin de moins d'électricité que le toit n'en produit ?",
+            "answer": "Dans ce cas, un loyer de toiture est aussi possible. Vous mettez le toit à disposition et recevez en échange un paiement annuel. Votre offre montre quelle solution convient."
+          },
+          "6": {
+            "question": "Comment commençons-nous ?",
+            "answer": "Vous démarrez le calculateur solaire ou vous nous appelez. Nous vérifions gratuitement le toit et la consommation et vous contactons avec une offre."
+          }
+        }
+      },
+      "closing": {
+        "title": "Vérifiez si SolarFree convient à votre bâtiment",
+        "body": "Le calculateur solaire montre en quelques minutes ce que votre toit produit. Ou vous nous parlez directement.",
+        "contactTitle": "Votre personne de contact",
+        "contactCta": "Prendre contact"
       }
     },
-    "publicSpaces": {
-      "title": "De l'énergie pour votre immeuble",
-      "subtitle": "Avec une énergie propre et fiable",
-      "body": "Faites une évaluation sans engagement\n\nTransformez votre immeuble en un projet énergétique moderne, sans aucun risque financier. Il vous suffit de nous recommander à votre gestion ou à votre communauté de copropriétaires : nous vérifions ensuite tout et prenons en charge la réalisation complète.\n\nNous analysons le bâtiment et le potentiel de la toiture, calculons la rentabilité et développons un concept de mise en œuvre concret, incluant tous les aspects techniques et juridiques (ZEV). Nous prenons intégralement en charge le financement, la planification et la réalisation.\n\nVotre effort reste minimal : vous établissez le premier contact, nous coordonnons tout le reste. Vous bénéficiez d'une électricité solaire avantageuse, de coûts énergétiques stables et d'une plus-value durable de votre bien immobilier. Lancez-vous dès maintenant, gratuitement et sans engagement, et recevez une évaluation solide du potentiel en demandant une analyse gratuite."
+    "hub": {
+      "hero": {
+        "title": "SolarFree pour les entreprises : installation solaire sans investissement",
+        "subtitle": "Nous finançons, construisons et exploitons l'installation solaire sur votre toit. Pour le commerce et l'industrie, l'agriculture, les bâtiments publics et les immeubles collectifs.",
+        "imageAlt": "Halle commerciale avec installation solaire sur le toit plat"
+      },
+      "segments": {
+        "title": "Quel SolarFree convient à votre bâtiment ?",
+        "intro": "Le modèle est partout le même. Nous planifions l'installation pour votre type de bâtiment.",
+        "cta": "En savoir plus"
+      },
+      "included": [
+        "Installation solaire dimensionnée pour votre bâtiment et votre consommation",
+        "Planification, financement et montage clé en main",
+        "Exploitation, entretien et réparations",
+        "Assurance de l'installation",
+        "Suivi de l'installation"
+      ],
+      "fitYes": [
+        "vous ne voulez pas immobiliser de capital dans une installation solaire",
+        "vous voulez rendre vos coûts d'électricité prévisibles à long terme",
+        "vous ne voulez pas vous occuper de l'exploitation, de l'entretien et de l'assurance"
+      ]
+    },
+    "segments": {
+      "multiFamily": {
+        "name": "Immeubles collectifs",
+        "card": "Électricité solaire pour tous les appartements, avec facturation dans le RCP ou dans la CEL.",
+        "hero": {
+          "title": "SolarFree pour les immeubles collectifs",
+          "subtitle": "Électricité solaire pour tous les appartements, sans investissement. Nous construisons et exploitons l'installation et nous chargeons de la facturation au sein du regroupement dans le cadre de la consommation propre (RCP).",
+          "imageAlt": "Immeuble collectif avec installation solaire sur le toit"
+        },
+        "benefits": {
+          "title": "Pourquoi SolarFree pour les immeubles collectifs",
+          "items": {
+            "1": {
+              "title": "Électricité avantageuse pour tous les habitants",
+              "body": "Les habitantes et habitants consomment l'électricité solaire de leur propre toit, jusqu'à 30 % sous le tarif du réseau."
+            },
+            "2": {
+              "title": "Facturation incluse",
+              "body": "Nous nous chargeons de la facturation RCP et de la coordination. La gérance n'a ainsi aucun travail supplémentaire."
+            },
+            "3": {
+              "title": "Plus de valeur pour l'immeuble",
+              "body": "L'installation solaire valorise le bâtiment sans que les propriétaires investissent."
+            }
+          }
+        },
+        "included": [
+          "Installation solaire partagée pour tout le bâtiment",
+          "Système d'onduleur central",
+          "Facturation et coordination RCP",
+          "Suivi par appartement",
+          "Planification et montage clé en main",
+          "Exploitation, entretien et assurance",
+          "Batterie de stockage pour plus d'autoconsommation"
+        ],
+        "fitYes": [
+          "vous possédez ou gérez un immeuble collectif",
+          "vous voulez proposer aux habitantes et habitants une électricité solaire avantageuse",
+          "vous ne voulez ni investir ni gérer vous-même la facturation"
+        ]
+      },
+      "industry": {
+        "name": "Industrie et commerce",
+        "card": "Pour bâtiments commerciaux et industriels avec une grande surface de toit.",
+        "hero": {
+          "title": "SolarFree pour l'industrie et le commerce",
+          "subtitle": "Nous construisons et exploitons l'installation solaire sur le toit de votre entreprise. Vous n'immobilisez aucun capital et ne payez que l'électricité solaire que votre entreprise consomme.",
+          "imageAlt": "Halle commerciale avec installation solaire sur le toit plat"
+        },
+        "benefits": {
+          "title": "Pourquoi SolarFree pour l'industrie et le commerce",
+          "items": {
+            "1": {
+              "title": "Aucun capital immobilisé",
+              "body": "Nous nous chargeons de la planification, du financement, de la construction et de l'exploitation. Vos liquidités restent dans l'entreprise."
+            },
+            "2": {
+              "title": "Coûts d'électricité prévisibles",
+              "body": "L'électricité solaire de votre propre toit coûte jusqu'à 30 % de moins que l'électricité du réseau. Cela rend vos coûts énergétiques prévisibles à long terme."
+            },
+            "3": {
+              "title": "Contribution à vos objectifs ESG",
+              "body": "Vous réduisez de manière mesurable les émissions de CO₂ de votre entreprise, sans charge opérationnelle pour votre équipe."
+            }
+          }
+        },
+        "included": [
+          "Installation solaire de 100 à 1000 kWp sur toit ou façade",
+          "Onduleur et gestion de l'énergie avec données en temps réel",
+          "Planification et montage clé en main",
+          "Exploitation, entretien et assurance",
+          "Sur demande, batterie de stockage et infrastructure de recharge"
+        ],
+        "fitYes": [
+          "vous possédez un bâtiment commercial ou industriel avec une grande surface de toit",
+          "vous voulez planifier vos coûts d'électricité à long terme",
+          "vous ne voulez pas immobiliser de capital dans une installation"
+        ]
+      },
+      "farm": {
+        "name": "Agriculture",
+        "card": "Pour fermes et exploitations agricoles avec un toit de grange ou d'étable.",
+        "hero": {
+          "title": "SolarFree pour les exploitations agricoles",
+          "subtitle": "Les toits de granges et d'étables comptent souvent parmi les plus grandes surfaces de toiture inutilisées de la région. Nous y construisons et exploitons l'installation solaire, sans investissement de votre part.",
+          "imageAlt": "Grands toits de halles avec modules solaires"
+        },
+        "benefits": {
+          "title": "Pourquoi SolarFree pour votre ferme",
+          "items": {
+            "1": {
+              "title": "Utiliser les grands toits",
+              "body": "Nous vérifions gratuitement combien d'électricité votre toit de grange ou d'étable peut produire."
+            },
+            "2": {
+              "title": "Électricité avantageuse pour la ferme et l'exploitation",
+              "body": "Vous consommez l'électricité solaire de votre propre toit, jusqu'à 30 % sous le tarif du réseau."
+            },
+            "3": {
+              "title": "Un revenu complémentaire",
+              "body": "Si le toit produit plus d'électricité que la ferme n'en a besoin, un loyer de toiture annuel est aussi possible."
+            }
+          }
+        },
+        "included": [
+          "Installation solaire jusqu'à 500 kWp",
+          "Système d'onduleur adapté à la ferme",
+          "Suivi avec données en direct",
+          "Planification et montage clé en main",
+          "Exploitation, entretien et assurance",
+          "Sur demande, raccordement d'une pompe à chaleur"
+        ],
+        "fitYes": [
+          "vous dirigez une ferme ou une exploitation agricole",
+          "vous avez une grande surface de toit de halle, de grange ou d'étable",
+          "vous voulez réduire vos coûts d'électricité sans investir"
+        ],
+        "factsImageAlt": "Vue aérienne d'une installation solaire dans une exploitation agricole"
+      },
+      "public": {
+        "name": "Bâtiments publics",
+        "card": "Pour écoles, hôpitaux et bâtiments communaux.",
+        "hero": {
+          "title": "SolarFree pour les bâtiments publics",
+          "subtitle": "Pour écoles, hôpitaux et bâtiments communaux. Nous planifions, finançons, construisons et exploitons l'installation solaire. Votre budget n'est pas sollicité.",
+          "imageAlt": "Modules solaires sur un bâtiment public"
+        },
+        "benefits": {
+          "title": "Pourquoi SolarFree pour les bâtiments publics",
+          "items": {
+            "1": {
+              "title": "Aucun budget nécessaire",
+              "body": "La commune n'avance pas un seul franc. Nous nous chargeons de la planification, du financement, de la construction et de l'exploitation."
+            },
+            "2": {
+              "title": "Coûts énergétiques stables",
+              "body": "L'électricité solaire de votre propre toit coûte jusqu'à 30 % de moins que l'électricité du réseau et rend les coûts énergétiques prévisibles."
+            },
+            "3": {
+              "title": "Un exemple visible",
+              "body": "L'installation est une contribution visible à la transition énergétique. Un tableau de bord de suivi montre la production en toute transparence."
+            }
+          }
+        },
+        "included": [
+          "Installation solaire de la taille qui convient à votre bâtiment",
+          "Système d'onduleur",
+          "Tableau de bord de suivi avec données de production transparentes",
+          "Planification et montage clé en main",
+          "Exploitation, entretien et assurance",
+          "Sur demande, batterie de stockage"
+        ],
+        "fitYes": [
+          "vous gérez une école ou un autre établissement éducatif",
+          "vous gérez un hôpital ou un établissement de soins",
+          "vous êtes responsable de bâtiments communaux ou administratifs"
+        ]
+      }
     },
     "contactPerson": {
       "name": "Peter Aragai",
       "role": "Executive Manager / Directeur des ventes",
       "phone": "078 608 88 50",
       "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "pricing": {
-      "title": "Tarification & contrat",
-      "subtitle": "Simple, transparent et sans souci, avec en plus l'indépendance énergétique.",
-      "costLabel": "Coût de l'installation solaire en CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Surface de toit",
-        "value": "env. 50 m²"
-      },
-      "residents": {
-        "label": "Habitants",
-        "value": "ménage multifamilial"
-      },
-      "costPerM2": {
-        "label": "Coût par\nm² en CHF",
-        "value": "env. 780,00 CHF"
-      },
-      "solarAboPrice": "Avec SolarFree CHF 0",
-      "orderNow": "COMMANDER",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Cette offre vous convient-elle ?",
-      "idealForTitle": "Idéal pour vous",
-      "notIdealForTitle": "Pas idéal pour vous",
-      "idealFor": {
-        "singleFamily": "Maison individuelle",
-        "predictableCosts": "Coûts prévisibles",
-        "noUpfront": "Aucun investissement initial",
-        "noMaintenance": "Aucun entretien à gérer"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Besoin d'un stockage batterie",
-        "commercial": "Bâtiment commercial"
-      }
-    },
-    "cta": {
-      "topButton": "Voir si SolarFree Multifamilial convient à votre toit",
-      "heading": "Voir si SolarFree Multifamilial convient à votre toit",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/commercial/calculator"
+      "email": "peter.aragai@freestate.ch"
     },
     "communitiesLink": {
       "title": "RCP, RCPv ou CEL ?",
       "text": "Quel modèle convient à votre immeuble, qui mesure et qui facture, expliqué dans notre guide (en allemand).",
       "cta": "Lire le guide"
-    }
-  },
-  "solarAboBusiness": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Directeur des ventes",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Comment fonctionne le PV",
-        "description": "Le contracting PV semble compliqué, mais fonctionne très simplement : vous disposez d'un grand toit et souhaitez une installation solaire sans vouloir investir. C'est pourquoi Free State AG finance, construit et exploite l'installation pour vous. Et vous profitez d'un loyer de toiture annuel et/ou de prix de l'électricité avantageux."
-      },
-      "row2": {
-        "title": "Le déroulement",
-        "description": "Le processus est simple. Nous évaluons votre toit et votre consommation d'électricité, établissons une offre avec loyer de toiture ou prix de l'électricité, planifions et construisons l'installation, puis assurons l'exploitation, la maintenance et le monitoring. Vous ne mettez à disposition que le toit."
-      }
-    },
-    "publicSpaces": {
-      "title": "De l'énergie pour votre entreprise",
-      "subtitle": "Propre, prévisible, sans investissement",
-      "body": "Valorisez sans engager de capital les surfaces de toiture inutilisées de votre site industriel ou commercial. Nous analysons gratuitement le bâtiment, le profil de consommation et la rentabilité, et prenons en charge la planification, le financement, l'installation et l'exploitation. Vous bénéficiez ainsi de prix d'électricité stables, d'avantages ESG et d'une réduction mesurable de CO₂, le tout sans charge opérationnelle pour votre équipe. Demandez une analyse gratuite dès maintenant."
-    },
-    "hero": {
-      "eyebrow": "Zéro investissement. Coûts d'électricité réduits. Avantages ESG.",
-      "title": "Industrie / Commerce",
-      "subtitle": "Pour bâtiments commerciaux et industriels",
-      "cta": "Démarrer le calculateur solaire",
-      "tag": "Sans inscription · Sans engagement",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nd'investissement",
-          "electricity": "Prix fixe\n0,18 CHF/kWh"
-        },
-        "right": {
-          "maintenance": "Entretien\ninclus",
-          "reduction": "Réduction CO₂\njusqu'à 50 t/an"
-        }
-      }
-    },
-    "includes": {
-      "title": "Ce qui est inclus",
-      "subtitle": "Dans Industrie / Commerce",
-      "items": {
-        "solarModules": {
-          "title": "Installation PV commerciale",
-          "subtitle": "100–1 000 kWp"
-        },
-        "inverter": {
-          "title": "Onduleur industriel",
-          "subtitle": "Haute performance"
-        },
-        "monitoringApp": {
-          "title": "Gestion de l'énergie",
-          "subtitle": "Analytique en temps réel"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Clé en main"
-        },
-        "serviceInsurance": {
-          "title": "Service & assurance",
-          "subtitle": "Couverts"
-        },
-        "batteryStorage": {
-          "title": "Stockage batterie",
-          "subtitle": "En option"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Fonctionnement de Industrie / Commerce",
-      "subtitle": "Réduisez les coûts énergétiques de votre entreprise de façon simple, transparente et sans souci.",
-      "steps": {
-        "step1": "Vous fournissez le toit",
-        "step2": "Nous investissons",
-        "step3": "Vous utilisez l'énergie solaire",
-        "step4": "Vous payez un\nprix fixe par kWh",
-        "step5": "L'installation devient vôtre"
-      }
-    },
-    "pricing": {
-      "title": "Tarification & contrat",
-      "subtitle": "Prix de l'énergie fixe pour une sécurité de planification à long terme.",
-      "costLabel": "Coût de l'installation solaire en CHF",
-      "amount": "Personnalisé",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Surface de toit",
-        "value": "variable"
-      },
-      "residents": {
-        "label": "Utilisation",
-        "value": "bâtiment commercial"
-      },
-      "costPerM2": {
-        "label": "Prix par\nkWh en CHF",
-        "value": "à partir de 0,18 CHF"
-      },
-      "solarAboPrice": "Avec Industrie / Commerce",
-      "orderNow": "COMMANDER",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Cette offre vous convient-elle ?",
-      "idealForTitle": "Idéal pour vous",
-      "notIdealForTitle": "Pas idéal pour vous",
-      "idealFor": {
-        "singleFamily": "Bâtiment commercial",
-        "predictableCosts": "Planification des coûts à long terme",
-        "noUpfront": "Aucun investissement initial",
-        "noMaintenance": "Objectifs ESG"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Bien résidentiel",
-        "commercial": "Petite surface de toit"
-      }
-    },
-    "cta": {
-      "topButton": "Voir si Industrie / Commerce convient à votre bâtiment",
-      "heading": "Voir si Industrie / Commerce convient à votre bâtiment",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboAgro": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Directeur des ventes",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Comment fonctionne le PV",
-        "description": "Le contracting PV semble compliqué, mais fonctionne très simplement : vous disposez d'un grand toit et souhaitez une installation solaire sans vouloir investir. C'est pourquoi Free State AG finance, construit et exploite l'installation pour vous. Et vous profitez d'un loyer de toiture annuel et/ou de prix de l'électricité avantageux."
-      },
-      "row2": {
-        "title": "Le déroulement",
-        "description": "Le processus est simple. Nous évaluons votre toit et votre consommation d'électricité, établissons une offre avec loyer de toiture ou prix de l'électricité, planifions et construisons l'installation, puis assurons l'exploitation, la maintenance et le monitoring. Vous ne mettez à disposition que le toit."
-      }
-    },
-    "publicSpaces": {
-      "title": "De l'énergie pour votre exploitation",
-      "subtitle": "Grands toits, grand potentiel",
-      "body": "Les exploitations agricoles disposent souvent des plus grandes surfaces de toiture inutilisées de la région. Nous analysons gratuitement comment transformer votre toit de grange ou d'étable en installation PV, sans aucun investissement de votre part. Nous prenons en charge le financement, la construction et l'exploitation. Vous bénéficiez d'électricité avantageuse pour votre ferme et votre activité, d'un loyer annuel pour votre toit et d'un revenu complémentaire. Demandez une analyse sans engagement dès maintenant."
-    },
-    "hero": {
-      "eyebrow": "Zéro investissement. Coûts d'électricité réduits. Service fiable.",
-      "title": "Fermes",
-      "subtitle": "Pour fermes et exploitations agricoles",
-      "cta": "Démarrer le calculateur solaire",
-      "tag": "Sans inscription · Sans engagement",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nd'investissement",
-          "electricity": "Jusqu'à 40 % moins\ncher l'électricité"
-        },
-        "right": {
-          "maintenance": "Garantie de service\nincluse",
-          "reduction": "Réduction CO₂\njusqu'à 20 t/an"
-        }
-      }
-    },
-    "includes": {
-      "title": "Ce qui est inclus",
-      "subtitle": "Dans Fermes",
-      "items": {
-        "solarModules": {
-          "title": "Installation PV agricole",
-          "subtitle": "Jusqu'à 500 kWp"
-        },
-        "inverter": {
-          "title": "Système d'onduleur",
-          "subtitle": "Optimisé pour la ferme"
-        },
-        "monitoringApp": {
-          "title": "App de monitoring",
-          "subtitle": "Données en direct"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Clé en main"
-        },
-        "serviceInsurance": {
-          "title": "Garantie de service",
-          "subtitle": "Incluse"
-        },
-        "heatPump": {
-          "title": "Connexion pompe à chaleur",
-          "subtitle": "En option"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Fonctionnement de Fermes",
-      "subtitle": "Simple, transparente et sans souci, notre solution est pensée pour les exploitations agricoles.",
-      "steps": {
-        "step1": "Vous fournissez le toit",
-        "step2": "Nous investissons",
-        "step3": "Vous utilisez l'énergie solaire",
-        "step4": "Vous payez\nmensuellement",
-        "step5": "L'installation devient vôtre"
-      }
-    },
-    "pricing": {
-      "title": "Tarification & contrat",
-      "subtitle": "Durées contractuelles flexibles, adaptées aux besoins de votre exploitation.",
-      "costLabel": "Coût de l'installation solaire en CHF",
-      "amount": "Personnalisé",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Surface de toit",
-        "value": "variable"
-      },
-      "residents": {
-        "label": "Utilisation",
-        "value": "exploitation agricole"
-      },
-      "costPerM2": {
-        "label": "Prix par\nm² en CHF",
-        "value": "tarification sur mesure"
-      },
-      "solarAboPrice": "Avec Fermes",
-      "orderNow": "COMMANDER",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Cette offre vous convient-elle ?",
-      "idealForTitle": "Idéal pour vous",
-      "notIdealForTitle": "Pas idéal pour vous",
-      "idealFor": {
-        "singleFamily": "Ferme ou exploitation agricole",
-        "predictableCosts": "Grand toit de halle ou d'étable",
-        "noUpfront": "Réduction des coûts d'électricité",
-        "noMaintenance": "Garantie de service incluse"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Bien résidentiel",
-        "commercial": "Petite exploitation"
-      }
-    },
-    "cta": {
-      "topButton": "Voir si Fermes convient à votre ferme",
-      "heading": "Voir si Fermes convient à votre ferme",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboPublic": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Directeur des ventes",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Comment fonctionne le PV",
-        "description": "Le contracting PV semble compliqué, mais fonctionne très simplement : vous disposez d'un grand toit et souhaitez une installation solaire sans vouloir investir. C'est pourquoi Free State AG finance, construit et exploite l'installation pour vous. Et vous profitez d'un loyer de toiture annuel et/ou de prix de l'électricité avantageux."
-      }
-    },
-    "publicSpaces": {
-      "title": "De l'électricité pour les bâtiments publics",
-      "subtitle": "Avec une énergie propre et fiable",
-      "body": "Les écoles, bâtiments administratifs et propriétés publiques ont une responsabilité dans la transition énergétique, qu'ils peuvent assumer sans alourdir leurs budgets. Nous analysons gratuitement le potentiel et la rentabilité et nous occupons de la planification, du financement, de la construction et de l'exploitation de l'installation. La commune profite ainsi de coûts énergétiques stables, d'une contribution visible à la durabilité et d'une fonction d'exemple, sans avoir à avancer un seul franc. Demandez une analyse sans engagement dès maintenant."
-    },
-    "hero": {
-      "eyebrow": "Zéro investissement. Coûts d'électricité réduits. Exemple durable.",
-      "title": "Bâtiments publics",
-      "subtitle": "Pour écoles, hôpitaux et bâtiments communaux",
-      "cta": "Démarrer le calculateur solaire",
-      "tag": "Sans inscription · Sans engagement",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nd'investissement",
-          "electricity": "Jusqu'à 30 % moins\ncher l'électricité"
-        },
-        "right": {
-          "maintenance": "Entretien\ninclus",
-          "reduction": "Réduction CO₂\njusqu'à 30 t/an"
-        }
-      }
-    },
-    "includes": {
-      "title": "Ce qui est inclus",
-      "subtitle": "Dans Bâtiments publics",
-      "items": {
-        "solarModules": {
-          "title": "Installation PV pour bâtiment public",
-          "subtitle": "Capacité personnalisée"
-        },
-        "inverter": {
-          "title": "Onduleur professionnel",
-          "subtitle": "Haute efficacité"
-        },
-        "monitoringApp": {
-          "title": "Tableau de bord de monitoring",
-          "subtitle": "Transparence pour les citoyens"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Clé en main"
-        },
-        "serviceInsurance": {
-          "title": "Service & assurance",
-          "subtitle": "Couverts"
-        },
-        "batteryStorage": {
-          "title": "Stockage batterie",
-          "subtitle": "En option"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "Fonctionnement de Bâtiments publics",
-      "subtitle": "Simple, transparente et sans souci, notre solution est un exemple de durabilité pour votre collectivité.",
-      "steps": {
-        "step1": "Vous fournissez le toit",
-        "step2": "Nous investissons",
-        "step3": "Vous utilisez l'énergie solaire",
-        "step4": "Vous payez\nmensuellement",
-        "step5": "L'installation devient vôtre"
-      }
-    },
-    "pricing": {
-      "title": "Tarification & contrat",
-      "subtitle": "Coûts prévisibles pour les budgets publics.",
-      "costLabel": "Coût de l'installation solaire en CHF",
-      "amount": "Personnalisé",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Surface de toit",
-        "value": "variable"
-      },
-      "residents": {
-        "label": "Utilisation",
-        "value": "bâtiment public"
-      },
-      "costPerM2": {
-        "label": "Prix par\nm² en CHF",
-        "value": "tarification sur mesure"
-      },
-      "solarAboPrice": "Avec Bâtiments publics",
-      "orderNow": "COMMANDER",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Cette offre vous convient-elle ?",
-      "idealForTitle": "Idéal pour vous",
-      "notIdealForTitle": "Pas idéal pour vous",
-      "idealFor": {
-        "singleFamily": "Bâtiment public",
-        "predictableCosts": "École ou établissement éducatif",
-        "noUpfront": "Hôpital ou établissement de soins",
-        "noMaintenance": "Bien communal"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Bien résidentiel",
-        "commercial": "Entreprise commerciale"
-      }
-    },
-    "cta": {
-      "topButton": "Voir si Bâtiments publics convient à votre bâtiment",
-      "heading": "Voir si Bâtiments publics convient à votre bâtiment",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "commercialSolarFreeHub": {
-    "hero": {
-      "title": "SolarFree",
-      "description": "Installations solaires sans investissement pour bâtiments commerciaux et industriels, fermes, bâtiments publics et immeubles collectifs"
-    },
-    "topics": {
-      "title": "Quel SolarFree convient à votre bâtiment ?",
-      "items": [
-        {
-          "title": "Immeubles collectifs",
-          "description": "Pour immeubles collectifs (RCP / CEL)",
-          "linkLabel": "Immeubles collectifs",
-          "image": "/images/solar-abo-multi.png",
-          "href": "/commercial/solar-free/solar-free-multi-family"
-        },
-        {
-          "title": "Industrie / Commerce",
-          "description": "Pour bâtiments commerciaux et industriels",
-          "linkLabel": "Industrie / Commerce",
-          "image": "/images/solar-abo-business.png",
-          "href": "/commercial/solar-free/industry-commercial"
-        },
-        {
-          "title": "Fermes",
-          "description": "Pour fermes et exploitations agricoles",
-          "linkLabel": "Fermes",
-          "image": "/images/solar-abo-agro.png",
-          "href": "/commercial/solar-free/farmhouses"
-        },
-        {
-          "title": "Bâtiments publics",
-          "description": "Pour écoles, hôpitaux et bâtiments communaux",
-          "linkLabel": "Bâtiments publics",
-          "image": "/images/solar-abo-public.png",
-          "href": "/commercial/solar-free/public-buildings"
-        }
-      ]
-    },
-    "howPV": {
-      "row1": {
-        "title": "Comment fonctionne SolarFree",
-        "description": "Vous souhaitez une installation solaire sans vouloir investir. Nous analysons gratuitement votre bâtiment et nous occupons de la planification, du financement, de la construction et de l'exploitation de l'installation. Vous mettez le toit à disposition et profitez de prix de l'électricité avantageux."
-      }
-    },
-    "cta": {
-      "topButton": "Zéro investissement. Coûts d'électricité réduits.",
-      "heading": "Voir si SolarFree convient à votre bâtiment",
-      "ctaText": "Démarrer le calculateur solaire",
-      "ctaLink": "/commercial/calculator"
     }
   },
   "contact": {
@@ -3512,11 +3254,11 @@
       },
       "free": {
         "name": "SolarFree",
-        "headline": "CHF 0 d'investissement, électricité solaire dès 18 ct./kWh",
+        "headline": "CHF 0 d'investissement, vous ne payez que l'électricité solaire",
         "tagline": "Nous construisons et exploitons l'installation sur votre toit, vous n'achetez que l'électricité.",
         "points": {
           "1": "Pas d'acompte, pas d'investissement",
-          "2": "Jusqu'à 30 % sous le tarif du réseau (p. ex. 18 au lieu de 32 ct./kWh)",
+          "2": "Jusqu'à 30 % sous le tarif du réseau",
           "3": "Après 35 ans, l'installation vous appartient"
         },
         "cta": "Voir SolarFree"
@@ -3550,7 +3292,7 @@
         },
         "5": {
           "question": "Est-ce possible sans investissement ?",
-          "answer": "Oui. Avec SolarFree, nous construisons l'installation sur votre toit et vous ne payez que l'électricité solaire, dès 18 ct. par kWh. Après 35 ans, l'installation vous appartient. Avec SolarAbo, vous payez des mensualités fixes sur 25 ans et êtes propriétaire dès le premier jour."
+          "answer": "Oui. Avec SolarFree, nous construisons l'installation sur votre toit et vous ne payez que l'électricité solaire, jusqu'à 30 % sous le tarif du réseau. Après 35 ans, l'installation vous appartient. Avec SolarAbo, vous payez des mensualités fixes sur 25 ans et êtes propriétaire dès le premier jour."
         },
         "6": {
           "question": "Quand l'installation est-elle rentable ?",

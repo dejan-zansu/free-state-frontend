@@ -2,6 +2,13 @@ import type { NextConfig } from 'next'
 import createNextIntlPlugin from 'next-intl/plugin'
 import { REPLACED_POSTS } from './src/lib/blog/replaced-posts'
 
+const RENAMED_PACKAGE_SLUGS: Record<string, string> = {
+  'solarabo-s-solar': 'solarfree-s-sofar',
+  'solarabo-m-sofar': 'solarfree-m-sofar',
+  'solarabo-l-sofar': 'solarfree-l-sofar',
+  'solarabo-xl-sofar': 'solarfree-xl-sofar',
+}
+
 const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || '.next',
   // Next streams metadata to bots that run JavaScript, Googlebot included, so the canonical
@@ -52,6 +59,28 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      ...Object.entries(RENAMED_PACKAGE_SLUGS).flatMap(([from, to]) => [
+        {
+          source: `/pakete/${from}`,
+          destination: `/pakete/${to}`,
+          permanent: true,
+        },
+        {
+          source: `/en/packages/${from}`,
+          destination: `/en/packages/${to}`,
+          permanent: true,
+        },
+        {
+          source: `/fr/forfaits/${from}`,
+          destination: `/fr/forfaits/${to}`,
+          permanent: true,
+        },
+        {
+          source: `/it/pacchetti/${from}`,
+          destination: `/it/pacchetti/${to}`,
+          permanent: true,
+        },
+      ]),
       ...Object.entries(REPLACED_POSTS).flatMap(([from, to]) => [
         {
           source: `/blog/${from}`,

@@ -23,12 +23,6 @@
       }
     },
     "priceFor": "Preise anzeigen für",
-    "includedTitle": "In jedem Paket inbegriffen",
-    "included": [
-      "Planung",
-      "Montage und Inbetriebnahme",
-      "Monitoring per App"
-    ],
     "swiss": "Entwickelt für die Schweiz",
     "catalogCard": {
       "sizeLabel": "Paket {size}",
@@ -939,7 +933,7 @@
           "title": "Industrie / Gewerbe",
           "subtitle": "Für Gewerbe und Industrie",
           "feature1": "Leistung 100–1 000 kWp auf Dach oder Fassade",
-          "feature2": "Fixpreis 0.18 CHF/kWh (inkl. Wartung und Versicherung)",
+          "feature2": "Solarstrom bis zu 30 % unter dem Netztarif (inkl. Wartung und Versicherung)",
           "feature3": "Option: Batteriespeicher & Ladeinfrastruktur",
           "feature4": "Langfristige Energiepreis-Stabilität & ESG-Vorteile",
           "term": "Vertragsdauer 35 Jahre mit Rückkaufoption",
@@ -1240,560 +1234,308 @@
       "ctaLink": "/calculator"
     }
   },
-  "solarAboMulti": {
-    "hero": {
-      "eyebrow": "Kein Investment. Geringere Stromkosten. Keine Sorgen.",
-      "title": "SolarFree Mehrfamilienhaus",
-      "subtitle": "Für Mehrfamilienhäuser und gemeinsame Energiegemeinschaften (ZEV / LEG)",
-      "cta": "Solarrechner starten",
-      "tag": "Keine Registrierung nötig · Unverbindlich",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringerer\nStrompreis"
-        },
-        "right": {
-          "maintenance": "Wartung\ninklusive",
-          "reduction": "CO₂-Reduktion\nbis 2 t/Jahr"
-        }
-      }
-    },
-    "includes": {
-      "title": "Was ist enthalten",
-      "subtitle": "In SolarFree Mehrfamilienhaus",
-      "items": {
-        "solarModules": {
-          "title": "Gemeinsames Solarsystem",
-          "subtitle": "Gemeinsames Solarsystem"
-        },
-        "inverter": {
-          "title": "Zentrales Wechselrichtersystem",
-          "subtitle": "Optimierte Umwandlung"
-        },
-        "zevBillingPlatform": {
-          "title": "ZEV-Abrechnung und Koordination",
-          "subtitle": "Eigenverbrauch"
-        },
-        "monitoringApp": {
-          "title": "Monitoring",
-          "subtitle": "Pro Wohnung"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Schlüsselfertig"
-        },
-        "batteryStorage": {
-          "title": "Batteriespeicher",
-          "subtitle": "Eigenverbrauch"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "So funktioniert SolarFree Mehrfamilienhaus",
-      "subtitle": "So einfach, transparent und sorgenfrei wie ein Handy-Abo.",
-      "steps": {
-        "step1": "Sie stellen das Dach",
-        "step2": "Wir investieren",
-        "step3": "Sie nutzen den Solarstrom",
-        "step4": "Sie zahlen\nmonatlich",
-        "step5": "Die Anlage wird Ihr Eigentum"
-      }
-    },
-    "howPV": {
-      "row1": {
-        "title": "Wie funktioniert PV",
-        "description": "Solar für Ihr Mehrfamilienhaus ganz ohne Investition\n\nSenken Sie die Energiekosten im Gebäude, ohne selbst zu investieren. Wir realisieren die Photovoltaikanlage auf Ihrem Dach, vollständig finanziert, installiert und betrieben durch uns.\n\nFür Sie und alle Bewohner bedeutet das:\ngünstigere Stromkosten\nstabile Energiepreise\nnachhaltige Wertsteigerung der Immobilie"
+  "commercialSolarFree": {
+    "shared": {
+      "primaryCta": "Solarrechner starten",
+      "secondaryCta": "Beratung anfragen",
+      "points": {
+        "1": "CHF 0 Investition",
+        "2": "Wartung und Versicherung inbegriffen",
+        "3": "Solarstrom bis zu 30 % unter dem Netztarif"
       },
-      "row2": {
-        "title": "Wie funktioniert",
-        "description": "So funktioniert es\nSie stellen den Kontakt her. Wir prüfen kostenlos und übernehmen Umsetzung & Betrieb. Der Strom bleibt im Gebäude.\n\nIhre Vorteile\nKeine Investition, günstiger Strom, mehr Wert.\n\nWarum lohnt es sich\nUngenutzte Dächer + steigende Preise\n→ Ihr Gebäude wird zum Produzenten."
+      "factsTitle": "SolarFree in Kürze",
+      "videoLabel": "SolarFree im Video",
+      "steps": {
+        "title": "So läuft ein SolarFree-Projekt ab",
+        "intro": "Von der ersten Prüfung bis zum Solarstrom vom eigenen Dach in vier Schritten.",
+        "imageAlt": "Monteure setzen ein Solarmodul auf ein Dach",
+        "items": {
+          "1": {
+            "title": "Dach und Verbrauch prüfen",
+            "body": "Sie starten den Solarrechner oder rufen uns an. Wir prüfen Dach, Stromverbrauch und Wirtschaftlichkeit kostenlos."
+          },
+          "2": {
+            "title": "Angebot und Vertrag",
+            "body": "Sie erhalten ein Angebot mit Ihrem Solarstrompreis oder einer Dachpacht. Sie überlassen uns die Dachfläche für 35 Jahre und investieren nichts."
+          },
+          "3": {
+            "title": "Wir bauen und betreiben",
+            "body": "Wir planen, finanzieren und montieren die Anlage. Betrieb, Wartung, Monitoring und Versicherung gehen auf unsere Kosten."
+          },
+          "4": {
+            "title": "Sie nutzen den Solarstrom",
+            "body": "Ihr Gebäude verbraucht den Strom vom eigenen Dach, bis zu 30 % unter dem Netztarif. Nach 35 Jahren geht die Anlage kostenlos an Sie."
+          }
+        }
+      },
+      "costs": {
+        "title": "Was Sie zahlen",
+        "intro": "Sie zahlen keine Anlage und keine Monatsrate. Sie zahlen den Solarstrom, den Ihr Gebäude verbraucht.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investition",
+            "body": "Planung, Material und Montage bezahlen wir. Ihr Kapital bleibt frei."
+          },
+          "2": {
+            "value": "Bis zu 30 %",
+            "label": "unter dem Netztarif",
+            "body": "So viel günstiger ist der Solarstrom vom eigenen Dach im Vergleich zum Strom Ihres Elektrizitätswerks. Den genauen Preis nennt Ihr Angebot."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "für Wartung und Versicherung",
+            "body": "Betrieb, Reparaturen und Versicherung der Anlage tragen wir."
+          }
+        },
+        "note": "Den Strom, den Sie zusätzlich aus dem Netz beziehen, bezahlen Sie wie bisher Ihrem Elektrizitätswerk."
+      },
+      "includedTitle": "Was inbegriffen ist",
+      "notIncludedTitle": "Was nicht inbegriffen ist",
+      "notIncluded": [
+        "Strom, den Sie aus dem Netz beziehen",
+        "Unterhalt des Dachs. Dafür bleibt die Eigentümerschaft zuständig."
+      ],
+      "fitYesTitle": "SolarFree passt, wenn",
+      "fitNoTitle": "Eine andere Lösung passt besser, wenn",
+      "fitNo": {
+        "own": "Sie die Anlage von Anfang an selbst besitzen wollen",
+        "roof": "Ihr Dach in den nächsten Jahren saniert werden muss. Dann planen Sie Dach und Solaranlage am besten zusammen."
+      },
+      "seePurchase": "Solaranlagen zum Kauf ansehen",
+      "seeRoof": "Dach und Solar ansehen",
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Häufige Fragen zu SolarFree",
+        "description": "Die wichtigsten Punkte, kurz erklärt.",
+        "items": {
+          "1": {
+            "question": "Wem gehört die Anlage?",
+            "answer": "Während der Vertragsdauer von 35 Jahren gehört die Anlage der Free State AG. Danach geht sie kostenlos an Sie über."
+          },
+          "2": {
+            "question": "Was kostet uns der Solarstrom?",
+            "answer": "Sie zahlen den Solarstrom, den Ihr Gebäude verbraucht. Der Preis liegt bis zu 30 % unter dem Tarif Ihres Elektrizitätswerks. Den genauen Preis nennt Ihr Angebot."
+          },
+          "3": {
+            "question": "Wer bezahlt Wartung, Reparaturen und Versicherung?",
+            "answer": "Die Free State AG. Alle Kosten, die die Anlage verursacht, tragen wir."
+          },
+          "4": {
+            "question": "Können wir die Anlage vor Ablauf der 35 Jahre übernehmen?",
+            "answer": "Ja. Ein Kauf zum Restwert ist möglich, frühestens nach einem Betriebsjahr. Die Bedingungen stehen in Ihrem Vertrag."
+          },
+          "5": {
+            "question": "Was gilt, wenn unser Gebäude weniger Strom braucht, als das Dach liefert?",
+            "answer": "Dann ist auch eine Dachpacht möglich. Sie stellen das Dach zur Verfügung und erhalten dafür eine jährliche Zahlung. Welche Lösung passt, zeigt Ihr Angebot."
+          },
+          "6": {
+            "question": "Wie starten wir?",
+            "answer": "Sie starten den Solarrechner oder rufen uns an. Wir prüfen Dach und Verbrauch kostenlos und melden uns mit einem Angebot."
+          }
+        }
+      },
+      "closing": {
+        "title": "Prüfen Sie, ob SolarFree zu Ihrem Gebäude passt",
+        "body": "Der Solarrechner zeigt in wenigen Minuten, was Ihr Dach liefert. Oder Sie sprechen direkt mit uns.",
+        "contactTitle": "Ihr Ansprechpartner",
+        "contactCta": "Kontakt aufnehmen"
       }
     },
-    "publicSpaces": {
-      "title": "Energie für Ihr Mehrfamilienhaus",
-      "subtitle": "Mit sauberer, zuverlässiger Energie",
-      "body": "Jetzt unverbindlich prüfen lassen\n\nTransformieren Sie Ihr Mehrfamilienhaus ohne finanzielles Risiko in ein modernes Energieprojekt. Empfehlen Sie uns Ihrer Verwaltung oder Eigentümergemeinschaft, damit wir alles prüfen und die komplette Umsetzung übernehmen können.\n\nWir analysieren Gebäude und Dachpotenzial, berechnen die Wirtschaftlichkeit und entwickeln ein konkretes Umsetzungskonzept inklusive aller technischen und rechtlichen Aspekte (ZEV). Finanzierung, Planung und Realisierung übernehmen wir vollständig.\n\nIhr Aufwand bleibt minimal: Sie stellen den Erstkontakt her, wir koordinieren alles Weitere. Sie profitieren von günstigem Solarstrom, stabilen Energiekosten und einer nachhaltigen Wertsteigerung Ihrer Immobilie. Starten Sie jetzt unverbindlich und kostenlos und erhalten Sie eine fundierte Einschätzung des Potenzials. Kostenlose Analyse anfordern"
+    "hub": {
+      "hero": {
+        "title": "SolarFree für Unternehmen: Solaranlage ohne Investition",
+        "subtitle": "Wir finanzieren, bauen und betreiben die Solaranlage auf Ihrem Dach. Für Gewerbe und Industrie, Landwirtschaft, öffentliche Gebäude und Mehrfamilienhäuser.",
+        "imageAlt": "Gewerbehalle mit Solaranlage auf dem Flachdach"
+      },
+      "segments": {
+        "title": "Welches SolarFree passt zu Ihrem Gebäude?",
+        "intro": "Das Modell ist überall gleich. Die Anlage planen wir für Ihren Gebäudetyp.",
+        "cta": "Mehr erfahren"
+      },
+      "included": [
+        "Solaranlage, ausgelegt auf Ihr Gebäude und Ihren Verbrauch",
+        "Planung, Finanzierung und schlüsselfertige Montage",
+        "Betrieb, Wartung und Reparaturen",
+        "Versicherung der Anlage",
+        "Monitoring der Anlage"
+      ],
+      "fitYes": [
+        "Sie kein Kapital in eine Solaranlage binden wollen",
+        "Sie Ihre Stromkosten langfristig planbar machen wollen",
+        "Sie sich nicht um Betrieb, Wartung und Versicherung kümmern wollen"
+      ]
+    },
+    "segments": {
+      "multiFamily": {
+        "name": "Mehrfamilienhäuser",
+        "card": "Solarstrom für alle Wohnungen, mit Abrechnung im ZEV oder in der LEG.",
+        "hero": {
+          "title": "SolarFree für Mehrfamilienhäuser",
+          "subtitle": "Solarstrom für alle Wohnungen, ohne Investition. Wir bauen und betreiben die Anlage und übernehmen die Abrechnung im Zusammenschluss zum Eigenverbrauch (ZEV).",
+          "imageAlt": "Mehrfamilienhaus mit Solaranlage auf dem Dach"
+        },
+        "benefits": {
+          "title": "Warum SolarFree für Mehrfamilienhäuser",
+          "items": {
+            "1": {
+              "title": "Günstiger Strom für alle Bewohner",
+              "body": "Die Bewohnerinnen und Bewohner beziehen Solarstrom vom eigenen Dach, bis zu 30 % unter dem Netztarif."
+            },
+            "2": {
+              "title": "Abrechnung inbegriffen",
+              "body": "Wir übernehmen die ZEV-Abrechnung und die Koordination. Die Verwaltung hat damit keinen Mehraufwand."
+            },
+            "3": {
+              "title": "Mehr Wert für die Liegenschaft",
+              "body": "Die Solaranlage wertet das Gebäude auf, ohne dass die Eigentümerschaft investiert."
+            }
+          }
+        },
+        "included": [
+          "Gemeinsame Solaranlage für das ganze Gebäude",
+          "Zentrales Wechselrichtersystem",
+          "ZEV-Abrechnung und Koordination",
+          "Monitoring pro Wohnung",
+          "Planung und schlüsselfertige Montage",
+          "Betrieb, Wartung und Versicherung",
+          "Batteriespeicher für mehr Eigenverbrauch"
+        ],
+        "fitYes": [
+          "Sie ein Mehrfamilienhaus besitzen oder verwalten",
+          "Sie den Bewohnerinnen und Bewohnern günstigen Solarstrom anbieten wollen",
+          "Sie weder investieren noch die Abrechnung selbst führen wollen"
+        ]
+      },
+      "industry": {
+        "name": "Industrie und Gewerbe",
+        "card": "Für Gewerbe- und Industriegebäude mit grosser Dachfläche.",
+        "hero": {
+          "title": "SolarFree für Industrie und Gewerbe",
+          "subtitle": "Wir bauen und betreiben die Solaranlage auf Ihrem Betriebsdach. Sie binden kein Kapital und zahlen nur den Solarstrom, den Ihr Betrieb verbraucht.",
+          "imageAlt": "Gewerbehalle mit Solaranlage auf dem Flachdach"
+        },
+        "benefits": {
+          "title": "Warum SolarFree für Industrie und Gewerbe",
+          "items": {
+            "1": {
+              "title": "Kein Kapital gebunden",
+              "body": "Planung, Finanzierung, Bau und Betrieb übernehmen wir. Ihre Liquidität bleibt im Betrieb."
+            },
+            "2": {
+              "title": "Planbare Stromkosten",
+              "body": "Der Solarstrom vom eigenen Dach kostet bis zu 30 % weniger als Netzstrom. Das macht Ihre Energiekosten langfristig planbar."
+            },
+            "3": {
+              "title": "Beitrag zu Ihren ESG-Zielen",
+              "body": "Sie senken den CO₂-Ausstoss Ihres Betriebs messbar, ohne dass Ihr Team operativ belastet wird."
+            }
+          }
+        },
+        "included": [
+          "Solaranlage von 100 bis 1000 kWp auf Dach oder Fassade",
+          "Wechselrichter und Energiemanagement mit Echtzeit-Daten",
+          "Planung und schlüsselfertige Montage",
+          "Betrieb, Wartung und Versicherung",
+          "Auf Wunsch Batteriespeicher und Ladeinfrastruktur"
+        ],
+        "fitYes": [
+          "Sie ein Gewerbe- oder Industriegebäude mit grosser Dachfläche besitzen",
+          "Sie Ihre Stromkosten langfristig planen wollen",
+          "Sie kein Kapital in eine Anlage binden wollen"
+        ]
+      },
+      "farm": {
+        "name": "Landwirtschaft",
+        "card": "Für Bauernhöfe und landwirtschaftliche Betriebe mit Scheunen- oder Stalldach.",
+        "hero": {
+          "title": "SolarFree für Landwirtschaftsbetriebe",
+          "subtitle": "Scheunen- und Stalldächer gehören oft zu den grössten ungenutzten Dachflächen der Region. Wir bauen und betreiben die Solaranlage darauf, ohne Investition von Ihnen.",
+          "imageAlt": "Grosse Hallendächer mit Solarmodulen"
+        },
+        "benefits": {
+          "title": "Warum SolarFree für Ihren Hof",
+          "items": {
+            "1": {
+              "title": "Grosse Dächer nutzen",
+              "body": "Wir prüfen kostenlos, wie viel Strom Ihr Scheunen- oder Stalldach liefern kann."
+            },
+            "2": {
+              "title": "Günstiger Strom für Hof und Betrieb",
+              "body": "Sie beziehen Solarstrom vom eigenen Dach, bis zu 30 % unter dem Netztarif."
+            },
+            "3": {
+              "title": "Ein zusätzliches Standbein",
+              "body": "Liefert das Dach mehr Strom, als der Hof braucht, ist auch eine jährliche Dachpacht möglich."
+            }
+          }
+        },
+        "included": [
+          "Solaranlage bis 500 kWp",
+          "Wechselrichtersystem, abgestimmt auf den Hof",
+          "Monitoring mit Live-Daten",
+          "Planung und schlüsselfertige Montage",
+          "Betrieb, Wartung und Versicherung",
+          "Auf Wunsch Anbindung einer Wärmepumpe"
+        ],
+        "fitYes": [
+          "Sie einen Bauernhof oder einen landwirtschaftlichen Betrieb führen",
+          "Sie eine grosse Hallen-, Scheunen- oder Stalldachfläche haben",
+          "Sie Ihre Stromkosten senken wollen, ohne zu investieren"
+        ],
+        "factsImageAlt": "Solaranlage bei einem Landwirtschaftsbetrieb aus der Luft"
+      },
+      "public": {
+        "name": "Öffentliche Gebäude",
+        "card": "Für Schulen, Spitäler und Gemeindegebäude.",
+        "hero": {
+          "title": "SolarFree für öffentliche Gebäude",
+          "subtitle": "Für Schulen, Spitäler und Gemeindegebäude. Wir planen, finanzieren, bauen und betreiben die Solaranlage. Ihr Budget bleibt unbelastet.",
+          "imageAlt": "Solarmodule an einem öffentlichen Gebäude"
+        },
+        "benefits": {
+          "title": "Warum SolarFree für öffentliche Gebäude",
+          "items": {
+            "1": {
+              "title": "Kein Budget nötig",
+              "body": "Die Gemeinde streckt keinen Franken vor. Planung, Finanzierung, Bau und Betrieb übernehmen wir."
+            },
+            "2": {
+              "title": "Stabile Energiekosten",
+              "body": "Der Solarstrom vom eigenen Dach kostet bis zu 30 % weniger als Netzstrom und macht die Energiekosten kalkulierbar."
+            },
+            "3": {
+              "title": "Sichtbares Vorbild",
+              "body": "Die Anlage ist ein sichtbarer Beitrag zur Energiewende. Ein Monitoring-Dashboard zeigt die Produktion transparent."
+            }
+          }
+        },
+        "included": [
+          "Solaranlage in der Grösse, die zu Ihrem Gebäude passt",
+          "Wechselrichtersystem",
+          "Monitoring-Dashboard mit transparenten Produktionsdaten",
+          "Planung und schlüsselfertige Montage",
+          "Betrieb, Wartung und Versicherung",
+          "Auf Wunsch Batteriespeicher"
+        ],
+        "fitYes": [
+          "Sie eine Schule oder eine andere Bildungseinrichtung betreiben",
+          "Sie ein Spital oder eine Pflegeeinrichtung betreiben",
+          "Sie für Gemeinde- oder Verwaltungsgebäude verantwortlich sind"
+        ]
+      }
     },
     "contactPerson": {
       "name": "Peter Aragai",
       "role": "Executive Manager / Verkaufsleiter",
       "phone": "078 608 88 50",
       "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Kontakt"
-    },
-    "pricing": {
-      "title": "Preis & Vertrag",
-      "subtitle": "Einfach, transparent und sorgenfrei, mit zusätzlicher Energieunabhängigkeit.",
-      "costLabel": "Kosten für Solaranlage in CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dachfläche",
-        "value": "ca. 50 m²"
-      },
-      "residents": {
-        "label": "Bewohner",
-        "value": "Mehrfamilienhaushalt"
-      },
-      "costPerM2": {
-        "label": "Kosten pro\nm² in CHF",
-        "value": "ca. CHF 780.00"
-      },
-      "solarAboPrice": "Mit SolarFree CHF 0",
-      "orderNow": "JETZT BESTELLEN",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Passt dieses Paket zu Ihnen?",
-      "idealForTitle": "Ideal für Sie",
-      "notIdealForTitle": "Nicht ideal für Sie",
-      "idealFor": {
-        "singleFamily": "Mehrfamilienhaus",
-        "predictableCosts": "Kalkulierbare Kosten",
-        "noUpfront": "Kein Anschaffungsinvestment",
-        "noMaintenance": "Keine Wartung"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Batteriespeicher benötigt",
-        "commercial": "Gewerbegebäude"
-      }
-    },
-    "cta": {
-      "topButton": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
-      "heading": "Prüfen Sie, ob SolarFree Mehrfamilienhaus zu Ihrem Dach passt",
-      "ctaText": "Solarrechner starten",
-      "ctaLink": "/commercial/calculator"
+      "email": "peter.aragai@freestate.ch"
     },
     "communitiesLink": {
       "title": "ZEV, vZEV oder LEG?",
       "text": "Welches Modell zu Ihrem Mehrfamilienhaus passt, wer misst und wer abrechnet, erklären wir im Ratgeber.",
       "cta": "Zum Ratgeber Energiegemeinschaften"
-    }
-  },
-  "solarAboBusiness": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Verkaufsleiter",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Kontakt"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Wie funktioniert PV",
-        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanziert, baut und betreibt Free State AG die Anlage für Sie. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
-      },
-      "row2": {
-        "title": "Der Ablauf",
-        "description": "Der Ablauf ist einfach. Wir prüfen Ihr Dach und Ihren Stromverbrauch, erstellen ein Angebot mit Dachpacht oder Strompreis, planen und bauen die Anlage und übernehmen danach Betrieb, Wartung und Monitoring. Sie stellen nur das Dach zur Verfügung."
-      }
-    },
-    "publicSpaces": {
-      "title": "Energie für Ihren Betrieb",
-      "subtitle": "Sauber, planbar, ohne Investition",
-      "body": "Lassen Sie ungenutzte Dachflächen Ihres Industrie- oder Gewerbebetriebs ohne Kapitaleinsatz arbeiten. Wir prüfen Gebäude, Stromprofil und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Installation und Betrieb. Sie profitieren von stabilen Strompreisen, ESG-Vorteilen und messbarer CO₂-Reduktion, ohne dass Ihr Team operativ belastet wird. Jetzt kostenlose Analyse anfordern."
-    },
-    "hero": {
-      "eyebrow": "Kein Investment. Geringere Stromkosten. ESG-Vorteile.",
-      "title": "Industrie / Gewerbe",
-      "subtitle": "Für Gewerbe- und Industriegebäude",
-      "cta": "Solarrechner starten",
-      "tag": "Keine Registrierung nötig · Unverbindlich",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nInvestment",
-          "electricity": "Fixpreis\n0.18 CHF/kWh"
-        },
-        "right": {
-          "maintenance": "Wartung\ninklusive",
-          "reduction": "CO₂-Reduktion\nbis 50 t/Jahr"
-        }
-      }
-    },
-    "includes": {
-      "title": "Was ist enthalten",
-      "subtitle": "In Industrie / Gewerbe",
-      "items": {
-        "solarModules": {
-          "title": "Gewerbliche PV-Anlage",
-          "subtitle": "100–1.000 kWp"
-        },
-        "inverter": {
-          "title": "Industrie-Wechselrichter",
-          "subtitle": "Hochleistung"
-        },
-        "monitoringApp": {
-          "title": "Energiemanagement",
-          "subtitle": "Echtzeit-Analysen"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Schlüsselfertig"
-        },
-        "serviceInsurance": {
-          "title": "Service & Versicherung",
-          "subtitle": "Abgedeckt"
-        },
-        "batteryStorage": {
-          "title": "Batteriespeicher",
-          "subtitle": "Optional"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "So funktioniert Industrie / Gewerbe",
-      "subtitle": "Einfach, transparent und sorgenfrei senken Sie die Energiekosten für Ihr Unternehmen.",
-      "steps": {
-        "step1": "Sie stellen das Dach",
-        "step2": "Wir investieren",
-        "step3": "Sie nutzen den Solarstrom",
-        "step4": "Sie zahlen einen\nFixpreis pro kWh",
-        "step5": "Die Anlage wird Ihr Eigentum"
-      }
-    },
-    "pricing": {
-      "title": "Preis & Vertrag",
-      "subtitle": "Fester Energiepreis für langfristige Planungssicherheit.",
-      "costLabel": "Kosten für Solaranlage in CHF",
-      "amount": "Individuell",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dachfläche",
-        "value": "variiert"
-      },
-      "residents": {
-        "label": "Nutzung",
-        "value": "Gewerbegebäude"
-      },
-      "costPerM2": {
-        "label": "Preis pro\nkWh in CHF",
-        "value": "ab CHF 0.18"
-      },
-      "solarAboPrice": "Mit Industrie / Gewerbe",
-      "orderNow": "JETZT BESTELLEN",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Passt dieses Paket zu Ihnen?",
-      "idealForTitle": "Ideal für Sie",
-      "notIdealForTitle": "Nicht ideal für Sie",
-      "idealFor": {
-        "singleFamily": "Gewerbegebäude",
-        "predictableCosts": "Langfristige Kostenplanung",
-        "noUpfront": "Kein Anschaffungsinvestment",
-        "noMaintenance": "ESG-Ziele"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Wohnimmobilie",
-        "commercial": "Kleine Dachfläche"
-      }
-    },
-    "cta": {
-      "topButton": "Prüfen Sie, ob Industrie / Gewerbe zu Ihrem Gebäude passt",
-      "heading": "Prüfen Sie, ob Industrie / Gewerbe zu Ihrem Gebäude passt",
-      "ctaText": "Solarrechner starten",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboAgro": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Verkaufsleiter",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Kontakt"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Wie funktioniert PV",
-        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanziert, baut und betreibt Free State AG die Anlage für Sie. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
-      },
-      "row2": {
-        "title": "Der Ablauf",
-        "description": "Der Ablauf ist einfach. Wir prüfen Ihr Dach und Ihren Stromverbrauch, erstellen ein Angebot mit Dachpacht oder Strompreis, planen und bauen die Anlage und übernehmen danach Betrieb, Wartung und Monitoring. Sie stellen nur das Dach zur Verfügung."
-      }
-    },
-    "publicSpaces": {
-      "title": "Energie für Ihren Hof",
-      "subtitle": "Grosse Dächer, grosses Potenzial",
-      "body": "Landwirtschaftsbetriebe haben oft die grössten ungenutzten Dachflächen der Region. Wir prüfen kostenlos und ohne Investition Ihrerseits, wie sich Ihr Scheunen- oder Stalldach in eine PV-Anlage verwandeln lässt. Finanzierung, Bau und Betrieb übernehmen wir. Sie erhalten günstigen Strom für Hof und Betrieb, eine jährliche Dachpacht und ein zusätzliches Standbein. Jetzt unverbindlich Potenzial prüfen lassen."
-    },
-    "hero": {
-      "eyebrow": "Kein Investment. Geringere Stromkosten. Zuverlässiger Service.",
-      "title": "Bauernhäuser",
-      "subtitle": "Für Bauernhöfe und landwirtschaftliche Betriebe",
-      "cta": "Solarrechner starten",
-      "tag": "Keine Registrierung nötig · Unverbindlich",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 40 % geringere\nStromkosten"
-        },
-        "right": {
-          "maintenance": "Service-Garantie\ninklusive",
-          "reduction": "CO₂-Reduktion\nbis 20 t/Jahr"
-        }
-      }
-    },
-    "includes": {
-      "title": "Was ist enthalten",
-      "subtitle": "In Bauernhäuser",
-      "items": {
-        "solarModules": {
-          "title": "Landwirtschaftliche PV-Anlage",
-          "subtitle": "Bis 500 kWp"
-        },
-        "inverter": {
-          "title": "Wechselrichtersystem",
-          "subtitle": "Hofoptimiert"
-        },
-        "monitoringApp": {
-          "title": "Monitoring-App",
-          "subtitle": "Live-Daten"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Schlüsselfertig"
-        },
-        "serviceInsurance": {
-          "title": "Service-Garantie",
-          "subtitle": "Abgedeckt"
-        },
-        "heatPump": {
-          "title": "Wärmepumpen-Anbindung",
-          "subtitle": "Optional"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "So funktioniert Bauernhäuser",
-      "subtitle": "Einfach, transparent und sorgenfrei. Massgeschneidert für landwirtschaftliche Betriebe.",
-      "steps": {
-        "step1": "Sie stellen das Dach",
-        "step2": "Wir investieren",
-        "step3": "Sie nutzen den Solarstrom",
-        "step4": "Sie zahlen\nmonatlich",
-        "step5": "Die Anlage wird Ihr Eigentum"
-      }
-    },
-    "pricing": {
-      "title": "Preis & Vertrag",
-      "subtitle": "Flexible Vertragslaufzeiten, massgeschneidert für Ihren Hof.",
-      "costLabel": "Kosten für Solaranlage in CHF",
-      "amount": "Individuell",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dachfläche",
-        "value": "variiert"
-      },
-      "residents": {
-        "label": "Nutzung",
-        "value": "Landwirtschaftlicher Betrieb"
-      },
-      "costPerM2": {
-        "label": "Preis pro\nm² in CHF",
-        "value": "individuelle Preisgestaltung"
-      },
-      "solarAboPrice": "Mit Bauernhäuser",
-      "orderNow": "JETZT BESTELLEN",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Passt dieses Paket zu Ihnen?",
-      "idealForTitle": "Ideal für Sie",
-      "notIdealForTitle": "Nicht ideal für Sie",
-      "idealFor": {
-        "singleFamily": "Bauernhof oder landwirtschaftlicher Betrieb",
-        "predictableCosts": "Grosse Hallen- oder Stalldachfläche",
-        "noUpfront": "Stromkostenreduktion",
-        "noMaintenance": "Service-Garantie inklusive"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Wohnimmobilie",
-        "commercial": "Kleiner Betrieb"
-      }
-    },
-    "cta": {
-      "topButton": "Prüfen Sie, ob Bauernhäuser zu Ihrem Hof passt",
-      "heading": "Prüfen Sie, ob Bauernhäuser zu Ihrem Hof passt",
-      "ctaText": "Solarrechner starten",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboPublic": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Verkaufsleiter",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Kontakt"
-    },
-    "howPV": {
-      "row1": {
-        "title": "Wie funktioniert PV",
-        "description": "PV-Contracting klingt kompliziert, funktioniert aber ganz einfach: Sie haben ein grosses Dach und wünschen sich eine Solaranlage, möchten aber nicht investieren. Darum finanziert, baut und betreibt Free State AG die Anlage für Sie. Und Sie profitieren von einer jährlichen Dachpacht und/oder günstigen Strompreisen."
-      }
-    },
-    "publicSpaces": {
-      "title": "Strom für öffentliche Gebäude",
-      "subtitle": "Mit sauberer, zuverlässiger Energie",
-      "body": "Schulen, Verwaltungsgebäude und öffentliche Liegenschaften tragen Verantwortung für die Energiewende, ohne dass dafür ihre Budgets belastet werden. Wir prüfen Potenzial und Wirtschaftlichkeit kostenlos und übernehmen Planung, Finanzierung, Bau und Betrieb der Anlage. So profitiert die Gemeinde von stabilen Energiekosten, einem sichtbaren Nachhaltigkeitsbeitrag und einer Vorbildfunktion, ohne dafür einen Franken vorzustrecken. Jetzt unverbindlich Analyse anfordern."
-    },
-    "hero": {
-      "eyebrow": "Kein Investment. Geringere Stromkosten. Nachhaltiges Vorbild.",
-      "title": "öffentliche Gebäude",
-      "subtitle": "Für Schulen, Spitäler und Gemeindegebäude",
-      "cta": "Solarrechner starten",
-      "tag": "Keine Registrierung nötig · Unverbindlich",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\nInvestment",
-          "electricity": "Bis zu 30 % geringere\nStromkosten"
-        },
-        "right": {
-          "maintenance": "Wartung\ninklusive",
-          "reduction": "CO₂-Reduktion\nbis 30 t/Jahr"
-        }
-      }
-    },
-    "includes": {
-      "title": "Was ist enthalten",
-      "subtitle": "In öffentliche Gebäude",
-      "items": {
-        "solarModules": {
-          "title": "PV-Anlage für öffentliche Gebäude",
-          "subtitle": "Individuelle Kapazität"
-        },
-        "inverter": {
-          "title": "Professioneller Wechselrichter",
-          "subtitle": "Hohe Effizienz"
-        },
-        "monitoringApp": {
-          "title": "Monitoring-Dashboard",
-          "subtitle": "Transparenz für Bürger"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Schlüsselfertig"
-        },
-        "serviceInsurance": {
-          "title": "Service & Versicherung",
-          "subtitle": "Abgedeckt"
-        },
-        "batteryStorage": {
-          "title": "Batteriespeicher",
-          "subtitle": "Optional"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "So funktioniert öffentliche Gebäude",
-      "subtitle": "Einfach, transparent und sorgenfrei. Ein nachhaltiges Vorbild für Ihre Gemeinde.",
-      "steps": {
-        "step1": "Sie stellen das Dach",
-        "step2": "Wir investieren",
-        "step3": "Sie nutzen den Solarstrom",
-        "step4": "Sie zahlen\nmonatlich",
-        "step5": "Die Anlage wird Ihr Eigentum"
-      }
-    },
-    "pricing": {
-      "title": "Preis & Vertrag",
-      "subtitle": "Kalkulierbare Kosten für öffentliche Budgets.",
-      "costLabel": "Kosten für Solaranlage in CHF",
-      "amount": "Individuell",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Dachfläche",
-        "value": "variiert"
-      },
-      "residents": {
-        "label": "Nutzung",
-        "value": "Öffentliches Gebäude"
-      },
-      "costPerM2": {
-        "label": "Preis pro\nm² in CHF",
-        "value": "individuelle Preisgestaltung"
-      },
-      "solarAboPrice": "Mit öffentliche Gebäude",
-      "orderNow": "JETZT BESTELLEN",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Passt dieses Paket zu Ihnen?",
-      "idealForTitle": "Ideal für Sie",
-      "notIdealForTitle": "Nicht ideal für Sie",
-      "idealFor": {
-        "singleFamily": "Öffentliches Gebäude",
-        "predictableCosts": "Schule oder Bildungseinrichtung",
-        "noUpfront": "Spital oder Pflegeeinrichtung",
-        "noMaintenance": "Gemeindeimmobilie"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Wohnimmobilie",
-        "commercial": "Gewerbliches Unternehmen"
-      }
-    },
-    "cta": {
-      "topButton": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
-      "heading": "Prüfen Sie, ob öffentliche Gebäude zu Ihrem Gebäude passt",
-      "ctaText": "Solarrechner starten",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "commercialSolarFreeHub": {
-    "hero": {
-      "title": "SolarFree",
-      "description": "Solaranlagen ohne Investition für Gewerbe- und Industriegebäude, Bauernhöfe, öffentliche Gebäude und Mehrfamilienhäuser"
-    },
-    "topics": {
-      "title": "Welches SolarFree passt zu Ihrem Gebäude?",
-      "items": [
-        {
-          "title": "Mehrfamilienhäuser",
-          "description": "Für Mehrfamilienhäuser (ZEV / LEG)",
-          "linkLabel": "Mehrfamilienhäuser",
-          "image": "/images/solar-abo-multi.png",
-          "href": "/commercial/solar-free/solar-free-multi-family"
-        },
-        {
-          "title": "Industrie / Gewerbe",
-          "description": "Für Gewerbe- und Industriegebäude",
-          "linkLabel": "Industrie / Gewerbe",
-          "image": "/images/solar-abo-business.png",
-          "href": "/commercial/solar-free/industry-commercial"
-        },
-        {
-          "title": "Bauernhäuser",
-          "description": "Für Bauernhöfe und landwirtschaftliche Betriebe",
-          "linkLabel": "Bauernhäuser",
-          "image": "/images/solar-abo-agro.png",
-          "href": "/commercial/solar-free/farmhouses"
-        },
-        {
-          "title": "Öffentliche Gebäude",
-          "description": "Für Schulen, Spitäler und Gemeindegebäude",
-          "linkLabel": "Öffentliche Gebäude",
-          "image": "/images/solar-abo-public.png",
-          "href": "/commercial/solar-free/public-buildings"
-        }
-      ]
-    },
-    "howPV": {
-      "row1": {
-        "title": "So funktioniert SolarFree",
-        "description": "Sie wünschen sich eine Solaranlage, möchten aber nicht investieren. Wir prüfen Ihr Gebäude kostenlos und übernehmen Planung, Finanzierung, Bau und Betrieb der Anlage. Sie stellen das Dach zur Verfügung und profitieren von günstigen Strompreisen."
-      }
-    },
-    "cta": {
-      "topButton": "Kein Investment. Geringere Stromkosten.",
-      "heading": "Prüfen Sie, ob SolarFree zu Ihrem Gebäude passt",
-      "ctaText": "Solarrechner starten",
-      "ctaLink": "/commercial/calculator"
     }
   },
   "contact": {
@@ -3910,11 +3652,11 @@
       },
       "free": {
         "name": "SolarFree",
-        "headline": "CHF 0 Investition, Solarstrom ab 18 Rp./kWh",
+        "headline": "CHF 0 Investition, Sie zahlen nur den Solarstrom",
         "tagline": "Wir bauen und betreiben die Anlage auf Ihrem Dach, Sie kaufen nur den Strom.",
         "points": {
           "1": "Keine Anzahlung, keine Investition",
-          "2": "Bis zu 30 % unter dem Netztarif (z. B. 18 statt 32 Rp./kWh)",
+          "2": "Bis zu 30 % unter dem Netztarif",
           "3": "Nach 35 Jahren gehört die Anlage Ihnen"
         },
         "cta": "SolarFree ansehen"
@@ -3948,7 +3690,7 @@
         },
         "5": {
           "question": "Geht es auch ohne Investition?",
-          "answer": "Ja. Mit SolarFree bauen wir die Anlage auf Ihr Dach und Sie zahlen nur den Solarstrom, ab 18 Rp. pro kWh. Nach 35 Jahren gehört die Anlage Ihnen. Mit SolarAbo zahlen Sie feste Monatsraten über 25 Jahre und sind ab Tag 1 Eigentümer."
+          "answer": "Ja. Mit SolarFree bauen wir die Anlage auf Ihr Dach und Sie zahlen nur den Solarstrom, bis zu 30 % unter dem Netztarif. Nach 35 Jahren gehört die Anlage Ihnen. Mit SolarAbo zahlen Sie feste Monatsraten über 25 Jahre und sind ab Tag 1 Eigentümer."
         },
         "6": {
           "question": "Wann lohnt sich die Anlage?",

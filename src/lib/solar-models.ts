@@ -2,6 +2,8 @@ export const SOLAR_MODEL_KEYS = ['solar-free', 'solar-abo', 'solar-direct'] as c
 
 export type SolarModelKey = (typeof SOLAR_MODEL_KEYS)[number]
 
+export const DEFAULT_SOLAR_MODEL: SolarModelKey = 'solar-free'
+
 export type SolarModelMessageKey = 'free' | 'abo' | 'direct'
 
 export type SolarModelQuoteSource = 'SOLAR_FREE' | 'SOLAR_ABO' | 'SOLAR_DIRECT'

@@ -23,12 +23,6 @@
       }
     },
     "priceFor": "Show prices for",
-    "includedTitle": "Included in every package",
-    "included": [
-      "Planning",
-      "Installation and commissioning",
-      "Monitoring in the app"
-    ],
     "swiss": "Designed for Switzerland",
     "catalogCard": {
       "sizeLabel": "Package {size}",
@@ -890,7 +884,7 @@
           "title": "Industry / Commercial",
           "subtitle": "For commercial and industrial",
           "feature1": "Performance 100–1,000 kWp on roof or facade",
-          "feature2": "Fixed price 0.18 CHF/kWh (incl. maintenance and insurance)",
+          "feature2": "Solar power up to 30 % below the grid tariff (incl. maintenance and insurance)",
           "feature3": "Option: Battery storage & charging infrastructure",
           "feature4": "Long-term energy price stability & ESG benefits",
           "term": "Contract duration 35 years with buyback option",
@@ -1191,560 +1185,308 @@
       "ctaLink": "/calculator"
     }
   },
-  "solarAboMulti": {
-    "hero": {
-      "eyebrow": "Zero investment. Lower electricity costs. No worries.",
-      "title": "SolarFree Multi-Family",
-      "subtitle": "For apartment buildings and shared energy communities (ZEV / LEG)",
-      "cta": "Start the Solar Calculator",
-      "tag": "No registration required · No obligation",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 30% lower\nelectricity price"
-        },
-        "right": {
-          "maintenance": "Maintenance\nincluded",
-          "reduction": "CO₂ reduction\nup to 2 t/year"
-        }
-      }
-    },
-    "includes": {
-      "title": "What's included",
-      "subtitle": "In SolarFree Multi-Family",
-      "items": {
-        "solarModules": {
-          "title": "Shared solar system",
-          "subtitle": "Shared solar system"
-        },
-        "inverter": {
-          "title": "Central inverter system",
-          "subtitle": "Optimized conversion"
-        },
-        "zevBillingPlatform": {
-          "title": "ZEV billing and coordination",
-          "subtitle": "Self-consumption"
-        },
-        "monitoringApp": {
-          "title": "Monitoring",
-          "subtitle": "Per apartment"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Turnkey"
-        },
-        "batteryStorage": {
-          "title": "Battery storage",
-          "subtitle": "Self-consumption"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "How SolarFree Multi-Family works",
-      "subtitle": "Simple, transparent, and worry-free just like a mobile subscription.",
-      "steps": {
-        "step1": "You provide the roof",
-        "step2": "We invest",
-        "step3": "You use the solar energy",
-        "step4": "You pay\nmonthly",
-        "step5": "The system becomes yours"
-      }
-    },
-    "howPV": {
-      "row1": {
-        "title": "How PV works",
-        "description": "Solar for your multi-family building – without any investment\n\nReduce energy costs in the building – without any investment of your own. We build the PV system on your roof, fully financed, installed and operated by us.\n\nFor you and all residents this means:\nlower electricity costs\nstable energy prices\nsustainable increase in property value"
+  "commercialSolarFree": {
+    "shared": {
+      "primaryCta": "Start solar calculator",
+      "secondaryCta": "Request a consultation",
+      "points": {
+        "1": "CHF 0 investment",
+        "2": "Maintenance and insurance included",
+        "3": "Solar power up to 30 % below the grid tariff"
       },
-      "row2": {
-        "title": "How it works",
-        "description": "How it works\nYou make the connection. We evaluate for free and take care of implementation & operation. The electricity stays in the building.\n\nYour benefits\nNo investment, cheaper electricity, more value.\n\nWhy it pays off\nUnused roofs + rising prices\n→ Your building becomes a producer."
+      "factsTitle": "SolarFree in brief",
+      "videoLabel": "SolarFree in the video",
+      "steps": {
+        "title": "How a SolarFree project works",
+        "intro": "From the first check to solar power from your own roof in four steps.",
+        "imageAlt": "Installers placing a solar module on a roof",
+        "items": {
+          "1": {
+            "title": "Check the roof and consumption",
+            "body": "You start the solar calculator or call us. We check the roof, electricity consumption and economic viability free of charge."
+          },
+          "2": {
+            "title": "Quote and contract",
+            "body": "You receive a quote with your solar power price or a roof lease. You make the roof area available to us for 35 years and invest nothing."
+          },
+          "3": {
+            "title": "We build and operate",
+            "body": "We plan, finance and install the system. Operation, maintenance, monitoring and insurance are at our expense."
+          },
+          "4": {
+            "title": "You use the solar power",
+            "body": "Your building uses the electricity from its own roof, up to 30 % below the grid tariff. After 35 years, the system passes to you free of charge."
+          }
+        }
+      },
+      "costs": {
+        "title": "What you pay",
+        "intro": "You do not pay for a system and you pay no monthly rate. You pay for the solar power that your building uses.",
+        "items": {
+          "1": {
+            "value": "CHF 0",
+            "label": "Investment",
+            "body": "We pay for planning, materials and installation. Your capital remains available."
+          },
+          "2": {
+            "value": "Up to 30 %",
+            "label": "below the grid tariff",
+            "body": "That is how much cheaper the solar power from your own roof is compared with the electricity from your electricity utility. Your quote states the exact price."
+          },
+          "3": {
+            "value": "CHF 0",
+            "label": "for maintenance and insurance",
+            "body": "We cover operation, repairs and insurance of the system."
+          }
+        },
+        "note": "You pay your electricity utility as before for the electricity that you additionally draw from the grid."
+      },
+      "includedTitle": "What is included",
+      "notIncludedTitle": "What is not included",
+      "notIncluded": [
+        "Electricity that you draw from the grid",
+        "Upkeep of the roof. The owner remains responsible for it."
+      ],
+      "fitYesTitle": "SolarFree fits if",
+      "fitNoTitle": "Another solution fits better if",
+      "fitNo": {
+        "own": "you want to own the system yourself from the start",
+        "roof": "your roof needs to be renovated in the next few years. In that case, it is best to plan the roof and the solar system together."
+      },
+      "seePurchase": "View solar systems for purchase",
+      "seeRoof": "View roof and solar",
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions about SolarFree",
+        "description": "The most important points, briefly explained.",
+        "items": {
+          "1": {
+            "question": "Who owns the system?",
+            "answer": "During the contract term of 35 years, the system belongs to Free State AG. After that, it passes to you free of charge."
+          },
+          "2": {
+            "question": "What does the solar power cost us?",
+            "answer": "You pay for the solar power that your building uses. The price is up to 30 % below the tariff of your electricity utility. Your quote states the exact price."
+          },
+          "3": {
+            "question": "Who pays for maintenance, repairs and insurance?",
+            "answer": "Free State AG. We bear all costs that the system causes."
+          },
+          "4": {
+            "question": "Can we take over the system before the 35 years end?",
+            "answer": "Yes. Purchase at residual value is possible, at the earliest after one year of operation. The conditions are in your contract."
+          },
+          "5": {
+            "question": "What applies if our building needs less electricity than the roof delivers?",
+            "answer": "In that case, a roof lease is also possible. You make the roof available and receive an annual payment for it. Your quote shows which solution fits."
+          },
+          "6": {
+            "question": "How do we start?",
+            "answer": "You start the solar calculator or call us. We check the roof and consumption free of charge and get back to you with a quote."
+          }
+        }
+      },
+      "closing": {
+        "title": "Check whether SolarFree fits your building",
+        "body": "The solar calculator shows in a few minutes what your roof delivers. Or you speak to us directly.",
+        "contactTitle": "Your contact person",
+        "contactCta": "Get in touch"
       }
     },
-    "publicSpaces": {
-      "title": "Energy for your apartment building",
-      "subtitle": "With clean, reliable energy",
-      "body": "Get a non-binding assessment now\n\nTransform your multi-family building into a modern energy project without any financial risk. Recommend us to your management or owners' association – we check everything and handle the full implementation.\n\nWe analyze the building and roof potential, calculate profitability and develop a concrete implementation concept including all technical and legal aspects (ZEV). Financing, planning and realization are fully handled by us.\n\nYour effort stays minimal: you make the initial contact, we coordinate everything else. You benefit from affordable solar electricity, stable energy costs and a sustainable increase in the value of your property. Start now free of charge and without obligation and receive a well-founded assessment of the potential – Request a free analysis"
+    "hub": {
+      "hero": {
+        "title": "SolarFree for businesses: Solar system without investment",
+        "subtitle": "We finance, build and operate the solar system on your roof. For commerce and industry, agriculture, public buildings and apartment buildings.",
+        "imageAlt": "Commercial hall with a solar system on the flat roof"
+      },
+      "segments": {
+        "title": "Which SolarFree fits your building?",
+        "intro": "The model is the same everywhere. We plan the system for your type of building.",
+        "cta": "Learn more"
+      },
+      "included": [
+        "Solar system, designed for your building and your consumption",
+        "Planning, financing and turnkey installation",
+        "Operation, maintenance and repairs",
+        "Insurance of the system",
+        "Monitoring of the system"
+      ],
+      "fitYes": [
+        "you do not want to tie up capital in a solar system",
+        "you want to make your electricity costs predictable in the long term",
+        "you do not want to deal with operation, maintenance and insurance"
+      ]
+    },
+    "segments": {
+      "multiFamily": {
+        "name": "Apartment buildings",
+        "card": "Solar power for all apartments, with billing in the ZEV or in the LEG.",
+        "hero": {
+          "title": "SolarFree for apartment buildings",
+          "subtitle": "Solar power for all apartments, without investment. We build and operate the system and handle the billing in the self-consumption community (ZEV).",
+          "imageAlt": "Apartment building with a solar system on the roof"
+        },
+        "benefits": {
+          "title": "Why SolarFree for apartment buildings",
+          "items": {
+            "1": {
+              "title": "Affordable electricity for all residents",
+              "body": "The residents get solar power from their own roof, up to 30 % below the grid tariff."
+            },
+            "2": {
+              "title": "Billing included",
+              "body": "We handle the ZEV billing and the coordination. The property management has no extra work as a result."
+            },
+            "3": {
+              "title": "More value for the property",
+              "body": "The solar system adds value to the building without the owner investing."
+            }
+          }
+        },
+        "included": [
+          "Shared solar system for the whole building",
+          "Central inverter system",
+          "ZEV billing and coordination",
+          "Monitoring per apartment",
+          "Planning and turnkey installation",
+          "Operation, maintenance and insurance",
+          "Battery storage for more self-consumption"
+        ],
+        "fitYes": [
+          "you own or manage an apartment building",
+          "you want to offer the residents affordable solar power",
+          "you want neither to invest nor to handle the billing yourself"
+        ]
+      },
+      "industry": {
+        "name": "Industry and commerce",
+        "card": "For commercial and industrial buildings with a large roof area.",
+        "hero": {
+          "title": "SolarFree for industry and commerce",
+          "subtitle": "We build and operate the solar system on your company roof. You tie up no capital and pay only for the solar power your business uses.",
+          "imageAlt": "Commercial hall with a solar system on the flat roof"
+        },
+        "benefits": {
+          "title": "Why SolarFree for industry and commerce",
+          "items": {
+            "1": {
+              "title": "No capital tied up",
+              "body": "We take care of planning, financing, construction and operation. Your liquidity stays in the business."
+            },
+            "2": {
+              "title": "Predictable electricity costs",
+              "body": "The solar power from your own roof costs up to 30 % less than grid electricity. That makes your energy costs predictable in the long term."
+            },
+            "3": {
+              "title": "Contribution to your ESG goals",
+              "body": "You measurably reduce the CO₂ emissions of your business, without any operational burden on your team."
+            }
+          }
+        },
+        "included": [
+          "Solar system from 100 to 1000 kWp on roof or facade",
+          "Inverter and energy management with real-time data",
+          "Planning and turnkey installation",
+          "Operation, maintenance and insurance",
+          "On request, battery storage and charging infrastructure"
+        ],
+        "fitYes": [
+          "you own a commercial or industrial building with a large roof area",
+          "you want to plan your electricity costs for the long term",
+          "you do not want to tie up capital in a system"
+        ]
+      },
+      "farm": {
+        "name": "Agriculture",
+        "card": "For farms and agricultural operations with a barn or stable roof.",
+        "hero": {
+          "title": "SolarFree for farms",
+          "subtitle": "Barn and stable roofs are often among the largest unused roof areas in the region. We build and operate the solar system on them, without any investment from you.",
+          "imageAlt": "Large hall roofs with solar modules"
+        },
+        "benefits": {
+          "title": "Why SolarFree for your farm",
+          "items": {
+            "1": {
+              "title": "Use large roofs",
+              "body": "We check free of charge how much electricity your barn or stable roof can deliver."
+            },
+            "2": {
+              "title": "Affordable electricity for your farm and operation",
+              "body": "You get solar power from your own roof, up to 30 % below the grid tariff."
+            },
+            "3": {
+              "title": "An additional source of income",
+              "body": "If the roof delivers more electricity than the farm needs, an annual roof lease is also possible."
+            }
+          }
+        },
+        "included": [
+          "Solar system up to 500 kWp",
+          "Inverter system, matched to the farm",
+          "Monitoring with live data",
+          "Planning and turnkey installation",
+          "Operation, maintenance and insurance",
+          "On request, connection of a heat pump"
+        ],
+        "fitYes": [
+          "you run a farm or an agricultural operation",
+          "you have a large hall, barn or stable roof area",
+          "you want to reduce your electricity costs without investing"
+        ],
+        "factsImageAlt": "Aerial view of a solar system on a farm"
+      },
+      "public": {
+        "name": "Public buildings",
+        "card": "For schools, hospitals and municipal buildings.",
+        "hero": {
+          "title": "SolarFree for public buildings",
+          "subtitle": "For schools, hospitals and municipal buildings. We plan, finance, build and operate the solar system. There is no burden on your budget.",
+          "imageAlt": "Solar modules on a public building"
+        },
+        "benefits": {
+          "title": "Why SolarFree for public buildings",
+          "items": {
+            "1": {
+              "title": "No budget needed",
+              "body": "The municipality does not advance a single franc. We take care of planning, financing, construction and operation."
+            },
+            "2": {
+              "title": "Stable energy costs",
+              "body": "The solar power from your own roof costs up to 30 % less than grid electricity and makes the energy costs predictable."
+            },
+            "3": {
+              "title": "Visible role model",
+              "body": "The system is a visible contribution to the energy transition. A monitoring dashboard shows the production transparently."
+            }
+          }
+        },
+        "included": [
+          "Solar system in the size that fits your building",
+          "Inverter system",
+          "Monitoring dashboard with transparent production data",
+          "Planning and turnkey installation",
+          "Operation, maintenance and insurance",
+          "On request, battery storage"
+        ],
+        "fitYes": [
+          "you run a school or another educational facility",
+          "you run a hospital or a care facility",
+          "you are responsible for municipal or administrative buildings"
+        ]
+      }
     },
     "contactPerson": {
       "name": "Peter Aragai",
       "role": "Executive Manager / Sales Director",
       "phone": "078 608 88 50",
       "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "pricing": {
-      "title": "Pricing & Contract",
-      "subtitle": "Simple, transparent, and worry-free, with added energy independence.",
-      "costLabel": "Cost for Solar System in CHF",
-      "amount": "25.000",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Roof Size",
-        "value": "approx. 50 m²"
-      },
-      "residents": {
-        "label": "Residents",
-        "value": "multi-family household"
-      },
-      "costPerM2": {
-        "label": "Cost per\nm² in CHF",
-        "value": "approx. CHF 780.00"
-      },
-      "solarAboPrice": "With SolarFree CHF 0",
-      "orderNow": "ORDER NOW",
-      "orderLink": "/calculator"
-    },
-    "rightForYou": {
-      "title": "Is this package right for you?",
-      "idealForTitle": "Ideal for you",
-      "notIdealForTitle": "Not ideal for you",
-      "idealFor": {
-        "singleFamily": "Single-family home",
-        "predictableCosts": "Predictable costs",
-        "noUpfront": "No upfront investment",
-        "noMaintenance": "No maintenance"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Need battery storage",
-        "commercial": "Commercial building"
-      }
-    },
-    "cta": {
-      "topButton": "See if SolarFree Multi-Family works for your roof",
-      "heading": "See if SolarFree Multi-Family works for your roof",
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/commercial/calculator"
+      "email": "peter.aragai@freestate.ch"
     },
     "communitiesLink": {
       "title": "ZEV, vZEV or LEG?",
       "text": "Which model fits your building, who meters and who bills, explained in our guide (in German).",
       "cta": "Read the guide"
-    }
-  },
-  "solarAboBusiness": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Sales Director",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "howPV": {
-      "row1": {
-        "title": "How PV works",
-        "description": "PV contracting sounds complicated but works quite simply: you have a large roof and would like a solar system, but do not want to invest. That is why Free State AG finances, builds and operates the system for you. And you benefit from an annual roof lease and/or low electricity prices."
-      },
-      "row2": {
-        "title": "The process",
-        "description": "The process is simple. We assess your roof and your electricity consumption, prepare an offer with a roof lease or electricity price, plan and build the system, and then take care of operation, maintenance and monitoring. All you provide is the roof."
-      }
-    },
-    "publicSpaces": {
-      "title": "Energy for your business",
-      "subtitle": "Clean, predictable, without any investment",
-      "body": "Put the unused roof space of your industrial or commercial property to work – without any capital outlay. We evaluate the building, the consumption profile and the business case for free and take care of planning, financing, installation and operation. You benefit from stable electricity prices, ESG advantages and measurable CO₂ reduction – without operational load on your team. Request a free analysis now."
-    },
-    "hero": {
-      "eyebrow": "Zero investment. Lower electricity costs. ESG benefits.",
-      "title": "Industry / Commercial",
-      "subtitle": "For commercial and industrial buildings",
-      "cta": "Start the Solar Calculator",
-      "tag": "No registration required · No obligation",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ninvestment",
-          "electricity": "Fixed price\n0.18 CHF/kWh"
-        },
-        "right": {
-          "maintenance": "Maintenance\nincluded",
-          "reduction": "CO₂ reduction\nup to 50 t/year"
-        }
-      }
-    },
-    "includes": {
-      "title": "What's included",
-      "subtitle": "In Industry / Commercial",
-      "items": {
-        "solarModules": {
-          "title": "Commercial PV system",
-          "subtitle": "100–1,000 kWp"
-        },
-        "inverter": {
-          "title": "Industrial inverter",
-          "subtitle": "High performance"
-        },
-        "monitoringApp": {
-          "title": "Energy management",
-          "subtitle": "Real-time analytics"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Turnkey"
-        },
-        "serviceInsurance": {
-          "title": "Service & insurance",
-          "subtitle": "Covered"
-        },
-        "batteryStorage": {
-          "title": "Battery storage",
-          "subtitle": "Optional"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "How Industry / Commercial works",
-      "subtitle": "Simple, transparent, and worry-free – energy cost reduction for your business.",
-      "steps": {
-        "step1": "You provide the roof",
-        "step2": "We invest",
-        "step3": "You use the solar energy",
-        "step4": "You pay a\nfixed price per kWh",
-        "step5": "The system becomes yours"
-      }
-    },
-    "pricing": {
-      "title": "Pricing & Contract",
-      "subtitle": "Fixed energy price for long-term planning security.",
-      "costLabel": "Cost for Solar System in CHF",
-      "amount": "Custom",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Roof Size",
-        "value": "varies"
-      },
-      "residents": {
-        "label": "Usage",
-        "value": "commercial building"
-      },
-      "costPerM2": {
-        "label": "Price per\nkWh in CHF",
-        "value": "from CHF 0.18"
-      },
-      "solarAboPrice": "With Industry / Commercial",
-      "orderNow": "ORDER NOW",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Is this package right for you?",
-      "idealForTitle": "Ideal for you",
-      "notIdealForTitle": "Not ideal for you",
-      "idealFor": {
-        "singleFamily": "Commercial building",
-        "predictableCosts": "Long-term cost planning",
-        "noUpfront": "No upfront investment",
-        "noMaintenance": "ESG goals"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Residential property",
-        "commercial": "Small roof area"
-      }
-    },
-    "cta": {
-      "topButton": "See if Industry / Commercial works for your building",
-      "heading": "See if Industry / Commercial works for your building",
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboAgro": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Sales Director",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "howPV": {
-      "row1": {
-        "title": "How PV works",
-        "description": "PV contracting sounds complicated but works quite simply: you have a large roof and would like a solar system, but do not want to invest. That is why Free State AG finances, builds and operates the system for you. And you benefit from an annual roof lease and/or low electricity prices."
-      },
-      "row2": {
-        "title": "The process",
-        "description": "The process is simple. We assess your roof and your electricity consumption, prepare an offer with a roof lease or electricity price, plan and build the system, and then take care of operation, maintenance and monitoring. All you provide is the roof."
-      }
-    },
-    "publicSpaces": {
-      "title": "Energy for your farm",
-      "subtitle": "Big roofs, big potential",
-      "body": "Farms often have the largest unused roof surfaces in the region. We evaluate for free how your barn or stable roof can be turned into a PV system – without any investment on your part. We take care of financing, construction and operation. You get affordable electricity for your farm and operation, an annual roof lease and an additional source of income. Request a non-binding potential check now."
-    },
-    "hero": {
-      "eyebrow": "Zero investment. Lower electricity costs. Reliable service.",
-      "title": "Farmhouses",
-      "subtitle": "For farms and agricultural operations",
-      "cta": "Start the Solar Calculator",
-      "tag": "No registration required · No obligation",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 40% lower\nelectricity costs"
-        },
-        "right": {
-          "maintenance": "Service guarantee\nincluded",
-          "reduction": "CO₂ reduction\nup to 20 t/year"
-        }
-      }
-    },
-    "includes": {
-      "title": "What's included",
-      "subtitle": "In Farmhouses",
-      "items": {
-        "solarModules": {
-          "title": "Agricultural PV system",
-          "subtitle": "Up to 500 kWp"
-        },
-        "inverter": {
-          "title": "Inverter system",
-          "subtitle": "Farm-optimized"
-        },
-        "monitoringApp": {
-          "title": "Monitoring app",
-          "subtitle": "Live data"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Turnkey"
-        },
-        "serviceInsurance": {
-          "title": "Service guarantee",
-          "subtitle": "Covered"
-        },
-        "heatPump": {
-          "title": "Heat pump connection",
-          "subtitle": "Optional"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "How Farmhouses works",
-      "subtitle": "Simple, transparent, and worry-free – tailored for agricultural operations.",
-      "steps": {
-        "step1": "You provide the roof",
-        "step2": "We invest",
-        "step3": "You use the solar energy",
-        "step4": "You pay\nmonthly",
-        "step5": "The system becomes yours"
-      }
-    },
-    "pricing": {
-      "title": "Pricing & Contract",
-      "subtitle": "Flexible contract terms tailored to your farm's needs.",
-      "costLabel": "Cost for Solar System in CHF",
-      "amount": "Custom",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Roof Size",
-        "value": "varies"
-      },
-      "residents": {
-        "label": "Usage",
-        "value": "agricultural operation"
-      },
-      "costPerM2": {
-        "label": "Price per\nm² in CHF",
-        "value": "custom pricing"
-      },
-      "solarAboPrice": "With Farmhouses",
-      "orderNow": "ORDER NOW",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Is this package right for you?",
-      "idealForTitle": "Ideal for you",
-      "notIdealForTitle": "Not ideal for you",
-      "idealFor": {
-        "singleFamily": "Farm or agricultural operation",
-        "predictableCosts": "Large hall or stable roof",
-        "noUpfront": "Electricity cost reduction",
-        "noMaintenance": "Service guarantee included"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Residential property",
-        "commercial": "Small operation"
-      }
-    },
-    "cta": {
-      "topButton": "See if Farmhouses works for your farm",
-      "heading": "See if Farmhouses works for your farm",
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "solarAboPublic": {
-    "contactPerson": {
-      "name": "Peter Aragai",
-      "role": "Executive Manager / Sales Director",
-      "phone": "078 608 88 50",
-      "phoneHref": "+41786088850",
-      "email": "peter.aragai@freestate.ch",
-      "cta": "Contact"
-    },
-    "howPV": {
-      "row1": {
-        "title": "How PV works",
-        "description": "PV contracting sounds complicated but works quite simply: you have a large roof and would like a solar system, but do not want to invest. That is why Free State AG finances, builds and operates the system for you. And you benefit from an annual roof lease and/or low electricity prices."
-      }
-    },
-    "publicSpaces": {
-      "title": "Powering Public Spaces",
-      "subtitle": "With clean, reliable energy",
-      "body": "Schools, administrative buildings and public properties carry responsibility for the energy transition – without placing a burden on budgets. We evaluate the potential and the business case for free and take care of planning, financing, construction and operation of the system. The municipality benefits from stable energy costs, a visible sustainability contribution and a role-model function – without advancing a single franc. Request a non-binding analysis now."
-    },
-    "hero": {
-      "eyebrow": "Zero investment. Lower electricity costs. Sustainable example.",
-      "title": "Public Buildings",
-      "subtitle": "For schools, hospitals, and municipal buildings",
-      "cta": "Start the Solar Calculator",
-      "tag": "No registration required · No obligation",
-      "stats": {
-        "left": {
-          "investment": "0 CHF\ninvestment",
-          "electricity": "Up to 30% lower\nelectricity costs"
-        },
-        "right": {
-          "maintenance": "Maintenance\nincluded",
-          "reduction": "CO₂ reduction\nup to 30 t/year"
-        }
-      }
-    },
-    "includes": {
-      "title": "What's included",
-      "subtitle": "In Public Buildings",
-      "items": {
-        "solarModules": {
-          "title": "Public building PV system",
-          "subtitle": "Customized capacity"
-        },
-        "inverter": {
-          "title": "Professional inverter",
-          "subtitle": "High efficiency"
-        },
-        "monitoringApp": {
-          "title": "Monitoring dashboard",
-          "subtitle": "Transparency for citizens"
-        },
-        "installation": {
-          "title": "Installation",
-          "subtitle": "Turnkey"
-        },
-        "serviceInsurance": {
-          "title": "Service & insurance",
-          "subtitle": "Covered"
-        },
-        "batteryStorage": {
-          "title": "Battery storage",
-          "subtitle": "Optional"
-        }
-      }
-    },
-    "howItWorks": {
-      "title": "How Public Buildings works",
-      "subtitle": "Simple, transparent, and worry-free – setting a sustainable example for your community.",
-      "steps": {
-        "step1": "You provide the roof",
-        "step2": "We invest",
-        "step3": "You use the solar energy",
-        "step4": "You pay\nmonthly",
-        "step5": "The system becomes yours"
-      }
-    },
-    "pricing": {
-      "title": "Pricing & Contract",
-      "subtitle": "Predictable costs for public budgets.",
-      "costLabel": "Cost for Solar System in CHF",
-      "amount": "Custom",
-      "currency": "chf",
-      "roofSize": {
-        "label": "Roof Size",
-        "value": "varies"
-      },
-      "residents": {
-        "label": "Usage",
-        "value": "public building"
-      },
-      "costPerM2": {
-        "label": "Price per\nm² in CHF",
-        "value": "custom pricing"
-      },
-      "solarAboPrice": "With Public Buildings",
-      "orderNow": "ORDER NOW",
-      "orderLink": "/commercial/calculator"
-    },
-    "rightForYou": {
-      "title": "Is this package right for you?",
-      "idealForTitle": "Ideal for you",
-      "notIdealForTitle": "Not ideal for you",
-      "idealFor": {
-        "singleFamily": "Public building",
-        "predictableCosts": "School or educational facility",
-        "noUpfront": "Hospital or care facility",
-        "noMaintenance": "Municipal property"
-      },
-      "notIdealFor": {
-        "batteryStorage": "Residential property",
-        "commercial": "Commercial business"
-      }
-    },
-    "cta": {
-      "topButton": "See if Public Buildings works for your building",
-      "heading": "See if Public Buildings works for your building",
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/commercial/calculator"
-    }
-  },
-  "commercialSolarFreeHub": {
-    "hero": {
-      "title": "SolarFree",
-      "description": "Solar systems without investment for commercial and industrial buildings, farms, public buildings and apartment buildings"
-    },
-    "topics": {
-      "title": "Which SolarFree fits your building?",
-      "items": [
-        {
-          "title": "Apartment Buildings",
-          "description": "For apartment buildings (ZEV / LEG)",
-          "linkLabel": "Apartment Buildings",
-          "image": "/images/solar-abo-multi.png",
-          "href": "/commercial/solar-free/solar-free-multi-family"
-        },
-        {
-          "title": "Industry / Commercial",
-          "description": "For commercial and industrial buildings",
-          "linkLabel": "Industry / Commercial",
-          "image": "/images/solar-abo-business.png",
-          "href": "/commercial/solar-free/industry-commercial"
-        },
-        {
-          "title": "Farmhouses",
-          "description": "For farms and agricultural operations",
-          "linkLabel": "Farmhouses",
-          "image": "/images/solar-abo-agro.png",
-          "href": "/commercial/solar-free/farmhouses"
-        },
-        {
-          "title": "Public Buildings",
-          "description": "For schools, hospitals and municipal buildings",
-          "linkLabel": "Public Buildings",
-          "image": "/images/solar-abo-public.png",
-          "href": "/commercial/solar-free/public-buildings"
-        }
-      ]
-    },
-    "howPV": {
-      "row1": {
-        "title": "How SolarFree works",
-        "description": "You would like a solar system but do not want to invest. We assess your building for free and take care of planning, financing, construction and operation of the system. You provide the roof and benefit from low electricity prices."
-      }
-    },
-    "cta": {
-      "topButton": "Zero investment. Lower electricity costs.",
-      "heading": "See if SolarFree works for your building",
-      "ctaText": "Start the Solar Calculator",
-      "ctaLink": "/commercial/calculator"
     }
   },
   "contact": {
@@ -3512,11 +3254,11 @@
       },
       "free": {
         "name": "SolarFree",
-        "headline": "CHF 0 investment, solar power from 18 rp./kWh",
+        "headline": "CHF 0 investment, you only pay for the solar power",
         "tagline": "We build and operate the system on your roof, you only buy the electricity.",
         "points": {
           "1": "No down payment, no investment",
-          "2": "Up to 30 % below the grid tariff (e.g. 18 instead of 32 rp./kWh)",
+          "2": "Up to 30 % below the grid tariff",
           "3": "After 35 years the system is yours"
         },
         "cta": "See SolarFree"
@@ -3550,7 +3292,7 @@
         },
         "5": {
           "question": "Is it possible without any investment?",
-          "answer": "Yes. With SolarFree we build the system on your roof and you only pay for the solar power, from 18 rappen per kWh. After 35 years the system is yours. With SolarAbo you pay fixed monthly instalments over 25 years and own the system from day 1."
+          "answer": "Yes. With SolarFree we build the system on your roof and you only pay for the solar power, up to 30 % below the grid tariff. After 35 years the system is yours. With SolarAbo you pay fixed monthly instalments over 25 years and own the system from day 1."
         },
         "6": {
           "question": "When does the system pay off?",

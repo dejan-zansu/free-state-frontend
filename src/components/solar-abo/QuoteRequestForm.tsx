@@ -36,9 +36,9 @@ type FormValues = {
 }
 
 const fieldClass =
-  'h-9 bg-white/10 border-white/10 text-white rounded-[5px] backdrop-blur-[65px] placeholder:text-white/40 focus-visible:border-white/40 focus-visible:ring-0'
+  'h-11 rounded-[8px] border-[#062E25]/20 bg-white text-base text-[#062E25] placeholder:text-[#062E25]/40 focus-visible:border-[#062E25] focus-visible:ring-0'
 
-const labelClass = 'text-white/70 text-sm font-medium tracking-[-0.02em]'
+const labelClass = 'text-[#062E25]/80 text-sm font-medium tracking-[-0.02em]'
 
 const RadioPill = ({
   selected,
@@ -52,17 +52,19 @@ const RadioPill = ({
   <button
     type="button"
     onClick={onClick}
-    className="flex items-center gap-1.5 cursor-pointer"
+    className="flex items-center gap-2 cursor-pointer"
   >
     <span
       className={cn(
-        'w-3.5 h-3.5 rounded-full border flex items-center justify-center transition-colors',
-        selected ? 'border-solar bg-solar' : 'border-[#D9D9D9] bg-transparent'
+        'size-5 rounded-full border flex items-center justify-center transition-colors',
+        selected
+          ? 'border-[#062E25] bg-[#062E25]'
+          : 'border-[#062E25]/40 bg-white'
       )}
     >
-      {selected && <span className="w-2 h-2 rounded-full bg-[#062E25]" />}
+      {selected && <span className="size-2 rounded-full bg-solar" />}
     </span>
-    <span className="text-[#EDEDED]/70 text-sm font-medium tracking-[-0.02em]">
+    <span className="text-[#062E25] text-base font-medium tracking-[-0.02em]">
       {label}
     </span>
   </button>
@@ -134,72 +136,32 @@ const QuoteRequestForm = ({
   return (
     <section
       id={id}
-      className="relative w-full scroll-mt-24 overflow-hidden"
-      style={{
-        background:
-          'linear-gradient(7deg, rgba(7, 51, 42, 1) 0%, rgba(9, 63, 53, 1) 21%, rgba(21, 139, 126, 1) 100%)',
-      }}
+      className="w-full scroll-mt-24 bg-[#EAEDDF] text-[#062E25]"
     >
-      <div
-        className="absolute right-[-120px] top-[-180px] w-[413px] h-[413px] rounded-full pointer-events-none"
-        style={{
-          background: 'rgba(183, 254, 26, 0.5)',
-          filter: 'blur(170px)',
-        }}
-      />
-
-      <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-20 sm:py-24 lg:py-[100px]">
-        <div className="flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-[134px]">
-          <div className="flex flex-col gap-8 lg:gap-[50px] w-full lg:max-w-[453px]">
-            <div className="flex flex-col gap-[30px]">
-              <div className="flex flex-col gap-5">
-                <div
-                  className="self-start flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-white/30"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.2)',
-                    backdropFilter: 'blur(65px)',
-                  }}
-                >
-                  <span className="text-[#E4EDE7] text-base font-light tracking-[-0.02em]">
-                    {eyebrow ?? t('eyebrow')}
-                  </span>
-                </div>
-                <h2
-                  className={cn(
-                    'text-[#E3EDE7] font-medium tracking-tight',
-                    title
-                      ? 'text-4xl sm:text-5xl lg:text-[56px]'
-                      : 'text-4xl sm:text-5xl lg:text-[70px]'
-                  )}
-                >
-                  {title ?? t('title')}
-                </h2>
-              </div>
-              <p
-                className={cn(
-                  'text-white/80 text-lg sm:text-xl lg:text-[22px] tracking-[-0.02em]',
-                  subtitle ? 'max-w-[420px]' : 'max-w-[330px]'
-                )}
-              >
-                {subtitle ?? t('subtitle')}
-              </p>
+      <div className="mx-auto max-w-[1214px] px-4 py-16 sm:px-6 md:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-16">
+          <div className="flex flex-col gap-5">
+            <div className="self-start flex items-center justify-center px-4 py-[10px] rounded-[20px] border border-[#062E25]">
+              <span className="text-base font-light tracking-[-0.02em]">
+                {eyebrow ?? t('eyebrow')}
+              </span>
             </div>
+            <h2 className="text-3xl font-medium sm:text-4xl md:text-[45px]">
+              {title ?? t('title')}
+            </h2>
+            <p className="max-w-[460px] text-lg tracking-[-0.02em] text-[#062E25]/80 md:text-[22px]">
+              {subtitle ?? t('subtitle')}
+            </p>
           </div>
 
-          <div className="w-full lg:max-w-[536px]">
-            <div
-              className="relative rounded-[16px] border border-white/20 p-8 sm:p-10"
-              style={{
-                background: 'rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(20px)',
-              }}
-            >
+          <div className="w-full">
+            <div className="rounded-[24px] border border-[#062E25]/12 bg-white p-6 sm:p-10">
               {status === 'success' ? (
                 <div className="flex flex-col items-center text-center py-12">
-                  <h3 className="text-white text-2xl font-medium mb-3">
+                  <h3 className="text-2xl font-medium mb-3">
                     {t('successTitle')}
                   </h3>
-                  <p className="text-white/70">{t('successMessage')}</p>
+                  <p className="text-[#062E25]/75">{t('successMessage')}</p>
                 </div>
               ) : (
                 <form
@@ -207,10 +169,10 @@ const QuoteRequestForm = ({
                   className="flex flex-col gap-5"
                 >
                   <div className="flex flex-col gap-5">
-                    <h3 className="text-white text-3xl font-light tracking-[-0.02em]">
+                    <h3 className="text-2xl font-medium tracking-[-0.02em] md:text-3xl">
                       {t('formTitle')}
                     </h3>
-                    <p className="text-[#FDFFF5]/70 text-sm tracking-[-0.02em]">
+                    <p className="text-[#062E25]/65 text-sm tracking-[-0.02em]">
                       {t('requiredHint')}
                     </p>
                   </div>
@@ -226,7 +188,7 @@ const QuoteRequestForm = ({
                         className={fieldClass}
                       />
                       {errors.firstName && (
-                        <p className="text-red-300 text-sm">
+                        <p className="text-red-700 text-sm">
                           {errors.firstName.message}
                         </p>
                       )}
@@ -241,7 +203,7 @@ const QuoteRequestForm = ({
                         className={fieldClass}
                       />
                       {errors.lastName && (
-                        <p className="text-red-300 text-sm">
+                        <p className="text-red-700 text-sm">
                           {errors.lastName.message}
                         </p>
                       )}
@@ -263,7 +225,7 @@ const QuoteRequestForm = ({
                       className={fieldClass}
                     />
                     {errors.email && (
-                      <p className="text-red-300 text-sm">
+                      <p className="text-red-700 text-sm">
                         {errors.email.message}
                       </p>
                     )}
@@ -280,7 +242,7 @@ const QuoteRequestForm = ({
                         className={fieldClass}
                       />
                       {errors.postalCode && (
-                        <p className="text-red-300 text-sm">
+                        <p className="text-red-700 text-sm">
                           {errors.postalCode.message}
                         </p>
                       )}
@@ -296,7 +258,7 @@ const QuoteRequestForm = ({
                         className={fieldClass}
                       />
                       {errors.phone && (
-                        <p className="text-red-300 text-sm">
+                        <p className="text-red-700 text-sm">
                           {errors.phone.message}
                         </p>
                       )}
@@ -311,7 +273,7 @@ const QuoteRequestForm = ({
                     }}
                     render={({ field }) => (
                       <div className="flex flex-col gap-5 mt-3">
-                        <p className="text-white/80 text-base sm:text-[22px] tracking-[-0.02em]">
+                        <p className="text-base font-medium tracking-[-0.02em] sm:text-xl">
                           {t('ownsHomeQuestion')}
                         </p>
                         <div className="flex items-center gap-[17px]">
@@ -327,7 +289,7 @@ const QuoteRequestForm = ({
                           />
                         </div>
                         {errors.ownsHome && (
-                          <p className="text-red-300 text-sm">
+                          <p className="text-red-700 text-sm">
                             {errors.ownsHome.message}
                           </p>
                         )}
@@ -341,24 +303,30 @@ const QuoteRequestForm = ({
                     rules={{ validate: v => v === true || t('errors.consent') }}
                     render={({ field }) => (
                       <div className="flex flex-col gap-1.5 mt-3">
-                        <div className="flex items-start gap-2">
+                        <div className="flex items-start gap-3">
                           <button
                             type="button"
                             role="checkbox"
                             aria-checked={field.value}
                             onClick={() => field.onChange(!field.value)}
                             className={cn(
-                              'w-3.5 h-3.5 mt-0.5 rounded-[3px] border shrink-0 flex items-center justify-center transition-colors cursor-pointer',
+                              'size-5 rounded-[5px] border shrink-0 flex items-center justify-center transition-colors cursor-pointer',
                               field.value
-                                ? 'border-solar bg-solar'
-                                : 'border-[#D9D9D9] bg-transparent'
+                                ? 'border-[#062E25] bg-[#062E25]'
+                                : 'border-[#062E25]/40 bg-white'
                             )}
                           >
                             {field.value && (
-                              <svg width="9" height="7" viewBox="0 0 10 8" fill="none">
+                              <svg
+                                width="12"
+                                height="9"
+                                viewBox="0 0 10 8"
+                                fill="none"
+                                className="text-solar"
+                              >
                                 <path
                                   d="M1 4L3.5 6.5L9 1"
-                                  stroke="#062E25"
+                                  stroke="currentColor"
                                   strokeWidth="1.5"
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
@@ -366,12 +334,12 @@ const QuoteRequestForm = ({
                               </svg>
                             )}
                           </button>
-                          <span className="text-white/70 text-sm tracking-[-0.02em]">
+                          <span className="text-[#062E25]/75 text-sm tracking-[-0.02em]">
                             {t.rich('consent', {
                               link: chunks => (
                                 <Link
                                   href="/privacy-policy"
-                                  className="underline hover:text-white"
+                                  className="underline hover:text-[#062E25]"
                                 >
                                   {chunks}
                                 </Link>
@@ -380,7 +348,7 @@ const QuoteRequestForm = ({
                           </span>
                         </div>
                         {errors.consent && (
-                          <p className="text-red-300 text-sm">
+                          <p className="text-red-700 text-sm">
                             {errors.consent.message}
                           </p>
                         )}
@@ -389,7 +357,7 @@ const QuoteRequestForm = ({
                   />
 
                   {status === 'error' && (
-                    <p className="text-red-300 text-sm font-medium">
+                    <p className="text-red-700 text-sm font-medium">
                       {t('errorMessage')}
                     </p>
                   )}
@@ -409,14 +377,6 @@ const QuoteRequestForm = ({
           </div>
         </div>
       </div>
-
-      <div
-        className="absolute bottom-0 left-0 right-0 h-px opacity-20"
-        style={{
-          background:
-            'linear-gradient(54deg, rgba(6, 46, 37, 1) 74%, rgba(3, 107, 83, 1) 100%)',
-        }}
-      />
     </section>
   )
 }

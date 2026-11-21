@@ -106,7 +106,7 @@ const SolarModels = async ({
             const ctaLabel = isCommercial ? t('business.cta') : t(`${key}.cta`)
 
             const learnMore = isCommercial
-              ? model === 'solar-free'
+              ? model === 'solar-free' && !isCurrent
                 ? {
                     href: '/commercial/solar-free' as const,
                     label: t('business.learnMore'),

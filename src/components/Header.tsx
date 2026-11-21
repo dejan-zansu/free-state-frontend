@@ -41,7 +41,6 @@ const Header = () => {
     '/calculator',
     '/ratgeber',
     '/commercial/calculator',
-    '/commercial/solar-free',
     '/about-us',
     '/battery-storage',
     '/login',

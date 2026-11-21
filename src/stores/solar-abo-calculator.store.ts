@@ -33,6 +33,7 @@ import {
   type SavingsEstimate,
 } from '@/services/residential-calculator.service'
 import { getAttribution } from '@/lib/analytics/funnel-events'
+import { DEFAULT_SOLAR_MODEL } from '@/lib/solar-models'
 import type { AddressMatch } from '@/lib/address/address-match'
 import { setAccessToken } from '@/lib/api'
 import { useAuthStore } from '@/stores/auth.store'
@@ -804,14 +805,15 @@ export const useSolarAboCalculatorStore = create<
 
       fetchSavingsEstimate: async () => {
         const state = get()
-        const isSolarFree = state.solarModel === 'solar-free'
+        const solarModel = state.solarModel ?? DEFAULT_SOLAR_MODEL
+        const isSolarFree = solarModel === 'solar-free'
         return residentialCalculatorService.estimate({
           address: state.address,
           selectedSegments: state.getSelectedSegments(),
           estimatedConsumption: state.getEstimatedConsumption(),
           consumptionOverrideKwh: state.consumptionOverrideKwh ?? undefined,
           devices: state.devices,
-          solarModel: state.solarModel ?? 'solar-direct',
+          solarModel,
           ppaDiscountPercent: isSolarFree
             ? (state.selectedPackageElectricitySavingsPercent ?? DEFAULT_PPA_DISCOUNT_PCT)
             : null,
@@ -824,7 +826,8 @@ export const useSolarAboCalculatorStore = create<
         set({ isSubmitting: true, submissionError: null, submissionErrorCode: null })
 
         try {
-          const isSolarFree = state.solarModel === 'solar-free'
+          const solarModel = state.solarModel ?? DEFAULT_SOLAR_MODEL
+          const isSolarFree = solarModel === 'solar-free'
           const annualSavingsForRecord = isSolarFree
             ? state.getAnnualPpaSavings()
             : state.getAnnualSavings()
@@ -870,7 +873,7 @@ export const useSolarAboCalculatorStore = create<
               co2Savings: state.getCo2Savings(),
               systemSizeKwp: state.getSystemSizeKwp(),
               recommendedPackage: state.getRecommendedPackage(),
-              solarModel: state.solarModel ?? 'solar-direct',
+              solarModel,
               ppaDiscountPercent,
               heatPumpInterest: state.heatPumpInterest,
               selectedPackageId: state.selectedPackageId ?? undefined,
