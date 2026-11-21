@@ -231,8 +231,8 @@
       "description": "We finance, build and operate the solar system on your roof with no investment. For commercial buildings, farms, public buildings and apartment buildings."
     },
     "commercialSolarFreeIndustry": {
-      "title": "Solar for Industrial and Commercial Buildings, No Investment",
-      "description": "Free State AG finances, builds and operates the solar system on your industrial or commercial roof. You get a roof lease or solar power at a fixed price."
+      "title": "Solar for Businesses: Photovoltaics with No Investment",
+      "description": "Photovoltaics for businesses with no investment. Free State AG finances, builds and operates the solar system on your commercial or industrial roof."
     },
     "commercialSolarFreeMultiFamily": {
       "title": "Solar for Apartment Buildings with No Investment",
@@ -1322,8 +1322,8 @@
         "name": "Apartment buildings",
         "card": "Solar power for all apartments, with billing in the ZEV or in the LEG.",
         "hero": {
-          "title": "SolarFree for apartment buildings",
-          "subtitle": "Solar power for all apartments, without investment. We build and operate the system and handle the billing in the self-consumption community (ZEV).",
+          "title": "Photovoltaics for apartment buildings without investment",
+          "subtitle": "With SolarFree, all apartments get solar power, without investment. We build and operate the system on your apartment building and handle the billing in the self-consumption community (ZEV).",
           "imageAlt": "Apartment building with a solar system on the roof"
         },
         "benefits": {
@@ -1339,7 +1339,7 @@
             },
             "3": {
               "title": "More value for the property",
-              "body": "The solar system adds value to the building without the owner investing."
+              "body": "The solar system adds value to the apartment building without the owner investing."
             }
           }
         },
@@ -1362,8 +1362,8 @@
         "name": "Industry and commerce",
         "card": "For commercial and industrial buildings with a large roof area.",
         "hero": {
-          "title": "SolarFree for industry and commerce",
-          "subtitle": "We build and operate the solar system on your company roof. You tie up no capital and pay only for the solar power your business uses.",
+          "title": "Photovoltaics for commerce and industry without investment",
+          "subtitle": "With SolarFree, we build and operate the photovoltaic system on your company roof. You tie up no capital and pay only for the solar power your business uses.",
           "imageAlt": "Commercial hall with a solar system on the flat roof"
         },
         "benefits": {
@@ -1400,8 +1400,8 @@
         "name": "Agriculture",
         "card": "For farms and agricultural operations with a barn or stable roof.",
         "hero": {
-          "title": "SolarFree for farms",
-          "subtitle": "Barn and stable roofs are often among the largest unused roof areas in the region. We build and operate the solar system on them, without any investment from you.",
+          "title": "Solar PV for farms without investment",
+          "subtitle": "Barn and stable roofs are often among the largest unused roof areas in the region. With SolarFree, we build and operate the photovoltaic system on them, as solar contracting without any investment from you.",
           "imageAlt": "Large hall roofs with solar modules"
         },
         "benefits": {
@@ -1409,7 +1409,7 @@
           "items": {
             "1": {
               "title": "Use large roofs",
-              "body": "We check free of charge how much electricity your barn or stable roof can deliver."
+              "body": "We check free of charge how much electricity a PV system on your barn or stable roof can deliver."
             },
             "2": {
               "title": "Affordable electricity for your farm and operation",
@@ -14038,7 +14038,7 @@
       },
       "costs": {
         "title": "What you pay",
-        "intro": "You do not pay for a system and you pay no monthly rate. You pay for the solar power that you use yourself.",
+        "intro": "You do not pay for a system and you pay no monthly rate. You pay for the solar power that you use yourself. In the industry, this model is also called solar contracting.",
         "items": {
           "1": {
             "value": "CHF 0",

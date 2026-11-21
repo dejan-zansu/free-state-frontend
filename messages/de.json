@@ -231,8 +231,8 @@
       "description": "Wir finanzieren, bauen und betreiben die Solaranlage auf Ihrem Dach, ohne Investition. Für Gewerbe, Bauernhöfe, öffentliche Gebäude und Mehrfamilienhäuser."
     },
     "commercialSolarFreeIndustry": {
-      "title": "Solaranlage für Industrie und Gewerbe ohne Investition",
-      "description": "Free State AG finanziert, baut und betreibt die Solaranlage auf Ihrem Industrie- oder Gewerbedach. Sie erhalten eine Dachpacht oder Solarstrom zum Fixpreis."
+      "title": "Solaranlage für Unternehmen: Photovoltaik ohne Investition",
+      "description": "Photovoltaik für Unternehmen ohne Investition. Free State AG finanziert, baut und betreibt die Solaranlage auf Ihrem Gewerbe- oder Industriedach."
     },
     "commercialSolarFreeMultiFamily": {
       "title": "Solaranlage für Mehrfamilienhäuser ohne Investition",
@@ -1371,8 +1371,8 @@
         "name": "Mehrfamilienhäuser",
         "card": "Solarstrom für alle Wohnungen, mit Abrechnung im ZEV oder in der LEG.",
         "hero": {
-          "title": "SolarFree für Mehrfamilienhäuser",
-          "subtitle": "Solarstrom für alle Wohnungen, ohne Investition. Wir bauen und betreiben die Anlage und übernehmen die Abrechnung im Zusammenschluss zum Eigenverbrauch (ZEV).",
+          "title": "Photovoltaik für das Mehrfamilienhaus ohne Investition",
+          "subtitle": "Mit SolarFree erhalten alle Wohnungen Solarstrom, ohne Investition. Wir bauen und betreiben die Anlage auf Ihrem Mehrfamilienhaus und übernehmen die Abrechnung im Zusammenschluss zum Eigenverbrauch (ZEV).",
           "imageAlt": "Mehrfamilienhaus mit Solaranlage auf dem Dach"
         },
         "benefits": {
@@ -1388,7 +1388,7 @@
             },
             "3": {
               "title": "Mehr Wert für die Liegenschaft",
-              "body": "Die Solaranlage wertet das Gebäude auf, ohne dass die Eigentümerschaft investiert."
+              "body": "Die Solaranlage wertet das Mehrfamilienhaus auf, ohne dass die Eigentümerschaft investiert."
             }
           }
         },
@@ -1411,8 +1411,8 @@
         "name": "Industrie und Gewerbe",
         "card": "Für Gewerbe- und Industriegebäude mit grosser Dachfläche.",
         "hero": {
-          "title": "SolarFree für Industrie und Gewerbe",
-          "subtitle": "Wir bauen und betreiben die Solaranlage auf Ihrem Betriebsdach. Sie binden kein Kapital und zahlen nur den Solarstrom, den Ihr Betrieb verbraucht.",
+          "title": "Photovoltaik für Gewerbe und Industrie ohne Investition",
+          "subtitle": "Mit SolarFree bauen und betreiben wir die Photovoltaikanlage auf dem Dach Ihres Unternehmens. Sie binden kein Kapital und zahlen nur den Solarstrom, den Ihr Betrieb verbraucht.",
           "imageAlt": "Gewerbehalle mit Solaranlage auf dem Flachdach"
         },
         "benefits": {
@@ -1449,8 +1449,8 @@
         "name": "Landwirtschaft",
         "card": "Für Bauernhöfe und landwirtschaftliche Betriebe mit Scheunen- oder Stalldach.",
         "hero": {
-          "title": "SolarFree für Landwirtschaftsbetriebe",
-          "subtitle": "Scheunen- und Stalldächer gehören oft zu den grössten ungenutzten Dachflächen der Region. Wir bauen und betreiben die Solaranlage darauf, ohne Investition von Ihnen.",
+          "title": "PV-Anlage für die Landwirtschaft ohne Investition",
+          "subtitle": "Scheunen- und Stalldächer gehören oft zu den grössten ungenutzten Dachflächen der Region. Mit SolarFree bauen und betreiben wir die Photovoltaikanlage darauf, als Solar-Contracting ohne Investition von Ihnen.",
           "imageAlt": "Grosse Hallendächer mit Solarmodulen"
         },
         "benefits": {
@@ -1458,7 +1458,7 @@
           "items": {
             "1": {
               "title": "Grosse Dächer nutzen",
-              "body": "Wir prüfen kostenlos, wie viel Strom Ihr Scheunen- oder Stalldach liefern kann."
+              "body": "Wir prüfen kostenlos, wie viel Strom eine PV-Anlage auf Ihrem Scheunen- oder Stalldach liefern kann."
             },
             "2": {
               "title": "Günstiger Strom für Hof und Betrieb",
@@ -1559,7 +1559,7 @@
     "eyebrow": "Energiekosten",
     "title": "Energiekosten kontrollieren",
     "subtitle": "Behalten Sie Verbrauch und Kosten mit einem effizienten, planbaren Energiesystem im Griff.",
-    "formTitle": "Kostenloses Angebot",
+    "formTitle": "Kostenlose Offerte",
     "requiredHint": "Alle Felder sind erforderlich.",
     "firstName": "Vorname",
     "lastName": "Nachname",
@@ -13992,7 +13992,7 @@
   },
   "solarModelPage": {
     "shared": {
-      "secondaryCta": "Angebot anfordern",
+      "secondaryCta": "Offerte anfordern",
       "factsTitle": "{model} in Kürze",
       "stepsImageAlt": "Monteure setzen ein Solarmodul auf ein Dach",
       "includedTitle": "Was inbegriffen ist",
@@ -14039,7 +14039,7 @@
       },
       "costs": {
         "title": "Was Sie zahlen",
-        "intro": "Sie zahlen keine Anlage und keine Monatsrate. Sie zahlen den Solarstrom, den Sie selbst verbrauchen.",
+        "intro": "Sie zahlen keine Anlage und keine Monatsrate. Sie zahlen den Solarstrom, den Sie selbst verbrauchen. Dieses Modell heisst in der Branche auch Solar-Contracting.",
         "items": {
           "1": {
             "value": "CHF 0",
@@ -14114,8 +14114,8 @@
       },
       "form": {
         "eyebrow": "SolarFree",
-        "title": "Angebot für SolarFree",
-        "subtitle": "Wir prüfen Ihr Dach und melden uns mit einem unverbindlichen Angebot."
+        "title": "Offerte für SolarFree",
+        "subtitle": "Wir prüfen Ihr Dach und melden uns mit einer unverbindlichen Offerte."
       }
     },
     "abo": {
@@ -14138,8 +14138,8 @@
             "body": "Im Solarrechner geben Sie Ihre Adresse ein. Sie sehen, welche Anlage auf Ihr Dach passt und wie viel Strom sie liefert."
           },
           "2": {
-            "title": "Persönliches Angebot",
-            "body": "Wir erstellen Ihnen ein Angebot mit Ihrer Monatsrate und dem Gesamtbetrag über die ganze Laufzeit."
+            "title": "Persönliche Offerte",
+            "body": "Wir erstellen Ihnen eine Offerte mit Ihrer Monatsrate und dem Gesamtbetrag über die ganze Laufzeit."
           },
           "3": {
             "title": "Montage",
@@ -14163,7 +14163,7 @@
           "2": {
             "value": "300",
             "label": "gleich hohe Monatsraten",
-            "body": "Die Rate bleibt über 25 Jahre gleich. Ihre persönliche Rate steht im Angebot."
+            "body": "Die Rate bleibt über 25 Jahre gleich. Ihre persönliche Rate steht in der Offerte."
           },
           "3": {
             "value": "Förderung",
@@ -14171,7 +14171,7 @@
             "body": "Die geschätzte Einmalvergütung des Bundes wird vom Kaufpreis abgezogen, bevor wir die Rate berechnen."
           }
         },
-        "note": "Der Gesamtbetrag aller Raten ist höher als der Preis beim Direktkauf, weil der Kaufpreis über 25 Jahre verteilt wird. Den Gesamtbetrag weisen wir im Angebot aus."
+        "note": "Der Gesamtbetrag aller Raten ist höher als der Preis beim Direktkauf, weil der Kaufpreis über 25 Jahre verteilt wird. Den Gesamtbetrag weisen wir in der Offerte aus."
       },
       "included": [
         "Solarmodule, Wechselrichter, Speicher und Energiemanager gemäss Paket",
@@ -14203,7 +14203,7 @@
         "items": {
           "1": {
             "question": "Wie hoch ist meine Monatsrate?",
-            "answer": "Die Rate hängt von der Grösse der Anlage ab. Sie erhalten sie mit Ihrem persönlichen Angebot, zusammen mit dem Gesamtbetrag über die ganze Laufzeit."
+            "answer": "Die Rate hängt von der Grösse der Anlage ab. Sie erhalten sie mit Ihrer persönlichen Offerte, zusammen mit dem Gesamtbetrag über die ganze Laufzeit."
           },
           "2": {
             "question": "Wann zahle ich die erste Rate?",
@@ -14229,7 +14229,7 @@
       },
       "form": {
         "eyebrow": "SolarAbo",
-        "title": "Angebot für SolarAbo",
+        "title": "Offerte für SolarAbo",
         "subtitle": "Wir prüfen Ihr Dach und melden uns mit Ihrer persönlichen Monatsrate."
       }
     },
@@ -14253,8 +14253,8 @@
             "body": "Im Solarrechner geben Sie Ihre Adresse ein. Sie sehen Grösse, Ertrag und Ersparnis für Ihr Dach."
           },
           "2": {
-            "title": "Angebot mit Festpreis",
-            "body": "Sie erhalten ein Angebot mit dem Festpreis und der geschätzten Förderung."
+            "title": "Offerte mit Festpreis",
+            "body": "Sie erhalten eine Offerte mit dem Festpreis und der geschätzten Förderung."
           },
           "3": {
             "title": "Montage",
@@ -14268,7 +14268,7 @@
       },
       "costs": {
         "title": "Was Sie zahlen",
-        "intro": "Sie zahlen den Festpreis aus Ihrem Angebot. Danach fallen für die Anlage keine Raten an.",
+        "intro": "Sie zahlen den Festpreis aus Ihrer Offerte. Danach fallen für die Anlage keine Raten an.",
         "items": {
           "1": {
             "value": "Ab CHF {price}",
@@ -14287,7 +14287,7 @@
             "body": "Die Einmalvergütung des Bundes erhalten Sie. Wir bereiten den Antrag vor und reichen ihn ein."
           }
         },
-        "note": "Im Angebot weisen wir den Preis, die geschätzte Förderung und den Nettopreis getrennt aus."
+        "note": "In der Offerte weisen wir den Preis, die geschätzte Förderung und den Nettopreis getrennt aus."
       },
       "included": [
         "Solarmodule, Wechselrichter, Speicher und Energiemanager gemäss Paket",
@@ -14319,7 +14319,7 @@
         "items": {
           "1": {
             "question": "Was kostet eine Solaranlage mit SolarDirect?",
-            "answer": "Der Preis hängt von der Grösse der Anlage und vom Paket ab. Der Solarrechner zeigt, welche Grösse auf Ihr Dach passt. Danach erhalten Sie ein Angebot mit Festpreis."
+            "answer": "Der Preis hängt von der Grösse der Anlage und vom Paket ab. Der Solarrechner zeigt, welche Grösse auf Ihr Dach passt. Danach erhalten Sie eine Offerte mit Festpreis."
           },
           "2": {
             "question": "Wie bezahle ich?",
@@ -14331,7 +14331,7 @@
           },
           "4": {
             "question": "Welche Garantien habe ich?",
-            "answer": "Sie erhalten die Produktgarantien der Hersteller und unsere Garantie auf die Installation. Die Garantien der einzelnen Komponenten stehen in Ihrem Angebot."
+            "answer": "Sie erhalten die Produktgarantien der Hersteller und unsere Garantie auf die Installation. Die Garantien der einzelnen Komponenten stehen in Ihrer Offerte."
           },
           "5": {
             "question": "Sind Wartung und Versicherung inbegriffen?",

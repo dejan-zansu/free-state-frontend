@@ -231,8 +231,8 @@
       "description": "Finanziamo, costruiamo e gestiamo l'impianto solare sul tuo tetto, senza investimento. Per industria, fattorie, edifici pubblici e case plurifamiliari."
     },
     "commercialSolarFreeIndustry": {
-      "title": "Impianto solare per industria e commercio senza investimento",
-      "description": "Free State AG finanzia, costruisce e gestisce l'impianto solare sul tuo tetto industriale o commerciale. Canone per il tetto o elettricità a prezzo fisso."
+      "title": "Impianto solare per aziende: fotovoltaico senza investimento",
+      "description": "Fotovoltaico per aziende senza investimento. Free State AG finanzia, costruisce e gestisce l'impianto solare sul tuo tetto commerciale o industriale."
     },
     "commercialSolarFreeMultiFamily": {
       "title": "Impianto solare per case plurifamiliari senza investimento",
@@ -1322,8 +1322,8 @@
         "name": "Case plurifamiliari",
         "card": "Elettricità solare per tutti gli appartamenti, con fatturazione nel RCP o nella CEL.",
         "hero": {
-          "title": "SolarFree per le case plurifamiliari",
-          "subtitle": "Elettricità solare per tutti gli appartamenti, senza investimento. Costruiamo e gestiamo l'impianto e ci occupiamo della fatturazione nel raggruppamento ai fini del consumo proprio (RCP).",
+          "title": "Fotovoltaico per case plurifamiliari senza investimento",
+          "subtitle": "Con SolarFree tutti gli appartamenti ricevono elettricità solare, senza investimento. Costruiamo e gestiamo l'impianto sulla tua casa plurifamiliare e ci occupiamo della fatturazione nel raggruppamento ai fini del consumo proprio (RCP).",
           "imageAlt": "Casa plurifamiliare con impianto solare sul tetto"
         },
         "benefits": {
@@ -1339,7 +1339,7 @@
             },
             "3": {
               "title": "Più valore per l'immobile",
-              "body": "L'impianto solare valorizza l'edificio senza che la proprietà investa."
+              "body": "L'impianto solare valorizza la casa plurifamiliare senza che la proprietà investa."
             }
           }
         },
@@ -1362,8 +1362,8 @@
         "name": "Industria e commercio",
         "card": "Per edifici commerciali e industriali con una grande superficie del tetto.",
         "hero": {
-          "title": "SolarFree per l'industria e il commercio",
-          "subtitle": "Costruiamo e gestiamo l'impianto solare sul tetto della tua azienda. Non immobilizzi capitale e paghi solo l'elettricità solare che la tua azienda consuma.",
+          "title": "Fotovoltaico per l'industria e il commercio senza investimento",
+          "subtitle": "Con SolarFree costruiamo e gestiamo l'impianto fotovoltaico sul tetto della tua azienda. Non immobilizzi capitale e paghi solo l'elettricità solare che la tua azienda consuma.",
           "imageAlt": "Capannone commerciale con impianto solare sul tetto piano"
         },
         "benefits": {
@@ -1400,8 +1400,8 @@
         "name": "Agricoltura",
         "card": "Per fattorie e aziende agricole con tetto di fienile o di stalla.",
         "hero": {
-          "title": "SolarFree per le aziende agricole",
-          "subtitle": "I tetti di fienili e stalle sono spesso tra le più grandi superfici di tetto inutilizzate della regione. Vi costruiamo e gestiamo l'impianto solare, senza alcun investimento da parte tua.",
+          "title": "Impianto fotovoltaico per l'agricoltura senza investimento",
+          "subtitle": "I tetti di fienili e stalle sono spesso tra le più grandi superfici di tetto inutilizzate della regione. Con SolarFree vi costruiamo e gestiamo l'impianto fotovoltaico, in contracting solare, senza alcun investimento da parte tua.",
           "imageAlt": "Grandi tetti di capannoni con moduli solari"
         },
         "benefits": {
@@ -1409,7 +1409,7 @@
           "items": {
             "1": {
               "title": "Sfruttare i grandi tetti",
-              "body": "Verifichiamo gratuitamente quanta elettricità può fornire il tetto del tuo fienile o della tua stalla."
+              "body": "Verifichiamo gratuitamente quanta elettricità può fornire un impianto fotovoltaico sul tetto del tuo fienile o della tua stalla."
             },
             "2": {
               "title": "Elettricità conveniente per fattoria e azienda",
@@ -14038,7 +14038,7 @@
       },
       "costs": {
         "title": "Che cosa paghi",
-        "intro": "Non paghi né l'impianto né una rata mensile. Paghi l'elettricità solare che consumi direttamente.",
+        "intro": "Non paghi né l'impianto né una rata mensile. Paghi l'elettricità solare che consumi direttamente. Nel settore questo modello si chiama anche contracting solare.",
         "items": {
           "1": {
             "value": "CHF 0",

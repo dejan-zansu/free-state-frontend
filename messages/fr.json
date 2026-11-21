@@ -231,8 +231,8 @@
       "description": "Nous finançons, construisons et exploitons l'installation solaire sur votre toit, sans investissement. Pour entreprises, fermes, bâtiments publics et immeubles."
     },
     "commercialSolarFreeIndustry": {
-      "title": "Solaire sans investissement pour l'industrie et le commerce",
-      "description": "Free State AG finance, construit et exploite l'installation solaire sur votre toit industriel ou commercial. Loyer de toiture ou électricité à prix fixe."
+      "title": "Solaire pour entreprises : photovoltaïque sans investissement",
+      "description": "Photovoltaïque pour entreprises sans investissement. Free State AG finance, construit et exploite l'installation solaire sur votre toit commercial ou industriel."
     },
     "commercialSolarFreeMultiFamily": {
       "title": "Installation solaire immeuble collectif sans investissement",
@@ -1322,8 +1322,8 @@
         "name": "Immeubles collectifs",
         "card": "Électricité solaire pour tous les appartements, avec facturation dans le RCP ou dans la CEL.",
         "hero": {
-          "title": "SolarFree pour les immeubles collectifs",
-          "subtitle": "Électricité solaire pour tous les appartements, sans investissement. Nous construisons et exploitons l'installation et nous chargeons de la facturation au sein du regroupement dans le cadre de la consommation propre (RCP).",
+          "title": "Photovoltaïque pour immeubles collectifs sans investissement",
+          "subtitle": "Avec SolarFree, tous les appartements reçoivent de l'électricité solaire, sans investissement. Nous construisons et exploitons l'installation sur votre immeuble collectif et nous chargeons de la facturation au sein du regroupement dans le cadre de la consommation propre (RCP).",
           "imageAlt": "Immeuble collectif avec installation solaire sur le toit"
         },
         "benefits": {
@@ -1339,7 +1339,7 @@
             },
             "3": {
               "title": "Plus de valeur pour l'immeuble",
-              "body": "L'installation solaire valorise le bâtiment sans que les propriétaires investissent."
+              "body": "L'installation solaire valorise l'immeuble collectif sans que les propriétaires investissent."
             }
           }
         },
@@ -1362,8 +1362,8 @@
         "name": "Industrie et commerce",
         "card": "Pour bâtiments commerciaux et industriels avec une grande surface de toit.",
         "hero": {
-          "title": "SolarFree pour l'industrie et le commerce",
-          "subtitle": "Nous construisons et exploitons l'installation solaire sur le toit de votre entreprise. Vous n'immobilisez aucun capital et ne payez que l'électricité solaire que votre entreprise consomme.",
+          "title": "Photovoltaïque pour l'industrie et le commerce sans investissement",
+          "subtitle": "Avec SolarFree, nous construisons et exploitons l'installation photovoltaïque sur le toit de votre entreprise. Vous n'immobilisez aucun capital et ne payez que l'électricité solaire que votre entreprise consomme.",
           "imageAlt": "Halle commerciale avec installation solaire sur le toit plat"
         },
         "benefits": {
@@ -1400,8 +1400,8 @@
         "name": "Agriculture",
         "card": "Pour fermes et exploitations agricoles avec un toit de grange ou d'étable.",
         "hero": {
-          "title": "SolarFree pour les exploitations agricoles",
-          "subtitle": "Les toits de granges et d'étables comptent souvent parmi les plus grandes surfaces de toiture inutilisées de la région. Nous y construisons et exploitons l'installation solaire, sans investissement de votre part.",
+          "title": "Installation photovoltaïque agricole sans investissement",
+          "subtitle": "Les toits de granges et d'étables comptent souvent parmi les plus grandes surfaces de toiture inutilisées de la région. Avec SolarFree, nous y construisons et exploitons l'installation photovoltaïque, en contracting solaire, sans investissement de votre part.",
           "imageAlt": "Grands toits de halles avec modules solaires"
         },
         "benefits": {
@@ -1409,7 +1409,7 @@
           "items": {
             "1": {
               "title": "Utiliser les grands toits",
-              "body": "Nous vérifions gratuitement combien d'électricité votre toit de grange ou d'étable peut produire."
+              "body": "Nous vérifions gratuitement combien d'électricité une installation photovoltaïque peut produire sur votre toit de grange ou d'étable."
             },
             "2": {
               "title": "Électricité avantageuse pour la ferme et l'exploitation",
@@ -14038,7 +14038,7 @@
       },
       "costs": {
         "title": "Ce que vous payez",
-        "intro": "Vous ne payez ni installation ni mensualité. Vous payez l'électricité solaire que vous consommez vous-même.",
+        "intro": "Vous ne payez ni installation ni mensualité. Vous payez l'électricité solaire que vous consommez vous-même. Dans la branche, ce modèle s'appelle aussi contracting solaire.",
         "items": {
           "1": {
             "value": "CHF 0",
