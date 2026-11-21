@@ -25,8 +25,6 @@ import { calculatorHref, type SolarModelKey } from '@/lib/solar-models'
 import { cn } from '@/lib/utils'
 import { LinkButton } from '../ui/link-button'
 
-const FALLBACK_IMAGE = '/images/illustrations/solar-modules.png'
-
 export type { SolarModelKey }
 export { getFromPriceChf }
 
@@ -141,15 +139,17 @@ export default function PackageCard({
         </div>
       </header>
 
-      <div className="relative mt-4 h-[150px] w-full overflow-hidden rounded-[16px] bg-[#F2F4E8]">
-        <Image
-          src={pkg.imageUrl ?? FALLBACK_IMAGE}
-          alt={pkg.name}
-          fill
-          sizes="(min-width: 1280px) 280px, (min-width: 768px) 45vw, 90vw"
-          className="object-contain p-3 mix-blend-multiply"
-        />
-      </div>
+      {pkg.imageUrl && (
+        <div className="relative mt-4 h-[150px] w-full overflow-hidden rounded-[16px] bg-[#F2F4E8]">
+          <Image
+            src={pkg.imageUrl}
+            alt={pkg.name}
+            fill
+            sizes="(min-width: 1280px) 280px, (min-width: 768px) 45vw, 90vw"
+            className="object-contain p-3 mix-blend-multiply"
+          />
+        </div>
+      )}
 
       {specs.length > 0 && (
         <dl className="mt-5 flex flex-col">

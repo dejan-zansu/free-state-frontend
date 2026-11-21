@@ -14,30 +14,30 @@ export const COMMERCIAL_CALCULATOR_HREF = '/commercial/calculator' as const
 export const COMMERCIAL_PURCHASE_HREF = '/commercial/solar-systems' as const
 
 export const COMMERCIAL_HUB_MEDIA = {
-  hero: '/images/pv-service/hero-commercial-flat-roof-pv.webp',
+  hero: '/images/photography/commercial-flat-roof-pv-rows-walkway-landscape-crop-0774.webp',
   facts: '/images/pv-service/commercial-roof-pv-portrait.webp',
 }
 
 export const COMMERCIAL_SEGMENTS = {
   multiFamily: {
     href: '/commercial/solar-free/solar-free-multi-family',
-    image: '/images/solar-free/multi-family-how-pv-1-5c41b2.webp',
+    image: '/images/photography/pv-modules-around-roof-dormer-1177.webp',
     video: `${VIDEO_BASE}/FreeState%20-%20Multi.mp4`,
   },
   industry: {
     href: '/commercial/solar-free/industry-commercial',
-    image: '/images/roof-renovation/flat-roof-solar-hall.webp',
+    image: '/images/photography/commercial-flat-roof-pv-array-halls-landscape-crop-0771.webp',
     video: `${VIDEO_BASE}/FreeState%20-%20Industrial.mp4`,
   },
   farm: {
     href: '/commercial/solar-free/farmhouses',
-    image: '/images/solar-farm-roofs.png',
+    image: '/images/photography/barn-pv-roof-trees-landscape-crop-0599.webp',
     video: null,
     factsImage: '/images/solar-free/farmhouses-how-pv-1-248feb.webp',
   },
   public: {
     href: '/commercial/solar-free/public-buildings',
-    image: '/images/solar-free/public-buildings-how-pv-1-3ef4ca.webp',
+    image: '/images/photography/pv-modules-roof-edge-wide-blue-sky-1142.webp',
     video: `${VIDEO_BASE}/FreeState%20-%20Public.mp4`,
   },
 } as const satisfies Record<

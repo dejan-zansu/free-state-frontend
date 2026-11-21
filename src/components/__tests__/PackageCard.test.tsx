@@ -131,7 +131,7 @@ describe('PackageCard', () => {
     ).not.toBeInTheDocument()
   })
 
-  it('shows a default picture when the package has no photo', () => {
+  it('shows no picture when the package has no photo', () => {
     const noPhoto = groupPackages([pkg({ imageUrl: null })])[0]
     render(
       <NextIntlClientProvider
@@ -142,8 +142,8 @@ describe('PackageCard', () => {
       </NextIntlClientProvider>
     )
     expect(
-      screen.getByRole('img', { name: 'SolarDirect M Huawei' })
-    ).toBeInTheDocument()
+      screen.queryByRole('img', { name: 'SolarDirect M Huawei' })
+    ).not.toBeInTheDocument()
   })
 
   it('shows no monthly figure for SolarAbo', () => {

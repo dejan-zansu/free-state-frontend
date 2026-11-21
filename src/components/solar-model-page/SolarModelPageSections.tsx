@@ -26,17 +26,17 @@ const MODEL_MEDIA: Record<
   { hero: string; facts: string; video: string | null }
 > = {
   'solar-free': {
-    hero: '/images/roof-renovation/chalet-solar-hillside.webp',
+    hero: '/images/photography/pv-house-gable-green-hills-countryside-1151.webp',
     facts: '/images/pv-service/building-tiled-roof-pv.webp',
     video: `${VIDEO_BASE}/FreeState%20-%20Solar%20Free.mp4`,
   },
   'solar-abo': {
-    hero: '/images/roof-renovation/village-solar-roofs.webp',
+    hero: '/images/photography/house-roof-black-pv-two-faces-clouds-0709.webp',
     facts: '/images/pv-service/tiled-roof-pv-array.webp',
     video: null,
   },
   'solar-direct': {
-    hero: '/images/roof-renovation/solar-tile-roof-rainbow.webp',
+    hero: '/images/photography/pv-modules-dark-tile-roof-corner-white-house-1140.webp',
     facts: '/images/pv-service/building-tiled-roof-pv.webp',
     video: `${VIDEO_BASE}/FreeState%20-%20Solar%20Direct.mp4`,
   },

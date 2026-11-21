@@ -1227,5 +1227,63 @@
     "kb": 246,
     "identifiablePeople": true,
     "quality": 4
+  },
+  {
+    "file": "commercial-flat-roof-pv-array-halls-landscape-crop-0771.webp",
+    "driveId": "16gjMQ4TV8qaU4OYkKdcbLyC31dYerTqG",
+    "driveTitle": "DSC_0771.JPG",
+    "subject": "Landscape crop of the commercial flat roof PV array with industrial halls and forest behind, without the third-party sign.",
+    "tags": [
+      "commercial",
+      "flat-roof",
+      "roof",
+      "landscape",
+      "crop"
+    ],
+    "orientation": "landscape",
+    "width": 2400,
+    "height": 1352,
+    "kb": 423,
+    "identifiablePeople": false,
+    "quality": 4
+  },
+  {
+    "file": "commercial-flat-roof-pv-rows-walkway-landscape-crop-0774.webp",
+    "driveId": "1lPmhyGjGrA5JDyvoNf0u8KtbFemZHQyk",
+    "driveTitle": "DSC_0774.JPG",
+    "subject": "Landscape crop of module rows and walkway on the commercial flat roof with halls and parked vehicles behind, without the third-party sign.",
+    "tags": [
+      "commercial",
+      "flat-roof",
+      "roof",
+      "landscape",
+      "crop"
+    ],
+    "orientation": "landscape",
+    "width": 2400,
+    "height": 1350,
+    "kb": 275,
+    "identifiablePeople": false,
+    "quality": 3
+  },
+  {
+    "file": "barn-pv-roof-trees-landscape-crop-0599.webp",
+    "driveId": "1eldero1Ey284go06DrBAL6VaJihP-9Xs",
+    "driveTitle": "DSC_0599.JPG",
+    "subject": "Landscape crop of the PV array on a barn roof in front of trees.",
+    "tags": [
+      "agricultural",
+      "roof",
+      "pitched-roof",
+      "landscape",
+      "village",
+      "crop"
+    ],
+    "orientation": "landscape",
+    "width": 2400,
+    "height": 1350,
+    "kb": 401,
+    "identifiablePeople": false,
+    "quality": 3
   }
 ]
