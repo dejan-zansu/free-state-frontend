@@ -31,6 +31,7 @@ import {
   Megaphone,
   Menu,
   MessageSquareText,
+  MessagesSquare,
   Newspaper,
   Package,
   PanelTop,
@@ -52,6 +53,7 @@ import { usePathname } from 'next/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 
+import { InboxNavBadge } from '@/components/admin/InboxNavBadge'
 import { TasksNavBadge } from '@/components/admin/TasksNavBadge'
 import { Button } from '@/components/ui/button'
 import {
@@ -137,6 +139,13 @@ function useNavGroups() {
           href: `${prefix}/commercial-leads`,
           icon: Briefcase,
           capability: 'sales.tools',
+        },
+        {
+          label: t('outreachInbox'),
+          href: `${prefix}/outreach/inbox`,
+          icon: MessagesSquare,
+          badge: <InboxNavBadge />,
+          capability: 'outreach.manage',
         },
         {
           label: t('outreach'),

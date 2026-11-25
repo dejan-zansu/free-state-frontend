@@ -6750,6 +6750,7 @@
       "marketingCompetitors": "Konkurrenz",
       "marketingExperiments": "Experimente",
       "marketingSettings": "Einstellungen",
+      "outreachInbox": "Inbox",
       "outreach": "Outreach",
       "outreachLeads": "Outreach-Leads",
       "outreachQueues": "Outreach Queues",
@@ -7947,7 +7948,8 @@
           "ZURUECKGESTELLT": "Zurückgestellt",
           "IM_VERKAUF": "Im Verkauf",
           "ABGESAGT": "Abgesagt",
-          "BEENDET": "Beendet"
+          "BEENDET": "Beendet",
+          "ERLEDIGT": "Erledigt"
         },
         "turn": {
           "US": "Wir sind dran",
@@ -7969,7 +7971,8 @@
           "ZURUECKGESTELLT": "Kommt am eingetragenen Datum von selbst zurück.",
           "IM_VERKAUF": "Läuft im Verkauf. Zuständig und Datum kommen von dort.",
           "ABGESAGT": "Hat abgelehnt oder sich abgemeldet.",
-          "BEENDET": "Aus anderem Grund vorbei, zum Beispiel Hinweis abgeschlossen oder Mail nicht zustellbar."
+          "BEENDET": "Aus anderem Grund vorbei, zum Beispiel Hinweis abgeschlossen oder Mail nicht zustellbar.",
+          "ERLEDIGT": "Von einer Person erledigt. Kommt zurück, wenn der Kunde wieder schreibt oder das eingetragene Datum erreicht ist."
         },
         "nextStep": {
           "REVIEW_DRAFT": "Entwurf prüfen und senden",
@@ -8133,7 +8136,9 @@
           "decisionDeclined": "Kein Interesse am {date} erfasst. Weitere Mails an diese Adresse sind gesperrt.",
           "decisionDeclinedNoAddress": "Kein Interesse am {date} erfasst.",
           "decisionHintDone": "Hinweis am {date} abgeschlossen.",
-          "ended": "Dieser Lead ist beendet."
+          "decisionHandled": "Am {date} als erledigt markiert.",
+          "ended": "Dieser Lead ist beendet.",
+          "handled": "Erledigt. Eine neue Nachricht holt das Gespräch zurück."
         },
         "ownerLine": {
           "named": "Eigentümer laut Mieter {name}.",
@@ -8244,6 +8249,13 @@
           "technicalHint": "Rein technische Einträge stehen unter",
           "technicalLink": "Protokoll",
           "wrote": "{who} hat geschrieben",
+          "entered": "{who} hat sich gemeldet",
+          "manual": {
+            "explee": "Explee, von Hand erfasst",
+            "phone": "Telefon, von Hand erfasst",
+            "letter": "Brief, von Hand erfasst",
+            "other": "Von Hand erfasst"
+          },
           "unread": "Noch nicht gelesen",
           "unanswered": "Noch nicht beantwortet",
           "fullMail": "Ganze Mail",
@@ -8269,6 +8281,7 @@
           "snoozed": "Zurückgestellt bis {date}",
           "promoted": "An Verkauf übergeben als {reference}",
           "hintDone": "Hinweis abgeschlossen",
+          "handled": "Als erledigt markiert",
           "declined": "Kein Interesse erfasst, Adresse gesperrt",
           "statusChanged": "Status geändert von {from} zu {to}",
           "meeting": "Termin erfasst",
@@ -8393,6 +8406,8 @@
           "needAssignee": "Bitte zuerst eine zuständige Person wählen.",
           "snoozed": "Zurückgestellt bis {date}.",
           "hintDone": "Hinweis abgeschlossen. Der Kontakt wird dabei nicht gesperrt.",
+          "handled": "Erledigt. Eine neue Nachricht holt das Gespräch zurück.",
+          "handledRequestOpen": "Gespeichert. Die erfasste Anfrage vom {date} bleibt offen.",
           "declined": "Kein Interesse erfasst. Die Adresse ist gesperrt, offene Entwürfe sind entfernt."
         },
         "namedOwner": {
@@ -8419,6 +8434,141 @@
           "NOT_FOUND": "Dieser Lead wurde nicht gefunden.",
           "VALIDATION_ERROR": "Die Eingabe ist ungültig.",
           "generic": "Das hat nicht geklappt. Bitte erneut versuchen."
+        }
+      },
+      "inbox": {
+        "title": "Inbox",
+        "enterAnswer": "Antwort erfassen",
+        "tabsAria": "Gespräche nach Stand",
+        "tabs": {
+          "waiting": "Warten auf uns",
+          "new": "Neu",
+          "followUp": "Nachfassen",
+          "withThem": "Beim Kunden",
+          "leads": "Leads",
+          "closed": "Abgeschlossen",
+          "all": "Alle"
+        },
+        "source": {
+          "OUTBOUND": "Outbound",
+          "EXPLEE": "Explee",
+          "ROOF_PAGE": "Dachseite",
+          "LINKEDIN": "LinkedIn",
+          "PHONE": "Telefon",
+          "LETTER": "Brief",
+          "OTHER": "Andere",
+          "CUSTOMER": "Kunde"
+        },
+        "filters": {
+          "search": "Firma, Person oder Adresse",
+          "sourceAria": "Quelle",
+          "allSources": "Alle Quellen",
+          "allAssignees": "Alle Zuständigen"
+        },
+        "list": {
+          "aria": "Gespräche",
+          "new": "Neu",
+          "lead": "Lead",
+          "total": "{count, plural, one {# Gespräch} other {# Gespräche}}",
+          "loadFailed": "Die Gespräche konnten nicht geladen werden.",
+          "emptyFiltered": "Kein Gespräch passt zu diesen Filtern."
+        },
+        "empty": {
+          "waiting": "Gerade wartet niemand auf uns.",
+          "new": "Keine neuen Nachrichten.",
+          "followUp": "Gerade steht kein Nachfassen an.",
+          "withThem": "Gerade warten wir auf niemanden.",
+          "leads": "Noch keine Leads.",
+          "closed": "Nichts abgeschlossen.",
+          "all": "Noch keine Gespräche."
+        },
+        "conversation": {
+          "aria": "Gespräch",
+          "pick": "Ein Gespräch aus der Liste wählen.",
+          "notFound": "Dieses Gespräch wurde nicht gefunden.",
+          "loadFailed": "Das Gespräch konnte nicht geladen werden."
+        },
+        "marks": {
+          "aria": "Gespräch einordnen",
+          "lead": "Lead",
+          "notLead": "Kein Lead",
+          "done": "Erledigt",
+          "later": "Später",
+          "openOwner": "Eigentümer öffnen",
+          "openCrm": "Im Verkauf öffnen",
+          "openProspect": "Prospect-Seite öffnen"
+        },
+        "notLeadDialog": {
+          "title": "Kein Lead",
+          "refusal": "Absage",
+          "refusalText": "Alle Mails an diese Adresse werden gestoppt, auch auf anderen Einträgen. Offene Entwürfe werden entfernt.",
+          "close": "Ohne Absage abschliessen",
+          "closeText": "Das Gespräch wird abgeschlossen, offene Entwürfe werden entfernt. Die Adresse wird dabei nicht gesperrt.",
+          "confirmRefusal": "Absage erfassen",
+          "confirmClose": "Gespräch abschliessen"
+        },
+        "doneDialog": {
+          "title": "Erledigt",
+          "text": "Das Gespräch wird abgeschlossen, offene Entwürfe werden entfernt. Es kommt zurück, wenn der Kunde wieder schreibt oder das eingetragene Datum erreicht ist.",
+          "offerOpen": "Die Offertanfrage vom {date} bleibt offen.",
+          "meetingOpen": "Der Terminwunsch vom {date} bleibt offen.",
+          "byPhone": "Am Telefon erledigt",
+          "noAnswer": "Keine Antwort nötig"
+        },
+        "entry": {
+          "title": "Antwort erfassen",
+          "description": "Dabei wird keine Mail gesendet.",
+          "channel": "Kanal",
+          "address": "Gebäudeadresse, wenn bekannt",
+          "receivedAt": "Erhalten am",
+          "text": "Text der Antwort",
+          "answer": "Art der Antwort",
+          "answers": {
+            "INTERESTED": "Interessiert",
+            "QUESTION": "Hat eine Frage",
+            "NOT_NOW": "Nicht jetzt",
+            "NOT_INTERESTED": "Absage",
+            "UNSUBSCRIBE": "Keine Mails mehr"
+          },
+          "matches": {
+            "title": "Bestehende Einträge",
+            "needMore": "Mit E-Mail, Website oder PLZ wird geprüft, ob es die Firma schon gibt.",
+            "searching": "Suche läuft.",
+            "none": "Kein bestehender Eintrag. Die Firma wird neu angelegt.",
+            "failed": "Die Suche nach bestehenden Einträgen hat nicht geklappt.",
+            "pick": "Bitte einen Eintrag oder «Neu anlegen» wählen.",
+            "pickExisting": "Bitte einen Eintrag wählen. Mit diesem Namen und dieser PLZ gibt es die Firma schon.",
+            "createNew": "Neu anlegen",
+            "reason": {
+              "email": "Gleiche E-Mail",
+              "sender": "Hat von dieser Adresse geschrieben",
+              "company": "Gleicher Name und gleiche PLZ",
+              "domain": "Gleiche Domain"
+            }
+          },
+          "suppressed": "Gesperrt seit {date}: {key} ({reason}). Die Antwort wird trotzdem gespeichert.",
+          "consequence": {
+            "stopsMail": "Alle Mails an diese Adresse werden gestoppt.",
+            "noColdMail": "Das System sendet dieser Firma keine Mails mehr.",
+            "notNowWithSales": "Dieser Lead liegt im Verkauf. Zurückstellen geht nur dort."
+          },
+          "errors": {
+            "email": "Diese E-Mail-Adresse ist ungültig.",
+            "receivedAt": "Das Datum darf nicht in der Zukunft liegen.",
+            "exists": "Diese Firma gibt es schon. Bitte den Eintrag wählen.",
+            "idTaken": "Bitte noch einmal speichern."
+          },
+          "toast": {
+            "saved": "Antwort gespeichert.",
+            "skippedWithSales": "Antwort gespeichert. Der Lead liegt im Verkauf, deshalb {answer, select, NOT_NOW {wurde er nicht zurückgestellt} other {wurde die Absage nicht eingetragen}}.",
+            "skippedClosed": "Antwort gespeichert. Der Eintrag ist abgeschlossen, deshalb wurde er nicht zurückgestellt."
+          }
+        },
+        "suppression": {
+          "HARD_BOUNCE": "Harter Zustellfehler",
+          "MANUAL": "Von Hand gesperrt",
+          "COMPLAINT": "Beschwerde",
+          "NEWSLETTER_UNSUB": "Vom Newsletter abgemeldet"
         }
       },
       "callFlag": {

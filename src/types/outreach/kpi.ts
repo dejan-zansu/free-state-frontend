@@ -137,6 +137,7 @@ export type LeadWorkState =
   | 'ZURUECKGESTELLT'
   | 'EIGENTUEMER_ANGESCHRIEBEN'
   | 'WARTET_AUF_ANTWORT'
+  | 'ERLEDIGT'
 
 export type LeadWorkTurn =
   | 'US'
@@ -199,6 +200,15 @@ export type LeadTouchSource = 'EMAIL' | 'ROOF_PAGE' | 'LINKEDIN' | 'LEAD'
 
 export type LeadAnswerSource = 'EMAIL' | 'CALL' | 'MEETING' | 'OFFER'
 
+export const LEAD_MANUAL_CHANNELS = [
+  'explee',
+  'phone',
+  'letter',
+  'other',
+] as const
+
+export type LeadManualChannel = (typeof LEAD_MANUAL_CHANNELS)[number]
+
 export interface LeadCustomerTouch {
   at: string
   source: LeadTouchSource
@@ -206,6 +216,7 @@ export interface LeadCustomerTouch {
   classification: OutboundReplyClassification | null
   emailId: string | null
   strong: boolean
+  channel: LeadManualChannel | null
 }
 
 export interface LeadOpenRequest {
@@ -435,6 +446,7 @@ export type LeadDecisionInput =
   | { outcome: 'NOT_INTERESTED'; note?: string }
   | { outcome: 'NOT_NOW'; until: string; note?: string }
   | { outcome: 'HINT_DONE'; note?: string }
+  | { outcome: 'HANDLED'; byPhone?: boolean; note?: string }
 
 export type LeadDecisionOutcome = LeadDecisionInput['outcome']
 

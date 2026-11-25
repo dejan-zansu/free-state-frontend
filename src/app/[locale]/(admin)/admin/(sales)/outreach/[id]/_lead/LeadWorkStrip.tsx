@@ -22,7 +22,7 @@ import {
   formatLeadDate,
   leadErrorKey,
   leadFollowUpLine,
-  leadIsClosed,
+  leadIsOver,
   zurichDateInput,
   zurichDatePlusDays,
 } from '@/lib/outbound-lead-work'
@@ -155,7 +155,7 @@ export function LeadWorkStrip({
     saveFollowUp(null)
   }
 
-  const closed = leadIsClosed(work)
+  const closed = leadIsOver(work)
   const isMine = !!user && assignedTo?.id === user.id
   const line = leadFollowUpLine(work)
   const overdue = line?.tone === 'red'

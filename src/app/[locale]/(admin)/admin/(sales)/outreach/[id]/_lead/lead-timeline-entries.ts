@@ -3,7 +3,11 @@ import type {
   OutboundProspectDetail,
   OutboundProspectEmail,
 } from '@/types/admin-outreach'
-import type { LeadCustomerTouch } from '@/types/outreach/kpi'
+import {
+  LEAD_MANUAL_CHANNELS,
+  type LeadCustomerTouch,
+  type LeadManualChannel,
+} from '@/types/outreach/kpi'
 
 export type LeadEventKind = 'meeting' | 'visit' | 'offer' | 'letter'
 
@@ -27,6 +31,7 @@ export type LeadTimelineEntry = { id: string; at: string } & (
       kind: 'linkedin'
       activity: OutboundActivity
       action: string
+      text: string | null
       fromCustomer: boolean
       open: boolean
     }
@@ -74,6 +79,16 @@ export function leadPayloadText(
 
 export function leadIsDecision(activity: OutboundActivity): boolean {
   return leadPayloadText(activity, 'source') === 'decision'
+}
+
+export function leadManualChannel(
+  email: OutboundProspectEmail
+): LeadManualChannel | null {
+  const headers = email.headersJson
+  if (headers?.source !== 'manual') return null
+  return (
+    LEAD_MANUAL_CHANNELS.find(channel => channel === headers.channel) ?? null
+  )
 }
 
 function isSameMoment(a: string, b: string): boolean {
@@ -139,12 +154,29 @@ function isWeakMail(
   const { openTouch, lastCustomerTouch } = prospect.work
   if (openTouch?.emailId === email.id) return false
   if (lastCustomerTouch?.emailId === email.id) return false
+  if (leadManualChannel(email)) return false
   return WEAK_CLASSIFICATIONS.includes(email.replyClassification ?? '')
+}
+
+function newestLinkedinReplyId(
+  prospect: OutboundProspectDetail
+): string | null {
+  const replies = prospect.activities
+    .filter(
+      activity =>
+        activity.type === 'LINKEDIN' &&
+        LINKEDIN_REPLY_ACTIONS.includes(
+          leadPayloadText(activity, 'action') ?? ''
+        )
+    )
+    .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+  return replies[0]?.id ?? null
 }
 
 function activityEntry(
   activity: OutboundActivity,
-  prospect: OutboundProspectDetail
+  prospect: OutboundProspectDetail,
+  newestLinkedinReply: string | null
 ): LeadTimelineEntry | null {
   const { work } = prospect
   const base = { id: `activity-${activity.id}`, at: activity.createdAt }
@@ -164,11 +196,16 @@ function activityEntry(
     case 'LINKEDIN': {
       const action = leadPayloadText(activity, 'action')
       if (!action || !LINKEDIN_ROW_ACTIONS.includes(action)) return null
+      const replyText =
+        activity.id === newestLinkedinReply
+          ? prospect.linkedinTouch?.replyText?.trim()
+          : null
       return {
         ...base,
         kind: 'linkedin',
         activity,
         action,
+        text: leadPayloadText(activity, 'note') ?? (replyText || null),
         fromCustomer: LINKEDIN_CUSTOMER_ACTIONS.includes(action),
         open: isOpenActivity(work.openTouch, 'LINKEDIN', activity),
       }
@@ -216,13 +253,14 @@ export function buildLeadTimeline(
   prospect: OutboundProspectDetail
 ): LeadTimelineEntry[] {
   const newest = newestInboundId(prospect)
+  const newestLinkedinReply = newestLinkedinReplyId(prospect)
   const entries: LeadTimelineEntry[] = []
   for (const email of prospect.emails) {
     const entry = mailEntry(email, prospect, newest)
     if (entry) entries.push(entry)
   }
   for (const activity of prospect.activities) {
-    const entry = activityEntry(activity, prospect)
+    const entry = activityEntry(activity, prospect, newestLinkedinReply)
     if (entry) entries.push(entry)
   }
   return entries.sort((a, b) => Date.parse(b.at) - Date.parse(a.at))

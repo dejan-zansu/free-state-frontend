@@ -6940,6 +6940,7 @@
       "marketingCompetitors": "Competitors",
       "marketingExperiments": "Experiments",
       "marketingSettings": "Settings",
+      "outreachInbox": "Inbox",
       "outreach": "Outreach",
       "outreachLeads": "Outreach Leads",
       "outreachQueues": "Outreach Queues",
@@ -8137,7 +8138,8 @@
           "ZURUECKGESTELLT": "Odloženo",
           "IM_VERKAUF": "U prodaji",
           "ABGESAGT": "Odbijeno",
-          "BEENDET": "Završeno"
+          "BEENDET": "Završeno",
+          "ERLEDIGT": "Rešeno"
         },
         "turn": {
           "US": "Na potezu smo mi",
@@ -8159,7 +8161,8 @@
           "ZURUECKGESTELLT": "Vraća se sam na upisani datum.",
           "IM_VERKAUF": "Vodi se u prodaji. Zadužena osoba i datum dolaze odande.",
           "ABGESAGT": "Odbili su ili su se odjavili.",
-          "BEENDET": "Završeno iz drugog razloga, na primer trag je zatvoren ili mejl nije isporučen."
+          "BEENDET": "Završeno iz drugog razloga, na primer trag je zatvoren ili mejl nije isporučen.",
+          "ERLEDIGT": "Rešio je neko od nas. Vraća se kada kupac ponovo piše ili kada dođe upisani datum."
         },
         "nextStep": {
           "REVIEW_DRAFT": "Proveri nacrt i pošalji",
@@ -8323,7 +8326,9 @@
           "decisionDeclined": "Upisano {date} da nema interesa. Dalji mejlovi na ovu adresu su blokirani.",
           "decisionDeclinedNoAddress": "Upisano {date} da nema interesa.",
           "decisionHintDone": "Trag je zatvoren {date}.",
-          "ended": "Ovaj lid je završen."
+          "decisionHandled": "Označeno kao rešeno {date}.",
+          "ended": "Ovaj lid je završen.",
+          "handled": "Rešeno. Nova poruka ponovo otvara razgovor."
         },
         "ownerLine": {
           "named": "Vlasnik prema zakupcu: {name}.",
@@ -8434,6 +8439,13 @@
           "technicalHint": "Čisto tehnički zapisi nalaze se pod",
           "technicalLink": "Zapisnik",
           "wrote": "Poruka od: {who}",
+          "entered": "Javljanje: {who}",
+          "manual": {
+            "explee": "Explee, ručno upisano",
+            "phone": "Telefon, ručno upisano",
+            "letter": "Pismo, ručno upisano",
+            "other": "Ručno upisano"
+          },
           "unread": "Još nije pročitano",
           "unanswered": "Još bez odgovora",
           "fullMail": "Ceo mejl",
@@ -8459,6 +8471,7 @@
           "snoozed": "Odloženo do {date}",
           "promoted": "Predato prodaji kao {reference}",
           "hintDone": "Trag je zatvoren",
+          "handled": "Označeno kao rešeno",
           "declined": "Upisano da nema interesa, adresa je blokirana",
           "statusChanged": "Status promenjen sa {from} na {to}",
           "meeting": "Sastanak upisan",
@@ -8583,6 +8596,8 @@
           "needAssignee": "Prvo izaberi zaduženu osobu.",
           "snoozed": "Odloženo do {date}.",
           "hintDone": "Trag je zatvoren. Kontakt ovim nije blokiran.",
+          "handled": "Rešeno. Nova poruka ponovo otvara razgovor.",
+          "handledRequestOpen": "Sačuvano. Zahtev upisan {date} ostaje otvoren.",
           "declined": "Upisano da nema interesa. Adresa je blokirana, otvoreni nacrti su uklonjeni."
         },
         "namedOwner": {
@@ -8609,6 +8624,141 @@
           "NOT_FOUND": "Ovaj lid nije pronađen.",
           "VALIDATION_ERROR": "Unos nije ispravan.",
           "generic": "Nije uspelo. Pokušaj ponovo."
+        }
+      },
+      "inbox": {
+        "title": "Inbox",
+        "enterAnswer": "Upiši odgovor",
+        "tabsAria": "Razgovori po stanju",
+        "tabs": {
+          "waiting": "Čekaju na nas",
+          "new": "Novi",
+          "followUp": "Treba se javiti",
+          "withThem": "Na potezu je kupac",
+          "leads": "Lidovi",
+          "closed": "Zatvoreni",
+          "all": "Svi"
+        },
+        "source": {
+          "OUTBOUND": "Outbound",
+          "EXPLEE": "Explee",
+          "ROOF_PAGE": "Stranica krova",
+          "LINKEDIN": "LinkedIn",
+          "PHONE": "Telefon",
+          "LETTER": "Pismo",
+          "OTHER": "Drugo",
+          "CUSTOMER": "Kupac"
+        },
+        "filters": {
+          "search": "Firma, osoba ili adresa",
+          "sourceAria": "Izvor",
+          "allSources": "Svi izvori",
+          "allAssignees": "Sve zadužene osobe"
+        },
+        "list": {
+          "aria": "Razgovori",
+          "new": "Novo",
+          "lead": "Lid",
+          "total": "Ukupno {count}",
+          "loadFailed": "Učitavanje razgovora nije uspelo.",
+          "emptyFiltered": "Nijedan razgovor ne odgovara ovim filterima."
+        },
+        "empty": {
+          "waiting": "Trenutno niko ne čeka na nas.",
+          "new": "Nema novih poruka.",
+          "followUp": "Trenutno nema nikoga kome treba da se javimo.",
+          "withThem": "Trenutno ne čekamo nikoga.",
+          "leads": "Još nema lidova.",
+          "closed": "Nema zatvorenih razgovora.",
+          "all": "Još nema razgovora."
+        },
+        "conversation": {
+          "aria": "Razgovor",
+          "pick": "Izaberi razgovor sa liste.",
+          "notFound": "Ovaj razgovor nije pronađen.",
+          "loadFailed": "Učitavanje razgovora nije uspelo."
+        },
+        "marks": {
+          "aria": "Označi razgovor",
+          "lead": "Lid",
+          "notLead": "Nije lid",
+          "done": "Rešeno",
+          "later": "Kasnije",
+          "openOwner": "Otvori vlasnika",
+          "openCrm": "Otvori u prodaji",
+          "openProspect": "Otvori stranicu firme"
+        },
+        "notLeadDialog": {
+          "title": "Nije lid",
+          "refusal": "Odbijaju",
+          "refusalText": "Na ovu adresu više ne ide nijedan mejl, ni preko drugih unosa. Otvoreni nacrti se uklanjaju.",
+          "close": "Zatvori bez odbijanja",
+          "closeText": "Razgovor se zatvara, otvoreni nacrti se uklanjaju. Adresa ovim nije blokirana.",
+          "confirmRefusal": "Upiši odbijanje",
+          "confirmClose": "Zatvori razgovor"
+        },
+        "doneDialog": {
+          "title": "Rešeno",
+          "text": "Razgovor se zatvara, otvoreni nacrti se uklanjaju. Razgovor se vraća kada kupac ponovo piše ili kada dođe upisani datum.",
+          "offerOpen": "Zahtev za ponudu, upisan {date}, ostaje otvoren.",
+          "meetingOpen": "Želja za sastankom, upisana {date}, ostaje otvorena.",
+          "byPhone": "Rešeno telefonom",
+          "noAnswer": "Odgovor nije potreban"
+        },
+        "entry": {
+          "title": "Upiši odgovor",
+          "description": "Ovim se ne šalje nijedan mejl.",
+          "channel": "Kanal",
+          "address": "Adresa zgrade, ako je poznata",
+          "receivedAt": "Primljeno",
+          "text": "Tekst odgovora",
+          "answer": "Vrsta odgovora",
+          "answers": {
+            "INTERESTED": "Zainteresovani",
+            "QUESTION": "Imaju pitanje",
+            "NOT_NOW": "Ne sada",
+            "NOT_INTERESTED": "Odbijaju",
+            "UNSUBSCRIBE": "Ne žele više mejlove"
+          },
+          "matches": {
+            "title": "Postojeći unosi",
+            "needMore": "Kada upišeš mejl, sajt ili poštanski broj, proverava se da li firma već postoji.",
+            "searching": "Pretraga je u toku.",
+            "none": "Firma još nije upisana. Dodaje se kao nova.",
+            "failed": "Pretraga postojećih unosa nije uspela.",
+            "pick": "Izaberi unos ili dodaj novu firmu.",
+            "pickExisting": "Izaberi unos. Firma sa ovim nazivom i poštanskim brojem već postoji.",
+            "createNew": "Dodaj kao novu firmu",
+            "reason": {
+              "email": "Isti mejl",
+              "sender": "Sa ove adrese je već stigla poruka",
+              "company": "Isti naziv i poštanski broj",
+              "domain": "Isti domen"
+            }
+          },
+          "suppressed": "Blokirano od {date}: {key} ({reason}). Odgovor se ipak čuva.",
+          "consequence": {
+            "stopsMail": "Na ovu adresu više ne ide nijedan mejl.",
+            "noColdMail": "Sistem ovoj firmi više ne šalje mejlove.",
+            "notNowWithSales": "Ovaj lid je u prodaji i odlaže se tamo."
+          },
+          "errors": {
+            "email": "Mejl adresa nije ispravna.",
+            "receivedAt": "Datum ne sme da bude u budućnosti.",
+            "exists": "Ova firma već postoji. Izaberi unos.",
+            "idTaken": "Sačuvaj još jednom."
+          },
+          "toast": {
+            "saved": "Odgovor je sačuvan.",
+            "skippedWithSales": "Odgovor je sačuvan. Lid je u prodaji, zato {answer, select, NOT_NOW {nije odložen} other {odbijanje nije upisano}}.",
+            "skippedClosed": "Odgovor je sačuvan. Unos je zatvoren, zato nije odložen."
+          }
+        },
+        "suppression": {
+          "HARD_BOUNCE": "trajna greška u dostavi",
+          "MANUAL": "ručno blokirano",
+          "COMPLAINT": "pritužba",
+          "NEWSLETTER_UNSUB": "odjava sa newslettera"
         }
       },
       "callFlag": {

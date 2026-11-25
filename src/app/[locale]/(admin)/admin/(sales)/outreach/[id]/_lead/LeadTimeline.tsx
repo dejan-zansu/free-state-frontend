@@ -30,6 +30,7 @@ import type {
 import {
   buildLeadTimeline,
   leadIsDecision,
+  leadManualChannel,
   leadPayloadText,
   type LeadEventKind,
   type LeadSystemLine,
@@ -226,18 +227,25 @@ function InboundRow({
   const mail = useMailBody(email, entry.newest)
   const classification = email.replyClassification
   const known = classification && classification !== 'UNCLASSIFIED'
+  const channel = leadManualChannel(email)
+  const who = leadMailSender(prospect, email)
   return (
     <FullRow
       side="customer"
-      icon={Mail}
-      title={t('timeline.wrote', { who: leadMailSender(prospect, email) })}
+      icon={channel === 'phone' ? Phone : Mail}
+      title={
+        channel ? t('timeline.entered', { who }) : t('timeline.wrote', { who })
+      }
       tags={
         <>
+          {channel && (
+            <LeadPill tone="grey">{t(`timeline.manual.${channel}`)}</LeadPill>
+          )}
           {known ? (
             <LeadPill tone="blue">
               {t(`classification.${classification}`)}
             </LeadPill>
-          ) : (
+          ) : channel ? null : (
             <LeadPill tone="grey">{t('timeline.unread')}</LeadPill>
           )}
           {entry.open && (
@@ -348,17 +356,22 @@ function recipients(email: OutboundProspectEmail): string | null {
 
 export function LeadTimeline({
   prospect,
+  order = 'newest',
   onShowProtocol,
 }: {
   prospect: OutboundProspectDetail
-  onShowProtocol: () => void
+  order?: 'newest' | 'oldest'
+  onShowProtocol?: () => void
 }) {
   const t = useTranslations('admin.outreach.work')
   const ts = useTranslations('admin.outreach.statusLabels')
   const tli = useTranslations('admin.outreach.linkedin')
   const { data: assignees } = useLeadAssignees()
 
-  const entries = useMemo(() => buildLeadTimeline(prospect), [prospect])
+  const entries = useMemo(() => {
+    const newestFirst = buildLeadTimeline(prospect)
+    return order === 'oldest' ? newestFirst.reverse() : newestFirst
+  }, [prospect, order])
 
   const names = useMemo(() => {
     const map = new Map<string, string>()
@@ -411,6 +424,7 @@ export function LeadTimeline({
       case 'STATUS_CHANGED':
         if (leadIsDecision(activity)) {
           if (read('decision') === 'HINT_DONE') return t('timeline.hintDone')
+          if (read('decision') === 'HANDLED') return t('timeline.handled')
           return read('suppressed')
             ? t('timeline.declined')
             : t('reason.NOT_INTERESTED')
@@ -527,7 +541,6 @@ export function LeadTimeline({
         )
       }
       case 'linkedin': {
-        const note = leadPayloadText(entry.activity, 'note')
         const isReply = entry.fromCustomer && entry.action !== 'accepted'
         const label = tli.has(`actions.${entry.action}`)
           ? tli(`actions.${entry.action}`)
@@ -543,7 +556,7 @@ export function LeadTimeline({
                 <LeadPill tone="red">{t('timeline.unanswered')}</LeadPill>
               ) : null
             }
-            body={note ? <BoxText>{note}</BoxText> : null}
+            body={entry.text ? <BoxText>{entry.text}</BoxText> : null}
             meta={activityMeta(entry.at, entry.activity)}
           />
         )
@@ -626,17 +639,19 @@ export function LeadTimeline({
       ) : (
         <ol>{entries.map(renderEntry)}</ol>
       )}
-      <p className="mt-4 text-[#062E25]/75">
-        {t('timeline.technicalHint')}{' '}
-        <button
-          type="button"
-          onClick={onShowProtocol}
-          className="underline underline-offset-2 hover:text-[#062E25]"
-        >
-          {t('timeline.technicalLink')}
-        </button>
-        .
-      </p>
+      {onShowProtocol && (
+        <p className="mt-4 text-[#062E25]/75">
+          {t('timeline.technicalHint')}{' '}
+          <button
+            type="button"
+            onClick={onShowProtocol}
+            className="underline underline-offset-2 hover:text-[#062E25]"
+          >
+            {t('timeline.technicalLink')}
+          </button>
+          .
+        </p>
+      )}
     </section>
   )
 }

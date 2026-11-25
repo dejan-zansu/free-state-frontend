@@ -69,12 +69,12 @@ type DialogProps = {
   onClose: () => void
 }
 
-function useErrorToast() {
+export function useErrorToast() {
   const t = useTranslations('admin.outreach.work')
   return (error: unknown) => toast.error(t(leadErrorKey(error)))
 }
 
-function DialogShell({
+export function DialogShell({
   title,
   description,
   onClose,
@@ -107,7 +107,7 @@ function DialogShell({
   )
 }
 
-function Actions({
+export function Actions({
   cancel,
   save,
   pending,
@@ -512,7 +512,7 @@ export function LeadOwnerDialog({ prospect, onClose }: DialogProps) {
   )
 }
 
-function decisionToast(
+export function decisionToast(
   t: ReturnType<typeof useTranslations>,
   result: LeadDecisionResult
 ): string {

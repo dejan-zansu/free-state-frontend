@@ -64,6 +64,7 @@ export const LEAD_WORK_STATE_ORDER: LeadWorkState[] = [
   'EIGENTUEMER_KONTAKTIEREN',
   'ABGESAGT',
   'BEENDET',
+  'ERLEDIGT',
   'IM_VERKAUF',
   'ZURUECKGESTELLT',
   'EIGENTUEMER_ANGESCHRIEBEN',
@@ -212,6 +213,10 @@ export function leadIsClosed(work: LeadWork): boolean {
   return work.tab === 'closed'
 }
 
+export function leadIsOver(work: LeadWork): boolean {
+  return leadIsClosed(work) && work.state !== 'ERLEDIGT'
+}
+
 export function leadDecisionsAllowed(
   work: LeadWork,
   crmLink: { id: string } | null | undefined
@@ -294,6 +299,7 @@ export function leadSinceText(
         : null
     case 'ABGESAGT':
     case 'BEENDET':
+    case 'ERLEDIGT':
       return work.since
         ? { key: 'since.on', values: { date: formatLeadDate(work.since) } }
         : null
@@ -362,9 +368,10 @@ export const LEAD_FOLLOW_UP_TONE_CLASS: Record<LeadFollowUpTone, string> = {
 export function leadFollowUpLine(
   work: LeadWork
 ): { tone: LeadFollowUpTone; text: LeadText } | null {
-  if (leadIsClosed(work) || work.state === 'ZURUECKGESTELLT') return null
+  if (leadIsOver(work) || work.state === 'ZURUECKGESTELLT') return null
   const { at, active } = work.followUp
   if (!at) return { tone: 'muted', text: { key: 'followUp.none' } }
+  if (!active && work.state === 'ERLEDIGT') return null
   const date = formatLeadDate(at)
   if (!active) {
     return {
@@ -393,7 +400,9 @@ function openSentence(work: LeadWork, who: string): LeadText {
     return { key: offer ? 'stand.roofOffer' : 'stand.roofAnswer', values }
   }
   if (touch.source === 'LINKEDIN') return { key: 'stand.linkedin', values }
-  if (touch.source === 'LEAD') return { key: 'stand.leadTouch', values }
+  if (touch.source === 'LEAD' || touch.channel) {
+    return { key: 'stand.leadTouch', values }
+  }
   const answer = work.lastOurAnswer
   const onlyAutomatic =
     !!answer?.automatic && Date.parse(answer.at) > Date.parse(touch.at)
@@ -489,6 +498,8 @@ export function leadStandSentence(
         key: work.doNotContact ? 'stand.optedOut' : 'stand.declined',
         values: { who, date: formatLeadDate(work.since) },
       }
+    case 'ERLEDIGT':
+      return { key: 'stand.handled' }
     default:
       return { key: 'stand.ended' }
   }
@@ -508,9 +519,19 @@ function closingOutcome(activity: OutboundActivity): string | null {
     return null
   }
   const decision = payload.decision
-  return decision === 'NOT_INTERESTED' || decision === 'HINT_DONE'
+  return decision === 'NOT_INTERESTED' ||
+    decision === 'HINT_DONE' ||
+    decision === 'HANDLED'
     ? decision
     : null
+}
+
+function closesState(
+  state: LeadWorkState,
+  activity: OutboundActivity
+): boolean {
+  const outcome = closingOutcome(activity)
+  return outcome !== null && (outcome === 'HANDLED') === (state === 'ERLEDIGT')
 }
 
 function closingSuppressed(activity: OutboundActivity): boolean {
@@ -525,15 +546,16 @@ export function leadClosingEvent(
 ): LeadClosingEvent | null {
   if (!leadIsClosed(work)) return null
   const closing = activities
-    .filter(activity => closingOutcome(activity) !== null)
+    .filter(activity => closesState(work.state, activity))
     .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0]
   if (!closing) return null
   const touch = work.lastCustomerTouch?.at
   if (touch && Date.parse(touch) > Date.parse(closing.createdAt)) return null
   const date = formatLeadDate(closing.createdAt)
-  const declined = closingOutcome(closing) === 'NOT_INTERESTED'
+  const outcome = closingOutcome(closing)
   let key = 'stand.decisionHintDone'
-  if (declined) {
+  if (outcome === 'HANDLED') key = 'stand.decisionHandled'
+  if (outcome === 'NOT_INTERESTED') {
     key = closingSuppressed(closing)
       ? 'stand.decisionDeclined'
       : 'stand.decisionDeclinedNoAddress'
@@ -595,6 +617,7 @@ export function leadOwnerLine(
 
 export function leadDecisionToastKey(outcome: LeadDecisionOutcome): string {
   if (outcome === 'NOT_INTERESTED') return 'toast.declined'
+  if (outcome === 'HANDLED') return 'toast.handled'
   return outcome === 'HINT_DONE' ? 'toast.hintDone' : 'toast.snoozed'
 }
 

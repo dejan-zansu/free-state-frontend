@@ -23,7 +23,7 @@ import {
   leadErrorKey,
   leadHasCustomerTouch,
   leadInterestKey,
-  leadIsClosed,
+  leadIsOver,
   leadKindHintKey,
   leadKindKey,
   leadNextStepButtonKey,
@@ -102,7 +102,7 @@ export function LeadHeader({
     !prospect.commercialLeadId
   const canSnooze =
     decisions && !LEAD_DECISION_TERMINAL_STATUSES.includes(prospect.status)
-  const showWork = !hasLead || !leadIsClosed(work)
+  const showWork = !hasLead || !leadIsOver(work)
   const canQualify = (!hasLead || isHint) && !work.readOnly
   const canHandOver = canPromote && !crmLead && !work.readOnly
   const interestLabel = work.interest ? t(leadInterestKey(work.interest)) : null

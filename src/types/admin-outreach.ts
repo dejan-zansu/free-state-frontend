@@ -665,6 +665,7 @@ export interface LinkedinTouchSummary {
   followedUpAt: string | null
   repliedAt: string | null
   replyOutcome: LinkedinReplyOutcome | null
+  replyText?: string | null
   closedAt: string | null
   closeReason: string | null
   sender: { user: { firstName: string; lastName: string } }
