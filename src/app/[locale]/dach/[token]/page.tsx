@@ -2,14 +2,13 @@ import type { Metadata, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { CalendarDays, Check, Mail, Phone, Sun, Zap } from 'lucide-react'
+import { Check, Mail, Phone, Sun, Zap } from 'lucide-react'
 import LogoDark from '@/components/icons/LogoDark'
 import { PARTNER_LOGOS } from '@/components/OurPartners'
 import {
   formatSwissNumber as formatReferenceNumber,
   pickReferenceTranslation,
 } from '@/components/references/reference-utils'
-import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
 import type { AdminReference, ReferenceCategory } from '@/types/admin'
 
 import type { SonnendachBuilding } from '@/types/sonnendach'
@@ -259,9 +258,6 @@ const SOLARFREE_POINTS = [
   'Liefert das Dach mehr Strom, als Sie brauchen, ist auch eine jährliche Dachpacht möglich.',
 ]
 
-const CALENDLY_URL =
-  process.env.NEXT_PUBLIC_OUTBOUND_CALENDLY_URL || COMPANY_CALENDLY_URL
-
 export default async function DachPage({
   params,
   searchParams,
@@ -510,18 +506,15 @@ export default async function DachPage({
               Erste Einschätzung in einem kurzen Gespräch
             </h2>
             <p className="text-base text-[#062E25]/75">
-              Gerne auch vor Ort. Wählen Sie direkt einen Termin oder schreiben
-              Sie uns.
+              Gerne auch vor Ort. Rufen Sie direkt an oder schreiben Sie uns.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noreferrer"
+                href="tel:+41763647775"
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-[#062E25] px-8 py-3 text-base font-semibold text-white hover:bg-[#062E25]/90"
               >
-                <CalendarDays className="w-5 h-5" />
-                Termin vereinbaren
+                <Phone className="w-5 h-5" />
+                +41 76 364 77 75
               </a>
               <a
                 href="mailto:ivan.miric@freestate.ch"
