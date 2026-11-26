@@ -1,11 +1,16 @@
-import type { Metadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { CalendarDays, Mail, Sun, Zap } from 'lucide-react'
+import { CalendarDays, Check, Mail, Phone, Sun, Zap } from 'lucide-react'
 import LogoDark from '@/components/icons/LogoDark'
 import { PARTNER_LOGOS } from '@/components/OurPartners'
+import {
+  formatSwissNumber as formatReferenceNumber,
+  pickReferenceTranslation,
+} from '@/components/references/reference-utils'
 import { COMPANY_CALENDLY_URL } from '@/lib/company-contact'
+import type { AdminReference, ReferenceCategory } from '@/types/admin'
 
 import type { SonnendachBuilding } from '@/types/sonnendach'
 
@@ -13,9 +18,33 @@ import LandingActions from './_components/LandingActions'
 import RoofView from './_components/RoofView'
 import type { RoofPagePanels } from './_components/roof-panels'
 
-export const metadata: Metadata = {
-  title: 'Solarpotenzial Ihrer Dachfläche | Free State AG',
-  robots: { index: false, follow: false },
+const PAGE_TITLE = 'Solarpotenzial Ihrer Dachfläche'
+const PAGE_DESCRIPTION =
+  'Luftbild, Dachflächen und die Werte aus dem Solarkataster für Ihr Dach. SolarFree, unsere Dachvermietung ohne Investition, mit Solarstrom ca.\u00a030\u00a0% unter dem Netztarif.'
+
+export async function generateMetadata(
+  _props: { params: Promise<{ locale: string; token: string }> },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const previous = await parent
+  return {
+    title: `${PAGE_TITLE} | Free State AG`,
+    description: PAGE_DESCRIPTION,
+    robots: { index: false, follow: false },
+    openGraph: {
+      title: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      siteName: previous.openGraph?.siteName ?? undefined,
+      type: 'website',
+      images: previous.openGraph?.images ?? [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      images: previous.twitter?.images ?? [],
+    },
+  }
 }
 
 type RoofSegment = {
@@ -150,15 +179,92 @@ async function fetchBuilding(
   }
 }
 
+const COMMERCIAL_CATEGORIES: ReferenceCategory[] = [
+  'INDUSTRIEDACH',
+  'GEWERBE',
+  'LANDWIRTSCHAFT',
+  'OEFFENTLICHE_GEBAEUDE',
+]
+
+async function fetchCommercialReferences(): Promise<AdminReference[]> {
+  const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+  try {
+    const res = await fetch(`${base}/api/references/public?page=1&limit=50`, {
+      next: { revalidate: 300 },
+      signal: AbortSignal.timeout(5000),
+    })
+    if (!res.ok) return []
+    const json = (await res.json()) as {
+      success: boolean
+      data?: AdminReference[]
+    }
+    const items = json.success && Array.isArray(json.data) ? json.data : []
+    return items
+      .filter(
+        reference =>
+          COMMERCIAL_CATEGORIES.includes(reference.category) &&
+          referencePhoto(reference) !== null &&
+          reference.installedKwp !== null &&
+          reference.moduleCount !== null
+      )
+      .sort(
+        (a, b) =>
+          Number(b.featured) - Number(a.featured) ||
+          a.sortOrder - b.sortOrder ||
+          (b.installedKwp ?? 0) - (a.installedKwp ?? 0)
+      )
+      .slice(0, 3)
+  } catch {
+    return []
+  }
+}
+
+const REFERENCE_IMAGE_HOST = 'pub-4c6192458b6640b4882edb8106c3751f.r2.dev'
+const WEB_IMAGE = /\.(jpe?g|png|webp)$/i
+
+function isWebPhoto(url: string | null | undefined): url is string {
+  if (!url) return false
+  try {
+    const parsed = new URL(url)
+    return (
+      parsed.protocol === 'https:' &&
+      parsed.hostname === REFERENCE_IMAGE_HOST &&
+      WEB_IMAGE.test(parsed.pathname)
+    )
+  } catch {
+    return false
+  }
+}
+
+function referencePhoto(reference: AdminReference): string | null {
+  const gallery = [...reference.images]
+    .sort((a, b) => a.sortOrder - b.sortOrder)
+    .find(image => isWebPhoto(image.url))
+  if (gallery) return gallery.url
+  return isWebPhoto(reference.coverImageUrl) ? reference.coverImageUrl : null
+}
+
+const SOLARFREE_POINTS = [
+  'Wir planen, finanzieren, bauen und betreiben die Anlage.',
+  'Sie zahlen nur den Solarstrom, den Sie verbrauchen, ca.\u00a030\u00a0% unter dem Netztarif.',
+  'Betrieb, Wartung, Monitoring und Versicherung gehen auf unsere Kosten.',
+  'Nach Ablauf des Vertrags geht die Anlage kostenlos an Sie.',
+  'Liefert das Dach mehr Strom, als Sie brauchen, ist auch eine jährliche Dachpacht möglich.',
+]
+
 const CALENDLY_URL =
   process.env.NEXT_PUBLIC_OUTBOUND_CALENDLY_URL || COMPANY_CALENDLY_URL
 
 export default async function DachPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; token: string }>
+  searchParams: Promise<{ v?: string | string[] }>
 }) {
   const { token } = await params
+  const { v } = await searchParams
+  const inContact = v === 'kontakt'
   const data = await fetchRoofData(token)
   if (!data) notFound()
 
@@ -167,11 +273,12 @@ export default async function DachPage({
   const cityLine =
     `${data.addressPostalCode ?? ''} ${data.addressCity ?? ''}`.trim()
   const addressLine = [street, cityLine].filter(Boolean).join(', ')
-  const [building, panels] = await Promise.all([
+  const [building, panels, references] = await Promise.all([
     data.lv95E != null && data.lv95N != null
       ? fetchBuilding(token, data.lv95E, data.lv95N)
       : null,
     fetchPanels(token),
+    inContact ? fetchCommercialReferences() : [],
   ])
 
   return (
@@ -281,37 +388,79 @@ export default async function DachPage({
           </p>
         )}
 
-        <LandingActions token={token} />
+        {!inContact && <LandingActions token={token} />}
 
         <section className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">
-            Zwei Wege zur Nutzung dieser Dachfläche
+            SolarFree für Ihr Dach
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-2xl border border-[#062E25]/15 p-6 space-y-2">
-              <h3 className="text-xl font-semibold">Kauf</h3>
-              <p className="text-base text-[#062E25]/80">
-                Sie investieren selbst, werden Eigentümerin oder Eigentümer der
-                Anlage und profitieren direkt von tieferen Stromkosten.
-              </p>
-            </div>
-            <div className="rounded-2xl border-2 border-[#062E25] p-6 space-y-2">
-              <h3 className="text-xl font-semibold">Contracting</h3>
-              <p className="text-base text-[#062E25]/80">
-                Free State AG plant, baut und betreibt die Anlage auf eigene
-                Kosten. Sie beziehen den Solarstrom vom eigenen Dach, ca. 30
-                Prozent unter dem Netztarif, ohne Investition und ohne
-                Betriebsrisiko.
-              </p>
-            </div>
+          <div className="rounded-2xl border-2 border-[#062E25] p-6 space-y-4">
+            <p className="text-lg font-semibold">
+              Unsere Dachvermietung ohne Investition
+            </p>
+            <ul className="space-y-3">
+              {SOLARFREE_POINTS.map(point => (
+                <li
+                  key={point}
+                  className="flex gap-3 text-base text-[#062E25]/80"
+                >
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-[#062E25]" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          {data.showReferences && (
+          {!inContact && data.showReferences && (
             <p className="text-base text-[#062E25]/75">
               Referenzdächer: Diggelmann Bau AG, Stiftung Wetterbaum, Bowling
               Five.
             </p>
           )}
         </section>
+
+        {inContact && references.length > 0 && (
+          <section className="space-y-5">
+            <h2 className="text-2xl font-bold tracking-tight">
+              Anlagen, die wir gebaut haben
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {references.map(reference => {
+                const translation = pickReferenceTranslation(reference, 'de')
+                const title = translation?.title.trim() || reference.slug
+                const meta = [
+                  reference.location,
+                  reference.installedKwp !== null
+                    ? `${formatReferenceNumber(reference.installedKwp)} kWp`
+                    : null,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')
+                return (
+                  <div
+                    key={reference.id}
+                    className="rounded-2xl border border-[#062E25]/10 overflow-hidden"
+                  >
+                    <div className="relative aspect-[4/3] bg-[#062E25]/5">
+                      <Image
+                        src={referencePhoto(reference) as string}
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 100vw, 360px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-4 space-y-1">
+                      <p className="text-lg font-semibold">{title}</p>
+                      {meta && (
+                        <p className="text-base text-[#062E25]/70">{meta}</p>
+                      )}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </section>
+        )}
 
         <section className="space-y-5">
           <h2 className="text-2xl font-bold tracking-tight">Unsere Partner</h2>
@@ -329,36 +478,63 @@ export default async function DachPage({
           </div>
         </section>
 
-        <section className="rounded-2xl bg-[#062E25]/5 p-6 sm:p-8 text-center space-y-4">
-          <h2 className="text-2xl font-bold tracking-tight">
-            Erste Einschätzung in einem kurzen Gespräch
-          </h2>
-          <p className="text-base text-[#062E25]/75">
-            Gerne auch vor Ort. Wählen Sie direkt einen Termin oder schreiben
-            Sie uns.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#062E25] px-8 py-3 text-base font-semibold text-white hover:bg-[#062E25]/90"
-            >
-              <CalendarDays className="w-5 h-5" />
-              Termin vereinbaren
-            </a>
-            <a
-              href="mailto:ivan.miric@freestate.ch"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#062E25]/25 px-8 py-3 text-base font-medium text-[#062E25] hover:bg-[#062E25]/5"
-            >
-              <Mail className="w-5 h-5" />
-              ivan.miric@freestate.ch
-            </a>
-          </div>
-          <p className="text-base text-[#062E25]/60">
-            Ivan Miric, Geschäftsführer Free State AG
-          </p>
-        </section>
+        {inContact ? (
+          <section className="rounded-2xl bg-[#062E25]/5 p-6 sm:p-8 text-center space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight">
+              Ihr Ansprechpartner
+            </h2>
+            <p className="text-base text-[#062E25]/75">
+              Ivan Miric, Geschäftsführer Free State AG
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href="tel:+41763647775"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#062E25] px-8 py-3 text-base font-semibold text-white hover:bg-[#062E25]/90"
+              >
+                <Phone className="w-5 h-5" />
+                +41 76 364 77 75
+              </a>
+              <a
+                href="mailto:ivan.m@freestate.ch"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#062E25]/25 px-8 py-3 text-base font-medium text-[#062E25] hover:bg-[#062E25]/5"
+              >
+                <Mail className="w-5 h-5" />
+                ivan.m@freestate.ch
+              </a>
+            </div>
+          </section>
+        ) : (
+          <section className="rounded-2xl bg-[#062E25]/5 p-6 sm:p-8 text-center space-y-4">
+            <h2 className="text-2xl font-bold tracking-tight">
+              Erste Einschätzung in einem kurzen Gespräch
+            </h2>
+            <p className="text-base text-[#062E25]/75">
+              Gerne auch vor Ort. Wählen Sie direkt einen Termin oder schreiben
+              Sie uns.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-[#062E25] px-8 py-3 text-base font-semibold text-white hover:bg-[#062E25]/90"
+              >
+                <CalendarDays className="w-5 h-5" />
+                Termin vereinbaren
+              </a>
+              <a
+                href="mailto:ivan.miric@freestate.ch"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#062E25]/25 px-8 py-3 text-base font-medium text-[#062E25] hover:bg-[#062E25]/5"
+              >
+                <Mail className="w-5 h-5" />
+                ivan.miric@freestate.ch
+              </a>
+            </div>
+            <p className="text-base text-[#062E25]/60">
+              Ivan Miric, Geschäftsführer Free State AG
+            </p>
+          </section>
+        )}
       </main>
 
       <footer className="border-t border-[#062E25]/10">
