@@ -236,7 +236,14 @@ function isWebPhoto(url: string | null | undefined): url is string {
   }
 }
 
+const REFERENCE_PHOTO_OVERRIDES: Record<string, string> = {
+  'bowling-five-thayngen':
+    '/images/photography/commercial-flat-roof-pv-rows-walkway-landscape-crop-0774.webp',
+}
+
 function referencePhoto(reference: AdminReference): string | null {
+  const override = REFERENCE_PHOTO_OVERRIDES[reference.slug]
+  if (override) return override
   const gallery = [...reference.images]
     .sort((a, b) => a.sortOrder - b.sortOrder)
     .find(image => isWebPhoto(image.url))
