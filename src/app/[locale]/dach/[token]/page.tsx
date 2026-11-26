@@ -285,7 +285,7 @@ export default async function DachPage({
       ? fetchBuilding(token, data.lv95E, data.lv95N)
       : null,
     fetchPanels(token),
-    inContact ? fetchCommercialReferences() : [],
+    fetchCommercialReferences(),
   ])
 
   return (
@@ -395,8 +395,6 @@ export default async function DachPage({
           </p>
         )}
 
-        {!inContact && <LandingActions token={token} />}
-
         <section className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">
             SolarFree für Ihr Dach
@@ -417,15 +415,11 @@ export default async function DachPage({
               ))}
             </ul>
           </div>
-          {!inContact && data.showReferences && (
-            <p className="text-base text-[#062E25]/75">
-              Referenzdächer: Diggelmann Bau AG, Stiftung Wetterbaum, Bowling
-              Five.
-            </p>
-          )}
         </section>
 
-        {inContact && references.length > 0 && (
+        {!inContact && <LandingActions token={token} />}
+
+        {references.length > 0 && (
           <section className="space-y-5">
             <h2 className="text-2xl font-bold tracking-tight">
               Anlagen, die wir gebaut haben
