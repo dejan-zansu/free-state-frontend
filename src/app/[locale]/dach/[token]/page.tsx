@@ -299,7 +299,7 @@ export default async function DachPage({
               <h3 className="text-xl font-semibold">Contracting</h3>
               <p className="text-base text-[#062E25]/80">
                 Free State AG plant, baut und betreibt die Anlage auf eigene
-                Kosten. Sie beziehen den Solarstrom vom eigenen Dach, bis zu 30
+                Kosten. Sie beziehen den Solarstrom vom eigenen Dach, ca. 30
                 Prozent unter dem Netztarif, ohne Investition und ohne
                 Betriebsrisiko.
               </p>
@@ -331,7 +331,7 @@ export default async function DachPage({
 
         <section className="rounded-2xl bg-[#062E25]/5 p-6 sm:p-8 text-center space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">
-            Erste Einschätzung in 30 Minuten
+            Erste Einschätzung in einem kurzen Gespräch
           </h2>
           <p className="text-base text-[#062E25]/75">
             Gerne auch vor Ort. Wählen Sie direkt einen Termin oder schreiben
