@@ -14,6 +14,11 @@ import type { AdminReference, ReferenceCategory } from '@/types/admin'
 import type { SonnendachBuilding } from '@/types/sonnendach'
 
 import LandingActions from './_components/LandingActions'
+import MonthlyChart from './_components/MonthlyChart'
+import RoofFacts, {
+  RoofNeighboursNote,
+  type RoofFactsData,
+} from './_components/RoofFacts'
 import RoofView from './_components/RoofView'
 import type { RoofPagePanels } from './_components/roof-panels'
 
@@ -118,6 +123,27 @@ async function fetchPanels(token: string): Promise<RoofPagePanels | null> {
     return json.success && json.data && json.data.modules.length > 0
       ? json.data
       : null
+  } catch {
+    return null
+  }
+}
+
+async function fetchFacts(token: string): Promise<RoofFactsData | null> {
+  const base = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
+  try {
+    const res = await fetch(
+      `${base}/api/public/outreach/roof/${encodeURIComponent(token)}/facts`,
+      {
+        cache: 'no-store',
+        signal: AbortSignal.timeout(6000),
+      }
+    )
+    if (!res.ok) return null
+    const json = (await res.json()) as {
+      success: boolean
+      data?: RoofFactsData | null
+    }
+    return json.success && json.data ? json.data : null
   } catch {
     return null
   }
@@ -276,13 +302,24 @@ export default async function DachPage({
   const cityLine =
     `${data.addressPostalCode ?? ''} ${data.addressCity ?? ''}`.trim()
   const addressLine = [street, cityLine].filter(Boolean).join(', ')
-  const [building, panels, references] = await Promise.all([
+  const [building, panels, references, facts] = await Promise.all([
     data.lv95E != null && data.lv95N != null
       ? fetchBuilding(token, data.lv95E, data.lv95N)
       : null,
     fetchPanels(token),
     fetchCommercialReferences(),
+    fetchFacts(token),
   ])
+  const plant = facts?.plant ?? null
+  const monthlyKwh = plant ? (facts?.monthlyKwh ?? null) : null
+  const dataSources = [
+    'sonnendach.ch und Anlagenregister des Bundes',
+    plant && facts?.value ? 'Tarife ElCom' : null,
+    monthlyKwh ? 'Monatswerte PVGIS' : null,
+    'Luftbild ©swisstopo',
+  ]
+    .filter(Boolean)
+    .join(', ')
 
   return (
     <div className="min-h-screen bg-white text-[#062E25]">
@@ -344,33 +381,43 @@ export default async function DachPage({
           </figure>
         )}
 
-        <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {data.roofAreaM2 != null && (
-            <div className="rounded-2xl bg-[#062E25]/5 p-5">
-              <Sun className="w-5 h-5 text-amber-500" />
-              <p className="mt-2 text-2xl font-bold tabular-nums">
-                {formatSwissNumber(Number(data.roofAreaM2))} m²
-              </p>
-              <p className="text-base text-[#062E25]/70">
-                Gebäudegrundfläche gemäss Gebäuderegister des Bundes
-              </p>
-            </div>
-          )}
-          {data.roofKwhYear != null && (
-            <div className="rounded-2xl bg-[#062E25]/5 p-5">
-              <Zap className="w-5 h-5 text-amber-500" />
-              <p className="mt-2 text-2xl font-bold tabular-nums">
-                {formatSwissNumber(data.roofKwhYear)} kWh
-              </p>
-              <p className="text-base text-[#062E25]/70">
-                Theoretisches Potenzial pro Jahr bei vollständiger Belegung der
-                Dachfläche, gemäss sonnendach.ch
-              </p>
-            </div>
-          )}
-        </section>
+        {plant ? (
+          <RoofFacts plant={plant} value={facts?.value ?? null} />
+        ) : (
+          <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {data.roofAreaM2 != null && (
+              <div className="rounded-2xl bg-[#062E25]/5 p-5">
+                <Sun className="w-5 h-5 text-amber-500" />
+                <p className="mt-2 text-2xl font-bold tabular-nums">
+                  {formatSwissNumber(Number(data.roofAreaM2))} m²
+                </p>
+                <p className="text-base text-[#062E25]/70">
+                  Gebäudegrundfläche gemäss Gebäuderegister des Bundes
+                </p>
+              </div>
+            )}
+            {data.roofKwhYear != null && (
+              <div className="rounded-2xl bg-[#062E25]/5 p-5">
+                <Zap className="w-5 h-5 text-amber-500" />
+                <p className="mt-2 text-2xl font-bold tabular-nums">
+                  {formatSwissNumber(data.roofKwhYear)} kWh
+                </p>
+                <p className="text-base text-[#062E25]/70">
+                  Theoretisches Potenzial pro Jahr bei vollständiger Belegung
+                  der Dachfläche, gemäss sonnendach.ch
+                </p>
+              </div>
+            )}
+          </section>
+        )}
 
-        {(data.suitableAggregation.segmentCount > 0 || data.registerNoHit) && (
+        {facts?.neighbours && (
+          <RoofNeighboursNote neighbours={facts.neighbours} />
+        )}
+
+        {monthlyKwh && <MonthlyChart months={monthlyKwh} />}
+
+        {plant && data.roofKwhYear != null ? (
           <p className="text-base text-[#062E25]/75">
             {data.suitableAggregation.segmentCount > 0 && (
               <>
@@ -378,17 +425,38 @@ export default async function DachPage({
                   ? 'Eine gut geeignete Dachfläche'
                   : `${data.suitableAggregation.segmentCount} gut geeignete Dachflächen`}{' '}
                 mit zusammen rund{' '}
-                {formatSwissNumber(data.suitableAggregation.areaM2)} m². Bei
-                vollständiger Belegung liegt das theoretische Potenzial laut
-                sonnendach.ch bei rund{' '}
-                {formatSwissNumber(data.suitableAggregation.kwhYear)} kWh pro
-                Jahr. Eine reale Anlage ist kleiner, das hängt von Aufbau,
-                Reihenabständen und Hindernissen ab.{' '}
+                {formatSwissNumber(data.suitableAggregation.areaM2)} m².{' '}
               </>
             )}
+            Bei vollständiger Belegung aller geeigneten Dachflächen liegt das
+            theoretische Potenzial laut sonnendach.ch bei rund{' '}
+            {formatSwissNumber(data.roofKwhYear)} kWh pro Jahr. Eine reale
+            Anlage ist kleiner, das hängt von Aufbau, Reihenabständen und
+            Hindernissen ab.
             {data.registerNoHit &&
-              'Im Anlagenregister des Bundes ist für dieses Gebäude aktuell keine Photovoltaikanlage erfasst.'}
+              ' Im Anlagenregister des Bundes ist für dieses Gebäude aktuell keine Photovoltaikanlage erfasst.'}
           </p>
+        ) : (
+          (data.suitableAggregation.segmentCount > 0 || data.registerNoHit) && (
+            <p className="text-base text-[#062E25]/75">
+              {data.suitableAggregation.segmentCount > 0 && (
+                <>
+                  {data.suitableAggregation.segmentCount === 1
+                    ? 'Eine gut geeignete Dachfläche'
+                    : `${data.suitableAggregation.segmentCount} gut geeignete Dachflächen`}{' '}
+                  mit zusammen rund{' '}
+                  {formatSwissNumber(data.suitableAggregation.areaM2)} m². Bei
+                  vollständiger Belegung liegt das theoretische Potenzial laut
+                  sonnendach.ch bei rund{' '}
+                  {formatSwissNumber(data.suitableAggregation.kwhYear)} kWh pro
+                  Jahr. Eine reale Anlage ist kleiner, das hängt von Aufbau,
+                  Reihenabständen und Hindernissen ab.{' '}
+                </>
+              )}
+              {data.registerNoHit &&
+                'Im Anlagenregister des Bundes ist für dieses Gebäude aktuell keine Photovoltaikanlage erfasst.'}
+            </p>
+          )
         )}
 
         <section className="space-y-4">
@@ -535,10 +603,7 @@ export default async function DachPage({
         <div className="mx-auto max-w-3xl px-5 py-8 space-y-2 text-base text-[#062E25]/70">
           <p className="font-semibold text-[#062E25]">Free State AG</p>
           <p>Stettemerstrasse 40, 8207 Schaffhausen, UID CHE-134.711.335</p>
-          <p>
-            Datengrundlage sonnendach.ch und Anlagenregister des Bundes,
-            Luftbild ©swisstopo.
-          </p>
+          <p>Datengrundlage {dataSources}.</p>
           <div className="flex flex-wrap gap-x-5 gap-y-1">
             <Link href="/" className="underline hover:text-[#062E25]">
               www.freestate.ch
